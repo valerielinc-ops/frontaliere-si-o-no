@@ -113,18 +113,6 @@
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "hwemaer-elettra-1938-sede-stabio-svizzera",
-        "hw-engineer-elettra-1938-sede-stabio-svizzera"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "hwemaer-elettra-1938-sede-stabio-svizzera",
-          "hw-engineer-elettra-1938-sede-stabio-svizzera"
-        ]
-      },
-      "firstSeenAt": "2026-09-25T14:55:35.445Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -137,7 +125,19 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:55:35.445Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "hwemaer-elettra-1938-sede-stabio-svizzera",
+          "hw-engineer-elettra-1938-sede-stabio-svizzera"
+        ]
+      },
+      "previousSlugs": [
+        "hwemaer-elettra-1938-sede-stabio-svizzera",
+        "hw-engineer-elettra-1938-sede-stabio-svizzera"
+      ],
+      "needsRetranslation": true
     }
   ]
 }

@@ -115,14 +115,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch",
-        "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen",
-        "installatore-meccanico-gn-per-la-costruzione-di-impianti-oerlikon-wohlen"
+        "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch",
-          "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen",
-          "installatore-meccanico-gn-per-la-costruzione-di-impianti-oerlikon-wohlen"
+          "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen"
         ],
         "en": [
           "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch"
@@ -367,22 +365,14 @@
       "applyUrl": "https://careers.oerlikon.com/job/Sales-Engineer-f%C3%BCr-Upgrades-%28gn%29/104242-en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sales-engineer-fur-upgrades-gn-oerlikon-ch",
-        "sales-ingegnere-per-upgrades-gn-oerlikon-wohlen",
-        "ingenieur-commercial-pour-les-ameliorations-gn-oerlikon-wohlen"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-engineer-fur-upgrades-gn-oerlikon-ch",
-          "sales-ingegnere-per-upgrades-gn-oerlikon-wohlen"
-        ],
-        "fr": [
-          "ingenieur-commercial-pour-les-ameliorations-gn-oerlikon-wohlen"
+          "sales-engineer-fur-upgrades-gn-oerlikon-ch"
         ]
       },
-      "firstSeenAt": "2026-09-25T15:04:10.464Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "sales-engineer-fur-upgrades-gn-oerlikon-ch"
+      ],
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -395,15 +385,17 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T15:04:10.464Z",
+      "needsRetranslation": true
     },
     {
       "id": "oerlikon-356e3fe4d231",
       "slug": "esportatore-gn-oerlikon-wohlen",
       "slugByLocale": {
+        "de": "export-verpacker-gn-oerlikon-ch",
         "it": "esportatore-gn-oerlikon-wohlen",
         "en": "export-packer-gn-oerlikon-wohlen",
-        "de": "export-verpacker-gn-oerlikon-ch",
         "fr": "emballeur-d-exportation-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
@@ -445,6 +437,16 @@
       "applyUrl": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "export-verpacker-gn-oerlikon-ch",
+          "export-verpacker-gn-oerlikon-wohlen"
+        ],
+        "fr": [
+          "export-verpacker-gn-oerlikon-wohlen",
+          "emballeur-d-exportation-gn-oerlikon-wohlen"
+        ]
+      },
       "previousSlugs": [
         "export-verpacker-gn-oerlikon-ch",
         "export-verpacker-gn-oerlikon-wohlen",
@@ -452,21 +454,6 @@
         "export-packer-gn-oerlikon-wohlen",
         "emballeur-d-exportation-gn-oerlikon-wohlen"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "export-verpacker-gn-oerlikon-ch",
-          "export-verpacker-gn-oerlikon-wohlen",
-          "esportatore-gn-oerlikon-wohlen"
-        ],
-        "fr": [
-          "export-verpacker-gn-oerlikon-wohlen",
-          "emballeur-d-exportation-gn-oerlikon-wohlen"
-        ],
-        "en": [
-          "export-packer-gn-oerlikon-wohlen"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T14:29:32.801Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -479,7 +466,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T14:29:32.801Z"
     },
     {
       "id": "oerlikon-46f314305eb7",
@@ -532,13 +520,11 @@
       "previousSlugsByLocale": {
         "de": [
           "projektingenieur-gn-electrical-engineering-oerlikon-ch",
-          "inbetriebnahme-gn-engineer-oerlikon-ch",
-          "inbetriebnahme-gn-ingenieur-oerlikon-wohlen"
+          "inbetriebnahme-gn-engineer-oerlikon-ch"
         ],
         "it": [
           "projektingenieur-gn-electrical-engineering-oerlikon-ch",
-          "inbetriebnahme-gn-engineer-oerlikon-ch",
-          "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen"
+          "inbetriebnahme-gn-engineer-oerlikon-ch"
         ],
         "en": [
           "projektingenieur-gn-electrical-engineering-oerlikon-wohlen"
@@ -550,12 +536,10 @@
       "previousSlugs": [
         "projektingenieur-gn-electrical-engineering-oerlikon-ch",
         "projektingenieur-gn-electrical-engineering-oerlikon-wohlen",
-        "inbetriebnahme-gn-engineer-oerlikon-ch",
-        "inbetriebnahme-gn-ingenieur-oerlikon-wohlen",
-        "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen"
+        "inbetriebnahme-gn-engineer-oerlikon-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T09:48:37.612Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -652,10 +636,10 @@
       "id": "oerlikon-e3b44d1050bb",
       "slug": "team-leader-electric-manufacturing-gn-oerlikon-wohlen",
       "slugByLocale": {
+        "de": "teamleiter-elektrofertigung-gn-oerlikon-ch",
         "it": "team-leader-electric-manufacturing-gn-oerlikon-wohlen",
         "en": "team-leader-electrical-manufacturing-gn-oerlikon-wohlen",
-        "de": "teamleiter-elektrofertigung-gn-oerlikon-ch",
-        "fr": "teamleiter-elektrofertigung-gn-oerlikon-wohlen"
+        "fr": "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -696,28 +680,20 @@
       "applyUrl": "https://careers.oerlikon.com/job/Teamleiter-Elektrofertigung-%28gn%29/104960-en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-elektrofertigung-gn-oerlikon-ch",
-        "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen",
-        "teamleiter-elektrofertigung-gn-oerlikon-wohlen",
-        "team-leader-electric-manufacturing-gn-oerlikon-wohlen",
-        "team-leader-electrical-manufacturing-gn-oerlikon-wohlen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-elektrofertigung-gn-oerlikon-ch",
-          "teamleiter-elektrofertigung-gn-oerlikon-wohlen",
-          "team-leader-electric-manufacturing-gn-oerlikon-wohlen"
+          "teamleiter-elektrofertigung-gn-oerlikon-wohlen"
         ],
         "fr": [
-          "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen"
-        ],
-        "en": [
-          "team-leader-electrical-manufacturing-gn-oerlikon-wohlen"
+          "teamleiter-elektrofertigung-gn-oerlikon-wohlen"
         ]
       },
+      "previousSlugs": [
+        "teamleiter-elektrofertigung-gn-oerlikon-ch",
+        "teamleiter-elektrofertigung-gn-oerlikon-wohlen"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:29:31.694Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -730,7 +706,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T14:29:31.694Z"
     },
     {
       "id": "oerlikon-276e4e20c734",
@@ -781,13 +758,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-procurement-equipment-gn-oerlikon-ch",
-        "apparecchiature-globali-di-approvvigionamento-della-testa-gn-oerlikon-wohlen"
+        "global-head-procurement-equipment-gn-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-procurement-equipment-gn-oerlikon-ch",
-          "apparecchiature-globali-di-approvvigionamento-della-testa-gn-oerlikon-wohlen"
+          "global-head-procurement-equipment-gn-oerlikon-ch"
         ],
         "de": [
           "global-head-procurement-equipment-gn-oerlikon-ch"
@@ -860,20 +835,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quality-engineer-equipment-gn-oerlikon-ch",
-        "quality-ingegnere-equipment-gn-oerlikon-wohlen"
+        "quality-engineer-equipment-gn-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-engineer-equipment-gn-oerlikon-ch",
-          "quality-ingegnere-equipment-gn-oerlikon-wohlen"
+          "quality-engineer-equipment-gn-oerlikon-ch"
         ],
         "fr": [
           "quality-engineer-equipment-gn-oerlikon-ch"
         ]
       },
       "firstSeenAt": "2026-09-24T00:08:39.951Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -886,7 +858,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "oerlikon-77272637dd1f",
@@ -937,13 +910,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-gn-pruffeld-oerlikon-ch",
-        "campo-di-prova-tecnico-gn-oerlikon-wohlen"
+        "techniker-gn-pruffeld-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-gn-pruffeld-oerlikon-ch",
-          "campo-di-prova-tecnico-gn-oerlikon-wohlen"
+          "techniker-gn-pruffeld-oerlikon-ch"
         ],
         "en": [
           "techniker-gn-pruffeld-oerlikon-ch"
@@ -1017,14 +988,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-project-engineer-coating-solution-center-europe-gn-oerlikon-ch",
-        "senior-project-ingegnere-coating-solution-center-europe-gn-oerlikon-wohlen",
-        "centro-soluzioni-di-rivestimento-dell-ingegnere-senior-europe-gn-oerlikon-wohlen"
+        "senior-project-ingegnere-coating-solution-center-europe-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-engineer-coating-solution-center-europe-gn-oerlikon-ch",
-          "senior-project-ingegnere-coating-solution-center-europe-gn-oerlikon-wohlen",
-          "centro-soluzioni-di-rivestimento-dell-ingegnere-senior-europe-gn-oerlikon-wohlen"
+          "senior-project-ingegnere-coating-solution-center-europe-gn-oerlikon-wohlen"
         ],
         "de": [
           "senior-project-engineer-coating-solution-center-europe-gn-oerlikon-ch"
@@ -1098,20 +1067,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operateur-100-gn-oerlikon-ch",
-        "operatore-100-gn-oerlikon-brugg"
+        "operateur-100-gn-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-100-gn-oerlikon-ch",
-          "operatore-100-gn-oerlikon-brugg"
+          "operateur-100-gn-oerlikon-ch"
         ],
         "en": [
           "operateur-100-gn-oerlikon-ch"
         ]
       },
       "firstSeenAt": "2026-09-09T23:25:18.479Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -1124,7 +1090,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "oerlikon-0f945aef36b1",
@@ -1176,13 +1143,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-          "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
+          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
         ],
         "it": [
           "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-          "service-techniker-per-produktionsanlagen-inhouse-gn-oerlikon-wohlen"
+          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
         ],
         "en": [
           "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
@@ -1193,8 +1158,7 @@
       },
       "previousSlugs": [
         "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-        "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-        "service-techniker-per-produktionsanlagen-inhouse-gn-oerlikon-wohlen"
+        "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
       ],
       "firstSeenAt": "2026-07-08T22:12:58.275Z",
       "salaryMin": 72500,

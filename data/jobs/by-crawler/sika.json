@@ -1907,7 +1907,7 @@
         "it": "programma-internazionale-di-formazione-professionale-a-i-dipartimento-tecnico-sika-widen-aargau",
         "en": "international-traineeship-program-a-i-technical-department-sika-ch",
         "de": "international-traineeship-program-a-i-technische-abteilung-sika-widen-aargau-switzerland",
-        "fr": "international-traineeship-program-a-i-technical-department-sika-widen"
+        "fr": "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1965,7 +1965,6 @@
           "international-traineeship-program-a-i-technical-department-sika-widen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-24T12:15:19.902Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -1979,7 +1978,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-a1eb943625a5",

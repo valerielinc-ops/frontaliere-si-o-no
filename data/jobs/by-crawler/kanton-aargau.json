@@ -170,10 +170,10 @@
       "id": "kanton-aargau-a73366875d29",
       "slug": "sachbearbeiterin-sachbearbeiter-kurzvollzug-90-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "sachbearbeiterin-sachbearbeiter-kurzvollzug-90-kanton-aargau-aarau",
-        "en": "sachbearbeiterin-sachbearbeiter-kurzvollzug-90-kanton-aargau-aarau",
         "de": "sachbearbeiterin-sachbearbeiter-kurzvollzug-90-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-kurzvollzug-90-kanton-aargau-aarau"
+        "it": "impiegato-90-kanton-aargau-aarau",
+        "en": "personnel-personnel-short-execution-90-kanton-aargau-aarau",
+        "fr": "personnel-execution-courte-90-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -217,25 +217,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "34549",
-      "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-kurzvollzug-90-kanton-aargau-ch",
-        "impiegato-90-kanton-aargau-aarau",
-        "personnel-personnel-short-execution-90-kanton-aargau-aarau",
-        "personnel-execution-courte-90-kanton-aargau-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-kurzvollzug-90-kanton-aargau-ch",
-          "impiegato-90-kanton-aargau-aarau"
-        ],
-        "en": [
-          "personnel-personnel-short-execution-90-kanton-aargau-aarau"
-        ],
-        "fr": [
-          "personnel-execution-courte-90-kanton-aargau-aarau"
+          "sachbearbeiterin-sachbearbeiter-kurzvollzug-90-kanton-aargau-ch"
         ]
       },
-      "firstSeenAt": "2026-07-13T22:54:34.201Z",
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-kurzvollzug-90-kanton-aargau-ch"
+      ],
       "salaryMin": 55800,
       "salaryMax": 84600,
       "salarySource": "estimated",
@@ -248,7 +237,8 @@
           "maxValue": 84600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-13T22:54:34.201Z"
     },
     {
       "id": "kanton-aargau-b01a78db0324",
@@ -4712,10 +4702,10 @@
       "id": "kanton-aargau-a35feeca2fef",
       "slug": "praktikum-im-sozialen-bereich-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "praktikum-im-sozialen-bereich-kanton-aargau-aarau",
-        "en": "praktikum-im-sozialen-bereich-kanton-aargau-aarau",
         "de": "praktikum-im-sozialen-bereich-kanton-aargau-ch",
-        "fr": "praktikum-im-sozialen-bereich-kanton-aargau-aarau"
+        "it": "tirocinio-nel-settore-sociale-kanton-aargau-aarau",
+        "en": "social-internship-kanton-aargau-aarau",
+        "fr": "stage-social-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4759,25 +4749,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "18071",
-      "previousSlugs": [
-        "praktikum-im-sozialen-bereich-kanton-aargau-ch",
-        "tirocinio-nel-settore-sociale-kanton-aargau-aarau",
-        "social-internship-kanton-aargau-aarau",
-        "stage-social-kanton-aargau-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-im-sozialen-bereich-kanton-aargau-ch",
-          "tirocinio-nel-settore-sociale-kanton-aargau-aarau"
-        ],
-        "en": [
-          "social-internship-kanton-aargau-aarau"
-        ],
-        "fr": [
-          "stage-social-kanton-aargau-aarau"
+          "praktikum-im-sozialen-bereich-kanton-aargau-ch"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:08:20.236Z",
+      "previousSlugs": [
+        "praktikum-im-sozialen-bereich-kanton-aargau-ch"
+      ],
       "salaryMin": 52500,
       "salaryMax": 96500,
       "salarySource": "estimated",
@@ -4790,7 +4769,8 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.236Z"
     },
     {
       "id": "kanton-aargau-3e1322089990",
@@ -7137,28 +7117,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "18058",
-      "previousSlugs": [
-        "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-mitarbeiter-60-kanton-aargau-ch",
-        "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-mitarbeiter-60-kanton-aargau-aarau",
-        "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-collaboratore-trice-60-kanton-aargau-aarau",
-        "housekeeping-employee-housekeeping-employee-60-kanton-aargau-aarau",
-        "employe-de-menage-employe-de-menage-60-kanton-aargau-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-mitarbeiter-60-kanton-aargau-ch",
-          "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-collaboratore-trice-60-kanton-aargau-aarau"
+          "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-mitarbeiter-60-kanton-aargau-ch"
         ],
         "en": [
-          "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-mitarbeiter-60-kanton-aargau-aarau",
-          "housekeeping-employee-housekeeping-employee-60-kanton-aargau-aarau"
+          "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-mitarbeiter-60-kanton-aargau-aarau"
         ],
         "fr": [
-          "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-mitarbeiter-60-kanton-aargau-aarau",
-          "employe-de-menage-employe-de-menage-60-kanton-aargau-aarau"
+          "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-mitarbeiter-60-kanton-aargau-aarau"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:08:20.236Z",
+      "previousSlugs": [
+        "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-mitarbeiter-60-kanton-aargau-ch",
+        "hauswirtschaftliche-mitarbeiterin-hauswirtschaftlicher-mitarbeiter-60-kanton-aargau-aarau"
+      ],
       "salaryMin": 40500,
       "salaryMax": 50700,
       "salarySource": "estimated",
@@ -7171,7 +7144,8 @@
           "maxValue": 50700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.236Z"
     },
     {
       "id": "kanton-aargau-63c4b1c33930",
@@ -10182,10 +10156,10 @@
       "id": "kanton-aargau-5d4a28da6afd",
       "slug": "sachbearbeiterin-sachbearbeiter-rechnungswesen-50-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "sachbearbeiterin-sachbearbeiter-rechnungswesen-50-kanton-aargau-aarau",
-        "en": "sachbearbeiterin-sachbearbeiter-rechnungswesen-50-kanton-aargau-aarau",
         "de": "sachbearbeiterin-sachbearbeiter-rechnungswesen-50-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-rechnungswesen-50-kanton-aargau-aarau"
+        "it": "impiegato-contabile-50-kanton-aargau-aarau-6bc643",
+        "en": "personnel-personnel-accounting-50-kanton-aargau-aarau-6bc643",
+        "fr": "comptabilite-du-personnel-50-kanton-aargau-aarau-6bc643"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -10229,25 +10203,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "17853",
-      "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-rechnungswesen-50-kanton-aargau-ch",
-        "impiegato-contabile-50-kanton-aargau-aarau-6bc643",
-        "personnel-personnel-accounting-50-kanton-aargau-aarau-6bc643",
-        "comptabilite-du-personnel-50-kanton-aargau-aarau-6bc643"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-rechnungswesen-50-kanton-aargau-ch",
-          "impiegato-contabile-50-kanton-aargau-aarau-6bc643"
-        ],
-        "en": [
-          "personnel-personnel-accounting-50-kanton-aargau-aarau-6bc643"
-        ],
-        "fr": [
-          "comptabilite-du-personnel-50-kanton-aargau-aarau-6bc643"
+          "sachbearbeiterin-sachbearbeiter-rechnungswesen-50-kanton-aargau-ch"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:08:20.237Z",
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-rechnungswesen-50-kanton-aargau-ch"
+      ],
       "salaryMin": 31000,
       "salaryMax": 47000,
       "salarySource": "estimated",
@@ -10260,16 +10223,17 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.237Z"
     },
     {
       "id": "kanton-aargau-7c9171688bd1",
       "slug": "praktikantin-praktikant-im-sozialen-bereich-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "praktikantin-praktikant-im-sozialen-bereich-kanton-aargau-aarau",
-        "en": "praktikantin-praktikant-im-sozialen-bereich-kanton-aargau-aarau",
         "de": "praktikantin-praktikant-im-sozialen-bereich-kanton-aargau-ch",
-        "fr": "praktikantin-praktikant-im-sozialen-bereich-kanton-aargau-aarau"
+        "it": "tirocinante-nel-settore-sociale-kanton-aargau-aarau-3d439c",
+        "en": "intern-internship-in-social-field-kanton-aargau-aarau-3d439c",
+        "fr": "stages-dans-le-domaine-social-kanton-aargau-aarau-3d439c"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -10313,25 +10277,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "36380",
-      "previousSlugs": [
-        "praktikantin-praktikant-im-sozialen-bereich-kanton-aargau-ch",
-        "tirocinante-nel-settore-sociale-kanton-aargau-aarau-3d439c",
-        "intern-internship-in-social-field-kanton-aargau-aarau-3d439c",
-        "stages-dans-le-domaine-social-kanton-aargau-aarau-3d439c"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-im-sozialen-bereich-kanton-aargau-ch",
-          "tirocinante-nel-settore-sociale-kanton-aargau-aarau-3d439c"
-        ],
-        "en": [
-          "intern-internship-in-social-field-kanton-aargau-aarau-3d439c"
-        ],
-        "fr": [
-          "stages-dans-le-domaine-social-kanton-aargau-aarau-3d439c"
+          "praktikantin-praktikant-im-sozialen-bereich-kanton-aargau-ch"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:08:20.237Z",
+      "previousSlugs": [
+        "praktikantin-praktikant-im-sozialen-bereich-kanton-aargau-ch"
+      ],
       "salaryMin": 44500,
       "salaryMax": 82500,
       "salarySource": "estimated",
@@ -10344,7 +10297,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.237Z"
     },
     {
       "id": "kanton-aargau-da11acc267c0",
@@ -13766,10 +13720,10 @@
       "id": "kanton-aargau-2f3e6577bba4",
       "slug": "fachspezialist-in-gesundheit-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "fachspezialist-in-gesundheit-80-kanton-aargau-aarau",
-        "en": "fachspezialist-in-gesundheit-80-kanton-aargau-aarau",
         "de": "fachspezialist-in-gesundheit-80-kanton-aargau-ch",
-        "fr": "fachspezialist-in-gesundheit-80-kanton-aargau-aarau"
+        "it": "specialista-della-salute-80-kanton-aargau-aarau-d7cfd1",
+        "en": "specialist-health-80-kanton-aargau-aarau-d7cfd1",
+        "fr": "specialiste-sante-80-kanton-aargau-aarau-d7cfd1"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -13813,25 +13767,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "34568",
-      "previousSlugs": [
-        "fachspezialist-in-gesundheit-80-kanton-aargau-ch",
-        "specialista-della-salute-80-kanton-aargau-aarau-d7cfd1",
-        "specialist-health-80-kanton-aargau-aarau-d7cfd1",
-        "specialiste-sante-80-kanton-aargau-aarau-d7cfd1"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-gesundheit-80-kanton-aargau-ch",
-          "specialista-della-salute-80-kanton-aargau-aarau-d7cfd1"
-        ],
-        "en": [
-          "specialist-health-80-kanton-aargau-aarau-d7cfd1"
-        ],
-        "fr": [
-          "specialiste-sante-80-kanton-aargau-aarau-d7cfd1"
+          "fachspezialist-in-gesundheit-80-kanton-aargau-ch"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:08:20.235Z",
+      "previousSlugs": [
+        "fachspezialist-in-gesundheit-80-kanton-aargau-ch"
+      ],
       "salaryMin": 70400,
       "salaryMax": 98400,
       "salarySource": "estimated",
@@ -13844,7 +13787,8 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.235Z"
     },
     {
       "id": "kanton-aargau-df91fd8be3a5",
@@ -15646,10 +15590,10 @@
       "id": "kanton-aargau-e8080f0519a2",
       "slug": "sekretariatsmitarbeiter-in-90-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "sekretariatsmitarbeiter-in-90-kanton-aargau-aarau",
-        "en": "sekretariatsmitarbeiter-in-90-kanton-aargau-aarau",
         "de": "sekretariatsmitarbeiter-in-90-kanton-aargau-ch",
-        "fr": "sekretariatsmitarbeiter-in-90-kanton-aargau-aarau"
+        "it": "personale-segretariale-90-kanton-aargau-aarau",
+        "en": "secretarial-staff-in-90-kanton-aargau-aarau",
+        "fr": "personnel-de-secretariat-en-90-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -15693,6 +15637,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "2341",
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretariatsmitarbeiter-in-90-kanton-aargau-ch",
+          "personale-segretariale-90-kanton-aargau-aarau",
+          "sekretariatsmitarbeiter-in-90-kanton-aargau-aarau"
+        ]
+      },
       "previousSlugs": [
         "sekretariatsmitarbeiter-in-90-kanton-aargau-ch",
         "personale-segretariale-90-kanton-aargau-aarau",
@@ -15700,20 +15651,6 @@
         "personnel-de-secretariat-en-90-kanton-aargau-aarau",
         "sekretariatsmitarbeiter-in-90-kanton-aargau-aarau"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sekretariatsmitarbeiter-in-90-kanton-aargau-ch",
-          "personale-segretariale-90-kanton-aargau-aarau",
-          "sekretariatsmitarbeiter-in-90-kanton-aargau-aarau"
-        ],
-        "en": [
-          "secretarial-staff-in-90-kanton-aargau-aarau"
-        ],
-        "fr": [
-          "personnel-de-secretariat-en-90-kanton-aargau-aarau"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:08:20.234Z",
       "salaryMin": 55800,
       "salaryMax": 84600,
       "salarySource": "estimated",
@@ -15726,7 +15663,8 @@
           "maxValue": 84600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.234Z"
     },
     {
       "id": "kanton-aargau-78e1ffbf41ae",
@@ -15892,10 +15830,10 @@
       "id": "kanton-aargau-d05626e105b3",
       "slug": "informationsspezialisten-in-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "informationsspezialisten-in-80-kanton-aargau-aarau",
-        "en": "informationsspezialisten-in-80-kanton-aargau-aarau",
         "de": "informationsspezialisten-in-80-kanton-aargau-ch",
-        "fr": "informationsspezialisten-in-80-kanton-aargau-aarau"
+        "it": "specialisti-di-informazione-in-80-kanton-aargau-aarau",
+        "en": "information-specialists-in-80-kanton-aargau-aarau-af23b9",
+        "fr": "specialistes-de-l-information-80-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -15939,6 +15877,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "2466",
+      "previousSlugsByLocale": {
+        "it": [
+          "informationsspezialisten-in-80-kanton-aargau-ch",
+          "specialisti-di-informazione-in-80-kanton-aargau-aarau",
+          "informationsspezialisten-in-80-kanton-aargau-aarau"
+        ]
+      },
       "previousSlugs": [
         "informationsspezialisten-in-80-kanton-aargau-ch",
         "specialisti-di-informazione-in-80-kanton-aargau-aarau",
@@ -15946,20 +15891,6 @@
         "specialistes-de-l-information-80-kanton-aargau-aarau",
         "informationsspezialisten-in-80-kanton-aargau-aarau"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "informationsspezialisten-in-80-kanton-aargau-ch",
-          "specialisti-di-informazione-in-80-kanton-aargau-aarau",
-          "informationsspezialisten-in-80-kanton-aargau-aarau"
-        ],
-        "en": [
-          "information-specialists-in-80-kanton-aargau-aarau-af23b9"
-        ],
-        "fr": [
-          "specialistes-de-l-information-80-kanton-aargau-aarau"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:08:20.234Z",
       "salaryMin": 49600,
       "salaryMax": 75200,
       "salarySource": "estimated",
@@ -15972,7 +15903,8 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.234Z"
     },
     {
       "id": "kanton-aargau-832c78ad2315",
@@ -16890,10 +16822,10 @@
       "id": "kanton-aargau-d3f1b536bfb5",
       "slug": "teamleiter-in-museumstechnik-90-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "teamleiter-in-museumstechnik-90-kanton-aargau-aarau",
-        "en": "teamleiter-in-museumstechnik-90-kanton-aargau-aarau",
         "de": "teamleiter-in-museumstechnik-90-kanton-aargau-ch",
-        "fr": "teamleiter-in-museumstechnik-90-kanton-aargau-aarau"
+        "it": "capo-squadra-tecnologia-museale-90-kanton-aargau-aarau-572b3e",
+        "en": "team-leader-in-museum-technology-90-kanton-aargau-aarau-572b3e",
+        "fr": "chef-d-equipe-technologie-des-musees-90-kanton-aargau-aarau-572b3e"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -16937,25 +16869,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "2292",
-      "previousSlugs": [
-        "teamleiter-in-museumstechnik-90-kanton-aargau-ch",
-        "capo-squadra-tecnologia-museale-90-kanton-aargau-aarau-572b3e",
-        "team-leader-in-museum-technology-90-kanton-aargau-aarau-572b3e",
-        "chef-d-equipe-technologie-des-musees-90-kanton-aargau-aarau-572b3e"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-museumstechnik-90-kanton-aargau-ch",
-          "capo-squadra-tecnologia-museale-90-kanton-aargau-aarau-572b3e"
-        ],
-        "en": [
-          "team-leader-in-museum-technology-90-kanton-aargau-aarau-572b3e"
-        ],
-        "fr": [
-          "chef-d-equipe-technologie-des-musees-90-kanton-aargau-aarau-572b3e"
+          "teamleiter-in-museumstechnik-90-kanton-aargau-ch"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:08:20.234Z",
+      "previousSlugs": [
+        "teamleiter-in-museumstechnik-90-kanton-aargau-ch"
+      ],
       "salaryMin": 55800,
       "salaryMax": 84600,
       "salarySource": "estimated",
@@ -16968,7 +16889,8 @@
           "maxValue": 84600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.234Z"
     },
     {
       "id": "kanton-aargau-2118b647ba26",
@@ -23278,10 +23200,10 @@
       "id": "kanton-aargau-8b7ec50a7b40",
       "slug": "lehrperson-hf-bildungsgang-sozialpadagogik-60-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "lehrperson-hf-bildungsgang-sozialpadagogik-60-80-kanton-aargau-aarau",
-        "en": "lehrperson-hf-bildungsgang-sozialpadagogik-60-80-kanton-aargau-aarau",
         "de": "lehrperson-hf-bildungsgang-sozialpadagogik-60-80-kanton-aargau-ch",
-        "fr": "lehrperson-hf-bildungsgang-sozialpadagogik-60-80-kanton-aargau-aarau"
+        "it": "insegnanti-hf-educational-program-pedagogia-sociale-60-80-kanton-aargau-aarau-569f26",
+        "en": "teacher-hf-social-education-course-60-80-kanton-aargau-aarau-569f26",
+        "fr": "professeur-hf-cours-d-education-sociale-60-80-kanton-aargau-aarau-569f26"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -23325,25 +23247,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "4747",
-      "previousSlugs": [
-        "lehrperson-hf-bildungsgang-sozialpadagogik-60-80-kanton-aargau-ch",
-        "insegnanti-hf-educational-program-pedagogia-sociale-60-80-kanton-aargau-aarau-569f26",
-        "teacher-hf-social-education-course-60-80-kanton-aargau-aarau-569f26",
-        "professeur-hf-cours-d-education-sociale-60-80-kanton-aargau-aarau-569f26"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-hf-bildungsgang-sozialpadagogik-60-80-kanton-aargau-ch",
-          "insegnanti-hf-educational-program-pedagogia-sociale-60-80-kanton-aargau-aarau-569f26"
-        ],
-        "en": [
-          "teacher-hf-social-education-course-60-80-kanton-aargau-aarau-569f26"
-        ],
-        "fr": [
-          "professeur-hf-cours-d-education-sociale-60-80-kanton-aargau-aarau-569f26"
+          "lehrperson-hf-bildungsgang-sozialpadagogik-60-80-kanton-aargau-ch"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:08:20.232Z",
+      "previousSlugs": [
+        "lehrperson-hf-bildungsgang-sozialpadagogik-60-80-kanton-aargau-ch"
+      ],
       "salaryMin": 42000,
       "salaryMax": 77200,
       "salarySource": "estimated",
@@ -23356,7 +23267,8 @@
           "maxValue": 77200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.232Z"
     },
     {
       "id": "kanton-aargau-03ba055d7cd3",
@@ -23526,10 +23438,10 @@
       "id": "kanton-aargau-8518cc319162",
       "slug": "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-aarau",
-        "en": "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-aarau",
         "de": "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-ch",
-        "fr": "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-aarau"
+        "it": "pedagogia-sociale-hf-fh-80-kanton-aargau-aarau-2ae4ac",
+        "en": "social-pedagogue-social-pedagogue-hf-fh-80-kanton-aargau-aarau-2ae4ac",
+        "fr": "pedagogue-sociale-pedagogue-sociale-hf-fh-80-kanton-aargau-aarau-2ae4ac"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -23573,25 +23485,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "18046",
-      "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-ch",
-        "pedagogia-sociale-hf-fh-80-kanton-aargau-aarau-2ae4ac",
-        "social-pedagogue-social-pedagogue-hf-fh-80-kanton-aargau-aarau-2ae4ac",
-        "pedagogue-sociale-pedagogue-sociale-hf-fh-80-kanton-aargau-aarau-2ae4ac"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-ch",
-          "pedagogia-sociale-hf-fh-80-kanton-aargau-aarau-2ae4ac"
-        ],
-        "en": [
-          "social-pedagogue-social-pedagogue-hf-fh-80-kanton-aargau-aarau-2ae4ac"
-        ],
-        "fr": [
-          "pedagogue-sociale-pedagogue-sociale-hf-fh-80-kanton-aargau-aarau-2ae4ac"
+          "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-ch"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:08:20.236Z",
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-hf-fh-80-kanton-aargau-ch"
+      ],
       "salaryMin": 49600,
       "salaryMax": 75200,
       "salarySource": "estimated",
@@ -23604,7 +23505,8 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.236Z"
     },
     {
       "id": "kanton-aargau-bb05a6b6da5d",
@@ -30572,10 +30474,10 @@
       "id": "kanton-aargau-4e6532af8f79",
       "slug": "schulpsychologin-schulpsychologe-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "schulpsychologin-schulpsychologe-80-kanton-aargau-aarau",
-        "en": "schulpsychologin-schulpsychologe-80-kanton-aargau-aarau",
         "de": "schulpsychologin-schulpsychologe-80-kanton-aargau-ch",
-        "fr": "schulpsychologin-schulpsychologe-80-kanton-aargau-aarau"
+        "it": "psicologo-scolastico-80-kanton-aargau-aarau-3e51ff",
+        "en": "school-psychologist-school-psychologist-80-kanton-aargau-aarau-3e51ff",
+        "fr": "psychologue-scolaire-psychologue-scolaire-80-kanton-aargau-aarau-3e51ff"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -30619,25 +30521,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "referenceNumber": "6361",
-      "previousSlugs": [
-        "schulpsychologin-schulpsychologe-80-kanton-aargau-ch",
-        "psicologo-scolastico-80-kanton-aargau-aarau-3e51ff",
-        "school-psychologist-school-psychologist-80-kanton-aargau-aarau-3e51ff",
-        "psychologue-scolaire-psychologue-scolaire-80-kanton-aargau-aarau-3e51ff"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "schulpsychologin-schulpsychologe-80-kanton-aargau-ch",
-          "psicologo-scolastico-80-kanton-aargau-aarau-3e51ff"
-        ],
-        "en": [
-          "school-psychologist-school-psychologist-80-kanton-aargau-aarau-3e51ff"
-        ],
-        "fr": [
-          "psychologue-scolaire-psychologue-scolaire-80-kanton-aargau-aarau-3e51ff"
+          "schulpsychologin-schulpsychologe-80-kanton-aargau-ch"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:08:20.231Z",
+      "previousSlugs": [
+        "schulpsychologin-schulpsychologe-80-kanton-aargau-ch"
+      ],
       "salaryMin": 49600,
       "salaryMax": 75200,
       "salarySource": "estimated",
@@ -30650,7 +30541,8 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T11:08:20.231Z"
     },
     {
       "id": "kanton-aargau-ad84bbc3219b",

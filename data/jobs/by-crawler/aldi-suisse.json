@@ -295,16 +295,10 @@
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:47:03.175Z",
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-regensdorf"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-regensdorf"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -313,8 +307,10 @@
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:51:36.452Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+      ],
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -327,7 +323,9 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:51:36.452Z",
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-7b73257d4139",
@@ -743,11 +741,7 @@
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:47:01.589Z",
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-6",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
@@ -761,8 +755,11 @@
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:51:36.452Z",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-6",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+      ],
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -775,7 +772,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:51:36.452Z"
     },
     {
       "id": "aldi-suisse-0eeb651ef869",
@@ -4368,12 +4366,12 @@
     },
     {
       "id": "aldi-suisse-20cfc28559a4",
-      "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
+      "slug": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-schlieren-82404b",
       "slugByLocale": {
-        "it": "lernender-detailhandel-m-w-d-aldi-suisse",
-        "en": "lernender-detailhandel-m-w-d-aldi-suisse",
+        "it": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-schlieren-82404b",
+        "en": "retail-apprentice-m-w-d-aldi-suisse-schlieren-82404b",
         "de": "lernender-detailhandel-m-w-d-aldi-suisse",
-        "fr": "lernender-detailhandel-m-w-d-aldi-suisse"
+        "fr": "apprenti-e-commerce-de-detail-m-w-d-aldi-suisse-schlieren-82404b"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -4438,16 +4436,23 @@
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:46:42.600Z",
-      "previousSlugs": [
-        "lernender-detailhandel-m-w-d-aldi-suisse-32"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "lernender-detailhandel-m-w-d-aldi-suisse-32"
+          "lernender-detailhandel-m-w-d-aldi-suisse-32",
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-26T10:33:21.181Z",
+      "previousSlugs": [
+        "lernender-detailhandel-m-w-d-aldi-suisse-32",
+        "lernender-detailhandel-m-w-d-aldi-suisse"
+      ],
       "salaryMin": 65500,
       "salaryMax": 100500,
       "salarySource": "estimated",
@@ -4460,7 +4465,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-26T10:33:21.181Z"
     },
     {
       "id": "aldi-suisse-f437ab73dfa2",

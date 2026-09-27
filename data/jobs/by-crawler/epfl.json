@@ -4165,13 +4165,11 @@
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1165481555",
       "previousSlugs": [
-        "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne",
-        "postdoc-laboratorio-di-astrazioni-dei-sistemi-in-rete-laser-epfl-lausanne"
+        "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne",
-          "postdoc-laboratorio-di-astrazioni-dei-sistemi-in-rete-laser-epfl-lausanne"
+          "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne"
         ]
       },
       "needsRetranslation": true,
@@ -4562,13 +4560,11 @@
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1165489355",
       "previousSlugs": [
-        "post-doc-scientific-collaborator-bio-and-nano-instrumentation-1-epfl-lausanne",
-        "collaboratore-post-doc-scientifico-bio-e-nano-instrumentation-1-epfl-lausanne"
+        "post-doc-scientific-collaborator-bio-and-nano-instrumentation-1-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "post-doc-scientific-collaborator-bio-and-nano-instrumentation-1-epfl-lausanne",
-          "collaboratore-post-doc-scientifico-bio-e-nano-instrumentation-1-epfl-lausanne"
+          "post-doc-scientific-collaborator-bio-and-nano-instrumentation-1-epfl-lausanne"
         ],
         "de": [
           "post-doc-scientific-collaborator-bio-and-nano-instrumentation-1-epfl-lausanne"
@@ -5128,12 +5124,12 @@
     },
     {
       "id": "epfl-bd4702ca026a",
-      "slug": "laboratory-technician-80-100-epfl-lausanne",
+      "slug": "tecnico-di-laboratorio-80-100-epfl-lausanne",
       "slugByLocale": {
-        "it": "laboratory-technician-80-100-epfl-lausanne",
+        "fr": "laboratory-technician-80-100-epfl-lausanne",
+        "it": "tecnico-di-laboratorio-80-100-epfl-lausanne",
         "en": "laboratory-technician-80-100-epfl-lausanne",
-        "de": "laboratory-techniker-80-100-epfl-lausanne",
-        "fr": "laboratory-technician-80-100-epfl-lausanne"
+        "de": "laboratory-techniker-80-100-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5189,7 +5185,15 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-26T14:01:15.380Z"
+      "firstSeenAt": "2026-09-26T14:01:15.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-technician-80-100-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-technician-80-100-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-5443d48f0428",
@@ -5435,8 +5439,7 @@
         ],
         "en": [
           "postdoc-in-experimental-biophysics-epfl-lausanne",
-          "postdoc-epfl-lausanne-9layc2",
-          "postdoc-epfl-lausanne"
+          "postdoc-epfl-lausanne-9layc2"
         ],
         "de": [
           "postdoc-in-experimenteller-biophysik-epfl-lausanne",

@@ -526,7 +526,7 @@
         "it": "servizio-tecnico-pompe-di-calore-ag-bl-bs-so-m-f-d-hoval-harkingen",
         "en": "service-technician-heat-pumps-ag-bl-bs-so-m-f-d-hoval-harkingen",
         "de": "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen",
-        "fr": "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
+        "fr": "thermopompes-de-technicien-de-service-ag-bl-bs-so-h-f-d-hoval-harkingen"
       },
       "id": "hoval-e59261301c25",
       "previousSlugsByLocale": {
@@ -535,7 +535,6 @@
           "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
         ],
         "fr": [
-          "thermopompes-de-technicien-de-service-ag-bl-bs-so-h-f-d-hoval-harkingen",
           "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
         ],
         "en": [
@@ -673,6 +672,20 @@
         "fr": "technicien-ne-de-service-ol-zentralschweiz-m-w-d-hoval-zentralschweiz"
       },
       "id": "hoval-1e36e6bf3c50",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-ol-zentralschweiz-m-w-d-hoval-zentralschweiz"
+        ],
+        "en": [
+          "servicetechniker-in-ol-zentralschweiz-m-w-d-hoval-zentralschweiz"
+        ],
+        "fr": [
+          "servicetechniker-in-ol-zentralschweiz-m-w-d-hoval-zentralschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-ol-zentralschweiz-m-w-d-hoval-zentralschweiz"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -687,21 +700,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T13:54:13.504Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-in-ol-zentralschweiz-m-w-d-hoval-zentralschweiz"
-        ],
-        "en": [
-          "servicetechniker-in-ol-zentralschweiz-m-w-d-hoval-zentralschweiz"
-        ],
-        "fr": [
-          "servicetechniker-in-ol-zentralschweiz-m-w-d-hoval-zentralschweiz"
-        ]
-      },
-      "previousSlugs": [
-        "servicetechniker-in-ol-zentralschweiz-m-w-d-hoval-zentralschweiz"
-      ]
+      "firstSeenAt": "2026-09-26T13:54:13.504Z"
     },
     {
       "title": "Technicien/ne de Service Gaz/Mazout Region Vaud (m/f/d)",

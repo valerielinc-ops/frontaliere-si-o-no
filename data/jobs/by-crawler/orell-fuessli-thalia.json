@@ -9,7 +9,7 @@
         "it": "libreria-in-30-a-orell-fussli-thalia-wurenlos",
         "en": "buchhandler-in-30-a-orell-fussli-thalia-wurenlos",
         "de": "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos",
-        "fr": "buchhandler-in-30-a-orell-fussli-thalia-wurenlos"
+        "fr": "librairie-en-30-a-orell-fussli-thalia-wurenlos"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -85,11 +85,11 @@
         "fr": [
           "librairie-en-30-a-wurenlos-lieu-de-repos-orell-fussli-thalia-wurenlos",
           "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos",
-          "librairie-en-30-a-orell-fussli-thalia-wurenlos"
+          "buchhandler-in-30-a-orell-fussli-thalia-wurenlos"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:49:03.940Z",
+      "needsRetranslation": true,
       "salaryMin": 22200,
       "salaryMax": 34100,
       "salarySource": "estimated",
@@ -706,7 +706,6 @@
           "librairies-20-40-a-orell-fussli-thalia-winterthur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T22:03:08.033Z",
       "salaryMin": 33200,
       "salaryMax": 51000,
@@ -720,7 +719,8 @@
           "maxValue": 51000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-a3408bb05402",
@@ -729,7 +729,7 @@
         "it": "libreria-80-a-orell-fussli-thalia-luzern",
         "en": "buchhandler-in-80-a-orell-fussli-thalia-luzern",
         "de": "buchhandler-in-80-a-orell-fuessli-thalia-luzern",
-        "fr": "buchhandler-in-80-a-orell-fussli-thalia-luzern"
+        "fr": "librairie-80-a-orell-fussli-thalia-luzern"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -790,11 +790,11 @@
         ],
         "fr": [
           "buchhandler-in-80-a-orell-fuessli-thalia-luzern",
-          "librairie-80-a-orell-fussli-thalia-luzern"
+          "buchhandler-in-80-a-orell-fussli-thalia-luzern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:17:59.714Z",
+      "needsRetranslation": true,
       "salaryMin": 63200,
       "salaryMax": 97200,
       "salarySource": "estimated",
@@ -1057,9 +1057,9 @@
       "id": "orell-fuessli-thalia-4b6305047e18",
       "slug": "apprendista-r-commercio-al-dettaglio-papeterie-cfc-orell-fussli-thalia-kusnacht",
       "slugByLocale": {
+        "de": "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-kusnacht",
         "it": "apprendista-r-commercio-al-dettaglio-papeterie-cfc-orell-fussli-thalia-kusnacht",
         "en": "apprentice-r-retail-papeterie-efz-orell-fussli-thalia-kusnacht",
-        "de": "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-kusnacht",
         "fr": "apprenti-e-r-commerce-de-detail-papeterie-efz-orell-fussli-thalia-kusnacht"
       },
       "company": "Orell Füssli Thalia",
@@ -1104,6 +1104,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
       "firstSeenAt": "2026-09-26T14:19:28.901Z",
       "previousSlugsByLocale": {
         "it": [
@@ -1118,20 +1131,7 @@
       },
       "previousSlugs": [
         "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-kusnacht"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "orell-fuessli-thalia-11b8f7d2df1e",
@@ -1835,18 +1835,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen",
-          "bookseller-in-80-100-a-orell-fussli-thalia-bern"
+          "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen"
         ],
         "it": [
-          "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen",
-          "libreria-in-80-100-a-orell-fussli-thalia-bern"
+          "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen"
         ]
       },
       "previousSlugs": [
-        "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen",
-        "bookseller-in-80-100-a-orell-fussli-thalia-bern",
-        "libreria-in-80-100-a-orell-fussli-thalia-bern"
+        "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:08:01.487Z",

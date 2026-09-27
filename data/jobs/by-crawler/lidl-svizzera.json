@@ -679,7 +679,7 @@
       "crawledAt": "2026-09-26T23:53:48.727Z",
       "slugByLocale": {
         "it": "venditore-venditrice-m-w-d-20-80-lidl-svizzera-arbedo-castione-2nto85",
-        "en": "venditore-venditrice-m-w-d-20-80-lidl-svizzera-arbedo-castione",
+        "en": "salesman-salesman-m-f-d-20-80-lidl-svizzera-arbedo-castione",
         "de": "verkaufer-verkaufer-m-w-d-20-80-lidl-svizzera-arbedo-castione",
         "fr": "vendeur-vendeur-h-f-d-20-80-lidl-svizzera-arbedo-castione"
       },
@@ -718,8 +718,7 @@
         ]
       },
       "previousSlugs": [
-        "venditore-venditrice-m-w-d-20-80-lidl-svizzera-arbedo-castione",
-        "salesman-salesman-m-f-d-20-80-lidl-svizzera-arbedo-castione"
+        "venditore-venditrice-m-w-d-20-80-lidl-svizzera-arbedo-castione"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -736,9 +735,9 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-09-25T15:10:42.177Z",
-      "needsRetranslation": true,
       "salaryMin": 47200,
-      "salaryMax": 72400
+      "salaryMax": 72400,
+      "needsRetranslation": true
     },
     {
       "id": "company-wbm59z",
@@ -1218,7 +1217,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-landquart-7aai46",
-        "en": "allrounder-verkauf-m-w-d-20-40-landquart-lidl-svizzera-landquart",
+        "en": "all-rounder-sale-m-f-d-20-40-landquart-lidl-svizzera-landquart",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-7aai46",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-landquart-7aai46"
       },
@@ -1255,9 +1254,9 @@
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-4ecrzg",
@@ -1299,7 +1298,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-reinach-ag-4ecrzg",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-reinach-ag-lidl-svizzera-reinach-ag",
+        "en": "all-rounder-sale-m-f-d-20-40-1-reinach-ag-lidl-svizzera-reinach-ag",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-reinach-ag-4ecrzg",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-reinach-ag-4ecrzg"
       },
@@ -1336,9 +1335,9 @@
       "addressLocality": "Reinach (AG)",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-ccqiic",
@@ -2595,8 +2594,8 @@
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-lidl-svizzera-matran",
-        "en": "sales-associate-m-w-d-40-matran-lidl-svizzera-matran",
-        "de": "verkaufer-in-vielseitig-m-w-d-40-matran-lidl-svizzera-matran",
+        "en": "multi-purpose-seller-multi-purpose-seller-m-f-d-40-matran-lidl-svizzera-matran",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-matran-nxe5fi"
       },
       "titleByLocale": {
@@ -2620,18 +2619,18 @@
         ],
         "en": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-matran-lidl-svizzera-matran",
-          "multi-purpose-seller-multi-purpose-seller-m-f-d-40-matran-lidl-svizzera-matran"
+          "sales-associate-m-w-d-40-matran-lidl-svizzera-matran"
         ],
         "de": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-matran-lidl-svizzera-matran",
-          "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran"
+          "verkaufer-in-vielseitig-m-w-d-40-matran-lidl-svizzera-matran"
         ]
       },
       "previousSlugs": [
         "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-matran-lidl-svizzera-matran",
         "salesperson-m-f-d-40-matran-lidl-svizzera-matran",
-        "multi-purpose-seller-multi-purpose-seller-m-f-d-40-matran-lidl-svizzera-matran",
-        "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran"
+        "sales-associate-m-w-d-40-matran-lidl-svizzera-matran",
+        "verkaufer-in-vielseitig-m-w-d-40-matran-lidl-svizzera-matran"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -3892,7 +3891,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-niederlenz-9xbeyw",
-        "en": "allrounder-verkauf-m-w-d-20-40-niederlenz-lidl-svizzera-niederlenz",
+        "en": "all-rounder-sale-m-f-d-20-40-lower-length-lidl-svizzera-niederlenz",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-niederlenz-9xbeyw",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-niederlenz-9xbeyw"
       },
@@ -3929,9 +3928,9 @@
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 24800,
-      "salaryMax": 37600
+      "salaryMax": 37600,
+      "needsRetranslation": true
     },
     {
       "id": "company-e6m6zb",
@@ -3975,7 +3974,7 @@
         "it": "ordina-pick-up-m-f-d-40-60-lidl-svizzera-sevaz",
         "en": "order-picker-m-f-d-40-60-lidl-svizzera-sevaz",
         "de": "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb",
-        "fr": "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz"
+        "fr": "commandeur-h-f-d-40-60-lidl-svizzera-sevaz"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -3998,8 +3997,7 @@
       "previousSlugs": [
         "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz",
         "kommissionierer-kommissioniererin-m-w-d-40-60-1-lidl-svizzera-sevaz",
-        "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb",
-        "commandeur-h-f-d-40-60-lidl-svizzera-sevaz"
+        "kommissionierer-kommissioniererin-m-w-d-40-60-lidl-svizzera-sevaz-e6m6zb"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -4015,9 +4013,9 @@
       "addressLocality": "Sévaz",
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-2sx528",
@@ -4867,7 +4865,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-winterthur-u756sn",
-        "en": "allrounder-verkauf-m-w-d-20-40-winterthur-lidl-svizzera-winterthur",
+        "en": "all-rounder-sale-m-f-d-20-40-winterthur-lidl-svizzera-winterthur",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-winterthur-u756sn",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-winterthur-u756sn"
       },
@@ -4888,9 +4886,9 @@
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-da3utt",
@@ -5018,7 +5016,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-neftenbach-oj65a6",
-        "en": "allrounder-verkauf-m-w-d-20-40-neftenbach-lidl-svizzera-neftenbach",
+        "en": "all-rounder-sale-m-f-d-20-40-neftenbach-lidl-svizzera-neftenbach",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-neftenbach-oj65a6",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-neftenbach-oj65a6"
       },
@@ -5056,9 +5054,9 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-neftenbach-747304",
-      "needsRetranslation": true,
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-tw5z2k",
@@ -7299,7 +7297,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-zug-aasdjp",
-        "en": "allrounder-verkauf-m-w-d-20-40-zug-lidl-svizzera-zug",
+        "en": "all-rounder-sale-m-f-d-20-40-train-lidl-svizzera-zug",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-zug-aasdjp",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-zug-aasdjp"
       },
@@ -7337,9 +7335,9 @@
       "addressRegion": "ZG",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-zug-741453",
-      "needsRetranslation": true,
       "salaryMin": 27800,
-      "salaryMax": 42400
+      "salaryMax": 42400,
+      "needsRetranslation": true
     },
     {
       "id": "company-41yxm2",
@@ -7638,7 +7636,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-kussnacht-a-r-nw2wwy",
-        "en": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kussnacht-a-r-nw2wwy",
+        "en": "allrounder-sales-m-w-d-20-40-kussnacht-a-lidl-svizzera-kussnacht-a",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kussnacht-a-r-nw2wwy",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-kussnacht-a-r-nw2wwy"
       },
@@ -7648,10 +7646,14 @@
       "previousSlugsByLocale": {
         "it": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kussnacht-a-r"
+        ],
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kussnacht-a-r-nw2wwy"
         ]
       },
       "previousSlugs": [
-        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kussnacht-a-r"
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kussnacht-a-r",
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-kussnacht-a-r-nw2wwy"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -7797,7 +7799,7 @@
         "fr": "Présentation\n\nLidl Suisse est de plus en plus présente sur le marché suisse avec un réseau de succursales moderne. Depuis son entrée sur le marché en 2009, l'expansion en Suisse s'est poursuivie. Chez Lidl, des tâches passionnantes et diverses opportunités de carrière vous attendent dans l'environnement dynamique du commerce de détail.\n\n- gestion de la gamme de produits\n\n- Contrôle des marchandises des articles d'action\n\n- Création de rapports et d'évaluations internes avec Google Sheet\n\n- Modifier les demandes internes des fournisseurs\n\n- Soutien aux salariés de différents secteurs de l'activité des biens\n\n- Calcul et répartition des quantités d'action Votre profil\n\n- Formation professionnelle terminée\n\n- Première expérience professionnelle dans la disposition des aliments est avantageux\n\n- Bonnes compétences Google espace de travail et de flair pour les chiffres\n\n- Capacité d'équipe, flexibilité, coopération et capacité de communication ainsi que résilience\n\n- Méthodes de travail fiables et indépendantes\n\n- Bon allemand, avantage italien que nous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participez activement. Gagnez chaque jour sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Nous vous offrons également la sécurité d'une position permanente, une grande équipe, les avantages du Lidl-GAV, une excellente pension professionnelle et d'autres avantages attrayants. Profitez de l'opportunité et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "assistente-supply-chain-m-f-d-80-100-lidl-svizzera-weinfelden",
+        "it": "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden-vautza",
         "en": "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden-vautza",
         "de": "assistent-lieferkette-m-w-d-80-100-lidl-svizzera-weinfelden-vautza",
         "fr": "assistant-chaine-d-approvisionnement-m-w-d-80-100-lidl-svizzera-weinfelden-vautza"
@@ -7815,9 +7817,7 @@
           "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
           "assistent-lieferkette-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
           "assistant-chaine-d-approvisionnement-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-          "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden-vautza",
-          "assistente-supply-chain-m-f-d-80-100-lidl-svizzera-weinfelden"
+          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu"
         ],
         "en": [
           "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-gg2tuc"
@@ -7838,9 +7838,7 @@
         "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
         "assistent-lieferkette-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
         "assistant-chaine-d-approvisionnement-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-        "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden-vautza",
-        "assistente-supply-chain-m-f-d-80-100-lidl-svizzera-weinfelden"
+        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -14829,7 +14827,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
-        "en": "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen",
+        "en": "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-horgen-4e97nd"
       },
@@ -14869,9 +14867,9 @@
       "postalCode": "8001",
       "salarySource": "estimated",
       "applyUrl": "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-horgen-708851",
-      "needsRetranslation": true,
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-lax675",

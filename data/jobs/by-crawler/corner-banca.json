@@ -120,8 +120,8 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
         "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "spontaner-ausbildungseinsatz-corner-banca-switzerland",
-        "fr": "apprentissage-spontane-corner-banca-switzerland"
+        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -185,7 +185,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:02:58.679Z",
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -201,7 +200,8 @@
       },
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship"
+      "applyUrl": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-414e92898c99",

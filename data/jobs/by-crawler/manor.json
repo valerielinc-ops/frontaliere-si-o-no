@@ -1501,7 +1501,7 @@
       "slugByLocale": {
         "it": "manor-verkauf-beauty-30-pfaffikon",
         "en": "sales-beauty-30-manor-ag-pfaffikon",
-        "de": "verkauf-schonheit-30-manor-ag-pfaffikon",
+        "de": "verkauf-beauty-30-manor-ag-pfaffikon",
         "fr": "vente-beauty-30-manor-ag-pfaffikon"
       },
       "titleByLocale": {
@@ -1511,10 +1511,8 @@
         "fr": "Vente Beauty 30%"
       },
       "sourceLang": "it",
-      "id": "manor-ef1ab3dcf51f",
-      "firstSeenAt": "2026-09-25T14:52:29.523Z",
       "crawledAt": "",
-      "needsRetranslation": true,
+      "id": "manor-ef1ab3dcf51f",
       "salaryMin": 24900,
       "salaryMax": 38300,
       "currency": "CHF",
@@ -1530,7 +1528,17 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Pf%C3%A4ffikon-Verkauf-Beauty-30/1369445355/"
+      "applyUrl": "https://positions.manor.ch/job/Pf%C3%A4ffikon-Verkauf-Beauty-30/1369445355/",
+      "firstSeenAt": "2026-09-25T14:52:29.523Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "de": [
+          "verkauf-schonheit-30-manor-ag-pfaffikon"
+        ]
+      },
+      "previousSlugs": [
+        "verkauf-schonheit-30-manor-ag-pfaffikon"
+      ]
     },
     {
       "title": "Mitarbeiter*in Verkauf Herrenkonfektion 60%",
@@ -1973,8 +1981,8 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
         "en": "logistics-assistant-monday-support-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-        "de": "in-der-zeitschrift-montagsaus-ilffe-emanor-20-manor-ag-hochdorf",
-        "fr": "assistant-e-logistique-support-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+        "fr": "assistant-e-logistique-support-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+        "de": "mitarbeiter-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik (Montagsaushilfe eManor) 20%",
@@ -1983,18 +1991,21 @@
         "fr": "Mitarbeiter*in Logistik (Montagsaus Ilffe eManor) 20%"
       },
       "sourceLang": "it",
-      "id": "manor-ae10fcc1dedc",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf"
-      ],
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf"
+        ],
+        "de": [
+          "in-der-zeitschrift-montagsaus-ilffe-emanor-20-manor-ag-hochdorf"
         ]
       },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
+        "in-der-zeitschrift-montagsaus-ilffe-emanor-20-manor-ag-hochdorf"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:15:44.805Z",
-      "crawledAt": "",
+      "id": "manor-ae10fcc1dedc",
       "salaryMin": 13900,
       "salaryMax": 21200,
       "currency": "CHF",
@@ -2010,7 +2021,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-%28Montagsaushilfe-eManor%29-20/1362295855/"
+      "applyUrl": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-%28Montagsaushilfe-eManor%29-20/1362295855/",
+      "firstSeenAt": "2026-08-18T10:15:44.805Z"
     },
     {
       "title": "Collaboratore/trice cassa (Confezione Uomo) 40%",
@@ -2283,7 +2295,7 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-verkauf-spielwaren-40-emmen",
         "en": "mitarbeiter-in-sales-spielwaren-40-manor-ag-emmen",
-        "de": "mitarbeiter-in-verkauf-spiel-aren-40-manor-ag-emmen",
+        "de": "mitarbeiter-in-verkauf-spielwaren-40-manor-ag-emmen",
         "fr": "mitarbeiter-in-vente-spielwaren-40-manor-ag-emmen"
       },
       "titleByLocale": {
@@ -2312,7 +2324,15 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Emmen-Mitarbeiterin-Verkauf-Spielwaren-40/1369230255/"
+      "applyUrl": "https://positions.manor.ch/job/Emmen-Mitarbeiterin-Verkauf-Spielwaren-40/1369230255/",
+      "previousSlugsByLocale": {
+        "de": [
+          "mitarbeiter-in-verkauf-spiel-aren-40-manor-ag-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-spiel-aren-40-manor-ag-emmen"
+      ]
     },
     {
       "title": "Mitarbeiter*in Verkauf 40%",
@@ -2457,7 +2477,7 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen",
         "en": "mitarbeiter-in-sales-spielwaren-50-manor-ag-emmen",
-        "de": "mitarbeiter-in-verkauf-spiel-aren-50-manor-ag-emmen",
+        "de": "mitarbeiter-in-verkauf-spielwaren-50-manor-ag-emmen",
         "fr": "mitarbeiter-in-vente-spielwaren-50-manor-ag-emmen"
       },
       "titleByLocale": {
@@ -2486,7 +2506,15 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Emmen-Mitarbeiterin-Verkauf-Spielwaren-50/1369230655/"
+      "applyUrl": "https://positions.manor.ch/job/Emmen-Mitarbeiterin-Verkauf-Spielwaren-50/1369230655/",
+      "previousSlugsByLocale": {
+        "de": [
+          "mitarbeiter-in-verkauf-spiel-aren-50-manor-ag-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-spiel-aren-50-manor-ag-emmen"
+      ]
     },
     {
       "title": "Mitarbeiter*in Merchandising 60%",
@@ -2689,7 +2717,7 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-verkauf-parfumerie-30-hinwil",
         "en": "mitarbeiter-in-sales-parfumerie-30-manor-ag-hinwil",
-        "de": "mitarbeiter-in-verkauf-parf-reihe-30-manor-ag-hinwil",
+        "de": "mitarbeiter-in-verkauf-parfumerie-30-manor-ag-hinwil",
         "fr": "mitarbeiter-in-vente-parfumerie-30-manor-ag-hinwil"
       },
       "titleByLocale": {
@@ -2718,7 +2746,15 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Hinwil-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-30/1369233355/"
+      "applyUrl": "https://positions.manor.ch/job/Hinwil-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-30/1369233355/",
+      "previousSlugsByLocale": {
+        "de": [
+          "mitarbeiter-in-verkauf-parf-reihe-30-manor-ag-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-parf-reihe-30-manor-ag-hinwil"
+      ]
     },
     {
       "title": "Mitarbeiter*in Verkauf (Home & Haushalt) 50%",
@@ -9525,7 +9561,7 @@
       "slugByLocale": {
         "it": "allocazione-60-manor-ag-basel",
         "en": "allocator-60-manor-ag-basel",
-        "de": "allocator-60-manor-ag-basel",
+        "de": "allokator-60-manor-ag-basel",
         "fr": "manor-allocator-60-basel"
       },
       "titleByLocale": {
@@ -9535,24 +9571,24 @@
         "fr": "Allocator 60%"
       },
       "sourceLang": "en",
-      "id": "manor-47756f142ab8",
-      "previousSlugs": [
-        "manor-allocator-60-basel",
-        "allokator-60-manor-ag-basel",
-        "allocazione-60-manor-ag-basel"
-      ],
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
           "manor-allocator-60-basel",
           "allocazione-60-manor-ag-basel"
         ],
         "de": [
-          "allokator-60-manor-ag-basel"
+          "allocator-60-manor-ag-basel"
         ]
       },
+      "previousSlugs": [
+        "manor-allocator-60-basel",
+        "allokator-60-manor-ag-basel",
+        "allocazione-60-manor-ag-basel",
+        "allocator-60-manor-ag-basel"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-09T13:59:04.738Z",
-      "crawledAt": "",
+      "id": "manor-47756f142ab8",
       "salaryMin": 44400,
       "salaryMax": 68100,
       "currency": "CHF",
@@ -9568,7 +9604,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Basel-Allocator-60/1367177455/"
+      "applyUrl": "https://positions.manor.ch/job/Basel-Allocator-60/1367177455/",
+      "firstSeenAt": "2026-09-09T13:59:04.738Z"
     },
     {
       "title": "Collaborateur/trice vente (Confection Dames) 70%",
@@ -9666,9 +9703,9 @@
       "slug": "manor-collaborateur-trice-caisse-supermarche-50-vevey",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-caisse-supermarche-50-vevey",
-        "en": "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey",
-        "de": "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey",
-        "fr": "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey"
+        "en": "cashier-supermarket-50-manor-ag-vevey-5a1414",
+        "de": "kassier-in-supermarkt-50-manor-ag-vevey",
+        "fr": "6-millions-d-euros-pour-la-construction-d-une-nouvelle-infrastructure-pour-la-construction-d-une-nouvelle-infrastructure"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice caisse (Supermarché) 50%",
@@ -9677,26 +9714,23 @@
         "fr": "Collaborateur/trice caisse (Supermarché) 50%"
       },
       "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
       "id": "manor-37f7b431d16e",
-      "previousSlugs": [
-        "cashier-supermarket-50-manor-ag-vevey-5a1414",
-        "kassier-in-supermarkt-50-manor-ag-vevey",
-        "6-millions-d-euros-pour-la-construction-d-une-nouvelle-infrastructure-pour-la-construction-d-une-nouvelle-infrastructure"
-      ],
       "previousSlugsByLocale": {
         "en": [
-          "cashier-supermarket-50-manor-ag-vevey-5a1414"
+          "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey"
         ],
         "de": [
-          "kassier-in-supermarkt-50-manor-ag-vevey"
+          "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey"
         ],
         "fr": [
-          "6-millions-d-euros-pour-la-construction-d-une-nouvelle-infrastructure-pour-la-construction-d-une-nouvelle-infrastructure"
+          "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-04T13:38:05.738Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey"
+      ],
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -9712,7 +9746,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Vevey-Collaborateurtrice-caisse-%28Supermarch%C3%A9%29-50/1367003855/"
+      "applyUrl": "https://positions.manor.ch/job/Vevey-Collaborateurtrice-caisse-%28Supermarch%C3%A9%29-50/1367003855/",
+      "firstSeenAt": "2026-09-04T13:38:05.738Z"
     },
     {
       "title": "Mitarbeiter*in Supermarkt Epicerie 45%",
@@ -12324,13 +12359,11 @@
       "sourceLang": "de",
       "id": "manor-2f28c85db923",
       "previousSlugs": [
-        "manor-mitarbeiter-in-kasse-60-basel",
-        "collaboratore-trice-in-kasse-60-manor-ag-basel-mitarbeiterin-kasse-60"
+        "manor-mitarbeiter-in-kasse-60-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-kasse-60-basel",
-          "collaboratore-trice-in-kasse-60-manor-ag-basel-mitarbeiterin-kasse-60"
+          "manor-mitarbeiter-in-kasse-60-basel"
         ]
       },
       "needsRetranslation": true,
@@ -13147,7 +13180,7 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-kasse-x-mas-market-40-zurich-mitarbeiterin-kasse-x",
         "en": "cashier-x-mas-market-40-manor-ag-zurich",
-        "de": "mitarbeiter-in-kasse-weihnachtsmarkt-40-manor-ag-zurich",
+        "de": "mitarbeiter-in-kasse-x-mas-market-40-manor-ag-zurich",
         "fr": "mitarbeiter-in-kasse-marche-x-mas-40-manor-ag-zurich"
       },
       "titleByLocale": {
@@ -13160,19 +13193,18 @@
       "id": "manor-2b2093fbdd37",
       "previousSlugs": [
         "manor-mitarbeiter-in-kasse-x-mas-market-40-zurich",
-        "mitarbeiter-in-kasse-x-mas-market-40-manor-ag-zurich"
+        "mitarbeiter-in-kasse-weihnachtsmarkt-40-manor-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-kasse-x-mas-market-40-zurich"
         ],
         "de": [
-          "mitarbeiter-in-kasse-x-mas-market-40-manor-ag-zurich"
+          "mitarbeiter-in-kasse-weihnachtsmarkt-40-manor-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "currency": "CHF",
@@ -13188,7 +13220,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Kasse-%28X-Mas-Market%29-40/1364864355/"
+      "applyUrl": "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Kasse-%28X-Mas-Market%29-40/1364864355/",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Kasse (X-Mas Market) 30%",
@@ -13217,7 +13250,7 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-kasse-x-mas-market-30-zurich-mitarbeiterin-kasse-x",
         "en": "cashier-employee-x-mas-market-30-manor-ag-zurich",
-        "de": "mitarbeiter-in-kasse-weihnachtsmarkt-30-manor-ag-zurich",
+        "de": "mitarbeiter-in-kasse-x-mas-market-30-manor-ag-zurich",
         "fr": "mitarbeiter-a-kasse-marche-x-mas-30-manor-ag-zurich"
       },
       "titleByLocale": {
@@ -13230,19 +13263,18 @@
       "id": "manor-f9a93082bdf5",
       "previousSlugs": [
         "manor-mitarbeiter-in-kasse-x-mas-market-30-zurich",
-        "mitarbeiter-in-kasse-x-mas-market-30-manor-ag-zurich"
+        "mitarbeiter-in-kasse-weihnachtsmarkt-30-manor-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-kasse-x-mas-market-30-zurich"
         ],
         "de": [
-          "mitarbeiter-in-kasse-x-mas-market-30-manor-ag-zurich"
+          "mitarbeiter-in-kasse-weihnachtsmarkt-30-manor-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 24900,
       "salaryMax": 38300,
       "currency": "CHF",
@@ -13258,7 +13290,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Kasse-%28X-Mas-Market%29-30/1364861655/"
+      "applyUrl": "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Kasse-%28X-Mas-Market%29-30/1364861655/",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Verkauf 40%",
@@ -14075,7 +14108,7 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie",
         "en": "mitarbeiter-in-sales-parfumerie-60-manor-ag-schaffhausen",
-        "de": "mitarbeiter-in-verkauf-parf-merie-60-manor-ag-schaffhausen",
+        "de": "mitarbeiter-in-verkauf-parfumerie-60-manor-ag-schaffhausen",
         "fr": "mitarbeiter-in-vente-parfumerie-60-manor-ag-schaffhausen"
       },
       "titleByLocale": {
@@ -14088,14 +14121,14 @@
       "id": "manor-94fffa145b15",
       "previousSlugs": [
         "manor-mitarbeiter-in-verkauf-parfumerie-60-schaffhausen",
-        "mitarbeiter-in-verkauf-parfumerie-60-manor-ag-schaffhausen"
+        "mitarbeiter-in-verkauf-parf-merie-60-manor-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-parfumerie-60-schaffhausen"
         ],
         "de": [
-          "mitarbeiter-in-verkauf-parfumerie-60-manor-ag-schaffhausen"
+          "mitarbeiter-in-verkauf-parf-merie-60-manor-ag-schaffhausen"
         ]
       },
       "needsRetranslation": true,
@@ -14365,7 +14398,7 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-kundendienst-20-basel-mitarbeiterin-kundendienst-20",
         "en": "mitarbeiter-in-kundenfissic-20-manor-ag-basel",
-        "de": "mitarbeiter-im-kundendienst20-manor-ag-basel",
+        "de": "mitarbeiter-in-kundendienst-20-manor-ag-basel",
         "fr": "mitarbeiter-a-kundendienst-20-manor-ag-basel"
       },
       "titleByLocale": {
@@ -14383,7 +14416,8 @@
         "customer-service-representative-20-manor-ag-basel",
         "agent-de-service-a-la-clientele-20-manor-ag-basel",
         "mitarbeiter-in-kundenfissic-20-manor-ag-basel",
-        "mitarbeiter-a-kundendienst-20-manor-ag-basel"
+        "mitarbeiter-a-kundendienst-20-manor-ag-basel",
+        "mitarbeiter-im-kundendienst20-manor-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14394,14 +14428,14 @@
           "customer-service-representative-20-manor-ag-basel",
           "mitarbeiter-in-kundenfissic-20-manor-ag-basel"
         ],
-        "de": [
-          "in-der-kundenfissischen-20-manor-ag-basel",
-          "mitarbeiter-in-kundendienst-20-manor-ag-basel"
-        ],
         "fr": [
           "mitarbeiter-in-kundendienst-20-manor-ag-basel",
           "agent-de-service-a-la-clientele-20-manor-ag-basel",
           "mitarbeiter-a-kundendienst-20-manor-ag-basel"
+        ],
+        "de": [
+          "in-der-kundenfissischen-20-manor-ag-basel",
+          "mitarbeiter-im-kundendienst20-manor-ag-basel"
         ]
       },
       "needsRetranslation": true,
@@ -17001,7 +17035,7 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-logistik-30-100-mohlin-mitarbeiterin-logistik-30",
         "en": "staff-logistics-30-100-manor-ag-mohlin",
-        "de": "in-logistik-3o100-manor-ag-mohlin",
+        "de": "mitarbeiter-in-logistik-30-100-manor-ag-mohlin",
         "fr": "employe-logistique-a-30-100-manor-ag-mohlin-mitarbeiterin-logistik-30"
       },
       "titleByLocale": {
@@ -17017,7 +17051,8 @@
         "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100-dy6udy",
         "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
         "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100-4",
-        "manor-mitarbeiter-in-logistik-30-100-mohlin"
+        "manor-mitarbeiter-in-logistik-30-100-mohlin",
+        "in-logistik-3o100-manor-ag-mohlin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17028,12 +17063,12 @@
         ],
         "de": [
           "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
-          "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100-4"
+          "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100-4",
+          "in-logistik-3o100-manor-ag-mohlin"
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -17049,7 +17084,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-30-100/962548755/"
+      "applyUrl": "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-30-100/962548755/",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Verkauf Parfümerie 60%",
@@ -17078,7 +17114,7 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-verkauf-parfumerie-60-zurich-mitarbeiterin-verkauf-parfumerie",
         "en": "mitarbeiter-in-sales-parfumerie-60-manor-ag-zurich",
-        "de": "mitarbeiter-in-verkauf-parf-merie-60-manor-ag-zurich",
+        "de": "mitarbeiter-in-verkauf-parfumerie-60-manor-ag-zurich",
         "fr": "mitarbeiter-in-vente-parfumerie-60-manor-ag-zurich"
       },
       "titleByLocale": {
@@ -17092,7 +17128,7 @@
       "previousSlugs": [
         "collaboratore-trice-in-vendita-parfumerie-60-manor-ag-zurich-mitarbeiterin-verkauf-parfumerie",
         "manor-mitarbeiter-in-verkauf-parfumerie-60-zurich",
-        "mitarbeiter-in-verkauf-parfumerie-60-manor-ag-zurich"
+        "mitarbeiter-in-verkauf-parf-merie-60-manor-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17100,7 +17136,7 @@
           "manor-mitarbeiter-in-verkauf-parfumerie-60-zurich"
         ],
         "de": [
-          "mitarbeiter-in-verkauf-parfumerie-60-manor-ag-zurich"
+          "mitarbeiter-in-verkauf-parf-merie-60-manor-ag-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -17150,7 +17186,7 @@
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-verkauf-parfumerie-30-spreitenbach-mitarbeiterin-verkauf-parfumerie",
         "en": "mitarbeiter-in-sales-parfumerie-30-manor-ag-spreitenbach",
-        "de": "mitarbeiter-in-verkauf-parf-reihe-30-manor-ag-spreitenbach",
+        "de": "mitarbeiter-in-verkauf-parfumerie-30-manor-ag-spreitenbach",
         "fr": "mitarbeiter-in-vente-parfumerie-30-manor-ag-spreitenbach"
       },
       "titleByLocale": {
@@ -17164,7 +17200,7 @@
       "previousSlugs": [
         "collaboratore-trice-in-vendita-parfumerie-30-manor-ag-spreitenbach-mitarbeiterin-verkauf-parfumerie",
         "manor-mitarbeiter-in-verkauf-parfumerie-30-spreitenbach",
-        "mitarbeiter-in-verkauf-parfumerie-30-manor-ag-spreitenbach"
+        "mitarbeiter-in-verkauf-parf-reihe-30-manor-ag-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17172,7 +17208,7 @@
           "manor-mitarbeiter-in-verkauf-parfumerie-30-spreitenbach"
         ],
         "de": [
-          "mitarbeiter-in-verkauf-parfumerie-30-manor-ag-spreitenbach"
+          "mitarbeiter-in-verkauf-parf-reihe-30-manor-ag-spreitenbach"
         ]
       },
       "needsRetranslation": true,

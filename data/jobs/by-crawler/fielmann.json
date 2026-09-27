@@ -5187,10 +5187,10 @@
       "id": "fielmann-b4b60fb0e9f2",
       "slug": "optometrista-master-ottico-w-m-d-fielmann-group-zurich",
       "slugByLocale": {
+        "de": "optometrist-augenoptikermeister-w-m-d-fielmann-ch",
         "it": "optometrista-master-ottico-w-m-d-fielmann-group-zurich",
         "en": "optometrist-master-optician-w-m-d-fielmann-group-zurich-87bc7a",
-        "de": "optometrist-augenoptikermeister-w-m-d-fielmann-ch",
-        "fr": "optometrist-augenoptikermeister-m-w-d-fielmann-group-zurich"
+        "fr": "optometriste-maitre-opticien-p-m-d-fielmann-group-zurich-87bc7a"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -5233,21 +5233,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-10090",
-      "previousSlugs": [
-        "optometrist-augenoptikermeister-w-m-d-fielmann-ch",
-        "optometriste-maitre-opticien-p-m-d-fielmann-group-zurich-87bc7a",
-        "optometrista-master-ottico-w-m-d-fielmann-group-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "optometrist-augenoptikermeister-w-m-d-fielmann-ch",
           "optometrista-master-ottico-w-m-d-fielmann-group-zurich"
         ],
         "fr": [
-          "optometriste-maitre-opticien-p-m-d-fielmann-group-zurich-87bc7a"
+          "optometrist-augenoptikermeister-m-w-d-fielmann-group-zurich"
         ]
       },
-      "firstSeenAt": "2026-05-13T11:02:18.634Z",
+      "previousSlugs": [
+        "optometrist-augenoptikermeister-w-m-d-fielmann-ch",
+        "optometriste-maitre-opticien-p-m-d-fielmann-group-zurich-87bc7a",
+        "optometrista-master-ottico-w-m-d-fielmann-group-zurich",
+        "optometrist-augenoptikermeister-m-w-d-fielmann-group-zurich"
+      ],
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -5261,7 +5261,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-05-13T11:02:18.634Z"
     },
     {
       "id": "fielmann-ecdf1a61659d",
@@ -7671,10 +7672,10 @@
       "id": "fielmann-9290a014f280",
       "slug": "ottico-f-m-d-fielmann-group-altdorf",
       "slugByLocale": {
-        "it": "ottico-f-m-d-fielmann-group-altdorf",
-        "en": "augenoptiker-m-w-d-fielmann-group-altdorf",
         "de": "augenoptiker-w-m-d-fielmann-ch",
-        "fr": "augenoptiker-m-w-d-fielmann-group-altdorf"
+        "it": "ottico-f-m-d-fielmann-group-altdorf",
+        "en": "optician-f-m-d-fielmann-group-altdorf-8986bc",
+        "fr": "opticien-f-m-d-fielmann-group-altdorf-8986bc"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -7717,25 +7718,25 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-28050",
-      "previousSlugs": [
-        "augenoptiker-w-m-d-fielmann-ch",
-        "optician-f-m-d-fielmann-group-altdorf-8986bc",
-        "opticien-f-m-d-fielmann-group-altdorf-8986bc",
-        "ottico-f-m-d-fielmann-group-altdorf"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
           "ottico-f-m-d-fielmann-group-altdorf"
         ],
         "en": [
-          "optician-f-m-d-fielmann-group-altdorf-8986bc"
+          "augenoptiker-m-w-d-fielmann-group-altdorf"
         ],
         "fr": [
-          "opticien-f-m-d-fielmann-group-altdorf-8986bc"
+          "augenoptiker-m-w-d-fielmann-group-altdorf"
         ]
       },
-      "firstSeenAt": "2026-08-05T22:56:55.156Z",
+      "previousSlugs": [
+        "augenoptiker-w-m-d-fielmann-ch",
+        "optician-f-m-d-fielmann-group-altdorf-8986bc",
+        "opticien-f-m-d-fielmann-group-altdorf-8986bc",
+        "ottico-f-m-d-fielmann-group-altdorf",
+        "augenoptiker-m-w-d-fielmann-group-altdorf"
+      ],
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -7749,7 +7750,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "UR"
+      "addressRegion": "UR",
+      "firstSeenAt": "2026-08-05T22:56:55.156Z"
     },
     {
       "id": "fielmann-dd7d6a94840b",

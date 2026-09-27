@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bucherer-1abe0c450363",
-      "slug": "administrative-hospitality-internship-100-de-fevrier-2027-a-juilllet-2027-m-f-d-lausanne",
+      "slug": "stage-di-ospitalita-amministrativa-100-da-febbraio-2027-a-luglio-2027-m-f-d-losanna-bucherer-lausanne",
       "slugByLocale": {
-        "it": "administrative-hospitality-internship-100-de-fevrier-2027-a-juilllet-2027-m-f-d-lausanne",
+        "fr": "administrative-hospitality-internship-100-de-fevrier-2027-a-juilllet-2027-m-f-d-lausanne",
+        "it": "stage-di-ospitalita-amministrativa-100-da-febbraio-2027-a-luglio-2027-m-f-d-losanna-bucherer-lausanne",
         "en": "administrative-hospitality-internship-100-de-fevrier-2027-a-juilllet-2027-m-f-d-lausanne",
-        "de": "administrative-hospitality-internship-100-de-fevrier-2027-a-juilllet-2027-m-f-d-lausanne",
-        "fr": "administrative-hospitality-internship-100-de-fevrier-2027-a-juilllet-2027-m-f-d-lausanne"
+        "de": "administrative-hospitality-praktikum-100-von-februar-2027-bis-juli-2027-m-w-d-lausanne-bucherer-lausanne"
       },
       "company": "Bucherer",
       "companyKey": "bucherer",
@@ -65,16 +65,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T13:58:00.356Z"
+      "firstSeenAt": "2026-09-26T13:58:00.356Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-hospitality-internship-100-de-fevrier-2027-a-juilllet-2027-m-f-d-lausanne"
+        ],
+        "de": [
+          "administrative-hospitality-internship-100-de-fevrier-2027-a-juilllet-2027-m-f-d-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-hospitality-internship-100-de-fevrier-2027-a-juilllet-2027-m-f-d-lausanne"
+      ]
     },
     {
       "id": "bucherer-3081952a924e",
       "slug": "client-advisor-horlogerie-et-joaillerie-100-m-w-d-crans-montana-bucherer-crans-montana",
       "slugByLocale": {
+        "fr": "client-advisor-horlogerie-et-joaillerie-100-m-w-d-crans-montana-bucherer-crans-montana",
         "it": "client-advisor-horlogerie-et-joaillerie-100-m-w-d-crans-montana-bucherer-crans-montana",
-        "en": "client-advisor-horlogerie-et-joaillerie-100-m-w-d-crans-montana-bucherer-crans-montana",
-        "de": "client-advisor-horlogerie-et-joaillerie-100-m-w-d-crans-montana-bucherer-crans-montana",
-        "fr": "client-advisor-horlogerie-et-joaillerie-100-m-w-d-crans-montana-bucherer-crans-montana"
+        "en": "customer-advisor-watches-and-jewellery-100-m-f-d-crans-montana-bucherer-crans-montana",
+        "de": "client-advisor-horlogerie-et-joaillerie-100-m-w-d-crans-montana-bucherer-crans-montana"
       },
       "company": "Bucherer",
       "companyKey": "bucherer",
@@ -134,12 +145,12 @@
     },
     {
       "id": "bucherer-16478c9c28ca",
-      "slug": "operational-hospitality-internship-100-de-mars-2027-a-aout-2027-m-f-d-geneve-bucherer",
+      "slug": "interno-di-ospitalita-operazionale-100-da-marzo-2027-ad-agosto-2027-m-f-d-ginevra-bucherer-geneve",
       "slugByLocale": {
-        "it": "operational-hospitality-internship-100-de-mars-2027-a-aout-2027-m-f-d-geneve-bucherer",
+        "fr": "operational-hospitality-internship-100-de-mars-2027-a-aout-2027-m-f-d-geneve-bucherer",
+        "it": "interno-di-ospitalita-operazionale-100-da-marzo-2027-ad-agosto-2027-m-f-d-ginevra-bucherer-geneve",
         "en": "operational-hospitality-internship-100-de-mars-2027-a-aout-2027-m-f-d-geneve-bucherer",
-        "de": "operational-hospitality-internship-100-de-mars-2027-a-aout-2027-m-f-d-geneve-bucherer",
-        "fr": "operational-hospitality-internship-100-de-mars-2027-a-aout-2027-m-f-d-geneve-bucherer"
+        "de": "operational-hospitality-praktikum-100-von-marz-2027-bis-august-2027-m-w-d-genf-bucherer-geneve"
       },
       "company": "Bucherer",
       "companyKey": "bucherer",
@@ -195,7 +206,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T13:58:00.355Z"
+      "firstSeenAt": "2026-09-26T13:58:00.355Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operational-hospitality-internship-100-de-mars-2027-a-aout-2027-m-f-d-geneve-bucherer"
+        ],
+        "de": [
+          "operational-hospitality-internship-100-de-mars-2027-a-aout-2027-m-f-d-geneve-bucherer"
+        ]
+      },
+      "previousSlugs": [
+        "operational-hospitality-internship-100-de-mars-2027-a-aout-2027-m-f-d-geneve-bucherer"
+      ]
     },
     {
       "id": "bucherer-f5bf29e198dd",
@@ -264,12 +286,12 @@
     },
     {
       "id": "bucherer-5ba5920fc09d",
-      "slug": "private-client-manager-joaillerie-100-m-f-d-bucherer-geneve",
+      "slug": "gestione-clienti-privata-gioielli-100-m-f-d-bucherer-geneve",
       "slugByLocale": {
-        "it": "private-client-manager-joaillerie-100-m-f-d-bucherer-geneve",
+        "fr": "private-client-manager-joaillerie-100-m-f-d-bucherer-geneve",
+        "it": "gestione-clienti-privata-gioielli-100-m-f-d-bucherer-geneve",
         "en": "private-client-manager-joaillerie-100-m-f-d-bucherer-geneve",
-        "de": "private-client-manager-joaillerie-100-m-f-d-bucherer-geneve",
-        "fr": "private-client-manager-joaillerie-100-m-f-d-bucherer-geneve"
+        "de": "private-client-manager-joaillerie-100-m-f-d-bucherer-geneve"
       },
       "company": "Bucherer",
       "companyKey": "bucherer",
@@ -325,7 +347,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T13:58:00.354Z"
+      "firstSeenAt": "2026-09-26T13:58:00.354Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "private-client-manager-joaillerie-100-m-f-d-bucherer-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "private-client-manager-joaillerie-100-m-f-d-bucherer-geneve"
+      ]
     },
     {
       "id": "bucherer-0fe85e23da5f",
@@ -473,10 +503,10 @@
       "id": "bucherer-fe46e97e779b",
       "slug": "internship-100-m-w-d-01-03-2027-31-08-2027-bern-bucherer-bern",
       "slugByLocale": {
+        "de": "internship-100-m-w-d-01-03-2027-31-08-2027-bern-bucherer-bern",
         "it": "internship-100-m-w-d-01-03-2027-31-08-2027-bern-bucherer-bern",
         "en": "internship-100-m-w-d-01-03-2027-31-08-2027-bern-bucherer-bern",
-        "de": "internship-100-m-w-d-01-03-2027-31-08-2027-bern-bucherer-bern",
-        "fr": "internship-100-m-w-d-01-03-2027-31-08-2027-bern-bucherer-bern"
+        "fr": "stage-100-h-f-d-01-03-2027-31-08-2027-berne-bucherer-bern"
       },
       "company": "Bucherer",
       "companyKey": "bucherer",
@@ -601,12 +631,12 @@
     },
     {
       "id": "bucherer-16ebe4b3f8e4",
-      "slug": "koch-100-m-w-d-luzern-bucherer-luzern",
+      "slug": "cook-100-m-f-d-lucerna-bucherer-luzern",
       "slugByLocale": {
-        "it": "koch-100-m-w-d-luzern-bucherer-luzern",
-        "en": "koch-100-m-w-d-luzern-bucherer-luzern",
         "de": "koch-100-m-w-d-luzern-bucherer-luzern",
-        "fr": "koch-100-m-w-d-luzern-bucherer-luzern"
+        "it": "cook-100-m-f-d-lucerna-bucherer-luzern",
+        "en": "cook-100-m-f-d-lucerne-bucherer-luzern",
+        "fr": "cuire-100-h-f-d-lucerne-bucherer-luzern"
       },
       "company": "Bucherer",
       "companyKey": "bucherer",
@@ -662,7 +692,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T13:58:00.352Z"
+      "firstSeenAt": "2026-09-26T13:58:00.352Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-100-m-w-d-luzern-bucherer-luzern"
+        ],
+        "en": [
+          "koch-100-m-w-d-luzern-bucherer-luzern"
+        ],
+        "fr": [
+          "koch-100-m-w-d-luzern-bucherer-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "koch-100-m-w-d-luzern-bucherer-luzern"
+      ]
     },
     {
       "id": "bucherer-1d5b86173135",
@@ -872,12 +916,12 @@
     },
     {
       "id": "bucherer-241f51660026",
-      "slug": "watchmaker-100-m-w-d-luzern-bucherer-luzern",
+      "slug": "orologio-100-m-f-d-lucerna-bucherer-luzern",
       "slugByLocale": {
-        "it": "watchmaker-100-m-w-d-luzern-bucherer-luzern",
-        "en": "watchmaker-100-m-w-d-luzern-bucherer-luzern",
         "de": "watchmaker-100-m-w-d-luzern-bucherer-luzern",
-        "fr": "watchmaker-100-m-w-d-luzern-bucherer-luzern"
+        "it": "orologio-100-m-f-d-lucerna-bucherer-luzern",
+        "en": "watchmaker-100-m-w-d-luzern-bucherer-luzern",
+        "fr": "horlogerie-100-h-f-d-lucerne-bucherer-luzern"
       },
       "company": "Bucherer",
       "companyKey": "bucherer",
@@ -933,16 +977,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T13:58:00.350Z"
+      "firstSeenAt": "2026-09-26T13:58:00.350Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "watchmaker-100-m-w-d-luzern-bucherer-luzern"
+        ],
+        "fr": [
+          "watchmaker-100-m-w-d-luzern-bucherer-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "watchmaker-100-m-w-d-luzern-bucherer-luzern"
+      ]
     },
     {
       "id": "bucherer-a639f9d5bd40",
       "slug": "treasurer-befr-per-12-monate-80-100-m-w-d-luzern-bucherer-luzern",
       "slugByLocale": {
-        "it": "treasurer-befr-per-12-monate-80-100-m-w-d-luzern-bucherer-luzern",
-        "en": "treasurer-befr-fur-12-monate-80-100-m-w-d-luzern-bucherer-luzern",
         "de": "treasurer-befr-fur-12-monate-80-100-m-w-d-luzern-bucherer-luzern",
-        "fr": "treasurer-befr-fur-12-monate-80-100-m-w-d-luzern-bucherer-luzern"
+        "it": "treasurer-befr-per-12-monate-80-100-m-w-d-luzern-bucherer-luzern",
+        "en": "treasurer-for-12-months-80-100-m-f-d-lucerne-bucherer-luzern",
+        "fr": "tresorier-pendant-12-mois-80-100-h-f-d-lucerne-bucherer-luzern"
       },
       "company": "Bucherer",
       "companyKey": "bucherer",
@@ -988,6 +1043,12 @@
       "previousSlugsByLocale": {
         "it": [
           "treasurer-befr-fur-12-monate-80-100-m-w-d-luzern-bucherer-luzern"
+        ],
+        "en": [
+          "treasurer-befr-fur-12-monate-80-100-m-w-d-luzern-bucherer-luzern"
+        ],
+        "fr": [
+          "treasurer-befr-fur-12-monate-80-100-m-w-d-luzern-bucherer-luzern"
         ]
       },
       "previousSlugs": [
@@ -1010,12 +1071,12 @@
     },
     {
       "id": "bucherer-c9bcd5ba4b1d",
-      "slug": "deputy-boutique-manager-100-m-w-d-cartier-boutique-flughafen-zurich-bucherer-kloten",
+      "slug": "vice-boutique-manager-100-m-f-d-cartier-boutique-aeroporto-di-zurigo-bucherer-kloten",
       "slugByLocale": {
-        "it": "deputy-boutique-manager-100-m-w-d-cartier-boutique-flughafen-zurich-bucherer-kloten",
-        "en": "deputy-boutique-manager-100-m-w-d-cartier-boutique-flughafen-zurich-bucherer-kloten",
         "de": "deputy-boutique-manager-100-m-w-d-cartier-boutique-flughafen-zurich-bucherer-kloten",
-        "fr": "deputy-boutique-manager-100-m-w-d-cartier-boutique-flughafen-zurich-bucherer-kloten"
+        "it": "vice-boutique-manager-100-m-f-d-cartier-boutique-aeroporto-di-zurigo-bucherer-kloten",
+        "en": "deputy-boutique-manager-100-m-w-d-cartier-boutique-flughafen-zurich-bucherer-kloten",
+        "fr": "directeur-adjoint-de-la-boutique-100-h-f-d-cartier-boutique-zurich-airport-bucherer-kloten"
       },
       "company": "Bucherer",
       "companyKey": "bucherer",
@@ -1071,7 +1132,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T13:58:00.350Z"
+      "firstSeenAt": "2026-09-26T13:58:00.350Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "deputy-boutique-manager-100-m-w-d-cartier-boutique-flughafen-zurich-bucherer-kloten"
+        ],
+        "fr": [
+          "deputy-boutique-manager-100-m-w-d-cartier-boutique-flughafen-zurich-bucherer-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "deputy-boutique-manager-100-m-w-d-cartier-boutique-flughafen-zurich-bucherer-kloten"
+      ]
     },
     {
       "id": "bucherer-265df438e695",

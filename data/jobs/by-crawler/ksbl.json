@@ -459,10 +459,10 @@
       "id": "ksbl-1f87f6de291d",
       "slug": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
         "de": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "fr": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal"
+        "it": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -504,25 +504,14 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/unterassistentin-unterassistent-medizin-a/563a9d99-1dbc-4ec5-9be1-d549348b66fb",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
-        "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
-        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal"
-        ],
-        "en": [
-          "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal"
-        ],
-        "fr": [
-          "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
         ]
       },
-      "firstSeenAt": "2026-08-12T10:38:13.824Z",
+      "previousSlugs": [
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -535,7 +524,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T10:38:13.824Z"
     },
     {
       "id": "ksbl-20e1c631cea0",
@@ -1458,10 +1448,10 @@
       "id": "ksbl-5c79a64a318f",
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-2",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-2",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-2"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -1503,13 +1493,6 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/a2d46c8a-d8a3-435a-90e8-ffdb914f6b69",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-ic6caj",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -1525,7 +1508,13 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-ic6caj",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1538,7 +1527,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-19T10:23:51.599Z"
     },
     {
       "id": "ksbl-ce59d9b4b16d",
@@ -2146,10 +2136,10 @@
       "id": "ksbl-77f2cd30aec5",
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-4",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-4",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-4"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -2191,13 +2181,6 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/ee6a939e-bf31-4900-8863-feaa6faf5b07",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-66btc5",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -2213,7 +2196,13 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-66btc5",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2226,7 +2215,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-19T10:23:51.599Z"
     },
     {
       "id": "ksbl-808361269566",
@@ -2332,10 +2322,10 @@
       "id": "ksbl-630e6ac8be40",
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-5",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-5",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-5"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -2377,13 +2367,6 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/b9907a4c-02f3-4d83-a9cb-7d15fe6489bf",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-80pbrv",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -2399,7 +2382,13 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-80pbrv",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2412,16 +2401,17 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-19T10:23:51.599Z"
     },
     {
       "id": "ksbl-995ef65c57e8",
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-6",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-6",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-6"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -2463,13 +2453,6 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/eced2dc8-dc97-48ca-9b4b-1b8a182013aa",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-sw546p",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -2485,7 +2468,13 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-sw546p",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2498,7 +2487,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-19T10:23:51.599Z"
     },
     {
       "id": "ksbl-635b862bbf61",
@@ -2840,10 +2830,10 @@
       "id": "ksbl-61a9a0e4945a",
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-7",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-7",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "diplome-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-7"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -2885,16 +2875,6 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/27e35763-70bc-4abb-9a4b-85565f19ac1f",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
-        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-9p2nll"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
@@ -2915,7 +2895,17 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-9p2nll",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-fapojd"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2928,7 +2918,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-19T10:23:51.599Z"
     },
     {
       "id": "ksbl-9019aad02f15",
@@ -3396,7 +3387,6 @@
         "de": "Eintritt nach Vereinbarung · Bruderholz, Altersmedizin & Rehabilitation · Stellenreferenz 12890 · Festanstellung\n\nAufgaben:\n• Unterstützung der Stationsleitung in Planungs-, Organisations- und Führungsaufgaben\n• Mitverantwortung für die Umsetzung der Leistungsziele auf der Station mit rund 36 Betten\n• Mitverantwortung hinsichtlich Sicherung der Pflegequalität sowie der Implementierung und Gewährleistung der Nachhaltigkeit von Lean Hospital\n• Mitglied des Stationsleitungsgremiums im Sinne von Shared Governance\n• Mitarbeit in der direkten Pflege in einem motivierten Team, welches gesamthaft aus ca. 30 Mitarbeitenden besteht\n• Führen einer Zone mit der zugeteilten Patientengruppe\n\nAnforderungen:\n• Basis: Diplom als Pflegefachfrau/Pflegefachmann (HF, FH oder äquivalent)\n• Gerne: Erfahrung in einem Akutbetrieb\n• Sehr gerne: Teamplayer-Qualitäten und Lust auf Führungsaufgaben\n• Und auch: kommunikationsfreudiges Organisationstalent\n• Unbedingt: Freude an einemabwechslungsreichen und lebhaften Spitalalltag\n\nBenefits:\nRundum versorgt: vergünstigte Kita vor Ort, volle Erziehungszulagen, bezahlte Kurzabsenzen bei Notfall-Betreuung\n\nBereich: Altersmedizin & Rehabilitation\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
         "fr": "Admission sur rendez-vous · Bruderholz, Altermedizin & Rehabilitation · Référence emploi 12890 · Emploi permanent\n\nTâches :\n• Soutien à la gestion des stations dans les tâches de planification, d'organisation et de gestion\n• Coresponsabilité pour la réalisation des objectifs de performance de la station avec environ 36 lits\n• Responsabilité partagée pour assurer la qualité des soins ainsi que la mise en œuvre et la durabilité de l'hôpital Lean\n• Membre du conseil d'administration de la station au sens de la gouvernance partagée\n• Collaboration en soins directs dans une équipe motivée, qui se compose d'environ. Il y a 30 employés\n• Diriger une zone avec le groupe de patients assigné\n\nExigences\n• Base : Diplôme de spécialiste des soins infirmiers (HF, FH ou équivalent)\n• L'expérience d'une opération aiguë\n• Très heureux: qualités de joueur de l'équipe et désir pour les tâches de leadership\n• Et aussi : un talent organisationnel propice à la communication\n• Absolument: Joy d'un hôpital varié et animé vie quotidienne\n\nAvantages:\nSoins de longue durée : soins de jour réduits sur place, allocations parentales complètes, absences courtes payées en cas de soins d'urgence\n\nDomaine : Vieillissement Médecine et réadaptation\n\nNiveau d'emploi: 80-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/stv-stationsleiterin-stationsleiter-a/cd7d4c2d-cfec-428b-9284-62ed43d98914",
@@ -3438,8 +3428,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
         ],
         "fr": [
           "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
@@ -3459,7 +3448,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-5c0e1612737f",
@@ -4250,10 +4240,10 @@
       "id": "ksbl-d5312d335ace",
       "slug": "dipl-professionista-di-manutenzione-a-kantonsspital-baselland-ksbl-liestal-1a17cc",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
         "it": "dipl-professionista-di-manutenzione-a-kantonsspital-baselland-ksbl-liestal-1a17cc",
         "en": "dipl-maintenance-professional-a-kantonsspital-baselland-ksbl-liestal-1a17cc",
-        "de": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "specialiste-de-l-entretien-des-diplomes-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -4295,21 +4285,21 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-intensivpflege-a/585ce426-137d-4cfe-92a1-4d75ffec45b3",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
-        "specialiste-de-l-entretien-des-diplomes-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-professionista-di-manutenzione-a-kantonsspital-baselland-ksbl-liestal-1a17cc"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
           "dipl-professionista-di-manutenzione-a-kantonsspital-baselland-ksbl-liestal-1a17cc"
         ],
         "fr": [
-          "specialiste-de-l-entretien-des-diplomes-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "firstSeenAt": "2026-06-08T13:12:55.494Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
+        "specialiste-de-l-entretien-des-diplomes-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-professionista-di-manutenzione-a-kantonsspital-baselland-ksbl-liestal-1a17cc",
+        "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4322,7 +4312,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-08T13:12:55.494Z"
     },
     {
       "id": "ksbl-86d18ad2fadc",
@@ -5894,7 +5885,8 @@
         "service-en-chambre-des-employes-a-kantonsspital-baselland-ksbl-liestal",
         "gestion-du-milieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal",
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-rzfgnb",
-        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal"
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-f1geyx"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5916,7 +5908,8 @@
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-lie-rzfgnb",
           "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-rzfgnb",
-          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal"
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal",
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-f1geyx"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-a-ksbl-liestal",
@@ -7088,10 +7081,10 @@
       "id": "ksbl-cd14c6154336",
       "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
-        "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -7133,13 +7126,6 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/28dc23e7-e705-4a3e-aea9-882468bde609",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-tiu1kw",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
@@ -7151,7 +7137,13 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-tiu1kw",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7164,7 +7156,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-19T10:23:51.599Z"
     },
     {
       "id": "ksbl-ceaa9727b08f",

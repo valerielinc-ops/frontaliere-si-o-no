@@ -77,15 +77,13 @@
       "previousSlugs": [
         "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez",
         "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez-o4qo0h",
-        "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-migros-ticino-aeschi-bei-spiez"
+        "stv-filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez",
           "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez-o4qo0h",
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-migros-ticino-aeschi-bei-spiez"
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez-o4qo0h"
@@ -95,7 +93,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -108,7 +105,8 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-lvj7xa",
@@ -185,15 +183,13 @@
       "previousSlugs": [
         "verkaufer-in-migros-ticino-aeschi-bei-spiez",
         "verkaufer-in-migros-ticino-aeschi-bei-spiez-lvj7xa",
-        "verkaufer-in-denner",
-        "venditore-migros-ticino-aeschi-bei-spiez"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-migros-ticino-aeschi-bei-spiez",
           "verkaufer-in-migros-ticino-aeschi-bei-spiez-lvj7xa",
-          "verkaufer-in-denner",
-          "venditore-migros-ticino-aeschi-bei-spiez"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-migros-ticino-aeschi-bei-spiez-lvj7xa"
@@ -203,7 +199,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -216,7 +211,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-dy5k7r",
@@ -305,8 +301,7 @@
         "verkaufer-in-im-stundenlohn-migros-ticino-grosswangen",
         "addetto-a-alla-vendita-a-ore-migros-ticino-kleinandelfingen",
         "verkaufer-in-im-stundenlohn-denner",
-        "hourly-sales-associate-denner-weinfelden",
-        "venditore-nel-salario-orario-migros-ticino-kleinandelfingen"
+        "hourly-sales-associate-denner-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -324,8 +319,7 @@
           "verkaufer-in-im-stundenlohn-migros-ticino-grosswangen",
           "addetto-a-alla-vendita-a-ore-migros-ticino-kleinandelfingen",
           "verkaufer-in-im-stundenlohn-denner",
-          "hourly-sales-associate-denner-weinfelden",
-          "venditore-nel-salario-orario-migros-ticino-kleinandelfingen"
+          "hourly-sales-associate-denner-weinfelden"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-migros-ticino-kleinandelfingen-dy5k7r",
@@ -340,7 +334,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -353,7 +346,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-3k6zx9",
@@ -361,7 +355,7 @@
       "slugByLocale": {
         "it": "obiettivi-tecnici-operativi-denner-aclens",
         "en": "operating-technician-aclens-denner-aclens",
-        "de": "techniker-fur-die-aklensoperationen-denner-aclens",
+        "de": "betriebstechniker-aclens-denner-aclens",
         "fr": "technicien-ne-d-exploitation-aclens-denner"
       },
       "company": "Denner",
@@ -440,8 +434,6 @@
         "betriebstechniker-aclens-denner-sa-aclens",
         "obiettivi-tecnici-operativi-denner-sa-aclens",
         "technicien-ne-d-exploitation-aclens-denner",
-        "betriebstechniker-aclens-denner-aclens",
-        "obiettivi-tecnici-operativi-denner-aclens",
         "techniker-fur-die-aklensoperationen-denner-aclens"
       ],
       "previousSlugsByLocale": {
@@ -449,8 +441,7 @@
           "technicien-ne-d-exploitation-aclens-denner-sa-aclens",
           "technicien-ne-d-exploitation-aclens-denner-sa-aclens-3k6zx9",
           "obiettivi-tecnici-operativi-denner-sa-aclens",
-          "technicien-ne-d-exploitation-aclens-denner",
-          "obiettivi-tecnici-operativi-denner-aclens"
+          "technicien-ne-d-exploitation-aclens-denner"
         ],
         "en": [
           "technicien-ne-d-exploitation-aclens-denner-sa-aclens-3k6zx9",
@@ -459,15 +450,14 @@
         "de": [
           "technicien-ne-d-exploitation-aclens-denner-sa-aclens-3k6zx9",
           "betriebstechniker-aclens-denner-sa-aclens",
-          "betriebstechniker-aclens-denner-aclens",
           "techniker-fur-die-aklensoperationen-denner-aclens"
         ],
         "fr": [
           "technicien-ne-d-exploitation-aclens-denner-sa-aclens-3k6zx9"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:50:14.041Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -487,9 +477,9 @@
       "slug": "responsabile-della-filiale-nella-formazione-denner-ag-kirchberg",
       "slugByLocale": {
         "it": "responsabile-della-filiale-nella-formazione-denner-ag-kirchberg",
-        "en": "filialleiter-in-ausbildung-denner-kirchberg",
+        "en": "branch-manager-in-training-denner-ag-kirchberg",
         "de": "filialleiter-in-ausbildung-denner-ag-kirchberg-h20zj5",
-        "fr": "filialleiter-in-ausbildung-denner-kirchberg"
+        "fr": "directeur-de-branche-en-formation-denner-ag-kirchberg"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -546,26 +536,26 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:37:12.898Z",
-      "previousSlugs": [
-        "filialleiter-in-in-ausbildung-denner",
-        "branch-manager-in-training-denner-ag-kirchberg",
-        "directeur-de-branche-en-formation-denner-ag-kirchberg",
-        "responsabile-della-filiale-nella-formazione-denner-ag-kirchberg"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-in-ausbildung-denner",
           "responsabile-della-filiale-nella-formazione-denner-ag-kirchberg"
         ],
         "en": [
-          "branch-manager-in-training-denner-ag-kirchberg"
+          "filialleiter-in-ausbildung-denner-kirchberg"
         ],
         "fr": [
-          "directeur-de-branche-en-formation-denner-ag-kirchberg"
+          "filialleiter-in-ausbildung-denner-kirchberg"
         ]
       },
+      "previousSlugs": [
+        "filialleiter-in-in-ausbildung-denner",
+        "branch-manager-in-training-denner-ag-kirchberg",
+        "directeur-de-branche-en-formation-denner-ag-kirchberg",
+        "responsabile-della-filiale-nella-formazione-denner-ag-kirchberg",
+        "filialleiter-in-ausbildung-denner-kirchberg"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-17T03:47:19.557Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -578,7 +568,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-17T03:47:19.557Z"
     },
     {
       "id": "denner-f99951b5247c",
@@ -757,13 +748,11 @@
         "branch-manager-in-training-denner-ag-burgdorf-rhyjdo",
         "filialleiter-in-in-aubsildung-denner",
         "gerant-de-filiale-en-formation-denner-ag-burgdorf-n86px3",
-        "gerant-de-filiale-en-formation-denner-ag-burgdorf-rhyjdo",
-        "direttore-di-filiale-in-formazione-denner-ag-burgdorf"
+        "gerant-de-filiale-en-formation-denner-ag-burgdorf-rhyjdo"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-aubsildung-denner",
-          "direttore-di-filiale-in-formazione-denner-ag-burgdorf"
+          "filialleiter-in-in-aubsildung-denner"
         ],
         "en": [
           "branch-manager-in-training-denner-ag-burgdorf-n86px3",
@@ -872,8 +861,7 @@
         "filialleiter-in-denner-ag-basel-d16eba",
         "filialleiter-in-denner",
         "filialleiter-in-denner-ag-nurensdorf",
-        "responsabile-di-filiale-denner-ag-nurensdorf",
-        "responsabile-filiale-denner-ag-basel"
+        "responsabile-di-filiale-denner-ag-nurensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -885,8 +873,7 @@
           "filialleiter-in-denner-ag-basel-d16eba",
           "filialleiter-in-denner",
           "filialleiter-in-denner-ag-nurensdorf",
-          "responsabile-di-filiale-denner-ag-nurensdorf",
-          "responsabile-filiale-denner-ag-basel"
+          "responsabile-di-filiale-denner-ag-nurensdorf"
         ],
         "en": [
           "filialleiter-in-denner-ag-basel-1yoo3t",
@@ -903,7 +890,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -916,7 +902,8 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-qr8sbm",
@@ -993,15 +980,13 @@
       "previousSlugs": [
         "filialleiter-in-ausbildung-denner-ag-muttenz",
         "filialleiter-in-ausbildung-denner-ag-muttenz-qr8sbm",
-        "filialleiter-in-in-ausbildung-denner",
-        "direttore-di-negozio-in-formazione-denner-ag-muttenz"
+        "filialleiter-in-in-ausbildung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-ausbildung-denner-ag-muttenz",
           "filialleiter-in-ausbildung-denner-ag-muttenz-qr8sbm",
-          "filialleiter-in-in-ausbildung-denner",
-          "direttore-di-negozio-in-formazione-denner-ag-muttenz"
+          "filialleiter-in-in-ausbildung-denner"
         ],
         "en": [
           "filialleiter-in-ausbildung-denner-ag-muttenz-qr8sbm"
@@ -1011,7 +996,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -1024,7 +1008,8 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-wvfsx2",
@@ -1102,16 +1087,14 @@
         "stv-filialleiter-in-denner-ag-wadenswil",
         "stv-filialleiter-in-denner-ag-wadenswil-wvfsx2",
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-wadenswil",
-        "stv-branch-manager-in-denner-ag-wadenswil"
+        "stv-filialleiter-in-denner-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-wadenswil",
           "stv-filialleiter-in-denner-ag-wadenswil-wvfsx2",
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-wadenswil",
-          "stv-branch-manager-in-denner-ag-wadenswil"
+          "stv-filialleiter-in-denner-wadenswil"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-wadenswil-wvfsx2"
@@ -1121,7 +1104,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -1134,7 +1116,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ojthu",
@@ -1213,15 +1196,13 @@
       "previousSlugs": [
         "assistent-in-filialleitung-denner-ag-langnau-am-albis",
         "assistent-in-filialleitung-denner-ag-langnau-am-albis-0ojthu",
-        "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-ag-langnau-am-albis"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-ag-langnau-am-albis",
           "assistent-in-filialleitung-denner-ag-langnau-am-albis-0ojthu",
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-langnau-am-albis"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-langnau-am-albis-0ojthu"
@@ -1231,7 +1212,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -1244,7 +1224,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-68m8tl",
@@ -1323,8 +1304,7 @@
         "verkaufer-in-denner-ag-basel-68m8tl",
         "verkaufer-in-denner",
         "salesperson-denner-ag-basel-15d39b",
-        "seller-denner-ag-basel-15d39b",
-        "venditore-denner-ag-basel-15d39b"
+        "seller-denner-ag-basel-15d39b"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1332,8 +1312,7 @@
           "verkaufer-in-denner-ag-basel-68m8tl",
           "verkaufer-in-denner",
           "salesperson-denner-ag-basel-15d39b",
-          "seller-denner-ag-basel-15d39b",
-          "venditore-denner-ag-basel-15d39b"
+          "seller-denner-ag-basel-15d39b"
         ],
         "en": [
           "verkaufer-in-denner-ag-basel"
@@ -1346,7 +1325,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T12:43:40.252Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -1359,7 +1337,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-v42vb5",
@@ -1436,15 +1415,13 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-basel",
         "stv-filialleiter-in-denner-ag-basel-v42vb5",
-        "stv-filialleiter-in-denner",
-        "vice-direttore-di-filiale-denner-ag-basel-4958f7"
+        "stv-filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-basel",
           "stv-filialleiter-in-denner-ag-basel-v42vb5",
-          "stv-filialleiter-in-denner",
-          "vice-direttore-di-filiale-denner-ag-basel-4958f7"
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-basel-v42vb5"
@@ -1454,7 +1431,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T14:22:55.803Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -1467,7 +1443,8 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-9y8q3n",
@@ -1560,8 +1537,7 @@
         "responsabile-di-filiale-in-formazione-denner-kirchberg",
         "responsabile-di-filiale-in-formazione-denner-lyssach",
         "responsabile-di-filiale-in-formazione-denner-steinhausen",
-        "responsabile-di-filiale-in-formazione-denner-wollerau",
-        "responsabile-di-filiale-in-formazione-denner-ag-allschwil"
+        "responsabile-di-filiale-in-formazione-denner-wollerau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1583,8 +1559,7 @@
           "responsabile-di-filiale-in-formazione-denner-kirchberg",
           "responsabile-di-filiale-in-formazione-denner-lyssach",
           "responsabile-di-filiale-in-formazione-denner-steinhausen",
-          "responsabile-di-filiale-in-formazione-denner-wollerau",
-          "responsabile-di-filiale-in-formazione-denner-ag-allschwil"
+          "responsabile-di-filiale-in-formazione-denner-wollerau"
         ],
         "en": [
           "filialleiter-in-ausbildung-denner-ag-allschwil-9y8q3n"
@@ -1595,7 +1570,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:49.364Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -1608,7 +1582,8 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-30d4589ed6cd",
@@ -1777,8 +1752,7 @@
         "verkaufer-in-denner-ag-hasle-b",
         "verkaufer-in-denner-ag-hasle-b-3fw79h",
         "verkaufer-in-denner-ag-hasle-b-burgdorf-3fw79h",
-        "verkaufer-in-denner",
-        "venditore-denner-ag-hasle-b"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1786,8 +1760,7 @@
           "verkaufer-in-denner-ag-hasle-b",
           "verkaufer-in-denner-ag-hasle-b-3fw79h",
           "verkaufer-in-denner-ag-hasle-b-burgdorf-3fw79h",
-          "verkaufer-in-denner",
-          "venditore-denner-ag-hasle-b"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-hasle-b-3fw79h",
@@ -1804,7 +1777,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:07:44.708Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1817,7 +1789,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-cb6f9f0f3884",
@@ -1913,10 +1886,10 @@
       "id": "denner-727bbf66b8c4",
       "slug": "assistente-nella-gestione-delle-branche-denner-basel",
       "slugByLocale": {
-        "it": "assistente-nella-gestione-delle-branche-denner-basel",
+        "it": "vice-direttore-di-filiale-denner-ag-basel",
         "en": "assistant-branch-manager-denner-ag-basel",
         "de": "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
-        "fr": "assistant-dans-la-gestion-des-succursales-denner-basel"
+        "fr": "directeur-adjoint-de-succursale-denner-ag-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1979,9 +1952,6 @@
         "assistent-in-filialleitung-denner-ag-basel",
         "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
         "assistent-in-filialleitung-denner-basel",
-        "vice-direttore-di-filiale-denner-ag-basel",
-        "directeur-adjoint-de-succursale-denner-ag-basel",
-        "assistente-nella-gestione-delle-branche-denner-basel",
         "assistant-dans-la-gestion-des-succursales-denner-basel"
       ],
       "previousSlugsByLocale": {
@@ -1989,21 +1959,17 @@
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-ag-basel",
           "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
-          "assistent-in-filialleitung-denner-basel",
-          "vice-direttore-di-filiale-denner-ag-basel",
-          "assistente-nella-gestione-delle-branche-denner-basel"
+          "assistent-in-filialleitung-denner-basel"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-basel-lvyhnb"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
-          "directeur-adjoint-de-succursale-denner-ag-basel",
           "assistant-dans-la-gestion-des-succursales-denner-basel"
         ]
       },
       "firstSeenAt": "2026-06-18T22:40:00.067Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -2016,7 +1982,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-a1189bde07f5",
@@ -2112,7 +2079,7 @@
       "id": "denner-1dd6dc22036a",
       "slug": "addetto-a-vendite-con-paga-oraria-denner-interlaken",
       "slugByLocale": {
-        "it": "addetto-a-vendite-con-paga-oraria-denner-interlaken",
+        "it": "venditore-nel-salario-orario-denner-ag-interlaken",
         "en": "seller-in-the-hourly-wage-denner-ag-interlaken",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh",
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-interlaken"
@@ -2177,9 +2144,7 @@
         "verkaufer-in-im-stundenlohn-denner-5",
         "verkaufer-in-im-stundenlohn-denner-ag-interlaken",
         "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh",
-        "verkaufer-in-im-stundenlohn-denner-interlaken",
-        "venditore-nel-salario-orario-denner-ag-interlaken",
-        "addetto-a-vendite-con-paga-oraria-denner-interlaken"
+        "verkaufer-in-im-stundenlohn-denner-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2187,9 +2152,7 @@
           "verkaufer-in-im-stundenlohn-denner-5",
           "verkaufer-in-im-stundenlohn-denner-ag-interlaken",
           "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh",
-          "verkaufer-in-im-stundenlohn-denner-interlaken",
-          "venditore-nel-salario-orario-denner-ag-interlaken",
-          "addetto-a-vendite-con-paga-oraria-denner-interlaken"
+          "verkaufer-in-im-stundenlohn-denner-interlaken"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh"
@@ -2199,7 +2162,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T10:59:14.461Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -2212,7 +2174,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c25d25d4309d",
@@ -2290,8 +2253,7 @@
         "salesperson-denner-ag-konolfingen",
         "verkaufer-in-im-stundenlohn-denner-konolfingen",
         "venditore-in-orario-denner-konolfingen",
-        "venditore-nel-salario-orario-denner-ag-breitenbach",
-        "venditore-nel-salario-orario-denner-ag-konolfingen"
+        "venditore-nel-salario-orario-denner-ag-breitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2305,8 +2267,7 @@
           "verkaufer-in-denner-ag-konolfingen-97uhx7",
           "salesperson-denner-ag-konolfingen",
           "venditore-in-orario-denner-konolfingen",
-          "venditore-nel-salario-orario-denner-ag-breitenbach",
-          "venditore-nel-salario-orario-denner-ag-konolfingen"
+          "venditore-nel-salario-orario-denner-ag-breitenbach"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-konolfingen-h9phcd",
@@ -2323,7 +2284,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:30:58.162Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -2336,16 +2296,17 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-b618e5a75544",
       "slug": "verkaufer-in-denner-basel",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-basel",
-        "en": "verkaufer-in-denner-basel",
+        "it": "venditore-denner-ag-basel",
         "de": "verkaufer-in-denner-ag-basel",
-        "fr": "verkaufer-in-denner-basel"
+        "en": "seller-denner-ag-basel-129873",
+        "fr": "vendeur-denner-ag-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2402,30 +2363,24 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:37:10.180Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-basel-129873",
-        "vendeur-denner-ag-basel",
-        "seller-denner-ag-basel-66c0e2",
-        "vendeur-denner-ag-basel-66c0e2",
-        "verkaufer-in-denner-basel"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "seller-denner-ag-basel-66c0e2",
           "vendeur-denner-ag-basel-66c0e2",
           "verkaufer-in-denner-basel"
-        ],
-        "en": [
-          "seller-denner-ag-basel-129873"
-        ],
-        "fr": [
-          "vendeur-denner-ag-basel"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-01T22:52:24.488Z",
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "seller-denner-ag-basel-129873",
+        "vendeur-denner-ag-basel",
+        "seller-denner-ag-basel-66c0e2",
+        "vendeur-denner-ag-basel-66c0e2",
+        "verkaufer-in-denner-basel",
+        "verkaufer-in-denner-basel-j9jhrv"
+      ],
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -2438,7 +2393,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-01T22:52:24.488Z"
     },
     {
       "id": "denner-795471ac4628",
@@ -2511,8 +2467,7 @@
         "assistent-in-filialleitung-denner-ag-zurich-5db9aa",
         "assistent-in-filialleitung-denner-ag-zurich-2",
         "assistent-in-filialleitung-denner-zurich",
-        "assistant-de-magasin-denner-ag-meilen",
-        "assistente-di-filiale-denner-ag-zurich"
+        "assistant-de-magasin-denner-ag-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2521,8 +2476,7 @@
           "assistent-in-filialleitung-denner-ag-zurich-5db9aa",
           "assistent-in-filialleitung-denner-ag-zurich-2",
           "assistent-in-filialleitung-denner-zurich",
-          "assistant-de-magasin-denner-ag-meilen",
-          "assistente-di-filiale-denner-ag-zurich"
+          "assistant-de-magasin-denner-ag-meilen"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-zurich-5db9aa"
@@ -2532,7 +2486,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:35.940Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -2545,7 +2498,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c7a341cf3d50",
@@ -2613,17 +2567,14 @@
       "crawledAt": "2026-09-26T23:37:09.759Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-ag-zurich-z8lf10",
-        "stv-branch-manager-in-denner-ag-zurich"
+        "stv-branch-manager-in-denner-ag-zurich-z8lf10"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-zurich"
+          "stv-filialleiter-in-denner"
         ]
       },
       "firstSeenAt": "2026-05-26T22:41:04.706Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -2636,16 +2587,17 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-884406e1f0a8",
       "slug": "stv-branch-manager-in-denner-ag-zurich-3e601b",
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-zurich-3e601b",
-        "en": "stv-filialleiter-in-denner-zurich",
-        "de": "stv-filialleiter-in-denner-ag-zurich-2zbait",
-        "fr": "directeur-de-succursale-stv-in-denner-ag-zurich-3e601b"
+        "fr": "directeur-de-succursale-stv-in-denner-ag-zurich-3e601b",
+        "en": "assistant-store-manager-denner-ag-zurich",
+        "de": "stv-filialleiter-in-denner-ag-zurich-2zbait"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2702,13 +2654,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:37:09.757Z",
-      "previousSlugs": [
-        "stv-filialleiter-in-denner",
-        "assistant-store-manager-denner-ag-zurich",
-        "stv-filialleiter-in-denner-zurich-2zbait",
-        "stv-branch-manager-in-denner-ag-zurich-3e601b",
-        "stv-filialleiter-in-denner-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
@@ -2720,8 +2665,14 @@
           "stv-filialleiter-in-denner-zurich"
         ]
       },
+      "previousSlugs": [
+        "stv-filialleiter-in-denner",
+        "assistant-store-manager-denner-ag-zurich",
+        "stv-filialleiter-in-denner-zurich-2zbait",
+        "stv-branch-manager-in-denner-ag-zurich-3e601b",
+        "stv-filialleiter-in-denner-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-22T22:33:45.051Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -2734,7 +2685,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-22T22:33:45.051Z"
     },
     {
       "id": "denner-c04351a446ce",
@@ -2811,8 +2763,7 @@
         "vendeur-vendeuse-denner-ag-zurich",
         "vendeur-vendeuse-denner-ag-zurich-1ed56c",
         "venditore-a-denner-ag-zurich",
-        "venditore-a-denner-ag-zurich-1ed56c",
-        "venditore-denner-ag-zurich-1ed56c"
+        "venditore-a-denner-ag-zurich-1ed56c"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2825,12 +2776,10 @@
           "vendeur-vendeuse-denner-ag-zurich",
           "vendeur-vendeuse-denner-ag-zurich-1ed56c",
           "venditore-a-denner-ag-zurich",
-          "venditore-a-denner-ag-zurich-1ed56c",
-          "venditore-denner-ag-zurich-1ed56c"
+          "venditore-a-denner-ag-zurich-1ed56c"
         ]
       },
       "firstSeenAt": "2026-06-02T23:18:41.612Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -2843,7 +2792,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-ea55ca321713",
@@ -3009,8 +2959,7 @@
         "vendeur-denner-ag-reinach-bl",
         "verkaufer-in-denner-ag-reinach-bl-1850xg",
         "venditore-denner-reinach-bl",
-        "verkaufer-in-denner-reinach-bl",
-        "venditore-denner-ag-reinach-bl-9cfee9"
+        "verkaufer-in-denner-reinach-bl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3022,8 +2971,7 @@
           "vendeur-denner-ag-reinach-bl",
           "verkaufer-in-denner-ag-reinach-bl-1850xg",
           "venditore-denner-reinach-bl",
-          "verkaufer-in-denner-reinach-bl",
-          "venditore-denner-ag-reinach-bl-9cfee9"
+          "verkaufer-in-denner-reinach-bl"
         ],
         "en": [
           "verkaufer-in-denner-ag-reinach-bl-3j1k3k",
@@ -3040,7 +2988,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:07:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -3053,7 +3000,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-7fph1q",
@@ -3135,8 +3083,7 @@
         "verkaufer-in-im-stundenlohn-denner-7",
         "verkaufer-in-im-stundenlohn-denner-ag-windisch-7fph1q",
         "seller-in-the-hourly-wage-denner-windisch",
-        "verkaufer-in-im-stundenlohn-denner-5",
-        "venditore-nel-salario-orario-denner-windisch"
+        "verkaufer-in-im-stundenlohn-denner-5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3146,8 +3093,7 @@
           "verkaufer-in-im-stundenlohn-denner-6",
           "verkaufer-in-im-stundenlohn-denner-7",
           "verkaufer-in-im-stundenlohn-denner-ag-windisch-7fph1q",
-          "verkaufer-in-im-stundenlohn-denner-5",
-          "venditore-nel-salario-orario-denner-windisch"
+          "verkaufer-in-im-stundenlohn-denner-5"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-windisch-7fph1q",
@@ -3158,7 +3104,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -3171,7 +3116,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-0b91c22d519e",
@@ -3260,8 +3206,7 @@
         "vendeur-denner-ag-chur-7e22e4",
         "verkaufer-in-denner-ag-chur-3",
         "verkaufer-in-denner-ag-chur-pu2w4a",
-        "verkaufer-in-denner-ag-chur-s6g83c",
-        "venditore-denner-ag-chur-2511ee"
+        "verkaufer-in-denner-ag-chur-s6g83c"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3279,8 +3224,7 @@
           "vendeur-denner-ag-chur-7e22e4",
           "verkaufer-in-denner-ag-chur-3",
           "verkaufer-in-denner-ag-chur-pu2w4a",
-          "verkaufer-in-denner-ag-chur-s6g83c",
-          "venditore-denner-ag-chur-2511ee"
+          "verkaufer-in-denner-ag-chur-s6g83c"
         ],
         "en": [
           "verkaufer-in-denner-ag-chur",
@@ -3292,7 +3236,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:36:21.421Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -3305,7 +3248,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-w85cd4",
@@ -3385,16 +3329,14 @@
         "stv-branch-manager-in-denner-ag-schaffhausen-w85cd4",
         "adjoint-e-de-magasin-denner-ag-schaffhausen",
         "stv-filialleiter-in-denner",
-        "assistente-del-direttore-di-filiale-denner-biberist",
-        "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5"
+        "assistente-del-direttore-di-filiale-denner-biberist"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-schaffhausen",
           "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
           "stv-filialleiter-in-denner",
-          "assistente-del-direttore-di-filiale-denner-biberist",
-          "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5"
+          "assistente-del-direttore-di-filiale-denner-biberist"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
@@ -3406,7 +3348,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:10:52.243Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -3419,7 +3360,8 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-hgv73x",
@@ -3503,8 +3445,7 @@
         "assistant-branch-manager-denner-ag-appenzell",
         "assistent-in-filialleitung-denner-ag-appenzell-3nhcda",
         "directeur-adjoint-de-succursale-denner-ag-appenzell",
-        "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-ag-schaffhausen"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3512,8 +3453,7 @@
           "assistent-in-filialleitung-denner-ag-schaffhausen-hgv73x",
           "vice-direttore-di-filiale-denner-ag-appenzell",
           "assistent-in-filialleitung-denner-ag-appenzell",
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-schaffhausen"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-schaffhausen-hgv73x",
@@ -3528,7 +3468,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -3541,7 +3480,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-xxj3e2",
@@ -3687,8 +3627,7 @@
         "venditore-denner-ag-allschwil",
         "seller-denner-ag-allschwil-5b4844",
         "vendeur-denner-ag-allschwil-5b4844",
-        "verkaufer-in-denner",
-        "venditore-denner-ag-frauenfeld-483d8d"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3710,8 +3649,7 @@
           "seller-denner-ag-allschwil-5b4844",
           "vendeur-denner-ag-allschwil-5b4844",
           "verkaufer-in-denner",
-          "salesperson-denner-ag-langenthal-450cef",
-          "venditore-denner-ag-frauenfeld-483d8d"
+          "salesperson-denner-ag-langenthal-450cef"
         ],
         "en": [
           "verkaufer-in-denner-ag-frauenfeld-xxj3e2",
@@ -3729,7 +3667,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -3742,7 +3679,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-j51i63",
@@ -3819,15 +3757,13 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-abtwil-sg",
         "stv-filialleiter-in-denner-ag-abtwil-sg-j51i63",
-        "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-ag-abtwil-sg"
+        "stv-filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-abtwil-sg",
           "stv-filialleiter-in-denner-ag-abtwil-sg-j51i63",
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-abtwil-sg"
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-abtwil-sg-j51i63"
@@ -3837,7 +3773,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T12:28:20.322Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -3850,7 +3785,8 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-496np1",
@@ -3934,8 +3870,7 @@
         "assistent-in-filialleitung-denner-ag-frauenfeld-hqjx55",
         "assistant-dans-la-gestion-des-succursales-denner-ag-frauenfeld-555cb2",
         "assistent-in-filialleitung-denner-ag-frauenfeld-2",
-        "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-ag-frauenfeld"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3946,8 +3881,7 @@
           "assistent-in-filialleitung-denner-ag-frauenfeld-hqjx55",
           "assistant-dans-la-gestion-des-succursales-denner-ag-frauenfeld-555cb2",
           "assistent-in-filialleitung-denner-ag-frauenfeld-2",
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-frauenfeld"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-frauenfeld-496np1",
@@ -3962,7 +3896,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:41:02.895Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -3975,7 +3908,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-doghih",
@@ -4057,8 +3991,7 @@
         "venditore-denner-ag-frauenfeld",
         "verkaufer-in-denner-ag-widnau",
         "verkaufer-in-denner-ag-widnau-2",
-        "verkaufer-in-denner",
-        "venditore-denner-ag-widnau"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4069,8 +4002,7 @@
           "venditore-denner-ag-frauenfeld",
           "verkaufer-in-denner-ag-widnau",
           "verkaufer-in-denner-ag-widnau-2",
-          "verkaufer-in-denner",
-          "venditore-denner-ag-widnau"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-widnau-doghih",
@@ -4088,7 +4020,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:41:02.895Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -4101,7 +4032,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-p9o1kh",
@@ -4184,8 +4116,7 @@
         "venditore-denner-ag-frauenfeld",
         "verkaufer-in-denner-ag-pfungen-cnubex",
         "verkaufer-in-denner",
-        "venditore-denner-pfungen",
-        "venditore-denner-ag-pfungen"
+        "venditore-denner-pfungen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4197,8 +4128,7 @@
           "venditore-denner-ag-frauenfeld",
           "verkaufer-in-denner-ag-pfungen-cnubex",
           "verkaufer-in-denner",
-          "venditore-denner-pfungen",
-          "venditore-denner-ag-pfungen"
+          "venditore-denner-pfungen"
         ],
         "en": [
           "verkaufer-in-denner-ag-pfungen-p9o1kh",
@@ -4214,7 +4144,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:18:40.683Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -4227,7 +4156,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-d6v6p9",
@@ -4304,15 +4234,13 @@
       "previousSlugs": [
         "verkaufer-in-denner-ag-kreuzlingen-d6v6p9",
         "verkaufer-in-denner-ag-kreuzlingen",
-        "verkaufer-in-denner",
-        "venditore-denner-ag-kreuzlingen"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-kreuzlingen-d6v6p9",
           "verkaufer-in-denner-ag-kreuzlingen",
-          "verkaufer-in-denner",
-          "venditore-denner-ag-kreuzlingen"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-kreuzlingen-d6v6p9",
@@ -4327,7 +4255,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:37:29.966Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -4340,7 +4267,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-70fga1",
@@ -4418,15 +4346,13 @@
         "stv-filialleiter-in-denner-ag-winterthur",
         "stv-filialleiter-in-denner-ag-winterthur-70fga1",
         "deputy-store-manager-denner-ag-winterthur-70fga1",
-        "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-ag-winterthur"
+        "stv-filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-winterthur",
           "stv-filialleiter-in-denner-ag-winterthur-70fga1",
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-winterthur"
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-winterthur-70fga1",
@@ -4437,7 +4363,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:12:28.866Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -4450,7 +4375,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-nvm3cg",
@@ -4526,18 +4452,15 @@
       "crawledAt": "2026-09-26T23:37:07.626Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-ag-schaffhausen",
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-con-salario-orario-denner-ag-schaffhausen"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-ag-schaffhausen",
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-con-salario-orario-denner-ag-schaffhausen"
+          "verkaufer-in-im-stundenlohn-denner"
         ]
       },
       "firstSeenAt": "2026-06-18T12:11:29.405Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -4550,7 +4473,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-opypf7",
@@ -4630,8 +4554,7 @@
         "deputy-store-manager-denner-ag-zofingen-opypf7",
         "stv-filialleiter-in-denner",
         "adjoint-e-de-responsable-de-magasin-denner-neuhausen",
-        "vice-responsabile-di-filiale-denner-neuhausen",
-        "stv-branch-manager-in-denner-ag-zofingen"
+        "vice-responsabile-di-filiale-denner-neuhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4639,8 +4562,7 @@
           "stv-filialleiter-in-denner-ag-zofingen-opypf7",
           "stv-filialleiter-in-denner",
           "adjoint-e-de-responsable-de-magasin-denner-neuhausen",
-          "vice-responsabile-di-filiale-denner-neuhausen",
-          "stv-branch-manager-in-denner-ag-zofingen"
+          "vice-responsabile-di-filiale-denner-neuhausen"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-zofingen-opypf7",
@@ -4652,7 +4574,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -4665,13 +4586,14 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-1f4a279fe703",
       "slug": "seller-in-retribuzione-oraria-denner-olten",
       "slugByLocale": {
-        "it": "seller-in-retribuzione-oraria-denner-olten",
+        "it": "venditore-nel-salario-orario-denner-ag-olten",
         "en": "seller-in-the-hourly-wage-denner-ag-olten",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-olten-ntl1uj",
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-olten"
@@ -4735,18 +4657,14 @@
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-ag-olten",
         "verkaufer-in-im-stundenlohn-denner-ag-olten-ntl1uj",
-        "verkaufer-in-im-stundenlohn-denner-olten",
-        "venditore-nel-salario-orario-denner-ag-olten",
-        "seller-in-retribuzione-oraria-denner-olten"
+        "verkaufer-in-im-stundenlohn-denner-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-ag-olten",
           "verkaufer-in-im-stundenlohn-denner-ag-olten-ntl1uj",
-          "verkaufer-in-im-stundenlohn-denner-olten",
-          "venditore-nel-salario-orario-denner-ag-olten",
-          "seller-in-retribuzione-oraria-denner-olten"
+          "verkaufer-in-im-stundenlohn-denner-olten"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-olten-ntl1uj"
@@ -4756,7 +4674,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:09.777Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -4769,7 +4686,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-51e704085690",
@@ -4840,15 +4758,13 @@
         "franchisepartner-in-denner-partner-denner-2",
         "franchisepartner-in-denner-partner-denner",
         "franchisepartner-in-denner-partner-denner-erstfeld",
-        "partenaire-franchise-partenaire-denner-denner-erstfeld",
-        "partner-franchise-partner-denner-denner-erstfeld"
+        "partenaire-franchise-partenaire-denner-denner-erstfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "franchisepartner-in-denner-partner-denner-2",
           "franchisepartner-in-denner-partner-denner",
-          "franchisepartner-in-denner-partner-denner-erstfeld",
-          "partner-franchise-partner-denner-denner-erstfeld"
+          "franchisepartner-in-denner-partner-denner-erstfeld"
         ],
         "en": [
           "franchisepartner-in-denner-partner-denner-erstfeld"
@@ -4858,8 +4774,8 @@
           "franchisepartner-in-denner-partner-denner-erstfeld"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T10:26:45.416Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -5039,15 +4955,13 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-ag-burgdorf-hol3hf",
         "verkaufer-in-denner-burgdorf",
-        "venditore-denner-ag-meilen",
-        "venditore-denner-ag-burgdorf"
+        "venditore-denner-ag-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-ag-burgdorf-hol3hf",
-          "venditore-denner-ag-meilen",
-          "venditore-denner-ag-burgdorf"
+          "venditore-denner-ag-meilen"
         ],
         "en": [
           "verkaufer-in-denner-burgdorf"
@@ -5057,7 +4971,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:05.727Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -5070,7 +4983,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-483010cddba2",
@@ -5237,8 +5151,7 @@
         "venditore-venditrice-denner-payerne",
         "seller-seller-denner-payerne",
         "verkaufer-verkaufer-denner-payerne",
-        "vendeur-vendeuse-denner-payerne",
-        "vendeur-vendeuse-denner-sa-lausanne"
+        "vendeur-vendeuse-denner-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5252,8 +5165,7 @@
           "venditore-venditrice-denner-payerne",
           "seller-seller-denner-payerne",
           "verkaufer-verkaufer-denner-payerne",
-          "vendeur-vendeuse-denner-payerne",
-          "vendeur-vendeuse-denner-sa-lausanne"
+          "vendeur-vendeuse-denner-payerne"
         ],
         "en": [
           "vendeur-vendeuse-denner-lausanne",
@@ -5265,7 +5177,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:12:30.428Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -5278,7 +5189,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-wal3gt",
@@ -5357,15 +5269,13 @@
       "previousSlugs": [
         "assistent-in-filialleitung-denner-ag-spreitenbach",
         "assistent-in-filialleitung-denner-ag-spreitenbach-wal3gt",
-        "assistent-in-filialleitung-denner",
-        "vice-direttore-di-filiale-denner-ag-spreitenbach"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-ag-spreitenbach",
           "assistent-in-filialleitung-denner-ag-spreitenbach-wal3gt",
-          "assistent-in-filialleitung-denner",
-          "vice-direttore-di-filiale-denner-ag-spreitenbach"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-spreitenbach-wal3gt"
@@ -5375,7 +5285,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T13:14:26.124Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -5388,16 +5297,17 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-1d9882bfb52b",
       "slug": "assistent-in-filialleitung-denner-zurich",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner-zurich",
-        "en": "assistent-in-filialleitung-denner-zurich",
+        "it": "vice-direttore-di-filiale-denner-ag-zurich-3cd714",
         "de": "assistent-in-filialleitung-denner-ag-zurich-mlzv0z",
-        "fr": "assistent-in-filialleitung-denner-zurich"
+        "en": "assistant-branch-manager-denner-ag-zurich",
+        "fr": "directeur-adjoint-de-succursale-denner-ag-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -5455,26 +5365,19 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:37:06.087Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner",
+          "assistent-in-filialleitung-denner-zurich"
+        ]
+      },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistant-branch-manager-denner-ag-zurich",
         "directeur-adjoint-de-succursale-denner-ag-zurich",
         "assistent-in-filialleitung-denner-zurich"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-zurich"
-        ],
-        "en": [
-          "assistant-branch-manager-denner-ag-zurich"
-        ],
-        "fr": [
-          "directeur-adjoint-de-succursale-denner-ag-zurich"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-24T22:19:35.940Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -5487,16 +5390,17 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-24T22:19:35.940Z"
     },
     {
       "id": "denner-0cf4571e76d0",
       "slug": "stv-filialleiter-in-denner-zurich",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-zurich",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "it": "vice-direttore-di-filiale-denner-ag-zurich",
         "de": "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
-        "fr": "stv-filialleiter-in-denner-zurich"
+        "en": "deputy-branch-manager-denner-ag-zurich-6527ca",
+        "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -5553,6 +5457,35 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:37:05.686Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-filialleiter-in-denner-15",
+          "stv-filialleiter-in-denner-meilen",
+          "stv-filialleiter-in-denner-12",
+          "stv-filialleiter-in-denner-bern",
+          "stv-filialleiter-in-denner-13",
+          "stv-filialleiter-in-denner-fullinsdorf",
+          "stv-filialleiter-in-denner-14",
+          "stv-filialleiter-in-denner-sissach",
+          "stv-filialleiter-in-denner-16",
+          "stv-filialleiter-in-denner-amriswil",
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-zurich",
+          "stv-filialleiter-in-denner-zurich",
+          "stv-filialleiter-in-denner-ehqxop",
+          "stv-filialleiter-in-denner-r8ohg4",
+          "stv-filialleiter-in-denner-tp6czy",
+          "stv-filialleiter-in-denner-ag-bern-tp6czy",
+          "stv-filialleiter-in-denner-uk1txa",
+          "stv-filialleiter-in-denner-xwqsvk",
+          "stv-filialleiter-in-denner-yw0jyp",
+          "stv-filialleiter-in-denner-3nkluz"
+        ],
+        "fr": [
+          "directeur-de-succursale-stv-in-denner-ag-zurich"
+        ]
+      },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "deputy-branch-manager-denner-ag-zurich-6527ca",
@@ -5582,34 +5515,25 @@
         "stv-filialleiter-in-denner-sissach",
         "stv-filialleiter-in-denner-16",
         "stv-filialleiter-in-denner-amriswil",
-        "stv-filialleiter-in-denner-zurich"
+        "stv-filialleiter-in-denner-zurich",
+        "stv-filialleiter-in-denner-9zqjsc",
+        "stv-filialleiter-in-denner-aztzmm",
+        "stv-filialleiter-in-denner-rgvddr",
+        "stv-filialleiter-in-denner-syjkk9",
+        "stv-filialleiter-in-denner-zurich-geicje",
+        "stv-filialleiter-in-denner-ag-zurich-geicje",
+        "stv-filialleiter-in-denner-dd2ywz",
+        "stv-filialleiter-in-denner-ag-zurich-vcsi9t",
+        "stv-branch-manager-in-denner-ag-zurich-vcsi9t",
+        "stv-filialleiter-in-denner-ehqxop",
+        "stv-filialleiter-in-denner-r8ohg4",
+        "stv-filialleiter-in-denner-tp6czy",
+        "stv-filialleiter-in-denner-ag-bern-tp6czy",
+        "stv-filialleiter-in-denner-uk1txa",
+        "stv-filialleiter-in-denner-xwqsvk",
+        "stv-filialleiter-in-denner-yw0jyp",
+        "stv-filialleiter-in-denner-3nkluz"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-filialleiter-in-denner-15",
-          "stv-filialleiter-in-denner-meilen",
-          "stv-filialleiter-in-denner-12",
-          "stv-filialleiter-in-denner-bern",
-          "stv-filialleiter-in-denner-13",
-          "stv-filialleiter-in-denner-fullinsdorf",
-          "stv-filialleiter-in-denner-14",
-          "stv-filialleiter-in-denner-sissach",
-          "stv-filialleiter-in-denner-16",
-          "stv-filialleiter-in-denner-amriswil",
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-zurich",
-          "stv-filialleiter-in-denner-zurich"
-        ],
-        "en": [
-          "deputy-branch-manager-denner-ag-zurich-6527ca"
-        ],
-        "fr": [
-          "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
-          "directeur-de-succursale-stv-in-denner-ag-zurich"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-22T22:33:45.051Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -5622,16 +5546,17 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-22T22:33:45.051Z"
     },
     {
       "id": "denner-751a3466dd86",
       "slug": "venditore-denner-zurich",
       "slugByLocale": {
         "it": "venditore-denner-zurich",
-        "en": "verkaufer-in-denner-zurich",
+        "en": "seller-denner-zurich",
         "de": "verkaufer-in-denner-zurich",
-        "fr": "verkaufer-in-denner-zurich"
+        "fr": "vendeur-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -5688,13 +5613,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:37:05.681Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-zurich",
-        "vendeur-denner-zurich",
-        "verkaufer-in-denner-36",
-        "venditore-denner-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
@@ -5702,14 +5620,22 @@
           "venditore-denner-zurich"
         ],
         "en": [
-          "seller-denner-zurich"
+          "verkaufer-in-denner-zurich"
         ],
         "fr": [
-          "vendeur-denner-zurich"
+          "verkaufer-in-denner-zurich"
         ]
       },
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "seller-denner-zurich",
+        "vendeur-denner-zurich",
+        "verkaufer-in-denner-36",
+        "venditore-denner-zurich",
+        "verkaufer-in-denner-umuug6",
+        "verkaufer-in-denner-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-02T23:18:41.612Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -5722,7 +5648,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-02T23:18:41.612Z"
     },
     {
       "id": "company-80dzii",
@@ -5799,15 +5726,13 @@
       "previousSlugs": [
         "verkaufer-in-denner-ag-uznach-80dzii",
         "verkaufer-in-denner-ag-uznach",
-        "verkaufer-in-denner",
-        "venditore-denner-ag-uznach"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-uznach-80dzii",
           "verkaufer-in-denner-ag-uznach",
-          "verkaufer-in-denner",
-          "venditore-denner-ag-uznach"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-uznach-80dzii",
@@ -5822,7 +5747,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -5835,16 +5759,17 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-80cef207bde9",
       "slug": "responsabile-negozio-denner-ag-ilanz",
       "slugByLocale": {
         "it": "responsabile-negozio-denner-ag-ilanz",
-        "en": "filialleiter-in-denner-ilanz",
+        "en": "store-manager-denner-ag-ilanz",
         "de": "filialleiter-in-denner-ag-ilanz",
-        "fr": "filialleiter-in-denner-ilanz"
+        "fr": "gestionnaire-de-magasin-denner-ag-ilanz"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -5901,26 +5826,26 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:37:05.271Z",
-      "previousSlugs": [
-        "filialleiter-in-denner",
-        "store-manager-denner-ag-ilanz",
-        "gestionnaire-de-magasin-denner-ag-ilanz",
-        "responsabile-negozio-denner-ag-ilanz"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-denner",
           "responsabile-negozio-denner-ag-ilanz"
         ],
         "en": [
-          "store-manager-denner-ag-ilanz"
+          "filialleiter-in-denner-ilanz"
         ],
         "fr": [
-          "gestionnaire-de-magasin-denner-ag-ilanz"
+          "filialleiter-in-denner-ilanz"
         ]
       },
+      "previousSlugs": [
+        "filialleiter-in-denner",
+        "store-manager-denner-ag-ilanz",
+        "gestionnaire-de-magasin-denner-ag-ilanz",
+        "responsabile-negozio-denner-ag-ilanz",
+        "filialleiter-in-denner-ilanz"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-03T13:24:47.217Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -5933,7 +5858,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-03T13:24:47.217Z"
     },
     {
       "id": "company-ym8fyb",
@@ -6012,15 +5938,13 @@
       "previousSlugs": [
         "assistent-in-filialleitung-denner-ag-richterswil",
         "assistent-in-filialleitung-denner-ag-richterswil-ym8fyb",
-        "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-ag-richterswil"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-ag-richterswil",
           "assistent-in-filialleitung-denner-ag-richterswil-ym8fyb",
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-richterswil"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-richterswil-ym8fyb"
@@ -6030,7 +5954,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:19:58.281Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -6043,7 +5966,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-wnjhay",
@@ -6313,16 +6237,14 @@
         "filialleiter-in-in-ausbildung-denner-ag-ebikon",
         "filialleiter-in-in-ausbildung-denner-wadenswil",
         "filialleiter-in-in-ausbildung-denner",
-        "filialleiter-in-in-ausbildung-denner-luzern",
-        "manager-di-branch-in-formazione-denner-luzern"
+        "filialleiter-in-in-ausbildung-denner-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-in-ausbildung-denner-2",
           "filialleiter-in-in-ausbildung-denner-ag-ebikon",
           "filialleiter-in-in-ausbildung-denner-wadenswil",
-          "filialleiter-in-in-ausbildung-denner",
-          "manager-di-branch-in-formazione-denner-luzern"
+          "filialleiter-in-in-ausbildung-denner"
         ],
         "en": [
           "filialleiter-in-in-ausbildung-denner-luzern"
@@ -6332,7 +6254,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:51.164Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -6345,16 +6266,17 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c9b278d7d575",
       "slug": "verkaufer-in-denner-frauenfeld",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-frauenfeld",
-        "en": "verkaufer-in-denner-frauenfeld",
+        "it": "venditore-a-denner-ag-frauenfeld",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "verkaufer-in-denner-frauenfeld"
+        "en": "sales-associate-denner-ag-frauenfeld",
+        "fr": "vendeur-vendeuse-denner-ag-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -6411,26 +6333,19 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:37:02.261Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-frauenfeld"
+        ]
+      },
       "previousSlugs": [
         "verkaufer-in-denner",
         "sales-associate-denner-ag-frauenfeld",
         "vendeur-vendeuse-denner-ag-frauenfeld",
         "verkaufer-in-denner-frauenfeld"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-frauenfeld"
-        ],
-        "en": [
-          "sales-associate-denner-ag-frauenfeld"
-        ],
-        "fr": [
-          "vendeur-vendeuse-denner-ag-frauenfeld"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-17T11:18:40.683Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -6443,7 +6358,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-17T11:18:40.683Z"
     },
     {
       "id": "denner-398e76cbd863",
@@ -6522,8 +6438,7 @@
         "verkaufer-in-denner-ag-winterthur-ylequg",
         "verkaufer-in-denner-ag-winterthur",
         "seller-denner-winterthur",
-        "venditore-denner-winterthur",
-        "venditore-denner-ag-winterthur-bf71e1"
+        "venditore-denner-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6531,8 +6446,7 @@
           "verkaufer-in-denner-ag-winterthur-ylequg",
           "verkaufer-in-denner-ag-winterthur",
           "seller-denner-winterthur",
-          "venditore-denner-winterthur",
-          "venditore-denner-ag-winterthur-bf71e1"
+          "venditore-denner-winterthur"
         ],
         "en": [
           "verkaufer-in-denner-ag-winterthur-ylequg",
@@ -6547,7 +6461,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T21:38:11.196Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -6560,14 +6473,15 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-5eaab1e6b7dd",
       "slug": "venditore-denner-ag-frauenfeld",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "vendor-in-hourly-wages-denner-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
         "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
@@ -6696,7 +6610,8 @@
         "seller-in-in-hourly-wage-denner-stein-ag",
         "seller-denner-ag-frauenfeld-008421",
         "venditore-denner-ag-frauenfeld",
-        "vendor-in-hourly-wages-denner-frauenfeld"
+        "vendor-in-hourly-wages-denner-frauenfeld",
+        "verkaufer-in-im-stundenlohn-denner-d6nn5t"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6718,11 +6633,11 @@
           "seller-in-in-hourly-wage-denner-stein-ag",
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-wohlen-ag",
-          "venditore-denner-ag-frauenfeld"
+          "venditore-denner-ag-frauenfeld",
+          "verkaufer-in-im-stundenlohn-denner-d6nn5t"
         ],
         "en": [
           "seller-denner-ag-frauenfeld",
-          "seller-denner-ag-frauenfeld-008421",
           "vendor-in-hourly-wages-denner-frauenfeld"
         ],
         "fr": [
@@ -6730,7 +6645,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:00:00.493Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -6743,7 +6657,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-9adglq",
@@ -6836,15 +6751,13 @@
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-ag-matzingen",
         "verkaufer-in-im-stundenlohn-denner-ag-matzingen-9adglq",
-        "verkaufer-in-denner",
-        "venditore-nel-salario-orario-denner-ag-matzingen"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-ag-matzingen",
           "verkaufer-in-im-stundenlohn-denner-ag-matzingen-9adglq",
-          "verkaufer-in-denner",
-          "venditore-nel-salario-orario-denner-ag-matzingen"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-matzingen-9adglq"
@@ -6959,8 +6872,7 @@
         "vendeur-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-ag-wattwil",
         "venditore-denner-ag-wattwil-8129f7",
-        "venditore-denner-ag-allschwil-5b4844",
-        "venditore-denner-ag-sulgen"
+        "venditore-denner-ag-allschwil-5b4844"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6982,12 +6894,10 @@
           "vendeur-denner-ag-mohlin-0713a1",
           "venditore-denner-ag-mohlin-0713a1",
           "verkaufer-in-denner",
-          "salesperson-denner-ag-mohlin",
-          "venditore-denner-ag-sulgen"
+          "salesperson-denner-ag-mohlin"
         ]
       },
       "firstSeenAt": "2026-06-19T21:40:04.162Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -7000,7 +6910,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-w0gyz7",
@@ -7077,15 +6988,13 @@
       "previousSlugs": [
         "verkaufer-in-denner-ag-flims-dorf-2",
         "verkaufer-in-denner-ag-flims-dorf-w0gyz7",
-        "verkaufer-in-denner",
-        "venditore-denner-ag-flims-dorf-7eff23"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-flims-dorf-2",
           "verkaufer-in-denner-ag-flims-dorf-w0gyz7",
-          "verkaufer-in-denner",
-          "venditore-denner-ag-flims-dorf-7eff23"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-flims-dorf-w0gyz7"
@@ -7095,7 +7004,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -7108,7 +7016,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-cmf05t",
@@ -7192,8 +7101,7 @@
         "stv-branch-manager-in-denner-ag-davos",
         "directeur-de-succursale-stv-denner-ag-davos",
         "stv-filialleiter-in-denner-ag-davos",
-        "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-ag-rorschach"
+        "stv-filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7205,8 +7113,7 @@
           "stv-branch-manager-in-denner-ag-davos",
           "directeur-de-succursale-stv-denner-ag-davos",
           "stv-filialleiter-in-denner-ag-davos",
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-rorschach"
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-rorschach-cmf05t",
@@ -7221,7 +7128,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -7234,7 +7140,8 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-gzs54z",
@@ -7312,16 +7219,14 @@
         "verkaufer-in-denner-ag-embrach-gzs54z",
         "verkaufer-in-denner-ag-embrach",
         "verkaufer-in-denner",
-        "vendeur-denner-embrach",
-        "venditore-denner-ag-embrach"
+        "vendeur-denner-embrach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-embrach-gzs54z",
           "verkaufer-in-denner-ag-embrach",
           "verkaufer-in-denner",
-          "vendeur-denner-embrach",
-          "venditore-denner-ag-embrach"
+          "vendeur-denner-embrach"
         ],
         "en": [
           "verkaufer-in-denner-ag-embrach-gzs54z",
@@ -7336,7 +7241,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:47:21.627Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -7349,7 +7253,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-tj2ohv",
@@ -7438,8 +7343,7 @@
         "assistent-in-filialleitung-denner-ag-ruschlikon-37de5k",
         "assistant-dans-la-gestion-des-succursales-denner-ag-ruschlikon",
         "assistent-in-filialleitung-denner-ag-ruschlikon",
-        "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-ag-embrach"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7455,8 +7359,7 @@
           "assistent-in-filialleitung-denner-ag-ruschlikon-37de5k",
           "assistant-dans-la-gestion-des-succursales-denner-ag-ruschlikon",
           "assistent-in-filialleitung-denner-ag-ruschlikon",
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-embrach"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-embrach-tj2ohv",
@@ -7474,7 +7377,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:40:16.362Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -7487,13 +7389,14 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-161337304a20",
       "slug": "gestore-ramo-denner-appenzell",
       "slugByLocale": {
-        "it": "gestore-ramo-denner-appenzell",
+        "it": "vice-direttore-di-filiale-denner-ag-appenzell-0a018d",
         "en": "deputy-branch-manager-denner-ag-appenzell",
         "de": "stv-filialleiter-in-denner-ag-appenzell-3o9h68",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-appenzell"
@@ -7629,9 +7532,7 @@
         "assistant-branch-manager-denner-ag-appenzell",
         "directeur-adjoint-de-succursale-denner-ag-appenzell",
         "stv-filialleiter-in-denner-ag-appenzell",
-        "stv-branch-manager-in-denner-appenzell",
-        "vice-direttore-di-filiale-denner-ag-appenzell-0a018d",
-        "gestore-ramo-denner-appenzell"
+        "stv-branch-manager-in-denner-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7652,9 +7553,7 @@
           "stv-filialleiter-in-denner",
           "stv-branch-manager-in-denner-ag-appenzell",
           "deputy-branch-manager-denner-ag-horgen",
-          "stv-branch-manager-in-denner-appenzell",
-          "vice-direttore-di-filiale-denner-ag-appenzell-0a018d",
-          "gestore-ramo-denner-appenzell"
+          "stv-branch-manager-in-denner-appenzell"
         ],
         "en": [
           "deputy-branch-manager-denner-ag-steinhausen"
@@ -7683,7 +7582,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:26:40.005Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 158500,
       "salarySource": "estimated",
@@ -7696,7 +7594,8 @@
           "maxValue": 158500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-0f10fe381a74",
@@ -7765,19 +7664,16 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-gossau-sg",
-        "verkaufer-in-denner-ag-gossau-sg",
-        "venditore-denner-ag-gossau-sg"
+        "verkaufer-in-denner-ag-gossau-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-gossau-sg",
-          "verkaufer-in-denner-ag-gossau-sg",
-          "venditore-denner-ag-gossau-sg"
+          "verkaufer-in-denner-ag-gossau-sg"
         ]
       },
       "firstSeenAt": "2026-06-30T22:07:57.962Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -7790,7 +7686,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c89a03c031d8",
@@ -7874,8 +7771,7 @@
         "verkaufer-in-denner-4",
         "verkaufer-in-denner-3",
         "seller-denner-lenzburg",
-        "vendeur-denner-lenzburg",
-        "venditore-denner-ag-schluein"
+        "vendeur-denner-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7896,8 +7792,7 @@
           "verkaufer-in-denner-4",
           "verkaufer-in-denner-3",
           "seller-denner-lenzburg",
-          "vendeur-denner-lenzburg",
-          "venditore-denner-ag-schluein"
+          "vendeur-denner-lenzburg"
         ],
         "en": [
           "verkaufer-in-denner-ag-schluein",
@@ -7909,7 +7804,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:30:51.530Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -7922,7 +7816,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-16edf27b0787",
@@ -7990,21 +7885,18 @@
       "crawledAt": "2026-09-26T23:36:59.912Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-ag-davos-qgw97z",
-        "stv-branch-manager-in-denner-ag-davos"
+        "stv-filialleiter-in-denner-ag-davos-qgw97z"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-ag-davos-qgw97z",
-          "stv-branch-manager-in-denner-ag-davos"
+          "stv-filialleiter-in-denner-ag-davos-qgw97z"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-davos-qgw97z"
         ]
       },
       "firstSeenAt": "2026-06-30T22:07:57.954Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -8017,7 +7909,8 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-j6zb0l",
@@ -8099,8 +7992,7 @@
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-4",
         "assistent-in-filialleitung-denner-ag-kreuzlingen-j6zb0l",
-        "assistent-in-filialleitung-denner-8",
-        "assistente-nella-gestione-delle-branche-denner-kreuzlingen"
+        "assistent-in-filialleitung-denner-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8109,8 +8001,7 @@
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-4",
           "assistent-in-filialleitung-denner-ag-kreuzlingen-j6zb0l",
-          "assistent-in-filialleitung-denner-8",
-          "assistente-nella-gestione-delle-branche-denner-kreuzlingen"
+          "assistent-in-filialleitung-denner-8"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-kreuzlingen-j6zb0l"
@@ -8120,7 +8011,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -8133,7 +8023,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ixnppb",
@@ -8216,8 +8107,7 @@
         "stv-filialleiter-in-denner-6",
         "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb",
         "stv-filialleiter-in-denner-5",
-        "stv-filialleiter-in-denner-12",
-        "stv-branch-manager-in-denner-kreuzlingen"
+        "stv-filialleiter-in-denner-12"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8229,8 +8119,7 @@
           "stv-filialleiter-in-denner-6",
           "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb",
           "stv-filialleiter-in-denner-5",
-          "stv-filialleiter-in-denner-12",
-          "stv-branch-manager-in-denner-kreuzlingen"
+          "stv-filialleiter-in-denner-12"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb"
@@ -8240,7 +8129,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -8253,7 +8141,8 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ks3a40",
@@ -8335,8 +8224,7 @@
         "verkaufer-in-denner-5",
         "verkaufer-in-denner-ag-st-gallen",
         "verkaufer-in-denner-3",
-        "verkaufer-in-denner-24",
-        "venditore-denner-st-gallen"
+        "verkaufer-in-denner-24"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8347,8 +8235,7 @@
           "verkaufer-in-denner-5",
           "verkaufer-in-denner-ag-st-gallen",
           "verkaufer-in-denner-3",
-          "verkaufer-in-denner-24",
-          "venditore-denner-st-gallen"
+          "verkaufer-in-denner-24"
         ],
         "en": [
           "verkaufer-in-denner-ag-st-gallen-ks3a40",
@@ -8363,7 +8250,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -8376,7 +8262,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-58496d",
@@ -8459,8 +8346,7 @@
         "stv-filialleiter-in-denner-7",
         "stv-filialleiter-in-denner-ag-wetzikon-58496d",
         "stv-filialleiter-in-denner-6",
-        "stv-filialleiter-in-denner-13",
-        "stv-branch-manager-in-denner-wetzikon"
+        "stv-filialleiter-in-denner-13"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8472,8 +8358,7 @@
           "stv-filialleiter-in-denner-7",
           "stv-filialleiter-in-denner-ag-wetzikon-58496d",
           "stv-filialleiter-in-denner-6",
-          "stv-filialleiter-in-denner-13",
-          "stv-branch-manager-in-denner-wetzikon"
+          "stv-filialleiter-in-denner-13"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-wetzikon-58496d"
@@ -8483,7 +8368,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -8496,7 +8380,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-d1df27d4f8ab",
@@ -8568,8 +8453,7 @@
         "filialleiter-in-ausbildung-denner-chur",
         "directeur-de-branche-stv-en-formation-denner-ag-chur",
         "stv-branch-manager-in-education-denner-ag-chur",
-        "stv-branch-manager-in-training-denner-ag-chur",
-        "responsabile-della-filiale-nella-formazione-denner-ag-chur"
+        "stv-branch-manager-in-training-denner-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8578,15 +8462,13 @@
           "filialleiter-in-ausbildung-denner-chur",
           "directeur-de-branche-stv-en-formation-denner-ag-chur",
           "stv-branch-manager-in-education-denner-ag-chur",
-          "stv-branch-manager-in-training-denner-ag-chur",
-          "responsabile-della-filiale-nella-formazione-denner-ag-chur"
+          "stv-branch-manager-in-training-denner-ag-chur"
         ],
         "fr": [
           "directeur-de-branche-stv-en-formation-denner-ag-chur"
         ]
       },
       "firstSeenAt": "2026-06-01T14:22:11.295Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -8599,7 +8481,8 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-d22c0e4a7a3f",
@@ -8668,22 +8551,19 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-landquart",
-        "directeur-adjoint-de-succursale-denner-ag-meilen",
-        "vice-direttore-di-filiale-denner-ag-landquart"
+        "directeur-adjoint-de-succursale-denner-ag-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
           "stv-filialleiter-in-denner-landquart",
-          "directeur-adjoint-de-succursale-denner-ag-meilen",
-          "vice-direttore-di-filiale-denner-ag-landquart"
+          "directeur-adjoint-de-succursale-denner-ag-meilen"
         ],
         "fr": [
           "directeur-adjoint-de-succursale-denner-ag-meilen"
         ]
       },
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -8696,16 +8576,17 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-1676644a7157",
       "slug": "verkaufer-in-denner-winterthur",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-winterthur",
-        "en": "verkaufer-in-denner-winterthur",
+        "it": "venditore-denner-ag-winterthur",
         "de": "verkaufer-in-denner-ag-winterthur",
-        "fr": "verkaufer-in-denner-winterthur"
+        "en": "seller-denner-ag-winterthur",
+        "fr": "vendeur-denner-ag-winterthur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -8762,28 +8643,22 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:58.594Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-winterthur",
-        "vendeur-denner-ag-winterthur",
-        "verkaufer-in-denner-27",
-        "verkaufer-in-denner-winterthur"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-27",
           "verkaufer-in-denner-winterthur"
-        ],
-        "en": [
-          "seller-denner-ag-winterthur"
-        ],
-        "fr": [
-          "vendeur-denner-ag-winterthur"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T21:38:11.196Z",
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "seller-denner-ag-winterthur",
+        "vendeur-denner-ag-winterthur",
+        "verkaufer-in-denner-27",
+        "verkaufer-in-denner-winterthur",
+        "verkaufer-in-denner-o0skmk"
+      ],
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -8796,7 +8671,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-04T21:38:11.196Z"
     },
     {
       "id": "denner-3b5394612feb",
@@ -8869,8 +8745,7 @@
         "seller-denner-ag-wattwil-246b9c",
         "vendeur-denner-ag-wattwil-246b9c",
         "vendeur-vendeuse-denner-ag-wattwil",
-        "verkaufer-in-denner-wattwil",
-        "venditore-denner-ag-wattwil-246b9c"
+        "verkaufer-in-denner-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8880,12 +8755,10 @@
           "seller-denner-ag-wattwil-246b9c",
           "vendeur-denner-ag-wattwil-246b9c",
           "vendeur-vendeuse-denner-ag-wattwil",
-          "verkaufer-in-denner-wattwil",
-          "venditore-denner-ag-wattwil-246b9c"
+          "verkaufer-in-denner-wattwil"
         ]
       },
       "firstSeenAt": "2026-06-30T12:43:38.551Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -8898,16 +8771,17 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-e6a8ba8d3418",
       "slug": "verkaufer-in-denner-wattwil",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-wattwil",
-        "en": "verkaufer-in-denner-wattwil",
+        "it": "venditore-denner-ag-wattwil",
         "de": "verkaufer-in-denner-ag-wattwil",
-        "fr": "verkaufer-in-denner-wattwil"
+        "en": "seller-denner-ag-wattwil-8129f7",
+        "fr": "vendeur-denner-ag-wattwil-8129f7"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -8964,28 +8838,22 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:58.152Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-wattwil-8129f7",
-        "vendeur-denner-ag-wattwil-8129f7",
-        "verkaufer-in-denner-11",
-        "verkaufer-in-denner-wattwil"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-11",
           "verkaufer-in-denner-wattwil"
-        ],
-        "en": [
-          "seller-denner-ag-wattwil-8129f7"
-        ],
-        "fr": [
-          "vendeur-denner-ag-wattwil-8129f7"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-30T12:43:38.551Z",
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "seller-denner-ag-wattwil-8129f7",
+        "vendeur-denner-ag-wattwil-8129f7",
+        "verkaufer-in-denner-11",
+        "verkaufer-in-denner-wattwil",
+        "verkaufer-in-denner-bcu0pc"
+      ],
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -8998,7 +8866,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-30T12:43:38.551Z"
     },
     {
       "id": "company-o7jlw1",
@@ -9080,15 +8949,13 @@
         "filialleiter-in-ausbildung-denner-ag-winterthur-2tuvc9",
         "gestionnaire-de-magasin-en-formation-denner-ag-winterthur",
         "filialleiter-in-ausbildung-denner-ag-winterthur",
-        "filialleiter-in-in-ausbildung-denner",
-        "direttore-di-negozio-in-formazione-denner-ag-horw"
+        "filialleiter-in-in-ausbildung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-ausbildung-denner-ag-horw",
           "filialleiter-in-ausbildung-denner-ag-horw-o7jlw1",
-          "filialleiter-in-in-ausbildung-denner",
-          "direttore-di-negozio-in-formazione-denner-ag-horw"
+          "filialleiter-in-in-ausbildung-denner"
         ],
         "en": [
           "filialleiter-in-ausbildung-denner-ag-horw-o7jlw1"
@@ -9098,7 +8965,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -9111,7 +8977,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-3lj55e",
@@ -9120,7 +8987,7 @@
         "it": "vice-direttore-di-filiale-denner-ag-ebikon",
         "en": "assistant-branch-manager-denner-ag-ebikon",
         "de": "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
-        "fr": "assistant-dans-la-gestion-des-succursales-denner-ebikon"
+        "fr": "directeur-adjoint-de-succursale-denner-ag-ebikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -9192,16 +9059,13 @@
         "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
         "assistent-in-filialleitung-denner",
         "assistant-dans-la-gestion-des-succursales-denner-ag-ebikon",
-        "directeur-adjoint-de-succursale-denner-ag-ebikon",
-        "vice-direttore-di-filiale-denner-ag-ebikon",
         "assistant-dans-la-gestion-des-succursales-denner-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-ag-ebikon",
           "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
-          "assistent-in-filialleitung-denner",
-          "vice-direttore-di-filiale-denner-ag-ebikon"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-ebikon-3lj55e"
@@ -9209,12 +9073,10 @@
         "fr": [
           "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
           "assistant-dans-la-gestion-des-succursales-denner-ag-ebikon",
-          "directeur-adjoint-de-succursale-denner-ag-ebikon",
           "assistant-dans-la-gestion-des-succursales-denner-ebikon"
         ]
       },
       "firstSeenAt": "2026-06-05T21:56:21.006Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -9227,7 +9089,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-45ccef",
@@ -9343,8 +9206,7 @@
         "directeur-de-branche-en-formation-denner-wadenswil",
         "directeur-de-branche-en-formation-denner-winterthur",
         "directeur-de-branche-en-formation-denner-wollerau",
-        "directeur-de-la-branche-stv-en-formation-denner-chur",
-        "responsabile-della-filiale-nella-formazione-denner-ag-ebikon"
+        "directeur-de-la-branche-stv-en-formation-denner-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9363,8 +9225,7 @@
           "directeur-de-branche-en-formation-denner-wadenswil",
           "directeur-de-branche-en-formation-denner-winterthur",
           "directeur-de-branche-en-formation-denner-wollerau",
-          "directeur-de-la-branche-stv-en-formation-denner-chur",
-          "responsabile-della-filiale-nella-formazione-denner-ag-ebikon"
+          "directeur-de-la-branche-stv-en-formation-denner-chur"
         ],
         "en": [
           "branch-manager-trainee-denner-ag-ebikon-45ccef",
@@ -9485,8 +9346,7 @@
         "filialleiter-in-ausbildung-denner-ag-sissach-g3b8n9",
         "gestionnaire-de-magasin-en-formation-denner-ag-sissach-1193f4",
         "filialleiter-in-ausbildung-denner-ag-sissach-2",
-        "filialleiter-in-in-ausbildung-denner",
-        "direttore-di-negozio-in-formazione-denner-ag-sissach"
+        "filialleiter-in-in-ausbildung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9497,8 +9357,7 @@
           "filialleiter-in-ausbildung-denner-ag-sissach-g3b8n9",
           "gestionnaire-de-magasin-en-formation-denner-ag-sissach-1193f4",
           "filialleiter-in-ausbildung-denner-ag-sissach-2",
-          "filialleiter-in-in-ausbildung-denner",
-          "direttore-di-negozio-in-formazione-denner-ag-sissach"
+          "filialleiter-in-in-ausbildung-denner"
         ],
         "en": [
           "filialleiter-in-ausbildung-denner-ag-sissach-91z06k",
@@ -9513,7 +9372,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -9526,7 +9384,8 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ynz3u9",
@@ -9607,8 +9466,7 @@
         "salesperson-denner-ag-mohlin-68d2c2",
         "seller-denner-ag-mohlin-68d2c2",
         "venditore-denner-mohlin",
-        "verkaufer-in-denner-ag-mohlin-fxzsgw",
-        "venditore-denner-ag-mohlin-68d2c2"
+        "verkaufer-in-denner-ag-mohlin-fxzsgw"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9618,8 +9476,7 @@
           "salesperson-denner-ag-mohlin-68d2c2",
           "seller-denner-ag-mohlin-68d2c2",
           "venditore-denner-mohlin",
-          "verkaufer-in-denner-ag-mohlin-fxzsgw",
-          "venditore-denner-ag-mohlin-68d2c2"
+          "verkaufer-in-denner-ag-mohlin-fxzsgw"
         ],
         "en": [
           "verkaufer-in-denner-ag-mohlin"
@@ -9629,7 +9486,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:07:45.292Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -9642,7 +9498,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-d9pi57",
@@ -9793,8 +9650,7 @@
         "venditore-denner-ag-urdorf",
         "venditore-a-denner-ag-allschwil",
         "sales-associate-denner-ag-allschwil",
-        "verkaufer-in-denner-ag-allschwil",
-        "venditore-denner-ag-langenthal-34cb20"
+        "verkaufer-in-denner-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9816,8 +9672,7 @@
           "sales-associate-denner-ag-allschwil",
           "verkaufer-in-denner-ag-allschwil",
           "verkaufer-in-denner",
-          "venditore-denner-ag-gossau-sg",
-          "venditore-denner-ag-langenthal-34cb20"
+          "venditore-denner-ag-gossau-sg"
         ],
         "en": [
           "verkaufer-in-denner-ag-langenthal-d9pi57",
@@ -9837,7 +9692,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T13:17:21.364Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -9850,7 +9704,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-des8ji",
@@ -9935,8 +9790,7 @@
         "seller-denner-ag-frauenfeld-008421",
         "vendeur-denner-ag-frauenfeld-008421",
         "venditore-denner-ag-frauenfeld",
-        "venditore-denner-huttwil",
-        "venditore-a-denner-ag-huttwil"
+        "venditore-denner-huttwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9950,8 +9804,7 @@
           "seller-denner-ag-frauenfeld-008421",
           "vendeur-denner-ag-frauenfeld-008421",
           "venditore-denner-ag-frauenfeld",
-          "venditore-denner-huttwil",
-          "venditore-a-denner-ag-huttwil"
+          "venditore-denner-huttwil"
         ],
         "en": [
           "verkaufer-in-denner-ag-huttwil-des8ji",
@@ -9968,7 +9821,6 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:22:16.288Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -9981,7 +9833,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-n6myx0",
@@ -10060,15 +9913,13 @@
       "previousSlugs": [
         "assistent-in-filialleitung-denner-ag-biel-bienne",
         "assistent-in-filialleitung-denner-ag-biel-bienne-n6myx0",
-        "assistent-in-filialleitung-denner",
-        "vice-direttore-di-filiale-denner-ag-biel-bienne-6408b4"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-ag-biel-bienne",
           "assistent-in-filialleitung-denner-ag-biel-bienne-n6myx0",
-          "assistent-in-filialleitung-denner",
-          "vice-direttore-di-filiale-denner-ag-biel-bienne-6408b4"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-biel-bienne-n6myx0"
@@ -10078,7 +9929,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T22:32:55.915Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -10091,7 +9941,8 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-3tveeh",
@@ -10170,15 +10021,13 @@
       "previousSlugs": [
         "assistent-in-filialleitung-denner-ag-bremgarten-ag",
         "assistent-in-filialleitung-denner-ag-bremgarten-ag-3tveeh",
-        "assistent-in-filialleitung-denner",
-        "vice-direttore-di-filiale-denner-ag-bremgarten-ag"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-ag-bremgarten-ag",
           "assistent-in-filialleitung-denner-ag-bremgarten-ag-3tveeh",
-          "assistent-in-filialleitung-denner",
-          "vice-direttore-di-filiale-denner-ag-bremgarten-ag"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-bremgarten-ag-3tveeh"
@@ -10188,7 +10037,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -10201,7 +10049,8 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-g1nzab",
@@ -10286,8 +10135,7 @@
         "directeur-adjoint-de-la-succursale-denner-ag-steinhausen",
         "stv-filialleiter-in-denner-ag-steinhausen",
         "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-steinhausen",
-        "assistente-nella-gestione-delle-branche-denner-ag-steinhausen"
+        "assistente-nella-gestione-delle-branche-denner-steinhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10299,8 +10147,7 @@
           "directeur-adjoint-de-la-succursale-denner-ag-steinhausen",
           "stv-filialleiter-in-denner-ag-steinhausen",
           "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-steinhausen",
-          "assistente-nella-gestione-delle-branche-denner-ag-steinhausen"
+          "assistente-nella-gestione-delle-branche-denner-steinhausen"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-steinhausen-g1nzab",
@@ -10315,7 +10162,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T23:24:06.541Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -10328,7 +10174,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-eaf92c7e2352",
@@ -10401,8 +10248,7 @@
         "verkaufer-in-im-stundenlohn-denner-ag-gstaad-lt4qle",
         "verkaufer-in-im-stundenlohn-denner-gstaad",
         "venditore-nel-salario-orario-denner-gstaad",
-        "seller-in-the-hourly-wage-denner-wohlen-ag",
-        "venditore-nel-salario-orario-denner-ag-gstaad"
+        "seller-in-the-hourly-wage-denner-wohlen-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10412,8 +10258,7 @@
           "verkaufer-in-im-stundenlohn-denner-ag-gstaad-lt4qle",
           "verkaufer-in-im-stundenlohn-denner-gstaad",
           "venditore-nel-salario-orario-denner-gstaad",
-          "seller-in-the-hourly-wage-denner-wohlen-ag",
-          "venditore-nel-salario-orario-denner-ag-gstaad"
+          "seller-in-the-hourly-wage-denner-wohlen-ag"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-gstaad-lt4qle"
@@ -10423,7 +10268,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T10:59:13.898Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -10436,7 +10280,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-g3128",
@@ -10520,8 +10365,7 @@
         "assistent-in-filialleitung-denner-ag-bubendorf-5mpbsv",
         "directeur-adjoint-de-succursale-denner-ag-bubendorf",
         "assistent-in-filialleitung-denner-ag-bubendorf",
-        "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-ag-luzern"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10531,8 +10375,7 @@
           "assistent-in-filialleitung-denner-ag-bubendorf-5mpbsv",
           "directeur-adjoint-de-succursale-denner-ag-bubendorf",
           "assistent-in-filialleitung-denner-ag-bubendorf",
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-luzern"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-luzern-0g3128",
@@ -10543,7 +10386,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T21:47:48.098Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -10556,7 +10398,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ofjr2x",
@@ -10638,7 +10481,9 @@
         "verkaufer-in-denner-luzern",
         "verkaufer-in-denner-23",
         "verkaufer-in-denner-16",
-        "venditore-denner-ag-luzern-7f4c33"
+        "venditore-denner-ag-luzern-7f4c33",
+        "verkaufer-in-denner-0w78hf",
+        "verkaufer-in-denner-8fgkfx"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10649,7 +10494,9 @@
           "verkaufer-in-denner-luzern",
           "verkaufer-in-denner-23",
           "verkaufer-in-denner-16",
-          "venditore-denner-ag-luzern-7f4c33"
+          "venditore-denner-ag-luzern-7f4c33",
+          "verkaufer-in-denner-0w78hf",
+          "verkaufer-in-denner-8fgkfx"
         ],
         "en": [
           "verkaufer-in-denner-ag-luzern-ofjr2x",
@@ -10665,7 +10512,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T22:46:36.093Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -10678,7 +10524,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-28e5e77fa15e",
@@ -10751,8 +10598,7 @@
         "logisticista-in-branch-denner-buchs-ag",
         "logistiker-in-filiale-denner-buchs-ag",
         "logistiker-in-filiale-denner-ag-buchs-ag-ylkh6t",
-        "logistiker-in-filiale-denner-ag-buchs-ag",
-        "logisticista-in-branch-denner-ag-buchs-ag"
+        "logistiker-in-filiale-denner-ag-buchs-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10760,8 +10606,7 @@
           "logistician-in-branch-denner-buchs-ag",
           "logisticista-in-branch-denner-buchs-ag",
           "logistiker-in-filiale-denner-ag-buchs-ag-ylkh6t",
-          "logistiker-in-filiale-denner-ag-buchs-ag",
-          "logisticista-in-branch-denner-ag-buchs-ag"
+          "logistiker-in-filiale-denner-ag-buchs-ag"
         ],
         "en": [
           "logistiker-in-filiale-denner-ag-buchs-ag-ylkh6t"
@@ -10772,7 +10617,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T22:41:17.664Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -10785,7 +10629,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-740b34bbb6d1",
@@ -10862,8 +10707,7 @@
         "assistent-in-filialleitung-denner-ag-buchs-sg-97awiy",
         "assistant-dans-la-gestion-des-succursales-denner-ag-buchs-sg",
         "assistent-in-filialleitung-denner-ag-buchs-sg",
-        "assistente-nella-gestione-delle-branche-denner-buchs-ag",
-        "assistente-nella-gestione-delle-branche-denner-ag-buchs-ag"
+        "assistente-nella-gestione-delle-branche-denner-buchs-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10875,8 +10719,7 @@
           "assistent-in-filialleitung-denner-ag-buchs-sg-97awiy",
           "assistant-dans-la-gestion-des-succursales-denner-ag-buchs-sg",
           "assistent-in-filialleitung-denner-ag-buchs-sg",
-          "assistente-nella-gestione-delle-branche-denner-buchs-ag",
-          "assistente-nella-gestione-delle-branche-denner-ag-buchs-ag"
+          "assistente-nella-gestione-delle-branche-denner-buchs-ag"
         ],
         "en": [
           "assistent-in-filialleitung-denner-buchs-ag",
@@ -10893,7 +10736,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T22:41:17.659Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -10906,16 +10748,17 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c06423745979",
       "slug": "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34",
       "slugByLocale": {
         "it": "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34",
-        "en": "assistent-in-filialleitung-denner-steinhausen",
+        "en": "assistant-in-branch-management-denner-ag-steinhausen",
         "de": "assistent-in-filialleitung-denner-ag-steinhausen-cc1clp",
-        "fr": "assistent-in-filialleitung-denner-steinhausen"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-ag-steinhausen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -10973,26 +10816,26 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:54.919Z",
-      "previousSlugs": [
-        "assistent-in-filialleitung-denner",
-        "assistant-in-branch-management-denner-ag-steinhausen",
-        "assistant-dans-la-gestion-des-succursales-denner-ag-steinhausen",
-        "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
           "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34"
         ],
         "en": [
-          "assistant-in-branch-management-denner-ag-steinhausen"
+          "assistent-in-filialleitung-denner-steinhausen"
         ],
         "fr": [
-          "assistant-dans-la-gestion-des-succursales-denner-ag-steinhausen"
+          "assistent-in-filialleitung-denner-steinhausen"
         ]
       },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner",
+        "assistant-in-branch-management-denner-ag-steinhausen",
+        "assistant-dans-la-gestion-des-succursales-denner-ag-steinhausen",
+        "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34",
+        "assistent-in-filialleitung-denner-steinhausen"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:05:08.450Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -11005,7 +10848,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-21T16:05:08.450Z"
     },
     {
       "id": "denner-4ed5cf5b32c4",
@@ -11076,8 +10920,7 @@
         "stv-branch-manager-in-denner-zug",
         "stv-filialleiter-in-denner-ag-zug",
         "stv-filialleiter-in-denner-ag-zug-15ags6",
-        "stv-filialleiter-in-denner-15ags6",
-        "stv-branch-manager-in-denner-ag-zug"
+        "stv-filialleiter-in-denner-15ags6"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11085,8 +10928,7 @@
           "stv-branch-manager-in-denner-zug",
           "stv-filialleiter-in-denner-ag-zug",
           "stv-filialleiter-in-denner-ag-zug-15ags6",
-          "stv-filialleiter-in-denner-15ags6",
-          "stv-branch-manager-in-denner-ag-zug"
+          "stv-filialleiter-in-denner-15ags6"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-zug-15ags6"
@@ -11096,7 +10938,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:13:38.802Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -11109,7 +10950,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-228b88",
@@ -11186,15 +11028,13 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-rothenburg",
         "stv-filialleiter-in-denner-ag-rothenburg-228b88",
-        "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-ag-rothenburg"
+        "stv-filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-rothenburg",
           "stv-filialleiter-in-denner-ag-rothenburg-228b88",
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-rothenburg"
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-rothenburg-228b88"
@@ -11204,7 +11044,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:36:24.077Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -11217,7 +11056,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-14od2o",
@@ -11296,15 +11136,13 @@
       "previousSlugs": [
         "assistent-in-filialleitung-denner-ag-rothenburg",
         "assistent-in-filialleitung-denner-ag-rothenburg-14od2o",
-        "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-ag-rothenburg"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-ag-rothenburg",
           "assistent-in-filialleitung-denner-ag-rothenburg-14od2o",
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-rothenburg"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-rothenburg-14od2o"
@@ -11314,7 +11152,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:03.067Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -11327,13 +11164,14 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-dlp26n",
       "slug": "addetto-vendite-a-ore-denner-oberwil-bl",
       "slugByLocale": {
-        "it": "addetto-vendite-a-ore-denner-oberwil-bl",
+        "it": "venditore-nel-salario-orario-denner-ag-oberwil-bl",
         "en": "seller-in-the-hourly-wage-denner-ag-oberwil-bl",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl-dlp26n",
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-oberwil-bl"
@@ -11405,18 +11243,14 @@
         "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl",
         "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl-dlp26n",
         "addetto-vendite-a-ore-denner-ag-oberwil-bl",
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-denner-ag-oberwil-bl",
-        "addetto-vendite-a-ore-denner-oberwil-bl"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl",
           "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl-dlp26n",
           "addetto-vendite-a-ore-denner-ag-oberwil-bl",
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-oberwil-bl",
-          "addetto-vendite-a-ore-denner-oberwil-bl"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl-dlp26n"
@@ -11426,7 +11260,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -11439,7 +11272,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-4q7mrv",
@@ -11520,8 +11354,7 @@
         "seller-denner-ag-herzogenbuchsee",
         "vendeur-denner-ag-herzogenbuchsee",
         "verkaufer-in-denner",
-        "venditore-denner-herzogenbuchsee",
-        "venditore-denner-ag-herzogenbuchsee-e869da"
+        "venditore-denner-herzogenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11531,8 +11364,7 @@
           "seller-denner-ag-herzogenbuchsee",
           "vendeur-denner-ag-herzogenbuchsee",
           "verkaufer-in-denner",
-          "venditore-denner-herzogenbuchsee",
-          "venditore-denner-ag-herzogenbuchsee-e869da"
+          "venditore-denner-herzogenbuchsee"
         ],
         "en": [
           "verkaufer-in-denner-ag-herzogenbuchsee-4q7mrv",
@@ -11549,7 +11381,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -11562,13 +11393,14 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-a82ca0abdc94",
       "slug": "seller-in-retribuzione-oraria-denner-reinach-ag",
       "slugByLocale": {
-        "it": "seller-in-retribuzione-oraria-denner-reinach-ag",
+        "it": "venditore-nel-salario-orario-denner-ag-reinach-ag",
         "en": "seller-in-the-hourly-wage-denner-ag-reinach-ag",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-reinach-ag"
@@ -11633,9 +11465,7 @@
         "verkaufer-in-im-stundenlohn-denner-ag-frutigen",
         "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag",
         "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
-        "verkaufer-in-im-stundenlohn-denner-reinach-ag",
-        "venditore-nel-salario-orario-denner-ag-reinach-ag",
-        "seller-in-retribuzione-oraria-denner-reinach-ag"
+        "verkaufer-in-im-stundenlohn-denner-reinach-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11643,9 +11473,7 @@
           "verkaufer-in-im-stundenlohn-denner-ag-frutigen",
           "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag",
           "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
-          "verkaufer-in-im-stundenlohn-denner-reinach-ag",
-          "venditore-nel-salario-orario-denner-ag-reinach-ag",
-          "seller-in-retribuzione-oraria-denner-reinach-ag"
+          "verkaufer-in-im-stundenlohn-denner-reinach-ag"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun"
@@ -11655,7 +11483,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:09.779Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -11668,16 +11495,17 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c613f7f07188",
       "slug": "assistent-in-filialleitung-denner-biel-bienne",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner-biel-bienne",
-        "en": "assistent-in-filialleitung-denner-biel-bienne",
+        "it": "assistente-nella-gestione-delle-branche-denner-ag-biel-bienne",
         "de": "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
-        "fr": "assistent-in-filialleitung-denner-biel-bienne"
+        "en": "assistant-branch-manager-denner-ag-biel-bienne-a20fa2",
+        "fr": "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -11735,26 +11563,19 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:53.217Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner",
+          "assistent-in-filialleitung-denner-biel-bienne"
+        ]
+      },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistant-branch-manager-denner-ag-biel-bienne-a20fa2",
         "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2",
         "assistent-in-filialleitung-denner-biel-bienne"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-biel-bienne"
-        ],
-        "en": [
-          "assistant-branch-manager-denner-ag-biel-bienne-a20fa2"
-        ],
-        "fr": [
-          "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:05:08.450Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -11767,7 +11588,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-21T16:05:08.450Z"
     },
     {
       "id": "denner-8153c4e7ff75",
@@ -11842,8 +11664,7 @@
         "store-manager-denner-ag-sursee",
         "filialleiter-in-denner-ag-sursee",
         "gestionnaire-de-magasin-denner-ag-sursee",
-        "filialleiter-in-denner-ag-sursee-ylvu1n",
-        "stv-branch-manager-in-denner-ag-sursee"
+        "filialleiter-in-denner-ag-sursee-ylvu1n"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11855,8 +11676,7 @@
           "store-manager-denner-ag-sursee",
           "filialleiter-in-denner-ag-sursee",
           "gestionnaire-de-magasin-denner-ag-sursee",
-          "filialleiter-in-denner-ag-sursee-ylvu1n",
-          "stv-branch-manager-in-denner-ag-sursee"
+          "filialleiter-in-denner-ag-sursee-ylvu1n"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-sursee-whvjnl",
@@ -11871,7 +11691,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:13:38.256Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -11884,7 +11703,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-9be68f5146c6",
@@ -11957,7 +11777,8 @@
         "stv-filialleiter-in-denner-81vwm4",
         "stv-filialleiter-in-denner-luzern",
         "stv-filialleiter-in-denner-2",
-        "stv-branch-manager-in-denner-ag-luzern-30c621"
+        "stv-branch-manager-in-denner-ag-luzern-30c621",
+        "stv-filialleiter-in-denner-7ltn3x"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11967,7 +11788,8 @@
           "stv-filialleiter-in-denner-81vwm4",
           "stv-filialleiter-in-denner-luzern",
           "stv-filialleiter-in-denner-2",
-          "stv-branch-manager-in-denner-ag-luzern-30c621"
+          "stv-branch-manager-in-denner-ag-luzern-30c621",
+          "stv-filialleiter-in-denner-7ltn3x"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-luzern-81vwm4"
@@ -11977,7 +11799,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:45.040Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -11990,13 +11811,14 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-5810a92eb7c1",
       "slug": "gestore-ramo-denner-einsiedeln",
       "slugByLocale": {
-        "it": "gestore-ramo-denner-einsiedeln",
+        "it": "vice-direttore-di-filiale-denner-ag-einsiedeln",
         "en": "stv-branch-manager-in-denner-ag-einsiedeln",
         "de": "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n",
         "fr": "directeur-de-succursale-stv-denner-ag-einsiedeln"
@@ -12064,9 +11886,7 @@
         "vice-direttore-di-filiale-in-formazione-denner-ag-oensingen",
         "vice-direttore-di-filiale-denner-basel",
         "stv-branch-manager-in-denner-ag-einsiedeln",
-        "stv-branch-manager-in-denner-einsiedeln",
-        "vice-direttore-di-filiale-denner-ag-einsiedeln",
-        "gestore-ramo-denner-einsiedeln"
+        "stv-branch-manager-in-denner-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12077,9 +11897,7 @@
           "vice-direttore-di-filiale-in-formazione-denner-ag-oensingen",
           "vice-direttore-di-filiale-denner-basel",
           "stv-branch-manager-in-denner-ag-einsiedeln",
-          "stv-branch-manager-in-denner-einsiedeln",
-          "vice-direttore-di-filiale-denner-ag-einsiedeln",
-          "gestore-ramo-denner-einsiedeln"
+          "stv-branch-manager-in-denner-einsiedeln"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n"
@@ -12089,7 +11907,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T11:06:33.256Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -12102,7 +11919,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-437b35b9c1eb",
@@ -12170,18 +11988,15 @@
       "crawledAt": "2026-09-26T23:36:52.176Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-ag-fislisbach-syaqmt",
-        "stv-branch-manager-in-denner-ag-fislisbach"
+        "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt",
-          "stv-branch-manager-in-denner-ag-fislisbach"
+          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
         ]
       },
       "firstSeenAt": "2026-07-20T22:05:28.571Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -12194,7 +12009,8 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-3d85403ee4cf",
@@ -12266,7 +12082,8 @@
         "verkaufer-in-denner-oftringen",
         "verkaufer-in-denner-18",
         "verkaufer-in-denner-17",
-        "venditore-denner-ag-oftringen-79429a"
+        "venditore-denner-ag-oftringen-79429a",
+        "verkaufer-in-denner-uyleak"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12275,11 +12092,11 @@
           "verkaufer-in-denner-oftringen",
           "verkaufer-in-denner-18",
           "verkaufer-in-denner-17",
-          "venditore-denner-ag-oftringen-79429a"
+          "venditore-denner-ag-oftringen-79429a",
+          "verkaufer-in-denner-uyleak"
         ]
       },
       "firstSeenAt": "2026-07-27T22:21:05.566Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -12292,16 +12109,17 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-e50a7cade976",
       "slug": "venditore-denner-ag-huttwil",
       "slugByLocale": {
         "it": "venditore-denner-ag-huttwil",
-        "en": "verkaufer-in-denner-huttwil",
+        "en": "seller-denner-ag-huttwil",
         "de": "verkaufer-in-denner-ag-huttwil",
-        "fr": "verkaufer-in-denner-huttwil"
+        "fr": "vendeur-denner-ag-huttwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -12358,26 +12176,26 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:52.171Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-huttwil",
-        "vendeur-denner-ag-huttwil",
-        "venditore-denner-ag-huttwil"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "venditore-denner-ag-huttwil"
         ],
         "en": [
-          "seller-denner-ag-huttwil"
+          "verkaufer-in-denner-huttwil"
         ],
         "fr": [
-          "vendeur-denner-ag-huttwil"
+          "verkaufer-in-denner-huttwil"
         ]
       },
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "seller-denner-ag-huttwil",
+        "vendeur-denner-ag-huttwil",
+        "venditore-denner-ag-huttwil",
+        "verkaufer-in-denner-huttwil"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-01T14:22:16.288Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -12390,16 +12208,17 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-01T14:22:16.288Z"
     },
     {
       "id": "denner-d53081c7bf61",
       "slug": "venditore-denner-ag-herzogenbuchsee",
       "slugByLocale": {
         "it": "venditore-denner-ag-herzogenbuchsee",
-        "en": "verkaufer-in-denner-herzogenbuchsee",
+        "en": "seller-denner-ag-herzogenbuchsee",
         "de": "verkaufer-in-denner-ag-herzogenbuchsee",
-        "fr": "verkaufer-in-denner-herzogenbuchsee"
+        "fr": "vendeur-denner-ag-herzogenbuchsee"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -12456,26 +12275,26 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:51.619Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-herzogenbuchsee",
-        "vendeur-denner-ag-herzogenbuchsee",
-        "venditore-denner-ag-herzogenbuchsee"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "venditore-denner-ag-herzogenbuchsee"
         ],
         "en": [
-          "seller-denner-ag-herzogenbuchsee"
+          "verkaufer-in-denner-herzogenbuchsee"
         ],
         "fr": [
-          "vendeur-denner-ag-herzogenbuchsee"
+          "verkaufer-in-denner-herzogenbuchsee"
         ]
       },
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "seller-denner-ag-herzogenbuchsee",
+        "vendeur-denner-ag-herzogenbuchsee",
+        "venditore-denner-ag-herzogenbuchsee",
+        "verkaufer-in-denner-herzogenbuchsee"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T10:11:32.549Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -12488,16 +12307,17 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T10:11:32.549Z"
     },
     {
       "id": "denner-cec11efd00bf",
       "slug": "venditore-denner-ag-ibach",
       "slugByLocale": {
         "it": "venditore-denner-ag-ibach",
-        "en": "verkaufer-in-denner-ibach",
+        "en": "seller-denner-ag-ibach",
         "de": "verkaufer-in-denner-ag-ibach",
-        "fr": "verkaufer-in-denner-ibach"
+        "fr": "vendeur-denner-ag-ibach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -12554,26 +12374,26 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:51.153Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-ibach",
-        "vendeur-denner-ag-ibach",
-        "venditore-denner-ag-ibach"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "venditore-denner-ag-ibach"
         ],
         "en": [
-          "seller-denner-ag-ibach"
+          "verkaufer-in-denner-ibach"
         ],
         "fr": [
-          "vendeur-denner-ag-ibach"
+          "verkaufer-in-denner-ibach"
         ]
       },
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "seller-denner-ag-ibach",
+        "vendeur-denner-ag-ibach",
+        "venditore-denner-ag-ibach",
+        "verkaufer-in-denner-ibach"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-30T12:43:38.551Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -12586,7 +12406,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-30T12:43:38.551Z"
     },
     {
       "id": "denner-ed9b92814624",
@@ -12595,7 +12416,7 @@
         "it": "controller-denner-zurich",
         "en": "controller-denner-zurich",
         "de": "controller-in-denner",
-        "fr": "controller-in-denner-zurich"
+        "fr": "controleur-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -12658,25 +12479,21 @@
       "crawledAt": "2026-09-26T23:36:49.343Z",
       "previousSlugs": [
         "controller-in-denner",
-        "controleur-denner-zurich",
-        "controller-denner-zurich",
         "controller-in-denner-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controller-in-denner",
-          "controller-denner-zurich"
+          "controller-in-denner"
         ],
         "en": [
           "controller-in-denner"
         ],
         "fr": [
-          "controleur-denner-zurich",
           "controller-in-denner-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:47:22.380Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -12766,15 +12583,13 @@
       "previousSlugs": [
         "verkaufer-in-denner-ag-riehen-2oilod",
         "verkaufer-in-denner-ag-riehen",
-        "verkaufer-in-denner",
-        "venditore-denner-ag-riehen"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-riehen-2oilod",
           "verkaufer-in-denner-ag-riehen",
-          "verkaufer-in-denner",
-          "venditore-denner-ag-riehen"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-riehen-2oilod",
@@ -12789,7 +12604,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:40:17.111Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -12802,7 +12616,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-fc8164963ffa",
@@ -12869,13 +12684,11 @@
       "crawledAt": "2026-09-26T23:36:47.954Z",
       "previousSlugs": [
         "vendeur-vendeuse-denner",
-        "vendeur-vendeuse-denner-etoy",
-        "vendeur-vendeuse-denner-sa-etoy"
+        "vendeur-vendeuse-denner-etoy"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner",
-          "vendeur-vendeuse-denner-sa-etoy"
+          "vendeur-vendeuse-denner"
         ],
         "en": [
           "vendeur-vendeuse-denner-etoy"
@@ -12885,7 +12698,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:50:29.341Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -12898,7 +12710,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-mr14yi",
@@ -12973,13 +12786,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:47.952Z",
       "previousSlugs": [
-        "teamleiter-in-betriebstechnik-frauenfeld-denner",
-        "capo-squadra-ingegneria-industriale-frauenfeld-denner-ag-frauenfeld"
+        "teamleiter-in-betriebstechnik-frauenfeld-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-betriebstechnik-frauenfeld-denner",
-          "capo-squadra-ingegneria-industriale-frauenfeld-denner-ag-frauenfeld"
+          "teamleiter-in-betriebstechnik-frauenfeld-denner"
         ],
         "en": [
           "teamleiter-in-betriebstechnik-frauenfeld-denner"
@@ -12989,7 +12800,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -13002,7 +12812,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-8c53cdc86b67",
@@ -13160,13 +12971,11 @@
       "crawledAt": "2026-09-26T23:36:46.932Z",
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
-        "filialleiter-in-in-ausbildung-denner-winterthur",
-        "manager-di-branch-in-formazione-denner-winterthur"
+        "filialleiter-in-in-ausbildung-denner-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner",
-          "manager-di-branch-in-formazione-denner-winterthur"
+          "filialleiter-in-in-ausbildung-denner"
         ],
         "en": [
           "filialleiter-in-in-ausbildung-denner-winterthur"
@@ -13176,7 +12985,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:47:19.557Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -13189,7 +12997,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-5a426ec6540e",
@@ -13257,13 +13066,11 @@
       "crawledAt": "2026-09-26T23:36:45.525Z",
       "previousSlugs": [
         "assistant-adjoint-assistante-adjointe-denner",
-        "assistant-adjoint-assistante-adjointe-denner-fhyqxc",
-        "assistente-assistente-assistente-assistente-denner-etoy"
+        "assistant-adjoint-assistante-adjointe-denner-fhyqxc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-adjoint-assistante-adjointe-denner",
-          "assistente-assistente-assistente-assistente-denner-etoy"
+          "assistant-adjoint-assistante-adjointe-denner"
         ],
         "en": [
           "assistant-adjoint-assistante-adjointe-denner"
@@ -13276,7 +13083,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:12:45.499Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -13289,7 +13095,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-36aaf9bb0297",
@@ -13357,13 +13164,11 @@
       "crawledAt": "2026-09-26T23:36:45.522Z",
       "previousSlugs": [
         "assistant-adjoint-assistante-adjointe-denner",
-        "assistant-adjoint-assistante-adjointe-denner-k7z9u0",
-        "assistente-assistente-assistente-assistente-denner-nyon"
+        "assistant-adjoint-assistante-adjointe-denner-k7z9u0"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-adjoint-assistante-adjointe-denner",
-          "assistente-assistente-assistente-assistente-denner-nyon"
+          "assistant-adjoint-assistante-adjointe-denner"
         ],
         "en": [
           "assistant-adjoint-assistante-adjointe-denner"
@@ -13376,7 +13181,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:55:14.114Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -13389,7 +13193,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ocrq9v",
@@ -13468,15 +13273,13 @@
       "previousSlugs": [
         "assistent-in-filialleitung-denner-ag-wadenswil",
         "assistent-in-filialleitung-denner-ag-wadenswil-ocrq9v",
-        "assistent-in-filialleitung-denner",
-        "vice-direttore-di-filiale-denner-ag-wadenswil-f723d1"
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-ag-wadenswil",
           "assistent-in-filialleitung-denner-ag-wadenswil-ocrq9v",
-          "assistent-in-filialleitung-denner",
-          "vice-direttore-di-filiale-denner-ag-wadenswil-f723d1"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-wadenswil-ocrq9v"
@@ -13486,7 +13289,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T11:44:46.349Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -13499,16 +13301,17 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-beea6c5dbbd2",
       "slug": "stv-filialleiter-in-denner-wadenswil",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-wadenswil",
-        "en": "stv-filialleiter-in-denner-wadenswil",
+        "it": "vice-direttore-di-filiale-denner-ag-wadenswil",
         "de": "stv-filialleiter-in-denner-ag-wadenswil-idrc05",
-        "fr": "stv-filialleiter-in-denner-wadenswil"
+        "en": "deputy-branch-manager-denner-ag-wadenswil",
+        "fr": "directeur-adjoint-de-la-succursale-denner-ag-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -13565,26 +13368,19 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:43.865Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-wadenswil"
+        ]
+      },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "deputy-branch-manager-denner-ag-wadenswil",
         "directeur-adjoint-de-la-succursale-denner-ag-wadenswil",
         "stv-filialleiter-in-denner-wadenswil"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-wadenswil"
-        ],
-        "en": [
-          "deputy-branch-manager-denner-ag-wadenswil"
-        ],
-        "fr": [
-          "directeur-adjoint-de-la-succursale-denner-ag-wadenswil"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -13597,7 +13393,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-17T13:34:18.916Z"
     },
     {
       "id": "company-wwdtv1",
@@ -13674,15 +13471,13 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-wollerau",
         "stv-filialleiter-in-denner-ag-wollerau-wwdtv1",
-        "stv-filialleiter-in-denner",
-        "vice-direttore-di-filiale-denner-ag-wollerau"
+        "stv-filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-wollerau",
           "stv-filialleiter-in-denner-ag-wollerau-wwdtv1",
-          "stv-filialleiter-in-denner",
-          "vice-direttore-di-filiale-denner-ag-wollerau"
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-wollerau-wwdtv1"
@@ -13692,7 +13487,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T21:56:21.569Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -13705,7 +13499,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-7ch1bc",
@@ -13780,13 +13575,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:43.438Z",
       "previousSlugs": [
-        "filialleiter-in-in-ausbildung-region-basel-denner",
-        "direttore-di-filiale-in-formazione-nella-regione-di-basilea-denner-ag-binningen"
+        "filialleiter-in-in-ausbildung-region-basel-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-region-basel-denner",
-          "direttore-di-filiale-in-formazione-nella-regione-di-basilea-denner-ag-binningen"
+          "filialleiter-in-in-ausbildung-region-basel-denner"
         ],
         "en": [
           "filialleiter-in-in-ausbildung-region-basel-denner"
@@ -13796,7 +13589,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -13809,7 +13601,8 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-bz84m5",
@@ -13886,15 +13679,13 @@
       "previousSlugs": [
         "filialleiter-in-denner-ag-brugg-be-bz84m5",
         "filialleiter-in-denner-ag-brugg-be",
-        "filialleiter-in-denner",
-        "responsabile-negozio-denner-ag-brugg-be"
+        "filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-denner-ag-brugg-be-bz84m5",
           "filialleiter-in-denner-ag-brugg-be",
-          "filialleiter-in-denner",
-          "responsabile-negozio-denner-ag-brugg-be"
+          "filialleiter-in-denner"
         ],
         "en": [
           "filialleiter-in-denner-ag-brugg-be-bz84m5",
@@ -13909,7 +13700,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T13:24:47.217Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -13922,7 +13712,8 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-oivifv",
@@ -13999,15 +13790,13 @@
       "previousSlugs": [
         "verkaufer-in-denner-ag-stans-oivifv",
         "verkaufer-in-denner-ag-stans",
-        "verkaufer-in-denner",
-        "venditore-denner-ag-stans"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-stans-oivifv",
           "verkaufer-in-denner-ag-stans",
-          "verkaufer-in-denner",
-          "venditore-denner-ag-stans"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-stans-oivifv",
@@ -14022,7 +13811,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T22:46:36.093Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -14035,7 +13823,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-xb78n5",
@@ -14112,15 +13901,13 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-richterswil",
         "stv-filialleiter-in-denner-ag-richterswil-xb78n5",
-        "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-ag-richterswil"
+        "stv-filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-richterswil",
           "stv-filialleiter-in-denner-ag-richterswil-xb78n5",
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-richterswil"
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-richterswil-xb78n5"
@@ -14130,7 +13917,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:19:58.281Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -14143,7 +13929,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-w68p5a",
@@ -14221,16 +14008,14 @@
         "verkaufer-in-denner-ag-bern-w68p5a",
         "verkaufer-in-denner-ag-bern",
         "verkaufer-in-denner",
-        "seller-denner-bern",
-        "venditore-denner-ag-bern"
+        "seller-denner-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-bern-w68p5a",
           "verkaufer-in-denner-ag-bern",
           "verkaufer-in-denner",
-          "seller-denner-bern",
-          "venditore-denner-ag-bern"
+          "seller-denner-bern"
         ],
         "en": [
           "verkaufer-in-denner-ag-bern-w68p5a",
@@ -14245,7 +14030,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:07:15.543Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -14258,16 +14042,17 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-548703246391",
       "slug": "venditore-denner-ag-bern-bumpliz",
       "slugByLocale": {
         "it": "venditore-denner-ag-bern-bumpliz",
-        "en": "verkaufer-in-denner-bern-bumpliz",
+        "en": "seller-denner-ag-bern-bumpliz",
         "de": "verkaufer-in-denner-ag-bern-bumpliz-tkyapg",
-        "fr": "verkaufer-in-denner-bern-bumpliz"
+        "fr": "vendeur-denner-ag-bern-bumpliz"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -14324,26 +14109,26 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:42.444Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-bern-bumpliz",
-        "vendeur-denner-ag-bern-bumpliz",
-        "venditore-denner-ag-bern-bumpliz"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "venditore-denner-ag-bern-bumpliz"
         ],
         "en": [
-          "seller-denner-ag-bern-bumpliz"
+          "verkaufer-in-denner-bern-bumpliz"
         ],
         "fr": [
-          "vendeur-denner-ag-bern-bumpliz"
+          "verkaufer-in-denner-bern-bumpliz"
         ]
       },
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "seller-denner-ag-bern-bumpliz",
+        "vendeur-denner-ag-bern-bumpliz",
+        "venditore-denner-ag-bern-bumpliz",
+        "verkaufer-in-denner-bern-bumpliz"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-30T12:43:38.551Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -14356,7 +14141,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-30T12:43:38.551Z"
     },
     {
       "id": "company-1remei",
@@ -14507,8 +14293,7 @@
         "venditore-denner-ag-wetzikon-8q0wha",
         "venditore-denner-ag-zurich-1ed56c",
         "verkaufer-in-denner",
-        "vendeur-denner-rubigen",
-        "venditore-denner-ag-rubigen"
+        "vendeur-denner-rubigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14530,8 +14315,7 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-ag-wattwil",
           "vendeur-denner-rubigen",
-          "venditore-denner-ag-wattwil-8129f7",
-          "venditore-denner-ag-rubigen"
+          "venditore-denner-ag-wattwil-8129f7"
         ],
         "en": [
           "verkaufer-in-denner-ag-rubigen-1remei",
@@ -14546,7 +14330,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:52:24.488Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -14559,7 +14342,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-4le3f7",
@@ -14640,8 +14424,7 @@
         "teamleiter-in-interner-transport-magenwil-denner-ag-magenwil-4le3f7",
         "teamleiter-in-interner-transport-magenwil-denner",
         "team-leader-in-internal-transport-magenwil-denner-magenwil",
-        "team-leader-nel-trasporto-interno-magenwil-denner-magenwil",
-        "team-leader-nel-trasporto-interno-magenwil-denner-ag-magenwil"
+        "team-leader-nel-trasporto-interno-magenwil-denner-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14649,8 +14432,7 @@
           "teamleiter-in-interner-transport-magenwil-denner-ag-magenwil-4le3f7",
           "teamleiter-in-interner-transport-magenwil-denner",
           "team-leader-in-internal-transport-magenwil-denner-magenwil",
-          "team-leader-nel-trasporto-interno-magenwil-denner-magenwil",
-          "team-leader-nel-trasporto-interno-magenwil-denner-ag-magenwil"
+          "team-leader-nel-trasporto-interno-magenwil-denner-magenwil"
         ],
         "en": [
           "teamleiter-in-interner-transport-magenwil-denner-ag-magenwil-4le3f7"
@@ -14660,7 +14442,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:51:47.612Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -14673,16 +14454,17 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-0f13c61b036b",
       "slug": "assistent-in-filialleitung-denner-wadenswil",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner-wadenswil",
-        "en": "assistent-in-filialleitung-denner-wadenswil",
+        "it": "vice-direttore-di-filiale-denner-ag-wadenswil-23a774",
         "de": "assistent-in-filialleitung-denner-ag-wadenswil-dmwt2p",
-        "fr": "assistent-in-filialleitung-denner-wadenswil"
+        "en": "assistant-branch-manager-denner-ag-wadenswil-23a774",
+        "fr": "directeur-adjoint-de-succursale-denner-ag-wadenswil-23a774"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -14740,26 +14522,19 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:41.852Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner",
+          "assistent-in-filialleitung-denner-wadenswil"
+        ]
+      },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistant-branch-manager-denner-ag-wadenswil-23a774",
         "directeur-adjoint-de-succursale-denner-ag-wadenswil-23a774",
         "assistent-in-filialleitung-denner-wadenswil"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-wadenswil"
-        ],
-        "en": [
-          "assistant-branch-manager-denner-ag-wadenswil-23a774"
-        ],
-        "fr": [
-          "directeur-adjoint-de-succursale-denner-ag-wadenswil-23a774"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:05:08.450Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -14772,7 +14547,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-21T16:05:08.450Z"
     },
     {
       "id": "company-uldcvi",
@@ -14865,8 +14641,7 @@
         "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will",
         "verkaufer-in-denner",
         "vendeur-denner-allschwil",
-        "verkaufer-in-denner-ag-allschwil-w2uxdl",
-        "venditore-denner-ag-allschwil"
+        "verkaufer-in-denner-ag-allschwil-w2uxdl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14888,8 +14663,7 @@
           "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will",
           "verkaufer-in-denner",
           "vendeur-denner-allschwil",
-          "verkaufer-in-denner-ag-allschwil-w2uxdl",
-          "venditore-denner-ag-allschwil"
+          "verkaufer-in-denner-ag-allschwil-w2uxdl"
         ],
         "en": [
           "verkaufer-in-denner-ag-allschwil-uldcvi",
@@ -14908,7 +14682,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:21:46.566Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -14921,7 +14694,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-wwx3mg",
@@ -15005,8 +14779,7 @@
         "venditore-denner-ag-ruti-zh-855b89",
         "venditore-denner-ag-ruti-zh-t7zg1v",
         "verkaufer-in-denner-ag-ruti-zh-2",
-        "verkaufer-in-denner-ag-ruti-zh-t7zg1v",
-        "venditore-denner-ag-ruti-zh"
+        "verkaufer-in-denner-ag-ruti-zh-t7zg1v"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15019,8 +14792,7 @@
           "venditore-denner-ag-ruti-zh-855b89",
           "venditore-denner-ag-ruti-zh-t7zg1v",
           "verkaufer-in-denner-ag-ruti-zh-2",
-          "verkaufer-in-denner-ag-ruti-zh-t7zg1v",
-          "venditore-denner-ag-ruti-zh"
+          "verkaufer-in-denner-ag-ruti-zh-t7zg1v"
         ],
         "en": [
           "verkaufer-in-denner-ag-ruti-zh-wwx3mg",
@@ -15035,7 +14807,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:17:10.683Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -15048,7 +14819,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-sjerti",
@@ -15125,15 +14897,13 @@
       "previousSlugs": [
         "verkaufer-in-denner-ag-gstaad-sjerti",
         "verkaufer-in-denner-ag-gstaad",
-        "verkaufer-in-denner",
-        "venditore-denner-ag-gstaad"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-gstaad-sjerti",
           "verkaufer-in-denner-ag-gstaad",
-          "verkaufer-in-denner",
-          "venditore-denner-ag-gstaad"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-gstaad-sjerti",
@@ -15148,7 +14918,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T11:03:52.766Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -15161,7 +14930,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-crop66",
@@ -15243,8 +15013,7 @@
         "stv-filialleiter-in-denner-3",
         "stv-filialleiter-in-denner-2",
         "stv-filialleiter-in-denner-11",
-        "stv-filialleiter-in-denner-8",
-        "stv-branch-manager-in-denner-ag-egg-b"
+        "stv-filialleiter-in-denner-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15255,8 +15024,7 @@
           "stv-filialleiter-in-denner-3",
           "stv-filialleiter-in-denner-2",
           "stv-filialleiter-in-denner-11",
-          "stv-filialleiter-in-denner-8",
-          "stv-branch-manager-in-denner-ag-egg-b"
+          "stv-filialleiter-in-denner-8"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-egg-b-zurich-crop66"
@@ -15266,7 +15034,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:50:29.341Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -15279,16 +15046,17 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-4450b43768de",
       "slug": "verkaufer-in-denner-bern",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-bern",
-        "en": "verkaufer-in-denner-bern",
+        "it": "venditore-denner-ag-bern-a0cd5d",
         "de": "verkaufer-in-denner-ag-bern",
-        "fr": "verkaufer-in-denner-bern"
+        "en": "seller-denner-ag-bern-a0cd5d",
+        "fr": "vendeur-denner-ag-bern-a0cd5d"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -15345,26 +15113,19 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:40.817Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-bern"
+        ]
+      },
       "previousSlugs": [
         "verkaufer-in-denner",
         "seller-denner-ag-bern-a0cd5d",
         "vendeur-denner-ag-bern-a0cd5d",
         "verkaufer-in-denner-bern"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-bern"
-        ],
-        "en": [
-          "seller-denner-ag-bern-a0cd5d"
-        ],
-        "fr": [
-          "vendeur-denner-ag-bern-a0cd5d"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-01T22:07:15.543Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -15377,7 +15138,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-01T22:07:15.543Z"
     },
     {
       "id": "company-wwzh1a",
@@ -15455,16 +15217,14 @@
         "verkaufer-in-denner-ag-thun-wwzh1a",
         "verkaufer-in-denner-ag-thun",
         "verkaufer-in-denner",
-        "verkaufer-in-im-stundenlohn-denner-ag-thun",
-        "venditore-denner-ag-thun"
+        "verkaufer-in-im-stundenlohn-denner-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-thun-wwzh1a",
           "verkaufer-in-denner-ag-thun",
           "verkaufer-in-denner",
-          "verkaufer-in-im-stundenlohn-denner-ag-thun",
-          "venditore-denner-ag-thun"
+          "verkaufer-in-im-stundenlohn-denner-ag-thun"
         ],
         "en": [
           "verkaufer-in-denner-ag-thun-wwzh1a",
@@ -15479,7 +15239,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -15492,7 +15251,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-n9rluj",
@@ -15569,15 +15329,13 @@
       "previousSlugs": [
         "verkaufer-in-denner-ag-baden-n9rluj",
         "verkaufer-in-denner-ag-baden",
-        "verkaufer-in-denner",
-        "venditore-denner-ag-baden"
+        "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-baden-n9rluj",
           "verkaufer-in-denner-ag-baden",
-          "verkaufer-in-denner",
-          "venditore-denner-ag-baden"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-baden-n9rluj",
@@ -15592,7 +15350,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -15605,7 +15362,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-mrrlu8",
@@ -15684,8 +15442,7 @@
         "verkaufer-in-denner-ag-brugg-ag",
         "verkaufer-in-denner-4",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-2",
-        "venditore-denner-ag-brugg-ag"
+        "verkaufer-in-denner-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15693,8 +15450,7 @@
           "verkaufer-in-denner-ag-brugg-ag",
           "verkaufer-in-denner-4",
           "verkaufer-in-denner",
-          "verkaufer-in-denner-2",
-          "venditore-denner-ag-brugg-ag"
+          "verkaufer-in-denner-2"
         ],
         "en": [
           "verkaufer-in-denner-ag-brugg-ag-mrrlu8",
@@ -15709,7 +15465,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -15722,7 +15477,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-se0fxo",
@@ -15807,7 +15563,8 @@
         "verkaufer-in-im-stundenlohn-denner-zurich",
         "seller-in-the-hourly-wage-denner-ag-zurich-1f4f1e",
         "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e",
-        "venditore-nel-salario-orario-denner-ag-zurich"
+        "venditore-nel-salario-orario-denner-ag-zurich",
+        "verkaufer-in-im-stundenlohn-denner-x84zlj"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15821,7 +15578,8 @@
           "verkaufer-in-im-stundenlohn-denner-zurich",
           "seller-in-the-hourly-wage-denner-ag-zurich-1f4f1e",
           "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e",
-          "venditore-nel-salario-orario-denner-ag-zurich"
+          "venditore-nel-salario-orario-denner-ag-zurich",
+          "verkaufer-in-im-stundenlohn-denner-x84zlj"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-zurich-se0fxo"
@@ -15834,7 +15592,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -15847,13 +15604,14 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-185cf6dcbec3",
       "slug": "addetto-a-alle-vendite-su-base-oraria-denner-wollerau",
       "slugByLocale": {
-        "it": "addetto-a-alle-vendite-su-base-oraria-denner-wollerau",
+        "it": "venditore-nel-salario-orario-denner-ag-wollerau",
         "en": "seller-in-the-hourly-wage-denner-ag-wollerau",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm",
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-wollerau"
@@ -15917,18 +15675,14 @@
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-ag-wollerau",
         "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm",
-        "verkaufer-in-im-stundenlohn-denner-wollerau",
-        "venditore-nel-salario-orario-denner-ag-wollerau",
-        "addetto-a-alle-vendite-su-base-oraria-denner-wollerau"
+        "verkaufer-in-im-stundenlohn-denner-wollerau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-ag-wollerau",
           "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm",
-          "verkaufer-in-im-stundenlohn-denner-wollerau",
-          "venditore-nel-salario-orario-denner-ag-wollerau",
-          "addetto-a-alle-vendite-su-base-oraria-denner-wollerau"
+          "verkaufer-in-im-stundenlohn-denner-wollerau"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm"
@@ -15938,7 +15692,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:09.264Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -15951,14 +15704,15 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-e5f2e78b664c",
       "slug": "venditore-denner-gebenstorf",
       "slugByLocale": {
-        "it": "venditore-denner-gebenstorf",
-        "en": "seller-denner-gebenstorf",
+        "it": "addetto-a-alle-vendite-denner-ag-gebenstorf",
+        "en": "sales-associate-denner-ag-gebenstorf",
         "de": "verkaufer-in-denner-ag-gebenstorf",
         "fr": "vendeur-se-denner-ag-gebenstorf"
       },
@@ -16022,9 +15776,6 @@
         "verkaufer-in-denner-gebenstorf",
         "verkaufer-in-denner-ag-gebenstorf-y28jsm",
         "verkaufer-in-denner-ag-gebenstorf",
-        "addetto-a-alle-vendite-denner-ag-gebenstorf",
-        "sales-associate-denner-ag-gebenstorf",
-        "venditore-denner-gebenstorf",
         "seller-denner-gebenstorf"
       ],
       "previousSlugsByLocale": {
@@ -16032,14 +15783,11 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-gebenstorf",
           "verkaufer-in-denner-ag-gebenstorf-y28jsm",
-          "verkaufer-in-denner-ag-gebenstorf",
-          "addetto-a-alle-vendite-denner-ag-gebenstorf",
-          "venditore-denner-gebenstorf"
+          "verkaufer-in-denner-ag-gebenstorf"
         ],
         "en": [
           "verkaufer-in-denner-ag-gebenstorf-y28jsm",
           "verkaufer-in-denner-ag-gebenstorf",
-          "sales-associate-denner-ag-gebenstorf",
           "seller-denner-gebenstorf"
         ],
         "de": [
@@ -16051,7 +15799,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:47.577Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -16064,7 +15811,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-9e912698b24a",
@@ -16135,16 +15883,14 @@
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-ag-grenchen",
         "assistent-in-filialleitung-denner-ag-grenchen-e1987t",
-        "assistent-in-filialleitung-denner-grenchen",
-        "assistente-responsabile-di-filiale-denner-ag-grenchen"
+        "assistent-in-filialleitung-denner-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-ag-grenchen",
           "assistent-in-filialleitung-denner-ag-grenchen-e1987t",
-          "assistent-in-filialleitung-denner-grenchen",
-          "assistente-responsabile-di-filiale-denner-ag-grenchen"
+          "assistent-in-filialleitung-denner-grenchen"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-grenchen-e1987t"
@@ -16154,7 +15900,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:47.575Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -16167,14 +15912,15 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-6192751f9df2",
       "slug": "venditore-trice-denner-ag-interlaken",
       "slugByLocale": {
         "it": "venditore-trice-denner-ag-interlaken",
-        "en": "seller-denner-interlaken",
+        "en": "sales-associate-denner-ag-interlaken",
         "de": "verkaufer-in-denner-ag-interlaken",
         "fr": "vendeur-euse-denner-ag-interlaken"
       },
@@ -16272,7 +16018,9 @@
         "verkaufer-in-denner-31",
         "sales-associate-denner-ag-interlaken",
         "venditore-trice-denner-ag-interlaken",
-        "seller-denner-interlaken"
+        "seller-denner-interlaken",
+        "verkaufer-in-denner-pfzdrt",
+        "verkaufer-in-denner-t9tqag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16294,13 +16042,14 @@
           "verkaufer-in-denner",
           "seller-denner-ag-zumikon",
           "verkaufer-in-denner-31",
-          "venditore-trice-denner-ag-interlaken"
+          "venditore-trice-denner-ag-interlaken",
+          "verkaufer-in-denner-pfzdrt",
+          "verkaufer-in-denner-t9tqag"
         ],
         "en": [
           "verkaufer-in-denner-ag-interlaken-kk53ro",
           "verkaufer-in-denner-ag-interlaken",
           "seller-denner-ag-interlaken-a375b5",
-          "sales-associate-denner-ag-interlaken",
           "seller-denner-interlaken"
         ],
         "de": [
@@ -16313,7 +16062,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:46.806Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -16326,7 +16074,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c7ed142be0ae",
@@ -16402,7 +16151,9 @@
         "verkaufer-in-denner-22",
         "verkaufer-in-denner-21",
         "verkaufer-in-denner-13",
-        "venditore-denner-ag-zug"
+        "venditore-denner-ag-zug",
+        "verkaufer-in-denner-k7ptw1",
+        "verkaufer-in-denner-rtrz4s"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16415,14 +16166,15 @@
           "verkaufer-in-denner-22",
           "verkaufer-in-denner-21",
           "verkaufer-in-denner-13",
-          "venditore-denner-ag-zug"
+          "venditore-denner-ag-zug",
+          "verkaufer-in-denner-k7ptw1",
+          "verkaufer-in-denner-rtrz4s"
         ],
         "de": [
           "verkaufer-in-denner-ag-zug-g83nvt"
         ]
       },
       "firstSeenAt": "2026-07-02T21:37:00.850Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -16435,7 +16187,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-a55a7681ee0b",
@@ -16501,13 +16254,11 @@
       "sourceLang": "fr",
       "crawledAt": "2026-09-26T23:36:36.056Z",
       "previousSlugs": [
-        "vendeur-vendeuse-denner",
-        "venditore-venditore-denner-bussigny-lausanne"
+        "vendeur-vendeuse-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner",
-          "venditore-venditore-denner-bussigny-lausanne"
+          "vendeur-vendeuse-denner"
         ],
         "en": [
           "vendeur-vendeuse-denner"
@@ -16517,7 +16268,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:01.573Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -16530,7 +16280,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-361dbaa0e03f",
@@ -16597,13 +16348,11 @@
       "sourceLang": "fr",
       "crawledAt": "2026-09-26T23:36:35.493Z",
       "previousSlugs": [
-        "assistant-adjoint-assistante-adjointe-denner",
-        "assistente-assistente-assistente-assistente-denner-bussigny-lausanne"
+        "assistant-adjoint-assistante-adjointe-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-adjoint-assistante-adjointe-denner",
-          "assistente-assistente-assistente-assistente-denner-bussigny-lausanne"
+          "assistant-adjoint-assistante-adjointe-denner"
         ],
         "en": [
           "assistant-adjoint-assistante-adjointe-denner"
@@ -16613,7 +16362,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:01.569Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -16626,7 +16374,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

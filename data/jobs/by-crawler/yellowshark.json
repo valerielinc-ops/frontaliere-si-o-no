@@ -50,28 +50,25 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa037301/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fassadenmonteur-m-w-chur-gr-yellowshark-ch",
-        "fassadenmonteur-m-w-yellowshark-ag-chur",
-        "facade-fitter-m-f-yellowshark-ag-chur"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "fassadenmonteur-m-w-yellowshark-ag-chur"
+        ],
         "it": [
           "fassadenmonteur-m-w-chur-gr-yellowshark-ch",
-          "fassadenmonteur-m-w-yellowshark-ag-chur",
-          "facade-fitter-m-f-yellowshark-ag-chur"
+          "fassadenmonteur-m-w-yellowshark-ag-chur"
         ],
         "en": [
           "fassadenmonteur-m-w-yellowshark-ag-chur"
-        ],
-        "de": [
-          "fassadenmonteur-m-w-yellowshark-ag-chur",
-          "fassadenmonteur-m-w-chur-gr-yellowshark-ch"
         ],
         "fr": [
           "fassadenmonteur-m-w-yellowshark-ag-chur"
         ]
       },
+      "previousSlugs": [
+        "fassadenmonteur-m-w-chur-gr-yellowshark-ch",
+        "fassadenmonteur-m-w-yellowshark-ag-chur"
+      ],
       "firstSeenAt": "2026-09-25T15:03:04.706Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -136,13 +133,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch",
-        "responsabile-finanziario-80-100-m-f-d-yellowshark-ag-baden"
+        "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch",
-          "responsabile-finanziario-80-100-m-f-d-yellowshark-ag-baden"
+          "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
         ],
         "en": [
           "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
@@ -214,25 +209,21 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa068058/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "hr-specialist-m-w-d-zug-zg-yellowshark-ch",
-        "personalwesen-spezialist-m-w-d-yellowshark-ag-zug",
-        "risorse-umane-specialista-m-w-d-yellowshark-ag-zug"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "hr-specialist-m-w-d-zug-zg-yellowshark-ch",
-          "risorse-umane-specialista-m-w-d-yellowshark-ag-zug"
-        ],
         "de": [
-          "personalwesen-spezialist-m-w-d-yellowshark-ag-zug",
+          "personalwesen-spezialist-m-w-d-yellowshark-ag-zug"
+        ],
+        "it": [
           "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
         ],
         "fr": [
           "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
         ]
       },
+      "previousSlugs": [
+        "hr-specialist-m-w-d-zug-zg-yellowshark-ch",
+        "personalwesen-spezialist-m-w-d-yellowshark-ag-zug"
+      ],
       "firstSeenAt": "2026-09-25T15:03:04.708Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -246,7 +237,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a39dfe0ad11a",
@@ -1301,11 +1293,11 @@
     },
     {
       "id": "yellowshark-b4708098b186",
-      "slug": "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich",
+      "slug": "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich-zh",
       "slugByLocale": {
-        "it": "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich",
-        "en": "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch",
         "de": "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch",
+        "it": "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich-zh",
+        "en": "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch",
         "fr": "betriebsinformatiker-in-cloud-ingenieur-yellowshark-ag-zurich"
       },
       "company": "yellowshark AG",
@@ -1348,18 +1340,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:28:34.119Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch"
-        ],
-        "fr": [
-          "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch"
-        ]
-      },
-      "previousSlugs": [
-        "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch"
-      ],
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1372,7 +1352,21 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T14:28:34.119Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch",
+          "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich"
+        ],
+        "fr": [
+          "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch",
+        "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich"
+      ]
     },
     {
       "id": "yellowshark-e91273caadfb",

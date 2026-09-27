@@ -8,8 +8,8 @@
       "slugByLocale": {
         "fr": "coordinateur-de-commandes-f-m-d-dormakaba-ch",
         "it": "coordinatore-del-comando-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "en": "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "en": "m-f-d-command-coordinator-dormakaba-le-mont-sur-lausanne",
+        "de": "m-w-d-kommandokoordinator-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -78,7 +78,6 @@
           "coordinateur-de-commandes-f-m-d-dormakaba-le-mont-sur-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -92,7 +91,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-13T22:19:12.988Z"
+      "firstSeenAt": "2026-08-13T22:19:12.988Z",
+      "needsRetranslation": true
     },
     {
       "id": "dormakaba-11893",
@@ -100,8 +100,8 @@
       "slugByLocale": {
         "fr": "technicien-portes-automatiques-f-m-d-dormakaba-ch",
         "it": "porte-automatiche-tecniche-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "en": "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "en": "technician-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "techniker-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -178,7 +178,6 @@
           "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -192,7 +191,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T22:36:09.538Z"
+      "firstSeenAt": "2026-07-28T22:36:09.538Z",
+      "needsRetranslation": true
     },
     {
       "id": "dormakaba-11919",
@@ -276,7 +276,7 @@
       "slugByLocale": {
         "en": "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "de": "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang",
-        "fr": "configurable-materials-master-data-domain-lead-dormakaba-rumlang",
+        "fr": "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
         "it": "responsabile-dominio-dati-master-materiali-configurabili-dormakaba-rumlang"
       },
       "company": "dormakaba",
@@ -326,7 +326,6 @@
         "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
         "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
         "configurable-materials-master-data-domain-lead-dormakaba-ch",
-        "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
         "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
       ],
       "previousSlugsByLocale": {
@@ -336,7 +335,6 @@
           "configurable-materials-master-data-domain-lead-dormakaba-ch"
         ],
         "fr": [
-          "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
         ]
       },
@@ -453,8 +451,8 @@
       "slugByLocale": {
         "fr": "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
         "it": "gestione-del-progetto-controllo-di-accesso-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "en": "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "en": "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "projektmanager-zugriffskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -537,7 +535,6 @@
           "chef-de-projet-m-f-d-dormakaba-ch"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -551,7 +548,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-05T11:47:41.907Z"
+      "firstSeenAt": "2026-08-05T11:47:41.907Z",
+      "needsRetranslation": true
     },
     {
       "id": "dormakaba-11892",
@@ -560,7 +558,7 @@
         "fr": "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
         "it": "project-manager-porte-automatiche-m-f-d-dormakaba-le-mont-sur-lausanne",
         "en": "project-manager-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "de": "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "de": "projektmanager-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -632,7 +630,6 @@
           "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -646,7 +643,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T01:22:32.066Z"
+      "firstSeenAt": "2026-08-07T01:22:32.066Z",
+      "needsRetranslation": true
     },
     {
       "id": "dormakaba-11851",
@@ -1227,9 +1225,9 @@
       "slug": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
       "slugByLocale": {
         "fr": "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-        "it": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "en": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "it": "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "en": "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1274,30 +1272,19 @@
         "fr": []
       },
       "previousSlugs": [
-        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-        "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-          "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
-          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
         ],
         "en": [
-          "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
-          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
         ],
         "de": [
-          "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne",
-          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1311,7 +1298,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:25.676Z"
+      "firstSeenAt": "2026-09-19T23:11:25.676Z",
+      "needsRetranslation": true
     },
     {
       "id": "dormakaba-12276",

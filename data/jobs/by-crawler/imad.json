@@ -86,10 +86,10 @@
       "id": "imad-df86166e23b2",
       "slug": "candidatura-spontanea-altro-imad-geneva",
       "slugByLocale": {
-        "it": "candidatura-spontanea-altro-imad-geneva",
-        "en": "candidature-spontanee-autres-imad-geneva",
-        "de": "spontane-anwendung-sonstige-imad-geneva",
-        "fr": "candidature-spontanee-autres-imad-geneva"
+        "fr": "candidature-spontanee-autres-imad-geneva",
+        "de": "initiativbewerbung-sonstiges-imad-geneva",
+        "en": "spontaneous-application-others-imad-geneva",
+        "it": "candidatura-spontanea-altro-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -131,26 +131,27 @@
       "jobReqId": "744000079253489",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "candidature-spontanee-autres-imad-geneva",
-        "initiativbewerbung-sonstiges-imad-geneva",
-        "spontaneous-application-others-imad-geneva",
-        "candidatura-spontanea-altro-imad-geneva"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "candidature-spontanee-autres-imad-geneva",
           "candidatura-spontanea-altro-imad-geneva"
         ],
         "en": [
-          "spontaneous-application-others-imad-geneva"
+          "candidature-spontanee-autres-imad-geneva"
         ],
         "de": [
           "initiativbewerbung-sonstiges-imad-geneva",
-          "candidature-spontanee-autres-imad-geneva"
+          "candidature-spontanee-autres-imad-geneva",
+          "spontane-anwendung-sonstige-imad-geneva"
         ]
       },
-      "firstSeenAt": "2026-09-26T14:05:46.791Z",
+      "previousSlugs": [
+        "candidature-spontanee-autres-imad-geneva",
+        "initiativbewerbung-sonstiges-imad-geneva",
+        "spontaneous-application-others-imad-geneva",
+        "candidatura-spontanea-altro-imad-geneva",
+        "spontane-anwendung-sonstige-imad-geneva"
+      ],
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -163,7 +164,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T14:05:46.791Z"
     },
     {
       "id": "imad-256034dd0739",

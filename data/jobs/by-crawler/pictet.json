@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sustainability-impact-data-ai-solutions-analyst-fixed-term-contract-until-31-12-27-pictet",
-        "sostenibilita-impact-data-ai-solutions-analyst-contratto-a-tempo-determinato-fino-al-31-12-27-pictet-group-geneva"
+        "sustainability-impact-data-ai-solutions-analyst-fixed-term-contract-until-31-12-27-pictet"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sustainability-impact-data-ai-solutions-analyst-fixed-term-contract-until-31-12-27-pictet",
-          "sostenibilita-impact-data-ai-solutions-analyst-contratto-a-tempo-determinato-fino-al-31-12-27-pictet-group-geneva"
+          "sustainability-impact-data-ai-solutions-analyst-fixed-term-contract-until-31-12-27-pictet"
         ],
         "de": [
           "sustainability-impact-data-ai-solutions-analyst-fixed-term-contract-until-31-12-27-pictet"
@@ -67,7 +65,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:44:47.743Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -80,7 +77,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pictet-9e0df2bb217f",
@@ -131,20 +129,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physical-security-coordinator-pictet-geneva",
-        "physical-security-coordinatore-pictet-group-geneva"
+        "physical-security-coordinator-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physical-security-coordinator-pictet-geneva",
-          "physical-security-coordinatore-pictet-group-geneva"
+          "physical-security-coordinator-pictet-geneva"
         ],
         "de": [
           "physical-security-coordinator-pictet-geneva"
         ]
       },
       "firstSeenAt": "2026-09-23T23:44:47.250Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -157,7 +152,8 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pictet-8872eca504a7",
@@ -208,17 +204,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
-        "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva"
+        "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
-          "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva"
+          "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:44:45.090Z",
+      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -235,12 +229,12 @@
     },
     {
       "id": "pictet-5cc31d91e95e",
-      "slug": "collaborateur-trice-production-support-pictet-geneva",
+      "slug": "supporto-per-la-produzione-pictet-group-geneva",
       "slugByLocale": {
-        "it": "collaborateur-trice-production-support-pictet-geneva",
-        "en": "collaborateur-trice-production-support-pictet-geneva",
-        "de": "collaborateur-trice-production-support-pictet-geneva",
-        "fr": "collaborateur-trice-production-support-pictet-geneva"
+        "fr": "collaborateur-trice-production-support-pictet-geneva",
+        "it": "supporto-per-la-produzione-pictet-group-geneva",
+        "en": "collaborator-production-support-pictet-group-geneva",
+        "de": "kollaborateur-produktionsunterstutzung-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -294,7 +288,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T14:03:32.266Z"
+      "firstSeenAt": "2026-09-26T14:03:32.266Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-production-support-pictet-geneva"
+        ],
+        "en": [
+          "collaborateur-trice-production-support-pictet-geneva"
+        ],
+        "de": [
+          "collaborateur-trice-production-support-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-production-support-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-206a06b28cff",

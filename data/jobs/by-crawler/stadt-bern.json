@@ -519,7 +519,7 @@
       "slug": "assistente-cuoco-cuoco-ausiliario-stadt-bern-bern",
       "slugByLocale": {
         "it": "assistente-cuoco-cuoco-ausiliario-stadt-bern-bern",
-        "en": "hilfskoch-hilfskochin-stadt-bern",
+        "en": "assistant-cook-auxiliary-cook-stadt-bern-bern",
         "de": "hilfskoch-hilfskochin-stadt-bern-bern",
         "fr": "cuisinier-adjoint-cuisinier-auxiliaire-stadt-bern-bern"
       },
@@ -540,7 +540,6 @@
         "de": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Mitarbeit bei der Vor- und Zubereitung von ca 120 Mittagessen unter der Anleitung unserer Küchenleitung\n\n• Betreuung des Mittagsbuffets und Schöpfen der Mahlzeiten\n\n• Abwasch- und Reinigungsarbeiten\n\n• Einhalten und Kontrolle des Hygienekonzepts\n\nAnforderungen:\n• Erfahrung in der Küche\n\n• Respektvollen und aufmerksamen Umgang mit Kindern, Freude an Teamarbeit\n\n• Humorvoll und offen gegenüber anderen Kulturen\n\n• Mündliche Deutschkenntnisse (mindestens B1)\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
         "fr": "Pour cette position, nous abandonnons délibérément une lettre de motivation. Veuillez soumettre votre CV actuel et des certificats et diplômes complets.\n\nTâches :\n• Coopération dans la préparation et la préparation d'environ 120 déjeuners sous la direction de notre direction de cuisine\n\n• Prise en charge du buffet du déjeuner et prise en charge des repas\n\n• Nettoyage et nettoyage\n\n• Respect et contrôle du concept d'hygiène\n\nExigences\n• Expérience dans la cuisine\n\n• Traitement respectueux et attentif des enfants, joie du travail d'équipe\n\n• Humoreux et ouvert aux autres cultures\n\n• Connaissance orale de l'allemand (au moins B1)\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/hilfskoch-hilfskoechin/3207c65d-4a57-4ba6-9f4b-0616123347e3",
@@ -597,7 +596,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-bern-cacf1e69cabb",
@@ -2316,10 +2316,10 @@
       "id": "stadt-bern-5c5dc06e0c01",
       "slug": "professionista-stadt-bern-bern",
       "slugByLocale": {
-        "it": "professionista-stadt-bern-bern",
-        "en": "betreuungsfachperson-stadt-bern",
         "de": "betreuungsfachperson-stadt-bern-bern",
-        "fr": "betreuungsfachperson-stadt-bern"
+        "it": "professionista-stadt-bern-bern",
+        "en": "care-professional-stadt-bern-bern",
+        "fr": "specialiste-des-soins-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2362,25 +2362,25 @@
       "applyUrl": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson/f72b8199-f594-431f-8de5-3f1b3aa640b1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "betreuungsfachperson-stadt-bern-bern",
-        "care-professional-stadt-bern-bern",
-        "specialiste-des-soins-stadt-bern-bern",
-        "professionista-stadt-bern-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "betreuungsfachperson-stadt-bern-bern",
           "professionista-stadt-bern-bern"
         ],
         "en": [
-          "care-professional-stadt-bern-bern"
+          "betreuungsfachperson-stadt-bern"
         ],
         "fr": [
-          "specialiste-des-soins-stadt-bern-bern"
+          "betreuungsfachperson-stadt-bern"
         ]
       },
-      "firstSeenAt": "2026-09-01T08:49:38.789Z",
+      "previousSlugs": [
+        "betreuungsfachperson-stadt-bern-bern",
+        "care-professional-stadt-bern-bern",
+        "specialiste-des-soins-stadt-bern-bern",
+        "professionista-stadt-bern-bern",
+        "betreuungsfachperson-stadt-bern"
+      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2393,7 +2393,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-01T08:49:38.789Z"
     },
     {
       "id": "stadt-bern-b833c22e51e6",
@@ -2698,14 +2699,9 @@
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen/a3444067-bd28-4778-8f36-51f6f5af4b6a",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern",
-        "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-sportanlagen-stadt-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern",
-          "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-sportanlagen-stadt-bern"
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern"
@@ -2714,7 +2710,9 @@
           "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern"
         ]
       },
-      "firstSeenAt": "2026-08-27T00:32:56.602Z",
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern"
+      ],
       "salaryMin": 76000,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2727,7 +2725,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-27T00:32:56.602Z"
     },
     {
       "id": "stadt-bern-41bf60e2f686",

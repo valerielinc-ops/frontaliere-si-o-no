@@ -807,7 +807,7 @@
         "it": "ict-controller-e-finanza-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx",
         "en": "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx",
         "de": "ict-controller-und-finanzen-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx",
-        "fr": "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern"
+        "fr": "controleur-des-tic-et-partenaire-financier-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -816,13 +816,12 @@
         ],
         "fr": [
           "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx",
-          "controleur-des-tic-et-partenaire-financier-swiss-armed-forces-vtg-bern"
+          "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
         "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern",
-        "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx",
-        "controleur-des-tic-et-partenaire-financier-swiss-armed-forces-vtg-bern"
+        "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -2190,9 +2189,9 @@
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "slugByLocale": {
         "it": "automeccanica-veicoli-commerciali-swiss-armed-forces-vtg-bern-d696ef",
-        "en": "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern",
+        "en": "automotive-mechatronics-commercial-vehicles-swiss-armed-forces-vtg-bern-ctjnel",
         "de": "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-ctjnel",
-        "fr": "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern"
+        "fr": "vehicules-utilitaires-mecatroniques-automobiles-swiss-armed-forces-vtg-bern-ctjnel"
       },
       "titleByLocale": {
         "it": "Automobil-Mechatroniker/-in Nutzfahrzeuge",
@@ -2211,16 +2210,17 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
-          "automotive-mechatronics-commercial-vehicles-swiss-armed-forces-vtg-bern-ctjnel"
+          "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
-          "vehicules-utilitaires-mecatroniques-automobiles-swiss-armed-forces-vtg-bern-ctjnel"
+          "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
-        "automotive-mechatronics-commercial-vehicles-swiss-armed-forces-vtg-bern-ctjnel",
-        "vehicules-utilitaires-mecatroniques-automobiles-swiss-armed-forces-vtg-bern-ctjnel"
+        "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern"
       ],
+      "salaryMin": 65000,
+      "salaryMax": 98500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2234,9 +2234,7 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "Bern",
-      "addressRegion": "AI",
-      "salaryMin": 65000,
-      "salaryMax": 98500
+      "addressRegion": "AI"
     },
     {
       "id": "company-aoi5gr",
@@ -5284,9 +5282,9 @@
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "operazioni-di-personale-swiss-armed-forces-vtg-bern",
-        "en": "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-bern",
+        "en": "staff-building-operations-swiss-armed-forces-vtg-bern",
         "de": "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-bern-62wmel",
-        "fr": "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-bern"
+        "fr": "operations-du-batiment-du-personnel-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice/-in Gebäudebetrieb",
@@ -5304,16 +5302,17 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "staff-building-operations-swiss-armed-forces-vtg-bern"
+          "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
-          "operations-du-batiment-du-personnel-swiss-armed-forces-vtg-bern"
+          "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
-        "staff-building-operations-swiss-armed-forces-vtg-bern",
-        "operations-du-batiment-du-personnel-swiss-armed-forces-vtg-bern"
+        "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-bern"
       ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5328,8 +5327,6 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "Bern",
       "addressRegion": "OW",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
       "needsRetranslation": true
     },
     {
@@ -7462,10 +7459,10 @@
       "crawledAt": "2026-09-27T00:07:08.062Z",
       "firstSeenAt": "2026-09-11T13:51:25.247Z",
       "slugByLocale": {
-        "it": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern",
-        "en": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern",
         "de": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-bfr5kr",
-        "fr": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern"
+        "it": "apparecchiature-di-trasmissione-meccanica-swiss-armed-forces-vtg-bern",
+        "en": "transmission-equipment-mechanic-swiss-armed-forces-vtg-bern",
+        "fr": "mecanicien-du-materiel-de-transmission-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
         "it": "Übermittlungsgerätemechaniker/-in",
@@ -7482,22 +7479,8 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "apparecchiature-di-trasmissione-meccanica-swiss-armed-forces-vtg-bern"
-        ],
-        "en": [
-          "transmission-equipment-mechanic-swiss-armed-forces-vtg-bern"
-        ],
-        "fr": [
-          "mecanicien-du-materiel-de-transmission-swiss-armed-forces-vtg-bern"
-        ]
-      },
-      "previousSlugs": [
-        "apparecchiature-di-trasmissione-meccanica-swiss-armed-forces-vtg-bern",
-        "transmission-equipment-mechanic-swiss-armed-forces-vtg-bern",
-        "mecanicien-du-materiel-de-transmission-swiss-armed-forces-vtg-bern"
-      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -7511,9 +7494,7 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "Bern",
-      "addressRegion": "SG",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "addressRegion": "SG"
     },
     {
       "id": "company-qydrba",
@@ -7883,7 +7864,7 @@
       "crawledAt": "2026-09-27T00:07:08.062Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
-        "it": "apprentice-specialista-automobilistico-efz-specializzato-in-autovetture-swiss-armed-forces-vtg-bern",
+        "it": "apprendista-automobil-fachmann-frau-cfc-specializzazione-personenwagen-confederazione-svizzera-meiringen",
         "en": "apprentice-automotive-specialist-efz-specialising-in-passenger-cars-confederazione-svizzera-meiringen",
         "de": "lernende-r-automobil-fachmann-frau-efz-fachrichtung-personenwagen-confederazione-meiringen",
         "fr": "apprentis-specialiste-de-l-automobile-efz-specialise-dans-les-voitures-particulieres-confederazione-svizzera-meiringen"
@@ -8229,7 +8210,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "apprendista-commerciante-afc-insegnamento-sportivo-insegnamento-musicale-swiss-armed-forces-vtg-bern",
+        "it": "apprendista-kaufmann-frau-cfc-sportlehre-musiklehre-swiss-armed-forces-vtg-bern",
         "en": "apprentice-kaufmann-frau-efz-sportlehre-musiklehre-swiss-armed-forces-vtg-bern-sk0a4c",
         "de": "lernende-r-kaufmann-frau-efz-sportlehre-musiklehre-swiss-armed-forces-vtg-bern-sk0a4c",
         "fr": "apprenti-e-kaufmann-frau-efz-sportlehre-musiklehre-swiss-armed-forces-vtg-bern-sk0a4c"
@@ -9326,9 +9307,9 @@
       "crawledAt": "2026-09-27T00:07:08.062Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
-        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
-        "en": "apprentice-skilled-person-woman-maintenance-efz-specialisation-in-domestic-service-confederazione-svizzera-hinwil",
         "de": "lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-confederazione-hinwil",
+        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-confederazione-svizzera-hinwil",
+        "en": "apprentice-skilled-person-woman-maintenance-efz-specialisation-in-domestic-service-confederazione-svizzera-hinwil",
         "fr": "apprentis-qualifie-entretien-efz-specialisation-dans-le-service-domestique-confederazione-svizzera-hinwil"
       },
       "titleByLocale": {
@@ -9345,6 +9326,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9359,8 +9342,14 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "Bern",
       "addressRegion": "ZH",
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern"
+        ]
+      },
+      "previousSlugs": [
+        "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern"
+      ]
     },
     {
       "id": "company-20od68",
@@ -9641,9 +9630,9 @@
       "crawledAt": "2026-09-27T00:07:08.062Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
-        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
-        "en": "apprentice-skilled-person-woman-maintenance-efz-specialisation-in-domestic-service-confederazione-svizzera-visp",
         "de": "lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-confederazione-visp",
+        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-confederazione-svizzera-visp",
+        "en": "apprentice-skilled-person-woman-maintenance-efz-specialisation-in-domestic-service-confederazione-svizzera-visp",
         "fr": "apprentis-qualifie-entretien-efz-specialisation-dans-le-service-domestique-confederazione-svizzera-visp"
       },
       "titleByLocale": {
@@ -9660,6 +9649,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 51000,
+      "salaryMax": 77500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9674,8 +9665,14 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "Bern",
       "addressRegion": "VS",
-      "salaryMin": 51000,
-      "salaryMax": 77500
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern"
+        ]
+      },
+      "previousSlugs": [
+        "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern"
+      ]
     },
     {
       "id": "company-5ikj4z",
@@ -10144,9 +10141,9 @@
       "crawledAt": "2026-09-27T00:07:08.062Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
-        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
-        "en": "apprentice-skilled-person-woman-maintenance-efz-specialisation-in-domestic-service-confederazione-svizzera-brugg",
         "de": "lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-confederazione-brugg",
+        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-confederazione-svizzera-brugg",
+        "en": "apprentice-skilled-person-woman-maintenance-efz-specialisation-in-domestic-service-confederazione-svizzera-brugg",
         "fr": "apprentis-qualifie-entretien-efz-specialisation-dans-le-service-domestique-confederazione-svizzera-brugg"
       },
       "titleByLocale": {
@@ -10163,6 +10160,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 52000,
+      "salaryMax": 78500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10177,8 +10176,14 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "Bern",
       "addressRegion": "AG",
-      "salaryMin": 52000,
-      "salaryMax": 78500
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern"
+        ]
+      },
+      "previousSlugs": [
+        "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern"
+      ]
     },
     {
       "id": "company-563xqi",
@@ -10270,9 +10275,9 @@
       "crawledAt": "2026-09-27T00:07:08.062Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
-        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
-        "en": "apprentice-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bern-063pew",
         "de": "lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-confederazione-frauenfeld",
+        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-confederazione-svizzera-frauenfeld",
+        "en": "apprentice-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bern-063pew",
         "fr": "apprenti-e-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bern-063pew"
       },
       "titleByLocale": {
@@ -10289,6 +10294,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10303,8 +10310,14 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "Bern",
       "addressRegion": "TG",
-      "salaryMin": 48000,
-      "salaryMax": 73000
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern"
+        ]
+      },
+      "previousSlugs": [
+        "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern"
+      ]
     },
     {
       "id": "company-b1yojb",
@@ -10524,7 +10537,7 @@
       "crawledAt": "2026-09-27T00:07:08.062Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
+        "it": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "en": "get-out-of-the-routine-become-a-professional-officer-swiss-armed-forces-vtg-bern",
         "de": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "fr": "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern"
@@ -10615,7 +10628,7 @@
       "crawledAt": "2026-09-27T00:07:08.062Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-sergente-professionista-swiss-armed-forces-vtg-bern",
+        "it": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "en": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk",
         "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "fr": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk"
@@ -10788,7 +10801,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chief-medical-officer-swiss-armed-forces-vtg-bern",
+        "it": "capo-medico-swiss-armed-forces-vtg-bern",
         "en": "chief-medical-officer-swiss-armed-forces-vtg-bern-r2ylxp",
         "de": "chief-medical-officer-swiss-armed-forces-vtg-bern-r2ylxp",
         "fr": "directeur-medical-swiss-armed-forces-vtg-bern"
@@ -10798,8 +10811,7 @@
         "it": [
           "chief-medical-officer-swiss-armed-forces-vtg-bern-r2ylxp",
           "capo-ufficio-vice-capo-servizio-swiss-armed-forces-vtg-bern",
-          "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern",
-          "capo-medico-swiss-armed-forces-vtg-bern"
+          "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
           "chief-medical-officer-swiss-armed-forces-vtg-bern-r2ylxp"
@@ -10808,8 +10820,7 @@
       "previousSlugs": [
         "chief-medical-officer-swiss-armed-forces-vtg-bern-r2ylxp",
         "capo-ufficio-vice-capo-servizio-swiss-armed-forces-vtg-bern",
-        "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern",
-        "capo-medico-swiss-armed-forces-vtg-bern"
+        "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -11596,7 +11607,7 @@
         "it": "valutazione-dell-ufficiale-del-personale-valutazione-dell-so-swiss-armed-forces-vtg-bern",
         "en": "staff-officers-5-5-so-5-swiss-armed-forces-vtg-bern",
         "de": "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern-k7or6f",
-        "fr": "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern"
+        "fr": "evaluation-des-fonctionnaires-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -11615,8 +11626,7 @@
       },
       "previousSlugs": [
         "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern",
-        "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern-k7or6f",
-        "evaluation-des-fonctionnaires-swiss-armed-forces-vtg-bern"
+        "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern-k7or6f"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -11976,7 +11986,7 @@
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "driver-assistente-di-trasporto-swiss-armed-forces-vtg-bern",
-        "en": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern",
+        "en": "driver-transport-assistant-swiss-armed-forces-vtg-bern",
         "de": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
         "fr": "conducteur-assistant-de-transport-swiss-armed-forces-vtg-bern"
       },
@@ -12040,8 +12050,7 @@
         "autista-in-comando-swiss-armed-forces-vtg-bellinzona",
         "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bellinzona",
         "fahrer-in-transportregal-swiss-armed-forces-vtg-bern-4hynmv",
-        "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
-        "driver-transport-assistant-swiss-armed-forces-vtg-bern"
+        "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv"
       ],
       "salarySource": "estimated",
       "applyUrl": "https://jobs.admin.ch/offene-stellen/fahrer-in-transporthelfer-in/0ea29eec-472f-4f91-a867-40b6a7ba79fd",
@@ -12563,7 +12572,7 @@
       "crawledAt": "2026-09-27T00:07:08.062Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern",
+        "it": "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern",
         "en": "infrastructure-specialist-sanitary-swiss-armed-forces-vtg-bern",
         "de": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
         "fr": "specialiste-des-infrastructures-sanitaires-swiss-armed-forces-vtg-bern"
@@ -12612,8 +12621,7 @@
           "spezialist-in-fordertechnik-confederazione-andermatt",
           "tecnologia-del-trasportatore-specializzato-in-confederazione-svizzera-andermatt",
           "specialist-in-conveyor-technology-confederazione-svizzera-andermatt",
-          "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt",
-          "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern"
+          "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt"
         ],
         "en": [
           "infrastructure-specialist-in-sanitary-swiss-armed-forces-vtg-bern",
@@ -12647,8 +12655,7 @@
         "spezialist-in-fordertechnik-confederazione-andermatt",
         "tecnologia-del-trasportatore-specializzato-in-confederazione-svizzera-andermatt",
         "specialist-in-conveyor-technology-confederazione-svizzera-andermatt",
-        "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt",
-        "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern"
+        "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt"
       ],
       "salarySource": "reported",
       "applyUrl": "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-sanitaer/6c4ff681-0325-4825-8334-1b476fa1b2c7",
@@ -12682,7 +12689,7 @@
       "crawledAt": "2026-09-27T00:07:08.062Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
+        "it": "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern",
         "en": "infrastructure-specialist-in-electrics-power-swiss-armed-forces-vtg-bern",
         "de": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
         "fr": "specialiste-de-l-infrastructure-en-electricite-energie-swiss-armed-forces-vtg-bern"
@@ -12724,8 +12731,7 @@
           "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-          "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
-          "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern"
+          "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
@@ -12757,8 +12763,7 @@
         "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
         "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland",
         "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland",
-        "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
-        "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern"
+        "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "reported",
       "applyUrl": "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db",
@@ -13639,7 +13644,7 @@
         "fr": "Apprentis spécialiste de l'automobile EFZ, spécialisation dans les voitures particulières - Armée Suisse - Base logistique de l'Armée LBA\n\nfaçonner la Suisse\n• Apprentis spécialiste de l'automobile EFZ, spécialisé dans les voitures particulières\n• Armée suisse - Base logistique de l'Armée LBA\n• Meiringen, début de l'apprentissage août 2027\n• Annonce interne d'emploi\n• Veuillez ne pas transmettre cette annonce à des personnes à l'extérieur du gouvernement fédéral.\n• Consultez le portail d'emploi Stelle.admin.ch.\n• Date d'entrée:\n• 01.08.2027\n• Type d'emploi:\n• Période temporaire\n• 2030-07-31\n• Classe des salaires\n• Apprentis\n• Numéro de référence:\n• JRQ540-19646$\n• Lieu de travail:\n• aérodrome militaire, 3857 Meiringen\n• Vous pouvez faire cette contribution\nEffectuer des travaux de diagnostic et d'essai sur les véhicules et l'électronique ainsi que des défauts et des défauts corrects Entretiens et effectuer des réparations sur nos véhicules spéciauxRemplacement des pièces d'usure autoperformées Travail avec des systèmes de mesure et de diagnostic informatisés Comprendre et appliquer des documents techniques, des schémas et des schémas\nCela vous rend unique\nAchevé la scolarité obligatoire, de bonnes notes dans les matières mathématiquesAtteinte réussie test d'aptitude AGVSReliable, digne de confiance, inquisitif travail d'équipe et de bonnes manièresTrès haute compréhension technique et artisanat\nMettre au point\nÊtes-vous intéressé par les moteurs et les véhicules et sont fascinés par leur technologie et électronique? Êtes-vous excité par la flotte unique de l'armée? Ensuite, la formation variée, dans laquelle vous apprenez tout sur nos véhicules à moteur, est juste pour vous.\nSonja Arnold\n• Spécialiste du perfectionnement du personnel\n• +41 58 46 48375\n• SONJA.ARNOLD@VTG.ADMIN.CH\n• Appliquer maintenant\n• Êtes-vous actuellement employé par le gouvernement fédéral?\n• Oui\n• Numéro\n• Diversité, dynamisme, perspectives – professions enseignantes de l'armée suisse\nLa base logistique de l'armée suisse (LBA) est là pour la force. Il fournit tous les services logistiques à l'armée suisse et gère le matériel, les systèmes et l'infrastructure de l'armée suisse avec ses quelque 3'500 employés et 12 000 miliciens. Que ce soit dans l'atelier ou dans le bureau, à l'intérieur ou à l'extérieur: La LBA offre un large éventail de lieux de travail en Suisse. Nous avons quelque chose pour tout le monde.\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge : L'Armée suisse forme les apprenants dans plus de 30 professions.\nAutres\n• Précédent\n• Lien vers plus d'informations\n• Nous offrons ceci\n• #F7B4B8Working for SwitzerlandNous sommes engagés dans le modèle suisse de réussite et travaillons au bénéfice de la population.\n• #B8E1D8Diversité vivante Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n• #FFF0BBSanté au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n• N° B9E4EF7 Semaines de vacances Nous offrons sept semaines de vacances par an pendant l'enseignement et ainsi soutenir la détente aux côtés du travail et de l'école.\n• #FBF8D1Soutien individuel Nous soutenons nos apprenants individuellement et, par conséquent, leur développement professionnel de façon plus cohérente.\n• Tous les avantages\n• Informations complémentaires\n• De plus amples informations, des vidéos de réalité virtuelle et des portraits de nos apprenants sont disponibles à l'adresse www.armee.ch/lehre.\n• Organes similaires\n• Spécialiste de la mécatronique automobile en EFZ, spécialisée dans les voitures particulières\n• Thun, début de l'entraînement août 2027, 100-100 %\n• Berne, début de l'enseignement août 2027\n• 3 Apprentissage des spécialistes en mécatronique automobile EFZ, spécialisée dans les voitures particulières\n• Grolley, début de l'enseignement août 2027"
       },
       "slugByLocale": {
-        "it": "apprentice-specialista-automobilistico-efz-specializzata-in-autovetture-swiss-armed-forces-vtg-2027-anstellungsart",
+        "it": "apprendista-automobil-fachmann-frau-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart",
         "en": "apprentice-automobil-fachmann-frau-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-qh1x44",
         "de": "lernende-r-automobil-fachmann-frau-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-qh1x44",
         "fr": "apprenti-e-automobil-fachmann-frau-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-qh1x44"

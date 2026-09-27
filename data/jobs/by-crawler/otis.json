@@ -80,10 +80,10 @@
       "id": "otis-a453a0f064dc",
       "slug": "account-manager-m-w-d-otis-dietlikon",
       "slugByLocale": {
-        "it": "account-manager-m-w-d-otis-dietlikon",
         "en": "account-manager-m-w-d-otis-dietlikon",
+        "it": "account-manager-m-w-d-otis-dietlikon",
         "de": "account-manager-m-w-d-otis-dietlikon",
-        "fr": "account-manager-m-w-d-otis-sa-dietlikon"
+        "fr": "gestionnaire-de-comptes-h-f-d-otis-sa-dietlikon"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -119,7 +119,6 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-09-26T23:57:13.837Z",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T00:08:03.721Z",
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -134,7 +133,16 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Bahnhofstrasse-3-Postfach-371-Dietlikon--ZH/Sales-Manager-Aussendienst--m-w-d-_20169212-1",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-24T00:08:03.721Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "account-manager-m-w-d-otis-sa-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "account-manager-m-w-d-otis-sa-dietlikon"
+      ]
     },
     {
       "id": "otis-135db566d431",
@@ -886,10 +894,10 @@
       "id": "otis-f1a46c1f3807",
       "slug": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach",
       "slugByLocale": {
+        "en": "elevator-fitter-modernization-and-replacement-equipment-m-f-d-otis-sa-reinach",
         "it": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach",
-        "en": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-reinach",
         "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
-        "fr": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-reinach"
+        "fr": "equipement-de-modernisation-et-de-remplacement-de-l-installation-d-ascenseur-h-f-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -924,18 +932,23 @@
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20159274",
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-09-26T23:57:10.745Z",
-      "previousSlugs": [
-        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
         ],
         "en": [
-          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-reinach"
+        ],
+        "fr": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-reinach"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
+        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-reinach"
+      ],
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
