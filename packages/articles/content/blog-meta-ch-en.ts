@@ -6815,6 +6815,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.congedo-parentale-136000-firme.title': 'Parental leave: 136\'000 signatures collected for the initiative',
     'blog.article.congedo-parentale-136000-firme.excerpt': '136\'000 signatures have been collected for the initiative on parental leave. The submission to the Federal Chancellery is scheduled for next week.',
     'blog.article.congedo-parentale-136000-firme.imageAlt': 'Signature collection for the parental leave initiative in Switzerland',
+    'blog.article.amag-auto-elettriche-svizzera.title': 'Electric cars in Switzerland: positions in Europe decline',
+    'blog.article.amag-auto-elettriche-svizzera.excerpt': 'Switzerland drops from fifth to sixteenth place for vehicle electrification. The details according to Amag CEO Helmut Ruhl.',
+    'blog.article.amag-auto-elettriche-svizzera.imageAlt': 'Electric cars parked in Switzerland with mountains in the background',
 };
 
 export default blogMetaChEn;

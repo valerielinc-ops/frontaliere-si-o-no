@@ -20473,6 +20473,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'amag-auto-elettriche-svizzera',
+    category: 'pratico',
+    date: '2026-09-27T02:23:04.044Z',
+    image: '/images/blog/amag-auto-elettriche-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

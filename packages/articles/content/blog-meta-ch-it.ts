@@ -6815,6 +6815,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.congedo-parentale-136000-firme.title': 'Congedo parentale: raccolte 136\'000 firme per l\'iniziativa',
     'blog.article.congedo-parentale-136000-firme.excerpt': 'Raggiunte 136\'000 sottoscrizioni per l\'iniziativa sul congedo parentale. Il deposito alla Cancelleria federale è previsto la prossima settimana.',
     'blog.article.congedo-parentale-136000-firme.imageAlt': 'Raccolta firme per l\'iniziativa sul congedo parentale in Svizzera',
+    'blog.article.amag-auto-elettriche-svizzera.title': 'Auto elettriche in Svizzera: calano le posizioni in Europa',
+    'blog.article.amag-auto-elettriche-svizzera.excerpt': 'La Svizzera scende dal quinto al sedicesimo posto per l\'elettrificazione delle vetture. I dettagli secondo il CEO di Amag Helmut Ruhl.',
+    'blog.article.amag-auto-elettriche-svizzera.imageAlt': 'Auto elettriche parcheggiate in Svizzera con montagne sullo sfondo',
 };
 
 export default blogMetaChIt;

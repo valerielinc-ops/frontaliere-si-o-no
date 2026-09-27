@@ -6815,6 +6815,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.congedo-parentale-136000-firme.title': 'Elternzeit: 136\'000 Unterschriften für die Initiative gesammelt',
     'blog.article.congedo-parentale-136000-firme.excerpt': '136\'000 Unterschriften für die Elternurlaubsinitiative erreicht. Die Hinterlegung bei der Bundeskanzlei ist für nächste Woche geplant.',
     'blog.article.congedo-parentale-136000-firme.imageAlt': 'Unterschriftensammlung für die Elternzeitinitiative in der Schweiz',
+    'blog.article.amag-auto-elettriche-svizzera.title': 'Elektroautos in der Schweiz: Die Platzierungen in Europa sinken',
+    'blog.article.amag-auto-elettriche-svizzera.excerpt': 'Die Schweiz fällt bei der Elektrifizierung von Fahrzeugen vom fünften auf den sechzehnten Platz zurück. Die Details laut dem CEO von Amag Helmut Ruhl.',
+    'blog.article.amag-auto-elettriche-svizzera.imageAlt': 'Elektroautos in der Schweiz geparkt vor Bergkulisse',
 };
 
 export default blogMetaChDe;
