@@ -12112,6 +12112,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trenta-viaggiatori-gallarate-malpensa.title': 'Trente voyageurs à Gallarate après le train pour Malpensa',
     'blog.article.trenta-viaggiatori-gallarate-malpensa.excerpt': 'Une trentaine de voyageurs sont restés à pied à la gare de Gallarate dans la soirée du 22 septembre, en attendant le train 2989 de 23h24, remplacé par des bus pour les travaux de nuit.',
     'blog.article.trenta-viaggiatori-gallarate-malpensa.imageAlt': 'Gare de Gallarate de nuit avec bus de substitution',
+    'blog.article.cambio-gestore-asilo-ticino.title': 'Centre d\'asile du Tessin : passage AOZ‑ORS pose emploi',
+    'blog.article.cambio-gestore-asilo-ticino.excerpt': 'Depuis janvier, AOZ quitte les centres de Balerna et Chiasso ; Ors pourrait embaucher jusqu\'à 80 des 120 employés, selon les syndicats – 40 postes à risque.',
+    'blog.article.cambio-gestore-asilo-ticino.imageAlt': 'Centre d\'accueil pour demandeurs d\'asile à Balerna, Tessin, avec bâtiments modernes et collines vertes',
 };
 
 export default blogMetaFr;

@@ -12109,6 +12109,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trenta-viaggiatori-gallarate-malpensa.title': 'Dreißig Reisende in Gallarate nach dem Zug nach Malpensa',
     'blog.article.trenta-viaggiatori-gallarate-malpensa.excerpt': 'Rund dreißig Reisende standen am Abend des 22. September zu Fuß am Bahnhof Gallarate und warteten auf den Zug 2989 um 23.24 Uhr, der durch Nachtbusse ersetzt wurde.',
     'blog.article.trenta-viaggiatori-gallarate-malpensa.imageAlt': 'Bahnhof Gallarate nachts mit Ersatzbus',
+    'blog.article.cambio-gestore-asilo-ticino.title': 'Asylzentrum Tessin: Wechsel von AOZ zu ORS weckt Sorgen um Arbeitsplätze',
+    'blog.article.cambio-gestore-asilo-ticino.excerpt': 'Ab Januar verlässt die AOZ die Zentren Balerna und Chiasso; ORS könnte nach Angaben der Gewerkschaften bis zu 80 der 120 Beschäftigten einstellen – 40 Stellen sind gefährdet.',
+    'blog.article.cambio-gestore-asilo-ticino.imageAlt': 'Asylbewerber-Zentrum in Balerna, Tessin, mit modernen Gebäuden und grünen Hügeln',
 };
 
 export default blogMetaDe;

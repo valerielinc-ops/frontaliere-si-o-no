@@ -94960,6 +94960,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambio-gestore-asilo-ticino': {
+    title: 'Centro asilo Ticino: passaggio da AOZ a ORS solleva timori occupazionali',
+    description: 'Da gennaio AOZ lascia i centri di Balerna e Chiasso; ORS potrebbe assumere fino a 80 dei 120 addetti. Sindacati temono 40 posti a rischio, SEM garantisce',
+    keywords: 'frontalieri, ticino, svizzera, italia, centro, asilo, passaggio, solleva',
+    ogTitle: 'Centro asilo Ticino: passaggio AOZ‑ORS e timori occupazionali',
+    ogDescription: 'Il passaggio di gestore dei centri per richiedenti asilo in Ticino da AOZ a ORS, previsto per gennaio, solleva preoccupazioni occupazionali: secondo i sindacati solo 80 dei 120 addetti potrebbero essere riassunti, mentre la SEM assicura che non ci',
+    canonicalPath: '/articoli-frontaliere/cambio-gestore-asilo-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Centro asilo Ticino: passaggio da AOZ a ORS solleva timori occupazionali",
+      "description": "Da gennaio AOZ lascia i centri di Balerna e Chiasso; ORS potrebbe assumere fino a 80 dei 120 addetti. Sindacati temono 40 posti a rischio, SEM garantisce",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cambio-gestore-asilo-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di assistenza per richiedenti asilo a Balerna, Ticino, con edifici moderni e colline verdi"
+      },
+      "datePublished": "2026-09-27T04:52:35+00:00",
+      "dateModified": "2026-09-27T04:52:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cambio-gestore-asilo-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

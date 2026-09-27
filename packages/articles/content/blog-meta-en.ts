@@ -12110,6 +12110,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trenta-viaggiatori-gallarate-malpensa.title': 'Thirty travelers in Gallarate after the train to Malpensa',
     'blog.article.trenta-viaggiatori-gallarate-malpensa.excerpt': 'About thirty travelers were stranded at Gallarate station on the evening of 22 September, waiting for train 2989 at 23.24, which was replaced by buses due to nighttime works.',
     'blog.article.trenta-viaggiatori-gallarate-malpensa.imageAlt': 'Gallarate train station at night with a replacement bus',
+    'blog.article.cambio-gestore-asilo-ticino.title': 'Ticino kindergarten: transition from AOZ to ORs raises employment concerns',
+    'blog.article.cambio-gestore-asilo-ticino.excerpt': 'From January AOZ leaves the centres of Balerna and Chiasso; ORS could hire up to 80 of the 120 employees, according to the unions – 40 positions at risk.',
+    'blog.article.cambio-gestore-asilo-ticino.imageAlt': 'Asylum seeker assistance center in Balerna, Ticino, with modern buildings and green hills',
 };
 
 export default blogMetaEn;

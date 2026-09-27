@@ -12111,6 +12111,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trenta-viaggiatori-gallarate-malpensa.title': 'Trenta viaggiatori a Gallarate dopo il treno per Malpensa',
     'blog.article.trenta-viaggiatori-gallarate-malpensa.excerpt': 'Circa trenta viaggiatori sono rimasti a piedi alla stazione di Gallarate la sera del 22 settembre, in attesa del treno 2989 delle 23.24, sostituito da autobus per lavori notturni.',
     'blog.article.trenta-viaggiatori-gallarate-malpensa.imageAlt': 'Stazione di Gallarate di notte con treno e autobus sostitutivo',
+    'blog.article.cambio-gestore-asilo-ticino.title': 'Centro asilo Ticino: passaggio da AOZ a ORS solleva timori occupazionali',
+    'blog.article.cambio-gestore-asilo-ticino.excerpt': 'Da gennaio AOZ lascia i centri di Balerna e Chiasso; ORS potrebbe assumere fino a 80 dei 120 addetti, secondo i sindacati – 40 posti a rischio.',
+    'blog.article.cambio-gestore-asilo-ticino.imageAlt': 'Centro di assistenza per richiedenti asilo a Balerna, Ticino, con edifici moderni e colline verdi',
 };
 
 export default blogMetaIt;
