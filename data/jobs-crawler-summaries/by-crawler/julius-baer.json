@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-09-26T23:31:13.864Z",
-  "total": 77,
+  "generatedAt": "2026-09-27T14:49:48.966Z",
+  "total": 76,
   "newCount": 0,
   "updatedCount": 76,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 60539,
-  "avgDurationMs": 60539,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 48524,
+  "avgDurationMs": 48524,
   "durationHistory": [
-    60539
+    48524
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -285,8 +285,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-09-23T23:36:02.791Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:36:02.791Z",
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -567,8 +567,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -1068,8 +1068,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer---Governance---Policies-100---f-m-d-_r-19465",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer---Governance---Policies-100---f-m-d-_r-19465",
@@ -1110,5 +1109,6 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
