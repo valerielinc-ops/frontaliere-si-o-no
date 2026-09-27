@@ -3,6 +3,7 @@ import {
   assertAccumulatorByteFloor,
   isCatastrophicAccumulatorShrink,
 } from './accumulator-byte-floor-guard.mjs';
+import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
 const SWISS_RE_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/swiss-re\.json$/;
@@ -46,7 +47,7 @@ function terminalCountryCodes(location) {
     .filter(Boolean);
   if (entries.length === 0) return null;
   const codes = entries.map((entry) => entry.match(TERMINAL_COUNTRY_RE)?.[1]?.toUpperCase() ?? null);
-  return codes.every(Boolean) ? codes : null;
+  return codes.every((code) => code && ISO_ALPHA2_COUNTRY_CODES.has(code)) ? codes : null;
 }
 
 function isExplicitSwissLocation(location) {

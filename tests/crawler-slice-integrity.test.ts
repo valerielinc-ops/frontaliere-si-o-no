@@ -57,7 +57,7 @@ describe('crawler slice integrity guard', () => {
     const previous = json([
       swissReJob('https://jobs.swissre.com/bratislava', 'Bratislava, SK', 'x'.repeat(700_000)),
       {
-        ...swissReJob('https://jobs.swissre.com/zurich-old', 'Zürich', 'x'.repeat(700_000)),
+        ...swissReJob('https://jobs.swissre.com/zurich-old', 'Zürich, ZH', 'x'.repeat(700_000)),
         country: 'CH',
         addressCountry: 'CH',
         canton: 'ZH',
