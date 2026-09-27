@@ -6854,6 +6854,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.voto-iniziativa-alimentazione-svizzera.title': 'Iniziativa alimentazione: bocciata con il 72,5% di no',
     'blog.article.voto-iniziativa-alimentazione-svizzera.excerpt': 'Il popolo svizzero respinge la proposta di portare l\'autoapprovvigionamento al 70% in dieci anni. Tutti i Cantoni hanno votato contro.',
     'blog.article.voto-iniziativa-alimentazione-svizzera.imageAlt': 'Paesaggio agricolo svizzero con pascoli verdi',
+    'blog.article.valutazione-secondo-sistema-difesa.title': 'Difesa aerea: conclusa la valutazione del Bodluv GR 2',
+    'blog.article.valutazione-secondo-sistema-difesa.excerpt': 'Armasuisse ha chiuso la valutazione per il secondo sistema di difesa terra-aria Bodluv GR 2. La scelta passa al Consiglio federale.',
+    'blog.article.valutazione-secondo-sistema-difesa.imageAlt': 'Valutazione del secondo sistema di difesa terra-aria in Svizzera',
 };
 
 export default blogMetaChIt;
