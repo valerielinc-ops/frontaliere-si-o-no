@@ -19,20 +19,35 @@ const localeSources = ['it', 'en', 'de', 'fr'].map((locale) => readFileSync(
 
 describe('application-intent consent copy', () => {
   it('defines the same localized consent key in all four core locale shards', () => {
-    const key = "'jobBoard.applicationIntentConsent':";
+    const keys = [
+      "'jobBoard.applicationIntentConsent':",
+      "'jobBoard.applicationIntentDetails':",
+    ];
 
     expect(localeSources).toHaveLength(4);
-    expect(localeSources.every((source) => source.includes(key))).toBe(true);
+    expect(localeSources.every((source) => keys.every((key) => source.includes(key)))).toBe(true);
   });
 
   it('renders consent copy only for external application CTAs', () => {
     const helperStart = jobBoardSource.indexOf('const renderApplicationIntentConsent');
-    const helperEnd = jobBoardSource.indexOf('// Publisher / sponsored ad:', helperStart);
+    const helperEnd = jobBoardSource.indexOf('const renderApplicationIntentDisclosure', helperStart);
     const helper = jobBoardSource.slice(helperStart, helperEnd);
+    const disclosureStart = helperEnd;
+    const disclosureEnd = jobBoardSource.indexOf('// Publisher / sponsored ad:', disclosureStart);
+    const disclosure = jobBoardSource.slice(disclosureStart, disclosureEnd);
 
     expect(helper).toContain('isExternalApplicationJob(selectedJob)');
-    expect(helper).toContain('jobBoard.applicationIntentConsent');
-    expect(jobBoardSource.match(/\{renderApplicationIntentConsent/g)).toHaveLength(4);
+    expect(helper).toContain('jobBoard.applicationIntentDetails');
+    expect(helper).not.toContain('jobBoard.applicationIntentConsent');
+    expect(disclosure).toContain('jobBoard.applicationIntentConsent');
+    expect(jobBoardSource.match(/\{renderApplicationIntentConsent/g)).toHaveLength(3);
+    expect(jobBoardSource).toContain('const renderApplicationIntentDisclosure');
+    expect(jobBoardSource).toContain('id="application-intent-disclosure"');
+    expect(jobBoardSource.match(/data-testid="application-intent-consent"/g)).toHaveLength(1);
+
+    const headerStart = jobBoardSource.indexOf("{companyFollowCta(selectedJob, 'company_follow_button')");
+    const headerEnd = jobBoardSource.indexOf('</header>', headerStart);
+    expect(jobBoardSource.slice(headerStart, headerEnd)).not.toContain('renderApplicationIntentConsent');
   });
 
   it('records the displayed copy before external hand-off, never for in-house forms', () => {
