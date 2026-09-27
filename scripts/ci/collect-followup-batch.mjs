@@ -95,16 +95,19 @@ const SEARCH_PAGE_SIZE = 100;
 // (~72% passa i gate) e rinvii di 65-146 PR a OGNI run
 // (36112598869..36325938055); ciò che resta oltre il lookback di 48h esce dalla
 // finestra non triagiato.
-// Il cap è dimensionato sul CASO PEGGIORE misurato, non sul tipico: >=451 s/PR
-// (corpus 36009410204, 4 PR uccise dal watchdog a 1803 s, bootstrap incluso).
-// 14 x 451 s = 6314 s, sotto il watchdog Codex da 114 min (6840 s, ~8% di
-// margine); 6840 s + setup/kill grace/coda (300 s) = 7140 s < step da 120 min
-// (il tetto per gli step agentici). 15 x 451 = 6765 s lascerebbe 75 s. La
-// capacità mancante la dà la cadenza: 12 cron/giorno x 62% = ~7,4 run reali x
+// Il cap NON è dimensionato dal run 36009410204: 4 PR furono uccise dal
+// watchdog a 1803 s, quindi >=451 s/PR è una misura CENSURATA e non un upper
+// bound. La base è il batch production-equivalent COMPLETATO più lento
+// disponibile: corpus 34602892494, 21 PR commentate in 1.792.000 ms
+// (batch_count=36, bootstrap incluso), cioè ceil(1792/21) =
+// `FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_SECONDS_PER_PR` = 86 s/PR osservati.
+// 14 x 86 s = 1204 s, sotto il watchdog Codex da 114 min (6840 s), e il
+// watchdog + setup/kill grace/coda (300 s) = 7140 s resta sotto lo step da
+// 120 min. La capacità mancante la dà la cadenza: 12 cron/giorno x 62% =
+// ~7,4 run reali x
 // 14 = ~104 PR/giorno, oltre il picco di ~80 candidati/giorno. Il tipico è molto
-// più basso: qui 32-259 s/PR con 4 PR e ~58 s/PR sul batch da 19 di 34602590662;
-// ~85 s/PR sul batch da 36 del corpus (34602892494): il bootstrap è condiviso.
-// Il gemello corpus è `adapted`: stesso cap, watchdog e cadenza.
+// più basso: qui 32-259 s/PR con 4 PR e ~58 s/PR sul batch da 19 di
+// 34602590662. Il gemello corpus è `adapted`: stesso cap, watchdog e cadenza.
 //
 // Una finestra più larga del cap NON è un errore di raccolta: è un rinvio
 // PIANIFICATO. Il troncamento viene dichiarato in `deferred_count`, mentre
@@ -114,6 +117,11 @@ const SEARCH_PAGE_SIZE = 100;
 // deve tenere il watermark indietro, un rinvio pianificato deve lasciarlo
 // avanzare, altrimenti il residuo non si drena mai. Confuse, producevano il
 // ratchet documentato sopra (35 run rosse consecutive, 161,6 h).
+const FOLLOWUP_COMPLETED_BATCH_DURATION_MS = 1_792_000;
+const FOLLOWUP_COMPLETED_BATCH_PR_COUNT = 21;
+export const FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_SECONDS_PER_PR = Math.ceil(
+  FOLLOWUP_COMPLETED_BATCH_DURATION_MS / FOLLOWUP_COMPLETED_BATCH_PR_COUNT / 1000,
+);
 export const FOLLOWUP_SESSION_BATCH_LIMIT = 14;
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
