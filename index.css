@@ -692,7 +692,8 @@ body.modal-open .google-auto-placed {
    footprint. The parent rule also removes the wrapper's margin, otherwise a
    failed 1100px drive-by slot would leave a misleading band around the zeroed
    <ins>. */
-ins.adsbygoogle[data-ft-static-ad-collapsed] {
+ins.adsbygoogle[data-ft-static-ad-collapsed],
+ins.adsbygoogle[data-ad-slot="2093992129"][data-ad-status="unfilled"] {
   min-height: 0 !important;
   max-height: 0 !important;
   height: 0 !important;
@@ -701,7 +702,8 @@ ins.adsbygoogle[data-ft-static-ad-collapsed] {
   overflow: hidden !important;
   display: block !important;
 }
-:where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]) {
+:where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]),
+:where(div, li, section):has(> ins.adsbygoogle[data-ad-slot="2093992129"][data-ad-status="unfilled"]) {
   height: 0 !important;
   min-height: 0 !important;
   margin-block: 0 !important;
