@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ecam",
-  "assembledAt": "2026-09-26T15:37:57.595Z",
+  "assembledAt": "2026-09-26T23:49:24.771Z",
   "jobs": [
     {
       "id": "ecam-590be7c475e5",
@@ -33,7 +33,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/01/Concorso-generale-sito-ECAM-2026.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T15:37:54.100Z",
+      "crawledAt": "2026-09-26T23:49:19.931Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -97,7 +97,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/08/2026.03.08_Concorso-RU-ECAM-80-100_-002_def.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T15:37:53.177Z",
+      "crawledAt": "2026-09-26T23:49:18.959Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -116,6 +116,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-24T14:54:37.539Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
