@@ -171,7 +171,7 @@ function tableRows(rows: SnapshotRow[], locale: PlateLocale, copy: typeof COPY.i
     const href = detailPathForRow(row, locale);
     return `<tr><td><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></td><td>${esc(vehicleTypeLabel(row.vehicleType, locale))}</td><td>${esc(listingTypeLabel(row.listingType, locale))}</td><td>${esc(formatMoney(row.finalPriceChf ?? row.currentBidChf ?? row.startingPriceChf, locale))}</td><td>${row.bidCount ?? '—'}</td><td>${esc(formatDate(row.endsAt || row.closedAt, locale))}</td></tr>`;
   }).join('');
-  return `<table><thead><tr><th>${esc(headers.plate)}</th><th>${esc(headers.vehicle)}</th><th>${esc(headers.type)}</th><th>${esc(headers.price)}</th><th>${esc(headers.bids)}</th><th>${esc(headers.ends)}</th></tr></thead><tbody>${body}</tbody></table>`;
+  return `<div class="plate-auction-table-wrap"><table class="plate-auction-table"><thead><tr><th>${esc(headers.plate)}</th><th>${esc(headers.vehicle)}</th><th>${esc(headers.type)}</th><th>${esc(headers.price)}</th><th>${esc(headers.bids)}</th><th>${esc(headers.ends)}</th></tr></thead><tbody>${body}</tbody></table></div>`;
 }
 function unlistedDetailLinks(rows: SnapshotRow[], locale: PlateLocale, listedRows: SnapshotRow[], maxLinks: number): string {
   const listedPaths = new Set(listedRows.map((row) => detailPathForRow(row, locale)));
@@ -396,8 +396,8 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   const listingSection = view === 'hub' && !hasActiveSource
     ? ''
     : view === 'directory'
-      ? `<section><h2 style="${H2_STYLE}">${esc(copy.allListings)}</h2><p>${esc(copy.context)}</p>${catalogueGuide}<ul>${directoryLinks || `<li>${esc(copy.noData)}</li>`}</ul>${directoryPaginationLinks}</section>`
-      : `<section><h2 style="${H2_STYLE}">${esc(listingHeading)}</h2>${catalogueGuide}${tableRows(rows, locale, copy)}${directoryIndexLink}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}${paginationLinks}</section>`;
+      ? `<section><h2 style="${H2_STYLE}">${esc(copy.allListings)}</h2><ul>${directoryLinks || `<li>${esc(copy.noData)}</li>`}</ul>${directoryPaginationLinks}<p>${esc(copy.context)}</p>${catalogueGuide}</section>`
+      : `<section><h2 style="${H2_STYLE}">${esc(listingHeading)}</h2>${tableRows(rows, locale, copy)}${directoryIndexLink}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}${paginationLinks}${catalogueGuide}</section>`;
   const coverageSource = coverage.entries.find((source) => source.plateCode.toUpperCase() === String(canton || '').toUpperCase());
   const sourceSection = `<section><h2 style="${H2_STYLE}">${esc(canton ? copy.method : copy.sources)}</h2><p>${esc(canton && coverageSource?.status !== 'active' ? copy.notDiscovered : copy.context)}</p>${canton || view === 'detail' ? '' : `<ul>${links}</ul>`}</section>`;
   // Detail pages only: index pages already carry a table of many rows plus the
@@ -406,7 +406,9 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   const detailGuideSection = view === 'detail'
     ? `<section><h2 style="${H2_STYLE}">${esc(detailGuide.heading)}</h2><p>${esc(detailGuide.fields)}</p><p>${esc(detailGuide.verify)}</p><p>${esc(detailGuide.privacy)}</p></section>`
     : '';
-  const body = `<main><nav aria-label="breadcrumb"><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">Home</a>${breadcrumbParent} / <span>${esc(title)}</span></nav><div data-plate-auctions-static="true" data-generated-at="${esc(snapshot.generatedAt || '')}"><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(description)}</p><p>${esc(copy.context)}</p>${topAdHtml}<p><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.current)}</a> · <a href="${esc(pathFor(locale, 'rankings'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.rankings)}</a></p>${coverageSection}${listingSection}${detailGuideSection}${sourceSection}</div></main>`;
+  const editorialContext = `<p>${esc(copy.context)}</p>`;
+  const primaryLinks = `<nav class="plate-auction-static-nav" aria-label="${esc(copy.title)}"><a href="${esc(pathFor(locale, 'hub'))}">${esc(copy.current)}</a><a href="${esc(pathFor(locale, 'rankings'))}">${esc(copy.rankings)}</a></nav>`;
+  const body = `<main><nav aria-label="breadcrumb"><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">Home</a>${breadcrumbParent} / <span>${esc(title)}</span></nav><div data-plate-auctions-static="true" data-generated-at="${esc(snapshot.generatedAt || '')}"><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(description)}</p>${primaryLinks}${coverageSection}${listingSection}${editorialContext}${detailGuideSection}${topAdHtml}${sourceSection}</div></main>`;
   // buildSeoPageHtml owns the single outer <main> in outside-root mode. Keep
   // this page-specific string as inner content so React mounts only its lite
   // chrome in #root and cannot replace the crawler-facing table.
