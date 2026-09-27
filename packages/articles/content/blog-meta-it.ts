@@ -12093,6 +12093,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.manfrinati-sentenza-varese.title': 'Varese, marco manfrinati condannato all\'ergastolo',
     'blog.article.manfrinati-sentenza-varese.excerpt': 'La Corte d\'Assise di Varese ha condannato all\'ergastolo Marco Manfrinati per l\'omicidio di Fabio Limido e il tentato omicidio di Lavinia Limido.',
     'blog.article.manfrinati-sentenza-varese.imageAlt': 'Cronaca locale a Varese: strada urbana evocativa della vicenda di via Ciro Menotti',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.title': 'Denunciato per rifiuti nel lago Maggiore a Brezzo di Bedero',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.excerpt': 'Carabinieri Forestali denunciano proprietario: macerie dalla terrazza gettate in acqua a 7-13 metri di profondità.',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.imageAlt': 'Detriti edili e macerie sul fondale del lago Maggiore a Brezzo di Bedero',
 };
 
 export default blogMetaIt;

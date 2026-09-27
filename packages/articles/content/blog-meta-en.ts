@@ -12092,6 +12092,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.manfrinati-sentenza-varese.title': 'Varese, Marco Manfrinati sentenced to life imprisonment',
     'blog.article.manfrinati-sentenza-varese.excerpt': 'The Court of Assizes of Varese sentenced Marco Manfrinati to life imprisonment for the murder of Fabio Limido and the attempted murder of Lavinia Limido.',
     'blog.article.manfrinati-sentenza-varese.imageAlt': 'Local news in Varese: urban street evoking the events on Via Ciro Menotti',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.title': 'Reported for dumping waste in Lake Maggiore in Brezzo di Bedero',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.excerpt': 'Forest Carabinieri report owner: rubble from the terrace thrown into water at a depth of 7-13 meters.',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.imageAlt': 'Construction debris and rubble on the lakebed of Lake Maggiore at Brezzo di Bedero',
 };
 
 export default blogMetaEn;

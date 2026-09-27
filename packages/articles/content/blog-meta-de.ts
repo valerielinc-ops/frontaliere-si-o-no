@@ -12091,6 +12091,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.manfrinati-sentenza-varese.title': 'Varese, Marco Manfrinati zu lebenslanger Haft verurteilt',
     'blog.article.manfrinati-sentenza-varese.excerpt': 'Das Schwurgericht in Varese hat Marco Manfrinati wegen des Mordes an Fabio Limido und des versuchten Mordes an Lavinia Limido zu lebenslanger Haft verurteilt.',
     'blog.article.manfrinati-sentenza-varese.imageAlt': 'Lokale Nachrichten aus Varese: Stadtstraße als Hinweis auf die Ereignisse in der Via Ciro Menotti',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.title': 'Wegen Abfällen im Lago Maggiore in Brezzo di Bedero angezeigt',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.excerpt': 'Carabinieri Forestali zeigen Eigentümer an: Trümmer von der Terrasse in 7-13 Metern Tiefe ins Wasser geworfen.',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.imageAlt': 'Bauschutt und Trümmer am Grund des Lago Maggiore in Brezzo di Bedero',
 };
 
 export default blogMetaDe;
