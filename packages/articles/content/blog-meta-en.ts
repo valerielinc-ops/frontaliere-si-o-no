@@ -12163,6 +12163,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.basket-varese-bologna-esordio-lba.title': 'Varese-bologna: LBA debut at the itelyum arena',
     'blog.article.basket-varese-bologna-esordio-lba.excerpt': 'The Openjobmetis Varese challenges the Virtus Bologna on Sunday 27 September at 7 pm. McDowell-White absent, Della Valle in doubt.',
     'blog.article.basket-varese-bologna-esordio-lba.imageAlt': 'Panoramic view of Lake Lugano at sunset',
+    'blog.article.vitalizio-claudio-zali-quesiti.title': 'Claudio Zali\'s lifetime pension: political doubts',
+    'blog.article.vitalizio-claudio-zali-quesiti.excerpt': 'Mps deputies seek clarification on the early withdrawal of 700,000 francs and the pension calculation for the resigning minister',
+    'blog.article.vitalizio-claudio-zali-quesiti.imageAlt': 'Government palace in Bellinzona, seat of the Council of State of the Canton of Ticino',
 };
 
 export default blogMetaEn;

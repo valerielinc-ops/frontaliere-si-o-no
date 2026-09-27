@@ -36511,6 +36511,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vitalizio-claudio-zali-quesiti',
+ category: 'pensione',
+ date: '2026-09-27T23:22:17.631Z',
+ image: '/images/blog/vitalizio-claudio-zali-quesiti.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
