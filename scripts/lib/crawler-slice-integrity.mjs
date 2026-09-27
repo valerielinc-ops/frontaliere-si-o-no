@@ -244,6 +244,10 @@ export function isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw) {
   return isSafeSwissReForeignPruneJobs(filePath, parseJobs(previousRaw), parseJobs(nextRaw));
 }
 
+export function isSafeSourceGeographyPrune(filePath, previousRaw, nextRaw) {
+  return isSafeSourceGeographyPruneJobs(filePath, parseJobs(previousRaw), parseJobs(nextRaw));
+}
+
 /**
  * Prove the only intentional large shrink performed by prune-dedup-from-slices.
  *

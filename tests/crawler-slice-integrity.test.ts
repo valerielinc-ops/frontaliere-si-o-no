@@ -8,6 +8,7 @@ import {
   assertCrawlerSliceWriteSafe,
   isProvenCrossCrawlerDedupPrune,
   isSafeBuehlerForeignPruneJobs,
+  isSafeSourceGeographyPrune,
   isSafeSwissReForeignPrune,
   isSafeSwissReForeignPruneJobs,
 } from '../scripts/lib/crawler-slice-integrity.mjs';
@@ -281,6 +282,7 @@ describe('crawler slice integrity guard', () => {
       JSON.parse(previous).jobs,
       JSON.parse(next).jobs,
     )).toBe(true);
+    expect(isSafeSourceGeographyPrune('data/jobs/by-crawler/buehler.json', previous, next)).toBe(true);
     expect(assertCrawlerSliceWriteSafe('data/jobs/by-crawler/buehler.json', previous, next).reason)
       .toBe('buehler-foreign-prune');
   });

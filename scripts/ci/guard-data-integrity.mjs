@@ -34,7 +34,7 @@ import {
   isJobStatsHistoryDailyShardPath,
   isSafeJobStatsHistoryShardRewrite,
 } from '../lib/job-stats-history-store.mjs';
-import { isSafeSwissReForeignPrune } from '../lib/crawler-slice-integrity.mjs';
+import { isSafeSourceGeographyPrune } from '../lib/crawler-slice-integrity.mjs';
 
 // Path-glob dei file-dati protetti. I file che cambiano size legittimamente
 // (snapshot rigenerati, cache volatili) restano coperti: la soglia size+pct li
@@ -90,7 +90,7 @@ function isSafeCrawlerSliceRewriteAtRefs(beforeSha, afterSha, file) {
   const nextRaw = blobAt(afterSha, file);
   return previousRaw !== null
     && nextRaw !== null
-    && isSafeSwissReForeignPrune(file, previousRaw, nextRaw);
+    && isSafeSourceGeographyPrune(file, previousRaw, nextRaw);
 }
 
 export function main() {
@@ -147,9 +147,9 @@ export function main() {
       // only after proving that all counters and action-bearing payload survive.
       // Keep the generic byte guard fail-closed for every other data path.
       if (isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate)) continue;
-      // Swiss Re can legitimately remove the globally-listed, non-Swiss jobs
-      // after the source-geography filter is applied. The proof is deliberately
-      // exact and shared with the writer; all other slice shrinks remain errors.
+      // A source-geography migration can legitimately remove legacy foreign
+      // jobs after the filter is applied. The proof is deliberately exact and
+      // shared with the writer; all other slice shrinks remain errors.
       if (isSafeCrawlerSliceRewriteAtRefs(beforeSha, afterSha, file)) continue;
       const shrinkPct = accumulatorShrinkPct(prevBytes, newBytes);
       violations.push({
