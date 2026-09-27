@@ -387,7 +387,7 @@ const SIBLING_CLASS_AFFIRM_RE =
 // not discard the reviewer finding; it only refuses to call it a sibling-class
 // recurrence without evidence.
 const SIBLING_CLASS_EVIDENCE_RE =
-  /(?:\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b|\b(?:file|script|workflow|consumer|ramo|branch)\s+gemell\w*\b|\b(?:sibling|gemell\w*)\b[^.\n]{0,120}\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|sweep\w*|check\w*|guard\w*|class\w*|pattern\w*|bug\w*|fix\w*|modif\w*|chang\w*|copert\w*|address\w*|propagat\w*)\b|\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|diverg\w*|different|unlike)\b[^.\n]{0,120}\b(?:sibling|gemell\w*)\b)/iu;
+  /(?:\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b|\b(?:file|script|workflow|consumer|ramo|branch)\s+gemell\w*\b|\b(?:sibling|gemell\w*)\b[^.\n]{0,120}\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|sweep\w*|check\w*|guard\w*|pattern\w*|bug\w*|fix\w*|modif\w*|chang\w*|address\w*|propagat\w*)\b|\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|diverg\w*|different|unlike)\b[^.\n]{0,120}\b(?:sibling|gemell\w*)\b)/iu;
 // Negation-aware false-positive-declaration matcher, shared with
 // sibling-check-gate.mjs's isDeclaredFalsePositive (issue #3367 — the two
 // copies drifted when kept in sync by docstring promise only).

@@ -380,7 +380,7 @@ describe('isGenuineSiblingClassViolation — conta solo il sibling non-sweepato,
     )).toBe(false);
   });
 
-  it('vocabolario sibling senza affermazione né falso-positivo dichiarato → conservativo: violazione', () => {
+  it('sibling esplicitamente non toccato senza affermazione → violazione genuina', () => {
     expect(isGenuineSiblingClassViolation('🟡 sibling non toccato, verificare a mano')).toBe(true);
   });
 
