@@ -36331,6 +36331,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vetri-rotti-como-notte',
+ category: 'novita',
+ date: '2026-09-27T02:41:34.547Z',
+ image: '/images/blog/vetri-rotti-como-notte.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
