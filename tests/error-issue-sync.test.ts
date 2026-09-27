@@ -514,6 +514,7 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     const samples = [
       'Connection to Indexed Database server lost.',
       "Failed to execute 'transaction' on 'IDBDatabase': The database connection is closing.",
+      'InvalidStateError: IDBDatabase connection is closing',
       'InvalidStateError: Object store cannot be found in the database',
       'UnknownError: an internal IDBDatabase operation failed',
       'Database deleted by request of the user',
