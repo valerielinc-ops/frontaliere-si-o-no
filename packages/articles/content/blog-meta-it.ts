@@ -12117,6 +12117,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cannobio-caserma-spagnulo.title': 'Cannobio, caserma intitolata ad Angelo Spagnulo',
     'blog.article.cannobio-caserma-spagnulo.excerpt': 'A Cannobio la Stazione Carabinieri ricorda il carabiniere scelto ucciso nel 2005 a 25 anni mentre tentava di fermare una rapina.',
     'blog.article.cannobio-caserma-spagnulo.imageAlt': 'Cerimonia a Cannobio per l\'intitolazione della caserma dei Carabinieri ad Angelo Spagnulo',
+    'blog.article.villa-mirabello-tre-valli.title': 'Villa mirabello: mostra tre valli varesine e solidarietà',
+    'blog.article.villa-mirabello-tre-valli.excerpt': 'A Villa Mirabello, Varese, la mostra ‘Tre Valli Varesine. Quando il ciclismo è passione’ è aperta con ingresso libero fino all’11 ottobre e l’iniziativa solidale ‘Scatto d’autore, gesto d’amore’ sostiene Il Pane di Sant\'Antonio ODV.',
+    'blog.article.villa-mirabello-tre-valli.imageAlt': 'Mostra fotografica Tre Valli Varesine a Villa Mirabello, Varese',
 };
 
 export default blogMetaIt;
