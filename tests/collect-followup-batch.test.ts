@@ -518,9 +518,10 @@ describe('follow-up provider session bound', () => {
   // gap mediano 4,9h) = ~20 PR/giorno contro rinvii di 65-146 PR a ogni run.
   // Tre vincoli letti dal workflow reale, così che cap, watchdog, step e cron
   // non possano divergere in silenzio:
-  //  1. cap <= 21 PR, cioè il numero di PR commentate nel benchmark COMPLETATO
-  //     più lento (corpus 34602892494, 1.792.000 ms totali). Si confronta la
-  //     durata della sessione intera: la media per PR non è un upper bound;
+  //  1. cap <= PR della sessione COMPLETATA misurata (corpus 36352293610:
+  //     14 PR, 1.502.814 ms, triage_complete=true), e quella durata sotto il
+  //     watchdog. Si confronta la sessione intera: la media per PR non è un
+  //     upper bound;
   //  2. watchdog + setup/kill grace/coda (300 s) STRETTAMENTE sotto lo step;
   //  3. cap x run reali/giorno (cron nominali x 62%) >= picco di ~80 candidati
   //     al giorno (110 merge x ~72% oltre i gate).
