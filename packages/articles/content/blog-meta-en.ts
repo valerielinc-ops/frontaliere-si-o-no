@@ -12113,6 +12113,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-gestore-asilo-ticino.title': 'Ticino kindergarten: transition from AOZ to ORs raises employment concerns',
     'blog.article.cambio-gestore-asilo-ticino.excerpt': 'From January AOZ leaves the centres of Balerna and Chiasso; ORS could hire up to 80 of the 120 employees, according to the unions – 40 positions at risk.',
     'blog.article.cambio-gestore-asilo-ticino.imageAlt': 'Asylum seeker assistance center in Balerna, Ticino, with modern buildings and green hills',
+    'blog.article.cannobio-caserma-spagnulo.title': 'Cannobio, barracks named after Angelo Spagnulo',
+    'blog.article.cannobio-caserma-spagnulo.excerpt': 'At Cannobio the Carabinieri Station remembers the chosen carabiniere killed in 2005 at the age of 25 while trying to stop a robbery.',
+    'blog.article.cannobio-caserma-spagnulo.imageAlt': 'Ceremony in Cannobio for the Carabinieri station named after Angelo Spagnulo',
 };
 
 export default blogMetaEn;

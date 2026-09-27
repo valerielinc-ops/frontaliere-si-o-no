@@ -12115,6 +12115,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cambio-gestore-asilo-ticino.title': 'Centre d\'asile du Tessin : passage AOZ‑ORS pose emploi',
     'blog.article.cambio-gestore-asilo-ticino.excerpt': 'Depuis janvier, AOZ quitte les centres de Balerna et Chiasso ; Ors pourrait embaucher jusqu\'à 80 des 120 employés, selon les syndicats – 40 postes à risque.',
     'blog.article.cambio-gestore-asilo-ticino.imageAlt': 'Centre d\'accueil pour demandeurs d\'asile à Balerna, Tessin, avec bâtiments modernes et collines vertes',
+    'blog.article.cannobio-caserma-spagnulo.title': 'Cannobio, caserne baptisée du nom d’Angelo Spagnulo',
+    'blog.article.cannobio-caserma-spagnulo.excerpt': 'À Cannobio, la station des Carabiniers se souvient du carabinier choisi tué en 2005 à l\'âge de 25 ans alors qu\'il tentait d\'empêcher un vol.',
+    'blog.article.cannobio-caserma-spagnulo.imageAlt': 'Cérémonie à Cannobio pour la caserne des Carabinieri dédiée à Angelo Spagnulo',
 };
 
 export default blogMetaFr;

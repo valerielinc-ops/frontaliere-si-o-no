@@ -12114,6 +12114,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambio-gestore-asilo-ticino.title': 'Centro asilo Ticino: passaggio da AOZ a ORS solleva timori occupazionali',
     'blog.article.cambio-gestore-asilo-ticino.excerpt': 'Da gennaio AOZ lascia i centri di Balerna e Chiasso; ORS potrebbe assumere fino a 80 dei 120 addetti, secondo i sindacati – 40 posti a rischio.',
     'blog.article.cambio-gestore-asilo-ticino.imageAlt': 'Centro di assistenza per richiedenti asilo a Balerna, Ticino, con edifici moderni e colline verdi',
+    'blog.article.cannobio-caserma-spagnulo.title': 'Cannobio, caserma intitolata ad Angelo Spagnulo',
+    'blog.article.cannobio-caserma-spagnulo.excerpt': 'A Cannobio la Stazione Carabinieri ricorda il carabiniere scelto ucciso nel 2005 a 25 anni mentre tentava di fermare una rapina.',
+    'blog.article.cannobio-caserma-spagnulo.imageAlt': 'Cerimonia a Cannobio per l\'intitolazione della caserma dei Carabinieri ad Angelo Spagnulo',
 };
 
 export default blogMetaIt;
