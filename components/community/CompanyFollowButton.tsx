@@ -293,18 +293,20 @@ export default function CompanyFollowButton({
           ? t('jobAlert.companyFollow.following', 'Stai seguendo questa azienda')
           : t('jobAlert.companyFollow.cta', 'Segui questa azienda')}
       </button>
-      <p className="mt-2 text-[11px] text-muted">
-        {following
-          ? t('jobAlert.companyFollow.followingHint', 'Ti scriviamo quando pubblica un nuovo annuncio. Tocca per smettere di seguirla.')
-          : t('jobAlert.companyFollow.hint', 'Ricevi una email quando questa azienda pubblica nuovi lavori.')}
-      </p>
+      {following && (
+        <p className="mt-2 text-[11px] text-muted">
+          {t('jobAlert.companyFollow.followingHint', 'Ti scriviamo quando pubblica un nuovo annuncio. Tocca per smettere di seguirla.')}
+        </p>
+      )}
       {!following && (
         <EmailConsentCheckbox
           id="company-follow-signed-in-consent"
           locale={locale}
           consentKey="communicationsOptIn"
-          className="mt-2 flex items-start gap-2 cursor-pointer"
-          noticeClassName="text-[10px] text-muted leading-snug"
+          className="mt-2"
+          collapsible
+          summary={t('jobAlert.companyFollow.terms')}
+          noticeClassName="mt-2 block text-[10px] text-muted leading-snug"
         />
       )}
       {following && (
