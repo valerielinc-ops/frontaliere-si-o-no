@@ -27,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 
 import { fetchAllBitfinexJobs } from './lib/bitfinex-job-parser.mjs';
 import { fetchAllCsebJobs } from './lib/cseb-job-parser.mjs';
+import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './lib/crawler-grace-policy.mjs';
 import { writeJobsCrawlerSlice } from './assemble-jobs-dataset.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -47,9 +48,7 @@ function readSlice(key) {
  * lose IT/DE/FR coverage just because we re-ran the source-language parse.
  */
 // Grace period before an existing job absent from a regen run is dropped —
-// mirrors mergePreserveLocaleData's silent-job-loss guard in
-// scripts/lib/dedicated-crawler-common.mjs (same construct, same fix).
-const GRACE_PERIOD_MAX_MISSES = 2;
+// mirrors mergePreserveLocaleData's silent-job-loss guard.
 
 function mergePreservingTranslations(freshJobs, existingJobs) {
   const existingById = new Map();
@@ -87,7 +86,7 @@ function mergePreservingTranslations(freshJobs, existingJobs) {
   for (const [id, ex] of existingById) {
     if (matchedIds.has(id)) continue;
     const missStreak = (Number(ex.crawlerMissStreak) || 0) + 1;
-    if (missStreak > GRACE_PERIOD_MAX_MISSES) continue;
+    if (missStreak > CRAWLER_GRACE_PERIOD_MAX_MISSES) continue;
     retained.push({ ...ex, crawlerMissStreak: missStreak });
   }
   return retained.length ? [...merged, ...retained] : merged;

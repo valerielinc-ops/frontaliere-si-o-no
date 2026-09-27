@@ -1,13 +1,13 @@
 {
   "companyKey": "schweizerhof-flims",
   "companyName": "Schweizerhof",
-  "companyHost": "romantikhotels.com",
+  "companyHost": "romantikhotels.hcm4all.de",
   "platform": "",
   "mode": "template",
   "seedUrls": [
-    "https://www.romantikhotels.com/de/romantik-jobs/jobs/"
+    "https://romantikhotels.hcm4all.de/list/?l=de"
   ],
-  "detailTemplate": "/de/romantik-jobs/jobs/job/*/",
+  "detailTemplate": "/list/*",
   "listingCandidateText": "Schweizerhof Flims",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,

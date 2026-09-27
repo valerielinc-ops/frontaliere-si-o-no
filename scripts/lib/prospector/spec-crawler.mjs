@@ -32,6 +32,7 @@ import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from '../jina-proxy.mjs';
+import { launchChromium } from '../ensure-chromium.mjs';
 import {
   extractUmantisListingEvidence,
   umantisVacancyIdentity,
@@ -47,6 +48,86 @@ export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetc
 export function loadSpec(companyKey, dir = path.join(PROSPECTOR_DIR, 'crawlers')) {
   const file = path.join(dir, `${companyKey}.json`);
   return JSON.parse(fs.readFileSync(file, 'utf8'));
+}
+
+const BROWSER_RESCUE_USER_AGENT =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
+  + '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+
+/**
+ * Fetch a source page through a real browser after direct transport and the
+ * clean-IP proxy have both hit the source's anti-bot wall. The caller still
+ * owns the URL policy; this helper only turns an already-validated URL into
+ * HTML and rejects a browser-rendered challenge instead of handing it to the
+ * vacancy extractor as an empty page.
+ *
+ * @param {string} url
+ * @param {{ timeoutMs?: number, attempts?: number }} [options]
+ * @returns {Promise<string|null>}
+ */
+export async function fetchHtmlViaBrowser(url, { timeoutMs = 45000, attempts = 3 } = {}) {
+  let browser;
+  try {
+    browser = await launchChromium({
+      headless: true,
+      args: ['--disable-blink-features=AutomationControlled'],
+    });
+    const context = await browser.newContext({
+      userAgent: BROWSER_RESCUE_USER_AGENT,
+      locale: 'de-CH',
+      viewport: { width: 1280, height: 720 },
+    });
+    const page = await context.newPage();
+    let lastReason = 'unknown browser failure';
+    for (let attempt = 1; attempt <= attempts; attempt += 1) {
+      try {
+        const response = await page.goto(url, {
+          waitUntil: 'domcontentloaded',
+          timeout: Math.max(Number(timeoutMs) || 0, 45000),
+        });
+        await page.waitForTimeout(attempt === 1 ? 2500 : 4500);
+        const title = await page.title().catch(() => '');
+        const bodyText = await page.locator('body').textContent().catch(() => '');
+        const html = await page.content();
+        if (!looksLikeAntiBotChallenge(`${title}\n${bodyText}\n${html}`)) {
+          return html;
+        }
+        lastReason = !response || !response.ok()
+          ? `HTTP ${response?.status?.() ?? 'no response'} with browser challenge marker`
+          : 'browser challenge marker';
+      } catch (error) {
+        lastReason = error?.message || String(error);
+      }
+      if (attempt < attempts) await page.waitForTimeout(2500 * attempt);
+    }
+    console.warn(`⚠️ Browser rescue exhausted for ${url} (${lastReason}).`);
+    return null;
+  } catch (error) {
+    console.warn(`⚠️ Browser rescue unavailable for ${url}: ${error?.message || error}.`);
+    return null;
+  } finally {
+    await browser?.close().catch(() => {});
+  }
+}
+
+/**
+ * Run an opt-in browser rescue supplied by a source-specific parser.
+ *
+ * @param {string} url
+ * @param {Record<string, any>} runtime
+ * @returns {Promise<string|null>}
+ */
+async function tryBrowserRescue(url, runtime) {
+  if (typeof runtime.browserFetchImpl !== 'function') return null;
+  try {
+    const body = await runtime.browserFetchImpl(url, { timeoutMs: runtime.timeoutMs });
+    return typeof body === 'string' && body.trim() && !looksLikeAntiBotChallenge(body)
+      ? body
+      : null;
+  } catch (error) {
+    console.warn(`⚠️ Browser rescue failed for ${url}: ${error?.message || error}.`);
+    return null;
+  }
 }
 
 /**
@@ -169,6 +250,24 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     // Proxy rescue was disabled or the response was otherwise not eligible;
     // the body is still a confirmed anti-bot fence, not an empty source.
     wafProxyExhausted = true;
+  }
+
+  // Some source WAFs also challenge every Jina egress IP. A source-specific
+  // browser callback gets one last chance after the proxy, while the default
+  // runtime remains unchanged for the rest of the prospector fleet.
+  if (!result.policyBlocked && !result.blockedByRobots
+    && (connectionLevelFailure || antiBotResponse)) {
+    const browserBody = await tryBrowserRescue(url, runtime);
+    if (browserBody) {
+      return {
+        ...result,
+        ok: true,
+        status: 200,
+        url: result.url || url,
+        body: browserBody,
+        proxiedBy: 'browser',
+      };
+    }
   }
 
   // `HTTP 0` names the layer, not the cause. `politeFetch` now carries the
@@ -400,6 +499,27 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           umantisListingEvidence = spec.platform === 'umantis.com'
             ? extractUmantisListingEvidence(html, effectiveSeedUrl)
             : new Map();
+        }
+      }
+      if (!candidates.length) {
+        const browserBody = await tryBrowserRescue(effectiveSeedUrl, runtime);
+        if (browserBody) {
+          const rescuedRaw = extractListingCandidates(browserBody, effectiveSeedUrl, templateRx);
+          const rescued = {
+            ...rescuedRaw,
+            candidates: filterListingCandidates(spec, rescuedRaw.candidates),
+          };
+          if (rescued.candidates.length) {
+            console.warn(
+              `[prospector:${spec.companyKey}] direct seed yielded no listings; using browser rescue (${rescued.candidates.length} candidates)`,
+            );
+            html = browserBody;
+            ({ links, candidates } = rescued);
+            effectiveSeedUrl = page.url || seed;
+            umantisListingEvidence = spec.platform === 'umantis.com'
+              ? extractUmantisListingEvidence(html, effectiveSeedUrl)
+              : new Map();
+          }
         }
       }
     }

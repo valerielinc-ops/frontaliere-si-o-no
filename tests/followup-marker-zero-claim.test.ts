@@ -21,8 +21,9 @@
  * 2026-09-19 lo zero scritto DOPO il bucket ha reso rosse altre run su marker
  * giusti: «nessun bucket giornaliero; 0 item.» (35458632823, 35465487702,
  * 35473751920) e il template canonico di FOLLOWUP.md con N=0 (35947247334).
- * Ora conta il conteggio ovunque sulla riga, e i due gemelli sono confrontati
- * ESEGUENDO il bash estratto dallo YAML sulle stesse righe del JS.
+ * Ora conta il conteggio ovunque sulla riga. La copia bash dello step di
+ * verifica non esiste piu': lo YAML invoca questo stesso predicato
+ * (`--verify-persistence`), quindi la parita' e' per costruzione.
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
@@ -136,7 +137,7 @@ describe('claim di persistenza a zero', () => {
     expect(triageMarkerPersistenceExpectation(body)).toEqual({ buckets: [9609, 9610], requiresBucket: true });
   });
 
-  it('`bucket: #N` vale quanto `bucket #N`, come nel gemello bash', () => {
+  it('`bucket: #N` vale quanto `bucket #N`', () => {
     const body = '## Post-merge follow-up triage\n\nCreated/updated: 1 item nel bucket: #9102\n';
     expect(triageMarkerPersistenceExpectation(body)).toEqual({ buckets: [9102], requiresBucket: true });
   });
@@ -246,11 +247,11 @@ describe('i due finding della review', () => {
   });
 });
 
-describe('il gemello bash dello YAML resta allineato', () => {
-  // Regola #6 di AGENTS.md: un valore condiviso ha UNA sorgente, e quando i due
-  // lati non possono importarsi il legame va coperto da un test. Qui il gate
-  // vive due volte — JS nel collector, bash nel verifier — e la copia bash è
-  // quella che decide il merge.
+describe('lo YAML invoca il predicato unico', () => {
+  // Regola #6 di AGENTS.md: un valore condiviso ha UNA sorgente. La copia bash
+  // dello step di verifica non conosceva la prova del gate per gli item demoti
+  // e restava rossa su triage completi (run 36212700029, 36202115664): ora lo
+  // step invoca il collector, e questo test difende l'unicita' del predicato.
   const yml = readFileSync(
     resolve(__dirname, '../.github/workflows/post-merge-followup.yml'),
     'utf8',
@@ -261,27 +262,20 @@ describe('il gemello bash dello YAML resta allineato', () => {
     expect(yml).not.toMatch(/solo live-verification batchata/);
   });
 
-  it('lo YAML compone la grammatica del claim in UNA variabile condivisa', () => {
-    // La grammatica sta in `claim_head` e viene riusata sia per estrarre le
-    // righe di claim sia per leggerne il conteggio: una sola sorgente dentro il
-    // bash, allineata al gemello JS.
-    expect(yml).toMatch(/claim_head='\^\[\[:space:\]\]\*\(-\[\[:space:\]\]\+\|\\\*\[\[:space:\]\]\+\)\?Created\(\/updated\)\?:'/);
-    expect(yml).toMatch(/grep -Ei "\$claim_head"/);
-    // Case-insensitive su entrambi gli usi (finding L478).
-    expect(yml).toMatch(/grep -Eqi "\$\{claim_head\}\[\[:space:\]\]\*0\(\[\^0-9\.\]\|\\\$\)"/);
-    expect(yml).toMatch(/if ! claim_line_is_zero "\$claim_line"; then/);
-    expect(yml).toMatch(/grep -Eio 'bucket\[\[:space:\]\]\*:\?\[\[:space:\]\]\*#\[0-9\]\+'/);
-  });
-
-  it('le formule legacy sono ammesse SOLO senza righe di claim (finding L484)', () => {
-    // Il fallback non deve piu' essere cercato nell'intero corpo quando esiste
-    // un claim: nello YAML e' racchiuso in un gruppo con `-z "$claim_lines"`.
-    expect(yml).toMatch(/\[ -z "\$claim_lines" \][\s\S]{0,120}zero outstanding items\|backfill skipped/);
-  });
-
-  it('il fallback bucket invariato richiede che ogni claim line sia esclusivamente zero', () => {
-    expect(yml).toMatch(/unchanged_bucket_zero=false[\s\S]{0,500}unchanged_bucket_zero=true[\s\S]{0,700}grep -Eq/);
-    expect(yml).toContain('nessun[[:space:]]+item[[:space:]]+per[[:space:]]+questa[[:space:]]+PR');
-    expect(yml).toContain('non[[:space:]]+modificat[oa]');
+  it('lo step di verifica chiama --verify-persistence e non riscrive il predicato', () => {
+    expect(yml).toMatch(/node scripts\/ci\/collect-followup-batch\.mjs --verify-persistence "\$csv"/);
+    for (const reimplementation of [
+      /bucket_persisted_for_pr/,
+      /claim_line_is_zero/,
+      /claim_head=/,
+      /zero_claim=/,
+      /bucket_refs=/,
+      /unchanged_bucket_zero=/,
+    ]) {
+      expect(yml, String(reimplementation)).not.toMatch(reimplementation);
+    }
+    // I due repository in cui puo' vivere un bucket devono raggiungere lo script.
+    expect(yml).toContain('FOLLOWUP_SITE_REPO: valerielinc-ops/frontaliere-si-o-no');
+    expect(yml).toContain('FOLLOWUP_CORPUS_REPO: nanakokyobashi-rgb/frontaliere-articles');
   });
 });

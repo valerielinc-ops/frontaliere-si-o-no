@@ -12145,6 +12145,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzona-voto-castelli.title': 'Bellinzona rejects the «fortress» project',
     'blog.article.bellinzona-voto-castelli.excerpt': '54% of voters rejected the 19,1-million plan to enhance and modernize the UNESCO site of the Bellinzona castles; turnout at 47,5%.',
     'blog.article.bellinzona-voto-castelli.imageAlt': 'Bellinzona castles at the centre of the vote on the fortress project',
+    'blog.article.como-scuola-nazario-sauro-lettera.title': 'Como, letter from Nazario Sauro: \'We are not a package\'',
+    'blog.article.como-scuola-nazario-sauro-lettera.excerpt': 'Ilaria Flute disputes the transfer of the Nazario Sauro primary school to IC Como Lago in the 2027/28 plan: ten years of educational work risk being cancelled.',
+    'blog.article.como-scuola-nazario-sauro-lettera.imageAlt': 'Nazario Sauro primary school in Como historic center near the lake',
 };
 
 export default blogMetaEn;
