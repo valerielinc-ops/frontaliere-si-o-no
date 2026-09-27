@@ -164,11 +164,14 @@ describe('il contatore sopravvive al close+reopen', () => {
   });
 });
 
-describe('needs-human: tracking, non gate di autorebase', () => {
-  it('non introduce più passate o skip specifici per la label', () => {
+describe('needs-human: tracking, veto solo con un verdetto bloccante', () => {
+  it('non introduce più passate o skip specifici per la sola label', () => {
     expect(script).not.toContain('decideNeedsHumanPass');
     expect(script).not.toContain("labels.includes('needs-human')");
     expect(script).not.toContain("action: 'needs-human-pass'");
+    // Il veto (loop #9959) passa per la funzione pura e dipende dal verdetto:
+    // i casi sono pinnati in tests/pr-autorebase-latest-verdict.test.ts.
+    expect(script).toContain('needsHumanBlocksAutorebase({ labels, verdict: reviewerVerdict })');
   });
 
   it('mantiene il marker del breaker come sola segnalazione osservabile', () => {

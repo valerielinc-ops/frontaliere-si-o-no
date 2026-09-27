@@ -389,6 +389,7 @@ function output(result) {
     claim_state: result.state || '',
     claim_reason: result.reason || '',
     claim_valid: result.valid === true,
+    claim_superseded: result.superseded === true,
   };
   const lines = Object.entries(values)
     .map(([name, value]) => `${name}=${String(value).replace(/[\r\n]/gu, ' ')}`);
@@ -477,12 +478,31 @@ function flattenReviewPages(value) {
  */
 export function validateRedflagClaimSnapshot({ pr, reviews, claim } = {}) {
   const deny = (reason) => ({ valid: false, reason });
+  // Sostituzione BENIGNA: l'input e' stato rimpiazzato da un writer legittimo
+  // (push, merge di main dell'autorebase, riscrittura del body) e la nuova
+  // HEAD/revision ricevera' comunque una review propria. Non e' un errore del
+  // claim: il workflow la chiude con un notice e un'uscita verde. Solo claim
+  // illeggibili o malformati restano rossi (8 run redflag rosse su 40 per
+  // questa sola classe, es. run 36310778998 su #9959).
+  const superseded = (reason) => ({ valid: false, superseded: true, reason });
   if (!claim || claim.workflow !== 'redflag') return deny('claim redflag mancante');
+  // Forma del claim PRIMA di ogni confronto: un campo mancante o malformato
+  // non combacia con niente, e senza questo controllo diventerebbe una
+  // «sostituzione» verde invece di un rifiuto rosso (fail-closed).
+  const claimHead = String(claim.headSha || '').toLowerCase();
+  if (!SHA_RE.test(claimHead)) return deny('HEAD del claim malformata');
+  const claimRevision = normalizeReviewInputRevision(claim.reviewRevision);
+  if (!claimRevision) return deny('body revision del claim malformata');
+  const eventMatch = String(claim.eventKey || '').match(/^review:([1-9][0-9]*)$/u);
+  if (!eventMatch) return deny('review id del claim non verificabile');
+  if (!/^findings:\S+$/u.test(String(claim.verdictKey || ''))) return deny('verdetto del claim malformato');
   if (!pr || typeof pr !== 'object' || Array.isArray(pr)) return deny('PR metadata mancante');
   if (String(pr.state || '').toLowerCase() !== 'open') return deny('PR non più aperta');
   const head = String(pr.head?.sha || pr.headRefOid || '').toLowerCase();
-  if (!SHA_RE.test(head) || head !== String(claim.headSha || '').toLowerCase()) {
-    return deny('HEAD cambiata dopo il claim');
+  // Una HEAD illeggibile non e' una sostituzione: resta un rifiuto rosso.
+  if (!SHA_RE.test(head)) return deny('HEAD PR non verificabile dopo il claim');
+  if (head !== claimHead) {
+    return superseded('HEAD cambiata dopo il claim');
   }
   let currentRevision;
   try {
@@ -490,18 +510,17 @@ export function validateRedflagClaimSnapshot({ pr, reviews, claim } = {}) {
   } catch {
     return deny('body PR non verificabile dopo il claim');
   }
-  if (!currentRevision || currentRevision !== claim.reviewRevision) {
-    return deny('body revision cambiata dopo il claim');
+  if (!currentRevision) return deny('body PR non verificabile dopo il claim');
+  if (currentRevision !== claimRevision) {
+    return superseded('body revision cambiata dopo il claim');
   }
-  const eventMatch = String(claim.eventKey || '').match(/^review:([1-9][0-9]*)$/u);
-  if (!eventMatch) return deny('review id del claim non verificabile');
   const current = flattenReviewPages(reviews).find((review) => String(review?.id || '') === eventMatch[1]);
   if (!current) return deny('review del claim non più presente');
   if (current.user?.type !== 'Bot' || !CLAIM_ACTOR_RE.test(String(current.user.login || ''))) {
     return deny('review del claim non è del reviewer bot autorizzato');
   }
   if (String(current.commit_id || '').toLowerCase() !== head) {
-    return deny('review del claim non più sulla HEAD corrente');
+    return superseded('review del claim non più sulla HEAD corrente');
   }
   if (!['APPROVED', 'COMMENTED'].includes(String(current.state || '').toUpperCase())) {
     return deny('review del claim non terminale');
@@ -564,6 +583,7 @@ function verifyClaim(base, repo) {
     ...base,
     allowed: verdict.valid,
     valid: verdict.valid,
+    superseded: verdict.superseded === true,
     error: !verdict.valid,
     token: tokenValue,
     state: current.state,
