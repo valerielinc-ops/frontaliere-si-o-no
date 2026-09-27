@@ -128,6 +128,31 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github', 'workflows');
 
+/**
+ * Some workflows intentionally finish red to deliver a signal rather than
+ * report an infrastructure failure. Their red conclusion must remain visible
+ * in Actions, but it is not an "unreported failure" for this scanner.
+ *
+ * Keep the contract keyed by workflow path (the display name can change), with
+ * the name as a compatibility fallback for callers that only have the
+ * workflow registry's name. This is deliberately explicit: a normal workflow
+ * must not become invisible merely because it exits non-zero.
+ */
+export const INTENTIONAL_FAILURE_WORKFLOW_PATHS = new Set([
+  '.github/workflows/quality-alerts.yml',
+]);
+export const INTENTIONAL_FAILURE_WORKFLOW_NAMES = new Set([
+  'Quality alerts',
+]);
+
+/**
+ * @param {{workflow_name?: string|null, workflow_path?: string|null}|null|undefined} run
+ */
+export function isIntentionalFailureWorkflow(run) {
+  return INTENTIONAL_FAILURE_WORKFLOW_PATHS.has(String(run?.workflow_path ?? ''))
+    || INTENTIONAL_FAILURE_WORKFLOW_NAMES.has(String(run?.workflow_name ?? ''));
+}
+
 const DRY_RUN = process.argv.includes('--dry-run');
 const DORMANT_MODE = process.argv.includes('--dormant');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -488,6 +513,7 @@ function ghApiRows(apiPath, jqExpr, fields, { paginate = true } = {}) {
  */
 export function isReportableRun(run, { since, ignore = IGNORE } = {}) {
   if (!run || run.conclusion !== 'failure') return false;
+  if (isIntentionalFailureWorkflow(run)) return false;
   if (!isReportableScope(run, { ignore })) return false;
   const stamp = run.updated_at || run.created_at;
   if (since && !(stamp && Date.parse(stamp) >= Date.parse(since))) return false;
@@ -1009,7 +1035,11 @@ export async function scanFailures() {
   for (const run of runs) {
     const wf = workflows.get(String(run.workflow_id));
     const workflowName = wf?.name || null;
-    if (!isReportableRun({ ...run, workflow_name: workflowName }, { since })) continue;
+    if (!isReportableRun({
+      ...run,
+      workflow_name: workflowName,
+      workflow_path: wf?.path || null,
+    }, { since })) continue;
     if (!workflowName) {
       console.warn(`::warning::[scan-unreported-failures] run ${run.id} senza workflow risolvibile (${run.path}) — saltata.`);
       continue;
