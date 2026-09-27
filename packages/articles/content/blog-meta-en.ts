@@ -12142,6 +12142,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.luvinate-scuola-sicurezza.title': 'Luvinate, school open amid safety and prevention',
     'blog.article.luvinate-scuola-sicurezza.excerpt': 'At the Pedotti primary school in Luvinate, Welcome Festival with Scientific Police, Red Cross, cyberbullying, English and first aid for children in the classroom.',
     'blog.article.luvinate-scuola-sicurezza.imageAlt': 'Primary school children during safety and prevention workshops',
+    'blog.article.bellinzona-voto-castelli.title': 'Bellinzona rejects the «fortress» project',
+    'blog.article.bellinzona-voto-castelli.excerpt': '54% of voters rejected the 19,1-million plan to enhance and modernize the UNESCO site of the Bellinzona castles; turnout at 47,5%.',
+    'blog.article.bellinzona-voto-castelli.imageAlt': 'Bellinzona castles at the centre of the vote on the fortress project',
 };
 
 export default blogMetaEn;

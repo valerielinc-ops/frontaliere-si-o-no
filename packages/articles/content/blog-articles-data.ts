@@ -36448,6 +36448,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bellinzona-voto-castelli',
+ category: 'novita',
+ date: '2026-09-27T12:48:15.523Z',
+ image: '/images/blog/bellinzona-voto-castelli.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

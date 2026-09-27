@@ -95350,6 +95350,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellinzona-voto-castelli': {
+    title: 'Bellinzona boccia il progetto «fortezza» | Frontaliere Ticino',
+    description: 'Il 54% dei cittadini di Bellinzona ha bocciato il progetto fortezza da 19,1 milioni. Il 46% era favorevole e la partecipazione al voto è stata del 47,5%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, boccia, progetto, fortezza',
+    ogTitle: 'Bellinzona boccia il progetto «fortezza»',
+    ogDescription: 'Con una partecipazione del 47,5%, Bellinzona ha bocciato il progetto di valorizzazione dei castelli: 54% di voti contrari e un investimento da 19,1 milioni, sostenuto dal Municipio e in gran parte da Cantone, Confederazione e privati, con circa 4,5',
+    canonicalPath: '/articoli-frontaliere/bellinzona-voto-castelli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona boccia il progetto «fortezza»",
+      "description": "Il 54% dei cittadini di Bellinzona ha bocciato il progetto fortezza da 19,1 milioni. Il 46% era favorevole e la partecipazione al voto è stata del 47,5%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bellinzona-voto-castelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I castelli di Bellinzona al centro del voto sul progetto fortezza"
+      },
+      "datePublished": "2026-09-27T12:48:15+00:00",
+      "dateModified": "2026-09-27T12:48:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-voto-castelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
