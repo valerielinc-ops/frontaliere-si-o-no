@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksbl",
-  "assembledAt": "2026-09-27T00:02:17.228Z",
+  "assembledAt": "2026-09-27T15:19:51.496Z",
   "jobs": [
     {
       "id": "ksbl-461de2f9be97",
@@ -34,7 +34,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/praktikum-pflege-liestal-a/9f22d34c-1dd8-48a1-8043-0907fc5b365b",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:02:02.447Z",
+      "crawledAt": "2026-09-27T15:19:38.908Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/unterassistentin-unterassistent-medizin-a/8b994331-9ea4-4b5a-88e7-7becab94873d",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:02:01.713Z",
+      "crawledAt": "2026-09-27T15:19:38.372Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -225,7 +225,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/unterassistentin-unterassistent-frauenklinik-a/a4933295-1819-4a53-af4c-68ff866695b4",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:02:01.008Z",
+      "crawledAt": "2026-09-27T15:19:37.832Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -299,7 +299,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/unterassistentin-unterassistent-zentrum-altersmedizin-rehabilitation-a/ee7762a6-6528-4678-b67b-ae40ff590e7e",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:59.784Z",
+      "crawledAt": "2026-09-27T15:19:36.979Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -396,7 +396,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/beleghebamme-frauenklinik-a/f49fc1a7-81f6-47fa-803c-9e27a5f5fbe0",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:59.001Z",
+      "crawledAt": "2026-09-27T15:19:36.444Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -459,10 +459,10 @@
       "id": "ksbl-1f87f6de291d",
       "slug": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
+        "it": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
         "de": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "it": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -487,7 +487,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/unterassistentin-unterassistent-medizin-a/563a9d99-1dbc-4ec5-9be1-d549348b66fb",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:58.291Z",
+      "crawledAt": "2026-09-27T15:19:35.908Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -504,14 +504,25 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/unterassistentin-unterassistent-medizin-a/563a9d99-1dbc-4ec5-9be1-d549348b66fb",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
+        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
+        "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
+        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
+          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "en": [
+          "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "fr": [
+          "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "previousSlugs": [
-        "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
-      ],
+      "firstSeenAt": "2026-08-12T10:38:13.824Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -524,8 +535,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-12T10:38:13.824Z"
+      }
     },
     {
       "id": "ksbl-20e1c631cea0",
@@ -559,7 +569,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/unterassistentin-unterassistent-orthopaedie-traumatologie-a/f1f8a2d5-92e4-4b73-8497-e5bad6be4a45",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:57.653Z",
+      "crawledAt": "2026-09-27T15:19:35.341Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -673,7 +683,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/praktikum-pflege-bruderholz-a/ce558e3f-dfde-4011-8102-3eeb7365cbe6",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:57.002Z",
+      "crawledAt": "2026-09-27T15:19:34.814Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -757,7 +767,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/eignungs-praktikum-in-der-geburtenstation/43177fa1-c9e9-44d0-a71a-c73ba803117e",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:56.294Z",
+      "crawledAt": "2026-09-27T15:19:34.248Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -837,7 +847,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fage-medizin-a/82659565-a6b5-4248-8d43-411c334e10f4",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:55.393Z",
+      "crawledAt": "2026-09-27T15:19:33.704Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -945,7 +955,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fage-a/d1280895-fe9c-42c1-a6bf-6629902b2597",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:54.652Z",
+      "crawledAt": "2026-09-27T15:19:33.151Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1046,7 +1056,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/dfe8b4a9-14d9-4cb8-81d2-18014492bda7",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:53.941Z",
+      "crawledAt": "2026-09-27T15:19:32.616Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1139,7 +1149,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-rettungssanitaeterin-rettungssanitaeter-hf-a/1f4e4a18-4dba-4f3c-aa5c-e143856e0904",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:53.270Z",
+      "crawledAt": "2026-09-27T15:19:32.049Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1227,7 +1237,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/oberaerztin-oberarzt-frauenklinik-a/1a439248-59ee-4b6e-a0ae-3dc1f5594ba3",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:52.405Z",
+      "crawledAt": "2026-09-27T15:19:31.596Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1301,7 +1311,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-spital-zuhause-a/95fb63fb-c33b-4acb-b87d-248f15a45db7",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:51.648Z",
+      "crawledAt": "2026-09-27T15:19:31.044Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1385,7 +1395,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/leitende-aerztin-leitender-arzt-beckenbodenzentrum-a/fbede501-f9f7-4995-9eaf-c5e75e474d0c",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:50.949Z",
+      "crawledAt": "2026-09-27T15:19:30.518Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1448,10 +1458,10 @@
       "id": "ksbl-5c79a64a318f",
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-2",
       "slugByLocale": {
+        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-2",
+        "en": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-2"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -1476,7 +1486,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/a2d46c8a-d8a3-435a-90e8-ffdb914f6b69",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:50.192Z",
+      "crawledAt": "2026-09-27T15:19:29.989Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1493,6 +1503,13 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/a2d46c8a-d8a3-435a-90e8-ffdb914f6b69",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-ic6caj",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -1508,13 +1525,7 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-ic6caj",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
-      ],
+      "firstSeenAt": "2026-05-19T10:23:51.599Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1527,8 +1538,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z"
+      }
     },
     {
       "id": "ksbl-ce59d9b4b16d",
@@ -1562,7 +1572,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachfrau-fachmann-operationstechnik-hf-in-ausbildung-herbst-2027-a/b7b6042e-b953-4664-bf7c-f05e1cb35884",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:49.358Z",
+      "crawledAt": "2026-09-27T15:19:29.450Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1682,7 +1692,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachfrau-fachmann-operationstechnik-hf-in-ausbildung-fruehling-2027-a/bf909020-a13b-4beb-8984-38eee73ced70",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:48.587Z",
+      "crawledAt": "2026-09-27T15:19:28.903Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1793,7 +1803,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mpa-oder-fage-notfallstation-a/718d63d1-d566-4b12-bdcb-48b6bb398972",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:47.732Z",
+      "crawledAt": "2026-09-27T15:19:28.374Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1874,7 +1884,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/oberaerztin-oberarzt-pneumologie-a/9ba8aec7-dee6-49c3-9413-e1b1856b208c",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:47.022Z",
+      "crawledAt": "2026-09-27T15:19:27.845Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1983,7 +1993,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-expertin-experte-anaesthesiepflege-nds-hf-a/c012f280-0451-49af-95ea-eacf5655b3f5",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:46.375Z",
+      "crawledAt": "2026-09-27T15:19:27.379Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2087,7 +2097,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mitarbeiterin-mitarbeiter-gebaeudetechnik-hlkks-fokus-sanitaer-a/2e4de234-b2b4-4b4b-bf8f-d5fed9693709",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:45.644Z",
+      "crawledAt": "2026-09-27T15:19:26.836Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2136,10 +2146,10 @@
       "id": "ksbl-77f2cd30aec5",
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-4",
       "slugByLocale": {
+        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-4",
+        "en": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-4"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -2164,7 +2174,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/ee6a939e-bf31-4900-8863-feaa6faf5b07",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:44.902Z",
+      "crawledAt": "2026-09-27T15:19:26.275Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2181,6 +2191,13 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/ee6a939e-bf31-4900-8863-feaa6faf5b07",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-66btc5",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -2196,13 +2213,7 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-66btc5",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
-      ],
+      "firstSeenAt": "2026-05-19T10:23:51.599Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2215,8 +2226,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z"
+      }
     },
     {
       "id": "ksbl-808361269566",
@@ -2250,7 +2260,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/oberaerztin-oberarzt-klinik-kardiologie-a/788ff94c-e4f9-4ba2-8c18-8255e3cb193e",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:44.207Z",
+      "crawledAt": "2026-09-27T15:19:25.750Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2322,10 +2332,10 @@
       "id": "ksbl-630e6ac8be40",
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-5",
       "slugByLocale": {
+        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-5",
+        "en": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-5"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -2350,7 +2360,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/b9907a4c-02f3-4d83-a9cb-7d15fe6489bf",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:43.388Z",
+      "crawledAt": "2026-09-27T15:19:25.307Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2367,6 +2377,13 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/b9907a4c-02f3-4d83-a9cb-7d15fe6489bf",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-80pbrv",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -2382,13 +2399,7 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-80pbrv",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
-      ],
+      "firstSeenAt": "2026-05-19T10:23:51.599Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2401,17 +2412,16 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z"
+      }
     },
     {
       "id": "ksbl-995ef65c57e8",
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-6",
       "slugByLocale": {
+        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-6",
+        "en": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-6"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -2436,7 +2446,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/eced2dc8-dc97-48ca-9b4b-1b8a182013aa",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:42.792Z",
+      "crawledAt": "2026-09-27T15:19:24.818Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2453,6 +2463,13 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/eced2dc8-dc97-48ca-9b4b-1b8a182013aa",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-sw546p",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -2468,13 +2485,7 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-sw546p",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
-      ],
+      "firstSeenAt": "2026-05-19T10:23:51.599Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2487,8 +2498,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z"
+      }
     },
     {
       "id": "ksbl-635b862bbf61",
@@ -2522,7 +2532,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-herbst-2027-a/6724a48c-7b7c-40cf-bf1e-47e4a6a3b76c",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:42.209Z",
+      "crawledAt": "2026-09-27T15:19:24.320Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2606,7 +2616,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/vorpraktikantin-vorpraktikant-physiotherapie-liestal-herbst-2027-a/d2ac3b59-b237-419c-bf41-1968b778084e",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:41.675Z",
+      "crawledAt": "2026-09-27T15:19:23.864Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2690,7 +2700,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/vorpraktikantin-vorpraktikant-physiotherapie-liestal-fruehling-2027-a/2b5b4a44-db50-41a2-859e-9bf24a2aec3d",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:40.996Z",
+      "crawledAt": "2026-09-27T15:19:23.324Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2774,7 +2784,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-fruehling-2027-a/58681e2f-a6a7-4b6a-9854-b2969dfecd65",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:40.275Z",
+      "crawledAt": "2026-09-27T15:19:22.885Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2830,10 +2840,10 @@
       "id": "ksbl-61a9a0e4945a",
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-7",
       "slugByLocale": {
+        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-7",
+        "en": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "diplome-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-7"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -2858,7 +2868,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/27e35763-70bc-4abb-9a4b-85565f19ac1f",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:39.589Z",
+      "crawledAt": "2026-09-27T15:19:22.335Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2875,6 +2885,16 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/27e35763-70bc-4abb-9a4b-85565f19ac1f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-9p2nll"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
@@ -2895,17 +2915,7 @@
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
-        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-9p2nll",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-fapojd"
-      ],
+      "firstSeenAt": "2026-05-19T10:23:51.599Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2918,8 +2928,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z"
+      }
     },
     {
       "id": "ksbl-9019aad02f15",
@@ -2953,7 +2962,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-hf-a/add7cd9e-2fd8-4f09-adc7-9d92f906fd06",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:38.891Z",
+      "crawledAt": "2026-09-27T15:19:21.898Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3054,7 +3063,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/vorpraktikantin-vorpraktikant-handtherapie-bruderholz-fruehling-2027-a/2170bf97-02cb-42f5-9784-94ad23c12f99",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:38.041Z",
+      "crawledAt": "2026-09-27T15:19:21.462Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3138,7 +3147,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/vorpraktikantin-vorpraktikant-handtherapie-liestal-fruehling-2027-a/9a05814b-d210-45a6-8971-73faf598f49e",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:37.490Z",
+      "crawledAt": "2026-09-27T15:19:21.026Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3222,7 +3231,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachverantwortliche-fachverantwortlicher-pflege-orthopaedie-a/ed3283d2-1e16-49b3-a678-225c4171d6e4",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:36.942Z",
+      "crawledAt": "2026-09-27T15:19:20.587Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3313,7 +3322,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachverantwortliche-fachverantwortlicher-pflege-privatstation-a/56d057cc-c57c-498f-8f02-feaa6573a46f",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:36.415Z",
+      "crawledAt": "2026-09-27T15:19:20.144Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3387,12 +3396,13 @@
         "de": "Eintritt nach Vereinbarung · Bruderholz, Altersmedizin & Rehabilitation · Stellenreferenz 12890 · Festanstellung\n\nAufgaben:\n• Unterstützung der Stationsleitung in Planungs-, Organisations- und Führungsaufgaben\n• Mitverantwortung für die Umsetzung der Leistungsziele auf der Station mit rund 36 Betten\n• Mitverantwortung hinsichtlich Sicherung der Pflegequalität sowie der Implementierung und Gewährleistung der Nachhaltigkeit von Lean Hospital\n• Mitglied des Stationsleitungsgremiums im Sinne von Shared Governance\n• Mitarbeit in der direkten Pflege in einem motivierten Team, welches gesamthaft aus ca. 30 Mitarbeitenden besteht\n• Führen einer Zone mit der zugeteilten Patientengruppe\n\nAnforderungen:\n• Basis: Diplom als Pflegefachfrau/Pflegefachmann (HF, FH oder äquivalent)\n• Gerne: Erfahrung in einem Akutbetrieb\n• Sehr gerne: Teamplayer-Qualitäten und Lust auf Führungsaufgaben\n• Und auch: kommunikationsfreudiges Organisationstalent\n• Unbedingt: Freude an einemabwechslungsreichen und lebhaften Spitalalltag\n\nBenefits:\nRundum versorgt: vergünstigte Kita vor Ort, volle Erziehungszulagen, bezahlte Kurzabsenzen bei Notfall-Betreuung\n\nBereich: Altersmedizin & Rehabilitation\n\nBeschäftigungsgrad: 80-100%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
         "fr": "Admission sur rendez-vous · Bruderholz, Altermedizin & Rehabilitation · Référence emploi 12890 · Emploi permanent\n\nTâches :\n• Soutien à la gestion des stations dans les tâches de planification, d'organisation et de gestion\n• Coresponsabilité pour la réalisation des objectifs de performance de la station avec environ 36 lits\n• Responsabilité partagée pour assurer la qualité des soins ainsi que la mise en œuvre et la durabilité de l'hôpital Lean\n• Membre du conseil d'administration de la station au sens de la gouvernance partagée\n• Collaboration en soins directs dans une équipe motivée, qui se compose d'environ. Il y a 30 employés\n• Diriger une zone avec le groupe de patients assigné\n\nExigences\n• Base : Diplôme de spécialiste des soins infirmiers (HF, FH ou équivalent)\n• L'expérience d'une opération aiguë\n• Très heureux: qualités de joueur de l'équipe et désir pour les tâches de leadership\n• Et aussi : un talent organisationnel propice à la communication\n• Absolument: Joy d'un hôpital varié et animé vie quotidienne\n\nAvantages:\nSoins de longue durée : soins de jour réduits sur place, allocations parentales complètes, absences courtes payées en cas de soins d'urgence\n\nDomaine : Vieillissement Médecine et réadaptation\n\nNiveau d'emploi: 80-100 %\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
       },
+      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/stv-stationsleiterin-stationsleiter-a/cd7d4c2d-cfec-428b-9284-62ed43d98914",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:35.756Z",
+      "crawledAt": "2026-09-27T15:19:19.615Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3416,8 +3426,7 @@
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
         "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3448,8 +3457,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-5c0e1612737f",
@@ -3483,7 +3491,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-expertin-experte-intensivpflege-nds-hf-a/e046eaa3-9891-4ec9-a68f-a04dfb1e26ce",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:34.397Z",
+      "crawledAt": "2026-09-27T15:19:18.514Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3571,7 +3579,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-intensivpflege-a/4f4c2c82-0959-450f-8c49-84bb8ccc0e70",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:33.752Z",
+      "crawledAt": "2026-09-27T15:19:17.986Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3645,7 +3653,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-ambulatorium-urologie-a/2e8df19f-d1ea-4f55-9550-fd7a5dc84a8e",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:33.111Z",
+      "crawledAt": "2026-09-27T15:19:17.448Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3721,7 +3729,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-innere-medizin-a/f72dae9b-fb19-4d12-ab01-0f78e4b52af0",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:32.586Z",
+      "crawledAt": "2026-09-27T15:19:16.948Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3809,7 +3817,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/co-stationsleiterin-co-stationsleiter-a/949df63b-9bb5-4714-9def-3145528a85d4",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:31.817Z",
+      "crawledAt": "2026-09-27T15:19:16.420Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3915,7 +3923,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-endoskopie-a/59f5b0f3-8f47-49da-b9b7-578a856f639f",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:31.131Z",
+      "crawledAt": "2026-09-27T15:19:15.893Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4019,7 +4027,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/oberaerztin-oberarzt-gastroenterologie-und-hepatologie-a/d290530b-098f-4813-a170-632e85c0b648",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:30.589Z",
+      "crawledAt": "2026-09-27T15:19:15.454Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4110,7 +4118,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/neurologin-neurologe-fmh-zentrum-fuer-schlafmedizin-a/40e73324-0d42-4f8f-bfb7-4641850cb280",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:30.011Z",
+      "crawledAt": "2026-09-27T15:19:15.000Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4188,7 +4196,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-privatstation-a/c478c813-c59b-4099-8528-0a00efc527d0",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:29.415Z",
+      "crawledAt": "2026-09-27T15:19:14.519Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4240,10 +4248,10 @@
       "id": "ksbl-d5312d335ace",
       "slug": "dipl-professionista-di-manutenzione-a-kantonsspital-baselland-ksbl-liestal-1a17cc",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
         "it": "dipl-professionista-di-manutenzione-a-kantonsspital-baselland-ksbl-liestal-1a17cc",
         "en": "dipl-maintenance-professional-a-kantonsspital-baselland-ksbl-liestal-1a17cc",
-        "fr": "specialiste-de-l-entretien-des-diplomes-a-kantonsspital-baselland-ksbl-liestal"
+        "de": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -4268,7 +4276,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-intensivpflege-a/585ce426-137d-4cfe-92a1-4d75ffec45b3",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:28.846Z",
+      "crawledAt": "2026-09-27T15:19:14.076Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4285,21 +4293,23 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-intensivpflege-a/585ce426-137d-4cfe-92a1-4d75ffec45b3",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
-          "dipl-professionista-di-manutenzione-a-kantonsspital-baselland-ksbl-liestal-1a17cc"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-kantonsspital-baselland-ksbl-liestal"
-        ]
-      },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
         "specialiste-de-l-entretien-des-diplomes-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-professionista-di-manutenzione-a-kantonsspital-baselland-ksbl-liestal-1a17cc",
         "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-kantonsspital-baselland-ksbl-liestal"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
+          "dipl-professionista-di-manutenzione-a-kantonsspital-baselland-ksbl-liestal-1a17cc"
+        ],
+        "fr": [
+          "specialiste-de-l-entretien-des-diplomes-a-kantonsspital-baselland-ksbl-liestal",
+          "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-kantonsspital-baselland-ksbl-liestal"
+        ]
+      },
+      "firstSeenAt": "2026-06-08T13:12:55.494Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4312,8 +4322,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-08T13:12:55.494Z"
+      }
     },
     {
       "id": "ksbl-86d18ad2fadc",
@@ -4347,7 +4356,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/oberaerztin-oberarzt-gesundheitszentrum-laufen-a/5346423f-693b-48e2-be1c-e92720c9980a",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:28.196Z",
+      "crawledAt": "2026-09-27T15:19:13.546Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4426,7 +4435,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/biomed-analytikerin-analytiker-hf-mit-fachspezialisierung-klinische-chemie-automationa/190e28a2-ad51-44e8-af2d-dc3aa2fffdc6",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:27.506Z",
+      "crawledAt": "2026-09-27T15:19:13.021Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4506,7 +4515,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-akutgeriatrie-a/0c3fd09c-176f-4c42-a089-9a8fc2ce81cf",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:26.833Z",
+      "crawledAt": "2026-09-27T15:19:12.585Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4588,7 +4597,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/teamleiterin-teamleiter-elektrotechnik-a/fd6c3506-a7cf-43bc-8619-7cc776e5af06",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:26.134Z",
+      "crawledAt": "2026-09-27T15:19:12.052Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4678,7 +4687,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachverantwortliche-fachverantwortlicher-pflege-a/5a02b8f1-fe2c-441a-be6b-b67200bdbb0b",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:25.332Z",
+      "crawledAt": "2026-09-27T15:19:11.510Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4758,7 +4767,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-ergotherapeutin-ergotherapeut-handtherapie-a/e12b1a80-1bbe-4a19-954d-da95ae8acd7b",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:24.643Z",
+      "crawledAt": "2026-09-27T15:19:11.062Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4866,7 +4875,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachexpertin-fachexperte-fuer-infektionspraevention-a/e57efabf-9a42-4e56-bddb-7bebe54bc19a",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:23.978Z",
+      "crawledAt": "2026-09-27T15:19:10.534Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4944,7 +4953,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/diaetkoechin-diaetkoch-fa-in-ausbildung-2027-a/2db15d1e-57a8-4881-9d8d-5101f5a0e0e4",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:23.029Z",
+      "crawledAt": "2026-09-27T15:19:10.005Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5037,7 +5046,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/koechin-koch-efz-in-ausbildung-2027-a/2ae22c5e-abfe-4960-bc55-ef43bf74f941",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:22.141Z",
+      "crawledAt": "2026-09-27T15:19:09.475Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5111,7 +5120,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fage-efz-in-ausbildung-2027-a/d0da3607-cf37-4697-a79c-181a963d458b",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:21.595Z",
+      "crawledAt": "2026-09-27T15:19:08.999Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5191,7 +5200,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/medizinproduktetechnologin-medizinproduktetechnologe-efz-in-ausbildung-2027-a/6e6f47bd-9404-4065-8cd9-5e50b73be355",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:20.914Z",
+      "crawledAt": "2026-09-27T15:19:08.473Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5265,7 +5274,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-2027-a/27d3f083-53cd-413b-b0ca-93178c092369",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:20.359Z",
+      "crawledAt": "2026-09-27T15:19:07.986Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5339,7 +5348,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/kauffrau-kaufmann-efz-in-ausbildung-2027-a/48ab870d-816e-4573-bf74-ee211166e885",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:19.711Z",
+      "crawledAt": "2026-09-27T15:19:07.459Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5413,7 +5422,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachfrau-fachmann-betriebsunterhalt-efz-in-ausbildung-2027-a/1c0eeced-fd79-4b53-9fca-8734c2a2b74f",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:19.208Z",
+      "crawledAt": "2026-09-27T15:19:07.017Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5526,7 +5535,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mpa-efz-in-ausbildung-2027-a/7e899143-645a-4e92-8ac7-562e61278f27",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:18.700Z",
+      "crawledAt": "2026-09-27T15:19:06.558Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5606,7 +5615,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/ags-eba-in-ausbildung-2027-a/8ecc2e38-ea70-4b44-92ad-4eaae5662dbb",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:18.021Z",
+      "crawledAt": "2026-09-27T15:19:06.018Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5686,7 +5695,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/oberaerztin-oberarzt-orthopaedie-team-wirbelsaeule-a/a6ce443c-1981-4224-a7af-a9e62db79ab5",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:17.362Z",
+      "crawledAt": "2026-09-27T15:19:05.481Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5766,7 +5775,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/stv-stationsleiterin-stv-stationsleiter-a/58af7b94-3ee0-417f-92ee-6620f2fe15ce",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:16.709Z",
+      "crawledAt": "2026-09-27T15:19:04.937Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5846,7 +5855,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mitarbeiterin-mitarbeiter-hauswirtschaft-a/68555bfe-7c27-49c8-964b-600a9e1fe56f",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:16.152Z",
+      "crawledAt": "2026-09-27T15:19:04.476Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5885,8 +5894,7 @@
         "service-en-chambre-des-employes-a-kantonsspital-baselland-ksbl-liestal",
         "gestion-du-milieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal",
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-rzfgnb",
-        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-f1geyx"
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5908,8 +5916,7 @@
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-lie-rzfgnb",
           "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-rzfgnb",
-          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal",
-          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-f1geyx"
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-a-ksbl-liestal",
@@ -5974,7 +5981,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-endoskopie-a/d7e21492-0bf2-49c6-9b25-3ce1d2e9476b",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:15.516Z",
+      "crawledAt": "2026-09-27T15:19:03.929Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6048,7 +6055,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mpa-oder-fage-an-der-notfallporte-a/37ebfb29-ddaa-43da-b2fa-a3738ebdffa8",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:14.804Z",
+      "crawledAt": "2026-09-27T15:19:03.390Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6160,7 +6167,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/stv-leiterin-leiter-ergotherapie-physiotherapie-altersmedizin-rehabilitation-a/3c6cd6fc-ac7a-49f2-b15e-dda0f223c678",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:14.239Z",
+      "crawledAt": "2026-09-27T15:19:02.948Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6245,7 +6252,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/qualitaetsmanagerin-qualitaetsmanager-a/173bebbb-c3a9-4329-8058-34c0ecd9e914",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:13.570Z",
+      "crawledAt": "2026-09-27T15:19:02.389Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6352,7 +6359,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/leiterin-leiter-angiologie-a/7c0b2735-84ac-4c26-b4ab-08474fe1d5b7",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:12.891Z",
+      "crawledAt": "2026-09-27T15:19:01.812Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6430,7 +6437,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/oberaerztin-oberarzt-anaesthesie-a/e91d3209-f577-4e02-95dd-5e65a9d5cc57",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:12.226Z",
+      "crawledAt": "2026-09-27T15:19:01.258Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6509,7 +6516,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/projektleiterin-projektleiter-bau-infrastruktur-a/eae17a06-6ae6-49e7-ba94-99b8687d467d",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:11.244Z",
+      "crawledAt": "2026-09-27T15:19:00.728Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6591,7 +6598,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-onkologie-a/892539ac-ddf6-43a4-a1fc-118387c12b14",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:10.494Z",
+      "crawledAt": "2026-09-27T15:19:00.264Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6684,7 +6691,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fage-zentrum-bauch-a/6d5f5c01-d3ca-4bf7-88ca-8fb19d346af8",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:09.692Z",
+      "crawledAt": "2026-09-27T15:18:59.649Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6761,7 +6768,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a/a96ae29f-2cfc-4996-8467-7e0d4bf04fd0",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:08.917Z",
+      "crawledAt": "2026-09-27T15:18:59.170Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6841,7 +6848,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/op-lagerungspflegerin-op-lagerungspfleger/d2d478d0-76b2-43bb-94cf-85f3588f9cb6",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:08.158Z",
+      "crawledAt": "2026-09-27T15:18:58.644Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6921,7 +6928,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-a/5df8da51-893d-4505-9ac1-cddf589befeb",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:07.373Z",
+      "crawledAt": "2026-09-27T15:18:58.205Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6998,7 +7005,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fage-akutgeriatrie-a/eb9969da-45ee-4e00-b3e9-1ff70293dd93",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:06.333Z",
+      "crawledAt": "2026-09-27T15:18:57.748Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7081,10 +7088,10 @@
       "id": "ksbl-cd14c6154336",
       "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
+        "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -7109,7 +7116,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/28dc23e7-e705-4a3e-aea9-882468bde609",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:05.370Z",
+      "crawledAt": "2026-09-27T15:18:57.185Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7126,24 +7133,25 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/28dc23e7-e705-4a3e-aea9-882468bde609",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-tiu1kw",
+        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
           "infermiera-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-tiu1kw",
+          "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-tiu1kw",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
-      ],
+      "firstSeenAt": "2026-05-19T10:23:51.599Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7156,8 +7164,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z"
+      }
     },
     {
       "id": "ksbl-ceaa9727b08f",
@@ -7191,7 +7198,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/stv-stationsleiterin-stationsleiter-frauenklinik-urologie-a/c930825b-fc1f-4cd7-b0e9-ee6c284af8ca",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:04.633Z",
+      "crawledAt": "2026-09-27T15:18:56.615Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7271,7 +7278,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fachfrau-fachmann-operationstechnik-hf-a/ebc48735-21de-4fde-989d-4961bd905f75",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:03.961Z",
+      "crawledAt": "2026-09-27T15:18:56.165Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7355,7 +7362,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-onkologie-haematologie-a/6cb59668-398c-43bf-a706-a766141ce22c",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:03.210Z",
+      "crawledAt": "2026-09-27T15:18:55.610Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7432,7 +7439,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-ergotherapeutin-ergotherapeut-handtherapie-a/5fc7f687-5abe-403f-9023-e69362addc2b",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:01.446Z",
+      "crawledAt": "2026-09-27T15:18:54.550Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7507,7 +7514,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mpa-ambulatorium-frauenklinik-a/9eae992b-de03-4984-8647-2a2259f1355e",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:00.770Z",
+      "crawledAt": "2026-09-27T15:18:53.991Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7587,7 +7594,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mitarbeiter-in-verpflegungsservice-auf-bettenstation/4ae9ffa5-2880-49ec-b882-63c1ca773507",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:01:00.058Z",
+      "crawledAt": "2026-09-27T15:18:53.261Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7690,7 +7697,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mpa-interdisziplinaeres-ambulatorium-a/24ab203d-0c06-4ac8-a979-7afb0b9fee84",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:00:59.151Z",
+      "crawledAt": "2026-09-27T15:18:52.700Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7806,7 +7813,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/leitende-aerztin-leitender-arzt-gefaesschirurgie-a/ba1b0f8c-a6be-43db-ba64-c2241ff2699d",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:00:58.321Z",
+      "crawledAt": "2026-09-27T15:18:52.099Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7886,7 +7893,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/studentische-hilfskraft-a/123885bc-22d5-42e5-ac4c-cb5d32004319",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:00:57.652Z",
+      "crawledAt": "2026-09-27T15:18:51.550Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7966,7 +7973,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mpa-oder-fage-pneumologie-angiologie-a/94f31fe9-3cec-4dda-9882-ffa9b063fd8c",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:00:56.952Z",
+      "crawledAt": "2026-09-27T15:18:51.008Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -8041,7 +8048,7 @@
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-ergotherapeutin-ergotherapeut-a/ad99f44c-3ecd-4779-9bc1-7fca3271c64a",
       "source": "KSBL Dedicated Parser (TYPO3 cs2jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T00:00:56.175Z",
+      "crawledAt": "2026-09-27T15:18:50.328Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
