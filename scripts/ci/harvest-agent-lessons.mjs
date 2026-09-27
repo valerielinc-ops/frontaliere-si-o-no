@@ -136,6 +136,24 @@ export function collectWindow(days, fetchDay, { cap = SEARCH_RESULT_CAP } = {}) 
 }
 
 /**
+ * Un giorno della finestra con ripiego: prima la lista completa (una query);
+ * se fallisce, la lista leggera idratata elemento per elemento. `null` solo se
+ * falliscono entrambe, e allora `collectWindow` dichiara il giorno mancante.
+ * @template T
+ * @param {() => T[] | null} fetchFull
+ * @param {() => T[] | null} fetchLight
+ * @param {(item: T) => T} hydrate
+ * @returns {T[] | null}
+ */
+export function fetchDayWithFallback(fetchFull, fetchLight, hydrate) {
+  const full = fetchFull();
+  if (Array.isArray(full)) return full;
+  const light = fetchLight();
+  if (!Array.isArray(light)) return null;
+  return light.map(hydrate);
+}
+
+/**
  * Tetto opzionale: `max` 0 = nessun tetto. Restituisce anche se ha tagliato,
  * cosi' il chiamante lo dichiara invece di tacerlo.
  * @template T
@@ -154,9 +172,10 @@ export function applyCap(items, max) {
  * @param {string} label
  * @param {{truncatedDays: string[], failedDays: string[]}} window
  * @param {number} cut
+ * @param {number[]} [unreadItems] elementi letti senza i loro nodi annidati
  * @returns {string[]}
  */
-export function coverageWarnings(label, { truncatedDays, failedDays }, cut) {
+export function coverageWarnings(label, { truncatedDays, failedDays }, cut, unreadItems = []) {
   const out = [];
   if (truncatedDays.length) {
     out.push(`::warning::${label}: giorni al tetto della search API (${SEARCH_RESULT_CAP}), vista PARZIALE: ${truncatedDays.join(', ')}`);
@@ -165,6 +184,9 @@ export function coverageWarnings(label, { truncatedDays, failedDays }, cut) {
     out.push(`::warning::${label}: lettura fallita, giorni MANCANTI dalla finestra: ${failedDays.join(', ')}`);
   }
   if (cut) out.push(`::warning::${label}: tetto esplicito, ${cut} elementi della finestra esclusi (vista PARZIALE)`);
+  if (unreadItems.length) {
+    out.push(`::warning::${label}: commenti illeggibili per ${unreadItems.length} elementi, vista PARZIALE: ${unreadItems.map((n) => `#${n}`).join(', ')}`);
+  }
   return out;
 }
 
@@ -1105,11 +1127,27 @@ async function main() {
   // `body` entra nella lista perche' i classificatori `isAvoidable*` lo leggono
   // (`issue.body`): prima la lista chiedeva solo number,title,labels e il body
   // arrivava sempre vuoto.
-  const fixWindow = collectWindow(days, (day) => ghJsonRetry(['issue', 'list', '--state', 'all',
-    '--search', `label:agent:triaged updated:${day}`, '--limit', String(SEARCH_RESULT_CAP),
-    '--json', 'number,title,labels,body,comments']));
+  // Il giorno corrente porta le issue piu' attive, cioe' quelle coi thread piu'
+  // lunghi: la pagina con `comments` risponde 504 anche dopo i retry (run
+  // 36333749234, `updated:2026-09-27`, 3 tentativi su 3). Li' si ricade sulla
+  // lista leggera e sui commenti per issue, invece di perdere il giorno.
+  const fixListArgs = (day, fields) => ['issue', 'list', '--state', 'all',
+    '--search', `label:agent:triaged updated:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', fields];
+  // Un `view` fallito nel ripiego NON diventa `comments: []` in silenzio: la
+  // issue finisce in `unreadItems` e la finestra si dichiara PARTIAL (review
+  // di #10118), perche' i suoi marker FIX_OUTCOME mancano dal conteggio.
+  const unreadFixIssues = [];
+  const fixWindow = collectWindow(days, (day) => fetchDayWithFallback(
+    () => ghJsonRetry(fixListArgs(day, 'number,title,labels,body,comments')),
+    () => ghJsonRetry(fixListArgs(day, 'number,title,labels,body')),
+    (it) => {
+      const view = ghJsonRetry(['issue', 'view', String(it.number), '--json', 'comments']);
+      if (!Array.isArray(view?.comments)) unreadFixIssues.push(it.number);
+      return { ...it, comments: view?.comments || [] };
+    },
+  ));
   const fixCap = applyCap(fixWindow.items, MAX_ISSUES);
-  coverage.push(...coverageWarnings('fix-issues', fixWindow, fixCap.cut));
+  coverage.push(...coverageWarnings('fix-issues', fixWindow, fixCap.cut, unreadFixIssues));
   const fixIssues = fixCap.items;
   for (const issue of fixIssues) {
     const { number } = issue;

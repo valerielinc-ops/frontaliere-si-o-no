@@ -18,6 +18,7 @@ import {
   collectWindow,
   applyCap,
   coverageWarnings,
+  fetchDayWithFallback,
   SEARCH_RESULT_CAP,
 } from '../scripts/ci/harvest-agent-lessons.mjs';
 
@@ -60,6 +61,24 @@ describe('collectWindow — la finestra intera, non le ultime N righe', () => {
   });
 });
 
+describe('fetchDayWithFallback — un 504 sulla pagina pesante non costa il giorno', () => {
+  type Row = { number: number; comments?: string[] };
+  it('usa la lista completa quando risponde', () => {
+    const got = fetchDayWithFallback<Row>(() => [{ number: 1, comments: ['a'] }], () => { throw new Error('non deve servire'); }, (r) => r);
+    expect(got).toEqual([{ number: 1, comments: ['a'] }]);
+  });
+
+  it('ricade sulla lista leggera idratata per elemento (run 36333749234, updated:2026-09-27)', () => {
+    const got = fetchDayWithFallback<Row>(() => null, () => [{ number: 7 }, { number: 8 }], (r) => ({ ...r, comments: [`c${r.number}`] }));
+    expect(got).toEqual([{ number: 7, comments: ['c7'] }, { number: 8, comments: ['c8'] }]);
+  });
+
+  it('null solo se falliscono entrambe, e collectWindow dichiara il giorno mancante', () => {
+    const { failedDays } = collectWindow(['2026-09-27'], () => fetchDayWithFallback<Row>(() => null, () => null, (r) => r));
+    expect(failedDays).toEqual(['2026-09-27']);
+  });
+});
+
 describe('applyCap / coverageWarnings', () => {
   it('0 = nessun tetto', () => {
     expect(applyCap(rows(1, 700), 0)).toEqual({ items: rows(1, 700), cut: 0 });
@@ -72,6 +91,11 @@ describe('applyCap / coverageWarnings', () => {
     const w = coverageWarnings('fix-issues', { truncatedDays: [], failedDays: [] }, cut);
     expect(w).toHaveLength(1);
     expect(w[0]).toMatch(/^::warning::fix-issues: .*580.*PARZIALE/);
+  });
+
+  it('una issue idratata senza commenti leggibili rende la vista PARZIALE (review di #10118)', () => {
+    const w = coverageWarnings('fix-issues', { truncatedDays: [], failedDays: [] }, 0, [9912, 9913]);
+    expect(w).toEqual(['::warning::fix-issues: commenti illeggibili per 2 elementi, vista PARZIALE: #9912, #9913']);
   });
 
   it('finestra completa = nessun warning', () => {
