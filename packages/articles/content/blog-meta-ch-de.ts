@@ -6824,6 +6824,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.congedo-parentale-firme-riuscita.title': 'Elternzeit: 136 Tausend Unterschriften in der Schweiz gesammelt',
     'blog.article.congedo-parentale-firme-riuscita.excerpt': 'Die Volksinitiative zum Elternurlaub mit 136\'000 Unterschriften gelingt. Vorgesehenes Depot bei der Bundeskanzlei.',
     'blog.article.congedo-parentale-firme-riuscita.imageAlt': 'Unterschriftensammlung für die Volksinitiative zum Elternurlaub in der Schweiz',
+    'blog.article.esercito-divisa-grigia-dismissione.title': 'Schweizer Armee: Ausgehuniform weg, Altkleider verbrannt',
+    'blog.article.esercito-divisa-grigia-dismissione.excerpt': 'Seit 2025 wird die traditionelle graue Uniform der Schweizer Armee nur noch für repräsentative Aufgaben vergeben, was zu Einsparungen von rund 55 Millionen führt.',
+    'blog.article.esercito-divisa-grigia-dismissione.imageAlt': 'Schweizer Armeeuniformen in Bern',
 };
 
 export default blogMetaChDe;
