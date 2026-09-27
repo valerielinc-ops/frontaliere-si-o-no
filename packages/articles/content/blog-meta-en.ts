@@ -12160,6 +12160,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-lentigione-pareggio-mangano.title': 'Varese-Season 1-1: Manganese for 95\'rigour',
     'blog.article.varese-lentigione-pareggio-mangano.excerpt': 'Varese snatches a point from Lentigione thanks to Mangano’s decisive save in stoppage time, after Beretta’s goal and Bontempi’s equalizer.',
     'blog.article.varese-lentigione-pareggio-mangano.imageAlt': 'Professional football pitch with green grass and white lines',
+    'blog.article.basket-varese-bologna-esordio-lba.title': 'Varese-bologna: LBA debut at the itelyum arena',
+    'blog.article.basket-varese-bologna-esordio-lba.excerpt': 'The Openjobmetis Varese challenges the Virtus Bologna on Sunday 27 September at 7 pm. McDowell-White absent, Della Valle in doubt.',
+    'blog.article.basket-varese-bologna-esordio-lba.imageAlt': 'Panoramic view of Lake Lugano at sunset',
 };
 
 export default blogMetaEn;

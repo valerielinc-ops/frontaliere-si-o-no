@@ -95584,6 +95584,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-basket-varese-bologna-esordio-lba': {
+    title: 'Varese-bologna: esordio LBA alla itelyum arena',
+    description: 'Openjobmetis Varese sfida la Virtus Bologna domenica 27 settembre alle 19 alla Itelyum Arena. Ecco i dettagli su assenze e divieto di trasferta. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese-bologna, esordio, alla, itelyum',
+    ogTitle: 'Varese-Bologna: l\'esordio LBA alla Itelyum Arena',
+    ogDescription: 'Domenica 27 settembre alle 19, Varese ospita la Virtus Bologna per il turno 1 di LBA. Assenze pesanti per la Openjobmetis e divieto di trasferta per i tifosi bolognesi.',
+    canonicalPath: '/articoli-frontaliere/basket-varese-bologna-esordio-lba',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese-bologna: esordio LBA alla itelyum arena",
+      "description": "Openjobmetis Varese sfida la Virtus Bologna domenica 27 settembre alle 19 alla Itelyum Arena. Ecco i dettagli su assenze e divieto di trasferta. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/basket-varese-bologna-esordio-lba.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del lago di Lugano al tramonto"
+      },
+      "datePublished": "2026-09-27T22:12:14+00:00",
+      "dateModified": "2026-09-27T22:12:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/basket-varese-bologna-esordio-lba/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
