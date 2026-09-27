@@ -200,11 +200,58 @@ export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, r
 }
 
 /**
+ * Prove a large housekeeping shrink from definitive URL evidence.
+ *
+ * Housekeeping is allowed to remove a job only after the validator has
+ * returned a definitive dead verdict (404/410, a closed-portal marker, or a
+ * generic-listing redirect). The proof is carried alongside the write so the
+ * byte guard can distinguish that intentional expiry from a reader that
+ * silently fell back to an empty accumulator.
+ *
+ * Non-definitive failures are deliberately not accepted here: a catastrophic
+ * shrink needs stronger evidence than a normal prune.
+ */
+export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofEntries) {
+  if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  const previousJobs = parseJobs(previousRaw);
+  const nextJobs = parseJobs(nextRaw);
+  if (!previousJobs || !nextJobs || previousJobs.length <= nextJobs.length) return false;
+  if (!Array.isArray(proofEntries) || proofEntries.length === 0) return false;
+
+  const previousIds = uniqueIdentities(previousJobs);
+  const nextIds = uniqueIdentities(nextJobs);
+  if (!previousIds || !nextIds || [...nextIds].some((identity) => !previousIds.has(identity))) {
+    return false;
+  }
+
+  const removedJobs = previousJobs.filter((job) => !nextIds.has(jobIdentity(job)));
+  if (removedJobs.length !== previousJobs.length - nextJobs.length || removedJobs.some((job) => !jobIdentity(job))) {
+    return false;
+  }
+
+  const provenIds = new Set();
+  for (const entry of proofEntries) {
+    if (entry?.definitive !== true) return false;
+    const identity = jobIdentity(entry.job);
+    if (!identity || provenIds.has(identity)) return false;
+    provenIds.add(identity);
+  }
+
+  if (provenIds.size !== removedJobs.length) return false;
+  return removedJobs.every((job) => provenIds.has(jobIdentity(job)));
+}
+
+/**
  * Guard the final bytes written for a crawler slice. The semantic exception
  * is deliberately narrower than the byte guard and is shared by all writers
  * so a later merge/ownership step cannot reintroduce the false positive.
  */
-export function assertCrawlerSliceWriteSafe(filePath, previousRaw, nextRaw, { dedupReferenceJobs = null } = {}) {
+export function assertCrawlerSliceWriteSafe(
+  filePath,
+  previousRaw,
+  nextRaw,
+  { dedupReferenceJobs = null, housekeepingProof = null } = {},
+) {
   const previousBytes = Buffer.byteLength(String(previousRaw), 'utf8');
   const nextBytes = Buffer.byteLength(String(nextRaw), 'utf8');
   if (!isCatastrophicAccumulatorShrink(previousBytes, nextBytes)) {
@@ -215,6 +262,9 @@ export function assertCrawlerSliceWriteSafe(filePath, previousRaw, nextRaw, { de
   }
   if (isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, dedupReferenceJobs)) {
     return { previousBytes, nextBytes, reason: 'proven-cross-crawler-dedup' };
+  }
+  if (isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, housekeepingProof)) {
+    return { previousBytes, nextBytes, reason: 'proven-housekeeping-prune' };
   }
   assertAccumulatorByteFloor(previousBytes, nextBytes, { label: filePath });
   return { previousBytes, nextBytes, reason: null };
