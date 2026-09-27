@@ -18,8 +18,8 @@ describe('LEITpuls AG crawler parser', () => {
   it('keeps the shared runtime spec bound to the LEITpuls tenant', () => {
     const spec = loadSpec(APPLY_KEY);
     expect(spec.companyName).toBe(APPLY_COMPANY_NAME);
-    expect(spec.seedUrls).toContain('https://apply.refline.ch/968123/1468/pub/de/index.html');
-    expect(spec.detailTemplate).toBe('/968123/1468/pub/de/index.html');
+    expect(spec.seedUrls).toContain('https://apply.refline.ch/968123/1468/pub/5/index.html');
+    expect(spec.detailTemplate).toBe('/968123/1468/pub/*/index.html');
   });
 
   // ── isCompanyJob ──
