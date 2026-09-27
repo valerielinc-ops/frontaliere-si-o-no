@@ -6827,6 +6827,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esercito-divisa-grigia-dismissione.title': 'Esercito, addio alla tenuta d\'uscita e le uniformi dismesse vengono bruciate',
     'blog.article.esercito-divisa-grigia-dismissione.excerpt': 'Dal 2025 la tradizionale divisa grigia dell\'esercito svizzero viene assegnata solo per compiti rappresentativi, generando un risparmio di circa 55 milioni.',
     'blog.article.esercito-divisa-grigia-dismissione.imageAlt': 'Uniformi dell\'esercito svizzero a Berna',
+    'blog.article.manifestazione-diritti-migranti-berna.title': 'Manifestazione a Berna per i diritti dei migranti',
+    'blog.article.manifestazione-diritti-migranti-berna.excerpt': 'Diverse migliaia di persone hanno manifestato a Berna contro l\'inasprimento del diritto d\'asilo, chiedendo diritti fondamentali e libertà di movimento.',
+    'blog.article.manifestazione-diritti-migranti-berna.imageAlt': 'Manifestazione a Berna per i diritti dei migranti davanti a Piazza federale',
 };
 
 export default blogMetaChIt;

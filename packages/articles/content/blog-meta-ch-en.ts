@@ -6827,6 +6827,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esercito-divisa-grigia-dismissione.title': 'Army, farewell to the dress uniform, and decommissioned uniforms are burned',
     'blog.article.esercito-divisa-grigia-dismissione.excerpt': 'Since 2025, the traditional gray uniform of the Swiss army is assigned only for representative tasks, generating savings of about 55 million.',
     'blog.article.esercito-divisa-grigia-dismissione.imageAlt': 'Swiss army uniforms in Bern',
+    'blog.article.manifestazione-diritti-migranti-berna.title': 'Demonstration in Bern for migrants\' rights',
+    'blog.article.manifestazione-diritti-migranti-berna.excerpt': 'Several thousand people demonstrated in Bern against the tightening of asylum law, calling for fundamental rights and freedom of movement.',
+    'blog.article.manifestazione-diritti-migranti-berna.imageAlt': 'Protest in Bern for migrant rights in front of the Federal Square',
 };
 
 export default blogMetaChEn;
