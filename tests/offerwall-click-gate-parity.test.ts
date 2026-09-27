@@ -321,6 +321,19 @@ describe.each(COPIES)('%s', (_name, src) => {
     expect(m.calls).toEqual([[true]]);
   });
 
+  it('keeps a callback-style delegated decision pending until it arrives', async () => {
+    const existing = (delegated: FakeMessage) => {
+      setTimeout(() => delegated.proceed(true), 0);
+    };
+    const win = install(src, '/cerca-lavoro-ticino/', { preset: { controlledMessagingFunction: existing } });
+    const m = message();
+    win.googlefc!.controlledMessagingFunction!(m);
+
+    expect(m.calls).toEqual([]);
+    await new Promise<void>((resolve) => setTimeout(resolve, 0));
+    expect(m.calls).toEqual([[true]]);
+  });
+
   it('preserves a pre-existing type-specific decision while adding the Offerwall restriction', () => {
     const existing = (delegated: FakeMessage) => delegated.proceed(false, [ENUM.AD_BLOCKING]);
     const win = install(src, '/articoli/fisco/', { preset: { controlledMessagingFunction: existing } });

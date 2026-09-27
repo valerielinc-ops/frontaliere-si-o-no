@@ -688,8 +688,6 @@
           }
           if (result && typeof result.then === 'function') {
             result.then(function(){ if (!done) finish({ allow: false }); }, function(){ finish({ allow: false }); });
-          } else if (!done) {
-            finish({ allow: false });
           }
         };
         g.__ftOfferwallGateInstalled = true;
