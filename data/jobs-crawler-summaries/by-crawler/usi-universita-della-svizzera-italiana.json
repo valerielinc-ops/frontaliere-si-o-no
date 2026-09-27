@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-09-26T23:51:14.584Z",
+  "generatedAt": "2026-09-27T15:10:38.525Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 110646,
-  "avgDurationMs": 110646,
+  "durationMs": 112845,
+  "avgDurationMs": 112845,
   "durationHistory": [
-    110646
+    112845
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -81,13 +81,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
-      "title": "Bando di concorso per una posizione di docente a contratto in Economia e progettazione dei mercati",
+      "title": "Bando per una posizione di docente a contratto in Economia e progettazione dei mercati",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "bando-di-concorso-per-una-posizione-di-docente-a-contratto-in-economia-e-progettazione-dei-mercati-usi-lugano",
+      "slug": "bando-per-una-posizione-di-docente-a-contratto-in-economia-e-progettazione-dei-mercati-usi-lugano",
       "department": "Faculty of Economics",
       "category": "staff",
       "datePosted": "2026-03-29",
@@ -148,13 +148,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/idep/idep-phd-position-2025.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/idep/idep-phd-position-2025.pdf",
-      "title": "Posizione per dottorando",
+      "title": "Posizione di dottorando",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "posizione-per-dottorando-usi-lugano",
+      "slug": "posizione-di-dottorando-usi-lugano",
       "department": "Faculty of Economics – Institute of Economics (IdEP)",
       "category": "phd",
       "datePosted": "2026-03-29",
@@ -180,13 +180,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-phd-saturna-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-phd-saturna-2026.pdf",
-      "title": "Posizioni per dottorandi",
+      "title": "Posizioni per studenti di dottorato",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "posizioni-di-dottorandi-usi-lugano",
+      "slug": "posizioni-per-studenti-di-dottorato-usi-lugano",
       "department": "Institute of Argumentation, Linguistics and Semiotics – Dalle Molle Institute for Artificial Intelligence",
       "category": "phd",
       "datePosted": "2026-05-27",
@@ -212,7 +212,7 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-bmed-iph-242869_phd_17.07.2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-bmed-iph-242869_phd_17.07.2026.pdf",
-      "title": "Posizione per dottorando presso l'Istituto di Sanità Pubblica",
+      "title": "Posizione per dottorando presso l'Istituto di sanità pubblica",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
@@ -370,46 +370,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
-      "applyUrl": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
-      "title": "Segretario/a Amministrativo/a",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Locarno",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "segretario-a-amministrativo-a-usi-locarno",
-      "department": "Istituto ricerche solari Aldo e Cele Daccó (IRSOL)",
-      "category": "staff",
-      "datePosted": "2026-08-17",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Locarno"
-      },
-      "id": "usi-universita-della-svizzera-italiana-9ed504ad13c4",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-08-17T22:00:33.993Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
