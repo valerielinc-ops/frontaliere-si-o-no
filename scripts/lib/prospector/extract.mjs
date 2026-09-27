@@ -17,6 +17,7 @@
  * the listing without knowing anything about the vendor. It degrades honestly:
  * a page with no repeated template yields nothing rather than yielding noise.
  */
+import { createHash } from 'node:crypto';
 import { normalizeHost, safeDecodePath } from './registrable.mjs';
 import { decodeEntities } from './entities.mjs';
 import { readAttr, scanHtmlTags } from '../html-attr.mjs';
@@ -215,6 +216,7 @@ function firstString(v) {
  * @typedef {Object} Vacancy
  * @property {string} title
  * @property {string} url
+ * @property {string} [sourceUrl] The fetched page when `url` is an inline-posting identity
  * @property {boolean} [urlExplicit] Whether the structured record itself named the URL
  * @property {string} [company]
  * @property {string} [location]
@@ -241,16 +243,43 @@ function firstString(v) {
 export function extractJsonLd(html, pageUrl) {
   /** @type {Vacancy[]} */
   const out = [];
-  for (const node of jsonLdBlocks(html)) {
-    if (!isJobPostingNode(node)) continue;
+  const postingNodes = jsonLdBlocks(html).filter(isJobPostingNode);
+  const urlLessPostingCount = postingNodes.filter((node) => !firstString(node.url) && !firstString(node.sameAs)).length;
+  for (const node of postingNodes) {
     const locationCandidates = schemaJobLocationCandidates(node.jobLocation);
     const primaryLocation = locationCandidates[0] || { location: '', addressCountry: '' };
     const rawExplicitUrl = firstString(node.url) || firstString(node.sameAs);
     let explicitUrl = rawExplicitUrl;
     try { if (rawExplicitUrl) explicitUrl = new URL(rawExplicitUrl, pageUrl).toString(); } catch { /* retain raw evidence */ }
+    // Some listing pages (notably Grischa Personal) publish many independent
+    // JobPosting nodes inline but omit `url` from every node. Using the seed
+    // URL for all of them makes the production Map collapse the whole page to
+    // one vacancy. A deterministic fragment preserves the fetched source page
+    // for transport while giving each distinct inline posting a stable
+    // identity. Exact duplicate nodes still collapse by content fingerprint.
+    const title = firstString(node.title) || firstString(node.name);
+    const sourceUrl = !rawExplicitUrl && urlLessPostingCount > 1 ? pageUrl : undefined;
+    let inlineIdentityUrl = pageUrl;
+    if (sourceUrl) {
+      const fingerprint = [
+        title,
+        firstString(node.datePosted),
+        firstString(node.description),
+        JSON.stringify(node.jobLocation || null),
+      ].join('\u001f');
+      const digest = createHash('sha1').update(fingerprint).digest('hex').slice(0, 12);
+      try {
+        const identity = new URL(pageUrl);
+        identity.hash = `job-${digest}`;
+        inlineIdentityUrl = identity.toString();
+      } catch {
+        inlineIdentityUrl = `${pageUrl}#job-${digest}`;
+      }
+    }
     out.push({
-      title: firstString(node.title) || firstString(node.name),
-      url: explicitUrl || pageUrl,
+      title,
+      url: explicitUrl || inlineIdentityUrl,
+      ...(sourceUrl ? { sourceUrl } : {}),
       urlExplicit: Boolean(rawExplicitUrl),
       company: firstString(node.hiringOrganization),
       location: primaryLocation.location || '',

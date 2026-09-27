@@ -343,18 +343,20 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     }
     for (const v of candidates) {
       if (!v.title || !v.url) continue;
-      try { await validateUrl(v.url); } catch { continue; }
+      const vacancy = /** @type {any} */ (v);
+      const sourceUrl = vacancy.sourceUrl || v.url;
+      try { await validateUrl(sourceUrl); } catch { continue; }
       if (templateRx) {
         let pathname = '';
-        try { pathname = new URL(v.url).pathname; } catch { continue; }
+        try { pathname = new URL(sourceUrl).pathname; } catch { continue; }
         if (!templateRx.test(pathname)) continue;
       }
       if (bySlug.has(v.url)) continue;
-      const vacancy = /** @type {any} */ (v);
-      const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(v.url));
+      const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
       bySlug.set(v.url, {
         title: v.title,
         url: v.url,
+        ...(vacancy.sourceUrl ? { sourceUrl: vacancy.sourceUrl } : {}),
         location: vacancy.location || '',
         addressLocality: vacancy.addressLocality || '',
         addressRegion: vacancy.addressRegion || '',
@@ -386,6 +388,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
  * @returns {Promise<Array<Record<string, any> & {
  *   title: string,
  *   url: string,
+ *   sourceUrl?: string,
  *   location: string,
  *   description: string,
  *   postedAt: string|null,
@@ -425,17 +428,18 @@ export async function runSpecInProduction(spec, runtime = {}) {
         const index = next++;
         const row = rows[index];
         try {
+          const detailUrl = row.sourceUrl || row.url;
           let page;
           try {
-            page = await fetchRuntimePage(row.url, validateUrl, runtime);
+            page = await fetchRuntimePage(detailUrl, validateUrl, runtime);
           } catch (error) {
             // Stessa regola di retry del validatore — see detail-extract.mjs.
-            const fallbackUrl = runtimeDetailFallbackUrl(spec, error?.status, row.url);
+            const fallbackUrl = runtimeDetailFallbackUrl(spec, error?.status, detailUrl);
             if (!fallbackUrl) throw error;
             page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime);
           }
           // Same extractor the validator grades with — see detail-extract.mjs.
-          const detail = extractRuntimeDetailFields(spec, page.body, page.url || row.url, {
+          const detail = extractRuntimeDetailFields(spec, page.body, page.url || detailUrl, {
             detailExtractor: runtime.detailExtractor,
           });
           const decision = resolveDetailOrListingSwissGeography(detail, row);

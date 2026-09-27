@@ -850,6 +850,26 @@ describe('vacancy extraction', () => {
     expect(job).toMatchObject({ title: 'Autista CE', company: 'Trasporti SA', location: 'Chiasso', via: 'jsonld' });
   });
 
+  it('keeps multiple inline JobPosting nodes distinct when the source omits URLs', () => {
+    const pageUrl = 'https://x.example/stellen/';
+    const posting = (title: string, datePosted: string) => ({
+      '@type': 'JobPosting',
+      title,
+      description: 'Eine ausreichend lange Stellenbeschreibung mit mehreren Worten und konkreten Aufgaben für die ausgeschriebene Position.',
+      datePosted,
+      jobLocation: { address: { addressLocality: 'Chur', addressCountry: 'CH' } },
+    });
+    const html = [posting('CAD-Zeichner', '2026-09-10'), posting('Bauführer', '2026-09-11')]
+      .map((node) => `<script type="application/ld+json">${JSON.stringify(node)}</script>`)
+      .join('');
+
+    const jobs = extractJsonLd(html, pageUrl);
+    expect(jobs).toHaveLength(2);
+    expect(new Set(jobs.map((job) => job.url)).size).toBe(2);
+    expect(jobs.every((job) => job.url.startsWith(`${pageUrl}#job-`))).toBe(true);
+    expect(jobs.every((job) => job.sourceUrl === pageUrl)).toBe(true);
+  });
+
   it('preserves country evidence and every JSON-LD job location', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting',
