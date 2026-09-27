@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { preserveSlugHistory } from './slug-preservation-guard.mjs';
+import { assertCrawlerSliceWriteSafe, isCrawlerSlicePath } from './crawler-slice-integrity.mjs';
 
 // Monotonic counter so two concurrent writes to the SAME target from the SAME
 // process (same pid) still get distinct temp files — the pid alone would not
@@ -46,6 +47,9 @@ export function writeJsonAtomic(filePath, value, { compact = false } = {}) {
   }
   const json = compact ? JSON.stringify(value) : JSON.stringify(value, null, 2);
   const content = `${json}\n`;
+  if (isCrawlerSlicePath(filePath) && fs.existsSync(filePath)) {
+    assertCrawlerSliceWriteSafe(filePath, fs.readFileSync(filePath, 'utf8'), content);
+  }
   const tmp = `${filePath}.${process.pid}.${tmpSeq++}.tmp`;
   try {
     fs.writeFileSync(tmp, content, 'utf8');
