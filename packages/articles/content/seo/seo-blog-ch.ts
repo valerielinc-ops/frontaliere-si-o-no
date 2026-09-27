@@ -88511,6 +88511,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-manifestazione-diritti-migranti-berna': {
+    title: 'Manifestazione a Berna per i diritti dei migranti',
+    description: 'Diverse migliaia di persone hanno manifestato a Berna contro l\'inasprimento del diritto d\'asilo, chiedendo diritti fondamentali e libertà di movimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, manifestazione, berna, diritti, migranti',
+    ogTitle: 'Manifestazione a Berna per i diritti dei migranti',
+    ogDescription: 'Diverse migliaia di persone hanno manifestato a Berna contro l\'inasprimento del diritto d\'asilo, chiedendo diritti fondamentali e libertà di movimento.',
+    canonicalPath: '/articoli-svizzera/manifestazione-diritti-migranti-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Manifestazione a Berna per i diritti dei migranti",
+      "description": "Diverse migliaia di persone hanno manifestato a Berna contro l'inasprimento del diritto d'asilo, chiedendo diritti fondamentali e libertà di movimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/manifestazione-diritti-migranti-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione a Berna per i diritti dei migranti davanti a Piazza federale"
+      },
+      "datePublished": "2026-09-27T05:04:57+00:00",
+      "dateModified": "2026-09-27T05:04:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/manifestazione-diritti-migranti-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

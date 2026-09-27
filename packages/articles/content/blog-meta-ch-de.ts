@@ -6827,6 +6827,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esercito-divisa-grigia-dismissione.title': 'Schweizer Armee: Ausgehuniform weg, Altkleider verbrannt',
     'blog.article.esercito-divisa-grigia-dismissione.excerpt': 'Seit 2025 wird die traditionelle graue Uniform der Schweizer Armee nur noch für repräsentative Aufgaben vergeben, was zu Einsparungen von rund 55 Millionen führt.',
     'blog.article.esercito-divisa-grigia-dismissione.imageAlt': 'Schweizer Armeeuniformen in Bern',
+    'blog.article.manifestazione-diritti-migranti-berna.title': 'Demonstration in Bern für die Rechte von Migranten',
+    'blog.article.manifestazione-diritti-migranti-berna.excerpt': 'Mehrere tausend Menschen haben in Bern gegen die Verschärfung des Asylrechts demonstriert und dabei Grundrechte und Bewegungsfreiheit gefordert.',
+    'blog.article.manifestazione-diritti-migranti-berna.imageAlt': 'Demonstration in Bern für Migrantenrechte vor dem Bundesplatz',
 };
 
 export default blogMetaChDe;
