@@ -1,0 +1,293 @@
+import { describe, expect, it } from 'vitest';
+import {
+  acquireSectionLock,
+  createR2Request,
+  isLockExpired,
+  lockKey,
+  LOCK_LEASE_MS,
+  parseSections,
+  releaseSectionLock,
+  renewSectionLock,
+} from '../../scripts/lib/r2-section-lock.mjs';
+import { isCurrentPublishSource } from '../../scripts/lib/article-chunk-publish-freshness.mjs';
+
+type StoredLock = { payload: Record<string, unknown>; etag: string };
+
+function response(status: number, body = '', etag?: string) {
+  return {
+    status,
+    headers: { get: (name: string) => (name.toLowerCase() === 'etag' ? etag : undefined) },
+    text: async () => body,
+  };
+}
+
+function fakeR2() {
+  const objects = new Map<string, StoredLock>();
+  let version = 0;
+  const request = async ({
+    method,
+    key,
+    body = '',
+    headers = {},
+  }: {
+    method: string;
+    key: string;
+    body?: string;
+    headers?: Record<string, string>;
+  }) => {
+    const current = objects.get(key);
+    if (method === 'PUT') {
+      if (headers['if-none-match'] === '*' && current) return response(412);
+      if (headers['if-match'] && (!current || current.etag !== headers['if-match'])) return response(412);
+      const etag = `etag-${++version}`;
+      objects.set(key, { payload: JSON.parse(body), etag });
+      return response(200, '', etag);
+    }
+    if (method === 'GET') {
+      return current
+        ? response(200, JSON.stringify(current.payload), current.etag)
+        : response(404);
+    }
+    if (method === 'DELETE') {
+      if (headers['if-match'] && (!current || current.etag !== headers['if-match'])) return response(412);
+      objects.delete(key);
+      return response(204);
+    }
+    throw new Error(`unexpected fake method: ${method}`);
+  };
+  return { request, objects };
+}
+
+const waitBriefly = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, Math.min(ms, 2)));
+
+describe('r2-section-lock', () => {
+  it('accepts only known sections and normalizes multi-section lock order', () => {
+    expect(parseSections('svizzera,frontaliere,svizzera')).toEqual(['frontaliere', 'svizzera']);
+    expect(lockKey('frontaliere')).toBe('internal/ci/article-chunk-locks/frontaliere.json');
+    expect(() => parseSections('')).toThrow('--section');
+    expect(() => parseSections('jobs')).toThrow('unknown section');
+  });
+
+  it('signs the conditional R2 PUT without adding a runtime dependency', async () => {
+    let seen: { url: URL; init: RequestInit } | undefined;
+    const request = createR2Request(
+      {
+        R2_S3_ENDPOINT: 'https://account.r2.cloudflarestorage.com',
+        R2_BUCKET: 'article-cdn',
+        R2_ACCESS_KEY_ID: 'access-key',
+        R2_SECRET_ACCESS_KEY: 'secret-key',
+      },
+      {
+        now: () => new Date('2026-09-27T09:00:00.000Z'),
+        fetchImpl: async (url, init) => {
+          seen = { url: new URL(String(url)), init };
+          return response(200, '', 'etag-1');
+        },
+      },
+    );
+
+    await request({
+      method: 'PUT',
+      key: lockKey('frontaliere'),
+      body: '{}',
+      headers: { 'if-none-match': '*' },
+    });
+
+    expect(seen?.url.pathname).toBe('/article-cdn/internal/ci/article-chunk-locks/frontaliere.json');
+    expect(seen?.init.headers).toMatchObject({
+      'if-none-match': '*',
+      'x-amz-content-sha256': expect.any(String),
+      authorization: expect.stringContaining('AWS4-HMAC-SHA256'),
+    });
+  });
+
+  it('serializes concurrent same-section publishes so both hubs retain their client IDs', async () => {
+    const { request } = fakeR2();
+    let registry = new Set<string>();
+
+    const publish = async (owner: string, articleId: string) => {
+      const lock = await acquireSectionLock('frontaliere', {
+        owner,
+        request,
+        pollMs: 1,
+        sleep: waitBriefly,
+        timeoutMs: 2_000,
+      });
+      // This is the lost-update shape of the production registry PUT. The
+      // lock forces the second publisher to read after the first has committed.
+      const snapshot = new Set(registry);
+      await waitBriefly(5);
+      snapshot.add(articleId);
+      registry = snapshot;
+      await releaseSectionLock('frontaliere', { owner, request });
+      return lock;
+    };
+
+    await Promise.all([
+      publish('run-old', 'article-old'),
+      publish('run-new', 'article-new'),
+    ]);
+
+    expect(registry).toEqual(new Set(['article-old', 'article-new']));
+    expect(registry.has('article-old')).toBe(true); // old hub hydrates
+    expect(registry.has('article-new')).toBe(true); // new hub hydrates
+  });
+
+  it('fences an older queued checkout after a newer same-section publish', async () => {
+    const { request } = fakeR2();
+    const oldSha = 'a'.repeat(40);
+    const newSha = 'b'.repeat(40);
+    const registryBySource = new Map([
+      [oldSha, ['article-old']],
+      [newSha, ['article-old', 'article-new']],
+    ]);
+    const liveHubs = new Set(['article-old']);
+    let registry = new Set(registryBySource.get(oldSha)!);
+
+    const publish = async (owner: string, sourceSha: string, articleId: string) => {
+      const lock = await acquireSectionLock('frontaliere', {
+        owner,
+        request,
+        pollMs: 1,
+        sleep: waitBriefly,
+        timeoutMs: 2_000,
+      });
+      if (isCurrentPublishSource(sourceSha, newSha)) {
+        registry = new Set(registryBySource.get(sourceSha)!);
+        liveHubs.add(articleId);
+      }
+      await releaseSectionLock('frontaliere', { owner: lock.owner, request });
+    };
+
+    // Force the adversarial order: the older run is already waiting while the
+    // newer run publishes, then the older run acquires the same lock after it
+    // has been released.
+    const newRun = acquireSectionLock('frontaliere', {
+      owner: 'run-new',
+      request,
+      pollMs: 1,
+      sleep: waitBriefly,
+      timeoutMs: 2_000,
+    });
+    const newLock = await newRun;
+    const oldRun = publish('run-old', oldSha, 'article-old');
+    await waitBriefly(5);
+    registry = new Set(registryBySource.get(newSha)!);
+    liveHubs.add('article-new');
+    await releaseSectionLock('frontaliere', { owner: newLock.owner, request });
+    await oldRun;
+
+    expect(registry).toEqual(new Set(['article-old', 'article-new']));
+    expect([...liveHubs].every((id) => registry.has(id))).toBe(true);
+  });
+
+  it('takes over an expired lease with an ETag compare-and-swap', async () => {
+    const { request, objects } = fakeR2();
+    const now = Date.now();
+    objects.set(lockKey('svizzera'), {
+      etag: 'etag-stale',
+      payload: {
+        owner: 'dead-run',
+        section: 'svizzera',
+        acquiredAt: now - 2_000,
+        expiresAt: now - 1,
+      },
+    });
+
+    const lock = await acquireSectionLock('svizzera', {
+      owner: 'replacement-run',
+      request,
+      now: () => now,
+      timeoutMs: 100,
+      sleep: waitBriefly,
+    });
+
+    expect(lock.owner).toBe('replacement-run');
+    expect(objects.get(lockKey('svizzera'))?.payload.owner).toBe('replacement-run');
+    await releaseSectionLock('svizzera', { owner: 'replacement-run', request });
+  });
+
+  it('renews a long critical section so a competing owner stays blocked until release', async () => {
+    const { request, objects } = fakeR2();
+    let now = 0;
+    const first = await acquireSectionLock('frontaliere', {
+      owner: 'owner-a',
+      request,
+      now: () => now,
+    });
+
+    now = LOCK_LEASE_MS + 1; // past the original lease, while owner A is still publishing
+    expect(await renewSectionLock('frontaliere', {
+      owner: 'owner-a',
+      request,
+      now: () => now,
+    })).toBe(true);
+    expect(objects.get(lockKey('frontaliere'))?.payload.expiresAt).toBe(LOCK_LEASE_MS * 2 + 1);
+
+    await expect(acquireSectionLock('frontaliere', {
+      owner: 'owner-b',
+      request,
+      now: () => now,
+      timeoutMs: 0,
+    })).rejects.toThrow('timed out');
+
+    expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe(first.owner);
+    await releaseSectionLock('frontaliere', { owner: 'owner-a', request });
+
+    const second = await acquireSectionLock('frontaliere', {
+      owner: 'owner-b',
+      request,
+      now: () => now,
+      timeoutMs: 100,
+    });
+    expect(second.owner).toBe('owner-b');
+    await releaseSectionLock('frontaliere', { owner: 'owner-b', request });
+  });
+
+  it('does not delete a replacement lock when ownership changes after the read', async () => {
+    const { request, objects } = fakeR2();
+    await acquireSectionLock('frontaliere', { owner: 'owner-a', request });
+    let replaced = false;
+    const racingRequest = async (args: {
+      method: string;
+      key: string;
+      body?: string;
+      headers?: Record<string, string>;
+    }) => {
+      const result = await request(args);
+      if (args.method === 'GET' && !replaced) {
+        replaced = true;
+        const current = objects.get(args.key)!;
+        const replacement = await request({
+          method: 'PUT',
+          key: args.key,
+          body: JSON.stringify({
+            ...current.payload,
+            owner: 'owner-b',
+            acquiredAt: 1,
+            expiresAt: 2,
+          }),
+          headers: { 'if-match': current.etag },
+        });
+        expect(replacement.status).toBe(200);
+      }
+      return result;
+    };
+
+    expect(await releaseSectionLock('frontaliere', {
+      owner: 'owner-a',
+      request: racingRequest,
+    })).toBe(false);
+    expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe('owner-b');
+    await releaseSectionLock('frontaliere', { owner: 'owner-b', request });
+  });
+
+  it('never releases a lease owned by another run', async () => {
+    const { request, objects } = fakeR2();
+    await acquireSectionLock('frontaliere', { owner: 'owner-a', request });
+
+    expect(await releaseSectionLock('frontaliere', { owner: 'owner-b', request })).toBe(false);
+    expect(objects.has(lockKey('frontaliere'))).toBe(true);
+    expect(isLockExpired(objects.get(lockKey('frontaliere'))?.payload)).toBe(false);
+  });
+});

@@ -68,11 +68,15 @@ on:
 # same starvation that motivated the whole feature: deploy.yml's own
 # `pages-build-run` group dropped 12 consecutive queued runs on 2026-07-28.
 #
-# Concurrent runs for DIFFERENT articles are safe against the same shard repo:
-# push-article-shard-incremental.sh never force-pushes and builds its commit on
-# the remote tip, so a loser gets a non-fast-forward, re-clones onto the new tip
-# and rebuilds (exercised by its concurrent-writer test). Two runs for the SAME
-# article still serialize here, which is the only race worth preventing.
+# Concurrent runs for DIFFERENT articles may still render at the same time and
+# safely race the same shard repo: push-article-shard-incremental.sh never
+# force-pushes and builds its commit on the remote tip, so a loser gets a
+# non-fast-forward, re-clones onto the new tip and rebuilds (exercised by its
+# concurrent-writer test). The shared client registry has a separate R2 lease
+# below, held from companion publication through the corresponding shard push.
+# Two runs for the SAME article still serialize here, which avoids duplicate
+# work without turning a burst of different articles into a one-pending-run
+# GitHub concurrency queue.
 concurrency:
   group: fast-publish-${{ inputs.section }}-${{ inputs.article_id }}
   cancel-in-progress: false
@@ -178,6 +182,129 @@ jobs:
           done
           exit "$fail"
 
+      # GitHub's per-section concurrency group cannot be used here: it keeps
+      # only one pending run and cancels the previous pending run. The lease is
+      # therefore an atomic R2 object. It protects both the whole-registry
+      # upload and the following shard push, while different articles can keep
+      # rendering concurrently.
+      - name: Acquire article chunk section lock
+        id: acquire_chunk_lock
+        if: steps.render.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          ARTICLE_SECTION: ${{ inputs.section }}
+          LOCK_OWNER: ${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs acquire --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER"
+
+      # The critical section can include slow companion/registry uploads and
+      # shard pushes. Keep its R2 lease alive until the final cleanup step;
+      # renewal itself is compare-and-swap and fails closed if another owner
+      # has already taken the lease over.
+      - name: Renew article chunk section lock
+        id: renew_chunk_lock
+        if: steps.acquire_chunk_lock.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          ARTICLE_SECTION: ${{ inputs.section }}
+          LOCK_OWNER: ${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.log"
+          rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
+          env -u RUNNER_TRACKING_ID nohup setsid node scripts/lib/r2-section-lock.mjs renew \
+            --section "$ARTICLE_SECTION" \
+            --owner "$LOCK_OWNER" \
+            --failure-file "$LOCK_RENEW_FAILURE_FILE" \
+            >"$LOCK_RENEW_LOG_FILE" 2>&1 < /dev/null &
+          echo "$!" > "$LOCK_RENEW_PID_FILE"
+          sleep 1
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # The R2 lease serializes the registry-to-shard window. If main moved
+      # while this run was rendering, refresh the checkout and render the
+      # article again from the current origin/main snapshot after acquiring
+      # the lease. A stale run must recover, not silently drop its publish.
+      - name: Check article chunk source is current
+        id: check_chunk_source
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          PUBLISH_SHA: ${{ inputs.sha || github.sha }}
+          INPUT_ARTICLE_ID: ${{ inputs.article_id }}
+          INPUT_SECTION: ${{ inputs.section }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$PUBLISH_SHA" --main-sha "$MAIN_SHA")"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing stale article chunk source $PUBLISH_SHA from current origin/main $MAIN_SHA"
+            git checkout --detach --force origin/main
+            PUBLISH_SHA="$(git rev-parse HEAD)"
+            rm -rf /tmp/fast-publish/dist /tmp/fast-publish/summary.json
+            npx -y tsx@4 scripts/publish-article-fast.mjs \
+              --id "$INPUT_ARTICLE_ID" \
+              --section "$INPUT_SECTION" \
+              --out /tmp/fast-publish/dist \
+              --summary /tmp/fast-publish/summary.json
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$PUBLISH_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::article chunk source refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+            echo "Article chunk source refreshed to current origin/main $PUBLISH_SHA"
+          else
+            echo "Article chunk source $PUBLISH_SHA is current on main"
+          fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+      - name: Verify article chunk lock before publication
+        id: verify_chunk_lock_before_publish
+        if: steps.check_chunk_source.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # The article hub shard and the client registry are two representations
+      # of the same publish. Publish the section's companions first, then its
+      # named-export registry, and only then push the HTML shard. The strict
+      # mode observes the upload script's success marker and requires the
+      # targeted CDN purge; otherwise a best-effort R2 PUT can leave the hub
+      # ahead of the client again (#5819).
+      - name: Publish client article chunks
+        id: publish_chunks
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          ARTICLE_SECTION: ${{ inputs.section }}
+        run: npx -y tsx@4 scripts/publish-article-chunks.mjs --section "$ARTICLE_SECTION" --strict --no-ticker
+
+      # The renew step only proves that the watcher started. Its failure file
+      # is the authoritative signal when the watcher loses the lease while the
+      # strict client publication is still running. Check it before the first
+      # mutation after that publication, so a stale client cannot be followed
+      # by a hub shard push.
+      - name: Verify article chunk lock after publication
+        id: verify_chunk_lock_after_publish
+        if: always() && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
       # Mirrors the fault-tolerant parallel-push pattern at deploy.yml
       # (`push-section-shard.sh` fan-out, since #5130 driven by
       # scripts/lib/bounded-parallel.sh: a failing item is recorded, never
@@ -195,7 +322,7 @@ jobs:
       # uppercasing that exact token, so the two scripts resolve the SAME
       # deploy-key secret for the SAME shard repo.
       - name: Push locale shards (parallel, fault-tolerant)
-        if: steps.render.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.verify_chunk_lock_after_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && steps.publish_chunks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
@@ -257,6 +384,48 @@ jobs:
           echo "📦 Shard pushes confirmed landed for locale(s): ${PUSHED_CSV:-<none>}"
           exit "$fail"
 
+      - name: Verify article chunk lock after shard push
+        id: verify_chunk_lock_after_push
+        if: always() && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # Keep the lease through the entire shard push above. Release is guarded
+      # by the read ETag in the helper; stop the watcher after the first
+      # release attempt and retry once so a heartbeat racing that DELETE
+      # cannot leave this owner's lock behind.
+      - name: Release article chunk section lock
+        if: always() && steps.acquire_chunk_lock.outcome == 'success'
+        env:
+          ARTICLE_SECTION: ${{ inputs.section }}
+          LOCK_OWNER: ${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -uo pipefail
+          release_status=0
+          node scripts/lib/r2-section-lock.mjs release --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER" || release_status=$?
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.pid"
+          if [ -s "$LOCK_RENEW_PID_FILE" ]; then
+            renew_pid="$(cat "$LOCK_RENEW_PID_FILE")"
+            kill -TERM "$renew_pid" 2>/dev/null || true
+            for _ in 1 2 3 4 5; do
+              kill -0 "$renew_pid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL "$renew_pid" 2>/dev/null || true
+            wait "$renew_pid" 2>/dev/null || true
+          fi
+          node scripts/lib/r2-section-lock.mjs release --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER" || release_status=$?
+          exit "$release_status"
+
       # Only pings search engines once the pages are CONFIRMED live — never
       # before. This is the exact ordering bug fast-publish-article.yml fixes
       # relative to generate-article.yml's old "Notify Google Indexing API"
@@ -285,7 +454,7 @@ jobs:
       # the full deploy.yml chain, which is the source of truth anyway.
       - name: Verify shard URLs are live
         id: verify
-        if: steps.render.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.publish_chunks.outcome == 'success' && steps.verify_chunk_lock_after_push.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           set +e
           node scripts/wait-for-live-article-shards.mjs /tmp/fast-publish/summary.json
@@ -298,26 +467,13 @@ jobs:
           fi
           exit "$code"
 
-      # Deliberately NOT publishing the client-side data chunks here (#4881 Fase
-      # 3-bis, reverted). The page shards rendered above are self-contained static
-      # HTML and need nothing from this job. The registry does not: the app imports
-      # data/blog-articles-data.ts both statically and dynamically, so Rollup emits
-      # the chunk with a generated namespace export and rewrites the dynamic site to
-      # `.then(m => m.blogArticlesData)`. A standalone esbuild build of the same
-      # source carries only `ARTICLES`, so that pick resolved to `undefined` and every
-      # article page sat on its loading skeleton until the next full deploy overwrote
-      # the chunk — silently, because the resulting TypeError bypassed the chunk-load
-      # recovery path (#4959).
-      #
-      # Re-enabling out-of-band registry publishing requires a stable, hand-authored
-      # export contract that a separately built package can satisfy — not a chunk
-      # whose shape is a Rollup implementation detail. Until then the full deploy
-      # publishes the complete, internally consistent client asset graph atomically.
-      #
-      # The news-ticker payload is a different kind of artifact and keeps shipping here:
-      # plain JSON on a stable, hand-authored contract, so no build-shape skew is
-      # possible. --ticker-only builds the registry in a temp dir purely to compute it
-      # and uploads nothing else.
+      # The old #4959 path rewrote the dynamic site to
+      # `.then(m => m.blogArticlesData)`. A standalone
+      # esbuild registry is safe now because every live consumer reads the
+      # named export directly, and the client registry was published before the
+      # shards above. Keep the ticker refresh after live verification because it
+      # is a separate JSON contract; a delayed Pages propagation must not
+      # advertise a page whose bytes are not served yet.
       - name: Publish news-ticker payload
         if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
