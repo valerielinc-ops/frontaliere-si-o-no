@@ -278,6 +278,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/crawler-generation-group-ids.mjs',
   'scripts/lib/crawler-generation-receipt.mjs',
   'scripts/lib/crawler-generation-token.mjs',
+  'scripts/lib/crawler-grace-policy.mjs',
   'scripts/lib/crawler-slice-integrity.mjs',
   'scripts/lib/global-data-pipeline-lease.mjs',
   'scripts/lib/job-match-key.mjs',
