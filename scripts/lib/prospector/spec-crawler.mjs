@@ -86,17 +86,15 @@ export async function fetchHtmlViaBrowser(url, { timeoutMs = 45000, attempts = 3
           timeout: Math.max(Number(timeoutMs) || 0, 45000),
         });
         await page.waitForTimeout(attempt === 1 ? 2500 : 4500);
-        if (!response || !response.ok()) {
-          lastReason = `HTTP ${response?.status?.() ?? 'no response'}`;
-        } else {
-          const title = await page.title().catch(() => '');
-          const bodyText = await page.locator('body').textContent().catch(() => '');
-          const html = await page.content();
-          if (!looksLikeAntiBotChallenge(`${title}\n${bodyText}\n${html}`)) {
-            return html;
-          }
-          lastReason = 'browser challenge marker';
+        const title = await page.title().catch(() => '');
+        const bodyText = await page.locator('body').textContent().catch(() => '');
+        const html = await page.content();
+        if (!looksLikeAntiBotChallenge(`${title}\n${bodyText}\n${html}`)) {
+          return html;
         }
+        lastReason = !response || !response.ok()
+          ? `HTTP ${response?.status?.() ?? 'no response'} with browser challenge marker`
+          : 'browser challenge marker';
       } catch (error) {
         lastReason = error?.message || String(error);
       }

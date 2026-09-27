@@ -1,10 +1,23 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+const { launchChromium } = vi.hoisted(() => ({
+  launchChromium: vi.fn(),
+}));
+vi.mock('../scripts/lib/ensure-chromium.mjs', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  return { ...actual, launchChromium };
+});
+
 import {
   clearPoliteFetchStateForTests,
   politeFetch,
 } from '../scripts/lib/prospector/polite-fetch.mjs';
 import { createSpecUrlPolicy } from '../scripts/lib/prospector/public-fetch-policy.mjs';
-import { fetchRuntimePage, runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+import {
+  fetchHtmlViaBrowser,
+  fetchRuntimePage,
+  runSpecInProduction,
+} from '../scripts/lib/prospector/spec-crawler.mjs';
 import { isConnectionLevelFetchError } from '../scripts/lib/transient-fetch.mjs';
 
 function response(url: string, status: number, location: string | null = null, body = '') {
@@ -20,6 +33,27 @@ function response(url: string, status: number, location: string | null = null, b
 
 describe('prospector public-only polite transport', () => {
   beforeEach(() => clearPoliteFetchStateForTests());
+
+  it('accepts a usable DOM after a non-2xx browser navigation', async () => {
+    const html = '<html><body><a href="/jobs/chef-de-partie">Chef de partie</a></body></html>';
+    const page = {
+      goto: vi.fn(async () => ({ ok: () => false, status: () => 403 })),
+      waitForTimeout: vi.fn(async () => {}),
+      title: vi.fn(async () => 'Hotelcareer jobs'),
+      locator: vi.fn(() => ({ textContent: vi.fn(async () => 'Chef de partie Klosters') })),
+      content: vi.fn(async () => html),
+    };
+    const browser = {
+      newContext: vi.fn(async () => ({ newPage: vi.fn(async () => page) })),
+      close: vi.fn(async () => {}),
+    };
+    launchChromium.mockResolvedValue(browser);
+
+    await expect(fetchHtmlViaBrowser('https://hotelcareer.example/jobs', { attempts: 1 }))
+      .resolves.toBe(html);
+    expect(page.content).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
 
   it.each([
     'file:///etc/passwd',
