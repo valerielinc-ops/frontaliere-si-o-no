@@ -53,6 +53,43 @@ describe('crawler slice integrity guard', () => {
       .toThrow(/catastrophic truncation avoided/);
   });
 
+  it('allows grace-exhausted legacy locations in the Swiss Re migration', () => {
+    const previous = json([
+      {
+        ...swissReJob('https://jobs.swissre.com/legacy-zurich', 'Zürich', 'x'.repeat(700_000)),
+        crawlerMissStreak: 2,
+      },
+      {
+        ...swissReJob('https://jobs.swissre.com/legacy-washington', 'Washington D', 'x'.repeat(700_000)),
+        crawlerMissStreak: 2,
+      },
+    ]);
+    const next = json([
+      swissReJob('https://jobs.swissre.com/zurich', 'Zurich, CH', 'x'.repeat(100_000)),
+    ]);
+
+    expect(isSafeSwissReForeignPrune('data/jobs/by-crawler/swiss-re.json', previous, next)).toBe(true);
+    expect(assertCrawlerSliceWriteSafe('data/jobs/by-crawler/swiss-re.json', previous, next).reason)
+      .toBe('swiss-re-foreign-prune');
+  });
+
+  it('does not waive the guard for an explicit Swiss record even after grace', () => {
+    const previous = json([
+      {
+        ...swissReJob('https://jobs.swissre.com/zurich-old', 'Zurich, CH', 'x'.repeat(700_000)),
+        crawlerMissStreak: 2,
+      },
+      swissReJob('https://jobs.swissre.com/bratislava', 'Bratislava, SK', 'x'.repeat(700_000)),
+    ]);
+    const next = json([
+      swissReJob('https://jobs.swissre.com/zurich', 'Zurich, CH', 'x'.repeat(100_000)),
+    ]);
+
+    expect(isSafeSwissReForeignPrune('data/jobs/by-crawler/swiss-re.json', previous, next)).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe('data/jobs/by-crawler/swiss-re.json', previous, next))
+      .toThrow(/catastrophic truncation avoided/);
+  });
+
   it('keeps an ambiguous Swiss locality fail-closed like the incident payload', () => {
     const previous = json([
       swissReJob('https://jobs.swissre.com/bratislava', 'Bratislava, SK', 'x'.repeat(700_000)),

@@ -24,7 +24,7 @@ const ROOT = path.resolve(__dirname, '..');
 // proves a complete zero — `authoritativeSnapshotScope: 'empty-only'` only
 // verifies zero-job snapshots) is NOT retained indefinitely: it still goes
 // through the default `retainMissingJobs` grace in mergePreserveLocaleData
-// (GRACE_PERIOD_MAX_MISSES = 2 in scripts/lib/dedicated-crawler-common.mjs),
+// (CRAWLER_GRACE_PERIOD_MAX_MISSES in scripts/lib/crawler-grace-policy.mjs),
 // so a stale row here is retired after at most 2 consecutive misses — see
 // "retires a real vacancy that disappears from a non-empty snapshot within a
 // bounded number of runs" in tests/chicco-doro-crawler.test.ts.

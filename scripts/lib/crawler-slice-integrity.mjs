@@ -3,6 +3,7 @@ import {
   assertAccumulatorByteFloor,
   isCatastrophicAccumulatorShrink,
 } from './accumulator-byte-floor-guard.mjs';
+import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
@@ -60,6 +61,17 @@ function isExplicitForeignLocation(location) {
   return Boolean(codes?.length && codes.every((code) => code !== 'CH'));
 }
 
+function isGraceExhaustedLegacyLocation(job) {
+  const location = String(job?.location ?? '').trim();
+  const missStreak = Number(job?.crawlerMissStreak);
+  return Boolean(
+    location
+    && terminalCountryCodes(location) === null
+    && Number.isInteger(missStreak)
+    && missStreak >= CRAWLER_GRACE_PERIOD_MAX_MISSES
+  );
+}
+
 export function isCrawlerSlicePath(filePath) {
   return JOB_SLICE_PATH_RE.test(normalizedPath(filePath));
 }
@@ -67,8 +79,11 @@ export function isCrawlerSlicePath(filePath) {
 /**
  * Recognise only the Swiss Re source-geography migration proved by issue
  * #9876: every retained record is explicitly Swiss, and every removed record
- * has an unambiguous non-CH terminal country code. Unknown, mixed, malformed,
- * or empty locations stay on the generic fail-closed path.
+ * is either an unambiguous non-CH listing or an ambiguous legacy record that
+ * has already exhausted the merge grace period. The latter is needed because
+ * the pre-migration Zürich-HQ fallback emitted no terminal country code; the
+ * merge retires those records only after repeated source misses. An ambiguous
+ * record without an exhausted grace period stays fail-closed.
  */
 export function isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw) {
   if (!SWISS_RE_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
@@ -93,7 +108,10 @@ export function isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw) {
   }
   return removedJobs.every((job) => (
     String(job?.companyKey ?? '').trim() === 'swiss-re'
-    && isExplicitForeignLocation(job?.location)
+    && (
+      isExplicitForeignLocation(job?.location)
+      || isGraceExhaustedLegacyLocation(job)
+    )
   ));
 }
 

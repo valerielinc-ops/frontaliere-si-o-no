@@ -17,6 +17,7 @@
 
 import fs from 'node:fs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
+import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import path from 'node:path';
 import { performance } from 'node:perf_hooks';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -4901,8 +4902,6 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
 
 // FRO-231: fingerprint, slug registry, dedup → moved to top of file (FRO-359)
 
-const GRACE_PERIOD_MAX_MISSES = 2;
-
 function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}) {
   const resolveCompanyKey = typeof options.resolveCompanyKey === 'function'
     ? options.resolveCompanyKey
@@ -4990,7 +4989,7 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
         // means SOME page scraped, not that every page did, so one run's
         // partial-page miss shouldn't be a permanent removal.
         const missStreak = (Number(job?.crawlerMissStreak) || 0) + 1;
-        if (missStreak <= GRACE_PERIOD_MAX_MISSES) {
+        if (missStreak <= CRAWLER_GRACE_PERIOD_MAX_MISSES) {
           prunedExisting.push({ ...job, crawlerMissStreak: missStreak });
           continue;
         }
