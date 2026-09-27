@@ -1809,6 +1809,12 @@ commit_isolated_from_worktree() {
         base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
       fi
 
+      if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
+        mkdir -p "$merge_dir/candidate/$(dirname "$f")"
+        cp "$local_merge_path" "$merge_dir/candidate/$f"
+        candidate_path="$merge_dir/candidate/$f"
+      fi
+
       # A finalizer always appends a JSONL record before the ledger reaches
       # this step. If an explicit --extra-only caller nevertheless presents a
       # brand-new zero-byte ledger, treat it like the absent path instead of
