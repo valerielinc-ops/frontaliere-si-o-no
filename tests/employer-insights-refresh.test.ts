@@ -9,8 +9,30 @@ const REFRESH_WORKFLOW_SOURCE = readFileSync(
   new URL('../.github/workflows/employer-insights-refresh.yml', import.meta.url),
   'utf8',
 );
+const BUILDER_SOURCE = readFileSync(
+  new URL('../scripts/build-employer-insights.mjs', import.meta.url),
+  'utf8',
+);
 
 describe('employer insights refresh rollback', () => {
+  it('fingerprints the complete identity catalog without materializing one giant string', () => {
+    const jobs = Array.from({ length: 5_000 }, (_, index) => ({
+      id: `job-${index}`,
+      companyKey: `company-${index % 25}`,
+      company: `Company ${index % 25}`,
+      slug: `role-${index}`,
+      slugByLocale: { it: `role-${index}`, en: `role-${index}-en` },
+      previousSlugs: [`old-role-${index}`],
+    }));
+    const first = employerInsightsBuilder.buildIdentityCatalog(jobs);
+    const second = employerInsightsBuilder.buildIdentityCatalog([...jobs].reverse());
+
+    expect(first.identityCatalogSha).toMatch(/^[a-f0-9]{64}$/);
+    expect(second.identityCatalogSha).toBe(first.identityCatalogSha);
+    expect(BUILDER_SOURCE).toContain('sha256StableJson(identityRows)');
+    expect(BUILDER_SOURCE).not.toContain('sha256(stableJson(identityRows))');
+  });
+
   it('runs and validates the bounded D18 two-regime artifact beside the legacy writer', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toContain('--d18-json-out /tmp/employer-insights-d18.json');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('--d18-include-applications');

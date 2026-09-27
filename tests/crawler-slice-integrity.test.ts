@@ -245,25 +245,6 @@ describe('crawler slice integrity guard', () => {
     }
   });
 
-  it('keeps an unreferenced large removal fail-closed', () => {
-    const removed = dedupJob('https://buehler.example/lost', 'Unique position', 'x'.repeat(1_400_000));
-    const retained = dedupJob('https://buehler.example/kept', 'Kept position', 'y'.repeat(100_000));
-    const previous = json({ crawlerKey: 'buehler', jobs: [removed, retained] });
-    const next = json({ crawlerKey: 'buehler', jobs: [retained] });
-    expect(isProvenCrossCrawlerDedupPrune(
-      'data/jobs/by-crawler/buehler.json',
-      previous,
-      next,
-      [retained],
-    )).toBe(false);
-    expect(() => assertCrawlerSliceWriteSafe(
-      'data/jobs/by-crawler/buehler.json',
-      previous,
-      next,
-      { dedupReferenceJobs: [retained] },
-    )).toThrow(/catastrophic truncation avoided/);
-  });
-
   it('allows a large shrink only when every removed job has definitive housekeeping evidence', () => {
     const removedA = dedupJob('https://convit.example/a', 'Closed A', 'x'.repeat(700_000));
     const removedB = dedupJob('https://convit.example/b', 'Closed B', 'y'.repeat(700_000));
@@ -303,19 +284,37 @@ describe('crawler slice integrity guard', () => {
     const retained = dedupJob('https://convit.example/retained', 'Open position', 'y'.repeat(100_000));
     const previous = json({ crawlerKey: 'convit-holding', jobs: [removed, retained] });
     const next = json({ crawlerKey: 'convit-holding', jobs: [retained] });
-    const proof = [{ job: removed, definitive: false, reason: 'network-error' }];
 
     expect(isProvenHousekeepingPrune(
       'data/jobs/by-crawler/convit-holding.json',
       previous,
       next,
-      proof,
+      [{ job: removed, definitive: false, reason: 'network-error' }],
     )).toBe(false);
     expect(() => assertCrawlerSliceWriteSafe(
       'data/jobs/by-crawler/convit-holding.json',
       previous,
       next,
-      { housekeepingProof: proof },
+      { housekeepingProof: [{ job: removed, definitive: false }] },
+    )).toThrow(/catastrophic truncation avoided/);
+  });
+
+  it('keeps an unreferenced large removal fail-closed', () => {
+    const removed = dedupJob('https://buehler.example/lost', 'Unique position', 'x'.repeat(1_400_000));
+    const retained = dedupJob('https://buehler.example/kept', 'Kept position', 'y'.repeat(100_000));
+    const previous = json({ crawlerKey: 'buehler', jobs: [removed, retained] });
+    const next = json({ crawlerKey: 'buehler', jobs: [retained] });
+    expect(isProvenCrossCrawlerDedupPrune(
+      'data/jobs/by-crawler/buehler.json',
+      previous,
+      next,
+      [retained],
+    )).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe(
+      'data/jobs/by-crawler/buehler.json',
+      previous,
+      next,
+      { dedupReferenceJobs: [retained] },
     )).toThrow(/catastrophic truncation avoided/);
   });
 

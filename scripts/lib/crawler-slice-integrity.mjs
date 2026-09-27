@@ -204,12 +204,13 @@ export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, r
  *
  * Housekeeping is allowed to remove a job only after the validator has
  * returned a definitive dead verdict (404/410, a closed-portal marker, or a
- * generic-listing redirect). The proof is carried alongside the write so the
+ * generic-listing redirect).  The proof is carried alongside the write so the
  * byte guard can distinguish that intentional expiry from a reader that
  * silently fell back to an empty accumulator.
  *
- * Non-definitive failures are deliberately not accepted here: a catastrophic
- * shrink needs stronger evidence than a normal prune.
+ * Non-definitive failures are deliberately not accepted here, even though
+ * ordinary housekeeping may remove an old unprotected row for those signals:
+ * a catastrophic shrink needs stronger evidence than a normal prune.
  */
 export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofEntries) {
   if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;

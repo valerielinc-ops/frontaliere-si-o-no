@@ -31,6 +31,8 @@
  * ad has started. Without that callback `appear_timeout` resolves as before.
  */
 
+import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
+
 export interface OfferwallGateState {
   state?: 'idle' | 'held' | 'released' | 'suppressed' | 'off_board';
   release?: () => boolean;
@@ -114,8 +116,21 @@ export interface ReleaseHeldOfferwallOptions {
  */
 export type OfferwallGateStatus = 'held' | 'released' | 'suppressed' | 'off_board' | 'absent';
 
+/**
+ * The inline gate survives SPA navigation. If its route watcher missed the
+ * transition, an `off_board` value is stale as soon as the current pathname
+ * is a job-board section. Reset only that stale marker: a fresh Funding
+ * Choices callback must still arrive before any Offerwall can be released.
+ */
+function reconcileStaleOffBoardGate(win: Window, gate: OfferwallGateState | undefined): void {
+  if (gate?.state === 'off_board' && isJobBoardSectionPathname(win.location.pathname)) {
+    gate.state = 'idle';
+  }
+}
+
 export function offerwallGateStatus(win: Window = window): OfferwallGateStatus {
   const gate = win.__ftOfferwallGate;
+  reconcileStaleOffBoardGate(win, gate);
   if (gate?.state === 'held' && typeof gate.release === 'function') return 'held';
   if (gate?.state === 'released' || gate?.state === 'suppressed' || gate?.state === 'off_board') return gate.state;
   return 'absent';

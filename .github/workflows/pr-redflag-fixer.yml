@@ -1253,7 +1253,11 @@ jobs:
           # guard): serve al classify sotto per distinguere "Claude ha lasciato
           # una spiegazione" da "Claude non ha fatto/detto nulla" quando esce
           # 'success' senza push (issue #5534).
-          n=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
+          # `--paginate --jq 'length'` stampava un numero per pagina (oltre 30
+          # commenti `n` diventava multilinea). `--slurp` resta senza `--jq`: il
+          # gh reale rifiuta la combinazione e il fallback darebbe sempre 0.
+          comment_pages=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null) \
+            && n=$(printf '%s' "$comment_pages" | jq 'map(length) | add // 0' 2>/dev/null) || n=0
           echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
           # Digest del BODY pre-Codex. Un 🔴 ancorato a `PR body:L<n>` si chiude
           # riscrivendo il body, non con un commit: senza questa baseline il
@@ -1996,7 +2000,9 @@ jobs:
             echo "::error::🔴-fix: body riscritto (digest ${BASE_BODY_DIGEST:0:12}→${NOW_BODY_DIGEST:0:12}, body_only=${BODY_ONLY:-false}) ma HEAD ferma su $BASE_SHA → nessuna review potrà giudicare il body corretto e la PR resta bloccata. Job RED (sblocco: label needs-human dallo step precedente, oppure un commit manuale sul branch)."
             exit 1
           fi
-          NOW_COMMENTS=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
+          comment_pages=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null) \
+            && NOW_COMMENTS=$(printf '%s' "$comment_pages" | jq 'map(length) | add // 0' 2>/dev/null) \
+            || NOW_COMMENTS="${BASE_COMMENTS:-0}"
           if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then
             echo "::error::🔴-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=3)."
             exit 1

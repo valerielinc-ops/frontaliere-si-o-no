@@ -227,22 +227,71 @@ export function buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch = 
   return result;
 }
 
-function writeShadowCommonDir(hostScratch, commonGitDir, expectedRemote) {
+const PARTIAL_CLONE_FILTER_RE = /^(?:blob:none|blob:limit=[0-9]+[kmg]?|tree:0)$/;
+
+/**
+ * Filtro del partial clone del checkout, o '' se il checkout non lo è.
+ *
+ * Il checkout dei fixer è `filter: blob:none`: i blob fuori dall'HEAD mancano
+ * finché git non li scarica su richiesta dal remote promisor. La common dir
+ * ombra qui sotto non dichiarava il partial clone, quindi per il git del bridge
+ * un blob assente era un oggetto corrotto: `git push` moriva su
+ * `fatal: unable to read <sha>` appena il thin pack cercava una base mancante
+ * (#10088 16:10Z, #10025 15:54Z: fix con test verdi mai arrivati sul branch) e
+ * `git fetch` su `unresolved deltas left after unpacking`.
+ *
+ * La config del checkout è scrivibile dal modello, quindi se ne legge solo la
+ * forma che `actions/checkout` produce: promisor `origin` e un filtro noto. Il
+ * remote resta quello approvato dall'host.
+ */
+export function readPartialCloneFilter(realGit, commonGitDir) {
+  const read = (key) => {
+    const result = spawnSync(realGit, ['config', '--file', path.join(commonGitDir, 'config'), '--get', key], {
+      encoding: 'utf8',
+      env: {
+        PATH: process.env.PATH || '/usr/bin:/bin',
+        HOME: process.env.HOME || '/tmp',
+        GIT_CONFIG_NOSYSTEM: '1',
+        GIT_CONFIG_GLOBAL: '/dev/null',
+        GIT_CONFIG_SYSTEM: '/dev/null',
+      },
+    });
+    return result.status === 0 ? String(result.stdout || '').trim() : '';
+  };
+  // Il git recente segna il partial clone solo con `remote.origin.promisor`;
+  // `extensions.partialClone` è la forma storica e, se c'è, deve dire origin.
+  const legacy = read('extensions.partialclone');
+  if (legacy && legacy !== 'origin') return '';
+  if (read('remote.origin.promisor').toLowerCase() !== 'true') return '';
+  const filter = read('remote.origin.partialclonefilter');
+  return PARTIAL_CLONE_FILTER_RE.test(filter) ? filter : '';
+}
+
+/** Config della common dir ombra: remote approvato ed eventuale partial clone. */
+export function shadowCommonConfig(expectedRemote, { partialCloneFilter = '' } = {}) {
+  const partial = PARTIAL_CLONE_FILTER_RE.test(partialCloneFilter) ? partialCloneFilter : '';
+  return [
+    '[core]',
+    // `extensions.*` vale solo dal formato 1: con 0 git lo ignora.
+    `\trepositoryformatversion = ${partial ? 1 : 0}`,
+    '\tbare = false',
+    ...(partial ? ['[extensions]', '\tpartialClone = origin'] : []),
+    '[remote "origin"]',
+    `\turl = ${expectedRemote}`,
+    '\tfetch = +refs/heads/*:refs/remotes/origin/*',
+    ...(partial ? ['\tpromisor = true', `\tpartialclonefilter = ${partial}`] : []),
+    '',
+  ].join('\n');
+}
+
+export function writeShadowCommonDir(hostScratch, commonGitDir, expectedRemote, { partialCloneFilter = '' } = {}) {
   if (!path.isAbsolute(hostScratch) || !path.isAbsolute(commonGitDir)) {
     throw new Error('Git bridge metadata paths must be absolute');
   }
   fs.mkdirSync(hostScratch, { recursive: true, mode: 0o700 });
   const shadow = fs.mkdtempSync(path.join(hostScratch, 'common-'));
   try {
-    const config = [
-      '[core]',
-      '\trepositoryformatversion = 0',
-      '\tbare = false',
-      '[remote "origin"]',
-      `\turl = ${expectedRemote}`,
-      '\tfetch = +refs/heads/*:refs/remotes/origin/*',
-      '',
-    ].join('\n');
+    const config = shadowCommonConfig(expectedRemote, { partialCloneFilter });
     fs.writeFileSync(path.join(shadow, 'config'), config, { mode: 0o600 });
     for (const entry of shadowEntries) {
       const source = path.join(commonGitDir, entry);
@@ -358,7 +407,9 @@ function main() {
   if (!socketPath || !token || !realGit || !cwd || !gitDir || !commonGitDir || !hostScratch || !expectedRemote || configuredRemote !== expectedRemote) process.exit(2);
   let shadowCommonDir;
   try {
-    shadowCommonDir = writeShadowCommonDir(hostScratch, commonGitDir, expectedRemote);
+    shadowCommonDir = writeShadowCommonDir(hostScratch, commonGitDir, expectedRemote, {
+      partialCloneFilter: readPartialCloneFilter(realGit, commonGitDir),
+    });
   } catch {
     process.exit(2);
   }
