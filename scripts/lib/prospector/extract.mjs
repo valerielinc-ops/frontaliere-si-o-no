@@ -351,7 +351,7 @@ function canonicalIdentityUrl(value = '') {
  * @param {string} renderedTitle
  * @param {string} [recordUrl] inline identity URL from the listing row
  */
-function selectDetailStructuredRecords(records, pageUrl, renderedTitle, recordUrl = '') {
+export function selectDetailStructuredRecords(records, pageUrl, renderedTitle, recordUrl = '') {
   // A URL-less listing row carries a deterministic `#job-…` fragment. The
   // detail request necessarily fetches the shared source page, so title-based
   // selection would merge every inline JobPosting into every row. Select the
