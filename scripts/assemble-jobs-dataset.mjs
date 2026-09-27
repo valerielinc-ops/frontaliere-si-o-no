@@ -1111,7 +1111,7 @@ function shrinkJobKey(job) {
  *   multi-brand medium contamination — e.g. a `company: "Coop Genossenschaft"`
  *   entry stamped `companyKey: "fust"` before the source got a proper
  *   per-company filter, #5975). Self-corroborated, zero network cost.
- * @returns {Promise<{corroborated: boolean, checked: number, dead: number, alive: number, unverifiable: number, evidence: Array<{url: string, reason: string}>, survivors: Array<{url: string, reason: string}>}>}
+ * @returns {Promise<{corroborated: boolean, checked: number, dead: number, alive: number, unverifiable: number, evidence: Array<{id: string, url: string, reason: string, definitive: boolean}>, survivors: Array<{url: string, reason: string}>}>}
  */
 export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}) {
   const validate = options.validate || validateJobUrls;
@@ -1191,7 +1191,12 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
       )
     : [];
 
-  const evidence = offTarget.map((job) => ({ url: job?.url || '', reason: 'off-target-company' }));
+  const evidence = offTarget.map((job) => ({
+    id: shrinkJobKey(job),
+    url: job?.url || '',
+    reason: 'off-target-company',
+    definitive: false,
+  }));
   const survivors = [];
   results.forEach((result, i) => {
     const url = probeable[i]?.url || '';
@@ -1199,7 +1204,12 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
     // `definitive` never occurs today, but treating it as non-evidence keeps
     // this correct if the validator gains softer signals later.
     if (result && result.valid === false && result.definitive === true) {
-      evidence.push({ url, reason: result.reason });
+      evidence.push({
+        id: shrinkJobKey(probeable[i]),
+        url,
+        reason: result.reason,
+        definitive: true,
+      });
     } else {
       survivors.push({ url, reason: result?.reason || 'unknown' });
     }
@@ -1301,7 +1311,23 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       console.warn(`  📦 Archived ${archived} expired job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
     }
 
-    writeJobsCrawlerSlice(crawlerKey, jobs, { ...writeOptions, skipShrinkGuard: true });
+    const evidenceByIdentity = new Map(verdict.evidence.map((entry) => [entry.id, entry]));
+    const housekeepingProof = verdict.disappearedJobs.map((job) => {
+      const evidence = evidenceByIdentity.get(shrinkJobKey(job));
+      return {
+        job,
+        reason: evidence?.reason || 'source-confirmed',
+        definitive: evidence?.definitive === true,
+      };
+    });
+    // Retry with the exact post-hardening array measured by the semantic
+    // guard. Reusing the caller's pre-filter array could make the byte guard
+    // validate proof for a different payload (e.g. after quarantine).
+    writeJobsCrawlerSlice(crawlerKey, measured.finalJobs, {
+      ...writeOptions,
+      skipShrinkGuard: true,
+      housekeepingProof,
+    });
     return { written: true, shrinkAccepted: true, verdict, archived };
   }
 }
@@ -2147,6 +2173,9 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   hand-over, where this crawler is MEANT to take vacancies from the key that
  *   currently holds them; the reconciler does not need it, since it writes
  *   slices directly. Env equivalent: SKIP_OWNERSHIP_GUARD=1.
+ * @param {unknown[]} [options.housekeepingProof] - Definitive URL evidence
+ *   for every removed job when accepting a source-verified shrink. Internal
+ *   callers only; unproven removals remain blocked by the byte guard.
  */
 export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!crawlerKey || typeof crawlerKey !== 'string') {
@@ -2501,7 +2530,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     assembledAt: new Date().toISOString(),
     jobs: finalJobs,
   };
-  writeJson(slicePath, payload);
+  writeJson(slicePath, payload, { housekeepingProof: options.housekeepingProof || null });
   // A normal atomic write must run first so its anti-loss guard can preserve
   // any history the fresh payload would otherwise drop. The ownership pass is
   // intentionally second: removing a confirmed foreign route before that
