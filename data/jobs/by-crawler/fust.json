@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-09-27T05:22:54.176Z",
+  "assembledAt": "2026-09-27T08:36:39.432Z",
   "jobs": [
     {
       "id": "company-k43lys",
@@ -405,7 +405,8 @@
         "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-fust-oberburen"
       ],
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-mv6k0m",
@@ -449,7 +450,7 @@
         "it": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-acquisto-fust-oberburen",
         "en": "swc-retail-manager-designation-and-realization-of-purchasing-experiences-fust-oberburen",
         "de": "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserlebnissen-fust-oberburen",
-        "fr": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-mv6k0m"
+        "fr": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-fust-oberburen"
       },
       "requirementsByLocale": {},
       "addressLocality": "Oberbüren",
@@ -482,12 +483,16 @@
         ],
         "de": [
           "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-mv6k0m"
+        ],
+        "fr": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-mv6k0m"
         ]
       },
       "previousSlugs": [
         "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-mv6k0m",
         "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-mv6k0m"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-7yett6",
@@ -573,7 +578,8 @@
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-7yett6"
       ],
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "needsRetranslation": true
     },
     {
       "id": "company-d3cpjz",
@@ -617,7 +623,7 @@
         "it": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-acquisto-fust-oberburen-57b547",
         "en": "swc-retail-manager-designation-and-realization-of-purchasing-experiences-fust-oberburen-57b547",
         "de": "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserlebnissen-fust-oberburen-57b547",
-        "fr": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-d3cpjz"
+        "fr": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-fust-oberburen"
       },
       "requirementsByLocale": {},
       "addressLocality": "Oberbüren",
@@ -650,87 +656,16 @@
         ],
         "de": [
           "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-d3cpjz"
+        ],
+        "fr": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-d3cpjz"
         ]
       },
       "previousSlugs": [
         "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-d3cpjz",
         "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-d3cpjz"
-      ]
-    },
-    {
-      "id": "company-707gdf",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-707gdf",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/bb4d5e68-a64a-46dc-8e52-24e0aa922734",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/bb4d5e68-a64a-46dc-8e52-24e0aa922734",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-25T15:10:02.746Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di apparecchiature elettriche e multimediali\n- Installazione e configurazione di articoli per computer\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Una rapida comprensione\n- Flaair di vendita abbinato a un aspetto vincente\n- Responsabilità e competenze di negoziazione\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of electrical household and multimedia equipment\n- Installation and configuration of computer articles\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- A quick understanding\n- Sales flair paired with a winning appearance\n- Responsibility and negotiating skills\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location de matériel électrique ménager et multimédia\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Une compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-707gdf",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-707gdf",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-707gdf",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-707gdf"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
+      "needsRetranslation": true
     },
     {
       "id": "company-k1jspg",
@@ -1216,231 +1151,6 @@
       "salaryMax": 87000
     },
     {
-      "id": "company-9duvq8",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9duvq8",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/aec01f3b-1399-4904-85c0-40b3ba25dd49",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/aec01f3b-1399-4904-85c0-40b3ba25dd49",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-26T14:23:35.938Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di apparecchiature elettriche e multimediali\n- Installazione e configurazione di articoli per computer\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Una rapida comprensione\n- Flaair di vendita abbinato a un aspetto vincente\n- Responsabilità e competenze di negoziazione\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of electrical household and multimedia equipment\n- Installation and configuration of computer articles\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- A quick understanding\n- Sales flair paired with a winning appearance\n- Responsibility and negotiating skills\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location de matériel électrique ménager et multimédia\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Une compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-9duvq8",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9duvq8",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9duvq8",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9duvq8"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
-    },
-    {
-      "id": "company-vrz15b",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vrz15b",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/79dac213-1736-4b94-b28d-9785d43b4b83",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/79dac213-1736-4b94-b28d-9785d43b4b83",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-26T14:23:35.938Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di apparecchiature elettriche e multimediali\n- Installazione e configurazione di articoli per computer\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Una rapida comprensione\n- Flaair di vendita abbinato a un aspetto vincente\n- Responsabilità e competenze di negoziazione\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of electrical household and multimedia equipment\n- Installation and configuration of computer articles\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- A quick understanding\n- Sales flair paired with a winning appearance\n- Responsibility and negotiating skills\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location de matériel électrique ménager et multimédia\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Une compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-vrz15b",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vrz15b",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vrz15b",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vrz15b"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-3"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-3"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
-    },
-    {
-      "id": "company-fcfav1",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-fcfav1",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/cc60510b-712c-4f23-aec1-dc8eb1ad3b42",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/cc60510b-712c-4f23-aec1-dc8eb1ad3b42",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-26T14:23:35.938Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di apparecchiature elettriche e multimediali\n- Installazione e configurazione di articoli per computer\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Una rapida comprensione\n- Flaair di vendita abbinato a un aspetto vincente\n- Responsabilità e competenze di negoziazione\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of electrical household and multimedia equipment\n- Installation and configuration of computer articles\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- A quick understanding\n- Sales flair paired with a winning appearance\n- Responsibility and negotiating skills\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location de matériel électrique ménager et multimédia\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Une compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-fcfav1",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-fcfav1",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-fcfav1",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-fcfav1"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-4"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-4"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
-    },
-    {
       "id": "company-sl7k0y",
       "slug": "commercialista-efz-fust-oberburen",
       "company": "Fust",
@@ -1520,532 +1230,8 @@
         "kauffrau-mann-efz-fust-oberburen"
       ],
       "salaryMin": 99000,
-      "salaryMax": 174000
-    },
-    {
-      "id": "company-vdtr88",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/fbea9db0-72c6-4054-8218-2c4a03da5c05",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/fbea9db0-72c6-4054-8218-2c4a03da5c05",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-26T14:23:35.938Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di apparecchiature elettriche e multimediali\n- Installazione e configurazione di articoli per computer\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Una rapida comprensione\n- Flaair di vendita abbinato a un aspetto vincente\n- Responsabilità e competenze di negoziazione\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of electrical household and multimedia equipment\n- Installation and configuration of computer articles\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- A quick understanding\n- Sales flair paired with a winning appearance\n- Responsibility and negotiating skills\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location de matériel électrique ménager et multimédia\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Une compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-vdtr88"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-5"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-5"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
-    },
-    {
-      "id": "company-yo2bxu",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/158cebc2-767e-4d2a-9649-12e4a90f524b",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/158cebc2-767e-4d2a-9649-12e4a90f524b",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-23T11:59:30.089Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "en": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-yo2bxu",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-6"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-6"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
-    },
-    {
-      "id": "company-c6qr1n",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-c6qr1n",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/3a795f0d-f8dd-485f-98eb-1ce51e96accc",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/3a795f0d-f8dd-485f-98eb-1ce51e96accc",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-26T14:23:35.938Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di apparecchiature elettriche e multimediali\n- Installazione e configurazione di articoli per computer\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Una rapida comprensione\n- Flaair di vendita abbinato a un aspetto vincente\n- Responsabilità e competenze di negoziazione\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of electrical household and multimedia equipment\n- Installation and configuration of computer articles\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- A quick understanding\n- Sales flair paired with a winning appearance\n- Responsibility and negotiating skills\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location de matériel électrique ménager et multimédia\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Une compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-c6qr1n",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-c6qr1n",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-c6qr1n",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-c6qr1n"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-7"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-7"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
-    },
-    {
-      "id": "company-mcx758",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-mcx758",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/78d2cdff-6f4f-44e5-8f8f-4fdf161c21e3",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/78d2cdff-6f4f-44e5-8f8f-4fdf161c21e3",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-26T14:23:35.938Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di elettrodomestici di alta qualità\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Comprensione rapida\n- Responsabilità e competenze di negoziazione\n- Flaair di vendita abbinato a un aspetto vincente\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of high-quality electrical household appliances\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- Quick understanding\n- Responsibility and negotiating skills\n- Sales flair paired with a winning appearance\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location d'appareils électroménagers de haute qualité\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Compréhension rapide\n- Responsabilité et compétences en matière de négociation\n- Le style des ventes est associé à une apparence gagnante\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-mcx758",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-mcx758",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-mcx758",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-mcx758"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-8"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
-    },
-    {
-      "id": "company-2234e7",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2234e7",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/d45fb9f0-3b1a-45d3-b164-af8cf3e84b56",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/d45fb9f0-3b1a-45d3-b164-af8cf3e84b56",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-26T14:23:35.938Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di elettrodomestici di alta qualità\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Comprensione rapida\n- Flaair di vendita abbinato a un aspetto vincente\n- Responsabilità e competenze di negoziazione\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of high-quality electrical household appliances\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- Quick understanding\n- Sales flair paired with a winning appearance\n- Responsibility and negotiating skills\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location d'appareils électroménagers de haute qualité\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-2234e7",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2234e7",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2234e7",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2234e7"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
-    },
-    {
-      "id": "company-71n83b",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/ed06ca07-796f-496a-aac0-1d69aed3381e",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/ed06ca07-796f-496a-aac0-1d69aed3381e",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-26T14:23:35.938Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di elettrodomestici di alta qualità\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Comprensione rapida\n- Flaair di vendita abbinato a un aspetto vincente\n- Responsabilità e competenze di negoziazione\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of high-quality electrical household appliances\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- Quick understanding\n- Sales flair paired with a winning appearance\n- Responsibility and negotiating skills\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location d'appareils électroménagers de haute qualité\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-71n83b"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-10"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-10"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
-    },
-    {
-      "id": "company-s62qmp",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-s62qmp",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/918d5ac3-ed98-44cf-868d-4816be6971a2",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/918d5ac3-ed98-44cf-868d-4816be6971a2",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-26T14:23:35.938Z",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di elettrodomestici di alta qualità\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Comprensione rapida\n- Flaair di vendita abbinato a un aspetto vincente\n- Responsabilità e competenze di negoziazione\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of high-quality electrical household appliances\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- Quick understanding\n- Sales flair paired with a winning appearance\n- Responsibility and negotiating skills\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von hochwertigen Elektrohaushaltgeräte\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location d'appareils électroménagers de haute qualité\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-s62qmp",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-s62qmp",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-s62qmp",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-s62qmp"
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-11"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-11"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "needsRetranslation": true
     },
     {
       "id": "company-62f4iu",
@@ -2123,7 +1309,7 @@
     },
     {
       "id": "company-plbt7z",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-plbt7z",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-plbt7z",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -2186,7 +1372,15 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-plbt7z"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-plbt7z"
+      ]
     },
     {
       "id": "company-hu4mr8",
@@ -2268,7 +1462,7 @@
     },
     {
       "id": "company-2314u7",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2314u7",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-2314u7",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -2331,7 +1525,15 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2314u7"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2314u7"
+      ]
     },
     {
       "id": "company-4tmci9",
@@ -2412,7 +1614,7 @@
     },
     {
       "id": "company-tv84un",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-tv84un",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-tv84un",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -2475,11 +1677,19 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-tv84un"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-tv84un"
+      ]
     },
     {
       "id": "company-bt98d1",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-bt98d1",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-bt98d1",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -2542,7 +1752,15 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-bt98d1"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-bt98d1"
+      ]
     },
     {
       "id": "company-9wb1tc",
@@ -2627,7 +1845,8 @@
         ]
       },
       "salaryMin": 60000,
-      "salaryMax": 102000
+      "salaryMax": 102000,
+      "needsRetranslation": true
     },
     {
       "id": "company-exze5w",
@@ -2707,7 +1926,7 @@
     },
     {
       "id": "company-cfkked",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-cfkked",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-cfkked",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -2770,11 +1989,19 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-cfkked"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-cfkked"
+      ]
     },
     {
       "id": "company-legw7a",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-legw7a",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-legw7a",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -2837,7 +2064,15 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-legw7a"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-legw7a"
+      ]
     },
     {
       "id": "company-dehm0s",
@@ -2937,92 +2172,8 @@
       "salaryMax": 91500
     },
     {
-      "id": "company-l0r174",
-      "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-l0r174",
-      "company": "Fust",
-      "title": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "other",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Tes missions\n- Conseil adapté aux besoins de notre clientèle exigeante\n- Vente et la location d'appareils multimédias\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et mise en ordre de la surface de vente\n- Etablissement de devis et le traitement de commandes de réparation\n\n## Ce que l'on attend de toi\n- Bons bulletins de notes (école secondaire)\n- Résultats d'un test d'aptitude tel que Multicheck dans le domaine du commerce de détail\n- Capacité de compréhension rapide\n- Dynamisme, sens des responsabilités et bon esprit d'équipe\n\n## Ce que nous t'offrons\n- Réductions: Abonnement Coop Mobile et autres réductions dans les différentes enseignes Coop, CHF 500.– pour un ordinateur portable ou une tablette, abonnement demi-tarif CFF ou participation à l'abonnement général de 650 CHF\n- Communication & Culture: Culture du Tutoiement dans l'ensemble de l'entreprise, Orientation vers des valeurs communes, Application interne pour la communication avec les collaborateurs\n- Jours fériés: 6 semaines de vacances\n- Santé: Abonnement annuel gratuit \" update Fitness \", consultation sociale gratuite et anonyme 24h/24 et 7j/7\nChoose Your Character:\nCreate Your Future\nConstruis ton avenir avec Fust et montre ce dont tu es capable ! Fust t'offre une entrée optimale dans la vie professionnelle, où tu peux développer pleinement ton talent.\nUne chose est sûre : Fust, ça roule ! - ton avenir aussi.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "url": "https://jobs.fust.ch/postes-vacants/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/ee3fee41-dcf9-4b2e-8240-d3f442236e46",
-      "applyUrl": "https://jobs.fust.ch/postes-vacants/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/ee3fee41-dcf9-4b2e-8240-d3f442236e46",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-09-26T14:23:35.938Z",
-      "slugByLocale": {
-        "it": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-l0r174",
-        "en": "swc-retail-manager-designation-and-realization-of-procurement-experiences-fust-l0r174",
-        "de": "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-l0r174",
-        "fr": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-l0r174"
-      },
-      "titleByLocale": {
-        "it": "SWC Retail Manager \"Progettazione e realizzazione di esperienze di acquisto\"",
-        "en": "SWC Retail Manager \"Designation and realization of purchasing experiences\"",
-        "de": "SWC Retail Manager \"Bezeichnung und Realisierung von Einkaufserlebnissen\"",
-        "fr": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\""
-      },
-      "descriptionByLocale": {
-        "it": "## Le vostre missioni\n- Consigli su misura per le esigenze della nostra clientela esigente\n- Vendita e noleggio di dispositivi multimediali\n- Installazione e configurazione di articoli per computer\n- Gestione degli Assortimenti e Ordini di superficie di vendita\n- Preparazione delle stime e elaborazione degli ordini di riparazione\n\n## Cosa ci aspettiamo da te\n- Buone trascrizioni (scuola superiore)\n- Risultati di un test attitudinale come Multicheck nel settore retail\n- Rapida comprensione\n- Dynamism, responsabilità e spirito di squadra\n\n## Cosa ti offriamo\n- Riduzioni: abbonamento Coop Mobile e altri sconti nei vari marchi Coop, CHF 500.– per un computer portatile o tablet, abbonamento FFS a metà prezzo o partecipazione all'abbonamento generale di 650 CHF\n- Comunicazione & Cultura: Cultura della gestione in tutta l'azienda, Orientamento verso valori comuni, Domanda interna di comunicazione con i dipendenti\n- Vacanze: 6 settimane di vacanza\n- Salute: abbonamento annuale gratuito \" update Fitness\", consulenza sociale gratuita e anonima 24/7\nScegli il tuo carattere:\nCrea il tuo futuro\nCostruisci il tuo futuro con Fust e mostra di cosa sei capace! Fust ti offre un ingresso ottimale nella vita professionale, dove puoi sviluppare pienamente il tuo talento.\nUna cosa è certa: Fust, sta funzionando! - Anche il tuo futuro.",
-        "en": "## Your missions\n- Advice tailored to the needs of our demanding clientele\n- Sale and rental of multimedia devices\n- Installation and configuration of computer articles\n- Assortment Management and Sales Surface Ordering\n- Preparation of estimates and processing of repair orders\n\n## What we expect from you\n- Good transcripts (high school)\n- Results of an aptitude test such as Multicheck in the retail sector\n- Rapid comprehension\n- Dynamism, responsibility and team spirit\n\n## What we offer you\n- Reductions: Coop Mobile subscription and other discounts in the various Coop brands, CHF 500.– for a laptop or tablet, half-price SBB subscription or participation in the general subscription of 650 CHF\n- Communication & Culture: Culture of management throughout the company, Orientation towards common values, Internal application for communication with employees\n- Holidays: 6 weeks of holiday\n- Health: Free annual subscription \" update Fitness\", free and anonymous social consultation 24/7\nChoose Your Character:\nCreate Your Future\nBuild your future with Fust and show what you're capable of! Fust offers you an optimal entry into professional life, where you can fully develop your talent.\nOne thing is for sure: Fust, it's working! - Your future too.",
-        "de": "## Ihre Missionen\n- Beratung zugeschnitten auf die Bedürfnisse unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsmanagement und Sales Surface Ordering\n- Erstellung von Schätzungen und Bearbeitung von Reparaturaufträgen\n\n## Was wir von Ihnen erwarten\n- Gute Transkripte (High School)\n- Ergebnisse eines Eignungstests wie Multicheck im Einzelhandel\n- Schnelles Verständnis\n- Dynamik, Verantwortung und Teamgeist\n\n## Was wir Ihnen bieten\n- Ermäßigungen: Coop Mobile-Abonnement und andere Ermäßigungen in den verschiedenen Coop-Marken, CHF 500.– für einen Laptop oder Tablet, Halbpreis-SBB-Abonnement oder Teilnahme am allgemeinen Abonnement von 650 CHF\n- Kommunikation & Kultur: Unternehmensweite Führungskultur, Orientierung an gemeinsamen Werten, Interne Anwendung für die Kommunikation mit Mitarbeitern\n- Urlaub: 6 Wochen Urlaub\n- Gesundheit: Kostenloses Jahresabonnement \"Update Fitness\", kostenlose und anonyme Sozialberatung 24/7\nWähle deinen Charakter:\nSchaffen Sie Ihre Zukunft\nBauen Sie Ihre Zukunft mit Fust und zeigen, was Sie können! Fust bietet Ihnen einen optimalen Einstieg ins Berufsleben, in dem Sie Ihr Talent voll entfalten können.\nEines ist sicher: Fust, es funktioniert! - Deine Zukunft auch.",
-        "fr": "## Tes missions\n- Conseil adapté aux besoins de notre clientèle exigeante\n- Vente et la location d'appareils multimédias\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et mise en ordre de la surface de vente\n- Etablissement de devis et le traitement de commandes de réparation\n\n## Ce que l'on attend de toi\n- Bons bulletins de notes (école secondaire)\n- Résultats d'un test d'aptitude tel que Multicheck dans le domaine du commerce de détail\n- Capacité de compréhension rapide\n- Dynamisme, sens des responsabilités et bon esprit d'équipe\n\n## Ce que nous t'offrons\n- Réductions: Abonnement Coop Mobile et autres réductions dans les différentes enseignes Coop, CHF 500.– pour un ordinateur portable ou une tablette, abonnement demi-tarif CFF ou participation à l'abonnement général de 650 CHF\n- Communication & Culture: Culture du Tutoiement dans l'ensemble de l'entreprise, Orientation vers des valeurs communes, Application interne pour la communication avec les collaborateurs\n- Jours fériés: 6 semaines de vacances\n- Santé: Abonnement annuel gratuit \" update Fitness \", consultation sociale gratuite et anonyme 24h/24 et 7j/7\nChoose Your Character:\nCreate Your Future\nConstruis ton avenir avec Fust et montre ce dont tu es capable ! Fust t'offre une entrée optimale dans la vie professionnelle, où tu peux développer pleinement ton talent.\nUne chose est sûre : Fust, ça roule ! - ton avenir aussi."
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Suisse",
-      "_enrichedFromDetail": true,
-      "sourceLang": "fr",
-      "salarySource": "reported",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "previousSlugsByLocale": {
-        "it": [
-          "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-fust-oberburen",
-          "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-l0r174"
-        ],
-        "en": [
-          "swc-retail-manager-designation-and-realization-of-procurement-experiences-fust-oberburen"
-        ],
-        "de": [
-          "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-oberburen"
-        ]
-      },
-      "previousSlugs": [
-        "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-fust-oberburen",
-        "swc-retail-manager-designation-and-realization-of-procurement-experiences-fust-oberburen",
-        "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-oberburen",
-        "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-l0r174"
-      ]
-    },
-    {
       "id": "company-2dyqvm",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2dyqvm",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-2dyqvm",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -3085,11 +2236,19 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2dyqvm"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2dyqvm"
+      ]
     },
     {
       "id": "company-cu94tu",
-      "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-cu94tu",
+      "slug": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-fust-oberburen-4921e5",
       "company": "Fust",
       "title": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
       "location": "Oberbüren",
@@ -3151,11 +2310,20 @@
         }
       },
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-cu94tu"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen-cu94tu"
+      ]
     },
     {
       "id": "company-9dgnyr",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9dgnyr",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-9dgnyr",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -3218,11 +2386,19 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9dgnyr"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9dgnyr"
+      ]
     },
     {
       "id": "company-qd4o70",
-      "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen",
+      "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-fust-oberburen",
       "company": "Fust",
       "title": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
       "location": "Oberbüren",
@@ -3247,9 +2423,9 @@
       "crawledAt": "2026-09-27T05:22:01.637Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "slugByLocale": {
-        "it": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-fust-oberburen-bd7dd2",
+        "it": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-fust-oberburen",
         "en": "swc-retail-manager-designation-and-realization-of-procurement-experiences-fust-oberburen-bd7dd2",
-        "de": "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-oberburen-bd7dd2",
+        "de": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-fust-oberburen",
         "fr": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen"
       },
       "titleByLocale": {
@@ -3285,7 +2461,21 @@
         }
       },
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen",
+          "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-fust-oberburen-bd7dd2"
+        ],
+        "de": [
+          "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-oberburen-bd7dd2"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-oberburen",
+        "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-fust-oberburen-bd7dd2",
+        "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-fust-oberburen-bd7dd2"
+      ]
     },
     {
       "id": "company-ppsa0m",
@@ -3314,10 +2504,10 @@
       "crawledAt": "2026-09-27T05:22:01.637Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "slugByLocale": {
-        "it": "cucine-e-bagni-sanitari-fust-burgdorf",
-        "en": "sanitary-fitting-kitchens-bathrooms-fust-burgdorf",
+        "it": "sanitarmonteur-in-kuchen-bader-fust-burgdorf",
+        "en": "sanitarmonteur-in-kuchen-bader-fust-burgdorf",
         "de": "sanitarmonteur-in-kuchen-bader-fust-burgdorf-ppsa0m",
-        "fr": "cuisines-et-salles-de-bains-sanitaires-fust-burgdorf"
+        "fr": "sanitarmonteur-in-kuchen-bader-fust-burgdorf"
       },
       "titleByLocale": {
         "it": "Sanitärmonteur:in Küchen & Bäder",
@@ -3352,7 +2542,23 @@
         }
       },
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "previousSlugsByLocale": {
+        "it": [
+          "cucine-e-bagni-sanitari-fust-burgdorf"
+        ],
+        "en": [
+          "sanitary-fitting-kitchens-bathrooms-fust-burgdorf"
+        ],
+        "fr": [
+          "cuisines-et-salles-de-bains-sanitaires-fust-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "cucine-e-bagni-sanitari-fust-burgdorf",
+        "sanitary-fitting-kitchens-bathrooms-fust-burgdorf",
+        "cuisines-et-salles-de-bains-sanitaires-fust-burgdorf"
+      ]
     },
     {
       "id": "company-ra6j4v",
@@ -3395,7 +2601,7 @@
       "slugByLocale": {
         "it": "cucine-e-bagni-sanitari-fust-burgdorf-b23c4a",
         "en": "sanitary-fitting-kitchens-bathrooms-fust-burgdorf-b23c4a",
-        "de": "sanitarmonteur-in-kuchen-bader-fust-burgdorf-ra6j4v",
+        "de": "sanitarmonteur-in-kuchen-bader-fust-burgdorf",
         "fr": "cuisines-et-salles-de-bains-sanitaires-fust-burgdorf-b23c4a"
       },
       "requirementsByLocale": {},
@@ -3446,7 +2652,7 @@
         ],
         "de": [
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-e7leys",
-          "sanitarmonteur-in-kuchen-bader-fust-burgdorf"
+          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-ra6j4v"
         ],
         "fr": [
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf",
@@ -3504,7 +2710,8 @@
         "sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf",
         "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-vcavfl",
         "disponent-in-kitchens-bathrooms-fust-burgdorf-bern",
-        "installer-in-kitchens-bathrooms-fust-burgdorf-bern"
+        "installer-in-kitchens-bathrooms-fust-burgdorf-bern",
+        "sanitarmonteur-in-kuchen-bader-fust-burgdorf-ra6j4v"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -3581,11 +2788,12 @@
         "lehrstelle-detailhandel-consumer-electronics-efz-fust-oberburen"
       ],
       "salaryMin": 69000,
-      "salaryMax": 121000
+      "salaryMax": 121000,
+      "needsRetranslation": true
     },
     {
       "id": "company-qk8mj0",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-qk8mj0",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-qk8mj0",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -3648,7 +2856,15 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-qk8mj0"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-qk8mj0"
+      ]
     },
     {
       "id": "company-qkenld",
@@ -3728,7 +2944,8 @@
         "schreinermonteur-in-kuchen-bader-fust-burgdorf"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-vlybeb",
@@ -3822,7 +3039,8 @@
         "installer-in-kitchens-bathrooms-fust-oberburen"
       ],
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gs36e9",
@@ -4100,7 +3318,7 @@
       "slugByLocale": {
         "it": "servizio-di-rappresentanza-clienti-fust-koniz",
         "en": "customer-service-representative-service-fust-koniz",
-        "de": "kundendienstmitarbeiter-in-service-fust-koniz-orqs7p",
+        "de": "kundendienstmitarbeiter-in-service-fust-koniz",
         "fr": "service-a-la-clientele-fust-koniz"
       },
       "requirementsByLocale": {},
@@ -4130,14 +3348,15 @@
           "kundendienstmitarbeiter-in-service-fust-koniz"
         ],
         "de": [
-          "kundendienstmitarbeiter-in-service-fust-koniz"
+          "kundendienstmitarbeiter-in-service-fust-koniz-orqs7p"
         ],
         "fr": [
           "kundendienstmitarbeiter-in-service-fust-koniz"
         ]
       },
       "previousSlugs": [
-        "kundendienstmitarbeiter-in-service-fust-koniz"
+        "kundendienstmitarbeiter-in-service-fust-koniz",
+        "kundendienstmitarbeiter-in-service-fust-koniz-orqs7p"
       ],
       "applyUrl": "https://jobs.fust.ch/offene-stellen/kundendienstmitarbeiter-in-service/e44927a0-bd0f-45f9-beb7-cb70de723cf1",
       "salaryMin": 68500,
@@ -4221,7 +3440,7 @@
     },
     {
       "id": "company-6l44bm",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-6l44bm",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-6l44bm",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -4284,11 +3503,19 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-6l44bm"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-6l44bm"
+      ]
     },
     {
       "id": "company-16ijk7",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-16ijk7",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-16ijk7",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -4351,11 +3578,19 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-16ijk7"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-16ijk7"
+      ]
     },
     {
       "id": "company-nvusfa",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-nvusfa",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-nvusfa",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -4418,11 +3653,19 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-nvusfa"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-nvusfa"
+      ]
     },
     {
       "id": "company-luvh20",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-luvh20",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-luvh20",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -4485,11 +3728,19 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-luvh20"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-luvh20"
+      ]
     },
     {
       "id": "company-cce0k7",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-cce0k7",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-cce0k7",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -4552,11 +3803,19 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-cce0k7"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-cce0k7"
+      ]
     },
     {
       "id": "company-55adx6",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-55adx6",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-55adx6",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -4619,11 +3878,19 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-55adx6"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-55adx6"
+      ]
     },
     {
       "id": "company-69lfih",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-69lfih",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-69lfih",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -4686,7 +3953,15 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-69lfih"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-69lfih"
+      ]
     },
     {
       "id": "company-e1cq1j",
@@ -4760,7 +4035,8 @@
         "logistiker-in-eba-fust-oberburen"
       ],
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "needsRetranslation": true
     },
     {
       "id": "company-p5go3b",
@@ -4834,7 +4110,8 @@
         "logistiker-in-efz-fust-oberburen"
       ],
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "needsRetranslation": true
     },
     {
       "id": "company-io7uhx",
@@ -4916,7 +4193,8 @@
       ],
       "applyUrl": "https://jobs.fust.ch/offene-stellen/multimediaelektroniker-in-efz/131b9615-ddc1-4456-b2fe-34cb7eb90444",
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "needsRetranslation": true
     },
     {
       "id": "company-bd2h58",
@@ -5127,7 +4405,7 @@
     },
     {
       "id": "company-eradf1",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-eradf1",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-eradf1",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -5190,7 +4468,15 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-eradf1"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-eradf1"
+      ]
     },
     {
       "id": "company-ot3b4n",
@@ -5287,7 +4573,8 @@
       },
       "applyUrl": "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrokleingeraete/dc6a7b89-98fd-427e-97fe-752ebe28fdd3",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6uh68p",
@@ -5409,7 +4696,7 @@
       "slugByLocale": {
         "it": "tecnico-di-servizio-soluzioni-professionali-fust-oberburen",
         "en": "service-technician-professional-solutions-fust-oberburen",
-        "de": "servicetechniker-in-professional-solutions-fust-oberburen-5otdos",
+        "de": "servicetechniker-in-professional-solutions-fust-oberburen",
         "fr": "technicien-de-services-solutions-professionnelles-fust-oberburen"
       },
       "requirementsByLocale": {},
@@ -5440,7 +4727,7 @@
           "servicetechniker-in-professional-solutions-fust-oberburen"
         ],
         "de": [
-          "servicetechniker-in-professional-solutions-fust-oberburen"
+          "servicetechniker-in-professional-solutions-fust-oberburen-5otdos"
         ],
         "fr": [
           "servicetechniker-in-professional-solutions-fust-oberburen"
@@ -5448,7 +4735,8 @@
       },
       "previousSlugs": [
         "servicetechniker-in-professional-solutions-fust-oberburen",
-        "tecnico-di-servizio-soluzioni-professionali-fust-swiss-household-services-ag-oberburen"
+        "tecnico-di-servizio-soluzioni-professionali-fust-swiss-household-services-ag-oberburen",
+        "servicetechniker-in-professional-solutions-fust-oberburen-5otdos"
       ],
       "applyUrl": "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/3e59a5bc-24a1-4f0d-8964-61ceb1244a10",
       "salaryMin": 57500,
@@ -5456,7 +4744,7 @@
     },
     {
       "id": "company-9fbz9s",
-      "slug": "servicetechniker-in-professional-solutions-fust-oberburen-9fbz9s",
+      "slug": "tecnico-di-servizio-soluzioni-professionali-fust-oberburen-29610b",
       "company": "Fust",
       "title": "Servicetechniker:in Professional Solutions",
       "location": "Oberbüren",
@@ -5519,11 +4807,19 @@
         }
       },
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-professional-solutions-fust-oberburen-9fbz9s"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-professional-solutions-fust-oberburen-9fbz9s"
+      ]
     },
     {
       "id": "company-s6nz45",
-      "slug": "servicetechniker-in-professional-solutions-fust-oberburen-s6nz45",
+      "slug": "tecnico-di-servizio-soluzioni-professionali-fust-oberburen-51d8ab",
       "company": "Fust",
       "title": "Servicetechniker:in Professional Solutions",
       "location": "Oberbüren",
@@ -5586,7 +4882,15 @@
         }
       },
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-professional-solutions-fust-oberburen-s6nz45"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-professional-solutions-fust-oberburen-s6nz45"
+      ]
     },
     {
       "id": "company-2dat87",
@@ -5763,7 +5067,8 @@
       },
       "applyUrl": "https://jobs.fust.ch/offene-stellen/montage-assistent-in-fuer-die-heimlieferung-von-elektrohaushaltgeraeten/79407672-251d-4417-b2ab-8ed15bdde422",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-aw2ba2",
@@ -5847,7 +5152,8 @@
       ],
       "applyUrl": "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-retouren/a9a7ebb3-77b9-4fcc-8dbd-33a992c69ef9",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-lm2vzs",
@@ -6793,7 +6099,7 @@
     },
     {
       "id": "company-vn08g0",
-      "slug": "servicetechniker-in-professional-solutions-fust-oberburen",
+      "slug": "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen-7fd394",
       "company": "Fust",
       "title": "Servicetechniker:in Professional Solutions",
       "location": "Oberbüren",
@@ -6856,11 +6162,19 @@
         }
       },
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-professional-solutions-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-professional-solutions-fust-oberburen"
+      ]
     },
     {
       "id": "company-z7b85g",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-z7b85g",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-z7b85g",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "location": "Oberbüren",
@@ -6887,7 +6201,7 @@
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-z7b85g",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-oberburen-4ee2d1",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-z7b85g",
+        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-la-forme-des-experiences-de-shopping-fust-oberburen-4ee2d1"
       },
       "titleByLocale": {
@@ -6923,11 +6237,22 @@
       },
       "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-z7b85g"
+        ],
+        "de": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-z7b85g"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-z7b85g"
+      ]
     },
     {
       "id": "company-r4cdq5",
-      "slug": "servicetechniker-in-heimservice-fust-freiburg",
+      "slug": "home-service-tecnico-fust-oberburen",
       "company": "Fust",
       "title": "Servicetechniker:in Heimservice",
       "location": "Freiburg",
@@ -6954,7 +6279,7 @@
       "slugByLocale": {
         "it": "home-service-tecnico-fust-oberburen",
         "en": "service-technician-in-home-service-fust-oberburen-95d52f",
-        "de": "servicetechniker-in-heimservice-fust-freiburg",
+        "de": "servicetechniker-in-heimservice-fust-oberburen-r4cdq5",
         "fr": "technicien-de-service-en-service-a-domicile-fust-oberburen-95d52f"
       },
       "titleByLocale": {
@@ -6990,7 +6315,18 @@
         }
       },
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-heimservice-fust-freiburg"
+        ],
+        "de": [
+          "servicetechniker-in-heimservice-fust-freiburg"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-heimservice-fust-freiburg"
+      ]
     },
     {
       "id": "company-k44jg4",
@@ -7318,7 +6654,7 @@
     },
     {
       "id": "company-hl3t4s",
-      "slug": "kundendienstmitarbeiter-in-service-fust-koniz",
+      "slug": "rappresentante-del-servizio-clienti-in-servizio-fust-koniz",
       "company": "Fust",
       "title": "Kundendienstmitarbeiter:in Service",
       "location": "Köniz",
@@ -7345,7 +6681,7 @@
       "slugByLocale": {
         "it": "rappresentante-del-servizio-clienti-in-servizio-fust-koniz",
         "en": "customer-service-representative-in-service-fust-koniz",
-        "de": "kundendienstmitarbeiter-in-service-fust-koniz-hl3t4s",
+        "de": "kundendienstmitarbeiter-in-service-fust-koniz-bern-hl3t4s",
         "fr": "representant-du-service-a-la-clientele-en-service-fust-koniz"
       },
       "titleByLocale": {
@@ -7381,7 +6717,19 @@
         }
       },
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "previousSlugsByLocale": {
+        "it": [
+          "kundendienstmitarbeiter-in-service-fust-koniz"
+        ],
+        "de": [
+          "kundendienstmitarbeiter-in-service-fust-koniz-hl3t4s"
+        ]
+      },
+      "previousSlugs": [
+        "kundendienstmitarbeiter-in-service-fust-koniz",
+        "kundendienstmitarbeiter-in-service-fust-koniz-hl3t4s"
+      ]
     },
     {
       "id": "company-1ga2a6",
@@ -7558,84 +6906,8 @@
       "_enrichedFromDetail": true,
       "applyUrl": "https://jobs.fust.ch/offene-stellen/montage-assistent-in-fuer-die-heimlieferung-von-elektrohaushaltgeraeten/645275eb-a429-4cdd-a05e-88378b90efa7",
       "salaryMin": 57500,
-      "salaryMax": 87000
-    },
-    {
-      "id": "company-5nx1qw",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-5nx1qw",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberbüren",
-      "canton": "SG",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/1ae0e3fc-9bcc-4957-9007-ce49f2d9c025",
-      "applyUrl": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/1ae0e3fc-9bcc-4957-9007-ce49f2d9c025",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "source_detail",
-        "location": "Oberbüren",
-        "canton": "SG"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-27T05:22:01.637Z",
-      "firstSeenAt": "2026-08-31T07:39:06.286Z",
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-5nx1qw",
-        "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-oberburen-fcf58c",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-5nx1qw",
-        "fr": "specialiste-du-commerce-de-detail-mann-efz-la-forme-des-experiences-de-shopping-fust-oberburen-fcf58c"
-      },
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\""
-      },
-      "descriptionByLocale": {
-        "it": "## I tuoi compiti\n- Consigli per i nostri clienti esigenti\n- Vendita e noleggio di apparecchiature elettriche e multimediali\n- Installazione e configurazione di articoli per computer\n- Gestione assortimento e progettazione spazi espositivi\n- Preparazione delle offerte e gestione degli ordini di riparazione\n\n## Lo porti con te.\n- Buoni certificati di livello superiore\n- Test multicheck o interlock\n- Una rapida comprensione\n- Flaair di vendita abbinato a un aspetto vincente\n- Responsabilità e competenze di negoziazione\n\n## Questo è ciò che vi offriamo\n- Perks: Abbonamento a Coop Mobile e altri vantaggi in vari formati di coop, CHF 500 per laptop o tablet, FFS Mezza Tassa o condividere GA CHF 650\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Vacanze: 6 settimane\n- Salute: abbonamento annuale gratuito \"update Fitness\", consulenza sociale gratuita e anonima 24 ore su 24\nScegli il tuo personaggio:\nCrea il tuo futuro\nForma il tuo futuro con i piedi e mostra cosa c'è dentro di te! Fust ti offre l'ingresso di carriera ottimale, dove puoi sviluppare il tuo talento.\nUna cosa è certa: Fust sta correndo! - anche il tuo futuro.",
-        "en": "## Your tasks\n- Advising our demanding customers\n- Sale and rental of electrical household and multimedia equipment\n- Installation and configuration of computer articles\n- Assortment management and exhibition space design\n- Preparation of offers and handling of repair orders\n\n## You bring that with you\n- Good upper-level certificates\n- Multicheck or interlock test\n- A quick understanding\n- Sales flair paired with a winning appearance\n- Responsibility and negotiating skills\n\n## This is what we offer you\n- Perks: Subscription to Coop Mobile and other perks in various coop formats, CHF 500 for laptop or tablet, SBB Half Tax or share GA CHF 650\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n- Holidays: 6 weeks holidays\n- Health: Free annual subscription \"update Fitness\", Free and anonymous company social consulting 24/7\nChoose your character:\nCreate your future\nShape your future with your feet and show what’s inside you! Fust offers you the optimal career entry, where you can develop your talent.\nOne thing is for sure: Fust is running! - your future too.",
-        "de": "## Deine Aufgaben\n- Beratung von unserer anspruchsvollen Kundschaft\n- Verkauf und Vermietung von Elektrohaushalt- und Multimediageräten\n- Installation und Konfiguration von Computerartikeln\n- Sortimentsbewirtschaftung und Gestaltung der Ausstellungsfläche\n- Erstellung von Offerten und Abwicklung von Reparaturaufträgen\n\n## Das bringst du mit\n- Gute Oberstufenzeugnisse\n- Multicheck oder Stellwerk-Test\n- Eine schnelle Auffassungsgabe\n- Verkäuferisches Flair gepaart mit einem gewinnenden Auftreten\n- Verantwortungsbewusstsein und Verhandlungsgeschick\n\n## Das bieten wir dir\n- Vergünstigungen: Abo Coop Mobile und andere Vergünstigungen in verschiedenen Coop-Formaten, CHF 500 für Laptop oder Tablet, SBB Halbtax oder Anteil GA CHF 650\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Ferien: 6 Wochen Ferien\n- Gesundheit: Kostenloses Jahresabo \"update Fitness\", Kostenlose und anonyme betriebliche Sozialberatung 24/7\nChoose Your Character:\nCreate Your Future\nGestalte deine Zukunft mit Fust und zeig, was in dir steckt! Fust bietet dir den optimalen Berufseinstieg, wo du dein Talent entfalten kannst.\nEines ist sicher: Fust läuft! - deine Zukunft auch.",
-        "fr": "## Vos tâches\n- Conseiller nos clients exigeants\n- Vente et location de matériel électrique ménager et multimédia\n- Installation et configuration d'articles informatiques\n- Gestion de l'assortiment et conception des espaces d'exposition\n- Préparation des offres et traitement des commandes de réparation\n\n## Apporte ça avec toi.\n- Bons certificats de niveau supérieur\n- Essai de multivérification ou de verrouillage\n- Une compréhension rapide\n- Le style des ventes est associé à une apparence gagnante\n- Responsabilité et compétences en matière de négociation\n\n## C'est ce que nous vous offrons.\n- Avantages: Abonnement à Coop Mobile et autres avantages en différents formats, CHF 500 pour ordinateur portable ou tablette, CFF Half Tax or share GA CHF 650\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Vacances: 6 semaines vacances\n- Santé: abonnement annuel gratuit \"update Fitness\", conseil social gratuit et anonyme 24/7\nChoisissez votre personnage :\nCréez votre avenir\nFaçonnez votre avenir avec vos pieds et montrez ce qui est en vous ! Fust vous offre l'entrée de carrière optimale, où vous pouvez développer votre talent.\nUne chose est sûre : Fust court ! - votre avenir aussi."
-      },
-      "requirementsByLocale": {},
-      "addressLocality": "Oberbüren",
-      "addressRegion": "SG",
-      "postalCode": "9245",
-      "streetAddress": "Industrie Haslen 3",
-      "addressCountry": "Schweiz",
-      "_enrichedFromDetail": true,
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99000,
-          "maxValue": 174000,
-          "unitText": "YEAR"
-        }
-      },
-      "needsRetranslation": true,
-      "salaryMin": 99000,
-      "salaryMax": 174000,
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-5nx1qw"
-        ]
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-5nx1qw"
-      ]
+      "salaryMax": 87000,
+      "needsRetranslation": true
     }
   ]
 }
