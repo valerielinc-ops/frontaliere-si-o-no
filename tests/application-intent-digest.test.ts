@@ -128,6 +128,9 @@ describe('saved-jobs digest — application intent source', () => {
 
   it('accepts only recent, consented, unresolved intents', () => {
     expect(isApplicationIntentEligible(intentSnapshot().data(), NOW)).toBe(true);
+    expect(isApplicationIntentEligible(intentSnapshot({ expiresAt: NOW - 1 }).data(), NOW)).toBe(false);
+    expect(isApplicationIntentEligible(intentSnapshot({ expiresAt: NOW + 1 }).data(), NOW)).toBe(true);
+    expect(isApplicationIntentEligible(intentSnapshot({ expiresAt: 'not-a-timestamp' }).data(), NOW)).toBe(false);
     expect(isApplicationIntentEligible(intentSnapshot({ timestamp: new Date(NOW - (APPLICATION_INTENT_RETENTION_DAYS + 1) * DAY) }).data(), NOW)).toBe(false);
     expect(isApplicationIntentEligible(intentSnapshot({ completedAt: new Date(NOW - DAY) }).data(), NOW)).toBe(false);
     expect(isApplicationIntentEligible(intentSnapshot({ consentText: '' }).data(), NOW)).toBe(false);

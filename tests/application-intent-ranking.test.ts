@@ -157,6 +157,7 @@ describe('application-intent ranking — bounded control/treatment', () => {
 
   it.each([
     ['expired', { retentionUntil: NOW - 1 }],
+    ['expired server expiry', { expiresAt: NOW - 1, retentionUntil: NOW + RETENTION_MS }],
     ['not redirect-only', { application_status: 'application_completed' }],
   ])('gives %s signals zero weight', (_label, override) => {
     const keys = activeApplicationIntentJobKeys(
