@@ -40,6 +40,11 @@ import {
   renderStatGrid,
 } from './shared/seoContentTokens';
 import {
+  BORDER_WAIT_HYDRATION_ASSET_PATH,
+  BORDER_WAIT_HYDRATION_JS,
+  BORDER_WAIT_HYDRATION_SCRIPT_TAG,
+} from './borderWaitHydrationScript';
+import {
   BORDER_WAIT_CROSSINGS,
   BORDER_CROSSING_DISPLAY,
   CROSSING_TO_REGION,
@@ -84,6 +89,7 @@ interface Copy {
   title: string;
   description: string;
   h1: string;
+  quickLede: string;
   ledeP1: string;
   ledeP2: string;
   crossingsH2: string;
@@ -121,6 +127,13 @@ interface Copy {
   breadcrumbGuide: string;
   ctaAll: string;
   ctaCalculator: string;
+  mapCta: string;
+  editorialH2: string;
+  waitLabel: string;
+  statusLabel: string;
+  sourceLabel: string;
+  unavailableLabel: string;
+  snapshotLabel: string;
   // ── Playful UI copy (Workstream UX: "più giocosa e fun") ──────────
   /** Animated "real-time" pill next to the updated date. */
   liveNow: string;
@@ -146,6 +159,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     title: 'Mappa live valichi di frontiera — Tempi d\'attesa in tempo reale | Frontaliere Ticino',
     description: "Mappa interattiva dei 26 valichi di frontiera Italia-Svizzera con tempi di attesa live aggiornati ogni 15 minuti. Storia 7 giorni, orari ottimali, embed code per siti e blog.",
     h1: 'Mappa live valichi di frontiera',
+    quickLede: 'Confronta i tempi di attesa live di 26 valichi e apri la scheda del passaggio che ti conviene.',
     ledeP1: "Questa pagina raccoglie la mappa live di tutti i 26 valichi di frontiera tra Italia e Svizzera usati quotidianamente dai frontalieri. I tempi di attesa vengono aggiornati automaticamente ogni 15 minuti durante le ore di punta (6:00-9:00 e 16:30-19:30 CET) tramite dati di traffico TomTom abbinati a segnalazioni visive delle webcam ASTRA e Polizia Cantonale Ticino. Non troverai qui stime sample o medie storiche: le cifre che leggi sono il flusso effettivo misurato negli ultimi minuti su ciascun punto di confine.",
     ledeP2: "La copertura geografica è pensata per i tre bacini principali del lavoro frontaliero ticinese: l'asse Como-Ticino (12 valichi, dalla Chiasso Brogeda autostradale ai passi minori di montagna), l'asse Varese-Ticino (12 valichi, dal Gaggiolo industriale fino ai valichi della Valtellina) e l'asse Verbano-Ticino (2 valichi, dalla Centovalli al Lago Maggiore). Per ogni valico trovi il link diretto alla pagina con la timeline completa delle ultime 24 ore e lo storico settimanale — utile per capire i giorni e gli orari con meno code prima di pianificare lo spostamento.",
     crossingsH2: 'I 26 valichi coperti',
@@ -183,6 +197,13 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbGuide: 'Guida frontaliere',
     ctaAll: 'Tutti i valichi (hub)',
     ctaCalculator: 'Calcola il netto',
+    mapCta: 'Apri la mappa interattiva',
+    editorialH2: 'Come leggere i dati',
+    waitLabel: 'Tempo stimato',
+    statusLabel: 'Stato',
+    sourceLabel: 'Fonte',
+    unavailableLabel: 'Non disponibile',
+    snapshotLabel: 'Snapshot',
     liveNow: 'In tempo reale',
     statCrossingsLabel: 'Valichi monitorati',
     statRegionsLabel: 'Aree di confine',
@@ -201,6 +222,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     title: 'Live border crossings map — Real-time wait times | Frontaliere Ticino',
     description: "Interactive live map of the 26 border crossings between Italy and Switzerland, refreshed every 15 minutes. 7-day history, best commute windows, embed code for blogs and media.",
     h1: 'Live border crossings map',
+    quickLede: 'Compare live waits across 26 crossings and open the crossing page before you leave.',
     ledeP1: "This page gathers the live map of all 26 border crossings between Italy and Switzerland used daily by cross-border commuters (frontalieri). Wait times are refreshed automatically every 15 minutes during peak commuting windows (6:00–9:00 and 16:30–19:30 CET), using TomTom traffic data cross-checked against visual snapshots from ASTRA and Polizia Cantonale Ticino webcams. You won't find sample estimates or historical averages here: the numbers are the actual flow measured in the last minutes on each border point.",
     ledeP2: "The geographic coverage is designed for the three main catchment areas of Ticino cross-border work: the Como–Ticino axis (12 crossings, from motorway Chiasso Brogeda to minor mountain passes), the Varese–Ticino axis (12 crossings, from industrial Gaggiolo down to the Valtellina crossings) and the Verbano–Ticino axis (2 crossings, from the Centovalli to Lake Maggiore). Each crossing has a direct link to its own page showing the full 24-hour timeline and weekly history — handy to spot the days and hours with fewer queues before planning the commute.",
     crossingsH2: 'The 26 monitored crossings',
@@ -238,6 +260,13 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbGuide: 'Cross-border guide',
     ctaAll: 'All crossings (hub)',
     ctaCalculator: 'Calculate net',
+    mapCta: 'Open the interactive map',
+    editorialH2: 'How to read the data',
+    waitLabel: 'Estimated time',
+    statusLabel: 'Status',
+    sourceLabel: 'Source',
+    unavailableLabel: 'Unavailable',
+    snapshotLabel: 'Snapshot',
     liveNow: 'Real-time',
     statCrossingsLabel: 'Monitored crossings',
     statRegionsLabel: 'Border areas',
@@ -256,6 +285,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     title: 'Live-Karte Grenzübergänge — Echtzeit-Wartezeiten | Frontaliere Ticino',
     description: "Interaktive Live-Karte der 26 Grenzübergänge zwischen Italien und der Schweiz, alle 15 Minuten aktualisiert. 7-Tage-Verlauf, beste Pendelfenster, Embed-Code für Blogs und Medien.",
     h1: 'Live-Karte der Grenzübergänge',
+    quickLede: 'Vergleichen Sie die Live-Wartezeiten an 26 Übergängen, bevor Sie losfahren.',
     ledeP1: "Diese Seite bündelt die Live-Karte aller 26 Grenzübergänge zwischen Italien und der Schweiz, die täglich von Grenzgängern genutzt werden. Die Wartezeiten werden in Spitzenzeiten (6:00–9:00 und 16:30–19:30 MEZ) automatisch alle 15 Minuten aktualisiert — TomTom-Verkehrsdaten werden mit visuellen Aufnahmen der ASTRA- und Polizia-Cantonale-Ticino-Webcams abgeglichen. Hier finden Sie keine Stichprobenschätzungen oder historischen Mittelwerte: Die Zahlen zeigen den tatsächlichen Fluss der letzten Minuten pro Grenzpunkt.",
     ledeP2: "Die geografische Abdeckung folgt den drei Haupt-Einzugsgebieten der Tessiner Grenzgänger-Arbeit: die Achse Como–Tessin (12 Übergänge, vom Autobahn-Chiasso Brogeda bis zu kleinen Bergpässen), die Achse Varese–Tessin (12 Übergänge, vom industriellen Gaggiolo bis zu den Valtellina-Übergängen) und die Achse Verbano–Tessin (2 Übergänge, von der Centovalli zum Lago Maggiore). Jeder Übergang hat einen direkten Link zu seiner eigenen Seite mit vollständiger 24-Stunden-Timeline und Wochenverlauf — nützlich, um Tage und Stunden mit weniger Staus vor der Planung zu erkennen.",
     crossingsH2: 'Die 26 überwachten Übergänge',
@@ -293,6 +323,13 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbGuide: 'Grenzgänger-Leitfaden',
     ctaAll: 'Alle Übergänge (Hub)',
     ctaCalculator: 'Netto berechnen',
+    mapCta: 'Interaktive Karte öffnen',
+    editorialH2: 'So lesen Sie die Daten',
+    waitLabel: 'Geschätzte Zeit',
+    statusLabel: 'Status',
+    sourceLabel: 'Quelle',
+    unavailableLabel: 'Nicht verfügbar',
+    snapshotLabel: 'Snapshot',
     liveNow: 'In Echtzeit',
     statCrossingsLabel: 'Überwachte Übergänge',
     statRegionsLabel: 'Grenzregionen',
@@ -311,6 +348,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     title: "Carte live des passages frontaliers — Temps d'attente en temps réel | Frontaliere Ticino",
     description: "Carte interactive des 26 passages frontaliers Italie-Suisse, actualisée toutes les 15 minutes. Historique 7 jours, meilleures fenêtres de trajet, code embed pour blogs et médias.",
     h1: 'Carte live des passages frontaliers',
+    quickLede: 'Comparez les temps d’attente de 26 passages avant de prendre la route.',
     ledeP1: "Cette page rassemble la carte live des 26 passages frontaliers entre l'Italie et la Suisse empruntés quotidiennement par les frontaliers. Les temps d'attente sont rafraîchis automatiquement toutes les 15 minutes en heures de pointe (6:00–9:00 et 16:30–19:30 CET), à l'aide des données trafic TomTom recoupées avec des captures visuelles des webcams ASTRA et Polizia Cantonale Ticino. Vous ne trouverez pas ici d'estimations sur échantillon ou de moyennes historiques : les chiffres sont le flux réel mesuré dans les dernières minutes sur chaque point de frontière.",
     ledeP2: "La couverture géographique couvre les trois principaux bassins du travail frontalier tessinois : l'axe Côme–Tessin (12 passages, de l'autoroute Chiasso Brogeda aux petits cols de montagne), l'axe Varèse–Tessin (12 passages, de l'industriel Gaggiolo jusqu'aux passages de la Valtellina) et l'axe Verbano–Tessin (2 passages, de la Centovalli au Lac Majeur). Chaque passage possède un lien direct vers sa propre page affichant la timeline complète des 24 dernières heures et l'historique hebdomadaire — utile pour repérer les jours et horaires les moins chargés avant de planifier le trajet.",
     crossingsH2: 'Les 26 passages surveillés',
@@ -348,6 +386,13 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbGuide: 'Guide frontaliers',
     ctaAll: 'Tous les passages (hub)',
     ctaCalculator: 'Calculer le net',
+    mapCta: 'Ouvrir la carte interactive',
+    editorialH2: 'Comment lire les données',
+    waitLabel: 'Temps estimé',
+    statusLabel: 'État',
+    sourceLabel: 'Source',
+    unavailableLabel: 'Indisponible',
+    snapshotLabel: 'Instantané',
     liveNow: 'En temps réel',
     statCrossingsLabel: 'Passages surveillés',
     statRegionsLabel: 'Zones frontalières',
@@ -387,9 +432,155 @@ function buildCrossingLiveUrl(slug: BorderCrossingSlug, locale: BorderWaitLocale
 // the moment an Italy-facing non-Ticino region existed. A future agent
 // adding a Germany- or alpine-specific linkbait map page should NOT extend
 // this one; it should follow the same pattern with its own copy.
-const TICINO_MAP_CROSSINGS: readonly BorderCrossingSlug[] = BORDER_WAIT_CROSSINGS.filter((slug) =>
+export const TICINO_MAP_CROSSINGS: readonly BorderCrossingSlug[] = BORDER_WAIT_CROSSINGS.filter((slug) =>
   isTicinoRegion(CROSSING_TO_REGION[slug]),
 );
+
+const TICINO_MAP_REGION_COUNT = new Set(
+  TICINO_MAP_CROSSINGS.map((slug) => CROSSING_TO_REGION[slug]),
+).size;
+
+interface MapSnapshotRow {
+  waitTimeMinutes?: number;
+  totalCrossingMinutes?: number;
+  status?: 'green' | 'yellow' | 'red';
+  source?: string;
+  lastUpdate?: string;
+}
+
+export interface BorderWaitMapSnapshot {
+  updatedAt: string | null;
+  perCrossing: Partial<Record<BorderCrossingSlug, MapSnapshotRow>>;
+}
+
+const EMPTY_MAP_SNAPSHOT: BorderWaitMapSnapshot = {
+  updatedAt: null,
+  perCrossing: {},
+};
+
+const STATUS_LABELS: Record<BorderWaitLocale, Record<'green' | 'yellow' | 'red', string>> = {
+  it: { green: 'Scorrevole', yellow: 'Moderata', red: 'Lunga' },
+  en: { green: 'Free-flowing', yellow: 'Moderate', red: 'Long' },
+  de: { green: 'Fliessend', yellow: 'Moderat', red: 'Lang' },
+  fr: { green: 'Fluide', yellow: 'Modérée', red: 'Longue' },
+};
+
+const SOURCE_LABELS: Record<BorderWaitLocale, Record<string, string>> = {
+  it: {
+    bazg: 'UDSC',
+    here: 'HERE',
+    tomtom: 'TomTom',
+    google: 'Google',
+    'google-maps': 'Google',
+    'google-routes': 'Google Routes',
+    mapbox: 'Mapbox',
+    geoapify: 'Geoapify',
+    openrouteservice: 'OpenRouteService',
+    graphhopper: 'GraphHopper',
+    stadia: 'Stadia Maps',
+    'traffic-mesh': 'Traffic mesh',
+    official: 'Fonte ufficiale',
+    'official+webcam': 'Fonte ufficiale + webcam',
+    webcam: 'Webcam',
+    static: 'Dato storico',
+  },
+  en: {
+    bazg: 'FOCBS',
+    here: 'HERE',
+    tomtom: 'TomTom',
+    google: 'Google',
+    'google-maps': 'Google',
+    'google-routes': 'Google Routes',
+    mapbox: 'Mapbox',
+    geoapify: 'Geoapify',
+    openrouteservice: 'OpenRouteService',
+    graphhopper: 'GraphHopper',
+    stadia: 'Stadia Maps',
+    'traffic-mesh': 'Traffic mesh',
+    official: 'Official source',
+    'official+webcam': 'Official source + webcam',
+    webcam: 'Webcam',
+    static: 'Historical data',
+  },
+  de: {
+    bazg: 'BAZG',
+    here: 'HERE',
+    tomtom: 'TomTom',
+    google: 'Google',
+    'google-maps': 'Google',
+    'google-routes': 'Google Routes',
+    mapbox: 'Mapbox',
+    geoapify: 'Geoapify',
+    openrouteservice: 'OpenRouteService',
+    graphhopper: 'GraphHopper',
+    stadia: 'Stadia Maps',
+    'traffic-mesh': 'Traffic mesh',
+    official: 'Offizielle Quelle',
+    'official+webcam': 'Offizielle Quelle + Webcam',
+    webcam: 'Webcam',
+    static: 'Historische Daten',
+  },
+  fr: {
+    bazg: 'OFDF',
+    here: 'HERE',
+    tomtom: 'TomTom',
+    google: 'Google',
+    'google-maps': 'Google',
+    'google-routes': 'Google Routes',
+    mapbox: 'Mapbox',
+    geoapify: 'Geoapify',
+    openrouteservice: 'OpenRouteService',
+    graphhopper: 'GraphHopper',
+    stadia: 'Stadia Maps',
+    'traffic-mesh': 'Traffic mesh',
+    official: 'Source officielle',
+    'official+webcam': 'Source officielle + webcam',
+    webcam: 'Webcam',
+    static: 'Donnée historique',
+  },
+};
+
+function readCurrentSnapshot(rootDir: string): BorderWaitMapSnapshot {
+  try {
+    const raw: unknown = JSON.parse(
+      fs.readFileSync(path.resolve(rootDir, 'data', 'border-wait-current.json'), 'utf-8'),
+    );
+    if (!raw || typeof raw !== 'object') return EMPTY_MAP_SNAPSHOT;
+    const record = raw as Record<string, unknown>;
+    const perCrossing = record.perCrossing;
+    return {
+      updatedAt: typeof record.updatedAt === 'string' ? record.updatedAt : null,
+      perCrossing:
+        perCrossing && typeof perCrossing === 'object'
+          ? (perCrossing as BorderWaitMapSnapshot['perCrossing'])
+          : {},
+    };
+  } catch {
+    return EMPTY_MAP_SNAPSHOT;
+  }
+}
+
+function crossingMinutes(row: MapSnapshotRow | undefined): number | null {
+  const value = row?.totalCrossingMinutes ?? row?.waitTimeMinutes;
+  return typeof value === 'number' && Number.isFinite(value) ? Math.max(0, Math.round(value)) : null;
+}
+
+function crossingStatus(
+  row: MapSnapshotRow | undefined,
+  minutes: number | null,
+): 'green' | 'yellow' | 'red' | null {
+  if (row?.status === 'green' || row?.status === 'yellow' || row?.status === 'red') {
+    return row.status;
+  }
+  if (minutes === null) return null;
+  return minutes < 5 ? 'green' : minutes < 15 ? 'yellow' : 'red';
+}
+
+function formatSnapshotTime(value: string | undefined | null, fallback: string): string {
+  return typeof value === 'string' && value.length >= 16
+    ? value.slice(0, 16).replace('T', ' ')
+    : fallback;
+}
 
 function buildHubUrl(locale: BorderWaitLocale): string {
   const prefix = BORDER_WAIT_LOCALE_PREFIX[locale];
@@ -397,44 +588,57 @@ function buildHubUrl(locale: BorderWaitLocale): string {
   return `${BASE_URL}${prefix}/${section}/`.replace(/([^:])\/+/g, '$1/');
 }
 
-function renderCrossingsTable(locale: BorderWaitLocale, copy: Copy): string {
+function renderCrossingsList(
+  locale: BorderWaitLocale,
+  copy: Copy,
+  current: BorderWaitMapSnapshot,
+  dateStamp: string,
+): string {
   const crossings = TICINO_MAP_CROSSINGS.slice();
+  const regionLabelByRegion: Partial<Record<BorderCrossingRegion, string>> = {
+    'ticino-como': copy.comoRegionLabel,
+    'ticino-varese': copy.vareseRegionLabel,
+    'ticino-verbano': copy.verbanoRegionLabel,
+  };
+  const chipClassByRegion: Partial<Record<BorderCrossingRegion, string>> = {
+    'ticino-como': 'bw-chip bw-chip-co',
+    'ticino-varese': 'bw-chip bw-chip-va',
+    'ticino-verbano': 'bw-chip bw-chip-ve',
+  };
+  const sourceLabels = SOURCE_LABELS[locale];
   const rows = crossings.map((slug) => {
     const name = BORDER_CROSSING_DISPLAY[slug];
     const region = CROSSING_TO_REGION[slug];
-    // Partial + fallback: `crossings` is filtered to TICINO_MAP_CROSSINGS above,
-    // so `region` is always one of the 3 keys below at runtime, but
-    // BorderCrossingRegion itself now has 5 more (non-Italy) members.
-    const regionLabelByRegion: Partial<Record<BorderCrossingRegion, string>> = {
-      'ticino-como': copy.comoRegionLabel,
-      'ticino-varese': copy.vareseRegionLabel,
-      'ticino-verbano': copy.verbanoRegionLabel,
-    };
-    const chipClassByRegion: Partial<Record<BorderCrossingRegion, string>> = {
-      'ticino-como': 'bw-chip bw-chip-co',
-      'ticino-varese': 'bw-chip bw-chip-va',
-      'ticino-verbano': 'bw-chip bw-chip-ve',
-    };
     const regionLabel = regionLabelByRegion[region] ?? BORDER_REGION_DISPLAY[region];
     const chipClass = chipClassByRegion[region] ?? 'bw-chip';
     const liveUrl = buildCrossingLiveUrl(slug, locale);
-    return `<tr>
-      <td class="s-tcl" style="font-weight:600;color:var(--color-heading)">${esc(name)}</td>
-      <td class="s-tcl"><span class="${chipClass}">${esc(regionLabel)}</span></td>
-      <td class="s-tcl"><a href="${esc(liveUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.liveLink)}</a></td>
-    </tr>`;
+    const snapshot = current.perCrossing[slug];
+    const minutes = crossingMinutes(snapshot);
+    const status = crossingStatus(snapshot, minutes);
+    const source = snapshot?.source ? sourceLabels[snapshot.source] ?? snapshot.source : '—';
+    const updated = formatSnapshotTime(snapshot?.lastUpdate, dateStamp);
+    const state = minutes === null ? 'unavailable' : 'snapshot';
+    return `<li class="bw-crossing" data-bw-crossing="${esc(slug)}" data-bw-data-state="${state}">
+      <div class="bw-crossing-main">
+        <div class="bw-crossing-title">
+          <a class="bw-crossing-link" href="${esc(liveUrl)}" style="${LINK_ACCENT_STYLE}">${esc(name)}</a>
+          <span class="${chipClass}">${esc(regionLabel)}</span>
+        </div>
+        <div class="bw-crossing-readout">
+          <span class="bw-readout-label">${esc(copy.waitLabel)}</span>
+          <strong class="bw-wait-value" data-bw-field="totalCrossingMinutes">${esc(minutes === null ? copy.unavailableLabel : `${minutes} min`)}</strong>
+          <span class="bw-status" data-bw-field="status" aria-label="${esc(copy.statusLabel)}">${esc(status ? STATUS_LABELS[locale][status] : copy.unavailableLabel)}</span>
+        </div>
+      </div>
+      <div class="bw-crossing-meta">
+        <span>${esc(copy.updatedLabel)} <time data-bw-field="lastUpdate">${esc(updated)}</time></span>
+        <span>${esc(copy.sourceLabel)} <span data-bw-field="source">${esc(source)}</span></span>
+      </div>
+      <a class="bw-crossing-cta" href="${esc(liveUrl)}" style="${LINK_ACCENT_STYLE}">${esc(copy.liveLink)}</a>
+    </li>`;
   }).join('');
 
-  return `<div class="s-Itl8IE">
-    <table class="s-tbl" style="font-size:15px">
-      <thead><tr>
-        <th class="s-thd">${esc(copy.crossingColumn)}</th>
-        <th class="s-thd">${esc(copy.regionColumn)}</th>
-        <th class="s-thd">${esc(copy.liveColumn)}</th>
-      </tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
-  </div>`;
+  return `<ul class="bw-crossings" data-bw-source-labels="${esc(JSON.stringify(sourceLabels))}" aria-label="${esc(copy.crossingsH2)}">${rows}</ul>`;
 }
 
 // ── Render ────────────────────────────────────────────────────────
@@ -445,12 +649,13 @@ interface RenderedPage {
   wordCount: number;
 }
 
-function renderPage(opts: {
+export function renderPage(opts: {
   locale: BorderWaitLocale;
   dateStamp: string;
   distDir?: string;
+  current?: BorderWaitMapSnapshot;
 }): RenderedPage {
-  const { locale, dateStamp, distDir } = opts;
+  const { locale, dateStamp, distDir, current = EMPTY_MAP_SNAPSHOT } = opts;
   const copy = COPY[locale];
   const urlPath = `${BORDER_WAIT_LOCALE_PREFIX[locale]}/${MAP_PATH[locale]}/`.replace(/\/+/g, '/');
   const canonicalUrl = `${BASE_URL}${urlPath}`;
@@ -475,7 +680,9 @@ function renderPage(opts: {
     ? `${BASE_URL}/guida-frontaliere/`
     : `${BASE_URL}/${locale}/${locale === 'en' ? 'cross-border-guide' : locale === 'de' ? 'grenzgaenger-ratgeber' : 'guide-frontalier'}/`;
 
-  const crossingsTable = renderCrossingsTable(locale, copy);
+  const crossingsList = renderCrossingsList(locale, copy, current, dateStamp);
+  const crossingHeading = copy.crossingsH2.replace(/\b26\b/g, String(TICINO_MAP_CROSSINGS.length));
+  const snapshotStamp = formatSnapshotTime(current.updatedAt, dateStamp);
 
   // Embed iframe snippet — points to the hub (not the map hub itself) so the
   // widget stays generic and can be placed on any third-party site.
@@ -547,8 +754,8 @@ function renderPage(opts: {
   // min-width:auto at two levels) — tracked in #961, fixed structurally in #962.
 
   const statGrid = renderStatGrid([
-    { label: copy.statCrossingsLabel, value: '24', tone: 'accent' },
-    { label: copy.statRegionsLabel, value: '2', tone: 'neutral' },
+    { label: copy.statCrossingsLabel, value: String(TICINO_MAP_CROSSINGS.length), tone: 'accent' },
+    { label: copy.statRegionsLabel, value: String(TICINO_MAP_REGION_COUNT), tone: 'neutral' },
     { label: copy.statRefreshLabel, value: '≈15 min', tone: 'success' },
     { label: copy.statCoverageLabel, value: '24/7', tone: 'warning' },
   ]);
@@ -585,19 +792,23 @@ function renderPage(opts: {
     </nav>
     <header class="s-sy52lX">
       <div class="bw-head-row">
-        <p class="s-GMBtq0" style="margin:0">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
-        <span class="bw-live"><span class="bw-live-dot" aria-hidden="true"></span>${esc(copy.liveNow)}</span>
+        <p class="s-GMBtq0" style="margin:0">${esc(copy.updatedLabel)} · ${esc(snapshotStamp)}</p>
+        <span class="bw-live"><span class="bw-live-dot" aria-hidden="true"></span><span data-bw-live-badge>${esc(`${copy.snapshotLabel} · ${snapshotStamp}`)}</span></span>
       </div>
       <h1 class="s-mvYgwu">${esc(copy.h1)}</h1>
-      <p class="s-MwAgth">${esc(copy.ledeP1)}</p>
-      <p class="s-6tH0Be">${esc(copy.ledeP2)}</p>
+      <p class="s-MwAgth">${esc(copy.quickLede)}</p>
     </header>
     ${statGrid}
-    ${legend}
-    <section class="s-KZc0LQ">
-      <h2 class="s-ZQhDLv">${esc(copy.crossingsH2)}</h2>
-      <p class="s-AMzWJZ">${esc(copy.crossingsP)}</p>
-      ${crossingsTable}
+    <section class="bw-data-area" aria-labelledby="bw-data-heading">
+      <div class="bw-data-head">
+        <div>
+          <h2 id="bw-data-heading" class="s-ZQhDLv">${esc(crossingHeading)}</h2>
+          <p class="s-AMzWJZ">${esc(copy.crossingsP)}</p>
+        </div>
+        <a class="s-cta bw-map-cta" href="${esc(hubUrl)}"><span aria-hidden="true">🗺️</span> ${esc(copy.mapCta)}</a>
+      </div>
+      ${legend}
+      ${crossingsList}
     </section>
     <section class="s-KZc0LQ">
       <h2 class="s-ZQhDLv">${esc(copy.bestTimesH2)}</h2>
@@ -631,10 +842,16 @@ function renderPage(opts: {
         <p class="s-dbDev_">${esc(copy.faqA3)}</p>
       </details>
     </section>
+    <section class="s-KZc0LQ bw-editorial">
+      <h2 class="s-ZQhDLv">${esc(copy.editorialH2)}</h2>
+      <p class="s-5DjKKm">${esc(copy.ledeP1)}</p>
+      <p class="s-5DjKKm">${esc(copy.ledeP2)}</p>
+    </section>
     <section class="s-p1QaOi">
-      <a href="${esc(hubUrl)}" class="s-cta" style="padding:12px 18px;border-radius:12px;font-weight:700"><span aria-hidden="true">🗺️</span> ${esc(copy.ctaAll)}</a>
+      <a href="${esc(hubUrl)}" class="s-cta bw-map-cta"><span aria-hidden="true">🗺️</span> ${esc(copy.ctaAll)}</a>
       <a class="s-uuWBdZ" href="${esc(homeUrl)}"><span aria-hidden="true">🧮</span> ${esc(copy.ctaCalculator)}</a>
     </section>
+    ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}
   `;
 
   const wordCount = countHtmlBodyWords(body);
@@ -671,10 +888,24 @@ export function borderWaitMapPlugin(rootDir: string): Plugin {
       const distDir = path.resolve(rootDir, 'dist');
       const collector = new WriteCollector({ distDir, pluginName: 'borderWaitMapPlugin' });
       const dateStamp = new Date().toISOString().slice(0, 10);
+      const current = readCurrentSnapshot(rootDir);
       const sitemapEntries: string[] = [];
 
+      // The full border-wait plugin normally emits this shared asset. The
+      // fast build intentionally skips that plugin, but still renders this
+      // map, so keep the map's hydration contract self-contained there.
+      if (process.env.SKIP_BORDER_WAIT === '1') {
+        try {
+          const assetPath = path.join(distDir, BORDER_WAIT_HYDRATION_ASSET_PATH.replace(/^\//, ''));
+          fs.mkdirSync(path.dirname(assetPath), { recursive: true });
+          fs.writeFileSync(assetPath, BORDER_WAIT_HYDRATION_JS, 'utf-8');
+        } catch (err) {
+          console.warn(`[border-wait-map] failed to write ${BORDER_WAIT_HYDRATION_ASSET_PATH}`, err);
+        }
+      }
+
       for (const locale of BORDER_WAIT_LOCALES) {
-        const render = renderPage({ locale, dateStamp, distDir });
+        const render = renderPage({ locale, dateStamp, distDir, current });
 
         if (render.wordCount < MIN_INDEXABLE_WORDS) {
           console.warn(`\x1b[33m[border-wait-map]\x1b[0m ${locale} below MIN_INDEXABLE_WORDS (${render.wordCount}) — will be noindex`);
