@@ -5,6 +5,7 @@ import {
   BREFISPERSONAL_COMPANY_NAME,
   isBrefispersonalJob,
   isTrustedDomain,
+  resolveBrefispersonalGeography,
 } from '../scripts/lib/brefispersonal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -74,6 +75,43 @@ describe('brefis personal ag crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('source-backed geography', () => {
+    const cantonOnlyListing = {
+      location: 'ZH',
+      addressLocality: 'ZH',
+      addressRegion: 'ZH',
+      addressCountry: 'CH',
+    };
+
+    it('uses a city from the same description when structured locality is canton-only', () => {
+      expect(resolveBrefispersonalGeography(
+        cantonOnlyListing,
+        'Arbeitsort: Zürich. Die Bauunternehmung möchte sich durch eine fleissige Persönlichkeit verstärken.',
+      )).toMatchObject({ location: 'Zürich', canton: 'ZH', addressCountry: 'CH' });
+    });
+
+    it('prefers the workplace over an earlier employer headquarters mention', () => {
+      expect(resolveBrefispersonalGeography(
+        cantonOnlyListing,
+        'Unser Hauptsitz befindet sich in Zürich. Der Einsatzort ist Winterthur.',
+      )).toMatchObject({ location: 'Winterthur', canton: 'ZH' });
+    });
+
+    it('keeps canton-only source evidence when no city is published', () => {
+      expect(resolveBrefispersonalGeography(
+        cantonOnlyListing,
+        'Eine zuverlässige Persönlichkeit für Einsätze im Kanton ZH.',
+      )).toMatchObject({ location: 'ZH', canton: 'ZH', addressCountry: 'CH' });
+    });
+
+    it('does not rescue a city when the structured listing has no canton signal', () => {
+      expect(resolveBrefispersonalGeography(
+        { location: '', addressLocality: 'QQ', addressRegion: '', addressCountry: 'CH' },
+        'Arbeitsort: Zürich.',
+      )).toBeNull();
     });
   });
 
