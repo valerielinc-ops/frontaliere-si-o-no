@@ -9,6 +9,7 @@ import {
   isProvenCrossCrawlerDedupPrune,
   isSafeSwissReForeignPrune,
 } from '../scripts/lib/crawler-slice-integrity.mjs';
+import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from '../scripts/lib/crawler-grace-policy.mjs';
 import { writeJsonAtomic } from '../scripts/lib/atomic-write-json.mjs';
 
 function swissReJob(url: string, location: string, description: string) {
@@ -54,11 +55,11 @@ describe('crawler slice integrity guard', () => {
     const previous = json([
       {
         ...swissReJob('https://jobs.swissre.com/legacy-zurich', 'Zürich', 'x'.repeat(700_000)),
-        crawlerMissStreak: 2,
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
       },
       {
         ...swissReJob('https://jobs.swissre.com/legacy-washington', 'Washington D', 'x'.repeat(700_000)),
-        crawlerMissStreak: 2,
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
       },
     ]);
     const next = json([
@@ -74,9 +75,29 @@ describe('crawler slice integrity guard', () => {
     const previous = json([
       {
         ...swissReJob('https://jobs.swissre.com/zurich-old', 'Zurich, CH', 'x'.repeat(700_000)),
-        crawlerMissStreak: 2,
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
       },
       swissReJob('https://jobs.swissre.com/bratislava', 'Bratislava, SK', 'x'.repeat(700_000)),
+    ]);
+    const next = json([
+      swissReJob('https://jobs.swissre.com/zurich', 'Zurich, CH', 'x'.repeat(100_000)),
+    ]);
+
+    expect(isSafeSwissReForeignPrune('data/jobs/by-crawler/swiss-re.json', previous, next)).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe('data/jobs/by-crawler/swiss-re.json', previous, next))
+      .toThrow(/catastrophic truncation avoided/);
+  });
+
+  it('keeps an ambiguous legacy location guarded before grace is exhausted', () => {
+    const previous = json([
+      {
+        ...swissReJob('https://jobs.swissre.com/legacy-zurich', 'Zürich', 'x'.repeat(700_000)),
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES - 1,
+      },
+      {
+        ...swissReJob('https://jobs.swissre.com/legacy-washington', 'Washington D', 'x'.repeat(700_000)),
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES - 1,
+      },
     ]);
     const next = json([
       swissReJob('https://jobs.swissre.com/zurich', 'Zurich, CH', 'x'.repeat(100_000)),

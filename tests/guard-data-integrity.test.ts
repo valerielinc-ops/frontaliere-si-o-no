@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from '../scripts/lib/crawler-grace-policy.mjs';
 
 // Regression cover for #5524 (item 1): before the CLI guard, this module ran
 // `main()` at import time (`process.exit(2)` with no argv, or a real `git`
@@ -235,7 +236,7 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
         url: 'https://jobs.swissre.com/legacy-zurich',
         companyKey: 'swiss-re',
         location: 'Zürich',
-        crawlerMissStreak: 2,
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
       },
     ]);
     const next = JSON.stringify([

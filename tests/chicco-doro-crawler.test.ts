@@ -103,7 +103,7 @@ describe('Chicco d\u2019Oro crawler parser', () => {
     // 'empty-only'` only verifies empty batches), so `retainMissingJobs` stays
     // at its shared default (true) for a job that goes missing here. That
     // default is NOT unbounded — mergePreserveLocaleData caps it at
-    // CRAWLER_GRACE_PERIOD_MAX_MISSES (2) consecutive misses regardless of company.
+    // the shared crawler grace ceiling consecutive misses regardless of company.
     const goneJob = {
       id: 'chicco-doro-gone-role',
       url: 'https://www.chiccodoro.com/jobs/gone-role',
