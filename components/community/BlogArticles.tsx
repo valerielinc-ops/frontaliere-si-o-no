@@ -2112,6 +2112,7 @@ function BlogArticles({
  // and avoids thin-content penalties. Articles below this threshold
  // should be enriched via AI expansion (FRO-292) rather than lowering the bar.
  const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= AD_ELIGIBLE_MIN_WORDS && bodyCharCount >= AD_ELIGIBLE_MIN_CHARS;
+ const adEligibleRail = adEligible && (isDesktopXl || isCompactRail);
  const adEligibleInline = adEligible;
  // Number of stacked side-rail ad panels, scaled to body length so the chain
  // fills (but doesn't overcrowd) the gutter: ~1 panel per 700 words, 1–4.
@@ -2255,7 +2256,7 @@ function BlogArticles({
  </div>
  {/* Full-length half-page rail-ad chain — compact 160px creatives from
      1200px, then the existing 300px tier from 1400px. */}
- <Suspense fallback={null}><ArticleRailAdStack side="left" enabled={adEligible} count={railAdCount} compact={isCompactRail} onEmptyResolved={onLeftEmptyResolved} /></Suspense>
+ <Suspense fallback={null}><ArticleRailAdStack side="left" enabled={adEligibleRail} count={railAdCount} compact={isCompactRail} onEmptyResolved={onLeftEmptyResolved} /></Suspense>
  </aside>
 
  <article ref={articleRef} className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-lg">
@@ -2884,7 +2885,7 @@ function BlogArticles({
  </div>
  {/* Full-length half-page rail-ad chain — compact 160px creatives from
      1200px, then the existing 300px tier from 1400px. */}
- <Suspense fallback={null}><ArticleRailAdStack side="right" enabled={adEligible} count={railAdCount} compact={isCompactRail} onEmptyResolved={onRightEmptyResolved} /></Suspense>
+ <Suspense fallback={null}><ArticleRailAdStack side="right" enabled={adEligibleRail} count={railAdCount} compact={isCompactRail} onEmptyResolved={onRightEmptyResolved} /></Suspense>
  </aside>
 
  </div>

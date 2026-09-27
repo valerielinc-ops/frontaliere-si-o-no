@@ -25,6 +25,9 @@ describe('article compact ad rail contract', () => {
     expect(BLOG.match(/<ArticleRailAdStack/g)).toHaveLength(2);
     expect(BLOG).toMatch(/ArticleRailAdStack side="left"[\s\S]*?compact/);
     expect(BLOG).toMatch(/ArticleRailAdStack side="right"[\s\S]*?compact/);
+    expect(BLOG).toContain('const adEligibleRail = adEligible && (isDesktopXl || isCompactRail);');
+    expect(BLOG).toContain('<ArticleRailAdStack side="left" enabled={adEligibleRail}');
+    expect(BLOG).toContain('<ArticleRailAdStack side="right" enabled={adEligibleRail}');
     expect(BLOG).toContain("const BLOG_ARTICLE_RAIL_ASIDE_CLASS_X = 'ft-rail-aside-x ft-blog-rail-aside-x hidden xlc:flex");
   });
 
