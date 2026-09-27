@@ -520,6 +520,82 @@
       (function(){
         var g = window.googlefc = window.googlefc || {};
         if (g.controlledMessagingFunction) return;
+        function isJobBoardPath(){
+          var p = window.location && window.location.pathname || '';
+          return /^(?:\/(?:it|en|de|fr))?\/(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*(?:\/|$)/.test(p);
+        }
+        function hasConsentDecision(){
+          var d = false;
+          try { d = !!window.localStorage.getItem('frontaliere_ads_consent'); } catch (e) {}
+          if (d) {
+            var c = (window.document && window.document.cookie || '').match(/(?:^|;\s*)FCCDCF=([^;]*)/), v = '';
+            try { v = c ? decodeURIComponent(c[1]) : ''; } catch (e) {}
+            d = /"C[A-Za-z0-9_-]{20,}/.test(v);
+          }
+          return d;
+        }
+        function hold(w, message, offerwall){
+          w.held = w.held || [];
+          w.held.push(message);
+          w.offerwall = offerwall;
+          w.state = 'held';
+          w.release = function(){
+            if (w.state !== 'held') return false;
+            w.state = 'released';
+            var h = w.held.splice(0);
+            for (var i = 0; i < h.length; i++) {
+              try { h[i].proceed(true); } catch (e) {}
+            }
+            return true;
+          };
+        }
+        function syncRoute(){
+          var w = window.__ftOfferwallGate;
+          if (!w) return;
+          if (isJobBoardPath()) {
+            if (w.state === 'off_board' && w.reacquire) {
+              // The off-board callback was already completed with
+              // proceed(false). Wait for Funding Choices to deliver a fresh
+              // destination-route callback before exposing release().
+              w.reacquire = undefined;
+              w.state = hasConsentDecision() ? 'idle' : 'suppressed';
+              w.held = [];
+              w.release = undefined;
+              w.offerwall = undefined;
+            }
+            return;
+          }
+          if (w.state === 'held') {
+            var h = w.held.splice(0), o = w.offerwall !== undefined
+              ? w.offerwall
+              : (g.MessageTypeEnum || {}).OFFERWALL;
+            for (var i = 0; i < h.length; i++) {
+              try {
+                o === undefined ? h[i].proceed(false) : h[i].proceed(false, [o]);
+              } catch (e) {}
+            }
+          }
+          w.state = 'off_board';
+          w.held = [];
+          w.release = undefined;
+          w.offerwall = undefined;
+          w.reacquire = undefined;
+        }
+        function watchRoutes(){
+          var h = window.history;
+          if (h) {
+            ['pushState', 'replaceState'].forEach(function(k){
+              var original = h[k];
+              if (typeof original !== 'function') return;
+              h[k] = function(){
+                var result = original.apply(this, arguments);
+                syncRoute();
+                return result;
+              };
+            });
+          }
+          if (typeof window.addEventListener === 'function') window.addEventListener('popstate', syncRoute);
+        }
         g.controlledMessagingFunction = function(message){
           var E = g.MessageTypeEnum || {};
           // The first call arrives with an empty enum and must proceed at
@@ -535,29 +611,14 @@
             message.proceed(true);
             return;
           }
-          // Off the job-board sections (every canton, the Switzerland
-          // aggregator, every locale) there is no "Candidati" to open the
-          // Offerwall: suppress it alone, the consent and ad-block messages
-          // this call also carries still show.
-          var p = window.location && window.location.pathname || '';
-          if (!/^(?:\/(?:it|en|de|fr))?\/(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*(?:\/|$)/.test(p)) {
-            window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'off_board', held: [] };
+          syncRoute();
+          if (!isJobBoardPath()) {
+            var w = window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'off_board', held: [] };
+            w.reacquire = true;
             message.proceed(false, [E.OFFERWALL]);
             return;
           }
-          // This call also carries the GDPR consent message. Hold it only
-          // when a decision is stored on both sides: our bridge's key AND a
-          // TC string in Funding Choices' own FCCDCF cookie (a TCF v2 string
-          // starts with "C"). Otherwise the CMP must show now: suppress only
-          // the Offerwall for this page view instead of holding everything.
-          var d = false;
-          try { d = !!window.localStorage.getItem('frontaliere_ads_consent'); } catch (e) {}
-          if (d) {
-            var c = (window.document && window.document.cookie || '').match(/(?:^|;\s*)FCCDCF=([^;]*)/), v = '';
-            try { v = c ? decodeURIComponent(c[1]) : ''; } catch (e) {}
-            d = /"C[A-Za-z0-9_-]{20,}/.test(v);
-          }
-          if (!d) {
+          if (!hasConsentDecision()) {
             window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'suppressed', held: [] };
             message.proceed(false, [E.OFFERWALL]);
             return;
@@ -567,18 +628,9 @@
             message.proceed(true);
             return;
           }
-          w.held.push(message);
-          w.state = 'held';
-          w.release = function(){
-            if (w.state !== 'held') return false;
-            w.state = 'released';
-            var h = w.held.splice(0);
-            for (var i = 0; i < h.length; i++) {
-              try { h[i].proceed(true); } catch (e) {}
-            }
-            return true;
-          };
+          hold(w, message, E.OFFERWALL);
         };
+        watchRoutes();
       })();
     </script>
 
