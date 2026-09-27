@@ -12154,6 +12154,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trofeo-binda-cittiglio-marzo-2027.title': 'Trofeo Binda: appointment on March 14, 2027',
     'blog.article.trofeo-binda-cittiglio-marzo-2027.excerpt': 'Cittiglio confirms itself as the capital of women\'s cycling: 14 marzo 2027 sees the return of the Trofeo Binda WorldTour and the junior event in the Valli del Verbano.',
     'blog.article.trofeo-binda-cittiglio-marzo-2027.imageAlt': 'Professional women\'s cycling in the Valli del Verbano region during the Trofeo Binda.',
+    'blog.article.varese-icesport-open-day.title': 'Icesport Varese: Open Day for over 100 kids on the ice',
+    'blog.article.varese-icesport-open-day.excerpt': 'On Saturday 5 September, Icesport Varese\'s Open Day attracted over one hundred children and young people onto the ice, with most groups nearing capacity.',
+    'blog.article.varese-icesport-open-day.imageAlt': 'Children lacing up ice skates during Icesport Varese Open Day',
 };
 
 export default blogMetaEn;

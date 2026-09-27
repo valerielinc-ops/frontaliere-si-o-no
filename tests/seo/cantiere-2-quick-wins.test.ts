@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
+import pages from '../../services/seo/seo-pages';
+import { META_DESCRIPTION_MAX_CHARS, TITLE_MAX_CHARS } from '../../build-plugins/shared/titleSuffix';
 
 const SEO_SOURCE = readFileSync(
   path.resolve(__dirname, '../../services/seo/seo-pages.ts'),
@@ -33,6 +35,20 @@ describe('cantiere 2 — SEO metadata quick wins', () => {
     const entry = entrySource('guide', 'jobboard');
     expect(entry).toContain("title: 'Guida frontaliere Svizzera 2026: permesso G, tasse e dogana'");
     expect(entry).toContain("ogTitle: 'Guida frontaliere Svizzera 2026 — permesso G, tasse e dogana'");
+  });
+
+  it('keeps every curated guide sibling inside the shared SERP budgets', () => {
+    const guideEntries = Object.values(pages).filter((entry) =>
+      entry.canonicalPath?.startsWith('/guida-frontaliere/'),
+    );
+
+    expect(guideEntries.length).toBeGreaterThan(0);
+    for (const entry of guideEntries) {
+      expect(entry.title.length, `${entry.canonicalPath}: title`).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+      expect(entry.description.length, `${entry.canonicalPath}: description`).toBeLessThanOrEqual(
+        META_DESCRIPTION_MAX_CHARS,
+      );
+    }
   });
 
   it('keeps calculator metadata grammatical and within the description budget', () => {

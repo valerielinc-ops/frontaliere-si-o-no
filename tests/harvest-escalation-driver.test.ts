@@ -84,7 +84,14 @@ describe('isEscalationDriver — no-root-cause non può più driveare un\'escala
     expect(isEscalationDriver('fix-outcome', 'blocked-workflows-scope')).toBe(true);
     expect(isEscalationDriver('fix-outcome', 'already-fixed')).toBe(true);
     expect(isEscalationDriver('fix-outcome', 'max-turns')).toBe(true);
-    expect(isEscalationDriver('fix-outcome', 'revenue-tracker-manual')).toBe(true);
+  });
+
+  it('revenue-tracker-manual resta contesto, non una regola violata', () => {
+    // Il marker copre handoff manuali eterogenei (provider, dispatch o misura
+    // production) e non una singola classe di errore dell’agente. Copriamo sia
+    // il codice nudo sia la shape prefissata usata dal call site reale.
+    expect(isEscalationDriver('fix-outcome', 'revenue-tracker-manual')).toBe(false);
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:revenue-tracker-manual')).toBe(false);
   });
 
   it('altri fix-outcome code con la shape prefissata reale restano driver', () => {

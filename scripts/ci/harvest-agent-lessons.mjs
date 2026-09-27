@@ -209,11 +209,20 @@ const TAXONOMY = [
   { key: 'structured-data', re: /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i, docKeys: ['structured data', 'json-ld', 'basesalary'] },
   { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'] },
   { key: 'time-bomb-hardcoded', re: /hardcoded|time-?bomb|absolute date|aged? out|invecchia|date assolut/i, docKeys: ['date assolut', 'time-bomb', 'daysago'] },
+  // AdSense findings need a structural subtype before the generic topic bucket.
+  // The old flat regex grouped unrelated reviewer findings from #10030, #10028,
+  // #9836, #9835 and #9492 into `auto-ads`, so the harvester escalated a topic
+  // even though no single antipattern recurred. Keep the threshold unchanged;
+  // improve the measurement by preserving the failure mode in the bucket key.
+  { key: 'adsense-thin-content', re: /(?:(?:thin|noindex|indexable|word[- ]?count|below[- ]floor|mfa)[\s\S]{0,220}(?:adsense|ad(?:s)?\b|slot|multiplex)|(?:adsense|manual\s+(?:ad|adsense)|multiplex|slot)[\s\S]{0,220}(?:thin|noindex|indexable|word[- ]?count|below[- ]floor|mfa))/i, docKeys: ['auto ads', 'adsense'] },
+  { key: 'adsense-slot-lifecycle', re: /(?:(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>)[\s\S]{0,180}(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)|(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)[\s\S]{0,180}(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>))/i, docKeys: ['auto ads', 'adsense'] },
+  { key: 'adsense-bot-gate', re: /(?:(?:adsense|auto ?ads|ads?\b|advertis(?:e|ing|ements)|cta)[\s\S]{0,180}(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)|(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)[\s\S]{0,180}(?:adsense|auto ?ads|ads?\b|advertis(?:e|ing|ements)|cta))/i, docKeys: ['auto ads', 'adsense'] },
+  { key: 'adsense-loader-contract', re: /(?:(?:adsense|adsbygoogle|auto ?ads)[\s\S]{0,220}(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)|(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)[\s\S]{0,220}(?:adsense|adsbygoogle|auto ?ads))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'] },
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
   // Precedence is intentional: when a finding mentions both surfaces, the
   // topic bucket wins before the sibling-sweep process bucket below.
-  { key: 'canonical-sitemap', re: /canonical|sitemap|noindex|cross-section/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
+  { key: 'canonical-sitemap', re: /\b(?:canonical|sitemaps?|noindex|cross-section)\b/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
   { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|\bpat\b|credential|secret|branch protection|push.*workflow/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
   // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
   // brand names, canton-aware slug naming, missing/untranslated keys. The old regex
@@ -377,6 +386,17 @@ export function isGenuinePrBodyContractViolation(text) {
 // Pure → unit-tested, mirrors isGenuinePrBodyContractViolation's structure.
 const SIBLING_CLASS_AFFIRM_RE =
   /nessun\w*\s*(?:[\u{1F534}\u{1F7E1}]\s*\/?\s*)*(?:da propagare|altro finding|bug replicat\w*|antipattern replicat\w*)|nessun\s+sibling\s+resid\w*|no inconsistenc\w*|not a candidate for|correctly mirrors? the sibling|coerente\s+(?:col|con il)\s+sibling|match(?:es)?\s+the sibling'?s?\s+(?:proven\s+)?(?:pattern|guard)/iu;
+// A bare `sibling` is not evidence of an AGENTS.md #6 violation. Reviewer
+// findings also use it for semantic neighbours (`same-level sibling` in a DOM
+// parser), for scope prose (`consumer sibling`), or for a checker feature that
+// is merely being described. Those lines must not inflate this process bucket.
+// Keep the positive side explicit: a class finding needs an actionable relation
+// between the sibling and the repeated construct/sweep. Ambiguous lines fall
+// through to the fingerprint safety net in `bucketFinding`, so this guard does
+// not discard the reviewer finding; it only refuses to call it a sibling-class
+// recurrence without evidence.
+const SIBLING_CLASS_EVIDENCE_RE =
+  /(?:\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b|\b(?:file|script|workflow|consumer|ramo|branch)\s+gemell\w*\b|\b(?:sibling|gemell\w*)\b[^.\n]{0,120}\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|sweep\w*|check\w*|guard\w*|pattern\w*|bug\w*|fix\w*|modif\w*|chang\w*|address\w*|propagat\w*)\b|\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|diverg\w*|different|unlike)\b[^.\n]{0,120}\b(?:sibling|gemell\w*)\b)/iu;
 // Negation-aware false-positive-declaration matcher, shared with
 // sibling-check-gate.mjs's isDeclaredFalsePositive (issue #3367 — the two
 // copies drifted when kept in sync by docstring promise only).
@@ -388,9 +408,10 @@ export function isGenuineSiblingClassViolation(text) {
   // (b) the line AFFIRMS the sweep is complete / nothing to propagate → not a
   //     defect, even if it contains 🔴/🟡 glyphs as prose rather than a marker.
   if (SIBLING_CLASS_AFFIRM_RE.test(s)) return false;
-  // Default: no affirmation, no declared false positive → conservative: keep as
-  // a genuine (possibly deferred-but-real) sibling-class finding.
-  return true;
+  // A class relation is required before this process bucket can claim the line.
+  // Scope-only and semantic-neighbour mentions remain available to the generic
+  // fingerprint path instead of being mistaken for an unswept sibling.
+  return SIBLING_CLASS_EVIDENCE_RE.test(s);
 }
 
 // ---- NEGATED-IMPACT recap clauses (DETERMINISTIC, cross-bucket) ------------
@@ -502,6 +523,39 @@ export function stripNegatedImpactClauses(text) {
       SWEEP_ASSERTION_RE.test(sentenceAround(whole, offset, offset + match.length)) ? match : prefix + ' ');
 }
 
+// ---- `canonical-sitemap` false-positive guard -----------------------------
+// The topic regex is intentionally broad enough to catch every SEO surface,
+// but `canonical` is also a common application-domain adjective: canonical
+// vacancy links, canonical replacements, archive canonicalizers, and canonical
+// route URLs are not sitemap/canonical SEO findings. Once the negated-impact
+// recap is stripped, require an explicit SEO defect/surface signal before
+// assigning the topic bucket. Unmatched lines still reach fingerprintFinding()
+// below, so narrowing this bucket cannot silently discard a real recurrence.
+const NON_SEO_CANONICAL_MENTION_RE =
+  /\bcanonical(?:izer)?\b\s+(?:vacancy|job|listing|replacement|record|row|entry|entries|id|key|data(?:set)?|fallback|route|routes|slug|component|hub|duty|history|source|snapshot|payload|stats?|archive|document)\b/i;
+
+const CANONICAL_SEO_DEFECT_RE =
+  /\b(?:canonical[- ](?:missing|mismatch|drift)|self[- ]canonical|non[- ]canonical|rel\s*=\s*["']?canonical\b|canonical\s+(?:href|tag|markup|link)\b|(?:empty|missing|invalid|wrong|incorrect|broken|drift|mismatch|unset|unresolved|manca\w*|mancante|non\s+(?:emette|emesso|aggiorna|aggiornato|punta|include)|does\s+not\s+(?:emit|set|include|point)|fails?\s+to\s+(?:emit|set|include|point))[^.\n]{0,70}\bcanonical(?:s)?\b|\bcanonical(?:s)?\b[^.\n]{0,70}\b(?:mismatch|drift|missing|invalid|wrong|incorrect|broken|unresolved|consolidat\w*|redirect\w*|self[- ]canonical)\b|(?:tocca|touch(?:es)?|affect(?:s)?|impatt\w*)[^.\n]{0,45}\bcanonical(?:s)?\b)/i;
+
+const SITEMAP_SEO_DEFECT_RE =
+  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*|noindex|non[- ]canonical|canonical|loc|inventory|coverage|redirect\w*|unreachable|include(?:s|d)?|listed)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*|noindex|non[- ]canonical|canonical|loc|inventory|coverage|redirect\w*|unreachable|include(?:s|d)?|listed)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
+
+export function isGenuineCanonicalSitemapFinding(text) {
+  const s = String(text || '');
+  if (!s) return false;
+  // noindex is an SEO indexing directive by definition; the negated-impact
+  // strip has already removed the "not touched" recap when this is called from
+  // bucketFinding().
+  if (/\bnoindex\b/i.test(s)) return true;
+  if (/\bsitemaps?\b/i.test(s)) return SITEMAP_SEO_DEFECT_RE.test(s);
+  if (/\bcross-section\b/i.test(s)) {
+    return /\b(?:canonical|indexable|hreflang|robots?|google|seo)\b/i.test(s) &&
+      /\b(?:mismatch|drift|missing|wrong|incorrect|broken|non[- ]canonical|self[- ]canonical|not|fails?|cross-section)\b/i.test(s);
+  }
+  if (NON_SEO_CANONICAL_MENTION_RE.test(s)) return false;
+  return CANONICAL_SEO_DEFECT_RE.test(s);
+}
+
 export function bucketFinding(text) {
   // I bucket si scelgono sul testo SENZA le ricognizioni negate: una sitemap
   // nominata solo per dire che non e' stata toccata non e' un finding su di lei.
@@ -521,6 +575,11 @@ export function bucketFinding(text) {
     // declared false positives so the bucket counts only genuine unswept-sibling
     // findings, mirroring pr-body-contract's filter above.
     if (t.key === 'sibling-class-fix' && !isGenuineSiblingClassViolation(text)) continue;
+    // `canonical` is overloaded outside SEO (canonical vacancy links, archive
+    // canonicalizers, canonical replacements, route URLs). Keep those lines in
+    // the fingerprint safety-net instead of inflating the canonical-sitemap
+    // topic with unrelated reviewer findings.
+    if (t.key === 'canonical-sitemap' && !isGenuineCanonicalSitemapFinding(scannable)) continue;
     return t.key;
   }
   // La rete fingerprint riceve il testo INTERO, non quello strippato. Lo strip e'
@@ -886,6 +945,13 @@ export function isEscalationDriver(source, key) {
   if (source === 'fix-outcome' && bareKey === 'skip-duplicate-diagnosis') return false;
   if (source === 'fix-outcome' && bareKey === 'overlap-skip') return false;
   if (source === 'fix-outcome' && bareKey === 'pr-already-open') return false;
+  // revenue-tracker-manual is an intentional terminal handoff, not a
+  // repeatable agent mistake: its diagnosis may depend on an external provider,
+  // a production-only measurement, or a credential/dispatch owned outside the
+  // repository. Keep the marker in the volume summary, but do not let the
+  // heterogeneous manual cases manufacture a false "rule is not working"
+  // escalation.
+  if (source === 'fix-outcome' && bareKey === 'revenue-tracker-manual') return false;
   return true;
 }
 

@@ -6860,6 +6860,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.votazioni-ginevra-contraccezione-libera.title': 'Ginevra approva la contraccezione gratuita con il 58,5%',
     'blog.article.votazioni-ginevra-contraccezione-libera.excerpt': 'Il 58,5% dei votanti ginevrini ha approvato la contraccezione gratuita; partecipazione 44,2%, costo stimato 20 milioni di franchi/anno, attuazione prevista nel 2028.',
     'blog.article.votazioni-ginevra-contraccezione-libera.imageAlt': 'Farmacista che consegna una confezione di pillola anticoncezionale a persone diverse in una farmacia di Ginevra',
+    'blog.article.zurigo-suicidio-assistito.title': 'Zurigo, sì al suicidio assistito nelle strutture sanitarie',
+    'blog.article.zurigo-suicidio-assistito.excerpt': 'A Zurigo il 68,1% approva il suicidio assistito nelle strutture sanitarie. Partecipazione 47,6%; bocciata al 59,2% la legge sugli insegnanti.',
+    'blog.article.zurigo-suicidio-assistito.imageAlt': 'Voto a Zurigo sull\'obbligo del suicidio assistito nelle strutture sanitarie',
 };
 
 export default blogMetaChIt;

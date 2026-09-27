@@ -12156,6 +12156,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trofeo-binda-cittiglio-marzo-2027.title': 'Trofeo Binda : rendez-vous le 14 mars 2027',
     'blog.article.trofeo-binda-cittiglio-marzo-2027.excerpt': 'Cittiglio confirme son statut de capitale du cyclisme féminin : le 14 mars 2027, le Trofeo Binda WorldTour et l’épreuve junior font leur retour dans les Valli del Verbano.',
     'blog.article.trofeo-binda-cittiglio-marzo-2027.imageAlt': 'Cyclisme féminin professionnel dans la région de Valli del Verbano lors du Trofeo Binda.',
+    'blog.article.varese-icesport-open-day.title': 'Icesport Varese : Journée portes ouvertes pour plus de 100 jeunes sur la glace',
+    'blog.article.varese-icesport-open-day.excerpt': 'Samedi 5 septembre, la journée portes ouvertes d’Icesport Varese a attiré plus d’une centaine d’enfants et de jeunes sur la glace, la plupart des groupes étant presque complets.',
+    'blog.article.varese-icesport-open-day.imageAlt': 'Enfants qui lacent leurs patins lors de la giornata porte aperte d\'Icesport Varese',
 };
 
 export default blogMetaFr;

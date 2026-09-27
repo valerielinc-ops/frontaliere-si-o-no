@@ -9,6 +9,7 @@
  * normalizzazione login, max-turns floor.
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   collectionWindowStartISO,
   positiveHours,
@@ -30,6 +31,9 @@ import {
   canonicalLogin,
   maxTurnsFor,
   selectFollowupSessionBatch,
+  FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_DURATION_MS,
+  FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_PR_COUNT,
+  FOLLOWUP_SESSION_BATCH_LIMIT,
   deferredCount,
   orderCandidatesFifo,
   shouldTriageAfterCandidateGate,
@@ -471,21 +475,24 @@ describe('ordine FIFO dei candidati', () => {
   // taglia la coda, quindi servendo prima le PR recenti la coda vecchia non
   // veniva mai lavorata. Questo test fallisce se si torna all'ordine naturale
   // della Search API.
-  const searchApiOrder = [
-    { number: 9132, mergedAt: '2026-09-18T12:00:00Z' },
-    { number: 9099, mergedAt: '2026-09-18T06:00:00Z' },
-    { number: 9050, mergedAt: '2026-09-17T23:00:00Z' },
-    { number: 9010, mergedAt: '2026-09-17T08:00:00Z' },
-    { number: 8990, mergedAt: '2026-09-17T01:00:00Z' },
-  ];
+  // Ordine naturale della Search API: dal piu recente. Una PR oltre il cap, cosi
+  // il test resta vero qualunque sia FOLLOWUP_SESSION_BATCH_LIMIT.
+  const total = FOLLOWUP_SESSION_BATCH_LIMIT + 1;
+  const base = Date.parse('2026-09-17T00:00:00Z');
+  const searchApiOrder = Array.from({ length: total }, (_, i) => ({
+    number: 9200 - i,
+    mergedAt: new Date(base + (total - i) * 3600_000).toISOString(),
+  }));
 
   it('serve prima le PR piu vecchie, cosi il cap rinvia le piu recenti', () => {
     const ordered = orderCandidatesFifo(searchApiOrder);
-    expect(ordered.map((p) => p.number)).toEqual([8990, 9010, 9050, 9099, 9132]);
+    expect(ordered.map((p) => p.number)).toEqual(searchApiOrder.map((p) => p.number).reverse());
     const session = selectFollowupSessionBatch(ordered.map((p) => p.number));
-    // Le 4 piu VECCHIE entrano in sessione; la piu recente e' quella rinviata,
-    // ed e' anche quella che la finestra successiva ritrovera' comunque.
-    expect(session).toEqual([8990, 9010, 9050, 9099]);
+    // Le piu VECCHIE entrano in sessione; la piu recente (#9200) e' quella
+    // rinviata, ed e' anche quella che la finestra successiva ritrovera' comunque.
+    expect(session).toHaveLength(FOLLOWUP_SESSION_BATCH_LIMIT);
+    expect(session).not.toContain(9200);
+    expect(session[0]).toBe(9200 - FOLLOWUP_SESSION_BATCH_LIMIT);
     expect(deferredCount(ordered, session)).toBe(1);
   });
 
@@ -500,9 +507,51 @@ describe('ordine FIFO dei candidati', () => {
 
 describe('follow-up provider session bound', () => {
   it('defers overflow PRs without mutating the candidate list', () => {
-    const candidates = [1, 2, 3, 4, 5, 6];
-    expect(selectFollowupSessionBatch(candidates)).toEqual([1, 2, 3, 4]);
-    expect(candidates).toEqual([1, 2, 3, 4, 5, 6]);
+    const candidates = Array.from({ length: FOLLOWUP_SESSION_BATCH_LIMIT + 2 }, (_, i) => i + 1);
+    const snapshot = [...candidates];
+    expect(selectFollowupSessionBatch(candidates)).toEqual(snapshot.slice(0, FOLLOWUP_SESSION_BATCH_LIMIT));
+    expect(candidates).toEqual(snapshot);
+  });
+
+  // Capacità vs flusso (2026-09-27). Con cap 4 e cron ogni 3h la coda non si
+  // smaltiva: GitHub esegue ~62% dei cron nominali (5,1 run reali/giorno su 8,
+  // gap mediano 4,9h) = ~20 PR/giorno contro rinvii di 65-146 PR a ogni run.
+  // Tre vincoli letti dal workflow reale, così che cap, watchdog, step e cron
+  // non possano divergere in silenzio:
+  //  1. cap <= 21 PR, cioè il numero di PR commentate nel benchmark COMPLETATO
+  //     più lento (corpus 34602892494, 1.792.000 ms totali). Si confronta la
+  //     durata della sessione intera: la media per PR non è un upper bound;
+  //  2. watchdog + setup/kill grace/coda (300 s) STRETTAMENTE sotto lo step;
+  //  3. cap x run reali/giorno (cron nominali x 62%) >= picco di ~80 candidati
+  //     al giorno (110 merge x ~72% oltre i gate).
+  const CODEX_SETUP_AND_TAIL_SECONDS = 300;
+  const CRON_EXECUTED_RATIO = 0.62;
+  const PEAK_CANDIDATES_PER_DAY = 80;
+  const workflow = readFileSync(
+    new URL('../.github/workflows/post-merge-followup.yml', import.meta.url),
+    'utf8',
+  );
+
+  it('il batch completato dimensiona il cap sotto watchdog e step', () => {
+    const watchdogSeconds = Number(/exec_timeout_minutes: "(\d+)"/u.exec(workflow)?.[1]) * 60;
+    const stepAt = workflow.indexOf('id: followup\n');
+    const stepHead = workflow.slice(workflow.lastIndexOf('      - name:', stepAt), stepAt);
+    const stepMinutes = Number(/timeout-minutes: (\d+)/u.exec(stepHead)?.[1]);
+    expect(watchdogSeconds).toBeGreaterThan(0);
+    expect(stepMinutes).toBeGreaterThan(0);
+    expect(FOLLOWUP_SESSION_BATCH_LIMIT)
+      .toBeLessThanOrEqual(FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_PR_COUNT);
+    expect(FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_DURATION_MS).toBeLessThan(6_840_000);
+    expect(FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_DURATION_MS)
+      .toBeLessThan(watchdogSeconds * 1000);
+    expect(watchdogSeconds + CODEX_SETUP_AND_TAIL_SECONDS).toBeLessThan(stepMinutes * 60);
+  });
+
+  it('il cap alla cadenza reale del cron copre il picco di candidati', () => {
+    const hours = Number(/cron: '\d+ \*\/(\d+) \* \* \*'/u.exec(workflow)?.[1]);
+    expect(Number.isFinite(hours) && hours > 0).toBe(true);
+    const capacity = FOLLOWUP_SESSION_BATCH_LIMIT * (24 / hours) * CRON_EXECUTED_RATIO;
+    expect(capacity).toBeGreaterThanOrEqual(PEAK_CANDIDATES_PER_DAY);
   });
 
   it('conta il residuo rinviato senza trasformarlo in un errore di raccolta', () => {
