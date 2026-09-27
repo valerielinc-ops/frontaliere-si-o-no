@@ -6869,6 +6869,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fisioterapia-ticino-moratoria.title': 'Physiotherapy in Ticino: moratorium is not enough, Physioswiss',
     'blog.article.fisioterapia-ticino-moratoria.excerpt': 'In Ticino, outpatient physiotherapy is growing; reimbursements per insured person increased by 42% between 2017 and 2023, and the SUPSI study was delivered in May 2026.',
     'blog.article.fisioterapia-ticino-moratoria.imageAlt': 'Physiotherapist assisting a patient in an outpatient clinic in Lugano with lake view',
+    'blog.article.zurigo-norme-grattacieli-votazione.title': 'Zurich approves stricter regulations for skyscrapers',
+    'blog.article.zurigo-norme-grattacieli-votazione.excerpt': 'Zurich approved the stricter variant of the zoning plan with 62,6% of the vote and a turnout of 45,8%, while the city has around 300 buildings taller than 25 meters.',
+    'blog.article.zurigo-norme-grattacieli-votazione.imageAlt': 'View of Zurich skyline with limited high‑rise zones near railway tracks and Oerlikon',
 };
 
 export default blogMetaChEn;
