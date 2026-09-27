@@ -4,6 +4,8 @@ import {
   buildConflictHandoffIssue,
   conflictHandoffMarker,
   shouldHandOffConflict,
+  agentPrConflictNeedsHandOff,
+  isAgentOwnedPr,
 } from '../scripts/ci/pr-autorebase.mjs';
 
 const SOURCE = readFileSync(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url), 'utf8');
@@ -39,7 +41,7 @@ describe('pr-autorebase — conflitto dopo LGTM affidato a issue-fix (#9260)', (
   });
 
   it('ogni ramo che abortisce un conflitto non auto-risolvibile passa la mano', () => {
-    const aborts = SOURCE.match(/ensureStaleLabel\(num\);\n\s+commentConflictOnce\(num, branch\);\n\s+handOffConflictToFixer\(num, branch, head, lgtm\);/g) || [];
+    const aborts = SOURCE.match(/ensureStaleLabel\(num\);\n\s+commentConflictOnce\(num, branch\);\n\s+handOffConflictToFixer\(num, branch, head, lgtm, \{ agentOwned \}\);/g) || [];
     const bare = SOURCE.match(/commentConflictOnce\(num, branch\);/g) || [];
     expect(aborts.length).toBe(3);
     expect(bare.length).toBe(aborts.length);
@@ -60,5 +62,72 @@ describe('pr-autorebase — hand-off fail-closed (review #1620)', () => {
     expect(routed).toBeGreaterThan(0);
     expect(marker).toBeGreaterThan(routed);
     expect(fn).toMatch(/'issue', 'list'[\s\S]*in:title/);
+  });
+});
+
+describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098)', () => {
+  it('passa la mano anche senza LGTM a una PR agent:autofix, una volta per HEAD', () => {
+    expect(shouldHandOffConflict({ lgtm: false, agentOwned: true, alreadyHandedOff: false })).toBe(true);
+    expect(shouldHandOffConflict({ lgtm: false, agentOwned: true, alreadyHandedOff: true })).toBe(false);
+  });
+
+  it('vale anche nei rami near-merge: stale-review o collision-risk non tolgono la PR al ciclo (review 5331343431)', () => {
+    for (const extra of ['stale-review', 'collision-risk']) {
+      const agentOwned = isAgentOwnedPr(['agent:autofix', extra]);
+      expect(agentOwned).toBe(true);
+      expect(shouldHandOffConflict({ lgtm: false, agentOwned, alreadyHandedOff: false })).toBe(true);
+    }
+    expect(isAgentOwnedPr(['agent:autofix', 'needs-human'])).toBe(false);
+    expect(isAgentOwnedPr(['stale-review'])).toBe(false);
+    // Ogni hand-off di processPR porta lo stesso `agentOwned`: nessuna chiamata lo perde.
+    const processPr = SOURCE.slice(SOURCE.indexOf('async function processPR('));
+    const calls = processPr.match(/handOffConflictToFixer\([^)]*\)/g) || [];
+    expect(calls.length).toBe(4);
+    for (const call of calls) expect(call).toBe('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned })');
+    expect(processPr).toContain('const agentOwned = isAgentOwnedPr(labels);');
+    expect(shouldHandOffConflict({ lgtm: false, agentOwned: false, alreadyHandedOff: false })).toBe(false);
+  });
+
+  it('solo per una PR del ciclo in conflitto accertato, fuori dai rami near-merge e senza needs-human', () => {
+    const agent = ['agent:autofix'];
+    expect(agentPrConflictNeedsHandOff({ conflicted: true, nearMerge: false, labels: agent })).toBe(true);
+    expect(agentPrConflictNeedsHandOff({ conflicted: true, nearMerge: false, labels: [{ name: 'agent:autofix' }, { name: 'has-conflicts' }] })).toBe(true);
+    expect(agentPrConflictNeedsHandOff({ conflicted: true, nearMerge: false, labels: [...agent, 'needs-human'] })).toBe(false);
+    expect(agentPrConflictNeedsHandOff({ conflicted: true, nearMerge: false, labels: ['has-conflicts'] })).toBe(false);
+    // I rami near-merge passano già la mano dopo l'abort del merge.
+    expect(agentPrConflictNeedsHandOff({ conflicted: true, nearMerge: true, labels: agent })).toBe(false);
+    // `null` = merge-tree non verificabile: fail-closed.
+    expect(agentPrConflictNeedsHandOff({ conflicted: null, nearMerge: false, labels: agent })).toBe(false);
+    expect(agentPrConflictNeedsHandOff({ conflicted: false, nearMerge: false, labels: agent })).toBe(false);
+  });
+
+  it('la issue senza LGTM ha un titolo proprio e non promette un contributo approvato', () => {
+    const { title, body } = buildConflictHandoffIssue({
+      num: 10095,
+      branch: 'fix/issue-10082',
+      head: HEAD,
+      files: ['tests/crawler-slice-integrity.test.ts'],
+      lgtm: false,
+    });
+    expect(title).toBe('Conflitto con main: riapplicare la PR #10095 su main');
+    expect(body).toContain('`agent:autofix`');
+    expect(body).toContain('non avvia review');
+    expect(body).toContain('Supersedes #10095');
+    expect(body).not.toContain('aveva un `## LGTM`');
+    expect(body).not.toMatch(/\b(close[sd]?|fix(e[sd])?|resolve[sd]?)\s+#10095\b/i);
+    // Il titolo con LGTM resta quello di prima: le issue già aperte si riusano.
+    expect(buildConflictHandoffIssue({ num: 1, branch: 'b', head: HEAD, files: [] }).title)
+      .toBe('Conflitto con main dopo LGTM: riapplicare la PR #1 su main');
+  });
+
+  it('processPR la chiama nel ramo non near-merge, dopo la rilevazione del conflitto', () => {
+    const processPr = SOURCE.slice(SOURCE.indexOf('async function processPR('));
+    const scan = processPr.indexOf('const conflictScan = reportMainConflict(');
+    const branch = processPr.indexOf('if (!nearMerge) {');
+    const call = processPr.indexOf('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });');
+    expect(scan).toBeGreaterThan(-1);
+    expect(branch).toBeGreaterThan(scan);
+    expect(call).toBeGreaterThan(branch);
+    expect(processPr.slice(branch, call)).toContain('agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels })');
   });
 });

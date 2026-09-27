@@ -1585,16 +1585,44 @@ export function conflictHandoffMarker(head) {
 }
 
 /** Il conflitto merita un agente adesso? Puro: niente rete. */
-export function shouldHandOffConflict({ lgtm, alreadyHandedOff }) {
-  return Boolean(lgtm) && !alreadyHandedOff;
+export function shouldHandOffConflict({ lgtm, agentOwned = false, alreadyHandedOff }) {
+  return (Boolean(lgtm) || Boolean(agentOwned)) && !alreadyHandedOff;
+}
+
+// --- HAND-OFF di una PR del ciclo in conflitto, anche SENZA LGTM (2026-09-27) --
+// «Senza LGTM il conflitto resta un dettaglio del lavoro in corso del suo
+// autore» vale per una PR umana. Per una PR `agent:autofix` l'autore e' il
+// ciclo, e il conflitto lo congela: GitHub non avvia workflow `pull_request*`
+// su una PR in conflitto, quindi niente review e niente 🔴-fixer (#10095: review
+// con 2 🔴 alle 16:25Z, zero run del fixer; #10098 idem). Restavano solo il
+// rescuer dopo 2 h e il recycle dopo 24 h. `needs-human` resta fuori: li' la PR
+// e' gia' in mano a una persona.
+export const AGENT_AUTOFIX_LABEL = 'agent:autofix';
+
+/** PR del ciclo che nessuna persona sta seguendo: il conflitto passa di mano
+ * anche senza LGTM, in qualunque ramo lo si incontri (review 5331343431: con
+ * `stale-review` o `collision-risk` la PR e' near-merge e il conflitto passa
+ * dai tre hand-off dopo l'abort del merge). */
+export function isAgentOwnedPr(labels = []) {
+  const names = labels.map((label) => (typeof label === 'string' ? label : label?.name));
+  return names.includes(AGENT_AUTOFIX_LABEL) && !names.includes('needs-human');
+}
+
+export function agentPrConflictNeedsHandOff({ conflicted, nearMerge, labels = [] }) {
+  return conflicted === true && !nearMerge && isAgentOwnedPr(labels);
 }
 
 /** Titolo stabile e body della issue di hand-off. Puro: niente rete. */
-export function buildConflictHandoffIssue({ num, branch, head, files }) {
+export function buildConflictHandoffIssue({ num, branch, head, files, lgtm = true }) {
   const list = (files || []).slice(0, 30).map((f) => `- \`${f}\``).join('\n') || '- (elenco non disponibile: ricalcolalo con il comando sotto)';
-  const title = `Conflitto con main dopo LGTM: riapplicare la PR #${num} su main`;
+  const title = lgtm
+    ? `Conflitto con main dopo LGTM: riapplicare la PR #${num} su main`
+    : `Conflitto con main: riapplicare la PR #${num} su main`;
+  const opening = lgtm
+    ? `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) aveva un \`## LGTM\` ed e' entrata in conflitto con \`main\`. L'autorebase deterministico ha provato \`git merge origin/main\` e l'unione degli import, poi ha abortito: il conflitto tocca codice, non solo import.`
+    : `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) e' una PR del ciclo (\`agent:autofix\`) senza \`## LGTM\` ed e' in conflitto con \`main\`: con il conflitto GitHub non avvia review ne' 🔴-fixer, quindi nessun altro passo del ciclo la sblocca. I suoi 🔴 aperti tornano alla review della PR nuova.`;
   const body = [
-    `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) aveva un \`## LGTM\` ed e' entrata in conflitto con \`main\`. L'autorebase deterministico ha provato \`git merge origin/main\` e l'unione degli import, poi ha abortito: il conflitto tocca codice, non solo import.`,
+    opening,
     '',
     'File in conflitto:',
     '',
@@ -1608,7 +1636,9 @@ export function buildConflictHandoffIssue({ num, branch, head, files }) {
     '',
     'Se il conflitto e\' gia\' stato risolto sul branch originale (la PR torna mergeable), chiudi questa issue senza PR.',
     '',
-    '_Aperta da pr-autorebase (zero-Claude) al primo conflitto non auto-risolvibile dopo il LGTM._',
+    lgtm
+      ? '_Aperta da pr-autorebase (zero-Claude) al primo conflitto non auto-risolvibile dopo il LGTM._'
+      : '_Aperta da pr-autorebase (zero-Claude) al primo conflitto di una PR del ciclo, che il conflitto congela._',
   ].join('\n');
   return { title, body };
 }
@@ -1734,9 +1764,13 @@ function ghOk(args) {
   }
 }
 
-function handOffConflictToFixer(num, branch, head, lgtm) {
+function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } = {}) {
   const marker = conflictHandoffMarker(head);
-  if (!shouldHandOffConflict({ lgtm, alreadyHandedOff: lgtm && hasCommentMarker(num, marker) })) return;
+  if (!shouldHandOffConflict({
+    lgtm,
+    agentOwned,
+    alreadyHandedOff: (lgtm || agentOwned) && hasCommentMarker(num, marker),
+  })) return;
   // Il ramo chiamante puo' essersi basato su `mergeable=CONFLICTING`, che e'
   // una cache: l'hand-off parte solo se merge-tree conferma ADESSO un
   // conflitto. `clean` o `unknown` → nessuna issue (fail-closed).
@@ -1755,7 +1789,7 @@ function handOffConflictToFixer(num, branch, head, lgtm) {
   if (onMain.state === 'unknown') {
     console.log(`PR #${num}: confronto per blob con main non determinabile (${onMain.reason}) → hand-off invariato.`);
   }
-  const { title, body } = buildConflictHandoffIssue({ num, branch, head, files: verdict.files });
+  const { title, body } = buildConflictHandoffIssue({ num, branch, head, files: verdict.files, lgtm });
   if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
   // Il titolo e' stabile: una issue gia' aperta da un tick precedente (routing
   // fallito, marker non scritto) viene riusata invece di duplicata.
@@ -1786,9 +1820,9 @@ function handOffConflictToFixer(num, branch, head, lgtm) {
     return;
   }
   gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
-    `${marker}\n♻️ **autorebase / conflitto dopo LGTM**: affidato a issue-fix con #${issue}, che riapplica il contributo approvato su \`main\` in una PR nuova. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
+    `${marker}\n♻️ **autorebase / conflitto${lgtm ? ' dopo LGTM' : ' di una PR del ciclo'}**: affidato a issue-fix con #${issue}, che riapplica il contributo${lgtm ? ' approvato' : ''} su \`main\` in una PR nuova. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
   { json: false, allowFail: true });
-  console.log(`PR #${num}: conflitto dopo LGTM → hand-off a issue-fix con #${issue}.`);
+  console.log(`PR #${num}: conflitto${lgtm ? ' dopo LGTM' : ' di una PR del ciclo'} → hand-off a issue-fix con #${issue}.`);
 }
 
 function commentConflictOnce(num, branch) {
@@ -1950,6 +1984,7 @@ async function processPR(pr) {
     labels.includes('collision-risk') ||
     labels.includes('stale-review') ||
     lgtm;
+  const agentOwned = isAgentOwnedPr(labels);
 
   // ── QUARTA classe near-merge: STUCK-RED (2026-08-05) ───────────────────────
   // Le prime tre classi presuppongono che una PR bloccata abbia GIÀ un segnale:
@@ -1996,6 +2031,9 @@ async function processPR(pr) {
   }
 
   if (!nearMerge) {
+    if (agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels })) {
+      handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
+    }
     console.log(`PR #${num} non near-merge (no LGTM/collision-risk/stale-review/stuck-red) — skip del rebase.`);
     return;
   }
@@ -2071,7 +2109,7 @@ async function processPR(pr) {
         console.log(`PR #${num} CONFLICTING non auto-risolvibile (non import-only) → stale-review + comment (recycle).`);
         ensureStaleLabel(num);
         commentConflictOnce(num, branch);
-        handOffConflictToFixer(num, branch, head, lgtm);
+        handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
       }
       return;
     }
@@ -2203,7 +2241,7 @@ async function processPR(pr) {
     console.log(`PR #${num} mergeable=CONFLICTING → label stale-review + comment once.`);
     ensureStaleLabel(num);
     commentConflictOnce(num, branch);
-    handOffConflictToFixer(num, branch, head, lgtm);
+    handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
     return;
   }
 
@@ -2268,7 +2306,7 @@ async function processPR(pr) {
       git(['merge', '--abort'], { allowFail: true });
       ensureStaleLabel(num);
       commentConflictOnce(num, branch);
-      handOffConflictToFixer(num, branch, head, lgtm);
+      handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
       return;
     }
   }
