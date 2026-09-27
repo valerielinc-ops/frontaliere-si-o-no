@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { collapseDuplicateRouteEntries } from '../scripts/lib/expired-jobs-archive.mjs';
-import { MAX_COLLAPSE_PASSES } from '../scripts/lib/expired-jobs-archive.mjs';
+import {
+  collapseDuplicateRouteEntries,
+  MAX_COLLAPSE_PASSES,
+} from '../scripts/lib/expired-jobs-archive.mjs';
 import { localeRouteKeys } from '../scripts/reconcile-crawler-company-ownership.mjs';
 import capRefusedFixture from './__fixtures__/expired-collapse-cap-refused-roche.json';
 import multipassFixture from './__fixtures__/expired-collapse-multipass-coop-ticino.json';
