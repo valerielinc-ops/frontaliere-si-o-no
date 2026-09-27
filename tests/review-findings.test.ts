@@ -77,7 +77,9 @@ describe('identità stabile del finding', () => {
 describe('disposizione non-funnel condivisa', () => {
   it('riconosce solo il suffisso esplicito del contratto', () => {
     expect(isExplicitNonFunnelDisposition('🟡 Nit: commento stale — deferred, non funnel-critical.')).toBe(true);
-    expect(isExplicitNonFunnelDisposition('❓ q: rischio non verificato — deferred.')).toBe(true);
+    expect(isExplicitNonFunnelDisposition('❓ q: rischio non verificato — deferred.')).toBe(false);
+    expect(isExplicitNonFunnelDisposition('❓ q: rischio non verificato — non-funnel-critical.')).toBe(false);
+    expect(isExplicitNonFunnelDisposition('❓ q: rischio non verificato — deferred, non-funnel-critical.')).toBe(false);
     expect(isExplicitNonFunnelDisposition('🟡 Nit: deferred dentro la spiegazione, ma il finding resta aperto.')).toBe(false);
     expect(isExplicitNonFunnelDisposition('🟡 Nit: commento stale — deferred, funnel-critical.')).toBe(false);
   });

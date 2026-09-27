@@ -57,7 +57,7 @@ const MARKER_RE = /(?:🔴|🟡|🟣|❓)[^\n]*/u;
 // contract suffix below. Keep this predicate shared by the review gate and
 // the lessons harvester: counting a Nit that the review contract already says
 // is deferred as a recurring rule failure creates a false escalation.
-const NON_FUNNEL_DISPOSITION_RE = /(?:^|[—–])\s*(?:deferred\s*,\s*)?(?:non[-\s]?funnel(?:[-\s]?critical)?|not[-\s]?funnel(?:[-\s]?critical)?|deferred)\s*[.!]?\s*$/iu;
+const NON_FUNNEL_DISPOSITION_RE = /(?:^|[—–])\s*deferred\s*,\s*non\s+funnel-critical\.\s*$/iu;
 
 export function isExplicitNonFunnelDisposition(text) {
   return NON_FUNNEL_DISPOSITION_RE.test(String(text || ''));
