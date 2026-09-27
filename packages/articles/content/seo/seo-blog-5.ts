@@ -94882,6 +94882,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cultura-gravedona-porlezza': {
+    title: 'Gravedona ed Uniti, Porlezza: 1,5 milioni per la cultura',
+    description: 'Regione Lombardia assegna oltre 1,5 milioni a Gravedona ed Uniti e Porlezza: 502.082 euro alla Chiesa della Madonna della Soledad e 1 milione a Villa Marzorati.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gravedona, uniti, porlezza, milioni',
+    ogTitle: 'Gravedona ed Uniti, Porlezza: 1,5 milioni per la cultura',
+    ogDescription: 'Il bando Progetti Integrati della Cultura 2026-2029 assegna 502.082 euro alla Chiesa della Madonna della Soledad di Gravedona ed Uniti e 1 milione a Villa Marzorati di Porlezza, con Regione Lombardia e Fondazione Cariplo.',
+    canonicalPath: '/articoli-frontaliere/cultura-gravedona-porlezza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gravedona ed Uniti, Porlezza: 1,5 milioni per la cultura",
+      "description": "Regione Lombardia assegna oltre 1,5 milioni a Gravedona ed Uniti e Porlezza: 502.082 euro alla Chiesa della Madonna della Soledad e 1 milione a Villa Marzorati.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cultura-gravedona-porlezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiesa della Madonna della Soledad e Villa Marzorati al centro di un investimento culturale"
+      },
+      "datePublished": "2026-09-27T03:28:29+00:00",
+      "dateModified": "2026-09-27T03:28:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cultura-gravedona-porlezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
