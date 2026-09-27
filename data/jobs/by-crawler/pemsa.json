@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-09-26T23:43:02.972Z",
+  "assembledAt": "2026-09-27T15:01:11.130Z",
   "jobs": [
     {
       "title": "Addetto/a alla vendita in macelleria (m/f/d)",
@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alla-vendita-in-macelleria-m-f-d-pemsa-basel",
-        "en": "addetto-a-alla-vendita-in-macelleria-m-f-d-pemsa-basel",
-        "de": "addetto-a-alla-vendita-in-macelleria-m-f-d-pemsa-basel",
-        "fr": "addetto-a-alla-vendita-in-macelleria-m-f-d-pemsa-basel"
+        "en": "associate-alla-sales-in-macelleria-m-f-d-pemsa-basel",
+        "de": "mitarbeiter-in-alla-verkauf-in-macelleria-m-f-d-pemsa-basel",
+        "fr": "prepose-e-alla-vente-in-macelleria-m-f-d-pemsa-basel"
       },
       "id": "pemsa-efa7a6f0d2be",
       "salaryMin": 76000,
@@ -498,8 +498,8 @@
       "description": "Sei un carpentiere per passione e desideri mettere alla prova le tue capacità artigianali in nuovi progetti? Per conto di uno dei nostri clienti nella regione di Basilea, PEMSA Basel è alla ricerca di un carpentiere EFZ / EBA (m/f/d) motivato. Ti aspettano mansioni variegate nell’ambito delle costruzioni in legno, una quotidianità in cantiere ricca di diversità e la possibilità di mettere attivamente a frutto la tua esperienza. Non vediamo l’ora di conoscerti!\n\n## Mansioni\n• Esecuzione di lavori di carpenteria in nuove costruzioni, ampliamenti e ristrutturazioni\n• Realizzazione e montaggio di strutture in legno ed elementi prefabbricati\n• Montaggio di capriate e esecuzione di lavori di copertura\n• Collaborazione ai lavori di rifinitura delle facciate e di finitura interna\n• Attuazione di progetti edilizi e disegni tecnici\n• Esecuzione autonoma e a regola d’arte dei lavori in cantiere\n\n## Profilo richiesto\n• Formazione completata come carpentiere AFC / AEP o qualifica equivalente\n• Esperienza pratica nell’edilizia in legno\n• Buona conoscenza del tedesco\n• Patente di guida di categoria B\n• Abilità manuali e buona percezione spaziale\n• Approccio al lavoro autonomo, meticoloso e affidabile\n• Resistenza fisica, assenza di vertigini e capacità di lavorare in squadra\n\n## Cosa offriamo?\n• Retribuzione equa in base alle qualifiche e all’incarico\n• Possibilità di incarichi a lungo termine\n• Assistenza personalizzata da parte di PEMSA Basilea\n• Sostegno alla formazione professionale continua\n• Accompagnamento competente durante l’intero incarico",
       "titleByLocale": {
         "it": "Carpentiere AFC / AEC (m/f/d)",
-        "de": "Carpentiere AFC / AEC (m/f/d)",
         "en": "Carpentiere AFC / AEC (m/f/d)",
+        "de": "Carpentiere AFC / AEC (m/f/d)",
         "fr": "Carpentiere AFC / AEC (m/f/d)"
       },
       "descriptionByLocale": {
@@ -633,7 +633,6 @@
         "fr": "peintre-pittora-qualifie-pemsa-geneve"
       },
       "id": "pemsa-3d53e819eb37",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -751,7 +750,6 @@
         "fr": "installateur-de-panneaux-electriques-h-f-d-pemsa-geneve"
       },
       "id": "pemsa-24f6acfd29cf",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -5870,7 +5868,6 @@
         "fr": "machine-a-souder-les-tubes-sur-place-pemsa-torricella"
       },
       "id": "pemsa-cf60a9ee2b7b",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -9476,17 +9473,17 @@
       },
       "firstSeenAt": "2026-09-19T23:01:40.902Z",
       "previousSlugsByLocale": {
-        "it": [
-          "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel"
-        ],
         "de": [
           "installation-von-vorhangen-und-rollladen-efz-eba-m-w-d-pemsa-basel",
+          "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel"
+        ],
+        "it": [
           "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel",
-        "installation-von-vorhangen-und-rollladen-efz-eba-m-w-d-pemsa-basel"
+        "installation-von-vorhangen-und-rollladen-efz-eba-m-w-d-pemsa-basel",
+        "installatore-di-tende-e-tapparelle-efz-eba-m-f-d-pemsa-basel"
       ]
     },
     {
@@ -14258,7 +14255,6 @@
         "fr": "installation-idraulique-pemsa-torricella"
       },
       "id": "pemsa-c09d5f9f2c76",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -18219,7 +18215,6 @@
         "fr": "electricien-qualifie-et-autonome-pemsa-rossens-fr"
       },
       "id": "pemsa-2877d50ac71e",
-      "needsRetranslation": true,
       "salaryMin": 76500,
       "salaryMax": 97000,
       "currency": "CHF",

@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-09-26T23:29:21.365Z",
+  "generatedAt": "2026-09-27T14:49:33.198Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,10 +12,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18869,
-  "avgDurationMs": 18869,
+  "durationMs": 13224,
+  "avgDurationMs": 13224,
   "durationHistory": [
-    18869
+    13224
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:29:12.732Z",
+      "crawledAt": "2026-09-27T14:49:24.732Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -45,6 +45,7 @@
       "featured": false,
       "postedDate": "2026-09-04",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:27:54.190Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -66,7 +67,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:29:13.377Z",
+      "crawledAt": "2026-09-27T14:49:25.340Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -80,6 +81,7 @@
       "featured": false,
       "postedDate": "2026-09-03",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T13:32:40.044Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -101,7 +103,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:29:14.033Z",
+      "crawledAt": "2026-09-27T14:49:25.930Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -115,6 +117,7 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T09:03:23.277Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
