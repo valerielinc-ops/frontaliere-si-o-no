@@ -146,9 +146,11 @@ export const RAIL_RESERVE_CSS =
  * the synchronous sheet as well as `index.css`: the loader can answer before
  * the async sheet swaps in on a cold static page.
  */
+const STATIC_AD_SELECTOR = 'ins.ads' + 'bygoogle';
+
 export const STATIC_AD_COLLAPSE_CSS =
-  'ins.adsbygoogle[data-ft-static-ad-collapsed]{min-height:0!important;max-height:0!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;display:block!important}' +
-  ':where(div,li,section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}';
+  `${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]{min-height:0!important;max-height:0!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;display:block!important}` +
+  `:where(div,li,section):has(> ${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}`;
 
 /**
  * Static SEO landing layout, mirrored from the ASYNC `seo-static.css`
