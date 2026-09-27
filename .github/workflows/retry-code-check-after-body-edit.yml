@@ -358,12 +358,66 @@ jobs:
               return Number.isSafeInteger(attempt) && attempt > 0 ? attempt : null;
             }
             const INTERRUPTED_CONCLUSIONS = ['cancelled', 'timed_out'];
+            // tests.yml reads the PR body only through the API, from inside its
+            // jobs (body preflight, review input revision). An attempt whose
+            // every job started strictly after the last body edit has already
+            // judged the current body: rerunning it buys the same verdict twice
+            // (PR #10127: body edited 17:46:12Z, vitest job started 17:47:56Z,
+            // then a full rerun delayed the merge by nine minutes). Any missing
+            // timestamp, or a job started in the same second, keeps the rerun.
+            async function bodyEditSnapshot(number) {
+              const { data: current } = await github.rest.pulls.get({ ...repo, pull_number: number });
+              const edited = await github.graphql(`
+                query($owner:String!,$name:String!,$number:Int!){
+                  repository(owner:$owner,name:$name){pullRequest(number:$number){lastEditedAt}}
+                }
+              `, { owner: repo.owner, name: repo.repo, number });
+              return {
+                headSha: String(current?.head?.sha || ''),
+                bodyRevision: BODY_REVISION(current?.body),
+                editedAt: Date.parse(edited?.repository?.pullRequest?.lastEditedAt || ''),
+              };
+            }
+            async function attemptStartedAfterLastBodyEdit(number, pr, run, state) {
+              const attempt = validRunAttempt(run?.run_attempt);
+              if (attempt === null || !Number.isSafeInteger(Number(run?.id))) return false;
+              // The marker must already name this body: an edit whose handler
+              // is still queued in this PR's concurrency lane is not judged yet.
+              const expectedRevision = BODY_REVISION(pr.body);
+              const before = await bodyEditSnapshot(number);
+              if (!Number.isFinite(before.editedAt)
+                  || before.headSha !== pr.head.sha
+                  || before.bodyRevision !== expectedRevision
+                  || state?.bodyRevision !== expectedRevision) return false;
+              const jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRunAttempt, {
+                ...repo, run_id: Number(run.id), attempt_number: attempt, per_page: 100,
+              });
+              const executed = jobs.filter(job => job?.conclusion !== 'skipped');
+              if (executed.length === 0
+                  || !executed.every(job => Date.parse(job?.started_at || '') > before.editedAt)) return false;
+              // Re-read right before the caller completes the epoch: an edit that
+              // landed meanwhile leaves it pending for a rerun. A later edit still
+              // meets the native gate, which denies a marker whose body revision
+              // is not the current one, and this lane's serialized edit handler.
+              const after = await bodyEditSnapshot(number);
+              return after.headSha === before.headSha
+                && after.bodyRevision === before.bodyRevision
+                && after.editedAt === before.editedAt;
+            }
             async function retryReasonForCompletedRun(number, pr, latest, existing = null) {
               // A body edit cannot repair a code/test or provider failure. A
               // completed green run still needs one revalidation because the
-              // body is part of the trusted review input; red runs are
-              // retried only when the failed steps prove a body/review cause.
+              // body is part of the trusted review input, unless the attempt
+              // itself started after the last edit; red runs are retried only
+              // when the failed steps prove a body/review cause.
               if (latest.conclusion === 'success') {
+                // Only a durable marker can be completed and dispatched without
+                // a rerun; without one the edit handler has just revoked the
+                // native opt-in and the rerun is what brings the PR back.
+                if (existing?.state && await attemptStartedAfterLastBodyEdit(number, pr, latest, existing.state)) {
+                  core.info(`Run ${latest.id} attempt ${latest.run_attempt} started every job after the last body edit: current body already validated, no rerun.`);
+                  return '';
+                }
                 return 'the PR body changed; revalidate the review input revision';
               }
               if (INTERRUPTED_CONCLUSIONS.includes(latest.conclusion)) {

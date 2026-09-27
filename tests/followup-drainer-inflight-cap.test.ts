@@ -11,7 +11,7 @@
  *
  * Dal 2026-09-04 il tetto è `FOLLOWUP_MAX_INFLIGHT_FIX` e il drain riempie gli
  * slot liberi invece di promuovere sempre uno solo. Il default locale è 5: è il
- * massimo misurato come stabile dalla flotta locale; il workflow remoto usa 10.
+ * massimo misurato come stabile dalla flotta locale; il workflow remoto usa 15.
  * `=3` resta un override più prudente.
  *
  * Quel tetto è rimasto nominale fino al 2026-09-05: `issue-fix.yml` serializzava
@@ -113,9 +113,9 @@ beforeEach(() => {
 });
 
 describe('cap delle run issue-fix in volo', () => {
-  it('il workflow remoto configura dieci slot e lascia 5 solo come fallback locale', () => {
+  it('il workflow remoto configura quindici slot e lascia 5 solo come fallback locale', () => {
     const workflow = readFileSync(DRAINER_WORKFLOW, 'utf8');
-    expect(workflow).toMatch(/FOLLOWUP_MAX_INFLIGHT_FIX:\s*'10'/);
+    expect(workflow).toMatch(/FOLLOWUP_MAX_INFLIGHT_FIX:\s*'15'/);
   });
 
   it('col default promuove fino a 5 quando gli slot sono vuoti e la coda è lunga', async () => {
