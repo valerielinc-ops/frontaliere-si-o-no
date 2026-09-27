@@ -12097,6 +12097,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.title': 'Plaint pour déchets dans le lac Majeur à Brezzo di Bedero',
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.excerpt': 'Les Carabiniers forestiers dénoncent un propriétaire : des gravats jetés depuis la terrasse dans l’eau à 7-13 mètres de profondeur.',
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.imageAlt': 'Débris de construction et gravats au fond du lac Majeur à Brezzo di Bedero',
+    'blog.article.finissage-turner-como.title': 'Turner à Côme : finissage en soirée gratuit le 27 septembre',
+    'blog.article.finissage-turner-como.excerpt': 'Le 27 septembre 2026 à Como le finissage des Chefs-d\' œuvre de la Tate : entrée libre de 18h à 21h, dernière entrée à 20h30.',
+    'blog.article.finissage-turner-como.imageAlt': 'Finissage nocturne gratuit des chefs-d\'oeuvre de la Tate à Côme (Como)',
 };
 
 export default blogMetaFr;

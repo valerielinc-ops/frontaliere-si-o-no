@@ -11,6 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { lineAt } from './line-at.mjs';
 
 export const RISK_CLASSES = Object.freeze([
   'repository-write',
@@ -62,7 +63,7 @@ function removeComments(source) {
 }
 
 function lineFor(source, index) {
-  return source.slice(0, index).split('\n').length;
+  return lineAt(source, index);
 }
 
 function signalEvidence(source, signal) {

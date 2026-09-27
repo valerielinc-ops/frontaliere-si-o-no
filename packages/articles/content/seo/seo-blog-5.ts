@@ -94765,6 +94765,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finissage-turner-como': {
+    title: 'Turner a Como: finissage serale gratuito il 27 settembre',
+    description: 'Il 27 settembre 2026 a Como finissage gratuito dei Capolavori dalla Tate: Turner, Lambie e Batchelor in mostra, dalle 18 alle 21; ultimo ingresso 20:30.',
+    keywords: 'frontalieri, ticino, svizzera, italia, turner, como, finissage, serale',
+    ogTitle: 'Como, finissage gratuito per i Capolavori dalla Tate',
+    ogDescription: 'Il 27 settembre 2026 Como chiude i Capolavori dalla Tate con ingresso libero dalle 18:00 alle 21:00. Turner è al Broletto e in Pinacoteca civica; Lambie e Batchelor a San Pietro in Atrio. Ultimo ingresso alle 20:30.',
+    canonicalPath: '/articoli-frontaliere/finissage-turner-como',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Turner a Como: finissage serale gratuito il 27 settembre",
+      "description": "Il 27 settembre 2026 a Como finissage gratuito dei Capolavori dalla Tate: Turner, Lambie e Batchelor in mostra, dalle 18 alle 21; ultimo ingresso 20:30.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finissage-turner-como.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Finissage serale gratuito dei Capolavori dalla Tate a Como"
+      },
+      "datePublished": "2026-09-27T01:34:42+00:00",
+      "dateModified": "2026-09-27T01:34:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/finissage-turner-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
