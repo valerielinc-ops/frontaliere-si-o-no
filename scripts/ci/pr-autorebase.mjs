@@ -528,13 +528,53 @@ function pushBranch(branch) {
   );
 }
 
-/** Una review claude-bot con `## LGTM` (su qualunque commit)? */
-function hasLgtmReview(num) {
+/**
+ * Verdetto dell'ULTIMA review del bot di review: quella più recente sulla HEAD
+ * corrente se esiste, altrimenti la più recente in assoluto (HEAD appena
+ * rebasata, review non ancora arrivata: vale ancora l'ultimo giudizio).
+ *
+ * Prima contava un `## LGTM` su QUALUNQUE commit passato: una PR con un LGTM
+ * vecchio e un 🔴 su ogni HEAD successiva restava «quasi pronta» per sempre,
+ * e ogni avanzamento di main la ribasava (vitest rosso dal gate di review →
+ * `rebaseActionForLgtmPr` = rebase) → nuova HEAD → nuova review → 🔴. Misurato
+ * su #9959: 45 merge di main in 24h, 43 review Codex, ~27% dei minuti CI.
+ *
+ * @returns {'lgtm'|'blocking'|'none'|'unknown'} `unknown` = API illeggibile.
+ */
+export function latestReviewerVerdict(reviews, head) {
+  if (!Array.isArray(reviews)) return 'unknown';
+  const bot = reviews
+    .map((review, index) => ({ review, index }))
+    .filter(({ review }) => review && isReviewerBot(review.user));
+  if (!bot.length) return 'none';
+  const onHead = bot.filter(({ review }) => head && review.commit_id === head);
+  const pool = onHead.length ? onHead : bot;
+  const at = ({ review }) => {
+    const t = Date.parse(review.submitted_at || '');
+    return Number.isFinite(t) ? t : Number.NEGATIVE_INFINITY;
+  };
+  // Ordine cronologico per `submitted_at`; a parità (o se manca a entrambe)
+  // vince la posizione successiva nell'API, che è già cronologica.
+  const latest = pool.reduce((best, cur) => (at(cur) - at(best) < 0 ? best : cur));
+  return String(latest.review.body || '').includes('## LGTM') ? 'lgtm' : 'blocking';
+}
+
+/**
+ * `needs-human` resta tracking, NON un veto generico: una PR ferma su un rosso
+ * ereditato da main (#6253/#6254/#6255) va ancora ri-testata. Diventa veto solo
+ * insieme a un ultimo verdetto BLOCCANTE (o illeggibile: attendere è sicuro,
+ * ribasare alla cieca no): lì il merge di main non cambia il verdetto, genera
+ * solo una HEAD nuova, una review nuova e un altro giro del 🔴-fixer — che il
+ * round cap per-HEAD non conta mai oltre «round 1/3».
+ */
+export function needsHumanBlocksAutorebase({ labels = [], verdict }) {
+  const hasNeedsHuman = labels.some((label) => (typeof label === 'string' ? label : label?.name) === 'needs-human');
+  return hasNeedsHuman && (verdict === 'blocking' || verdict === 'unknown');
+}
+
+function readReviewerVerdict(num, head) {
   const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
-  if (!Array.isArray(reviews)) return false;
-  return reviews.some(
-    (r) => isReviewerBot(r.user) && (r.body || '').includes('## LGTM')
-  );
+  return latestReviewerVerdict(reviews, head);
 }
 
 /** Esiste ALMENO una review claude-bot (LGTM o 🔴, qualunque esito)? Serve a
@@ -1789,12 +1829,14 @@ async function processPR(pr) {
     }
   }
 
-  // `needs-human` è un marker di tracking/escalation. Non è un gate di questo
-  // flusso: se la PR è eleggibile per autorebase, rebase e dispatch seguono i
-  // normali segnali `## LGTM`, `collision-risk`, `stale-review` e stuck-red.
+  // `needs-human` da solo è un marker di tracking/escalation, non un gate di
+  // questo flusso. Lo diventa solo con un ultimo verdetto bloccante: vedi
+  // `needsHumanBlocksAutorebase`, applicato dopo la rilevazione conflitti.
 
-  // GATE frugalità: solo near-merge.
-  const lgtm = hasLgtmReview(num);
+  // GATE frugalità: solo near-merge. Conta l'ULTIMO verdetto del reviewer,
+  // non un LGTM qualsiasi della storia della PR (`latestReviewerVerdict`).
+  const reviewerVerdict = readReviewerVerdict(num, head);
+  const lgtm = reviewerVerdict === 'lgtm';
   let nearMerge =
     labels.includes('collision-risk') ||
     labels.includes('stale-review') ||
@@ -1833,6 +1875,14 @@ async function processPR(pr) {
     // first write (stuck-red comment, dispatch, edit, reopen, or push) and
     // let the next tick retry the read-only scan with fresh refs.
     console.log(`PR #${num}: conflitto non verificabile → rinvio ogni azione questo tick.`);
+    return;
+  }
+
+  // Veto `needs-human` + verdetto bloccante: DOPO la rilevazione conflitti
+  // (sola lettura + label, resta utile a chi interviene a mano) e PRIMA di
+  // ogni scrittura sul branch (stuck-red, heal, merge, push, reopen).
+  if (needsHumanBlocksAutorebase({ labels, verdict: reviewerVerdict })) {
+    console.log(`::notice::PR #${num} needs-human con ultimo verdetto del reviewer ${reviewerVerdict} → nessun rebase automatico: il merge di main non cambia il verdetto, genererebbe solo un'altra review.`);
     return;
   }
 
