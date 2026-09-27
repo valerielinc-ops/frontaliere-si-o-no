@@ -5,9 +5,9 @@
   "platform": "refline.ch",
   "mode": "jsonld",
   "seedUrls": [
-    "https://apply.refline.ch/968123/1468/pub/de/index.html"
+    "https://apply.refline.ch/968123/1468/pub/5/index.html"
   ],
-  "detailTemplate": "/968123/1468/pub/de/index.html",
+  "detailTemplate": "/968123/1468/pub/*/index.html",
   "detailEnrichment": false,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,

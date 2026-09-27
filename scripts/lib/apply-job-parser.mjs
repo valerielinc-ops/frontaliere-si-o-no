@@ -2,7 +2,7 @@
 /**
  * LEITpuls AG job parser — Fetcher and job builder.
  *
- * Source: https://apply.refline.ch/968123/1468/pub/de/index.html
+ * Source: https://apply.refline.ch/968123/1468/pub/5/index.html
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllApplyJobs()  — Fetch and parse all jobs
@@ -23,7 +23,7 @@ export const APPLY_KEY = 'apply';
 export const APPLY_COMPANY_NAME = 'LEITpuls AG';
 export const APPLY_COMPANY_DOMAIN = 'apply.refline.ch';
 
-const CAREER_URL = 'https://apply.refline.ch/968123/1468/pub/de/index.html';
+const CAREER_URL = 'https://apply.refline.ch/968123/1468/pub/5/index.html';
 const APPLY_PATH = '/968123/1468';
 
 /* ── Helpers ───────────────────────────────────────────────── */
