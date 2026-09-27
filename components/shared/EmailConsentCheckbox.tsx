@@ -10,6 +10,8 @@ export interface EmailConsentCheckboxProps {
   consentKey: ConsentTextKey;
   className?: string;
   noticeClassName?: string;
+  collapsible?: boolean;
+  summary?: React.ReactNode;
 }
 
 /**
@@ -23,14 +25,29 @@ export default function EmailConsentCheckbox({
   consentKey,
   className,
   noticeClassName,
+  collapsible = false,
+  summary,
 }: EmailConsentCheckboxProps) {
   return (
     <div id={id} className={className ?? 'block'}>
-      <ConsentNotice
-        consentKey={consentKey}
-        locale={locale}
-        className={noticeClassName ?? 'text-xs text-muted leading-relaxed'}
-      />
+      {collapsible ? (
+        <details>
+          <summary className="cursor-pointer text-xs font-medium text-accent hover:underline">
+            {summary}
+          </summary>
+          <ConsentNotice
+            consentKey={consentKey}
+            locale={locale}
+            className={noticeClassName ?? 'mt-2 block text-xs text-muted leading-relaxed'}
+          />
+        </details>
+      ) : (
+        <ConsentNotice
+          consentKey={consentKey}
+          locale={locale}
+          className={noticeClassName ?? 'text-xs text-muted leading-relaxed'}
+        />
+      )}
     </div>
   );
 }

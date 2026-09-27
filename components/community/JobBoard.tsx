@@ -9766,9 +9766,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isInHouseApply = applyMode === 'in_house' || applyMode === 'forward_email';
  const renderApplicationIntentConsent = (className = 'mt-2 text-xs text-muted') => (
   isExternalApplicationJob(selectedJob) ? (
-   <p className={className} data-testid="application-intent-consent">
-    {t('jobBoard.applicationIntentConsent')}
-   </p>
+   <a
+    href="#application-intent-disclosure"
+    className={`${className} inline-block text-accent underline underline-offset-2 hover:text-accent-hover`}
+    data-testid="application-intent-link"
+   >
+    {t('jobBoard.applicationIntentDetails')}
+   </a>
+  ) : null
+ );
+ const renderApplicationIntentDisclosure = () => (
+  isExternalApplicationJob(selectedJob) ? (
+   <section
+    id="application-intent-disclosure"
+    aria-labelledby="application-intent-disclosure-title"
+    className="scroll-mt-24 mt-4 rounded-2xl border border-edge bg-surface-alt p-4 sm:p-5"
+   >
+    <h2 id="application-intent-disclosure-title" className="text-sm font-bold font-display text-heading">
+     {t('jobBoard.applicationIntentDetails')}
+    </h2>
+    <p className="mt-2 text-xs leading-relaxed text-muted" data-testid="application-intent-consent">
+     {t('jobBoard.applicationIntentConsent')}
+    </p>
+   </section>
   ) : null
  );
  // Publisher / sponsored ad: a paid submission carries a `publisherJobId`. Used
@@ -10062,6 +10082,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {sectorContextWidget && (
  <div className="mt-3">{sectorContextWidget}</div>
  )}
+ {renderApplicationIntentDisclosure()}
  </article>
  {detailAlertCtaJsx}
  {jobDetailPromptJsx}
@@ -10267,7 +10288,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
          alert slots.
          One control, moved. */}
  {companyFollowCta(selectedJob, 'company_follow_button')}
- {renderApplicationIntentConsent()}
  </header>
 
  <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
@@ -10481,6 +10501,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  injected by services/seoService.ts (content-parity rule, CLAUDE.md §
  Static SEO Pages). Collapsed by default: prose FAQ sits below the
  action/data area per the mobile-first content-order rule. */}
+ {renderApplicationIntentDisclosure()}
  {jobFaqPairs.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
  <h2 className="text-base font-bold font-display text-heading">{t('jobBoard.faq.title')}</h2>
