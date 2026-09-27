@@ -15,7 +15,8 @@ const brefispersonalSpec = JSON.parse(
 describe('brefis personal ag crawler parser', () => {
   describe('promoted prospector spec', () => {
     it('uses the vacancy index and variable detail template', () => {
-      expect(brefispersonalSpec.seedUrls).toEqual(['https://brefispersonal.ch/Vacancyboard/']);
+      expect(brefispersonalSpec.companyHost).toBe('brefis.ch');
+      expect(brefispersonalSpec.seedUrls).toEqual(['https://brefis.ch/Vacancyboard/']);
       expect(brefispersonalSpec.mode).toBe('template');
       expect(brefispersonalSpec.detailTemplate).toBe('/Vacancyboard/Detail/#');
       expect(brefispersonalSpec.detailEnrichment).toBe(true);
@@ -40,6 +41,7 @@ describe('brefis personal ag crawler parser', () => {
     });
 
     it('matches by URL domain', () => {
+      expect(isBrefispersonalJob({ url: 'https://brefis.ch/Vacancyboard/Detail/46980' })).toBe(true);
       expect(isBrefispersonalJob({ url: 'https://brefispersonal.ch/jobs/123' })).toBe(true);
     });
 
@@ -57,11 +59,12 @@ describe('brefis personal ag crawler parser', () => {
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
     it('trusts primary domain', () => {
-      expect(isTrustedDomain('https://brefispersonal.ch/careers/job-123')).toBe(true);
+      expect(isTrustedDomain('https://brefis.ch/Vacancyboard/Detail/46980')).toBe(true);
     });
 
     it('trusts subdomains', () => {
-      expect(isTrustedDomain('https://careers.brefispersonal.ch/job/456')).toBe(true);
+      expect(isTrustedDomain('https://careers.brefis.ch/Vacancyboard/Detail/46980')).toBe(true);
+      expect(isTrustedDomain('https://brefispersonal.ch/jobs/123')).toBe(true);
     });
 
     it('rejects other domains', () => {
@@ -110,7 +113,7 @@ describe('brefis personal ag crawler parser', () => {
       descriptionByLocale: { de: 'A test job description for validation.' },
       location: 'Lugano',
       canton: 'TI',
-      url: 'https://brefispersonal.ch/jobs/test',
+      url: 'https://brefis.ch/Vacancyboard/Detail/46980',
       source: 'brefis personal ag Dedicated Parser',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
