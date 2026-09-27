@@ -41,6 +41,9 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseConvitListingPage,
+  isConvitListingPage,
+  extractConvitListingCodes,
+  createConvitListingSourceValidator,
   parseConvitDetailPage,
   buildConvitLocalizedContent,
   isConvitSwissRelevant,
@@ -138,38 +141,54 @@ function inferCategory(title = '') {
   return 'finance';
 }
 
-async function fetchAllListings() {
+export async function fetchAllListings({ fetchPage = fetchText, sleepFn = sleep } = {}) {
   console.log('🔍 Fetching Convit listing page...');
 
   // Manatal paginates — fetch multiple pages until no more jobs
   const allItems = [];
+  const listedCodes = new Set();
   const seenCodes = new Set();
   let page = 1;
+  let terminalPageFound = false;
 
   while (true) {
     const url = page === 1 ? CAREERS_URL : `${CAREERS_URL}?page=${page}`;
     console.log(`  📄 Page ${page}: ${url}`);
     let html;
     try {
-      html = await fetchText(url);
+      html = await fetchPage(url);
     } catch (err) {
       console.log(`  ⚠️ Page ${page} fetch failed: ${err.message}`);
-      break;
+      // A partial page walk is not an authoritative source snapshot. Let the
+      // crawler boundary preserve the previous slice instead of treating the
+      // pages fetched so far as the employer's complete inventory.
+      throw err;
     }
+    if (!isConvitListingPage(html)) {
+      throw new Error(`Convit listing page ${page} returned an unrecognized or degraded HTML document`);
+    }
+    const pageCodes = extractConvitListingCodes(html);
+    for (const code of pageCodes) listedCodes.add(code);
     const items = parseConvitListingPage(html);
     const newItems = items.filter((item) => !seenCodes.has(item.code));
-    if (newItems.length === 0) break;
+    if (pageCodes.length === 0) {
+      terminalPageFound = true;
+      break;
+    }
+    if (newItems.length === 0) {
+      throw new Error(`Convit listing page ${page} was non-empty but added no new vacancy codes`);
+    }
     for (const item of newItems) {
       seenCodes.add(item.code);
       allItems.push(item);
     }
     console.log(`     Found ${newItems.length} new jobs (total: ${allItems.length})`);
     page += 1;
-    await sleep(DETAIL_DELAY_MS);
+    await sleepFn(DETAIL_DELAY_MS);
   }
 
   console.log(`📋 Total unique listings: ${allItems.length}`);
-  return allItems;
+  return { items: allItems, complete: terminalPageFound, listedCodes: [...listedCodes] };
 }
 
 async function enrichWithDetails(listings) {
@@ -353,7 +372,11 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const listings = await fetchAllListings();
+  const {
+    items: listings,
+    complete: listingSnapshotComplete,
+    listedCodes,
+  } = await fetchAllListings();
   if (listings.length === 0) {
     console.log('⚠️ No listings found on Convit careers page — skipping.');
     return;
@@ -407,7 +430,16 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, { isTargetJob });
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    // The listing walk is complete only when every requested page was fetched
+    // and every response had the Convit source shell. This source-level proof
+    // handles stale detail URLs without weakening the global shrink threshold.
+    validate: createConvitListingSourceValidator(listings, {
+      complete: listingSnapshotComplete,
+      listedCodes,
+    }),
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Convit Holding',
@@ -428,4 +460,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Convit Holding'));
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((err) => exitCrawlerOnError(err, 'Convit Holding'));
+}
