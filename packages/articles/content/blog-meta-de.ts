@@ -12094,6 +12094,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.title': 'Wegen Abfällen im Lago Maggiore in Brezzo di Bedero angezeigt',
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.excerpt': 'Carabinieri Forestali zeigen Eigentümer an: Trümmer von der Terrasse in 7-13 Metern Tiefe ins Wasser geworfen.',
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.imageAlt': 'Bauschutt und Trümmer am Grund des Lago Maggiore in Brezzo di Bedero',
+    'blog.article.finissage-turner-como.title': 'Turner in Como: kostenloses Abendfinissage am 27. September',
+    'blog.article.finissage-turner-como.excerpt': 'Am 27. September 2026 um Como die Finissage der Meisterwerke von der Tate: freier Eintritt von 18 bis 21 Uhr, letzter Eintritt um 20:30 Uhr.',
+    'blog.article.finissage-turner-como.imageAlt': 'Kostenlose Abend-Finissage der Tate-Meisterwerke in Como',
 };
 
 export default blogMetaDe;

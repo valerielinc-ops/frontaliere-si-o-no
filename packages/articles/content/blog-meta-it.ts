@@ -12096,6 +12096,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.title': 'Denunciato per rifiuti nel lago Maggiore a Brezzo di Bedero',
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.excerpt': 'Carabinieri Forestali denunciano proprietario: macerie dalla terrazza gettate in acqua a 7-13 metri di profondità.',
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.imageAlt': 'Detriti edili e macerie sul fondale del lago Maggiore a Brezzo di Bedero',
+    'blog.article.finissage-turner-como.title': 'Turner a Como: finissage serale gratuito il 27 settembre',
+    'blog.article.finissage-turner-como.excerpt': 'Il 27 settembre 2026 a Como il finissage dei Capolavori dalla Tate: ingresso libero dalle 18 alle 21, ultimo ingresso alle 20:30.',
+    'blog.article.finissage-turner-como.imageAlt': 'Finissage serale gratuito dei Capolavori dalla Tate a Como',
 };
 
 export default blogMetaIt;
