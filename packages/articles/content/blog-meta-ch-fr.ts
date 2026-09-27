@@ -6866,6 +6866,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sanita-alta-engadina-samedan.title': 'Upper Engadine Healthcare : accords approuvés jusqu\'en 2029',
     'blog.article.sanita-alta-engadina-samedan.excerpt': 'Le vote des onze communes assure près de 28,5 millions de francs pour l’hôpital de Samedan, les maisons de retraite, Spitex et l’organisme Sanadura de 2027 à 2029.',
     'blog.article.sanita-alta-engadina-samedan.imageAlt': 'Établissement de santé dans un environnement alpin suisse',
+    'blog.article.fisioterapia-ticino-moratoria.title': 'Physiothérapie au Tessin : le moratoire ne suffit pas, Physioswiss',
+    'blog.article.fisioterapia-ticino-moratoria.excerpt': 'Au Tessin, la physiothérapie ambulatoire progresse ; les remboursements par assuré ont augmenté de 42 % entre 2017 et 2023 et l’étude SUPSI a été remise en mai 2026.',
+    'blog.article.fisioterapia-ticino-moratoria.imageAlt': 'Kinésithérapeute assistant un patient dans une clinique ambulatoire à Lugano avec vue sur le lac',
 };
 
 export default blogMetaChFr;

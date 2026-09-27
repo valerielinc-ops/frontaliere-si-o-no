@@ -2311,6 +2311,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'votazioni-ginevra-contraccezione-libera': { it: 'votazioni-ginevra-contraccezione-libera', en: 'geneva-vote-free-contraception', de: 'genfer-abstimmung-kostenlose-verhutung', fr: 'vote-geneve-contraception-gratuite' },
  'zurigo-suicidio-assistito': { it: 'zurigo-suicidio-assistito', en: 'zurich-assisted-suicide-facilities', de: 'zuerich-assistierter-suizid', fr: 'zurich-suicide-assiste' },
  'sanita-alta-engadina-samedan': { it: 'sanita-alta-engadina-samedan', en: 'upper-engadine-healthcare-samedan', de: 'oberengadin-gesundheitswesen-samedan', fr: 'sante-haute-engadine-samedan' },
+ 'fisioterapia-ticino-moratoria': { it: 'fisioterapia-ticino-moratoria', en: 'physiotherapy-in-ticino-moratorium-is-not-enough-physioswiss', de: 'physiotherapie-im-tessin-moratorium-reicht-nicht-aus-physioswiss', fr: 'physiotherapie-au-tessin-le-moratoire-ne-suffit-pas-physioswiss' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

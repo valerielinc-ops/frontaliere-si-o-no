@@ -89018,6 +89018,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fisioterapia-ticino-moratoria': {
+    title: 'Fisioterapia in Ticino: moratoria non basta, Physioswiss',
+    description: 'La fisioterapia ambulatoriale in Ticino è in crescita: i rimborsi per assicurato sono saliti del 42% tra 2017 e 2023. Lo studio SUPSI di maggio 2026 propone',
+    keywords: 'frontalieri, ticino, svizzera, italia, fisioterapia, moratoria, basta, physioswiss',
+    ogTitle: 'Fisioterapia in Ticino: moratoria non basta, Physioswiss',
+    ogDescription: 'In Ticino la fisioterapia ambulatoriale sta aumentando rapidamente: i rimborsi per assicurato sono cresciuti del 42% tra il 2017 e il 2023 secondo lo studio SUPSI consegnato a maggio 2026. Physioswiss Ticino avverte che una semplice moratoria sulle',
+    canonicalPath: '/articoli-svizzera/fisioterapia-ticino-moratoria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fisioterapia in Ticino: moratoria non basta, Physioswiss",
+      "description": "La fisioterapia ambulatoriale in Ticino è in crescita: i rimborsi per assicurato sono saliti del 42% tra 2017 e 2023. Lo studio SUPSI di maggio 2026 propone",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fisioterapia-ticino-moratoria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fisioterapista che assiste un paziente in una clinica ambulatoriale a Lugano con vista sul lago"
+      },
+      "datePublished": "2026-09-27T22:52:16+00:00",
+      "dateModified": "2026-09-27T22:52:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fisioterapia-ticino-moratoria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
