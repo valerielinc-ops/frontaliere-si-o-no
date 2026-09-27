@@ -48,7 +48,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -118,28 +118,6 @@ const DETAIL_DELAY_MS = 1200;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-/* ── Fetch API ─────────────────────────────────────────────── */
-async function fetchJson(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  // clearTimeout in `finally`, AFTER `res.json()` reads the body — keeping the
-  // abort armed during the body read so a stalled body aborts at TIMEOUT_MS
-  // instead of hanging the crawler (same class as PR #4118 / review sibling).
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': UA,
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
 }
 
 async function fetchText(url) {
@@ -230,7 +208,13 @@ async function fetchAllVacancies() {
   do {
     const url = `${API_BASE}?page=${page}`;
     console.log(`  📥 Fetching page ${page}/${lastPage}: ${url}`);
-    const response = await fetchJson(url);
+    const response = await fetchJson(url, {
+      timeoutMs: TIMEOUT_MS,
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': UA,
+      },
+    });
 
     if (response.data && Array.isArray(response.data)) {
       allJobs.push(...response.data);
