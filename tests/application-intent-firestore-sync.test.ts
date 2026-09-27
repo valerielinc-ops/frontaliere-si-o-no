@@ -62,10 +62,11 @@ describe('authenticated application-intent persistence', () => {
 
     expect(hydrated).toBe(true);
     expect(firestore.getFirestore).toHaveBeenCalledOnce();
-    expect(firestore.getDoc).toHaveBeenCalledTimes(2);
+    expect(firestore.getDoc).toHaveBeenCalledTimes(3);
     expect(recorded, `local profile: ${localStorage.getItem('frontaliere_job_personalization')}`).toBe(true);
     expect(firestore.writes).toHaveLength(1);
     expect(firestore.writes[0].path).toBe(profilePath);
+    expect(firestore.writes[0].data.applicationIntentAuthUid).toBe('uid-test');
     expect(firestore.writes[0].data.applicationIntent).toEqual({
       intents: [expect.objectContaining({
         jobKey: 'acme:software-engineer-lugano',
@@ -105,6 +106,7 @@ describe('authenticated application-intent persistence', () => {
       retentionUntil: now - 1_000 + 90 * 24 * 60 * 60 * 1000,
     };
     firestore.docs[profilePath] = {
+      applicationIntentAuthUid: 'uid-test',
       applicationIntent: {
         optedOut: false,
         intents: [retained, ...Array.from({ length: 100 }, (_, index) => ({
@@ -132,6 +134,66 @@ describe('authenticated application-intent persistence', () => {
       'acme:software-engineer-lugano',
       'acme:still-valid',
     ]);
+  });
+
+  it('does not import an application signal bound to another Auth uid', async () => {
+    expect(trackApplicationIntent('anonymous:old-role', Date.now())).toBe(true);
+    const now = Date.now();
+    firestore.docs[profilePath] = {
+      applicationIntentAuthUid: 'uid-other',
+      applicationIntent: {
+        intents: [{
+          jobKey: 'other:private-role',
+          application_status: 'redirect_only',
+          timestamp: now - 1_000,
+          retentionUntil: now - 1_000 + 90 * 24 * 60 * 60 * 1000,
+        }],
+      },
+    };
+
+    await expect(hydrateFromFirestore(email, 'uid-test')).resolves.toBe(true);
+    expect(JSON.parse(localStorage.getItem('frontaliere_job_personalization') || '{}')
+      .applicationIntent).toBeUndefined();
+  });
+
+  it('does not merge anonymous browser signals into a matching account projection', async () => {
+    const now = Date.now();
+    expect(trackApplicationIntent('anonymous:old-role', now)).toBe(true);
+    firestore.docs[profilePath] = {
+      applicationIntentAuthUid: 'uid-test',
+      applicationIntent: {
+        intents: [{
+          jobKey: 'account:current-role',
+          application_status: 'redirect_only',
+          timestamp: now - 1_000,
+          retentionUntil: now - 1_000 + 90 * 24 * 60 * 60 * 1000,
+        }],
+      },
+    };
+
+    await expect(hydrateFromFirestore(email, 'uid-test')).resolves.toBe(true);
+    const intents = JSON.parse(localStorage.getItem('frontaliere_job_personalization') || '{}')
+      .applicationIntent.intents;
+    expect(intents.map((intent: { jobKey: string }) => intent.jobKey)).toEqual(['account:current-role']);
+    expect(intents[0].authUid).toBe('uid-test');
+  });
+
+  it('honours the current users profile opt-out before local ranking or sync', async () => {
+    firestore.docs[`users/uid-test`] = { applicationIntent: { optedOut: true } };
+
+    const recorded = await recordApplicationIntent({
+      job: { id: 'job-1', slug: 'software-engineer-lugano', companyKey: 'acme' },
+      origin: '/cerca-lavoro',
+      surface: 'job_board_apply',
+      consentText: 'Consenso test',
+      authEmail: email,
+      authUser: { uid: 'uid-test', getIdToken: async () => 'test-token' },
+    });
+
+    expect(recorded).toBe(false);
+    expect(firestore.writes).toHaveLength(0);
+    expect(JSON.parse(localStorage.getItem('frontaliere_job_personalization') || '{}')
+      .applicationIntent).toEqual({ optedOut: true, intents: [] });
   });
 
   it('fails closed when the authenticated profile cannot be hydrated', async () => {
@@ -185,12 +247,12 @@ describe('authenticated application-intent persistence', () => {
       firestore.docs[ref.path] = { ...(firestore.docs[ref.path] || {}), ...data };
     });
 
-    const olderSync = syncToFirestore(email);
+    const olderSync = syncToFirestore(email, 'uid-test');
     await olderWriteStarted;
     expect(firestore.setDoc).toHaveBeenCalledOnce();
     expect(firestore.setDoc.mock.calls[0][1].applicationIntent).toBeUndefined();
-    expect(trackApplicationIntent('acme:software-engineer-lugano')).toBe(true);
-    const clickSync = syncToFirestore(email);
+    expect(trackApplicationIntent('acme:software-engineer-lugano', Date.now(), 'uid-test')).toBe(true);
+    const clickSync = syncToFirestore(email, 'uid-test');
     await new Promise((resolve) => setTimeout(resolve, 0));
 
     expect(firestore.setDoc).toHaveBeenCalledTimes(writesBefore + 1);

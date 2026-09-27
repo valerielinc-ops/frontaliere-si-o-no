@@ -18,6 +18,7 @@ import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
 import { handleSavedJobsDigestUnsubscribe } from './src/savedJobsDigestUnsubscribe.js';
+import { handleApplicationIntentReminderUnsubscribe } from './src/applicationIntentReminderUnsubscribe.js';
 import { handleOutreachUnsubscribe } from './src/outreachUnsubscribe.js';
 import { buildUnsubscribeForensics } from './src/lib/requestForensics.js';
 // Separate statement, not merged into the line above:
@@ -1331,6 +1332,46 @@ export const savedJobsDigestUnsubscribe = onRequest(
  }
  } catch (error) {
  console.error('[savedJobsDigestUnsubscribe] Error:', error);
+ res.status(500).type('html').send('<h1>Errore interno</h1><p>Riprova più tardi.</p>');
+ }
+ },
+);
+
+export const applicationIntentReminderUnsubscribe = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ if (req.method !== 'GET' && req.method !== 'POST') {
+ res.status(405).send('Method not allowed');
+ return;
+ }
+
+ const params = resolveRequestParams(req, res);
+ const uid = String(params.uid || '').trim();
+ const email = String(params.email || '').trim();
+ const token = String(params.token || '').trim();
+
+ try {
+ const { newsletterSecret } = await getNewsletterSecrets();
+ const result = await handleApplicationIntentReminderUnsubscribe({
+ uid,
+ email,
+ token,
+ secret: newsletterSecret,
+ forensics: buildUnsubscribeForensics(req),
+ });
+
+ if (req.method === 'POST') {
+ res.status(result.status).type('text').send(result.status === 200 ? 'OK' : 'Error');
+ } else {
+ res.status(result.status).type('html').send(result.html);
+ }
+ } catch (error) {
+ console.error('[applicationIntentReminderUnsubscribe] Error:', error);
  res.status(500).type('html').send('<h1>Errore interno</h1><p>Riprova più tardi.</p>');
  }
  },

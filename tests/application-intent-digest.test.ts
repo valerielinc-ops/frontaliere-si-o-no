@@ -172,13 +172,13 @@ describe('saved-jobs digest — application intent source', () => {
     expect(merged.savedEntries.length + merged.applicationIntentEntries.length).toBe(20);
   });
 
-  it('lets a consented application intent activate this existing digest, but opt-out still wins', () => {
+  it('keeps the saved-jobs digest independent from application-intent signals', () => {
     const subscriber = { status: 'confirmed' };
     expect(isSavedJobsDigestEligible(
       { savedJobsDigest: { optedIn: false, optedOut: false } },
       subscriber,
       { hasApplicationIntent: true },
-    )).toBe(true);
+    )).toBe(false);
     expect(isSavedJobsDigestEligible(
       { savedJobsDigest: { optedIn: false, optedOut: true } },
       subscriber,

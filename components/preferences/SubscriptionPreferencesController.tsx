@@ -46,6 +46,7 @@ import { isAdvertisingSuppressed } from '@/services/publisherBlastMatch.mjs';
 import { getLocale, type Locale } from '@/services/i18n';
 import { resilientImport } from '@/services/resilientImport';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
+import { setApplicationIntentOptOut, syncToFirestore } from '@/services/behaviorTracker';
 
 // ─── Types ──────────────────────────────────────────────────
 
@@ -157,6 +158,10 @@ interface SectionStrings {
  digestDesc: string;
  digestOn: string;
  digestOff: string;
+ applicationReminderTitle: string;
+ applicationReminderDesc: string;
+ applicationReminderOn: string;
+ applicationReminderOff: string;
  applicationIntentTitle: string;
  applicationIntentDesc: string;
  applicationIntentOn: string;
@@ -200,13 +205,18 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Ogni interruttore vale solo per il suo canale: spegnerne uno non ferma gli altri. Per non ricevere più nulla, usa «Ferma tutte le email».',
  stopAll: 'Ferma tutte le email',
  stopAllHint:
- 'Disattiva newsletter, bollettino, avvisi lavoro, promemoria dei lavori salvati e annunci di inserzionisti in una volta sola.',
+ 'Disattiva newsletter, bollettino, avvisi lavoro, promemoria dei lavori salvati, promemoria delle candidature e annunci di inserzionisti in una volta sola.',
  stopAllWorking: 'Disattivo tutto…',
  digestTitle: 'Promemoria dei lavori salvati',
  digestDesc:
  'Ogni settimana ti ricordiamo via email gli annunci che hai salvato, con qualche proposta simile. Vale solo per questo promemoria: newsletter, bollettino e avvisi lavoro restano come sono.',
  digestOn: 'Attivo',
  digestOff: 'Disattivato',
+ applicationReminderTitle: 'Promemoria delle candidature',
+ applicationReminderDesc:
+ 'Dopo un clic su «Candidati» possiamo inviarti un promemoria una tantum, separato dai lavori salvati. Il clic non dimostra che la candidatura sia stata inviata o completata.',
+ applicationReminderOn: 'Attivo',
+ applicationReminderOff: 'Disattivato',
  applicationIntentTitle: 'Uso dei segnali di candidatura',
  applicationIntentDesc:
  'Puoi impedire che il sito registri il tuo interesse per una candidatura. È una scelta separata da newsletter, avvisi lavoro e promemoria degli annunci salvati.',
@@ -289,13 +299,18 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Each switch covers its own channel only: turning one off does not stop the others. To receive nothing at all, use “Stop all emails”.',
  stopAll: 'Stop all emails',
  stopAllHint:
- 'Turns off the newsletter, the daily brief, your job alerts, the saved-jobs reminder and advertiser announcements in one go.',
+ 'Turns off the newsletter, the daily brief, your job alerts, saved-jobs reminders, application reminders and advertiser announcements in one go.',
  stopAllWorking: 'Turning everything off…',
  digestTitle: 'Saved-jobs reminder',
  digestDesc:
  'Once a week we email you the jobs you saved, plus a few similar ones. This switch covers that reminder only: the newsletter, the daily brief and your job alerts stay as they are.',
  digestOn: 'On',
  digestOff: 'Off',
+ applicationReminderTitle: 'Application reminders',
+ applicationReminderDesc:
+ 'After an “Apply” click, we may send one reminder, separate from saved jobs. The click does not prove that an application was sent or completed.',
+ applicationReminderOn: 'On',
+ applicationReminderOff: 'Off',
  applicationIntentTitle: 'Use of application-intent signals',
  applicationIntentDesc:
  'You can stop the site from recording your interest in an application. This choice is separate from newsletters, job alerts and saved-job reminders.',
@@ -378,13 +393,18 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Jeder Schalter gilt nur für seinen eigenen Kanal: einen abzuschalten stoppt die anderen nicht. Wenn du gar nichts mehr erhalten willst, nutze «Alle E-Mails stoppen».',
  stopAll: 'Alle E-Mails stoppen',
  stopAllHint:
- 'Schaltet Newsletter, Tagesbulletin, Job-Alerts, die Erinnerung an gespeicherte Stellen und Anzeigen von Inserenten auf einmal ab.',
+ 'Schaltet Newsletter, Tagesbulletin, Job-Alerts, Erinnerungen an gespeicherte Stellen, Bewerbungs-Erinnerungen und Anzeigen von Inserenten auf einmal ab.',
  stopAllWorking: 'Alles wird abgeschaltet…',
  digestTitle: 'Erinnerung an gespeicherte Stellen',
  digestDesc:
  'Einmal pro Woche erinnern wir dich per E-Mail an deine gespeicherten Stellen, samt ähnlicher Vorschläge. Dieser Schalter gilt nur dafür: Newsletter, Tagesbulletin und Job-Alerts bleiben unverändert.',
  digestOn: 'Aktiv',
  digestOff: 'Abgeschaltet',
+ applicationReminderTitle: 'Bewerbungs-Erinnerungen',
+ applicationReminderDesc:
+ 'Nach einem Klick auf „Bewerben“ können wir eine einmalige Erinnerung senden, getrennt von den gespeicherten Stellen. Der Klick beweist nicht, dass eine Bewerbung gesendet oder abgeschlossen wurde.',
+ applicationReminderOn: 'Aktiv',
+ applicationReminderOff: 'Abgeschaltet',
  applicationIntentTitle: 'Nutzung von Bewerbungssignalen',
  applicationIntentDesc:
  'Du kannst verhindern, dass die Website dein Interesse an einer Bewerbung speichert. Diese Wahl ist unabhängig von Newsletter, Job-Alerts und Erinnerungen an gespeicherte Stellen.',
@@ -467,13 +487,18 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Chaque interrupteur ne vaut que pour son propre canal : en désactiver un n’arrête pas les autres. Pour ne plus rien recevoir, utilise « Arrêter tous les emails ».',
  stopAll: 'Arrêter tous les emails',
  stopAllHint:
- 'Désactive la newsletter, le bulletin quotidien, tes alertes emploi, le rappel des offres enregistrées et les annonces d’annonceurs en une seule fois.',
+ 'Désactive la newsletter, le bulletin quotidien, tes alertes emploi, les rappels des offres enregistrées, les rappels de candidature et les annonces d’annonceurs en une seule fois.',
  stopAllWorking: 'Tout est en cours de désactivation…',
  digestTitle: 'Rappel des offres enregistrées',
  digestDesc:
  'Chaque semaine nous te rappelons par email les offres que tu as enregistrées, avec quelques suggestions similaires. Cet interrupteur ne concerne que ce rappel : la newsletter, le bulletin et tes alertes emploi restent inchangés.',
  digestOn: 'Actif',
  digestOff: 'Désactivé',
+ applicationReminderTitle: 'Rappels de candidature',
+ applicationReminderDesc:
+ 'Après un clic sur « Postuler », nous pouvons envoyer un rappel unique, séparé des offres enregistrées. Le clic ne prouve pas qu’une candidature a été envoyée ou terminée.',
+ applicationReminderOn: 'Actif',
+ applicationReminderOff: 'Désactivé',
  applicationIntentTitle: 'Utilisation des signaux de candidature',
  applicationIntentDesc:
  'Vous pouvez empêcher le site d’enregistrer votre intérêt pour une candidature. Ce choix est distinct de la newsletter, des alertes emploi et des rappels des offres enregistrées.',
@@ -953,6 +978,49 @@ async function authSetApplicationIntentOptOut(userId: string, optedOut: boolean)
   doc(db, 'users', userId),
   {
    applicationIntent: {
+    optedOut,
+    optedOutAt: optedOut ? serverTimestamp() : null,
+    updatedAt: serverTimestamp(),
+   },
+  },
+  { merge: true },
+ );
+}
+
+/** Email-only application reminder preference. It never changes the
+ * application-intent signal or the matching opt-out above. */
+async function authLoadApplicationIntentReminderOptOut(userId: string): Promise<boolean> {
+ const { getFirestore, doc, getDoc } = await resilientImport(
+  () => import('firebase/firestore'),
+  (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+  () => import('@/services/firebase'),
+  (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ const profileSnap = await getDoc(doc(db, 'users', userId));
+ const profile = profileSnap.exists() ? profileSnap.data() || {} : {};
+ return profile?.applicationIntentReminder?.optedOut === true;
+}
+
+async function authSetApplicationIntentReminderOptOut(userId: string, optedOut: boolean): Promise<void> {
+ const { getFirestore, doc, setDoc, serverTimestamp } = await resilientImport(
+  () => import('firebase/firestore'),
+  (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+  () => import('@/services/firebase'),
+  (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ await setDoc(
+  doc(db, 'users', userId),
+  {
+   applicationIntentReminder: {
+    optedIn: !optedOut,
     optedOut,
     optedOutAt: optedOut ? serverTimestamp() : null,
     updatedAt: serverTimestamp(),
@@ -1734,6 +1802,9 @@ export function SubscriptionPreferencesController({
  const [applicationIntentOptedOut, setApplicationIntentOptedOut] = useState(false);
  const [applicationIntentAvailable, setApplicationIntentAvailable] = useState(false);
  const [savingApplicationIntent, setSavingApplicationIntent] = useState(false);
+ const [applicationReminderOptedOut, setApplicationReminderOptedOut] = useState(false);
+ const [applicationReminderAvailable, setApplicationReminderAvailable] = useState(false);
+ const [savingApplicationReminder, setSavingApplicationReminder] = useState(false);
  // Third-party advertising is included in the base activation; this is the
  // separate preference-centre switch that lets the reader opt out.
  const [adsEnabled, setAdsEnabled] = useState<boolean>(false);
@@ -1823,6 +1894,17 @@ export function SubscriptionPreferencesController({
   // A failed privacy read hides the control rather than presenting a false
   // opt-out state. Server-side callers still fail closed on their own read.
   console.warn('[SubscriptionPreferencesController] Application-intent preference read failed:', applicationIntentErr?.message);
+ }
+ try {
+  const optedOut = await authLoadApplicationIntentReminderOptOut(userId);
+  if (!cancelled) {
+   setApplicationReminderOptedOut(optedOut);
+   setApplicationReminderAvailable(true);
+  }
+ } catch (applicationReminderErr: any) {
+  // The email-only control is hidden on a failed read; the sender still reads
+  // the same preference server-side and fails closed independently.
+  console.warn('[SubscriptionPreferencesController] Application reminder preference read failed:', applicationReminderErr?.message);
  }
  }
  setLoadStatus('ready');
@@ -2035,19 +2117,46 @@ export function SubscriptionPreferencesController({
 
  const handleToggleApplicationIntent = async () => {
   if (!applicationIntentAvailable || !userId) return;
-  const nextOptedOut = !applicationIntentOptedOut;
+ const nextOptedOut = !applicationIntentOptedOut;
   setApplicationIntentOptedOut(nextOptedOut);
+  setApplicationIntentOptOut(nextOptedOut, userId);
   setSavingApplicationIntent(true);
   setErrorMsg('');
   try {
+   // When re-enabling, clear the private projection before making the
+   // account preference active again. A failed sync keeps the server-side
+   // preference unchanged and therefore cannot revive stale signals.
+   if (!nextOptedOut && !(await syncToFirestore(email, userId))) {
+    throw new Error('application-intent-sync-failed');
+   }
    await authSetApplicationIntentOptOut(userId, nextOptedOut);
+   if (nextOptedOut) await syncToFirestore(email, userId);
    flashSaved('application-intent');
   } catch (err: any) {
    console.warn('[SubscriptionPreferencesController] Toggle application-intent privacy failed:', err?.message);
    setApplicationIntentOptedOut(!nextOptedOut);
+   setApplicationIntentOptOut(!nextOptedOut, userId);
    reportError(S.saveError);
   } finally {
    setSavingApplicationIntent(false);
+  }
+ };
+
+ const handleToggleApplicationReminder = async () => {
+  if (!applicationReminderAvailable || !userId) return;
+  const nextOptedOut = !applicationReminderOptedOut;
+  setApplicationReminderOptedOut(nextOptedOut);
+  setSavingApplicationReminder(true);
+  setErrorMsg('');
+  try {
+   await authSetApplicationIntentReminderOptOut(userId, nextOptedOut);
+   flashSaved('application-intent-reminder');
+  } catch (err: any) {
+   console.warn('[SubscriptionPreferencesController] Toggle application reminder failed:', err?.message);
+   setApplicationReminderOptedOut(!nextOptedOut);
+   reportError(S.saveError);
+  } finally {
+   setSavingApplicationReminder(false);
   }
  };
 
@@ -2188,6 +2297,16 @@ export function SubscriptionPreferencesController({
  failed.push('saved-jobs-digest');
  console.warn('[SubscriptionPreferencesController] Stop-all digest failed:', err?.message);
  }
+ }
+
+ if (mode === 'auth' && userId && (!applicationReminderAvailable || !applicationReminderOptedOut)) {
+  try {
+   await authSetApplicationIntentReminderOptOut(userId, true);
+   setApplicationReminderOptedOut(true);
+  } catch (err: any) {
+   failed.push('application-intent-reminder');
+   console.warn('[SubscriptionPreferencesController] Stop-all application reminder failed:', err?.message);
+  }
  }
 
  // #5759 — "stop all emails" has to mean all of them, and advertising is the
@@ -2587,6 +2706,41 @@ export function SubscriptionPreferencesController({
  {digestEnabled ? S.digestOn : S.digestOff}
  </span>
  {savedTickKey === 'saved-jobs-digest' && (
+ <span className="ml-2 inline-flex items-center gap-1 text-success">
+ <CheckCircle2 size={14} /> {S.saved}
+ </span>
+ )}
+ </div>
+ </section>
+ )}
+
+ {/* ── Application-intent reminder card ──
+     Separate from both the saved-jobs digest and the application-intent
+     matching/privacy choice. Auth mode only: anonymous clicks never become
+     account-linked reminders. */}
+ {applicationReminderAvailable && userId && (
+ <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
+ <div className="flex items-start justify-between gap-4">
+ <div className="flex-1">
+ <div className="flex items-center gap-2 mb-1">
+ <Mail size={16} className="text-muted" />
+ <h2 className="font-semibold text-heading">{S.applicationReminderTitle}</h2>
+ </div>
+ <p className="text-sm text-muted leading-relaxed">{S.applicationReminderDesc}</p>
+ </div>
+ <Toggle
+ enabled={!applicationReminderOptedOut}
+ saving={savingApplicationReminder}
+ onClick={handleToggleApplicationReminder}
+ ariaLabel={S.applicationReminderTitle}
+ />
+ </div>
+ <div className="mt-3 text-xs text-muted">
+ {S.currentState}{' '}
+ <span className={`font-semibold ${applicationReminderOptedOut ? 'text-muted' : 'text-success'}`}>
+ {applicationReminderOptedOut ? S.applicationReminderOff : S.applicationReminderOn}
+ </span>
+ {savedTickKey === 'application-intent-reminder' && (
  <span className="ml-2 inline-flex items-center gap-1 text-success">
  <CheckCircle2 size={14} /> {S.saved}
  </span>
