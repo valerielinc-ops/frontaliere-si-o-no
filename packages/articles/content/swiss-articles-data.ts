@@ -2761,6 +2761,7 @@ const RAW_SWISS_ARTICLES: Article[] = [
     id: 'credito-imposta-frontalieri-2026',
     category: 'fiscale',
     date: '2026-07-06T05:29:20.354Z',
+    updatedAt: '2026-09-27',
     image: '/images/blog/credito-imposta-frontalieri-2026.webp',
     hasCalculator: true,
     authorSlug: 'marco-ferrari',
@@ -3741,6 +3742,7 @@ const RAW_SWISS_ARTICLES: Article[] = [
     id: 'frontalieri-ticino-ergoterapista',
     category: 'fiscale',
     date: '2026-07-19T07:46:32.595Z',
+    updatedAt: '2026-09-27',
     image: '/images/blog/frontalieri-ticino-ergoterapista.webp',
     hasCalculator: true,
     authorSlug: 'marco-ferrari',
@@ -20461,6 +20463,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     hasCalculator: true,
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'congedo-parentale-136000-firme',
+    category: 'novita',
+    date: '2026-09-27T01:48:34.164Z',
+    image: '/images/blog/congedo-parentale-136000-firme.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
    },
 ];
 
