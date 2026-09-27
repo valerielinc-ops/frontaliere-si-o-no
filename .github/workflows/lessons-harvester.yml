@@ -47,13 +47,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          # Storia completa ma blobless, come issue-fix.yml (#4189): la proposta
-          # Codex pusha un branch, e da un clone shallow il push via bridge
-          # muore (`Failed to traverse parents of commit`, `remote end hung up`)
-          # e il sibling pre-push non trova la merge-base (run 36339448967:
-          # 7 tentativi di push, 0 PR). `blob:none` tiene il checkout veloce.
+          # Storia completa: la proposta Codex pusha un branch, e da un clone
+          # shallow il push via bridge muore (`Failed to traverse parents of
+          # commit`, `remote end hung up`) e il sibling pre-push non trova la
+          # merge-base (run 36339448967: 7 tentativi di push, 0 PR). Niente
+          # `filter:` esplicito: in actions/checkout sovrascrive lo
+          # sparse-checkout sotto, che imposta gia' da solo `blob:none`.
           fetch-depth: 0
-          filter: blob:none
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
