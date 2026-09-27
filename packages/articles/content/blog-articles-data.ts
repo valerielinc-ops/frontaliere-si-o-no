@@ -36475,6 +36475,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trofeo-binda-cittiglio-marzo-2027',
+ category: 'novita',
+ date: '2026-09-27T19:21:27.862Z',
+ image: '/images/blog/trofeo-binda-cittiglio-marzo-2027.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

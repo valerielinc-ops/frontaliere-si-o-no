@@ -12150,6 +12150,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sagra-uva-mendrisio-bilancio.title': 'Traubenfest in Mendrisio: positive Bilanz',
     'blog.article.sagra-uva-mendrisio-bilancio.excerpt': 'Positive Bilanz für das 70. Traubenfest von Mendrisio: schätzungsweise 20-25 Tausend Personen und kein nennenswerter Sicherheitseinsatz.',
     'blog.article.sagra-uva-mendrisio-bilancio.imageAlt': 'Besucher am Traubenfest im Zentrum von Mendrisio',
+    'blog.article.trofeo-binda-cittiglio-marzo-2027.title': 'Trofeo Binda: Termin am 14. März 2027',
+    'blog.article.trofeo-binda-cittiglio-marzo-2027.excerpt': 'Cittiglio bestätigt sich als Hauptstadt des Frauenradsports: Am 14. marzo 2027 kehren die Trofeo Binda WorldTour und das Juniorenrennen in die Valli del Verbano zurück.',
+    'blog.article.trofeo-binda-cittiglio-marzo-2027.imageAlt': 'Professioneller Frauenradsport in der Region Valli del Verbano während der Trofeo Binda.',
 };
 
 export default blogMetaDe;
