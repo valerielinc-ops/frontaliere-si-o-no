@@ -89,6 +89,10 @@ function jobIdentity(job) {
   return id ? `id:${id}` : null;
 }
 
+function hasNonEmptyJobUrl(job) {
+  return typeof job?.url === 'string' && job.url.trim().length > 0;
+}
+
 function uniqueIdentities(jobs) {
   const identities = new Set();
   for (const job of jobs) {
@@ -380,13 +384,16 @@ export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofE
   }
 
   const removedJobs = previousJobs.filter((job) => !nextIds.has(jobIdentity(job)));
-  if (removedJobs.length !== previousJobs.length - nextJobs.length || removedJobs.some((job) => !jobIdentity(job))) {
+  if (
+    removedJobs.length !== previousJobs.length - nextJobs.length
+    || removedJobs.some((job) => !jobIdentity(job) || !hasNonEmptyJobUrl(job))
+  ) {
     return false;
   }
 
   const provenIds = new Set();
   for (const entry of entries) {
-    if (entry?.definitive !== true) return false;
+    if (entry?.definitive !== true || !hasNonEmptyJobUrl(entry.job)) return false;
     const identity = jobIdentity(entry.job);
     if (!identity || provenIds.has(identity)) return false;
     provenIds.add(identity);
