@@ -159,6 +159,59 @@ describe('jobAlertMatching — explicit keyword contract (legacy preserved)', ()
     expect(scoreJobForAlert(related, profile, 'it')).toBeGreaterThan(0);
   });
 
+  it('treats an untouched legacy source-job location as soft intent at read time', () => {
+    const subscriber = {
+      job_location: 'Lugano',
+      job_category: 'health',
+      source_channel: 'job_gate',
+    };
+    const alert = {
+      backfilled_from: 'newsletter_subscribers:job_gate',
+      keywords: [],
+      locations: ['Lugano'],
+    };
+    const profile = buildAlertProfile(alert, subscriber);
+    const related = job({
+      title: 'Fisioterapista',
+      description: 'Ruolo sanitario in riabilitazione.',
+      location: 'Zurich',
+      addressLocality: 'Zurich',
+      addressRegion: 'ZH',
+      canton: 'ZH',
+      sector: 'health',
+      category: 'Healthcare',
+    });
+
+    expect(profile.alertLocations).toEqual([]);
+    expect(scoreJobForAlert(related, profile, 'it')).toBeGreaterThan(0);
+  });
+
+  it('keeps a legacy location hard when the user changed the generated array', () => {
+    const profile = buildAlertProfile(
+      {
+        backfilled_from: 'newsletter_subscribers:job_gate',
+        keywords: [],
+        locations: ['Lugano', 'Bellinzona'],
+      },
+      { job_location: 'Lugano', job_category: 'health' },
+    );
+
+    expect(profile.alertLocations).toEqual(['lugano', 'bellinzona']);
+  });
+
+  it('keeps a legacy location hard when only casing or whitespace changed', () => {
+    const profile = buildAlertProfile(
+      {
+        backfilled_from: 'newsletter_subscribers:job_gate',
+        keywords: [],
+        locations: [' Lugano '],
+      },
+      { job_location: 'Lugano' },
+    );
+
+    expect(profile.alertLocations).toEqual([' lugano ']);
+  });
+
   it('keeps an edited backfill keyword array hard', () => {
     const profile = buildAlertProfile(
       {
