@@ -27,6 +27,7 @@ const CAREER_URL = 'https://romantikhotels.hcm4all.de/list/?l=de';
 const LEGACY_SOURCE_DOMAIN = 'hotelcareer.ch';
 const LEGACY_ROMANTIK_SOURCE_DOMAIN = 'romantikhotels.com';
 const SCHWEIZERHOF_FLIMS_PATH = '/jobs/romantik-hotel-schweizerhof-11933';
+const HCM4ALL_DETAIL_PATH = '/list/';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -43,8 +44,14 @@ function isSchweizerhofFlimsListingUrl(rawUrl = '') {
     const url = new URL(rawUrl);
     const host = url.hostname.toLowerCase();
     const path = url.pathname.toLowerCase();
-    return (host === LEGACY_SOURCE_DOMAIN || host.endsWith(`.${LEGACY_SOURCE_DOMAIN}`))
+    const isLegacyListing = (host === LEGACY_SOURCE_DOMAIN || host.endsWith(`.${LEGACY_SOURCE_DOMAIN}`))
       && (path === SCHWEIZERHOF_FLIMS_PATH || path.startsWith(`${SCHWEIZERHOF_FLIMS_PATH}/`));
+    const isHcm4allDetail = (host === SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN
+      || host.endsWith(`.${SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN}`))
+      && path.startsWith(HCM4ALL_DETAIL_PATH)
+      && path.length > HCM4ALL_DETAIL_PATH.length;
+
+    return isLegacyListing || isHcm4allDetail;
   } catch {
     return false;
   }

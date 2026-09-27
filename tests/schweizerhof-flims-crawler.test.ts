@@ -29,6 +29,14 @@ describe('Schweizerhof crawler parser', () => {
       expect(isSchweizerhofFlimsJob({ url: 'https://hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/123' })).toBe(true);
     });
 
+    it('matches an HCM4all ATS detail URL without company fields', () => {
+      expect(isSchweizerhofFlimsJob({ url: 'https://romantikhotels.hcm4all.de/list/123' })).toBe(true);
+    });
+
+    it('does not treat the HCM4all index as a detail listing', () => {
+      expect(isSchweizerhofFlimsJob({ url: 'https://romantikhotels.hcm4all.de/list/?l=de' })).toBe(false);
+    });
+
     it('rejects unrelated HotelCareer listings', () => {
       expect(isSchweizerhofFlimsJob({ url: 'https://hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/123' })).toBe(false);
     });
