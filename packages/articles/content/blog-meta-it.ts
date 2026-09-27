@@ -12108,6 +12108,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cultura-gravedona-porlezza.title': 'Gravedona ed Uniti, Porlezza: 1,5 milioni per la cultura',
     'blog.article.cultura-gravedona-porlezza.excerpt': 'Regione Lombardia assegna oltre 1,5 milioni a Gravedona ed Uniti e Porlezza: 502.082 euro alla Chiesa della Madonna della Soledad e 1 milione a Villa Marzorati.',
     'blog.article.cultura-gravedona-porlezza.imageAlt': 'Chiesa della Madonna della Soledad e Villa Marzorati al centro di un investimento culturale',
+    'blog.article.trenta-viaggiatori-gallarate-malpensa.title': 'Trenta viaggiatori a Gallarate dopo il treno per Malpensa',
+    'blog.article.trenta-viaggiatori-gallarate-malpensa.excerpt': 'Circa trenta viaggiatori sono rimasti a piedi alla stazione di Gallarate la sera del 22 settembre, in attesa del treno 2989 delle 23.24, sostituito da autobus per lavori notturni.',
+    'blog.article.trenta-viaggiatori-gallarate-malpensa.imageAlt': 'Stazione di Gallarate di notte con treno e autobus sostitutivo',
 };
 
 export default blogMetaIt;

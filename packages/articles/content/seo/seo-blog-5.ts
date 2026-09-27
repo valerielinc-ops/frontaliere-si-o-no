@@ -94921,6 +94921,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trenta-viaggiatori-gallarate-malpensa': {
+    title: 'Trenta viaggiatori a Gallarate dopo il treno per Malpensa',
+    description: 'Il 22 settembre circa trenta viaggiatori sono rimasti a piedi a Gallarate dopo aver atteso il treno 2989 delle 23.24, indicato negli annunci ma sostituito',
+    keywords: 'frontalieri, ticino, svizzera, italia, trenta, viaggiatori, gallarate, dopo',
+    ogTitle: 'Trenta viaggiatori a Gallarate dopo il treno per Malpensa',
+    ogDescription: 'La sera del 22 settembre, intorno alle 23, una trentina di persone ha atteso alla stazione di Gallarate l\'ultimo collegamento diretto per Malpensa, il treno 2989 delle 23.24. Nonostante gli annunci e gli schermi indicassero la partenza, il servizio',
+    canonicalPath: '/articoli-frontaliere/trenta-viaggiatori-gallarate-malpensa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trenta viaggiatori a Gallarate dopo il treno per Malpensa",
+      "description": "Il 22 settembre circa trenta viaggiatori sono rimasti a piedi a Gallarate dopo aver atteso il treno 2989 delle 23.24, indicato negli annunci ma sostituito",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trenta-viaggiatori-gallarate-malpensa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di Gallarate di notte con treno e autobus sostitutivo"
+      },
+      "datePublished": "2026-09-27T04:09:56+00:00",
+      "dateModified": "2026-09-27T04:09:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trenta-viaggiatori-gallarate-malpensa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

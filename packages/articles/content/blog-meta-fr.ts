@@ -12109,6 +12109,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cultura-gravedona-porlezza.title': 'Gravedona ed Uniti, Porlezza : 1,5 millions pour la culture',
     'blog.article.cultura-gravedona-porlezza.excerpt': 'La Région Lombardie attribue plus de 1,5 million à Gravedona ed Uniti et Porlezza : 502.082 euros à l\'église de la Madonna della Soledad et 1 million à la Villa Marzorati.',
     'blog.article.cultura-gravedona-porlezza.imageAlt': 'Église Madonna della Soledad et Villa Marzorati au cœur d’un investissement culturel',
+    'blog.article.trenta-viaggiatori-gallarate-malpensa.title': 'Trente voyageurs à Gallarate après le train pour Malpensa',
+    'blog.article.trenta-viaggiatori-gallarate-malpensa.excerpt': 'Une trentaine de voyageurs sont restés à pied à la gare de Gallarate dans la soirée du 22 septembre, en attendant le train 2989 de 23h24, remplacé par des bus pour les travaux de nuit.',
+    'blog.article.trenta-viaggiatori-gallarate-malpensa.imageAlt': 'Gare de Gallarate de nuit avec bus de substitution',
 };
 
 export default blogMetaFr;
