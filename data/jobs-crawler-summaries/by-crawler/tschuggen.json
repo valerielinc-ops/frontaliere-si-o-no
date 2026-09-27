@@ -1,7 +1,7 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-09-26T14:02:43.692Z",
+  "generatedAt": "2026-09-26T23:41:16.240Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -12,10 +12,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10817,
-  "avgDurationMs": 10817,
+  "durationMs": 10700,
+  "avgDurationMs": 10700,
   "durationHistory": [
-    10817
+    10700
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1394/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:30.693Z",
+      "crawledAt": "2026-09-26T23:41:01.647Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -68,7 +68,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1059/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:32.261Z",
+      "crawledAt": "2026-09-26T23:41:03.186Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -84,6 +84,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1059/Description/1",
       "department": "Service",
       "hotelName": "Valsana Hotel Arosa",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T13:43:40.622Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -105,7 +106,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:33.238Z",
+      "crawledAt": "2026-09-26T23:41:04.147Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -121,6 +122,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-24T21:43:13.922Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -142,7 +144,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:35.192Z",
+      "crawledAt": "2026-09-26T23:41:06.085Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -158,6 +160,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:46:41.897Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -179,7 +182,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:34.208Z",
+      "crawledAt": "2026-09-26T23:41:05.100Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
