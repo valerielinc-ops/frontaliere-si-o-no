@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 // The section lock serializes writers, but it cannot make an older checkout
-// safe after a newer checkout has already published. Keep that second part of
-// the invariant in one small, dependency-free helper so fast-publish and the
-// resync workflow cannot implement different stale-writer rules.
+// current after main has moved. Keep that source comparison in one small,
+// dependency-free helper so fast-publish and the resync workflow cannot
+// implement different refresh rules.
 
 export const GIT_SHA_RE = /^[0-9a-f]{40}$/iu;
 
@@ -15,10 +15,10 @@ function requireSha(value, name) {
 }
 
 /**
- * A registry publisher may write only the checkout that is still the current
- * main tip. A newer run then either publishes after this one or makes this
- * stale run a no-op, so an older full-registry snapshot cannot clobber a newer
- * article entry.
+ * Reports whether the already-rendered checkout matches the main tip observed
+ * after the section lease was acquired. A false result is a refresh signal:
+ * callers must re-render/reload origin/main before publishing, never silently
+ * turn the article publish into a no-op.
  */
 export function isCurrentPublishSource(sourceSha, mainSha) {
   return requireSha(sourceSha, 'source SHA') === requireSha(mainSha, 'main SHA');

@@ -83,39 +83,103 @@ jobs:
           LOCK_OWNER: resync-${{ github.run_id }}/${{ github.run_attempt }}
         run: node scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera --owner "$LOCK_OWNER"
 
+      # The resync critical section can include both registries and their
+      # companion uploads. Keep both R2 leases alive until final cleanup;
+      # renewal is compare-and-swap and fails closed if either lease changes
+      # owner.
+      - name: Renew article chunk section locks
+        id: renew_chunk_locks
+        if: steps.acquire_chunk_locks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          LOCK_OWNER: resync-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/resync-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/resync-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/resync-article-lock-renewer.log"
+          rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
+          env -u RUNNER_TRACKING_ID nohup setsid node scripts/lib/r2-section-lock.mjs renew \
+            --section frontaliere,svizzera \
+            --owner "$LOCK_OWNER" \
+            --failure-file "$LOCK_RENEW_FAILURE_FILE" \
+            >"$LOCK_RENEW_LOG_FILE" 2>&1 < /dev/null &
+          echo "$!" > "$LOCK_RENEW_PID_FILE"
+          sleep 1
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
       # The lock prevents overlap with fast-publish, but this checkout may
-      # have been created before a newer main commit. Never let a serialized
-      # resync replace both registries with that older snapshot.
+      # have been created before a newer main commit. Refresh it after taking
+      # the lock so the resync publishes the current origin/main snapshot
+      # instead of silently skipping or replacing both registries with old
+      # data.
       - name: Check resync source is current
         id: check_chunk_source
-        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.acquire_chunk_locks.outcome == 'success'
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success'
         run: |
           set -euo pipefail
           SOURCE_SHA="$(git rev-parse HEAD)"
           git fetch --no-tags --depth=1 origin main
           MAIN_SHA="$(git rev-parse origin/main)"
           CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
-          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
-          if [ "$CURRENT" = "true" ]; then
-            echo "Resync source $SOURCE_SHA is current on main"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing stale article chunk resync from $SOURCE_SHA to current origin/main $MAIN_SHA"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::article chunk resync refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+            echo "Resync source refreshed to current origin/main $SOURCE_SHA"
           else
-            echo "::notice::Skipping stale article chunk resync from $SOURCE_SHA; current origin/main is $MAIN_SHA"
+            echo "Resync source $SOURCE_SHA is current on main"
           fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
 
       # Publish the named-export registry and all of its translation/slug
       # companions in strict mode. The script validates the standalone ESM
       # contract, observes each R2 upload's success marker, and requires the
       # targeted purge before declaring the resync complete (#5819).
       - name: Publish article chunks
-        if: inputs.dry_run == true || inputs.dry_run == 'true' || (steps.acquire_chunk_locks.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true')
+        if: inputs.dry_run == true || inputs.dry_run == 'true' || (steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true')
         run: |
           npx -y tsx@4 scripts/publish-article-chunks.mjs --strict ${{ inputs.dry_run && '--dry-run' || '' }}
 
-      # Release both leases even when strict publication fails. If the runner
-      # is interrupted before this post-step, the lock helper's lease expires
-      # after 30 minutes and another run can safely take it over with If-Match.
+      - name: Verify article chunk lock after resync
+        if: always() && steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/resync-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/resync-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/resync-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # Release both leases even when strict publication fails. The first
+      # DELETE is ETag-guarded; stop the watcher and retry once so a heartbeat
+      # racing that DELETE cannot leave this owner's lease behind.
       - name: Release article chunk section locks
         if: always() && steps.acquire_chunk_locks.outcome == 'success'
         env:
           LOCK_OWNER: resync-${{ github.run_id }}/${{ github.run_attempt }}
-        run: node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER"
+        run: |
+          set -uo pipefail
+          release_status=0
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/resync-article-lock-renewer.pid"
+          if [ -s "$LOCK_RENEW_PID_FILE" ]; then
+            renew_pid="$(cat "$LOCK_RENEW_PID_FILE")"
+            kill -TERM "$renew_pid" 2>/dev/null || true
+            for _ in 1 2 3 4 5; do
+              kill -0 "$renew_pid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL "$renew_pid" 2>/dev/null || true
+            wait "$renew_pid" 2>/dev/null || true
+          fi
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          exit "$release_status"

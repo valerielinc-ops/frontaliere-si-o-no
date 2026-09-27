@@ -4,8 +4,10 @@ import {
   createR2Request,
   isLockExpired,
   lockKey,
+  LOCK_LEASE_MS,
   parseSections,
   releaseSectionLock,
+  renewSectionLock,
 } from '../../scripts/lib/r2-section-lock.mjs';
 import { isCurrentPublishSource } from '../../scripts/lib/article-chunk-publish-freshness.mjs';
 
@@ -47,6 +49,7 @@ function fakeR2() {
         : response(404);
     }
     if (method === 'DELETE') {
+      if (headers['if-match'] && (!current || current.etag !== headers['if-match'])) return response(412);
       objects.delete(key);
       return response(204);
     }
@@ -202,6 +205,81 @@ describe('r2-section-lock', () => {
     expect(lock.owner).toBe('replacement-run');
     expect(objects.get(lockKey('svizzera'))?.payload.owner).toBe('replacement-run');
     await releaseSectionLock('svizzera', { owner: 'replacement-run', request });
+  });
+
+  it('renews a long critical section so a competing owner stays blocked until release', async () => {
+    const { request, objects } = fakeR2();
+    let now = 0;
+    const first = await acquireSectionLock('frontaliere', {
+      owner: 'owner-a',
+      request,
+      now: () => now,
+    });
+
+    now = LOCK_LEASE_MS + 1; // past the original lease, while owner A is still publishing
+    expect(await renewSectionLock('frontaliere', {
+      owner: 'owner-a',
+      request,
+      now: () => now,
+    })).toBe(true);
+    expect(objects.get(lockKey('frontaliere'))?.payload.expiresAt).toBe(LOCK_LEASE_MS * 2 + 1);
+
+    await expect(acquireSectionLock('frontaliere', {
+      owner: 'owner-b',
+      request,
+      now: () => now,
+      timeoutMs: 0,
+    })).rejects.toThrow('timed out');
+
+    expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe(first.owner);
+    await releaseSectionLock('frontaliere', { owner: 'owner-a', request });
+
+    const second = await acquireSectionLock('frontaliere', {
+      owner: 'owner-b',
+      request,
+      now: () => now,
+      timeoutMs: 100,
+    });
+    expect(second.owner).toBe('owner-b');
+    await releaseSectionLock('frontaliere', { owner: 'owner-b', request });
+  });
+
+  it('does not delete a replacement lock when ownership changes after the read', async () => {
+    const { request, objects } = fakeR2();
+    await acquireSectionLock('frontaliere', { owner: 'owner-a', request });
+    let replaced = false;
+    const racingRequest = async (args: {
+      method: string;
+      key: string;
+      body?: string;
+      headers?: Record<string, string>;
+    }) => {
+      const result = await request(args);
+      if (args.method === 'GET' && !replaced) {
+        replaced = true;
+        const current = objects.get(args.key)!;
+        const replacement = await request({
+          method: 'PUT',
+          key: args.key,
+          body: JSON.stringify({
+            ...current.payload,
+            owner: 'owner-b',
+            acquiredAt: 1,
+            expiresAt: 2,
+          }),
+          headers: { 'if-match': current.etag },
+        });
+        expect(replacement.status).toBe(200);
+      }
+      return result;
+    };
+
+    expect(await releaseSectionLock('frontaliere', {
+      owner: 'owner-a',
+      request: racingRequest,
+    })).toBe(false);
+    expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe('owner-b');
+    await releaseSectionLock('frontaliere', { owner: 'owner-b', request });
   });
 
   it('never releases a lease owned by another run', async () => {

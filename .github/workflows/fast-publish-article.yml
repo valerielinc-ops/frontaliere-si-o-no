@@ -195,27 +195,82 @@ jobs:
           LOCK_OWNER: ${{ github.run_id }}/${{ github.run_attempt }}
         run: node scripts/lib/r2-section-lock.mjs acquire --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER"
 
-      # The R2 lease serializes the registry-to-shard window, but a newer run
-      # can acquire it before an older checkout does. A serialized stale write
-      # is still a clobber: the old whole-registry snapshot would remove the
-      # newer article ID. Check the source SHA AFTER waiting for the lease so a
-      # run that queued behind a newer publish becomes a safe no-op.
+      # The critical section can include slow companion/registry uploads and
+      # shard pushes. Keep its R2 lease alive until the final cleanup step;
+      # renewal itself is compare-and-swap and fails closed if another owner
+      # has already taken the lease over.
+      - name: Renew article chunk section lock
+        id: renew_chunk_lock
+        if: steps.acquire_chunk_lock.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          ARTICLE_SECTION: ${{ inputs.section }}
+          LOCK_OWNER: ${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.log"
+          rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
+          env -u RUNNER_TRACKING_ID nohup setsid node scripts/lib/r2-section-lock.mjs renew \
+            --section "$ARTICLE_SECTION" \
+            --owner "$LOCK_OWNER" \
+            --failure-file "$LOCK_RENEW_FAILURE_FILE" \
+            >"$LOCK_RENEW_LOG_FILE" 2>&1 < /dev/null &
+          echo "$!" > "$LOCK_RENEW_PID_FILE"
+          sleep 1
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # The R2 lease serializes the registry-to-shard window. If main moved
+      # while this run was rendering, refresh the checkout and render the
+      # article again from the current origin/main snapshot after acquiring
+      # the lease. A stale run must recover, not silently drop its publish.
       - name: Check article chunk source is current
         id: check_chunk_source
-        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           PUBLISH_SHA: ${{ inputs.sha || github.sha }}
+          INPUT_ARTICLE_ID: ${{ inputs.article_id }}
+          INPUT_SECTION: ${{ inputs.section }}
         run: |
           set -euo pipefail
           git fetch --no-tags --depth=1 origin main
           MAIN_SHA="$(git rev-parse origin/main)"
           CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$PUBLISH_SHA" --main-sha "$MAIN_SHA")"
-          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
-          if [ "$CURRENT" = "true" ]; then
-            echo "Article chunk source $PUBLISH_SHA is current on main"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing stale article chunk source $PUBLISH_SHA from current origin/main $MAIN_SHA"
+            git checkout --detach --force origin/main
+            PUBLISH_SHA="$(git rev-parse HEAD)"
+            rm -rf /tmp/fast-publish/dist /tmp/fast-publish/summary.json
+            npx -y tsx@4 scripts/publish-article-fast.mjs \
+              --id "$INPUT_ARTICLE_ID" \
+              --section "$INPUT_SECTION" \
+              --out /tmp/fast-publish/dist \
+              --summary /tmp/fast-publish/summary.json
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$PUBLISH_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::article chunk source refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+            echo "Article chunk source refreshed to current origin/main $PUBLISH_SHA"
           else
-            echo "::notice::Skipping stale article chunk publish from $PUBLISH_SHA; current origin/main is $MAIN_SHA"
+            echo "Article chunk source $PUBLISH_SHA is current on main"
           fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+      - name: Verify article chunk lock before publication
+        id: verify_chunk_lock_before_publish
+        if: steps.check_chunk_source.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
 
       # The article hub shard and the client registry are two representations
       # of the same publish. Publish the section's companions first, then its
@@ -225,7 +280,7 @@ jobs:
       # ahead of the client again (#5819).
       - name: Publish client article chunks
         id: publish_chunks
-        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           ARTICLE_SECTION: ${{ inputs.section }}
         run: npx -y tsx@4 scripts/publish-article-chunks.mjs --section "$ARTICLE_SECTION" --strict --no-ticker
@@ -247,7 +302,7 @@ jobs:
       # uppercasing that exact token, so the two scripts resolve the SAME
       # deploy-key secret for the SAME shard repo.
       - name: Push locale shards (parallel, fault-tolerant)
-        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && steps.publish_chunks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && steps.publish_chunks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
@@ -309,15 +364,46 @@ jobs:
           echo "📦 Shard pushes confirmed landed for locale(s): ${PUSHED_CSV:-<none>}"
           exit "$fail"
 
-      # Keep the lease through the entire shard push above. If publication or
-      # a locale push fails, always release it so the next article can retry;
-      # an interrupted runner is covered by the 30-minute lease expiry.
+      - name: Verify article chunk lock after publication
+        if: always() && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # Keep the lease through the entire shard push above. Release is guarded
+      # by the read ETag in the helper; stop the watcher after the first
+      # release attempt and retry once so a heartbeat racing that DELETE
+      # cannot leave this owner's lock behind.
       - name: Release article chunk section lock
         if: always() && steps.acquire_chunk_lock.outcome == 'success'
         env:
           ARTICLE_SECTION: ${{ inputs.section }}
           LOCK_OWNER: ${{ github.run_id }}/${{ github.run_attempt }}
-        run: node scripts/lib/r2-section-lock.mjs release --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER"
+        run: |
+          set -uo pipefail
+          release_status=0
+          node scripts/lib/r2-section-lock.mjs release --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER" || release_status=$?
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.pid"
+          if [ -s "$LOCK_RENEW_PID_FILE" ]; then
+            renew_pid="$(cat "$LOCK_RENEW_PID_FILE")"
+            kill -TERM "$renew_pid" 2>/dev/null || true
+            for _ in 1 2 3 4 5; do
+              kill -0 "$renew_pid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL "$renew_pid" 2>/dev/null || true
+            wait "$renew_pid" 2>/dev/null || true
+          fi
+          node scripts/lib/r2-section-lock.mjs release --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER" || release_status=$?
+          exit "$release_status"
 
       # Only pings search engines once the pages are CONFIRMED live — never
       # before. This is the exact ordering bug fast-publish-article.yml fixes

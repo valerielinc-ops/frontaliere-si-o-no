@@ -57,13 +57,17 @@ describe('fast-publish workflow invariants', () => {
 
   it('holds an atomic section lock from registry publication through shard push', () => {
     const acquireIdx = workflow.indexOf('Acquire article chunk section lock');
+    const renewIdx = workflow.indexOf('Renew article chunk section lock');
     const freshnessIdx = workflow.indexOf('Check article chunk source is current');
     const publishIdx = workflow.indexOf('Publish client article chunks');
     const pushIdx = workflow.indexOf('Push locale shards');
     const releaseIdx = workflow.indexOf('Release article chunk section lock');
     expect(workflow).toContain('scripts/lib/r2-section-lock.mjs acquire');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs renew');
     expect(workflow).toContain('scripts/lib/r2-section-lock.mjs release');
     expect(acquireIdx).toBeGreaterThan(-1);
+    expect(renewIdx).toBeGreaterThan(acquireIdx);
+    expect(renewIdx).toBeLessThan(publishIdx);
     expect(acquireIdx).toBeLessThan(publishIdx);
     expect(freshnessIdx).toBeGreaterThan(acquireIdx);
     expect(freshnessIdx).toBeLessThan(publishIdx);
@@ -72,11 +76,15 @@ describe('fast-publish workflow invariants', () => {
     expect(workflow.slice(releaseIdx, releaseIdx + 260)).toContain('always()');
   });
 
-  it('does not let a stale checkout publish a registry or shard snapshot', () => {
+  it('refreshes a stale checkout before publishing the registry or shard snapshot', () => {
     expect(workflow).toContain('git fetch --no-tags --depth=1 origin main');
     expect(workflow).toContain('article-chunk-publish-freshness.mjs');
+    const freshnessIdx = workflow.indexOf('Check article chunk source is current');
     const publishIdx = workflow.indexOf('Publish client article chunks');
     const pushIdx = workflow.indexOf('Push locale shards');
+    const freshnessBlock = workflow.slice(freshnessIdx, publishIdx);
+    expect(freshnessBlock).toContain('git checkout --detach --force origin/main');
+    expect(freshnessBlock).toContain('scripts/publish-article-fast.mjs');
     const publishAndPush = workflow.slice(publishIdx, workflow.indexOf('Verify shard URLs are live'));
     expect(publishAndPush).toContain("steps.check_chunk_source.outputs.current == 'true'");
     expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
@@ -90,23 +98,29 @@ describe('resync CDN article chunks workflow invariants', () => {
 
   it('shares both section locks with fast-publish and releases them after the strict publish', () => {
     const acquireIdx = workflow.indexOf('Acquire article chunk section locks');
+    const renewIdx = workflow.indexOf('Renew article chunk section locks');
     const freshnessIdx = workflow.indexOf('Check resync source is current');
     const publishIdx = workflow.indexOf('Publish article chunks');
     const releaseIdx = workflow.indexOf('Release article chunk section locks');
     expect(workflow).toContain('scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs renew');
     expect(workflow).toContain('scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera');
     expect(acquireIdx).toBeLessThan(publishIdx);
+    expect(renewIdx).toBeGreaterThan(acquireIdx);
+    expect(renewIdx).toBeLessThan(publishIdx);
     expect(freshnessIdx).toBeGreaterThan(acquireIdx);
     expect(freshnessIdx).toBeLessThan(publishIdx);
     expect(publishIdx).toBeLessThan(releaseIdx);
     expect(workflow.slice(releaseIdx, releaseIdx + 280)).toContain('always()');
   });
 
-  it('does not let an older queued resync clobber a newer registry', () => {
+  it('refreshes an older queued resync before publishing a newer registry', () => {
     expect(workflow).toContain('git fetch --no-tags --depth=1 origin main');
     expect(workflow).toContain('article-chunk-publish-freshness.mjs');
+    const freshnessIdx = workflow.indexOf('Check resync source is current');
     const publishIdx = workflow.indexOf('Publish article chunks');
     const releaseIdx = workflow.indexOf('Release article chunk section locks');
+    expect(workflow.slice(freshnessIdx, publishIdx)).toContain('git checkout --detach --force origin/main');
     expect(workflow.slice(publishIdx, releaseIdx)).toContain(
       "steps.check_chunk_source.outputs.current == 'true'",
     );

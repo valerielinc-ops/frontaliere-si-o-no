@@ -10,9 +10,11 @@ describe('article chunk publish freshness fence', () => {
     expect(isCurrentPublishSource(NEW_SHA.toUpperCase(), NEW_SHA)).toBe(true);
   });
 
-  it('rejects an older checkout after a newer same-section publish', () => {
+  it('flags an older checkout for refresh after main moves', () => {
     // This is the ordering the section lease alone cannot prevent: the new run
     // wins the lease first, then the old queued run acquires it afterwards.
+    // The workflows use false as a signal to re-render origin/main, not to
+    // silently skip the publish.
     expect(isCurrentPublishSource(OLD_SHA, NEW_SHA)).toBe(false);
   });
 
