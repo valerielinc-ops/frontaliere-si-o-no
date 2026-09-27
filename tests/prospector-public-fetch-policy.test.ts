@@ -210,6 +210,42 @@ describe('prospector public-only polite transport', () => {
     expect(fetchImpl).toHaveBeenCalledWith(detail, expect.objectContaining({ redirect: 'manual' }));
   });
 
+  it('filters a multi-employer listing feed before detail enrichment', async () => {
+    const seed = 'https://romantik.example/list/';
+    const wanted = 'https://romantik.example/list/146';
+    const unrelated = 'https://romantik.example/list/19310';
+    const listing = `<a href="/list/146">Housekeeping-Mitarbeiter/in im Romantik Hotel Schweizerhof Flims</a>`
+      + `<a href="/list/19310">Chef de Rang im Romantik Hotel Schweizerhof Grindelwald</a>`;
+    const detailHtml = '<h1>Housekeeping-Mitarbeiter/in</h1><div class="job-location">Flims</div>'
+      + '<article class="vacancy-description">'
+      + 'Unterstützen Sie unser Housekeeping-Team im Romantik Hotel Schweizerhof Flims. '
+      + 'Wir bieten eine verantwortungsvolle Tätigkeit, faire Arbeitszeiten und ein familiäres Umfeld.'
+      + '</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      if (url === wanted) return response(url, 200, null, detailHtml);
+      if (url === unrelated) throw new Error('unrelated listing must be filtered before detail fetch');
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Schweizerhof',
+      companyHost: 'romantik.example', mode: 'template', seedUrls: [seed],
+      detailTemplate: '/list/*', listingCandidateText: 'Schweizerhof Flims',
+      detailEnrichment: true,
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Housekeeping-Mitarbeiter/in', url: wanted, location: 'Flims', canton: 'GR',
+    })]);
+    expect(fetchImpl).not.toHaveBeenCalledWith(unrelated, expect.anything());
+  });
+
   it('rescues a WAF 403 through Jina while keeping the prospector URL policy in front', async () => {
     const seed = 'https://employer.example/jobs';
     const detail = 'https://employer.example/careers/detail/1';
