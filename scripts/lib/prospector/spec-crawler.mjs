@@ -267,6 +267,65 @@ function extractListingCandidates(html, effectiveUrl, templateRx) {
 }
 
 /**
+ * Normalise the optional employer discriminator used when a public ATS feed
+ * contains several employers. Matching the complete source-backed candidate
+ * record (rather than only its URL) lets the same guard work for JSON-LD,
+ * microdata and anchor-template listings without allowing a feed-wide
+ * employer page to leak unrelated vacancies into a tenant slice.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+function normalizeListingCandidateText(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+}
+
+/**
+ * Apply a spec-declared source discriminator before detail enrichment.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {any} candidate
+ * @returns {boolean}
+ */
+function matchesListingCandidateText(spec, candidate) {
+  const needle = normalizeListingCandidateText(spec.listingCandidateText);
+  if (!needle) return true;
+  const haystack = normalizeListingCandidateText([
+    candidate?.title,
+    candidate?.url,
+    candidate?.sourceUrl,
+    candidate?.company,
+    candidate?.location,
+    candidate?.addressLocality,
+    candidate?.addressRegion,
+    candidate?.description,
+  ].filter(Boolean).join(' '));
+  return haystack.includes(needle);
+}
+
+/**
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {any[]} candidates
+ * @returns {any[]}
+ */
+function filterListingCandidates(spec, candidates) {
+  if (!normalizeListingCandidateText(spec.listingCandidateText)) return candidates;
+  const filtered = candidates.filter((candidate) => matchesListingCandidateText(spec, candidate));
+  if (filtered.length !== candidates.length) {
+    console.warn(
+      `[prospector:${spec.companyKey}] listing discriminator kept `
+      + `${filtered.length}/${candidates.length} source candidates`,
+    );
+  }
+  return filtered;
+}
+
+/**
  * Listing rows a spec yields, before any detail-page enrichment.
  *
  * Extracted from `runSpecInProduction()` because the offline measurements have
@@ -302,6 +361,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       ? extractUmantisListingEvidence(html, effectiveSeedUrl)
       : new Map();
     let { links, candidates } = extractListingCandidates(html, effectiveSeedUrl, templateRx);
+    candidates = filterListingCandidates(spec, candidates);
 
     // Some protected boards answer the direct request with a 200 interstitial
     // that has no stable challenge marker. That page is indistinguishable from
@@ -318,7 +378,11 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         sleepImpl: runtime.jinaSleepImpl,
       });
       if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
-        const rescued = extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx);
+        const rescuedRaw = extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx);
+        const rescued = {
+          ...rescuedRaw,
+          candidates: filterListingCandidates(spec, rescuedRaw.candidates),
+        };
         if (rescued.candidates.length) {
           console.warn(
             `[prospector:${spec.companyKey}] direct seed yielded no listings; using clean-IP rescue (${rescued.candidates.length} candidates)`,
