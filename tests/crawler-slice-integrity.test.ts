@@ -467,6 +467,25 @@ describe('crawler slice integrity guard', () => {
     )).toThrow(/catastrophic truncation avoided/);
   });
 
+  it('rejects an ID-only housekeeping proof without URL evidence', () => {
+    const previous = json({ crawlerKey: 'convit-holding', jobs: [{ id: 'a', description: 'x'.repeat(1_400_000) }] });
+    const next = json({ crawlerKey: 'convit-holding', jobs: [] });
+    const proof = [{ job: { id: 'a' }, definitive: true }];
+
+    expect(isProvenHousekeepingPrune(
+      'data/jobs/by-crawler/convit-holding.json',
+      previous,
+      next,
+      proof,
+    )).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe(
+      'data/jobs/by-crawler/convit-holding.json',
+      previous,
+      next,
+      { housekeepingProof: proof },
+    )).toThrow(/catastrophic truncation avoided/);
+  });
+
   it('loads only a path-bound housekeeping proof at the commit-helper CLI boundary', () => {
     const root = mkdtempSync(join(tmpdir(), 'crawler-slice-proof-cli-'));
     const removed = dedupJob('https://convit.example/cli-removed', 'Closed CLI', 'x'.repeat(1_400_000));
