@@ -1,6 +1,6 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-09-26T23:45:20.792Z",
+  "assembledAt": "2026-09-27T15:07:42.041Z",
   "jobs": [
     {
       "id": "elettra-1938-ef6f82493666",
@@ -33,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T23:45:17.007Z",
+      "crawledAt": "2026-09-27T15:07:37.895Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T23:45:16.705Z",
+      "crawledAt": "2026-09-27T15:07:37.592Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -113,6 +113,18 @@
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "hwemaer-elettra-1938-sede-stabio-svizzera",
+        "hw-engineer-elettra-1938-sede-stabio-svizzera"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "hwemaer-elettra-1938-sede-stabio-svizzera",
+          "hw-engineer-elettra-1938-sede-stabio-svizzera"
+        ]
+      },
+      "firstSeenAt": "2026-09-25T14:55:35.445Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -125,19 +137,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:55:35.445Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "hwemaer-elettra-1938-sede-stabio-svizzera",
-          "hw-engineer-elettra-1938-sede-stabio-svizzera"
-        ]
-      },
-      "previousSlugs": [
-        "hwemaer-elettra-1938-sede-stabio-svizzera",
-        "hw-engineer-elettra-1938-sede-stabio-svizzera"
-      ],
-      "needsRetranslation": true
+      }
     }
   ]
 }

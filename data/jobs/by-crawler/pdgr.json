@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-09-26T23:46:38.108Z",
+  "assembledAt": "2026-09-27T15:08:21.447Z",
   "jobs": [
     {
       "id": "pdgr-675eeeb5d735",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betreuung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:35.204Z",
+      "crawledAt": "2026-09-27T15:08:17.349Z",
       "addressLocality": "Igis / Landquart / Untervaz",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -54,13 +54,16 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachfrau-fachmann-betreuung-efz-pdgr-ch"
+        "fachfrau-fachmann-betreuung-efz-pdgr-ch",
+        "fachfrau-fachmann-betreuung-cfc-psychiatrische-dienste-graubunden-igis-landquart-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betreuung-efz-pdgr-ch"
+          "fachfrau-fachmann-betreuung-efz-pdgr-ch",
+          "fachfrau-fachmann-betreuung-cfc-psychiatrische-dienste-graubunden-igis-landquart-untervaz"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:30.468Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -75,8 +78,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-389768d42bee",
@@ -109,7 +111,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-hauswirtschaft-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:34.080Z",
+      "crawledAt": "2026-09-27T15:08:16.151Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -130,13 +132,16 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-pdgr-ch"
+        "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-pdgr-ch",
+        "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-pdgr-ch"
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-pdgr-ch",
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-psychiatrische-dienste-graubunden-cazis"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:29.315Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -151,8 +156,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-ee572a95f8de",
@@ -185,7 +189,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:32.979Z",
+      "crawledAt": "2026-09-27T15:08:14.917Z",
       "addressLocality": "Cazis / Chur / Ilanz / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -206,13 +210,16 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-pdgr-ch"
+        "fachfrau-fachmann-gesundheit-efz-pdgr-ch",
+        "fachfrau-fachmann-gesundheit-cfc-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-pdgr-ch"
+          "fachfrau-fachmann-gesundheit-efz-pdgr-ch",
+          "fachfrau-fachmann-gesundheit-cfc-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:28.178Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -227,8 +234,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-f5bd59e961b0",
@@ -261,7 +267,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:31.730Z",
+      "crawledAt": "2026-09-27T15:08:13.688Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -284,12 +290,14 @@
       "previousSlugsByLocale": {
         "de": [
           "kochin-koch-efz-pdgr-ch",
-          "kauffrau-kaufmann-efz-pdgr-ch"
+          "kauffrau-kaufmann-efz-pdgr-ch",
+          "kochin-koch-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
         ],
         "it": [
           "kochin-koch-efz-pdgr-ch",
           "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
-          "kauffrau-kaufmann-efz-pdgr-ch"
+          "kauffrau-kaufmann-efz-pdgr-ch",
+          "cuoco-a-afc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
         ],
         "fr": [
           "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
@@ -298,8 +306,11 @@
       "previousSlugs": [
         "kochin-koch-efz-pdgr-ch",
         "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
-        "kauffrau-kaufmann-efz-pdgr-ch"
+        "kauffrau-kaufmann-efz-pdgr-ch",
+        "kochin-koch-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+        "cuoco-a-afc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:25.836Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -314,8 +325,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-50243c271eb8",
@@ -348,7 +358,7 @@
       "url": "https://www.pdgr.ch/jobs/informatikerin-informatiker/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:30.598Z",
+      "crawledAt": "2026-09-27T15:08:12.441Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -369,11 +379,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "informatikerin-informatiker-efz-pdgr-ch"
+        "informatikerin-informatiker-efz-pdgr-ch",
+        "informatikerin-informatiker-cfc-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "informatikerin-informatiker-efz-pdgr-ch"
+          "informatikerin-informatiker-efz-pdgr-ch",
+          "informatikerin-informatiker-cfc-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "informatikerin-informatiker-efz-pdgr-ch"
@@ -382,6 +394,7 @@
           "informatikerin-informatiker-efz-pdgr-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:22.371Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -396,8 +409,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-a093480a1d37",
@@ -430,7 +442,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:29.476Z",
+      "crawledAt": "2026-09-27T15:08:11.210Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -454,12 +466,14 @@
       "previousSlugsByLocale": {
         "de": [
           "praktikant-in-pdgr-ch",
-          "praktikant-in-psychiatrische-dienste-graubunden-chur"
+          "praktikant-in-psychiatrische-dienste-graubunden-chur",
+          "praktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "it": [
           "praktikant-in-pdgr-ch",
           "praktikant-in-psychiatrische-dienste-graubunden-chur",
-          "intern-psychiatrische-dienste-graubunden-chur"
+          "intern-psychiatrische-dienste-graubunden-chur",
+          "tirocinante-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "en": [
           "internship-psychiatrische-dienste-graubunden-cazis-chur"
@@ -473,7 +487,9 @@
         "praktikant-in-psychiatrische-dienste-graubunden-chur",
         "internship-psychiatrische-dienste-graubunden-cazis-chur",
         "stages-psychiatrische-dienste-graubunden-cazis-chur",
-        "intern-psychiatrische-dienste-graubunden-chur"
+        "intern-psychiatrische-dienste-graubunden-chur",
+        "praktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
+        "tirocinante-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:11.554Z",
       "salaryMin": 73000,
@@ -522,7 +538,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:28.336Z",
+      "crawledAt": "2026-09-27T15:08:10.001Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -573,17 +589,22 @@
       "pensum": "50 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "fachpsychologe-in-pdgr-ch"
+          "fachpsychologe-in-pdgr-ch",
+          "fachpsychologe-in-psychiatrische-dienste-graubunden-chur"
         ],
         "it": [
           "fachpsychologe-in-pdgr-ch",
-          "specialista-psicologo-psychiatrische-dienste-graubunden-chur"
+          "specialista-psicologo-psychiatrische-dienste-graubunden-chur",
+          "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "fachpsychologe-in-pdgr-ch",
-        "specialista-psicologo-psychiatrische-dienste-graubunden-chur"
+        "specialista-psicologo-psychiatrische-dienste-graubunden-chur",
+        "fachpsychologe-in-psychiatrische-dienste-graubunden-chur",
+        "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -598,8 +619,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-1ee4b4ff95de",
@@ -607,8 +627,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -632,7 +652,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:27.220Z",
+      "crawledAt": "2026-09-27T15:08:08.791Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -655,22 +675,29 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "unterassistent-in-pdgr-ch"
+          "unterassistent-in-pdgr-ch",
+          "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "it": [
           "unterassistent-in-pdgr-ch",
-          "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur"
+          "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
+          "assistente-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "en": [
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur",
           "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur",
           "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "unterassistent-in-pdgr-ch",
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
+        "assistant-psychiatrische-dienste-graubunden-cazis-chur",
+        "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
+        "assistente-psychiatrische-dienste-graubunden-cazis-chur",
         "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
         "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       ],
@@ -721,7 +748,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:26.097Z",
+      "crawledAt": "2026-09-27T15:08:07.382Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -744,18 +771,23 @@
       "pensum": "20 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-pdgr-ch"
+          "dipl-pflegefachperson-hf-pdgr-ch",
+          "dipl-ing-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "it": [
           "dipl-pflegefachperson-hf-pdgr-ch",
-          "infermiere-dipl-sss-psychiatrische-dienste-graubunden-cazis-chur"
+          "infermiere-dipl-sss-psychiatrische-dienste-graubunden-cazis-chur",
+          "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
         "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis-chur",
-        "infermiere-dipl-sss-psychiatrische-dienste-graubunden-cazis-chur"
+        "infermiere-dipl-sss-psychiatrische-dienste-graubunden-cazis-chur",
+        "dipl-ing-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis-chur",
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:52:07.219Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -770,8 +802,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-1229ad41add2",
@@ -804,7 +835,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betriebsunterhalt-efz-chur/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:24.974Z",
+      "crawledAt": "2026-09-27T15:08:06.156Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -825,13 +856,16 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachfrau-fachmann-betriebsunterhalt-efz-pdgr-ch"
+        "fachfrau-fachmann-betriebsunterhalt-efz-pdgr-ch",
+        "fachfrau-fachmann-betriebsunterhalt-efz-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betriebsunterhalt-efz-pdgr-ch"
+          "fachfrau-fachmann-betriebsunterhalt-efz-pdgr-ch",
+          "fachfrau-fachmann-betriebsunterhalt-efz-psychiatrische-dienste-graubunden-chur"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:16.507Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -846,15 +880,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-6bea78edbd79",
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
-        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "en": "senior-doctor-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       },
@@ -880,7 +913,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:23.852Z",
+      "crawledAt": "2026-09-27T15:08:04.889Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -933,16 +966,19 @@
           "medico-senior-psychiatrische-dienste-graubunden-cazis",
           "oberarztin-oberarzt-pdgr-ch-3",
           "oberarztin-oberarzt-pdgr-ch-4",
-          "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur"
+          "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur",
+          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
         ],
         "en": [
           "oberarztin-oberarzt-pdgr-ch",
           "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
           "senior-doctor-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch",
-          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur"
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis"
         ],
         "fr": [
           "medecin-principal-psychiatrische-dienste-graubunden-cazis",
@@ -960,8 +996,12 @@
         "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur",
         "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-cazis-chur",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur",
+        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "senior-doctor-psychiatrische-dienste-graubunden-cazis"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -976,8 +1016,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-6c4e56b4412e",
@@ -1010,7 +1049,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:22.713Z",
+      "crawledAt": "2026-09-27T15:08:03.597Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1064,15 +1103,20 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "oberpsychologe-in-pdgr-ch"
+          "oberpsychologe-in-pdgr-ch",
+          "oberpsychologe-in-psychiatrische-dienste-graubunden-chur"
         ],
         "it": [
-          "oberpsychologe-in-pdgr-ch"
+          "oberpsychologe-in-pdgr-ch",
+          "psicologo-senior-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "oberpsychologe-in-pdgr-ch"
+        "oberpsychologe-in-pdgr-ch",
+        "oberpsychologe-in-psychiatrische-dienste-graubunden-chur",
+        "psicologo-senior-psychiatrische-dienste-graubunden-chur"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -1087,8 +1131,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-c9fc518561fc",
@@ -1121,7 +1164,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:21.578Z",
+      "crawledAt": "2026-09-27T15:08:02.192Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1165,15 +1208,20 @@
       "pensum": "30 - 80%",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
+          "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
+        "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1188,8 +1236,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-9a01055d3a01",
@@ -1222,7 +1269,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:20.425Z",
+      "crawledAt": "2026-09-27T15:08:00.896Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1270,14 +1317,17 @@
       "pensum": "20 - 50%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch-2",
-        "dipl-pflegefachperson-hf-pdgr-ch"
+        "dipl-pflegefachperson-hf-pdgr-ch",
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-pdgr-ch-2",
-          "dipl-pflegefachperson-hf-pdgr-ch"
+          "dipl-pflegefachperson-hf-pdgr-ch",
+          "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-scuol"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1292,8 +1342,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-14b4c467e91e",
@@ -1326,7 +1375,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:19.291Z",
+      "crawledAt": "2026-09-27T15:07:59.616Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1366,18 +1415,23 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-pdgr-ch"
+          "dipl-pflegefachperson-hf-fh-pdgr-ch",
+          "dipl-assistente-sanitaria-hf-fh-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-pdgr-ch"
+          "dipl-pflegefachperson-hf-fh-pdgr-ch",
+          "dipl-ing-pflegefachperson-hf-fh-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-pdgr-ch",
         "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
         "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
-        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch"
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch",
+        "dipl-ing-pflegefachperson-hf-fh-psychiatrische-dienste-graubunden-cazis",
+        "dipl-assistente-sanitaria-hf-fh-psychiatrische-dienste-graubunden-cazis"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1392,8 +1446,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-72c42eafd6ec",
@@ -1426,7 +1479,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:16.971Z",
+      "crawledAt": "2026-09-27T15:07:57.065Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1455,7 +1508,8 @@
           "oberarztin-oberarzt-pdgr-ch",
           "medecin-principal-psychiatrische-dienste-graubunden-chur-292ec5",
           "medico-senior-psychiatrische-dienste-graubunden-chur-292ec5",
-          "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5"
+          "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5",
+          "medico-senior-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "senior-doctor-psychiatrische-dienste-graubunden-cazis",
@@ -1465,7 +1519,8 @@
         ],
         "de": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "medecin-principal-psychiatrische-dienste-graubunden-cazis",
@@ -1488,8 +1543,11 @@
         "oberarztin-oberarzt-pdgr-ch",
         "medecin-principal-psychiatrische-dienste-graubunden-chur-292ec5",
         "medico-senior-psychiatrische-dienste-graubunden-chur-292ec5",
-        "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5"
+        "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+        "medico-senior-psychiatrische-dienste-graubunden-chur"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-22T23:10:25.817Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -1504,8 +1562,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-a77b7c3ef761",
@@ -1538,7 +1595,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:15.834Z",
+      "crawledAt": "2026-09-27T15:07:55.948Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1598,7 +1655,8 @@
         "dipl-assistente-infermieristico-hf-psychiatrische-dienste-graubunden-chur",
         "dipl-pflegefachperson-hf-pdgr-ch-4",
         "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-thusis",
-        "diplome-e-en-soins-infirmiers-hf-psychiatrische-dienste-graubunden-thusis"
+        "diplome-e-en-soins-infirmiers-hf-psychiatrische-dienste-graubunden-thusis",
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1614,7 +1672,8 @@
           "dipl-assistente-infermieristico-hf-psychiatrische-dienste-graubunden-chur",
           "dipl-pflegefachperson-hf-pdgr-ch-4",
           "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-thusis",
-          "diplome-e-en-soins-infirmiers-hf-psychiatrische-dienste-graubunden-thusis"
+          "diplome-e-en-soins-infirmiers-hf-psychiatrische-dienste-graubunden-thusis",
+          "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "dipl-care-professional-hf-psychiatrische-dienste-graubunden-chur"
@@ -1623,6 +1682,7 @@
           "dipl-soins-professionnels-hf-psychiatrische-dienste-graubunden-chur"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1637,17 +1697,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-d7f7612b1400",
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
+        "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
+        "en": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
-        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur",
-        "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
+        "fr": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1671,7 +1730,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:13.535Z",
+      "crawledAt": "2026-09-27T15:07:53.371Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1693,18 +1752,20 @@
       "pensumMax": 50,
       "pensum": "20 - 50%",
       "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-pdgr-ch",
-          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
-        ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
         ],
+        "it": [
+          "oberarztin-oberarzt-pdgr-ch",
+          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
+        ],
         "en": [
+          "psychiatrist-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
+          "psychiatre-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
         ]
       },
@@ -1716,6 +1777,7 @@
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-22T23:10:25.817Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1729,8 +1791,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-05-22T23:10:25.817Z"
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-931f5642c1d2",
@@ -1763,7 +1824,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:12.431Z",
+      "crawledAt": "2026-09-27T15:07:52.263Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1786,12 +1847,14 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz"
         ],
         "it": [
           "senior-physician-psychiatrische-dienste-graubunden-ilanz",
           "medecin-chef-psychiatrische-dienste-graubunden-ilanz",
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "primario-psychiatrische-dienste-graubunden-ilanz"
         ],
         "en": [
           "senior-physician-psychiatrische-dienste-graubunden-ilanz",
@@ -1805,7 +1868,9 @@
       "previousSlugs": [
         "senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "medecin-chef-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch"
+        "oberarztin-oberarzt-pdgr-ch",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
+        "primario-psychiatrische-dienste-graubunden-ilanz"
       ],
       "firstSeenAt": "2026-07-11T11:06:03.797Z",
       "salaryMin": 110500,
@@ -1854,7 +1919,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:11.289Z",
+      "crawledAt": "2026-09-27T15:07:51.114Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1879,20 +1944,22 @@
         "oberarztin-oberarzt-pdgr-ch-2",
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol",
-        "oberarztin-oberarzt-pdgr-ch-t5tsyg"
+        "oberarztin-oberarzt-pdgr-ch-t5tsyg",
+        "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-pdgr-ch-2",
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol"
         ],
         "en": [
           "oberarztin-oberarzt-pdgr-ch-2"
         ],
         "de": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol",
-          "oberarztin-oberarzt-pdgr-ch",
-          "oberarztin-oberarzt-pdgr-ch-t5tsyg"
+          "oberarztin-oberarzt-pdgr-ch-t5tsyg",
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "fr": [
           "oberarztin-oberarzt-pdgr-ch-2"
@@ -1918,10 +1985,10 @@
       "id": "pdgr-7d82aa45ee20",
       "slug": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
+        "it": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
-        "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
+        "fr": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1945,7 +2012,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:09.047Z",
+      "crawledAt": "2026-09-27T15:07:48.909Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1966,7 +2033,6 @@
       "pensumMin": 10,
       "pensumMax": 10,
       "pensum": "10%",
-      "needsRetranslation": true,
       "previousSlugs": [
         "ergotherapeut-in-pdgr-ch",
         "cook-psychiatrische-dienste-graubunden-chur",
@@ -1990,9 +2056,11 @@
         ],
         "fr": [
           "ergotherapeut-in-pdgr-ch",
-          "cook-psychiatrische-dienste-graubunden-chur"
+          "cook-psychiatrische-dienste-graubunden-chur",
+          "ergotherapeute-psychiatrische-dienste-graubunden-chur"
         ]
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1454,
       "retranslationAttempts": 3,
@@ -2017,9 +2085,9 @@
       "slug": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
+        "en": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2043,7 +2111,7 @@
       "url": "https://www.pdgr.ch/jobs/psychologiepraktikant-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:06.753Z",
+      "crawledAt": "2026-09-27T15:07:46.564Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2064,23 +2132,29 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "needsRetranslation": true,
       "previousSlugs": [
         "psychologiepraktikant-in-pdgr-ch",
-        "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
+        "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
+        "psychologue-psychiatrische-dienste-graubunden-cazis-chur",
+        "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologiepraktikant-in-pdgr-ch",
-          "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+          "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
+          "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "en": [
+          "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
+          "psychologue-psychiatrische-dienste-graubunden-cazis-chur",
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1132,
       "retranslationAttempts": 3,
@@ -2131,7 +2205,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:05.621Z",
+      "crawledAt": "2026-09-27T15:07:45.411Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2153,11 +2227,13 @@
       "pensumMax": 60,
       "pensum": "40 - 60%",
       "previousSlugs": [
-        "nachtarztin-nachtarzt-pdgr-ch"
+        "nachtarztin-nachtarzt-pdgr-ch",
+        "medico-notturno-medico-notturno-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachtarztin-nachtarzt-pdgr-ch"
+          "nachtarztin-nachtarzt-pdgr-ch",
+          "medico-notturno-medico-notturno-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "nachtarztin-nachtarzt-pdgr-ch"
@@ -2213,7 +2289,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-5-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:04.490Z",
+      "crawledAt": "2026-09-27T15:07:44.296Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2282,7 +2358,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagoge-in-hf-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:03.324Z",
+      "crawledAt": "2026-09-27T15:07:43.161Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2307,14 +2383,16 @@
         "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-pdgr-ch",
         "dipl-pflegefachperson-hf-o-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
         "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
-        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch"
+        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch",
+        "dipl-pflegefachperson-hf-o-dipl-sozialpadagoge-in-hf-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-pdgr-ch",
           "dipl-pflegefachperson-hf-o-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
           "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
-          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch"
+          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch",
+          "dipl-pflegefachperson-hf-o-dipl-sozialpadagoge-in-hf-psychiatrische-dienste-graubunden-chur"
         ],
         "de": [
           "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch"
@@ -2370,7 +2448,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-2-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:02.216Z",
+      "crawledAt": "2026-09-27T15:07:41.957Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2393,13 +2471,15 @@
       "previousSlugs": [
         "betreuer-in-pdgr-ch",
         "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen"
+        "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "consigliere-psychiatrische-dienste-graubunden-rothenbrunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betreuer-in-pdgr-ch",
           "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen",
-          "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen"
+          "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
+          "consigliere-psychiatrische-dienste-graubunden-rothenbrunnen"
         ],
         "en": [
           "betreuer-in-pdgr-ch",
@@ -2456,7 +2536,7 @@
       "url": "https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:46:00.957Z",
+      "crawledAt": "2026-09-27T15:07:40.794Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2478,11 +2558,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "stv-pflege-standortleiter-in-pdgr-ch"
+        "stv-pflege-standortleiter-in-pdgr-ch",
+        "stv-allattamento-site-manager-in-psychiatrische-dienste-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-pflege-standortleiter-in-pdgr-ch"
+          "stv-pflege-standortleiter-in-pdgr-ch",
+          "stv-allattamento-site-manager-in-psychiatrische-dienste-graubunden-ilanz"
         ],
         "en": [
           "stv-pflege-standortleiter-in-pdgr-ch"
@@ -2538,7 +2620,7 @@
       "url": "https://www.pdgr.ch/jobs/lehrperson-schulische-heilpaedagogik-shp-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:45:58.732Z",
+      "crawledAt": "2026-09-27T15:07:38.494Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2560,11 +2642,13 @@
       "pensumMax": 70,
       "pensum": "70%",
       "previousSlugs": [
-        "lehrperson-schulische-heilpadagogik-shp-pdgr-ch"
+        "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
+        "docente-di-formazione-professionale-shp-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-schulische-heilpadagogik-shp-pdgr-ch"
+          "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
+          "docente-di-formazione-professionale-shp-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "lehrperson-schulische-heilpadagogik-shp-pdgr-ch"
@@ -2620,7 +2704,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:45:57.627Z",
+      "crawledAt": "2026-09-27T15:07:37.272Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2644,13 +2728,15 @@
       "previousSlugs": [
         "assistenz-oder-fachpsychologe-in-pdgr-ch",
         "assistenz-oder-fachpsychologe-in-pdgr-ch-3",
-        "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz"
+        "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
+        "assistente-o-psicologo-specializzato-psychiatrische-dienste-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenz-oder-fachpsychologe-in-pdgr-ch",
           "assistenz-oder-fachpsychologe-in-pdgr-ch-3",
-          "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz"
+          "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
+          "assistente-o-psicologo-specializzato-psychiatrische-dienste-graubunden-ilanz"
         ],
         "en": [
           "assistenz-oder-fachpsychologe-in-pdgr-ch"
@@ -2706,7 +2792,7 @@
       "url": "https://www.pdgr.ch/jobs/gaertner-in-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:45:56.477Z",
+      "crawledAt": "2026-09-27T15:07:35.934Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2730,12 +2816,14 @@
         "gartner-in-pdgr-ch",
         "giardino-in-psychiatrische-dienste-graubunden-chur",
         "gardener-in-psychiatrische-dienste-graubunden-chur",
-        "jardinier-in-psychiatrische-dienste-graubunden-chur"
+        "jardinier-in-psychiatrische-dienste-graubunden-chur",
+        "giardinieri-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-pdgr-ch",
-          "giardino-in-psychiatrische-dienste-graubunden-chur"
+          "giardino-in-psychiatrische-dienste-graubunden-chur",
+          "giardinieri-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "gartner-in-pdgr-ch",
@@ -2746,6 +2834,7 @@
           "jardinier-in-psychiatrische-dienste-graubunden-chur"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:23:20.801Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2760,8 +2849,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-d6e4f98002d7",
@@ -2794,7 +2882,7 @@
       "url": "https://www.pdgr.ch/jobs/arbeitsagoge-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:45:55.373Z",
+      "crawledAt": "2026-09-27T15:07:34.695Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2816,12 +2904,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "arbeitsagoge-in-pdgr-ch",
-        "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur"
+        "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur",
+        "manipolatore-di-lavoro-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arbeitsagoge-in-pdgr-ch",
-          "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur"
+          "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur",
+          "manipolatore-di-lavoro-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "arbeitsagoge-in-pdgr-ch"
@@ -2877,7 +2967,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-organisation-fachentwicklung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:45:54.255Z",
+      "crawledAt": "2026-09-27T15:07:33.344Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2900,12 +2990,14 @@
       "previousSlugs": [
         "leiter-in-organisation-fachentwicklung-pdgr-ch",
         "responsabile-organisation-fachentwicklung-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "leiter-in-organisation-fachentwicklung-psychiatrische-dienste-graubunden-rothenbrunnen"
+        "leiter-in-organisation-fachentwicklung-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "responsabile-organizzazione-sviluppo-specialista-psychiatrische-dienste-graubunden-rothenbrunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-organisation-fachentwicklung-pdgr-ch",
-          "responsabile-organisation-fachentwicklung-psychiatrische-dienste-graubunden-rothenbrunnen"
+          "responsabile-organisation-fachentwicklung-psychiatrische-dienste-graubunden-rothenbrunnen",
+          "responsabile-organizzazione-sviluppo-specialista-psychiatrische-dienste-graubunden-rothenbrunnen"
         ],
         "en": [
           "leiter-in-organisation-fachentwicklung-psychiatrische-dienste-graubunden-rothenbrunnen"
@@ -2935,7 +3027,7 @@
       "slug": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
         "it": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
-        "en": "art-therapists-psychiatrische-dienste-graubunden-ilanz",
+        "en": "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz",
         "de": "kunsttherapeut-in-pdgr-ch",
         "fr": "artotherapeutes-psychiatrische-dienste-graubunden-ilanz"
       },
@@ -2961,7 +3053,7 @@
       "url": "https://www.pdgr.ch/jobs/kunsttherapeut-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:45:53.121Z",
+      "crawledAt": "2026-09-27T15:07:31.888Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2984,21 +3076,25 @@
       "pensum": "30 - 40%",
       "previousSlugs": [
         "kunsttherapeut-in-pdgr-ch",
+        "art-therapists-psychiatrische-dienste-graubunden-ilanz",
+        "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
         "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kunsttherapeut-in-pdgr-ch"
+          "kunsttherapeut-in-pdgr-ch",
+          "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz"
         ],
         "en": [
+          "art-therapists-psychiatrische-dienste-graubunden-ilanz",
           "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
         ],
         "fr": [
           "kunsttherapeut-in-pdgr-ch"
         ]
       },
-      "firstSeenAt": "2026-09-18T23:20:49.979Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-18T23:20:49.979Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -3045,7 +3141,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-7-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:45:51.963Z",
+      "crawledAt": "2026-09-27T15:07:30.626Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3068,12 +3164,14 @@
       "pensum": "40 - 50%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
-        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-ilanz"
+        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-ilanz",
+        "dipl-professionista-hf-psychiatrische-dienste-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-pdgr-ch",
-          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-ilanz"
+          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-ilanz",
+          "dipl-professionista-hf-psychiatrische-dienste-graubunden-ilanz"
         ],
         "en": [
           "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-ilanz"
@@ -3129,7 +3227,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-cafeteria-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:45:50.816Z",
+      "crawledAt": "2026-09-27T15:07:29.380Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3151,11 +3249,13 @@
       "pensum": "50%",
       "previousSlugs": [
         "mitarbeiter-in-cafeteria-pdgr-ch",
-        "mitarbeiter-in-cafeteria-psychiatrische-dienste-graubunden-cazis"
+        "mitarbeiter-in-cafeteria-psychiatrische-dienste-graubunden-cazis",
+        "collaboratore-trice-cafeteria-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-cafeteria-pdgr-ch"
+          "mitarbeiter-in-cafeteria-pdgr-ch",
+          "collaboratore-trice-cafeteria-psychiatrische-dienste-graubunden-cazis"
         ],
         "en": [
           "mitarbeiter-in-cafeteria-psychiatrische-dienste-graubunden-cazis"
@@ -3211,7 +3311,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:45:49.714Z",
+      "crawledAt": "2026-09-27T15:07:28.079Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -3234,12 +3334,14 @@
       "pensum": "70 - 100%",
       "previousSlugs": [
         "assistenz-oder-fachpsychologe-in-pdgr-ch",
-        "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-samedan"
+        "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-samedan",
+        "assistente-o-psicologo-specializzato-psychiatrische-dienste-graubunden-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenz-oder-fachpsychologe-in-pdgr-ch",
-          "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-samedan"
+          "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-samedan",
+          "assistente-o-psicologo-specializzato-psychiatrische-dienste-graubunden-samedan"
         ],
         "en": [
           "assistenz-oder-fachpsychologe-in-pdgr-ch"
@@ -3295,7 +3397,7 @@
       "url": "https://www.pdgr.ch/jobs/beauftragte-r-fuer-die-un-brk-peer-mitarbeiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:45:48.608Z",
+      "crawledAt": "2026-09-27T15:07:26.738Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3316,11 +3418,13 @@
       "pensumMax": 30,
       "pensum": "30%",
       "previousSlugs": [
-        "beauftragte-r-fur-die-un-brk-peer-mitarbeiter-in-pdgr-ch"
+        "beauftragte-r-fur-die-un-brk-peer-mitarbeiter-in-pdgr-ch",
+        "beauftragte-r-per-la-un-brk-peer-collaboratore-trice-in-psychiatrische-dienste-graubunden-rothenbrunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "beauftragte-r-fur-die-un-brk-peer-mitarbeiter-in-pdgr-ch"
+          "beauftragte-r-fur-die-un-brk-peer-mitarbeiter-in-pdgr-ch",
+          "beauftragte-r-per-la-un-brk-peer-collaboratore-trice-in-psychiatrische-dienste-graubunden-rothenbrunnen"
         ]
       },
       "firstSeenAt": "2026-09-24T14:28:40.972Z",

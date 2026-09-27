@@ -1,7 +1,7 @@
 {
   "key": "barry-callebaut",
   "label": "Barry Callebaut",
-  "generatedAt": "2026-09-26T23:45:57.735Z",
+  "generatedAt": "2026-09-27T15:06:58.741Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,10 +12,10 @@
   "updatedCount": 2,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2029,
-  "avgDurationMs": 2029,
+  "durationMs": 3482,
+  "avgDurationMs": 3482,
   "durationHistory": [
-    2029
+    3482
   ],
   "newJobs": [
     {
@@ -30,7 +30,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&amp;-Reporting-Accounting-Policies-8005/1430935500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:45:53.388Z",
+      "crawledAt": "2026-09-27T15:06:49.142Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -43,6 +43,7 @@
       "featured": false,
       "postedDate": "2026-09-18",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&amp;-Reporting-Accounting-Policies-8005/1430935500/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-18T23:21:12.084Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -66,7 +67,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director-Digital-Finance-%28CO%29-8005/1382505200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:45:53.387Z",
+      "crawledAt": "2026-09-27T15:06:49.138Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -101,7 +102,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Derivatives-Trader-8005/1428373800/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:45:53.384Z",
+      "crawledAt": "2026-09-27T15:06:49.131Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -138,7 +139,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&-Reporting-Accounting-Policies-8005/1430935500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:08:46.917Z",
+      "crawledAt": "2026-09-26T23:45:53.388Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,6 +153,7 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&-Reporting-Accounting-Policies-8005/1430935500/",
       "firstSeenAt": "2026-09-18T23:21:12.084Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
