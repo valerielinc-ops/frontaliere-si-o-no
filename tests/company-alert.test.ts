@@ -167,7 +167,9 @@ describe('one company-slug normalisation (#5012, Non-Negotiable #6)', () => {
       'services/employerBrands.ts',
       'build-plugins/weeklyEmployersData.ts',
       'scripts/refresh-weekly-employers-top-pairs.mjs',
-      'services/jobAlertMatching.mjs',
+      // `jobAlertMatching.mjs` normalizes category labels (e.g. "sales marketing"),
+      // not company identities; its company path delegates to the shared helper
+      // below. The identical regex there is therefore a semantic false positive.
     ]) {
       expect(readRepoFile(rel).includes(literal), `${rel} still re-implements the slugify`).toBe(false);
     }
