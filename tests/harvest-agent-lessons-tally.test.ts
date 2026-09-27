@@ -58,11 +58,11 @@ describe('tallyFindings — dedup per (PR, bucket)', () => {
         '❓ q: gli Auto Ads in-page cadono dentro #root',
         '❓ q: non verificato AdSense fuori da #root',
         '🟡 nit: adsense loader iniettato due volte',
-      ].join('\n'))],
+    ].join('\n'))],
     }];
     const { counts } = tallyFindings(prs);
     // solo la riga 🟡 è countable, e comunque dedup per-PR → 1
-    expect(counts['auto-ads']).toBe(1);
+    expect(counts['adsense-loader-contract']).toBe(1);
   });
 
   it('più review della STESSA PR (re-review) restano 1 per bucket', () => {
@@ -87,8 +87,8 @@ describe('tallyFindings — scenario #2124 sotto la soglia di escalation', () =>
     ];
     const { counts } = tallyFindings(prs);
     // solo #2102 (🟡) conta → 1, ben sotto 6 → niente escalation
-    expect(counts['auto-ads'] ?? 0).toBe(1);
-    expect(counts['auto-ads'] ?? 0).toBeLessThan(3 * 2);
+    expect(counts['adsense-loader-contract'] ?? 0).toBe(1);
+    expect(counts['adsense-loader-contract'] ?? 0).toBeLessThan(3 * 2);
   });
 });
 
