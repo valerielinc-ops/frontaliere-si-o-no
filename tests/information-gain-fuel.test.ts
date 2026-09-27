@@ -34,7 +34,7 @@ describe('information-gain: fuel-daily è un vertical data-driven', () => {
     for (const path of [...canonicalFuelPaths, ...legacyFuelPaths]) {
       expect(isFuelSectionPath(path), path).toBe(true);
     }
-    expect(isFuelSectionPath('/blog/prezzi-benzina/oggi/')).toBe(false);
+    expect(isFuelSectionPath('/blog/price-guide/oggi/')).toBe(false);
     expect(isFuelSectionPath('/prezzi-benzina-archivio/oggi/')).toBe(false);
   });
 
