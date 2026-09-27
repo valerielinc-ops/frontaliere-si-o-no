@@ -15,6 +15,7 @@ import {
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 const DETAIL_URL = 'https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/';
+const ENGLISH_DETAIL_URL = 'https://www.protectas.com/en-ch/careers/job-offers/744000147063419/';
 const DETAIL_DESCRIPTION = [
   'La posizione garantisce la sorveglianza fisica dei siti dei clienti nel Luganese.',
   'La persona effettua ronde diurne e notturne, controlla gli accessi, mantiene l’ordine',
@@ -45,6 +46,7 @@ const DETAIL_HTML = `<html><body>
 </body></html>`;
 const LISTING_HTML = `<a href="${DETAIL_URL}">Agente di sicurezza ausiliario</a>
   <a href="https://jobup.ch/offerte/123">Unrelated aggregate result</a>`;
+const ESCAPED_WIDGET_HTML = `<script type="application/json">{"url":"\\/en-ch\\/careers\\/job-offers\\/744000147063419\\/"}</script>`;
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -105,6 +107,10 @@ describe('Protectas SA crawler parser', () => {
   describe('official inventory and physical-security boundary', () => {
     it('extracts only official numeric vacancy links', () => {
       expect(extractProtectasVacancyUrls(LISTING_HTML)).toEqual([DETAIL_URL]);
+    });
+
+    it('accepts the current English detail route and JSON-escaped widget URLs', () => {
+      expect(extractProtectasVacancyUrls(ESCAPED_WIDGET_HTML)).toEqual([ENGLISH_DETAIL_URL]);
     });
 
     it('parses a JobPosting JSON-LD object with a Swiss physical location', () => {
