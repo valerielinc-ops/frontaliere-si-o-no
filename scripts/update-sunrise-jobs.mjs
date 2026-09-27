@@ -3,7 +3,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import {
+  evaluateAuthoritativeSnapshot,
+  exitCrawlerOnError,
+  fetchHtml,
+  fetchHtmlWithCookies,
+} from './lib/crawler-template.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -125,6 +130,14 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
   });
 }
 
+async function fetchTextWithCookies(url, cookieJar, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
+  return fetchHtmlWithCookies(url, {
+    timeoutMs,
+    cookieJar,
+    headers: { Accept: 'text/html,application/xhtml+xml' },
+  });
+}
+
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
@@ -148,13 +161,19 @@ async function fetchSunriseListings() {
   let malformedRecordCount = 0;
   let payloadPresent = false;
   let terminationProven = false;
+  // Phenom assigns a result ordering to the PLAY_SESSION it creates for the
+  // first listing request. Native fetch does not persist Set-Cookie between
+  // separate calls, so without this jar offset pages can be evaluated against
+  // different orderings and overlap (for example page 3 repeating the last
+  // row of page 2). Keep one session for the complete listing snapshot.
+  const listingCookieJar = new Map();
   const paginationIntegrity = createListingPaginationIntegrity({
     getRowKey: (row) => row?.reqId || row?.jobId,
   });
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const offset = page * PAGE_SIZE;
     const url = offset ? `${CAREERS_URL}?from=${offset}&s=1` : CAREERS_URL;
-    const html = await fetchText(url);
+    const html = await fetchTextWithCookies(url, listingCookieJar);
     const rows = parseSunriseSearchPage(html);
     if (rows.sunriseSearchPayloadPresent !== true) {
       throw new Error(`Sunrise search payload missing at offset ${offset}`);
