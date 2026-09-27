@@ -205,6 +205,14 @@ import { CALC_HREF } from './calcHref';
 // curl-verified-200). Local copies had drifted to a dead orphan scheme (#1997).
 import { FX_HREF, HEALTH_HREF } from './comparatorHref';
 
+function buildMethodology(locale: CommuterLocale, nationalScope: boolean): string {
+  if (!nationalScope) return COPY[locale].methodology;
+  if (locale === 'it') return 'Le offerte di questa pagina arrivano da un crawler proprietario che ogni 6 ore interroga i principali ATS svizzeri (Smartrecruiters, Workday, ATS proprietari come Talentry e ServiceNow), JobUp, JobScout24 e le pagine carriere di datori di lavoro in diversi cantoni. Ogni annuncio passa una deduplicazione su <em>titolo normalizzato + azienda + comune</em> prima della pubblicazione, così la stessa offerta non compare due volte anche se l\'azienda la pubblica su più portali. La data visualizzata è quella di pubblicazione originale del datore di lavoro, non quella di scansione, e gli annunci vengono verificati periodicamente per rimuovere le posizioni chiuse.';
+  if (locale === 'en') return 'Listings on this page come from a proprietary crawler that polls the main Swiss ATS (Smartrecruiters, Workday, proprietary trackers such as Talentry and ServiceNow) every 6 hours, plus JobUp, JobScout24 and the career pages of employers across several cantons. Every listing passes a deduplication check on <em>normalised title + company + municipality</em> before publication, so the same role does not appear twice when an employer posts it on multiple portals. The displayed date is the employer\'s original publication date, not the crawl timestamp, and listings are checked periodically to remove closed positions.';
+  if (locale === 'de') return 'Die Stellen dieser Seite stammen aus einem eigenen Crawler, der alle 6 Stunden die wichtigsten Schweizer ATS (Smartrecruiters, Workday, proprietäre Systeme wie Talentry und ServiceNow), JobUp, JobScout24 und die Karriereseiten von Arbeitgebern in mehreren Kantonen abfragt. Jeder Eintrag durchläuft vor der Veröffentlichung eine Deduplizierung über <em>normalisierten Titel + Unternehmen + Gemeinde</em>, sodass dieselbe Stelle bei mehreren Portalen nicht doppelt erscheint. Das angezeigte Datum ist das Original-Veröffentlichungsdatum des Arbeitgebers und nicht der Crawl-Zeitstempel; geschlossene Stellen werden regelmässig entfernt.';
+  return 'Les offres de cette page proviennent d\'un crawler propriétaire qui interroge toutes les 6 heures les principaux ATS suisses (Smartrecruiters, Workday, systèmes propriétaires comme Talentry et ServiceNow), JobUp, JobScout24 et les pages carrières d\'employeurs de plusieurs cantons. Chaque annonce passe une déduplication sur <em>titre normalisé + entreprise + commune</em> avant publication, afin que la même offre n\'apparaisse pas plusieurs fois lorsqu\'un employeur la diffuse sur plusieurs portails. La date affichée est celle de publication d\'origine, pas l\'horodatage du crawl ; les postes fermés sont retirés lors des contrôles périodiques.';
+}
+
 function buildCommuterParagraph(locale: CommuterLocale, location: string, row: CityCommuteRow | null): string {
   const loc = location;
   if (!row) {
@@ -245,11 +253,19 @@ function buildCommuterParagraph(locale: CommuterLocale, location: string, row: C
 function buildOmitCommuteParagraph(locale: CommuterLocale, location: string): string {
   const displayLower = location.trim().toLowerCase();
   const isTicino = displayLower === 'ticino' || displayLower === 'tessin';
+  const isSwitzerland = CH_REGION_NAMES.has(location.trim());
   if (isTicino) {
     if (locale === 'it') return 'Le offerte di questa pagina coprono tutto il Cantone Ticino. La "zona di frontiera" del Nuovo Accordo Italia-Svizzera 2024 si applica a tutti i comuni italiani entro 20 km dal confine svizzero, indipendentemente dalla città di lavoro: Lugano, Mendrisio, Chiasso, Bellinzona, Locarno e Stabio. Il Permesso G richiesto al datore svizzero è gratuito; la sua emissione richiede 2-6 settimane dopo la firma del contratto, poi è rinnovato annualmente fino al limite contrattuale. Il rientro al domicilio italiano almeno una volta a settimana è obbligatorio per mantenere lo status.';
     if (locale === 'en') return 'The listings on this page cover the whole Canton of Ticino. The "border zone" of the 2024 Italy-Switzerland fiscal agreement applies to all Italian municipalities within 20 km of the Swiss border, regardless of work city: Lugano, Mendrisio, Chiasso, Bellinzona, Locarno and Stabio. The G permit filed by the Swiss employer is free of charge; issuance takes 2-6 weeks after contract signature, then yearly renewal up to the contract end. Weekly return to the Italian residence is required to keep the status.';
     if (locale === 'de') return 'Die Stellen dieser Seite decken den gesamten Kanton Tessin ab. Die "Grenzzone" des Steuerabkommens 2024 gilt für alle italienischen Gemeinden innerhalb 20 km zur Schweizer Grenze, unabhängig vom Arbeitsort: Lugano, Mendrisio, Chiasso, Bellinzona, Locarno und Stabio. Die vom Schweizer Arbeitgeber beantragte G-Bewilligung ist kostenlos; die Ausstellung dauert 2-6 Wochen nach Vertragsunterzeichnung, danach jährliche Verlängerung bis Vertragsende. Eine wöchentliche Rückkehr ins italienische Zuhause ist Pflicht.';
     return 'Les offres de cette page couvrent tout le canton du Tessin. La « zone frontalière » de l\'accord fiscal 2024 s\'applique à toutes les communes italiennes dans les 20 km de la frontière suisse, indépendamment de la ville de travail : Lugano, Mendrisio, Chiasso, Bellinzona, Locarno et Stabio. Le permis G demandé par l\'employeur suisse est gratuit ; la délivrance prend 2-6 semaines après signature, puis renouvellement annuel jusqu\'à la fin du contrat. Retour hebdomadaire au domicile italien obligatoire.';
+  }
+
+  if (isSwitzerland) {
+    if (locale === 'it') return 'Le offerte di questa pagina coprono tutta la Svizzera, con posizioni distribuite tra cantoni e mercati del lavoro diversi. Per un residente italiano, il Permesso G richiesto dal datore svizzero è gratuito; le aliquote, gli adempimenti fiscali e i contributi dipendono dal cantone di lavoro e dal regime applicabile al singolo rapporto. Quando si applica il regime della zona di frontiera, riguarda i comuni italiani entro 20 km dal confine svizzero. Il rientro al domicilio italiano almeno una volta a settimana resta una condizione del rapporto da verificare con il datore di lavoro.';
+    if (locale === 'en') return 'The listings on this page cover Switzerland, with roles spread across cantons and different labour markets. For an Italian resident, the G Permit filed by the Swiss employer is free of charge; tax rates, filing duties and social-security contributions depend on the canton of work and the regime applying to the individual employment. Where the border-zone regime applies, it covers Italian municipalities within 20 km of the Swiss border. Weekly return to the Italian residence remains an employment condition to confirm with the employer.';
+    if (locale === 'de') return 'Die Stellen dieser Seite decken die ganze Schweiz ab, mit Positionen in Kantonen und Arbeitsmärkten mit unterschiedlichen Rahmenbedingungen. Für Personen mit Wohnsitz in Italien ist die vom Schweizer Arbeitgeber beantragte G-Bewilligung kostenlos; Steuersätze, Meldepflichten und Sozialversicherungsbeiträge hängen vom Arbeitskanton und vom anwendbaren Regime ab. Soweit die Grenzzone gilt, umfasst sie italienische Gemeinden innerhalb von 20 km zur Schweizer Grenze. Die wöchentliche Rückkehr zum italienischen Wohnsitz ist als Arbeitsbedingung mit dem Arbeitgeber zu klären.';
+    return 'Les offres de cette page couvrent toute la Suisse, avec des postes répartis entre des cantons et des marchés du travail différents. Pour un résident italien, le permis G demandé par l\'employeur suisse est gratuit ; les taux d\'imposition, les démarches et les cotisations sociales dépendent du canton de travail et du régime applicable à chaque emploi. Lorsque le régime de la zone frontalière s\'applique, il concerne les communes italiennes situées dans les 20 km de la frontière suisse. Le retour hebdomadaire au domicile italien reste une condition à confirmer avec l\'employeur.';
   }
 
   const canton = location.trim();
@@ -259,8 +275,20 @@ function buildOmitCommuteParagraph(locale: CommuterLocale, location: string): st
   return `Les offres de cette page couvrent tout le canton ${canton}. La « zone frontalière » de l\'accord fiscal 2024 s\'applique à toutes les communes italiennes dans les 20 km de la frontière suisse, indépendamment de la ville de travail dans le canton ${canton}. Le permis G demandé par l\'employeur suisse est gratuit ; la délivrance prend 2-6 semaines après signature, puis renouvellement annuel jusqu\'à la fin du contrat. Retour hebdomadaire au domicile italien obligatoire.`;
 }
 
-function buildSalaryParagraph(locale: CommuterLocale, row: CityCommuteRow | null): string {
+function buildSalaryParagraph(locale: CommuterLocale, row: CityCommuteRow | null, nationalScope = false): string {
   const spread = row?.grossSpreadKChf ?? [60, 110];
+  if (nationalScope) {
+    if (locale === 'it') {
+      return `Le offerte di questa pagina pubblicano lo stipendio in CHF lordo annuo: la forchetta indicativa per i ruoli presenti è ${spread[0]}-${spread[1]} migliaia di CHF, ma il netto reale dipende dal cantone di lavoro e dalla situazione personale. (1) Imposta alla fonte: aliquote e tariffe variano da cantone a cantone, oltre a dipendere da lordo, stato civile e numero di figli. (2) Contributi sociali: AVS-AI-IPG 5,3 % fissi, AD 1,1 % fino a CHF 148\'200/anno, LPP variabile. (3) Nuovo Accordo Italia-Svizzera 2024: il trattamento fiscale dei frontalieri e l\'eventuale credito d\'imposta italiano dipendono dal cantone e dalla data di assunzione. (4) Costi di pendolarismo: per un\'auto media a benzina che fa 40-60 km/giorno, il costo annuale tra carburante, autostrada e usura è circa CHF 2\'400-3\'200. Apri il calcolatore con il lordo dell\'annuncio, il cantone di lavoro e i tuoi dati personali per ottenere una stima coerente con il tuo scenario.`;
+    }
+    if (locale === 'en') {
+      return `Listings on this page publish CHF annual gross salary: the indicative range for the roles shown is CHF ${spread[0]}-${spread[1]}k, but real take-home depends on the work canton and personal circumstances. (1) Withholding tax: rates and tables vary by canton and also depend on gross pay, marital status and children. (2) Social charges: AVS-AI-IPG 5.3 % flat, unemployment 1.1 % up to CHF 148,200/year, LPP variable. (3) The 2024 Italy-Switzerland agreement: cross-border tax treatment and any Italian tax credit depend on the canton and hiring date. (4) Commute costs: a mid-size petrol car covering 40-60 km/day costs about CHF 2,400-3,200/year between fuel, motorway and wear. Open the calculator with the listing\'s gross figure, work canton and personal profile for a scenario-specific estimate.`;
+    }
+    if (locale === 'de') {
+      return `Die Stellen dieser Seite geben CHF-Bruttogehälter pro Jahr an: die indikative Spanne für die aufgeführten Tätigkeiten liegt bei CHF ${spread[0]}-${spread[1]}k, das reale Netto hängt jedoch vom Arbeitskanton und von der persönlichen Situation ab. (1) Quellensteuer: Tarife und Tabellen unterscheiden sich je nach Kanton und hängen zusätzlich von Brutto, Zivilstand und Kinderzahl ab. (2) Sozialabgaben: AHV-IV-EO 5,3 % fix, ALV 1,1 % bis CHF 148\'200/Jahr, BVG variabel. (3) Steuerabkommen Italien-Schweiz 2024: die steuerliche Behandlung und eine allfällige italienische Steuergutschrift hängen vom Kanton und vom Anstellungsdatum ab. (4) Pendelkosten: ein mittelgrosses Benzinauto mit 40-60 km/Tag kostet für Treibstoff, Autobahn und Verschleiss etwa CHF 2\'400-3\'200/Jahr. Öffnen Sie den Rechner mit dem Brutto der Anzeige, dem Arbeitskanton und Ihren persönlichen Daten für eine passende Schätzung.`;
+    }
+    return `Les offres de cette page publient le salaire brut annuel en CHF : la fourchette indicative des postes présentés est de CHF ${spread[0]}-${spread[1]}k, mais le net réel dépend du canton de travail et de la situation personnelle. (1) Impôt à la source : les taux et barèmes varient selon le canton et dépendent aussi du brut, de l\'état civil et du nombre d\'enfants. (2) Charges sociales : AVS-AI-APG 5,3 % fixe, chômage 1,1 % jusqu\'à CHF 148\'200/an, LPP variable. (3) Accord fiscal Italie-Suisse 2024 : le traitement des frontaliers et l\'éventuel crédit d\'impôt italien dépendent du canton et de la date d\'engagement. (4) Coûts de trajet : une voiture moyenne essence parcourant 40-60 km/jour coûte environ CHF 2 400-3 200/an entre carburant, autoroute et usure. Ouvrez le calculateur avec le brut de l\'annonce, le canton de travail et vos données personnelles pour une estimation adaptée.`;
+  }
   if (locale === 'it') {
     return `Le offerte di questa pagina pubblicano lo stipendio in CHF lordo annuo: la forchetta tipica per i ruoli specializzati è ${spread[0]}-${spread[1]} migliaia di CHF, ma il netto reale dipende da quattro variabili. (1) Imposta alla fonte cantonale TI: scaglioni 6-19 % a seconda del lordo, dello stato civile e del numero di figli. (2) Contributi sociali: AVS-AI-IPG 5,3 % fissi, AD 1,1 % fino a CHF 148\'200/anno, LPP variabile (7 % a 25 anni, 18 % oltre i 55). (3) Nuovo Accordo Italia-Svizzera 2024: imposta concorrente con credito d\'imposta italiano fino all\'80 % della ritenuta CH per i nuovi frontalieri (assunti dal 17 luglio 2023), franchigia 10\'000 EUR. (4) Costi di pendolarismo: per un\'auto media a benzina che fa 40-60 km/giorno, il costo annuale tra carburante, autostrada e usura è CHF 2\'400-3\'200 (vignetta CHF 40 inclusa). La differenza lordo-netto tipica è 18-28 % per un single senza figli, 12-22 % per un coniugato con 2 figli a carico. Apri il calcolatore con il lordo dell\'annuncio e i tuoi dati personali per ottenere la cifra esatta nel tuo scenario.`;
   }
@@ -273,7 +301,7 @@ function buildSalaryParagraph(locale: CommuterLocale, row: CityCommuteRow | null
   return `Les offres de cette page publient le salaire brut annuel en CHF : la fourchette typique pour les postes qualifiés est CHF ${spread[0]}-${spread[1]}k, mais le net réel dépend de quatre variables. (1) Impôt à la source cantonal TI : tranches 6-19 % selon brut, état civil et nombre d\'enfants. (2) Charges sociales : AVS-AI-APG 5,3 % fixe, chômage 1,1 % jusqu\'à CHF 148\'200/an, LPP variable (7 % à 25 ans, 18 % au-delà de 55). (3) Accord fiscal Italie-Suisse 2024 : taxation concurrente avec crédit d\'impôt italien jusqu\'à 80 % de la retenue suisse pour les nouveaux frontaliers (engagés après le 17 juillet 2023), abattement de 10 000 EUR. (4) Coûts de trajet : une voiture moyenne essence parcourant 40-60 km/jour coûte CHF 2 400-3 200/an (vignette CHF 40 incluse). L\'écart brut-net typique est de 18-28 % pour un célibataire sans enfants, 12-22 % pour un couple marié avec deux enfants à charge. Ouvrez le calculateur avec le brut de l\'annonce et vos données personnelles pour la cifra exacte.`;
 }
 
-function buildScenarioCallout(locale: CommuterLocale, location: string, row: CityCommuteRow | null): string {
+function buildScenarioCallout(locale: CommuterLocale, location: string, row: CityCommuteRow | null, nationalScope = false): string {
   const grossK = row?.grossSpreadKChf ? Math.round((row.grossSpreadKChf[0] + row.grossSpreadKChf[1]) / 2) : 80;
   const grossMonthly = Math.round((grossK * 1000) / 13);
   const sourceTaxPct = 13;
@@ -284,6 +312,18 @@ function buildScenarioCallout(locale: CommuterLocale, location: string, row: Cit
   const netEur = Math.round(netCh * 0.97);
 
   const example = COPY[locale].exampleLabel;
+  if (nationalScope) {
+    if (locale === 'it') {
+      return `<strong>${example}</strong>: un candidato con un\'offerta in Svizzera di CHF ${grossMonthly.toLocaleString('it-CH')} lordi mensili (CHF ${grossK}\'000 lordi annui su 13 mensilità). In questa simulazione l\'imposta alla fonte è ipotizzata al ${sourceTaxPct} % (~CHF ${sourceTax.toLocaleString('it-CH')}), con AVS-AI-IPG 5,3 % (~CHF ${avs.toLocaleString('it-CH')}) e LPP ~7 % (~CHF ${lpp.toLocaleString('it-CH')}). Netto svizzero indicativo ~CHF ${netCh.toLocaleString('it-CH')}/mese, pari a ~EUR ${netEur.toLocaleString('it-CH')} con cambio 0,97. L\'aliquota effettiva e il calcolo italiano cambiano in base al cantone, al regime fiscale e ai dati personali: il calcolatore Frontaliere Ticino confronta questi scenari e mostra il netto stimato.`;
+    }
+    if (locale === 'en') {
+      return `<strong>${example}</strong>: a candidate with a CHF ${grossMonthly.toLocaleString('en-CH')} gross monthly offer in Switzerland (CHF ${grossK},000 gross/year over 13 months). This illustration assumes ${sourceTaxPct} % withholding tax (~CHF ${sourceTax.toLocaleString('en-CH')}), AVS-AI-IPG at 5.3 % (~CHF ${avs.toLocaleString('en-CH')}) and LPP at about 7 % (~CHF ${lpp.toLocaleString('en-CH')}). Indicative Swiss net: ~CHF ${netCh.toLocaleString('en-CH')}/month, or ~EUR ${netEur.toLocaleString('en-CH')} at 0.97. The effective rate and Italian calculation change with canton, tax regime and personal details; the Frontaliere Ticino calculator compares these scenarios and estimates take-home.`;
+    }
+    if (locale === 'de') {
+      return `<strong>${example}</strong>: eine Person mit einem Bruttoangebot von CHF ${grossMonthly.toLocaleString('de-CH')} pro Monat in der Schweiz (CHF ${grossK}\'000 Brutto/Jahr auf 13 Monatslöhnen). Diese Veranschaulichung nimmt ${sourceTaxPct} % Quellensteuer (~CHF ${sourceTax.toLocaleString('de-CH')}), AHV-IV-EO 5,3 % (~CHF ${avs.toLocaleString('de-CH')}) und BVG rund 7 % (~CHF ${lpp.toLocaleString('de-CH')}) an. Indikatives Schweizer Netto: ~CHF ${netCh.toLocaleString('de-CH')} pro Monat bzw. ~EUR ${netEur.toLocaleString('de-CH')} bei einem Kurs von 0,97. Der effektive Satz und die italienische Berechnung ändern sich je nach Kanton, Steuerregime und persönlichen Daten; der Frontaliere-Ticino-Rechner vergleicht diese Szenarien.`;
+    }
+    return `<strong>${example}</strong> : une personne avec une offre brute de CHF ${grossMonthly.toLocaleString('fr-CH')} par mois en Suisse (CHF ${grossK} 000 brut/an sur 13 mois). Cette illustration suppose ${sourceTaxPct} % d\'impôt à la source (~CHF ${sourceTax.toLocaleString('fr-CH')}), AVS-AI-APG 5,3 % (~CHF ${avs.toLocaleString('fr-CH')}) et LPP ~7 % (~CHF ${lpp.toLocaleString('fr-CH')}). Net suisse indicatif : ~CHF ${netCh.toLocaleString('fr-CH')}/mois, soit ~EUR ${netEur.toLocaleString('fr-CH')} au taux de 0,97. Le taux effectif et le calcul italien varient selon le canton, le régime fiscal et les données personnelles ; le calculateur Frontaliere Ticino compare ces scénarios.`;
+  }
   if (locale === 'it') {
     return `<strong>${example}</strong>: un quadro con offerta CHF ${grossMonthly.toLocaleString('it-CH')} lordi mensili a ${location} (CHF ${grossK}\'000 lordi annui su 13 mensilità). Imposta alla fonte ~${sourceTaxPct} % (~CHF ${sourceTax.toLocaleString('it-CH')}), AVS-AI-IPG 5,3 % (~CHF ${avs.toLocaleString('it-CH')}), LPP ~7 % (~CHF ${lpp.toLocaleString('it-CH')}). Netto svizzero ~CHF ${netCh.toLocaleString('it-CH')}/mese. Cambio EUR a 0,97 → ~EUR ${netEur.toLocaleString('it-CH')}. Sul piano italiano, il rimborso del 24,5 % dell\'imposta alla fonte va alla tua comune di residenza (zone di frontiera) e il credito d\'imposta sull\'IRPEF chiude il calcolo finale. Il calcolatore Frontaliere Ticino integra entrambi i regimi (vecchio e nuovo accordo) e mostra il netto effettivo.`;
   }
@@ -303,6 +343,10 @@ function buildScenarioCallout(locale: CommuterLocale, location: string, row: Cit
 const CH_REGION_NAMES = new Set(['Svizzera', 'Switzerland', 'Schweiz', 'Suisse']);
 const TI_REGION_NAMES = new Set(['Ticino', 'Tessin']);
 
+function isSwitzerlandLocation(location: string): boolean {
+  return CH_REGION_NAMES.has(location.trim());
+}
+
 function isRegionLocation(location: string, cantonDisplay?: string | null): boolean {
   const loc = (location || '').trim();
   if (!loc) return false;
@@ -310,7 +354,7 @@ function isRegionLocation(location: string, cantonDisplay?: string | null): bool
   return !!cantonDisplay && cantonDisplay.trim() === loc;
 }
 
-function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string | null, regionScope: boolean): Array<{ q: string; a: string }> {
+function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string | null, regionScope: boolean, nationalScope = false): Array<{ q: string; a: string }> {
   const safeSector = sectorOrType || (locale === 'it' ? 'questo settore' : locale === 'en' ? 'this sector' : locale === 'de' ? 'diesem Sektor' : 'ce secteur');
   if (locale === 'it') {
     return [
@@ -319,16 +363,20 @@ function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string
         a: `Il telelavoro è oggi consentito fino al 25 % del tempo di lavoro (circa un giorno a settimana su un orario standard) senza perdere lo status di frontaliere e senza far scattare l\'obbligo contributivo nel paese di residenza. Sopra il 25 % serve un accordo specifico tra datore di lavoro, dipendente e autorità — il superamento provoca lo spostamento della base previdenziale e fiscale verso l\'Italia. Verifica con HR la quota concordata prima di firmare.`,
       },
       {
-        q: `Per ${location} esiste una zona di frontiera diversa rispetto al resto della Svizzera?`,
-        a: `No: la "zona di frontiera" del Nuovo Accordo Italia-Svizzera 2024 è la stessa per tutto il Cantone Ticino — i comuni italiani entro 20 km dal confine svizzero. Quello che cambia da Lugano a Bellinzona è il tempo di percorrenza, non il regime fiscale. La residenza italiana resta nello stesso comune anche se cambi azienda da una città ticinese all\'altra.`,
+        q: nationalScope ? 'La zona di frontiera è uguale in tutta la Svizzera?' : `Per ${location} esiste una zona di frontiera diversa rispetto al resto della Svizzera?`,
+        a: nationalScope
+          ? `No: il regime della zona di frontiera non si applica in modo identico a tutti i cantoni. Per le posizioni in Ticino, il Nuovo Accordo Italia-Svizzera 2024 riguarda i comuni italiani entro 20 km dal confine svizzero; per gli altri cantoni vanno verificate le regole fiscali e contributive del rapporto specifico. Chiedi al datore di lavoro quale regime si applica prima di firmare.`
+          : `No: la "zona di frontiera" del Nuovo Accordo Italia-Svizzera 2024 è la stessa per tutto il Cantone Ticino — i comuni italiani entro 20 km dal confine svizzero. Quello che cambia da Lugano a Bellinzona è il tempo di percorrenza, non il regime fiscale. La residenza italiana resta nello stesso comune anche se cambi azienda da una città ticinese all\'altra.`,
       },
       {
-        q: `I titoli di studio italiani sono riconosciuti ${sectorOrType ? `nel settore ${sectorOrType}` : `per ${safeSector}`} ${regionScope ? 'in' : 'a'} ${location}?`,
+        q: `I titoli di studio italiani sono riconosciuti ${sectorOrType ? `nel settore ${sectorOrType}` : `per ${safeSector}`} ${nationalScope ? 'in Svizzera' : `${regionScope ? 'in' : 'a'} ${location}`}?`,
         a: `Per la maggioranza dei ruoli privati il datore svizzero accetta il diploma o la laurea italiana direttamente, senza riconoscimento formale. Per le professioni regolamentate (sanitarie, ingegneria civile, avvocati, contabili) serve il riconoscimento da SBFI/SEFRI: la procedura dura 3-6 mesi e va avviata in parallelo all\'invio del CV, non a posteriori.`,
       },
       {
         q: `Quanto incide davvero il pendolarismo sul reddito mensile?`,
-        a: `Per un\'auto media a benzina che pendola 50 km/giorno (es. Como-${location} andata-ritorno), il costo mensile tra carburante, autostrada e usura è circa CHF 200-280. Sommando vignetta annuale (CHF 40) e assicurazione frontaliero, l\'impatto annuo è ~CHF 2\'500-3\'200 da sottrarre al lordo. La scelta tra TILO e auto privata può ridurre questo costo del 30-40 % se le distanze e gli orari aziendali permettono il treno.`,
+        a: nationalScope
+          ? `Per un\'auto media a benzina che percorre 50 km al giorno, il costo mensile tra carburante, autostrada e usura è circa CHF 200-280, ma la distanza reale dipende dal cantone e dalla sede. Sommando vignetta annuale (CHF 40) e assicurazione frontaliero, l\'impatto annuo è ~CHF 2\'500-3\'200 da sottrarre al lordo. Il treno regionale o il car pooling possono ridurre il costo quando distanze e orari lo permettono.`
+          : `Per un\'auto media a benzina che pendola 50 km/giorno (es. Como-${location} andata-ritorno), il costo mensile tra carburante, autostrada e usura è circa CHF 200-280. Sommando vignetta annuale (CHF 40) e assicurazione frontaliero, l\'impatto annuo è ~CHF 2\'500-3\'200 da sottrarre al lordo. La scelta tra TILO e auto privata può ridurre questo costo del 30-40 % se le distanze e gli orari aziendali permettono il treno.`,
       },
     ];
   }
@@ -339,8 +387,10 @@ function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string
         a: `Teleworking is currently allowed up to 25 % of the working time (about one day per week on a standard schedule) without losing cross-border status and without triggering social-security contributions in the country of residence. Above 25 %, a specific agreement between employer, employee and authorities is required — exceeding the cap shifts the social and fiscal basis toward Italy. Check the agreed share with HR before signing.`,
       },
       {
-        q: `Does ${location} have a different border zone than the rest of Switzerland?`,
-        a: `No: the "border zone" of the 2024 Italy-Switzerland agreement is the same across the Canton of Ticino — Italian municipalities within 20 km of the Swiss border. What changes between Lugano and Bellinzona is the commute time, not the tax regime. Your Italian residence stays in the same municipality even if you switch employers between Ticino cities.`,
+        q: nationalScope ? 'Is the border zone the same across Switzerland?' : `Does ${location} have a different border zone than the rest of Switzerland?`,
+        a: nationalScope
+          ? `No: the border-zone regime does not apply identically in every canton. For roles in Ticino, the 2024 Italy-Switzerland agreement concerns Italian municipalities within 20 km of the Swiss border; for other cantons, verify the tax and social-security rules for the specific employment. Ask the employer which regime applies before signing.`
+          : `No: the "border zone" of the 2024 Italy-Switzerland agreement is the same across the Canton of Ticino — Italian municipalities within 20 km of the Swiss border. What changes between Lugano and Bellinzona is the commute time, not the tax regime. Your Italian residence stays in the same municipality even if you switch employers between Ticino cities.`,
       },
       {
         q: `Are Italian qualifications recognised for ${safeSector} in ${location}?`,
@@ -348,7 +398,9 @@ function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string
       },
       {
         q: `How much does the commute actually cost on a monthly basis?`,
-        a: `For a mid-size petrol car commuting 50 km/day (e.g. Como-${location} return), monthly cost across fuel, motorway and wear is around CHF 200-280. Adding the yearly Swiss vignette (CHF 40) and cross-border driver insurance, the annual impact is about CHF 2,500-3,200 to subtract from gross. Choosing TILO regional rail over private car can cut this cost by 30-40 % when distances and working hours allow the train.`,
+        a: nationalScope
+          ? `For a mid-size petrol car covering 50 km/day, monthly cost across fuel, motorway and wear is around CHF 200-280, but the actual distance depends on the canton and worksite. Adding the yearly Swiss vignette (CHF 40) and cross-border driver insurance, the annual impact is about CHF 2,500-3,200 to subtract from gross. Regional rail or car sharing can reduce this cost when distances and working hours allow it.`
+          : `For a mid-size petrol car commuting 50 km/day (e.g. Como-${location} return), monthly cost across fuel, motorway and wear is around CHF 200-280. Adding the yearly Swiss vignette (CHF 40) and cross-border driver insurance, the annual impact is about CHF 2,500-3,200 to subtract from gross. Choosing TILO regional rail over private car can cut this cost by 30-40 % when distances and working hours allow the train.`,
       },
     ];
   }
@@ -359,16 +411,20 @@ function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string
         a: `Telearbeit ist derzeit bis zu 25 % der Arbeitszeit erlaubt (etwa ein Tag pro Woche bei Vollzeit), ohne den Grenzgängerstatus zu verlieren und ohne Sozialabgaben im Wohnland auszulösen. Über 25 % braucht es eine spezifische Vereinbarung zwischen Arbeitgeber, Arbeitnehmer und Behörden — eine Überschreitung verschiebt die Sozial- und Steuerbasis nach Italien. Mit HR den vereinbarten Anteil vor Vertragsabschluss klären.`,
       },
       {
-        q: `Hat ${location} eine andere Grenzzone als der Rest der Schweiz?`,
-        a: `Nein: die "Grenzzone" des Steuerabkommens 2024 ist im gesamten Kanton Tessin identisch — italienische Gemeinden innerhalb von 20 km zur Schweizer Grenze. Was sich zwischen Lugano und Bellinzona unterscheidet, ist die Pendelzeit, nicht das Steuerregime. Der italienische Wohnsitz bleibt in derselben Gemeinde, auch wenn Sie den Arbeitgeber zwischen Tessiner Städten wechseln.`,
+        q: nationalScope ? 'Gilt die Grenzzone in der ganzen Schweiz gleich?' : `Hat ${location} eine andere Grenzzone als der Rest der Schweiz?`,
+        a: nationalScope
+          ? `Nein: das Grenzzonen-Regime gilt nicht in jedem Kanton gleich. Für Stellen im Tessin betrifft das Steuerabkommen 2024 italienische Gemeinden innerhalb von 20 km zur Schweizer Grenze; für andere Kantone müssen die Steuer- und Sozialversicherungsregeln des konkreten Arbeitsverhältnisses geprüft werden. Klären Sie vor Vertragsabschluss mit dem Arbeitgeber, welches Regime gilt.`
+          : `Nein: die "Grenzzone" des Steuerabkommens 2024 ist im gesamten Kanton Tessin identisch — italienische Gemeinden innerhalb von 20 km zur Schweizer Grenze. Was sich zwischen Lugano und Bellinzona unterscheidet, ist die Pendelzeit, nicht das Steuerregime. Der italienische Wohnsitz bleibt in derselben Gemeinde, auch wenn Sie den Arbeitgeber zwischen Tessiner Städten wechseln.`,
       },
       {
-        q: `Werden italienische Qualifikationen für ${safeSector} in ${location} anerkannt?`,
+        q: `Werden italienische Qualifikationen für ${safeSector} ${nationalScope ? 'in der Schweiz' : `in ${location}`} anerkannt?`,
         a: `Für die meisten Stellen im Privatsektor akzeptiert der Schweizer Arbeitgeber italienische Diplome oder Studienabschlüsse direkt, ohne formelle Anerkennung. Für reglementierte Berufe (Gesundheit, Bauingenieurwesen, Anwälte, Buchhalter) ist eine Anerkennung beim SBFI/SEFRI nötig: das Verfahren dauert 3-6 Monate und sollte parallel zu den Bewerbungen gestartet werden, nicht im Nachhinein.`,
       },
       {
         q: `Wie stark belastet das Pendeln das monatliche Einkommen tatsächlich?`,
-        a: `Für ein mittelgrosses Benzin-Auto mit 50 km/Tag (z.B. Como-${location} hin/zurück) liegen die Monatskosten für Treibstoff, Autobahn und Verschleiss bei rund CHF 200-280. Plus jährliche Schweizer Vignette (CHF 40) und Grenzgänger-Versicherung beträgt die jährliche Belastung etwa CHF 2\'500-3\'200, die vom Brutto abzuziehen sind. TILO-Regionalbahn statt Privatauto kann diese Kosten um 30-40 % senken, wenn Distanzen und Arbeitszeiten den Zug zulassen.`,
+        a: nationalScope
+          ? `Für ein mittelgrosses Benzin-Auto mit 50 km/Tag liegen die Monatskosten für Treibstoff, Autobahn und Verschleiss bei rund CHF 200-280; die tatsächliche Distanz hängt vom Kanton und Arbeitsort ab. Plus jährliche Schweizer Vignette (CHF 40) und Grenzgänger-Versicherung beträgt die jährliche Belastung etwa CHF 2\'500-3\'200, die vom Brutto abzuziehen sind. Regionalbahn oder Fahrgemeinschaften können diese Kosten senken, wenn Distanzen und Arbeitszeiten es zulassen.`
+          : `Für ein mittelgrosses Benzin-Auto mit 50 km/Tag (z.B. Como-${location} hin/zurück) liegen die Monatskosten für Treibstoff, Autobahn und Verschleiss bei rund CHF 200-280. Plus jährliche Schweizer Vignette (CHF 40) und Grenzgänger-Versicherung beträgt die jährliche Belastung etwa CHF 2\'500-3\'200, die vom Brutto abzuziehen sind. TILO-Regionalbahn statt Privatauto kann diese Kosten um 30-40 % senken, wenn Distanzen und Arbeitszeiten den Zug zulassen.`,
       },
     ];
   }
@@ -378,8 +434,10 @@ function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string
       a: `Le télétravail est actuellement autorisé jusqu\'à 25 % du temps de travail (environ un jour par semaine à temps plein) sans perdre le statut de frontalier et sans déclencher de cotisations sociales dans le pays de résidence. Au-delà de 25 %, un accord spécifique entre employeur, salarié et autorités est nécessaire — le dépassement déplace la base sociale et fiscale vers l\'Italie. Vérifier avec les RH la part convenue avant de signer.`,
     },
     {
-      q: `${location} a-t-il une zone frontalière différente du reste de la Suisse ?`,
-      a: `Non : la "zone frontalière" de l\'accord 2024 est identique dans tout le canton du Tessin — les communes italiennes dans les 20 km de la frontière suisse. Ce qui change entre Lugano et Bellinzone est le temps de trajet, pas le régime fiscal. Votre résidence italienne reste dans la même commune même si vous changez d\'employeur entre les villes tessinoises.`,
+      q: nationalScope ? 'La zone frontalière est-elle identique dans toute la Suisse ?' : `${location} a-t-il une zone frontalière différente du reste de la Suisse ?`,
+      a: nationalScope
+        ? `Non : le régime de la zone frontalière ne s\'applique pas de la même façon dans tous les cantons. Pour les postes au Tessin, l\'accord fiscal 2024 concerne les communes italiennes dans les 20 km de la frontière suisse ; pour les autres cantons, il faut vérifier les règles fiscales et sociales de l\'emploi concerné. Demandez à l\'employeur quel régime s\'applique avant de signer.`
+        : `Non : la "zone frontalière" de l\'accord 2024 est identique dans tout le canton du Tessin — les communes italiennes dans les 20 km de la frontière suisse. Ce qui change entre Lugano et Bellinzone est le temps de trajet, pas le régime fiscal. Votre résidence italienne reste dans la même commune même si vous changez d\'employeur entre les villes tessinoises.`,
     },
     {
       q: `Les qualifications italiennes sont-elles reconnues ${sectorOrType ? `pour le secteur ${sectorOrType}` : `pour ${safeSector}`} ${regionScope ? (CH_REGION_NAMES.has(location.trim()) ? `en ${location}` : `dans le canton de ${location}`) : `à ${location}`} ?`,
@@ -387,25 +445,27 @@ function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string
     },
     {
       q: `Combien coûte vraiment le trajet sur une base mensuelle ?`,
-      a: `Pour une voiture moyenne essence parcourant 50 km/jour (ex. Côme-${location} aller-retour), le coût mensuel entre carburant, autoroute et usure est d\'environ CHF 200-280. Plus la vignette suisse annuelle (CHF 40) et l\'assurance frontalier, l\'impact annuel est d\'environ CHF 2 500-3 200 à soustraire du brut. Choisir le train régional TILO plutôt que la voiture privée peut réduire ces coûts de 30-40 % quand distances et horaires le permettent.`,
+      a: nationalScope
+        ? `Pour une voiture moyenne essence parcourant 50 km/jour, le coût mensuel entre carburant, autoroute et usure est d\'environ CHF 200-280 ; la distance réelle dépend du canton et du lieu de travail. Plus la vignette suisse annuelle (CHF 40) et l\'assurance frontalier, l\'impact annuel est d\'environ CHF 2 500-3 200 à soustraire du brut. Le train régional ou le covoiturage peuvent réduire ces coûts quand les distances et les horaires le permettent.`
+        : `Pour une voiture moyenne essence parcourant 50 km/jour (ex. Côme-${location} aller-retour), le coût mensuel entre carburant, autoroute et usure est d\'environ CHF 200-280. Plus la vignette suisse annuelle (CHF 40) et l\'assurance frontalier, l\'impact annuel est d\'environ CHF 2 500-3 200 à soustraire du brut. Choisir le train régional TILO plutôt que la voiture privée peut réduire ces coûts de 30-40 % quand distances et horaires le permettent.`,
     },
   ];
 }
 
-function buildCrossLinks(locale: CommuterLocale): string {
+function buildCrossLinks(locale: CommuterLocale, nationalScope = false): string {
   const calc = `<a class="s-U9K6Vf" href="${CALC_HREF[locale]}">`;
   const fx = `<a class="s-U9K6Vf" href="${FX_HREF[locale]}">`;
   const health = `<a class="s-U9K6Vf" href="${HEALTH_HREF[locale]}">`;
   if (locale === 'it') {
-    return `Tre strumenti gratuiti per chiudere il cerchio prima di candidarti: ${calc}calcolatore stipendio netto frontaliere</a> con i due regimi fiscali (vecchio + nuovo accordo 2024) e la stima del rimborso del comune; ${fx}comparatore cambio CHF/EUR</a> con i tassi di banche italiane, cambia-valute svizzeri e Wise/Revolut; ${health}comparatore casse malati LAMal</a> per scegliere il premio mensile più conveniente nel tuo comune ticinese di lavoro.`;
+    return `Tre strumenti gratuiti per chiudere il cerchio prima di candidarti: ${calc}calcolatore stipendio netto frontaliere</a> con i due regimi fiscali (vecchio + nuovo accordo 2024) e la stima del rimborso del comune; ${fx}comparatore cambio CHF/EUR</a> con i tassi di banche italiane, cambia-valute svizzeri e Wise/Revolut; ${health}comparatore casse malati LAMal</a> per scegliere il premio mensile più conveniente ${nationalScope ? 'nel tuo cantone di lavoro' : 'nel tuo comune ticinese di lavoro'}.`;
   }
   if (locale === 'en') {
-    return `Three free tools to close the loop before applying: ${calc}cross-border net salary calculator</a> with both tax regimes (old + 2024 new agreement) and the municipal refund estimate; ${fx}CHF/EUR exchange comparator</a> with rates from Italian banks, Swiss bureaus de change and Wise/Revolut; ${health}LAMal health-insurance comparator</a> to pick the cheapest premium in your Ticino work municipality.`;
+    return `Three free tools to close the loop before applying: ${calc}cross-border net salary calculator</a> with both tax regimes (old + 2024 new agreement) and the municipal refund estimate; ${fx}CHF/EUR exchange comparator</a> with rates from Italian banks, Swiss bureaus de change and Wise/Revolut; ${health}LAMal health-insurance comparator</a> to pick the cheapest premium in your ${nationalScope ? 'work canton' : 'Ticino work municipality'}.`;
   }
   if (locale === 'de') {
-    return `Drei kostenlose Tools zum Abschluss vor der Bewerbung: ${calc}Netto-Grenzgänger-Lohnrechner</a> mit beiden Steuerregimen (altes + neues Abkommen 2024) und der Schätzung der Gemeinderückerstattung; ${fx}CHF/EUR-Wechselkurs-Vergleich</a> mit den Kursen italienischer Banken, Schweizer Wechselstuben und Wise/Revolut; ${health}LAMal-Krankenkassen-Vergleich</a> zur Wahl der günstigsten Monatsprämie in Ihrer Tessiner Arbeitsgemeinde.`;
+    return `Drei kostenlose Tools zum Abschluss vor der Bewerbung: ${calc}Netto-Grenzgänger-Lohnrechner</a> mit beiden Steuerregimen (altes + neues Abkommen 2024) und der Schätzung der Gemeinderückerstattung; ${fx}CHF/EUR-Wechselkurs-Vergleich</a> mit den Kursen italienischer Banken, Schweizer Wechselstuben und Wise/Revolut; ${health}LAMal-Krankenkassen-Vergleich</a> zur Wahl der günstigsten Monatsprämie in Ihrem ${nationalScope ? 'Arbeitskanton' : 'Tessiner Arbeitsgemeinde'}.`;
   }
-  return `Trois outils gratuits pour boucler la boucle avant de postuler : ${calc}calculateur de salaire net frontalier</a> avec les deux régimes fiscaux (ancien + nouvel accord 2024) et l\'estimation du remboursement communal ; ${fx}comparateur de change CHF/EUR</a> avec les taux des banques italiennes, bureaux de change suisses et Wise/Revolut ; ${health}comparateur des caisses maladie LAMal</a> pour choisir la prime mensuelle la plus avantageuse dans votre commune tessinoise de travail.`;
+  return `Trois outils gratuits pour boucler la boucle avant de postuler : ${calc}calculateur de salaire net frontalier</a> avec les deux régimes fiscaux (ancien + nouvel accord 2024) et l\'estimation du remboursement communal ; ${fx}comparateur de change CHF/EUR</a> avec les taux des banques italiennes, bureaux de change suisses et Wise/Revolut ; ${health}comparateur des caisses maladie LAMal</a> pour choisir la prime mensuelle la plus avantageuse dans votre ${nationalScope ? 'canton de travail' : 'commune tessinoise de travail'}.`;
 }
 
 export interface JobBoardCommuterContextOpts {
@@ -545,14 +605,33 @@ export function renderJobBoardCommuterContext(
   } = opts;
   const row = omitCommute ? null : resolveCommuteRow(location);
   const copy = COPY[locale];
+  const nationalScope = isSwitzerlandLocation(location);
+  const commuterH = nationalScope
+    ? locale === 'it'
+      ? 'Vivere in Italia e lavorare in Svizzera: orientarsi tra i cantoni'
+      : locale === 'en'
+      ? 'Living in Italy and working in Switzerland: navigating the cantons'
+      : locale === 'de'
+      ? 'In Italien wohnen und in der Schweiz arbeiten: Orientierung zwischen den Kantonen'
+      : 'Vivre en Italie et travailler en Suisse : comprendre les cantons'
+    : copy.commuterH;
+  const salaryH = nationalScope
+    ? locale === 'it'
+      ? 'Stipendio lordo CHF: come stimare il netto tra i cantoni'
+      : locale === 'en'
+      ? 'CHF gross salary: estimating take-home across cantons'
+      : locale === 'de'
+      ? 'CHF-Bruttolohn: das Netto je nach Kanton einschätzen'
+      : 'Salaire brut CHF : estimer le net selon le canton'
+    : copy.salaryH;
 
   const commuterParagraph = omitCommute
     ? buildOmitCommuteParagraph(locale, location)
     : buildCommuterParagraph(locale, location, row);
-  const salaryParagraph = buildSalaryParagraph(locale, row);
-  const scenarioCallout = buildScenarioCallout(locale, location, row);
-  const faq = buildFaq(locale, location, sectorOrType, isRegionLocation(location, cantonDisplay));
-  const crossLinks = buildCrossLinks(locale);
+  const salaryParagraph = buildSalaryParagraph(locale, row, nationalScope);
+  const scenarioCallout = buildScenarioCallout(locale, location, row, nationalScope);
+  const faq = buildFaq(locale, location, sectorOrType, isRegionLocation(location, cantonDisplay), nationalScope);
+  const crossLinks = buildCrossLinks(locale, nationalScope);
 
   const faqHtml = faq
     .map(
@@ -584,10 +663,10 @@ export function renderJobBoardCommuterContext(
 
   const html = `<section class="job-board-commuter-context s-A_RnbE">
   <h2 class="s-1kjxOy">${escAttr(copy.methodologyH)}</h2>
-  <p class="s-clIDbe">${copy.methodology}</p>
-  <h2 class="s-1kjxOy">${escAttr(copy.commuterH)}</h2>
+  <p class="s-clIDbe">${buildMethodology(locale, nationalScope)}</p>
+  <h2 class="s-1kjxOy">${escAttr(commuterH)}</h2>
   <p class="s-clIDbe">${commuterParagraph}</p>
-  <h2 class="s-1kjxOy">${escAttr(copy.salaryH)}</h2>
+  <h2 class="s-1kjxOy">${escAttr(salaryH)}</h2>
   <p class="s-clIDbe">${salaryParagraph}</p>
   <p class="s--0PHnG">${scenarioCallout}</p>
   <h2 class="s-1kjxOy">${escAttr(copy.faqH)}</h2>
@@ -792,7 +871,7 @@ export function buildJobBoardCommuterFaqItems(opts: JobBoardCommuterContextOpts)
   }
 
   const { locale, location, sectorOrType = null } = opts;
-  const faq = buildFaq(locale, location, sectorOrType, isRegionLocation(location, opts.cantonDisplay));
+  const faq = buildFaq(locale, location, sectorOrType, isRegionLocation(location, opts.cantonDisplay), isSwitzerlandLocation(location));
   const items: ReadonlyArray<FaqItem> = faq
     .filter((f) => f.q && f.q.trim() && f.a && f.a.trim())
     .map((f) => ({

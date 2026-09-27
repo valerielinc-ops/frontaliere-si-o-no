@@ -12127,6 +12127,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dumenza-furti-serata-settembre.title': 'Dumenza, drei Wohnungseinbrüche und ein gescheiterter Coup',
     'blog.article.dumenza-furti-serata-settembre.excerpt': 'Drei betroffene Häuser in der Via Santuario, Via Fiume und Via Dante. In der Via XX Settembre flohen die Diebe, nachdem sie die Besitzer gehört hatten.',
     'blog.article.dumenza-furti-serata-settembre.imageAlt': 'Wohnstrasse in einem Dorf nahe der Grenze zwischen Tessin und Italien',
+    'blog.article.bollettino-frontaliere-2026-09-27.title': 'Grenzgänger-Tagesbulletin – 27. September 2026: 3\'544 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-09-27.excerpt': 'Die Zahlen von heute, 27. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-27.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 27. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-27.seoDescription': 'Grenzgänger-Bulletin vom 27. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-27.ogDescription': 'Die Zahlen vom 27. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
