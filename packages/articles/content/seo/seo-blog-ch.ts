@@ -88667,6 +88667,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-neutralita-respinta': {
+    title: 'Iniziativa sulla neutralità respinta dal 71% | Frontaliere Ticino',
+    description: 'La proiezione nazionale respinge l\'Iniziativa sulla neutralità al 71%. Risultati in Ticino al 51,2% e nei Grigioni al 66,6%. Scopri tutti i dettagli del voto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, sulla, neutralità, respinta',
+    ogTitle: 'Iniziativa neutralità respinta al 71%: esito delle urne in Svizzera',
+    ogDescription: 'La proiezione nazionale di gfs.bern per la SSR indica un no al 71% per l\'Iniziativa sulla neutralità. In Ticino opposizioni al 51,2% dopo 86 comuni e Grigioni al 66,6%.',
+    canonicalPath: '/articoli-svizzera/iniziativa-neutralita-respinta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa sulla neutralità respinta dal 71%",
+      "description": "La proiezione nazionale respinge l'Iniziativa sulla neutralità al 71%. Risultati in Ticino al 51,2% e nei Grigioni al 66,6%. Scopri tutti i dettagli del voto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iniziativa-neutralita-respinta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Urne e votazioni federali in Svizzera sulla neutralità"
+      },
+      "datePublished": "2026-09-27T11:49:46+00:00",
+      "dateModified": "2026-09-27T11:49:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-neutralita-respinta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

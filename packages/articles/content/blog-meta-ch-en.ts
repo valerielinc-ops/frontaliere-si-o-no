@@ -6839,6 +6839,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.urne-27-settembre-2026.title': 'Votes 27 September 2026: results and projections',
     'blog.article.urne-27-settembre-2026.excerpt': 'The projections on federal initiatives, the vote in Graubünden, and local planning in Poschiavo on September 27, 2026.',
     'blog.article.urne-27-settembre-2026.imageAlt': 'Ballot boxes and voting papers for federal and cantonal votes in Switzerland',
+    'blog.article.iniziativa-neutralita-respinta.title': 'Neutrality initiative rejected by 71%',
+    'blog.article.iniziativa-neutralita-respinta.excerpt': 'The national projection indicates a net 71% no for the Neutrality Initiative. In Ticino the no stands at 51.2% after 86 municipalities.',
+    'blog.article.iniziativa-neutralita-respinta.imageAlt': 'Federal voting boxes and ballots in Switzerland',
 };
 
 export default blogMetaChEn;
