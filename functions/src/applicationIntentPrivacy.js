@@ -7,11 +7,15 @@
  * never guessed from an email address or an anonymous browser identifier.
  */
 
-export const APPLICATION_INTENTS_COLLECTION = 'application_intents';
+import {
+ APPLICATION_INTENTS_COLLECTION,
+ APPLICATION_INTENT_RETENTION_DAYS,
+} from './applicationIntentRetention.js';
+
+export { APPLICATION_INTENTS_COLLECTION, APPLICATION_INTENT_RETENTION_DAYS };
 export const APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION = 'application_intent_account_tombstones';
 export const APPLICATION_INTENT_OPT_OUT_FIELD = 'applicationIntent.optedOut';
 export const APPLICATION_INTENT_ACCOUNT_DELETED_STATUS = 'account_deleted';
-export const APPLICATION_INTENT_RETENTION_DAYS = 90;
 
 const RETENTION_MS = APPLICATION_INTENT_RETENTION_DAYS * 24 * 60 * 60 * 1000;
 const INTENT_IDENTITY_FIELDS = Object.freeze(['userId', 'uid', 'accountUid']);
@@ -65,8 +69,14 @@ export function hasResolvedApplicationIntentIdentity(identity) {
 
 function isWithinApplicationIntentRetention(record, now = Date.now()) {
   if (!record || typeof record !== 'object') return false;
-  const explicitExpiry = timestampToMillis(record.retentionUntil || record.expiresAt);
-  if (explicitExpiry !== null) return now < explicitExpiry;
+  const hasExplicitExpiry = Object.prototype.hasOwnProperty.call(record, 'expiresAt')
+    || Object.prototype.hasOwnProperty.call(record, 'retentionUntil');
+  if (hasExplicitExpiry) {
+    const explicitExpiry = Object.prototype.hasOwnProperty.call(record, 'expiresAt')
+      ? timestampToMillis(record.expiresAt)
+      : timestampToMillis(record.retentionUntil);
+    return explicitExpiry !== null && now < explicitExpiry;
+  }
   const occurredAt = timestampToMillis(
     record.occurred_at || record.occurredAt || record.created_at || record.createdAt,
   );

@@ -144,6 +144,8 @@ describe('application intent contract', () => {
       ipAnonymized: '203.0.113.0',
       userAgent: 'ApplicationIntentTest/1.0',
     });
+    expect(stored.expiresAt).toBeInstanceOf(Date);
+    expect((stored.expiresAt as Date).getTime()).toBeGreaterThan(Date.now() + 89 * 86400000);
     expect(stored.application_completed).toBeUndefined();
     expect(stored.timestamp).toBe('__server_timestamp__');
 
