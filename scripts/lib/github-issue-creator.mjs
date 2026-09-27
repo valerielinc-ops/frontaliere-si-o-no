@@ -27,10 +27,11 @@
  *   3 → priority:medium (default)
  *   4 → priority:low
  *
- * De-duplication: searches for OPEN issues whose title shares the first
- * 60 chars of the new title; if found, posts a comment with the new context
- * instead of creating a duplicate. The lookup reconciles the search index with
- * a plain repository listing — the index is eventually consistent and does not
+ * De-duplication: searches for OPEN issues whose title shares a safe prefix
+ * derived from the first 60 chars of the new title; if found, posts a comment
+ * with the new context instead of creating a duplicate. The lookup reconciles
+ * the search index with a plain repository listing — the index is eventually
+ * consistent and does not
  * see an issue opened seconds ago, so search alone lets two near-simultaneous
  * reporters both believe they are the first (how #5305/#5306 were minted 3s
  * apart).
@@ -221,28 +222,41 @@ function stripUnbalancedBracketTail(s) {
 // search ZERO-matches on a dangling partial word OR an unbalanced bracket →
 // dedup never finds the canonical issue → a fresh duplicate opens every run
 // (observed: 8 identical "Crawler Failure: …(Dedicated)" issues for SVAR alone,
-// 2× each for HIB/KSSG-shaped names). Trim back to a whole-token,
-// balanced-bracket, punctuation-clean prefix so the search resolves. The
-// shorter prefix is still a valid `startsWith` discriminator because the
-// crawler/company name sits before the dropped tail.
+// 2× each for HIB/KSSG-shaped names). Keep a whole-token,
+// balanced-bracket, punctuation-clean prefix so the search resolves. When the
+// cut lands inside a space-free discriminator (for example an escalation
+// bucket key), extend that token to its boundary instead of dropping the whole
+// discriminator and over-matching every sibling bucket. A token beginning with
+// an opening bracket is still dropped and sanitized below: extending it would
+// reintroduce the unbalanced-bracket search failure this helper prevents.
 // Takes the FULL title (not a pre-sliced prefix) so it can tell whether
-// slice(0,LEN) actually split a word — the only reliable signal for whether the
-// trailing token is a fragment that must be dropped.
+// slice(0,LEN) actually split a word — the signal needed to repair a partial
+// discriminator token without mistaking a clean 60-character boundary for a
+// fragment.
 export function searchSafePrefix(fullTitle) {
   const LEN = DEDUP_TITLE_PREFIX_LEN;
   const full = String(fullTitle);
   let p = full.slice(0, LEN);
-  // Strip the dangling trailing token ONLY when slice(0,LEN) actually SPLIT a
-  // word — i.e. the title is longer than the ceiling AND the char AT the cut is
-  // a non-space. Gating on the cut char (not on p.length) is essential: a title
-  // whose 60th char is a space — e.g.
+  // Handle a dangling trailing token ONLY when slice(0,LEN) actually SPLITS a
+  // word — i.e. both sides of the cut are non-space. Gating on the cut boundary
+  // (not on p.length) is essential: a title whose 60th char is a space — e.g.
   // "escalation(harvester): reviewer-finding/workflow-scope-creds ricorre…"
   // (the key is space-free, only the space before "ricorre" precedes the cut) —
   // must KEEP its discriminator. Gating on length alone would strip the whole
   // space-free key and collapse every escalation to "escalation(harvester)",
   // making distinct buckets dedup onto one canonical.
-  const cutSplitWord = full.length > LEN && /\S/.test(full[LEN]);
-  if (cutSplitWord && p.includes(' ')) p = p.replace(/\s+\S*$/, '');
+  const cutSplitWord =
+    full.length > LEN && /\S/u.test(full[LEN - 1] || '') && /\S/u.test(full[LEN] || '');
+  if (cutSplitWord) {
+    const tokenStart = p.lastIndexOf(' ') + 1;
+    const partialToken = p.slice(tokenStart);
+    if (partialToken && !/^[([{]/u.test(partialToken)) {
+      const tokenTailEnd = full.slice(LEN).search(/\s/u);
+      p = full.slice(0, tokenTailEnd === -1 ? full.length : LEN + tokenTailEnd);
+    } else if (p.includes(' ')) {
+      p = p.replace(/\s+\S*$/, '');
+    }
+  }
   // Drop any tail from the first unmatched opening bracket (internal or trailing).
   p = stripUnbalancedBracketTail(p);
   // Strip trailing chars that break/destabilize phrase search: leftover openers,
