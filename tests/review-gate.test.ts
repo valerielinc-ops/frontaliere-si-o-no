@@ -1889,8 +1889,10 @@ describe('review gate: an acceptance checked only on the review bundle/ledger is
     'Historical finding `c7a2dc47f1c0` (anchor non risolvibile): 🔴 Important: [process] Il finding storico resta open nel bundle senza testo o anchor verificabile; non può essere chiuso per silenzio. Accettazione: risposta del fixer al finding `c7a2dc47f1c0` → il bundle successivo contiene il testo del finding, il suo anchor e una risoluzione esplicita.',
     'Historical finding 3e3cde56a33a: 🔴 Important: [process] Historical finding remains open in the bundle without a verifiable text or anchor. Accettazione: the next deterministic bundle contains the complete finding text, an anchor `path:L<line>` or `PR body:L<n>`, and an explicit resolution.',
     "Historical findings `e5269f0f9d49`, `3e3cde56a33a`: 🔴 Important: [process] Gli Important storici senza file restano aperti. Accettazione: `rg -n '\\*\\*open\\*\\*' /home/runner/work/_temp/codex-home.pqfaVw/scratch/review-ctx/review-bundle.md` produce nessun output e ogni ID elencato risulta `confirmed-fixed`.",
-    'PR body:L7: 🔴 Important: [process] Il bundle deterministico mantiene ancora open 45 entry storiche. Accettazione: il prossimo bundle deterministico riporta tutti i 34 stable ID come `confirmed-fixed` e nessun ledger entry `open`.',
   ];
+  // Stessa accettazione, ma ancorato al body: resta sulle regole del body e
+  // sulla conferma esatta `PR body:L7` (review 5330691138).
+  const BODY_META = 'PR body:L7: 🔴 Important: [process] Il bundle deterministico mantiene ancora open 45 entry storiche. Accettazione: il prossimo bundle deterministico riporta tutti i 34 stable ID come `confirmed-fixed` e nessun ledger entry `open`.';
 
   it('recognizes the review-ledger acceptances and nothing else', () => {
     for (const text of META) {
@@ -1907,6 +1909,11 @@ describe('review gate: an acceptance checked only on the review bundle/ledger is
       '🔴 Important: [correctness] il conteggio è sbagliato. Accettazione: `npx vitest run tests/x.test.ts` passa.\nAccettazione: il prossimo bundle deterministico lo marca `confirmed-fixed`.',
       // Nessuna accettazione: nessuna prova che sia solo sul ledger.
       '🔴 Important: [process] il finding storico resta open nel bundle.',
+      BODY_META,
+      // Controesempi della review 5330691138: token nudo e clausola mista.
+      '🔴 Important: [process] x. Accettazione: confirmed-fixed',
+      '🔴 Important: [process] x. Accettazione: review-bundle.md exists and scripts/ci/review-gate.mjs is correct',
+      '🔴 Important: [process] x. Accettazione: il prossimo bundle deterministico è rigenerato da `npx vitest run tests/review-gate.test.ts`.',
     ]) {
       const [finding] = importantFindings(text);
       expect(isLedgerAcceptanceFinding(finding), text.slice(0, 60)).toBe(false);
@@ -1914,6 +1921,15 @@ describe('review gate: an acceptance checked only on the review bundle/ledger is
     // Un finding ancorato a un file non è mai toccato.
     const [anchored] = importantFindings('`scripts/ci/review-gate.mjs:L12`: 🔴 Important: il ledger perde voci. Accettazione: il prossimo bundle deterministico le mostra.');
     expect(isLedgerAcceptanceFinding(anchored)).toBe(false);
+    // Il comando di accettazione della review costruisce il finding solo con `text`.
+    expect(isLedgerAcceptanceFinding({ citations: [], text: 'PR body:L7: 🔴 Important: [contract] performance claim. Accettazione: review-bundle.md' })).toBe(false);
+  });
+
+  it('leaves a body-anchored ledger remark to its exact PR body confirmation', () => {
+    const opened = bot(40, `## Findings (Important: 1, Nit: 0)\n${BODY_META}\n## Adversarial check`);
+    expect(historicalImportantFindings([opened], { includeLatest: true })).toHaveLength(1);
+    const confirmed = bot(41, '## Findings (Important: 0, Nit: 0)\nFix di `PR body:L7`: ok.\n## LGTM', HEAD_SHA);
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
   });
 
   it('keeps ledger-referential Important out of the historical ledger, and real ones in', () => {

@@ -752,7 +752,19 @@ const STABLE_ID_TARGET_RE = /^[0-9a-f]{12}$/u;
 // review-ctx/review-bundle.md` non produce output», «ogni ID risulta
 // `confirmed-fixed`»). Formule della review, non le parole nude: in questo repo
 // «bundle» e «ledger» sono anche il bundle JS e i ledger dei crawler.
-const LEDGER_ACCEPTANCE_RE = /review-bundle\.md|review-ctx\/|\b(?:prossimo|next)\s+(?:deterministic\s+)?bundle\b|\bbundle\s+(?:deterministico|successivo)\b|\bdeterministic\s+bundle\b|`?confirmed-fixed`?|\bledger\s+entr(?:y|ies)\b/iu;
+const LEDGER_ACCEPTANCE_RE = /review-bundle\.md|review-ctx\/|\b(?:prossimo|next)\s+(?:deterministic\s+)?bundle\b|\bbundle\s+(?:deterministico|successivo)\b|\bdeterministic\s+bundle\b/iu;
+// Tolti i path del bundle della review, la clausola non deve citare nulla del
+// repository: un path o un comando che esegue codice del repo la rendono una
+// verifica sulla PR (review 5330691138: «review-bundle.md exists and
+// scripts/ci/review-gate.mjs is correct» non è ledger-only).
+const LEDGER_PATH_RE = /\S*(?:review-ctx\/|review-bundle\.md)\S*/giu;
+const REPO_COMMAND_RE = /\b(?:npm|npx|node|vitest|tsx|git|bash|sh)\b/iu;
+
+function ledgerOnlyClause(clause) {
+  if (!LEDGER_ACCEPTANCE_RE.test(clause)) return false;
+  const rest = clause.replace(LEDGER_PATH_RE, ' ');
+  return extractFileCitations(rest).length === 0 && !REPO_COMMAND_RE.test(rest);
+}
 
 /**
  * Un 🔴 senza file la cui Accettazione, in ogni sua clausola, si verifica solo
@@ -763,13 +775,16 @@ const LEDGER_ACCEPTANCE_RE = /review-bundle\.md|review-ctx\/|\b(?:prossimo|next)
  * rialzati da soli per 55 review, portando il ledger a 111 voci aperte, mentre
  * il codice aveva già quattro `## LGTM`. Su 120 PR mergiate prima: zero 🔴
  * senza file, quindi zero casi toccati. Ogni clausola vale fino a fine riga,
- * così un rilievo vero che cita un meta-finding resta bloccante.
+ * così un rilievo vero che cita un meta-finding resta bloccante. Un 🔴
+ * ancorato a `PR body:L<n>` resta sulle regole del body
+ * (`isContractDomainBodyFinding`) e sulla sua conferma esatta.
  */
 export function isLedgerAcceptanceFinding(finding) {
   if ((finding?.citations || []).length > 0) return false;
+  if (prBodyAnchor(finding?.line) !== null || prBodyAnchor(finding?.text) !== null) return false;
   const clauses = [...String(finding?.text || '').matchAll(/(?:Accettazione|Acceptance)\s*:\s*([^\n]*)/giu)]
     .map((match) => match[1]);
-  return clauses.length > 0 && clauses.every((clause) => LEDGER_ACCEPTANCE_RE.test(clause));
+  return clauses.length > 0 && clauses.every(ledgerOnlyClause);
 }
 
 export function unanchoredConfirmationTarget(finding) {
