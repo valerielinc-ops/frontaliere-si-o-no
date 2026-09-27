@@ -247,16 +247,17 @@ describe('owner policy excluding test files from review', () => {
     expect(f.posts).toEqual([]);
   });
   it('accepts the marked bot review only after independently verifying the current complete file list', () => {
-    const review = { commit_id: head, user: { type: 'Bot', login: 'github-actions[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
+    const review = { commit_id: head, user: { type: 'Bot', login: 'frontaliere-automation[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
     expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBe(review);
     expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1, reviewRevision })).toBe(review);
     expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1, reviewRevision: `body:${'d'.repeat(64)}` })).toBeNull();
     expect(findTestOnlyApproval([review], head, { ...fixture({ files: ['src/a.ts'] }), repo: 'owner/repo', pr: 1 })).toBeNull();
+    expect(findTestOnlyApproval([{ ...review, user: { type: 'Bot', login: 'github-actions[bot]' } }], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBeNull();
     expect(findTestOnlyApproval([{ ...review, user: { type: 'User', login: 'someone' } }], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBeNull();
     expect(findTestOnlyApproval([{ ...review, commit_id: 'b'.repeat(40) }], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBeNull();
   });
   it('does not repost on the same head and keeps test-only changes out of the code fingerprint', () => {
-    const review = { commit_id: head, user: { type: 'Bot', login: 'github-actions[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
+    const review = { commit_id: head, user: { type: 'Bot', login: 'frontaliere-automation[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
     const f = fixture({ reviews: [review] });
     postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn });
     expect(f.posts).toEqual([]);

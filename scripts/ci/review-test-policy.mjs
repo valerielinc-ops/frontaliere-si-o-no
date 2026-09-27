@@ -272,7 +272,7 @@ export function findTestOnlyApproval(
     : normalizeReviewInputRevisionInput(reviewRevision);
   if (reviewRevision !== undefined && !revision) return null;
   const candidates = (reviews ?? []).flat().filter(review => isTerminalManagedReview(review)
-    && /^(github-actions|frontaliere-automation)\[bot\]$/.test(review.user.login ?? '')
+    && /^frontaliere-automation\[bot\]$/.test(review.user.login ?? '')
     && review.commit_id === head && String(review.body ?? '').includes(TEST_REVIEW_MARKER)
     && (revision === undefined || reviewHasInputRevision(review.body, revision))
     && /^## LGTM\s*$/m.test(review.body) && !/🔴/.test(review.body));
