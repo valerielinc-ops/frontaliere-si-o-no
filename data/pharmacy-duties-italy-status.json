@@ -5,9 +5,9 @@
     "varese-ats-2026-2027",
     "vco-asl-2026"
   ],
-  "_fetchedAt": "2026-09-26T09:32:23.001Z",
-  "_attemptedAt": "2026-09-26T09:32:23.001Z",
-  "_lastSuccessfulFetchAt": "2026-09-26T09:32:23.001Z",
+  "_fetchedAt": "2026-09-27T10:13:17.944Z",
+  "_attemptedAt": "2026-09-27T10:13:17.944Z",
+  "_lastSuccessfulFetchAt": "2026-09-27T10:13:17.944Z",
   "_timezone": "Europe/Rome",
   "_scope": {
     "country": "IT",
@@ -19,7 +19,8 @@
   },
   "_successfulProvinces": [
     "CO",
-    "VA"
+    "VA",
+    "VB"
   ],
   "_requiredProvinces": [
     "CO",
@@ -31,7 +32,7 @@
       "province": "CO",
       "sourceKey": "como-ats-2026-2027",
       "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-      "fetchedAt": "2026-09-26T09:32:23.001Z",
+      "fetchedAt": "2026-09-27T10:13:17.944Z",
       "dutyCount": 76,
       "observedDutyCount": 76,
       "freshness": "fresh",
@@ -42,13 +43,14 @@
       "observedCalendarDays": 365,
       "minimumCalendarDays": 300,
       "errors": [],
-      "warnings": []
+      "warnings": [],
+      "fetchedVia": "official"
     },
     "VA": {
       "province": "VA",
       "sourceKey": "varese-ats-2026-2027",
       "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-      "fetchedAt": "2026-09-26T09:32:23.001Z",
+      "fetchedAt": "2026-09-27T10:13:17.944Z",
       "dutyCount": 92,
       "observedDutyCount": 92,
       "freshness": "fresh",
@@ -59,38 +61,38 @@
       "observedCalendarDays": 365,
       "minimumCalendarDays": 300,
       "errors": [],
-      "warnings": []
+      "warnings": [],
+      "fetchedVia": "official"
     },
     "VB": {
       "province": "VB",
       "sourceKey": "vco-asl-2026",
       "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-      "fetchedAt": "2026-09-26T09:32:23.001Z",
-      "dutyCount": 0,
-      "observedDutyCount": 0,
-      "freshness": "unknown",
-      "coverage": "not_published",
-      "state": "not_published",
+      "fetchedAt": "2026-09-27T10:13:17.944Z",
+      "dutyCount": 7,
+      "observedDutyCount": 7,
+      "freshness": "fresh",
+      "coverage": "covered",
+      "state": "fresh",
       "publication": "best-effort",
       "coverageModel": "corrections-only",
-      "observedCalendarDays": null,
+      "observedCalendarDays": 12,
       "minimumCalendarDays": null,
-      "errors": [
-        "vco-asl-2026: fetch failed (UND_ERR_CONNECT_TIMEOUT)"
-      ],
-      "warnings": []
+      "errors": [],
+      "warnings": [],
+      "fetchedVia": "vco-mirror"
     }
   },
   "_errors": [],
-  "_bestEffortErrors": [
-    "vco-asl-2026: fetch failed (UND_ERR_CONNECT_TIMEOUT)"
+  "_bestEffortErrors": [],
+  "_warnings": [
+    "vco-asl-2026: fetched via configured vcoMirrorUrl after official fetch failure (fetch failed (UND_ERR_CONNECT_TIMEOUT))"
   ],
-  "_warnings": [],
   "_release": {
     "version": 1,
     "timezone": "Europe/Rome",
     "state": "fresh",
-    "evaluatedAt": "2026-09-26T09:32:23.001Z",
+    "evaluatedAt": "2026-09-27T10:13:17.944Z",
     "scope": {
       "country": "IT",
       "provinces": [
@@ -102,13 +104,13 @@
     "snapshots": {
       "duties": {
         "path": "data/pharmacy-duties-italy.json",
-        "sha256": "0e5fe15347f2e0dc80fd38a75819a2d5aecbd5c0f1b67fe435edb650431a55d0",
-        "fetchedAt": "2026-09-26T09:32:23.001Z"
+        "sha256": "789ddcf85c3c45697ab1e8cb48c312103dc47a59347aa1cff0526d9bd8a3c483",
+        "fetchedAt": "2026-09-27T10:13:17.944Z"
       },
       "status": {
         "path": "data/pharmacy-duties-italy-status.json",
-        "sha256": "5e0a242b0ad67cb53c95a481d8fa26dc4bc87f9f4a6a49c95fac5117d8b4843b",
-        "fetchedAt": "2026-09-26T09:32:23.001Z"
+        "sha256": "5f73aa6508fcc58bd905238657647aab69c008b303f47fe3722fdb868f407bbd",
+        "fetchedAt": "2026-09-27T10:13:17.944Z"
       }
     },
     "provinces": {
@@ -116,7 +118,7 @@
         "province": "CO",
         "sourceKey": "como-ats-2026-2027",
         "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-        "fetchedAt": "2026-09-26T09:32:23.001Z",
+        "fetchedAt": "2026-09-27T10:13:17.944Z",
         "dutyCount": 76,
         "observedDutyCount": 76,
         "freshness": "fresh",
@@ -127,13 +129,14 @@
         "observedCalendarDays": 365,
         "minimumCalendarDays": 300,
         "errors": [],
-        "warnings": []
+        "warnings": [],
+        "fetchedVia": "official"
       },
       "VA": {
         "province": "VA",
         "sourceKey": "varese-ats-2026-2027",
         "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-        "fetchedAt": "2026-09-26T09:32:23.001Z",
+        "fetchedAt": "2026-09-27T10:13:17.944Z",
         "dutyCount": 92,
         "observedDutyCount": 92,
         "freshness": "fresh",
@@ -144,28 +147,28 @@
         "observedCalendarDays": 365,
         "minimumCalendarDays": 300,
         "errors": [],
-        "warnings": []
+        "warnings": [],
+        "fetchedVia": "official"
       },
       "VB": {
         "province": "VB",
         "sourceKey": "vco-asl-2026",
         "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-        "fetchedAt": "2026-09-26T09:32:23.001Z",
-        "dutyCount": 0,
-        "observedDutyCount": 0,
-        "freshness": "unknown",
-        "coverage": "not_published",
-        "state": "not_published",
+        "fetchedAt": "2026-09-27T10:13:17.944Z",
+        "dutyCount": 7,
+        "observedDutyCount": 7,
+        "freshness": "fresh",
+        "coverage": "covered",
+        "state": "fresh",
         "publication": "best-effort",
         "coverageModel": "corrections-only",
-        "observedCalendarDays": null,
+        "observedCalendarDays": 12,
         "minimumCalendarDays": null,
-        "errors": [
-          "vco-asl-2026: fetch failed (UND_ERR_CONNECT_TIMEOUT)"
-        ],
-        "warnings": []
+        "errors": [],
+        "warnings": [],
+        "fetchedVia": "vco-mirror"
       }
     },
-    "releaseId": "pharmacy-italy-v1-f8993281a2d95e811a08f9688507dec4a4e772a8dfa0b0195c1c18ee574c71a2"
+    "releaseId": "pharmacy-italy-v1-d755ecbd62a5bda978b95c3237f3de17fb43f064f6a37e110f2ee7d56663f1ab"
   }
 }
