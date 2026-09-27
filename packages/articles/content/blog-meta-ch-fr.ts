@@ -6854,6 +6854,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-iniziativa-alimentazione-svizzera.title': 'Initiative alimentaire : rejetée avec 72,5 % de non',
     'blog.article.voto-iniziativa-alimentazione-svizzera.excerpt': 'Le peuple suisse rejette la proposition de porter l\'auto-approvisionnement à 70 % en dix ans. Tous les cantons ont voté contre.',
     'blog.article.voto-iniziativa-alimentazione-svizzera.imageAlt': 'Paysage agricole suisse avec des pâturages verts',
+    'blog.article.valutazione-secondo-sistema-difesa.title': 'Défense aérienne : évaluation du Bodluv GR 2 achevée',
+    'blog.article.valutazione-secondo-sistema-difesa.excerpt': 'Armasuisse a achevé l’évaluation du deuxième système de défense sol-air Bodluv GR 2. Le choix revient au Conseil fédéral.',
+    'blog.article.valutazione-secondo-sistema-difesa.imageAlt': 'Evaluation du second systeme de defense sol-air en Suisse',
 };
 
 export default blogMetaChFr;

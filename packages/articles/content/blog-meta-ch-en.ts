@@ -6854,6 +6854,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-iniziativa-alimentazione-svizzera.title': 'Feeding initiative: rejected with 72.5% of no',
     'blog.article.voto-iniziativa-alimentazione-svizzera.excerpt': 'The Swiss people reject the proposal to increase self-sufficiency to 70% in ten years. All the cantons voted against it.',
     'blog.article.voto-iniziativa-alimentazione-svizzera.imageAlt': 'Swiss agricultural landscape with green pastures',
+    'blog.article.valutazione-secondo-sistema-difesa.title': 'Air defense: evaluation of Bodluv GR 2 completed',
+    'blog.article.valutazione-secondo-sistema-difesa.excerpt': 'Armasuisse has completed the evaluation for the second Bodluv GR 2 ground-to-air defense system. The choice goes to the Federal Council.',
+    'blog.article.valutazione-secondo-sistema-difesa.imageAlt': 'Evaluation of the second ground-to-air defense system in Switzerland',
 };
 
 export default blogMetaChEn;

@@ -88862,6 +88862,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-valutazione-secondo-sistema-difesa': {
+    title: 'Difesa aerea: conclusa la valutazione del Bodluv GR 2',
+    description: 'Armasuisse ha concluso la valutazione del secondo sistema di difesa terra-aria Bodluv GR 2. La scelta passa ora al Consiglio federale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, difesa, aerea, conclusa, valutazione',
+    ogTitle: 'Conclusa la valutazione del secondo sistema di difesa terra-aria',
+    ogDescription: 'L\'Ufficio federale dell\'armamento Armasuisse ha terminato la valutazione del secondo sistema di difesa terra-aria Bodluv GR 2. La decisione finale spetta al Consiglio federale.',
+    canonicalPath: '/articoli-svizzera/valutazione-secondo-sistema-difesa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Difesa aerea: conclusa la valutazione del Bodluv GR 2",
+      "description": "Armasuisse ha concluso la valutazione del secondo sistema di difesa terra-aria Bodluv GR 2. La scelta passa ora al Consiglio federale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/valutazione-secondo-sistema-difesa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valutazione del secondo sistema di difesa terra-aria in Svizzera"
+      },
+      "datePublished": "2026-09-27T19:02:02+00:00",
+      "dateModified": "2026-09-27T19:02:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/valutazione-secondo-sistema-difesa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
