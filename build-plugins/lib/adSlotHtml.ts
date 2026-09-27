@@ -20,7 +20,7 @@ import type { InfeedAdVariant } from '../../services/adExperiment';
 
 export type AdSlotKey = keyof typeof AD_SLOTS;
 
-export function adSlotHtml(slotKey: AdSlotKey): string {
+export function adSlotHtml(slotKey: AdSlotKey, opts?: { collapseWhenUnfilled?: boolean }): string {
   const cfg = AD_SLOTS[slotKey];
   const attrs = [
     `class="adsbygoogle"`,
@@ -29,6 +29,7 @@ export function adSlotHtml(slotKey: AdSlotKey): string {
     `data-ad-slot="${cfg.slot}"`,
     `data-ad-format="${cfg.format}"`,
   ];
+  if (opts?.collapseWhenUnfilled) attrs.push(`data-ft-static-ad="true"`);
   if ('layout' in cfg && cfg.layout) attrs.push(`data-ad-layout="${cfg.layout}"`);
   if ('layoutKey' in cfg && cfg.layoutKey) attrs.push(`data-ad-layout-key="${cfg.layoutKey}"`);
   if (cfg.fullWidthResponsive) attrs.push(`data-full-width-responsive="true"`);
