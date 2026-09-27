@@ -242,7 +242,7 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.simulazione-fiscale-frontaliere-2026.excerpt': 'How will your net salary change from 2026? We analyze a CHF 65,000 salary: here\'s what\'s left in your pocket under the new Italy-Switzerland tax regime.',
  'blog.article.simulazione-fiscale-frontaliere-2026.imageAlt': 'Simulation of the new tax agreement\'s impact for cross-border workers, seen from a car\'s dashboard at the Chiasso border.',
  'blog.article.lamal-cmi-scelta-frontaliere-2026.title': 'LAMal or CMI 2026: The key choice for cross-border workers',
- 'blog.article.lamal-cmi-scelta-frontaliere-2026.excerpt': 'With 2026 LAMal premiums of CHF 279 to 487 for residents of Italy and CMI keeping you in the SSN with no premium, the decision for cross-border workers in Ticino becomes crucial. Analysis of costs, coverage, and practical cases.',
+ 'blog.article.lamal-cmi-scelta-frontaliere-2026.excerpt': 'With LAMal premiums that vary by insurer and year, check the official FOPH/Priminfo overview; CMI keeps you in the SSN with no premium. Analysis of costs, coverage, and practical cases.',
  'blog.article.lamal-cmi-scelta-frontaliere-2026.imageAlt': 'Desk with a Swiss employment contract and an Italian passport, overlooking Lake Lugano, symbolizing the cross-border worker\'s insurance choice.',
  'blog.article.credito-imposta-doppia-tassazione.title': 'Double Taxation: How the Tax Credit Works',
  'blog.article.credito-imposta-doppia-tassazione.excerpt': 'The definitive guide for \'new cross-border workers\' in Ticino. How to avoid paying taxes twice on your Swiss income thanks to the tax credit in the Italian Modello 730. Practical example with a salary of CHF 65,000.',
