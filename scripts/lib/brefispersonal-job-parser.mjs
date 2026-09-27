@@ -2,7 +2,7 @@
 /**
  * brefis personal ag job parser — Fetcher and job builder.
  *
- * Source: https://brefispersonal.ch/Vacancyboard/Detail/46980
+ * Source: https://brefis.ch/Vacancyboard/Detail/46980
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBrefispersonalJobs()  — Fetch and parse all jobs
@@ -21,9 +21,10 @@ import { resolveSourceBackedSwissGeography } from './prospector/location-evidenc
 
 export const BREFISPERSONAL_KEY = 'brefispersonal';
 export const BREFISPERSONAL_COMPANY_NAME = 'brefis personal ag';
-export const BREFISPERSONAL_COMPANY_DOMAIN = 'brefispersonal.ch';
+export const BREFISPERSONAL_COMPANY_DOMAIN = 'brefis.ch';
 
-const CAREER_URL = 'https://brefispersonal.ch/Vacancyboard/Detail/46980';
+const BREFISPERSONAL_LEGACY_DOMAIN = 'brefispersonal.ch';
+const CAREER_URL = 'https://brefis.ch/Vacancyboard/Detail/46980';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -33,6 +34,12 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isBrefispersonalHost(rawHost = '') {
+  const host = normalize(rawHost).replace(/\.$/, '');
+  return [BREFISPERSONAL_COMPANY_DOMAIN, BREFISPERSONAL_LEGACY_DOMAIN]
+    .some((domain) => host === domain || host.endsWith(`.${domain}`));
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -54,7 +61,7 @@ export function isBrefispersonalJob(job) {
     key === BREFISPERSONAL_KEY ||
     key.startsWith('brefispersonal-') ||
     company.includes('brefis personal ag') ||
-    url.includes('brefispersonal.ch')
+    isTrustedDomain(url)
   );
 }
 
@@ -64,7 +71,7 @@ export function isBrefispersonalJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'brefispersonal.ch' || host.endsWith('.brefispersonal.ch');
+    return isBrefispersonalHost(host);
   } catch {
     return false;
   }
