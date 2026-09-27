@@ -1439,10 +1439,10 @@
       "id": "bkw-1cbaade3e5d9",
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
-        "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-du-responsable-chiffrage-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
-        "fr": "assistant-du-responsable-chiffrage-bkw-marly"
+        "fr": "assistant-du-responsable-chiffrage-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "it": "preventivo-e-coordinatore-post-vendita-bkw-marly"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -1483,29 +1483,30 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/assistant-du-responsable-chiffrage/5e7402c5-31d0-49d6-83ae-b0bb4fc3ccd6",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly",
-        "preventivo-e-coordinatore-post-vendita-bkw-marly"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-du-responsable-chiffrage-bkw-ch",
           "preventivo-e-coordinatore-post-vendita-bkw-marly"
         ],
         "en": [
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-du-responsable-chiffrage-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ],
         "fr": [
           "assistant-du-responsable-chiffrage-bkw-ch"
         ]
       },
+      "previousSlugs": [
+        "assistant-du-responsable-chiffrage-bkw-ch",
+        "estimator-after-sales-coordinator-bkw-marly",
+        "kalkulator-und-after-sales-koordinator-bkw-marly",
+        "preventivo-e-coordinatore-post-vendita-bkw-marly",
+        "assistant-du-responsable-chiffrage-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-24T11:14:36.190Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1518,7 +1519,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-24T11:14:36.190Z"
     },
     {
       "id": "bkw-c214083fcc26",
@@ -1772,10 +1774,10 @@
       "id": "bkw-0eb36f9d75b8",
       "slug": "bruciatore-tecnico-bkw-sullens",
       "slugByLocale": {
-        "it": "bruciatore-tecnico-bkw-sullens",
-        "en": "technicien-bruleur-bkw-sullens",
-        "de": "technicien-bruleur-bkw-sullens",
-        "fr": "technicien-bruleur-bkw-ch"
+        "fr": "technicien-bruleur-bkw-ch",
+        "de": "brennertechniker-bkw-sullens",
+        "en": "burner-technician-bkw-sullens",
+        "it": "bruciatore-tecnico-bkw-sullens"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -1817,26 +1819,26 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/technicien-bruleur/23089b4f-0db9-4a5c-b3b7-5cf1bd76fb28",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "technicien-bruleur-bkw-ch",
-        "burner-technician-bkw-sullens",
-        "brennertechniker-bkw-sullens",
-        "bruciatore-tecnico-bkw-sullens"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-bruleur-bkw-ch",
           "bruciatore-tecnico-bkw-sullens"
         ],
         "en": [
-          "burner-technician-bkw-sullens"
+          "technicien-bruleur-bkw-sullens"
         ],
         "de": [
-          "brennertechniker-bkw-sullens"
+          "technicien-bruleur-bkw-sullens"
         ]
       },
+      "previousSlugs": [
+        "technicien-bruleur-bkw-ch",
+        "burner-technician-bkw-sullens",
+        "brennertechniker-bkw-sullens",
+        "bruciatore-tecnico-bkw-sullens",
+        "technicien-bruleur-bkw-sullens"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T11:46:38.035Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1849,7 +1851,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-10T11:46:38.035Z"
     },
     {
       "id": "bkw-797df365f60a",
@@ -5371,11 +5374,11 @@
     },
     {
       "id": "bkw-1844a42ac2ab",
-      "slug": "sanitarinsallateur-in-efz-bkw-saanen",
+      "slug": "sanitarinsallateur-in-cfc-bkw-saanen",
       "slugByLocale": {
-        "it": "sanitarinsallateur-in-efz-bkw-saanen",
-        "en": "sanitarinsallateur-in-efz-bkw-saanen",
         "de": "sanitarinsallateur-in-efz-bkw-ch",
+        "it": "sanitarinsallateur-in-cfc-bkw-saanen",
+        "en": "sanitarinsallateur-in-efz-bkw-saanen",
         "fr": "sanitarinsallateur-in-efz-bkw-saanen"
       },
       "company": "BKW",
@@ -5418,11 +5421,7 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/sanitaerinsallateur-in-efz/45fd995d-5bac-45c6-8cf1-7fabd1ab1094",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sanitarinsallateur-in-efz-bkw-ch-2",
-        "sanitarinsallateur-in-efz-bkw-ch",
-        "sanitarinsallateur-in-efz-bkw-saanen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sanitarinsallateur-in-efz-bkw-ch-2",
@@ -5430,8 +5429,11 @@
           "sanitarinsallateur-in-efz-bkw-saanen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T23:13:33.484Z",
+      "previousSlugs": [
+        "sanitarinsallateur-in-efz-bkw-ch-2",
+        "sanitarinsallateur-in-efz-bkw-ch",
+        "sanitarinsallateur-in-efz-bkw-saanen"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5444,7 +5446,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T23:13:33.484Z"
     },
     {
       "id": "bkw-a2d73db18364",
@@ -7329,14 +7332,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-hzaevy",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil"
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-hzaevy"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-hzaevy",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil"
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-hzaevy"
         ]
       },
       "needsRetranslation": true,
@@ -7688,7 +7689,8 @@
         "bauleiter-in-elektro-alle-bkw-zuchwil",
         "construction-manager-in-electric-all-bkw-zuchwil",
         "directeur-de-construction-en-electric-tous-bkw-zuchwil",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+        "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
+        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-qjlcg5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7698,7 +7700,8 @@
           "bauleiter-in-elektro-alle-bkw-zuchwil",
           "construction-manager-in-electric-all-bkw-zuchwil",
           "directeur-de-construction-en-electric-tous-bkw-zuchwil",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+          "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
+          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-qjlcg5"
         ],
         "en": [
           "bauleiter-in-elektro-alle-bkw-zuchwil"
@@ -17514,7 +17517,10 @@
         "apprenticeship-as-an-electrician-efz-all-bkw-ormalingen",
         "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-ormalingen",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-6",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun"
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun",
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-w1wy2u",
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-t8h3na",
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-pgdhbr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17534,7 +17540,10 @@
           "apprenticeship-as-an-electrician-efz-all-bkw-ormalingen",
           "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-ormalingen",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-6",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun"
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun",
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-w1wy2u",
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-t8h3na",
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-pgdhbr"
         ],
         "en": [
           "apprenticeship-electrical-installer-in-efz-all-bkw-thun",
@@ -17546,7 +17555,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:08:33.204Z",
-      "needsRetranslation": true,
       "salaryMin": 53000,
       "salaryMax": 80500,
       "salarySource": "estimated",
@@ -17559,7 +17567,8 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-ff11588d4348",
@@ -17954,7 +17963,8 @@
         "poste-d-apprentissage-d-electricien-de-montage-cfc-tous-bkw-schwarzenburg",
         "apprentissage-de-l-electricien-de-montage-dans-efz-tous-bkw-allschwil",
         "apprendistato-montage-elektriker-in-cfc-alle-bkw-zuchwil-vf2yio",
-        "apprendistato-montage-elektriker-in-cfc-alle-bkw-thun"
+        "apprendistato-montage-elektriker-in-cfc-alle-bkw-thun",
+        "apprendistato-montage-elektriker-in-cfc-alle-bkw-thun-gvl4p7"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22956,10 +22966,10 @@
       "id": "bkw-e973437e0e54",
       "slug": "ingegnere-elettronico-in-energia-e-tecnologia-edile-tutti-bkw-zweisimmen",
       "slugByLocale": {
-        "it": "ingegnere-elettronico-in-energia-e-tecnologia-edile-tutti-bkw-zweisimmen",
-        "en": "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-zweisimmen",
         "de": "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch",
-        "fr": "technicien-en-electronique-pour-l-energie-et-la-technologie-du-batiment-tous-bkw-zweisimmen"
+        "en": "electronics-technician-for-energy-and-building-technology-all-bkw-zweisimmen",
+        "fr": "technicien-en-electronique-pour-l-energie-et-la-technologie-du-batiment-tous-bkw-zweisimmen",
+        "it": "ingegnere-elettronico-in-energia-e-tecnologia-edile-tutti-bkw-zweisimmen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23001,22 +23011,22 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/elektroniker-in-fuer-energie-und-gebaeudetechnik-alle/ab7e8ce1-10e1-43ad-8d61-9812e9d08626",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch",
-        "electronics-technician-for-energy-and-building-technology-all-bkw-zweisimmen",
-        "ingegnere-elettronico-in-energia-e-tecnologia-edile-tutti-bkw-zweisimmen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch",
           "ingegnere-elettronico-in-energia-e-tecnologia-edile-tutti-bkw-zweisimmen"
         ],
         "en": [
-          "electronics-technician-for-energy-and-building-technology-all-bkw-zweisimmen"
+          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-zweisimmen"
         ]
       },
+      "previousSlugs": [
+        "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch",
+        "electronics-technician-for-energy-and-building-technology-all-bkw-zweisimmen",
+        "ingegnere-elettronico-in-energia-e-tecnologia-edile-tutti-bkw-zweisimmen",
+        "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-zweisimmen"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T11:46:38.106Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -23029,7 +23039,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-10T11:46:38.106Z"
     },
     {
       "id": "bkw-1c31451280f6",
@@ -23866,10 +23877,10 @@
       "id": "bkw-572982cfd273",
       "slug": "netzelektriker-in-netzbau-alle-bkw-bern",
       "slugByLocale": {
-        "it": "netzelektriker-in-netzbau-alle-bkw-bern",
-        "en": "netzelektriker-in-netzbau-alle-bkw-bern",
         "de": "netzelektriker-in-netzbau-alle-bkw-ch",
-        "fr": "netzelektriker-in-netzbau-alle-bkw-bern"
+        "it": "griglia-elettricista-in-costruzione-grid-tutti-bkw-bern",
+        "en": "grid-electrician-in-grid-construction-all-bkw-bern",
+        "fr": "electricien-du-reseau-dans-la-construction-du-reseau-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23911,26 +23922,15 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/netzelektriker-in-netzbau-alle/1c5dc5bd-64ae-42aa-b4e1-8cd00c6a2cea",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "netzelektriker-in-netzbau-alle-bkw-ch",
-        "griglia-elettricista-in-costruzione-grid-tutti-bkw-bern",
-        "grid-electrician-in-grid-construction-all-bkw-bern",
-        "electricien-du-reseau-dans-la-construction-du-reseau-tous-bkw-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "netzelektriker-in-netzbau-alle-bkw-ch",
-          "griglia-elettricista-in-costruzione-grid-tutti-bkw-bern"
-        ],
-        "en": [
-          "grid-electrician-in-grid-construction-all-bkw-bern"
-        ],
-        "fr": [
-          "electricien-du-reseau-dans-la-construction-du-reseau-tous-bkw-bern"
+          "netzelektriker-in-netzbau-alle-bkw-ch"
         ]
       },
+      "previousSlugs": [
+        "netzelektriker-in-netzbau-alle-bkw-ch"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T07:58:50.572Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -23943,7 +23943,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-10T07:58:50.572Z"
     },
     {
       "id": "bkw-c3abd759d237",
@@ -25486,13 +25487,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sap-partner-application-service-manager-alle-bkw-ch",
-        "sap-partner-application-service-manager-tutti-bkw-bern"
+        "sap-partner-application-service-manager-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sap-partner-application-service-manager-alle-bkw-ch",
-          "sap-partner-application-service-manager-tutti-bkw-bern"
+          "sap-partner-application-service-manager-alle-bkw-ch"
         ]
       },
       "needsRetranslation": true,
@@ -26509,14 +26508,10 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/projektleiter-in-sanitaer-alle/26b97116-c128-4382-8d6a-99004a807deb",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiter-in-sanitar-alle-bkw-ch",
-        "responsabile-di-progetto-sanitar-alle-bkw-koniz"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-sanitar-alle-bkw-ch",
-          "responsabile-di-progetto-sanitar-alle-bkw-koniz"
+          "projektleiter-in-sanitar-alle-bkw-ch"
         ],
         "en": [
           "projektleiter-in-sanitar-alle-bkw-ch"
@@ -26525,8 +26520,9 @@
           "projektleiter-in-sanitar-alle-bkw-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-06T22:24:47.689Z",
+      "previousSlugs": [
+        "projektleiter-in-sanitar-alle-bkw-ch"
+      ],
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -26539,7 +26535,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-06T22:24:47.689Z"
     },
     {
       "id": "bkw-1950e35892df",
@@ -26744,13 +26741,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicemonteur-in-elektro-elektroinstallateur-in-efz-alle-bkw-ch",
-        "servicemonteur-in-elektro-installatore-trice-elettrico-a-in-cfc-alle-bkw-ostermundigen"
+        "servicemonteur-in-elektro-elektroinstallateur-in-efz-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicemonteur-in-elektro-elektroinstallateur-in-efz-alle-bkw-ch",
-          "servicemonteur-in-elektro-installatore-trice-elettrico-a-in-cfc-alle-bkw-ostermundigen"
+          "servicemonteur-in-elektro-elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
       "needsRetranslation": true,

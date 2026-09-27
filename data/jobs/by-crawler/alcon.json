@@ -166,8 +166,8 @@
       "id": "alcon-bca0aa103326",
       "slug": "direttore-compensation-alcon-geneva",
       "slugByLocale": {
-        "it": "direttore-compensation-alcon-geneva",
         "en": "director-compensation-alcon-ch",
+        "it": "direttore-compensation-alcon-geneva",
         "de": "direktor-compensation-alcon-geneva",
         "fr": "directeur-compensation-alcon-geneva"
       },
@@ -211,6 +211,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-2026-49416",
+      "salaryMin": 116500,
+      "salaryMax": 162500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 116500,
+          "maxValue": 162500,
+          "unitText": "YEAR"
+        }
+      },
       "firstSeenAt": "2026-09-26T14:28:28.399Z",
       "previousSlugsByLocale": {
         "it": [
@@ -225,20 +238,7 @@
       },
       "previousSlugs": [
         "director-compensation-alcon-ch"
-      ],
-      "salaryMin": 116500,
-      "salaryMax": 162500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 116500,
-          "maxValue": 162500,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "alcon-e8f5eb7c664a",

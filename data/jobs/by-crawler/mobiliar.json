@@ -1099,10 +1099,10 @@
       "id": "mobiliar-6013370bf9b2",
       "slug": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-buchs-sargans-die-mobiliar-buchs",
       "slugByLocale": {
-        "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-buchs-sargans-die-mobiliar-buchs",
-        "en": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-buchs-sargans-die-mobiliar-buchs",
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-buchs-sargans-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-buchs-sargans-die-mobiliar-buchs"
+        "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-buchs-sargans-die-mobiliar-buchs",
+        "en": "employee-sales-support-m-f-d-general-agency-buchs-sargans-die-mobiliar-buchs",
+        "fr": "soutien-aux-ventes-des-employes-h-f-d-agence-generale-buchs-sargans-die-mobiliar-buchs"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1161,16 +1161,23 @@
         ]
       },
       "sfJobId": "1164682855",
-      "previousSlugs": [
-        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-buchs-sargans-mobiliar-ch",
-        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-buchs-sargans-die-mobiliar-buchs"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-buchs-sargans-mobiliar-ch",
           "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-buchs-sargans-die-mobiliar-buchs"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-buchs-sargans-die-mobiliar-buchs"
+        ],
+        "fr": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-buchs-sargans-die-mobiliar-buchs"
         ]
       },
+      "previousSlugs": [
+        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-buchs-sargans-mobiliar-ch",
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-buchs-sargans-die-mobiliar-buchs",
+        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-buchs-sargans-die-mobiliar-buchs"
+      ],
       "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1802,10 +1809,10 @@
       "id": "mobiliar-2f3996327c2e",
       "slug": "leiter-previdenza-agenzia-generale-wil-m-w-d-die-mobiliar-butschwil",
       "slugByLocale": {
-        "it": "leiter-previdenza-agenzia-generale-wil-m-w-d-die-mobiliar-butschwil",
-        "en": "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch",
         "de": "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch",
-        "fr": "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch"
+        "it": "leiter-previdenza-agenzia-generale-wil-m-w-d-die-mobiliar-butschwil",
+        "en": "head-of-preparedness-general-agency-wil-m-f-d-die-mobiliar-butschwil",
+        "fr": "chef-de-l-agence-generale-wil-h-f-d-die-mobiliar-butschwil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1862,18 +1869,23 @@
         ]
       },
       "sfJobId": "1164253255",
-      "previousSlugs": [
-        "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch",
-        "leiter-previdenza-agenzia-generale-wil-m-w-d-die-mobiliar-butschwil"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch",
           "leiter-previdenza-agenzia-generale-wil-m-w-d-die-mobiliar-butschwil"
+        ],
+        "en": [
+          "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:54:19.954Z",
+      "previousSlugs": [
+        "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch",
+        "leiter-previdenza-agenzia-generale-wil-m-w-d-die-mobiliar-butschwil"
+      ],
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -1886,7 +1898,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T13:54:19.954Z"
     },
     {
       "id": "mobiliar-9aa4e40211f7",
@@ -1990,10 +2003,10 @@
       "id": "mobiliar-9a515ac5c3c8",
       "slug": "collaborateur-au-service-des-sinistres-f-h-d-agence-general-montagnes-et-vallees-ne",
       "slugByLocale": {
+        "fr": "collaborateur-au-service-des-sinistres-f-h-d-agence-general-montagnes-et-vallees-ne",
         "it": "collaborateur-au-service-des-sinistres-f-h-d-agence-general-montagnes-et-vallees-ne",
         "en": "collaborator-for-disasters-m-f-d-general-agency-mountains-and-valleys-ne-die-mobiliar-fleurier",
-        "de": "mitarbeiter-fur-katastrophen-m-w-d-general-agency-berge-und-taler-ne-die-mobiliar-fleurier",
-        "fr": "collaborateur-au-service-des-sinistres-f-h-d-agence-general-montagnes-et-vallees-ne"
+        "de": "mitarbeiter-fur-katastrophen-m-w-d-general-agency-berge-und-taler-ne-die-mobiliar-fleurier"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -2035,7 +2048,6 @@
       "requirementsByLocale": {},
       "sfJobId": "1165137455",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:54:18.234Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -2048,7 +2060,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T13:54:18.234Z"
     },
     {
       "id": "mobiliar-7b59317f5a46",
@@ -3726,10 +3739,10 @@
       "id": "mobiliar-0e3aa75735d5",
       "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-wil-region-wil-e-toggenburg-die-mobiliar-wil",
       "slugByLocale": {
-        "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-wil-region-wil-e-toggenburg-die-mobiliar-wil",
-        "en": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-die-mobiliar-wil",
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-region-wil-und-toggenburg-die-mobiliar-wil",
-        "fr": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-die-mobiliar-wil"
+        "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-wil-region-wil-e-toggenburg-die-mobiliar-wil",
+        "en": "insurance-and-pension-advisor-m-f-d-general-agency-wil-die-mobiliar-wil",
+        "fr": "conseiller-en-assurance-et-pension-h-f-d-agence-generale-wil-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -3786,10 +3799,6 @@
         ]
       },
       "sfJobId": "940908174",
-      "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-mobiliar-ch",
-        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-wil-region-wil-e-toggenburg-die-mobiliar-wil"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-mobiliar-ch",
@@ -3797,10 +3806,20 @@
         ],
         "de": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-mobiliar-ch"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-die-mobiliar-wil"
+        ],
+        "fr": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-die-mobiliar-wil"
         ]
       },
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-wil-region-wil-e-toggenburg-die-mobiliar-wil",
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-die-mobiliar-wil"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:54:01.012Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3814,7 +3833,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "firstSeenAt": "2026-09-26T13:54:01.012Z"
     },
     {
       "id": "mobiliar-a70c2eafec37",
@@ -4417,9 +4437,9 @@
       "id": "mobiliar-d072b0bcbb70",
       "slug": "collaboratore-trice-makler-e-kmu-support-m-w-d-agenzia-generale-st-gallen-die-mobiliar-st",
       "slugByLocale": {
+        "de": "mitarbeiter-makler-und-kmu-support-w-m-generalagentur-st-gallen-mobiliar-ch",
         "it": "collaboratore-trice-makler-e-kmu-support-m-w-d-agenzia-generale-st-gallen-die-mobiliar-st",
         "en": "employee-broker-and-sme-support-m-f-general-agency-st-gallen-die-mobiliar-st",
-        "de": "mitarbeiter-makler-und-kmu-support-w-m-generalagentur-st-gallen-mobiliar-ch",
         "fr": "courtier-salarie-et-soutien-pme-h-f-agence-generale-st-gallen-die-mobiliar-st"
       },
       "company": "die Mobiliar",
@@ -4475,10 +4495,6 @@
         ]
       },
       "sfJobId": "1165263355",
-      "previousSlugs": [
-        "mitarbeiter-makler-und-kmu-support-w-m-generalagentur-st-gallen-mobiliar-ch",
-        "collaboratore-trice-makler-e-kmu-support-m-w-d-agenzia-generale-st-gallen-die-mobiliar-st"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-makler-und-kmu-support-w-m-generalagentur-st-gallen-mobiliar-ch",
@@ -4491,8 +4507,10 @@
           "mitarbeiter-makler-und-kmu-support-w-m-generalagentur-st-gallen-mobiliar-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:54.899Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "mitarbeiter-makler-und-kmu-support-w-m-generalagentur-st-gallen-mobiliar-ch",
+        "collaboratore-trice-makler-e-kmu-support-m-w-d-agenzia-generale-st-gallen-die-mobiliar-st"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -4505,7 +4523,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T13:53:54.899Z",
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-3d41d8256c07",
@@ -5095,17 +5115,14 @@
       },
       "sfJobId": "1165508755",
       "previousSlugs": [
-        "fachspezialist-wetterversicherung-w-m-d-mobiliar-ch",
-        "fachspezialist-wetterversicherung-w-m-d-die-mobiliar-bern"
+        "fachspezialist-wetterversicherung-w-m-d-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-wetterversicherung-w-m-d-mobiliar-ch",
-          "fachspezialist-wetterversicherung-w-m-d-die-mobiliar-bern"
+          "fachspezialist-wetterversicherung-w-m-d-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-09-25T14:43:21.425Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5119,7 +5136,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-880400ef884b",
@@ -5514,10 +5532,10 @@
       "id": "mobiliar-52e20ab9544d",
       "slug": "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-thurgau",
       "slugByLocale": {
-        "it": "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-thurgau",
-        "en": "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau",
         "de": "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
-        "fr": "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau"
+        "en": "insurance-and-pension-advisor-with-heart-m-f-die-mobiliar-thurgau",
+        "fr": "conseiller-en-assurances-et-prevoyance-avec-c-ur-h-f-die-mobiliar-thurgau",
+        "it": "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-thurgau"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5571,26 +5589,26 @@
         ]
       },
       "sfJobId": "1164155255",
-      "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
-        "insurance-and-pension-advisor-with-heart-m-f-die-mobiliar-thurgau",
-        "conseiller-en-assurances-et-prevoyance-avec-c-ur-h-f-die-mobiliar-thurgau",
-        "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-thurgau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
           "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-thurgau"
         ],
         "en": [
-          "insurance-and-pension-advisor-with-heart-m-f-die-mobiliar-thurgau"
+          "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau"
         ],
         "fr": [
-          "conseiller-en-assurances-et-prevoyance-avec-c-ur-h-f-die-mobiliar-thurgau"
+          "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau"
         ]
       },
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
+        "insurance-and-pension-advisor-with-heart-m-f-die-mobiliar-thurgau",
+        "conseiller-en-assurances-et-prevoyance-avec-c-ur-h-f-die-mobiliar-thurgau",
+        "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-thurgau",
+        "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T22:08:50.868Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5604,7 +5622,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TG"
+      "addressRegion": "TG",
+      "firstSeenAt": "2026-05-10T22:08:50.868Z"
     },
     {
       "id": "mobiliar-2d3b1bf0fcef",

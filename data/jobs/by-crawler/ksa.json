@@ -6,9 +6,9 @@
       "id": "ksa-6bed510181d9",
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
-        "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -51,11 +51,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
@@ -68,8 +63,12 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T10:13:55.101Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -82,16 +81,17 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-01T10:13:55.101Z"
     },
     {
       "id": "ksa-2c7c3e069273",
       "slug": "med-assistente-pratico-in-consulenza-per-l-infanzia-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
+        "de": "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch",
         "it": "med-assistente-pratico-in-consulenza-per-l-infanzia-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-in-child-wishing-consultation-kantonsspital-aarau-ksa-aarau",
-        "de": "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "medicament-assistante-pratique-consultation-pour-les-enfants-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -134,13 +134,13 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
-        "de": [
-          "med-praxisassistent-in-ksa-ch",
-          "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
-        ],
         "it": [
           "med-praxisassistent-in-ksa-ch",
           "med-assistente-pratico-in-consulenza-per-l-infanzia-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "med-praxisassistent-in-ksa-ch",
+          "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch"
         ],
         "fr": [
           "medicament-assistante-pratique-consultation-pour-les-enfants-kantonsspital-aarau-ksa-aarau",
@@ -157,7 +157,6 @@
         "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-07T01:20:17.707Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -170,16 +169,17 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:20:17.707Z"
     },
     {
       "id": "ksa-7c0bbde0f88d",
       "slug": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
-        "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
+        "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -221,12 +221,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
-      "previousSlugs": [
-        "med-praxisassistent-in-ksa-ch",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-        "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-ksa-ch",
@@ -237,8 +231,13 @@
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
+      "previousSlugs": [
+        "med-praxisassistent-in-ksa-ch",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
+        "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-07T01:20:17.707Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -251,7 +250,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:20:17.707Z"
     },
     {
       "id": "ksa-e64a36808add",
@@ -990,7 +990,6 @@
       "previousSlugsByLocale": {
         "de": [
           "med-praxisassistent-in-ksa-ch",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztly5",
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ],
         "it": [
@@ -1012,7 +1011,6 @@
         "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
       ],
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1025,14 +1023,15 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b17df214a77f",
       "slug": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
       "slugByLocale": {
         "it": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
-        "en": "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau",
+        "en": "care-expert-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "pflegeexpertin-pflegeexperte-ksa-ch",
         "fr": "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau-4b8fef"
       },
@@ -1106,7 +1105,6 @@
           "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1120,7 +1118,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-6bdd298cda92",
@@ -2333,10 +2332,10 @@
       "id": "ksa-8a8355baf614",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-430337",
       "slugByLocale": {
-        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-430337",
-        "en": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-mann-gesundheit-ksa-ch",
-        "fr": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
+        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-430337",
+        "en": "health-professional-kantonsspital-aarau-ksa-aarau",
+        "fr": "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2379,19 +2378,19 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
-        "de": [
-          "fachfrau-fachmann-gesundheit-ksa-ch",
-          "fachfrau-mann-gesundheit-ksa-ch"
-        ],
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
           "salute-professionale-kantonsspital-aarau-ksa-aarau-430337"
         ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-ksa-ch",
+          "fachfrau-mann-gesundheit-ksa-ch"
+        ],
         "en": [
-          "health-professional-kantonsspital-aarau-ksa-aarau"
+          "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau"
+          "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
@@ -2399,10 +2398,10 @@
         "health-professional-kantonsspital-aarau-ksa-aarau",
         "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau",
         "fachfrau-mann-gesundheit-ksa-ch",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau-430337"
+        "salute-professionale-kantonsspital-aarau-ksa-aarau-430337",
+        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:38:56.488Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2415,16 +2414,17 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:38:56.488Z"
     },
     {
       "id": "ksa-968b793c93c3",
       "slug": "dipl-specialista-oncologia-ematologia-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "dipl-specialista-oncologia-ematologia-kantonsspital-aarau-ksa-aarau",
-        "en": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksa-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
+        "en": "care-professional-nursing-specialist-oncology-haematology-kantonsspital-aarau-ksa-aarau",
+        "fr": "specialiste-des-soins-infirmiers-et-professionnels-de-l-oncologie-hematologie-kantonsspital-aarau-ksa-aarau",
+        "it": "dipl-specialista-oncologia-ematologia-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2466,29 +2466,29 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "care-professional-nursing-specialist-oncology-haematology-kantonsspital-aarau-ksa-aarau",
-        "specialiste-des-soins-infirmiers-et-professionnels-de-l-oncologie-hematologie-kantonsspital-aarau-ksa-aarau",
-        "dipl-specialista-oncologia-ematologia-kantonsspital-aarau-ksa-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
           "dipl-specialista-oncologia-ematologia-kantonsspital-aarau-ksa-aarau"
         ],
-        "en": [
-          "care-professional-nursing-specialist-oncology-haematology-kantonsspital-aarau-ksa-aarau"
-        ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
+        ],
         "fr": [
-          "specialiste-des-soins-infirmiers-et-professionnels-de-l-oncologie-hematologie-kantonsspital-aarau-ksa-aarau"
+          "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "care-professional-nursing-specialist-oncology-haematology-kantonsspital-aarau-ksa-aarau",
+        "specialiste-des-soins-infirmiers-et-professionnels-de-l-oncologie-hematologie-kantonsspital-aarau-ksa-aarau",
+        "dipl-specialista-oncologia-ematologia-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T10:13:55.101Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2501,7 +2501,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-01T10:13:55.101Z"
     },
     {
       "id": "ksa-917a360f4605",
@@ -3114,10 +3115,10 @@
       "id": "ksa-13785d3ec1fe",
       "slug": "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
-        "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "it": "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
+        "en": "medical-practice-assistant-kantonsspital-aarau-ksa-aarau",
+        "fr": "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3159,14 +3160,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
-      "previousSlugs": [
-        "med-praxisassistent-in-ksa-ch",
-        "medical-practice-assistant-kantonsspital-aarau-ksa-aarau",
-        "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy",
-        "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-ksa-ch",
@@ -3183,8 +3176,15 @@
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
+      "previousSlugs": [
+        "med-praxisassistent-in-ksa-ch",
+        "medical-practice-assistant-kantonsspital-aarau-ksa-aarau",
+        "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy",
+        "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-07T01:20:17.707Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3197,7 +3197,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:20:17.707Z"
     },
     {
       "id": "ksa-265719dc65e8",
@@ -3278,10 +3279,10 @@
       "id": "ksa-33a2c08ac082",
       "slug": "teamleitung-pflege-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "teamleitung-pflege-kantonsspital-aarau-ksa-aarau",
-        "en": "teamleitung-pflege-kantonsspital-aarau-ksa-aarau",
         "de": "teamleitung-onkologie-hamatologie-ksa-ch",
-        "fr": "teamleitung-pflege-kantonsspital-aarau-ksa-aarau"
+        "it": "team-leadership-oncologia-ematologia-kantonsspital-aarau-ksa-aarau",
+        "en": "team-leadership-oncology-hematology-kantonsspital-aarau-ksa-aarau",
+        "fr": "chef-d-equipe-oncologie-hematologie-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3329,12 +3330,6 @@
           "teamleitung-pflege-ksa-ch",
           "teamleitung-pflege-kantonsspital-aarau-ksa-aarau"
         ],
-        "en": [
-          "team-leadership-oncology-hematology-kantonsspital-aarau-ksa-aarau"
-        ],
-        "fr": [
-          "chef-d-equipe-oncologie-hematologie-kantonsspital-aarau-ksa-aarau"
-        ],
         "de": [
           "teamleitung-pflege-ksa-ch",
           "teamleitung-onkologie-hamatologie-ksa-ch"
@@ -3349,7 +3344,6 @@
         "teamleitung-pflege-kantonsspital-aarau-ksa-aarau"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-17T14:23:50.727Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3362,16 +3356,17 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-17T14:23:50.727Z"
     },
     {
       "id": "ksa-f17dea9d40b2",
       "slug": "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "en": "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
+        "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau",
+        "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3413,26 +3408,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugs": [
-        "fachexpertin-fachexperte-pflege-ksa-ch",
-        "expert-expert-care-kantonsspital-aarau-ksa-aarau",
-        "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexpertin-fachexperte-pflege-ksa-ch",
-          "expert-expert-care-kantonsspital-aarau-ksa-aarau"
-        ],
-        "en": [
-          "specialist-care-expert-kantonsspital-aarau-ksa-aarau"
-        ],
-        "fr": [
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+          "fachexpertin-fachexperte-pflege-ksa-ch"
         ]
       },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-pflege-ksa-ch"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T22:32:44.726Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3445,7 +3429,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-11T22:32:44.726Z"
     },
     {
       "id": "ksa-d06935f7da80",
@@ -3898,14 +3883,12 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "arztsekretar-in-angiologie-ksa-ch",
-        "arztsekretar-in-angiologie-kantonsspital-aarau-ksa-aarau",
-        "segretario-medico-angiologia-kantonsspital-aarau-ksa-aarau"
+        "arztsekretar-in-angiologie-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-angiologie-ksa-ch",
-          "arztsekretar-in-angiologie-kantonsspital-aarau-ksa-aarau",
-          "segretario-medico-angiologia-kantonsspital-aarau-ksa-aarau"
+          "arztsekretar-in-angiologie-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "arztsekretar-in-angiologie-ksa-ch"
@@ -3914,8 +3897,8 @@
           "arztsekretar-in-angiologie-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:38:56.488Z",
+      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6533,10 +6516,10 @@
       "id": "ksa-8c5006bcec5f",
       "slug": "segretario-medico-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "segretario-medico-kantonsspital-aarau-ksa-aarau",
-        "en": "arztsekretar-in-kantonsspital-aarau-ksa-aarau",
         "de": "arztsekretar-in-ksa-ch",
-        "fr": "arztsekretar-in-kantonsspital-aarau-ksa-aarau"
+        "it": "segretario-medico-kantonsspital-aarau-ksa-aarau",
+        "en": "medical-secretary-kantonsspital-aarau-ksa-aarau",
+        "fr": "secretaire-medical-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6578,26 +6561,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
-      "previousSlugs": [
-        "arztsekretar-in-ksa-ch",
-        "medical-secretary-kantonsspital-aarau-ksa-aarau",
-        "secretaire-medical-kantonsspital-aarau-ksa-aarau",
-        "segretario-medico-kantonsspital-aarau-ksa-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-ksa-ch",
           "segretario-medico-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
-          "medical-secretary-kantonsspital-aarau-ksa-aarau"
+          "arztsekretar-in-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "secretaire-medical-kantonsspital-aarau-ksa-aarau"
+          "arztsekretar-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
+      "previousSlugs": [
+        "arztsekretar-in-ksa-ch",
+        "medical-secretary-kantonsspital-aarau-ksa-aarau",
+        "secretaire-medical-kantonsspital-aarau-ksa-aarau",
+        "segretario-medico-kantonsspital-aarau-ksa-aarau",
+        "arztsekretar-in-kantonsspital-aarau-ksa-aarau"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-26T09:53:28.951Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6610,7 +6593,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-26T09:53:28.951Z"
     },
     {
       "id": "ksa-e6222077d5a9",
@@ -6766,10 +6750,10 @@
       "id": "ksa-4724a0578fdf",
       "slug": "medico-senior-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
+        "de": "oberarztin-oberarzt-ksa-ch",
         "it": "medico-senior-kantonsspital-aarau-ksa-aarau",
         "en": "senior-physician-kantonsspital-aarau-ksa-aarau",
-        "de": "oberarztin-oberarzt-ksa-ch",
-        "fr": "oberarztin-oberarzt-kantonsspital-aarau-ksa-aarau"
+        "fr": "medecin-principal-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6811,22 +6795,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
-      "previousSlugs": [
-        "oberarztin-oberarzt-ksa-ch",
-        "medecin-principal-kantonsspital-aarau-ksa-aarau",
-        "medico-senior-kantonsspital-aarau-ksa-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-ksa-ch",
           "medico-senior-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "medecin-principal-kantonsspital-aarau-ksa-aarau"
+          "oberarztin-oberarzt-kantonsspital-aarau-ksa-aarau"
         ]
       },
+      "previousSlugs": [
+        "oberarztin-oberarzt-ksa-ch",
+        "medecin-principal-kantonsspital-aarau-ksa-aarau",
+        "medico-senior-kantonsspital-aarau-ksa-aarau",
+        "oberarztin-oberarzt-kantonsspital-aarau-ksa-aarau"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T22:00:59.200Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6839,16 +6823,17 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T22:00:59.200Z"
     },
     {
       "id": "ksa-0296fa155ab6",
       "slug": "oberarztin-oberarzt-klinik-per-intensivmedizin-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-klinik-per-intensivmedizin-kantonsspital-aarau-ksa-aarau",
-        "en": "oberarztin-oberarzt-kantonsspital-aarau-ksa-aarau",
         "de": "oberarztin-oberarzt-klinik-fur-intensivmedizin-ksa-ch",
-        "fr": "oberarztin-oberarzt-kantonsspital-aarau-ksa-aarau"
+        "it": "oberarztin-oberarzt-klinik-per-intensivmedizin-kantonsspital-aarau-ksa-aarau",
+        "en": "senior-physician-senior-physician-clinic-for-intensive-care-medicine-kantonsspital-aarau-ksa-aarau",
+        "fr": "medecin-superieur-medecin-superieur-clinique-de-medecine-intensive-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6891,19 +6876,19 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
-        "de": [
-          "oberarztin-oberarzt-ksa-ch",
-          "oberarztin-oberarzt-klinik-fur-intensivmedizin-ksa-ch"
-        ],
         "it": [
           "oberarztin-oberarzt-ksa-ch",
           "oberarztin-oberarzt-klinik-per-intensivmedizin-kantonsspital-aarau-ksa-aarau"
         ],
+        "de": [
+          "oberarztin-oberarzt-ksa-ch",
+          "oberarztin-oberarzt-klinik-fur-intensivmedizin-ksa-ch"
+        ],
         "en": [
-          "senior-physician-senior-physician-clinic-for-intensive-care-medicine-kantonsspital-aarau-ksa-aarau"
+          "oberarztin-oberarzt-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "medecin-superieur-medecin-superieur-clinique-de-medecine-intensive-kantonsspital-aarau-ksa-aarau"
+          "oberarztin-oberarzt-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
@@ -6911,10 +6896,10 @@
         "senior-physician-senior-physician-clinic-for-intensive-care-medicine-kantonsspital-aarau-ksa-aarau",
         "medecin-superieur-medecin-superieur-clinique-de-medecine-intensive-kantonsspital-aarau-ksa-aarau",
         "oberarztin-oberarzt-klinik-fur-intensivmedizin-ksa-ch",
-        "oberarztin-oberarzt-klinik-per-intensivmedizin-kantonsspital-aarau-ksa-aarau"
+        "oberarztin-oberarzt-klinik-per-intensivmedizin-kantonsspital-aarau-ksa-aarau",
+        "oberarztin-oberarzt-kantonsspital-aarau-ksa-aarau"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T22:00:59.200Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6927,7 +6912,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T22:00:59.200Z"
     },
     {
       "id": "ksa-543b30ee0258",

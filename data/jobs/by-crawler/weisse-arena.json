@@ -650,7 +650,7 @@
       "slug": "cuoco-ausiliario-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "cuoco-ausiliario-weisse-arena-gruppe-laax",
-        "en": "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
+        "en": "auxiliary-cook-weisse-arena-gruppe-laax",
         "de": "hilfskoch-hilfskochin-weisse-arena-ch",
         "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
       },
@@ -720,7 +720,6 @@
           "hilfskoch-hilfskochin-weisse-arena-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T09:47:08.545Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -735,7 +734,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "weisse-arena-c21a4cbba5d7",
@@ -1702,9 +1702,9 @@
       "id": "weisse-arena-f28155d8a8f5",
       "slug": "restauro-integrale-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "restauro-integrale-weisse-arena-gruppe-laax",
-        "en": "allrounder-in-restauration-weisse-arena-gruppe-laax",
         "de": "allrounder-in-restauration-weisse-arena-ch",
+        "it": "restauro-integrale-weisse-arena-gruppe-laax",
+        "en": "all-rounder-restoration-weisse-arena-gruppe-laax",
         "fr": "restauration-complete-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
@@ -1749,22 +1749,22 @@
       "jobNumber": "WAG02512",
       "pensum": "60 - 100%",
       "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "allrounder-in-restauration-weisse-arena-ch",
-        "all-rounder-restoration-weisse-arena-gruppe-laax",
-        "restauro-integrale-weisse-arena-gruppe-laax"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "allrounder-in-restauration-weisse-arena-ch",
           "restauro-integrale-weisse-arena-gruppe-laax"
         ],
         "en": [
-          "all-rounder-restoration-weisse-arena-gruppe-laax"
+          "allrounder-in-restauration-weisse-arena-gruppe-laax"
         ]
       },
+      "previousSlugs": [
+        "allrounder-in-restauration-weisse-arena-ch",
+        "all-rounder-restoration-weisse-arena-gruppe-laax",
+        "restauro-integrale-weisse-arena-gruppe-laax",
+        "allrounder-in-restauration-weisse-arena-gruppe-laax"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-27T00:40:02.612Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -1778,7 +1778,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-27T00:40:02.612Z"
     },
     {
       "id": "weisse-arena-033df4fa896b",
@@ -2608,7 +2609,7 @@
       "slug": "cucina-cucina-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "cucina-cucina-weisse-arena-gruppe-laax",
-        "en": "koch-kochin-weisse-arena-gruppe-laax",
+        "en": "cook-cook-weisse-arena-gruppe-laax",
         "de": "koch-kochin-weisse-arena-ch",
         "fr": "cuire-faire-cuire-weisse-arena-gruppe-laax"
       },
@@ -2680,7 +2681,6 @@
           "koch-kochin-weisse-arena-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:28:06.627Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -2695,7 +2695,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "weisse-arena-3a59b18f9f76",
@@ -3655,7 +3656,7 @@
         "it": "capo-squadra-di-servizio-weisse-arena-gruppe-laax",
         "en": "service-team-lead-weisse-arena-gruppe-laax",
         "de": "service-teamlead-weisse-arena-ch",
-        "fr": "service-teamlead-weisse-arena-gruppe-laax"
+        "fr": "chef-d-equipe-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -3718,7 +3719,6 @@
           "service-teamlead-weisse-arena-gruppe-laax"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:57:39.649Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
@@ -3733,7 +3733,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "weisse-arena-82b40ba6959e",

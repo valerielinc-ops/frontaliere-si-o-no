@@ -3958,17 +3958,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "scientific-assistant-biomedical-data-science-spinal-cord-injury-research-eth-zurich-ch",
-        "scientific-assistant-biomedical-data-science-spinal-cord-injury-ricerca-eth-zurich-zurich"
+        "scientific-assistant-biomedical-data-science-spinal-cord-injury-research-eth-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "scientific-assistant-biomedical-data-science-spinal-cord-injury-research-eth-zurich-ch",
-          "scientific-assistant-biomedical-data-science-spinal-cord-injury-ricerca-eth-zurich-zurich"
+          "scientific-assistant-biomedical-data-science-spinal-cord-injury-research-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-08-24T21:30:34.535Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3982,7 +3979,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-8fd25959af10",
@@ -5201,7 +5199,7 @@
         "it": "facility-manager-eth-zurich-ch",
         "en": "facilitator-manager-eth-zurich-lugano",
         "de": "facilitat-apk-manager-eth-zurich-lugano",
-        "fr": "facility-manager-eth-zurich-lugano"
+        "fr": "gestionnaire-des-installations-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -5241,17 +5239,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-des-installations-eth-zurich-lugano",
         "facility-manager-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-des-installations-eth-zurich-lugano",
           "facility-manager-eth-zurich-lugano"
         ]
       },
       "firstSeenAt": "2026-09-01T14:26:28.615Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -5265,7 +5260,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-9c838db0b7f2",
@@ -5894,10 +5890,10 @@
       "id": "eth-zurich-d50c29a3c69f",
       "slug": "coordinatore-dello-studio-in-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "coordinatore-dello-studio-in-m-f-d-eth-zurich-zurich",
-        "en": "studienkoordinator-in-m-w-d-eth-zurich",
         "de": "studienkoordinator-in-m-w-d-eth-zurich-ch",
-        "fr": "studienkoordinator-in-m-w-d-eth-zurich"
+        "it": "coordinatore-dello-studio-in-m-f-d-eth-zurich-zurich",
+        "en": "study-coordinator-in-m-f-d-eth-zurich-zurich",
+        "fr": "coordinateur-de-l-etude-en-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -5936,26 +5932,26 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_SEZC9QOdfgUhivGinx",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "studienkoordinator-in-m-w-d-eth-zurich-ch",
-        "study-coordinator-in-m-f-d-eth-zurich-zurich",
-        "coordinateur-de-l-etude-en-h-f-d-eth-zurich-zurich",
-        "coordinatore-dello-studio-in-m-f-d-eth-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "studienkoordinator-in-m-w-d-eth-zurich-ch",
           "coordinatore-dello-studio-in-m-f-d-eth-zurich-zurich"
         ],
         "en": [
-          "study-coordinator-in-m-f-d-eth-zurich-zurich"
+          "studienkoordinator-in-m-w-d-eth-zurich"
         ],
         "fr": [
-          "coordinateur-de-l-etude-en-h-f-d-eth-zurich-zurich"
+          "studienkoordinator-in-m-w-d-eth-zurich"
         ]
       },
+      "previousSlugs": [
+        "studienkoordinator-in-m-w-d-eth-zurich-ch",
+        "study-coordinator-in-m-f-d-eth-zurich-zurich",
+        "coordinateur-de-l-etude-en-h-f-d-eth-zurich-zurich",
+        "coordinatore-dello-studio-in-m-f-d-eth-zurich-zurich",
+        "studienkoordinator-in-m-w-d-eth-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T10:16:04.469Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5969,7 +5965,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-01T10:16:04.469Z"
     },
     {
       "id": "eth-zurich-1f49c9dc3065",
@@ -9297,9 +9294,9 @@
       "id": "eth-zurich-59f1a98d4062",
       "slug": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
       "slugByLocale": {
-        "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
-        "en": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
         "de": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
+        "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
+        "en": "fire-protection-specialist-m-f-d-eth-zurich-zurich",
         "fr": "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
@@ -9339,24 +9336,21 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_Nggz9A2uM2fKJhfbF6",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-        "fire-protection-specialist-m-f-d-eth-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
         ],
-        "en": [
-          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-          "fire-protection-specialist-m-f-d-eth-zurich-zurich"
-        ],
         "fr": [
+          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-09-24T14:43:35.518Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
+        "fire-protection-specialist-m-f-d-eth-zurich-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -9370,7 +9364,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-24T14:43:35.518Z",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-b914347974db",
