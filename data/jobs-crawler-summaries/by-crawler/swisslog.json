@@ -1,7 +1,7 @@
 {
   "key": "swisslog",
   "label": "Swisslog",
-  "generatedAt": "2026-09-26T13:51:55.451Z",
+  "generatedAt": "2026-09-26T23:34:57.351Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -12,10 +12,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7150,
-  "avgDurationMs": 7150,
+  "durationMs": 5379,
+  "avgDurationMs": 5379,
   "durationHistory": [
-    7150
+    5379
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:51:46.227Z",
+      "crawledAt": "2026-09-26T23:34:48.552Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -48,6 +48,7 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "jobReqId": "4385",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-06T11:32:14.801Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -69,7 +70,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:51:46.225Z",
+      "crawledAt": "2026-09-26T23:34:48.553Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -86,6 +87,7 @@
       "postedDate": "2026-08-05",
       "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "jobReqId": "4458",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-05T22:29:21.809Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -107,7 +109,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:51:46.227Z",
+      "crawledAt": "2026-09-26T23:34:48.554Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -145,7 +147,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:51:46.228Z",
+      "crawledAt": "2026-09-26T23:34:48.555Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -183,7 +185,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:51:46.229Z",
+      "crawledAt": "2026-09-26T23:34:48.555Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
