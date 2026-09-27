@@ -592,14 +592,16 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
       for (const line of String(r.body || '').split('\n')) {
         const sev = detectSeverity(line);
         if (!sev || !COUNTABLE_SEVERITIES.has(sev)) continue;
-        // REVIEW.md makes an explicitly disposed non-funnel Nit advisory and
-        // FOLLOWUP.md drops it. It is therefore not evidence that a documented
-        // rule failed; counting it here made stale-comment recur forever even
-        // when every example was marked `deferred, non funnel-critical`.
-        // Keep 🔴 fail-closed: a red finding cannot self-dispose this way.
-        if (sev === '🟡' && isExplicitNonFunnelDisposition(line)) continue;
         const bucket = bucketOf(line);
         if (!bucket) continue;
+        // REVIEW.md makes an explicitly disposed non-funnel Nit advisory and
+        // FOLLOWUP.md drops it. It is therefore not evidence that a documented
+        // stale-comment rule failed; counting it here made that bucket recur
+        // forever even when every example was marked `deferred, non funnel-critical`.
+        // Keep other process buckets (for example pr-body-contract) unchanged:
+        // their deterministic contracts still make a recurring Nit actionable.
+        // Keep 🔴 fail-closed: a red finding cannot self-dispose this way.
+        if (bucket === 'stale-comment' && sev === '🟡' && isExplicitNonFunnelDisposition(line)) continue;
         if (seenBuckets.has(bucket)) continue;
         seenBuckets.add(bucket);
         counts[bucket] = (counts[bucket] || 0) + 1;
