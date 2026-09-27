@@ -6839,6 +6839,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.urne-27-settembre-2026.title': 'Abstimmungen 27. September 2026: Ergebnisse und Prognosen',
     'blog.article.urne-27-settembre-2026.excerpt': 'Die Prognosen zu den eidgenössischen Initiativen, die Abstimmung in Graubünden und die lokale Planung in Poschiavo vom 27. September 2026.',
     'blog.article.urne-27-settembre-2026.imageAlt': 'Urnen und Wahlzettel für eidgenössische und kantonale Abstimmungen in der Schweiz',
+    'blog.article.iniziativa-neutralita-respinta.title': 'Initiative zur Neutralität von 71 % abgelehnt',
+    'blog.article.iniziativa-neutralita-respinta.excerpt': 'Die nationale Projektion gibt ein klares Nein zu 71% für die Neutralitätsinitiative an. Im Tessin liegt das Nein nach 86 Gemeinden bei 51,2%.',
+    'blog.article.iniziativa-neutralita-respinta.imageAlt': 'Eidgenössische Abstimmungsurnen in der Schweiz',
 };
 
 export default blogMetaChDe;
