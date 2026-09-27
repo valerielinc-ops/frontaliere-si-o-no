@@ -20464,6 +20464,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'congedo-parentale-136000-firme',
+    category: 'novita',
+    date: '2026-09-27T01:48:34.164Z',
+    image: '/images/blog/congedo-parentale-136000-firme.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

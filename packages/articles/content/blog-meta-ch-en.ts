@@ -6812,6 +6812,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.onere-premi-cassa-malati-nzz.title': 'Health insurance premiums: the net burden remained stable',
     'blog.article.onere-premi-cassa-malati-nzz.excerpt': 'NZZ analysis of 300\'000 families: between 2016 and 2023, the net burden of premiums remained stable thanks to subsidies and income growth.',
     'blog.article.onere-premi-cassa-malati-nzz.imageAlt': 'Urban view of Switzerland, symbolizing cost of living and family expenses',
+    'blog.article.congedo-parentale-136000-firme.title': 'Parental leave: 136\'000 signatures collected for the initiative',
+    'blog.article.congedo-parentale-136000-firme.excerpt': '136\'000 signatures have been collected for the initiative on parental leave. The submission to the Federal Chancellery is scheduled for next week.',
+    'blog.article.congedo-parentale-136000-firme.imageAlt': 'Signature collection for the parental leave initiative in Switzerland',
 };
 
 export default blogMetaChEn;
