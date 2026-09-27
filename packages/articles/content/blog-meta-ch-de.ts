@@ -6836,6 +6836,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-tirocinio-soletta.title': 'Lehre und Berufsausbildung im Kanton Solothurn',
     'blog.article.guida-tirocinio-soletta.excerpt': 'Leitfaden zur Lehre im Kanton Solothurn: Schweizer Rahmen zu Mindestlohn, Stundenplänen, Ferien, AHV/IV/EO-Beiträgen und Steuern.',
     'blog.article.guida-tirocinio-soletta.imageAlt': 'Lernende Person in einer Schweizer Werkstatt während der Berufsbildung',
+    'blog.article.urne-27-settembre-2026.title': 'Abstimmungen 27. September 2026: Ergebnisse und Prognosen',
+    'blog.article.urne-27-settembre-2026.excerpt': 'Die Prognosen zu den eidgenössischen Initiativen, die Abstimmung in Graubünden und die lokale Planung in Poschiavo vom 27. September 2026.',
+    'blog.article.urne-27-settembre-2026.imageAlt': 'Urnen und Wahlzettel für eidgenössische und kantonale Abstimmungen in der Schweiz',
 };
 
 export default blogMetaChDe;

@@ -2301,6 +2301,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'manifestazione-diritti-migranti-berna': { it: 'manifestazione-diritti-migranti-berna', en: 'migrant-rights-demonstration-bern', de: 'demonstration-migrantenrechte-bern', fr: 'manifestation-droits-migrants-berne' },
  'voti-federali-neutralita-alimentazione': { it: 'voti-federali-neutralita-alimentazione', en: 'swiss-federal-votes-neutrality-food', de: 'schweizer-bundesabstimmungen-neutralitaet-ernaehrung', fr: 'votes-federaux-neutralite-alimentation' },
  'guida-tirocinio-soletta': { it: 'guida-tirocinio-soletta', en: 'solothurn-apprenticeship-vocational-training', de: 'berufslehre-berufsbildung-solothurn', fr: 'apprentissage-formation-professionnelle-soleure' },
+ 'urne-27-settembre-2026': { it: 'urne-27-settembre-2026', en: 'ballots-september-27-2026', de: 'abstimmungen-27-september-2026', fr: 'votations-27-septembre-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
