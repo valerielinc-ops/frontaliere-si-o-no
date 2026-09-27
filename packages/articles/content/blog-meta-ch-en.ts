@@ -6863,6 +6863,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.zurigo-suicidio-assistito.title': 'Zurich, yes to assisted suicide in healthcare facilities',
     'blog.article.zurigo-suicidio-assistito.excerpt': 'In Zurich, 68,1% approve assisted suicide in healthcare facilities. Turnout 47,6%; the law on teachers was rejected by 59,2%.',
     'blog.article.zurigo-suicidio-assistito.imageAlt': 'Zurich vote on assisted suicide in healthcare facilities',
+    'blog.article.sanita-alta-engadina-samedan.title': 'Upper Engadine Healthcare: agreements approved through 2029',
+    'blog.article.sanita-alta-engadina-samedan.excerpt': 'The vote of the eleven Municipalities ensures almost 28.5 million francs for the Samedan hospital, elderly homes, Spitex and the Sanadura entity from 2027 to 2029.',
+    'blog.article.sanita-alta-engadina-samedan.imageAlt': 'Healthcare facility in a Swiss Alpine environment',
 };
 
 export default blogMetaChEn;

@@ -88979,6 +88979,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sanita-alta-engadina-samedan': {
+    title: 'Sanità Alta Engadina: approvati accordi fino al 2029',
+    description: 'Approvato il pacchetto da quasi 28,5 milioni di franchi per la sanità in Alta Engadina. Dettagli su ospedale di Samedan, case anziani e ente Sanadura.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanità, alta, engadina, approvati',
+    ogTitle: 'Sanità Alta Engadina: futuro assicurato fino al 2029',
+    ogDescription: 'Quasi il 90% degli aventi diritto ha approvato i nuovi accordi di prestazione per l\'ospedale di Samedan e le strutture sanitarie regionali con un investimento di quasi 28,5 milioni di franchi.',
+    canonicalPath: '/articoli-svizzera/sanita-alta-engadina-samedan/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanità Alta Engadina: approvati accordi fino al 2029",
+      "description": "Approvato il pacchetto da quasi 28,5 milioni di franchi per la sanità in Alta Engadina. Dettagli su ospedale di Samedan, case anziani e ente Sanadura.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sanita-alta-engadina-samedan.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Struttura sanitaria in ambiente alpino svizzero"
+      },
+      "datePublished": "2026-09-27T21:30:24+00:00",
+      "dateModified": "2026-09-27T21:30:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sanita-alta-engadina-samedan/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
