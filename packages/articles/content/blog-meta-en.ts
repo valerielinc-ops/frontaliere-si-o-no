@@ -12095,6 +12095,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.title': 'Reported for dumping waste in Lake Maggiore in Brezzo di Bedero',
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.excerpt': 'Forest Carabinieri report owner: rubble from the terrace thrown into water at a depth of 7-13 meters.',
     'blog.article.brezzo-bedero-rifiuti-lago-maggiore.imageAlt': 'Construction debris and rubble on the lakebed of Lake Maggiore at Brezzo di Bedero',
+    'blog.article.finissage-turner-como.title': 'Turner in Como: free evening finissage on September 27',
+    'blog.article.finissage-turner-como.excerpt': 'On 27 settembre 2026 at Como, the closing event for Masterpieces from Tate: free admission from 18 to 21, last admission at 20:30.',
+    'blog.article.finissage-turner-como.imageAlt': 'Free evening finissage of the Tate masterpieces in Como',
 };
 
 export default blogMetaEn;
