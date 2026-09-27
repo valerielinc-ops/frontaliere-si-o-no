@@ -32,8 +32,9 @@ on:
         default: "1"
         type: string
       generation_token:
-        description: Explicit generation correlation token (shadow only)
-        required: true
+        description: Generation correlation token <run_id>-<run_attempt>; leave empty on a manual dispatch to derive it from this run
+        required: false
+        default: ""
         type: string
       site_code_commit:
         description: Full immutable site commit used by this generation (empty keeps legacy main)
@@ -139,6 +140,8 @@ jobs:
         id: checkout
         if: always() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
         run: "true"
+      - name: Validate crawler generation token before crawling
+        run: node scripts/check-crawler-generation-token.mjs
       - name: Restore crawler AI cache
         id: restore_crawler_ai_cache
         continue-on-error: true
@@ -7326,7 +7329,7 @@ jobs:
           printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "systemic_count=$systemic_count" "wait_outcome=$wait_outcome" >> "$output_file"
           exit 0
       - name: Commit crawler group data atomically
-        if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'
+        if: always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'
         run: |-
           set +e
           commit_attempt=1

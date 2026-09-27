@@ -214,7 +214,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       });
       expect(stepByName(job.steps, 'Commit crawler group data atomically')).toEqual({
         name: 'Commit crawler group data atomically',
-        if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
+        if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
         run: crawlerGroupBatchCommitRun(Number(group)),
       });
       const jobWithFutureTail = structuredClone(job);
@@ -264,14 +264,15 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       const portable = YAML.parse(portableText);
       expect(PORTABLE_GENERATION_TOKEN_EXPR).toBe(GENERATION_TOKEN_EXPR);
       expect(portable['run-name']).toBe(`crawler-generation-${PORTABLE_GENERATION_TOKEN_EXPR}-group-${group}`);
+      // A manual dispatch may leave the token empty and gets the run's own
+      // coordinates; a malformed explicit value stops in the preflight.
       expect(portable.on.workflow_dispatch.inputs.generation_token)
-        .toMatchObject({ required: true, type: 'string' });
+        .toMatchObject({ required: false, default: '', type: 'string' });
       const portableJob = Object.values(portable.jobs)[0] as any;
       expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(PORTABLE_GENERATION_TOKEN_EXPR);
       // #7083 invariant, restated per transport mode: producers and finalizer
-      // must read ONE value. The reusable site logic keeps its coordinate
-      // fallback for diagnostics only; the commit gate accepts only the
-      // explicit input, which the portable caller requires.
+      // must read ONE value: the job-level token (explicit input, or the
+      // run's coordinates), validated by the preflight before any crawl.
       const logicWithFutureTail = structuredClone(jobFrom(logic));
       logicWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
       expect(stepByName(logicWithFutureTail.steps, 'Finalize crawler generation manifest (shadow)').env.CRAWLER_GENERATION_TOKEN)
@@ -285,7 +286,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         step.id?.startsWith('crawler-launch-') || step.name === 'Commit crawler group data atomically');
       expect(portableProducers).toHaveLength(results.generationRoster.groups[group].length + 1);
       expect(stepByName(portableJob.steps, 'Commit crawler group data atomically').if)
-        .toBe("always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'");
+        .toBe("always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'");
       expect(portableProducers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
       expect(portableJob.steps.at(-1).name).toBe('Release cross-entry crawler live-run lease');
