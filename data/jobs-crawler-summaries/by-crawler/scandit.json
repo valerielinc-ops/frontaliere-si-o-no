@@ -1,7 +1,7 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-09-26T14:27:29.252Z",
+  "generatedAt": "2026-09-26T23:58:08.388Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -10,12 +10,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2430,
-  "avgDurationMs": 2430,
+  "durationMs": 1826,
+  "avgDurationMs": 1826,
   "durationHistory": [
-    2430
+    1826
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8143595",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:27:21.088Z",
+      "crawledAt": "2026-09-26T23:58:03.483Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -54,46 +54,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "scandit-11d5976f7463",
-      "slug": "senior-computer-vision-ingegnere-scandit-ag-zurich",
-      "company": "Scandit AG",
-      "companyKey": "scandit",
-      "companyDomain": "scandit.com",
-      "title": "Senior Computer Vision Engineer (Action Recognition)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
-      "source": "Scandit AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-24T00:08:01.939Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "IT",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
-      "firstSeenAt": "2026-07-03T23:25:08.449Z",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "salarySource": "estimated",
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
