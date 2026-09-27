@@ -272,7 +272,7 @@ export function findTestOnlyApproval(
     : normalizeReviewInputRevisionInput(reviewRevision);
   if (reviewRevision !== undefined && !revision) return null;
   const candidates = (reviews ?? []).flat().filter(review => isTerminalManagedReview(review)
-    && /^(github-actions|frontaliere-automation)\[bot\]$/.test(review.user.login ?? '')
+    && /^frontaliere-automation\[bot\]$/.test(review.user.login ?? '')
     && review.commit_id === head && String(review.body ?? '').includes(TEST_REVIEW_MARKER)
     && (revision === undefined || reviewHasInputRevision(review.body, revision))
     && /^## LGTM\s*$/m.test(review.body) && !/🔴/.test(review.body));
@@ -288,9 +288,12 @@ export function postTestOnlyReview({ repo, pr, head, reviewRevision, ghFn = gh }
   if (!Array.isArray(reviews)) throw new Error('Reviews API is unavailable or malformed');
   if (findTestOnlyApproval(reviews, head, { ghFn, repo, pr, reviewRevision: revision })) return;
   const body = `${TEST_REVIEW_MARKER}\n${reviewInputMarker(revision)}\n## Scope\nApprovazione automatica: la PR modifica esclusivamente test. I controlli CI e il contratto del body restano obbligatori; nessuna review del modello richiesta dalla policy del proprietario.\n\n## Findings (Important: 0, Nit: 0)\n\n## LGTM\n`;
-  ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--method', 'POST', '--input', '-'], {
+  const posted = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--method', 'POST', '--input', '-'], {
     input: JSON.stringify({ commit_id: head, event: 'COMMENT', body }),
   });
+  if (posted?.user?.type !== 'Bot' || posted.user.login !== 'frontaliere-automation[bot]') {
+    throw new Error('identità della review App non verificabile o non autorizzata');
+  }
 }
 
 function normalizedPrLabels(pr) {

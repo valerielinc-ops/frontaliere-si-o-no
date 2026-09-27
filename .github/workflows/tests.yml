@@ -3140,15 +3140,24 @@ jobs:
       - name: Publish automatic LGTM for a tests-only PR
         id: test_only_review
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'tests-only' }}
+        # A review created with GITHUB_TOKEN is authored by
+        # github-actions[bot] and is suppressed from downstream
+        # pull_request_review consumers. The automatic approval must therefore
+        # use the installation token minted above, just like carry-forward.
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
           REVIEW_POLICY_ROOT: ${{ steps.review_policy_publishers.outputs.root }}
-        run: node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" post
+        run: |
+          set -euo pipefail
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo "::error::Token App assente: la review tests-only non puo' riattivare i consumer pull_request_review."
+            exit 1
+          fi
+          GH_TOKEN="$APP_TOKEN" node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" post
 
       - name: Publish carry-forward LGTM (code contribution unchanged)
         id: carry_forward_review
