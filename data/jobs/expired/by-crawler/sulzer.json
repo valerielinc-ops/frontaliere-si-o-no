@@ -9418,30 +9418,43 @@
       "aiuto-meccanico-sulzer-orange",
       "helper-mechanic-sulzer-orange",
       "helfer-mechaniker-sulzer-orange",
-      "mecanicien-adjoint-sulzer-orange"
+      "mecanicien-adjoint-sulzer-orange",
+      "meccanica-sulzer-pasadena-0de108",
+      "mechanic-sulzer-santa-fe-springs",
+      "meccanico-sulzer-pasadena",
+      "mechanik-sulzer-pasadena-42dbaf",
+      "mecanique-sulzer-pasadena-42dbaf",
+      "meccanico-sulzer-pasadena-dd0120",
+      "mechanik-sulzer-pasadena-dd0120",
+      "mecanique-sulzer-pasadena-dd0120",
+      "mechanic-sulzer-ch-9",
+      "mechanik-sulzer-pasadena-0de108",
+      "mechanik-sulzer-la-porte",
+      "mecanicien-sulzer-pasadena",
+      "mecanique-sulzer-phoenix-75f2cf",
+      "mecanique-sulzer-santa-fe-springs",
+      "mecanique-sulzer-la-porte"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "helfer-mechaniker-sulzer-la-porte",
-        "mecanicien-adjoint-sulzer-la-porte",
-        "helper-mechanic-sulzer-ch-2",
-        "meccanico-sulzer-la-porte",
-        "mechanic-sulzer-ch-5",
-        "mechanic-sulzer-ch-7",
-        "mechanic-sulzer-ch-6",
-        "mechanic-sulzer-ch-3",
-        "mechanic-sulzer-ch-2",
-        "meccanico-sulzer-phoenix",
-        "mechanic-sulzer-ch-8",
-        "meccanica-sulzer-pasadena",
-        "meccanica-sulzer-santa-fe-springs",
-        "meccanica-sulzer-bridgeport",
-        "meccanica-sulzer-colton",
         "meccanica-sulzer-farmington",
         "meccanico-sulzer-margate",
         "meccanica-sulzer-orange",
         "aiuto-meccanico-sulzer-orange",
-        "aiuto-meccanico-sulzer-la-porte"
+        "aiuto-meccanico-sulzer-la-porte",
+        "meccanica-sulzer-pasadena-0de108",
+        "mechanic-sulzer-santa-fe-springs",
+        "meccanico-sulzer-pasadena",
+        "mechanik-sulzer-pasadena-42dbaf",
+        "mecanique-sulzer-pasadena-42dbaf",
+        "meccanico-sulzer-pasadena-dd0120",
+        "mechanik-sulzer-pasadena-dd0120",
+        "mecanique-sulzer-pasadena-dd0120",
+        "mechanic-sulzer-ch-9",
+        "mechanic-sulzer-phoenix",
+        "meccanico-sulzer-la-porte",
+        "mechanic-sulzer-la-porte",
+        "mechanic-sulzer-ch-6"
       ],
       "en": [
         "mechanic-sulzer-la-porte",
@@ -9453,9 +9466,7 @@
         "helper-mechanic-sulzer-orange"
       ],
       "de": [
-        "helfer-mechaniker-sulzer-la-porte",
         "mechanik-sulzer-la-porte-af208d",
-        "mechanic-sulzer-ch-5",
         "mechanik-sulzer-phoenix",
         "mechanic-sulzer-ch-6",
         "mechanik-sulzer-pasadena",
@@ -9463,16 +9474,14 @@
         "mechanik-sulzer-bridgeport",
         "mechaniker-sulzer-bridgeport",
         "mechanik-sulzer-colton",
-        "mechanic-sulzer-ch-2",
         "mechanik-sulzer-farmington",
-        "mechanic-sulzer-ch-3",
         "helfer-mechaniker-sulzer-orange",
-        "helper-mechanic-sulzer-ch-2"
+        "mechanik-sulzer-pasadena-0de108",
+        "mechanik-sulzer-pasadena-42dbaf",
+        "mechanik-sulzer-pasadena-dd0120",
+        "mechanik-sulzer-la-porte"
       ],
       "fr": [
-        "mecanicien-adjoint-sulzer-la-porte",
-        "mecanique-sulzer-la-porte-af208d",
-        "mechanic-sulzer-ch-5",
         "mecanique-sulzer-phoenix",
         "mechanic-sulzer-ch-6",
         "mecanicien-sulzer-pasadena-42dbaf",
@@ -9481,11 +9490,14 @@
         "mecanicien-sulzer-bridgeport",
         "mecanicien-sulzer-colton",
         "mecanique-sulzer-pasadena",
-        "mechanic-sulzer-ch-2",
         "mecanicien-sulzer-farmington",
-        "mechanic-sulzer-ch-3",
         "mecanicien-adjoint-sulzer-orange",
-        "helper-mechanic-sulzer-ch-2"
+        "mecanicien-sulzer-pasadena",
+        "mecanique-sulzer-phoenix-75f2cf",
+        "mecanique-sulzer-santa-fe-springs",
+        "mecanique-sulzer-pasadena-42dbaf",
+        "mecanique-sulzer-pasadena-dd0120",
+        "mecanique-sulzer-la-porte"
       ]
     },
     "salaryMin": 73500,
@@ -9503,6 +9515,11 @@
       {
         "sourceIdentity": "url:https://sulzer.wd502.myworkdayjobs.com/en/sulzerjobs/job/pasadena/mechanic_jr102783",
         "firstSeenAt": "2026-08-13T22:02:09.605Z",
+        "title": "Mechanic"
+      },
+      {
+        "sourceIdentity": "url:https://sulzer.wd502.myworkdayjobs.com/en/sulzerjobs/job/pasadena/mechanic_jr103805",
+        "firstSeenAt": "2026-07-06T22:32:52.944Z",
         "title": "Mechanic"
       },
       {
@@ -11769,112 +11786,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://sulzer.wd502.myworkdayjobs.com/en/sulzerjobs/job/pune/group-internal-control-manager_jr103360",
     "firstSeenAt": "2026-07-08T22:25:48.775Z"
-  },
-  {
-    "slug": "meccanica-sulzer-pasadena-0de108",
-    "title": "Mechanic",
-    "titleByLocale": {
-      "it": "Meccanica",
-      "en": "Mechanic",
-      "de": "Mechanik",
-      "fr": "Mécanicien"
-    },
-    "company": "Sulzer",
-    "companyKey": "sulzer",
-    "location": "Pasadena",
-    "addressLocality": "Pasadena",
-    "descriptionByLocale": {
-      "it": "Sulzer è una società di ingegneria leader con un patrimonio orgoglioso di innovazione. Unisciti al nostro team globale per accrescere le tue competenze e sviluppare soluzioni innovative che consentano una società prospera e più sostenibile. Informazioni sul ruolo Sintesi del lavoro Il Machinery Mechanic è responsabile per l'esecuzione di manutenzione di routine e piccole riparazioni su macchine industriali per garantire operazioni fluide e sicure. Questo ruolo supporta il team di manutenzione identificando problemi meccanici e assistendo nella manutenzione delle attrezzature. Questo profilo di lavoro è destinato al personale di supporto che segue procedure e lavori consolidati sotto stretta supervisione. DUTI\n• Leggere le schede di lavoro per determinare; stato del lavoro, autorizzazione/limitazioni di lavoro, stima, descrizione dei problemi e/o la manutenzione prevista.\n• Test di apparecchiature elettromeccaniche per risolvere problemi noti o sospetti utilizzando vari metodi (ac o de).\n• Disassemblare apparecchiature elettromeccaniche notando identificazioni delle parti, configurazione e condizione.\n• Assemblaggi di apparecchiature elettromeccaniche pulite come necessario utilizzando vari metodi e passaggi, tra cui ma non limitato a: parti rondella/sterzo, serbatoi caustici, beaders di vetro, ecc.\n• Misurare o notare parti di ricambio adeguate. Requisizione corretta necessaria oggetti da magazzino, come approvato dal supervisore.\n• Sostituire o riparare assiemi meccanici o elettromeccanici usurati o difettosi, compresi ma non limitati a: cuscinetti, spazzole, porta spazzole, motori porta guarnizioni ingranaggi, giranti, interruttori meccanici, freni frizioni, frizione rotori, tachi, ventilatori, scudo finale, ecc.\n• Retest riassemblato apparecchiature elettromeccaniche per una corretta uscita e funzionamento.\n• Completo documenti necessari per ogni lavoro con precisione e su base tempestiva.\n• Operare attrezzature di riparazione e collaudo specializzate e altre attrezzature come necessario\n• Osservare tutte le procedure di sicurezza e utilizzare un adeguato equipaggiamento protettivo (in particolare la protezione degli occhi e delle auto).\n• Sollevare, stringere, regolare e/o fissare oggetti pesanti al fine di svolgere compiti di lavoro.\n• Mantenere l'area di lavoro pulita e pulita come indicato dal supervisore.\n• Assistito ad altri meccanici o ad altri agenti del negozio in mansioni qualificate o non qualificate, come diretto da supervisore o direttore del negozio.\n• Esegui altri compiti qualificati o non qualificati, diretti dal supervisore QUALIFICA\n• Diploma di scuola superiore o equivalente\n• Aptitude meccanica di base\n• Capacità di comprendere, eseguire e mantenere varie competenze relative alla formazione e alle procedure operative e di sicurezza dimostrate dal supervisore. DEMANAZIONI PHYSICHE\n• Durante l'esecuzione dei compiti di questo lavoro, a volte sarebbe richiesto di stare in piedi, camminare, sedersi, raggiungere con mani e braccia, salire o equilibrio, stoop o ginocchio, parlare e sentire, e utilizzare le dita e le mani per sentire oggetti.\n• Capacità di sollevare e/o muoversi fino a 50 libbre Cosa ti offriamo\n• congedo parentale pagato\n• congedo parentale\n• Assicurazione malattia\n• 401(k) corrispondenti\n• Tempo libero pagato\n• Assicurazione Vision\n• Conto di risparmio\n• Assicurazione dentale\n• Iscrizione Gym\n• Programma di assistenza dei dipendenti\n• Assicurazione invalidità\n• 401(k) 6% Match\n• Vacanze a pagamento\n• Programma benessere Sulzer è un datore di lavoro pari opportunità. Crediamo nella forza di una forza lavoro diversificata e ci impegniamo ad offrire un ambiente di lavoro inclusivo. Siamo orgogliosi di essere riconosciuti come Top Employer 2026 in Brasile, Canada, Cina, Finlandia, Germania, Irlanda, Messico, Svizzera, Sud Africa, Regno Unito e Stati Uniti.",
-      "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJob Summary\nThe Machinery Mechanic is responsible for performing routine maintenance and minor repairs on industrial machinery to ensure smooth and safe operations. This role supports the maintenance team by identifying mechanical issues and assisting in equipment upkeep.\nThis job profile is intended for support staff that follows established procedures and works under close supervision. DUTIES\n\n• Read job cards to determine; job status, work authorization/limitations, estimate, description of problems and/or expected serviceability.\n\n• Test electro-mechanical equipment to troubleshoot known or suspected problems using various methods (ac or de).\n\n• Disassemble electro-mechanical equipment noting parts identifications, configuration and condition.\n\n• Clean electro-mechanical equipment assemblies as needed using various methods and steps, including but not limited to: parts washer/steamers, caustic tanks, glass beaders, etc.\n\n• Measure for or note proper replacement parts. Correctly requisition needed items from storekeeper, as approved by supervisor.\n\n• Replace or repair worn or defective mechanical or electro-mechanical assemblies, including but not limited to: bearings, brushes, brush holders, motors leads gears seals, impellers, mechanical switches, brakes clutches, clutch rotors, tachs, fans, end shield,, etc.\n\n• Retest reassembled electro-mechanical equipment for proper output and operation.\n\n• Complete required paperwork for each job accurately and on a timely basis.\n\n• Operate specialized repair and testing equipment and other equipment as needed\n\n• Observe all safety procedures and use proper protective gear (especially eye and car protection).\n\n• Lift, tighten, adjust and/or secure heavy objects in order to perform work duties.\n\n• Keep work area neat and clean as directed by supervisor.\n\n• Assisted other mechanics or other shop personnel in skilled or –non-skilled duties as directed by supervisor or shop manager.\n\n• Perform other skilled or not-skilled duties as directed by supervisor\n\nQUALIFICATIONS\n\n• High school diploma or equivalent\n\n• Basic mechanical aptitude\n\n• Ability to understand, perform and retain various skill related training and operational and safety procedures demonstrated by supervisor.\n\nPHYSICAL DEMANDS\n\n• While performing duties of this job, would occasionally be required to stand, walk, sit, reach with hands and arms, climb or balance, stoop or kneel, talk and hear, and use fingers and hands to feel objects.\n\n• Ability to lift and/or move up to 50 pounds\n\nWhat we offer you\n\n• Paid parental leave\n\n• Parental leave\n\n• Health insurance\n\n• 401(k) matching\n\n• Paid time off\n\n• Vision insurance\n\n• Health savings account\n\n• Dental insurance\n\n• Gym membership\n\n• Employee assistance program\n\n• Disability insurance\n\n• 401(k) 6% Match\n\n• Paid holidays\n\n• Wellness program\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
-      "de": "Sulzer ist ein führendes Ingenieurunternehmen mit einem stolzen Erbe an Innovationen. Schließen Sie sich unserem globalen Team an, um Ihr Fachwissen zu erweitern und innovative Lösungen zu entwickeln, die eine prosperierende und nachhaltigere Gesellschaft ermöglichen. Über die Rolle Stellenbeschreibung Der Maschinenmechaniker ist für die routinemäßige Wartung und kleinere Reparaturen an Industriemaschinen verantwortlich, um einen reibungslosen und sicheren Betrieb zu gewährleisten. Diese Rolle unterstützt das Wartungsteam, indem es mechanische Probleme identifiziert und die Wartung der Ausrüstung unterstützt. Dieses Stellenprofil richtet sich an Support-Mitarbeiter, die etablierte Verfahren befolgen und unter strenger Aufsicht arbeiten. ZÖLLE\n• Lesen Sie Jobkarten, um zu bestimmen; Jobstatus, Arbeitserlaubnis / Einschränkungen, Schätzung, Beschreibung von Problemen und / oder erwartete Bedienbarkeit.\n• Testen Sie elektromechanische Geräte, um bekannte oder vermutete Probleme mit verschiedenen Methoden (ac oder de) zu beheben.\n• Demontage der elektromechanischen Ausrüstung unter Angabe der Teileidentifikation, Konfiguration und Zustand.\n• Elektromechanische Geräte nach Bedarf mit verschiedenen Methoden und Schritten reinigen, einschließlich, aber nicht beschränkt auf: Teile Waschmaschine/Dämpfer, Ätzbehälter, Glasperlen usw.\n• Maß für oder Notiz richtige Ersatzteile. Richtig Requisition benötigte Artikel vom Lagerinhaber, wie vom Vorgesetzten genehmigt.\n• Ersatz oder Reparatur verschlissener oder defekter mechanischer oder elektromechanischer Baugruppen, einschließlich, aber nicht beschränkt auf: Lager, Bürsten, Bürstenhalter, Motorräder, Dichtungen, Laufräder, mechanische Schalter, Bremskupplungen, Kupplungsrotoren, Lenker, Ventilatoren, Lagerschild usw.\n• Wieder zusammengebaute elektromechanische Ausrüstung für den ordnungsgemäßen Ausgang und Betrieb.\n• Füllen Sie die erforderlichen Unterlagen für jeden Auftrag genau und rechtzeitig aus.\n• Betrieb von spezialisierten Reparatur- und Prüfgeräten und anderen Geräten nach Bedarf\n• Befolgen Sie alle Sicherheitsverfahren und verwenden Sie die richtige Schutzausrüstung (insbesondere Augen- und Autoschutz).\n• Heben, straffen, justieren und/oder sichern Sie schwere Gegenstände, um Arbeitsaufgaben zu erfüllen.\n• Halten Sie den Arbeitsbereich sauber und sauber, wie vom Vorgesetzten angeordnet.\n• Unterstützte andere Mechaniker oder anderes Ladenpersonal in qualifizierten oder nicht qualifizierten Aufgaben, wie vom Vorgesetzten oder Ladenleiter angewiesen.\n• Führen Sie andere qualifizierte oder nicht qualifizierte Aufgaben aus, wie vom Vorgesetzten angewiesen QUALIFIKATIONEN\n• Schulabschluss oder gleichwertiges Diplom\n• Grundlegende mechanische Eignung\n• Fähigkeit, verschiedene fähigkeitsbezogene Schulungen und Betriebs- und Sicherheitsverfahren zu verstehen, durchzuführen und beizubehalten, die von der Aufsichtskraft nachgewiesen werden. Physische Forderungen\n• Während der Ausführung von Aufgaben dieses Jobs, würde gelegentlich erforderlich sein, zu stehen, zu gehen, zu sitzen, mit Händen und Armen zu erreichen, zu klettern oder zu balancieren, sich zu beugen oder zu knien, zu sprechen und zu hören und Finger und Hände zu benutzen, um Objekte zu fühlen.\n• Fähigkeit zum Heben und / oder Bewegen von bis zu 50 Pfund Was wir Ihnen bieten\n• Bezahlter Elternurlaub\n• Elternurlaub\n• Krankenversicherung\n• Abgleich 401(k)\n• Bezahlte Freizeit\n• Vision Versicherung\n• Gesundheitssparkonto\n• Zahnversicherung\n• Gym Mitgliedschaft\n• Mitarbeiterhilfeprogramm\n• Berufsunfähigkeitsversicherung\n• 401 (k) 6% Match\n• Bezahlter Urlaub\n• Wellnessprogramm Sulzer ist ein Arbeitgeber für Chancengleichheit. Wir glauben an die Stärke einer vielfältigen Belegschaft und engagieren uns für ein integratives Arbeitsumfeld. Wir sind stolz darauf, als Top Employer 2026 in Brasilien, Kanada, China, Finnland, Deutschland, Irland, Mexiko, der Schweiz, Südafrika, Großbritannien und den USA anerkannt zu werden.",
-      "fr": "Sulzer est une entreprise d'ingénierie de premier plan avec un fier héritage d'innovation. Rejoignez notre équipe mondiale pour développer votre expertise et développer des solutions innovantes qui permettent une société prospère et plus durable. Sur le rôle Résumé de l'emploi Le mécanicien de machines est responsable de l'entretien de routine et des réparations mineures sur les machines industrielles afin d'assurer un fonctionnement en douceur et en sécurité. Ce rôle appuie l'équipe d'entretien en identifiant les problèmes mécaniques et en aidant à l'entretien du matériel. Ce profil d'emploi est destiné au personnel de soutien qui suit les procédures établies et travaille sous étroite supervision. DROITS\n• Lisez les cartes de travail pour déterminer l'état d'avancement, l'autorisation/limitation de travail, l'estimation, la description des problèmes et/ou la capacité d'entretien prévue.\n• Tester l'équipement électromécanique pour résoudre les problèmes connus ou suspectés en utilisant diverses méthodes (ac ou de).\n• Désassembler l'équipement électromécanique en notant les pièces d'identification, la configuration et l'état.\n• Nettoyez les assemblages d'équipements électromécaniques selon les besoins en utilisant diverses méthodes et étapes, y compris, mais sans s'y limiter, les pièces de lave-linge, les réservoirs caustiques, les perles en verre, etc.\n• Mesurer ou noter les pièces de rechange appropriées. Réquisitionner correctement les articles nécessaires auprès du magasinier, tel qu'approuvé par le superviseur.\n• Remplacer ou réparer les assemblages mécaniques ou électromécaniques usés ou défectueux, y compris, sans s'y limiter, les roulements, les brosses, les porte-brosses, les moteurs qui conduisent les joints d'engrenages, les roues, les interrupteurs mécaniques, les embrayages de freins, les rotors d'embrayage, les taches, les ventilateurs, le bouclier d'extrémité, etc.\n• Rétester l'équipement électromécanique réassemblé pour une sortie et un fonctionnement appropriés.\n• Remplir les documents requis pour chaque emploi avec exactitude et en temps opportun.\n• Utiliser au besoin du matériel spécialisé de réparation et d ' essai et d ' autres équipements\n• Observer toutes les procédures de sécurité et utiliser un équipement de protection approprié (surtout la protection des yeux et des voitures).\n• Soulevez, serrez, ajustez et/ou sécurisez des objets lourds afin d'effectuer des tâches de travail.\n• Garder l'aire de travail propre et propre conformément aux directives du superviseur.\n• Il a aidé d'autres mécaniciens ou d'autres membres du personnel d'atelier à accomplir des tâches qualifiées ou non, conformément aux directives du superviseur ou du directeur d'atelier.\n• Accomplir d'autres fonctions qualifiées ou non qualifiées, conformément aux directives du superviseur QUALIFICATIONS\n• Diplôme d'études secondaires ou équivalent\n• Aptitude mécanique de base\n• Capacité de comprendre, d'exécuter et de conserver diverses formations et procédures opérationnelles et de sécurité liées aux compétences démontrées par le superviseur. DEMANDES PHYSIQUES\n• Dans l'exercice de ces fonctions, il faudrait parfois se tenir debout, marcher, s'asseoir, atteindre avec les mains et les bras, monter ou équilibrer, s'agenouiller ou s'agenouiller, parler et entendre, et utiliser les doigts et les mains pour sentir les objets.\n• Capacité de soulever et/ou de déplacer jusqu'à 50 livres Ce que nous vous offrons\n• Congé parental payé\n• Congé parental\n• Assurance maladie\n• 401(k) correspondant\n• Congé payé\n• Assurance vision\n• Compte d'épargne santé\n• Assurance dentaire\n• Membre de gymnastique\n• Programme d'aide aux employés\n• Assurance invalidité\n• 401(k) 6% Match\n• Jours fériés payés\n• Programme de bien-être Sulzer est un employeur à chances égales. Nous croyons en la force d'un effectif diversifié et sommes déterminés à offrir un milieu de travail inclusif. Nous sommes fiers d'être reconnus comme l'un des meilleurs employeurs 2026 au Brésil, au Canada, en Chine, en Finlande, en Allemagne, en Irlande, au Mexique, en Suisse, en Afrique du Sud, au Royaume-Uni et aux États-Unis."
-    },
-    "slugByLocale": {
-      "it": "meccanica-sulzer-pasadena-0de108",
-      "en": "mechanic-sulzer-ch",
-      "de": "mechanik-sulzer-pasadena-0de108",
-      "fr": "mecanicien-sulzer-pasadena"
-    },
-    "sector": "Industria",
-    "expiredAt": "2026-09-26T23:44:51.937Z",
-    "previousSlugs": [
-      "mechanic-sulzer-ch",
-      "mechanic-sulzer-ch-7",
-      "mechanic-sulzer-pasadena",
-      "mechanic-sulzer-ch-5",
-      "mechanic-sulzer-santa-fe-springs",
-      "meccanico-sulzer-pasadena",
-      "mechanik-sulzer-pasadena-42dbaf",
-      "mecanique-sulzer-pasadena-42dbaf",
-      "mechanic-sulzer-ch-3",
-      "meccanico-sulzer-pasadena-dd0120",
-      "mechanik-sulzer-pasadena-dd0120",
-      "mecanique-sulzer-pasadena-dd0120",
-      "mechanic-sulzer-ch-2",
-      "mechanic-sulzer-ch-4",
-      "meccanica-sulzer-phoenix",
-      "mechanic-sulzer-ch-9",
-      "mechanic-sulzer-ch-8",
-      "mechanic-sulzer-phoenix",
-      "meccanica-sulzer-santa-fe-springs",
-      "meccanico-sulzer-la-porte",
-      "mechanic-sulzer-la-porte",
-      "mechanik-sulzer-phoenix-75f2cf",
-      "mechanik-sulzer-santa-fe-springs",
-      "mechanik-sulzer-la-porte",
-      "mecanique-sulzer-phoenix-75f2cf",
-      "mecanique-sulzer-santa-fe-springs",
-      "mecanique-sulzer-la-porte",
-      "mechanic-sulzer-ch-6"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "mechanic-sulzer-santa-fe-springs",
-        "meccanico-sulzer-pasadena",
-        "mechanik-sulzer-pasadena-42dbaf",
-        "mecanique-sulzer-pasadena-42dbaf",
-        "mechanic-sulzer-ch-3",
-        "meccanico-sulzer-pasadena-dd0120",
-        "mechanik-sulzer-pasadena-dd0120",
-        "mecanique-sulzer-pasadena-dd0120",
-        "mechanic-sulzer-ch-2",
-        "mechanic-sulzer-ch-4",
-        "meccanica-sulzer-phoenix",
-        "mechanic-sulzer-ch-9",
-        "mechanic-sulzer-ch-8",
-        "mechanic-sulzer-phoenix",
-        "meccanica-sulzer-santa-fe-springs",
-        "meccanico-sulzer-la-porte",
-        "mechanic-sulzer-la-porte",
-        "mechanic-sulzer-ch-6",
-        "mechanic-sulzer-ch"
-      ],
-      "en": [
-        "mechanic-sulzer-pasadena"
-      ],
-      "de": [
-        "mechanic-sulzer-ch-7",
-        "mechanik-sulzer-phoenix-75f2cf",
-        "mechanik-sulzer-santa-fe-springs",
-        "mechanik-sulzer-pasadena-42dbaf",
-        "mechanik-sulzer-pasadena-dd0120",
-        "mechanik-sulzer-la-porte"
-      ],
-      "fr": [
-        "mechanic-sulzer-ch-7",
-        "mecanique-sulzer-phoenix-75f2cf",
-        "mecanique-sulzer-santa-fe-springs",
-        "mecanique-sulzer-pasadena-42dbaf",
-        "mecanique-sulzer-pasadena-dd0120",
-        "mecanique-sulzer-la-porte"
-      ]
-    },
-    "salaryMin": 73500,
-    "salaryMax": 111500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://sulzer.wd502.myworkdayjobs.com/en/sulzerjobs/job/pasadena/mechanic_jr103805",
-    "firstSeenAt": "2026-07-06T22:32:52.944Z"
   },
   {
     "slug": "meccanico-di-manutenzione-per-attrezzature-rotanti-f-m-d-sulzer-schkopau",
