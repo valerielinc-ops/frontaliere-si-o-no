@@ -932,8 +932,8 @@ function main() {
     let verdict = null;
     let automationDeferredReason = null;
     try {
-      const cs = gh(['api', `repos/${REPO}/issues/${iss.number}/comments?per_page=100`, '--paginate']);
-      comments = Array.isArray(cs) ? cs : [];
+      const cs = gh(['api', `repos/${REPO}/issues/${iss.number}/comments?per_page=100`, '--paginate', '--slurp']);
+      comments = Array.isArray(cs) ? cs.flat() : [];
       verdict = latestVerdict(comments);
       automationDeferredReason = latestAutomationDeferredReason(comments);
     } catch { comments = []; verdict = null; }

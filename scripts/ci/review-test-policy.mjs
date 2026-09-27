@@ -231,6 +231,15 @@ export function isTestOnlySnapshot(snapshot) {
   return snapshot?.complete === true && Array.isArray(snapshot.files)
     && snapshot.files.length > 0 && snapshot.files.every(isReviewTestPath);
 }
+/**
+ * `gh api --paginate --slurp` restituisce l'array delle pagine: lo appiattisce.
+ * Un valore non-array passa intatto, così i controlli fail-closed a valle
+ * (`!Array.isArray(reviews)`) vedono ancora l'API illeggibile.
+ */
+function flattenGhPages(value) {
+  return Array.isArray(value) ? value.flat() : value;
+}
+
 export function gh(args, { json = true, allowFail = false, allowNotFound = false, input } = {}) {
   try {
     const out = execFileSync(trustedGhBin(), args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, input });
@@ -284,7 +293,7 @@ export function postTestOnlyReview({ repo, pr, head, reviewRevision, ghFn = gh }
   const revision = normalizeReviewInputRevision(reviewRevision);
   if (!revision) throw new Error('Review input revision is not verifiable');
   if (!verifyTestOnlyHead(ghFn, repo, pr, head)) throw new Error('PR is not a complete tests-only change on the expected HEAD');
-  const reviews = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate']);
+  const reviews = flattenGhPages(ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']));
   if (!Array.isArray(reviews)) throw new Error('Reviews API is unavailable or malformed');
   if (findTestOnlyApproval(reviews, head, { ghFn, repo, pr, reviewRevision: revision })) return;
   const body = `${TEST_REVIEW_MARKER}\n${reviewInputMarker(revision)}\n## Scope\nApprovazione automatica: la PR modifica esclusivamente test. I controlli CI e il contratto del body restano obbligatori; nessuna review del modello richiesta dalla policy del proprietario.\n\n## Findings (Important: 0, Nit: 0)\n\n## LGTM\n`;
@@ -595,7 +604,7 @@ export function postLedgerOnlyReview({ repo, pr, head, ghFn = gh }) {
   }
   const first = inspectLedgerOnlyHead(ghFn, repo, pr, head);
   if (!first.ok) throw new Error(`PR non autorizzabile dal fast path ledger: ${first.reason}`);
-  const reviews = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate']);
+  const reviews = flattenGhPages(ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']));
   if (findLedgerOnlyApproval(reviews, head, { ghFn, repo, pr })) return;
   // A body edit can arrive while the review list is being read. Re-read the
   // complete target immediately before the mutation; the next edited event is

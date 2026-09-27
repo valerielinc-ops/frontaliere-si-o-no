@@ -1170,8 +1170,12 @@ async function main() {
     for (const r of recoverableMaxTurns) {
       let comments = [];
       try {
-        comments = ghJson(['api', `repos/{owner}/{repo}/issues/${r.issue}/comments?per_page=100`, '--paginate']) || [];
-      } catch { continue; } // illeggibile → si rivaluta al run successivo, mai un doppio commento
+        comments = ghJson(['api', `repos/{owner}/{repo}/issues/${r.issue}/comments?per_page=100`, '--paginate', '--slurp']);
+      } catch { continue; }
+      // null = illeggibile (oltre 100 commenti, senza `--slurp`, lo era sempre):
+      // rivaluta al prossimo run invece di ripostare la nota su una lista vuota.
+      if (!Array.isArray(comments)) continue;
+      comments = comments.flat(); // illeggibile → si rivaluta al run successivo, mai un doppio commento
       if (hasOrphanNote(Array.isArray(comments) ? comments : [])) { already++; continue; }
       try {
         gh(['issue', 'comment', String(r.issue), '--body', orphanNoteBody(r)]);

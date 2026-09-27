@@ -75,6 +75,27 @@ describe('latestReviewerVerdict: conta solo l\'ultima review del reviewer', () =
     expect(latestReviewerVerdict([], HEAD)).toBe('none');
     expect(latestReviewerVerdict(null, HEAD)).toBe('unknown');
   });
+
+  it('una review DISMISSED o PENDING non è un verdetto: non sblocca con il suo LGTM', () => {
+    const withState = (body: string, commit: string, at: string, state: string) => ({
+      ...review(body, commit, at), state,
+    });
+    expect(latestReviewerVerdict([
+      review(RED, HEAD, '2026-09-27T10:00:00Z'),
+      withState(LGTM, HEAD, '2026-09-27T11:00:00Z', 'DISMISSED'),
+    ], HEAD)).toBe('blocking');
+    expect(latestReviewerVerdict([
+      review(RED, HEAD, '2026-09-27T10:00:00Z'),
+      withState(LGTM, HEAD, '2026-09-27T11:00:00Z', 'PENDING'),
+    ], HEAD)).toBe('blocking');
+    // Solo review non terminali del bot: verdetto illeggibile, non «nessuna review».
+    expect(latestReviewerVerdict([
+      withState(LGTM, HEAD, '2026-09-27T11:00:00Z', 'DISMISSED'),
+    ], HEAD)).toBe('unknown');
+    expect(latestReviewerVerdict([
+      withState(LGTM, HEAD, '2026-09-27T11:00:00Z', ''),
+    ], HEAD)).toBe('unknown');
+  });
 });
 
 describe('needsHumanBlocksAutorebase: veto solo con un verdetto bloccante', () => {
@@ -92,10 +113,13 @@ describe('needsHumanBlocksAutorebase: veto solo con un verdetto bloccante', () =
 });
 
 describe('processPR: il veto precede ogni scrittura sul branch', () => {
-  function runSweep(labels: string[], reviews: unknown[]) {
+  // `pages` simula la paginazione del gh reale: senza `--slurp` stampa un
+  // array JSON per pagina, uno dopo l'altro; con `--slurp` l'array delle pagine.
+  function runSweep(labels: string[], reviews: unknown[], pages: unknown[][] = [reviews]) {
     const fakeBin = mkdtempSync(join(tmpdir(), 'pr-autorebase-verdict-'));
     const callLog = join(fakeBin, 'calls.log');
     const reviewsFile = join(fakeBin, 'reviews.json');
+    const reviewsSlurpFile = join(fakeBin, 'reviews-slurp.json');
     const script = fileURLToPath(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url));
     const pullRequests = JSON.stringify([[{
       number: 1,
@@ -104,7 +128,8 @@ describe('processPR: il veto precede ogni scrittura sul branch', () => {
       labels: labels.map((name) => ({ name })),
     }]]);
     writeFileSync(callLog, '');
-    writeFileSync(reviewsFile, JSON.stringify(reviews));
+    writeFileSync(reviewsFile, pages.map((page) => JSON.stringify(page)).join('\n'));
+    writeFileSync(reviewsSlurpFile, JSON.stringify(pages));
     writeFileSync(join(fakeBin, 'gh'), `#!/bin/sh
 printf 'gh %s\\n' "$*" >> "$CALL_LOG"
 case "$*" in
@@ -112,6 +137,7 @@ case "$*" in
   *'compare/main...'*) printf '1\\n';;
   *'/check-runs?per_page=100'*) printf '%s\\n' '{"check_runs":[]}';;
   *'/actions/workflows/tests.yml/runs?'*) printf '%s\\n' '{"workflow_runs":[]}';;
+  *'/pulls/1/reviews'*'--slurp'*) cat "$REVIEWS_SLURP_FILE";;
   *'/pulls/1/reviews'*) cat "$REVIEWS_FILE";;
   *'/pulls/1'*) printf '%s\\n' '{"body":"","head":{"sha":"${HEAD}"}}';;
   *'/issues/1/comments'*) printf '[]\\n';;
@@ -134,6 +160,7 @@ exit 0
           PATH: `${fakeBin}:${process.env.PATH ?? ''}`,
           CALL_LOG: callLog,
           REVIEWS_FILE: reviewsFile,
+          REVIEWS_SLURP_FILE: reviewsSlurpFile,
           GITHUB_REPOSITORY: 'owner/repo',
           GH_TOKEN: 'test-token',
           GITHUB_RUN_NUMBER: '1',
@@ -168,6 +195,29 @@ exit 0
     expect(r.result.status, r.out).toBe(0);
     expect(r.out).toMatch(/PR #1 non near-merge/);
     expect(r.out).not.toMatch(/needs-human con ultimo verdetto/);
+    noWrites(r.calls);
+  });
+
+  it('review su più pagine: il verdetto si legge da tutte, non diventa unknown', () => {
+    // #9959 aveva 51 review: con `--paginate` senza `--slurp` il gh reale
+    // stampa `[...][...]`, JSON.parse falliva e il verdetto era sempre unknown.
+    const r = runSweep(['needs-human'], [], [
+      [review(LGTM, OLD, '2026-09-26T10:00:00Z')],
+      [review(RED, HEAD, '2026-09-27T10:00:00Z')],
+    ]);
+    expect(r.result.status, r.out).toBe(0);
+    expect(r.out).toMatch(/::notice::PR #1 needs-human con ultimo verdetto del reviewer blocking/);
+    expect(r.calls).toMatch(/gh api repos\/owner\/repo\/pulls\/1\/reviews\?per_page=100 --paginate --slurp/);
+    noWrites(r.calls);
+  });
+
+  it('un LGTM ritirato (DISMISSED) non toglie il veto needs-human', () => {
+    const r = runSweep(['needs-human'], [
+      review(RED, HEAD, '2026-09-27T10:00:00Z'),
+      { ...review(LGTM, HEAD, '2026-09-27T11:00:00Z'), state: 'DISMISSED' },
+    ]);
+    expect(r.result.status, r.out).toBe(0);
+    expect(r.out).toMatch(/::notice::PR #1 needs-human con ultimo verdetto del reviewer blocking/);
     noWrites(r.calls);
   });
 

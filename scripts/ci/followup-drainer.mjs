@@ -2988,8 +2988,8 @@ export function mergeAfterFixOutcomeAt(mergedAt, outcomeAt) {
  * facilmente le 30 voci di default e la promozione più recente è in fondo. */
 function fixPromotion(num) {
   try {
-    const events = gh(['api', `repos/${REPO}/issues/${num}/events?per_page=100`, '--paginate']);
-    return lastFixPromotion(Array.isArray(events) ? events : []);
+    const pages = gh(['api', `repos/${REPO}/issues/${num}/events?per_page=100`, '--paginate', '--slurp']);
+    return lastFixPromotion(Array.isArray(pages) ? pages.flat() : []);
   } catch {
     return { at: null, byDrainer: false };
   }

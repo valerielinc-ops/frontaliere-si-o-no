@@ -519,7 +519,10 @@ function main() {
   // 2. Ultima review del bot reviewer sulla HEAD corrente: `## LGTM` e NO 🔴 Important.
   let reviews;
   try {
-    reviews = gh(['api', `repos/${REPO}/pulls/${PR}/reviews`, '--paginate']);
+    // `--slurp`: senza, oltre le 30 review il gh reale stampa un array per
+    // pagina (`[...][...]`), JSON.parse fallisce e la PR non si auto-mergia mai.
+    const pages = gh(['api', `repos/${REPO}/pulls/${PR}/reviews`, '--paginate', '--slurp']);
+    reviews = Array.isArray(pages) ? pages.flat() : pages;
   } catch (e) {
     return fail(`Impossibile leggere reviews PR #${PR}: ${String(e).slice(0, 160)} — skip.`);
   }

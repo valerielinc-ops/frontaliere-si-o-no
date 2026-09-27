@@ -67,6 +67,7 @@ import {
   isReviewerBot,
   REVIEW_WORKFLOW_DRIFT_FILES,
 } from './lib/constants.mjs';
+import { flattenReviewPages, isTerminalReviewState } from './lib/pr-review-admission.mjs';
 import {
   latestCompletedVitestConclusion,
   latestCompletedVitestExecutionRun,
@@ -539,14 +540,21 @@ function pushBranch(branch) {
  * `rebaseActionForLgtmPr` = rebase) → nuova HEAD → nuova review → 🔴. Misurato
  * su #9959: 45 merge di main in 24h, 43 review Codex, ~27% dei minuti CI.
  *
- * @returns {'lgtm'|'blocking'|'none'|'unknown'} `unknown` = API illeggibile.
+ * Contano solo le review inviate e non ritirate (`isTerminalReviewState`):
+ * una review `DISMISSED` o `PENDING` con `## LGTM` non è un verdetto
+ * approvante e non deve sbloccare il rebase di una PR `needs-human`.
+ *
+ * @returns {'lgtm'|'blocking'|'none'|'unknown'} `unknown` = API illeggibile,
+ *   oppure review del bot presenti ma nessuna in stato terminale.
  */
 export function latestReviewerVerdict(reviews, head) {
   if (!Array.isArray(reviews)) return 'unknown';
-  const bot = reviews
+  const fromBot = reviews
     .map((review, index) => ({ review, index }))
     .filter(({ review }) => review && isReviewerBot(review.user));
-  if (!bot.length) return 'none';
+  if (!fromBot.length) return 'none';
+  const bot = fromBot.filter(({ review }) => isTerminalReviewState(review.state));
+  if (!bot.length) return 'unknown';
   const onHead = bot.filter(({ review }) => head && review.commit_id === head);
   const pool = onHead.length ? onHead : bot;
   const at = ({ review }) => {
@@ -572,9 +580,20 @@ export function needsHumanBlocksAutorebase({ labels = [], verdict }) {
   return hasNeedsHuman && (verdict === 'blocking' || verdict === 'unknown');
 }
 
+/**
+ * Tutte le review della PR come UN array. `--paginate` da solo stampa un array
+ * JSON per pagina (`[...][...]`): oltre le 30 review `JSON.parse` falliva e
+ * ogni lettura sotto diventava `null`, cioè `unknown` proprio sulle PR con più
+ * giri di review. `--slurp` restituisce l'array delle pagine; `null` = API
+ * illeggibile, come prima.
+ */
+function readPullRequestReviews(num) {
+  const pages = gh(['api', `repos/${REPO}/pulls/${num}/reviews?per_page=100`, '--paginate', '--slurp'], { allowFail: true });
+  return Array.isArray(pages) ? flattenReviewPages(pages) : null;
+}
+
 function readReviewerVerdict(num, head) {
-  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
-  return latestReviewerVerdict(reviews, head);
+  return latestReviewerVerdict(readPullRequestReviews(num), head);
 }
 
 /** Esiste ALMENO una review claude-bot (LGTM o 🔴, qualunque esito)? Serve a
@@ -582,7 +601,7 @@ function readReviewerVerdict(num, head) {
  * run review fallita, body vuoto) da "review postata con 🔴" (gestita dal
  * redflag-fixer, NON va ri-triggerata qui). */
 function hasAnyClaudeReview(num) {
-  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
+  const reviews = readPullRequestReviews(num);
   if (!Array.isArray(reviews)) return true; // fail-safe: su errore API assumi review esistente (no reopen)
   return reviews.some((r) => isReviewerBot(r.user));
 }
@@ -597,8 +616,7 @@ export function reviewerReviewOnHead(reviews, head) {
 }
 
 function hasClaudeReviewOnHead(num, head) {
-  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
-  return reviewerReviewOnHead(reviews, head);
+  return reviewerReviewOnHead(readPullRequestReviews(num), head);
 }
 
 /** Re-trigger DETERMINISTICO di review+tests per una PR classe-A: un
