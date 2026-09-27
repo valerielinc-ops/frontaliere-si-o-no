@@ -21,10 +21,11 @@ export const PROTECTAS_COMPANY_DOMAIN = 'protectas.com';
 export const PROTECTAS_TARGET_CANTON = 'TI';
 export const PROTECTAS_CAREER_URL = 'https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/';
 
-const DETAIL_PATH_RE = /\/(?:careers?\/job-offers|carriere\/offerte-di-lavoro|carrieres?\/offres-d-emploi|karriere\/stellenangebote|offerte-di-lavoro|offres-d-emploi|stellenangebote|job-offers)\/\d{8,}(?:\/|$)/i;
-const LISTING_PATH_RE = /\/(?:careers?\/job-offers|carriere\/offerte-di-lavoro|carrieres?\/offres-d-emploi|karriere\/stellenangebote|offerte-di-lavoro|offres-d-emploi|stellenangebote|job-offers)\/?$/i;
+const PROTECTAS_VACANCY_ROUTE = '(?:careers?/job-offers|carriere/offerte-di-lavoro|carrieres?/offres-d-emploi|karriere/stellenangebote|offerte-di-lavoro|offres-d-emploi|stellenangebote|job-offers)';
+const DETAIL_PATH_RE = new RegExp(`/${PROTECTAS_VACANCY_ROUTE}/\\d{8,}(?:/|$)`, 'i');
+const LISTING_PATH_RE = new RegExp(`/${PROTECTAS_VACANCY_ROUTE}/?$`, 'i');
 const ABSOLUTE_URL_RE = /(?:https?:)?\/\/[^"'<>\\\s,)\]}]+/gi;
-const RELATIVE_VACANCY_URL_RE = /(?:^|["'`=:(,])(\/(?:[a-z]{2}-ch\/)?(?:careers?\/job-offers|carriere\/offerte-di-lavoro|carrieres?\/offres-d-emploi|karriere\/stellenangebote|offerte-di-lavoro|offres-d-emploi|stellenangebote|job-offers)\/\d{8,}(?:\/|(?=[?#"'<>\\\s,)}])))/gi;
+const RELATIVE_NUMERIC_PATH_RE = /(?:^|["'`=:(,])(\/[A-Za-z0-9][A-Za-z0-9/_-]*\/\d{8,}(?:\/|(?=[?#"'<>\\\s,)}])))/gi;
 const SWISS_COUNTRIES = new Set(['ch', 'switzerland', 'schweiz', 'suisse', 'svizzera']);
 const PHYSICAL_SECURITY_TITLE_RE = /\b(?:agente(?:\s+di)?\s+sicurezza|guardia(?:\s+giurata)?|security\s+(?:guard|officer)|security\s+agent|sicherheitsdienst|sicherheitsmitarbeiter|wachmann|agent(?:e)?\s+de\s+s[ée]curit(?:e|é)|surveill(?:ance|ant)|vigilanz|ronde|gardien)\b/i;
 const CYBER_OR_TECH_SECURITY_RE = /\b(?:cyber|cybers[eé]curit|sicurezza\s+informatica|s[ée]curit[ée]\s+informatique|information\s+security|it[-\s]?security|it[-\s]?sicherheitsmitarbeiter|infosec|security\s+(?:engineer|architect|analyst|specialist|consultant)|soc\s+analyst|penetration\s+test|application\s+security|cloud\s+security|network\s+security|gouvernance\s+(?:de\s+la\s+)?s[eé]curit)\b/i;
@@ -212,7 +213,7 @@ export function extractProtectasVacancyUrls(html = '', baseUrl = PROTECTAS_CAREE
     .replace(/\\u0026/gi, '&')
     .replace(/\\\//g, '/');
   for (const match of normalizedMarkup.matchAll(ABSOLUTE_URL_RE)) add(match[0]);
-  for (const match of normalizedMarkup.matchAll(RELATIVE_VACANCY_URL_RE)) add(match[1]);
+  for (const match of normalizedMarkup.matchAll(RELATIVE_NUMERIC_PATH_RE)) add(match[1]);
   return [...found];
 }
 
