@@ -15,7 +15,10 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveDetailOrListingSwissGeography,
+  resolveSourceBackedSwissGeography,
+} from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -139,7 +142,13 @@ export async function fetchAllGrischapersonalJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing);
+    // The runtime resolver also understands a canton-only source locality
+    // such as "Graubünden". Keep the generated-parser contract's direct
+    // source-backed fallback for legacy rows, but prefer the canonical folded
+    // listing decision so structured canton evidence is not rejected as a
+    // missing municipality.
+    const geography = resolveDetailOrListingSwissGeography({}, listing).geography
+      || resolveSourceBackedSwissGeography(listing);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
