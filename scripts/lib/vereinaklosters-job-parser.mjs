@@ -14,7 +14,11 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  fetchHtmlViaBrowser,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -128,7 +132,10 @@ async function fetchJobListings() {
   // CI egress received an unmarked HTTP 200 interstitial. Ask the shared
   // runtime for its clean-IP empty-listing rescue; it still accepts the page
   // only when the normal vacancy extraction finds real detail links.
-  return runSpecInProduction({ ...spec, rescueOnEmptyListing: true });
+  return runSpecInProduction(
+    { ...spec, rescueOnEmptyListing: true },
+    { browserFetchImpl: fetchHtmlViaBrowser },
+  );
 }
 
 /**
