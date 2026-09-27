@@ -1351,8 +1351,9 @@ function BlogArticles({
  // resolved to `undefined` and the guard threw a TypeError straight past the
  // chunk-load recovery path — where the `.catch()` below swallowed it, stranding every
  // article page on this component's loading skeleton with a silent console (#4959).
- // Reading the static binding removes the network hop, and with it that whole class
- // of build-shape skew between the app bundle and an independently published corpus.
+ // The static binding is now paired with the publisher's named `ARTICLES` export and
+ // companion-first ordering, so the CDN registry can advance with the hub without
+ // recreating that old Rollup namespace mismatch.
  // Svizzera has no static importer (dynamic-only — verified in the shipped chunk), so
  // it keeps resilientImport: a real fetch failure there still self-heals via
  // cache-bust + budgeted reload.
