@@ -27,6 +27,7 @@ const BASE_URL = 'https://www.careers-page.com';
 const COMPANY_SLUG = 'convit-holding-gmbh';
 const BASE_ORIGIN = new URL(BASE_URL).origin;
 const JOB_PATH_RE = new RegExp(`^/${COMPANY_SLUG}/job/([A-Za-z0-9]+)/?$`);
+const LISTING_PATH_RE = new RegExp(`^/${COMPANY_SLUG}/?$`);
 
 function extractConvitListingCode(rawUrl = '') {
   try {
@@ -36,6 +37,13 @@ function extractConvitListingCode(rawUrl = '') {
   } catch {
     return '';
   }
+}
+
+function normalizeConvitListingKey(value = '') {
+  const rawValue = String(value || '').trim();
+  const codeFromUrl = extractConvitListingCode(rawValue);
+  const code = codeFromUrl || rawValue;
+  return /^[A-Za-z0-9]+$/.test(code) ? code.toLowerCase() : '';
 }
 
 function normalizeSpace(value = '') {
@@ -89,19 +97,35 @@ function slugify(value = '') {
  */
 export function isConvitListingPage(html = '') {
   const document = new JSDOM(html).window.document;
-  const canonicalSignals = [
+  const canonicalUrls = [
     document.querySelector('link[rel="canonical"]')?.getAttribute('href'),
     document.querySelector('meta[property="og:url"]')?.getAttribute('content'),
-  ];
-  const textSignals = [
-    document.title,
-    document.body?.textContent,
-  ];
-  const source = [...canonicalSignals, ...textSignals]
-    .filter(Boolean)
-    .join('\n')
-    .toLowerCase();
-  return source.includes(COMPANY_SLUG) || /convit\s+holding(?:\s+gmbh)?/i.test(source);
+  ].filter(Boolean);
+
+  return canonicalUrls.some((rawUrl) => {
+    try {
+      const url = new URL(rawUrl, BASE_URL);
+      return url.origin === BASE_ORIGIN && LISTING_PATH_RE.test(url.pathname);
+    } catch {
+      return false;
+    }
+  });
+}
+
+/**
+ * Return every canonical vacancy code in a listing document, including links
+ * whose title markup is empty or not recognized by the title selector.
+ */
+export function extractConvitListingCodes(html = '') {
+  const document = new JSDOM(html).window.document;
+  const codes = new Set();
+
+  for (const anchor of document.querySelectorAll('a[href]')) {
+    const code = extractConvitListingCode(anchor.getAttribute('href') || '');
+    if (code) codes.add(code);
+  }
+
+  return [...codes];
 }
 
 /**
@@ -115,17 +139,8 @@ export function parseConvitListingPage(html = '') {
 
   for (const anchor of anchors) {
     const href = String(anchor.getAttribute('href') || '').trim();
-    let url;
-    try {
-      url = new URL(href, BASE_URL);
-    } catch {
-      continue;
-    }
-    if (url.origin !== BASE_ORIGIN) continue;
-
-    const match = url.pathname.match(JOB_PATH_RE);
-    if (!match) continue;
-    const code = match[1];
+    const code = extractConvitListingCode(href);
+    if (!code) continue;
     if (seen.has(code)) continue;
 
     const titleElement = anchor.querySelector('span.job-position-break, [class*="job-position"], [class*="job-title"]');
@@ -151,11 +166,17 @@ export function parseConvitListingPage(html = '') {
  * evidence that the vacancy is still open. An incomplete/empty snapshot must
  * remain fail-open: it can never prove a job gone.
  */
-export function createConvitListingSourceValidator(listings = [], { complete = false } = {}) {
+export function createConvitListingSourceValidator(
+  listings = [],
+  { complete = false, listedCodes = [] } = {},
+) {
   const listedKeys = new Set(
-    (Array.isArray(listings) ? listings : [])
-      .map((listing) => extractConvitListingCode(listing?.detailUrl || listing?.url).toLowerCase())
-      .filter(Boolean),
+    [
+      ...(Array.isArray(listings) ? listings : [])
+        .map((listing) => normalizeConvitListingKey(listing?.detailUrl || listing?.url || listing?.code)),
+      ...(Array.isArray(listedCodes) ? listedCodes : [])
+        .map((code) => normalizeConvitListingKey(code)),
+    ].filter(Boolean),
   );
 
   return async (jobs = []) => (Array.isArray(jobs) ? jobs : []).map((job) => {

@@ -10,11 +10,13 @@ import {
   parseConvitDetailPage,
   parseConvitListingPage,
   isConvitListingPage,
+  extractConvitListingCodes,
   createConvitListingSourceValidator,
   buildConvitLocalizedContent,
   isConvitSwissRelevant,
   inferConvitCanton,
 } from '../scripts/lib/convit-job-parser.mjs';
+import { fetchAllListings } from '../scripts/update-convit-jobs.mjs';
 
 // ─── Shared fixture helpers ────────────────────────────────────────────────────
 
@@ -294,7 +296,65 @@ describe('convit-job-parser / parseConvitListingPage', () => {
     expect(isConvitListingPage(
       '<link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">',
     )).toBe(true);
+    expect(isConvitListingPage(
+      '<link rel="canonical" href="/convit-holding-gmbh?page=2"><title>Access denied</title>',
+    )).toBe(true);
+    expect(isConvitListingPage(
+      '<link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh/job/ABC123"><title>Convit Holding GmbH</title>',
+    )).toBe(false);
+    expect(isConvitListingPage(
+      '<html><title>Convit Holding GmbH</title><body>access denied</body></html>',
+    )).toBe(false);
     expect(isConvitListingPage('<title>Just a moment...</title><p>Checking your browser</p>')).toBe(false);
+  });
+
+  it('keeps canonical vacancy codes even when a listing title is missing', async () => {
+    const html = `<!DOCTYPE html><html><head>
+      <link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">
+    </head><body>
+      <a href="/convit-holding-gmbh/job/KNOWN"><span class="job-title">Known role</span></a>
+      <a href="/convit-holding-gmbh/job/ACTIVE"></a>
+    </body></html>`;
+    const parsedListings = parseConvitListingPage(html);
+    const listedCodes = extractConvitListingCodes(html);
+    const validate = createConvitListingSourceValidator(parsedListings, {
+      complete: true,
+      listedCodes,
+    });
+    const verdicts = await validate([
+      { id: 'known', url: 'https://www.careers-page.com/convit-holding-gmbh/job/KNOWN' },
+      { id: 'active', url: 'https://www.careers-page.com/convit-holding-gmbh/job/ACTIVE' },
+    ]);
+
+    expect(parsedListings).toHaveLength(1);
+    expect(listedCodes).toEqual(['KNOWN', 'ACTIVE']);
+    expect(verdicts.find(({ id }) => id === 'active')).toMatchObject({
+      id: 'active',
+      valid: true,
+      reason: 'still-in-convit-listing',
+    });
+  });
+
+  it('requires an empty terminal page and rejects a non-empty duplicate-only page', async () => {
+    const listingPage = (codes: string[]) => `<!DOCTYPE html><html><head>
+      <link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">
+    </head><body>${codes.map((code) => `<a href="/convit-holding-gmbh/job/${code}"><span class="job-title">Role ${code}</span></a>`).join('')}</body></html>`;
+    const pages = [listingPage(['A']), listingPage(['A']), listingPage(['B'])];
+    let calls = 0;
+
+    await expect(fetchAllListings({
+      fetchPage: async () => pages[calls++],
+      sleepFn: async () => {},
+    })).rejects.toThrow(/non-empty but added no new vacancy codes/);
+    expect(calls).toBe(2);
+
+    calls = 0;
+    const completeSnapshot = await fetchAllListings({
+      fetchPage: async () => [listingPage(['A']), listingPage([])][calls++],
+      sleepFn: async () => {},
+    });
+    expect(completeSnapshot).toMatchObject({ complete: true });
+    expect(completeSnapshot.items.map(({ code }) => code)).toEqual(['A']);
   });
 
   it('uses a complete listing snapshot to distinguish stale detail URLs from live listings', async () => {
