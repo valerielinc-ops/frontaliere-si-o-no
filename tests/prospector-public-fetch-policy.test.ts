@@ -5,6 +5,7 @@ import {
 } from '../scripts/lib/prospector/polite-fetch.mjs';
 import { createSpecUrlPolicy } from '../scripts/lib/prospector/public-fetch-policy.mjs';
 import { fetchRuntimePage, runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { isConnectionLevelFetchError } from '../scripts/lib/transient-fetch.mjs';
 
 function response(url: string, status: number, location: string | null = null, body = '') {
   return {
@@ -389,7 +390,9 @@ describe('prospector public-only polite transport', () => {
       await policy.dispatcher.close();
     }
 
-    expect(error).toMatchObject({ status: 0, retryable: true });
+    expect(error).toMatchObject({ retryable: true });
+    expect(error).not.toHaveProperty('status');
+    expect(isConnectionLevelFetchError(error)).toBe(true);
     expect(error).not.toHaveProperty('antiBotExhausted');
     expect(jinaFetchImpl).toHaveBeenCalledOnce();
   });

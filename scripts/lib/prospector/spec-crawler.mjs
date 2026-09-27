@@ -178,10 +178,17 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     ? 'blocked by robots.txt'
     : result.policyBlocked ? (result.error || 'blocked by public URL policy')
       : result.status ? `HTTP ${result.status}` : `transport ${result.transportError || 'other'}`;
+  // `politeFetch()` uses status=0 as the no-response sentinel. Do not copy
+  // that sentinel onto a transport error: `isConnectionLevelFetchError()`
+  // treats a present status as evidence that an HTTP response was received.
+  // Keep status=0 for robots/policy outcomes, where it is deliberate evidence
+  // that the request was blocked before an HTTP response reached the parser.
+  const hasHttpStatus = Number.isFinite(result.status) && result.status > 0;
+  const preserveStatusSentinel = result.blockedByRobots || result.policyBlocked;
   const error = Object.assign(
     new Error(`Prospector fetch failed for ${result.url || url}: ${reason}`),
     {
-      status: result.status,
+      ...(hasHttpStatus || preserveStatusSentinel ? { status: result.status } : {}),
       retryable: !result.blockedByRobots && !result.policyBlocked && (!result.status || result.status >= 500),
       ...(wafProxyExhausted ? { antiBotExhausted: true } : {}),
     },
