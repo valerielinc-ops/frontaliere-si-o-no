@@ -1,17 +1,1585 @@
 {
-  "generatedAt": "2026-09-27T09:43:56.651Z",
+  "generatedAt": "2026-09-27T17:46:36.178Z",
   "source": {
     "path": "data/jobs.json",
-    "jobCount": 25686
+    "jobCount": 25200
   },
   "checked": 563,
   "ok": 563,
+  "qualityOk": 443,
   "broken": 0,
   "brokenJobCount": 0,
   "missing": 25,
-  "missingJobCount": 140,
+  "missingJobCount": 162,
   "partial": 0,
   "partialJobCount": 0,
   "unverified": 0,
-  "urls": []
+  "unverifiedJobCount": 0,
+  "lowQuality": 120,
+  "lowQualityJobCount": 4415,
+  "qualityUnverified": 0,
+  "qualityUnverifiedJobCount": 0,
+  "urls": [],
+  "quality": [
+    {
+      "reference": "/images/brands/accor.png",
+      "kind": "local",
+      "jobs": 14,
+      "companyKeys": [
+        "accor"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/accor.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/alcon.png",
+      "kind": "local",
+      "jobs": 3,
+      "companyKeys": [
+        "alcon"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/alcon.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/apg-sga.png",
+      "kind": "local",
+      "jobs": 2,
+      "companyKeys": [
+        "apg-sga"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/apg-sga.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/apple-retail-switzerland.png",
+      "kind": "local",
+      "jobs": 15,
+      "companyKeys": [
+        "apple-retail-switzerland"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/apple-retail-switzerland.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/ardian.ico",
+      "kind": "local",
+      "jobs": 3,
+      "companyKeys": [
+        "ardian"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/ardian.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/arxada.png",
+      "kind": "local",
+      "jobs": 6,
+      "companyKeys": [
+        "arxada"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/arxada.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/asana-spital.ico",
+      "kind": "local",
+      "jobs": 21,
+      "companyKeys": [
+        "asana-spital"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/asana-spital.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/balgrist.png",
+      "kind": "local",
+      "jobs": 43,
+      "companyKeys": [
+        "balgrist"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/balgrist.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/belimo.png",
+      "kind": "local",
+      "jobs": 33,
+      "companyKeys": [
+        "belimo"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/belimo.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/berner-klinik-montana.png",
+      "kind": "local",
+      "jobs": 4,
+      "companyKeys": [
+        "berner-klinik-montana"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/berner-klinik-montana.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 67,
+      "height": 67
+    },
+    {
+      "reference": "/images/brands/bkw.png",
+      "kind": "local",
+      "jobs": 315,
+      "companyKeys": [
+        "bkw"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/bkw.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/bms-building.png",
+      "kind": "local",
+      "jobs": 32,
+      "companyKeys": [
+        "bms-building"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/bms-building.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/bobst.png",
+      "kind": "local",
+      "jobs": 3,
+      "companyKeys": [
+        "bobst"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/bobst.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/buehler.png",
+      "kind": "local",
+      "jobs": 22,
+      "companyKeys": [
+        "buehler"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/buehler.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/c-and-a-schweiz.png",
+      "kind": "local",
+      "jobs": 45,
+      "companyKeys": [
+        "c-and-a-schweiz"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/c-and-a-schweiz.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/cambiavalute.png",
+      "kind": "local",
+      "jobs": 2,
+      "companyKeys": [
+        "cambiavalute"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/cambiavalute.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/canton-ticino-osc.ico",
+      "kind": "local",
+      "jobs": 6,
+      "companyKeys": [
+        "canton-ticino-osc"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/canton-ticino-osc.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/caseificio-gottardo.png",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "caseificio-gottardo"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/caseificio-gottardo.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/cham-swiss-properties.png",
+      "kind": "local",
+      "jobs": 2,
+      "companyKeys": [
+        "cham-swiss-properties"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/cham-swiss-properties.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/citta-di-mendrisio.png",
+      "kind": "local",
+      "jobs": 4,
+      "companyKeys": [
+        "citta-di-mendrisio"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/citta-di-mendrisio.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/climeworks.png",
+      "kind": "local",
+      "jobs": 4,
+      "companyKeys": [
+        "climeworks"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/climeworks.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 60,
+      "height": 55
+    },
+    {
+      "reference": "/images/brands/clinica-hildebrand.png",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "clinica-hildebrand"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/clinica-hildebrand.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/clinique-cic.png",
+      "kind": "local",
+      "jobs": 3,
+      "companyKeys": [
+        "clinique-cic"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/clinique-cic.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/clinique-la-source.png",
+      "kind": "local",
+      "jobs": 11,
+      "companyKeys": [
+        "clinique-la-source"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/clinique-la-source.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/concordia.ico",
+      "kind": "local",
+      "jobs": 47,
+      "companyKeys": [
+        "concordia"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/concordia.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/croix-rouge-fribourgeoise.png",
+      "kind": "local",
+      "jobs": 4,
+      "companyKeys": [
+        "croix-rouge-fribourgeoise"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/croix-rouge-fribourgeoise.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/csd-engineers.png",
+      "kind": "local",
+      "jobs": 41,
+      "companyKeys": [
+        "csd-engineers"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/csd-engineers.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/csl-behring.png",
+      "kind": "local",
+      "jobs": 8,
+      "companyKeys": [
+        "csl-behring"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/csl-behring.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 40,
+      "height": 40
+    },
+    {
+      "reference": "/images/brands/csvm-mustair.png",
+      "kind": "local",
+      "jobs": 6,
+      "companyKeys": [
+        "csvm-mustair"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/csvm-mustair.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/debiopharm.png",
+      "kind": "local",
+      "jobs": 5,
+      "companyKeys": [
+        "debiopharm"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/debiopharm.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/deloitte.png",
+      "kind": "local",
+      "jobs": 85,
+      "companyKeys": [
+        "deloitte"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/deloitte.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/ehc-vd.ico",
+      "kind": "local",
+      "jobs": 51,
+      "companyKeys": [
+        "ehc-vd"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/ehc-vd.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/elettra-1938.png",
+      "kind": "local",
+      "jobs": 2,
+      "companyKeys": [
+        "elettra-1938"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/elettra-1938.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/endress-hauser.png",
+      "kind": "local",
+      "jobs": 62,
+      "companyKeys": [
+        "endress-hauser"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/endress-hauser.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/engadin-tourismus.png",
+      "kind": "local",
+      "jobs": 2,
+      "companyKeys": [
+        "engadin-tourismus"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/engadin-tourismus.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/eta-sa-swatch-group.ico",
+      "kind": "local",
+      "jobs": 10,
+      "companyKeys": [
+        "eta-sa-swatch-group"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/eta-sa-swatch-group.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/fhgr.png",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "fhgr"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/fhgr.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/fmi.png",
+      "kind": "local",
+      "jobs": 63,
+      "companyKeys": [
+        "fmi"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/fmi.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/fondation-soins-lausanne.png",
+      "kind": "local",
+      "jobs": 10,
+      "companyKeys": [
+        "fondation-soins-lausanne"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/fondation-soins-lausanne.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/franklin-university.png",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "franklin-university"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/franklin-university.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 40,
+      "height": 40
+    },
+    {
+      "reference": "/images/brands/galderma.png",
+      "kind": "local",
+      "jobs": 4,
+      "companyKeys": [
+        "galderma"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/galderma.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/ghol.jpg",
+      "kind": "local",
+      "jobs": 6,
+      "companyKeys": [
+        "ghol"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/ghol.jpg",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/givaudan.png",
+      "kind": "local",
+      "jobs": 15,
+      "companyKeys": [
+        "givaudan"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/givaudan.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 74,
+      "height": 74
+    },
+    {
+      "reference": "/images/brands/grace-la-margna.png",
+      "kind": "local",
+      "jobs": 12,
+      "companyKeys": [
+        "grace-la-margna"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/grace-la-margna.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/groupe-e.png",
+      "kind": "local",
+      "jobs": 26,
+      "companyKeys": [
+        "groupe-e"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/groupe-e.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 17,
+      "height": 17
+    },
+    {
+      "reference": "/images/brands/helvetia.png",
+      "kind": "local",
+      "jobs": 140,
+      "companyKeys": [
+        "helvetia"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/helvetia.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/hfr-hopital-fribourgeois.png",
+      "kind": "local",
+      "jobs": 31,
+      "companyKeys": [
+        "hfr-hopital-fribourgeois"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/hfr-hopital-fribourgeois.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/hilti.png",
+      "kind": "local",
+      "jobs": 6,
+      "companyKeys": [
+        "hilti"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/hilti.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/hospice-general.png",
+      "kind": "local",
+      "jobs": 3,
+      "companyKeys": [
+        "hospice-general"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/hospice-general.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/hrc.png",
+      "kind": "local",
+      "jobs": 15,
+      "companyKeys": [
+        "hrc"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/hrc.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/interdiscount.ico",
+      "kind": "local",
+      "jobs": 152,
+      "companyKeys": [
+        "interdiscount"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/interdiscount.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/ipw.png",
+      "kind": "local",
+      "jobs": 25,
+      "companyKeys": [
+        "ipw"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/ipw.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/kellerhals-carrard.png",
+      "kind": "local",
+      "jobs": 14,
+      "companyKeys": [
+        "kellerhals-carrard"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/kellerhals-carrard.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 86,
+      "height": 94
+    },
+    {
+      "reference": "/images/brands/kiabi.png",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "kiabi"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/kiabi.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 72,
+      "height": 72
+    },
+    {
+      "reference": "/images/brands/klinik-schloss-mammern.png",
+      "kind": "local",
+      "jobs": 8,
+      "companyKeys": [
+        "klinik-schloss-mammern"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/klinik-schloss-mammern.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/knowledge-lab.png",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "knowledge-lab"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/knowledge-lab.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/komax.png",
+      "kind": "local",
+      "jobs": 9,
+      "companyKeys": [
+        "komax"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/komax.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/ksgl.png",
+      "kind": "local",
+      "jobs": 18,
+      "companyKeys": [
+        "ksgl"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/ksgl.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 57,
+      "height": 57
+    },
+    {
+      "reference": "/images/brands/ksml.png",
+      "kind": "local",
+      "jobs": 226,
+      "companyKeys": [
+        "ksml"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/ksml.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/kudelski-nagra.png",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "kudelski-nagra"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/kudelski-nagra.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/kuehne-nagel.png",
+      "kind": "local",
+      "jobs": 8,
+      "companyKeys": [
+        "kuehne-nagel"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/kuehne-nagel.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/laderach-schweiz-ag.png",
+      "kind": "local",
+      "jobs": 53,
+      "companyKeys": [
+        "laderach-schweiz-ag"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/laderach-schweiz-ag.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/lalive.jpg",
+      "kind": "local",
+      "jobs": 7,
+      "companyKeys": [
+        "lalive"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/lalive.jpg",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/livit.png",
+      "kind": "local",
+      "jobs": 24,
+      "companyKeys": [
+        "livit"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/livit.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/lonza.png",
+      "kind": "local",
+      "jobs": 202,
+      "companyKeys": [
+        "lonza"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/lonza.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/lwphr.png",
+      "kind": "local",
+      "jobs": 2,
+      "companyKeys": [
+        "lwphr"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/lwphr.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/manor.png",
+      "kind": "local",
+      "jobs": 255,
+      "companyKeys": [
+        "manor"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/manor.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/marriott.png",
+      "kind": "local",
+      "jobs": 23,
+      "companyKeys": [
+        "marriott"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/marriott.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 57,
+      "height": 57
+    },
+    {
+      "reference": "/images/brands/mcdonald-s-switzerland.png",
+      "kind": "local",
+      "jobs": 148,
+      "companyKeys": [
+        "mcdonald-s-switzerland"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/mcdonald-s-switzerland.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/nsn-medical.png",
+      "kind": "local",
+      "jobs": 10,
+      "companyKeys": [
+        "nsn-medical"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/nsn-medical.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/nvidia-zurich.png",
+      "kind": "local",
+      "jobs": 11,
+      "companyKeys": [
+        "nvidia-zurich"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/nvidia-zurich.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/on-running.png",
+      "kind": "local",
+      "jobs": 39,
+      "companyKeys": [
+        "on-running"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/on-running.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/otis-sa.png",
+      "kind": "local",
+      "jobs": 25,
+      "companyKeys": [
+        "otis-sa"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/otis-sa.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/pallas-kliniken.png",
+      "kind": "local",
+      "jobs": 10,
+      "companyKeys": [
+        "pallas-kliniken"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/pallas-kliniken.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/patek-philippe.png",
+      "kind": "local",
+      "jobs": 14,
+      "companyKeys": [
+        "patek-philippe"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/patek-philippe.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/pbl.png",
+      "kind": "local",
+      "jobs": 46,
+      "companyKeys": [
+        "pbl"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/pbl.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/pole-sante-pays-enhaut.png",
+      "kind": "local",
+      "jobs": 3,
+      "companyKeys": [
+        "pole-sante-pays-enhaut"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/pole-sante-pays-enhaut.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/postauto.png",
+      "kind": "local",
+      "jobs": 14,
+      "companyKeys": [
+        "postauto"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/postauto.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/prosenectute-ti.jpg",
+      "kind": "local",
+      "jobs": 4,
+      "companyKeys": [
+        "prosenectute-ti"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/prosenectute-ti.jpg",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/rado.png",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "rado"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/rado.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/rheinmetall-air-defence.png",
+      "kind": "local",
+      "jobs": 62,
+      "companyKeys": [
+        "rheinmetall-air-defence"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/rheinmetall-air-defence.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/rittmeyer-ag.png",
+      "kind": "local",
+      "jobs": 11,
+      "companyKeys": [
+        "rittmeyer-ag"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/rittmeyer-ag.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/rituals-cosmetics.jpg",
+      "kind": "local",
+      "jobs": 433,
+      "companyKeys": [
+        "rituals-cosmetics"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/rituals-cosmetics.jpg",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/rolex.png",
+      "kind": "local",
+      "jobs": 108,
+      "companyKeys": [
+        "rolex"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/rolex.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/rsbj.jpg",
+      "kind": "local",
+      "jobs": 6,
+      "companyKeys": [
+        "rsbj"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/rsbj.jpg",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/see-spital.png",
+      "kind": "local",
+      "jobs": 38,
+      "companyKeys": [
+        "see-spital"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/see-spital.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/selecta.png",
+      "kind": "local",
+      "jobs": 27,
+      "companyKeys": [
+        "selecta"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/selecta.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/sicpa.png",
+      "kind": "local",
+      "jobs": 10,
+      "companyKeys": [
+        "sicpa"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/sicpa.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/six-group.png",
+      "kind": "local",
+      "jobs": 28,
+      "companyKeys": [
+        "six-group"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/six-group.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/sobi.png",
+      "kind": "local",
+      "jobs": 10,
+      "companyKeys": [
+        "sobi"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/sobi.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/sodexo.png",
+      "kind": "local",
+      "jobs": 15,
+      "companyKeys": [
+        "sodexo"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/sodexo.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/solina.png",
+      "kind": "local",
+      "jobs": 28,
+      "companyKeys": [
+        "solina"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/solina.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/somedia.ico",
+      "kind": "local",
+      "jobs": 2,
+      "companyKeys": [
+        "somedia"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/somedia.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/sonova.png",
+      "kind": "local",
+      "jobs": 4,
+      "companyKeys": [
+        "sonova"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/sonova.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/srg-ssr.png",
+      "kind": "local",
+      "jobs": 32,
+      "companyKeys": [
+        "srg-ssr"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/srg-ssr.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/stadler-rail.png",
+      "kind": "local",
+      "jobs": 163,
+      "companyKeys": [
+        "stadler-rail"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/stadler-rail.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/stadt-bern.jpg",
+      "kind": "local",
+      "jobs": 33,
+      "companyKeys": [
+        "stadt-bern"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/stadt-bern.jpg",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 72,
+      "height": 72
+    },
+    {
+      "reference": "/images/brands/stadt-chur.png",
+      "kind": "local",
+      "jobs": 7,
+      "companyKeys": [
+        "stadt-chur"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/stadt-chur.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/sulzer.png",
+      "kind": "local",
+      "jobs": 2,
+      "companyKeys": [
+        "sulzer"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/sulzer.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/sunrise-sede-ticino.png",
+      "kind": "local",
+      "jobs": 27,
+      "companyKeys": [
+        "sunrise-sede-ticino"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/sunrise-sede-ticino.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/swiss-life.png",
+      "kind": "local",
+      "jobs": 107,
+      "companyKeys": [
+        "swiss-life"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/swiss-life.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/swissquote.png",
+      "kind": "local",
+      "jobs": 31,
+      "companyKeys": [
+        "swissquote"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/swissquote.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/sygnum.png",
+      "kind": "local",
+      "jobs": 9,
+      "companyKeys": [
+        "sygnum"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/sygnum.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/tecan.png",
+      "kind": "local",
+      "jobs": 10,
+      "companyKeys": [
+        "tecan"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/tecan.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/tertianum.png",
+      "kind": "local",
+      "jobs": 241,
+      "companyKeys": [
+        "tertianum"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/tertianum.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/the-living-circle.ico",
+      "kind": "local",
+      "jobs": 30,
+      "companyKeys": [
+        "the-living-circle"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/the-living-circle.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/thermo-fisher-scientific.png",
+      "kind": "local",
+      "jobs": 12,
+      "companyKeys": [
+        "thermo-fisher-scientific"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/thermo-fisher-scientific.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/tl-lausanne.png",
+      "kind": "local",
+      "jobs": 19,
+      "companyKeys": [
+        "tl-lausanne"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/tl-lausanne.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/totalenergies.png",
+      "kind": "local",
+      "jobs": 8,
+      "companyKeys": [
+        "totalenergies"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/totalenergies.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/tpl-trasporti-pubblici-luganesi.png",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "tpl-trasporti-pubblici-luganesi"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/tpl-trasporti-pubblici-luganesi.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "reference": "/images/brands/ubp.png",
+      "kind": "local",
+      "jobs": 55,
+      "companyKeys": [
+        "ubp"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/ubp.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/unispital-basel.png",
+      "kind": "local",
+      "jobs": 125,
+      "companyKeys": [
+        "unispital-basel"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/unispital-basel.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/upd.png",
+      "kind": "local",
+      "jobs": 3,
+      "companyKeys": [
+        "upd"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/upd.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/visionapartments.png",
+      "kind": "local",
+      "jobs": 2,
+      "companyKeys": [
+        "visionapartments"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/visionapartments.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/viva-luzern.png",
+      "kind": "local",
+      "jobs": 20,
+      "companyKeys": [
+        "viva-luzern"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/viva-luzern.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/wagerenhof.png",
+      "kind": "local",
+      "jobs": 5,
+      "companyKeys": [
+        "wagerenhof"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/wagerenhof.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/yapeal.png",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "yapeal"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/yapeal.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/zambon.png",
+      "kind": "local",
+      "jobs": 3,
+      "companyKeys": [
+        "zambon"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/zambon.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/zuger-kantonsspital.png",
+      "kind": "local",
+      "jobs": 13,
+      "companyKeys": [
+        "zuger-kantonsspital"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/zuger-kantonsspital.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "reference": "/images/brands/zurzach-care.png",
+      "kind": "local",
+      "jobs": 69,
+      "companyKeys": [
+        "zurzach-care"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/zurzach-care.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
+    }
+  ]
 }
