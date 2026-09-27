@@ -1,23 +1,24 @@
 {
   "key": "bcvs",
   "label": "Banque Cantonale du Valais",
-  "generatedAt": "2026-09-26T14:19:07.476Z",
+  "generatedAt": "2026-09-26T23:59:45.052Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
   "lastFetchOutcome": null,
   "written": 4,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4988,
-  "avgDurationMs": 4988,
+  "durationMs": 4208,
+  "avgDurationMs": 4208,
   "durationHistory": [
-    4988
+    4208
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bcvs-479c7c8ed449",
       "slug": "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz",
@@ -30,7 +31,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:19:00.561Z",
+      "crawledAt": "2026-09-26T23:59:37.182Z",
       "addressLocality": "Vex/Nendaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -45,16 +46,16 @@
       "featured": false,
       "postedDate": "2026-09-26",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-26T14:19:00.561Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 18,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "bcvs-f210ab306496",
       "slug": "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
@@ -67,7 +68,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2665",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:19:01.018Z",
+      "crawledAt": "2026-09-26T23:59:37.592Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -103,7 +104,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/hr-business-partner-1-2656",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:19:01.473Z",
+      "crawledAt": "2026-09-26T23:59:38.004Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -143,7 +144,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:19:01.932Z",
+      "crawledAt": "2026-09-26T23:59:38.415Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",

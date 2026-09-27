@@ -1,16 +1,16 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-09-26T14:17:46.775Z",
-  "total": 6,
+  "generatedAt": "2026-09-27T00:01:37.452Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4714,
-  "avgDurationMs": 4714,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3463,
+  "avgDurationMs": 3463,
   "durationHistory": [
-    4714
+    3463
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -200,8 +200,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Psychiater In Ambulant 2025–60% 80",
       "slug": "psichiatra-in-ambulant-2025-60-80-klinik-wyssholzli-herzogenbuchsee",
@@ -244,5 +243,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
