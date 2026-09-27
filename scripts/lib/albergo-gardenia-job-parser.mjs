@@ -14,6 +14,7 @@ import { launchChromium } from './ensure-chromium.mjs';
 import { CAREER_TOKEN_RX, HOST_DELAY_MS, UA } from './prospector/config.mjs';
 import { NAMED, decodeEntities } from './prospector/entities.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
+import { WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 
 export const ALBERGO_GARDENIA_KEY = 'albergo-gardenia';
 export const ALBERGO_GARDENIA_COMPANY_NAME = 'Albergo Gardenia';
@@ -832,10 +833,12 @@ export async function fetchAllAlbergoGardeniaJobs({
           return cleanEgressFetch(rawUrl, options);
         }
         const response = await browserFetch(rawUrl, options);
-        const connectionFailure = Number(response?.status || 0) === 0
+        const responseStatus = Number(response?.status || 0);
+        const connectionFailure = responseStatus === 0
           && !response?.blockedByRobots
           && !response?.policyBlocked;
-        if (!connectionFailure || !cleanEgressFetch) return response;
+        const wafBlock = WAF_IP_BLOCK_STATUS.has(responseStatus);
+        if ((!connectionFailure && !wafBlock) || !cleanEgressFetch) return response;
         console.warn(`  ⚠️ Gardenia runner Chromium exhausted for ${rawUrl}; trying bounded clean-egress transport.`);
         const rescued = await cleanEgressFetch(rawUrl, options);
         if (rescued?.ok) preferredFallback = 'clean-egress';
