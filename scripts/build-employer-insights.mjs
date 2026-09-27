@@ -151,6 +151,42 @@ function stableJson(value) {
   return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableJson(value[key])}`).join(',')}}`;
 }
 
+// The identity catalog contains the complete retained job corpus. Hash its
+// canonical representation incrementally so a growing corpus cannot exceed
+// V8's maximum string length while calculating the catalog fingerprint.
+function sha256StableJson(value) {
+  const hash = crypto.createHash('sha256');
+  const append = (current, inArray = false) => {
+    if (current === undefined) {
+      if (!inArray) hash.update('undefined');
+      return;
+    }
+    if (current === null || typeof current !== 'object') {
+      hash.update(JSON.stringify(current));
+      return;
+    }
+    if (Array.isArray(current)) {
+      hash.update('[');
+      for (let index = 0; index < current.length; index += 1) {
+        if (index > 0) hash.update(',');
+        append(current[index], true);
+      }
+      hash.update(']');
+      return;
+    }
+    hash.update('{');
+    for (const [index, key] of Object.keys(current).sort().entries()) {
+      if (index > 0) hash.update(',');
+      hash.update(JSON.stringify(key));
+      hash.update(':');
+      append(current[key]);
+    }
+    hash.update('}');
+  };
+  append(value);
+  return hash.digest('hex');
+}
+
 function sha256(value) {
   return crypto.createHash('sha256').update(String(value)).digest('hex');
 }
@@ -371,7 +407,7 @@ export function buildIdentityCatalog(inputJobs = [], inputCompanies = []) {
       companyAliases: companyCollisions.collidingAliases,
       companyAliasBindings: companyCollisions.collisionBindings,
     },
-    identityCatalogSha: sha256(stableJson(identityRows)),
+    identityCatalogSha: sha256StableJson(identityRows),
   };
 }
 
