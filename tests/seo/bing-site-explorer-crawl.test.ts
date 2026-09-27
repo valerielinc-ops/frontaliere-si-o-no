@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   classifyDocument,
+  collectSitemapInventory,
   extractInternalLinks,
   folderFor,
   normalizeUrl,
@@ -39,6 +40,20 @@ describe('Bing-compatible full-tree crawler', () => {
     const gone = classifyDocument({ url: `${BASE}/missing/`, status: 200, html: '<title>404 — Pagina non trovata</title><h1>Pagina non trovata</h1>' });
     expect(gone.findings.map((item) => item.code)).toContain('soft-404');
     expect(classifyDocument({ url: `${BASE}/missing/`, status: 404 }).findings[0].code).toBe('http-error');
+    const emptyCanonical = classifyDocument({ url: `${BASE}/empty-canonical/`, status: 200, html: '<title>Page</title><link rel="canonical">' });
+    expect(emptyCanonical.findings.map((item) => item.code)).toContain('canonical-missing');
+  });
+
+  it('fails closed when a sitemap responds successfully with no supported entries', async () => {
+    const inventory = await collectSitemapInventory({
+      baseUrl: 'https://example.test',
+      sitemapUrl: 'https://example.test/sitemap.xml',
+      fetchImpl: async () => new Response('<html>ok</html>', { status: 200 }),
+    });
+
+    expect(inventory.sitemapCount).toBe(0);
+    expect(inventory.errors).toHaveLength(1);
+    expect(inventory.errors[0].error).toMatch(/vuoto|non supportato/);
   });
 
   it('extracts same-site HTML links without assets, externals or router actions', () => {

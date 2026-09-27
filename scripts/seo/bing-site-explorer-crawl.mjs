@@ -48,7 +48,9 @@ function extractLocs(xml, tagName) {
 /** Keep slash conventions for pages without turning explicit files into dirs. */
 export function normalizeUrl(value, baseUrl = DEFAULT_BASE_URL) {
   try {
-    const url = new URL(String(value || ''), baseUrl);
+    const raw = String(value ?? '').trim();
+    if (!raw) return null;
+    const url = new URL(raw, baseUrl);
     if (!['http:', 'https:'].includes(url.protocol)) return null;
     url.hash = '';
     url.pathname = url.pathname.replace(/\/+/g, '/') || '/';
@@ -219,6 +221,9 @@ export async function collectSitemapInventory({
     try {
       const xml = await fetchSitemap(current, { fetchImpl, timeoutMs });
       const parsed = parseSitemapDocument(xml, baseUrl);
+      if (parsed.sitemapUrls.length === 0 && parsed.pageUrls.length === 0) {
+        throw new Error(`sitemap vuoto o formato non supportato: ${current}`);
+      }
       sitemapUrls.push(current);
       for (const nested of parsed.sitemapUrls) if (!visited.has(nested)) pending.push(nested);
       for (const page of parsed.pageUrls) pageUrls.add(page);
