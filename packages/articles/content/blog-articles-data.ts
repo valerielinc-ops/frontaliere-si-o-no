@@ -36322,6 +36322,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-micromobilita-tradate',
+ category: 'novita',
+ date: '2026-09-27T02:05:48.879Z',
+ image: '/images/blog/incidente-micromobilita-tradate.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
