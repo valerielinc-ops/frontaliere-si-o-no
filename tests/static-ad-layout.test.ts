@@ -22,6 +22,7 @@ describe('static AdSense layout recovery', () => {
     expect(ADSENSE_LOADER_CONTENT).toContain('data-ft-static-ad-collapsed');
     expect(ADSENSE_LOADER_CONTENT).toContain("getAttribute('data-ad-status')==='unfilled'");
     expect(ADSENSE_LOADER_CONTENT).toContain(String(AD_FILL_TIMEOUT_MS));
+    expect(ADSENSE_LOADER_CONTENT).toContain('staticAdCollapseWhenSafe(el,true)');
     expect(ADSENSE_LOADER_CONTENT).toContain("existing.addEventListener('load',armSlots");
   });
 
