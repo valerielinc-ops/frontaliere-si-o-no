@@ -60,6 +60,7 @@ import {
 import { isJobBoardContentPath } from './lib/jobBoardSections.mjs';
 import { isPlateAuctionSectionPath } from './lib/plateAuctionSections.mjs';
 import { isPharmacySectionPath } from './lib/pharmacySections.mjs';
+import { isWeeklyJobMarketSnapshotPath } from './lib/weeklyJobMarketSections.mjs';
 import { isFuelSectionPath } from './lib/fuelSections.mjs';
 import { isEventsSectionPath } from './lib/eventsSections.mjs';
 
@@ -308,6 +309,11 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // the information-gain metric masks those numeric fields by design.
       // Keep this vertical out of the editorial near-duplicate gate rather
       // than adding each newly emitted canton/plate cohort to its inventory.
+      // Weekly job-market snapshots have a structured, period/canton-specific
+      // payload. The canton form also sits below a job-board section, but the
+      // dedicated matcher keeps this vertical's boundary explicit and covers
+      // the legacy TI weekly roots that the broad job-board matcher cannot.
+      if (isWeeklyJobMarketSnapshotPath(relPath)) return;
       if (isJobBoardContentPath(relPath)) return;
       if (isPlateAuctionSectionPath(relPath)) return;
       // Pharmacy pages are structured directory and duty records sourced from
