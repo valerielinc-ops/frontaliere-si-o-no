@@ -14,6 +14,7 @@ import {
   CODEX_REVIEW_MARKER,
   normalizeReviewBody,
   runReviewGate,
+  unanchoredConfirmationTarget,
 } from '../scripts/ci/review-gate.mjs';
 import { stableFindingId } from '../scripts/ci/lib/review-findings.mjs';
 
@@ -458,7 +459,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 
       const id = stableFindingId(classification.unresolved[0]);
       expect(log).toHaveBeenCalledWith(
-        `review-gate: BLOCKING finding=1 reason=nessun file citato id=${id} expectedKey="🔴 Important: process contract remains unresolved"`,
+        `review-gate: BLOCKING finding=1 reason=nessun file citato confirm="${id}" expectedKey="🔴 Important: process contract remains unresolved"`,
       );
     } finally {
       log.mockRestore();
@@ -521,6 +522,31 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     }
     expect(historicalImportantFindings([unanchoredImportantReview, review(`Fix di \`${id}\`: ok.`)], { includeLatest: true }))
       .toHaveLength(0);
+  });
+
+  it('keeps the exact PR body anchor as the only id-free closure of a body finding', () => {
+    // Review 5330340986: il ramo dell'id non deve scavalcare `PR body:L<n>`.
+    const opened = { ...historicalImportantReview, body: 'PR body:L12: 🔴 Important: [process] runner measurements missing.' };
+    const [finding] = importantFindings(opened.body);
+    expect(unanchoredConfirmationTarget(finding)).toBe('PR body:L12');
+    const review = (confirmation: string) => ({
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${confirmation}\n## LGTM`,
+    });
+    expect(historicalImportantFindings([opened, review(`Fix di \`${stableFindingId(finding)}\`: ok.`)], { includeLatest: true }))
+      .toHaveLength(1);
+    expect(historicalImportantFindings([opened, review('Fix di `PR body:L12`: ok.')], { includeLatest: true }))
+      .toHaveLength(0);
+  });
+
+  it('prints the same confirmation target the gate accepts', () => {
+    const [plain] = importantFindings(unanchoredImportantReview.body);
+    expect(unanchoredConfirmationTarget(plain)).toBe(stableFindingId(plain));
+    // `PR body:L7` a metà riga non è un anchor per il gate: il target resta l'id.
+    const [midLine] = importantFindings('Historical finding abc: 🔴 Important: [process] vedi PR body:L7 per il claim.');
+    expect(unanchoredConfirmationTarget(midLine)).toBe(stableFindingId(midLine));
+    const [anchored] = importantFindings(reviewFor('src/changed.mjs', 'the parser drops the last row'));
+    expect(unanchoredConfirmationTarget(anchored)).toBeNull();
   });
 
   it('never lets an id confirmation close a finding anchored on a file', () => {

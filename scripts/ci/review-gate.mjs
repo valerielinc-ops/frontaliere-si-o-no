@@ -731,6 +731,20 @@ function prBodyAnchor(text) {
 // chiude il secondo per contesto.
 const STABLE_ID_TARGET_RE = /^[0-9a-f]{12}$/u;
 
+/**
+ * La conferma che `findingConfirmed` accetta per un 🔴 senza file citato:
+ * `PR body:L<n>` quando la riga del marker comincia con quell'anchor (la
+ * conferma del body resta esatta), altrimenti l'id stabile. Il bundle del
+ * reviewer e il 🔴-fixer la stampano da qui: se usassero un predicato diverso
+ * potrebbero suggerire una conferma che il gate poi rifiuta. `null` per un
+ * finding ancorato a un file, che si chiude con `path:L<n>`.
+ */
+export function unanchoredConfirmationTarget(finding) {
+  if ((finding?.citations || []).length > 0) return null;
+  const bodyAnchor = prBodyAnchor(finding?.line);
+  return bodyAnchor !== null ? `PR body:L${bodyAnchor}` : stableFindingId(finding);
+}
+
 function fixConfirmations(body) {
   const confirmations = [];
   for (const line of normalizeReviewBody(body).split(/\r?\n/u)) {
@@ -1098,10 +1112,11 @@ function findingConfirmed(
     // nuovo sul ledger stesso (da 1 a 109 aperti in 50 review, 4 LGTM
     // ignorati). L'id stabile è l'identità che il bundle stampa accanto a ogni
     // voce ed è la stessa di `dedupeFindingsById`: confermarlo è una conferma
-    // esplicita, non una chiusura per silenzio.
-    const stableId = stableFindingId(finding);
+    // esplicita, non una chiusura per silenzio. Un 🔴 del body resta chiuso
+    // solo dal suo `PR body:L<n>` (vedi `unanchoredConfirmationTarget`).
+    const stableId = bodyAnchor === null ? stableFindingId(finding) : null;
     return confirmations.some((confirmation) => confirmation.key === findingKey(finding)
-      || confirmation.stableId === stableId
+      || (stableId !== null && confirmation.stableId === stableId)
       || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
   }
   // Le citazioni chiuse dall'accoppiamento per cardinalita' non passano da
@@ -2029,7 +2044,7 @@ export function logClassification(classification) {
   }
   for (const finding of classification.unresolved) {
     const expectedKey = finding.citations?.length === 0
-      ? ` id=${stableFindingId(finding)} expectedKey=${JSON.stringify(findingKey(finding))}`
+      ? ` confirm=${JSON.stringify(unanchoredConfirmationTarget(finding))} expectedKey=${JSON.stringify(findingKey(finding))}`
       : '';
     console.log(`review-gate: BLOCKING finding=${finding.findingNumber} reason=${finding.reason}${expectedKey}`);
   }
