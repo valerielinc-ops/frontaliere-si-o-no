@@ -1,7 +1,7 @@
 {
   "key": "ecam",
   "label": "Ente Case Anziani Mendrisiotto (ECAM)",
-  "generatedAt": "2026-09-27T11:32:54.444Z",
+  "generatedAt": "2026-09-27T15:19:26.025Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,10 +12,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4670,
-  "avgDurationMs": 4670,
+  "durationMs": 4455,
+  "avgDurationMs": 4455,
   "durationHistory": [
-    4670
+    4455
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/08/2026.03.08_Concorso-RU-ECAM-80-100_-002_def.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-27T11:32:47.639Z",
+      "crawledAt": "2026-09-27T15:19:20.943Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/01/Concorso-generale-sito-ECAM-2026.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-27T11:32:48.521Z",
+      "crawledAt": "2026-09-27T15:19:21.866Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",

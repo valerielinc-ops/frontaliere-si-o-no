@@ -1,14 +1,14 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-09-27T05:53:24.177Z",
+  "assembledAt": "2026-09-27T15:07:29.780Z",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-ae4b89614c6f",
       "slug": "leiter-pisten-e-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
-        "de": "leiter-pisten-und-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-davos",
         "it": "leiter-pisten-e-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-ag-davos",
         "en": "leiter-pisten-und-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-davos",
+        "de": "leiter-pisten-und-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-davos",
         "fr": "leiter-pisten-und-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
@@ -16,22 +16,20 @@
       "companyDomain": "davosklosters.ch",
       "title": "Leiter Pisten und Beschneiung Jakobshorn VG",
       "titleByLocale": {
-        "de": "Leiter Pisten und Beschneiung Jakobshorn VG",
         "it": "Leiter Pisten e Beschneiung Jakobshorn VG",
         "en": "Leiter Pisten und Beschneiung Jakobshorn VG",
+        "de": "Leiter Pisten und Beschneiung Jakobshorn VG",
         "fr": "Leiter Pisten und Beschneiung Jakobshorn VG"
       },
       "description": "Firmenportrait\nText Firmenportrait\nEinleitung\nText Einleitung\nAufgaben\nText \n• Aufgaben\nProfil\nText Profil\nWir bieten\nText wir bieten\nAbschluss\nText Abschluss",
       "descriptionByLocale": {
+        "it": "Firmenportrait\nText Firmenportrait\nEinleitung\nText Einleitung\nAufgaben\nText\n• Aufgaben\nProfil\nText Profil\nWir bieten\nText wir bieten\nAbschluss\nText Abschluss",
+        "en": "Firmenportrait\nText Firmenportrait\nEinleitung\nText Einleitung\nAufgaben\nText\n• Aufgaben\nProfil\nText Profil\nWir bieten\nText wir bieten\nAbschluss\nText Abschluss",
         "de": "Firmenportrait\nText Firmenportrait\nEinleitung\nText Einleitung\nAufgaben\nText \n• Aufgaben\nProfil\nText Profil\nWir bieten\nText wir bieten\nAbschluss\nText Abschluss",
-        "it": "Firmenportrait\nText Firmenportrait\nEinleitung\nText Einleitung\nAufgaben\nText \n• Aufgaben\nProfil\nText Profil\nWir bieten\nText wir bieten\nAbschluss\nText Abschluss",
-        "en": "Firmenportrait\nText Firmenportrait\nEinleitung\nText Einleitung\nAufgaben\nText \n• Aufgaben\nProfil\nText Profil\nWir bieten\nText wir bieten\nAbschluss\nText Abschluss",
-        "fr": "Firmenportrait\nText Firmenportrait\nEinleitung\nText Einleitung\nAufgaben\nText \n• Aufgaben\nProfil\nText Profil\nWir bieten\nText wir bieten\nAbschluss\nText Abschluss"
+        "fr": "Firmenportrait\nText Firmenportrait\nEinleitung\nText Einleitung\nAufgaben\nText\n• Aufgaben\nProfil\nText Profil\nWir bieten\nText wir bieten\nAbschluss\nText Abschluss"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Davos",
       "canton": "GR",
       "addressLocality": "Davos",
@@ -45,16 +43,17 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-Pisten-und-Beschneiung-Jakobshorn-VG_j_3937528",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:53:18.981Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-27T15:07:24.717Z",
+      "previousSlugs": [
+        "leiter-pisten-und-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-davos"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-pisten-und-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-davos"
         ]
       },
-      "previousSlugs": [
-        "leiter-pisten-und-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-davos"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:53:18.981Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -69,16 +68,15 @@
         }
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-Pisten-und-Beschneiung-Jakobshorn-VG_j_3937528",
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-09-27T05:53:18.981Z"
+      "addressRegion": "GR"
     },
     {
       "id": "davos-klosters-bergbahnen-8226cc498c4c",
       "slug": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
       "slugByLocale": {
-        "de": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
         "it": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
         "en": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+        "de": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
         "fr": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
@@ -86,22 +84,20 @@
       "companyDomain": "davosklosters.ch",
       "title": "Hausabwart PP Parsenn Aush. TD Parsenn",
       "titleByLocale": {
-        "de": "Hausabwart PP Parsenn Aush. TD Parsenn",
-        "fr": "Hausabwart PP Parsenn Aush. TD Parsenn",
         "it": "Hausabwart PP Parsenn Aush. TD Parsenn",
-        "en": "Hausabwart PP Parsenn Aush. TD Parsenn"
+        "en": "Hausabwart PP Parsenn Aush. TD Parsenn",
+        "de": "Hausabwart PP Parsenn Aush. TD Parsenn",
+        "fr": "Hausabwart PP Parsenn Aush. TD Parsenn"
       },
       "description": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen.",
       "descriptionByLocale": {
-        "de": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen.",
         "it": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen.",
         "en": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen.",
+        "de": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen.",
         "fr": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen."
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Davos",
       "canton": "GR",
       "addressLocality": "Davos",
@@ -115,8 +111,9 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3937527",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:53:18.816Z",
+      "crawledAt": "2026-09-27T15:07:24.529Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:53:18.816Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -131,8 +128,7 @@
         }
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3937527",
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-09-27T05:53:18.816Z"
+      "addressRegion": "GR"
     },
     {
       "id": "davos-klosters-bergbahnen-bcf42938f9ac",
@@ -175,8 +171,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Rang-Hotel-Waldhuus_j_3937517",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:53:18.651Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-09-27T15:07:24.341Z",
       "firstSeenAt": "2026-09-23T23:49:03.575Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -235,7 +230,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:53:18.482Z",
+      "crawledAt": "2026-09-27T15:07:24.152Z",
       "previousSlugs": [
         "chef-de-partie-mountain-plaza-hotel-davos-klosters-bergbahnen-davos",
         "capopartita-mountain-plaza-hotel-davos-klosters-bergbahnen-ag-davos"
@@ -305,7 +300,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:53:18.316Z",
+      "crawledAt": "2026-09-27T15:07:23.962Z",
       "previousSlugs": [
         "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
         "elettricista-commerciale-a-parsenn-davos-klosters-bergbahnen-ag-davos"
@@ -322,8 +317,8 @@
           "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
         ]
       },
-      "firstSeenAt": "2026-06-09T11:17:26.316Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-09T11:17:26.316Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -381,7 +376,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:53:18.146Z",
+      "crawledAt": "2026-09-27T15:07:23.771Z",
       "previousSlugs": [
         "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
         "azienda-carpenter-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos",
@@ -471,7 +466,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Aushilfe-Kasse-im-Stundenlohn_j_3013470",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:53:17.978Z",
+      "crawledAt": "2026-09-27T15:07:23.578Z",
       "previousSlugs": [
         "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos",
         "salario-orario-cassiere-davos-klosters-bergbahnen-ag-davos"
@@ -488,8 +483,8 @@
           "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos"
         ]
       },
-      "firstSeenAt": "2026-08-24T10:32:17.296Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:32:17.296Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -510,9 +505,9 @@
       "id": "davos-klosters-bergbahnen-d95b5ed0bba3",
       "slug": "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
-        "de": "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
         "it": "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos",
         "en": "allrounder-in-mountain-restaurant-jatzmeder-davos-klosters-bergbahnen-ag-davos",
+        "de": "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
         "fr": "allrounder-dans-le-restaurant-de-montagne-jatzmeder-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
@@ -520,22 +515,20 @@
       "companyDomain": "davosklosters.ch",
       "title": "Allrounder:in Bergrestaurant Jatzmeder",
       "titleByLocale": {
-        "de": "Allrounder:in Bergrestaurant Jatzmeder",
         "it": "Allrounder:in Bergrestaurant Jatzmeder",
         "en": "Allrounder:in Bergrestaurant Jatzmeder",
+        "de": "Allrounder:in Bergrestaurant Jatzmeder",
         "fr": "Allrounder:in Bergrestaurant Jatzmeder"
       },
       "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n•  Saisonkarte der Davos Klosters Bergbahnen\n•  Vermittlung von Personalwohnungen- oder zimmern\n•  Fitnessraum zu Spezialkonditionen\n•  Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
       "descriptionByLocale": {
-        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n•  Saisonkarte der Davos Klosters Bergbahnen\n•  Vermittlung von Personalwohnungen- oder zimmern\n•  Fitnessraum zu Spezialkonditionen\n•  Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "it": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n•  Saisonkarte der Davos Klosters Bergbahnen\n•  Vermittlung von Personalwohnungen- oder zimmern\n•  Fitnessraum zu Spezialkonditionen\n•  Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "en": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n•  Saisonkarte der Davos Klosters Bergbahnen\n•  Vermittlung von Personalwohnungen- oder zimmern\n•  Fitnessraum zu Spezialkonditionen\n•  Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "fr": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n•  Saisonkarte der Davos Klosters Bergbahnen\n•  Vermittlung von Personalwohnungen- oder zimmern\n•  Fitnessraum zu Spezialkonditionen\n•  Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen."
+        "it": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+        "en": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+        "fr": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen."
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Davos",
       "canton": "GR",
       "addressLocality": "Davos",
@@ -549,16 +542,19 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:53:17.810Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-27T15:07:23.386Z",
+      "previousSlugs": [
+        "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
+        "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos"
+          "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
+          "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos"
         ]
       },
-      "previousSlugs": [
-        "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T21:56:17.794Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -573,16 +569,15 @@
         }
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691",
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-08-11T21:56:17.794Z"
+      "addressRegion": "GR"
     },
     {
       "id": "davos-klosters-bergbahnen-c8fb0d7b8310",
       "slug": "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos",
       "slugByLocale": {
-        "de": "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos",
         "it": "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos",
         "en": "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos",
+        "de": "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos",
         "fr": "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
@@ -590,22 +585,20 @@
       "companyDomain": "davosklosters.ch",
       "title": "Ablöser Schneeräumung & Bahnanlagen",
       "titleByLocale": {
-        "de": "Ablöser Schneeräumung & Bahnanlagen",
         "it": "Ablöser Schneeräumung & Bahnanlagen",
         "en": "Ablöser Schneeräumung & Bahnanlagen",
+        "de": "Ablöser Schneeräumung & Bahnanlagen",
         "fr": "Ablöser Schneeräumung & Bahnanlagen"
       },
       "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nAb November 2026 oder nach Vereinbarung  suchen wir für den Betrieb Parsenn eine Person als:\nAblöser Schneeräumung & Bahnanlagen 100%\nDeine Aufgaben\n• Schneeräumungsarbeiten auf den Zubringeranlagen der Parsennbahnen\n• Ablösungen und Bahndienst auf Bahnanlagen\n• Mithilfe bei den Vorbereitungen und Aufräumen des Tagesbetriebs\n• Reinigung der Gebäude und Sanitären Anlagen\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Sicherheitsbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und hast Freude am direkten Kontakt\nmit unseren Gästen\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n• Körperliche Verfassung: Du bist körperlich fit, packst gerne mit an und arbeitest gerne draussen\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
       "descriptionByLocale": {
-        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nAb November 2026 oder nach Vereinbarung  suchen wir für den Betrieb Parsenn eine Person als:\nAblöser Schneeräumung & Bahnanlagen 100%\nDeine Aufgaben\n• Schneeräumungsarbeiten auf den Zubringeranlagen der Parsennbahnen\n• Ablösungen und Bahndienst auf Bahnanlagen\n• Mithilfe bei den Vorbereitungen und Aufräumen des Tagesbetriebs\n• Reinigung der Gebäude und Sanitären Anlagen\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Sicherheitsbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und hast Freude am direkten Kontakt\nmit unseren Gästen\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n• Körperliche Verfassung: Du bist körperlich fit, packst gerne mit an und arbeitest gerne draussen\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "it": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nAb November 2026 oder nach Vereinbarung  suchen wir für den Betrieb Parsenn eine Person als:\nAblöser Schneeräumung & Bahnanlagen 100%\nDeine Aufgaben\n• Schneeräumungsarbeiten auf den Zubringeranlagen der Parsennbahnen\n• Ablösungen und Bahndienst auf Bahnanlagen\n• Mithilfe bei den Vorbereitungen und Aufräumen des Tagesbetriebs\n• Reinigung der Gebäude und Sanitären Anlagen\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Sicherheitsbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und hast Freude am direkten Kontakt\nmit unseren Gästen\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n• Körperliche Verfassung: Du bist körperlich fit, packst gerne mit an und arbeitest gerne draussen\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "en": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nAb November 2026 oder nach Vereinbarung  suchen wir für den Betrieb Parsenn eine Person als:\nAblöser Schneeräumung & Bahnanlagen 100%\nDeine Aufgaben\n• Schneeräumungsarbeiten auf den Zubringeranlagen der Parsennbahnen\n• Ablösungen und Bahndienst auf Bahnanlagen\n• Mithilfe bei den Vorbereitungen und Aufräumen des Tagesbetriebs\n• Reinigung der Gebäude und Sanitären Anlagen\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Sicherheitsbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und hast Freude am direkten Kontakt\nmit unseren Gästen\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n• Körperliche Verfassung: Du bist körperlich fit, packst gerne mit an und arbeitest gerne draussen\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "fr": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nAb November 2026 oder nach Vereinbarung  suchen wir für den Betrieb Parsenn eine Person als:\nAblöser Schneeräumung & Bahnanlagen 100%\nDeine Aufgaben\n• Schneeräumungsarbeiten auf den Zubringeranlagen der Parsennbahnen\n• Ablösungen und Bahndienst auf Bahnanlagen\n• Mithilfe bei den Vorbereitungen und Aufräumen des Tagesbetriebs\n• Reinigung der Gebäude und Sanitären Anlagen\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Sicherheitsbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und hast Freude am direkten Kontakt\nmit unseren Gästen\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n• Körperliche Verfassung: Du bist körperlich fit, packst gerne mit an und arbeitest gerne draussen\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen."
+        "it": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nAb November 2026 oder nach Vereinbarung suchen wir für den Betrieb Parsenn eine Person als:\nAblöser Schneeräumung & Bahnanlagen 100%\nDeine Aufgaben\n• Schneeräumungsarbeiten auf den Zubringeranlagen der Parsennbahnen\n• Ablösungen und Bahndienst auf Bahnanlagen\n• Mithilfe bei den Vorbereitungen und Aufräumen des Tagesbetriebs\n• Reinigung der Gebäude und Sanitären Anlagen\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Sicherheitsbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und hast Freude am direkten Kontakt\nmit unseren Gästen\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n• Körperliche Verfassung: Du bist körperlich fit, packst gerne mit an und arbeitest gerne draussen\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+        "en": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nAb November 2026 oder nach Vereinbarung suchen wir für den Betrieb Parsenn eine Person als:\nAblöser Schneeräumung & Bahnanlagen 100%\nDeine Aufgaben\n• Schneeräumungsarbeiten auf den Zubringeranlagen der Parsennbahnen\n• Ablösungen und Bahndienst auf Bahnanlagen\n• Mithilfe bei den Vorbereitungen und Aufräumen des Tagesbetriebs\n• Reinigung der Gebäude und Sanitären Anlagen\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Sicherheitsbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und hast Freude am direkten Kontakt\nmit unseren Gästen\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n• Körperliche Verfassung: Du bist körperlich fit, packst gerne mit an und arbeitest gerne draussen\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nAb November 2026 oder nach Vereinbarung suchen wir für den Betrieb Parsenn eine Person als:\nAblöser Schneeräumung & Bahnanlagen 100%\nDeine Aufgaben\n• Schneeräumungsarbeiten auf den Zubringeranlagen der Parsennbahnen\n• Ablösungen und Bahndienst auf Bahnanlagen\n• Mithilfe bei den Vorbereitungen und Aufräumen des Tagesbetriebs\n• Reinigung der Gebäude und Sanitären Anlagen\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Sicherheitsbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und hast Freude am direkten Kontakt\nmit unseren Gästen\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n• Körperliche Verfassung: Du bist körperlich fit, packst gerne mit an und arbeitest gerne draussen\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+        "fr": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nAb November 2026 oder nach Vereinbarung suchen wir für den Betrieb Parsenn eine Person als:\nAblöser Schneeräumung & Bahnanlagen 100%\nDeine Aufgaben\n• Schneeräumungsarbeiten auf den Zubringeranlagen der Parsennbahnen\n• Ablösungen und Bahndienst auf Bahnanlagen\n• Mithilfe bei den Vorbereitungen und Aufräumen des Tagesbetriebs\n• Reinigung der Gebäude und Sanitären Anlagen\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Sicherheitsbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und hast Freude am direkten Kontakt\nmit unseren Gästen\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n• Körperliche Verfassung: Du bist körperlich fit, packst gerne mit an und arbeitest gerne draussen\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen."
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Davos",
       "canton": "GR",
       "addressLocality": "Davos",
@@ -619,8 +612,9 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:53:17.644Z",
+      "crawledAt": "2026-09-27T15:07:23.198Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:53:17.644Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -635,8 +629,7 @@
         }
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399",
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-09-27T05:53:17.644Z"
+      "addressRegion": "GR"
     },
     {
       "id": "davos-klosters-bergbahnen-b351d51b46e0",
@@ -711,7 +704,7 @@
       },
       "addressRegion": "GR",
       "sourceIdentity": "url:https://www.davosklostersmountains.ch/de/mountains/stellenangebote/mitarbeiter-in-front-office-hotel-montana_j_3885730",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Montana_j_3885730"
     },
@@ -781,7 +774,7 @@
       },
       "addressRegion": "GR",
       "sourceIdentity": "url:https://www.davosklostersmountains.ch/de/mountains/stellenangebote/mitarbeiter-in-front-office-hotel-joseph-s-house_j_2808394",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Joseph-s-House_j_2808394"
     },
@@ -851,155 +844,9 @@
       },
       "addressRegion": "GR",
       "sourceIdentity": "url:https://www.davosklostersmountains.ch/de/mountains/stellenangebote/mitarbeiter-in-booking-office-mountain-hotels_j_2449776",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776"
-    },
-    {
-      "id": "davos-klosters-bergbahnen-fdba0576083b",
-      "slug": "collaboratore-trice-front-office-hotel-ochsen-davos-klosters-bergbahnen-ag-davos",
-      "slugByLocale": {
-        "it": "collaboratore-trice-front-office-hotel-ochsen-davos-klosters-bergbahnen-ag-davos",
-        "en": "oxen-hotel-front-office-employee-davos-klosters-bergbahnen-ag-davos",
-        "de": "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos",
-        "fr": "employe-e-de-reception-hotel-ochsen-davos-klosters-bergbahnen-ag-davos"
-      },
-      "company": "Davos Klosters Bergbahnen AG",
-      "companyKey": "davos-klosters-bergbahnen-ag",
-      "companyDomain": "davosklosters.ch",
-      "title": "Mitarbeiter:in Front Office Hotel Ochsen",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Front Office Hotel Ochsen",
-        "en": "Oxen Hotel Front Office Employee",
-        "de": "Mitarbeiter:in Front Office Hotel Ochsen",
-        "fr": "Collaborateur/trice Front Office Hotel Ochsen"
-      },
-      "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG über 23 Hotels und Resorts von der\neinfachen Gruppenunterkunft bis zum gehobenen Vier-Sterne-Superior.\nZur Unterstützung des Teams im Hotel Ochsen und Ochsen 2 suchen wir für die\nkommmende Wintersaison 2026/27 eine Person als:\nMitarbeiter:in Front Office 100%\nDas Hotel\nRustikal oder modern: Im Hotel Ochsen und Ochsen 2 findet Ihr beides. Denn die innovativen und\nmodernen Zimmer überzeugen genauso, wie die traditionellen Zimmer. Die zusammengeführten\nHotels mit über 115 Zimmern sind sehr beliebt und werden von Skifahrern, Firmen, Wandern und\nBikern genutzt. Im Drei-Sterne-Hotel sorgt das reichhaltige Frühstücksbuffet für einen optimalen\nStart in den aktiven Tag. In nur wenigen Gehminuten gelangt Ihr zur Talstation der Jakobshornbahn.\nDeine Aufgaben\n• Check-In und Check-Out der Gäste\n• Betreuung der Gäste vor Ort und Information zum Angebot der Davos Klosters Mountains\n• Handling der Reservierungen mit der Hotel Software Protel\n• Sicherstellung von reibungslosen Abläufen und Koordination mit dem Housekeeping\n• Gästekorrespondenz von E-Mails und Telefongesprächen\n• Ausstellen von Skipässen der Davos Klosters Mountains\nDein Profil\n• Ausbildung: Du hast eine kaufmännische oder gleichwertige Ausbildung oder Erfahrungen im\nFront Office Bereich\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und stressresistent. Zudem hast du Freude am Umgang mit Gästen und ein\nfreundliches und kompetentes Auftreten\n• Teamplayer: Du arbeitest gerne im Team und bist hilfsbereit\n• Sprache: Du verfügst über sehr gute Deutsch Kenntnisse in Wort und Schrift sowie\ngute Englisch Kenntnisse\n• Von Vorteil: Protel-Kenntnisse oder ähnliche Hotelsysteme und jede weitere Sprache\nWir bieten\n• Internationales und dynamisches Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-      "descriptionByLocale": {
-        "it": "Le montagne di Davos Klosters sono cinque località sciistiche e di montagna nelle Alpi Grigioni. Oltre alle ferrovie di montagna, Davos Klosters Bergbahnen AG gestisce più di 23 alberghi e resort, dalla semplice sistemazione in gruppo al superior a quattro stelle. Per supportare il team dell'Hotel Ochsen e Ochsen 2, cerchiamo una persona per la prossima stagione invernale 2026-27 come: Staff:in Front Office 100% L'Hotel Rustico o moderno: troverete entrambi in Hotel Ochsen e Ochsen 2. Perché le camere innovative e moderne sono altrettanto convincenti come le camere tradizionali.\n\nGli hotel combinati con oltre 115 camere sono molto popolari e sono utilizzati da sciatori, aziende, escursionismo e ciclisti. Nell'hotel a tre stelle, la ricca colazione buffet assicura un inizio ottimale per la giornata attiva. In pochi minuti a piedi si raggiunge la stazione a valle della Jakobshornbahn.\n\nI vostri compiti\n• Check-in e check-out degli ospiti\n• Supporto e informazioni sul sito su Davos Klosters Mountains\n• Gestione delle prenotazioni con Hotel Software Protel\n• Garantire procedure e coordinamento senza intoppi con\n\nCypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp/Cyp\n\nsono affidabili e resistenti allo stress.\n\nTi piace anche gestire gli ospiti e un aspetto amichevole e competente\n• Giocatore di squadra: Ti piace lavorare in squadra e sono utili\n• Lingua: Hai una buona conoscenza tedesca delle parole e della scrittura così come una buona conoscenza inglese\n• Vantaggio: Conoscenza protesta o sistemi alberghieri simili e qualsiasi altra lingua Offriamo\n• Team internazionale e dinamico con un clima di lavoro positivo\n• Biglietto stagionale di Davos Klosters Bergbahnen\n• Piazzola di appartamenti o camere personali\n• Palestra a condizioni speciali\n• Vantaggi attraenti per offerte interne e\n\nServizi Se interessati, siamo lieti di ricevere i documenti della domanda.",
-        "en": "Davos Klosters Mountains are five mountain and ski resorts in the Grisons Alps. In addition to the mountain railways, Davos Klosters Bergbahnen AG operates more than 23 hotels and resorts, from simple group accommodation to the upscale four-star superior. To support the team at Hotel Ochsen and Ochsen 2, we are looking for one person for the coming winter season 2026-27 as: Staff:in Front Office 100% The Hotel Rustic or modern: you will find both in Hotel Ochsen and Ochsen 2. Because the innovative and modern rooms are just as convincing as the traditional rooms.\n\nThe combined hotels with over 115 rooms are very popular and are used by skiers, companies, hiking and bikers. In the three-star hotel, the rich breakfast buffet ensures an optimal start to the active day. In just a few minutes walk you reach the valley station of the Jakobshornbahn.\n\nYour tasks\n• Check-in and check-out of guests\n• On-site support and information on Davos Klosters Mountains\n• Handling reservations with Hotel Software Protel\n• Ensure smooth procedures and coordination with House/Cyprus/House/Cyprus/House/Cyprus/House/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cyprus/Cy/Cyprus/Cy/Cy/Cy/Cy/Cy/Cypr/Cypr/Cy/Cy/Cy/Cy/Cy/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cypr/Cy\n\nare reliable and stress resistant.\n\nYou also enjoy handling guests and a friendly and competent appearance\n• Team Player: You like to work in the team and are helpful\n• Language: You have very good German knowledge of words and writing as well as good English knowledge\n• Advantage: Protel knowledge or similar hotel systems and any other language We offer\n• International and dynamic team with a positive working climate\n• Season ticket of Davos Klosters Bergbahnen\n• Placement of personal apartments or rooms\n• Gym at special conditions\n• Attractive Benefits for internal offers and\n\nServices If interested, we are pleased to receive the application documents.",
-        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG über 23 Hotels und Resorts von der\neinfachen Gruppenunterkunft bis zum gehobenen Vier-Sterne-Superior.\nZur Unterstützung des Teams im Hotel Ochsen und Ochsen 2 suchen wir für die\nkommmende Wintersaison 2026/27 eine Person als:\nMitarbeiter:in Front Office 100%\nDas Hotel\nRustikal oder modern: Im Hotel Ochsen und Ochsen 2 findet Ihr beides. Denn die innovativen und\nmodernen Zimmer überzeugen genauso, wie die traditionellen Zimmer. Die zusammengeführten\nHotels mit über 115 Zimmern sind sehr beliebt und werden von Skifahrern, Firmen, Wandern und\nBikern genutzt. Im Drei-Sterne-Hotel sorgt das reichhaltige Frühstücksbuffet für einen optimalen\nStart in den aktiven Tag. In nur wenigen Gehminuten gelangt Ihr zur Talstation der Jakobshornbahn.\nDeine Aufgaben\n• Check-In und Check-Out der Gäste\n• Betreuung der Gäste vor Ort und Information zum Angebot der Davos Klosters Mountains\n• Handling der Reservierungen mit der Hotel Software Protel\n• Sicherstellung von reibungslosen Abläufen und Koordination mit dem Housekeeping\n• Gästekorrespondenz von E-Mails und Telefongesprächen\n• Ausstellen von Skipässen der Davos Klosters Mountains\nDein Profil\n• Ausbildung: Du hast eine kaufmännische oder gleichwertige Ausbildung oder Erfahrungen im\nFront Office Bereich\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und stressresistent. Zudem hast du Freude am Umgang mit Gästen und ein\nfreundliches und kompetentes Auftreten\n• Teamplayer: Du arbeitest gerne im Team und bist hilfsbereit\n• Sprache: Du verfügst über sehr gute Deutsch Kenntnisse in Wort und Schrift sowie\ngute Englisch Kenntnisse\n• Von Vorteil: Protel-Kenntnisse oder ähnliche Hotelsysteme und jede weitere Sprache\nWir bieten\n• Internationales und dynamisches Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "fr": "Les montagnes de Davos Klosters sont cinq stations de montagne et de ski dans les Alpes des Grisons. En plus des chemins de fer de montagne, Davos Klosters Bergbahnen AG exploite plus de 23 hôtels et stations de villégiature, de simples hébergements collectifs à la superior quatre étoiles. Pour soutenir l'équipe à l'Hôtel Ochsen et Ochsen 2, nous recherchons une personne pour la saison hivernale 2026-27 en tant que: Personnel:in Front Office 100% Hôtel Rustique ou moderne: vous trouverez à la fois à l'Hôtel Ochsen et Ochsen 2. Parce que les chambres innovantes et modernes sont tout aussi convaincantes que les chambres traditionnelles.\n\nLes hôtels combinés avec plus de 115 chambres sont très populaires et sont utilisés par les skieurs, les entreprises, la randonnée et les motards. Dans l'hôtel trois étoiles, le riche petit déjeuner buffet assure un début optimal de la journée active. En quelques minutes à pied vous atteignez la station de la vallée de la Jakobshornbahn.\n\nVos tâches\n• Enregistrement et départ des clients\n• Support et informations sur le site sur les monts Davos Klosters\n• Traitement des réservations avec le logiciel Hotel Protel\n• Assurer des procédures et une coordination sans heurts avec\n\nCypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypryprypr\n\nsont fiables et résistants au stress.\n\nVous aimez aussi la gestion des invités et une apparence amicale et compétente\n• Team Player: Vous aimez travailler en équipe et sont utiles\n• Langue: Vous avez une très bonne connaissance allemande des mots et de l'écriture ainsi que de bonnes connaissances en anglais\n• Avantage: Protel savoir ou systèmes hôteliers similaires et toute autre langue Nous offrons\n• Équipe internationale et dynamique avec un climat de travail positif\n• Billet de saison de Davos Klosters Bergbahnen\n• Placement d'appartements ou de chambres\n• Gym aux conditions spéciales\n• Avantages attrayants pour les offres internes et\n\nServices Si vous êtes intéressé, nous sommes heureux de recevoir les documents de demande."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Davos",
-      "canton": "GR",
-      "addressLocality": "Davos",
-      "addressCountry": "CH",
-      "category": "tourism",
-      "contract": "full-time",
-      "employmentType": "TEMPORARY",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Ochsen_j_3885740",
-      "source": "Davos Klosters Bergbahnen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:10:53.962Z",
-      "previousSlugs": [
-        "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos"
-        ],
-        "en": [
-          "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos"
-        ],
-        "fr": [
-          "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:06:31.130Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://www.davosklostersmountains.ch/de/mountains/stellenangebote/mitarbeiter-in-front-office-hotel-ochsen_j_3885740",
-      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Ochsen_j_3885740"
-    },
-    {
-      "id": "davos-klosters-bergbahnen-bf52c9895a2b",
-      "slug": "collaboratore-trice-front-office-hotel-national-davos-klosters-bergbahnen-ag-davos",
-      "slugByLocale": {
-        "it": "collaboratore-trice-front-office-hotel-national-davos-klosters-bergbahnen-ag-davos",
-        "en": "mitarbeiter-in-front-office-hotel-national-davos-klosters-bergbahnen-davos",
-        "de": "mitarbeiter-in-front-office-hotel-national-davos-klosters-bergbahnen-davos",
-        "fr": "mitarbeiter-in-front-office-hotel-national-davos-klosters-bergbahnen-davos"
-      },
-      "company": "Davos Klosters Bergbahnen AG",
-      "companyKey": "davos-klosters-bergbahnen-ag",
-      "companyDomain": "davosklosters.ch",
-      "title": "Mitarbeiter:in Front Office Hotel National",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Front Office Hotel National",
-        "en": "Associate Front Office Hotel National",
-        "de": "Mitarbeiter:in Front Office Hotel National",
-        "fr": "Collaborateur/trice Front Office Hotel National"
-      },
-      "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG über 23 Hotels und Resorts von der\neinfachen Gruppenunterkunft bis zum gehobenen Vier-Sterne-Superior.\nZur Unterstützung des Teams im Hotel National suchen wir f ür die kommende\nWintersaison 2026/27 eine Person als:\nMitarbeiter:in Front Office 100%\nDas Hotel\nDas Drei-Sterne-Superior Hotel National im Zentrum von Davos Platz ist die ideale Unterkunft\nfür aktive Gäste. Egal, ob in der neu renovierten Lobby mit Bar, dem Wellnessbereich mit\nRuheraum oder auf der sonnigen Dachterrasse: Ob aktive Skifahrer, Familien oder auch Firmen,\nwelche einen hellen Seminarraum nutzen möchten – das Hotel National ist ein idealer\nAusgangspunkt für einen unkomplizierten Aufenthalt. Das Haus verfügt über 60 Zimmer mit\ngemütlichem Komfort und ein hauseigenes Restaurant.\nDeine Aufgaben\n• Check-In und Check-Out der Gäste\n• Betreuung der Gäste vor Ort und Information zum Angebot der Davos Klosters Mountains\n• Handling der Reservierungen mit der Hotel Software Protel\n• Sicherstellung von reibungslosen Abläufen und Koordination mit dem Housekeeping\n• Gästekorrespondenz von E-Mails und Telefongesprächen\n• Ausstellen von Skipässen der Davos Klosters Mountains\nDein Profil\n• Ausbildung: Du hast eine kaufmännische oder gleichwertige Ausbildung oder Erfahrungen im\nFront Office Bereich\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und stressresistent. Zudem hast du Freude am Umgang mit Gästen und ein\nfreundliches und kompetentes Auftreten\n• Teamplayer: Du arbeitest gerne im Team und bist hilfsbereit\n• Sprache: Du verfügst über sehr gute Deutsch Kenntnisse in Wort und Schrift sowie\ngute Englisch Kenntnisse\n• Von Vorteil: Protel-Kenntnisse oder ähnliche Hotelsysteme und jede weitere Sprache\nWir bieten\n• Internationales und dynamisches Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-      "descriptionByLocale": {
-        "it": "Le montagne di Davos Klosters sono cinque stazioni di montagna e sci nel Bundner Alpen. Oltre al\nDavos Klosters Bergbahnen AG opera oltre 23 hotel e resort\nalloggio di gruppo facile al superiore di quattro stelle.\nPer sostenere il team di Hotel National stiamo cercando il prossimo\nStagione invernale 2026/27 una persona come:\nDipendenti: in ufficio anteriore 100%\nL'hotel\nL'hotel 3 stelle superior National nel centro di Davos Square è l'alloggio ideale\nper gli ospiti attivi. Sia nella lobby recentemente rinnovata con bar, l'area benessere con\nSala relax o sulla terrazza soleggiata sul tetto: sciatori attivi, famiglie o addirittura aziende,\nche vogliono utilizzare una luminosa sala seminari – L'Hotel National è l'ideale\nPunto di partenza per un soggiorno semplice. La casa ha 60 camere con\nConfortevole comfort e un ristorante interno.\nI tuoi compiti\n• Check-in e check-out degli ospiti\n• Cura degli ospiti in loco e informazioni sull'offerta dei Monti Davos Klosters\n• Gestione delle prenotazioni con Hotel Software Protel\n• Garantire processi e coordinamento fluidi con la pulizia\n• Corrispondenza degli ospiti delle email e delle conversazioni telefoniche\n• Emissione di skipass dei Monti Davos Klosters\nIl tuo profilo\n• Istruzione: Hai una formazione commerciale o equivalente o esperienza in\nArea ufficio anteriore\n• Metodo di lavoro: Hai una rapida ammissione, come lavorare indipendentemente, sono\nAffidabile e resistente allo stress. Ti piace anche trattare con gli ospiti e\naspetto amichevole e competente\n• Team Player: Ti piace lavorare in una squadra e sono utili\n• Lingua: Hai una conoscenza molto buona del tedesco in parola e scrittura così come\nBuone competenze in inglese\n• Vantaggi: conoscenza di Protel o sistemi alberghieri simili e qualsiasi altra lingua\nOffriamo\n• Team internazionale e dinamico con un'atmosfera di lavoro positiva\n• Mappa stagionale delle ferrovie di montagna Davos Klosters\n• Posizionamento di appartamenti o camere del personale\n• Sala fitness per condizioni speciali\n• Vantaggi interessanti per le offerte e i servizi interni\nSe siete interessati, non vediamo l'ora di ricevere i documenti della domanda.",
-        "en": "The Davos Klosters Mountains are five mountain and ski resorts in the Bundner Alpen. In addition to the\nDavos Klosters Bergbahnen AG operates over 23 hotels and resorts from the\neasy group accommodation to the upscale four-star superior.\nTo support the team at Hotel National we are looking for the upcoming\nWinter season 2026/27 one person as:\nEmployees: in front office 100%\nThe Hotel\nThe three-star superior Hotel National in the center of Davos Square is the ideal accommodation\nfor active guests. Whether in the newly renovated lobby with bar, the wellness area with\nRelaxation room or on the sunny roof terrace: whether active skiers, families or even companies,\nwho want to use a bright seminar room – The Hotel National is an ideal\nStarting point for an uncomplicated stay. The house has 60 rooms with\nComfortable comfort and an in-house restaurant.\nYour tasks\n• Check-in and check-out of guests\n• Care of guests on site and information on the offer of the Davos Klosters Mountains\n• Handling of reservations with the Hotel Software Protel\n• Ensuring smooth processes and coordination with housekeeping\n• Guest correspondence of emails and telephone conversations\n• Issuing of ski passes of the Davos Klosters Mountains\nYour profile\n• Education: You have a commercial or equivalent education or experience in\nFront office area\n• Working method: You have a quick apprehension, like to work independently, are\nReliable and stress resistant. You also enjoy dealing with guests and\nfriendly and competent appearance\n• Team Player: You like working in a team and are helpful\n• Language: You have very good knowledge of German in word and writing as well as\nGood English skills\n• Advantages: Protel knowledge or similar hotel systems and any other language\nWe offer\n• International and dynamic team with a positive working atmosphere\n• Seasonal map of Davos Klosters mountain railways\n• Placement of staff apartments or rooms\n• Fitness room for special conditions\n• Attractive benefits for internal offers and services\nIf you are interested, we look forward to receiving the application documents.",
-        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG über 23 Hotels und Resorts von der\neinfachen Gruppenunterkunft bis zum gehobenen Vier-Sterne-Superior.\nZur Unterstützung des Teams im Hotel National suchen wir f ür die kommende\nWintersaison 2026/27 eine Person als:\nMitarbeiter:in Front Office 100%\nDas Hotel\nDas Drei-Sterne-Superior Hotel National im Zentrum von Davos Platz ist die ideale Unterkunft\nfür aktive Gäste. Egal, ob in der neu renovierten Lobby mit Bar, dem Wellnessbereich mit\nRuheraum oder auf der sonnigen Dachterrasse: Ob aktive Skifahrer, Familien oder auch Firmen,\nwelche einen hellen Seminarraum nutzen möchten – das Hotel National ist ein idealer\nAusgangspunkt für einen unkomplizierten Aufenthalt. Das Haus verfügt über 60 Zimmer mit\ngemütlichem Komfort und ein hauseigenes Restaurant.\nDeine Aufgaben\n• Check-In und Check-Out der Gäste\n• Betreuung der Gäste vor Ort und Information zum Angebot der Davos Klosters Mountains\n• Handling der Reservierungen mit der Hotel Software Protel\n• Sicherstellung von reibungslosen Abläufen und Koordination mit dem Housekeeping\n• Gästekorrespondenz von E-Mails und Telefongesprächen\n• Ausstellen von Skipässen der Davos Klosters Mountains\nDein Profil\n• Ausbildung: Du hast eine kaufmännische oder gleichwertige Ausbildung oder Erfahrungen im\nFront Office Bereich\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und stressresistent. Zudem hast du Freude am Umgang mit Gästen und ein\nfreundliches und kompetentes Auftreten\n• Teamplayer: Du arbeitest gerne im Team und bist hilfsbereit\n• Sprache: Du verfügst über sehr gute Deutsch Kenntnisse in Wort und Schrift sowie\ngute Englisch Kenntnisse\n• Von Vorteil: Protel-Kenntnisse oder ähnliche Hotelsysteme und jede weitere Sprache\nWir bieten\n• Internationales und dynamisches Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "fr": "Les monts Davos Klosters sont cinq stations de montagne et de ski dans le Bundner Alpen. En plus de\nDavos Klosters Bergbahnen AG exploite plus de 23 hôtels et stations\nun hébergement de groupe facile pour le supérieur quatre étoiles haut de gamme.\nPour soutenir l'équipe de l'Hôtel National, nous sommes à la recherche\nSaison d'hiver 2026/27 une personne comme:\nEmployés: en première ligne 100%\nL'Hôtel\nLe trois étoiles supérieur Hôtel National dans le centre de la place Davos est l'hébergement idéal\npour les invités actifs. Que dans le hall récemment rénové avec bar, l'espace bien-être avec\nSalle de détente ou sur le toit-terrasse ensoleillé: skieurs actifs, familles ou même entreprises,\nqui veulent utiliser une salle de séminaire lumineuse – L'Hôtel National est idéal\nPoint de départ pour un séjour simple. La maison a 60 chambres avec\nConfort confortable et restaurant intérieur.\nVos tâches\n• Enregistrement et départ des invités\n• Soins des clients sur place et des informations sur l'offre des monts Davos Klosters\n• Traitement des réservations avec le Hotel Software Protel\n• Assurer un processus et une coordination sans heurts avec le personnel de ménage\n• Correspondance des clients des courriels et conversations téléphoniques\n• Délivrance de cartes de ski des monts Davos Klosters\nVotre profil\n• Éducation: Vous avez une formation ou une expérience commerciale ou équivalente dans\nZone des bureaux extérieurs\n• Méthode de travail: Vous avez une appréhension rapide, comme travailler indépendamment, sont\nFiabilité et résistance au stress. Vous aimez aussi traiter avec les invités et\napparence amicale et compétente\n• Team Player: Vous aimez travailler en équipe et êtes serviable\n• Langue: Vous avez une très bonne connaissance de l'allemand dans la parole et l'écriture ainsi que\nBonnes compétences en anglais\n• Avantages: Protel connaissance ou systèmes hôteliers similaires et toute autre langue\nNous offrons\n• Équipe internationale et dynamique avec une atmosphère de travail positive\n• Carte saisonnière des chemins de fer de montagne de Davos Klosters\n• Placement des appartements ou chambres du personnel\n• Salle de fitness pour conditions spéciales\n• Avantages attrayants pour les offres et services internes\nSi vous êtes intéressé, nous espérons recevoir les documents de demande."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Davos",
-      "canton": "GR",
-      "addressLocality": "Davos",
-      "addressCountry": "CH",
-      "category": "tourism",
-      "contract": "full-time",
-      "employmentType": "TEMPORARY",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-National_j_2808514",
-      "source": "Davos Klosters Bergbahnen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:10:53.692Z",
-      "previousSlugs": [
-        "mitarbeiter-in-front-office-hotel-national-davos-klosters-bergbahnen-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-front-office-hotel-national-davos-klosters-bergbahnen-davos"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:06:30.830Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://www.davosklostersmountains.ch/de/mountains/stellenangebote/mitarbeiter-in-front-office-hotel-national_j_2808514",
-      "needsRetranslation": true,
-      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-National_j_2808514"
     }
   ]
 }

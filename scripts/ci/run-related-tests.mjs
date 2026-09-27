@@ -16,7 +16,9 @@
  * has an explicit, bounded regression-test allow-list because its consumers
  * read it by path instead of importing it. Test-tree lints (tests that scan
  * every test file instead of importing one) join the selection whenever the
- * diff touches a test file. `--select-only`
+ * diff touches a test file; source-tree lints (tests that scan `.github`,
+ * `scripts` and `bin` by directory) join it whenever the diff touches their
+ * scope. `--select-only`
  * computes the same selection without invoking Vitest and emits the
  * pre-assembly dataset decision for tests.yml.
  */
@@ -55,6 +57,15 @@ const runnerRegressionTests = new Set([
 // fissa un conteggio letterale su un file riscritto da un cron).
 const testTreeLintTests = new Set([
   'tests/check-cron-count-literals.test.ts',
+]);
+// Lint dell'albero dei SORGENTI: scandiscono `.github`, `scripts` e `bin` per
+// directory e non nominano i file che giudicano, quindi né il grafo inverso né
+// l'indice dei letterali `.github/…` li collegano al diff. Girano quando il
+// diff tocca un path nel loro perimetro. Sulla PR 9959 i due fixer contavano i
+// commenti con `--paginate --slurp --jq`, che il gh reale rifiuta: il guard
+// esisteva dal 25-09 (#9797) ma su 126 test scelti per quel diff lui mancava.
+const sourceTreeLintTests = new Map([
+  ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
 ]);
 // Most workflow readers intentionally depend on every asset in the directory:
 // permissions, timeout and scope guards are repository-wide contracts. A few
@@ -478,6 +489,11 @@ if (!fullSuiteRequired && candidates.some((file) => isRunnableTest(file))) {
     if (isRunnableTest(test)) related.add(test);
   }
   console.log('test file(s) changed → running the test-tree lints.');
+}
+if (!fullSuiteRequired) {
+  for (const [test, scope] of sourceTreeLintTests) {
+    if (isRunnableTest(test) && changed.some((file) => scope.test(file))) related.add(test);
+  }
 }
 let usedFullFallback = fullSuiteRequired;
 const assetCandidate = (file) => githubAssetRe.test(file) || testFixtureRe.test(file);

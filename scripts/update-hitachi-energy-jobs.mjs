@@ -49,7 +49,7 @@ import {
   hasMorePages,
   PAGE_SIZE,
 } from './lib/hitachi-energy-job-parser.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
@@ -96,24 +96,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
 }
 
 async function fetchText(url, timeoutMs = TIMEOUT_MS) {
@@ -199,7 +181,7 @@ async function fetchAllListings() {
 
     let json;
     try {
-      json = await fetchJson(url);
+      json = await fetchJson(url, { timeoutMs: TIMEOUT_MS });
     } catch (err) {
       console.log(`  ⚠️ API page ${page + 1} fetch failed: ${err.message}`);
       break;

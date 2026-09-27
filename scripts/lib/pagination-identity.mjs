@@ -90,7 +90,17 @@ export async function recordMutableFeedPageWithRetry({
         retries,
       };
     } catch (error) {
-      if (error?.code !== NO_UNIQUE_PROGRESS_CODE || retries >= maxRetries) throw error;
+      if (error?.code !== NO_UNIQUE_PROGRESS_CODE) throw error;
+      if (retries >= maxRetries) {
+        // A mutable, date-sorted feed can return the same page while it is
+        // changing underneath the crawler. Once the bounded reloads are
+        // exhausted, the snapshot is incomplete but the source is not proven
+        // broken. Let crawler runners preserve the last good slice and record
+        // `feed_endpoint_unavailable` instead of opening a per-crawler red
+        // failure for this transient pagination state.
+        error.feedEndpointUnavailable = true;
+        throw error;
+      }
       const delayMs = retryDelayMs * (retries + 1);
       if (delayMs > 0) await sleep(delayMs);
       const reloadedItems = await reload(retries + 1);
