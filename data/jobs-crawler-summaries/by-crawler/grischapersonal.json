@@ -1,23 +1,24 @@
 {
   "key": "grischapersonal",
   "label": "Grischa Personal AG",
-  "generatedAt": "2026-09-27T05:13:34.693Z",
+  "generatedAt": "2026-09-27T14:51:02.772Z",
   "total": 38,
   "discovered": null,
   "parsed": 38,
   "lastFetchOutcome": null,
   "written": 38,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5035,
-  "avgDurationMs": 5035,
+  "durationMs": 4596,
+  "avgDurationMs": 4596,
   "durationHistory": [
-    5035
+    4596
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "grischapersonal-b676cd369d35",
       "slug": "gerustbauhelfer-mit-berufserfahrung-m-w-zurich-grischapersonal-ch",
@@ -30,7 +31,7 @@
       "url": "https://grischapersonal.ch/stellen/#job-b3db3e633a3c",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:13:26.245Z",
+      "crawledAt": "2026-09-27T14:50:55.355Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -44,16 +45,17 @@
       "featured": false,
       "postedDate": "2023-08-22T08:00:03+02:00",
       "applyUrl": "https://grischapersonal.ch/stellen/#job-b3db3e633a3c",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:13:26.245Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
