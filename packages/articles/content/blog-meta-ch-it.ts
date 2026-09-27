@@ -6830,6 +6830,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.manifestazione-diritti-migranti-berna.title': 'Manifestazione a Berna per i diritti dei migranti',
     'blog.article.manifestazione-diritti-migranti-berna.excerpt': 'Diverse migliaia di persone hanno manifestato a Berna contro l\'inasprimento del diritto d\'asilo, chiedendo diritti fondamentali e libertà di movimento.',
     'blog.article.manifestazione-diritti-migranti-berna.imageAlt': 'Manifestazione a Berna per i diritti dei migranti davanti a Piazza federale',
+    'blog.article.voti-federali-neutralita-alimentazione.title': 'Voti federali: neutralità e alimentazione alle urne',
+    'blog.article.voti-federali-neutralita-alimentazione.excerpt': 'La popolazione svizzera vota oggi su neutralità e alimentazione. I dati chiave, i sondaggi e la posizione delle istituzioni federali.',
+    'blog.article.voti-federali-neutralita-alimentazione.imageAlt': 'Schede di voto per le iniziative federali sulla neutralità e l\'alimentazione in Svizzera',
 };
 
 export default blogMetaChIt;

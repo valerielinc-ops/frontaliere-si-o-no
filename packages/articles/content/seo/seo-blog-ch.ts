@@ -88550,6 +88550,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-voti-federali-neutralita-alimentazione': {
+    title: 'Voti federali: neutralità e alimentazione alle urne',
+    description: 'Scopri i dettagli delle iniziative federali su neutralità e alimentazione in votazione oggi in Svizzera, con dati, sondaggi e posizioni istituzionali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, voti, federali, neutralità, alimentazione',
+    ogTitle: 'Voti federali: neutralità e alimentazione alle urne in Svizzera',
+    ogDescription: 'La popolazione svizzera è chiamata oggi alle urne su due iniziative federali: la salvaguardia della neutralità permanente e armata e la proposta per un\'alimentazione più sicura. Ecco tutti i dati e le posizioni.',
+    canonicalPath: '/articoli-svizzera/voti-federali-neutralita-alimentazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voti federali: neutralità e alimentazione alle urne",
+      "description": "Scopri i dettagli delle iniziative federali su neutralità e alimentazione in votazione oggi in Svizzera, con dati, sondaggi e posizioni istituzionali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/voti-federali-neutralita-alimentazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Schede di voto per le iniziative federali sulla neutralità e l'alimentazione in Svizzera"
+      },
+      "datePublished": "2026-09-27T06:56:40+00:00",
+      "dateModified": "2026-09-27T06:56:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voti-federali-neutralita-alimentazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

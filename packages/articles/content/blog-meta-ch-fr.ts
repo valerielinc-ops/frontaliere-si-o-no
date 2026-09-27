@@ -6830,6 +6830,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.manifestazione-diritti-migranti-berna.title': 'Manifestation à Berne pour les droits des migrants',
     'blog.article.manifestazione-diritti-migranti-berna.excerpt': 'Plusieurs milliers de personnes ont manifesté à Berne contre le durcissement du droit d\'asile, réclamant des droits fondamentaux et la liberté de mouvement.',
     'blog.article.manifestazione-diritti-migranti-berna.imageAlt': 'Manifestation à Berne pour les droits des migrants devant la Place fédérale',
+    'blog.article.voti-federali-neutralita-alimentazione.title': 'Votes fédéraux : neutralité et alimentation aux urnes',
+    'blog.article.voti-federali-neutralita-alimentazione.excerpt': 'La population suisse vote aujourd\'hui sur la neutralité et la nutrition. Données clés, sondages et la position des institutions fédérales.',
+    'blog.article.voti-federali-neutralita-alimentazione.imageAlt': 'Bulletins de vote pour les initiatives fédérales sur la neutralité et l\'alimentation',
 };
 
 export default blogMetaChFr;
