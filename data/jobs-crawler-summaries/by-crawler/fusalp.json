@@ -1,7 +1,7 @@
 {
   "key": "fusalp",
   "label": "Fusalp",
-  "generatedAt": "2026-09-26T23:35:57.086Z",
+  "generatedAt": "2026-09-27T14:57:23.278Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -12,10 +12,10 @@
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18927,
-  "avgDurationMs": 18927,
+  "durationMs": 24627,
+  "avgDurationMs": 24627,
   "durationHistory": [
-    18927
+    24627
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:35:35.630Z",
+      "crawledAt": "2026-09-27T14:56:56.945Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -67,7 +67,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:35:42.749Z",
+      "crawledAt": "2026-09-27T14:57:08.015Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -81,6 +81,7 @@
       "featured": false,
       "postedDate": "2026-09-11",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-11T13:39:22.216Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -102,7 +103,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:35:44.856Z",
+      "crawledAt": "2026-09-27T14:57:10.118Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -116,6 +117,7 @@
       "featured": false,
       "postedDate": "2026-09-01",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T14:16:04.933Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -137,7 +139,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:35:45.808Z",
+      "crawledAt": "2026-09-27T14:57:11.039Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -173,7 +175,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/ales-associate-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:35:46.711Z",
+      "crawledAt": "2026-09-27T14:57:12.166Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -187,6 +189,7 @@
       "featured": false,
       "postedDate": "2026-08-27",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/ales-associate-m-w-dec-26-to-march-27-100_saanen",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-28T05:23:03.917Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -208,7 +211,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:35:48.029Z",
+      "crawledAt": "2026-09-27T14:57:14.181Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -222,6 +225,7 @@
       "featured": false,
       "postedDate": "2026-08-27",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-28T05:23:06.096Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {

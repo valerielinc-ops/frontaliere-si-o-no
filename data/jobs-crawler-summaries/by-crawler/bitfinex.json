@@ -1,7 +1,7 @@
 {
   "key": "bitfinex",
   "label": "Bitfinex",
-  "generatedAt": "2026-09-26T23:34:50.622Z",
+  "generatedAt": "2026-09-27T14:56:04.942Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,10 +12,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2218,
-  "avgDurationMs": 2218,
+  "durationMs": 2707,
+  "avgDurationMs": 2707,
   "durationHistory": [
-    2218
+    2707
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://bitfinex.recruitee.com/o/transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-9",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:34:44.067Z",
+      "crawledAt": "2026-09-27T14:55:57.736Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -51,11 +51,11 @@
       "department": "Compliance",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T13:58:54.010Z",
-      "_qualityScore": 80,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     }
