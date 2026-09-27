@@ -61,7 +61,7 @@ import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { isSafeSwissReForeignPruneJobs } from './lib/crawler-slice-integrity.mjs';
+import { isSafeSourceGeographyPruneJobs } from './lib/crawler-slice-integrity.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
@@ -2399,12 +2399,12 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     const priorCount = existingSlice.jobs.length;
     const newCount = hardened.jobs.length;
     const shrinkWouldBlock = shouldBlockShrink(priorCount, newCount);
-    const safeSwissReForeignPrune = shrinkWouldBlock && isSafeSwissReForeignPruneJobs(
+    const safeSourceGeographyPrune = shrinkWouldBlock && isSafeSourceGeographyPruneJobs(
       slicePath,
       existingSlice.jobs,
       hardened.jobs,
     );
-    if (shrinkWouldBlock && !safeSwissReForeignPrune) {
+    if (shrinkWouldBlock && !safeSourceGeographyPrune) {
       const report = { crawlerKey, priorCount, newCount, ratio: newCount / priorCount };
       console.error(`\n🚨 Shrink guard FAILED for ${crawlerKey}: ${newCount}/${priorCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to persist, prior slice on disk kept\n`);
       _createShrinkGuardIssue(crawlerKey, report);
@@ -2427,11 +2427,11 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       };
       throw shrinkErr;
     }
-    if (safeSwissReForeignPrune) {
+    if (safeSourceGeographyPrune) {
       console.warn(
-        `  ✅ ${crawlerKey}: accepting the source-geography migration `
-        + `(${priorCount} → ${newCount}); retained jobs are explicit Swiss Re locations `
-        + `and removed rows match the proven legacy foreign/HQ-fallback signature.`,
+        `  ✅ ${crawlerKey}: accepting the proven source-geography migration `
+        + `(${priorCount} → ${newCount}); retained jobs are source-backed Swiss locations `
+        + `and removed rows match the crawler-specific legacy foreign/HQ-fallback signature.`,
       );
     }
   }

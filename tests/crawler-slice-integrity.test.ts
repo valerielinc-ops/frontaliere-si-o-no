@@ -7,6 +7,7 @@ import { tmpdir } from 'node:os';
 import {
   assertCrawlerSliceWriteSafe,
   isProvenCrossCrawlerDedupPrune,
+  isSafeBuehlerForeignPruneJobs,
   isSafeSwissReForeignPrune,
   isSafeSwissReForeignPruneJobs,
 } from '../scripts/lib/crawler-slice-integrity.mjs';
@@ -18,6 +19,22 @@ function swissReJob(url: string, location: string, description: string) {
     url,
     companyKey: 'swiss-re',
     location,
+    description,
+  };
+}
+
+function buehlerJob(url: string, location: string, crawlerMissStreak?: number, description = 'x'.repeat(700_000)) {
+  return {
+    url,
+    companyKey: 'buehler',
+    company: 'Bühler Group',
+    source: 'Bühler Group Dedicated Parser (Prospective medium 1008005)',
+    location,
+    canton: 'SG',
+    addressRegion: 'SG',
+    country: 'CH',
+    addressCountry: 'CH',
+    ...(crawlerMissStreak === undefined ? {} : { crawlerMissStreak }),
     description,
   };
 }
@@ -242,6 +259,53 @@ describe('crawler slice integrity guard', () => {
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  it('proves the Bühler source-geography migration after legacy miss grace', () => {
+    const previous = json({
+      crawlerKey: 'buehler',
+      jobs: [
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/foreign-1', 'Plymouth', CRAWLER_GRACE_PERIOD_MAX_MISSES),
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/foreign-2', 'Wuxi', CRAWLER_GRACE_PERIOD_MAX_MISSES),
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil-expired', 'Uzwil', CRAWLER_GRACE_PERIOD_MAX_MISSES),
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil', 'Uzwil', undefined, 'Swiss job'),
+      ],
+    });
+    const next = json({
+      crawlerKey: 'buehler',
+      jobs: [buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil', 'Uzwil', undefined, 'Swiss job')],
+    });
+
+    expect(isSafeBuehlerForeignPruneJobs(
+      'data/jobs/by-crawler/buehler.json',
+      JSON.parse(previous).jobs,
+      JSON.parse(next).jobs,
+    )).toBe(true);
+    expect(assertCrawlerSliceWriteSafe('data/jobs/by-crawler/buehler.json', previous, next).reason)
+      .toBe('buehler-foreign-prune');
+  });
+
+  it('keeps the Bühler shrink guarded when the migration proof is incomplete', () => {
+    const previous = json({
+      crawlerKey: 'buehler',
+      jobs: [
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/foreign', 'Plymouth', CRAWLER_GRACE_PERIOD_MAX_MISSES - 1),
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil-old', 'Uzwil', CRAWLER_GRACE_PERIOD_MAX_MISSES),
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil', 'Uzwil', undefined, 'Swiss job'),
+      ],
+    });
+    const next = json({
+      crawlerKey: 'buehler',
+      jobs: [buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil', 'Uzwil', undefined, 'Swiss job')],
+    });
+
+    expect(isSafeBuehlerForeignPruneJobs(
+      'data/jobs/by-crawler/buehler.json',
+      JSON.parse(previous).jobs,
+      JSON.parse(next).jobs,
+    )).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe('data/jobs/by-crawler/buehler.json', previous, next))
+      .toThrow(/catastrophic truncation avoided/);
   });
 
   it('keeps an unreferenced large removal fail-closed', () => {
