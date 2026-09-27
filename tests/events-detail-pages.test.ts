@@ -94,6 +94,27 @@ describe('event overflow ladder SEO metadata', () => {
     expect(h1).toContain('(guida frontaliere)');
     expect(h1).not.toBe(title);
   });
+
+  it('places one in-feed ad after twelve rows on an indexable overflow page', () => {
+    const events = Array.from({ length: 314 }, (_, index) => ({
+      ...EVENT,
+      id: `tio-agenda:overflow-ad-${index}`,
+      title: `Overflow event ${index} with verified venue and public schedule`,
+    }));
+    const page = renderOverflowLadderPage({
+      locale: 'it',
+      canton: 'TI',
+      comune: 'Lugano',
+      events: events as never,
+      cap: 0,
+      page: 2,
+      dateStamp: '2026-09-14',
+      distDir: '',
+      detailHref: (event) => `/event/${event.id}`,
+    });
+    expect(page.html.match(/data-ad-placement=(?:"events-list-infeed"|events-list-infeed)/g)).toHaveLength(1);
+    expect(page.html.indexOf('data-ad-placement=')).toBeLessThan(page.html.indexOf('Overflow event 312'));
+  });
 });
 
 // Issue #3742: myswitzerland ships English schema.org-derived categories

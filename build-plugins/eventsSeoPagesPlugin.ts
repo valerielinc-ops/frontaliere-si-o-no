@@ -1749,6 +1749,7 @@ function renderOverflowIndex(
   locale: Locale,
   detailHref?: DetailHref,
   ladder?: { canton: string; comune?: string; page?: number },
+  opts?: { infeedAd?: boolean },
 ): string {
   const rows = overflowRows(events, cap, detailHref);
   if (rows.length === 0) return '';
@@ -1758,14 +1759,23 @@ function renderOverflowIndex(
   if (pageRows.length === 0) return '';
   const copy = OVERFLOW_INDEX_COPY[locale];
   const items = pageRows
-    .map(({ event, href }) => `<li><a class="ev-lnk" href="${esc(href)}">${esc(localizedTitle(event, locale))}</a></li>`)
-    .join('');
+    .map(({ event, href }) => `<li><a class="ev-lnk" href="${esc(href)}">${esc(localizedTitle(event, locale))}</a></li>`);
+  const infeedAt = opts?.infeedAd && items.length > EVENT_LIST_INFEED_AFTER
+    ? EVENT_LIST_INFEED_AFTER
+    : -1;
+  const firstItems = items.slice(0, infeedAt === -1 ? items.length : infeedAt).join('');
+  const remainingItems = infeedAt === -1 ? '' : items.slice(infeedAt).join('');
+  const itemList = [
+    `<ul class="mt-3 columns-1 gap-6 text-sm leading-7 sm:columns-2 lg:columns-3">${firstItems}</ul>`,
+    infeedAt === -1 ? '' : EVENT_LIST_INFEED_MARKER,
+    remainingItems ? `<ul class="mt-3 columns-1 gap-6 text-sm leading-7 sm:columns-2 lg:columns-3">${remainingItems}</ul>` : '',
+  ].join('');
   const nav = ladder ? renderOverflowLadderNav(locale, ladder.canton, ladder.comune, pageCount, page) : '';
   const intro = pageCount > 1 ? `${copy.text(rows.length)} ${copy.pageOf(page, pageCount)}` : copy.text(rows.length);
   return `<section data-events-overflow-index="1" class="ev-panel">
       <h2 class="ev-h2">${esc(copy.title)}</h2>
       <p class="mt-2 text-sm leading-6 text-body">${esc(intro)}</p>
-      <ul class="mt-3 columns-1 gap-6 text-sm leading-7 sm:columns-2 lg:columns-3">${items}</ul>
+      ${itemList}
       ${nav}
     </section>`;
 }
@@ -2762,7 +2772,7 @@ export function renderOverflowLadderPage(params: {
 
     ${renderEventsJourney(locale, canton, canonicalPath)}
 
-    ${renderOverflowIndex(events, cap, locale, detailHref, { canton, comune, page })}
+    ${renderOverflowIndex(events, cap, locale, detailHref, { canton, comune, page }, { infeedAd: true })}
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
       <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${basePath}">${esc(oCopy.backTo(label))} \u2192</a>
@@ -2784,14 +2794,15 @@ export function renderOverflowLadderPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: isIndexableWordCount(wordCount) })}`;
+  const indexable = isIndexableWordCount(wordCount);
+  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
   const html = buildSeoPageHtml({
     locale,
     title: ladderTitle,
     description: oCopy.ladderDesc(label, page, pageCount),
     canonicalUrl,
     hreflangHtml: buildLadderAlternates(canton, comune, page),
-    robots: isIndexableWordCount(wordCount) ? 'index,follow' : 'noindex,follow',
+    robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [breadcrumbLd],
