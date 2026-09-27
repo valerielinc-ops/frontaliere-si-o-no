@@ -228,6 +228,39 @@ describe('Albergo Gardenia authoritative crawler', () => {
       .toBe(false);
   });
 
+  it('routes a direct HTTP WAF response through bounded Chromium without trying the host alias', async () => {
+    const fetchPage = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 415,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    }));
+    const browserFetchPage = vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      url,
+      body: '<urlset />',
+      host: new URL(url).hostname,
+    }));
+
+    const response = await fetchAlbergoGardeniaSourcePage(ALBERGO_GARDENIA_SITEMAP_URL, {
+      kind: 'sitemap',
+      fetchPage,
+      browserFetchPage,
+    });
+
+    expect(response).toMatchObject({ ok: true, status: 200, url: ALBERGO_GARDENIA_SITEMAP_URL });
+    expect(fetchPage).toHaveBeenCalledOnce();
+    expect(browserFetchPage).toHaveBeenCalledOnceWith(
+      ALBERGO_GARDENIA_SITEMAP_URL,
+      expect.objectContaining({
+        ...ALBERGO_GARDENIA_FETCH_BUDGET.sitemap,
+        accept: 'application/xml,text/xml,*/*',
+      }),
+    );
+  });
+
   it('warns when the sticky transport budget margin thins as content pages accumulate', async () => {
     const sitemap = representativeSitemap();
     let now = 0;

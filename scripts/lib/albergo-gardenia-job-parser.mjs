@@ -583,7 +583,10 @@ function gardeniaDeadlineError(sourceUrl) {
  * connection-level exhaustion (status 0), retry the byte-identical apex/www
  * host alias. HTTP responses, robots denials and URL-policy failures never
  * cross the alias boundary: those are authoritative failures, not transport
- * noise. The caller still validates resource identity and source content.
+ * noise. An IP-reputation WAF response uses the bounded browser fallback
+ * instead, because the alternate transport is specifically meant to change
+ * egress identity. The caller still validates resource identity and source
+ * content.
  *
  * @param {string} rawUrl
  * @param {{ kind?: 'sitemap'|'content', fetchPage?: typeof politeFetch, browserFetchPage?: typeof politeFetch, transportState?: { preferred?: 'browser', preferredHost?: string }, deadlineAt?: number, nowImpl?: () => number }} [runtime]
@@ -627,10 +630,21 @@ export async function fetchAlbergoGardeniaSourcePage(
       return response;
     }
 
-    const connectionFailure = Number(response?.status || 0) === 0
+    const responseStatus = Number(response?.status || 0);
+    const connectionFailure = responseStatus === 0
       && !response?.blockedByRobots
       && !response?.policyBlocked;
-    if (!connectionFailure) return response;
+    const wafBlock = WAF_IP_BLOCK_STATUS.has(responseStatus);
+    if (!connectionFailure && !wafBlock) return response;
+    if (wafBlock) {
+      if (!browserFetchPage) return response;
+      if (nowImpl() >= deadlineAt) throw gardeniaDeadlineError(rawUrl);
+      console.warn(`  ⚠️ Gardenia HTTP WAF response (${responseStatus}) for ${rawUrl}; trying bounded Chromium transport.`);
+      const browserResponse = await browserFetchPage(rawUrl, fetchOptions);
+      if (nowImpl() >= deadlineAt) throw gardeniaDeadlineError(rawUrl);
+      if (browserResponse?.ok && transportState) transportState.preferred = 'browser';
+      return browserResponse;
+    }
     if (index < candidates.length - 1) {
       console.warn(`  ⚠️ Gardenia origin connection exhausted for ${candidateUrl}; trying the canonical host alias.`);
     }
