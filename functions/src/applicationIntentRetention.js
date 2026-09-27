@@ -10,6 +10,7 @@
 import admin from 'firebase-admin';
 
 export const APPLICATION_INTENTS_COLLECTION = 'application_intents';
+export const APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION = 'application_intent_reminder_deliveries';
 export const APPLICATION_INTENT_RETENTION_DAYS = 90;
 export const APPLICATION_INTENT_RETENTION_PAGE_SIZE = 450;
 export const APPLICATION_INTENT_RETENTION_MAX_PAGES = 20;
@@ -94,6 +95,12 @@ async function purgeExpiryField({ collection, db, field, cutoff, cutoffMs }) {
         continue;
       }
       batch.delete(doc.ref);
+      // Delivery claims contain the Auth uid and are keyed by the intent id;
+      // they must not outlive the 90-day source record.
+      const deliveryCollection = db.collection(APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION);
+      if (typeof deliveryCollection?.doc === 'function') {
+        batch.delete(deliveryCollection.doc(doc.id));
+      }
       pagePurged += 1;
     }
     if (pagePurged > 0) {

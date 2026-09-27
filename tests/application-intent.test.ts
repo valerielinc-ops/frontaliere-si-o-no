@@ -167,6 +167,22 @@ describe('application intent contract', () => {
     expect(database.writes.filter((write) => write.kind === 'create')).toHaveLength(1);
   });
 
+  it('stores the application mode and schedules the separate reminder without trusting completion input', async () => {
+    const database = makeDb();
+    const result = await handleRecordApplicationIntent({
+      req: request({ ...BASE_BODY, applicationMode: 'in_house', application_completed: true }),
+      token: { uid: 'firebase-user-2' },
+      db: database.db as never,
+    });
+    expect(result).toMatchObject({ status: 200, body: { recorded: true, application_status: 'pending' } });
+    const stored = Object.values(database.store)[0];
+    expect(stored.application_mode).toBe('in_house');
+    expect(stored.reminder).toMatchObject({ enabled: true, state: 'pending' });
+    expect((stored.reminder as { dueAt: Date }).dueAt).toBeInstanceOf(Date);
+    expect(stored.completion).toEqual({ state: 'unknown' });
+    expect(stored.application_completed).toBeUndefined();
+  });
+
   it('uses the opaque anonymous identifier when no account token is available', async () => {
     const database = makeDb();
     const result = await handleRecordApplicationIntent({
