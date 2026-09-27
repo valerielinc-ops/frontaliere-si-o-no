@@ -6833,6 +6833,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voti-federali-neutralita-alimentazione.title': 'Federal votes: neutrality and feeding at the polls',
     'blog.article.voti-federali-neutralita-alimentazione.excerpt': 'The Swiss population votes today on neutrality and food. The key data, polls and the position of the federal institutions.',
     'blog.article.voti-federali-neutralita-alimentazione.imageAlt': 'Voting ballots for the Swiss federal initiatives on neutrality and food security',
+    'blog.article.guida-tirocinio-soletta.title': 'Apprenticeship and vocational training in the Canton of Solothurn',
+    'blog.article.guida-tirocinio-soletta.excerpt': 'Guide to traineeship in the Canton of Solothurn: Swiss framework on minimum wage, hours, holidays, AVS/AI/IPG contributions and taxes.',
+    'blog.article.guida-tirocinio-soletta.imageAlt': 'Apprentice in a Swiss workshop during vocational training',
 };
 
 export default blogMetaChEn;

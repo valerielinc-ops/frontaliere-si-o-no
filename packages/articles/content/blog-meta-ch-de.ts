@@ -6833,6 +6833,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voti-federali-neutralita-alimentazione.title': 'Eidgenössische Abstimmungen: Neutralität und Versorgung an der Urne',
     'blog.article.voti-federali-neutralita-alimentazione.excerpt': 'Die Schweizer Bevölkerung stimmt heute über Neutralität und Ernährung ab. Die wichtigsten Daten, Umfragen und die Position der Bundesinstitutionen.',
     'blog.article.voti-federali-neutralita-alimentazione.imageAlt': 'Stimmzettel für die eidgenössischen Volksinitiativen zu Neutralität und Ernährung',
+    'blog.article.guida-tirocinio-soletta.title': 'Lehre und Berufsausbildung im Kanton Solothurn',
+    'blog.article.guida-tirocinio-soletta.excerpt': 'Leitfaden zur Lehre im Kanton Solothurn: Schweizer Rahmen zu Mindestlohn, Stundenplänen, Ferien, AHV/IV/EO-Beiträgen und Steuern.',
+    'blog.article.guida-tirocinio-soletta.imageAlt': 'Lernende Person in einer Schweizer Werkstatt während der Berufsbildung',
 };
 
 export default blogMetaChDe;
