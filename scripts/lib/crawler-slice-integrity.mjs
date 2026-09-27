@@ -90,7 +90,7 @@ function jobIdentity(job) {
 }
 
 function hasNonEmptyJobUrl(job) {
-  return Boolean(String(job?.url ?? '').trim());
+  return typeof job?.url === 'string' && job.url.trim().length > 0;
 }
 
 function uniqueIdentities(jobs) {
