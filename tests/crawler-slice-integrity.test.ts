@@ -263,6 +263,59 @@ describe('crawler slice integrity guard', () => {
       .toBe('buehler-foreign-prune');
   });
 
+  it('rejects an unknown legacy locality instead of treating it as foreign', () => {
+    const retained = buehlerJob(
+      'https://jobs.buhlergroup.com/job-vacancies/uzwil',
+      'Uzwil',
+      undefined,
+      'y'.repeat(100_000),
+    );
+    const previous = json({
+      crawlerKey: 'buehler',
+      jobs: [
+        buehlerJob(
+          'https://jobs.buhlergroup.com/job-vacancies/unknown-swiss-locality',
+          'Nuova località svizzera',
+          CRAWLER_GRACE_PERIOD_MAX_MISSES,
+          'x'.repeat(1_400_000),
+        ),
+        retained,
+      ],
+    });
+    const next = json({
+      crawlerKey: 'buehler',
+      jobs: [retained],
+    });
+
+    expect(isSafeBuehlerForeignPruneJobs(
+      'data/jobs/by-crawler/buehler.json',
+      JSON.parse(previous).jobs,
+      JSON.parse(next).jobs,
+    )).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe('data/jobs/by-crawler/buehler.json', previous, next))
+      .toThrow(/catastrophic truncation avoided/);
+  });
+
+  it('accepts an explicit non-CH country code as positive foreign evidence', () => {
+    const previous = json({
+      crawlerKey: 'buehler',
+      jobs: [
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/munich', 'Munich, DE', CRAWLER_GRACE_PERIOD_MAX_MISSES),
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil', 'Uzwil'),
+      ],
+    });
+    const next = json({
+      crawlerKey: 'buehler',
+      jobs: [buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil', 'Uzwil')],
+    });
+
+    expect(isSafeBuehlerForeignPruneJobs(
+      'data/jobs/by-crawler/buehler.json',
+      JSON.parse(previous).jobs,
+      JSON.parse(next).jobs,
+    )).toBe(true);
+  });
+
   it('rejects a removed legacy Bühler row with a non-integer miss streak', () => {
     const previous = json({
       crawlerKey: 'buehler',

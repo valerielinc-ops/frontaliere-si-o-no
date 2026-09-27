@@ -27,6 +27,42 @@ const SWISS_RE_LEGACY_HQ_FALLBACK_LOCATION_RE = /^(?:z(?:u|ü)rich|washington d)
 // exhausted grace streak, and a location that is not a Swiss municipality can
 // be removed in one intentional migration.
 const BUEHLER_LEGACY_SOURCE = 'bühler group dedicated parser (prospective medium 1008005)';
+// The pre-#9860 Bühler slice stored the source city but had already stamped
+// every row with the Swiss HQ country/canton.  These are the exact foreign
+// locality values present in that 2026-09-24 legacy snapshot (the only
+// unqualified evidence available after the old parser discarded the source
+// country).  Keep the historical migration proof positive and closed-world:
+// a new or malformed locality is not foreign merely because it is absent from
+// the Swiss municipality inventory.
+const BUEHLER_LEGACY_FOREIGN_LOCATION_KEYS = new Set([
+  'alzenau',
+  'bab ezzouar',
+  'bangkok',
+  'beijing',
+  'beilngries',
+  'biejing',
+  'braunschweig',
+  'cary',
+  'curitiba',
+  'hasselroth',
+  'holland',
+  'ikeja',
+  'leobendorf burg kreuzenstein',
+  'london',
+  'makati city',
+  'owatonna',
+  'perrysburg',
+  'plymouth',
+  'prague',
+  'singapore',
+  'skovlunde',
+  'subang jaya',
+  'tangerang',
+  'toluca',
+  'wuxi',
+  'izmir',
+  'الرياض',
+]);
 
 function normalizedPath(filePath) {
   return String(filePath ?? '').replace(/\\/g, '/');
@@ -144,7 +180,12 @@ function isLegacyBuehlerRow(job) {
 
 function isLegacyBuehlerForeignJob(job) {
   const location = String(job?.location ?? '').trim();
-  return isLegacyBuehlerRow(job) && location && !isKnownSwissMunicipality(location);
+  return isLegacyBuehlerRow(job)
+    && location
+    && (
+      isExplicitForeignLocation(location)
+      || BUEHLER_LEGACY_FOREIGN_LOCATION_KEYS.has(normalizedJobField(location))
+    );
 }
 
 function isLegacyBuehlerSwissJob(job) {
