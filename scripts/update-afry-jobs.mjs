@@ -51,7 +51,7 @@ import {
   inferAfryCategory,
   buildAfryLocalizedContent,
 } from './lib/afry-job-parser.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
@@ -98,24 +98,6 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 async function fetchText(url, timeoutMs = TIMEOUT_MS) {
   return fetchHtml(url, {
     timeoutMs,
@@ -157,7 +139,7 @@ async function fetchAllListings() {
   console.log('🔍 Fetching AFRY job listings via API...');
   console.log(`  📡 ${API_URL}`);
 
-  const data = await fetchJson(API_URL);
+  const data = await fetchJson(API_URL, { timeoutMs: TIMEOUT_MS });
   const { items, totalGlobal, totalSwiss } = parseAfryApiResponse(data);
 
   console.log(`📋 API returned ${totalGlobal} global jobs, ${totalSwiss} in Switzerland`);

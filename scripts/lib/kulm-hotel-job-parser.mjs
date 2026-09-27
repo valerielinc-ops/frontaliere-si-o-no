@@ -20,7 +20,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchJson } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -157,25 +157,6 @@ function mapContractDuration(duration = '', workload = '100') {
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
 
-async function fetchJson(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': USER_AGENT,
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 async function fetchHtml(url) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
@@ -214,7 +195,13 @@ async function fetchAllVacanciesFromApi() {
   do {
     const url = `${API_BASE}?page=${page}`;
     console.log(`  📥 Fetching page ${page}/${lastPage}: ${url}`);
-    const response = await fetchJson(url);
+    const response = await fetchJson(url, {
+      timeoutMs: TIMEOUT_MS,
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': USER_AGENT,
+      },
+    });
 
     if (response.data && Array.isArray(response.data)) {
       allVacancies.push(...response.data);

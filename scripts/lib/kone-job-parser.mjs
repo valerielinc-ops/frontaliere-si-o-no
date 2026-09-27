@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
@@ -113,31 +113,6 @@ function detectEmploymentType(text = '') {
  */
 const SR_API_BASE = 'https://api.smartrecruiters.com/v1/companies/KONE1';
 const PAGE_SIZE = 100;
-
-/**
- * Fetch JSON from the SmartRecruiters API with timeout handling.
- */
-async function fetchJson(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from SmartRecruiters API`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
 
 /**
  * Convert SmartRecruiters jobAd HTML sections to plain text description.

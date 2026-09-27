@@ -28,7 +28,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { detectLang } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
 import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -85,20 +85,6 @@ function isTrustedKsgrDomain(rawUrl = '') {
   } catch {
     return false;
   }
-}
-
-async function fetchJson(url) {
-  const response = await fetch(url, {
-    headers: {
-      Accept: 'application/json',
-      'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-    },
-  });
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status} for ${url}`);
-  }
-  return await response.json();
 }
 
 async function fetchAllKsgrJobs() {

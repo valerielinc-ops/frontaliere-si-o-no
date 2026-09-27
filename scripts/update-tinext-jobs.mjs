@@ -16,7 +16,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   printPublishedJobUrls,
@@ -155,26 +155,6 @@ function inferCategory(title = '') {
 }
 
 /* ── Fetch helpers ─────────────────────────────────────────── */
-async function fetchJson(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json, */*',
-        'User-Agent': UA,
-      },
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 async function fetchHtml(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
@@ -234,7 +214,9 @@ function parseDetailHtml(html) {
 /* ── Discover listings from API ────────────────────────────── */
 async function discoverListings() {
   console.log('🔍 Fetching Tinext positions from Kenjo API...');
-  const data = await fetchJson(LISTING_API);
+  const data = await fetchJson(LISTING_API, {
+    headers: { Accept: 'application/json, */*', 'User-Agent': UA },
+  });
 
   // The old `data?.activePositions || data?.positions || []` collapsed a TOTAL
   // drift (both keys absent) to `[]` — an array — so the `!Array.isArray` throw
@@ -287,7 +269,9 @@ async function buildJobs(positions) {
     let description = '';
     try {
       // Kenjo provides a public JSON detail API — use it instead of scraping the Angular SPA
-      const detail = await fetchJson(`${DETAIL_API_BASE}${customUrl}`);
+      const detail = await fetchJson(`${DETAIL_API_BASE}${customUrl}`, {
+        headers: { Accept: 'application/json, */*', 'User-Agent': UA },
+      });
       const descHtml = detail?.jobDescription?.html || '';
       description = stripHtml(descHtml);
       if (!description && descHtml) description = stripHtml(descHtml);

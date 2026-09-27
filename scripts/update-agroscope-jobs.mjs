@@ -63,7 +63,7 @@ import {
   inferAgroscopeCategory,
   buildAgroscopeLocalizedContent,
 } from './lib/agroscope-job-parser.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -106,26 +106,6 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        Origin: 'https://jobs.admin.ch',
-        Referer: 'https://jobs.admin.ch/',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
@@ -165,7 +145,13 @@ async function fetchAllListings() {
     const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}`;
     console.log(`  API: ${url}`);
 
-    const data = await fetchJson(url);
+    const data = await fetchJson(url, {
+      timeoutMs: TIMEOUT_MS,
+      headers: {
+        Origin: 'https://jobs.admin.ch',
+        Referer: 'https://jobs.admin.ch/',
+      },
+    });
     if (!data || !Array.isArray(data.jobs)) {
       throw new Error('Agroscope Prospective response has no jobs array');
     }
