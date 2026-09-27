@@ -550,14 +550,19 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(unanchoredConfirmationTarget(anchored)).toBeNull();
   });
 
-  it('never lets an id confirmation close a finding anchored on a file', () => {
+  it('lets the id confirmation close a finding anchored on a file, and nothing else (#10025)', () => {
     const anchored = { ...historicalImportantReview, body: reviewFor('src/changed.mjs', 'the parser drops the last row') };
     const [finding] = importantFindings(anchored.body);
-    const review = {
+    const review = (confirmation: string) => ({
       ...alignmentLgtmReview,
-      body: `## Findings (Important: 0, Nit: 0)\nFix di \`${stableFindingId(finding)}\`: ok.\n## LGTM`,
-    };
-    expect(historicalImportantFindings([anchored, review], { includeLatest: true })).toHaveLength(1);
+      body: `## Findings (Important: 0, Nit: 0)\n${confirmation}\n## LGTM`,
+    });
+    expect(historicalImportantFindings([anchored, review(`Fix di \`${stableFindingId(finding)}\`: ok.`)], { includeLatest: true }))
+      .toHaveLength(0);
+    // Un id diverso, o l'id di un altro finding, non chiude questo.
+    const other = importantFindings(reviewFor('src/changed.mjs', 'the parser drops the first row').body)[0];
+    expect(historicalImportantFindings([anchored, review(`Fix di \`${stableFindingId(other)}\`: ok.`)], { includeLatest: true }))
+      .toHaveLength(1);
   });
 
   it('closes restated unanchored 🔴 by their printed id, never by a prose paraphrase', () => {
@@ -1972,5 +1977,67 @@ describe('review gate: an acceptance checked only on the review bundle/ledger is
       mutate: false,
     });
     expect(blocked.approved).toBe(false);
+  });
+});
+
+describe('review gate: the stable id confirms a finding with cited files (#10025)', () => {
+  const bot = (id: number, body: string, commit: string) => ({
+    id,
+    user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    state: 'COMMENTED',
+    body,
+    commit_id: commit,
+  });
+  const FP = '.github/workflows/fast-publish-article.yml';
+  const RS = '.github/workflows/resync-cdn-article-chunks.yml';
+  // Forma reale della review delle 14:01 su #10025: tre 🔴 sugli stessi due
+  // workflow, ciascuno con una citazione per file.
+  const opening = bot(1, [
+    '## Findings (Important: 3, Nit: 0)',
+    `- ${FP}:L196, ${RS}:L84: 🔴 Important: [correctness] il lease viene rilasciato senza verificare lo SHA esatto dell'oggetto.`,
+    `- ${FP}:L212, ${RS}:L97: 🔴 Important: [correctness] il lease non viene rinnovato durante la pubblicazione lunga.`,
+    `- ${FP}:L320, ${RS}:L121: 🔴 Important: [correctness] il rilascio non usa If-Match e può cancellare il lease di un altro writer.`,
+  ].join('\n'), 'a'.repeat(40));
+  const findings = importantFindings(opening.body);
+  const ids = findings.map((finding) => stableFindingId(finding));
+  const approving = (confirmations: string[]) => bot(2, [
+    '## Findings (Important: 0, Nit: 0)',
+    ...confirmations,
+    '',
+    '## LGTM',
+  ].join('\n'), 'b'.repeat(40));
+
+  it('replay: four moved-line confirmations per file for three findings close nothing', () => {
+    const moved = [214, 241, 385, 393].map((line) => `Fix di \`${FP}:L${line}\`: ok.`)
+      .concat([101, 126, 164, 172].map((line) => `Fix di \`${RS}:L${line}\`: ok.`));
+    expect(findings).toHaveLength(3);
+    expect(historicalImportantFindings([opening, approving(moved)])).toHaveLength(3);
+  });
+
+  it('the stable ids close exactly the confirmed findings', () => {
+    expect(new Set(ids).size).toBe(3);
+    expect(historicalImportantFindings([opening, approving(ids.map((id) => `Fix di \`${id}\`: ok.`))]))
+      .toHaveLength(0);
+    const open = historicalImportantFindings([opening, approving([`Fix di \`${ids[1]}\`: ok.`])]);
+    expect(open.map((finding) => stableFindingId(finding)).sort()).toEqual([ids[0], ids[2]].sort());
+  });
+
+  it('an unknown or truncated id closes nothing', () => {
+    expect(historicalImportantFindings([opening, approving([
+      'Fix di `0123456789ab`: ok.',
+      `Fix di \`${ids[0].slice(0, 11)}\`: ok.`,
+    ])])).toHaveLength(3);
+  });
+
+  it('logs the id as the confirmation of a blocking in-diff finding', () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const classification = classifyReview(opening.body, { files: [FP, RS], complete: true, repositoryPaths: [FP, RS] });
+      logClassification(classification);
+      expect(log.mock.calls.flat().join('\n'))
+        .toContain(`review-gate: BLOCKING finding=1 path=${FP},${RS} reason=at least one cited file is in the current PR diff confirm="${ids[0]}"`);
+    } finally {
+      log.mockRestore();
+    }
   });
 });

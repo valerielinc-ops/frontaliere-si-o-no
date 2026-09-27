@@ -344,10 +344,12 @@ export function renderFindingsLedger({ open = [], confirmed = [], needsVerificat
   lines.push('Riporta un `open` con lo STESSO id e testo; non rialzare un `confirmed`.');
   // #9959: senza questa riga il reviewer non sapeva chiudere un `open` senza
   // file e ne rialzava uno nuovo sul ledger stesso, a ogni giro.
-  lines.push('Un `open` senza file né `PR body:L<n>`, se risolto, si chiude con `` Fix di `<id>`: ok. ``; mai un 🔴 sul ledger stesso.');
+  // #10025: anche con file citati l'id è la conferma che regge righe spostate
+  // e più 🔴 sullo stesso file; `path:L<n>` si accoppiava solo per conteggio.
+  lines.push('Un `open` risolto si chiude con `` Fix di `<id>`: ok. `` (del body: `PR body:L<n>`); mai un 🔴 sul ledger stesso.');
   if (uniqueToVerify.length > 0) {
     lines.push(`Un \`${LEDGER_NEEDS_VERIFICATION}\` è aperto per il gate, ma una review approvante successiva ha confermato un fix sullo stesso file: `
-      + 'apri l’anchor all’HEAD e verifica. Se il fix c’è scrivi `` Fix di `path:L<riga attuale>`: ok. ``; '
+      + 'apri l’anchor all’HEAD e verifica. Se il fix c’è scrivi `` Fix di `<id>`: ok. ``; '
       + 'ripresentalo come 🔴 solo con evidenza dal codice attuale, mai ricopiandolo.');
   }
   lines.push('');
