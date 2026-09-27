@@ -136,16 +136,36 @@ jobs:
           fi
           echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
 
+      # The renew step only proves that the watcher started. Refuse to begin a
+      # CDN mutation if it has already reported lease loss while the source was
+      # being refreshed.
+      - name: Verify article chunk lock before publication
+        id: verify_chunk_lock_before_publish
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.check_chunk_source.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/resync-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/resync-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/resync-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
       # Publish the named-export registry and all of its translation/slug
       # companions in strict mode. The script validates the standalone ESM
       # contract, observes each R2 upload's success marker, and requires the
       # targeted purge before declaring the resync complete (#5819).
       - name: Publish article chunks
-        if: inputs.dry_run == true || inputs.dry_run == 'true' || (steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true')
+        id: publish_chunks
+        if: inputs.dry_run == true || inputs.dry_run == 'true' || (steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true')
         run: |
           npx -y tsx@4 scripts/publish-article-chunks.mjs --strict ${{ inputs.dry_run && '--dry-run' || '' }}
 
       - name: Verify article chunk lock after resync
+        id: verify_chunk_lock_after_publish
         if: always() && steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success'
         run: |
           set -euo pipefail

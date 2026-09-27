@@ -363,6 +363,13 @@ async function main() {
     throw new Error('[publish-article-chunks] --ticker-only cannot be combined with --strict, --no-ticker, or --section');
   }
   const selected = chunksForSection(section);
+  const cfApiToken = process.env.CF_API_TOKEN;
+  // Strict mode must fail before the first CDN upload. Otherwise a missing
+  // purge credential can leave the client companions/registry ahead of the
+  // rendered hub even though the workflow correctly skips the shard push.
+  if (strict && !dryRun && !cfApiToken) {
+    throw new Error('CF_API_TOKEN is required for strict chunk publication');
+  }
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'publish-article-chunks-'));
   const uploadedKeys = [];
   let blogArticles = null;
@@ -464,12 +471,8 @@ async function main() {
     return;
   }
 
-  const token = process.env.CF_API_TOKEN;
+  const token = cfApiToken;
   if (!token) {
-    if (strict) {
-      fs.rmSync(tmpDir, { recursive: true, force: true });
-      throw new Error('CF_API_TOKEN is required for strict chunk publication');
-    }
     console.log('[publish-article-chunks] CF_API_TOKEN not set — skipping targeted CDN purge (non-fatal; short Cache-Control override still bounds staleness).');
     fs.rmSync(tmpDir, { recursive: true, force: true });
     return;

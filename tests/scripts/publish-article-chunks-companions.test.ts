@@ -101,4 +101,13 @@ describe('publish-article-chunks — registry never ships ahead of its translati
     expect(svizzera.companions.every((chunk) => !chunk.cdnKey.match(/blog-meta-(?!ch-)/))).toBe(true);
     expect(svizzera.companions.map((chunk) => chunk.cdnKey)).toContain('assets/routerSwissData.js');
   });
+
+  it('preflights the strict purge credential before any CDN upload', () => {
+    const preflight = src.indexOf("if (strict && !dryRun && !cfApiToken)");
+    const companionLoop = src.indexOf('for (const companion of selected.companions)');
+    const firstUpload = src.indexOf('uploadViaScript(outFile');
+    expect(preflight).toBeGreaterThan(-1);
+    expect(preflight).toBeLessThan(companionLoop);
+    expect(preflight).toBeLessThan(firstUpload);
+  });
 });

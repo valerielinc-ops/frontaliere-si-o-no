@@ -44,14 +44,20 @@ describe('fast-publish workflow invariants', () => {
 
   it('publishes client article chunks before any locale shard', () => {
     const clientIdx = workflow.indexOf('Publish client article chunks');
+    const lockAfterPublishIdx = workflow.indexOf('Verify article chunk lock after publication');
     const pushIdx = workflow.indexOf('Push locale shards');
     expect(clientIdx).toBeGreaterThan(-1);
+    expect(lockAfterPublishIdx).toBeGreaterThan(clientIdx);
+    expect(lockAfterPublishIdx).toBeLessThan(pushIdx);
     expect(clientIdx).toBeLessThan(pushIdx);
     const clientBlock = workflow.slice(clientIdx, pushIdx);
     expect(clientBlock).toContain('--strict');
     expect(clientBlock).toContain('--no-ticker');
     expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
       "steps.publish_chunks.outcome == 'success'",
+    );
+    expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
+      "steps.verify_chunk_lock_after_publish.outcome == 'success'",
     );
   });
 
@@ -111,6 +117,15 @@ describe('resync CDN article chunks workflow invariants', () => {
     expect(freshnessIdx).toBeGreaterThan(acquireIdx);
     expect(freshnessIdx).toBeLessThan(publishIdx);
     expect(publishIdx).toBeLessThan(releaseIdx);
+    const beforePublishIdx = workflow.indexOf('Verify article chunk lock before publication');
+    const afterPublishIdx = workflow.indexOf('Verify article chunk lock after resync');
+    expect(beforePublishIdx).toBeGreaterThan(freshnessIdx);
+    expect(beforePublishIdx).toBeLessThan(publishIdx);
+    expect(afterPublishIdx).toBeGreaterThan(publishIdx);
+    expect(afterPublishIdx).toBeLessThan(releaseIdx);
+    expect(workflow.slice(publishIdx, releaseIdx)).toContain(
+      "steps.verify_chunk_lock_before_publish.outcome == 'success'",
+    );
     expect(workflow.slice(releaseIdx, releaseIdx + 280)).toContain('always()');
   });
 

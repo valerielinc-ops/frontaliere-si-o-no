@@ -285,6 +285,26 @@ jobs:
           ARTICLE_SECTION: ${{ inputs.section }}
         run: npx -y tsx@4 scripts/publish-article-chunks.mjs --section "$ARTICLE_SECTION" --strict --no-ticker
 
+      # The renew step only proves that the watcher started. Its failure file
+      # is the authoritative signal when the watcher loses the lease while the
+      # strict client publication is still running. Check it before the first
+      # mutation after that publication, so a stale client cannot be followed
+      # by a hub shard push.
+      - name: Verify article chunk lock after publication
+        id: verify_chunk_lock_after_publish
+        if: always() && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/fast-publish-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
       # Mirrors the fault-tolerant parallel-push pattern at deploy.yml
       # (`push-section-shard.sh` fan-out, since #5130 driven by
       # scripts/lib/bounded-parallel.sh: a failing item is recorded, never
@@ -302,7 +322,7 @@ jobs:
       # uppercasing that exact token, so the two scripts resolve the SAME
       # deploy-key secret for the SAME shard repo.
       - name: Push locale shards (parallel, fault-tolerant)
-        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && steps.publish_chunks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.verify_chunk_lock_after_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && steps.publish_chunks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
@@ -364,7 +384,8 @@ jobs:
           echo "📦 Shard pushes confirmed landed for locale(s): ${PUSHED_CSV:-<none>}"
           exit "$fail"
 
-      - name: Verify article chunk lock after publication
+      - name: Verify article chunk lock after shard push
+        id: verify_chunk_lock_after_push
         if: always() && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success'
         run: |
           set -euo pipefail
@@ -433,7 +454,7 @@ jobs:
       # the full deploy.yml chain, which is the source of truth anyway.
       - name: Verify shard URLs are live
         id: verify
-        if: steps.render.outcome == 'success' && steps.publish_chunks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.publish_chunks.outcome == 'success' && steps.verify_chunk_lock_after_push.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           set +e
           node scripts/wait-for-live-article-shards.mjs /tmp/fast-publish/summary.json
