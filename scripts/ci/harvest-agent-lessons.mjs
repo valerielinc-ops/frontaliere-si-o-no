@@ -886,6 +886,13 @@ export function isEscalationDriver(source, key) {
   if (source === 'fix-outcome' && bareKey === 'skip-duplicate-diagnosis') return false;
   if (source === 'fix-outcome' && bareKey === 'overlap-skip') return false;
   if (source === 'fix-outcome' && bareKey === 'pr-already-open') return false;
+  // revenue-tracker-manual is an intentional terminal handoff, not a
+  // repeatable agent mistake: its diagnosis may depend on an external provider,
+  // a production-only measurement, or a credential/dispatch owned outside the
+  // repository. Keep the marker in the volume summary, but do not let the
+  // heterogeneous manual cases manufacture a false "rule is not working"
+  // escalation.
+  if (source === 'fix-outcome' && bareKey === 'revenue-tracker-manual') return false;
   return true;
 }
 
