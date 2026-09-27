@@ -376,7 +376,12 @@ export function extractAssetChunkUrl(error: unknown): string | null {
     payload?: { message?: unknown };
     detail?: { message?: unknown };
   } | null | undefined;
-  const messages = [value?.message, value?.payload?.message, value?.detail?.message]
+  const messages = [
+    typeof error === 'string' ? error : undefined,
+    value?.message,
+    value?.payload?.message,
+    value?.detail?.message,
+  ]
     .filter((message): message is string => typeof message === 'string');
 
   for (const message of messages) {
@@ -425,19 +430,22 @@ export async function bustAssetHttpCache(additionalUrls: readonly string[] = [])
       typeof performance !== 'undefined' && typeof performance.getEntriesByType === 'function'
         ? performance.getEntriesByType('resource')
         : [];
-    urls = entries
+    urls.push(
+      ...entries
       .map((e) => (e as PerformanceResourceTiming).name)
-      .filter((u) => /\/assets\/.+\.(?:js|css)(?:\?|$)/.test(u));
+      .filter((u) => /\/assets\/.+\.(?:js|css)(?:\?|$)/.test(u)),
+    );
   } catch {
     /* Resource Timing unavailable — the DOM scan below still runs. */
   }
   // Second, INDEPENDENT enumeration path — always unioned with Resource Timing
   // (not just when it comes back empty), so a partial eviction that dropped
   // only SOME entries still recovers the ones still present as DOM nodes. Note
-  // this cannot cover chunks loaded via dynamic import(): a native ES module
-  // dynamic import never leaves a <script>/<link> element in the DOM, so an
-  // evicted Resource Timing entry for one is unrecoverable by this path — the
-  // buffer-size raise above is the actual mitigation for that case.
+  // this cannot enumerate chunks loaded via dynamic import(): a native ES
+  // module dynamic import never leaves a <script>/<link> element in the DOM.
+  // `clearAssetCaches(reason)` supplies the exact URL from the import error;
+  // the raised Resource Timing cap remains the fallback for browser errors
+  // that omit the URL.
   if (typeof document !== 'undefined') {
     try {
       document

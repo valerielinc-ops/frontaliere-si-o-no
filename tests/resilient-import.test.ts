@@ -7,6 +7,7 @@ import {
   isModuleParseError,
   recoverFromStaleChunk,
   bustAssetHttpCache,
+  extractAssetChunkUrl,
   MAX_RELOADS,
   MAX_TOTAL_RELOADS,
 } from '@/services/resilientImport';
@@ -113,6 +114,7 @@ describe('resilientImport', () => {
       .mockResolvedValueOnce({ updateMetaTags: vi.fn() });
 
     try {
+      expect(extractAssetChunkUrl(stale)).toBe(failedUrl);
       await expect(resilientImport(factory)).resolves.toEqual({ updateMetaTags: expect.any(Function) });
       expect(fetchMock).toHaveBeenCalledWith(failedUrl, expect.objectContaining({ cache: 'reload' }));
     } finally {
