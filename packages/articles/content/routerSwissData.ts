@@ -2304,6 +2304,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'urne-27-settembre-2026': { it: 'urne-27-settembre-2026', en: 'ballots-september-27-2026', de: 'abstimmungen-27-september-2026', fr: 'votations-27-septembre-2026' },
  'iniziativa-neutralita-respinta': { it: 'iniziativa-neutralita-respinta', en: 'neutrality-initiative-rejected', de: 'neutralitaetsinitiative-abgelehnt', fr: 'initiative-neutralite-rejetee' },
  'iniziativa-alimentazione-respinta': { it: 'iniziativa-alimentazione-respinta', en: 'food-initiative-rejected-switzerland', de: 'ernaehrungsinitiative-abgelehnt', fr: 'initiative-alimentation-rejetee' },
+ 'vaud-voto-taglio-fiscale': { it: 'vaud-voto-taglio-fiscale', en: 'vaud-vote-tax-cut', de: 'waadt-abstimmung-steuersenkung', fr: 'vaud-vote-baisse-impots' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

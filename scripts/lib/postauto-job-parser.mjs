@@ -64,7 +64,10 @@ import { fetchJson, slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { parsePostJobDetail, extractPostJobIdFromUrl } from './postch-job-parser.mjs';
 import { dedicatedPostOwner } from './crawler-company-ownership.mjs';
-import { createMutableFeedPaginationTracker } from './pagination-identity.mjs';
+import {
+  createMutableFeedPaginationTracker,
+  recordMutableFeedPageWithRetry,
+} from './pagination-identity.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -341,8 +344,25 @@ async function fetchPostAutoListings(timeoutMs) {
         complete = true;
         break;
       }
-      const pageIds = progress.record(jobs, pageNumber);
-      for (const [index, record] of jobs.entries()) {
+      const recorded = await recordMutableFeedPageWithRetry({
+        tracker: progress,
+        items: jobs,
+        page: pageNumber,
+        reload: async () => {
+          const retry = await fetchJobsApiPage(apiLocale, pageNumber, timeoutMs);
+          if (retry.fetchOutcome !== 'ok') {
+            throw new Error(
+              `PostAuto ${apiLocale} pagination failed at page ${pageNumber} on retry: ${retry.fetchOutcome}.`,
+            );
+          }
+          if (totalJobs === null && Number.isFinite(retry.totalJobs) && retry.totalJobs > 0) {
+            totalJobs = retry.totalJobs;
+          }
+          return retry.jobs;
+        },
+      });
+      const pageIds = recorded.pageIdentities;
+      for (const [index, record] of recorded.items.entries()) {
         const id = pageIds[index];
         if (isPostAutoRecord(record)) byId.set(id, record);
       }
