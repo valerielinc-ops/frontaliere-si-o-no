@@ -113,6 +113,10 @@ function readFromOrigin<T>(h: Harness, relPath: string): T {
   const out = execFileSync('git', ['show', `main:${relPath}`], {
     cwd: h.originDir,
     encoding: 'utf8',
+    // Real crawler slices can exceed Node's 1 MiB default (acme.json is
+    // currently ~1.4 MiB). The test must inspect the complete JSON, not turn a
+    // valid large slice into an unrelated ENOBUFS failure.
+    maxBuffer: 32 * 1024 * 1024,
   });
   return JSON.parse(out) as T;
 }
