@@ -12157,6 +12157,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-icesport-open-day.title': 'Icesport Varese: Open Day for over 100 kids on the ice',
     'blog.article.varese-icesport-open-day.excerpt': 'On Saturday 5 September, Icesport Varese\'s Open Day attracted over one hundred children and young people onto the ice, with most groups nearing capacity.',
     'blog.article.varese-icesport-open-day.imageAlt': 'Children lacing up ice skates during Icesport Varese Open Day',
+    'blog.article.varese-lentigione-pareggio-mangano.title': 'Varese-Season 1-1: Manganese for 95\'rigour',
+    'blog.article.varese-lentigione-pareggio-mangano.excerpt': 'Varese snatches a point from Lentigione thanks to Mangano’s decisive save in stoppage time, after Beretta’s goal and Bontempi’s equalizer.',
+    'blog.article.varese-lentigione-pareggio-mangano.imageAlt': 'Professional football pitch with green grass and white lines',
 };
 
 export default blogMetaEn;
