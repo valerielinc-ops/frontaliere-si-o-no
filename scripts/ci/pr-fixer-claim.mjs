@@ -486,12 +486,22 @@ export function validateRedflagClaimSnapshot({ pr, reviews, claim } = {}) {
   // questa sola classe, es. run 36310778998 su #9959).
   const superseded = (reason) => ({ valid: false, superseded: true, reason });
   if (!claim || claim.workflow !== 'redflag') return deny('claim redflag mancante');
+  // Forma del claim PRIMA di ogni confronto: un campo mancante o malformato
+  // non combacia con niente, e senza questo controllo diventerebbe una
+  // «sostituzione» verde invece di un rifiuto rosso (fail-closed).
+  const claimHead = String(claim.headSha || '').toLowerCase();
+  if (!SHA_RE.test(claimHead)) return deny('HEAD del claim malformata');
+  const claimRevision = normalizeReviewInputRevision(claim.reviewRevision);
+  if (!claimRevision) return deny('body revision del claim malformata');
+  const eventMatch = String(claim.eventKey || '').match(/^review:([1-9][0-9]*)$/u);
+  if (!eventMatch) return deny('review id del claim non verificabile');
+  if (!/^findings:\S+$/u.test(String(claim.verdictKey || ''))) return deny('verdetto del claim malformato');
   if (!pr || typeof pr !== 'object' || Array.isArray(pr)) return deny('PR metadata mancante');
   if (String(pr.state || '').toLowerCase() !== 'open') return deny('PR non più aperta');
   const head = String(pr.head?.sha || pr.headRefOid || '').toLowerCase();
   // Una HEAD illeggibile non e' una sostituzione: resta un rifiuto rosso.
   if (!SHA_RE.test(head)) return deny('HEAD PR non verificabile dopo il claim');
-  if (head !== String(claim.headSha || '').toLowerCase()) {
+  if (head !== claimHead) {
     return superseded('HEAD cambiata dopo il claim');
   }
   let currentRevision;
@@ -501,11 +511,9 @@ export function validateRedflagClaimSnapshot({ pr, reviews, claim } = {}) {
     return deny('body PR non verificabile dopo il claim');
   }
   if (!currentRevision) return deny('body PR non verificabile dopo il claim');
-  if (currentRevision !== claim.reviewRevision) {
+  if (currentRevision !== claimRevision) {
     return superseded('body revision cambiata dopo il claim');
   }
-  const eventMatch = String(claim.eventKey || '').match(/^review:([1-9][0-9]*)$/u);
-  if (!eventMatch) return deny('review id del claim non verificabile');
   const current = flattenReviewPages(reviews).find((review) => String(review?.id || '') === eventMatch[1]);
   if (!current) return deny('review del claim non più presente');
   if (current.user?.type !== 'Bot' || !CLAIM_ACTOR_RE.test(String(current.user.login || ''))) {

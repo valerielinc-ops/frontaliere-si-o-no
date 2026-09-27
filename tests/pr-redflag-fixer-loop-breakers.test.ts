@@ -132,6 +132,35 @@ describe('2. claim sostituito in modo benigno → run verde, non rossa', () => {
     }
   });
 
+  it('i campi malformati del claim sono validati PRIMA dei confronti (review #10068)', () => {
+    // Accettazione della review: un claim senza HEAD o senza revision non
+    // combacia con niente, ma non è una sostituzione — deve restare rosso.
+    const pr = { state: 'open', head: { sha: HEAD }, body: '' };
+    const bad = { workflow: 'redflag', eventKey: 'bad', verdictKey: 'bad' };
+    for (const claim of [
+      { ...bad, headSha: '', reviewRevision: 'x' },
+      { ...bad, headSha: HEAD, reviewRevision: '' },
+    ]) {
+      const verdict = validateRedflagClaimSnapshot({ pr, reviews: [[]], claim });
+      expect(verdict.valid).toBe(false);
+      expect(verdict.superseded === true).toBe(false);
+    }
+    // Stessi campi malformati anche con HEAD/revision/review che non combaciano.
+    const s = snapshot();
+    const moved = { ...s, pr: { ...s.pr, head: { sha: NEXT }, body: `${prBody}\nedit` } };
+    for (const claim of [
+      { ...s.claim, headSha: 'nope' },
+      { ...s.claim, reviewRevision: '' },
+      { ...s.claim, reviewRevision: 'body:zz' },
+      { ...s.claim, eventKey: 'review:0' },
+      { ...s.claim, verdictKey: '' },
+    ]) {
+      const verdict = validateRedflagClaimSnapshot({ ...moved, claim });
+      expect(verdict.valid).toBe(false);
+      expect(verdict.superseded === true, JSON.stringify(claim)).toBe(false);
+    }
+  });
+
   it('la CLI verify esporta claim_superseded=true su HEAD cambiata', () => {
     const dir = mkdtempSync(path.join(tmpdir(), 'redflag-claim-verify-'));
     try {
