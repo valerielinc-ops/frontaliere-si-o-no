@@ -41,6 +41,105 @@ describe('fast-publish workflow invariants', () => {
     const notifyBlock = workflow.slice(notifyIdx, notifyIdx + 400);
     expect(notifyBlock).toMatch(/steps\.verify\.outcome\s*==\s*'success'/);
   });
+
+  it('publishes client article chunks before any locale shard', () => {
+    const clientIdx = workflow.indexOf('Publish client article chunks');
+    const lockAfterPublishIdx = workflow.indexOf('Verify article chunk lock after publication');
+    const pushIdx = workflow.indexOf('Push locale shards');
+    expect(clientIdx).toBeGreaterThan(-1);
+    expect(lockAfterPublishIdx).toBeGreaterThan(clientIdx);
+    expect(lockAfterPublishIdx).toBeLessThan(pushIdx);
+    expect(clientIdx).toBeLessThan(pushIdx);
+    const clientBlock = workflow.slice(clientIdx, pushIdx);
+    expect(clientBlock).toContain('--strict');
+    expect(clientBlock).toContain('--no-ticker');
+    expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
+      "steps.publish_chunks.outcome == 'success'",
+    );
+    expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
+      "steps.verify_chunk_lock_after_publish.outcome == 'success'",
+    );
+  });
+
+  it('holds an atomic section lock from registry publication through shard push', () => {
+    const acquireIdx = workflow.indexOf('Acquire article chunk section lock');
+    const renewIdx = workflow.indexOf('Renew article chunk section lock');
+    const freshnessIdx = workflow.indexOf('Check article chunk source is current');
+    const publishIdx = workflow.indexOf('Publish client article chunks');
+    const pushIdx = workflow.indexOf('Push locale shards');
+    const releaseIdx = workflow.indexOf('Release article chunk section lock');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs acquire');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs renew');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs release');
+    expect(acquireIdx).toBeGreaterThan(-1);
+    expect(renewIdx).toBeGreaterThan(acquireIdx);
+    expect(renewIdx).toBeLessThan(publishIdx);
+    expect(acquireIdx).toBeLessThan(publishIdx);
+    expect(freshnessIdx).toBeGreaterThan(acquireIdx);
+    expect(freshnessIdx).toBeLessThan(publishIdx);
+    expect(publishIdx).toBeLessThan(pushIdx);
+    expect(pushIdx).toBeLessThan(releaseIdx);
+    expect(workflow.slice(releaseIdx, releaseIdx + 260)).toContain('always()');
+  });
+
+  it('refreshes a stale checkout before publishing the registry or shard snapshot', () => {
+    expect(workflow).toContain('git fetch --no-tags --depth=1 origin main');
+    expect(workflow).toContain('article-chunk-publish-freshness.mjs');
+    const freshnessIdx = workflow.indexOf('Check article chunk source is current');
+    const publishIdx = workflow.indexOf('Publish client article chunks');
+    const pushIdx = workflow.indexOf('Push locale shards');
+    const freshnessBlock = workflow.slice(freshnessIdx, publishIdx);
+    expect(freshnessBlock).toContain('git checkout --detach --force origin/main');
+    expect(freshnessBlock).toContain('scripts/publish-article-fast.mjs');
+    const publishAndPush = workflow.slice(publishIdx, workflow.indexOf('Verify shard URLs are live'));
+    expect(publishAndPush).toContain("steps.check_chunk_source.outputs.current == 'true'");
+    expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
+      "steps.check_chunk_source.outputs.current == 'true'",
+    );
+  });
+});
+
+describe('resync CDN article chunks workflow invariants', () => {
+  const workflow = read('.github/workflows/resync-cdn-article-chunks.yml');
+
+  it('shares both section locks with fast-publish and releases them after the strict publish', () => {
+    const acquireIdx = workflow.indexOf('Acquire article chunk section locks');
+    const renewIdx = workflow.indexOf('Renew article chunk section locks');
+    const freshnessIdx = workflow.indexOf('Check resync source is current');
+    const publishIdx = workflow.indexOf('Publish article chunks');
+    const releaseIdx = workflow.indexOf('Release article chunk section locks');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs renew');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera');
+    expect(acquireIdx).toBeLessThan(publishIdx);
+    expect(renewIdx).toBeGreaterThan(acquireIdx);
+    expect(renewIdx).toBeLessThan(publishIdx);
+    expect(freshnessIdx).toBeGreaterThan(acquireIdx);
+    expect(freshnessIdx).toBeLessThan(publishIdx);
+    expect(publishIdx).toBeLessThan(releaseIdx);
+    const beforePublishIdx = workflow.indexOf('Verify article chunk lock before publication');
+    const afterPublishIdx = workflow.indexOf('Verify article chunk lock after resync');
+    expect(beforePublishIdx).toBeGreaterThan(freshnessIdx);
+    expect(beforePublishIdx).toBeLessThan(publishIdx);
+    expect(afterPublishIdx).toBeGreaterThan(publishIdx);
+    expect(afterPublishIdx).toBeLessThan(releaseIdx);
+    expect(workflow.slice(publishIdx, releaseIdx)).toContain(
+      "steps.verify_chunk_lock_before_publish.outcome == 'success'",
+    );
+    expect(workflow.slice(releaseIdx, releaseIdx + 280)).toContain('always()');
+  });
+
+  it('refreshes an older queued resync before publishing a newer registry', () => {
+    expect(workflow).toContain('git fetch --no-tags --depth=1 origin main');
+    expect(workflow).toContain('article-chunk-publish-freshness.mjs');
+    const freshnessIdx = workflow.indexOf('Check resync source is current');
+    const publishIdx = workflow.indexOf('Publish article chunks');
+    const releaseIdx = workflow.indexOf('Release article chunk section locks');
+    expect(workflow.slice(freshnessIdx, publishIdx)).toContain('git checkout --detach --force origin/main');
+    expect(workflow.slice(publishIdx, releaseIdx)).toContain(
+      "steps.check_chunk_source.outputs.current == 'true'",
+    );
+  });
 });
 
 describe('push-article-shard-incremental.sh invariants', () => {

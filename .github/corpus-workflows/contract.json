@@ -4,11 +4,11 @@
   "generatorSha256": "b0face063cf625741257c9750e16fe48e070063ea744204083cf9a411f7b10d2",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "e8250104f2c691b03c7daf84db35fdc1233e555d",
+  "sourceCommit": "704b8520565cf0adbf34d7d82fcba5df46ac9a68",
   "artifactObservation": {
     "generatorSha256": "b0face063cf625741257c9750e16fe48e070063ea744204083cf9a411f7b10d2",
     "sourceRef": "main",
-    "sourceCommit": "e8250104f2c691b03c7daf84db35fdc1233e555d"
+    "sourceCommit": "704b8520565cf0adbf34d7d82fcba5df46ac9a68"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -17,7 +17,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:de1a8b9d887cd696710a865c4524659460c15bfc0577e80ac85b838e8b88fcd5",
+    "rosterDigest": "sha256:e0115611f9d7eac81d4e2a7ce2ecb1fc9f981c6d9cfe07c95e9661511f9e32fa",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -1066,8 +1066,8 @@
     {
       "file": "crawler-group-13.yml",
       "sourceLogic": "crawler-group-13-logic.yml",
-      "sourceSha256": "eed5f66524de8e480031b0c1ece7e6c2bafec473bf17e8742b712001c35e85b3",
-      "artifactSha256": "7682ff00d736828e988034df0b2212768ec265952c22caefed541c686d8b81d5",
+      "sourceSha256": "3f8196d2d673aefb3969cb84537c3f90212f0a5467cb6cf5629a01c32e7d1445",
+      "artifactSha256": "5be5ce78121e08d6c445d8cf67780ad9309fe4aa8a11bea14ecfecfc15029a7d",
       "generatorSha256": "b0face063cf625741257c9750e16fe48e070063ea744204083cf9a411f7b10d2",
       "members": [
         "pwc",
@@ -1088,11 +1088,9 @@
         "riri",
         "helsana",
         "lombardi",
-        "buehler",
         "kuhn-rikon",
         "cern",
         "groupe-e",
-        "afry",
         "banca-sempione",
         "edmond-de-rothschild",
         "csvp-poschiavo",
@@ -1437,8 +1435,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "8d7981e4ed0e1337cf4cb9f3a2d72f8927013ec2867d2e1402fe461001242c15",
-      "artifactSha256": "6964772f2817f902a1f5faee178cd415d9f87f8bd5eca1c6c21eb1b9e54727d2",
+      "sourceSha256": "bed6d695936635848213568cfbde75d1204f64dd17770994887b3cd67566634d",
+      "artifactSha256": "5231739c19cdcd566e0dce8fdaf6a339c05723b55cf8b0e643886264f7734135",
       "generatorSha256": "b0face063cf625741257c9750e16fe48e070063ea744204083cf9a411f7b10d2",
       "members": [
         "albergo-gardenia",
@@ -1449,7 +1447,6 @@
         "lidl",
         "migros-hq",
         "nestle",
-        "postauto",
         "postch",
         "brefispersonal",
         "ecam",
@@ -1460,8 +1457,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "3d71879db72edad5c7e9cd721e1893fce329d96db00ad658b41a892fca6ee939",
-      "artifactSha256": "0b0bb0f72653eedd3e90f8fea1bae756b859e1c2ec1fdadc64301a35236673ba",
+      "sourceSha256": "c0c41e377584acd6a9f179fbe324bb02ed980c1d068a2b16ecf94b87ae45b30a",
+      "artifactSha256": "8c1bee0f44b6a17919b3b0f9ebc6c7ef219fb682bc80e2aa47357b7059db6d2b",
       "generatorSha256": "b0face063cf625741257c9750e16fe48e070063ea744204083cf9a411f7b10d2",
       "members": [
         "mcdonald-s-switzerland",
@@ -1480,7 +1477,10 @@
         "lwphr",
         "sunrise",
         "knowledge-lab",
-        "convit"
+        "convit",
+        "afry",
+        "buehler",
+        "postauto"
       ]
     },
     {

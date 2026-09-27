@@ -8,29 +8,32 @@ const workflow = readFileSync(
 );
 
 /**
- * #4959 — fast-publish must never republish the Rollup-owned client modules.
- *
- * data/blog-articles-data.ts is imported both statically and dynamically by the
- * app, so Rollup emits the chunk with a generated namespace export and rewrites
- * the dynamic site to `.then(m => m.blogArticlesData)`. A standalone esbuild
- * build of the same source carries only `ARTICLES`; publishing it over the Vite
- * chunk made that pick resolve to `undefined` and stranded every article page on
- * its loading skeleton until the next full deploy.
- *
- * The news-ticker payload is exempt: plain JSON on a stable, hand-authored
- * contract, so `--ticker-only` stays wired.
+ * #5819 — the fast-publish HTML hub and the client registry must move in a
+ * safe order. The standalone publisher now targets the named exports the
+ * consumers actually import (`ARTICLES` / `SWISS_ARTICLES`), validates every
+ * companion first, and fails closed before an HTML shard can be pushed.
  */
 describe('fast-publish article workflow', () => {
-  const invocations = [...workflow.matchAll(/publish-article-chunks\.mjs(?<args>[^\n]*)/g)];
+  const invocations = [...workflow.matchAll(/run:\s+npx -y tsx@4 scripts\/publish-article-chunks\.mjs(?<args>[^\n]*)/g)];
 
-  it('never publishes a standalone client registry outside the Vite build', () => {
-    for (const match of invocations) {
-      expect(match.groups?.args ?? '').toContain('--ticker-only');
-    }
+  it('publishes the selected client registry before locale shards', () => {
+    const publishIdx = workflow.indexOf('Publish client article chunks');
+    const pushIdx = workflow.indexOf('Push locale shards');
+    expect(publishIdx).toBeGreaterThan(-1);
+    expect(publishIdx).toBeLessThan(pushIdx);
+    const publishBlock = workflow.slice(publishIdx, pushIdx);
+    expect(publishBlock).toContain('--section "$ARTICLE_SECTION"');
+    expect(publishBlock).toContain('--strict');
+    expect(publishBlock).toContain('--no-ticker');
+    expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
+      "steps.publish_chunks.outcome == 'success'",
+    );
   });
 
-  it('still refreshes the news-ticker payload per article', () => {
-    expect(invocations).toHaveLength(1);
-    expect(workflow).toContain('scripts/publish-article-chunks.mjs --ticker-only');
+  it('still refreshes the news-ticker payload after live verification', () => {
+    expect(invocations).toHaveLength(2);
+    const ticker = invocations.find((match) => (match.groups?.args ?? '').includes('--ticker-only'));
+    expect(ticker).toBeDefined();
+    expect(workflow.indexOf('Publish news-ticker payload')).toBeGreaterThan(workflow.indexOf('Verify shard URLs are live'));
   });
 });
