@@ -34654,12 +34654,13 @@
           "removedKeys": []
         },
         {
-          "key": "employe-e-d-administration",
-          "name": "Employé-e d'administration",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-employe-e-d-administration",
+          "key": "personale-amministrativo",
+          "name": "Personale amministrativo",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-personale-amministrativo",
           "addedKeys": [
             "url:https://jobs.fr.ch/job/ch%c3%a2tel-st-denis%2c-ch-employ%c3%a9-e-d'administration-veve/1372853957",
-            "url:https://jobs.fr.ch/job/granges-paccot%2c-ch-employ%c3%a9-e-d'administration-sari/1372831657"
+            "url:https://jobs.fr.ch/job/granges-paccot%2c-ch-employ%c3%a9-e-d'administration-sari/1372831657",
+            "url:https://jobs.fr.ch/job/granges-paccot%2c-ch-verwaltungsangestellter-saan/1372831757"
           ],
           "updatedKeys": [],
           "removedKeys": []
@@ -37416,9 +37417,9 @@
           "removedKeys": []
         },
         {
-          "key": "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse",
-          "name": "Assesseur-e suppléant-e (travailleurs) au Tribunal des prud'hommes de la Veveyse",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse",
+          "key": "avvocato-in-carica-presso-il-tribunal-des-prud-hommes-de-la-veveyse",
+          "name": "Avvocato in carica presso il Tribunal des Prud'hommes de la Veveyse",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-avvocato-in-carica-presso-il-tribunal-des-prud-hommes-de-la-veveyse",
           "addedKeys": [
             "url:https://jobs.fr.ch/job/ch%c3%a2tel-st-denis%2c-ch-assesseur-e-suppl%c3%a9ant-e-%28travailleurs%29-au-tribunal-des-prud'hommes-de-la-veveyse-veve/1372830057"
           ],
@@ -39726,31 +39727,22 @@
           "removedKeys": []
         },
         {
-          "key": "collaborateur-trice-administratif-ve-superieur-e",
-          "name": "Collaborateur-trice administratif-ve supérieur-e",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaborateur-trice-administratif-ve-superieur-e",
-          "addedKeys": [
-            "url:https://jobs.fr.ch/job/fribourg%2c-ch-collaborateur-trice-administratif-ve-sup%c3%a9rieur-e-sari/1372958657"
-          ],
-          "updatedKeys": [],
-          "removedKeys": []
-        },
-        {
-          "key": "collaborateur-trice-en-gestion-comptable-responsable-de-la-comptabilite",
-          "name": "Collaborateur-trice en gestion comptable - Responsable de la comptabilité",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaborateur-trice-en-gestion-comptable-responsable-de-la-comptabilite",
-          "addedKeys": [
-            "url:https://jobs.fr.ch/job/fribourg%2c-ch-collaborateur-trice-en-gestion-comptable-responsable-de-la-comptabilit%c3%a9-sari/1372984257"
-          ],
-          "updatedKeys": [],
-          "removedKeys": []
-        },
-        {
           "key": "collaboratore-amministrativo",
           "name": "Collaboratore amministrativo",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaboratore-amministrativo",
           "addedKeys": [
+            "url:https://jobs.fr.ch/job/fribourg%2c-ch-collaborateur-trice-administratif-ve-sup%c3%a9rieur-e-sari/1372958657",
             "url:https://jobs.fr.ch/job/fribourg%2c-ch-collaborateur-trice-administratif-ve-sari/1372959757"
+          ],
+          "updatedKeys": [],
+          "removedKeys": []
+        },
+        {
+          "key": "collaboratore-in-gestione-contabile-responsabile-contabile",
+          "name": "Collaboratore in Gestione contabile - Responsabile contabile",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaboratore-in-gestione-contabile-responsabile-contabile",
+          "addedKeys": [
+            "url:https://jobs.fr.ch/job/fribourg%2c-ch-collaborateur-trice-en-gestion-comptable-responsable-de-la-comptabilit%c3%a9-sari/1372984257"
           ],
           "updatedKeys": [],
           "removedKeys": []
@@ -40426,9 +40418,9 @@
           "removedKeys": []
         },
         {
-          "key": "expertin-experte-notfallpflege-nds-hf",
-          "name": "Expertin / Experte Notfallpflege NDS HF",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-expertin-experte-notfallpflege-nds-hf",
+          "key": "expert-expert-emergency-care-nds-hf",
+          "name": "Expert / Expert Emergency Care NDS HF",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-expert-expert-emergency-care-nds-hf",
           "addedKeys": [
             "url:https://live.solique.ch/ksw/job/details/4073028"
           ],
@@ -40606,9 +40598,9 @@
           "removedKeys": []
         },
         {
-          "key": "finanzbuchhalter-m-w-80-100",
-          "name": "Finanzbuchhalter (m/w) 80-100%",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-finanzbuchhalter-m-w-80-100",
+          "key": "contabilita-finanziaria-m-f-80-100",
+          "name": "Contabilità finanziaria (m/f) 80-100 %",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-contabilita-finanziaria-m-f-80-100",
           "addedKeys": [
             "url:https://jobs.yellowshark.com/job/sa068045"
           ],
@@ -45976,9 +45968,9 @@
           "removedKeys": []
         },
         {
-          "key": "it-support-techniker-m-w-100",
-          "name": "IT Support-Techniker (m/w) 100%",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-it-support-techniker-m-w-100",
+          "key": "supporto-tecnico-m-f-100",
+          "name": "Supporto tecnico (m/f) 100%",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-supporto-tecnico-m-f-100",
           "addedKeys": [
             "url:https://jobs.yellowshark.com/job/sa068022"
           ],
@@ -61266,9 +61258,9 @@
           "removedKeys": []
         },
         {
-          "key": "technischer-facility-manager-80-100-m-w",
-          "name": "Technischer Facility Manager 80–100 % (m/w)",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-technischer-facility-manager-80-100-m-w",
+          "key": "direttore-tecnico-della-struttura-80-100-m-f",
+          "name": "Direttore tecnico della struttura 80-100% (m/f)",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-direttore-tecnico-della-struttura-80-100-m-f",
           "addedKeys": [
             "url:https://jobs.yellowshark.com/job/sa068090"
           ],
@@ -61746,21 +61738,11 @@
           "removedKeys": []
         },
         {
-          "key": "vertriebsmitarbeiter-westschweiz-m-w-d",
-          "name": "Vertriebsmitarbeiter Westschweiz (m/w/d)",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-vertriebsmitarbeiter-westschweiz-m-w-d",
+          "key": "personale-commerciale-in-svizzera-occidentale-m-f-d",
+          "name": "Personale commerciale in Svizzera occidentale (m/f/d)",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-personale-commerciale-in-svizzera-occidentale-m-f-d",
           "addedKeys": [
             "url:https://jobs.yellowshark.com/job/sa068085"
-          ],
-          "updatedKeys": [],
-          "removedKeys": []
-        },
-        {
-          "key": "verwaltungsangestellte-r",
-          "name": "Verwaltungsangestellte/r",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-verwaltungsangestellte-r",
-          "addedKeys": [
-            "url:https://jobs.fr.ch/job/granges-paccot%2c-ch-verwaltungsangestellter-saan/1372831757"
           ],
           "updatedKeys": [],
           "removedKeys": []
