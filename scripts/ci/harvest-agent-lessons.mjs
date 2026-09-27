@@ -136,6 +136,24 @@ export function collectWindow(days, fetchDay, { cap = SEARCH_RESULT_CAP } = {}) 
 }
 
 /**
+ * Un giorno della finestra con ripiego: prima la lista completa (una query);
+ * se fallisce, la lista leggera idratata elemento per elemento. `null` solo se
+ * falliscono entrambe, e allora `collectWindow` dichiara il giorno mancante.
+ * @template T
+ * @param {() => T[] | null} fetchFull
+ * @param {() => T[] | null} fetchLight
+ * @param {(item: T) => T} hydrate
+ * @returns {T[] | null}
+ */
+export function fetchDayWithFallback(fetchFull, fetchLight, hydrate) {
+  const full = fetchFull();
+  if (Array.isArray(full)) return full;
+  const light = fetchLight();
+  if (!Array.isArray(light)) return null;
+  return light.map(hydrate);
+}
+
+/**
  * Tetto opzionale: `max` 0 = nessun tetto. Restituisce anche se ha tagliato,
  * cosi' il chiamante lo dichiara invece di tacerlo.
  * @template T
@@ -1105,9 +1123,17 @@ async function main() {
   // `body` entra nella lista perche' i classificatori `isAvoidable*` lo leggono
   // (`issue.body`): prima la lista chiedeva solo number,title,labels e il body
   // arrivava sempre vuoto.
-  const fixWindow = collectWindow(days, (day) => ghJsonRetry(['issue', 'list', '--state', 'all',
-    '--search', `label:agent:triaged updated:${day}`, '--limit', String(SEARCH_RESULT_CAP),
-    '--json', 'number,title,labels,body,comments']));
+  // Il giorno corrente porta le issue piu' attive, cioe' quelle coi thread piu'
+  // lunghi: la pagina con `comments` risponde 504 anche dopo i retry (run
+  // 36333749234, `updated:2026-09-27`, 3 tentativi su 3). Li' si ricade sulla
+  // lista leggera e sui commenti per issue, invece di perdere il giorno.
+  const fixListArgs = (day, fields) => ['issue', 'list', '--state', 'all',
+    '--search', `label:agent:triaged updated:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', fields];
+  const fixWindow = collectWindow(days, (day) => fetchDayWithFallback(
+    () => ghJsonRetry(fixListArgs(day, 'number,title,labels,body,comments')),
+    () => ghJsonRetry(fixListArgs(day, 'number,title,labels,body')),
+    (it) => ({ ...it, comments: ghJson(['issue', 'view', String(it.number), '--json', 'comments'])?.comments || [] }),
+  ));
   const fixCap = applyCap(fixWindow.items, MAX_ISSUES);
   coverage.push(...coverageWarnings('fix-issues', fixWindow, fixCap.cut));
   const fixIssues = fixCap.items;
