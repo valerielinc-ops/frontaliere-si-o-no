@@ -6845,6 +6845,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iniziativa-alimentazione-respinta.title': 'Food initiative: decisively rejected by the cantons',
     'blog.article.iniziativa-alimentazione-respinta.excerpt': 'The food initiative was decisively rejected by the Swiss cantons. In Ticino, those opposed reached 68.66%.',
     'blog.article.iniziativa-alimentazione-respinta.imageAlt': 'Swiss agricultural countryside with cultivated fields and mountains',
+    'blog.article.vaud-voto-taglio-fiscale.title': 'Vaud: yes to a 12% cut in taxes',
+    'blog.article.vaud-voto-taglio-fiscale.excerpt': '53.1% of voters in the canton of Vaud approve a 12% cut to income and wealth taxes; turnout at 50.0%.',
+    'blog.article.vaud-voto-taglio-fiscale.imageAlt': 'Civic building in canton Vaud linked to the vote on a tax reduction',
 };
 
 export default blogMetaChEn;

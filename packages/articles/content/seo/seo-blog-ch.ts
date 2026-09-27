@@ -88745,6 +88745,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vaud-voto-taglio-fiscale': {
+    title: 'Vaud: sì al taglio del 12% delle imposte | Frontaliere Ticino',
+    description: 'Il canton Vaud approva con il 53,1% il taglio del 12% delle imposte cantonali su reddito e sostanza: partecipazione al 50,0%. Il piano al 7% sarà annullato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vaud, taglio, imposte, votanti',
+    ogTitle: 'Vaud: sì al taglio del 12% delle imposte',
+    ogDescription: 'Nel canton Vaud, il 53,1% approva il taglio del 12% delle imposte cantonali su reddito e sostanza. Partecipazione al 50,0%; il Consiglio di Stato annullerà la riduzione del 7% prevista dal piano per il potere d\'acquisto.',
+    canonicalPath: '/articoli-svizzera/vaud-voto-taglio-fiscale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vaud: sì al taglio del 12% delle imposte",
+      "description": "Il canton Vaud approva con il 53,1% il taglio del 12% delle imposte cantonali su reddito e sostanza: partecipazione al 50,0%. Il piano al 7% sarà annullato.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vaud-voto-taglio-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio istituzionale nel canton Vaud per la votazione sulla riduzione delle imposte"
+      },
+      "datePublished": "2026-09-27T13:05:48+00:00",
+      "dateModified": "2026-09-27T13:05:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vaud-voto-taglio-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

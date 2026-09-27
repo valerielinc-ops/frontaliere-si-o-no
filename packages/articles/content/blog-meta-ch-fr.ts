@@ -6845,6 +6845,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iniziativa-alimentazione-respinta.title': 'Initiative sur l’alimentation : nettement rejetée par les cantons',
     'blog.article.iniziativa-alimentazione-respinta.excerpt': 'L\'Initiative sur l\'alimentation a été clairement rejetée par les cantons suisses. Au Tessin, les contraires ont atteint 68,66 %.',
     'blog.article.iniziativa-alimentazione-respinta.imageAlt': 'Paysage agricole suisse avec champs cultivés et montagnes',
+    'blog.article.vaud-voto-taglio-fiscale.title': 'Vaud : oui à la réduction de 12% des impôts',
+    'blog.article.vaud-voto-taglio-fiscale.excerpt': '53,1% des votants dans le canton de Vaud approuvent une réduction de 12% des impôts sur le revenu et la fortune ; participation à 50,0%.',
+    'blog.article.vaud-voto-taglio-fiscale.imageAlt': 'Bâtiment institutionnel dans le canton de Vaud pour le vote sur une baisse d\'impôts',
 };
 
 export default blogMetaChFr;
