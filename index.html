@@ -634,8 +634,9 @@
           // The first call arrives with an empty enum and must proceed at
           // once: holding it delays the CMP and the display ads. If a later
           // call is still unclassified, fail closed because the Offerwall
-          // cannot be suppressed by type without its enum value.
-          if (typeof E.OFFERWALL !== 'number') {
+          // cannot be suppressed by type without its enum value. The live
+          // enum values are strings ("offerwall"); a number is accepted too.
+          if (typeof E.OFFERWALL !== 'number' && typeof E.OFFERWALL !== 'string') {
             if (g.__ftOfferwallBootstrapComplete) {
               deliver(message, previous, { allow: false });
               return;

@@ -22,7 +22,8 @@
  * The first, enum-less call proceeds at once everywhere (holding it delayed
  * the display ads in the live probe). If a later call is still enum-less, it
  * fails closed because the Offerwall cannot be suppressed by type without its
- * enum value.
+ * enum value. The live enum values are strings; every behaviour also runs
+ * on a numeric enum, which the gate accepts too.
  */
 import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -68,7 +69,7 @@ type FakeWindow = {
   localStorage: { getItem: (key: string) => string | null };
   document: { cookie: string };
   googlefc?: {
-    MessageTypeEnum?: Record<string, number>;
+    MessageTypeEnum?: Record<string, number | string>;
     controlledMessagingFunction?: (message: FakeMessage) => void;
     __ftOfferwallBootstrapComplete?: boolean;
     __ftOfferwallGateInstalled?: boolean;
@@ -139,7 +140,13 @@ function message(): FakeMessage {
   };
 }
 
-const ENUM = { OFFERWALL: 1, AD_BLOCKING: 2 };
+// The string shape is the live `googlefc.MessageTypeEnum` read on the job
+// board (2026-09-27); a number-only check read it as missing (#9974).
+const ENUMS: Array<[string, { OFFERWALL: number | string; AD_BLOCKING: number | string }]> = [
+  ['numeric enum', { OFFERWALL: 1, AD_BLOCKING: 2 }],
+  ['string enum', { OFFERWALL: 'offerwall', AD_BLOCKING: 'ad_blocking' }],
+];
+const CASES = COPIES.flatMap(([copy, src]) => ENUMS.map(([shape, ENUM]) => [`${copy}, ${shape}`, src, ENUM] as const));
 
 // Every section shape the shared matcher documents: TI legacy, other cantons
 // (hyphenated slugs too), the Switzerland aggregator, every locale (optional
@@ -194,7 +201,7 @@ describe('fixtures', () => {
   });
 });
 
-describe.each(COPIES)('%s', (_name, src) => {
+describe.each(CASES)('%s', (_name, src, ENUM) => {
   it.each(OFF_BOARD_PATHS)('suppresses only the Offerwall off the job board (%s), even with consent stored', (path) => {
     const win = install(src, path);
     win.googlefc!.MessageTypeEnum = ENUM;
