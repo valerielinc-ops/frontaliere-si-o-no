@@ -6818,6 +6818,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.amag-auto-elettriche-svizzera.title': 'Elektroautos in der Schweiz: Die Platzierungen in Europa sinken',
     'blog.article.amag-auto-elettriche-svizzera.excerpt': 'Die Schweiz fällt bei der Elektrifizierung von Fahrzeugen vom fünften auf den sechzehnten Platz zurück. Die Details laut dem CEO von Amag Helmut Ruhl.',
     'blog.article.amag-auto-elettriche-svizzera.imageAlt': 'Elektroautos in der Schweiz geparkt vor Bergkulisse',
+    'blog.article.svizzera-auto-elettriche-2026.title': 'Schweiz und Elektroautos: Positionen, Laden und Steuern',
+    'blog.article.svizzera-auto-elettriche-2026.excerpt': 'Mitte 2026 belegt die Schweiz bei der Elektrifizierung von Fahrzeugen den 16. Platz in Europa. Ein Viertel der Neuzulassungen ist elektrisch.',
+    'blog.article.svizzera-auto-elettriche-2026.imageAlt': 'Elektroauto an einer öffentlichen Ladestation in der Schweiz',
 };
 
 export default blogMetaChDe;
