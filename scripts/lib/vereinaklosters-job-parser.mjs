@@ -124,7 +124,11 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(VEREINAKLOSTERS_KEY);
-  return runSpecInProduction(spec);
+  // Hotelcareer has served a source-backed listing to a clean IP while the
+  // CI egress received an unmarked HTTP 200 interstitial. Ask the shared
+  // runtime for its clean-IP empty-listing rescue; it still accepts the page
+  // only when the normal vacancy extraction finds real detail links.
+  return runSpecInProduction({ ...spec, rescueOnEmptyListing: true });
 }
 
 /**
