@@ -538,6 +538,35 @@ function normalizeAnalyticsPath(input: string): string {
  }
 }
 
+/** Low-cardinality event-section fields used to compare SEO templates and ad
+ * placements in GA4. The static event shell exposes the exact lifecycle
+ * (`active`, `past`, `overflow`) so a past-event bridge can never be confused
+ * with a live detail page. The fallback keeps SPA/SSR transitions observable
+ * even before the static shell has been swapped into the DOM. */
+function eventPageTelemetry(path: string, pageContext: ReturnType<typeof deriveAnalyticsPageContext>): Record<string, string> {
+ if (pageContext.contentGroup !== 'events') return {};
+
+ let pageType = pageContext.pageTemplate;
+ let lifecycle = pageContext.pageTemplate === 'events_overflow'
+  ? 'overflow'
+  : pageContext.pageTemplate === 'event_detail'
+   ? 'unknown'
+   : 'active';
+
+ if (typeof document !== 'undefined') {
+  const targetPath = normalizeAnalyticsPath(path);
+  const markers = document.querySelectorAll<HTMLElement>('[data-events-page][data-events-path]');
+  for (const marker of markers) {
+   if (normalizeAnalyticsPath(marker.dataset.eventsPath || '') !== targetPath) continue;
+   pageType = marker.dataset.eventsPage || pageType;
+   lifecycle = marker.dataset.eventsLifecycle || lifecycle;
+   break;
+  }
+ }
+
+ return { event_page_type: pageType, event_lifecycle: lifecycle };
+}
+
 function readStoredAttribution(): AttributionContext | null {
  try {
   const raw = sessionStorage.getItem(ATTRIBUTION_KEY);
@@ -576,6 +605,7 @@ function enrichEventParams(params?: Record<string, any>): Record<string, any> {
   site_section: pageContext.siteSection,
   content_locale: pageContext.contentLocale,
   route_family: pageContext.routeFamily,
+  ...eventPageTelemetry(eventPath, pageContext),
   landing_path: landingPath,
   ...(params || {}),
  };
@@ -1162,16 +1192,17 @@ export const Analytics = {
  _maxScrollDepth = 0; // Reset scroll tracking for new page
  const pageContext = deriveAnalyticsPageContext(path);
  log('page_view', {
- page_path: path,
- page_title: title || path,
- page_location: window.location.origin + path,
+  page_path: path,
+  page_title: title || document.title || path,
+  page_location: window.location.origin + path,
  previous_page: previousScreen || '(none)',
  page_template: pageContext.pageTemplate,
  content_group: pageContext.contentGroup,
  site_section: pageContext.siteSection,
- content_locale: pageContext.contentLocale,
- route_family: pageContext.routeFamily,
- engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
+  content_locale: pageContext.contentLocale,
+  route_family: pageContext.routeFamily,
+  ...eventPageTelemetry(path, pageContext),
+  engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
  emission_id: pageViewEmissionId,
  ...buildPageViewAttributionParams(path, identity),
  });

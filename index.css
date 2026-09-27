@@ -246,6 +246,35 @@ main:not(.seo-static-content):not(.cluster-seo-prose) { display: block !importan
 @media (min-width: 1800px) {
   main:not(.seo-static-content):not(.cluster-seo-prose) { max-width: calc(100vw - 420px) !important; }
 }
+
+/* Static reading-page rails: the 160px tier fits beside the 1120px content
+   container on ordinary desktop widths; the existing xlw utilities take over
+   with 300px rails at 1400px. */
+.ft-static-rail-stack,
+.ft-static-rail-panel { display: none; }
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .ft-rail-grid {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr) 160px;
+    gap: 1rem;
+    margin-inline: auto;
+    max-width: 1768px;
+  }
+  .ft-rail-grid > .ft-rail-aside {
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+  }
+}
+@media (min-width: 1200px) {
+  .ft-static-rail-stack {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .ft-static-rail-panel { display: block; }
+}
 /* Inside the SPA rail grid the side tracks already reserve the rail width, so
    the viewport-based cap above would double-reserve — leaving blank margins
    when a rail collapses (unfilled) and the track frees its space. Let main fill
@@ -264,6 +293,77 @@ main.seo-static-content {
   margin-inline: auto;
   padding-inline: clamp(16px, 4vw, 32px);
   box-sizing: border-box;
+}
+
+/* Plate-auction static pages: keep the data table usable on narrow screens
+   and make the primary navigation comfortably tappable. The same rules are
+   mirrored in seo-static.css because static SEO shells load that sheet during
+   first paint. */
+.plate-auction-static .plate-auction-static-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 20px;
+}
+.plate-auction-static .plate-auction-static-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-edge);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-link);
+  font-weight: 700;
+  text-decoration: none;
+}
+.plate-auction-static .plate-auction-static-nav a:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+.plate-auction-static .plate-auction-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-edge);
+  border-radius: 14px;
+  background: var(--color-surface);
+  margin: 12px 0 24px;
+}
+.plate-auction-static .plate-auction-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.plate-auction-static .plate-auction-table th,
+.plate-auction-static .plate-auction-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-edge);
+  text-align: left;
+  white-space: nowrap;
+}
+.plate-auction-static .plate-auction-table th {
+  background: var(--color-surface-alt);
+  color: var(--color-subtle);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.plate-auction-static .plate-auction-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+@media (max-width: 639px) {
+  .plate-auction-static .plate-auction-static-nav a {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .plate-auction-static .plate-auction-table-wrap {
+    margin-top: 10px;
+  }
 }
 
 /* Static SEO card hover state (used by seoContentTokens renderers) */
@@ -583,6 +683,29 @@ body.modal-open .google-auto-placed {
   max-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Static manual AdSense slots reserve their height in the emitted HTML before
+   React exists. The static loader adds this marker only after an explicit
+   `unfilled` answer or the shared fill timeout, so a real creative keeps its
+   footprint. The parent rule also removes the wrapper's margin, otherwise a
+   failed 1100px drive-by slot would leave a misleading band around the zeroed
+   <ins>. */
+ins.adsbygoogle[data-ft-static-ad-collapsed] {
+  min-height: 0 !important;
+  max-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: block !important;
+}
+:where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]) {
+  height: 0 !important;
+  min-height: 0 !important;
+  margin-block: 0 !important;
+  padding-block: 0 !important;
   overflow: hidden !important;
 }
 

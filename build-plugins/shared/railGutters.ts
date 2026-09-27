@@ -4,9 +4,10 @@
  *   - build-plugins/htmlTemplate.ts (buildSimplePage / seoContentOutsideRoot)
  *   - build-plugins/staticPagesPlugin.ts (hubChromeSplit editorial landings)
  *
- * The static `<main>` becomes the centre column of a 3-col grid that only
- * materialises at the `xlw` (≥1400px) tier — below that the page stays a single,
- * unchanged column. The two `<aside>` elements are PORTAL TARGETS: App.tsx mounts
+ * The static `<main>` becomes the centre column of a 3-col grid from the
+ * desktop reading tier (1200px; 160px rails) and widens at `xlw` (≥1400px;
+ * 300px rails). Below that the page stays a single column. The two `<aside>`
+ * elements are PORTAL TARGETS: App.tsx mounts
  * `<ArticleRailAdStack>` into `#rail-left-root` / `#rail-right-root` on
  * staticOverlay pages (same portal mechanism as `#footer-root`), so the GPT
  * half-page rail units + Remote Config kill-switch match the article/job rails.

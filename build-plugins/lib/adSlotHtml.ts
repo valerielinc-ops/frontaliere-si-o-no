@@ -2,10 +2,13 @@
  * Shared AdSense `<ins>` markup generator for build-plugin static HTML pages.
  *
  * Mirrors the runtime `<AdSenseBanner>` React component but emits raw HTML
- * for static SEO pages (F2 health-premiums, F5 weekly-employers, F6 fuel-daily).
+ * for static SEO pages (health premiums, weekly employers, fuel daily, salary
+ * and profession landings).
  * The original pattern lives in `build-plugins/salaryHubContent.ts` — keep this
  * helper byte-for-byte compatible so the rendered HTML and AdSense slot
- * configuration stay consistent across plugins.
+ * configuration stay consistent across plugins. Renderers may combine the
+ * helper into a multi-slot contract (drive-by, inline and end multiplex); the
+ * regression tests assert the exact contract per page family.
  *
  * Why a shared module: avoids drift between plugin copies and centralises the
  * attribute order so the regression test (`tests/regression/seo-static-ad-slots.test.ts`)
@@ -17,7 +20,7 @@ import type { InfeedAdVariant } from '../../services/adExperiment';
 
 export type AdSlotKey = keyof typeof AD_SLOTS;
 
-export function adSlotHtml(slotKey: AdSlotKey): string {
+export function adSlotHtml(slotKey: AdSlotKey, opts?: { collapseWhenUnfilled?: boolean }): string {
   const cfg = AD_SLOTS[slotKey];
   const attrs = [
     `class="adsbygoogle"`,
@@ -26,6 +29,7 @@ export function adSlotHtml(slotKey: AdSlotKey): string {
     `data-ad-slot="${cfg.slot}"`,
     `data-ad-format="${cfg.format}"`,
   ];
+  if (opts?.collapseWhenUnfilled) attrs.push(`data-ft-static-ad="true"`);
   if ('layout' in cfg && cfg.layout) attrs.push(`data-ad-layout="${cfg.layout}"`);
   if ('layoutKey' in cfg && cfg.layoutKey) attrs.push(`data-ad-layout-key="${cfg.layoutKey}"`);
   if (cfg.fullWidthResponsive) attrs.push(`data-full-width-responsive="true"`);
@@ -72,11 +76,27 @@ export function infeedAdGridBlockHtml(opts?: { experimentVariant?: InfeedAdVaria
   return `<div class="ft-infeed-ad my-3 sm:col-span-2 lg:col-span-3" role="presentation"${experimentAttrs}>${infeedAdInnerHtml()}</div>`;
 }
 
+function escapeAdLabel(value: string): string {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/** One full-width in-feed unit for the events card grid. It intentionally
+ * uses a single responsive `<ins>` and the same reserved 336px floor as the
+ * proven high-fill display unit; static pages cannot device-split safely. */
+export function eventsInfeedAdGridBlockHtml(label: string): string {
+  const safeLabel = escapeAdLabel(label);
+  return `<section class="ft-infeed-ad ev-ad my-3 sm:col-span-2 lg:col-span-3" aria-label="${safeLabel}" data-ad-placement="events-list-infeed"><p class="ev-ad-label">${safeLabel}</p>${adSlotHtml('EVENTS_LIST_INFEED')}</section>`;
+}
+
 /**
  * End-of-content multiplex ad for the static SSG "family" landing pages that
  * previously ran Auto Ads only — events, career, cost-of-living, comparisons,
- * FAQ, pillar, exchange-rate, employer-profile and profession×canton
- * (issue #4485). Emitted ONCE, at the very bottom of the page content, after
+ * FAQ, pillar, exchange-rate, employer-profile, profession and salary
+ * landings (issue #4485). Emitted ONCE, at the very bottom of the page content, after
  * all editorial / data sections. `SSG_END_MULTIPLEX` is `autorelaxed`
  * (multiplex), the proven high-RPM manual format (in-page multiplex €6.64 vs
  * €0.20 display).

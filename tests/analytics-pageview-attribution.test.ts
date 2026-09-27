@@ -113,11 +113,15 @@ describe('GA4 page_view employer attribution', () => {
     expect(jobBoardSource).toContain("pageTemplate !== 'job_detail'");
     expect(jobBoardSource).not.toContain('if (!pageViewIdentity || !pageViewPath) return;');
     expect(uiStateSource).toMatch(
-      /if \(!deferAttributionPageView\(initialPath\)\) Analytics\.trackPageView\(initialPath\)/,
+      /if \(!deferAttributionPageView\(initialPath\)\) Analytics\.trackPageView\(initialPath, readDocumentTitle\(\)\)/,
     );
     expect(uiStateSource).toMatch(
-      /if \(!deferAttributionPageView\(path\)\) Analytics\.trackPageView\(path\)/,
+      /if \(!deferAttributionPageView\(path\)\) \{[\s\S]*trackPageViewAfterNavigation\(path, \{ immediate: trackImmediately \}\);/,
     );
+    expect(uiStateSource).toContain('const previousTitle = document.title;');
+    expect(analyticsSource).toContain('page_title: title || document.title || path');
+    expect(analyticsSource).toContain('event_page_type');
+    expect(analyticsSource).toContain('event_lifecycle');
   });
 
   it('passes the original id only for the JobBoard identity retry', () => {

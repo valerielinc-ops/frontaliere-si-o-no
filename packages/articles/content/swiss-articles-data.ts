@@ -20536,6 +20536,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'urne-27-settembre-2026',
+    category: 'pratico',
+    date: '2026-09-27T10:59:16.512Z',
+    image: '/images/blog/urne-27-settembre-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'iniziativa-neutralita-respinta',
+    category: 'novita',
+    date: '2026-09-27T11:49:46.735Z',
+    image: '/images/blog/iniziativa-neutralita-respinta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'iniziativa-alimentazione-respinta',
+    category: 'novita',
+    date: '2026-09-27T12:30:19.773Z',
+    image: '/images/blog/iniziativa-alimentazione-respinta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -94,6 +94,27 @@ describe('event overflow ladder SEO metadata', () => {
     expect(h1).toContain('(guida frontaliere)');
     expect(h1).not.toBe(title);
   });
+
+  it('places one in-feed ad after twelve rows on an indexable overflow page', () => {
+    const events = Array.from({ length: 314 }, (_, index) => ({
+      ...EVENT,
+      id: `tio-agenda:overflow-ad-${index}`,
+      title: `Overflow event ${index} with verified venue and public schedule`,
+    }));
+    const page = renderOverflowLadderPage({
+      locale: 'it',
+      canton: 'TI',
+      comune: 'Lugano',
+      events: events as never,
+      cap: 0,
+      page: 2,
+      dateStamp: '2026-09-14',
+      distDir: '',
+      detailHref: (event) => `/event/${event.id}`,
+    });
+    expect(page.html.match(/data-ad-placement=(?:"events-list-infeed"|events-list-infeed)/g)).toHaveLength(1);
+    expect(page.html.indexOf('data-ad-placement=')).toBeLessThan(page.html.indexOf('Overflow event 312'));
+  });
 });
 
 // Issue #3742: myswitzerland ships English schema.org-derived categories
@@ -368,6 +389,48 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain('prefers-reduced-motion:reduce');
     expect(page.html.match(/data-ad-slot=["']?1982411173/g)).toHaveLength(1);
     expect(page.html.match(/data-ad-slot=["']?5196931137/g)).toHaveLength(1);
+    expect(page.html).toContain('data-events-page=event_detail');
+    expect(page.html).toContain('data-events-lifecycle=active');
+  });
+
+  it('uses a German single-event title and a concrete search description', () => {
+    const germanPage = renderEventDetailPage({
+      locale: 'de',
+      event: EVENT as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(EVENT),
+      sameComuneEvents: [EVENT] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const title = germanPage.html.match(/<title>([^<]*)<\/title>/)?.[1] || '';
+    const description = germanPage.html.match(/<meta name=description content="([^"]*)">/)?.[1] || '';
+    expect(title).toContain('Veranstaltung');
+    expect(title).not.toContain('Veranstaltungen');
+    expect(description).toContain('Offizielle Infos zu Datum, Uhrzeit und Veranstaltungsort.');
+  });
+
+  it('adds one reserved in-feed slot after the first 12 cards on an indexable list', () => {
+    const events = Array.from({ length: 13 }, (_, index) => ({
+      ...EVENT,
+      id: `tio-agenda:list-${index}`,
+      title: `Evento in lista ${index}`,
+      startDate: `2026-07-${String(index + 1).padStart(2, '0')}`,
+    }));
+    const listPage = renderComunePage({
+      locale: 'it',
+      canton: 'TI',
+      comune: 'Lugano',
+      events: events as never,
+      dateStamp: '2026-06-30',
+      weekendDays: new Set<string>(),
+      distDir,
+    });
+    expect(listPage.html).toContain('data-ad-placement=events-list-infeed');
+    expect(listPage.html.match(/data-ad-slot=8164676143/g)).toHaveLength(1);
+    expect(listPage.html).not.toContain('EVENTS_LIST_INFEED');
+    expect(listPage.html).toContain('data-events-page=events_comune');
   });
   it('uses a crisp typographic poster for the known 222×222 MySwitzerland thumbnail', () => {
     const myswitzerlandEvent = {
