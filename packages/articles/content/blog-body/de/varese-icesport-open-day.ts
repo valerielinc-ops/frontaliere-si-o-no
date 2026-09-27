@@ -1,0 +1,6 @@
+const bodyVareseIcesportOpenDay: Record<string, string> = {
+    'blog.article.varese-icesport-open-day.body1': '...',
+    'blog.article.varese-icesport-open-day.faq': '[{"q":"Wann fand der Icesport Varese Open Day statt?","a":"Der von Icesport Varese geförderte Open Day fand am Samstag, den 5. September statt, wie aus der Quelle hervorgeht. Am Nachmittag konnten die Teilnehmer Schlittschuhe anziehen, ihre ersten Schritte auf dem Eis machen und die Aktivitäten des varesinischen Vereins kennenlernen, was den Beginn der neuen Sportsaison markierte."},{"q":"Wie viele Teilnehmer haben am Tag der offenen Tür teilgenommen?","a":"Dem Artikel zufolge haben mehr als hundert Kinder und Jugendliche am Open Day von Icesport Varese teilgenommen. Der Text besagt, dass die Teilnehmer ihre Schlittschuhe schnüren, die ersten Schritte unternehmen und sich den vom Unternehmen angebotenen Eiskunstlauf- und Synchronisationsdisziplinen nähern konnten."},{"q":"Wie ist die Anmeldesituation nach dem Open Day?","a":"Zwei Wochen vor Kursbeginn verzeichnet Icesport einen Mitgliederboom und die meisten Gruppen sind fast ausverkauft. Die Quelle berichtet, dass unter den Abonnenten ehemalige Athleten sind, die die Aktivität wieder aufnehmen, und junge Menschen, die sich zum ersten Mal dem Skaten nähern."}]',
+};
+
+export default bodyVareseIcesportOpenDay;
