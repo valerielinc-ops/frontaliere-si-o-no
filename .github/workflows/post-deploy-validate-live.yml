@@ -390,7 +390,21 @@ jobs:
         env:
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
           LIVE_BASE_URL: https://frontaliereticino.ch
-        run: node scripts/probe-live-consent-message.mjs
+        run: |
+          # DEPLOY_REF/WORKFLOW SKEW GUARD (issue #5833). The reusable
+          # workflow definition can be newer than the build SHA checked out
+          # above. A probe added in the newer workflow is not a defect in an
+          # older deploy when its entrypoint is absent from that build; run it
+          # only when the build contains the probe, and keep a genuine missing
+          # file on both refs fail-closed.
+          if [ ! -f scripts/probe-live-consent-message.mjs ]; then
+            git fetch --depth=1 origin main -q 2>/dev/null || true
+            if git cat-file -e origin/main:scripts/probe-live-consent-message.mjs 2>/dev/null; then
+              echo "[consent-gate] skip: probe is not defined in this deploy_ref but is present on origin/main — the build predates the live gate"
+              exit 0
+            fi
+          fi
+          node scripts/probe-live-consent-message.mjs
 
       # CLS ratchet — fails if any audited template's CLS p75 regresses past
       # Google's "needs improvement" threshold (0.25) or by more than 10%/+0.05
