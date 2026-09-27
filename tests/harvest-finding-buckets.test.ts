@@ -297,3 +297,35 @@ describe('bucketFinding — pr-body-contract conta solo missing/empty/false-clai
     expect(counts['pr-body-contract'] ?? 0).toBe(1);
   });
 });
+
+// --- Round workflow-scope-creds: non confondere push/retry con credenziali ---
+// La regex storica includeva `push.*workflow`, quindi un finding su un retry o
+// su un trigger YAML finiva nel bucket delle capability anche senza nominare
+// token, secret o scope. Questi sono finding reali ma di un'altra classe: il
+// safety-net fingerprint deve conservarli senza farli alimentare questa
+// escalation (#10114).
+describe('bucketFinding — workflow-scope-creds conta capability, non ogni push di workflow (#10114)', () => {
+  const NON_CREDENTIAL_FINDINGS = [
+    '#9566 — il delivery branch viene pushato ma il workflow deve fallire se `gh pr create` non apre la PR',
+    '#9326 — il filtro del trigger `push` verso `main` non riconosce tutte le forme YAML del workflow',
+    '#9218 — la rigenerazione dopo un push-retry lascia il workflow verde con uno snapshot degradato',
+  ];
+
+  for (const finding of NON_CREDENTIAL_FINDINGS) {
+    it(`${finding.slice(0, 5)} non entra nel bucket credentialale`, () => {
+      expect(bucketFinding(`🔴 Important: ${finding}`)).not.toBe('workflow-scope-creds');
+    });
+  }
+
+  it('conserva i finding autentici su PAT/GitHub token e capability', () => {
+    expect(bucketFinding(
+      '🔴 Important: il workflow usa `${{ github.token }}` per creare issue, ma serve un App/PAT con la capability richiesta.',
+    )).toBe('workflow-scope-creds');
+    expect(bucketFinding(
+      '🔴 Important: la guardia verifica solo che `PAT` sia non vuoto, non che il token sia autorizzato alla branch protection.',
+    )).toBe('workflow-scope-creds');
+    expect(bucketFinding(
+      '🔴 Important: il comando richiede una credential segreta prima della prima mutazione.',
+    )).toBe('workflow-scope-creds');
+  });
+});
