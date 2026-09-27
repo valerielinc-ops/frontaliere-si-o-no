@@ -252,7 +252,9 @@ describe('Albergo Gardenia authoritative crawler', () => {
 
     expect(response).toMatchObject({ ok: true, status: 200, url: ALBERGO_GARDENIA_SITEMAP_URL });
     expect(fetchPage).toHaveBeenCalledOnce();
-    expect(browserFetchPage).toHaveBeenCalledOnceWith(
+    expect(browserFetchPage).toHaveBeenCalledTimes(1);
+    expect(browserFetchPage).toHaveBeenNthCalledWith(
+      1,
       ALBERGO_GARDENIA_SITEMAP_URL,
       expect.objectContaining({
         ...ALBERGO_GARDENIA_FETCH_BUDGET.sitemap,
