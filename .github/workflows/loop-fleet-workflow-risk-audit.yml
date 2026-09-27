@@ -17,6 +17,7 @@ on:
     paths:
       - '.github/workflows/**'
       - 'scripts/ci/workflow-risk-inventory.mjs'
+      - 'scripts/ci/line-at.mjs'
 
 permissions:
   contents: read
@@ -37,6 +38,7 @@ jobs:
           sparse-checkout: |
             /.github/workflows/
             /scripts/ci/workflow-risk-inventory.mjs
+            /scripts/ci/line-at.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
