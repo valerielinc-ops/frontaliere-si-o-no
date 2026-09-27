@@ -6818,6 +6818,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.amag-auto-elettriche-svizzera.title': 'Electric cars in Switzerland: positions in Europe decline',
     'blog.article.amag-auto-elettriche-svizzera.excerpt': 'Switzerland drops from fifth to sixteenth place for vehicle electrification. The details according to Amag CEO Helmut Ruhl.',
     'blog.article.amag-auto-elettriche-svizzera.imageAlt': 'Electric cars parked in Switzerland with mountains in the background',
+    'blog.article.svizzera-auto-elettriche-2026.title': 'Switzerland and electric cars: positions, charging and taxes',
+    'blog.article.svizzera-auto-elettriche-2026.excerpt': 'In mid-2026, Switzerland ranks 16th in Europe for the electrification of cars. One quarter of new registrations are electric.',
+    'blog.article.svizzera-auto-elettriche-2026.imageAlt': 'Electric car charging at a public station in Switzerland',
 };
 
 export default blogMetaChEn;

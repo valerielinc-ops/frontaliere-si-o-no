@@ -6818,6 +6818,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.amag-auto-elettriche-svizzera.title': 'Voitures électriques en Suisse : recul des positions en Europe',
     'blog.article.amag-auto-elettriche-svizzera.excerpt': 'La Suisse passe de la cinquième à la seizième place en matière d’électrification des voitures. Les détails selon le CEO d’Amag, Helmut Ruhl.',
     'blog.article.amag-auto-elettriche-svizzera.imageAlt': 'Voitures électriques garées en Suisse avec des montagnes en arrière-plan',
+    'blog.article.svizzera-auto-elettriche-2026.title': 'Suisse et voitures électriques : emplacements, charge et taxes',
+    'blog.article.svizzera-auto-elettriche-2026.excerpt': 'À la mi-2026, la Suisse occupe la 16e place en Europe pour l’électrification des voitures. Un quart des nouvelles immatriculations est électrique.',
+    'blog.article.svizzera-auto-elettriche-2026.imageAlt': 'Voiture électrique en charge à une station publique en Suisse',
 };
 
 export default blogMetaChFr;
