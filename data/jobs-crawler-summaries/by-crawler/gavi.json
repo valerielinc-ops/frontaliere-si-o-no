@@ -1,7 +1,7 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-09-26T13:52:41.949Z",
+  "generatedAt": "2026-09-26T23:33:33.374Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -10,12 +10,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4439,
-  "avgDurationMs": 4439,
+  "durationMs": 4020,
+  "avgDurationMs": 4020,
   "durationHistory": [
-    4439
+    4020
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2526&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T13:52:35.414Z",
+      "crawledAt": "2026-09-26T23:33:26.210Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -58,49 +58,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "gavi-46907ae4fc28",
-      "slug": "direttore-governance-gavi-the-vaccine-alliance-le-grand-saconnex",
-      "company": "Gavi, the Vaccine Alliance",
-      "companyKey": "gavi",
-      "companyDomain": "gavi.org",
-      "title": "Manager, Governance",
-      "location": "Le Grand-Saconnex",
-      "canton": "GE",
-      "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2489&portal=Global",
-      "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:34:59.300Z",
-      "addressLocality": "Le Grand-Saconnex",
-      "addressRegion": "GE",
-      "streetAddress": "Chemin du Pommier 40",
-      "postalCode": "1218",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Salute globale / Organizzazioni internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-10",
-      "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2489&portal=Global",
-      "jobReqId": "VN2489",
-      "firstSeenAt": "2026-09-02T13:33:34.798Z",
-      "salaryMin": 107000,
-      "salaryMax": 183000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
