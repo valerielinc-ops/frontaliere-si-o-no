@@ -7,6 +7,7 @@ import { tmpdir } from 'node:os';
 import {
   assertCrawlerSliceWriteSafe,
   isProvenCrossCrawlerDedupPrune,
+  isProvenHousekeepingPrune,
   isSafeSwissReForeignPrune,
   isSafeSwissReForeignPruneJobs,
 } from '../scripts/lib/crawler-slice-integrity.mjs';
@@ -242,6 +243,60 @@ describe('crawler slice integrity guard', () => {
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  it('allows a large shrink only when every removed job has definitive housekeeping evidence', () => {
+    const removedA = dedupJob('https://convit.example/a', 'Closed A', 'x'.repeat(700_000));
+    const removedB = dedupJob('https://convit.example/b', 'Closed B', 'y'.repeat(700_000));
+    const retained = dedupJob('https://convit.example/retained', 'Open position', 'z'.repeat(100_000));
+    const previous = json({ crawlerKey: 'convit-holding', jobs: [removedA, removedB, retained] });
+    const next = json({ crawlerKey: 'convit-holding', jobs: [retained] });
+    const proof = [
+      { job: removedA, definitive: true, reason: 'http-404' },
+      { job: removedB, definitive: true, reason: 'redirect-to-generic-listing' },
+    ];
+
+    expect(isProvenHousekeepingPrune('data/jobs/by-crawler/convit-holding.json', previous, next, proof)).toBe(true);
+    expect(() => assertCrawlerSliceWriteSafe(
+      'data/jobs/by-crawler/convit-holding.json',
+      previous,
+      next,
+    )).toThrow(/catastrophic truncation avoided/);
+    expect(assertCrawlerSliceWriteSafe(
+      'data/jobs/by-crawler/convit-holding.json',
+      previous,
+      next,
+      { housekeepingProof: proof },
+    ).reason).toBe('proven-housekeeping-prune');
+
+    const root = mkdtempSync(join(tmpdir(), 'crawler-slice-housekeeping-'));
+    const filePath = join(root, 'data/jobs/by-crawler/convit-holding.json');
+    try {
+      writeJsonAtomic(filePath, JSON.parse(previous));
+      expect(() => writeJsonAtomic(filePath, JSON.parse(next), { housekeepingProof: proof })).not.toThrow();
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a housekeeping shrink guarded when any removal is non-definitive', () => {
+    const removed = dedupJob('https://convit.example/ambiguous', 'Ambiguous position', 'x'.repeat(1_400_000));
+    const retained = dedupJob('https://convit.example/retained', 'Open position', 'y'.repeat(100_000));
+    const previous = json({ crawlerKey: 'convit-holding', jobs: [removed, retained] });
+    const next = json({ crawlerKey: 'convit-holding', jobs: [retained] });
+
+    expect(isProvenHousekeepingPrune(
+      'data/jobs/by-crawler/convit-holding.json',
+      previous,
+      next,
+      [{ job: removed, definitive: false, reason: 'network-error' }],
+    )).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe(
+      'data/jobs/by-crawler/convit-holding.json',
+      previous,
+      next,
+      { housekeepingProof: [{ job: removed, definitive: false }] },
+    )).toThrow(/catastrophic truncation avoided/);
   });
 
   it('keeps an unreferenced large removal fail-closed', () => {

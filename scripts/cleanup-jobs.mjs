@@ -468,7 +468,12 @@ async function main() {
             const fallback = fallbackById.get(resolveJobDiffKey(job));
             if (fallback && fallback.valid !== false) return true;
             if (isFreshProtected(job) && !c.definitive) return true;
-            urlRemoved.push({ id: resolveJobDiffKey(job), reason: c.reason });
+            urlRemoved.push({
+              job,
+              id: resolveJobDiffKey(job),
+              reason: c.reason,
+              definitive: c.definitive === true,
+            });
             return false;
           }
           return true;
@@ -554,7 +559,7 @@ async function main() {
         const envelope = (sliceData && typeof sliceData === 'object' && !Array.isArray(sliceData))
           ? { ...sliceData, jobs: kept, assembledAt: new Date().toISOString() }
           : kept;
-        writeJson(slicePath, envelope);
+        writeJson(slicePath, envelope, { housekeepingProof: urlRemoved });
         console.log(`✅ Slice cleaned: ${hardenedJobs.length} → ${kept.length} jobs (-${totalRemoved})`);
       } else {
         console.log('✅ Slice clean — no jobs removed.');
