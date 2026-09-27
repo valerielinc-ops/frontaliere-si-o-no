@@ -16,6 +16,7 @@ import {
 } from '../build-plugins/salaryStatsData';
 import { renderSalaryStatsPage } from '../build-plugins/salaryStatsChCantonPages';
 import { parsePath } from '../services/router';
+import { AD_SLOTS } from '../services/adsenseSlots';
 
 describe('salaryStatsData — path enumeration', () => {
   it('emits one path per locale × canton (24 cantons × 4 = 96)', () => {
@@ -90,6 +91,26 @@ describe('salaryStats — page render', () => {
       }
     }
     expect(rendered).toBe(96);
+  });
+
+  it('renders the top, inline and end ad slots in page order', () => {
+    const { html } = renderSalaryStatsPage({
+      locale: 'it',
+      cantonKey: 'TI',
+      cantonSlug: SALARY_STATS_CANTON_SLUGS.TI.it,
+      distDir: '',
+    });
+    const slotPosition = (slot: string) => html.search(new RegExp(`data-ad-slot=["']?${slot}`));
+
+    expect(html.match(/<ins\b[^>]*class=["']?adsbygoogle/g)).toHaveLength(3);
+    const positions = [
+      slotPosition(AD_SLOTS.FT_DRIVEBY_ATF_DISPLAY.slot),
+      slotPosition(AD_SLOTS.ARTICLE_INLINE_MOBILE.slot),
+      slotPosition(AD_SLOTS.SSG_END_MULTIPLEX.slot),
+    ];
+    expect(positions.every((position) => position >= 0)).toBe(true);
+    expect(positions[0]).toBeLessThan(positions[1]);
+    expect(positions[1]).toBeLessThan(positions[2]);
   });
 
   it('Dataset JSON-LD uses Google-valid field types (regression: GSC spatialCoverage/creator/license)', () => {
