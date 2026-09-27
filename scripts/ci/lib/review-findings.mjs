@@ -340,8 +340,11 @@ export function renderFindingsLedger({ open = [], confirmed = [], needsVerificat
   if (uniqueOpen.length === 0 && uniqueToVerify.length === 0 && uniqueConfirmed.length === 0) {
     return 'Nessun finding Important storico: questa è la prima review utile.';
   }
-  lines.push('Ogni voce porta il suo id stabile `(path, simbolo, classe)`, invariante alla riga.');
+  lines.push('Ogni voce porta il suo id stabile `(path, simbolo, classe, prosa)`, invariante alla riga.');
   lines.push('Riporta un `open` con lo STESSO id e testo; non rialzare un `confirmed`.');
+  // #9959: senza questa riga il reviewer non sapeva chiudere un `open` senza
+  // file e ne rialzava uno nuovo sul ledger stesso, a ogni giro.
+  lines.push('Un `open` senza file, se risolto, si chiude con `` Fix di `<id>`: ok. ``; mai un 🔴 sul ledger stesso.');
   if (uniqueToVerify.length > 0) {
     lines.push(`Un \`${LEDGER_NEEDS_VERIFICATION}\` è aperto per il gate, ma una review approvante successiva ha confermato un fix sullo stesso file: `
       + 'apri l’anchor all’HEAD e verifica. Se il fix c’è scrivi `` Fix di `path:L<riga attuale>`: ok. ``; '

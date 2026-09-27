@@ -3053,7 +3053,7 @@ jobs:
             fi
             echo
             echo "## Findings ledger (id stabile + stato)"
-            echo "Un id stabile è \`(path, simbolo, classe)\`: NON contiene il numero di riga, quindi sopravvive a un rebase o a un merge di main."
+            echo "Un id stabile è \`(path, simbolo, classe, prosa)\`: NON contiene il numero di riga, quindi sopravvive a un rebase o a un merge di main."
             echo "Un 🔴 NUOVO ancorato solo su righe non toccate dall'ultima review viene declassato dal gate (\`DECLASSIFIED-UNCHANGED-LINE\`): se è davvero una regressione introdotta dopo, scrivilo \`🔴 Important: [regression] <problema>\`."
             echo
             cat "$CTX_DIR/inherited-findings.md"
