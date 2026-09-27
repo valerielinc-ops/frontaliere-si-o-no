@@ -377,6 +377,17 @@ export function isGenuinePrBodyContractViolation(text) {
 // Pure → unit-tested, mirrors isGenuinePrBodyContractViolation's structure.
 const SIBLING_CLASS_AFFIRM_RE =
   /nessun\w*\s*(?:[\u{1F534}\u{1F7E1}]\s*\/?\s*)*(?:da propagare|altro finding|bug replicat\w*|antipattern replicat\w*)|nessun\s+sibling\s+resid\w*|no inconsistenc\w*|not a candidate for|correctly mirrors? the sibling|coerente\s+(?:col|con il)\s+sibling|match(?:es)?\s+the sibling'?s?\s+(?:proven\s+)?(?:pattern|guard)/iu;
+// A bare `sibling` is not evidence of an AGENTS.md #6 violation. Reviewer
+// findings also use it for semantic neighbours (`same-level sibling` in a DOM
+// parser), for scope prose (`consumer sibling`), or for a checker feature that
+// is merely being described. Those lines must not inflate this process bucket.
+// Keep the positive side explicit: a class finding needs an actionable relation
+// between the sibling and the repeated construct/sweep. Ambiguous lines fall
+// through to the fingerprint safety net in `bucketFinding`, so this guard does
+// not discard the reviewer finding; it only refuses to call it a sibling-class
+// recurrence without evidence.
+const SIBLING_CLASS_EVIDENCE_RE =
+  /(?:\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b|\b(?:file|script|workflow|consumer|ramo|branch)\s+gemell\w*\b|\b(?:sibling|gemell\w*)\b[^.\n]{0,120}\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|sweep\w*|check\w*|guard\w*|class\w*|pattern\w*|bug\w*|fix\w*|modif\w*|chang\w*|copert\w*|address\w*|propagat\w*)\b|\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|diverg\w*|different|unlike)\b[^.\n]{0,120}\b(?:sibling|gemell\w*)\b)/iu;
 // Negation-aware false-positive-declaration matcher, shared with
 // sibling-check-gate.mjs's isDeclaredFalsePositive (issue #3367 — the two
 // copies drifted when kept in sync by docstring promise only).
@@ -388,9 +399,10 @@ export function isGenuineSiblingClassViolation(text) {
   // (b) the line AFFIRMS the sweep is complete / nothing to propagate → not a
   //     defect, even if it contains 🔴/🟡 glyphs as prose rather than a marker.
   if (SIBLING_CLASS_AFFIRM_RE.test(s)) return false;
-  // Default: no affirmation, no declared false positive → conservative: keep as
-  // a genuine (possibly deferred-but-real) sibling-class finding.
-  return true;
+  // A class relation is required before this process bucket can claim the line.
+  // Scope-only and semantic-neighbour mentions remain available to the generic
+  // fingerprint path instead of being mistaken for an unswept sibling.
+  return SIBLING_CLASS_EVIDENCE_RE.test(s);
 }
 
 // ---- NEGATED-IMPACT recap clauses (DETERMINISTIC, cross-bucket) ------------
