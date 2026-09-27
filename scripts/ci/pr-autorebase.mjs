@@ -1599,10 +1599,17 @@ export function shouldHandOffConflict({ lgtm, agentOwned = false, alreadyHandedO
 // e' gia' in mano a una persona.
 export const AGENT_AUTOFIX_LABEL = 'agent:autofix';
 
-export function agentPrConflictNeedsHandOff({ conflicted, nearMerge, labels = [] }) {
+/** PR del ciclo che nessuna persona sta seguendo: il conflitto passa di mano
+ * anche senza LGTM, in qualunque ramo lo si incontri (review 5331343431: con
+ * `stale-review` o `collision-risk` la PR e' near-merge e il conflitto passa
+ * dai tre hand-off dopo l'abort del merge). */
+export function isAgentOwnedPr(labels = []) {
   const names = labels.map((label) => (typeof label === 'string' ? label : label?.name));
-  return conflicted === true && !nearMerge
-    && names.includes(AGENT_AUTOFIX_LABEL) && !names.includes('needs-human');
+  return names.includes(AGENT_AUTOFIX_LABEL) && !names.includes('needs-human');
+}
+
+export function agentPrConflictNeedsHandOff({ conflicted, nearMerge, labels = [] }) {
+  return conflicted === true && !nearMerge && isAgentOwnedPr(labels);
 }
 
 /** Titolo stabile e body della issue di hand-off. Puro: niente rete. */
@@ -1977,6 +1984,7 @@ async function processPR(pr) {
     labels.includes('collision-risk') ||
     labels.includes('stale-review') ||
     lgtm;
+  const agentOwned = isAgentOwnedPr(labels);
 
   // ── QUARTA classe near-merge: STUCK-RED (2026-08-05) ───────────────────────
   // Le prime tre classi presuppongono che una PR bloccata abbia GIÀ un segnale:
@@ -2024,7 +2032,7 @@ async function processPR(pr) {
 
   if (!nearMerge) {
     if (agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels })) {
-      handOffConflictToFixer(num, branch, head, lgtm, { agentOwned: true });
+      handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
     }
     console.log(`PR #${num} non near-merge (no LGTM/collision-risk/stale-review/stuck-red) — skip del rebase.`);
     return;
@@ -2101,7 +2109,7 @@ async function processPR(pr) {
         console.log(`PR #${num} CONFLICTING non auto-risolvibile (non import-only) → stale-review + comment (recycle).`);
         ensureStaleLabel(num);
         commentConflictOnce(num, branch);
-        handOffConflictToFixer(num, branch, head, lgtm);
+        handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
       }
       return;
     }
@@ -2233,7 +2241,7 @@ async function processPR(pr) {
     console.log(`PR #${num} mergeable=CONFLICTING → label stale-review + comment once.`);
     ensureStaleLabel(num);
     commentConflictOnce(num, branch);
-    handOffConflictToFixer(num, branch, head, lgtm);
+    handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
     return;
   }
 
@@ -2298,7 +2306,7 @@ async function processPR(pr) {
       git(['merge', '--abort'], { allowFail: true });
       ensureStaleLabel(num);
       commentConflictOnce(num, branch);
-      handOffConflictToFixer(num, branch, head, lgtm);
+      handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
       return;
     }
   }

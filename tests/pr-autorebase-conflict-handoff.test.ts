@@ -5,6 +5,7 @@ import {
   conflictHandoffMarker,
   shouldHandOffConflict,
   agentPrConflictNeedsHandOff,
+  isAgentOwnedPr,
 } from '../scripts/ci/pr-autorebase.mjs';
 
 const SOURCE = readFileSync(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url), 'utf8');
@@ -40,7 +41,7 @@ describe('pr-autorebase — conflitto dopo LGTM affidato a issue-fix (#9260)', (
   });
 
   it('ogni ramo che abortisce un conflitto non auto-risolvibile passa la mano', () => {
-    const aborts = SOURCE.match(/ensureStaleLabel\(num\);\n\s+commentConflictOnce\(num, branch\);\n\s+handOffConflictToFixer\(num, branch, head, lgtm\);/g) || [];
+    const aborts = SOURCE.match(/ensureStaleLabel\(num\);\n\s+commentConflictOnce\(num, branch\);\n\s+handOffConflictToFixer\(num, branch, head, lgtm, \{ agentOwned \}\);/g) || [];
     const bare = SOURCE.match(/commentConflictOnce\(num, branch\);/g) || [];
     expect(aborts.length).toBe(3);
     expect(bare.length).toBe(aborts.length);
@@ -68,6 +69,22 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
   it('passa la mano anche senza LGTM a una PR agent:autofix, una volta per HEAD', () => {
     expect(shouldHandOffConflict({ lgtm: false, agentOwned: true, alreadyHandedOff: false })).toBe(true);
     expect(shouldHandOffConflict({ lgtm: false, agentOwned: true, alreadyHandedOff: true })).toBe(false);
+  });
+
+  it('vale anche nei rami near-merge: stale-review o collision-risk non tolgono la PR al ciclo (review 5331343431)', () => {
+    for (const extra of ['stale-review', 'collision-risk']) {
+      const agentOwned = isAgentOwnedPr(['agent:autofix', extra]);
+      expect(agentOwned).toBe(true);
+      expect(shouldHandOffConflict({ lgtm: false, agentOwned, alreadyHandedOff: false })).toBe(true);
+    }
+    expect(isAgentOwnedPr(['agent:autofix', 'needs-human'])).toBe(false);
+    expect(isAgentOwnedPr(['stale-review'])).toBe(false);
+    // Ogni hand-off di processPR porta lo stesso `agentOwned`: nessuna chiamata lo perde.
+    const processPr = SOURCE.slice(SOURCE.indexOf('async function processPR('));
+    const calls = processPr.match(/handOffConflictToFixer\([^)]*\)/g) || [];
+    expect(calls.length).toBe(4);
+    for (const call of calls) expect(call).toBe('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned })');
+    expect(processPr).toContain('const agentOwned = isAgentOwnedPr(labels);');
     expect(shouldHandOffConflict({ lgtm: false, agentOwned: false, alreadyHandedOff: false })).toBe(false);
   });
 
@@ -107,7 +124,7 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     const processPr = SOURCE.slice(SOURCE.indexOf('async function processPR('));
     const scan = processPr.indexOf('const conflictScan = reportMainConflict(');
     const branch = processPr.indexOf('if (!nearMerge) {');
-    const call = processPr.indexOf('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned: true });');
+    const call = processPr.indexOf('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });');
     expect(scan).toBeGreaterThan(-1);
     expect(branch).toBeGreaterThan(scan);
     expect(call).toBeGreaterThan(branch);
