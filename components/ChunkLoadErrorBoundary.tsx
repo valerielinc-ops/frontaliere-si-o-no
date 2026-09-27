@@ -77,7 +77,7 @@ export class ChunkLoadErrorBoundary extends Component<Props, State> {
         // version-skew (#3097) re-serves the same stale cross-origin chunk on
         // a plain reload, so this boundary's one reload would be wasted.
         // Show the "Aggiornamento…" fallback while the async bust + reload run.
-        void clearAssetCaches().finally(() => window.location.reload());
+        void clearAssetCaches(error).finally(() => window.location.reload());
         return { hasError: true };
       }
     } catch {

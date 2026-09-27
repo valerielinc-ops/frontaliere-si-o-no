@@ -52,7 +52,7 @@ async function retryImport<T>(factory: () => Promise<T>, label: string): Promise
  // Clear both cache layers and retry once. CacheStorage alone is not enough:
  // the chunk also lives in the HTTP disk cache (stable-named, max-age=600),
  // which a bare retry would re-read (#3097).
- await clearAssetCaches();
+ await clearAssetCaches(err);
  try {
  return await factory();
  } catch (retryErr) {
