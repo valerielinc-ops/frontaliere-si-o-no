@@ -6833,6 +6833,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.voti-federali-neutralita-alimentazione.title': 'Voti federali: neutralità e alimentazione alle urne',
     'blog.article.voti-federali-neutralita-alimentazione.excerpt': 'La popolazione svizzera vota oggi su neutralità e alimentazione. I dati chiave, i sondaggi e la posizione delle istituzioni federali.',
     'blog.article.voti-federali-neutralita-alimentazione.imageAlt': 'Schede di voto per le iniziative federali sulla neutralità e l\'alimentazione in Svizzera',
+    'blog.article.guida-tirocinio-soletta.title': 'Apprendistato e formazione professionale nel Canton Soletta',
+    'blog.article.guida-tirocinio-soletta.excerpt': 'Guida al tirocinio nel Canton Soletta: quadro svizzero su salario minimo, orari, ferie, contributi AVS/AI/IPG e imposte.',
+    'blog.article.guida-tirocinio-soletta.imageAlt': 'Apprendista in un laboratorio svizzero durante la formazione professionale',
 };
 
 export default blogMetaChIt;

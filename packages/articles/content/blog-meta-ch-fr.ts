@@ -6833,6 +6833,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voti-federali-neutralita-alimentazione.title': 'Votes fédéraux : neutralité et alimentation aux urnes',
     'blog.article.voti-federali-neutralita-alimentazione.excerpt': 'La population suisse vote aujourd\'hui sur la neutralité et la nutrition. Données clés, sondages et la position des institutions fédérales.',
     'blog.article.voti-federali-neutralita-alimentazione.imageAlt': 'Bulletins de vote pour les initiatives fédérales sur la neutralité et l\'alimentation',
+    'blog.article.guida-tirocinio-soletta.title': 'Apprentissages et formation professionnelle dans le canton de Soleure',
+    'blog.article.guida-tirocinio-soletta.excerpt': 'Guide des apprentissages dans le canton de Soleure : aperçu suisse du salaire minimum, des horaires, des jours fériés, des cotisations AHV/IV/EO et des impôts.',
+    'blog.article.guida-tirocinio-soletta.imageAlt': 'Apprenti dans un atelier suisse pendant la formation professionnelle',
 };
 
 export default blogMetaChFr;
