@@ -480,8 +480,11 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     const capFallback = collector.slice(collector.indexOf('if [ "$count" -ge "$cap" ]'));
 
     expect(collector).toContain('use_local_sha_diff()');
+    expect(collector).toContain('local_sha_diff_complete=false');
+    expect(collector).toContain('local_sha_diff_complete=true');
     expect(capFallback).toContain('use_local_sha_diff true');
     expect(capFallback).toContain('diff locale completo: $count path toccati');
+    expect(capFallback).toContain('[ "$local_sha_diff_complete" != "true" ]');
     expect(capFallback).toContain("printf '%s\\n' partial > changed-paths-status.txt");
   });
 
