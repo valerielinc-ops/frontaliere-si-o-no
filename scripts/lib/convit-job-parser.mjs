@@ -96,11 +96,11 @@ export function parseConvitListingPage(html = '') {
     if (!match) continue;
     const code = match[1];
     if (seen.has(code)) continue;
-    seen.add(code);
 
     const titleElement = anchor.querySelector('span.job-position-break, [class*="job-position"], [class*="job-title"]');
     const title = normalizeSpace(titleElement?.textContent || anchor.textContent || '');
     if (!title) continue;
+    seen.add(code);
 
     results.push({
       title,

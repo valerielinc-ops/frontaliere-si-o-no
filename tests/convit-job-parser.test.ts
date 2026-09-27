@@ -267,6 +267,18 @@ describe('convit-job-parser / parseConvitListingPage', () => {
     expect(items[1].title).toBe('Responsabile amministrazione');
   });
 
+  it('does not let an untitled duplicate suppress a later titled listing', () => {
+    const html = `<!DOCTYPE html><html><body>
+      <a href="/convit-holding-gmbh/job/MNO345"></a>
+      <a href="/convit-holding-gmbh/job/MNO345">Ruolo</a>
+    </body></html>`;
+
+    const items = parseConvitListingPage(html);
+
+    expect(items).toHaveLength(1);
+    expect(items[0].title).toBe('Ruolo');
+  });
+
   it('builds correct detailUrl', () => {
     const items = parseConvitListingPage(listingHtml);
     expect(items[0].detailUrl).toBe('https://www.careers-page.com/convit-holding-gmbh/job/ABC123');
