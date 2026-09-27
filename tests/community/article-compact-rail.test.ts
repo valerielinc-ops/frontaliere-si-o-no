@@ -32,7 +32,7 @@ describe('article compact ad rail contract', () => {
   });
 
   it('restricts compact rail requests to creatives that fit the gutter', () => {
-    expect(RAIL_AD).toContain('sizes={narrow || compact ? RAIL_SIZES_NARROW : RAIL_SIZES}');
+    expect(RAIL_AD).toContain('sizes={useNarrowSizes ? RAIL_SIZES_NARROW : RAIL_SIZES}');
     expect(RAIL_AD).toContain('hidden xlc:block xlw:hidden w-full text-center');
     expect(RAIL_STACK).toContain('compact?: boolean');
     expect(RAIL_STACK).toContain('hidden xlc:flex xlc:flex-col xlc:flex-1 xlc:min-h-0 xlw:hidden');

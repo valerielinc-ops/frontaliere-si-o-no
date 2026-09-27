@@ -120,6 +120,15 @@ export const RAIL_RESERVE_CSS =
   '.ft-blog-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-c-l,160px) minmax(0,1fr) var(--ft-rail-w-c-r,160px);gap:1rem}' +
   '.ft-blog-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
   '}' +
+  '.ft-static-rail-stack,.ft-static-rail-panel{display:none}' +
+  '@media(min-width:1200px) and (max-width:1399.98px){' +
+  '.ft-rail-grid{display:grid;grid-template-columns:160px minmax(0,1fr) 160px;gap:1rem;margin-inline:auto;max-width:1768px}' +
+  '.ft-rail-grid>.ft-rail-aside{display:flex;flex-direction:column;min-height:600px}' +
+  '}' +
+  '@media(min-width:1200px){' +
+  '.ft-static-rail-stack{display:flex;flex:1 1 0%;flex-direction:column;min-height:0}' +
+  '.ft-static-rail-panel{display:block}' +
+  '}' +
   '@media(min-width:1280px) and (max-width:1399.98px){' +
   '.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-m-l,180px) minmax(0,1fr) var(--ft-rail-w-m-r,180px);gap:1rem}' +
   '.ft-rail-aside-x{display:block}' +
@@ -134,6 +143,19 @@ export const RAIL_RESERVE_CSS =
   '.ft-rail-aside,.ft-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
   '}' +
   '@media(min-width:1800px){main:not(.seo-static-content):not(.cluster-seo-prose){max-width:calc(100vw - 420px)}}';
+
+/**
+ * Static manual AdSense slots reserve their height in emitted HTML. The
+ * external static loader adds the marker only after `unfilled` or the shared
+ * fill timeout, so a real creative keeps its space. Keep the collapse rule in
+ * the synchronous sheet as well as `index.css`: the loader can answer before
+ * the async sheet swaps in on a cold static page.
+ */
+const STATIC_AD_SELECTOR = 'ins.ads' + 'bygoogle';
+
+export const STATIC_AD_COLLAPSE_CSS =
+  `${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]{min-height:0!important;max-height:0!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;display:block!important}` +
+  `:where(div,li,section):has(> ${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}`;
 
 /**
  * Static SEO landing layout, mirrored from the ASYNC `seo-static.css`
@@ -865,6 +887,7 @@ export const SEO_STATIC_SHEET_RESERVE_CSS = deriveSeoStaticFirstPaintReserve(
 export const CRITICAL_CSS =
   `@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(${BASE_URL}/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:optional;src:url(${BASE_URL}/fonts/space-grotesk-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@layer base{*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}` +
   RAIL_RESERVE_CSS +
+  STATIC_AD_COLLAPSE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
   SEO_STATIC_HERO_RESERVE_CSS +
   SEO_SEARCH_HUB_RESERVE_CSS +
