@@ -62,6 +62,7 @@ import { sourceChangedSinceSuppression } from './source-changed-since-suppressio
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
+import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -7398,13 +7399,12 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // Independently, crawledAt older than ACTIVE_JOB_RETIREMENT_DAYS leaves
   // the active slice even on miss 1: miss-streak grace never advanced for
   // EOC/JYSK rows that stayed "known" without a recrawl heartbeat.
-  const GRACE_PERIOD_MAX_MISSES = 2;
   const retainedJobs = [];
   for (const [key, old] of existingByKey) {
     if (matchedExistingKeys.has(key)) continue;
     if (isActiveJobPastRetirement(old, nowMs)) continue;
     const missStreak = (Number(old.crawlerMissStreak) || 0) + 1;
-    if (missStreak > GRACE_PERIOD_MAX_MISSES) continue;
+    if (missStreak > CRAWLER_GRACE_PERIOD_MAX_MISSES) continue;
     retainedJobs.push({ ...old, crawlerMissStreak: missStreak });
   }
 

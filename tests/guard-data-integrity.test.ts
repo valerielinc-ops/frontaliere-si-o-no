@@ -231,6 +231,12 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
     const previous = JSON.stringify([
       { url: 'https://jobs.swissre.com/bratislava', companyKey: 'swiss-re', location: 'Bratislava, SK' },
       { url: 'https://jobs.swissre.com/mexico-city', companyKey: 'swiss-re', location: 'Mexico City, MX' },
+      {
+        url: 'https://jobs.swissre.com/legacy-zurich',
+        companyKey: 'swiss-re',
+        location: 'Zürich',
+        crawlerMissStreak: 2,
+      },
     ]);
     const next = JSON.stringify([
       { url: 'https://jobs.swissre.com/zurich', companyKey: 'swiss-re', location: 'Zurich, CH' },
