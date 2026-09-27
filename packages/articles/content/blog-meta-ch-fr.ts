@@ -6842,6 +6842,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iniziativa-neutralita-respinta.title': 'Initiative sur la neutralité rejetée par 71 %',
     'blog.article.iniziativa-neutralita-respinta.excerpt': 'La projection nationale indique un non net à 71% pour l\'Initiative sur la neutralité. Au Tessin, le non s\'établit à 51,2% après 86 communes.',
     'blog.article.iniziativa-neutralita-respinta.imageAlt': 'Urnes et votations fédérales en Suisse',
+    'blog.article.iniziativa-alimentazione-respinta.title': 'Initiative sur l’alimentation : nettement rejetée par les cantons',
+    'blog.article.iniziativa-alimentazione-respinta.excerpt': 'L\'Initiative sur l\'alimentation a été clairement rejetée par les cantons suisses. Au Tessin, les contraires ont atteint 68,66 %.',
+    'blog.article.iniziativa-alimentazione-respinta.imageAlt': 'Paysage agricole suisse avec champs cultivés et montagnes',
 };
 
 export default blogMetaChFr;

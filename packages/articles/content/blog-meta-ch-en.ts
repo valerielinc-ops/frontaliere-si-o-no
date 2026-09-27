@@ -6842,6 +6842,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iniziativa-neutralita-respinta.title': 'Neutrality initiative rejected by 71%',
     'blog.article.iniziativa-neutralita-respinta.excerpt': 'The national projection indicates a net 71% no for the Neutrality Initiative. In Ticino the no stands at 51.2% after 86 municipalities.',
     'blog.article.iniziativa-neutralita-respinta.imageAlt': 'Federal voting boxes and ballots in Switzerland',
+    'blog.article.iniziativa-alimentazione-respinta.title': 'Food initiative: decisively rejected by the cantons',
+    'blog.article.iniziativa-alimentazione-respinta.excerpt': 'The food initiative was decisively rejected by the Swiss cantons. In Ticino, those opposed reached 68.66%.',
+    'blog.article.iniziativa-alimentazione-respinta.imageAlt': 'Swiss agricultural countryside with cultivated fields and mountains',
 };
 
 export default blogMetaChEn;
