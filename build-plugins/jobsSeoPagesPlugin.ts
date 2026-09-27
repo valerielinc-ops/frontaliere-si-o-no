@@ -10974,7 +10974,7 @@ ${staticAnalyticsHtml}
          // "als Grenzgänger" H2 + "Grenzgängerinnen und Grenzgänger" copy
          // above). Rewritten to match that intent instead of translating
          // the generic "job board index" framing.
-       return {
+         return {
           title,
           lede: `Aktuelle Stellenangebote für Grenzgänger ${germanCantonPrep(display)} — täglich aktualisiert.`,
           ctaLabel: `Alle Stellen anzeigen`,
