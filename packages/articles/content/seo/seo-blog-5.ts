@@ -94804,6 +94804,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-micromobilita-tradate': {
+    title: 'Tradate, incidente con un mezzo elettrico: un ferito',
+    description: 'Incidente a Tradate alle 7.01 del 25 settembre: ferito un giovane di 25 anni su un mezzo di micromobilità elettrica in via Bruno Passerini. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tradate, incidente, mezzo, elettrico',
+    ogTitle: 'Incidente a Tradate, ferito un giovane di 25 anni',
+    ogDescription: 'Incidente alle 7.01 in via Bruno Passerini a Tradate: coinvolto un giovane di 25 anni su un mezzo di micromobilità elettrica. Sul posto ambulanza della Croce Rossa, soccorso avanzato e carabinieri della Compagnia di Saronno.',
+    canonicalPath: '/articoli-frontaliere/incidente-micromobilita-tradate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tradate, incidente con un mezzo elettrico: un ferito",
+      "description": "Incidente a Tradate alle 7.01 del 25 settembre: ferito un giovane di 25 anni su un mezzo di micromobilità elettrica in via Bruno Passerini. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-micromobilita-tradate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada urbana e mezzo di micromobilità elettrica in una scena di cronaca locale"
+      },
+      "datePublished": "2026-09-27T02:05:48+00:00",
+      "dateModified": "2026-09-27T02:05:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-micromobilita-tradate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

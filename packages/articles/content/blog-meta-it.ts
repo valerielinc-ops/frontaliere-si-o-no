@@ -12099,6 +12099,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.finissage-turner-como.title': 'Turner a Como: finissage serale gratuito il 27 settembre',
     'blog.article.finissage-turner-como.excerpt': 'Il 27 settembre 2026 a Como il finissage dei Capolavori dalla Tate: ingresso libero dalle 18 alle 21, ultimo ingresso alle 20:30.',
     'blog.article.finissage-turner-como.imageAlt': 'Finissage serale gratuito dei Capolavori dalla Tate a Como',
+    'blog.article.incidente-micromobilita-tradate.title': 'Tradate, incidente con un mezzo elettrico: un ferito',
+    'blog.article.incidente-micromobilita-tradate.excerpt': 'Incidente alle 7.01 in via Bruno Passerini a Tradate: coinvolto un giovane di 25 anni. Sul posto ambulanza, soccorso avanzato e carabinieri.',
+    'blog.article.incidente-micromobilita-tradate.imageAlt': 'Strada urbana e mezzo di micromobilità elettrica in una scena di cronaca locale',
 };
 
 export default blogMetaIt;

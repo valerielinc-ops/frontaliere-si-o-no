@@ -12098,6 +12098,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.finissage-turner-como.title': 'Turner in Como: free evening finissage on September 27',
     'blog.article.finissage-turner-como.excerpt': 'On 27 settembre 2026 at Como, the closing event for Masterpieces from Tate: free admission from 18 to 21, last admission at 20:30.',
     'blog.article.finissage-turner-como.imageAlt': 'Free evening finissage of the Tate masterpieces in Como',
+    'blog.article.incidente-micromobilita-tradate.title': 'Tradate, accident involving an electric vehicle: one person injured',
+    'blog.article.incidente-micromobilita-tradate.excerpt': 'Incident at 7.01 on Via Bruno Passerini in Tradate: a 25-year-old young man involved. Ambulance, advanced rescue services and carabinieri on site.',
+    'blog.article.incidente-micromobilita-tradate.imageAlt': 'Urban road and electric micromobility vehicle in a local news scene',
 };
 
 export default blogMetaEn;
