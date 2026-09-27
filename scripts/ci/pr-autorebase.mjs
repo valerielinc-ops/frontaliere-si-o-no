@@ -1613,8 +1613,16 @@ export function agentPrConflictNeedsHandOff({ conflicted, nearMerge, labels = []
 }
 
 /** Titolo stabile e body della issue di hand-off. Puro: niente rete. */
-export function buildConflictHandoffIssue({ num, branch, head, files, lgtm = true }) {
+export function buildConflictHandoffIssue({ num, branch, head, files, lgtm = true, closes = null }) {
   const list = (files || []).slice(0, 30).map((f) => `- \`${f}\``).join('\n') || '- (elenco non disponibile: ricalcolalo con il comando sotto)';
+  // Le issue che #N chiude passano alla PR nuova: #10095 chiudeva #10082, la sua
+  // riapplicazione #10145 no, e #10082 sarebbe rimasta aperta a farsi rifare.
+  // `null` = elenco illeggibile: l'agente lo ricava dal body di #N.
+  const closesStep = Array.isArray(closes)
+    ? (closes.length > 0
+      ? ` La PR #${num} chiude ${closes.map((n) => `#${n}`).join(', ')}: nella PR nuova scrivi un \`Closes #<n>\` per ciascuna, uno per riga.`
+      : '')
+    : ` Riporta nella PR nuova, uno per riga, i \`Closes #<n>\` del body di #${num}.`;
   const title = lgtm
     ? `Conflitto con main dopo LGTM: riapplicare la PR #${num} su main`
     : `Conflitto con main: riapplicare la PR #${num} su main`;
@@ -1632,7 +1640,7 @@ export function buildConflictHandoffIssue({ num, branch, head, files, lgtm = tru
     '',
     `1. \`git fetch origin main ${branch}\` e \`git diff $(git merge-base origin/main origin/${branch}) origin/${branch}\`: e' il contributo della PR, gia' approvato.`,
     '2. Riapplicalo su `origin/main` nel branch di questa issue risolvendo i conflitti: conserva il comportamento arrivato su `main` E quello della PR. Nessuna modifica oltre a quella gia\' approvata.',
-    `3. Apri la PR con \`Supersedes #${num}\` e \`Closes\` di questa issue, poi chiudi #${num} con un commento che rimanda alla nuova PR.`,
+    `3. Apri la PR con \`Supersedes #${num}\` e \`Closes\` di questa issue, poi chiudi #${num} con un commento che rimanda alla nuova PR.${closesStep}`,
     '',
     'Se il conflitto e\' gia\' stato risolto sul branch originale (la PR torna mergeable), chiudi questa issue senza PR.',
     '',
@@ -1789,7 +1797,9 @@ function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } 
   if (onMain.state === 'unknown') {
     console.log(`PR #${num}: confronto per blob con main non determinabile (${onMain.reason}) → hand-off invariato.`);
   }
-  const { title, body } = buildConflictHandoffIssue({ num, branch, head, files: verdict.files, lgtm });
+  const { title, body } = buildConflictHandoffIssue({
+    num, branch, head, files: verdict.files, lgtm, closes: prClosingIssueNumbers(num),
+  });
   if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
   // Il titolo e' stabile: una issue gia' aperta da un tick precedente (routing
   // fallito, marker non scritto) viene riusata invece di duplicata.
@@ -1823,6 +1833,13 @@ function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } 
     `${marker}\n♻️ **autorebase / conflitto${lgtm ? ' dopo LGTM' : ' di una PR del ciclo'}**: affidato a issue-fix con #${issue}, che riapplica il contributo${lgtm ? ' approvato' : ''} su \`main\` in una PR nuova. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
   { json: false, allowFail: true });
   console.log(`PR #${num}: conflitto${lgtm ? ' dopo LGTM' : ' di una PR del ciclo'} → hand-off a issue-fix con #${issue}.`);
+}
+
+function prClosingIssueNumbers(num) {
+  const view = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'closingIssuesReferences'], { allowFail: true });
+  const refs = view?.closingIssuesReferences;
+  if (!Array.isArray(refs)) return null;
+  return refs.map((ref) => Number(ref?.number)).filter((n) => Number.isSafeInteger(n) && n > 0);
 }
 
 function commentConflictOnce(num, branch) {
