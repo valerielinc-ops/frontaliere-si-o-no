@@ -266,6 +266,77 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
     writeSpy.mockRestore();
   });
 
+  it('ignores the proven Bühler source-geography prune', async () => {
+    const buehlerFile = 'data/jobs/by-crawler/buehler.json';
+    const legacySource = 'Bühler Group Dedicated Parser (Prospective medium 1008005)';
+    const previous = JSON.stringify([
+      {
+        url: 'https://jobs.buhlergroup.com/foreign',
+        companyKey: 'buehler',
+        source: legacySource,
+        location: 'Plymouth',
+        canton: 'SG',
+        addressRegion: 'SG',
+        country: 'CH',
+        addressCountry: 'CH',
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
+      },
+      {
+        url: 'https://jobs.buhlergroup.com/legacy-uzwil',
+        companyKey: 'buehler',
+        source: legacySource,
+        location: 'Uzwil',
+        canton: 'SG',
+        addressRegion: 'SG',
+        country: 'CH',
+        addressCountry: 'CH',
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
+      },
+      {
+        url: 'https://jobs.buhlergroup.com/uzwil',
+        companyKey: 'buehler',
+        source: legacySource,
+        location: 'Uzwil',
+        canton: 'SG',
+        addressRegion: 'SG',
+        country: 'CH',
+        addressCountry: 'CH',
+      },
+    ]);
+    const next = JSON.stringify([{
+      url: 'https://jobs.buhlergroup.com/uzwil',
+      companyKey: 'buehler',
+      source: legacySource,
+      location: 'Uzwil',
+      canton: 'SG',
+      addressRegion: 'SG',
+      country: 'CH',
+      addressCountry: 'CH',
+    }]);
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${buehlerFile}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '2000000' : '100000';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? previous : next;
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    expect(JSON.parse(written)).toEqual([]);
+    writeSpy.mockRestore();
+  });
+
   it('does not exempt an unsafe Swiss Re slice shrink', async () => {
     const swissReFile = 'data/jobs/by-crawler/swiss-re.json';
     const previous = JSON.stringify([
