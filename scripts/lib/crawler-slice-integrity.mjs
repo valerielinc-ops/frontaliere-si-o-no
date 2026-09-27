@@ -177,7 +177,7 @@ export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, r
   const previousJobs = parseJobs(previousRaw);
   const nextJobs = parseJobs(nextRaw);
   const reference = Array.isArray(referenceJobs) ? referenceJobs : parseJobs(referenceJobs);
-  if (!previousJobs || !nextJobs || !reference || previousJobs.length <= nextJobs.length || nextJobs.length === 0) {
+  if (!previousJobs || !nextJobs || !reference || previousJobs.length <= nextJobs.length) {
     return false;
   }
 

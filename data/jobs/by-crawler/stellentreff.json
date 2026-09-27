@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stellentreff",
-  "assembledAt": "2026-09-26T23:41:15.280Z",
+  "assembledAt": "2026-09-27T15:01:57.671Z",
   "jobs": [
     {
       "id": "stellentreff-efb234913c36",
@@ -23,9 +23,9 @@
       },
       "description": "Tätigkeiten Interne Montagen von diversen Pumpen Allgemeine Arbeiten in der Produktion sowie Aushilfe in der Logistik \n• Anforderungen Gutes technisches Verständnis Interessiert an einer langfristigen Anstellung Gutes Deutsch in Wort und Schrift Angebot Spannende Arbeiten mit einer langfristigen Anstellung Erfolgsbeteiligung Super Team",
       "descriptionByLocale": {
-        "de": "Tätigkeiten Interne Montagen von diversen Pumpen Allgemeine Arbeiten in der Produktion sowie Aushilfe in der Logistik \n• Anforderungen Gutes technisches Verständnis Interessiert an einer langfristigen Anstellung Gutes Deutsch in Wort und Schrift Angebot Spannende Arbeiten mit einer langfristigen Anstellung Erfolgsbeteiligung Super Team",
         "it": "Attività Installazione interna di varie pompe Lavoro generale in produzione e assistenza nella logistica\n• Requisiti Buona comprensione tecnica Interessato a un impiego a lungo termine Buono tedesco in Word e offerta di scrittura Lavoro emozionante con un lavoro a lungo termine Condivisione di successo Super Team",
         "en": "Activities Internal installation of various pumps General work in production as well as assistance in logistics\n• Requirements Good technical understanding Interested in a long-term employment Good German in Word and Writing Offer Exciting work with a long-term employment Success sharing Super Team",
+        "de": "Tätigkeiten Interne Montagen von diversen Pumpen Allgemeine Arbeiten in der Produktion sowie Aushilfe in der Logistik \n• Anforderungen Gutes technisches Verständnis Interessiert an einer langfristigen Anstellung Gutes Deutsch in Wort und Schrift Angebot Spannende Arbeiten mit einer langfristigen Anstellung Erfolgsbeteiligung Super Team",
         "fr": "Activités Installation interne de différentes pompes Travaux généraux en production et assistance logistique\n• Exigences Bonne compréhension technique Intéressé par un emploi à long terme Offre de bon allemand en paroles et en écriture Travail passionnant avec un emploi à long terme Partage de succès Super Team"
       },
       "location": "Willisau, Luzern",
@@ -33,7 +33,7 @@
       "url": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-willisau-temporaer-117031/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:10.000Z",
+      "crawledAt": "2026-09-27T15:01:51.388Z",
       "addressLocality": "Willisau",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -49,17 +49,18 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-willisau-temporaer-117031/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
+        "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
           "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau"
         ]
       },
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
-        "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:59:14.396Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -72,8 +73,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T13:59:14.396Z"
+      }
     },
     {
       "id": "stellentreff-8c1cc0ab45b3",
@@ -96,9 +96,9 @@
       },
       "description": "Tätigkeiten Bei der Vorproduktion von Holzelementen mitarbeiten Materialien für den Elementbau vorbereiten Montageabläufe in der Werkhalle unterstützen \n• Anforderungen Praxis als Hilfsarbeiterin oder Hilfsarbeiter im Holzbau wäre wünschenswert Handwerkliches Können in der Verarbeitung von Holz Verlässliche und körperlich belastbare Arbeitsweise Angebot Einblick in zeitgemässe Methoden des Elementbaus Vielseitige Einsätze in einem Holzbaubetrieb",
       "descriptionByLocale": {
-        "de": "Tätigkeiten Bei der Vorproduktion von Holzelementen mitarbeiten Materialien für den Elementbau vorbereiten Montageabläufe in der Werkhalle unterstützen \n• Anforderungen Praxis als Hilfsarbeiterin oder Hilfsarbeiter im Holzbau wäre wünschenswert Handwerkliches Können in der Verarbeitung von Holz Verlässliche und körperlich belastbare Arbeitsweise Angebot Einblick in zeitgemässe Methoden des Elementbaus Vielseitige Einsätze in einem Holzbaubetrieb",
         "it": "Attività Nella pre-produzione di elementi in legno che cooperano materiali per preparare sequenze di montaggio di supporto per la costruzione di elementi nel laboratorio\n• La pratica come lavoratore ausiliario nella costruzione del legno sarebbe auspicabile Artigianato nella lavorazione del legno Metodo di lavoro affidabile e fisicamente resiliente.",
         "en": "Activities In the pre-production of wooden elements cooperating materials to prepare element construction support assembly sequences in the workshop\n• Requirements Practice as an auxiliary worker in timber construction would be desirable Craftsmanship in the processing of wood Reliable and physically resilient working method Offer insight into contemporary methods of element construction",
+        "de": "Tätigkeiten Bei der Vorproduktion von Holzelementen mitarbeiten Materialien für den Elementbau vorbereiten Montageabläufe in der Werkhalle unterstützen \n• Anforderungen Praxis als Hilfsarbeiterin oder Hilfsarbeiter im Holzbau wäre wünschenswert Handwerkliches Können in der Verarbeitung von Holz Verlässliche und körperlich belastbare Arbeitsweise Angebot Einblick in zeitgemässe Methoden des Elementbaus Vielseitige Einsätze in einem Holzbaubetrieb",
         "fr": "Activités Dans la préproduction d'éléments en bois coopérant des matériaux pour préparer les séquences d'assemblage de support de construction d'éléments dans l'atelier\n• Exigences La pratique en tant qu'ouvrier auxiliaire dans la construction de bois serait souhaitable Artisanat dans le traitement du bois Méthode de travail fiable et physiquement résistante"
       },
       "location": "Sursee, Luzern",
@@ -106,7 +106,7 @@
       "url": "https://www.stellentreff.ch/stellen/zimmermann-zimmerin-hilfsarbeiter-in-sursee-temporaer-116814/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.999Z",
+      "crawledAt": "2026-09-27T15:01:51.387Z",
       "addressLocality": "Sursee",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -122,15 +122,16 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/zimmermann-zimmerin-hilfsarbeiter-in-sursee-temporaer-116814/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "zimmermann-zimmerin-hilfsarbeiter-in-fur-elementbau-sursee-luzern-stellentreff-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "zimmermann-zimmerin-hilfsarbeiter-in-fur-elementbau-sursee-luzern-stellentreff-ch"
         ]
       },
-      "previousSlugs": [
-        "zimmermann-zimmerin-hilfsarbeiter-in-fur-elementbau-sursee-luzern-stellentreff-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:59:14.395Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -143,8 +144,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T13:59:14.395Z"
+      }
     },
     {
       "id": "stellentreff-c513f2383d6d",
@@ -167,9 +167,9 @@
       },
       "description": "Tätigkeiten Montage von Fenstern Service arbeiten Reparaturen Kundenbetreuung \n• Anforderungen Ausbildung als Schreiner absolviert kommunikative Persönlichkeit Exakte und saubere Arbeitsweise Arbeitet gerne im Team Erfahrung in der Montage von Fenstern, Türen Führerschein Kat. B zwingend Angebot Freuen Sie sich auf eine herausfordernde Tätigkeit und profitieren Sie von einem angenehmen und modernen Arbeitsplatz sowie zeitgemässen Anstellungsbedingungen.",
       "descriptionByLocale": {
-        "de": "Tätigkeiten Montage von Fenstern Service arbeiten Reparaturen Kundenbetreuung \n• Anforderungen Ausbildung als Schreiner absolviert kommunikative Persönlichkeit Exakte und saubere Arbeitsweise Arbeitet gerne im Team Erfahrung in der Montage von Fenstern, Türen Führerschein Kat. B zwingend Angebot Freuen Sie sich auf eine herausfordernde Tätigkeit und profitieren Sie von einem angenehmen und modernen Arbeitsplatz sowie zeitgemässen Anstellungsbedingungen.",
         "it": "AttivitÃ Assemblaggio dei lavori di manutenzione delle finestre riparazioni assistenza clienti\n• La formazione come carpentiere completa la personalità comunicativa Stile di lavoro esatto e pulito Mi piace lavorare nell'esperienza di squadra nell'assemblaggio di finestre, porta patente di guida Cat. B Compulsory offre Attendere un lavoro impegnativo e beneficiare di un luogo di lavoro piacevole e moderno, così come le condizioni di lavoro contemporaneo.",
         "en": "Activities Assembly of windows service work repairs customer support\n• Requirements Training as a carpenter completes communicative personality Exact and clean working style Likes to work in team experience in the assembly of windows, doors driving license Cat. B Compulsory offer Look forward to a challenging job and benefit from a pleasant and modern workplace as well as contemporary employment conditions.",
+        "de": "Tätigkeiten Montage von Fenstern Service arbeiten Reparaturen Kundenbetreuung \n• Anforderungen Ausbildung als Schreiner absolviert kommunikative Persönlichkeit Exakte und saubere Arbeitsweise Arbeitet gerne im Team Erfahrung in der Montage von Fenstern, Türen Führerschein Kat. B zwingend Angebot Freuen Sie sich auf eine herausfordernde Tätigkeit und profitieren Sie von einem angenehmen und modernen Arbeitsplatz sowie zeitgemässen Anstellungsbedingungen.",
         "fr": "Activités Montage de fenêtres service réparation assistance à la clientèle\n• Exigences Formation en tant que charpentier complète la personnalité communicative Style de travail précis et propre Likes to work in team experience in the assembling of windows, doors driving licence Cat. B Offre obligatoire Réjouissez-vous d'un emploi stimulant et profitez d'un milieu de travail agréable et moderne ainsi que des conditions d'emploi contemporaines."
       },
       "location": "Hochdorf, Luzern",
@@ -177,7 +177,7 @@
       "url": "https://www.stellentreff.ch/stellen/schreiner-in-hilfsarbeiter-in-hochdorf-temporaer-116892/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.998Z",
+      "crawledAt": "2026-09-27T15:01:51.386Z",
       "addressLocality": "Hochdorf",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -193,15 +193,16 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/schreiner-in-hilfsarbeiter-in-hochdorf-temporaer-116892/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "schreiner-in-hilfsarbeiter-in-fur-fenstermontage-hochdorf-luzern-stellentreff-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-hilfsarbeiter-in-fur-fenstermontage-hochdorf-luzern-stellentreff-ch"
         ]
       },
-      "previousSlugs": [
-        "schreiner-in-hilfsarbeiter-in-fur-fenstermontage-hochdorf-luzern-stellentreff-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:59:14.394Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -214,8 +215,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T13:59:14.394Z"
+      }
     },
     {
       "id": "stellentreff-3f6299a02595",
@@ -238,9 +238,9 @@
       },
       "description": "Tätigkeiten Bei Montagearbeiten an Metallkonstruktionen mitwirken Bauteile auf der Baustelle vorbereiten und anpassen Werkzeuge und Material für Einsätze bereitstellen \n• Anforderungen Handwerkliches Geschick im Bereich Metallverarbeitung Zuverlässige und sorgfältige Arbeitsweise Körperliche Belastbarkeit für Montageeinsätze Angebot Vielseitige Einsätze im metallverarbeitenden Umfeld Unterstützung bei der fachlichen Weiterentwicklung",
       "descriptionByLocale": {
-        "de": "Tätigkeiten Bei Montagearbeiten an Metallkonstruktionen mitwirken Bauteile auf der Baustelle vorbereiten und anpassen Werkzeuge und Material für Einsätze bereitstellen \n• Anforderungen Handwerkliches Geschick im Bereich Metallverarbeitung Zuverlässige und sorgfältige Arbeitsweise Körperliche Belastbarkeit für Montageeinsätze Angebot Vielseitige Einsätze im metallverarbeitenden Umfeld Unterstützung bei der fachlichen Weiterentwicklung",
         "it": "Attività Nei lavori di montaggio sulle strutture metalliche partecipano alla preparazione dei componenti sul cantiere e all'adattamento di strumenti e materiali per le distribuzioni\n• Capacità di carico fisico per inserti di montaggio Offrire inserti versatili nell'ambiente di lavorazione del metallo Supporto nello sviluppo professionale",
         "en": "Activities In assembly work on metal structures participate in preparing components on the construction site and adapting tools and materials for deployments\n• Requirements Craftsmanship in the field of metalworking Reliable and careful working methods Physical load capacity for assembly inserts Offer versatile inserts in the metalworking environment Support in professional development",
+        "de": "Tätigkeiten Bei Montagearbeiten an Metallkonstruktionen mitwirken Bauteile auf der Baustelle vorbereiten und anpassen Werkzeuge und Material für Einsätze bereitstellen \n• Anforderungen Handwerkliches Geschick im Bereich Metallverarbeitung Zuverlässige und sorgfältige Arbeitsweise Körperliche Belastbarkeit für Montageeinsätze Angebot Vielseitige Einsätze im metallverarbeitenden Umfeld Unterstützung bei der fachlichen Weiterentwicklung",
         "fr": "Activités Dans les travaux d'assemblage sur les structures métalliques participent à la préparation des composants sur le chantier et l'adaptation des outils et matériaux aux déploiements\n• Exigences Artisanat dans le domaine du travail des métaux Méthodes de travail fiables et prudentes Capacité de charge physique pour les inserts d'assemblage Offrez des inserts polyvalents dans l'environnement du travail des métaux Soutien au développement professionnel"
       },
       "location": "Luzern, Luzern",
@@ -248,7 +248,7 @@
       "url": "https://www.stellentreff.ch/stellen/metallbauer-in-hilfsarbeiter-in-luzern-temporaer-116870/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.997Z",
+      "crawledAt": "2026-09-27T15:01:51.385Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -264,15 +264,16 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/metallbauer-in-hilfsarbeiter-in-luzern-temporaer-116870/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "metallbauer-in-hilfsarbeiter-in-fur-montageeinsatze-luzern-luzern-stellentreff-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-hilfsarbeiter-in-fur-montageeinsatze-luzern-luzern-stellentreff-ch"
         ]
       },
-      "previousSlugs": [
-        "metallbauer-in-hilfsarbeiter-in-fur-montageeinsatze-luzern-luzern-stellentreff-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:59:14.394Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -285,8 +286,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T13:59:14.394Z"
+      }
     },
     {
       "id": "stellentreff-cca97ddaf687",
@@ -319,7 +319,7 @@
       "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-herisau-temporaer-116856/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.997Z",
+      "crawledAt": "2026-09-27T15:01:51.384Z",
       "addressLocality": "Herisau",
       "addressRegion": "Appenzell Ausserrhoden",
       "addressCountry": "CH",
@@ -347,6 +347,83 @@
           "@type": "QuantitativeValue",
           "minValue": 65000,
           "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stellentreff-a025d31b9a48",
+      "slug": "malerpraktiker-in-per-fassadenarbeiten-stellentreff-ag-winterthur",
+      "slugByLocale": {
+        "it": "malerpraktiker-in-per-fassadenarbeiten-stellentreff-ag-winterthur",
+        "en": "painter-practitioner-for-facade-work-stellentreff-ag-winterthur-zurich",
+        "de": "malerpraktiker-in-fur-fassadenarbeiten-winterthur-zurich-stellentreff-ch",
+        "fr": "peintre-praticien-pour-le-travail-de-facade-stellentreff-ag-winterthur-zurich"
+      },
+      "company": "Stellentreff AG",
+      "companyKey": "stellentreff",
+      "companyDomain": "stellentreff.ch",
+      "title": "Malerpraktiker/in für Fassadenarbeiten",
+      "titleByLocale": {
+        "it": "Malerpraktiker/in per Fassadenarbeiten",
+        "en": "Painter practitioner for façade work",
+        "de": "Malerpraktiker/in für Fassadenarbeiten",
+        "fr": "Peintre praticien pour le travail de façade"
+      },
+      "description": "Tätigkeiten Streichen von Fassaden Umbauten Isolieren von Fassaden Netz einbetten Abrieb \n• Anforderungen Berufslehre als Maler/in EBA absolviert Vielseitige Fachkenntnisse in Abrieb und Isolieren von Fassaden Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
+      "descriptionByLocale": {
+        "it": "Attività Dipinti di facciate Conversioni Isolamento di facciate Embedding usura netta\n• L'apprendistato vocazionale come pittore / in EBA completa le conoscenze specialistiche versatili nell'abrasione e nell'isolamento delle facciate Alta disponibilità a eseguire la licenza di Configurazione, della personalità comunicativa B di vantaggio offrono Attendere un'attività versatile e impegnativa. Essi godono di un ottimo salario orario.",
+        "en": "Activities Painting of facades Conversions Insulation of facades Embedding net wear\n• Requirements Vocational apprenticeship as a painter / in EBA completes versatile specialist knowledge in abrasion and insulation of facades High willingness to perform Set up, communicative personality driver's license B of advantage offer Look forward to a versatile and challenging activity. They enjoy a very good hourly wage.",
+        "de": "Tätigkeiten Streichen von Fassaden Umbauten Isolieren von Fassaden Netz einbetten Abrieb \n• Anforderungen Berufslehre als Maler/in EBA absolviert Vielseitige Fachkenntnisse in Abrieb und Isolieren von Fassaden Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
+        "fr": "Activités Peinture des façades Conversions Isolation des façades Embedding net use\n• Exigences L'apprentissage professionnel en tant que peintre / en EBA complète des connaissances spécialisées polyvalentes dans l'abrasion et l'isolation des façades Haute volonté d'effectuer Set , communication de la personnalité permis de conduire B d'avantage offre Vous avez hâte d'une activité polyvalente et difficile. Ils bénéficient d'un très bon salaire horaire."
+      },
+      "location": "Winterthur, Zürich",
+      "canton": "ZH",
+      "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-winterthur-temporaer-116844/",
+      "source": "Stellentreff AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-27T15:01:51.383Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://www.stellentreff.ch/stellen/malerpraktiker-in-winterthur-temporaer-116844/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "malerpraktiker-in-fur-fassadenarbeiten-winterthur-zurich-stellentreff-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "malerpraktiker-in-fur-fassadenarbeiten-winterthur-zurich-stellentreff-ch"
+        ],
+        "en": [
+          "malerpraktiker-in-fur-fassadenarbeiten-winterthur-zurich-stellentreff-ch"
+        ],
+        "fr": [
+          "malerpraktiker-in-fur-fassadenarbeiten-winterthur-zurich-stellentreff-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T14:28:14.176Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -382,7 +459,7 @@
       "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-luzern-temporaer-116922/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.996Z",
+      "crawledAt": "2026-09-27T15:01:51.383Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -459,7 +536,7 @@
       "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-buelach-temporaer-116826/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.995Z",
+      "crawledAt": "2026-09-27T15:01:51.382Z",
       "addressLocality": "Bülach",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -508,164 +585,6 @@
       }
     },
     {
-      "id": "stellentreff-a025d31b9a48",
-      "slug": "malerpraktiker-in-per-fassadenarbeiten-stellentreff-ag-winterthur",
-      "slugByLocale": {
-        "it": "malerpraktiker-in-per-fassadenarbeiten-stellentreff-ag-winterthur",
-        "en": "painter-practitioner-for-facade-work-stellentreff-ag-winterthur-zurich",
-        "de": "malerpraktiker-in-fur-fassadenarbeiten-winterthur-zurich-stellentreff-ch",
-        "fr": "peintre-praticien-pour-le-travail-de-facade-stellentreff-ag-winterthur-zurich"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Malerpraktiker/in für Fassadenarbeiten",
-      "titleByLocale": {
-        "it": "Malerpraktiker/in per Fassadenarbeiten",
-        "en": "Painter practitioner for façade work",
-        "de": "Malerpraktiker/in für Fassadenarbeiten",
-        "fr": "Peintre praticien pour le travail de façade"
-      },
-      "description": "Tätigkeiten Streichen von Fassaden Umbauten Isolieren von Fassaden Netz einbetten Abrieb \n• Anforderungen Berufslehre als Maler/in EBA absolviert Vielseitige Fachkenntnisse in Abrieb und Isolieren von Fassaden Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-      "descriptionByLocale": {
-        "it": "Attività Dipinti di facciate Conversioni Isolamento di facciate Embedding usura netta\n• L'apprendistato vocazionale come pittore / in EBA completa le conoscenze specialistiche versatili nell'abrasione e nell'isolamento delle facciate Alta disponibilità a eseguire la licenza di Configurazione, della personalità comunicativa B di vantaggio offrono Attendere un'attività versatile e impegnativa. Essi godono di un ottimo salario orario.",
-        "en": "Activities Painting of facades Conversions Insulation of facades Embedding net wear\n• Requirements Vocational apprenticeship as a painter / in EBA completes versatile specialist knowledge in abrasion and insulation of facades High willingness to perform Set up, communicative personality driver's license B of advantage offer Look forward to a versatile and challenging activity. They enjoy a very good hourly wage.",
-        "de": "Tätigkeiten Streichen von Fassaden Umbauten Isolieren von Fassaden Netz einbetten Abrieb \n• Anforderungen Berufslehre als Maler/in EBA absolviert Vielseitige Fachkenntnisse in Abrieb und Isolieren von Fassaden Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "fr": "Activités Peinture des façades Conversions Isolation des façades Embedding net use\n• Exigences L'apprentissage professionnel en tant que peintre / en EBA complète des connaissances spécialisées polyvalentes dans l'abrasion et l'isolation des façades Haute volonté d'effectuer Set , communication de la personnalité permis de conduire B d'avantage offre Vous avez hâte d'une activité polyvalente et difficile. Ils bénéficient d'un très bon salaire horaire."
-      },
-      "location": "Winterthur, Zürich",
-      "canton": "ZH",
-      "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-winterthur-temporaer-116844/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.995Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://www.stellentreff.ch/stellen/malerpraktiker-in-winterthur-temporaer-116844/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "malerpraktiker-in-fur-fassadenarbeiten-winterthur-zurich-stellentreff-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "malerpraktiker-in-fur-fassadenarbeiten-winterthur-zurich-stellentreff-ch"
-        ],
-        "en": [
-          "malerpraktiker-in-fur-fassadenarbeiten-winterthur-zurich-stellentreff-ch"
-        ],
-        "fr": [
-          "malerpraktiker-in-fur-fassadenarbeiten-winterthur-zurich-stellentreff-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:28:14.176Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stellentreff-97a26421926c",
-      "slug": "pittori-e-spruzzi-stellentreff-ag-herisau-appenzell-ausserrhoden",
-      "slugByLocale": {
-        "it": "pittori-e-spruzzi-stellentreff-ag-herisau-appenzell-ausserrhoden",
-        "en": "paint-and-spray-painters-stellentreff-ag-herisau-appenzell-ausserrhoden",
-        "de": "maler-in-fur-lackier-und-spritzarbeiten-herisau-appenzell-ausserrhoden-stellentreff-ch",
-        "fr": "peinture-et-peinture-stellentreff-ag-herisau-appenzell-ausserrhoden"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Maler/in für Lackier- und Spritzarbeiten",
-      "titleByLocale": {
-        "it": "Pittori e spruzzi",
-        "en": "Paint and spray painters",
-        "de": "Maler/in für Lackier- und Spritzarbeiten",
-        "fr": "Peinture et peinture"
-      },
-      "description": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Neubau- und Renovationsobjekte Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Sie sind ausgebildeter Maler und verfügen über erprobte Berufspraxis. Sie sind an selbständiges Arbeiten gewohnt und bereit Verantwortung zu übernehmen. Eine robuste Gesundheit, Ausdauer und Teamfähigkeit runden \n• Ihr Profil ab Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-      "descriptionByLocale": {
-        "it": "Lavori di verniciatura dei clienti per clienti privati Oggetti di ristrutturazione Dipinti e lavori di spruzzo\n• Lei è un pittore addestrato e ha dimostrato la pratica professionale. Sono abituati a lavorare in modo indipendente e sono disposti a assumersi la responsabilità. Una robusta capacità di salute, resistenza e lavoro di squadra\n• Il tuo profilo da offrire Attendere con impazienza un'attività versatile e impegnativa. Essi godono di un ottimo salario orario.",
-        "en": "Customer painting work for private clients New and renovation objects Painting and spray work Decorative work\n• You are a trained painter and have proven professional practice. They are used to working independently and are willing to take on responsibility. A robust health, endurance and teamwork ability round out\n• Your profile from offer Look forward to a versatile and challenging activity. They enjoy a very good hourly wage.",
-        "de": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Neubau- und Renovationsobjekte Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Sie sind ausgebildeter Maler und verfügen über erprobte Berufspraxis. Sie sind an selbständiges Arbeiten gewohnt und bereit Verantwortung zu übernehmen. Eine robuste Gesundheit, Ausdauer und Teamfähigkeit runden \n• Ihr Profil ab Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "fr": "Travaux de peinture pour clients privés Objets neufs et de rénovation Travaux de peinture et de pulvérisation Travaux décoratifs\n• Vous êtes un peintre formé et avez fait preuve de pratique professionnelle. Ils sont habitués à travailler de façon indépendante et sont prêts à assumer leurs responsabilités. Une solide capacité de santé, d'endurance et de travail d'équipe s'achève\n• Votre profil de l'offre Découvrez une activité polyvalente et stimulante. Ils bénéficient d'un très bon salaire horaire."
-      },
-      "location": "Herisau, Appenzell Ausserrhoden",
-      "canton": "AR",
-      "url": "https://www.stellentreff.ch/stellen/maler-in-herisau-temporaer-116800/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.994Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "Appenzell Ausserrhoden",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-herisau-temporaer-116800/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-lackier-und-spritzarbeiten-herisau-appenzell-ausserrhoden-stellentreff-ch",
-        "maler-in-per-lackier-e-spritzarbeiten-stellentreff-ag-herisau",
-        "pittori-e-spruzzi-stellentreff-ag-herisau-appenzell-ausserrhoden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-lackier-und-spritzarbeiten-herisau-appenzell-ausserrhoden-stellentreff-ch",
-          "maler-in-per-lackier-e-spritzarbeiten-stellentreff-ag-herisau",
-          "pittori-e-spruzzi-stellentreff-ag-herisau-appenzell-ausserrhoden"
-        ],
-        "en": [
-          "maler-in-fur-lackier-und-spritzarbeiten-herisau-appenzell-ausserrhoden-stellentreff-ch"
-        ],
-        "fr": [
-          "maler-in-fur-lackier-und-spritzarbeiten-herisau-appenzell-ausserrhoden-stellentreff-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:46:36.125Z",
-      "needsRetranslation": true,
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65000,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stellentreff-147d4cb4c302",
       "slug": "pittore-per-la-verniciatura-e-la-ristrutturazione-dei-clienti-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
@@ -696,7 +615,7 @@
       "url": "https://www.stellentreff.ch/stellen/maler-in-luzern-temporaer-116920/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.993Z",
+      "crawledAt": "2026-09-27T15:01:51.381Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -746,6 +665,87 @@
       }
     },
     {
+      "id": "stellentreff-97a26421926c",
+      "slug": "pittori-e-spruzzi-stellentreff-ag-herisau-appenzell-ausserrhoden",
+      "slugByLocale": {
+        "it": "pittori-e-spruzzi-stellentreff-ag-herisau-appenzell-ausserrhoden",
+        "en": "paint-and-spray-painters-stellentreff-ag-herisau-appenzell-ausserrhoden",
+        "de": "maler-in-fur-lackier-und-spritzarbeiten-herisau-appenzell-ausserrhoden-stellentreff-ch",
+        "fr": "peinture-et-peinture-stellentreff-ag-herisau-appenzell-ausserrhoden"
+      },
+      "company": "Stellentreff AG",
+      "companyKey": "stellentreff",
+      "companyDomain": "stellentreff.ch",
+      "title": "Maler/in für Lackier- und Spritzarbeiten",
+      "titleByLocale": {
+        "it": "Pittori e spruzzi",
+        "en": "Paint and spray painters",
+        "de": "Maler/in für Lackier- und Spritzarbeiten",
+        "fr": "Peinture et peinture"
+      },
+      "description": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Neubau- und Renovationsobjekte Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Sie sind ausgebildeter Maler und verfügen über erprobte Berufspraxis. Sie sind an selbständiges Arbeiten gewohnt und bereit Verantwortung zu übernehmen. Eine robuste Gesundheit, Ausdauer und Teamfähigkeit runden \n• Ihr Profil ab Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
+      "descriptionByLocale": {
+        "it": "Lavori di verniciatura dei clienti per clienti privati Oggetti di ristrutturazione Dipinti e lavori di spruzzo\n• Lei è un pittore addestrato e ha dimostrato la pratica professionale. Sono abituati a lavorare in modo indipendente e sono disposti a assumersi la responsabilità. Una robusta capacità di salute, resistenza e lavoro di squadra\n• Il tuo profilo da offrire Attendere con impazienza un'attività versatile e impegnativa. Essi godono di un ottimo salario orario.",
+        "en": "Customer painting work for private clients New and renovation objects Painting and spray work Decorative work\n• You are a trained painter and have proven professional practice. They are used to working independently and are willing to take on responsibility. A robust health, endurance and teamwork ability round out\n• Your profile from offer Look forward to a versatile and challenging activity. They enjoy a very good hourly wage.",
+        "de": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Neubau- und Renovationsobjekte Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Sie sind ausgebildeter Maler und verfügen über erprobte Berufspraxis. Sie sind an selbständiges Arbeiten gewohnt und bereit Verantwortung zu übernehmen. Eine robuste Gesundheit, Ausdauer und Teamfähigkeit runden \n• Ihr Profil ab Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
+        "fr": "Travaux de peinture pour clients privés Objets neufs et de rénovation Travaux de peinture et de pulvérisation Travaux décoratifs\n• Vous êtes un peintre formé et avez fait preuve de pratique professionnelle. Ils sont habitués à travailler de façon indépendante et sont prêts à assumer leurs responsabilités. Une solide capacité de santé, d'endurance et de travail d'équipe s'achève\n• Votre profil de l'offre Découvrez une activité polyvalente et stimulante. Ils bénéficient d'un très bon salaire horaire."
+      },
+      "location": "Herisau, Appenzell Ausserrhoden",
+      "canton": "AR",
+      "url": "https://www.stellentreff.ch/stellen/maler-in-herisau-temporaer-116800/",
+      "source": "Stellentreff AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-27T15:01:51.381Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "Appenzell Ausserrhoden",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-herisau-temporaer-116800/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "maler-in-fur-lackier-und-spritzarbeiten-herisau-appenzell-ausserrhoden-stellentreff-ch",
+        "maler-in-per-lackier-e-spritzarbeiten-stellentreff-ag-herisau",
+        "pittori-e-spruzzi-stellentreff-ag-herisau-appenzell-ausserrhoden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "maler-in-fur-lackier-und-spritzarbeiten-herisau-appenzell-ausserrhoden-stellentreff-ch",
+          "maler-in-per-lackier-e-spritzarbeiten-stellentreff-ag-herisau",
+          "pittori-e-spruzzi-stellentreff-ag-herisau-appenzell-ausserrhoden"
+        ],
+        "en": [
+          "maler-in-fur-lackier-und-spritzarbeiten-herisau-appenzell-ausserrhoden-stellentreff-ch"
+        ],
+        "fr": [
+          "maler-in-fur-lackier-und-spritzarbeiten-herisau-appenzell-ausserrhoden-stellentreff-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:46:36.125Z",
+      "salaryMin": 65000,
+      "salaryMax": 98500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65000,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stellentreff-f1ddf5d56ae8",
       "slug": "pittori-interni-ed-esterni-stellentreff-ag-zofingen-aargau",
       "slugByLocale": {
@@ -776,7 +776,7 @@
       "url": "https://www.stellentreff.ch/stellen/maler-in-zofingen-temporaer-116918/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.992Z",
+      "crawledAt": "2026-09-27T15:01:51.380Z",
       "addressLocality": "Zofingen",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -826,164 +826,6 @@
       }
     },
     {
-      "id": "stellentreff-9ca8665c8ce9",
-      "slug": "pittore-per-lavori-di-facciata-e-isolamento-stellentreff-ag-winterthur-zurich",
-      "slugByLocale": {
-        "it": "pittore-per-lavori-di-facciata-e-isolamento-stellentreff-ag-winterthur-zurich",
-        "en": "painter-for-facade-work-and-insulation-stellentreff-ag-winterthur",
-        "de": "maler-in-fur-fassadenarbeiten-und-isolierungen-winterthur-zurich-stellentreff-ch",
-        "fr": "peintre-pour-travaux-de-facade-et-d-isolation-stellentreff-ag-winterthur"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Maler/in für Fassadenarbeiten und Isolierungen",
-      "titleByLocale": {
-        "it": "Pittore per lavori di facciata e isolamento",
-        "en": "Painter for facade work and insulation",
-        "de": "Maler/in für Fassadenarbeiten und Isolierungen",
-        "fr": "Peintre pour travaux de façade et d'isolation"
-      },
-      "description": "Tätigkeiten Streichen von Fassaden Umbauten Isolieren von Fassaden Netz einbetten Abrieb \n• Anforderungen Berufslehre als Maler/in absolviert Vielseitige Fachkenntnisse in Abrieb und Isolieren von Fassaden Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-      "descriptionByLocale": {
-        "it": "Attività Dipinti di facciate Conversioni Isolamento di facciate Embedding usura netta\n• L'apprendistato vocazionale come pittore completa le conoscenze specialistiche versatili nelle facciate abrasive e isolanti Alta disponibilità a eseguire la configurazione, la personalità comunicativa Patente di guida B di vantaggio offerta Ci si aspetta che tu sia un team esperto con molti anni di know-how, un lavoro emozionante con progetti impegnativi e un salario orario attraente.",
-        "en": "Activities Painting of facades Conversions Insulation of facades Embedding net wear\n• Requirements Vocational apprenticeship as a painter completes versatile specialist knowledge in abrasion and insulating facades High willingness to perform Set up, communicative personality Driver's license B of advantage Offer It expected You are an experienced team with many years of know-how, an exciting job with challenging projects and an attractive hourly wage.",
-        "de": "Tätigkeiten Streichen von Fassaden Umbauten Isolieren von Fassaden Netz einbetten Abrieb \n• Anforderungen Berufslehre als Maler/in absolviert Vielseitige Fachkenntnisse in Abrieb und Isolieren von Fassaden Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-        "fr": "Activités Peinture des façades Conversions Isolation des façades Embedding net use\n• Exigences L'apprentissage professionnel en tant que peintre complète des connaissances spécialisées polyvalentes en abrasion et en façades isolantes Haute volonté d'exécuter Mise en place, personnalité communicative Licence de conducteur B d'avantage Offre Il est attendu Vous êtes une équipe expérimentée avec de nombreuses années de savoir-faire, un travail passionnant avec des projets difficiles et un salaire horaire attrayant."
-      },
-      "location": "Winterthur, Zürich",
-      "canton": "ZH",
-      "url": "https://www.stellentreff.ch/stellen/maler-in-winterthur-temporaer-116846/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.991Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-winterthur-temporaer-116846/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-fassadenarbeiten-und-isolierungen-winterthur-zurich-stellentreff-ch",
-        "maler-in-per-fassadenarbeiten-e-isolierungen-stellentreff-ag-winterthur",
-        "pittore-per-lavori-di-facciata-e-isolamento-stellentreff-ag-winterthur-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-fassadenarbeiten-und-isolierungen-winterthur-zurich-stellentreff-ch",
-          "maler-in-per-fassadenarbeiten-e-isolierungen-stellentreff-ag-winterthur",
-          "pittore-per-lavori-di-facciata-e-isolamento-stellentreff-ag-winterthur-zurich"
-        ],
-        "en": [
-          "maler-in-fur-fassadenarbeiten-und-isolierungen-winterthur-zurich-stellentreff-ch"
-        ],
-        "fr": [
-          "maler-in-fur-fassadenarbeiten-und-isolierungen-winterthur-zurich-stellentreff-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:46:36.123Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stellentreff-f621d0cc1831",
-      "slug": "pittore-pittura-cliente-stellentreff-ag-bulach",
-      "slugByLocale": {
-        "it": "pittore-pittura-cliente-stellentreff-ag-bulach",
-        "en": "painter-client-painting-stellentreff-ag-bulach",
-        "de": "maler-in-kundenmalerei-bulach-zurich-stellentreff-ch",
-        "fr": "peintre-peinture-client-stellentreff-ag-bulach"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Maler/in - Kundenmalerei",
-      "titleByLocale": {
-        "it": "Pittore - pittura cliente",
-        "en": "Painter - client painting",
-        "de": "Maler/in - Kundenmalerei",
-        "fr": "Peintre - peinture client"
-      },
-      "description": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Neubau- und Renovationsobjekte Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Berufslehre als Maler/in absolviert Vielseitige Fachkenntnisse Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-      "descriptionByLocale": {
-        "it": "Lavori di verniciatura dei clienti per clienti privati Oggetti di ristrutturazione Dipinti e lavori di spruzzo\n• L'apprendistato professionale come pittore completa le conoscenze specialistiche versatili Alta disponibilità a svolgere Personalità preparata, comunicativa Patente di guida B di vantaggio Offerta Si aspetta Sei un team esperto con molti anni di know-how, un lavoro emozionante con progetti impegnativi e un attraente salario orario.",
-        "en": "Customer painting work for private clients New and renovation objects Painting and spray work Decorative work\n• Requirements Vocational apprenticeship as a painter completes versatile specialist knowledge High willingness to perform Prepared, communicative personality Driver's license B of advantage Offer It expects You are an experienced team with many years of know-how, an exciting job with challenging projects and an attractive hourly wage.",
-        "de": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Neubau- und Renovationsobjekte Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Berufslehre als Maler/in absolviert Vielseitige Fachkenntnisse Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-        "fr": "Travaux de peinture pour clients privés Objets neufs et de rénovation Travaux de peinture et de pulvérisation Travaux décoratifs\n• Exigences L'apprentissage professionnel en tant que peintre complète des connaissances spécialisées polyvalentes Haute volonté d'exécuter Personnalité communicative préparée Licence de conducteur B d'avantage Offre Il s'attend Vous êtes une équipe expérimentée avec de nombreuses années de savoir-faire, un travail passionnant avec des projets difficiles et un salaire horaire attrayant."
-      },
-      "location": "Bülach, Zürich",
-      "canton": "ZH",
-      "url": "https://www.stellentreff.ch/stellen/maler-in-buelach-temporaer-116824/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.990Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-buelach-temporaer-116824/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-kundenmalerei-bulach-zurich-stellentreff-ch",
-        "pittore-pittura-cliente-stellentreff-ag-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-kundenmalerei-bulach-zurich-stellentreff-ch",
-          "pittore-pittura-cliente-stellentreff-ag-bulach"
-        ],
-        "en": [
-          "maler-in-kundenmalerei-bulach-zurich-stellentreff-ch"
-        ],
-        "fr": [
-          "maler-in-kundenmalerei-bulach-zurich-stellentreff-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:46:36.121Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stellentreff-c9fef93655f3",
       "slug": "pittore-operaio-ausiliario-per-la-pittura-cliente-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
@@ -1014,7 +856,7 @@
       "url": "https://www.stellentreff.ch/stellen/maler-in-hilfsarbeiter-in-luzern-temporaer-116924/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.990Z",
+      "crawledAt": "2026-09-27T15:01:51.379Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -1064,6 +906,86 @@
       }
     },
     {
+      "id": "stellentreff-9ca8665c8ce9",
+      "slug": "pittore-per-lavori-di-facciata-e-isolamento-stellentreff-ag-winterthur-zurich",
+      "slugByLocale": {
+        "it": "pittore-per-lavori-di-facciata-e-isolamento-stellentreff-ag-winterthur-zurich",
+        "en": "painter-for-facade-work-and-insulation-stellentreff-ag-winterthur",
+        "de": "maler-in-fur-fassadenarbeiten-und-isolierungen-winterthur-zurich-stellentreff-ch",
+        "fr": "peintre-pour-travaux-de-facade-et-d-isolation-stellentreff-ag-winterthur"
+      },
+      "company": "Stellentreff AG",
+      "companyKey": "stellentreff",
+      "companyDomain": "stellentreff.ch",
+      "title": "Maler/in für Fassadenarbeiten und Isolierungen",
+      "titleByLocale": {
+        "it": "Pittore per lavori di facciata e isolamento",
+        "en": "Painter for facade work and insulation",
+        "de": "Maler/in für Fassadenarbeiten und Isolierungen",
+        "fr": "Peintre pour travaux de façade et d'isolation"
+      },
+      "description": "Tätigkeiten Streichen von Fassaden Umbauten Isolieren von Fassaden Netz einbetten Abrieb \n• Anforderungen Berufslehre als Maler/in absolviert Vielseitige Fachkenntnisse in Abrieb und Isolieren von Fassaden Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
+      "descriptionByLocale": {
+        "it": "Attività Dipinti di facciate Conversioni Isolamento di facciate Embedding usura netta\n• L'apprendistato vocazionale come pittore completa le conoscenze specialistiche versatili nelle facciate abrasive e isolanti Alta disponibilità a eseguire la configurazione, la personalità comunicativa Patente di guida B di vantaggio offerta Ci si aspetta che tu sia un team esperto con molti anni di know-how, un lavoro emozionante con progetti impegnativi e un salario orario attraente.",
+        "en": "Activities Painting of facades Conversions Insulation of facades Embedding net wear\n• Requirements Vocational apprenticeship as a painter completes versatile specialist knowledge in abrasion and insulating facades High willingness to perform Set up, communicative personality Driver's license B of advantage Offer It expected You are an experienced team with many years of know-how, an exciting job with challenging projects and an attractive hourly wage.",
+        "de": "Tätigkeiten Streichen von Fassaden Umbauten Isolieren von Fassaden Netz einbetten Abrieb \n• Anforderungen Berufslehre als Maler/in absolviert Vielseitige Fachkenntnisse in Abrieb und Isolieren von Fassaden Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
+        "fr": "Activités Peinture des façades Conversions Isolation des façades Embedding net use\n• Exigences L'apprentissage professionnel en tant que peintre complète des connaissances spécialisées polyvalentes en abrasion et en façades isolantes Haute volonté d'exécuter Mise en place, personnalité communicative Licence de conducteur B d'avantage Offre Il est attendu Vous êtes une équipe expérimentée avec de nombreuses années de savoir-faire, un travail passionnant avec des projets difficiles et un salaire horaire attrayant."
+      },
+      "location": "Winterthur, Zürich",
+      "canton": "ZH",
+      "url": "https://www.stellentreff.ch/stellen/maler-in-winterthur-temporaer-116846/",
+      "source": "Stellentreff AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-27T15:01:51.379Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-winterthur-temporaer-116846/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "maler-in-fur-fassadenarbeiten-und-isolierungen-winterthur-zurich-stellentreff-ch",
+        "maler-in-per-fassadenarbeiten-e-isolierungen-stellentreff-ag-winterthur",
+        "pittore-per-lavori-di-facciata-e-isolamento-stellentreff-ag-winterthur-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "maler-in-fur-fassadenarbeiten-und-isolierungen-winterthur-zurich-stellentreff-ch",
+          "maler-in-per-fassadenarbeiten-e-isolierungen-stellentreff-ag-winterthur",
+          "pittore-per-lavori-di-facciata-e-isolamento-stellentreff-ag-winterthur-zurich"
+        ],
+        "en": [
+          "maler-in-fur-fassadenarbeiten-und-isolierungen-winterthur-zurich-stellentreff-ch"
+        ],
+        "fr": [
+          "maler-in-fur-fassadenarbeiten-und-isolierungen-winterthur-zurich-stellentreff-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:46:36.123Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stellentreff-ba7e3abfb9be",
       "slug": "facade-costruttori-isolamento-abrasione-stellentreff-ag-winterthur",
       "slugByLocale": {
@@ -1094,7 +1016,7 @@
       "url": "https://www.stellentreff.ch/stellen/fassadenbauer-in-winterthur-temporaer-116876/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.989Z",
+      "crawledAt": "2026-09-27T15:01:51.378Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1142,38 +1064,38 @@
       }
     },
     {
-      "id": "stellentreff-ab5429895e6a",
-      "slug": "pittore-per-facciate-e-pittura-cliente-stellentreff-ag-uster-zurich",
+      "id": "stellentreff-f621d0cc1831",
+      "slug": "pittore-pittura-cliente-stellentreff-ag-bulach",
       "slugByLocale": {
-        "it": "pittore-per-facciate-e-pittura-cliente-stellentreff-ag-uster-zurich",
-        "en": "painter-for-facades-and-client-painting-stellentreff-ag-uster-zurich",
-        "de": "maler-in-fur-fassaden-und-kundenmalerei-uster-zurich-stellentreff-ch",
-        "fr": "peintre-pour-facades-et-peinture-client-stellentreff-ag-uster-zurich"
+        "it": "pittore-pittura-cliente-stellentreff-ag-bulach",
+        "en": "painter-client-painting-stellentreff-ag-bulach",
+        "de": "maler-in-kundenmalerei-bulach-zurich-stellentreff-ch",
+        "fr": "peintre-peinture-client-stellentreff-ag-bulach"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
       "companyDomain": "stellentreff.ch",
-      "title": "Maler/in für Fassaden und Kundenmalerei",
+      "title": "Maler/in - Kundenmalerei",
       "titleByLocale": {
-        "it": "Pittore per facciate e pittura cliente",
-        "en": "Painter for facades and client painting",
-        "de": "Maler/in für Fassaden und Kundenmalerei",
-        "fr": "Peintre pour façades et peinture client"
+        "it": "Pittore - pittura cliente",
+        "en": "Painter - client painting",
+        "de": "Maler/in - Kundenmalerei",
+        "fr": "Peintre - peinture client"
       },
-      "description": "Tätigkeiten Fassaden Kundenmalerei Neubau Abdeckarbeiten \n• Anforderungen Abgeschlossene Lehre als Maler EFZ Teamplayer Selbständig Führerausweis Kat. B grosser Vorteil Angebot Unser Kunde bietet Ihnen eine vielseitige Tätigkeit in einem eingespielten Team. Auf Sie wartet eine interessante Arbeitsumgebung sowie ein super Stundenlohn.",
+      "description": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Neubau- und Renovationsobjekte Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Berufslehre als Maler/in absolviert Vielseitige Fachkenntnisse Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
       "descriptionByLocale": {
-        "it": "Attività Facades cliente pittura Nuovi lavori di costruzione\n• Requisiti Completo apprendistato come pittore EFZ Teamplayer Auto-lavorato patente di guida Cat. B grande vantaggio offerta Il nostro cliente vi offre un'attività versatile in un team consolidato. Un ambiente di lavoro interessante e un salario super orario vi aspetta.",
-        "en": "Activities Facades client painting New construction covering works\n• Requirements Completed apprenticeship as painter EFZ Teamplayer Self-employed driving licence Cat. B great advantage offer Our customer offers you a versatile activity in a well-established team. An interesting working environment and a super hourly wage awaits you.",
-        "de": "Tätigkeiten Fassaden Kundenmalerei Neubau Abdeckarbeiten \n• Anforderungen Abgeschlossene Lehre als Maler EFZ Teamplayer Selbständig Führerausweis Kat. B grosser Vorteil Angebot Unser Kunde bietet Ihnen eine vielseitige Tätigkeit in einem eingespielten Team. Auf Sie wartet eine interessante Arbeitsumgebung sowie ein super Stundenlohn.",
-        "fr": "Activités Façades peinture client Nouvelle construction couvrant les travaux\n• Exigences Apprentissage terminé en tant que peintre EFZ Teamplayer Permis de conduire indépendant Cat. B offre grand avantage Notre client vous offre une activité polyvalente dans une équipe bien établie. Un environnement de travail intéressant et un salaire super horaire vous attendent."
+        "it": "Lavori di verniciatura dei clienti per clienti privati Oggetti di ristrutturazione Dipinti e lavori di spruzzo\n• L'apprendistato professionale come pittore completa le conoscenze specialistiche versatili Alta disponibilità a svolgere Personalità preparata, comunicativa Patente di guida B di vantaggio Offerta Si aspetta Sei un team esperto con molti anni di know-how, un lavoro emozionante con progetti impegnativi e un attraente salario orario.",
+        "en": "Customer painting work for private clients New and renovation objects Painting and spray work Decorative work\n• Requirements Vocational apprenticeship as a painter completes versatile specialist knowledge High willingness to perform Prepared, communicative personality Driver's license B of advantage Offer It expects You are an experienced team with many years of know-how, an exciting job with challenging projects and an attractive hourly wage.",
+        "de": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Neubau- und Renovationsobjekte Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Berufslehre als Maler/in absolviert Vielseitige Fachkenntnisse Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
+        "fr": "Travaux de peinture pour clients privés Objets neufs et de rénovation Travaux de peinture et de pulvérisation Travaux décoratifs\n• Exigences L'apprentissage professionnel en tant que peintre complète des connaissances spécialisées polyvalentes Haute volonté d'exécuter Personnalité communicative préparée Licence de conducteur B d'avantage Offre Il s'attend Vous êtes une équipe expérimentée avec de nombreuses années de savoir-faire, un travail passionnant avec des projets difficiles et un salaire horaire attrayant."
       },
-      "location": "Uster, Zürich",
+      "location": "Bülach, Zürich",
       "canton": "ZH",
-      "url": "https://www.stellentreff.ch/stellen/maler-in-uster-temporaer-116752/",
+      "url": "https://www.stellentreff.ch/stellen/maler-in-buelach-temporaer-116824/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.988Z",
-      "addressLocality": "Uster",
+      "crawledAt": "2026-09-27T15:01:51.378Z",
+      "addressLocality": "Bülach",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1185,28 +1107,26 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-uster-temporaer-116752/",
+      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-buelach-temporaer-116824/",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maler-in-fur-fassaden-und-kundenmalerei-uster-zurich-stellentreff-ch",
-        "maler-in-per-fassaden-e-kundenmalerei-stellentreff-ag-uster",
-        "pittore-per-facciate-e-pittura-cliente-stellentreff-ag-uster-zurich"
+        "maler-in-kundenmalerei-bulach-zurich-stellentreff-ch",
+        "pittore-pittura-cliente-stellentreff-ag-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-fassaden-und-kundenmalerei-uster-zurich-stellentreff-ch",
-          "maler-in-per-fassaden-e-kundenmalerei-stellentreff-ag-uster",
-          "pittore-per-facciate-e-pittura-cliente-stellentreff-ag-uster-zurich"
+          "maler-in-kundenmalerei-bulach-zurich-stellentreff-ch",
+          "pittore-pittura-cliente-stellentreff-ag-bulach"
         ],
         "en": [
-          "maler-in-fur-fassaden-und-kundenmalerei-uster-zurich-stellentreff-ch"
+          "maler-in-kundenmalerei-bulach-zurich-stellentreff-ch"
         ],
         "fr": [
-          "maler-in-fur-fassaden-und-kundenmalerei-uster-zurich-stellentreff-ch"
+          "maler-in-kundenmalerei-bulach-zurich-stellentreff-ch"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:46:36.118Z",
+      "firstSeenAt": "2026-09-23T23:46:36.121Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1252,7 +1172,7 @@
       "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-hinwil-temporaer-116754/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.988Z",
+      "crawledAt": "2026-09-27T15:01:51.377Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1302,39 +1222,39 @@
       }
     },
     {
-      "id": "stellentreff-eed42f99dd80",
-      "slug": "lavoratori-di-costruzioni-con-attrezzature-moderne-stellentreff-ag-zofingen",
+      "id": "stellentreff-ab5429895e6a",
+      "slug": "pittore-per-facciate-e-pittura-cliente-stellentreff-ag-uster-zurich",
       "slugByLocale": {
-        "it": "lavoratori-di-costruzioni-con-attrezzature-moderne-stellentreff-ag-zofingen",
-        "en": "construction-workers-with-modern-equipment-stellentreff-ag-zofingen",
-        "de": "bauarbeiter-in-mit-moderner-ausstattung-zofingen-aargau-stellentreff-ch",
-        "fr": "travailleurs-de-la-construction-avec-des-equipements-modernes-stellentreff-ag-zofingen"
+        "it": "pittore-per-facciate-e-pittura-cliente-stellentreff-ag-uster-zurich",
+        "en": "painter-for-facades-and-client-painting-stellentreff-ag-uster-zurich",
+        "de": "maler-in-fur-fassaden-und-kundenmalerei-uster-zurich-stellentreff-ch",
+        "fr": "peintre-pour-facades-et-peinture-client-stellentreff-ag-uster-zurich"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
       "companyDomain": "stellentreff.ch",
-      "title": "Bauarbeiter/in mit moderner Ausstattung",
+      "title": "Maler/in für Fassaden und Kundenmalerei",
       "titleByLocale": {
-        "it": "Lavoratori di costruzioni con attrezzature moderne",
-        "en": "Construction workers with modern equipment",
-        "de": "Bauarbeiter/in mit moderner Ausstattung",
-        "fr": "Travailleurs de la construction avec des équipements modernes"
+        "it": "Pittore per facciate e pittura cliente",
+        "en": "Painter for facades and client painting",
+        "de": "Maler/in für Fassaden und Kundenmalerei",
+        "fr": "Peintre pour façades et peinture client"
       },
-      "description": "Tätigkeiten Tragen und schleppen von verschiedenen Produkten Mithilfe auf der Baustelle \n• Anforderungen Körperlich fit Zuverlässig und pünktlich Führerschein Kat. B Angebot Motiviertes Team Moderne Arbeitsmittel Gute Entlöhnung",
+      "description": "Tätigkeiten Fassaden Kundenmalerei Neubau Abdeckarbeiten \n• Anforderungen Abgeschlossene Lehre als Maler EFZ Teamplayer Selbständig Führerausweis Kat. B grosser Vorteil Angebot Unser Kunde bietet Ihnen eine vielseitige Tätigkeit in einem eingespielten Team. Auf Sie wartet eine interessante Arbeitsumgebung sowie ein super Stundenlohn.",
       "descriptionByLocale": {
-        "it": "Attività Trasporto e traino di vari prodotti assistenza sul cantiere\n• Requisiti Fisicamente in forma Licenza di guida affidabile e puntuale Cat. B Offerta Team Motivated Modern Work Equipment Buona compensazione",
-        "en": "Activities Carrying and towing of various products assistance on the construction site\n• Requirements Physically fit Reliable and punctual driving license Cat. B Offer Motivated Team Modern Work Equipment Good compensation",
-        "de": "Tätigkeiten Tragen und schleppen von verschiedenen Produkten Mithilfe auf der Baustelle \n• Anforderungen Körperlich fit Zuverlässig und pünktlich Führerschein Kat. B Angebot Motiviertes Team Moderne Arbeitsmittel Gute Entlöhnung",
-        "fr": "Activités Fourniture et remorquage de divers produits sur le chantier\n• Exigences en matière d'aptitude physique Permis de conduire fiable et ponctuel Cat. B Offre Motivated Team Modern Work Equipment Bonne compensation"
+        "it": "Attività Facades cliente pittura Nuovi lavori di costruzione\n• Requisiti Completo apprendistato come pittore EFZ Teamplayer Auto-lavorato patente di guida Cat. B grande vantaggio offerta Il nostro cliente vi offre un'attività versatile in un team consolidato. Un ambiente di lavoro interessante e un salario super orario vi aspetta.",
+        "en": "Activities Facades client painting New construction covering works\n• Requirements Completed apprenticeship as painter EFZ Teamplayer Self-employed driving licence Cat. B great advantage offer Our customer offers you a versatile activity in a well-established team. An interesting working environment and a super hourly wage awaits you.",
+        "de": "Tätigkeiten Fassaden Kundenmalerei Neubau Abdeckarbeiten \n• Anforderungen Abgeschlossene Lehre als Maler EFZ Teamplayer Selbständig Führerausweis Kat. B grosser Vorteil Angebot Unser Kunde bietet Ihnen eine vielseitige Tätigkeit in einem eingespielten Team. Auf Sie wartet eine interessante Arbeitsumgebung sowie ein super Stundenlohn.",
+        "fr": "Activités Façades peinture client Nouvelle construction couvrant les travaux\n• Exigences Apprentissage terminé en tant que peintre EFZ Teamplayer Permis de conduire indépendant Cat. B offre grand avantage Notre client vous offre une activité polyvalente dans une équipe bien établie. Un environnement de travail intéressant et un salaire super horaire vous attendent."
       },
-      "location": "Zofingen, Aargau",
-      "canton": "AG",
-      "url": "https://www.stellentreff.ch/stellen/bauarbeiter-in-zofingen-temporaer-116750/",
+      "location": "Uster, Zürich",
+      "canton": "ZH",
+      "url": "https://www.stellentreff.ch/stellen/maler-in-uster-temporaer-116752/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.987Z",
-      "addressLocality": "Zofingen",
-      "addressRegion": "Aargau",
+      "crawledAt": "2026-09-27T15:01:51.376Z",
+      "addressLocality": "Uster",
+      "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
@@ -1345,36 +1265,38 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellentreff.ch/stellen/bauarbeiter-in-zofingen-temporaer-116750/",
+      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-uster-temporaer-116752/",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauarbeiter-in-mit-moderner-ausstattung-zofingen-aargau-stellentreff-ch",
-        "lavoratori-di-costruzioni-con-attrezzature-moderne-stellentreff-ag-zofingen"
+        "maler-in-fur-fassaden-und-kundenmalerei-uster-zurich-stellentreff-ch",
+        "maler-in-per-fassaden-e-kundenmalerei-stellentreff-ag-uster",
+        "pittore-per-facciate-e-pittura-cliente-stellentreff-ag-uster-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauarbeiter-in-mit-moderner-ausstattung-zofingen-aargau-stellentreff-ch",
-          "lavoratori-di-costruzioni-con-attrezzature-moderne-stellentreff-ag-zofingen"
+          "maler-in-fur-fassaden-und-kundenmalerei-uster-zurich-stellentreff-ch",
+          "maler-in-per-fassaden-e-kundenmalerei-stellentreff-ag-uster",
+          "pittore-per-facciate-e-pittura-cliente-stellentreff-ag-uster-zurich"
         ],
         "en": [
-          "bauarbeiter-in-mit-moderner-ausstattung-zofingen-aargau-stellentreff-ch"
+          "maler-in-fur-fassaden-und-kundenmalerei-uster-zurich-stellentreff-ch"
         ],
         "fr": [
-          "bauarbeiter-in-mit-moderner-ausstattung-zofingen-aargau-stellentreff-ch"
+          "maler-in-fur-fassaden-und-kundenmalerei-uster-zurich-stellentreff-ch"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:46:36.117Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "firstSeenAt": "2026-09-23T23:46:36.118Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1410,7 +1332,7 @@
       "url": "https://www.stellentreff.ch/stellen/metallbauer-in-hilfsarbeiter-in-frauenfeld-temporaer-116680/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.986Z",
+      "crawledAt": "2026-09-27T15:01:51.375Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "Thurgau",
       "addressCountry": "CH",
@@ -1458,6 +1380,84 @@
       }
     },
     {
+      "id": "stellentreff-eed42f99dd80",
+      "slug": "lavoratori-di-costruzioni-con-attrezzature-moderne-stellentreff-ag-zofingen",
+      "slugByLocale": {
+        "it": "lavoratori-di-costruzioni-con-attrezzature-moderne-stellentreff-ag-zofingen",
+        "en": "construction-workers-with-modern-equipment-stellentreff-ag-zofingen",
+        "de": "bauarbeiter-in-mit-moderner-ausstattung-zofingen-aargau-stellentreff-ch",
+        "fr": "travailleurs-de-la-construction-avec-des-equipements-modernes-stellentreff-ag-zofingen"
+      },
+      "company": "Stellentreff AG",
+      "companyKey": "stellentreff",
+      "companyDomain": "stellentreff.ch",
+      "title": "Bauarbeiter/in mit moderner Ausstattung",
+      "titleByLocale": {
+        "it": "Lavoratori di costruzioni con attrezzature moderne",
+        "en": "Construction workers with modern equipment",
+        "de": "Bauarbeiter/in mit moderner Ausstattung",
+        "fr": "Travailleurs de la construction avec des équipements modernes"
+      },
+      "description": "Tätigkeiten Tragen und schleppen von verschiedenen Produkten Mithilfe auf der Baustelle \n• Anforderungen Körperlich fit Zuverlässig und pünktlich Führerschein Kat. B Angebot Motiviertes Team Moderne Arbeitsmittel Gute Entlöhnung",
+      "descriptionByLocale": {
+        "it": "Attività Trasporto e traino di vari prodotti assistenza sul cantiere\n• Requisiti Fisicamente in forma Licenza di guida affidabile e puntuale Cat. B Offerta Team Motivated Modern Work Equipment Buona compensazione",
+        "en": "Activities Carrying and towing of various products assistance on the construction site\n• Requirements Physically fit Reliable and punctual driving license Cat. B Offer Motivated Team Modern Work Equipment Good compensation",
+        "de": "Tätigkeiten Tragen und schleppen von verschiedenen Produkten Mithilfe auf der Baustelle \n• Anforderungen Körperlich fit Zuverlässig und pünktlich Führerschein Kat. B Angebot Motiviertes Team Moderne Arbeitsmittel Gute Entlöhnung",
+        "fr": "Activités Fourniture et remorquage de divers produits sur le chantier\n• Exigences en matière d'aptitude physique Permis de conduire fiable et ponctuel Cat. B Offre Motivated Team Modern Work Equipment Bonne compensation"
+      },
+      "location": "Zofingen, Aargau",
+      "canton": "AG",
+      "url": "https://www.stellentreff.ch/stellen/bauarbeiter-in-zofingen-temporaer-116750/",
+      "source": "Stellentreff AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-27T15:01:51.375Z",
+      "addressLocality": "Zofingen",
+      "addressRegion": "Aargau",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://www.stellentreff.ch/stellen/bauarbeiter-in-zofingen-temporaer-116750/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "bauarbeiter-in-mit-moderner-ausstattung-zofingen-aargau-stellentreff-ch",
+        "lavoratori-di-costruzioni-con-attrezzature-moderne-stellentreff-ag-zofingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "bauarbeiter-in-mit-moderner-ausstattung-zofingen-aargau-stellentreff-ch",
+          "lavoratori-di-costruzioni-con-attrezzature-moderne-stellentreff-ag-zofingen"
+        ],
+        "en": [
+          "bauarbeiter-in-mit-moderner-ausstattung-zofingen-aargau-stellentreff-ch"
+        ],
+        "fr": [
+          "bauarbeiter-in-mit-moderner-ausstattung-zofingen-aargau-stellentreff-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:46:36.117Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stellentreff-27a6ad02aae2",
       "slug": "i-professionisti-della-pittura-per-nuove-ristrutturazioni-e-ristrutturazioni-stellentreff-ag-willisau-luzern",
       "slugByLocale": {
@@ -1488,7 +1488,7 @@
       "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-willisau-temporaer-116634/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:41:09.984Z",
+      "crawledAt": "2026-09-27T15:01:51.372Z",
       "addressLocality": "Willisau",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -1536,320 +1536,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "stellentreff-92d6cfcec8de",
-      "slug": "carpenters-lavoratori-ausiliari-per-lavori-di-assemblaggio-stellentreff-ag-zug-zug",
-      "slugByLocale": {
-        "it": "carpenters-lavoratori-ausiliari-per-lavori-di-assemblaggio-stellentreff-ag-zug-zug",
-        "en": "carpenters-auxiliary-workers-for-assembly-work-stellentreff-ag-zug",
-        "de": "schreiner-in-hilfsarbeiter-in-fur-montagearbeiten-zug-zug-stellentreff-ch",
-        "fr": "charpentiers-ouvriers-auxiliaires-pour-travaux-d-assemblage-stellentreff-ag-zug"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Schreiner/in (Hilfsarbeiter/in) für Montagearbeiten",
-      "titleByLocale": {
-        "it": "Carpenters (lavoratori ausiliari) per lavori di assemblaggio",
-        "en": "Carpenters (auxiliary workers) for assembly work",
-        "de": "Schreiner/in (Hilfsarbeiter/in) für Montagearbeiten",
-        "fr": "Charpentiers (ouvriers auxiliaires) pour travaux d'assemblage"
-      },
-      "description": "Tätigkeiten Mithilfe bei Montagearbeiten auf der Baustelle Material bereitstellen und Werkzeuge anreichen Bauteile transportieren und einfache Handgriffe ausführen\n• Anforderungen Deutschkenntnisse für die Verständigung im Arbeitsalltag Erfahrung als Hilfsmonteurin oder Hilfsmonteur Körperliche Belastbarkeit für Hebe- und Tragearbeiten Angebot Abwechslungsreicher Einsatz in einem handwerklichen Umfeld Sorgfältige Einführung in die täglichen Arbeiten",
-      "descriptionByLocale": {
-        "it": "Attività Assistere nei lavori di montaggio sul sito fornire materiali e strumenti di trasporto per arricchire componenti ed eseguire semplici maniglie\n• Requisiti per la comprensione del tedesco per l'esperienza lavorativa quotidiana come installatore ausiliario resilienza fisica per il sollevamento e il trasporto di lavoro Offrire un uso vario in un ambiente artigianale",
-        "en": "Activities Assisting in assembly work on the site provide material and transport tools to enrich components and perform simple handles\n• Requirements for understanding German for everyday work experience as an auxiliary installer Physical resilience for lifting and carrying work Offer varied use in a craft environment Careful introduction to daily work",
-        "de": "Tätigkeiten Mithilfe bei Montagearbeiten auf der Baustelle Material bereitstellen und Werkzeuge anreichen Bauteile transportieren und einfache Handgriffe ausführen\n• Anforderungen Deutschkenntnisse für die Verständigung im Arbeitsalltag Erfahrung als Hilfsmonteurin oder Hilfsmonteur Körperliche Belastbarkeit für Hebe- und Tragearbeiten Angebot Abwechslungsreicher Einsatz in einem handwerklichen Umfeld Sorgfältige Einführung in die täglichen Arbeiten",
-        "fr": "Activités Aider aux travaux de montage sur le site fournir du matériel et des outils de transport pour enrichir les composants et effectuer des poignées simples\n• Exigences pour comprendre l'allemand pour l'expérience de travail quotidienne en tant qu'installateur auxiliaire Résilience physique pour le levage et le transport de travail Offre d'utilisation variée dans un environnement artisanal Introduction attentive au travail quotidien"
-      },
-      "location": "Zug, Zug",
-      "canton": "ZG",
-      "url": "https://www.stellentreff.ch/stellen/schreiner-in-hilfsarbeiter-in-zug-temporaer-116550/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:14.163Z",
-      "addressLocality": "Zug",
-      "addressRegion": "Zug",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellentreff.ch/stellen/schreiner-in-hilfsarbeiter-in-zug-temporaer-116550/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "schreiner-in-hilfsarbeiter-in-fur-montagearbeiten-zug-zug-stellentreff-ch",
-        "schreiner-in-hilfsarbeiter-in-per-montagearbeiten-stellentreff-ag-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schreiner-in-hilfsarbeiter-in-fur-montagearbeiten-zug-zug-stellentreff-ch",
-          "schreiner-in-hilfsarbeiter-in-per-montagearbeiten-stellentreff-ag-zug"
-        ],
-        "en": [
-          "schreiner-in-hilfsarbeiter-in-fur-montagearbeiten-zug-zug-stellentreff-ch"
-        ],
-        "fr": [
-          "schreiner-in-hilfsarbeiter-in-fur-montagearbeiten-zug-zug-stellentreff-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:46:36.117Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "stellentreff-e43cf0c9c381",
-      "slug": "pittore-per-nuovi-oggetti-di-costruzione-e-ristrutturazione-stellentreff-ag-willisau-luzern",
-      "slugByLocale": {
-        "it": "pittore-per-nuovi-oggetti-di-costruzione-e-ristrutturazione-stellentreff-ag-willisau-luzern",
-        "en": "painter-for-new-construction-and-renovation-objects-stellentreff-ag-willisau",
-        "de": "maler-in-fur-neubau-und-renovationsobjekte-willisau-luzern-stellentreff-ch",
-        "fr": "peintre-pour-nouveaux-objets-de-construction-et-de-renovation-stellentreff-ag-willisau"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Maler/in für Neubau- und Renovationsobjekte",
-      "titleByLocale": {
-        "it": "Pittore per nuovi oggetti di costruzione e ristrutturazione",
-        "en": "Painter for new construction and renovation objects",
-        "de": "Maler/in für Neubau- und Renovationsobjekte",
-        "fr": "Peintre pour nouveaux objets de construction et de rénovation"
-      },
-      "description": "Tätigkeiten Sie führen abwechslungsreiche und gehobene Malerarbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten bei Privat- und Gewerbekunden aus\n• Anforderungen Lehre als Maler abgeschlossen Fundierte Branchenerfahrung Exakte und speditive Arbeitsweise Angebot Unser Auftraggeber bietet Ihnen eine sehr abwechslungsreiche und interessante Aufgabe in einem spannenden Umfeld. Eine Umgebung, die sie begeistern wird!",
-      "descriptionByLocale": {
-        "it": "Attività Effettuare lavori di pittura vario e su misura all'interno e all'esterno di nuovi oggetti di costruzione e ristrutturazione per clienti privati e commerciali\n• Requisiti Insegnamento completato come un pittore Esperienza di settore approfondita Esperienza di lavoro esatti e inoltro offerta Il nostro cliente vi offre un compito molto vario e interessante in un ambiente emozionante. Un ambiente che ti eccita!",
-        "en": "Activities You carry out varied and upscale painting work in the interior and exterior of new construction and renovation objects for private and commercial customers\n• Requirements Teaching completed as a painter In-depth industry experience Exact and forwarding work offer Our client offers you a very varied and interesting task in an exciting environment. An environment that will excite you!",
-        "de": "Tätigkeiten Sie führen abwechslungsreiche und gehobene Malerarbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten bei Privat- und Gewerbekunden aus\n• Anforderungen Lehre als Maler abgeschlossen Fundierte Branchenerfahrung Exakte und speditive Arbeitsweise Angebot Unser Auftraggeber bietet Ihnen eine sehr abwechslungsreiche und interessante Aufgabe in einem spannenden Umfeld. Eine Umgebung, die sie begeistern wird!",
-        "fr": "Activités Vous réalisez des travaux de peinture variés et haut de gamme dans l'intérieur et l'extérieur de nouveaux objets de construction et de rénovation pour les clients privés et commerciaux\n• Exigences Enseignement complété en tant que peintre Expérience industrielle approfondie Offre de travail exacte et d'envoi Notre client vous offre une tâche très variée et intéressante dans un environnement passionnant. Un environnement qui vous excite!"
-      },
-      "location": "Willisau, Luzern",
-      "canton": "LU",
-      "url": "https://www.stellentreff.ch/stellen/maler-in-willisau-temporaer-116560/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:14.159Z",
-      "addressLocality": "Willisau",
-      "addressRegion": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-willisau-temporaer-116560/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-neubau-und-renovationsobjekte-willisau-luzern-stellentreff-ch",
-        "maler-in-per-neubau-e-renovationsobjekte-stellentreff-ag-willisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-neubau-und-renovationsobjekte-willisau-luzern-stellentreff-ch",
-          "maler-in-per-neubau-e-renovationsobjekte-stellentreff-ag-willisau"
-        ],
-        "en": [
-          "maler-in-fur-neubau-und-renovationsobjekte-willisau-luzern-stellentreff-ch"
-        ],
-        "fr": [
-          "maler-in-fur-neubau-und-renovationsobjekte-willisau-luzern-stellentreff-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:46:36.115Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "stellentreff-56056fd71819",
-      "slug": "pittore-per-facciata-e-pittura-cliente-stellentreff-ag-kreuzlingen-thurgau",
-      "slugByLocale": {
-        "it": "pittore-per-facciata-e-pittura-cliente-stellentreff-ag-kreuzlingen-thurgau",
-        "en": "painter-for-facade-and-customer-painting-stellentreff-ag-kreuzlingen-thurgau",
-        "de": "maler-in-fur-fassaden-und-kundenmalerei-kreuzlingen-thurgau-stellentreff-ch",
-        "fr": "peintre-pour-facade-et-peinture-client-stellentreff-ag-kreuzlingen-thurgau"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Maler/in für - Fassaden- und Kundenmalerei",
-      "titleByLocale": {
-        "it": "Pittore per - facciata e pittura cliente",
-        "en": "Painter for - facade and customer painting",
-        "de": "Maler/in für - Fassaden- und Kundenmalerei",
-        "fr": "Peintre pour - façade et peinture client"
-      },
-      "description": "Tätigkeiten Fassadenarbeiten Umbauten Kundemalerarbeiten Renovationen\n• Anforderungen Berufslehre als Maler EFZ absolviert Vielseitige Fachkenntnisse Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B Angebot In einem professionellen und motivierten Umfeld bieten wir Ihnen eine interessante und abwechslungsreiche Herausforderung mit sehr interessantem Stundenlohn.",
-      "descriptionByLocale": {
-        "it": "Attività Facade lavoro Conversioni Dipingere lavori Ristrutturazioni\n• L'apprendistato vocazionale come pittore EFZ completa le conoscenze specialistiche versatili Alta disponibilità a svolgere Personalità preparato e comunicativa La licenza del conducente B offerta In un ambiente professionale e motivato, vi offriamo una sfida interessante e varia con un salario orario molto interessante.",
-        "en": "Activities Facade work Conversions Painting work Renovations\n• Requirements Vocational apprenticeship as a painter EFZ completes versatile specialist knowledge High willingness to perform Prepared, communicative personality Driver's license B offer In a professional and motivated environment, we offer you an interesting and varied challenge with a very interesting hourly wage.",
-        "de": "Tätigkeiten Fassadenarbeiten Umbauten Kundemalerarbeiten Renovationen\n• Anforderungen Berufslehre als Maler EFZ absolviert Vielseitige Fachkenntnisse Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B Angebot In einem professionellen und motivierten Umfeld bieten wir Ihnen eine interessante und abwechslungsreiche Herausforderung mit sehr interessantem Stundenlohn.",
-        "fr": "Activités Façade Conversions Peinture Rénovations\n• Exigences Apprentissage professionnel en tant que peintre EFZ complète des connaissances spécialisées polyvalentes Haute volonté d'exécuter Personnalité communicative préparée Licence de conducteur B offre Dans un environnement professionnel et motivé, nous vous proposons un défi intéressant et varié avec un salaire horaire très intéressant."
-      },
-      "location": "Kreuzlingen, Thurgau",
-      "canton": "TG",
-      "url": "https://www.stellentreff.ch/stellen/maler-in-kreuzlingen-temporaer-116594/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:14.158Z",
-      "addressLocality": "Kreuzlingen",
-      "addressRegion": "Thurgau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-kreuzlingen-temporaer-116594/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-fassaden-und-kundenmalerei-kreuzlingen-thurgau-stellentreff-ch",
-        "maler-in-per-fassaden-e-kundenmalerei-stellentreff-ag-kreuzlingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-fassaden-und-kundenmalerei-kreuzlingen-thurgau-stellentreff-ch",
-          "maler-in-per-fassaden-e-kundenmalerei-stellentreff-ag-kreuzlingen"
-        ],
-        "en": [
-          "maler-in-fur-fassaden-und-kundenmalerei-kreuzlingen-thurgau-stellentreff-ch"
-        ],
-        "fr": [
-          "maler-in-fur-fassaden-und-kundenmalerei-kreuzlingen-thurgau-stellentreff-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:46:36.114Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "stellentreff-90799e7c6c90",
-      "slug": "pittura-customer-painting-lavoro-in-gesso-piu-piccolo-stellentreff-ag-romanshorn",
-      "slugByLocale": {
-        "it": "pittura-customer-painting-lavoro-in-gesso-piu-piccolo-stellentreff-ag-romanshorn",
-        "en": "painter-customer-painting-smaller-plaster-work-stellentreff-ag-romanshorn",
-        "de": "maler-in-kundenmalerei-kleinere-verputzarbeiten-romanshorn-thurgau-stellentreff-ch",
-        "fr": "peintre-peinture-client-plus-petit-travail-de-platre-stellentreff-ag-romanshorn"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Maler/in - Kundenmalerei- kleinere Verputzarbeiten",
-      "titleByLocale": {
-        "it": "Pittura - Customer Painting - lavoro in gesso più piccolo",
-        "en": "Painter - Customer Painting - smaller plaster work",
-        "de": "Maler/in - Kundenmalerei- kleinere Verputzarbeiten",
-        "fr": "Peintre - Peinture client - plus petit travail de plâtre"
-      },
-      "description": "Tätigkeiten Fassaden Kundenmalerei Umbauten Kleinere Verputzarbeiten\n• Anforderungen Berufslehre als Maler absolviert Vielseitige Fachkenntnisse Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Auf Sie wartet eine vielseitige Aufgabe in einem aufgestellten und kompetenten Team. Zudem werden Ihnen ein professionelles Arbeitsumfeld und sehr gute Verdienstmöglichkeiten geboten.",
-      "descriptionByLocale": {
-        "it": "Attività Facades Customer Painting Rimodellamento lavori di intonaco più piccoli\n• L'apprendistato vocazionale come pittore completa le conoscenze specialistiche versatili L'alta disponibilità a svolgere la personalità strutturata e comunicativa La carta B di vantaggio del conducente Offri un compito versatile attende in un set e squadra competente. Inoltre, vi sarà offerto un ambiente di lavoro professionale e molto buone opportunità di guadagno.",
-        "en": "Activities Facades Customer Painting Remodeling Smaller plastering works\n• Requirements Vocational apprenticeship as a painter completes versatile specialist knowledge High willingness to perform Structured, communicative personality Driver's card B of advantage Offer You a versatile task awaits in a set and competent team. In addition, you will be offered a professional working environment and very good earning opportunities.",
-        "de": "Tätigkeiten Fassaden Kundenmalerei Umbauten Kleinere Verputzarbeiten\n• Anforderungen Berufslehre als Maler absolviert Vielseitige Fachkenntnisse Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Auf Sie wartet eine vielseitige Aufgabe in einem aufgestellten und kompetenten Team. Zudem werden Ihnen ein professionelles Arbeitsumfeld und sehr gute Verdienstmöglichkeiten geboten.",
-        "fr": "Activités Façades Peinture Client Remodelage Petits travaux de plâtrage\n• Exigences Apprentissage professionnel en tant que peintre complète des connaissances spécialisées polyvalentes Haute volonté d'accomplir la personnalité structurée et communicative Carte de conducteur B d'avantage Offre Vous une tâche polyvalente vous attend dans un ensemble et une équipe compétente. En outre, vous aurez un environnement de travail professionnel et de très bonnes opportunités de gains."
-      },
-      "location": "Romanshorn, Thurgau",
-      "canton": "TG",
-      "url": "https://www.stellentreff.ch/stellen/maler-in-romanshorn-temporaer-116596/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:14.156Z",
-      "addressLocality": "Romanshorn",
-      "addressRegion": "Thurgau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-romanshorn-temporaer-116596/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T23:46:36.113Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-kundenmalerei-kleinere-verputzarbeiten-romanshorn-thurgau-stellentreff-ch"
-        ],
-        "en": [
-          "maler-in-kundenmalerei-kleinere-verputzarbeiten-romanshorn-thurgau-stellentreff-ch"
-        ],
-        "fr": [
-          "maler-in-kundenmalerei-kleinere-verputzarbeiten-romanshorn-thurgau-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "maler-in-kundenmalerei-kleinere-verputzarbeiten-romanshorn-thurgau-stellentreff-ch"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

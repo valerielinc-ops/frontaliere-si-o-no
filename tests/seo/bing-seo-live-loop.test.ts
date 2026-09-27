@@ -1,4 +1,7 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 
 import {
   auditHtml,
@@ -71,6 +74,28 @@ describe('Bing SEO live contract', () => {
 
   it('keeps the automated workflow fail-closed for owner auth and manual submit false', () => {
     expect(checkSource()).toEqual({ ok: true, findings: [] });
+  });
+
+  it('skips only the optional ONNX CUDA payload during dependency install', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.resolve('.github/workflows/bing-seo-loop.yml'), 'utf8'),
+    ) as {
+      jobs?: {
+        audit?: {
+          steps?: Array<{
+            name?: string;
+            run?: string;
+            env?: Record<string, string>;
+          }>;
+        };
+      };
+    };
+    const install = workflow.jobs?.audit?.steps?.find(
+      (step) => step.name === 'Install dependencies',
+    );
+
+    expect(install?.run).toBe('npm ci');
+    expect(install?.env?.ONNXRUNTIME_NODE_INSTALL).toBe('skip');
   });
 
   it('accepts a canonical after redirect and reports a stale IndexNow URL as warning', async () => {

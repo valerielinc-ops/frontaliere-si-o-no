@@ -262,4 +262,21 @@ describe('crawler slice integrity guard', () => {
       { dedupReferenceJobs: [retained] },
     )).toThrow(/catastrophic truncation avoided/);
   });
+
+  it('allows a fully pruned slice when every removed job is proven duplicated elsewhere', () => {
+    const duplicate = dedupJob('https://buehler.example/duplicate', 'Engineer', 'x'.repeat(1_400_000));
+    const previous = json({ crawlerKey: 'buehler', jobs: [duplicate] });
+    const next = json({ crawlerKey: 'buehler', jobs: [] });
+    const reference = [
+      dedupJob('https://other-crawler.example/engineer', 'Engineer', 'kept elsewhere'),
+    ];
+
+    expect(isProvenCrossCrawlerDedupPrune('data/jobs/by-crawler/buehler.json', previous, next, reference)).toBe(true);
+    expect(assertCrawlerSliceWriteSafe(
+      'data/jobs/by-crawler/buehler.json',
+      previous,
+      next,
+      { dedupReferenceJobs: reference },
+    ).reason).toBe('proven-cross-crawler-dedup');
+  });
 });

@@ -107,12 +107,47 @@ const repoArgs = REPO
   ? ['--repo', REPO]
   : [];
 
-function gh(args) {
+/**
+ * I repository in cui puo' vivere un bucket giornaliero: un item del sito con
+ * target un file del corpus conia NEL CORPUS (FOLLOWUP.md § Routing
+ * cross-repository), quindi la prova di persistenza deve poter leggere
+ * entrambi. Prima lo faceva solo la copia bash dello step `Verify complete
+ * follow-up triage`; ora c'e' un solo predicato, questo.
+ */
+const BUCKET_REPOS = [...new Set([
+  REPO,
+  process.env.FOLLOWUP_SITE_REPO || 'valerielinc-ops/frontaliere-si-o-no',
+  process.env.FOLLOWUP_CORPUS_REPO || 'nanakokyobashi-rgb/frontaliere-articles',
+].filter(Boolean))];
+
+function gh(args, token = '', quiet = false) {
   try {
-    return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
+    const env = token ? { ...process.env, GH_TOKEN: token } : process.env;
+    return execFileSync('gh', args, {
+      encoding: 'utf-8',
+      maxBuffer: 32 * 1024 * 1024,
+      env,
+      // `quiet`: un bucket assente da uno dei due repository e' l'esito ATTESO
+      // della ricerca cross-repo, non un guasto da stampare nel log della run.
+      stdio: quiet ? ['ignore', 'pipe', 'ignore'] : undefined,
+    });
   } catch {
     return null;
   }
+}
+
+/**
+ * Credenziale esplicita per repository. Lo step `Collect follow-up batch` gira
+ * PRIMA di «Load cross-repo follow-up credentials» e degrada sul token del job:
+ * entrambi i repository sono pubblici, e una lettura di sola issue riesce
+ * comunque. Lo step di verifica gira dopo e ha i PAT.
+ */
+export function bucketRepoToken(repo, env = process.env) {
+  const site = env.FOLLOWUP_SITE_REPO || 'valerielinc-ops/frontaliere-si-o-no';
+  const corpus = env.FOLLOWUP_CORPUS_REPO || 'nanakokyobashi-rgb/frontaliere-articles';
+  if (repo === site) return env.GITHUB_PAT_SITE || env.GITHUB_PAT || env.GH_TOKEN || '';
+  if (repo === corpus) return env.GITHUB_PAT_NANAKO || env.GITHUB_PAT || env.GH_TOKEN || '';
+  return env.GH_TOKEN || env.GITHUB_PAT || '';
 }
 
 /**
@@ -311,6 +346,38 @@ export function latestTriageCommentBody(commentsJson, prefix = TRIAGE_COMMENT_PR
   return bodies.length ? bodies[bodies.length - 1] : null;
 }
 
+/**
+ * L'istante di un commento `gh pr view --json comments`, in millisecondi, o
+ * `NaN` quando `createdAt` manca o non e' una data leggibile.
+ */
+function commentInstant(createdAt) {
+  return Date.parse(typeof createdAt === 'string' ? createdAt : '');
+}
+
+/**
+ * Come `latestTriageCommentBody` (stessa scelta del marker), ma restituisce
+ * anche il suo istante: `{ body, at }`, con `at` in millisecondi o `NaN`.
+ * Serve a `gatePreservedFollowupMatches`, che accetta solo una prova del gate
+ * POSTERIORE al marker corrente.
+ */
+export function latestTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
+  let data;
+  try {
+    data = JSON.parse(commentsJson || '');
+  } catch {
+    return null;
+  }
+  const comments = Array.isArray(data)
+    ? data
+    : data && Array.isArray(data.comments) ? data.comments : null;
+  if (!comments) return null;
+  const markers = comments
+    .filter((comment) => typeof comment?.body === 'string' && comment.body.trimStart().startsWith(prefix));
+  if (!markers.length) return null;
+  const latest = markers[markers.length - 1];
+  return { body: latest.body, at: commentInstant(latest.createdAt) };
+}
+
 // Un conteggio e' il NUMERO davanti a `item`/`issue`/`element…`, ovunque stia
 // sulla riga di claim: il template canonico di FOLLOWUP.md lo mette DOPO il
 // bucket («Created/updated: daily bucket #<id> ... con N item»). `#N`, date e
@@ -321,9 +388,9 @@ const CLAIM_LEADING_ZERO_RE = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*0(?![0-9
 /**
  * Una riga di claim dichiara ZERO item quando nessun conteggio e' diverso da
  * zero E lo zero e' scritto in cifre: un conteggio `0` ovunque sulla riga,
- * oppure `Created: 0` in testa. Gemello di `claim_line_is_zero` nello step
- * «Verify complete follow-up triage» di post-merge-followup.yml; la parita'
- * e' ESEGUITA da tests/followup-marker-zero-claim.test.ts.
+ * oppure `Created: 0` in testa. Unica copia: lo step «Verify complete
+ * follow-up triage» di post-merge-followup.yml invoca questo modulo
+ * (`--verify-persistence`) invece di riscriverlo in bash.
  */
 export function isZeroClaimLine(line) {
   const text = String(line || '');
@@ -346,8 +413,7 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   const claim = body.split(/\r?\n/)
     .filter((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:/i.test(line))
     .join('\n');
-  // `bucket: #N` vale quanto `bucket #N`, come nel gemello bash
-  // (`bucket[[:space:]]*:?[[:space:]]*#[0-9]+`).
+  // `bucket: #N` vale quanto `bucket #N`.
   const buckets = [...claim.matchAll(/\bbucket\s*:?\s*#([1-9]\d*)\b/gi)]
     .map((match) => Number(match[1]));
   const uniqueBuckets = [...new Set(buckets)];
@@ -393,32 +459,140 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   };
 }
 
-/** Prove one persisted daily bucket contains a live item sourced by this PR. */
-export function persistedBucketIssueMatches(issue, prNumber) {
+/**
+ * Prove the deterministic mint gate preserved this PR's dropped item.
+ *
+ * `gate-minted-followups.mjs` toglie dal bucket gli item senza condizione di
+ * accettazione falsificabile e li conserva INTEGRALMENTE in un commento sulla
+ * PR sorgente. Dopo la demozione il bucket non contiene piu' `Sources: PR #N`,
+ * ma il triage e' durevole: senza questa prova la PR rientrava nel batch a ogni
+ * run, Codex la saltava perche' il marker c'era gia', e la verifica restava
+ * rossa finche' la PR non usciva dalla finestra di 48h (run 36212700029 e
+ * 36202115664: FU-2026-09-25-011 di PR #9633 demoto 3 minuti dopo il marker).
+ *
+ * Il numero del bucket da solo NON lega la prova al marker corrente: vale solo
+ * un commento del gate con `createdAt` leggibile e >= `markerCreatedAt`
+ * (l'istante del marker corrente, ISO string o millisecondi). Nel workflow il
+ * gate posta sempre DOPO il marker che certifica. Istante mancante o
+ * illeggibile: la prova non vale e la PR resta nel batch.
+ */
+export function gatePreservedFollowupMatches(commentsJson, bucketNumber, prNumber, markerCreatedAt) {
+  const markerAt = typeof markerCreatedAt === 'number' ? markerCreatedAt : commentInstant(markerCreatedAt);
+  if (!Number.isFinite(markerAt)) return false;
+  let data;
+  try {
+    data = JSON.parse(commentsJson || '');
+  } catch {
+    return false;
+  }
+  const comments = Array.isArray(data)
+    ? data
+    : data && Array.isArray(data.comments) ? data.comments : [];
+  const bucket = String(Number(bucketNumber));
+  const pr = String(Number(prNumber));
+  const bucketPattern = new RegExp('(?:^|\\n).*\\bIssue\\s+#' + bucket + '\\b', 'i');
+  const sourcePattern = new RegExp('^\\s*-\\s+Sources?\\s*:[^\\n]*\\bPR\\s+#' + pr + '\\b', 'im');
+  return comments.some((comment) => {
+    const body = typeof comment?.body === 'string' ? comment.body : '';
+    const at = commentInstant(comment?.createdAt);
+    return body.includes('<!-- followup-mint-gate -->')
+      && Number.isFinite(at)
+      && at >= markerAt
+      && bucketPattern.test(body)
+      && sourcePattern.test(body);
+  });
+}
+
+/**
+ * Prove one persisted daily bucket contains a live item sourced by this PR,
+ * or that the mint gate preserved it AFTER the current marker
+ * (`markerCreatedAt`, vedi `gatePreservedFollowupMatches`).
+ */
+export function persistedBucketIssueMatches(issue, prNumber, prComments = '', markerCreatedAt = undefined) {
   const info = dailyBucketInfo(issue?.title || '');
   const body = String(issue?.body || '');
   const pr = String(Number(prNumber));
-  return !!info
-    && /^###\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\b/m.test(body)
-    && new RegExp(`^\\s*-\\s+Sources?:[^\\n]*\\bPR\\s+#${pr}\\b`, 'im').test(body);
+  if (!info) return false;
+  const directEvidence = /^###\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\b/m.test(body)
+    && new RegExp(`^\\s*-\\s+Sources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`, 'im').test(body);
+  return directEvidence || gatePreservedFollowupMatches(prComments, issue.number, prNumber, markerCreatedAt);
+}
+
+/**
+ * Read EVERY daily-bucket candidate numbered `bucket` across the repositories
+ * that can hold it. I due repository numerano le issue in modo INDIPENDENTE:
+ * la scansione non si ferma al primo JSON valido, e il chiamante applica il
+ * predicato bucket/PR a ogni candidato. `unreadable` dice se almeno una
+ * lettura era indisponibile (`gh` non distingue un 404 da un guasto).
+ */
+export function readBucketIssue(bucket, run = gh, repos = BUCKET_REPOS) {
+  let unreadable = false;
+  const candidates = [];
+  for (const repo of repos) {
+    const raw = run(
+      ['issue', 'view', String(bucket), '--repo', repo, '--json', 'number,title,body'],
+      bucketRepoToken(repo),
+      true,
+    );
+    if (raw === null) { unreadable = true; continue; }
+    let issue;
+    try { issue = JSON.parse(raw); } catch { unreadable = true; continue; }
+    if (issue && typeof issue === 'object' && !Array.isArray(issue)
+      && Number(issue.number) === Number(bucket)
+      && dailyBucketInfo(issue.title || '')) candidates.push({ ...issue, repo });
+  }
+  return { candidates, unreadable };
+}
+
+/**
+ * Normalizza l'esito di `readIssue` per un bucket: la forma di
+ * `readBucketIssue` (`{candidates, unreadable}`), un array di candidati, una
+ * singola issue, `false` (nessun repository ha quel numero) o `null`/`undefined`
+ * (lettura indisponibile).
+ */
+function bucketReadResult(result) {
+  if (result === null || result === undefined) return { candidates: [], unreadable: true };
+  if (result === false) return { candidates: [], unreadable: false };
+  if (Array.isArray(result)) return { candidates: result, unreadable: false };
+  if (typeof result === 'object' && Array.isArray(result.candidates)) {
+    return { candidates: result.candidates, unreadable: result.unreadable === true };
+  }
+  if (typeof result === 'object') return { candidates: [result], unreadable: false };
+  return { candidates: [], unreadable: true };
 }
 
 /**
  * Check marker idempotency against durable bucket/item evidence.
- * `readIssue` returns an issue object, `null` for an unavailable read, and may be
- * injected in tests. Unknown is deliberately returned as `null`, so a transient
- * API failure keeps the PR in the next batch instead of skipping it forever.
+ *
+ * Esiti: `true` quando il marker non promette persistenza o quando OGNI bucket
+ * dichiarato e' provato (item vivo con `Sources: PR #N`, oppure commento di
+ * conservazione del gate POSTERIORE al marker corrente); `false` quando manca
+ * una prova e tutte le letture erano definitive; `null` quando una prova manca
+ * e almeno una lettura era indisponibile, cosi' un guasto API tiene la PR nel
+ * batch invece di dichiararla non persistita.
+ *
+ * L'istante del marker si legge da `prComments`: vale solo se `markerBody` e'
+ * proprio il marker corrente di quei commenti (`latestTriageComment`),
+ * altrimenti la prova del gate non vale.
  */
-export function verifyTriageMarkerPersistence(markerBody, prNumber, readIssue) {
+export function verifyTriageMarkerPersistence(markerBody, prNumber, readIssue, prComments = '') {
   const expectation = triageMarkerPersistenceExpectation(markerBody);
   if (!expectation.requiresBucket) return true;
   if (!expectation.buckets.length || typeof readIssue !== 'function') return false;
+  const current = latestTriageComment(prComments);
+  const markerAt = current && current.body === markerBody ? current.at : Number.NaN;
+  let unreadable = false;
+  let disproved = false;
   for (const number of expectation.buckets) {
-    const issue = readIssue(number);
-    if (issue === null || issue === undefined) return null;
-    if (Number(issue.number) !== number || !persistedBucketIssueMatches(issue, prNumber)) return false;
+    const read = bucketReadResult(readIssue(number));
+    const proved = read.candidates.some((issue) => Number(issue?.number) === number
+      && persistedBucketIssueMatches(issue, prNumber, prComments, markerAt));
+    if (proved) continue;
+    if (read.unreadable) unreadable = true;
+    else disproved = true;
   }
-  return true;
+  if (disproved) return false;
+  return unreadable ? null : true;
 }
 
 /**
@@ -606,16 +780,7 @@ export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRN
     }
     if (hasTriageComment(commentsRaw)) {
       const markerBody = latestTriageCommentBody(commentsRaw);
-      const persistence = verifyTriageMarkerPersistence(markerBody, n, (bucket) => {
-        const bucketRaw = gh(['issue', 'view', String(bucket), ...repoArgs, '--json', 'number,title,body']);
-        if (bucketRaw === null) return null;
-        try {
-          const issue = JSON.parse(bucketRaw);
-          return issue && typeof issue === 'object' && !Array.isArray(issue) ? issue : false;
-        } catch {
-          return false;
-        }
-      });
+      const persistence = verifyTriageMarkerPersistence(markerBody, n, readBucketIssue, commentsRaw);
       if (persistence === true) {
         console.log(`PR #${n}: already has '${TRIAGE_COMMENT_PREFIX}' plus persisted bucket/item evidence → skip (idempotent).`);
         continue;
@@ -663,17 +828,72 @@ export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRN
   emit(sessionBatch, dailyKey, { collectionOk: true, deferred });
 }
 
+/**
+ * `--verify-persistence <pr>...` — la STESSA verifica usata per l'idempotenza,
+ * esposta allo step `Verify complete follow-up triage` del workflow.
+ *
+ * Lo step aveva una RISCRITTURA in bash dello stesso predicato, che leggeva il
+ * bucket cross-repo ma non conosceva la prova del gate per gli item demoti:
+ * dopo una demozione il bucket non citava piu' la PR, e la verifica restava
+ * rossa a ogni run finche' la PR non usciva dalla finestra (run 36212700029,
+ * 36202115664, 35947247334). Un solo predicato, un solo chiamante: la
+ * divergenza non e' piu' esprimibile. Stesso contratto del gemello corpus.
+ *
+ * `read` e `readIssue` sono iniettabili per i test; il default usa `gh`.
+ */
+export function verifyPersistenceCli(prNumbers, {
+  read = (pr) => gh(['pr', 'view', String(pr), ...repoArgs, '--json', 'comments']),
+  readIssue = readBucketIssue,
+  log = console.log,
+} = {}) {
+  let incomplete = false;
+  for (const raw of prNumbers) {
+    const pr = Number(raw);
+    if (!Number.isInteger(pr) || pr <= 0) {
+      log(`triage incompleta: PR '${raw}' non numerica`);
+      incomplete = true;
+      continue;
+    }
+    const comments = read(pr);
+    if (comments === null || !hasTriageComment(comments)) {
+      log(`triage incompleta: PR #${pr} senza marker di triage leggibile`);
+      incomplete = true;
+      continue;
+    }
+    const marker = latestTriageCommentBody(comments);
+    const verdict = verifyTriageMarkerPersistence(marker, pr, readIssue, comments);
+    const expectation = triageMarkerPersistenceExpectation(marker);
+    const buckets = expectation.buckets.join(',') || '-';
+    if (verdict === true) {
+      log(`PR #${pr}: persistenza provata (bucket=[${buckets}]).`);
+      continue;
+    }
+    if (!expectation.buckets.length) {
+      log(`triage incompleta: marker PR #${pr} senza riferimento a un bucket persistito`);
+    } else {
+      log(`triage incompleta: PR #${pr} ${verdict === null ? 'bucket non leggibile' : 'senza item/Source persistito né prova del gate'} (bucket=[${buckets}]).`);
+    }
+    incomplete = true;
+  }
+  return !incomplete;
+}
+
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any
 // An uncaught collection error emits an explicit failed output and exits nonzero;
 // the workflow verifier then fails the job, so the success watermark cannot advance.
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  try {
-    main();
-  } catch (e) {
-    console.error(`collect-followup-batch: unexpected error (${e?.message || e}) — collection_ok=false, watermark invariato.`);
-    try { emit([], triageDailyKey(), { collectionOk: false }); } catch (emitError) {
-      console.error(`collect-followup-batch: impossibile scrivere gli output di errore (${emitError?.message || emitError}).`);
+  if (process.argv[2] === '--verify-persistence') {
+    const prs = process.argv.slice(3).flatMap((arg) => arg.split(',')).map((s) => s.trim()).filter(Boolean);
+    process.exitCode = verifyPersistenceCli(prs) ? 0 : 1;
+  } else {
+    try {
+      main();
+    } catch (e) {
+      console.error(`collect-followup-batch: unexpected error (${e?.message || e}) — collection_ok=false, watermark invariato.`);
+      try { emit([], triageDailyKey(), { collectionOk: false }); } catch (emitError) {
+        console.error(`collect-followup-batch: impossibile scrivere gli output di errore (${emitError?.message || emitError}).`);
+      }
+      process.exitCode = 1;
     }
-    process.exitCode = 1;
   }
 }
