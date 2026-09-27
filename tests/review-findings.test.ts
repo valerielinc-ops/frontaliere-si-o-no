@@ -267,7 +267,7 @@ describe('ledger passato al reviewer', () => {
   it('dice come chiudere un open: per id, anche con file citati, mai con un 🔴 sul ledger (#9959, #10025)', () => {
     const open = importantFindings('🔴 Important: [process] il contratto del processo resta irrisolto.');
     const ledger = renderFindingsLedger({ open });
-    expect(ledger).toContain('Un `open` risolto si chiude con `` Fix di `<id>`: ok. `` (del body: `PR body:L<n>`)');
+    expect(ledger).toContain('Un `open` risolto si chiude con `` Fix di `<id>`: ok. `` più `` Fix di `path:L<riga attuale>`: ok. `` per ogni file citato (del body: `PR body:L<n>`)');
     expect(ledger).toContain('mai un 🔴 sul ledger stesso');
     expect(ledger).toContain(`\`${stableFindingId(open[0])}\` **open**`);
   });

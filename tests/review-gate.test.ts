@@ -550,16 +550,19 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(unanchoredConfirmationTarget(anchored)).toBeNull();
   });
 
-  it('lets the id confirmation close a finding anchored on a file, and nothing else (#10025)', () => {
+  it('closes a finding anchored on a file by id only together with its file re-confirmed (#10025)', () => {
     const anchored = { ...historicalImportantReview, body: reviewFor('src/changed.mjs', 'the parser drops the last row') };
     const [finding] = importantFindings(anchored.body);
-    const review = (confirmation: string) => ({
+    const review = (...confirmations: string[]) => ({
       ...alignmentLgtmReview,
-      body: `## Findings (Important: 0, Nit: 0)\n${confirmation}\n## LGTM`,
+      body: `## Findings (Important: 0, Nit: 0)\n${confirmations.join('\n')}\n## LGTM`,
     });
-    expect(historicalImportantFindings([anchored, review(`Fix di \`${stableFindingId(finding)}\`: ok.`)], { includeLatest: true }))
+    const id = `Fix di \`${stableFindingId(finding)}\`: ok.`;
+    // L'id da solo non prova che il file sia stato riaperto all'HEAD.
+    expect(historicalImportantFindings([anchored, review(id)], { includeLatest: true })).toHaveLength(1);
+    expect(historicalImportantFindings([anchored, review(id, 'Fix di `src/changed.mjs:L40`: ok.')], { includeLatest: true }))
       .toHaveLength(0);
-    // Un id diverso, o l'id di un altro finding, non chiude questo.
+    // L'id di un altro finding non chiude questo.
     const other = importantFindings(reviewFor('src/changed.mjs', 'the parser drops the first row').body)[0];
     expect(historicalImportantFindings([anchored, review(`Fix di \`${stableFindingId(other)}\`: ok.`)], { includeLatest: true }))
       .toHaveLength(1);
@@ -2014,12 +2017,27 @@ describe('review gate: the stable id confirms a finding with cited files (#10025
     expect(historicalImportantFindings([opening, approving(moved)])).toHaveLength(3);
   });
 
-  it('the stable ids close exactly the confirmed findings', () => {
+  it('the stable ids plus the re-confirmed files close exactly the confirmed findings', () => {
     expect(new Set(ids).size).toBe(3);
-    expect(historicalImportantFindings([opening, approving(ids.map((id) => `Fix di \`${id}\`: ok.`))]))
-      .toHaveLength(0);
-    const open = historicalImportantFindings([opening, approving([`Fix di \`${ids[1]}\`: ok.`])]);
+    const files = [`Fix di \`${FP}:L214\`: ok.`, `Fix di \`${RS}:L101\`: ok.`];
+    const byId = (list: string[]) => list.map((id) => `Fix di \`${id}\`: ok.`);
+    // Gli id senza nessun file riconfermato non chiudono nulla.
+    expect(historicalImportantFindings([opening, approving(byId(ids))])).toHaveLength(3);
+    expect(historicalImportantFindings([opening, approving([...byId(ids), ...files])])).toHaveLength(0);
+    const open = historicalImportantFindings([opening, approving([...byId([ids[1]]), ...files])]);
     expect(open.map((finding) => stableFindingId(finding)).sort()).toEqual([ids[0], ids[2]].sort());
+    // Un file citato senza conferma lascia il finding aperto.
+    expect(historicalImportantFindings([opening, approving([...byId(ids), files[0]])])).toHaveLength(3);
+  });
+
+  it('acceptance of review 5331196488: one id for a two-file finding is not enough', () => {
+    const twoFiles = bot(1, '## Findings (Important: 1, Nit: 0)\n- a.yml:L1, b.yml:L2: 🔴 Important: [correctness] il lock non viene ricontrollato prima del push.', 'a'.repeat(40));
+    const [finding] = importantFindings(twoFiles.body);
+    const id = `Fix di \`${stableFindingId(finding)}\`: ok.`;
+    expect(historicalImportantFindings([twoFiles, approving([id])])).toHaveLength(1);
+    expect(historicalImportantFindings([twoFiles, approving([id, 'Fix di `a.yml:L9`: ok.'])])).toHaveLength(1);
+    expect(historicalImportantFindings([twoFiles, approving([id, 'Fix di `a.yml:L9`: ok.', 'Fix di `b.yml:L7`: ok.'])]))
+      .toHaveLength(0);
   });
 
   it('an unknown or truncated id closes nothing', () => {

@@ -204,9 +204,10 @@ Il body malformato viene scartato da `reviewBodyDefects()` con
 
 Dopo prima review:
 - Sopprimi 🟡. Posta solo 🔴.
-- 🔴 del ledger risolto → «Fix di `<id del ledger>`: ok.» prima di `Important: 0`
-  + `## LGTM`: l'id regge righe spostate e più 🔴 sullo stesso file; del body:
-  «Fix di `PR body:L<n>`: ok.». `path:L<linea>` resta valido.
+- 🔴 del ledger risolto → «Fix di `<id del ledger>`: ok.» più «Fix di
+  `path:L<linea attuale>`: ok.» per ogni file citato, prima di `Important: 0` +
+  `## LGTM`: l'id regge righe spostate e più 🔴 sullo stesso file; del body:
+  «Fix di `PR body:L<n>`: ok.».
 - Riallineare la base non chiude un 🔴 `open`: riportalo se l'anchor resta.
 - `needs-verification`: apri l'anchor all'HEAD; fix presente → `Fix di`; 🔴 solo
   con evidenza dal codice attuale.
