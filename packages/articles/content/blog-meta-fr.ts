@@ -12141,6 +12141,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.doppio-assalto-bancomat-ossona-2026.title': 'Double attaque ATM Ossona nuit 25-26 septembre',
     'blog.article.doppio-assalto-bancomat-ossona-2026.excerpt': 'Dans la nuit du vendredi 25 au samedi 26 septembre, peu avant 4 heures, deux explosions ont frappé le Banco Bpm sur la piazza Litta et le Postamat de la via Baracca à Ossona. Les carabiniers de la Compagnia di Abbiategrasso enquêtent.',
     'blog.article.doppio-assalto-bancomat-ossona-2026.imageAlt': 'Scène nocturne calme devant un distributeur automatique dans une ville frontalière du Tessin, lumières de police en arrière-plan',
+    'blog.article.luvinate-scuola-sicurezza.title': 'Luvinate, école ouverte entre sécurité et prévention',
+    'blog.article.luvinate-scuola-sicurezza.excerpt': 'À l’école primaire Pedotti de Luvinate, Fête de l’Accueil avec la Police scientifique, la Croix-Rouge, le cyberharcèlement, l’anglais et les premiers secours pour les enfants en classe.',
+    'blog.article.luvinate-scuola-sicurezza.imageAlt': 'Écoliers pendant des ateliers de sécurité et de prévention',
 };
 
 export default blogMetaFr;

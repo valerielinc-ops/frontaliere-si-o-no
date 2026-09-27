@@ -36439,6 +36439,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'luvinate-scuola-sicurezza',
+ category: 'novita',
+ date: '2026-09-27T12:10:53.545Z',
+ image: '/images/blog/luvinate-scuola-sicurezza.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -12140,6 +12140,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.doppio-assalto-bancomat-ossona-2026.title': 'Doppio assalto bancomat Ossona notte 25-26 settembre',
     'blog.article.doppio-assalto-bancomat-ossona-2026.excerpt': 'Nella notte tra venerdì 25 e sabato 26 settembre, poco prima delle 4, due esplosioni hanno colpito il Banco Bpm in piazza Litta e il Postamat di via Baracca a Ossona. Indagano i carabinieri della Compagnia di Abbiategrasso.',
     'blog.article.doppio-assalto-bancomat-ossona-2026.imageAlt': 'Notte silenziosa davanti a uno sportello automatico in una località di confine ticinese, luci della polizia sullo sfondo',
+    'blog.article.luvinate-scuola-sicurezza.title': 'Luvinate, scuola aperta tra sicurezza e prevenzione',
+    'blog.article.luvinate-scuola-sicurezza.excerpt': 'Alla primaria Pedotti di Luvinate, Festa dell\'Accoglienza con Polizia Scientifica, Croce Rossa, cyberbullismo, inglese e primo soccorso per i bambini in classe.',
+    'blog.article.luvinate-scuola-sicurezza.imageAlt': 'Bambini della primaria durante laboratori di sicurezza e prevenzione',
 };
 
 export default blogMetaIt;
