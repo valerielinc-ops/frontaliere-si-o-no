@@ -1224,7 +1224,7 @@ jobs:
           # guard): serve al classify sotto per distinguere "Claude ha lasciato
           # una spiegazione" da "Claude non ha fatto/detto nulla" quando esce
           # 'success' senza push (issue #5534).
-          n=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
+          n=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp --jq 'map(length) | add // 0' 2>/dev/null || echo 0)
           echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
           # Digest del BODY pre-Codex. Un 🔴 ancorato a `PR body:L<n>` si chiude
           # riscrivendo il body, non con un commit: senza questa baseline il
