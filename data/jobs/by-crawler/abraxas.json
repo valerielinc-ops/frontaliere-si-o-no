@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-09-26T23:43:22.468Z",
+  "assembledAt": "2026-09-27T11:34:20.876Z",
   "jobs": [
     {
       "id": "abraxas-4ce365f7ce53",
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/wms-praktikum-im-bereich-human-resources-4960",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:18.154Z",
+      "crawledAt": "2026-09-27T11:34:14.785Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -56,11 +57,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "wms-praktikum-im-bereich-human-resources-abraxas-st-gallen"
+        "wms-praktikum-im-bereich-human-resources-abraxas-st-gallen",
+        "internship-wms-nelle-risorse-umane-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wms-praktikum-im-bereich-human-resources-abraxas-st-gallen"
+          "wms-praktikum-im-bereich-human-resources-abraxas-st-gallen",
+          "internship-wms-nelle-risorse-umane-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "wms-praktikum-im-bereich-human-resources-abraxas-st-gallen"
@@ -82,8 +85,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-d6bc90937a78",
@@ -116,7 +118,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-3988",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:17.706Z",
+      "crawledAt": "2026-09-27T11:34:14.345Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -139,11 +142,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-engineer-80-100-abraxas-st-gallen"
+        "software-engineer-80-100-abraxas-st-gallen",
+        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-80-100-abraxas-st-gallen"
+          "software-engineer-80-100-abraxas-st-gallen",
+          "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "software-engineer-80-100-abraxas-st-gallen"
@@ -162,8 +167,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-4186cb192b04",
@@ -196,7 +200,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-1974",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:17.255Z",
+      "crawledAt": "2026-09-27T11:34:13.899Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -220,11 +224,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen"
+        "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
+        "software-solution-architetto-80-100-con-focus-su-pre-vendita-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen"
+          "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
+          "software-solution-architetto-80-100-con-focus-su-pre-vendita-abraxas-informatik-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-27T01:00:11.845Z",
@@ -273,7 +279,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-6005",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:16.803Z",
+      "crawledAt": "2026-09-27T11:34:13.457Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -342,7 +348,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-2052",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:16.351Z",
+      "crawledAt": "2026-09-27T11:34:13.000Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -365,11 +372,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
+        "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
+          "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
@@ -391,15 +400,14 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-5d8d6c85cc23",
       "slug": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
         "it": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
+        "en": "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
         "de": "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
         "fr": "servicenow-ki-solutions-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
@@ -425,7 +433,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:15.888Z",
+      "crawledAt": "2026-09-27T11:34:12.536Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -449,14 +458,18 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+        "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
+        "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
         "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+          "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "en": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+          "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
           "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
@@ -476,8 +489,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-ff54e957aa41",
@@ -510,7 +522,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:15.436Z",
+      "crawledAt": "2026-09-27T11:34:12.091Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -539,7 +552,8 @@
         "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
         "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
         "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -549,7 +563,8 @@
           "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
           "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
           "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-          "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
+          "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "de": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
@@ -572,8 +587,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-77b5af7a4ae0",
@@ -606,7 +620,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-1142",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:14.985Z",
+      "crawledAt": "2026-09-27T11:34:11.637Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -629,11 +644,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
@@ -652,8 +669,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-cbaf62d04181",
@@ -686,7 +702,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-6736",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:14.533Z",
+      "crawledAt": "2026-09-27T11:34:11.195Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -710,11 +726,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+        "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+          "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
@@ -769,7 +787,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:14.078Z",
+      "crawledAt": "2026-09-27T11:34:10.752Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -795,14 +814,16 @@
         "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
         "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
         "senior-linux-engineer-abraxas-zurich-flughafen",
-        "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
+        "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen",
+        "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
           "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
           "senior-linux-engineer-abraxas-zurich-flughafen",
-          "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
+          "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen",
+          "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "de": [
           "senior-linux-engineer-abraxas-zurich-flughafen"
@@ -825,16 +846,15 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-5c520816df50",
       "slug": "registro-delle-persone-del-proprietario-del-prodotto-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "de": "product-owner-personenregister-80-100-abraxas-st-gallen",
         "it": "registro-delle-persone-del-proprietario-del-prodotto-80-100-abraxas-informatik-ag-st-gallen",
         "en": "product-owner-personenregister-80-100-abraxas-st-gallen",
+        "de": "product-owner-personenregister-80-100-abraxas-st-gallen",
         "fr": "registre-du-proprietaire-du-produit-80-100-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
@@ -842,16 +862,16 @@
       "companyDomain": "abraxas.ch",
       "title": "Product Owner Personenregister 80–100 %",
       "titleByLocale": {
-        "de": "Product Owner Personenregister 80–100 %",
-        "en": "Product Owner Person Register 80–100 %",
         "it": "Registro delle persone del proprietario del prodotto 80–100 %",
+        "en": "Product Owner Personenregister 80–100 %",
+        "de": "Product Owner Personenregister 80–100 %",
         "fr": "Registre du propriétaire du produit 80–100 %"
       },
       "description": "Möchtest du Produktverantwortung übernehmen, unterschiedliche Anforderungen zusammenbringen und gemeinsam mit Kunden, Partnern und dem Entwicklungsteam die richtigen Prioritäten setzen? Für die Weiterentwicklung unseres zentralen Personenregisters suchen wir eine erfahrene Persönlichkeit mit ausgeprägtem Produktverständnis, analytischem Denken, technischem Verständnis und Freude am Kundenkontakt.\nDeine Rolle\n• Du übernimmst die fachliche Verantwortung für unser zentrales Personenregister und gestaltest dessen Weiterentwicklung aktiv mit.\n• Du verantwortest und priorisierst den Product Backlog und stellst sicher, dass die richtigen Themen zur richtigen Zeit umgesetzt werden.\n• Du analysierst und bewertest Anforderungen gemeinsam mit Kunden, Business Analysten sowie dem Entwicklungsteam und leitest daraus die Produktprioritäten ab.\n• Du koordinierst die Integration von Umsystemen und bringst dein Verständnis für Schnittstellen, Datenflüsse und Systemzusammenhänge ein.\n• Du koordinierst interne und externe Anspruchsgruppen und vertrittst das Produkt gegenüber Kunden und Partnern.\n• Du arbeitest aktiv in Kundenprojekten mit und bringst deine Expertise bei Ausschreibungen und Angeboten ein.\nDein Profil\n• Mehrjährige Erfahrung als Product Owner im agilen Umfeld.\n• Technisches Verständnis, insbesondere für Schnittstellen, Datenflüsse und Systemintegrationen.\n• Sicheres Auftreten und Freude an der Zusammenarbeit mit Kunden, Partnern und Entwicklungsteams.\n• Eine selbstständige, verantwortungsbewusste und lösungsorientierte Arbeitsweise.\n• Sehr gute Deutschkenntnisse.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "de": "Möchtest du Produktverantwortung übernehmen, unterschiedliche Anforderungen zusammenbringen und gemeinsam mit Kunden, Partnern und dem Entwicklungsteam die richtigen Prioritäten setzen? Für die Weiterentwicklung unseres zentralen Personenregisters suchen wir eine erfahrene Persönlichkeit mit ausgeprägtem Produktverständnis, analytischem Denken, technischem Verständnis und Freude am Kundenkontakt.\nDeine Rolle\n• Du übernimmst die fachliche Verantwortung für unser zentrales Personenregister und gestaltest dessen Weiterentwicklung aktiv mit.\n• Du verantwortest und priorisierst den Product Backlog und stellst sicher, dass die richtigen Themen zur richtigen Zeit umgesetzt werden.\n• Du analysierst und bewertest Anforderungen gemeinsam mit Kunden, Business Analysten sowie dem Entwicklungsteam und leitest daraus die Produktprioritäten ab.\n• Du koordinierst die Integration von Umsystemen und bringst dein Verständnis für Schnittstellen, Datenflüsse und Systemzusammenhänge ein.\n• Du koordinierst interne und externe Anspruchsgruppen und vertrittst das Produkt gegenüber Kunden und Partnern.\n• Du arbeitest aktiv in Kundenprojekten mit und bringst deine Expertise bei Ausschreibungen und Angeboten ein.\nDein Profil\n• Mehrjährige Erfahrung als Product Owner im agilen Umfeld.\n• Technisches Verständnis, insbesondere für Schnittstellen, Datenflüsse und Systemintegrationen.\n• Sicheres Auftreten und Freude an der Zusammenarbeit mit Kunden, Partnern und Entwicklungsteams.\n• Eine selbstständige, verantwortungsbewusste und lösungsorientierte Arbeitsweise.\n• Sehr gute Deutschkenntnisse.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "it": "Vuoi assumerti la responsabilità del prodotto, unire diverse esigenze e impostare le priorità giuste insieme a clienti, partner e team di sviluppo? Per l'ulteriore sviluppo del nostro registro personale centrale, stiamo cercando una personalità esperta con una forte comprensione del prodotto, il pensiero analitico, la comprensione tecnica e il godimento del contatto con il cliente.\nIl tuo ruolo\n• Si assume la responsabilità professionale per il nostro registro personale centrale e forma attivamente il suo ulteriore sviluppo.\n• Sei responsabile e prioritizzi il backlog del prodotto e assicurati che i temi giusti vengano implementati al momento giusto.\n• Si analizzano e valutano i requisiti insieme a clienti, analisti di business e il team di sviluppo e derivano le priorità del prodotto da questo.\n• Coordinate l'integrazione dei sistemi ambientali e contribuite alla comprensione di interfacce, flussi di dati e contesti di sistema.\n• Coordinate le parti interessate interne ed esterne e rappresentate il prodotto a clienti e partner.\n• Sei attivamente coinvolto in progetti di clienti e contribuire la tua esperienza a offerte e offerte.\nIl tuo profilo\n• Diversi anni di esperienza come proprietario di un prodotto in un ambiente agile.\n• Comprensione tecnica, soprattutto per interfacce, flussi di dati e integrazioni di sistema.\n• L'aspetto sicuro e il piacere di lavorare con clienti, partner e team di sviluppo.\n• Un modo di lavorare indipendente, responsabile e orientato alla soluzione.\n• Molto buona conoscenza del tedesco.\nI tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
         "en": "Do you want to take product responsibility, bring together different requirements and set the right priorities together with customers, partners and the development team? For the further development of our central personal register, we are looking for an experienced personality with a strong product understanding, analytical thinking, technical understanding and enjoyment of customer contact.\nYour role\n• You take on the professional responsibility for our central personal register and actively shape its further development.\n• You are responsible for and prioritize the product backlog and ensure that the right topics are implemented at the right time.\n• You analyze and evaluate requirements together with customers, business analysts and the development team and derive the product priorities from this.\n• You coordinate the integration of environmental systems and contribute your understanding of interfaces, data flows and system contexts.\n• You coordinate internal and external stakeholders and represent the product to customers and partners.\n• You are actively involved in customer projects and contribute your expertise to tenders and offers.\nYour profile\n• Several years of experience as a product owner in an agile environment.\n• Technical understanding, especially for interfaces, data flows and system integrations.\n• Secure appearance and pleasure in working with customers, partners and development teams.\n• An independent, responsible and solution-oriented way of working.\n• Very good knowledge of German.\nYour Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Möchtest du Produktverantwortung übernehmen, unterschiedliche Anforderungen zusammenbringen und gemeinsam mit Kunden, Partnern und dem Entwicklungsteam die richtigen Prioritäten setzen? Für die Weiterentwicklung unseres zentralen Personenregisters suchen wir eine erfahrene Persönlichkeit mit ausgeprägtem Produktverständnis, analytischem Denken, technischem Verständnis und Freude am Kundenkontakt.\nDeine Rolle\n• Du übernimmst die fachliche Verantwortung für unser zentrales Personenregister und gestaltest dessen Weiterentwicklung aktiv mit.\n• Du verantwortest und priorisierst den Product Backlog und stellst sicher, dass die richtigen Themen zur richtigen Zeit umgesetzt werden.\n• Du analysierst und bewertest Anforderungen gemeinsam mit Kunden, Business Analysten sowie dem Entwicklungsteam und leitest daraus die Produktprioritäten ab.\n• Du koordinierst die Integration von Umsystemen und bringst dein Verständnis für Schnittstellen, Datenflüsse und Systemzusammenhänge ein.\n• Du koordinierst interne und externe Anspruchsgruppen und vertrittst das Produkt gegenüber Kunden und Partnern.\n• Du arbeitest aktiv in Kundenprojekten mit und bringst deine Expertise bei Ausschreibungen und Angeboten ein.\nDein Profil\n• Mehrjährige Erfahrung als Product Owner im agilen Umfeld.\n• Technisches Verständnis, insbesondere für Schnittstellen, Datenflüsse und Systemintegrationen.\n• Sicheres Auftreten und Freude an der Zusammenarbeit mit Kunden, Partnern und Entwicklungsteams.\n• Eine selbstständige, verantwortungsbewusste und lösungsorientierte Arbeitsweise.\n• Sehr gute Deutschkenntnisse.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "Voulez-vous prendre la responsabilité du produit, réunir différentes exigences et fixer les bonnes priorités avec les clients, les partenaires et l'équipe de développement? Pour le développement de notre registre personnel central, nous recherchons une personnalité expérimentée avec une forte compréhension du produit, la pensée analytique, la compréhension technique et la jouissance du contact avec le client.\nVotre rôle\n• Vous assumez la responsabilité professionnelle de notre registre personnel central et façonnez activement son développement ultérieur.\n• Vous êtes responsable de l'arriéré de produits et vous assurez que les bons sujets sont mis en œuvre au bon moment.\n• Vous analysez et évaluez les besoins avec les clients, les analystes d'affaires et l'équipe de développement et en tirez les priorités du produit.\n• Vous coordonnez l'intégration des systèmes environnementaux et contribuez à votre compréhension des interfaces, des flux de données et des contextes du système.\n• Vous coordonnez les intervenants internes et externes et représentez le produit auprès des clients et des partenaires.\n• Vous participez activement aux projets clients et apportez votre expertise aux appels d'offres et aux offres.\nVotre profil\n• Plusieurs années d'expérience en tant que propriétaire de produit dans un environnement agile.\n• Compréhension technique, notamment pour les interfaces, les flux de données et les intégrations de systèmes.\n• L'apparence et le plaisir de travailler avec les clients, les partenaires et les équipes de développement.\n• Une façon de travailler indépendante, responsable et orientée vers la solution.\n• Très bonne connaissance de l'allemand.\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
       "location": "St. Gallen",
@@ -859,7 +879,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/product-owner-personenregister-80-100-3036",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:13.628Z",
+      "crawledAt": "2026-09-27T11:34:10.310Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -881,6 +902,20 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "product-owner-personenregister-80-100-abraxas-st-gallen",
+        "registro-delle-persone-del-proprietario-del-prodotto-80-100-abraxas-informatik-ag-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-personenregister-80-100-abraxas-st-gallen",
+          "registro-delle-persone-del-proprietario-del-prodotto-80-100-abraxas-informatik-ag-st-gallen"
+        ],
+        "fr": [
+          "product-owner-personenregister-80-100-abraxas-st-gallen"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T14:03:22.871Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -893,19 +928,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T14:03:22.871Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "product-owner-personenregister-80-100-abraxas-st-gallen"
-        ],
-        "fr": [
-          "product-owner-personenregister-80-100-abraxas-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "product-owner-personenregister-80-100-abraxas-st-gallen"
-      ]
+      }
     },
     {
       "id": "abraxas-8533e30a2142",
@@ -938,7 +961,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-2438",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:13.171Z",
+      "crawledAt": "2026-09-27T11:34:09.868Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -963,12 +986,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
-        "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen"
+        "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen",
+        "linux-ingegnere-con-aws-e-kubernetes-erfahrung-80-100-abraxas-informatik-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
-          "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen"
+          "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen",
+          "linux-ingegnere-con-aws-e-kubernetes-erfahrung-80-100-abraxas-informatik-ag-bern"
         ],
         "de": [
           "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern"
@@ -1020,7 +1045,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-operations-engineer-engineer-staedte-amp-gemeinden-80-100-8816",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:12.721Z",
+      "crawledAt": "2026-09-27T11:34:09.426Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1044,11 +1069,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
+        "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
+        "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
+          "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
+          "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
@@ -1100,7 +1127,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:12.269Z",
+      "crawledAt": "2026-09-27T11:34:08.985Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1183,7 +1210,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-6332",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:11.817Z",
+      "crawledAt": "2026-09-27T11:34:08.542Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1209,12 +1236,14 @@
       "previousSlugs": [
         "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
         "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-st-gallen",
-        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
+        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
+        "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen-82091c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
-          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
+          "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen-82091c"
         ],
         "fr": [
           "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
@@ -1267,7 +1296,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:11.363Z",
+      "crawledAt": "2026-09-27T11:34:08.099Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1336,7 +1365,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/dwh-softwareengineer-80-100-9720",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:10.909Z",
+      "crawledAt": "2026-09-27T11:34:07.651Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1360,11 +1389,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
+        "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
+        "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
+          "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
+          "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "en": [
           "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
@@ -1416,7 +1447,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analyst-im-bereich-steuern-80-100-2625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:10.448Z",
+      "crawledAt": "2026-09-27T11:34:07.208Z",
       "needsRetranslation": true,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1442,12 +1473,14 @@
       "previousSlugs": [
         "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
         "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
-        "business-analyste-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld"
+        "business-analyste-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
+        "analizzatore-fiscale-80-100-abraxas-informatik-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
-          "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld"
+          "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
+          "analizzatore-fiscale-80-100-abraxas-informatik-ag-frauenfeld"
         ],
         "fr": [
           "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
@@ -1500,7 +1533,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5415",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:09.992Z",
+      "crawledAt": "2026-09-27T11:34:06.762Z",
+      "needsRetranslation": true,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1525,13 +1559,15 @@
       "previousSlugs": [
         "application-supporter-in-epsipol-ordnungsbussen-german-french-80-100-abraxas-informatik-ag-munchenstein",
         "supporter-l-application-en-epsipol-ordnungsbussen-allemand-et-francais-80-100-abraxas-informatik-ag-munchenstein",
-        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+        "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "application-supporter-in-epsipol-ordnungsbussen-german-french-80-100-abraxas-informatik-ag-munchenstein",
           "supporter-l-application-en-epsipol-ordnungsbussen-allemand-et-francais-80-100-abraxas-informatik-ag-munchenstein",
-          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+          "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
         ],
         "en": [
           "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
@@ -1553,8 +1589,7 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-c3450fe11f56",
@@ -1587,7 +1622,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/account-manager-100-1448",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:09.533Z",
+      "crawledAt": "2026-09-27T11:34:06.309Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1656,7 +1691,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-7621",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:09.083Z",
+      "crawledAt": "2026-09-27T11:34:05.867Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1681,13 +1717,15 @@
       "previousSlugs": [
         "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
         "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
           "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
@@ -1709,8 +1747,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-e12391c35b27",
@@ -1743,7 +1780,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:43:08.630Z",
+      "crawledAt": "2026-09-27T11:34:05.313Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1803,93 +1840,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "abraxas-d662a9d15c0a",
-      "slug": "architetto-software-con-focus-su-ai-nel-ssdlc-80-100-abraxas-informatik-ag-st-gallen",
-      "slugByLocale": {
-        "it": "architetto-software-con-focus-su-ai-nel-ssdlc-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "software-architect-with-focus-on-ai-in-the-ssdlc-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
-        "fr": "architecte-logiciel-avec-accent-sur-l-ia-dans-le-ssdlc-80-100-abraxas-informatik-ag-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
-      "titleByLocale": {
-        "it": "Architetto software con focus su AI nel SSDLC 80-100%",
-        "en": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
-        "de": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
-        "fr": "Architecte logiciel avec accent sur l'IA dans le SSDLC 80-100%"
-      },
-      "description": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "Si rende AI più di un semplice co-pilota sul desktop. Svilupperai standard, principi di architettura e best practice per l'uso produttivo dell'IA e formerai l'ulteriore sviluppo del SSDLC abilitato all'AI. Il vostro focus è sull'eccellenza ingegneristica e sulla capacità organizzativa. Allo stesso tempo, portate il vostro know-how a progetti di clienti e team di supporto nell'implementazione di soluzioni AI esigenti. Unisci architettura, ingegneria software, DevOps e AI e assicurati che gli esperimenti diventino soluzioni sostenibili.\nIl tuo ruolo\n• Si svilupperà architetture di riferimento, principi architettonici e standard per l'uso di AI in ingegneria del software e SSDLC\n• Definire le migliori pratiche e modelli di architettura, integrazione e soluzione riutilizzabili per agenti, richieste, modelli di contesto e soluzioni RAG\n• SSDLC abilitato all'AI e supporterai l'integrazione dell'IA in sviluppo, test, architettura e processi operativi\n• Si consiglia e team di coach sull'introduzione, uso e scaling di AI e promuovere lo scambio organizzativo di conoscenze e di esperienza.\n• Valuterai nuove tecnologie, modelli e framework e definirai configurazioni standard insieme a AI Engineering\n• Definire i requisiti di qualità per le soluzioni AI e garantire che rimangano tracciabili, manutenbili e scalabili\n• Sostenere progetti di clienti e progetti di trasformazione strategicamente rilevanti nella progettazione, nell'architettura e nell'implementazione di soluzioni AI\n• Contribuirai all’ulteriore sviluppo della strategia AI di Abraxas, della governance dell’architettura e dell’eccellenza ingegneristica\nIl tuo profilo\n• Molti anni di esperienza come architetto ICT, sviluppatore principale o ingegnere principale\n• Ottima comprensione delle moderne architetture software e piattaforma\n• Esperienza in architettura e trasformazioni tecnologiche\n• Conoscenza approfondita di DevOps, CI/CD e piattaforme ingegneristiche moderne\n• Esperienza con concetti LLM, Agent e RAG\n• Capacità di stabilire norme tecniche a livello organizzativo\n• Esperienza nella formazione e nella realizzazione di organizzazioni di sviluppo\n• Capacità di combinare il lavoro di architettura strategica con i requisiti pratici dei progetti di cliente e dei progetti di trasformazione\nI vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Supporto per una formazione finanziaria o temporale al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 4 1h settimana con orari di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "You make AI more than just a co-pilot on the desktop. You will develop standards, architecture principles and best practices for the productive use of AI and shape the further development of the AI-enabled SSDLC. Your focus is on engineering excellence and organization-wide enablement. At the same time, you bring your know-how to customer projects and support teams in the implementation of demanding AI solutions. You combine architecture, software engineering, DevOps and AI and ensure that experiments become sustainable solutions.\nYour role\n• You will develop reference architectures, architectural principles and standards for the use of AI in software engineering and SSDLC\n• Define best practices and reusable architecture, integration and solution patterns for agents, prompts, context models and RAG solutions\n• You will continuously develop the AI-enabled SSDLC and support the integration of AI into development, testing, architecture and operational processes\n• You advise and coach teams on the introduction, use and scaling of AI and promote the organization-wide exchange of knowledge and experience.\n• You will evaluate new technologies, models and frameworks and define standard setups together with AI Engineering\n• Define quality requirements for AI solutions and ensure that they remain traceable, maintainable and scalable\n• Support strategically relevant customer projects and transformation projects in the design, architecture and implementation of AI solutions\n• You will contribute to the further development of Abraxas’ AI strategy, architecture governance and engineering excellence\nYour profile\n• Many years of experience as an ICT architect, lead developer or principal engineer\n• Very good understanding of modern software and platform architectures\n• Experience in architecture and technology transformations\n• In-depth knowledge of DevOps, CI/CD and modern engineering platforms\n• Experience with LLM, Agent and RAG concepts\n• Ability to establish technical standards organization-wide\n• Experience in coaching and enabling development organizations\n• Ability to combine strategic architecture work with the practical requirements of customer projects and transformation projects\nYour benefits\n• Up to 60% home office possible with a 100% workload\n• Support for 100% financial or temporal training\n• Holiday purchase (2 weeks per year)\n• 4 1h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Vous faites l'IA plus qu'un simple copilote sur le bureau. Vous développerez des normes, des principes d'architecture et des pratiques exemplaires pour l'utilisation productive de l'IA et façonnerez le développement du SSDLC compatible avec l'IA. Votre priorité est l'excellence en génie et l'habilitation à l'échelle de l'organisation. En même temps, vous apportez votre savoir-faire aux projets clients et aux équipes de support dans la mise en œuvre de solutions d'IA exigeantes. Vous combinez architecture, génie logiciel, DevOps et AI et vous assurez que les expériences deviennent des solutions durables.\nVotre rôle\n• Vous développerez des architectures de référence, des principes et des normes architecturaux pour l'utilisation de l'IA dans le génie logiciel et SSDLC\n• Définir les meilleures pratiques et les modèles d'architecture, d'intégration et de solution réutilisables pour les agents, les prompts, les modèles contextuels et les solutions RAG\n• Vous développerez en permanence le SSDLC compatible avec l'IA et soutiendraz l'intégration de l'IA dans le développement, les tests, l'architecture et les processus opérationnels\n• Vous conseillez et coachez les équipes sur l'introduction, l'utilisation et l'échelle de l'IA et favorisez l'échange de connaissances et d'expériences à l'échelle de l'organisation.\n• Vous évaluerez les nouvelles technologies, modèles et cadres et définirez les configurations standard avec AI Engineering\n• Définir les exigences de qualité pour les solutions AI et s'assurer qu'elles restent traçables, durables et évolutives\n• Soutenir les projets clients et les projets de transformation stratégiquement pertinents dans la conception, l'architecture et la mise en œuvre des solutions d'IA\n• Vous contribuerez au développement de la stratégie Abraxas, de la gouvernance de l'architecture et de l'excellence en ingénierie\nVotre profil\n• De nombreuses années d'expérience en tant qu'architecte en TIC, développeur principal ou ingénieur principal\n• Très bonne compréhension des architectures modernes des logiciels et des plateformes\n• Expérience dans les transformations d'architecture et de technologie\n• Connaissance approfondie des plateformes DevOps, CI/CD et d'ingénierie moderne\n• Expérience des concepts LLM, Agent et RAG\n• Capacité d'établir des normes techniques à l'échelle de l'organisation\n• Expérience en matière d ' encadrement et de facilitation des organisations de développement\n• Capacité de combiner le travail d'architecture stratégique avec les exigences pratiques des projets clients et des projets de transformation\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Soutien à la formation à 100% financière ou temporelle\n• Achat de vacances (2 semaines par an)\n• 4 1h semaine avec des horaires flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre demande directement dans votre formulaire."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architekt-mit-fokus-ki-im-ssdlc-80-100-3313",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:26:21.543Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-02",
-      "applyUrl": "https://apply.refline.ch/215876/2515/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2515",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
-        "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-informatik-ag-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen"
-        ],
-        "en": [
-          "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
-          "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-informatik-ag-st-gallen"
-        ],
-        "fr": [
-          "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-09-02T13:54:35.877Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "sourceIdentity": "url:https://www.abraxas.ch/de/karriere/offene-stellen/software-architekt-mit-fokus-ki-im-ssdlc-80-100-3313",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     }
   ]
 }
