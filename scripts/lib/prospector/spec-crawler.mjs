@@ -309,7 +309,14 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     // the clean-IP rescue. Opt-in is deliberately spec-scoped: only a crawler
     // with evidence of this source-specific failure pays for the extra fetch.
     if (!candidates.length && spec.rescueOnEmptyListing === true
-      && !page.proxiedBy && runtime.disableWafProxy !== true) {
+      && runtime.disableWafProxy !== true) {
+      // `fetchRuntimePage()` may already have used Jina to replace a marked
+      // challenge. That response can still be a 200 interstitial that is not
+      // recognised by the proxy-body detector, so it is safe-looking to the
+      // transport layer but still yields no candidates. Give the opt-in spec
+      // one more clean-IP rescue in that case; the candidate check below is
+      // the source-backed acceptance gate and this block runs only once per
+      // seed, so it cannot loop.
       const proxiedBody = await fetchHtmlViaJinaWithRetry(effectiveSeedUrl, {
         timeoutMs: runtime.timeoutMs,
         retries: runtime.jinaRetries,
