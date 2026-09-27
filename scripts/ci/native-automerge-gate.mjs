@@ -56,6 +56,11 @@ const TESTS_WORKFLOW_EVENT = 'pull_request';
 // Explicit, verifiable entry point for the in-job opt-in: the caller declares
 // WHICH run it is, never THAT the tests passed. See `inJobRequiredVitestDecision`.
 const IN_JOB_RUN_ID_ENV = 'NATIVE_AUTOMERGE_IN_JOB_RUN_ID';
+// Scritto dal runner, non dal workflow: e' la run in cui questo processo gira.
+// Nel job `post-review` di tests.yml e' la stessa run che possiede il check
+// `vitest` gia' completato; nel retry schedulato e' la run del retry, che non
+// coincide mai con una run `tests`.
+const CALLER_RUN_ID_ENV = 'GITHUB_RUN_ID';
 const MAX_TRANSIENT_GH_READ_ATTEMPTS = 3;
 const TRANSIENT_GH_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
 const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
@@ -376,6 +381,18 @@ function parseActionsCheckRunUrl(value, repo) {
  * The evidence is bound to the exact review id, HEAD, workflow/job and
  * completed check; reviewer author identity is deliberately not an admission
  * criterion for native auto-merge.
+ *
+ * `callerRunId` covers the one caller that can never see the `tests` run
+ * completed: the `post-review` job of that same run (`needs: vitest`). There
+ * the run is `in_progress` because the caller itself is still running, so the
+ * run-level `completed/success` and «run updated after the check» facts do not
+ * exist yet. Measured on PR #10098 (2026-09-27): review gate `DECLASSIFIED`
+ * outside the diff + `approved=true` at 17:47Z, opt-in declined in
+ * `post-review`, PR idle until a manual retry dispatch at 18:13Z; the 20-minute
+ * cron had last fired at 17:44Z (and before that at 13:02Z). Only when the run
+ * is the caller's own and still in flight are those two facts waived; the
+ * required job, its check, the review-gate step and every other ordering stay
+ * mandatory, exactly as for the raw-LGTM path, which never asks for them.
  */
 export function reviewGateEvidenceDecision({
   evidence,
@@ -383,6 +400,7 @@ export function reviewGateEvidenceDecision({
   head,
   review,
   reviewRevision,
+  callerRunId = null,
 } = {}) {
   const deny = (reason) => ({ allow: false, reason });
   if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)) {
@@ -420,12 +438,17 @@ export function reviewGateEvidenceDecision({
   }
 
   const workflow = evidence.workflow;
+  const inCallerRun = validPositiveInteger(callerRunId)
+    && workflow?.id === callerRunId
+    && workflow.status === 'in_progress'
+    && workflow.conclusion == null;
+  const workflowSettled = inCallerRun
+    || (workflow?.status === 'completed' && workflow?.conclusion === 'success');
   if (!workflow
       || !validPositiveInteger(workflow.id)
       || workflow.path !== TESTS_WORKFLOW_PATH
       || workflow.event !== TESTS_WORKFLOW_EVENT
-      || workflow.status !== 'completed'
-      || workflow.conclusion !== 'success'
+      || !workflowSettled
       || workflow.head_sha !== head
       || validTimestamp(workflow.run_started_at) === null
       || validTimestamp(workflow.updated_at) === null) {
@@ -477,13 +500,15 @@ export function reviewGateEvidenceDecision({
       && stepStartedAt <= stepCompletedAt
       && stepCompletedAt <= jobCompletedAt
       && jobCompletedAt <= checkCompletedAt
-      && checkCompletedAt <= workflowUpdatedAt)) {
+      && (inCallerRun || checkCompletedAt <= workflowUpdatedAt))) {
     return deny('ordine temporale review-gate non verificabile');
   }
 
   return {
     allow: true,
-    reason: 'step Require approving Codex review successivo alla review raw sulla stessa HEAD',
+    reason: inCallerRun
+      ? 'step Require approving Codex review successivo alla review raw sulla stessa HEAD (run del chiamante in corso)'
+      : 'step Require approving Codex review successivo alla review raw sulla stessa HEAD',
     runId: workflow.id,
     jobId: job.id,
     checkId: check.id,
@@ -502,6 +527,7 @@ export function evaluateNativeAutoMerge({
   changedFiles,
   changedFilesComplete,
   inJobRun = null,
+  callerRunId = null,
 } = {}) {
   if (!pr || pr.state !== 'OPEN' || pr.isDraft !== false || pr.baseRefName !== 'main') {
     return { allow: false, reason: 'PR non aperta, draft o non basata su main' };
@@ -589,6 +615,7 @@ export function evaluateNativeAutoMerge({
       head: pr.headRefOid,
       review,
       reviewRevision,
+      callerRunId,
     })
     : { allow: false, reason: 'review raw già approvante' };
   if (review && !reviewIsApproved(review) && !reviewGateException.allow) {
@@ -648,6 +675,7 @@ export function revalidateNativeAutoMerge({
   changedFiles,
   changedFilesComplete,
   inJobRun = null,
+  callerRunId = null,
 } = {}) {
   if (!pr || !Object.hasOwn(pr, 'autoMergeRequest')) {
     return { allow: false, action: 'skip', reason: 'stato auto-merge non verificabile' };
@@ -662,6 +690,7 @@ export function revalidateNativeAutoMerge({
     changedFiles,
     changedFilesComplete,
     inJobRun,
+    callerRunId,
   });
   if (pr.autoMergeRequest !== null) {
     return {
@@ -892,6 +921,11 @@ function loadReviewGateEvidence(repo, head, checkRuns, review, reviewRevision) {
     workflow,
     job,
   };
+}
+
+function callerRunIdFromEnv() {
+  const runId = Number(process.env[CALLER_RUN_ID_ENV] || '');
+  return validPositiveInteger(runId) ? runId : null;
 }
 
 /**
@@ -1387,6 +1421,7 @@ function main() {
     changedFiles: changedFileSnapshot.files,
     changedFilesComplete: changedFileSnapshot.complete,
     inJobRun,
+    callerRunId: callerRunIdFromEnv(),
   });
   console.log(`Native auto-merge guard PR #${prNumber} HEAD=${pr.headRefOid}: ${decision.reason}`);
   if (decision.action === 'revoke') {
@@ -1486,6 +1521,7 @@ function main() {
     changedFiles: finalChangedFileSnapshot.files,
     changedFilesComplete: finalChangedFileSnapshot.complete,
     inJobRun: finalInJobRun,
+    callerRunId: callerRunIdFromEnv(),
   });
   let freshRecoveryBarrier;
   try {
@@ -1645,6 +1681,7 @@ function main() {
     changedFiles: finalChangedFileSnapshot.files,
     changedFilesComplete: finalChangedFileSnapshot.complete,
     inJobRun: mutationInJobRun,
+    callerRunId: callerRunIdFromEnv(),
   });
   console.log(`Native auto-merge guard PR #${prNumber} mutation snapshot: ${mutationDecision.reason}`);
   if (!mutationDecision.allow) {
