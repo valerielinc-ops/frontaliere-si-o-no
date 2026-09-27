@@ -30,6 +30,19 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * Some careers-page.com detail pages expose the employer's street address in
+ * the location field, while the actual vacancy area is carried by the title,
+ * e.g. "... (zona Chiasso)".  Keep the fallback deliberately narrow: only a
+ * parenthesised `zona` annotation that is itself a recognised target location
+ * may replace the generic address.
+ */
+function extractTitleLocation(title = '') {
+  const match = String(title || '').match(/\(\s*zona\s+([^)]*?)\s*\)/i);
+  const candidate = normalizeSpace(match?.[1] || '');
+  return candidate && isTargetSwissLocation(candidate) ? candidate : '';
+}
+
 function stripHtml(html = '') {
   return html
     .replace(/<br\s*\/?>/gi, '\n')
@@ -160,8 +173,13 @@ export function parseConvitDetailPage(html = '', fallbackTitle = '') {
     location = normalizeSpace(
       [addr.addressLocality, addr.addressRegion, addr.addressCountry]
         .filter(Boolean)
-      .join(', '),
+        .join(', '),
     );
+  }
+
+  const titleLocation = extractTitleLocation(title);
+  if (titleLocation && !isTargetSwissLocation(location)) {
+    location = titleLocation;
   }
   // Careers-page occasionally exposes the registered street address in both
   // HTML and JSON-LD (for example "Via al Mulino 22a, 6814 Cadempino"). The
