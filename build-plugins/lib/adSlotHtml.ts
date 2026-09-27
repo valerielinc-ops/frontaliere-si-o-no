@@ -25,6 +25,7 @@ export function adSlotHtml(slotKey: AdSlotKey): string {
     `data-ad-client="${AD_CLIENT}"`,
     `data-ad-slot="${cfg.slot}"`,
     `data-ad-format="${cfg.format}"`,
+    `data-ft-static-ad="true"`,
   ];
   if ('layout' in cfg && cfg.layout) attrs.push(`data-ad-layout="${cfg.layout}"`);
   if ('layoutKey' in cfg && cfg.layoutKey) attrs.push(`data-ad-layout-key="${cfg.layoutKey}"`);
