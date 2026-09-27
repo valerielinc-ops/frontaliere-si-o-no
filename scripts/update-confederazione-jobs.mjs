@@ -33,7 +33,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
@@ -153,26 +153,6 @@ function slugify(value = '') {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-');
   return truncateSlugAtWordBoundary(slug, 180);
-}
-
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        Origin: 'https://jobs.admin.ch',
-        Referer: 'https://jobs.admin.ch/',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
 }
 
 /* ── Matchers ──────────────────────────────────────────────── */
@@ -378,7 +358,13 @@ async function fetchNationalListings() {
     const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}`;
     console.log(`  API: ${url}`);
 
-    const data = await fetchJson(url);
+    const data = await fetchJson(url, {
+      timeoutMs: TIMEOUT_MS,
+      headers: {
+        Origin: 'https://jobs.admin.ch',
+        Referer: 'https://jobs.admin.ch/',
+      },
+    });
     const rawItems = data?.jobs;
     assertJsonListShape(data, { key: 'jobs', source: 'confederazione:CH' });
     if (!Array.isArray(rawItems)) {

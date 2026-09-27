@@ -104,6 +104,7 @@ import {
   renderReopenBudget,
 } from './lib/reopen-breaker.mjs';
 import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
+import { PR_FIX_CLAIM_MARKER, latestPrFixClaims } from './pr-fixer-claim.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -994,7 +995,24 @@ function stuckRedRescueReason(head) {
     mainTestsRuns: mainTestsRuns(),
     staleHours: STUCK_RED_STALE_H,
   });
-  return rescue ? reason : '';
+  if (!rescue) return '';
+  return stuckRedRescueAllowedForSteps(vitestJobSteps(head)) ? reason : '';
+}
+
+/**
+ * Lo stuck-red vale per un rosso che un merge di main può riparare. Un rosso del
+ * SOLO review gate con un verdetto vero (né review abortita né saltata dalla
+ * guardia) no: è un 🔴 della PR, lo possiede il 🔴-fixer. `red-main` prova solo
+ * che main ha chiuso un `tests` verde dopo il rosso, cosa quasi sempre vera.
+ * Misurato su #10088 (2026-09-27 15:36Z): commento «main era ROSSO» con main
+ * verde da ore, merge di main durante il 🔴-fixer, claim superato e fixer
+ * uscito senza fix; la review della head nuova ha ritrovato lo stesso 🔴.
+ *
+ * @param {Array<{name?: string, conclusion?: string}>} steps
+ */
+export function stuckRedRescueAllowedForSteps(steps) {
+  if (!vitestFailureIsReviewGate(steps)) return true;
+  return reviewAbortedWithoutVerdict(steps) || reviewSkippedByGuard(steps);
 }
 
 /** Commenti della PR che contengono uno dei `markers`, come `{ login, type, body }`.
@@ -1104,6 +1122,20 @@ function inheritedRedRescue(num, head) {
 
 /** Commento del rescue, scritto DOPO il push: la chiave si consuma solo se il
  * merge di main è davvero arrivato sul branch. */
+/** Commento one-shot dello stuck-red, DOPO un push riuscito: scritto prima,
+ * come fino al 2026-09-27, una guardia che rinviava il rebase (review, tests o
+ * fixer in volo) lasciava il marker speso senza nessun rebase, e il tick dopo
+ * trovava il rescue già consumato. */
+function commentStuckRedRescue(num, reason) {
+  if (DRY || !reason) return;
+  const why = reason === 'red-main'
+    ? 'il suo `vitest` è stato eseguito sul merge ref mentre `main` era ROSSO, ed è tornato verde dopo'
+    : 'il suo `vitest` è rosso da oltre ' + STUCK_RED_STALE_H + 'h senza che nulla possa ri-eseguirlo (probabile fallimento infrastrutturale)';
+  gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
+    `${STUCK_RED_MARKER}\n♻️ **autorebase / stuck-red**: questa PR è ferma perché ${why}.\n\nCon i test rossi il job si ferma prima della review Claude (che dal 2026-08-26 gira dentro lo stesso \`tests.yml\`), quindi la PR non può ottenere né \`## LGTM\` né una label — e senza quelli nessun workflow la ri-testa: stato assorbente. Rebase su \`origin/main\` + ri-esecuzione dei test, **una sola volta**. Se torna rossa, il fallimento è della PR.\n\n_Segnale deterministico da pr-autorebase.yml (zero-Claude)._`],
+    { json: false, allowFail: true });
+}
+
 function commentInheritedRedRescue(num, rescue) {
   const list = rescue.files.map((f) => `- \`${f}\``).join('\n');
   const body = `${INHERITED_RED_MARKER} key=${rescue.key} -->\n` +
@@ -1253,6 +1285,83 @@ function testsRunsForBranch(branch) {
   const out = gh(
     ['api', `repos/${REPO}/actions/workflows/tests.yml/runs?branch=${encodeURIComponent(branch)}&per_page=20`]);
   return (out && Array.isArray(out.workflow_runs)) ? out.workflow_runs : [];
+}
+
+/**
+ * C'è un fixer (🔴 o ❌) ancora al lavoro sulla head ATTUALE? Puro → testabile.
+ *
+ * Livelock misurato il 2026-09-27 su #10051 (`fix/issue-10038`, label
+ * `collision-risk`, ultimo verdetto 🔴 → `rebaseActionForLgtmPr` = rebase):
+ * otto merge di main in tre ore, ognuno 1-16 minuti DOPO la review, mentre il
+ * 🔴-fixer di quella review era ancora in coda o nel setup (13:03→13:09,
+ * 14:11→14:12, 14:33→14:43, 15:27→15:29, 15:49→16:05). Le guardie sopra non
+ * lo vedono: a review pubblicata il run `tests` della head è concluso. Il fixer
+ * arriva al claim 12-18 minuti dopo l'avvio, trova la head spostata («HEAD
+ * cambiata dopo il claim») e si ferma senza toccare il modello: zero fix in 7
+ * giri, e la review della head nuova ritrova lo stesso 🔴.
+ *
+ * Due sorgenti, perché nessuna copre da sola entrambi i fixer:
+ *  - `runs`: le run di `pr-redflag-fixer.yml` sul branch della PR
+ *    (`pull_request_review` porta branch e SHA della PR) — coprono la coda e il
+ *    setup, PRIMA che esista un claim;
+ *  - `claims`: i marker `PR_FIX_CLAIM` attivi sulla head — l'unico segnale del
+ *    ❌-fixer, le cui run `workflow_run` stanno su `main` senza SHA della PR.
+ * Un claim il cui runner è noto come concluso (`claimRunStatus[runId]` non in
+ * volo) non protegge più nessun lavoro; uno con stato illeggibile sì, fino al
+ * TTL: attendere è sicuro, spostare la head sotto un fixer vivo no.
+ *
+ * @returns {{source: 'run'|'claim', id: string|number|null, status: string, workflow?: string}|null}
+ */
+export function fixerInFlightOnHead({ runs, claims, head, nowSec = Math.floor(Date.now() / 1000), claimRunStatus = {} }) {
+  if (!head) return null;
+  const sha = String(head).toLowerCase();
+  for (const r of Array.isArray(runs) ? runs : []) {
+    if (!r || String(r.head_sha || '').toLowerCase() !== sha) continue;
+    const status = String(r.status || '');
+    if (!RUN_STATUS_IN_FLIGHT.has(status)) continue;
+    return { source: 'run', id: typeof r.id === 'number' ? r.id : null, status };
+  }
+  for (const claim of Array.isArray(claims) ? claims : []) {
+    if (!claim || claim.state !== 'active' || String(claim.headSha || '').toLowerCase() !== sha) continue;
+    if (!(Number(claim.expiresAt) > Number(nowSec))) continue;
+    const runId = String(claim.runId || '');
+    const status = runId ? claimRunStatus?.[runId] : undefined;
+    if (status !== undefined && !RUN_STATUS_IN_FLIGHT.has(String(status))) continue;
+    return { source: 'claim', id: runId || null, status: status === undefined ? 'unknown' : String(status), workflow: String(claim.workflow || '') };
+  }
+  return null;
+}
+
+/** Run di `pr-redflag-fixer.yml` sul branch della PR (ultime 20). Come per
+ * `testsRunsForBranch`, un errore API attraversa `gh`: processPR salta la PR
+ * questo tick invece di rebasare alla cieca sotto un fixer. */
+function redflagFixerRunsForBranch(branch) {
+  const out = gh(
+    ['api', `repos/${REPO}/actions/workflows/pr-redflag-fixer.yml/runs?branch=${encodeURIComponent(branch)}&per_page=20`]);
+  return (out && Array.isArray(out.workflow_runs)) ? out.workflow_runs : [];
+}
+
+/** Claim `active` dei fixer sulla PR (ultimo stato per token, come li legge
+ * `pr-fixer-claim.mjs`) e stato del loro runner. Anche qui un errore di lettura
+ * dei commenti attraversa `gh`; lo stato di un singolo runner illeggibile resta
+ * `undefined`, cioè «in volo» per `fixerInFlightOnHead`. */
+function activeFixerClaims(num, head) {
+  const raw = gh(['api', `repos/${REPO}/issues/${num}/comments?per_page=100`, '--paginate',
+    '--jq', `.[] | select((.body // "") | contains(${JSON.stringify(PR_FIX_CLAIM_MARKER)})) | {id: .id, created_at: .created_at, user: {login: .user.login}, body: .body} | @json`],
+  { json: false });
+  const comments = String(raw || '').split('\n').filter(Boolean).flatMap((line) => {
+    try { return [JSON.parse(line)]; } catch { return []; }
+  });
+  const sha = String(head).toLowerCase();
+  const claims = latestPrFixClaims(comments).filter((claim) => claim.state === 'active' && claim.headSha === sha);
+  const claimRunStatus = {};
+  for (const claim of claims) {
+    const runId = String(claim.runId || '');
+    if (!runId || Object.hasOwn(claimRunStatus, runId)) continue;
+    const status = gh(['api', `repos/${REPO}/actions/runs/${runId}`, '--jq', '.status'], { json: false, allowFail: true });
+    if (status) claimRunStatus[runId] = String(status).trim();
+  }
+  return { claims, claimRunStatus };
 }
 
 /**
@@ -1896,15 +2005,7 @@ async function processPR(pr) {
   if (inheritedRescue) {
     console.log(`PR #${num} ROSSO EREDITATO riparato su main (chiave ${inheritedRescue.key}, commit ${inheritedRescue.commit.slice(0, 12)}): ${behind} dietro main → rebase + re-test; il commento con la chiave segue il push.`);
   } else if (stuckRedReason) {
-    console.log(`PR #${num} STUCK-RED (${stuckRedReason}): vitest rosso non attribuibile alla PR, ${behind} dietro main → rescue one-shot (rebase + re-test).`);
-    if (!DRY) {
-      const why = stuckRedReason === 'red-main'
-        ? 'il suo `vitest` è stato eseguito sul merge ref mentre `main` era ROSSO, ed è tornato verde dopo'
-        : 'il suo `vitest` è rosso da oltre ' + STUCK_RED_STALE_H + 'h senza che nulla possa ri-eseguirlo (probabile fallimento infrastrutturale)';
-      gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
-        `${STUCK_RED_MARKER}\n♻️ **autorebase / stuck-red**: questa PR è ferma perché ${why}.\n\nCon i test rossi il job si ferma prima della review Claude (che dal 2026-08-26 gira dentro lo stesso \`tests.yml\`), quindi la PR non può ottenere né \`## LGTM\` né una label — e senza quelli nessun workflow la ri-testa: stato assorbente. Rebase su \`origin/main\` + ri-esecuzione dei test, **una sola volta**. Se torna rossa, il fallimento è della PR.\n\n_Segnale deterministico da pr-autorebase.yml (zero-Claude)._`],
-        { json: false, allowFail: true });
-    }
+    console.log(`PR #${num} STUCK-RED (${stuckRedReason}): vitest rosso non attribuibile alla PR, ${behind} dietro main → rescue one-shot (rebase + re-test); il commento one-shot segue il push.`);
   }
 
   if (behind === 0) {
@@ -1956,6 +2057,7 @@ async function processPR(pr) {
         if (mg === null && resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
           const pushed = pushBranch(branch);
           if (pushed !== null) {
+            if (!inheritedRescue) commentStuckRedRescue(num, stuckRedReason);
             // Push OK: la PR è ora mergeable. Dispatch tests + review sulla
             // nuova HEAD: il vecchio LGTM non viene riusato.
             console.log(`✅ PR #${num}: conflitto import-union AUTO-RISOLTO + pushato → mergeable; dispatch tests + review.`);
@@ -2055,6 +2157,26 @@ async function processPR(pr) {
   const inFlight = testsRunInFlightOnHead({ runs: testsRunsForBranch(branch), head });
   if (inFlight) {
     console.log(`PR #${num} (${branch}): run tests.yml ${inFlight.id ?? '?'} ${inFlight.status} sulla head ATTUALE ${head.slice(0, 8)} — skip rebase questo tick (defer per non interleavare il run; riprendo al prossimo trigger).`);
+    return;
+  }
+
+  // Fixer-in-flight guard (#10051, 2026-09-27): NON rebasare mentre un 🔴/❌
+  // fixer lavora sulla head ATTUALE. A review pubblicata il run `tests` è già
+  // concluso, quindi la guardia sopra non scatta; il fixer invece resta 12-18
+  // minuti fra coda e setup prima del claim, e una head spostata in quella
+  // finestra lo fa uscire senza fix («HEAD cambiata dopo il claim»). Stessa
+  // ripresa delle guardie sopra: il prossimo tick trova il fixer concluso, o la
+  // head nuova che ha pushato, e la guardia non scatta più.
+  const { claims: fixerClaims, claimRunStatus } = activeFixerClaims(num, head);
+  const fixer = fixerInFlightOnHead({
+    runs: redflagFixerRunsForBranch(branch),
+    claims: fixerClaims,
+    head,
+    claimRunStatus,
+  });
+  if (fixer) {
+    const what = fixer.source === 'run' ? `run pr-redflag-fixer ${fixer.id ?? '?'}` : `claim ${fixer.workflow || 'fixer'} (run ${fixer.id ?? '?'})`;
+    console.log(`PR #${num} (${branch}): ${what} ${fixer.status} sulla head ATTUALE ${head.slice(0, 8)} — skip rebase questo tick (il merge di main farebbe uscire il fixer senza fix; riprendo al prossimo trigger).`);
     return;
   }
 
@@ -2160,6 +2282,7 @@ async function processPR(pr) {
     return;
   }
   if (inheritedRescue) commentInheritedRedRescue(num, inheritedRescue);
+  else if (stuckRedReason) commentStuckRedRescue(num, stuckRedReason);
   releaseBreakerLabelAfterPush(num);
 
   // Riesegui test E review sull'head rebasato tramite il normale evento

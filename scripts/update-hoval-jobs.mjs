@@ -20,7 +20,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -106,24 +106,6 @@ async function fetchText(url, timeoutMs = TIMEOUT_MS) {
   });
 }
 
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -178,7 +160,7 @@ async function fetchAllListings() {
   console.log('🔍 Fetching Hoval Swiss jobs via JSON API...');
   console.log(`  📡 ${LISTING_API}`);
 
-  const json = await fetchJson(LISTING_API);
+  const json = await fetchJson(LISTING_API, { timeoutMs: TIMEOUT_MS });
   const { items, totalResults } = parseHovalListingJson(json);
 
   console.log(`📋 Total Swiss listings: ${totalResults} (parsed: ${items.length})`);
