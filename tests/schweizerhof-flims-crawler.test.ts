@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/schweizerhof-flims-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('Schweizerhof crawler parser', () => {
   // ── Constants ──
@@ -26,6 +27,14 @@ describe('Schweizerhof crawler parser', () => {
 
     it('matches by HotelCareer company URL', () => {
       expect(isSchweizerhofFlimsJob({ url: 'https://hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/123' })).toBe(true);
+    });
+
+    it('matches an HCM4all ATS detail URL without company fields', () => {
+      expect(isSchweizerhofFlimsJob({ url: 'https://romantikhotels.hcm4all.de/list/123' })).toBe(true);
+    });
+
+    it('does not treat the HCM4all index as a detail listing', () => {
+      expect(isSchweizerhofFlimsJob({ url: 'https://romantikhotels.hcm4all.de/list/?l=de' })).toBe(false);
     });
 
     it('rejects unrelated HotelCareer listings', () => {
@@ -57,6 +66,10 @@ describe('Schweizerhof crawler parser', () => {
       expect(isTrustedDomain('https://www.romantikhotels.com/de/romantik-jobs/jobs/job/146/')).toBe(true);
     });
 
+    it('trusts the official HCM4all ATS source', () => {
+      expect(isTrustedDomain('https://romantikhotels.hcm4all.de/list/?l=de')).toBe(true);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });
@@ -65,6 +78,15 @@ describe('Schweizerhof crawler parser', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
     });
+  });
+
+  it('uses the official HCM4all ATS index as its production source', () => {
+    const spec = loadSpec('schweizerhof-flims');
+
+    expect(spec.companyHost).toBe('romantikhotels.hcm4all.de');
+    expect(spec.seedUrls).toEqual(['https://romantikhotels.hcm4all.de/list/?l=de']);
+    expect(spec.detailTemplate).toBe('/list/*');
+    expect(spec.listingCandidateText).toBe('Schweizerhof Flims');
   });
 
   // ── slugify (imported from crawler-template) ──
