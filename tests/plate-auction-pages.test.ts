@@ -113,6 +113,24 @@ describe('plate-auction static pages', () => {
     expect(english.html).toContain('Graubünden (GR)');
   });
 
+  it('puts auction data and mobile navigation before the editorial context', () => {
+    const rootDir = fixtureRoot({ auctionCount: 5 });
+    const hub = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    const coverageIndex = hub.html.indexOf('data-canton-status=active');
+    const listingIndex = hub.html.indexOf('<table');
+    const contextIndex = hub.html.indexOf('Questa pagina raccoglie i cataloghi cantonali');
+
+    expect(hub.html).toContain('class=plate-auction-static-nav');
+    expect(coverageIndex).toBeGreaterThan(-1);
+    expect(listingIndex).toBeGreaterThan(coverageIndex);
+    expect(contextIndex).toBeGreaterThan(coverageIndex);
+    expect(contextIndex).toBeGreaterThan(listingIndex);
+
+    const canton = renderPlateAuctionPage({ locale: 'it', view: 'canton', canton: 'GR', rootDir });
+    expect(canton.html).toContain('class=plate-auction-table-wrap');
+    expect(canton.html.indexOf('class=plate-auction-table-wrap')).toBeLessThan(canton.html.indexOf('Il catalogo riunisce le targhe'));
+  });
+
   it('shows coverage in progress and suppresses listings when no registry source is active', () => {
     const rootDir = fixtureRoot();
     const registryPath = join(rootDir, 'data', 'plate-auction-sources-registry.json');

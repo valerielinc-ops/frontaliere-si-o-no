@@ -1597,6 +1597,15 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
 .s-tlbl { font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.06em }
 .s-tval { margin-top:8px;font-size:28px;font-weight:800;color:var(--color-heading);line-height:1.1 }
 .s-cta { display:inline-flex;align-items:center;gap:6px;padding:12px 20px;border-radius:12px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:700;box-shadow:0 2px 10px color-mix(in srgb, var(--color-accent) 30%, transparent);transition:transform 150ms ease,box-shadow 150ms ease,background-color 150ms ease }
+.plate-auction-static .plate-auction-static-nav{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 20px}
+.plate-auction-static .plate-auction-static-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface);color:var(--color-link);font-weight:700;text-decoration:none}
+.plate-auction-static .plate-auction-static-nav a:hover{border-color:var(--color-accent);background:var(--color-accent-subtle)}
+.plate-auction-static .plate-auction-table-wrap{width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--color-edge);border-radius:14px;background:var(--color-surface);margin:12px 0 24px}
+.plate-auction-static .plate-auction-table{width:100%;min-width:560px;border-collapse:collapse;font-size:14px}
+.plate-auction-static .plate-auction-table th,.plate-auction-static .plate-auction-table td{padding:10px 12px;border-bottom:1px solid var(--color-edge);text-align:left;white-space:nowrap}
+.plate-auction-static .plate-auction-table th{background:var(--color-surface-alt);color:var(--color-subtle);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.plate-auction-static .plate-auction-table tbody tr:last-child td{border-bottom:0}
+@media(max-width:639px){.plate-auction-static .plate-auction-static-nav a{flex:1 1 100%;width:100%}.plate-auction-static .plate-auction-table-wrap{margin-top:10px}}
 .s-linh { color:inherit;text-decoration:none;display:block }
 .s-tbl { width:100%;border-collapse:collapse;margin:1rem 0 }
 .s-thd { text-align:left;padding:10px 12px;font-size:13px;font-weight:700;color:var(--color-subtle);border-bottom:2px solid var(--color-edge);background:var(--color-surface-alt) }
