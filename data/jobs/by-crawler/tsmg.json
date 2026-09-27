@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-09-26T14:14:28.198Z",
+  "assembledAt": "2026-09-26T23:53:37.994Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (French native speaker - Switzerland regional variant)",
@@ -41,7 +41,7 @@
       "slugByLocale": {
         "it": "tester-conversazioni-vocali-ai-oratore-nativo-francese-variante-regionale-svizzera-tsmg-lausanne-dcde88fa",
         "en": "ai-speech-tester-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa",
-        "de": "ki-sprachtester-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa",
+        "de": "tester-conversazioni-vocali-ai-franzosischer-muttersprachler-regionalvariante-schweiz-tsmg-lausanne",
         "fr": "testeur-vocal-ia-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa"
       },
       "id": "tsmg-275fdfc38cee",
@@ -65,6 +65,7 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "de": [
+          "ki-sprachtester-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa",
           "tester-conversazioni-vocali-ai-franzosischer-muttersprachler-regionalvariante-schweiz-tsmg-lausanne"
         ],
         "it": [
@@ -72,8 +73,8 @@
         ]
       },
       "previousSlugs": [
-        "ki-sprachtester-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa",
         "tester-conversazioni-vocali-ai-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa",
+        "ki-sprachtester-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa",
         "tester-conversazioni-vocali-ai-franzosischer-muttersprachler-regionalvariante-schweiz-tsmg-lausanne"
       ]
     },
@@ -116,7 +117,7 @@
       "slugByLocale": {
         "it": "tester-conversazioni-vocali-ai-oratore-nativo-tedesco-variante-regionale-svizzera-tsmg-zurich-2e277a91",
         "en": "ai-speech-tester-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91",
-        "de": "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91",
+        "de": "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-zurich",
         "fr": "testeur-vocal-ia-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91"
       },
       "id": "tsmg-6a04dffef213",
@@ -140,6 +141,7 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "de": [
+          "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91",
           "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-zurich"
         ],
         "it": [
@@ -147,8 +149,8 @@
         ]
       },
       "previousSlugs": [
-        "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91",
         "tester-conversazioni-vocali-ai-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91",
+        "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91",
         "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-zurich"
       ]
     },
@@ -191,7 +193,7 @@
       "slugByLocale": {
         "it": "tester-conversazioni-vocali-ai-oratore-nativo-tedesco-variante-regionale-svizzera-tsmg-basel-929ed5b4",
         "en": "ai-speech-tester-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4",
-        "de": "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4",
+        "de": "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-basel",
         "fr": "testeur-vocal-ia-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4"
       },
       "id": "tsmg-e6915a873efe",
@@ -215,6 +217,7 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "de": [
+          "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4",
           "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-basel"
         ],
         "it": [
@@ -222,8 +225,8 @@
         ]
       },
       "previousSlugs": [
-        "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4",
         "tester-conversazioni-vocali-ai-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4",
+        "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4",
         "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-basel"
       ]
     },
@@ -1237,7 +1240,8 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Operations Lead (AVOS) / Operations Lead autonome Fahrzeuge",
@@ -1370,7 +1374,8 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Operations Lead (AVOS) / Operations Lead autonome Fahrzeuge",
@@ -1492,14 +1497,14 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
         ]
       },
       "previousSlugs": [
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
       ],
       "salarySource": "estimated",
@@ -1562,8 +1567,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -1625,14 +1630,14 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich"
         ]
       },
       "previousSlugs": [
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich"
       ],
       "salarySource": "estimated",
@@ -1698,14 +1703,14 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen"
         ]
       },
       "previousSlugs": [
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen"
       ],
       "salarySource": "estimated",
@@ -1771,14 +1776,14 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva"
         ]
       },
       "previousSlugs": [
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva"
       ],
       "salarySource": "estimated",
@@ -2567,7 +2572,8 @@
       },
       "slugDisambiguator": "c23075ac",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -2677,7 +2683,8 @@
       },
       "slugDisambiguator": "dfa1adf1",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Diablerets, Switzerland",
@@ -2744,8 +2751,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Gossau, Switzerland",
@@ -2814,7 +2821,8 @@
       "streetAddress": "",
       "postalCode": "9200",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Grabs, Switzerland",
@@ -2883,7 +2891,8 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Kreuzlingen, Switzerland",
@@ -2952,7 +2961,8 @@
       "streetAddress": "",
       "postalCode": "8500",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Landquart, Switzerland (for Chur area)",
@@ -3048,7 +3058,8 @@
       },
       "slugDisambiguator": "061cc5b5",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Mont Tendre, Switzerland",
@@ -3115,8 +3126,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Obervaz, Switzerland (for Chur area)",
@@ -3212,7 +3223,8 @@
       },
       "slugDisambiguator": "661cb622",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Saanen, Switzerland",
@@ -3281,7 +3293,8 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Signau, Switzerland",
@@ -3350,7 +3363,8 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Wil, Switzerland",
@@ -3419,7 +3433,8 @@
       "streetAddress": "",
       "postalCode": "9500",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Zweisimmen, Switzerland",
@@ -3488,7 +3503,8 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Basel, Switzerland",
@@ -3561,7 +3577,8 @@
       "streetAddress": "",
       "postalCode": "4001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
@@ -3663,7 +3680,8 @@
       },
       "slugDisambiguator": "677ef911",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -3738,8 +3756,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lausanne, Switzerland",
@@ -3808,7 +3826,8 @@
       "streetAddress": "",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lucerne, Switzerland",
@@ -3877,7 +3896,8 @@
       "streetAddress": "",
       "postalCode": "6003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Winterthur, Switzerland",
@@ -3946,7 +3966,8 @@
       "streetAddress": "",
       "postalCode": "8400",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Field Data Collection Specialist\\Surveyor",
@@ -4341,7 +4362,7 @@
         "it": "Opérateur de sécurité véhicule autonome ( Driver di sicurezza)",
         "en": "Opérateur de sécurité véhicule autonome (Safety Driver)",
         "de": "Opérateur de sécurité véhicule autonome (Sicherheitsfahrer)",
-        "fr": "Opérateur de sécurité routière autonome"
+        "fr": "Opérateur de sécurité véhicule autonome (Safety Driver)"
       },
       "descriptionByLocale": {
         "it": "TSMG cerca Opérateur de sécurité véhicule autonome (Safety Driver) per attivita operative sul territorio in Furttal. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nÀ propos du poste Nous recherchons des Opérateurs de sécurité véhicule autonome (Autonomous Vehicle Safety Operators / Safety Drivers) pour soutenir les tests, la validation, le déploiement commercial et la montée en charge de flottes de véhicules autonomes (AV) et de robotaxis en Europe. En tant qu’Opérateur de sécurité véhicule autonome, vous jouerez un rôle essentiel dans l’exploitation sûre de véhicules autonomes et de self-driving vehicles pendant les programmes de test, les pilotes et les services commerciaux de ride-hailing autonome. En collaboration avec les équipes d’ingénierie, de fleet operations et de depot operations, vous surveillerez le comportement du véhicule, appliquerez les procédures opérationnelles et interviendrez manuellement lorsque cela sera nécessaire. Aucune expérience préalable avec les véhicules autonomes n’est requise. Une formation complète sera fournie sur les systèmes de conduite autonome, les procédures opérationnelles et les protocoles de sécurité. Nous recherchons des conducteurs expérimentés, responsables et attentifs, disposant d’une excellente perception de l’environnement et motivés par l’avenir de la mobilité autonome. Ce poste offre l’opportunité de travailler sur des technologies avancées de véhicules autonomes, de soutenir des lancements de robotaxi, l’expansion de flottes AV et des opérations de transport autonome commercial dans plusieurs villes européennes.\n\n## Panoramica del progetto\n\n## Responsabilités clés\n\n- Conduire, surveiller et superviser des véhicules autonomes pendant les tests, la validation et les opérations commerciales de flottes robotaxi.\n- Surveiller en continu les performances du self-driving system tout en maintenant une attention totale aux conditions de circulation environnantes.\n- Reprendre immédiatement le contrôle manuel du véhicule lorsque les procédures opérationnelles ou les protocoles de sécurité l’exigent.\n- Réaliser les itinéraires assignés en respectant le code de la route local et les procédures de l’entreprise.\n- Soutenir le déploiement réussi de services de ride-hailing autonome grâce à une conduite sûre, cohérente et conforme.\n- Réaliser les inspections avant et après trajet afin de s’assurer que chaque véhicule autonome est prêt au déploiement.\n- Vérifier la propreté du véhicule et inspecter les caméras, capteurs, rétroviseurs, éclairages et autres systèmes critiques avant chaque shift.\n- Signaler tout dommage, comportement anormal du véhicule ou besoin de maintenance aux équipes depot et techniques.\n- Soutenir la disponibilité opérationnelle de la flotte en veillant à ce que les véhicules restent prêts pour les opérations quotidiennes.\n- Enregistrer les disengagements, observations et événements opérationnels dans les outils de reporting.\n- Fournir des retours clairs et structurés sur le comportement du véhicule, les conditions de circulation et les scénarios inhabituels rencontrés lors des tests ou des opérations commerciales.\n- Aider les équipes d’ingénierie à documenter les situations utiles à l’amélioration des systèmes de conduite autonome.\n- Tenir des registres opérationnels précis et compléter toute la documentation requise.\n- Respecter toutes les procédures opérationnelles, protocoles de sécurité et exigences réglementaires locales.\n- Participer aux formations continues, certifications et rappels de sécurité.\n- Maintenir une attitude professionnelle lors des interactions avec le public pendant les tests de véhicules autonomes et les opérations robotaxi.\n- Contribuer aux initiatives d’amélioration continue visant à renforcer la sécurité et l’efficacité des opérations de flotte autonome.\n\n## Exigences\n\n- Permis de conduire européen valide.\n- Minimum 5 ans d’expérience de conduite.\n- Dossier de conduite vierge, sans infraction majeure.\n- Capacité à réussir une vérification des antécédents (BGV / background verification).\n- Capacité à réussir un dépistage de drogues et d’alcool avant embauche et de manière aléatoire.\n- Excellente perception de l’environnement, conduite défensive et prise de décision rapide.\n- À l’aise avec la conduite prolongée en environnement urbain et autoroutier.\n- Capacité à suivre des procédures détaillées avec une grande rigueur.\n- Solides compétences de communication et de reporting.\n- Anglais niveau intermédiaire supérieur.\n- Expérience en tant que conducteur professionnel, chauffeur, conducteur de flotte, conducteur de ride-hailing ou testeur de véhicules.\n- Expérience en tests automobiles, validation ADAS, mapping, data collection ou fleet operations.\n- Familiarité avec les véhicules électriques (EV).\n- Expérience dans un environnement par shifts, en horaires étendus ou 24/7.\n\n## Profil recherché\n\nLes Opérateurs de sécurité véhicule autonome performants sont calmes sous pression, très observateurs et engagés envers la sécurité. Ils apprécient les technologies émergentes et comprennent l’importance de la cohérence, de la précision et du respect des procédures dans le déploiement de véhicules autonomes et les opérations de flottes robotaxi.\n\nVous n’avez pas besoin d’une expérience préalable en véhicules autonomes : notre programme de formation vous préparera à soutenir en toute sécurité les tests, le déploiement et l’exploitation commerciale de self-driving vehicles.\n\n## Ce que nous offrons\n\n- Opportunité de travailler sur certains des programmes de véhicules autonomes et de robotaxi les plus avancés en Europe.\n- Formation complète sur les systèmes de conduite autonome et les procédures opérationnelles.\n- Perspectives de carrière à long terme dans le secteur en forte croissance de la mobilité autonome.\n- Exposition aux technologies de robotique, d’intelligence artificielle et de transport autonome.\n- Projets internationaux soutenant les lancements robotaxi, les nouveaux déploiements urbains et le fleet scaling en Europe.\n- Environnement collaboratif avec des équipes d’ingénierie, d’opérations et de spécialistes techniques développant l’avenir du ride-hailing autonome.",
@@ -4356,7 +4377,6 @@
         "fr": "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-furttal-2cb9488c"
       },
       "id": "tsmg-f6a588252518",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -4371,7 +4391,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Opérateur de sécurité véhicule autonome (Safety Driver)",
@@ -4547,7 +4568,7 @@
         "it": "Opérateur de sécurité véhicule autonome ( Driver di sicurezza)",
         "en": "Opérateur de sécurité véhicule autonome (Safety Driver)",
         "de": "Opérateur de sécurité véhicule autonome (Sicherheitsfahrer)",
-        "fr": "Opérateur de sécurité routière autonome"
+        "fr": "Opérateur de sécurité véhicule autonome (Safety Driver)"
       },
       "descriptionByLocale": {
         "it": "TSMG cerca Opérateur de sécurité véhicule autonome (Safety Driver) per attivita operativa sul territorio a Ginevra. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nÀ propos du poste Nous recherchons des Opérateurs de sécurité véhicule autonome (Autonomous Vehicle Safety Operators / Safety Drivers) pour soutenir les testings, la validation, le déploiement commercial et la montée en charge de flottes de véhicules autonomes (AV) et de robotaxis en Europe. En tant qu’Opérateur de sécurité véhicule autonome, vous jouerez un rôle essentiel dans l’exploitation sûre de véhicules autonomes et de self-driving veicoli sospensione les program de test, les pilotes et les services commerciaux de ride-hailing autonome. En collaborazione avec les équipes d’ingénierie, de flotte et depot operations, vous surveillerez le comportement du véhicule, appliquerez les procédures opérationnelles et interviendrez manuellement lorsque cela sera nécessaire. Aucune expérience préalable avec les véhicules autonomes n’est requise. Una formazione conforme sera fournie sur les systèmes de conduite autonome, les procédures opérationnelles et les protocoles de sécurité. Nous recherchons des conducieurs expérimentés, responsables et vigilanzafs, disposant d’une eccellentie percezione de l’environnement et motivés par l’avenir de la mobilité autonome. Ce poste l’opportunité de travailler sur des technologies avancées de véhicules autonomes, de soutenir des lancements de robotaxi, l’expansion de flottes AV et des opérations de transport autonome commerciale dans plusieurs villes européennes.\n\n## Panoramica del progetto\n\n## Responsabilités clés\n\n- Conduire, surveiller et supervisionr des véhicules autonomes ciondolo les test, la validation et les opérations commerciales de flottes robotaxi.\n- Surveiller en continu les performance du self-driving system tout en maintenant une attenzione totale aux condizioni de diffusion environnantes.\n- Reprendre immédiatement le contrôle manuel du véhicule lorsque les procédures opérationnelles ou les protocoles de sécurité l’exigent.\n- Réaliser les itinéraires assegnaés en rispettoant le code de la route local et les procédures de l’entreprise.\n- Soutenir le déploiement réussi de services de ride-hailing autonome grâce à une conduite sûre, cohérente et conformi.\n- ispezione avant et après trajet afin de s’assurer que chaque véhicule autonome est prêt au déploiement.\n- Vérifier la propreté du véhicule et isspecter les caméras, capteurs, rétroviseurs, éclairages et autres systèmes critica avant chaque shift.\n- Segnale tout dommage, comportement anormal du véhicule ou besoin de Maintenance aux équipes depot et tecniche.\n- Soutenir la disponibilità opérationnelle de la flotte en veillant à ce que les véhicules restent prêts pour les opérations quotidiennes.\n- Enregistrer les disengagements, osservazioni et événements opérationnels dans les outils de reporting.\n- Fournir des retours clairs et structurés sur le comportement du véhicule, les conditions de diffusion et les scénarios inhabituels rencontrés lors des testings ou des opérations commerciales.\n- Aider les équipes d’ingénierie à documenter les situazioni utilis à l’amélioration des systèmes de conduite autonome.\n- Tenir des registres opérationnels précis et compléter toute la documentazione richiesta.\n- Respecter toutes les procédures opérationnelles, protocoles de sécurité et exigences réglementaires localis.\n- Continuano le formazioni aux partecipanti, le certificazioni e i rappels de sécurité.\n- Maintenir une atteggiamento professionnelle lors des interazionis avec le public ciondolo les test de véhicules autonomes et les opérations robotaxi.\n- Contribuer aux iniziative d’amélioration continuare vistont à renforcer la sécurité et l’efficacité des opérations de flotte autonome.\n\n## Esigenze\n\n- Permis de conduire européen valide.\n- Minimo 5 ans d’expérience de conduite.\n- Dossier de conduite vierge, sans infraction majeure.\n- Capacité à réussir une vérification des antécédents (BGV / verifica dello sfondo).\n- Capacité à réussir un dépistage de drogues et d’alcool avant ambauche et de manière aléatoire.\n- Eccellente percezione de l’environnement, conduite défensive et prise de décision rapide.\n- À l’aise avec la conduite prolongée en environnement urbain et autoroutier.\n- Capacité à suivre des procédures détaillées avec une grande rigueur.\n- Solides compétences de communication et de reporting.\n- Anglais niveau intermédiaire supérieur.\n- Expérience en tant que conducieur professionnel, chauffeur, conducieur de flotte, conducieur de ride-hailing ou testeur de véhicules.\n- Espérience en testing automobili, validazione ADAS, mappatura, raccolta dati ou operazioni della flotta.\n- Familiarité avec les véhicules électriques (EV).\n- Espérience dans un environnement par shifts, en horaires étendus ou 24/7.\n\n## Profil recherché\n\nLes Opérateurs de sécurité véhicule autonome performers sont calmes sous pression, très observateurs et engagés envers la sécurité. Ils apprécient les technologies émergentes et comprennent l’importanza de la cohérence, de la précision et du rispetto des procédures dans le déploiement de véhicules autonomes et les opérations de flottes robotaxi.\n\nVous n’avez pas besoin d’une expérience préalable en véhicules autonomes: notre program de formation vous préparera à soutenir en toute sécurité les testing, le déploiement et l’exploitation commerciale de self-driving Vehicles.\n\n## Ce que nous offrons\n\n- Opportunité de travailler sur certes des program de véhicules autonomes et de robotaxi les plus avancés en Europe.\n- Formation complète sur les systèmes de conduite autonome et les procédures opérationnelles.\n- Prospettive de carrière à long terme dans le secteur en forte croissance de la mobilité autonome.\n- Esposizione aux tecnologie de robotique, d’intelligence artificielle et de transport autonome.\n- Projets internationaux soutenant les lancements robotaxi, les nouveaux déploiements urbains et le flotte scaling en Europe.\n- Environnement collaboratif avec des équipes d’ingénierie, d’opérations et de spécialistes tecniche développant l’avenir du ride-hailing autonome.",
@@ -4576,7 +4597,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Opérateur de sécurité véhicule autonome (Safety Driver)",
@@ -4688,7 +4710,7 @@
         "fr": "TSMG cerca Remote Vehicle Supervisor / Teleoperator per attivita operative sul territorio à Berne. Lever, con responsabilita, requisiti e dettagli pratici del progetto. Aperçu du rôle Nous sommes à la recherche d'un superviseur de véhicule à distance / Teleoperator à temps partiel pour soutenir nos opérations de véhicules de livraison autonomes à Berne. Le superviseur sera chargé de surveiller les mouvements de véhicules depuis le bureau deux fois par semaine, en assurant la sécurité et le bon déroulement de chaque opération. Ce rôle est idéal pour quelqu'un qui est tech-savvy, fiable, et familier avec l'environnement urbain de Berne. Les heures peuvent augmenter à mesure que le projet s'étend. Responsabilités : - Surveiller et superviser à distance le véhicule autonome pendant les opérations de livraison prévues - Assurer la sécurité et la conformité du véhicule pendant les heures actives - Réagir rapidement et de manière appropriée à toute intervention nécessaire ou événement inattendu - Communiquer avec l'équipe interne (français/anglais) et l'équipe cliente (principalement germanophone) - Être disponible dans un délai de 45 minutes avant la livraison et adaptable aux différents délais de livraison (par exemple matin et/ou après-midi)\n• Exigences: - L'expérience en télésurveillance ou téléopération est un atout - Bonne connaissance des rues et des environs de Berne - Compétences informatiques solides et aptitude à utiliser des logiciels/outils de surveillance - Langue allemande forte - Anglais ou français - Disponibilité flexible le mardi et le mercredi pour changer les fenêtres de livraison - Doit travailler sur place au bureau de Berne pendant le fonctionnement du véhicule - Dépendable, orienté détail et confortable dans un environnement en évolution rapide - Aucun travail de fin de semaine requis"
       },
       "slugByLocale": {
-        "it": "supervisore-operatore-remoto-del-veicolo-tsmg-bern-5b79d7da",
+        "it": "remote-vehicle-supervisor-teleoperator-tsmg-bern",
         "en": "remote-vehicle-supervisor-teleoperator-tsmg-bern-5b79d7da",
         "de": "remote-vehicle-supervisor-teleoperator-tsmg-bern-5b79d7da",
         "fr": "superviseur-de-vehicules-a-distance-teleoperateur-tsmg-bern-5b79d7da"
@@ -4713,13 +4735,13 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
-          "supervisore-operatore-remoto-del-veicolo-tsmg-bern-5b79d7da",
-          "remote-vehicle-supervisor-teleoperator-tsmg-bern-5b79d7da"
+          "remote-vehicle-supervisor-teleoperator-tsmg-bern-5b79d7da",
+          "supervisore-operatore-remoto-del-veicolo-tsmg-bern-5b79d7da"
         ]
       },
       "previousSlugs": [
-        "supervisore-operatore-remoto-del-veicolo-tsmg-bern-5b79d7da",
-        "remote-vehicle-supervisor-teleoperator-tsmg-bern-5b79d7da"
+        "remote-vehicle-supervisor-teleoperator-tsmg-bern-5b79d7da",
+        "supervisore-operatore-remoto-del-veicolo-tsmg-bern-5b79d7da"
       ]
     },
     {
@@ -4762,10 +4784,9 @@
         "it": "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-furttal-2df5d631",
         "en": "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-furttal-2df5d631",
         "de": "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-furttal-2df5d631",
-        "fr": "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-furttal-2df5d631"
+        "fr": "responsable-des-operations-routieres-autonomes-avos-tsmg-furttal-2df5d631"
       },
       "id": "tsmg-452ad61b4ec8",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -4780,7 +4801,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Responsable des opérations véhicules autonomes (AVOS / Autonomous Vehicle Operations Lead)",
@@ -4971,7 +4993,6 @@
         "fr": "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25"
       },
       "id": "tsmg-2ec926f5cb9f",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -4986,7 +5007,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Responsable des opérations véhicules autonomes (AVOS / Autonomous Vehicle Operations Lead)",
@@ -5993,8 +6015,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Autonomous Vehicle Technician - Robotaxi Fleet Maintenance & Technical Operations",
@@ -6126,8 +6148,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Autonomous Vehicle Technician - Robotaxi Fleet Maintenance & Technical Operations",
@@ -6556,8 +6578,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Autonomous Vehicle Technician (Robotaxi Fleet Maintenance & Technical Operations)",
@@ -6839,8 +6861,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Sicherheitsfahrer / Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -6959,8 +6981,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Sicherheitsfahrer / Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -7449,7 +7471,7 @@
         "it": "Spécialiste systèmes de conduite autonome (SDS Specialista) - Autonomous Vehicle Diagnostics & Calibration",
         "en": "Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration",
         "de": "Spécialiste systèmes de conduite autonome (SDS Spezialist) - Autonomous Vehicle Diagnostics & Calibration",
-        "fr": "Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonome Vehicle Diagnostics & Calibration"
+        "fr": "Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration"
       },
       "descriptionByLocale": {
         "it": "TSMG cerca Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration per attivita operative sul territorio in Furttal. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nÀ propos du poste Nous recherchons un Spécialiste systèmes de conduite autonome (Self-Driving Systems Specialist / SDS Specialist) pour soutenir le diagnostic, la calibration, la configuration et la préparation technique des self-driving systems utilisés dans les véhicules autonomes et les flottes robotaxi en Europe. Le SDS Specialist se concentre sur la couche technologique de la mobilité autonome : capteurs, compute systems, configurations software, matériel de conduite autonome, diagnostics système, procédures de calibration et validation technique. Ce rôle garantit que le self-driving system installé dans chaque véhicule autonome fonctionne correctement, est calibré avec précision et est prêt à soutenir les tests sûrs, le déploiement commercial et les opérations de ride-hailing autonome. Vous travaillerez avec les Senior Technicians, AV Operations Leads, Safety Operators, Depot Specialists, équipes d’ingénierie et fleet operations teams pour identifier les problèmes techniques, exécuter des procédures structurées de troubleshooting et soutenir l’exploitation fiable des plateformes de véhicules autonomes. Ce poste convient aux candidats ayant une expérience en électronique automobile, systèmes ADAS, embedded systems, robotique, diagnostics, calibration ou support technique complexe, et souhaitant travailler au cœur du déploiement de véhicules autonomes et des opérations robotaxi.\n\n## Panoramica del progetto\n\n## Responsabilités clés\n\n- Diagnostiquer et dépanner les problèmes de self-driving system affectant les performances du véhicule autonome et la fleet readiness.\n- Investiguer les problèmes techniques liés aux caméras, LiDAR, radar, GPS/GNSS, compute units, capteurs, modules de connectivité, câblage et matériel de conduite autonome.\n- Exécuter des procédures de diagnostic structurées pour identifier les causes racines des problèmes hardware, software et configuration SDS.\n- Soutenir le troubleshooting avancé des défauts de véhicules autonomes impactant les tests, les opérations commerciales ou la disponibilité de flotte robotaxi.\n- Escalader les cas techniques complexes aux équipes d’ingénierie avec des résultats clairs et une documentation de support.\n- Inspecter, réparer, remplacer et valider les composants hardware SDS installés sur les véhicules autonomes.\n- Soutenir l’installation et la vérification des caméras, unités LiDAR, capteurs radar, compute hardware, supports capteurs, antennes et composants associés.\n- Confirmer que le matériel de conduite autonome est correctement installé, sécurisé, propre, fonctionnel et prêt à l’opération.\n- Collaborer avec les Senior Technicians sur les problèmes véhicule impliquant à la fois les systèmes automobiles standards et composants SDS.\n- Garantir que tous les travaux hardware respectent les procédures strictes de sécurité, qualité et technique.\n- Réaliser les mises à jour software, changements de configuration et checks de validation système pour les systèmes de conduite autonome.\n- Exécuter les procédures software définies avec outils de diagnostic, command-line tools, fichiers de configuration ou workflows fournis par engineering.\n- Vérifier le succès de l’installation software et confirmer que le SDS est opérationnel avant retour du véhicule au service.\n- Soutenir le dépannage des problèmes software affectant le comportement du véhicule autonome, la communication système ou la readiness opérationnelle.\n- Tenir des registres précis des versions software, configurations, mises à jour et résultats de validation.\n- Réaliser les activités de calibration et vérification pour les capteurs de véhicules autonomes et composants self-driving system.\n- Soutenir les workflows de calibration impliquant caméras, LiDAR, radar, systèmes de localisation et autres matériels liés à la perception.\n- Valider que le self-driving system fonctionne correctement après maintenance, mises à jour software, remplacement hardware ou service véhicule.\n- Aider les équipes engineering avec data collection, tests de calibration et vérification des performances système.\n- Garantir que les véhicules autonomes satisfont aux exigences de technical readiness avant retour aux opérations robotaxi ou tests sur route.\n- Agir comme subject matter expert sur site pour les problèmes techniques liés au SDS.\n- Fournir des résultats techniques structurés aux équipes engineering, fleet operations et projet.\n- Collaborer avec les AV Operations Leads pour prioriser les réparations SDS et réduire le downtime.\n- Soutenir les revues d’incidents, root-cause analysis et processus d’escalation technique.\n- Contribuer à l’amélioration continue des workflows de troubleshooting, procédures de calibration et documentation opérationnelle.\n- Tenir des registres précis des diagnostics, réparations, mises à jour software, changements hardware et activités de calibration.\n- Suivre des procédures strictes opérationnelles, sécurité et techniques lors du travail sur les systèmes de conduite autonome.\n- Compléter toutes les checklists de validation système et rapports techniques requis.\n- Soutenir la conformité aux standards qualité internes, protocoles sécurité et exigences client.\n- Garantir que tout le travail SDS est traçable, répétable et correctement documenté.\n\n## Exigences\n\n- Minimum 3 ans d’expérience en électronique automobile, diagnostics, embedded systems, robotique, support technique ou systèmes techniques complexes.\n- Solides compétences de troubleshooting et d’analyse.\n- Expérience avec l’électronique véhicule, les capteurs, systèmes de contrôle ou hardware technique avancé.\n- À l’aise avec des procédures software structurées et workflows techniques.\n- Capacité à travailler avec outils de diagnostic, logs, documentation technique et instructions engineering.\n- Grande attention aux détails et forte discipline procédurale.\n- Bonnes compétences de communication et capacité à travailler avec des équipes techniques cross-functional.\n- Anglais courant.\n- Expérience avec ADAS, véhicules autonomes, robotique, sensor systems ou technologies avancées d’aide à la conduite.\n- Familiarité avec LiDAR, radar, caméras, GNSS, IMU, compute units ou matériel lié à la perception.\n- Expérience avec Linux, command-line tools, CAN bus, réseaux véhicule ou embedded systems.\n- Expérience en calibration, validation ou system integration.\n- Background en tests automobiles, AV operations, robotics labs, fleet diagnostics ou technical field support.\n- Allemand, français, espagnol, néerlandais ou autres langues européennes selon le lieu du projet.\n\n## Profil recherché\n\nLes SDS Specialists performants sont précis, structurés et techniquement curieux. Ils aiment résoudre des problèmes système complexes et comprennent qu’une performance fiable du self-driving system est essentielle pour les opérations de véhicules autonomes, les services commerciaux robotaxi et le fleet scaling.\n\nCe rôle exige une personne capable de travailler soigneusement avec du hardware et software avancés, de suivre exactement les procédures engineering et de communiquer clairement les résultats aux équipes techniques et opérationnelles. Vous devez être à l’aise dans un environnement depot ou technical operations où les véhicules autonomes doivent être diagnostiqués, validés et remis en service rapidement et en sécurité.\n\n## Ce que nous offrons\n\n- Opportunité de travailler directement avec des self-driving systems, du matériel de conduite autonome et des technologies véhicule avancées.\n- Implication pratique dans les robotaxi fleet operations, les tests de véhicules autonomes et le déploiement de ride-hailing autonome en Europe.\n- Exposition à la robotique, ADAS, sensor calibration, embedded systems, plateformes EV et technologies de mobilité de nouvelle génération.\n- Onboarding structuré, procédures techniques et formation continue.\n- Opportunités de carrière en opérations de véhicules autonomes, AV diagnostics, robotique et technical fleet support.\n- Collaboration avec équipes engineering, operations, depot, technicians et safety.\n- Opportunité de soutenir les new city launches, le fleet scaling et les programmes commerciaux de mobilité autonome.",
@@ -7478,8 +7500,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration",
@@ -7579,7 +7601,7 @@
         "it": "Spécialiste systèmes de conduite autonome (SDS Specialista) - Autonomous Vehicle Diagnostics & Calibration",
         "en": "Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration",
         "de": "Spécialiste systèmes de conduite autonome (SDS Spezialist) - Autonomous Vehicle Diagnostics & Calibration",
-        "fr": "Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonome Vehicle Diagnostics & Calibration"
+        "fr": "Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration"
       },
       "descriptionByLocale": {
         "it": "TSMG cerca Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration per attivita operative sul territorio di Ginevra. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nÀ propos du poste Nous recherchons un Spécialiste systèmes de conduite autonome (Self-Driving Systems Specialist / SDS Specialist) pour soutenir le diagnostic, la calibrazione, la configurazione et la préparation technology des self-driving systems utilisés dans les véhicules autonomes et les flottes robotaxi en Europe. Le SDS Specialist se concentre sur la Sofae technologique de la mobilité autonome: capteurs, sistemi di calcolo, software di configurazione, matériel de conduite autonome, diagnostica système, procédures de taratura et validation technology. Ce rôle garantit que le self-driving system installé dans chaque véhicule autonome fonctionne correctement, est calibré avec précision et est prêt à soutenir les testing sûrs, le déploiement commercial et les opérations de ride-hailing autonome. Vous travaillerez avec les Senior Technicians, AV Operations Leads, Safety Operators, Depot Specialists, équipes d’ingénierie et flotte operations team pour identificator les problèmes tecniche, exécuter des procédures structurées de troubleshooting et soutenir l’exploitation fiable des plateformes de véhinomes. Ce poste convient aux candidats ayant une expérience en électronique automobile, systèmes ADAS, sistemi embedded, robotique, diagnostica, calibrazione ou supporto tecnica complessie, et souhaitant travailler au cœur du déploiement de véhicules autonomes et des opérations robotaxi.\n\n## Panoramica del progetto\n\n## Responsabilités clés\n\n- Diagnostiquer et dépanner les problèmes de self-driving system affettiant les performance du véhicule autonome et la flotta prontezza.\n- Investiguer les problèmes tecniche liés aux caméras, LiDAR, radar, GPS/GNSS, unità di calcolo, capteurs, moduli de connectivité, câblage et matériel de conduite autonome.\n- Exécuter des procédures de diagnostic structurées pour identificator les cause racines des problèmes hardware, software et configurazione SDS.\n- Soutenir le troubleshooting avancé des défauts de véhicules autonomes Impactant les test, les opérations commerciales ou la disponibilitàté de flotte robotaxi.\n- Escalader les cas tecniche complessi aux équipes d’ingénierie avec des résultats clairs et une documentazione de support.\n- Inspecter, réparer, remplacer et valider les composants hardware SDS installés sur les véhicules autonomes.\n- Soutenir l’installation et la vérification des caméras, unités LiDAR, capteurs radar, compute hardware, supporta capteurs, antennes et composants associés.\n- Confirmer que le matériel de conduite autonome est Correctement installé, sécurisé, propre, fonctionnel et prêt à l’opération.\n- Collaborer avec les Senior Technicians sur les problèmes véhicule impliquant à la fois les systèmes automobilis standards et composants SDS.\n- Garantir que tous les travaux ferramenta les procédures strictes de sécurité, qualité et technology.\n- Réaliser les mises à jour software, changements de configurazione et check de validation système pour les systèmes de conduite autonome.\n- Exécuter les procédures software définies avec outils de diagnostic, command-line tools, fichiers de configurazione ou workflows fournis par engineering.\n- Vérifier le succès de l’installation software et confirmer que le SDS est opérationnel avant retour du véhicule au service.\n- Soutenir le dépannage des problèmes software affettiant le comportement du véhicule autonome, la comunicazione système ou la proiness opérationnelle.\n- Tenir des registres précis des versioni software, configurazioni, mises à jour et résultats de validation.\n- Réaliser les activités de taratura et vérification pour les capteurs de véhicules autonomes et composants self-driving system.\n- Soutenir les workflows de taratura impliquant caméras, LiDAR, radar, systèmes de localisation et autres matériels liés à la percezione.\n- Valider que le self-driving system fonctionne Correctement après manutenzione, mises à jour software, sostituto hardware ou service véhicule.\n- Aider les équipes engineering avec data collection, testing de tarature et vérification des performance système.\n- Garantir que les véhicules autonomes satisfont aux exigences de tecnico prontezza avant retour aux opérations robotaxi ou test sur route.\n- Agir comme soggetto materia esperto sur site pour les problèmes tecniche liés au SDS.\n- Quattronir des résultats tecniche structurés aux équipes engineering, flotte operations et projet.\n- Collaborer avec les AV Operations Leads pour prioriser les réparations SDS et réduire le downtime.\n- Soutenir les revues d’incidents, root-cause analysis et processus d’escalation.\n- Contribuer à l’amélioration continua des workflows de troubleshooting, procédures de taratura et documentazione opérationnelle.\n- Tenir des registres précis des diagnostics, réparations, mises à jour software, changements hardware et activités de taratura.\n- Suivre des procédures strictes opérationnelles, sécurité et Techniques lors du travail sur les systèmes de conduite autonome.\n- Compléter toutes les checklists de validation système et rapports tecniche richieste.\n- Soutenir la conformité aux standard qualité internas, protocolli sécurité et exigences client.\n- Garantir que tout le travail SDS est traçable, répétable et correctement documenté.\n\n## Esigenze\n\n- Minimo 3 ans d’expérience en électronique automobili, diagnostica, sistemi incorporati, robotique, tecnica di supporto ou systèmes complessi tecniche.\n- Solides compétences de troubleshooting et d’analyse.\n- Expérience avec l’électronique véhicule, les capteurs, systèmes de contrôle ou hardware technology avancé.\n- À l’aise avec des procédures software structurées et workflows tecniche.\n- Capacité à travailler avec outils de diagnostica, tronchi, tecnica di documentazione et istruzioni di ingegneria.\n- Grande attenzione aux détails et forte disciplina procédurale.\n- Bonnes compétences de communication et capacité à travailler avec des équipes tecniche cross-funzionali.\n- Anglais courant.\n- Espérience avec ADAS, véhicules autonomi, robotique, sistemi sensori ou Technologies avancées d’aide à la conduite.\n- Familiarité avec LiDAR, radar, caméras, GNSS, IMU, compute unit ou matériel lié à la percezione.\n- Expérience avec Linux, strumenti di riga di comando, CAN bus, réseaux véhicule ou sistemi incorporati.\n- Espérience en taratura, validazione ou integrazione del sistema.\n- Background en test automobili, operazioni AV, laboratori robotici, diagnostica della flotta ou supporto tecnico campo.\n- Allemand, français, espagnol, oerlandais ou autres langues européennes selon le lieu du projet.\n\n## Profil recherché\n\nLes SDS Specialists interprets sont précis, structurés et techment curieux. Ils aiment résoudre des problèmes système complessies et comprennent qu’une performance fiable du self-driving system est essentielle pour les opérations de véhicules autonomes, les services commerciaux robotaxi et le flotte scaling.\n\nCe rôle exige une personne capace de travailler soigneusement avec du hardware et software avancés, de suivre exactement les procédures engineering et de communiquer clairement les résultats aux équipes systems et opérationnelles. Vous devez être à l’aise dans un environnement depot ou operazioni tecniche où les véhicules autonomes doivent être diagnostiqués, validés et remis en service rapidement et en sécurité.\n\n## Ce que nous offrons\n\n- Opportunité de travailler directement avec des self-driving systems, du matériel de conduite autonome et des technologies véhicule avancées.\n- Implicazione pratica dans les robotaxi flotte operazioni, les test de véhicules autonomes et le déploiement de ride-hailing autonome en Europe.\n- Exposition à la robotique, ADAS, calibrazione del sensore, sistemi incorporati, piastreformes EV et technologies de mobilité de nouvelle génération.\n- structuré onboarding, procédures tecniche et formazione continuano.\n- Opportunités de carrière en opérations de véhicules autonomes, diagnostica AV, robotique et supporto tecnico della flotta.\n- Collaborazione avec équipes ingegneria, operazioni, deposito, tecnici e sicurezza.\n- Opportunité de soutenir les new city launches, le flotte scaling et les program commerciaux de mobilité autonome.",
@@ -7608,8 +7630,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration",
@@ -7782,7 +7804,7 @@
         "it": "Tecnicien senior véhicules autonomi - Robotaxi Fleet Maintenance & Technical Operations",
         "en": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations",
         "de": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations",
-        "fr": "Technicien véhicules anciens autonomes - Robotaxi Fleet Maintenance & Opérations Techniques"
+        "fr": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations"
       },
       "descriptionByLocale": {
         "it": "TSMG cerca Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations per attivita operativa sul territorio di Ginevra. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nÀ propos du poste Nous recherchons des Techniciens seniors véhicules autonomes pour soutenir la Maintenance, le diagnostic, la réparation et la préparation opérationnelle de flottes de véhicules autonomes et d’opérations robotaxi en Europe. En tant que Senior Autonomous Vehicle Technician, vous veillerez à ce que les véhicules électriques et autonomes restent sûrs, fiables et prêts pour le déploiement quotidien. Ce rôle soutient les services de ride-hailing autonome, les robotaxi flotte operations, les program de testing sur route et les new city launches, où le veicolo uptime, la précision technology et la conformité sécurité sont critiques. Vous travaillerez étroitement avec AV Operations Leads, Depot Specialists, Safety Operators, SDS Specialists, équipes d’ingénierie et flotte operations team afin de minimiser le downtime et maintenir la flotte opérationnelle. Le rôle combinano réparation automobili pratique, diagnostica EV, sécurité ad alta tensione, mises à jour software et support du matériel de conduite autonome. Ce poste est idéal pour un technicien automobile expérimenté souhaitant évoluer vers la mobilité du futur et travailler directement avec les véhicules électriques, systèmes de conduite autonome, technologies ADAS, robotique et plateformes auto-driving veicolo.\n\n## Panoramica del progetto\n\n## Responsabilités clés\n\n- Réaliser la manutenzione préventive et corrective de véhicules électriques et autonomes utilisés dans les opérations de flottes robotaxi.\n- Garantir que les véhicules sont tecnicament prêts pour le déploiement quotidien, les test, les opérations commerciales et les services de ride-hailing autonome.\n- Realiser des ispezioni détaillées pour soutenir la flotte prontezza, le veicolo uptime et la sécurité opérationnelle.\n- Diagnostiquer et réparer les problèmes mécaniques, électriques, électroniques et software.\n- Soutenir les workflows de Maintenance pour des flottes autonomes à haute disponibilité, opérant par shifts ou 24/7.\n- Effectuer des diagnostics avancés sur plateformes EV, systèmes ADAS, matériel de conduite autonome et systèmes électroniques du véhicule.\n- Utilizzatore les outils de diagnostica OEM, logicaiels de service et procédures tecniche versare identificatore les cause racines.\n- Dépanner les systèmes de batterie, trasmissione, freinage, direction, capteurs, caméras, câblage et module de contrôle véhicule.\n- Sostituto, réparer et valider les composants selon les standards de sécurité, qualité et technology.\n- Escalader les problèmes complexes aux équipes d’ingénierie avec une documentazione claire et des résultats de diagnostic.\n- Travailler en sécurité avec les systèmes de véhicules électriques, batterie ad alta tensione, systèmes de recharge, onduleurs et groupes motopropulseurs électriques.\n- Suivre des procédures strictes de sécurité haute tension lors des diagnostics, réparations et remplacements de composants.\n- Soutenir la charge readiness et la disponibilità de flotte EV en coordinamento avec les depot operations.\n- Identifier les risques liés aux systèmes EV et escalader immédiatement les préoccupations de sécurité.\n- Soutenir l’installazione, l’ispezione et le remplacement des composants matériels de véhicules autonomes.\n- Aider aux contrôles des caméras, LiDAR, radar, unità di calcolo, faisceaux, supporta de capteurs et systèmes associés.\n- Coordonner avec les SDS Specialists lorsque les problèmes preoccupaent le auto-driving system, la calibrazione del sensore ou le logiciel de conduite autonome.\n- Garantir que le matériel de conduite autonome reste Correctement installé, propre, fonctionnel et prêt à l’opération.\n- Réaliser les mises à jour software, changements de configurazione et check de validation selon les procédures définies.\n- Soutenir les test post-reparation pour confirmer le fonctionnement du véhicule avant retour aux opérations robotaxi.\n- Vérifier que les action de réparation et Maintenance n’impactent pas la sécurité du véhicule, la prontezza opérationnelle ou la performance du système autonome.\n- Tenir à jour les registres de service, rapports de diagnostic et documentazione de réparation.\n- Agir comme lead tecnica ciondolo les shifts assegnaés lorsque nécessaire.\n- Fournir guida et supporto d'escalation aux techniciens juniors, équipes depot et personale flotta operazioni.\n- Soutenir la formazione des nouveaux techniciens sur les procédures de Maintenance, standards de sécurité et workflows opérationnels.\n- Collaborer avec les Operations Leads pour prioriser les réparations et réduire le downtime de flotte.\n- Contribuer à l’amélioration des processus de Maintenance, du turnaround time des véhicules et de la fiabilité de la flotte.\n- Soutenir les iniziative d’amélioration continuano le attività di manutenzione della flotta, operazioni di deposito e distribuzione autonoma dei veicoli.\n- Maintenir una tecnica espace propre, organisé et sûr dans le dépôt.\n- Garantir que tout travail est réalisé conformément aux procédures de sécurité, standards qualité et exigences client.\n\n## Esigenze\n\n- Minimo 5 ans d’expérience pratique comme technicien automobile, tecnico di servizio, tecnico EV ou diagnostic tecnico.\n- Solide expérience en diagnostic, dépannage, manutenzione et réparation automobile.\n- Bonne compréhension des systèmes électriques et électroniques du véhicule.\n- Expérience avec outils de diagnostic, logicaiels de service et documentazione tecnica.\n- Capacité à suivre des procédures tecniche et protocoles de sécurité stricts.\n- Solides compétences de résolution de problèmes et grande attenzione aux détails.\n- Capacité à travailler de manière autonome sous pression dans un environnement opérationnel rapide.\n- À l’aise avec des opérations par shifts, y compris soirées, week-ends ou environnements de flotte 24/7 si requis.\n- Anglais niveau intermédiaire supérieur.\n- Expérience avec véhicules électriques, systèmes high-voltage ou plateformes EV modernes.\n- Certificazione alta tensione ou formazione sécurité EV.\n- Autonomi di véhicules, robotique ou systèmes automobilis avancés.\n- Certificazione OEM ou expérience concessionario sur plateformes EV ou premium.\n- Espérience en Maintenance de flotte, flotte da corsa, servizi di mobilità ou opérations de véhicules commerciaux.\n- Allemand, français, espagnol, oerlandais ou autres langues européennes selon le lieu du projet.\n\n## Profil recherché\n\nLes Techniciens seniors véhicules autonomes interprets sont précis, orientés sécurité et à l’aise avec des systèmes véhicule complexes. Ils comnnent que dans les robotaxi flotte operazioni, chaque réparation, ispezione et décision de diagnostic a un impatto diretto sur le flotte uptime, la sécurité opérationnelle et le succès du déploiement de mobilité autonome.\n\nVous devez être à l’aise dans un environnement depot où les véhicules doivent être maintenus, réparés, validés et remis en service rapidement et en sécurité. Ce rôle exige un solide mindset tecnica, de la disciplina et la capacità de collaborer avec les équipes opérations et ingénierie soutenant les program auto-driving veicolo.\n\n## Ce que nous offrons\n\n- Opportunité de travailler avec des technologies de véhicules électriques et autonomes avancées.\n- Implication pratique dans les robotaxi flotte operazioni, autonome autonome e servizi di autonome in Europa.\n- Exposition à ADAS, sistemi auto-driving, plaformes EV, robotique et technologies de mobilité de nouvelle génération.\n- Tecnica di formazione structuré et di bordo.\n- Développement de carrière à long terme en mobilité autonome, EV flotta operazioni et manutenzione tecnica de flotte.\n- Collaborazione avec les équipes opérations, ingegneria, deposito e sicurezza.\n- Opportunité de soutenir les new city launches, le flotte scaling et les program commerciaux de véhicules autonomes.",
@@ -7797,7 +7819,6 @@
         "fr": "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-4e5d6cdd"
       },
       "id": "tsmg-ae1481353899",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -7812,7 +7833,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations",
@@ -7915,7 +7937,7 @@
         "it": "Tecnicien senior véhicules autonomi - Robotaxi Fleet Maintenance & Technical Operations",
         "en": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations",
         "de": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations",
-        "fr": "Technicien véhicules anciens autonomes - Robotaxi Fleet Maintenance & Opérations Techniques"
+        "fr": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations"
       },
       "descriptionByLocale": {
         "it": "TSMG cerca Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations per attivita operative sul territorio in Furttal. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nÀ propos du poste Nous recherchons des Techniciens seniors véhicules autonomes pour soutenir la maintenance, le diagnostic, la réparation et la préparation opérationnelle de flottes de véhicules autonomes et d’opérations robotaxi en Europe. En tant que Senior Autonomous Vehicle Technician, vous veillerez à ce que les véhicules électriques et autonomes restent sûrs, fiables et prêts pour le déploiement quotidien. Ce rôle soutient les services de ride-hailing autonome, les robotaxi fleet operations, les programmes de tests sur route et les new city launches, où le vehicle uptime, la précision technique et la conformité sécurité sont critiques. Vous travaillerez étroitement avec AV Operations Leads, Depot Specialists, Safety Operators, SDS Specialists, équipes d’ingénierie et fleet operations teams afin de minimiser le downtime et maintenir la flotte opérationnelle. Le rôle combine réparation automobile pratique, diagnostics EV, sécurité high-voltage, mises à jour software et support du matériel de conduite autonome. Ce poste est idéal pour un technicien automobile expérimenté souhaitant évoluer vers la mobilité du futur et travailler directement avec les véhicules électriques, systèmes de conduite autonome, technologies ADAS, robotique et plateformes self-driving vehicle.\n\n## Panoramica del progetto\n\n## Responsabilités clés\n\n- Réaliser la maintenance préventive et corrective de véhicules électriques et autonomes utilisés dans les opérations de flottes robotaxi.\n- Garantir que les véhicules sont techniquement prêts pour le déploiement quotidien, les tests, les opérations commerciales et les services de ride-hailing autonome.\n- Réaliser des inspections détaillées pour soutenir la fleet readiness, le vehicle uptime et la sécurité opérationnelle.\n- Diagnostiquer et réparer les problèmes mécaniques, électriques, électroniques et software.\n- Soutenir les workflows de maintenance pour des flottes autonomes à haute disponibilité, opérant par shifts ou 24/7.\n- Effectuer des diagnostics avancés sur plateformes EV, systèmes ADAS, matériel de conduite autonome et systèmes électroniques du véhicule.\n- Utiliser les outils de diagnostic OEM, logiciels de service et procédures techniques pour identifier les causes racines.\n- Dépanner les systèmes de batterie, transmission, freinage, direction, capteurs, caméras, câblage et modules de contrôle véhicule.\n- Remplacer, réparer et valider les composants selon les standards de sécurité, qualité et technique.\n- Escalader les problèmes complexes aux équipes d’ingénierie avec une documentation claire et des résultats de diagnostic.\n- Travailler en sécurité avec les systèmes de véhicules électriques, batteries high-voltage, systèmes de recharge, onduleurs et groupes motopropulseurs électriques.\n- Suivre des procédures strictes de sécurité haute tension lors des diagnostics, réparations et remplacements de composants.\n- Soutenir la charging readiness et la disponibilité de flotte EV en coordination avec les depot operations.\n- Identifier les risques liés aux systèmes EV et escalader immédiatement les préoccupations de sécurité.\n- Soutenir l’installation, l’inspection et le remplacement des composants matériels de véhicules autonomes.\n- Aider aux contrôles des caméras, LiDAR, radar, compute units, faisceaux, supports de capteurs et systèmes associés.\n- Coordonner avec les SDS Specialists lorsque les problèmes concernent le self-driving system, la sensor calibration ou le logiciel de conduite autonome.\n- Garantir que le matériel de conduite autonome reste correctement installé, propre, fonctionnel et prêt à l’opération.\n- Réaliser les mises à jour software, changements de configuration et checks de validation selon les procédures définies.\n- Soutenir les tests post-réparation pour confirmer le fonctionnement du véhicule avant retour aux opérations robotaxi.\n- Vérifier que les actions de réparation et maintenance n’impactent pas la sécurité du véhicule, la readiness opérationnelle ou la performance du système autonome.\n- Tenir à jour les registres de service, rapports de diagnostic et documentation de réparation.\n- Agir comme lead technique pendant les shifts assignés lorsque nécessaire.\n- Fournir guidance et support d’escalation aux techniciens juniors, équipes depot et personnel fleet operations.\n- Soutenir la formation des nouveaux techniciens sur les procédures de maintenance, standards de sécurité et workflows opérationnels.\n- Collaborer avec les Operations Leads pour prioriser les réparations et réduire le downtime de flotte.\n- Contribuer à l’amélioration des processus de maintenance, du turnaround time des véhicules et de la fiabilité de la flotte.\n- Soutenir les initiatives d’amélioration continue liées à la fleet maintenance, depot operations et autonomous vehicle deployment.\n- Maintenir un espace technique propre, organisé et sûr dans le dépôt.\n- Garantir que tout travail est réalisé conformément aux procédures de sécurité, standards qualité et exigences client.\n\n## Exigences\n\n- Minimum 5 ans d’expérience pratique comme technicien automobile, service technician, EV technician ou diagnostic technician.\n- Solide expérience en diagnostic, dépannage, maintenance et réparation automobile.\n- Bonne compréhension des systèmes électriques et électroniques du véhicule.\n- Expérience avec outils de diagnostic, logiciels de service et documentation technique.\n- Capacité à suivre des procédures techniques et protocoles de sécurité stricts.\n- Solides compétences de résolution de problèmes et grande attention aux détails.\n- Capacité à travailler de manière autonome sous pression dans un environnement opérationnel rapide.\n- À l’aise avec des opérations par shifts, y compris soirées, week-ends ou environnements de flotte 24/7 si requis.\n- Anglais niveau intermédiaire supérieur.\n- Expérience avec véhicules électriques, systèmes high-voltage ou plateformes EV modernes.\n- Certification haute tension ou formation sécurité EV.\n- Expérience avec ADAS, véhicules autonomes, robotique ou systèmes automobiles avancés.\n- Certification OEM ou expérience concessionnaire sur plateformes EV ou premium.\n- Expérience en maintenance de flotte, ride-hailing fleets, mobility services ou opérations de véhicules commerciaux.\n- Allemand, français, espagnol, néerlandais ou autres langues européennes selon le lieu du projet.\n\n## Profil recherché\n\nLes Techniciens seniors véhicules autonomes performants sont précis, orientés sécurité et à l’aise avec des systèmes véhicule complexes. Ils comprennent que dans les robotaxi fleet operations, chaque réparation, inspection et décision de diagnostic a un impact direct sur le fleet uptime, la sécurité opérationnelle et le succès du déploiement de mobilité autonome.\n\nVous devez être à l’aise dans un environnement depot où les véhicules doivent être maintenus, réparés, validés et remis en service rapidement et en sécurité. Ce rôle exige un solide mindset technique, de la discipline et la capacité de collaborer avec les équipes opérations et ingénierie soutenant les programmes self-driving vehicle.\n\n## Ce que nous offrons\n\n- Opportunité de travailler avec des technologies de véhicules électriques et autonomes avancées.\n- Implication pratique dans les robotaxi fleet operations, autonomous vehicle deployment et services de ride-hailing autonome en Europe.\n- Exposition à ADAS, self-driving systems, plateformes EV, robotique et technologies de mobilité de nouvelle génération.\n- Onboarding structuré et formation technique.\n- Développement de carrière à long terme en mobilité autonome, EV fleet operations et maintenance technique de flotte.\n- Collaboration avec les équipes opérations, engineering, depot et safety.\n- Opportunité de soutenir les new city launches, le fleet scaling et les programmes commerciaux de véhicules autonomes.",
@@ -7930,7 +7952,6 @@
         "fr": "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-bbc8eb47"
       },
       "id": "tsmg-3dd6f0048567",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -7945,7 +7966,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T14:14:24.361Z"
+      "firstSeenAt": "2026-09-26T14:14:24.361Z",
+      "needsRetranslation": true
     },
     {
       "title": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations",
