@@ -83,12 +83,31 @@ jobs:
           LOCK_OWNER: resync-${{ github.run_id }}/${{ github.run_attempt }}
         run: node scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera --owner "$LOCK_OWNER"
 
+      # The lock prevents overlap with fast-publish, but this checkout may
+      # have been created before a newer main commit. Never let a serialized
+      # resync replace both registries with that older snapshot.
+      - name: Check resync source is current
+        id: check_chunk_source
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.acquire_chunk_locks.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" = "true" ]; then
+            echo "Resync source $SOURCE_SHA is current on main"
+          else
+            echo "::notice::Skipping stale article chunk resync from $SOURCE_SHA; current origin/main is $MAIN_SHA"
+          fi
+
       # Publish the named-export registry and all of its translation/slug
       # companions in strict mode. The script validates the standalone ESM
       # contract, observes each R2 upload's success marker, and requires the
       # targeted purge before declaring the resync complete (#5819).
       - name: Publish article chunks
-        if: inputs.dry_run == true || inputs.dry_run == 'true' || steps.acquire_chunk_locks.outcome == 'success'
+        if: inputs.dry_run == true || inputs.dry_run == 'true' || (steps.acquire_chunk_locks.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true')
         run: |
           npx -y tsx@4 scripts/publish-article-chunks.mjs --strict ${{ inputs.dry_run && '--dry-run' || '' }}
 

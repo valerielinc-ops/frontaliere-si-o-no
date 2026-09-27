@@ -7,6 +7,7 @@ import {
   parseSections,
   releaseSectionLock,
 } from '../../scripts/lib/r2-section-lock.mjs';
+import { isCurrentPublishSource } from '../../scripts/lib/article-chunk-publish-freshness.mjs';
 
 type StoredLock = { payload: Record<string, unknown>; etag: string };
 
@@ -127,6 +128,54 @@ describe('r2-section-lock', () => {
     expect(registry).toEqual(new Set(['article-old', 'article-new']));
     expect(registry.has('article-old')).toBe(true); // old hub hydrates
     expect(registry.has('article-new')).toBe(true); // new hub hydrates
+  });
+
+  it('fences an older queued checkout after a newer same-section publish', async () => {
+    const { request } = fakeR2();
+    const oldSha = 'a'.repeat(40);
+    const newSha = 'b'.repeat(40);
+    const registryBySource = new Map([
+      [oldSha, ['article-old']],
+      [newSha, ['article-old', 'article-new']],
+    ]);
+    const liveHubs = new Set(['article-old']);
+    let registry = new Set(registryBySource.get(oldSha)!);
+
+    const publish = async (owner: string, sourceSha: string, articleId: string) => {
+      const lock = await acquireSectionLock('frontaliere', {
+        owner,
+        request,
+        pollMs: 1,
+        sleep: waitBriefly,
+        timeoutMs: 2_000,
+      });
+      if (isCurrentPublishSource(sourceSha, newSha)) {
+        registry = new Set(registryBySource.get(sourceSha)!);
+        liveHubs.add(articleId);
+      }
+      await releaseSectionLock('frontaliere', { owner: lock.owner, request });
+    };
+
+    // Force the adversarial order: the older run is already waiting while the
+    // newer run publishes, then the older run acquires the same lock after it
+    // has been released.
+    const newRun = acquireSectionLock('frontaliere', {
+      owner: 'run-new',
+      request,
+      pollMs: 1,
+      sleep: waitBriefly,
+      timeoutMs: 2_000,
+    });
+    const newLock = await newRun;
+    const oldRun = publish('run-old', oldSha, 'article-old');
+    await waitBriefly(5);
+    registry = new Set(registryBySource.get(newSha)!);
+    liveHubs.add('article-new');
+    await releaseSectionLock('frontaliere', { owner: newLock.owner, request });
+    await oldRun;
+
+    expect(registry).toEqual(new Set(['article-old', 'article-new']));
+    expect([...liveHubs].every((id) => registry.has(id))).toBe(true);
   });
 
   it('takes over an expired lease with an ETag compare-and-swap', async () => {

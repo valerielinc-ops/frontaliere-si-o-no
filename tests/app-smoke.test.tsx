@@ -328,4 +328,49 @@ describe('App smoke test', () => {
 
     consoleErrorSpy.mockRestore();
   }, 15000);
+
+  it('keeps the mobile navigation above a fixed Auto Ads anchor', async () => {
+    const previousWidth = window.innerWidth;
+    const previousHeight = window.innerHeight;
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: 390 });
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 844 });
+
+    render(<App />);
+    const nav = screen.getByRole('navigation', { name: 'Navigazione mobile' });
+    expect(nav).toHaveClass('mobile-bottom-nav');
+    expect(nav.style.getPropertyValue('--mobile-nav-ad-clearance')).toBe('0px');
+
+    const ad = document.createElement('iframe');
+    ad.id = 'aswift_mobile_nav_test';
+    ad.style.position = 'fixed';
+    Object.defineProperty(ad, 'getBoundingClientRect', {
+      configurable: true,
+      value: () => ({
+        top: 784,
+        bottom: 844,
+        width: 390,
+        height: 60,
+        left: 0,
+        right: 390,
+        x: 0,
+        y: 784,
+        toJSON: () => ({}),
+      }),
+    });
+    document.body.appendChild(ad);
+
+    await act(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 50));
+    });
+    expect(nav.style.getPropertyValue('--mobile-nav-ad-clearance')).toBe('60px');
+
+    ad.remove();
+    await act(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 50));
+    });
+    expect(nav.style.getPropertyValue('--mobile-nav-ad-clearance')).toBe('0px');
+
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: previousWidth });
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: previousHeight });
+  });
 });

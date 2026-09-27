@@ -195,6 +195,28 @@ jobs:
           LOCK_OWNER: ${{ github.run_id }}/${{ github.run_attempt }}
         run: node scripts/lib/r2-section-lock.mjs acquire --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER"
 
+      # The R2 lease serializes the registry-to-shard window, but a newer run
+      # can acquire it before an older checkout does. A serialized stale write
+      # is still a clobber: the old whole-registry snapshot would remove the
+      # newer article ID. Check the source SHA AFTER waiting for the lease so a
+      # run that queued behind a newer publish becomes a safe no-op.
+      - name: Check article chunk source is current
+        id: check_chunk_source
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          PUBLISH_SHA: ${{ inputs.sha || github.sha }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$PUBLISH_SHA" --main-sha "$MAIN_SHA")"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" = "true" ]; then
+            echo "Article chunk source $PUBLISH_SHA is current on main"
+          else
+            echo "::notice::Skipping stale article chunk publish from $PUBLISH_SHA; current origin/main is $MAIN_SHA"
+          fi
+
       # The article hub shard and the client registry are two representations
       # of the same publish. Publish the section's companions first, then its
       # named-export registry, and only then push the HTML shard. The strict
@@ -203,7 +225,7 @@ jobs:
       # ahead of the client again (#5819).
       - name: Publish client article chunks
         id: publish_chunks
-        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           ARTICLE_SECTION: ${{ inputs.section }}
         run: npx -y tsx@4 scripts/publish-article-chunks.mjs --section "$ARTICLE_SECTION" --strict --no-ticker
@@ -225,7 +247,7 @@ jobs:
       # uppercasing that exact token, so the two scripts resolve the SAME
       # deploy-key secret for the SAME shard repo.
       - name: Push locale shards (parallel, fault-tolerant)
-        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.publish_chunks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && steps.publish_chunks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
