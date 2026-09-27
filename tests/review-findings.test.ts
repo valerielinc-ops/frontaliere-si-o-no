@@ -264,6 +264,14 @@ describe('ledger passato al reviewer', () => {
     expect(renderFindingsLedger({})).toMatch(/prima review/u);
   });
 
+  it('dice come chiudere un open senza file: per id, mai con un 🔴 sul ledger (#9959)', () => {
+    const open = importantFindings('🔴 Important: [process] il contratto del processo resta irrisolto.');
+    const ledger = renderFindingsLedger({ open });
+    expect(ledger).toContain('Un `open` senza file né `PR body:L<n>`, se risolto, si chiude con `` Fix di `<id>`: ok. ``');
+    expect(ledger).toContain('mai un 🔴 sul ledger stesso');
+    expect(ledger).toContain(`\`${stableFindingId(open[0])}\` **open**`);
+  });
+
   it('tiene tutti gli open e taglia solo la coda dei confirmed', () => {
     const open = Array.from({ length: 3 }, (_unused, index) =>
       importantFindings(`\`scripts/ci/o${index}.mjs:L1\`: 🔴 Important: \`open${index}()\` rotto.`)[0]);
