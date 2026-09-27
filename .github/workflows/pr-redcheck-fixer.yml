@@ -925,7 +925,11 @@ jobs:
           # guard): serve al classify sotto per distinguere "Claude ha lasciato
           # una spiegazione" da "Claude non ha fatto/detto nulla" quando esce
           # 'success' senza push (issue #5534).
-          n=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp --jq 'map(length) | add // 0' 2>/dev/null || echo 0)
+          # `--paginate --jq 'length'` stampava un numero per pagina (oltre 30
+          # commenti `n` diventava multilinea). `--slurp` resta senza `--jq`: il
+          # gh reale rifiuta la combinazione e il fallback darebbe sempre 0.
+          comment_pages=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null) \
+            && n=$(printf '%s' "$comment_pages" | jq 'map(length) | add // 0' 2>/dev/null) || n=0
           echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
 
       # Contesto del rosso, deterministico e BOUNDED, prima di spendere un turno
@@ -1288,7 +1292,9 @@ jobs:
             echo "::error::❌-check-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
           fi
-          NOW_COMMENTS=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp --jq 'map(length) | add // 0' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
+          comment_pages=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null) \
+            && NOW_COMMENTS=$(printf '%s' "$comment_pages" | jq 'map(length) | add // 0' 2>/dev/null) \
+            || NOW_COMMENTS="${BASE_COMMENTS:-0}"
           if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then
             echo "::error::❌-check-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
