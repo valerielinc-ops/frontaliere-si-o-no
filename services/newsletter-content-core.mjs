@@ -1103,7 +1103,7 @@ export function buildBriefingPrompt(ctx) {
     `CRITICAL EXCHANGE RATE RULE: Use ONLY the weekly change percentage provided in the data below. Do NOT calculate or invent a different percentage.`,
     `Naturally weave in the exchange rate, any relevant job or fiscal context, and the weekly fact if interesting. Do NOT list everything — pick what matters most for this reader.`,
     `CRITICAL: Only mention dates that are explicitly provided in the data below. NEVER invent, guess, or assume dates for events, job postings, or facts. If no date is given for something, do not add one. Today's date is ${todayStr}.`,
-    `Keep total length under 200 words. Be concise but engaging.`,
+    `Write between 80 and 200 words in total. Be concise but engaging.`,
   ].join(' ');
 
   const userParts = [

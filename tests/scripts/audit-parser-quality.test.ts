@@ -47,6 +47,7 @@ import {
   vacancyHeadingSublineFields,
   workdayPrimaryLocationFromUrl,
 } from '../../scripts/audit-parser-quality.mjs';
+import { extractJsonLd } from '../../scripts/lib/prospector/extract.mjs';
 import {
   SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
   createSourceDetailEvidence,
@@ -385,6 +386,48 @@ describe('source-detail fidelity checks', () => {
       location: 'Lugano',
       evidence: 'strong-markup',
     });
+  });
+
+  it('binds source-detail audit evidence to the requested inline JobPosting', async () => {
+    const pageUrl = 'https://x.example/stellen/';
+    const description = 'Eine ausführliche Stellenbeschreibung mit eigenen Aufgaben und konkreten Anforderungen für diese ausgeschriebene Position. '.repeat(4);
+    const posting = (title: string, location: string) => ({
+      '@type': 'JobPosting',
+      title,
+      description,
+      jobLocation: { address: { addressLocality: location, addressCountry: 'CH' } },
+    });
+    const html = [posting('Erste Stelle', 'Chur'), posting('Zweite Stelle', 'Zürich')]
+      .map((node) => `<script type="application/ld+json">${JSON.stringify(node)}</script>`)
+      .join('');
+    const [, second] = extractJsonLd(html, pageUrl);
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'inline-source',
+      url: second.url,
+      job: {
+        url: second.url,
+        location: 'Zürich',
+        addressLocality: 'Zürich',
+        sourceLang: 'de',
+        description,
+      },
+    }], 1, {
+      fetchPage: async () => ({
+        ok: true,
+        status: 200,
+        url: pageUrl,
+        body: html,
+        host: 'x.example',
+      }),
+    });
+
+    expect(result).toMatchObject({
+      sourceLocation: 'Zürich',
+      locationEvidence: 'jsonld',
+      locationMismatch: false,
+      descriptionMismatch: false,
+    });
+    expect(result.sourceDescriptionLength).toBeGreaterThan(200);
   });
 
   it('attributes the usability gate to JSON-LD versus DOM/label evidence', () => {
