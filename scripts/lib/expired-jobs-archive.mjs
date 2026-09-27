@@ -690,9 +690,11 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
   const seenSignatures = new Set([currentSignature]);
   let collapsed = 0;
   let slugsTransferred = 0;
+  let firstPassCapRefused = 0;
 
   for (let pass = 0; pass < MAX_COLLAPSE_PASSES; pass += 1) {
     const result = collapseDuplicateRouteEntriesOnce(current, options);
+    if (pass === 0) firstPassCapRefused = result.capRefused;
     collapsed += result.collapsed;
     slugsTransferred += result.slugsTransferred;
 
@@ -702,6 +704,11 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
         ...result,
         collapsed,
         slugsTransferred,
+        // Preserve the pre-fixpoint meaning used by the archive reports:
+        // this is the number refused by the first canonical pass. The final
+        // pass is exposed separately for convergence diagnostics.
+        capRefused: firstPassCapRefused,
+        finalCapRefused: result.capRefused,
       };
     }
 
