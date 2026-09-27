@@ -20599,6 +20599,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'votazioni-ginevra-contraccezione-libera',
+    category: 'novita',
+    date: '2026-09-27T19:40:14.825Z',
+    image: '/images/blog/votazioni-ginevra-contraccezione-libera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

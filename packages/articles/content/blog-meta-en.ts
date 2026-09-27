@@ -12151,6 +12151,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sagra-uva-mendrisio-bilancio.title': 'Grape Festival in Mendrisio: positive outcome',
     'blog.article.sagra-uva-mendrisio-bilancio.excerpt': 'Positive outcome for the 70th Mendrisio Grape Festival: an estimated 20,000–25,000 people and no major security interventions.',
     'blog.article.sagra-uva-mendrisio-bilancio.imageAlt': 'Visitors at the grape festival in Mendrisio town centre',
+    'blog.article.trofeo-binda-cittiglio-marzo-2027.title': 'Trofeo Binda: appointment on March 14, 2027',
+    'blog.article.trofeo-binda-cittiglio-marzo-2027.excerpt': 'Cittiglio confirms itself as the capital of women\'s cycling: 14 marzo 2027 sees the return of the Trofeo Binda WorldTour and the junior event in the Valli del Verbano.',
+    'blog.article.trofeo-binda-cittiglio-marzo-2027.imageAlt': 'Professional women\'s cycling in the Valli del Verbano region during the Trofeo Binda.',
 };
 
 export default blogMetaEn;

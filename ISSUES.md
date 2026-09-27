@@ -97,6 +97,7 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 ### Abort senza PR (no fix forzato)
 
 - Root cause non determinabile con confidenza → commento "serve indagine umana" + termina.
+- **`no-pr-no-root-cause` è ammesso solo per un difetto code/site-owned riproducibile la cui causa resta indeterminata dopo la diagnosi.** Target assente o cross-repo, già risolto/non riproducibile, blocker di fonte/capability o sola prova runtime mancante → usa l’esito/label specifico (`already-fixed`, `blocked-*` o `automation-deferred`) con evidenza e prossimo passo; non usarlo come contenitore di «nessuna PR sicura».
 - **I segreti CI SONO**: Remote Config carica `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri parametri in `process.env`. Implementa i fix che li richiedono; `blocked-secrets` vale **solo** per variabile davvero vuota, nominando la variabile (`RC_TO_ENV`).
   - **Eccezione — rotazione di credenziali.** L'autorizzazione copre l'USO, non la ROTAZIONE (`DECISIONS.md`). Richieste di ruotare/rigenerare/revocare restano umane: commento "rotazione di credenziali — resta una decisione umana (DECISIONS.md)" e termina PRIMA del diff.
 - **Capability-guard scope `.github/workflows/**` (turno ~1, PRIMA di implementare).** Senza `APP_TOKEN_WORKFLOWS == 'true'` il push workflow fallisce **sempre**: posta il diff + "serve scope `workflows` / mano umana" e **TERMINA SUBITO**. Repo-setting/branch-protection/admin-API (403) → `blocked-admin-settings`.

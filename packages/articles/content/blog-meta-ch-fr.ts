@@ -6857,6 +6857,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.valutazione-secondo-sistema-difesa.title': 'Défense aérienne : évaluation du Bodluv GR 2 achevée',
     'blog.article.valutazione-secondo-sistema-difesa.excerpt': 'Armasuisse a achevé l’évaluation du deuxième système de défense sol-air Bodluv GR 2. Le choix revient au Conseil fédéral.',
     'blog.article.valutazione-secondo-sistema-difesa.imageAlt': 'Evaluation du second systeme de defense sol-air en Suisse',
+    'blog.article.votazioni-ginevra-contraccezione-libera.title': 'Genève approuve la contraception gratuite à 58,5 %',
+    'blog.article.votazioni-ginevra-contraccezione-libera.excerpt': '58,5 % des votants genevois ont approuvé la contraception gratuite ; participation de 44,2 %, coût estimé à 20 millions de francs/an, mise en œuvre prévue en 2028.',
+    'blog.article.votazioni-ginevra-contraccezione-libera.imageAlt': 'Pharmacien donnant un paquet de contraceptif à des personnes diverses dans une pharmacie de Genève',
 };
 
 export default blogMetaChFr;
