@@ -4,6 +4,7 @@ import {
   generateArticleHtml,
   type ScenarioDataMap,
 } from '../../build-plugins/salaryHubArticles';
+import { META_DESCRIPTION_MAX_CHARS } from '../../build-plugins/shared/titleSuffix';
 
 // generateArticleHtml resolves SPA entry assets from `distDir`, but
 // resolveEntryAssets returns the fixed filenames unconditionally (no disk
@@ -32,6 +33,15 @@ function articleSchemaOf(html: string): Record<string, unknown> | undefined {
 const taxHub = EVERGREEN_ARTICLES.find((a) => a.id === 'hub-fiscale-frontalieri')!;
 
 describe('salary-hub evergreen articles — Article JSON-LD', () => {
+  it('keeps Italian guide snippets within the SERP description budget', () => {
+    for (const article of EVERGREEN_ARTICLES) {
+      expect(
+        article.descriptions.it.length,
+        `${article.id}: Italian description length`,
+      ).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+    }
+  });
+
   it('the tax-guide hub emits a complete Article schema in every locale', () => {
     expect(taxHub).toBeDefined();
     for (const locale of LOCALES) {
