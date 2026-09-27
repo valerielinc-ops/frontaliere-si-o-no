@@ -494,8 +494,24 @@ jobs:
       # covers the 210-minute envelope of those phases, where Codex can stay
       # unused for a long stretch. Without the secret or the lane the step
       # does nothing and the phases keep the cascade they always had.
-      - id: setup_claude_haiku_fallback
+      # ── Budget gate for Phases 2d/2e and their Codex broker ─────────────
+      # The lanes stop at the 210min run-wide deadline, but only inside their
+      # own process: past it the broker still started (~21s) and the commit
+      # step still re-merged every diverged slice to find nothing (137-850s).
+      # Corpus runs 36240711198 (2d at 215min) and 36169299281 (2e at 252min,
+      # later killed at the 350min cap). Measured productive starts all had
+      # >= 57min left, so below one Codex budget (15min) nothing starts and a
+      # ::notice:: says why. See scripts/translate-repair-lane-gate.mjs.
+      - name: Gate Phase 2d/2e repair lanes on remaining run budget
+        id: repair_lane_budget
         if: github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          REPAIR_LANE_DEADLINE_MS: '12600000' # same 210min envelope as Phases 2a-2e.
+          REPAIR_LANE_MIN_REMAINING_MS: '900000' # 15min = FREE_TRANSLATE_CODEX_MAX_MS.
+        run: node scripts/translate-repair-lane-gate.mjs
+
+      - id: setup_claude_haiku_fallback
+        if: github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
         uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
@@ -505,7 +521,7 @@ jobs:
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
         # The original cron expression survives the cross-repo workflow_call.
         # Run this cheap repair once daily; its queue ordering is starvation-safe.
-        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
         env:
           # Same 210min run-wide envelope as the Argos mop-up (see Phase 2a):
           # it leaves 140min before the 350min hard cap for the title commit,
@@ -525,7 +541,7 @@ jobs:
 
       - name: Commit title fixes
         id: commit_title_fixes
-        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
         env:
           SKIP_AI_TRANSLATION: '1'
         run: |
@@ -538,7 +554,7 @@ jobs:
       # The shorter runs retain this lane, with an explicit item cap so a
       # pathological backlog cannot consume the commit window.
       - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
-        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
         env:
           # Same 210min run-wide envelope as Phase 2d; 140min remain before
           # the 350min hard cap for commits, final assemble, and publication.
@@ -554,7 +570,7 @@ jobs:
 
       - name: Commit description fixes
         id: commit_description_fixes
-        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
         env:
           SKIP_AI_TRANSLATION: '1'
         run: |
