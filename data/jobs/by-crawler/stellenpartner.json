@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stellenpartner",
-  "assembledAt": "2026-09-27T11:35:26.391Z",
+  "assembledAt": "2026-09-27T14:57:59.106Z",
   "jobs": [
     {
       "id": "stellenpartner-7adf9beaf8ef",
@@ -33,7 +33,7 @@
       "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-bremgarten-temporaer-106635/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.025Z",
+      "crawledAt": "2026-09-27T14:57:54.132Z",
       "addressLocality": "Bremgarten",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-buelach-temporaer-107450/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.025Z",
+      "crawledAt": "2026-09-27T14:57:54.131Z",
       "addressLocality": "Bülach",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-bremgarten-temporaer-106926/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.024Z",
+      "crawledAt": "2026-09-27T14:57:54.130Z",
       "addressLocality": "Bremgarten",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-schwyz-temporaer-107448/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.023Z",
+      "crawledAt": "2026-09-27T14:57:54.129Z",
       "addressLocality": "Schwyz",
       "addressRegion": "Schwyz",
       "addressCountry": "CH",
@@ -338,7 +338,7 @@
       "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-baden-temporaer-108927/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.022Z",
+      "crawledAt": "2026-09-27T14:57:54.128Z",
       "addressLocality": "Baden",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -411,7 +411,7 @@
       "url": "https://www.stellenpartner.ch/stellen/maler-in-affoltern-am-albis-temporaer-108727/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.021Z",
+      "crawledAt": "2026-09-27T14:57:54.127Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -482,7 +482,7 @@
       "url": "https://www.stellenpartner.ch/stellen/sanitaerinstallateur-in-luzern-temporaer-109078/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.021Z",
+      "crawledAt": "2026-09-27T14:57:54.127Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -508,77 +508,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:52:25.485Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stellenpartner-b08ab16cabe8",
-      "slug": "schreiner-in-hilfsarbeiter-in-per-montage-e-spritzlackieren-stellenpartner-ag-schwyz",
-      "slugByLocale": {
-        "it": "schreiner-in-hilfsarbeiter-in-per-montage-e-spritzlackieren-stellenpartner-ag-schwyz",
-        "en": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner",
-        "de": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner",
-        "fr": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
-      },
-      "company": "Stellenpartner AG",
-      "companyKey": "stellenpartner",
-      "companyDomain": "stellenpartner.ch",
-      "title": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
-      "titleByLocale": {
-        "it": "Schreiner/in (Hilfsarbeiter/in) per Montage e Spritzlackieren",
-        "en": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
-        "de": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
-        "fr": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren"
-      },
-      "description": "Tätigkeiten Montage von Fenster und Jalousien, z.T. auch Fassaden, allgemeine Schreinerarbeiten, Werkstattarbeiten, Spritzlackieren von Fenster \n• Anforderungen Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Professionell geführtes Unternehmen, arbeiten an modernen Betriebsmitteln, überdurchschnittliche Entlohnung",
-      "descriptionByLocale": {
-        "it": "Installazione di finestre e tende, in parte comprese facciate, carpenteria generale, lavori di officina, spruzzatura di finestre\n• Prestazioni Pratica professionale sana Metodo di lavoro accurato e avanzato Aspetto amichevole del cliente Patente di guida B di vantaggio Offrire società gestita professionalmente, lavoro su attrezzature moderne, remunerazione superiore alla media",
-        "en": "Installation of windows and blinds, partly including facades, general carpentry, workshop work, window spraying\n• Requirements Sound professional practice Accurate and forward working method Customer-friendly appearance Driver's license B of advantage Offer professionally managed company, work on modern equipment, above-average remuneration",
-        "de": "Tätigkeiten Montage von Fenster und Jalousien, z.T. auch Fassaden, allgemeine Schreinerarbeiten, Werkstattarbeiten, Spritzlackieren von Fenster \n• Anforderungen Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Professionell geführtes Unternehmen, arbeiten an modernen Betriebsmitteln, überdurchschnittliche Entlohnung",
-        "fr": "Installation de fenêtres et stores, y compris les façades, menuiserie générale, travaux d'atelier, pulvérisation de fenêtres\n• Exigences Pratique professionnelle saine Méthode de travail précise et avancée Apparence conviviale Licence de conducteur B d'avantage Offre entreprise gérée professionnellement, travail sur des équipements modernes, rémunération supérieure à la moyenne"
-      },
-      "location": "Schwyz, Schwyz",
-      "canton": "SZ",
-      "url": "https://www.stellenpartner.ch/stellen/schreiner-in-hilfsarbeiter-in-schwyz-temporaer-108779/",
-      "source": "Stellenpartner AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.020Z",
-      "addressLocality": "Schwyz",
-      "addressRegion": "Schwyz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "applyUrl": "https://www.stellenpartner.ch/stellen/schreiner-in-hilfsarbeiter-in-schwyz-temporaer-108779/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:52:25.482Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -624,7 +553,7 @@
       "url": "https://www.stellenpartner.ch/stellen/gipser-in-weinfelden-temporaer-108825/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.020Z",
+      "crawledAt": "2026-09-27T14:57:54.126Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "Thurgau",
       "addressCountry": "CH",
@@ -665,6 +594,77 @@
       }
     },
     {
+      "id": "stellenpartner-b08ab16cabe8",
+      "slug": "schreiner-in-hilfsarbeiter-in-per-montage-e-spritzlackieren-stellenpartner-ag-schwyz",
+      "slugByLocale": {
+        "it": "schreiner-in-hilfsarbeiter-in-per-montage-e-spritzlackieren-stellenpartner-ag-schwyz",
+        "en": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner",
+        "de": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner",
+        "fr": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
+      },
+      "company": "Stellenpartner AG",
+      "companyKey": "stellenpartner",
+      "companyDomain": "stellenpartner.ch",
+      "title": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
+      "titleByLocale": {
+        "it": "Schreiner/in (Hilfsarbeiter/in) per Montage e Spritzlackieren",
+        "en": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
+        "de": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
+        "fr": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren"
+      },
+      "description": "Tätigkeiten Montage von Fenster und Jalousien, z.T. auch Fassaden, allgemeine Schreinerarbeiten, Werkstattarbeiten, Spritzlackieren von Fenster \n• Anforderungen Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Professionell geführtes Unternehmen, arbeiten an modernen Betriebsmitteln, überdurchschnittliche Entlohnung",
+      "descriptionByLocale": {
+        "it": "Installazione di finestre e tende, in parte comprese facciate, carpenteria generale, lavori di officina, spruzzatura di finestre\n• Prestazioni Pratica professionale sana Metodo di lavoro accurato e avanzato Aspetto amichevole del cliente Patente di guida B di vantaggio Offrire società gestita professionalmente, lavoro su attrezzature moderne, remunerazione superiore alla media",
+        "en": "Installation of windows and blinds, partly including facades, general carpentry, workshop work, window spraying\n• Requirements Sound professional practice Accurate and forward working method Customer-friendly appearance Driver's license B of advantage Offer professionally managed company, work on modern equipment, above-average remuneration",
+        "de": "Tätigkeiten Montage von Fenster und Jalousien, z.T. auch Fassaden, allgemeine Schreinerarbeiten, Werkstattarbeiten, Spritzlackieren von Fenster \n• Anforderungen Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Professionell geführtes Unternehmen, arbeiten an modernen Betriebsmitteln, überdurchschnittliche Entlohnung",
+        "fr": "Installation de fenêtres et stores, y compris les façades, menuiserie générale, travaux d'atelier, pulvérisation de fenêtres\n• Exigences Pratique professionnelle saine Méthode de travail précise et avancée Apparence conviviale Licence de conducteur B d'avantage Offre entreprise gérée professionnellement, travail sur des équipements modernes, rémunération supérieure à la moyenne"
+      },
+      "location": "Schwyz, Schwyz",
+      "canton": "SZ",
+      "url": "https://www.stellenpartner.ch/stellen/schreiner-in-hilfsarbeiter-in-schwyz-temporaer-108779/",
+      "source": "Stellenpartner AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-27T14:57:54.125Z",
+      "addressLocality": "Schwyz",
+      "addressRegion": "Schwyz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://www.stellenpartner.ch/stellen/schreiner-in-hilfsarbeiter-in-schwyz-temporaer-108779/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:52:25.482Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stellenpartner-dafe572765c2",
       "slug": "metallbauer-in-hilfsarbeiter-in-con-schwerpunkt-instandhaltung-stellenpartner-ag-bulach",
       "slugByLocale": {
@@ -695,7 +695,7 @@
       "url": "https://www.stellenpartner.ch/stellen/metallbauer-in-hilfsarbeiter-in-buelach-temporaer-108487/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.019Z",
+      "crawledAt": "2026-09-27T14:57:54.124Z",
       "addressLocality": "Bülach",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -768,7 +768,7 @@
       "url": "https://www.stellenpartner.ch/stellen/maler-in-muri-ag-temporaer-108783/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.019Z",
+      "crawledAt": "2026-09-27T14:57:54.124Z",
       "addressLocality": "Muri AG",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -839,7 +839,7 @@
       "url": "https://www.stellenpartner.ch/stellen/maler-in-affoltern-am-albis-temporaer-108333/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.018Z",
+      "crawledAt": "2026-09-27T14:57:54.123Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -889,6 +889,86 @@
       }
     },
     {
+      "id": "stellenpartner-bca04f6e9bd5",
+      "slug": "pittori-che-lavorano-per-clienti-privati-stellenpartner-ag-willisau-luzern",
+      "slugByLocale": {
+        "it": "pittori-che-lavorano-per-clienti-privati-stellenpartner-ag-willisau-luzern",
+        "en": "painters-working-for-private-clients-stellenpartner-ag-willisau",
+        "de": "maler-in-fur-malerarbeiten-bei-privatkundschaft-willisau-luzern-stellenpartner-ch",
+        "fr": "peintres-travaillant-pour-des-clients-prives-stellenpartner-ag-willisau"
+      },
+      "company": "Stellenpartner AG",
+      "companyKey": "stellenpartner",
+      "companyDomain": "stellenpartner.ch",
+      "title": "Maler/in für Malerarbeiten bei Privatkundschaft",
+      "titleByLocale": {
+        "it": "Pittori che lavorano per clienti privati",
+        "en": "Painters working for private clients",
+        "de": "Maler/in für Malerarbeiten bei Privatkundschaft",
+        "fr": "Peintres travaillant pour des clients privés"
+      },
+      "description": "Tätigkeiten Malerarbeiten direkt bei Privatkundschaft ausführen Aufträge auf Neubauten selbstständig übernehmen Renovationen fachgerecht praktisch realisieren Lackierarbeiten umsetzen Dekorarbeiten ausführen \n• Anforderungen Abgeschlossene Lehre als Malerin oder Maler EFZ Fundierte Praxis im Malergewerbe Zwingend erforderlich ist ein gültiger Führerausweis Sicheres und kundenfreundliches Auftreten im Alltag Ausgeprägte Freude am Malerhandwerk Angebot Breit gefächerte \n• Aufgaben in einem lebhaften Betrieb Hohe Eigenverantwortung im Arbeitsalltag Attraktive Rahmenbedingungen",
+      "descriptionByLocale": {
+        "it": "Attività I lavori di pittura eseguiti direttamente a clienti privati effettuano ordini su nuovi edifici indipendentemente intraprendono ristrutturazioni professionalmente realizzano pratico lavoro di pittura implementare lavori di decorazione\n• L'apprendistato completo come pittore o pittore EFZ Pratica ben fondata nell'industria della pittura Il mandato è una valida patente di guida Apparemento sicuro e customer-friendly nella vita di tutti i giorni Il piacere pronunciato nell'offerta di mestiere del pittore Ampiamente diversificato\n• Compiti in un'azienda vivace Alta responsabilità personale nel lavoro quotidiano",
+        "en": "Activities Painting work performed directly at private clients carry out orders on new buildings independently undertake renovations professionally realize practical painting work implement decor work perform\n• Requirements Completed apprenticeship as a painter or painter EFZ Well-founded practice in the painting industry Mandatory is a valid driver's license Secure and customer-friendly appearance in everyday life Pronounced pleasure in the painter's craft offer Widely diversified\n• Tasks in a lively company High personal responsibility in everyday work Attractive framework conditions",
+        "de": "Tätigkeiten Malerarbeiten direkt bei Privatkundschaft ausführen Aufträge auf Neubauten selbstständig übernehmen Renovationen fachgerecht praktisch realisieren Lackierarbeiten umsetzen Dekorarbeiten ausführen \n• Anforderungen Abgeschlossene Lehre als Malerin oder Maler EFZ Fundierte Praxis im Malergewerbe Zwingend erforderlich ist ein gültiger Führerausweis Sicheres und kundenfreundliches Auftreten im Alltag Ausgeprägte Freude am Malerhandwerk Angebot Breit gefächerte \n• Aufgaben in einem lebhaften Betrieb Hohe Eigenverantwortung im Arbeitsalltag Attraktive Rahmenbedingungen",
+        "fr": "Activités Travaux de peinture exécutés directement auprès de clients privés exécuter des commandes sur de nouveaux bâtiments entreprendre des rénovations professionnellement réaliser des travaux de peinture pratique mettre en œuvre travaux de décoration effectuer\n• Exigences Apprentissage terminé en tant que peintre ou peintre EFZ Pratique bien fondée dans l'industrie de la peinture Obligatoire est un permis de conduire valide Apparence sûre et conviviale dans la vie quotidienne Plaisir prononcé dans l'offre artisanale du peintre Largement diversifiée\n• Tâches dans une entreprise animée Haute responsabilité personnelle dans le travail quotidien Conditions-cadres attractives"
+      },
+      "location": "Willisau, Luzern",
+      "canton": "LU",
+      "url": "https://www.stellenpartner.ch/stellen/maler-in-willisau-temporaer-108335/",
+      "source": "Stellenpartner AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-27T14:57:54.122Z",
+      "addressLocality": "Willisau",
+      "addressRegion": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://www.stellenpartner.ch/stellen/maler-in-willisau-temporaer-108335/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "maler-in-fur-malerarbeiten-bei-privatkundschaft-willisau-luzern-stellenpartner-ch",
+        "maler-in-per-malerarbeiten-bei-privatkundschaft-stellenpartner-ag-willisau",
+        "pittori-che-lavorano-per-clienti-privati-stellenpartner-ag-willisau-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "maler-in-fur-malerarbeiten-bei-privatkundschaft-willisau-luzern-stellenpartner-ch",
+          "maler-in-per-malerarbeiten-bei-privatkundschaft-stellenpartner-ag-willisau",
+          "pittori-che-lavorano-per-clienti-privati-stellenpartner-ag-willisau-luzern"
+        ],
+        "en": [
+          "maler-in-fur-malerarbeiten-bei-privatkundschaft-willisau-luzern-stellenpartner-ch"
+        ],
+        "fr": [
+          "maler-in-fur-malerarbeiten-bei-privatkundschaft-willisau-luzern-stellenpartner-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:48:38.181Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stellenpartner-dc760afb724e",
       "slug": "pittori-per-nuovi-edifici-e-ristrutturazioni-stellenpartner-ag-zofingen-aargau",
       "slugByLocale": {
@@ -919,7 +999,7 @@
       "url": "https://www.stellenpartner.ch/stellen/maler-in-zofingen-temporaer-108473/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.018Z",
+      "crawledAt": "2026-09-27T14:57:54.122Z",
       "addressLocality": "Zofingen",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -999,7 +1079,7 @@
       "url": "https://www.stellenpartner.ch/stellen/gipser-in-frauenfeld-temporaer-108673/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.017Z",
+      "crawledAt": "2026-09-27T14:57:54.121Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "Thurgau",
       "addressCountry": "CH",
@@ -1049,86 +1129,6 @@
       }
     },
     {
-      "id": "stellenpartner-bca04f6e9bd5",
-      "slug": "pittori-che-lavorano-per-clienti-privati-stellenpartner-ag-willisau-luzern",
-      "slugByLocale": {
-        "it": "pittori-che-lavorano-per-clienti-privati-stellenpartner-ag-willisau-luzern",
-        "en": "painters-working-for-private-clients-stellenpartner-ag-willisau",
-        "de": "maler-in-fur-malerarbeiten-bei-privatkundschaft-willisau-luzern-stellenpartner-ch",
-        "fr": "peintres-travaillant-pour-des-clients-prives-stellenpartner-ag-willisau"
-      },
-      "company": "Stellenpartner AG",
-      "companyKey": "stellenpartner",
-      "companyDomain": "stellenpartner.ch",
-      "title": "Maler/in für Malerarbeiten bei Privatkundschaft",
-      "titleByLocale": {
-        "it": "Pittori che lavorano per clienti privati",
-        "en": "Painters working for private clients",
-        "de": "Maler/in für Malerarbeiten bei Privatkundschaft",
-        "fr": "Peintres travaillant pour des clients privés"
-      },
-      "description": "Tätigkeiten Malerarbeiten direkt bei Privatkundschaft ausführen Aufträge auf Neubauten selbstständig übernehmen Renovationen fachgerecht praktisch realisieren Lackierarbeiten umsetzen Dekorarbeiten ausführen \n• Anforderungen Abgeschlossene Lehre als Malerin oder Maler EFZ Fundierte Praxis im Malergewerbe Zwingend erforderlich ist ein gültiger Führerausweis Sicheres und kundenfreundliches Auftreten im Alltag Ausgeprägte Freude am Malerhandwerk Angebot Breit gefächerte \n• Aufgaben in einem lebhaften Betrieb Hohe Eigenverantwortung im Arbeitsalltag Attraktive Rahmenbedingungen",
-      "descriptionByLocale": {
-        "it": "Attività I lavori di pittura eseguiti direttamente a clienti privati effettuano ordini su nuovi edifici indipendentemente intraprendono ristrutturazioni professionalmente realizzano pratico lavoro di pittura implementare lavori di decorazione\n• L'apprendistato completo come pittore o pittore EFZ Pratica ben fondata nell'industria della pittura Il mandato è una valida patente di guida Apparemento sicuro e customer-friendly nella vita di tutti i giorni Il piacere pronunciato nell'offerta di mestiere del pittore Ampiamente diversificato\n• Compiti in un'azienda vivace Alta responsabilità personale nel lavoro quotidiano",
-        "en": "Activities Painting work performed directly at private clients carry out orders on new buildings independently undertake renovations professionally realize practical painting work implement decor work perform\n• Requirements Completed apprenticeship as a painter or painter EFZ Well-founded practice in the painting industry Mandatory is a valid driver's license Secure and customer-friendly appearance in everyday life Pronounced pleasure in the painter's craft offer Widely diversified\n• Tasks in a lively company High personal responsibility in everyday work Attractive framework conditions",
-        "de": "Tätigkeiten Malerarbeiten direkt bei Privatkundschaft ausführen Aufträge auf Neubauten selbstständig übernehmen Renovationen fachgerecht praktisch realisieren Lackierarbeiten umsetzen Dekorarbeiten ausführen \n• Anforderungen Abgeschlossene Lehre als Malerin oder Maler EFZ Fundierte Praxis im Malergewerbe Zwingend erforderlich ist ein gültiger Führerausweis Sicheres und kundenfreundliches Auftreten im Alltag Ausgeprägte Freude am Malerhandwerk Angebot Breit gefächerte \n• Aufgaben in einem lebhaften Betrieb Hohe Eigenverantwortung im Arbeitsalltag Attraktive Rahmenbedingungen",
-        "fr": "Activités Travaux de peinture exécutés directement auprès de clients privés exécuter des commandes sur de nouveaux bâtiments entreprendre des rénovations professionnellement réaliser des travaux de peinture pratique mettre en œuvre travaux de décoration effectuer\n• Exigences Apprentissage terminé en tant que peintre ou peintre EFZ Pratique bien fondée dans l'industrie de la peinture Obligatoire est un permis de conduire valide Apparence sûre et conviviale dans la vie quotidienne Plaisir prononcé dans l'offre artisanale du peintre Largement diversifiée\n• Tâches dans une entreprise animée Haute responsabilité personnelle dans le travail quotidien Conditions-cadres attractives"
-      },
-      "location": "Willisau, Luzern",
-      "canton": "LU",
-      "url": "https://www.stellenpartner.ch/stellen/maler-in-willisau-temporaer-108335/",
-      "source": "Stellenpartner AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.017Z",
-      "addressLocality": "Willisau",
-      "addressRegion": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellenpartner.ch/stellen/maler-in-willisau-temporaer-108335/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-malerarbeiten-bei-privatkundschaft-willisau-luzern-stellenpartner-ch",
-        "maler-in-per-malerarbeiten-bei-privatkundschaft-stellenpartner-ag-willisau",
-        "pittori-che-lavorano-per-clienti-privati-stellenpartner-ag-willisau-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-malerarbeiten-bei-privatkundschaft-willisau-luzern-stellenpartner-ch",
-          "maler-in-per-malerarbeiten-bei-privatkundschaft-stellenpartner-ag-willisau",
-          "pittori-che-lavorano-per-clienti-privati-stellenpartner-ag-willisau-luzern"
-        ],
-        "en": [
-          "maler-in-fur-malerarbeiten-bei-privatkundschaft-willisau-luzern-stellenpartner-ch"
-        ],
-        "fr": [
-          "maler-in-fur-malerarbeiten-bei-privatkundschaft-willisau-luzern-stellenpartner-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:48:38.181Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stellenpartner-8124160eaf30",
       "slug": "gipser-in-per-fassadenisolation-e-trockenbau-stellenpartner-ag-wil-sg",
       "slugByLocale": {
@@ -1159,7 +1159,7 @@
       "url": "https://www.stellenpartner.ch/stellen/gipser-in-wil-sg-temporaer-108639/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.015Z",
+      "crawledAt": "2026-09-27T14:57:54.119Z",
       "addressLocality": "Wil SG",
       "addressRegion": "St. Gallen",
       "addressCountry": "CH",
@@ -1230,7 +1230,7 @@
       "url": "https://www.stellenpartner.ch/stellen/gipser-in-hilfsarbeiter-in-frauenfeld-temporaer-108671/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.014Z",
+      "crawledAt": "2026-09-27T14:57:54.118Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "Thurgau",
       "addressCountry": "CH",
@@ -1310,7 +1310,7 @@
       "url": "https://www.stellenpartner.ch/stellen/gipser-in-hilfsarbeiter-in-arbon-temporaer-108637/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.014Z",
+      "crawledAt": "2026-09-27T14:57:54.118Z",
       "addressLocality": "Arbon",
       "addressRegion": "Thurgau",
       "addressCountry": "CH",
@@ -1391,7 +1391,7 @@
       "url": "https://www.stellenpartner.ch/stellen/schreiner-in-hilfsarbeiter-in-schwyz-temporaer-108503/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.013Z",
+      "crawledAt": "2026-09-27T14:57:54.117Z",
       "addressLocality": "Schwyz",
       "addressRegion": "Schwyz",
       "addressCountry": "CH",
@@ -1471,7 +1471,7 @@
       "url": "https://www.stellenpartner.ch/stellen/maler-in-zug-temporaer-108453/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:35:22.011Z",
+      "crawledAt": "2026-09-27T14:57:54.114Z",
       "addressLocality": "Zug",
       "addressRegion": "Zug",
       "addressCountry": "CH",
