@@ -85,6 +85,7 @@ function isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDa
 }
 
 function isSafeCrawlerSliceRewriteAtRefs(beforeSha, afterSha, file) {
+  if (file !== 'data/jobs/by-crawler/swiss-re.json') return false;
   const previousRaw = blobAt(beforeSha, file);
   const nextRaw = blobAt(afterSha, file);
   return previousRaw !== null

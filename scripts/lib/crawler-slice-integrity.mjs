@@ -87,7 +87,7 @@ export function isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw) {
   }
 
   const removedJobs = previousJobs.filter((job) => !nextIds.has(jobIdentity(job)));
-  if (removedJobs.length !== previousJobs.length - nextJobs.length || removedJobs.length === 0) {
+  if (removedJobs.length === 0) {
     return false;
   }
   return removedJobs.every((job) => (

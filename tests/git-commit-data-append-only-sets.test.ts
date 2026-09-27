@@ -399,4 +399,49 @@ describe('git-commit-data.sh 3-way merge — append-only slug/path registries (#
       cleanup(h);
     }
   });
+
+  it('refuses a catastrophic crawler-slice shrink at the isolated commit boundary', () => {
+    const h = initHarness();
+    try {
+      const large = 'x'.repeat(700_000);
+      writeJson(h.repoDir, SLICE, [
+        { ...job({ url: 'https://example.ch/jobs/acme-1' }), description: large },
+        { ...job({ url: 'https://example.ch/jobs/acme-2' }), description: large },
+      ]);
+      commitAndPush(h.repoDir, 'seed large crawler slice');
+
+      writeJson(h.repoDir, SLICE, [
+        { ...job({ url: 'https://example.ch/jobs/acme-1' }), description: 'short' },
+      ]);
+
+      expect(() => runScript(h, [SLICE], SLICE)).toThrow();
+      expect(readFromOrigin<JobRecord[]>(h, SLICE)).toHaveLength(2);
+    } finally {
+      cleanup(h);
+    }
+  });
+
+  it('allows only the proven Swiss Re foreign-listing prune at that boundary', () => {
+    const h = initHarness();
+    const swissReSlice = 'data/jobs/by-crawler/swiss-re.json';
+    try {
+      const large = 'x'.repeat(700_000);
+      writeJson(h.repoDir, swissReSlice, [
+        { url: 'https://jobs.swissre.com/bratislava', companyKey: 'swiss-re', location: 'Bratislava, SK', description: large },
+        { url: 'https://jobs.swissre.com/mexico-city', companyKey: 'swiss-re', location: 'Mexico City, MX', description: large },
+      ]);
+      commitAndPush(h.repoDir, 'seed Swiss Re global listing');
+
+      writeJson(h.repoDir, swissReSlice, [
+        { url: 'https://jobs.swissre.com/zurich', companyKey: 'swiss-re', location: 'Zurich, CH', description: 'short' },
+      ]);
+
+      runScript(h, [swissReSlice], swissReSlice);
+      expect(readFromOrigin<Array<{ location: string }>>(h, swissReSlice)).toEqual([
+        expect.objectContaining({ location: 'Zurich, CH' }),
+      ]);
+    } finally {
+      cleanup(h);
+    }
+  });
 });
