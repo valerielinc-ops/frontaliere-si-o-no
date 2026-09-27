@@ -6848,6 +6848,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.vaud-voto-taglio-fiscale.title': 'Vaud : oui à la réduction de 12% des impôts',
     'blog.article.vaud-voto-taglio-fiscale.excerpt': '53,1% des votants dans le canton de Vaud approuvent une réduction de 12% des impôts sur le revenu et la fortune ; participation à 50,0%.',
     'blog.article.vaud-voto-taglio-fiscale.imageAlt': 'Bâtiment institutionnel dans le canton de Vaud pour le vote sur une baisse d\'impôts',
+    'blog.article.strage-parlamento-zugo-sicurezza.title': 'Zoug, il y a 25 ans, le massacre dans la salle du Parlement',
+    'blog.article.strage-parlamento-zugo-sicurezza.excerpt': 'Le 27 septembre 2001, Friedrich Leibacher a tué 14 personnes et en a blessé 15 au Parlement de Zoug, tirant 91 coups de feu en 2 minutes et 34 secondes, entraînant un changement de sécurité.',
+    'blog.article.strage-parlamento-zugo-sicurezza.imageAlt': 'Mesures de sécurité renforcées dans les parlements suisses après le massacre de Zoug',
 };
 
 export default blogMetaChFr;

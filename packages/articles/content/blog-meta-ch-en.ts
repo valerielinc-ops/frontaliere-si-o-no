@@ -6848,6 +6848,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vaud-voto-taglio-fiscale.title': 'Vaud: yes to a 12% cut in taxes',
     'blog.article.vaud-voto-taglio-fiscale.excerpt': '53.1% of voters in the canton of Vaud approve a 12% cut to income and wealth taxes; turnout at 50.0%.',
     'blog.article.vaud-voto-taglio-fiscale.imageAlt': 'Civic building in canton Vaud linked to the vote on a tax reduction',
+    'blog.article.strage-parlamento-zugo-sicurezza.title': 'Zug, 25 years ago the massacre in the Parliament chamber',
+    'blog.article.strage-parlamento-zugo-sicurezza.excerpt': 'On September 27, 2001, Friedrich Leibacher killed 14 people and wounded 15 in the Zug Parliament, firing 91 shots in 2 minutes and 34 seconds, leading to a change in security.',
+    'blog.article.strage-parlamento-zugo-sicurezza.imageAlt': 'Reinforced security measures in Swiss parliaments after the Zug massacre',
 };
 
 export default blogMetaChEn;

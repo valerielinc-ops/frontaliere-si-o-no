@@ -2305,6 +2305,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'iniziativa-neutralita-respinta': { it: 'iniziativa-neutralita-respinta', en: 'neutrality-initiative-rejected', de: 'neutralitaetsinitiative-abgelehnt', fr: 'initiative-neutralite-rejetee' },
  'iniziativa-alimentazione-respinta': { it: 'iniziativa-alimentazione-respinta', en: 'food-initiative-rejected-switzerland', de: 'ernaehrungsinitiative-abgelehnt', fr: 'initiative-alimentation-rejetee' },
  'vaud-voto-taglio-fiscale': { it: 'vaud-voto-taglio-fiscale', en: 'vaud-vote-tax-cut', de: 'waadt-abstimmung-steuersenkung', fr: 'vaud-vote-baisse-impots' },
+ 'strage-parlamento-zugo-sicurezza': { it: 'strage-parlamento-zugo-sicurezza', en: 'zug-parliament-massacre-security', de: 'zug-parlamentsmassaker-sicherheit', fr: 'massacre-parlement-zoug-securite' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

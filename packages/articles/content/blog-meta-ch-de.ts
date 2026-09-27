@@ -6848,6 +6848,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vaud-voto-taglio-fiscale.title': 'Waadt: Ja zur Senkung der Steuern um 12%',
     'blog.article.vaud-voto-taglio-fiscale.excerpt': '53,1% der Stimmberechtigten im Kanton Waadt befürworten eine Senkung der Einkommens- und Vermögenssteuern um 12%; Stimmbeteiligung bei 50,0%.',
     'blog.article.vaud-voto-taglio-fiscale.imageAlt': 'Institutionelles Gebäude im Kanton Waadt zur Abstimmung über eine Steuersenkung',
+    'blog.article.strage-parlamento-zugo-sicurezza.title': 'Zug, vor 25 Jahren das Massaker im Parlamentssaal',
+    'blog.article.strage-parlamento-zugo-sicurezza.excerpt': 'Am 27. September 2001 tötete Friedrich Leibacher 14 Menschen und verletzte 15 im Zuger Parlament, wobei 91 Schüsse in 2 Minuten und 34 Sekunden abgefeuert wurden, was zu einer Änderung der Sicherheit führte.',
+    'blog.article.strage-parlamento-zugo-sicurezza.imageAlt': 'Verstärkte Sicherheitsmaßnahmen in Schweizer Parlamenten nach dem Zuger Massaker',
 };
 
 export default blogMetaChDe;

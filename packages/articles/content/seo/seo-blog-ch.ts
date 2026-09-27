@@ -88784,6 +88784,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-strage-parlamento-zugo-sicurezza': {
+    title: 'Zugo, 25 anni fa la strage nell’aula del Parlamento',
+    description: 'Il 27 settembre 2001, la strage di Zugo con 14 vittime ha rivoluzionato la sicurezza dei parlamenti svizzeri. Scopri le misure adottate dal Palazzo federale',
+    keywords: 'frontalieri, ticino, svizzera, italia, zugo, anni, strage, nell',
+    ogTitle: 'Strage Parlamento Zugo: 25 anni e la sicurezza svizzera',
+    ogDescription: 'Venticinque anni fa, il 27 settembre 2001, la strage nel Parlamento di Zugo segnò un punto di svolta per la sicurezza in Svizzera. L\'attacco, che causò 14 vittime, portò all\'introduzione di metal detector, controlli e sistemi di gestione',
+    canonicalPath: '/articoli-svizzera/strage-parlamento-zugo-sicurezza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zugo, 25 anni fa la strage nell’aula del Parlamento",
+      "description": "Il 27 settembre 2001, la strage di Zugo con 14 vittime ha rivoluzionato la sicurezza dei parlamenti svizzeri. Scopri le misure adottate dal Palazzo federale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/strage-parlamento-zugo-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Misure di sicurezza rafforzate nei parlamenti svizzeri dopo la strage di Zugo"
+      },
+      "datePublished": "2026-09-27T13:57:40+00:00",
+      "dateModified": "2026-09-27T13:57:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/strage-parlamento-zugo-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
