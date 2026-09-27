@@ -40,12 +40,20 @@ jobs:
     # invece di ~1,2; con 5 cluster NOVEL la proposta Codex ha superato i 12
     # min dello step (run 36334623872, cancellata al cap del job). Il gemello
     # del corpus, 1 cluster, chiude la proposta in ~6,5 min.
-    timeout-minutes: 32
+    # 32→36 (2026-09-27, stesso giorno): watchdog Codex esplicito a 20 min
+    # (sotto) + install di typescript; vedi il conto sullo step Codex.
+    timeout-minutes: 36
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          fetch-depth: 1
+          # Storia completa ma blobless, come issue-fix.yml (#4189): la proposta
+          # Codex pusha un branch, e da un clone shallow il push via bridge
+          # muore (`Failed to traverse parents of commit`, `remote end hung up`)
+          # e il sibling pre-push non trova la merge-base (run 36339448967:
+          # 7 tentativi di push, 0 PR). `blob:none` tiene il checkout veloce.
+          fetch-depth: 0
+          filter: blob:none
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -123,6 +131,27 @@ jobs:
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
 
+      # Il bridge Git della lane Codex esegue host-side il sibling pre-push
+      # (`scripts/ci/check-sibling-patterns.mjs`), che importa `typescript` da
+      # `scripts/ci/lib/sibling-ast-graph.mjs`. Questo job non fa `npm ci`
+      # (non serve all'aggregazione), quindi il push moriva con
+      # ERR_MODULE_NOT_FOUND (run 36339448967). Si installa SOLO typescript,
+      # alla versione del lockfile, fuori dal workspace, e lo si espone con un
+      # symlink in node_modules/ (gitignorato): e' l'unico pacchetto non-builtin
+      # del grafo dei gate (check-sibling-patterns, sibling-check-gate,
+      # gh-pr-body-check, pr-body-check-gate).
+      - name: Provide sibling-checker dependency (typescript only)
+        if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
+        run: |
+          set -euo pipefail
+          ts_version=$(node -p "require('./package-lock.json').packages['node_modules/typescript'].version")
+          deps_dir="$RUNNER_TEMP/sibling-deps"
+          mkdir -p "$deps_dir"
+          npm install --prefix "$deps_dir" --no-audit --no-fund --ignore-scripts "typescript@$ts_version"
+          mkdir -p node_modules
+          ln -sfn "$deps_dir/node_modules/typescript" node_modules/typescript
+          node --input-type=module -e "import ts from 'typescript'; console.log('typescript', ts.version)"
+
       - name: Pre-flight — Codex lane quota telemetry
         id: quota
         if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
@@ -142,7 +171,9 @@ jobs:
         # sulle ultime run) e una coda per gli step `if: always()`.
         # 12→22 (2026-09-27): stessa regola, setup pre-Codex ora ~6 min
         # (finestra intera, run 36334623872): 32 − 6 − coda ≈ 22.
-        timeout-minutes: 22
+        # 22→24: deve stare sopra `exec_timeout_minutes` (20) + setup
+        # dell'action. 36 − ~7 min pre-Codex − coda ≈ 24.
+        timeout-minutes: 24
         # Escalations are auto-filed by the harvest step above → Codex is spent
         # ONLY when a genuinely-new (novel) recurring pattern needs a doc rule.
         if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
@@ -156,6 +187,11 @@ jobs:
           # host-side per push/PR usa solo App/PAT e fallisce chiuso se vuoto.
           github_token: ${{ secrets.GITHUB_TOKEN }}
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # Watchdog interno di Codex: il default 15 min e' tarato sulle review.
+          # Con 5 cluster NOVEL la proposta ha chiuso a 900s (run 36336838172)
+          # e alla run 36339448967 e' morta al watchdog a 905s: 20 min, sotto
+          # il `timeout-minutes` dello step come negli altri fixer.
+          exec_timeout_minutes: "20"
           # Schedule/manual-dispatch → actor umano (owner) oggi, ma stesso
           # class-fix dei sibling: se un'automation interna dispatchasse questo
           # workflow via GITHUB_TOKEN (actor `github-actions[bot]`) o via App token
