@@ -12101,6 +12101,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-micromobilita-tradate.title': 'Tradate, accident involving an electric vehicle: one person injured',
     'blog.article.incidente-micromobilita-tradate.excerpt': 'Incident at 7.01 on Via Bruno Passerini in Tradate: a 25-year-old young man involved. Ambulance, advanced rescue services and carabinieri on site.',
     'blog.article.incidente-micromobilita-tradate.imageAlt': 'Urban road and electric micromobility vehicle in a local news scene',
+    'blog.article.vetri-rotti-como-notte.title': 'Como, two arrests for theft and damage to cars',
+    'blog.article.vetri-rotti-como-notte.excerpt': 'The State Police of Como arrested a 30-year-old Moroccan man and a 23-year-old Spaniard: five other cars had their windows smashed.',
+    'blog.article.vetri-rotti-como-notte.imageAlt': 'Parked cars on a Como street with shattered side windows',
 };
 
 export default blogMetaEn;
