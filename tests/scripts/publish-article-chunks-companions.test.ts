@@ -20,7 +20,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { COMPANION_CHUNKS, REGISTRIES } from '../../scripts/publish-article-chunks.mjs';
+import { chunksForSection, COMPANION_CHUNKS, REGISTRIES } from '../../scripts/publish-article-chunks.mjs';
 import { SKIP_LIVE_DATA } from '../helpers/live-data';
 
 const ROOT = resolve(__dirname, '..', '..');
@@ -51,8 +51,8 @@ describe('publish-article-chunks — registry never ships ahead of its translati
     // Order is the fix, not an optimisation: companions-first fails safe (the
     // client holds translations for articles it cannot see yet — invisible),
     // registries-first fails exactly the way production did.
-    const companionLoop = src.indexOf('for (const companion of COMPANION_CHUNKS)');
-    const registryLoop = src.indexOf('for (const registry of REGISTRIES)');
+    const companionLoop = src.indexOf('for (const companion of selected.companions)');
+    const registryLoop = src.indexOf('for (const registry of selected.registries)');
     expect(companionLoop).toBeGreaterThan(-1);
     expect(registryLoop).toBeGreaterThan(-1);
     expect(companionLoop).toBeLessThan(registryLoop);
@@ -88,5 +88,26 @@ describe('publish-article-chunks — registry never ships ahead of its translati
 
   it('REGISTRIES still covers both sections', () => {
     expect(REGISTRIES.map((r) => r.exportName).sort()).toEqual(['ARTICLES', 'SWISS_ARTICLES']);
+  });
+
+  it('section selection keeps the registry and its own companions together', () => {
+    const frontaliere = chunksForSection('frontaliere');
+    expect(frontaliere.registries.map((r) => r.exportName)).toEqual(['ARTICLES']);
+    expect(frontaliere.companions.every((chunk) => !chunk.cdnKey.includes('blog-meta-ch-'))).toBe(true);
+    expect(frontaliere.companions.map((chunk) => chunk.cdnKey)).toContain('assets/routerBlogData.js');
+
+    const svizzera = chunksForSection('svizzera');
+    expect(svizzera.registries.map((r) => r.exportName)).toEqual(['SWISS_ARTICLES']);
+    expect(svizzera.companions.every((chunk) => !chunk.cdnKey.match(/blog-meta-(?!ch-)/))).toBe(true);
+    expect(svizzera.companions.map((chunk) => chunk.cdnKey)).toContain('assets/routerSwissData.js');
+  });
+
+  it('preflights the strict purge credential before any CDN upload', () => {
+    const preflight = src.indexOf("if (strict && !dryRun && !cfApiToken)");
+    const companionLoop = src.indexOf('for (const companion of selected.companions)');
+    const firstUpload = src.indexOf('uploadViaScript(outFile');
+    expect(preflight).toBeGreaterThan(-1);
+    expect(preflight).toBeLessThan(companionLoop);
+    expect(preflight).toBeLessThan(firstUpload);
   });
 });

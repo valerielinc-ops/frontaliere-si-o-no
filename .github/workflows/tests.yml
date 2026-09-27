@@ -2935,7 +2935,7 @@ jobs:
               const id = findings.stableFindingId(finding);
               if (toVerify.has(id)) {
                 const hint = hints.get(id) || {};
-                console.log(`- Important da verificare all'HEAD \`${id}\` (${anchors || 'anchor non risolvibile'}; review approvante ${hint.reviewId || '?'} ha confermato un fix su \`${hint.path || '?'}\`):`);
+                console.log(`- Important da verificare all'HEAD \`${id}\` (${anchors || 'anchor non risolvibile'}; review approvante ${hint.reviewId || '?'} ha confermato un fix su \`${hint.path || '?'}\`; se il fix c'è, Fix di \`${id}\`: ok. più Fix di \`path:L<riga attuale>\`: ok. per ogni file citato):`);
               } else {
                 // Senza file la conferma è quella che il gate accetta
                 // (`PR body:L<n>` o l'id): dire «anchor non risolvibile»
@@ -2945,8 +2945,12 @@ jobs:
                 const target = typeof gate.unanchoredConfirmationTarget === 'function'
                   ? gate.unanchoredConfirmationTarget(finding)
                   : null;
+                // Con file citati la conferma resta l'id (#10025): `path:L<n>`
+                // si sposta col fix e, con piu' 🔴 sullo stesso file, le
+                // conferme a riga spostata si accoppiano solo per conteggio.
                 const where = anchors
-                  || (target ? `senza file: se risolto, Fix di \`${target}\`: ok.` : 'anchor non risolvibile');
+                  ? `${anchors}; se risolto, Fix di \`${id}\`: ok. più Fix di \`path:L<riga attuale>\`: ok. per ogni file citato`
+                  : (target ? `senza file: se risolto, Fix di \`${target}\`: ok.` : 'anchor non risolvibile');
                 console.log(`- Open Important \`${id}\` (${where}):`);
               }
               console.log(finding.text);

@@ -6851,6 +6851,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.strage-parlamento-zugo-sicurezza.title': 'Zug, vor 25 Jahren das Massaker im Parlamentssaal',
     'blog.article.strage-parlamento-zugo-sicurezza.excerpt': 'Am 27. September 2001 tötete Friedrich Leibacher 14 Menschen und verletzte 15 im Zuger Parlament, wobei 91 Schüsse in 2 Minuten und 34 Sekunden abgefeuert wurden, was zu einer Änderung der Sicherheit führte.',
     'blog.article.strage-parlamento-zugo-sicurezza.imageAlt': 'Verstärkte Sicherheitsmaßnahmen in Schweizer Parlamenten nach dem Zuger Massaker',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.title': 'Fütterungsinitiative: mit 72,5% Nein abgelehnt',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.excerpt': 'Das Schweizer Stimmvolk lehnt den Vorschlag ab, die Selbstversorgung in zehn Jahren auf 70 Prozent zu erhöhen. Alle Kantone stimmten dagegen.',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.imageAlt': 'Schweizer Agrarlandschaft mit grünen Weiden',
 };
 
 export default blogMetaChDe;

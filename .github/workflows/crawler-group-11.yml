@@ -85,6 +85,8 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 50
+      - name: Validate crawler generation token before crawling
+        run: node scripts/check-crawler-generation-token.mjs
       - name: Restore crawler AI cache
         id: restore_crawler_ai_cache
         continue-on-error: true
@@ -7034,7 +7036,7 @@ jobs:
           printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "systemic_count=$systemic_count" "wait_outcome=$wait_outcome" >> "$output_file"
           exit 0
       - name: Commit crawler group data atomically
-        if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'
+        if: always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'
         run: |-
           set +e
           commit_attempt=1

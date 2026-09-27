@@ -37,7 +37,8 @@ let tmpSeq = 0;
  * @param {{compact?: boolean, dedupReferenceJobs?: unknown[] | null, housekeepingProof?: unknown[] | null}} [opts]
  *   `compact` emits minified JSON; `dedupReferenceJobs` is proof supplied only
  *   by the cross-crawler dedup maintenance command; `housekeepingProof` is
- *   definitive URL evidence supplied only by the housekeeping command.
+ *   definitive URL evidence supplied only by the housekeeping command or a
+ *   source-verified crawler shrink.
  */
 export function writeJsonAtomic(
   filePath,
