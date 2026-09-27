@@ -5,6 +5,7 @@ import {
   dedupeFindingsById,
   findingDeclaredClass,
   findingSymbol,
+  isExplicitNonFunnelDisposition,
   isMalformedReviewBody,
   isRegressionFinding,
   LEDGER_MAX_ENTRIES,
@@ -70,6 +71,15 @@ describe('identità stabile del finding', () => {
     const b = finding('`scripts/ci/foo.mjs:L99`: 🔴 Important: `parseFoo()` non gestisce il null.');
     expect(dedupeFindingsById([a, b])).toHaveLength(1);
     expect(dedupeFindingsById([a, b])[0].lineNumber).toBe(a.lineNumber);
+  });
+});
+
+describe('disposizione non-funnel condivisa', () => {
+  it('riconosce solo il suffisso esplicito del contratto', () => {
+    expect(isExplicitNonFunnelDisposition('🟡 Nit: commento stale — deferred, non funnel-critical.')).toBe(true);
+    expect(isExplicitNonFunnelDisposition('❓ q: rischio non verificato — deferred.')).toBe(true);
+    expect(isExplicitNonFunnelDisposition('🟡 Nit: deferred dentro la spiegazione, ma il finding resta aperto.')).toBe(false);
+    expect(isExplicitNonFunnelDisposition('🟡 Nit: commento stale — deferred, funnel-critical.')).toBe(false);
   });
 });
 

@@ -29,6 +29,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
+import { isExplicitNonFunnelDisposition } from './lib/review-findings.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { ACCEPTANCE_CONDITION, hasEnumeratedItems } from './followup-resolution-match.mjs';
 import { isAggregate, isAggregateForAnalytics } from './check-issue-already-resolved.mjs';
@@ -591,6 +592,12 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
       for (const line of String(r.body || '').split('\n')) {
         const sev = detectSeverity(line);
         if (!sev || !COUNTABLE_SEVERITIES.has(sev)) continue;
+        // REVIEW.md makes an explicitly disposed non-funnel Nit advisory and
+        // FOLLOWUP.md drops it. It is therefore not evidence that a documented
+        // rule failed; counting it here made stale-comment recur forever even
+        // when every example was marked `deferred, non funnel-critical`.
+        // Keep 🔴 fail-closed: a red finding cannot self-dispose this way.
+        if (sev === '🟡' && isExplicitNonFunnelDisposition(line)) continue;
         const bucket = bucketOf(line);
         if (!bucket) continue;
         if (seenBuckets.has(bucket)) continue;
