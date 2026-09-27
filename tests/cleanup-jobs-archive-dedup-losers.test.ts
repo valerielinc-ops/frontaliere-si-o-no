@@ -66,6 +66,9 @@ async function runCleanupSlice(slicePath: string, expiredDir: string): Promise<R
         JOBS_SKIP_URL_VALIDATION: '1',
         JOBS_STALE_DAYS: '60',
         JOBS_EXPIRED_SLICES_DIR: expiredDir,
+        GITHUB_SHA: 'test-housekeeping-sha',
+        GITHUB_RUN_ID: 'test-housekeeping-run',
+        GITHUB_RUN_ATTEMPT: '1',
       },
     });
 
@@ -93,6 +96,9 @@ async function runCleanupSliceWithUrlValidation(slicePath: string, expiredDir: s
         JOBS_SKIP_LOCALE_HARDENING: '1',
         JOBS_STALE_DAYS: '60',
         JOBS_EXPIRED_SLICES_DIR: expiredDir,
+        GITHUB_SHA: 'test-housekeeping-sha',
+        GITHUB_RUN_ID: 'test-housekeeping-run',
+        GITHUB_RUN_ATTEMPT: '1',
       },
     });
 

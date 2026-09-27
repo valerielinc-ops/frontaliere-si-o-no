@@ -1019,6 +1019,10 @@ exec ${JSON.stringify(process.execPath)} "$@"
       execFileSync('git', ['add', '.'], { cwd: repoDir });
       execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
       execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      const proofBaseSha = execFileSync('git', ['rev-parse', 'HEAD'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).trim();
 
       // The local cleanup result removes only the definitively dead record.
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), `${JSON.stringify([retained])}\n`);
@@ -1031,6 +1035,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
         path: 'data/jobs/by-crawler/a.json',
         baseDigest: sha256(baseRaw),
         candidateDigest: sha256(candidateRaw),
+        baseSha: proofBaseSha,
         runId: 'proof-group-run',
         runAttempt: '1',
         entries: [{ job: removed, definitive: true, reason: 'http-404' }],
@@ -1054,6 +1059,8 @@ exec ${JSON.stringify(process.execPath)} "$@"
 
       runScript(repoDir, 'data/jobs/by-crawler/a.json', '', {
         JOBS_HOUSEKEEPING_PROOF_DIR: proofDir,
+        HOUSEKEEPING_BASE_SHA: proofBaseSha,
+        GITHUB_SHA: proofBaseSha,
         GITHUB_RUN_ID: 'proof-group-run',
         GITHUB_RUN_ATTEMPT: '1',
       });
@@ -1078,6 +1085,8 @@ exec ${JSON.stringify(process.execPath)} "$@"
           ...groupEnv(repoDir, runnerTemp),
           JOBS_SLICE_FILE: 'data/jobs/by-crawler/a.json',
           JOBS_HOUSEKEEPING_PROOF_DIR: proofDir,
+          HOUSEKEEPING_BASE_SHA: proofBaseSha,
+          GITHUB_SHA: proofBaseSha,
           GITHUB_RUN_ID: 'proof-group-run-2',
           GITHUB_RUN_ATTEMPT: '1',
         },

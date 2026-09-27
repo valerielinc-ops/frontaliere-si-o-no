@@ -328,6 +328,7 @@ describe('crawler slice integrity guard', () => {
         path: filePath,
         baseDigest: sha256(previous),
         candidateDigest: sha256(next),
+        baseSha: 'proof-base-sha',
         runId: 'proof-cli-run',
         runAttempt: '1',
         entries: [{ job: removed, definitive: true, reason: 'http-404' }],
@@ -343,7 +344,12 @@ describe('crawler slice integrity guard', () => {
         candidatePath,
       ], {
         encoding: 'utf8',
-        env: { ...process.env, GITHUB_RUN_ID: 'proof-cli-run', GITHUB_RUN_ATTEMPT: '1' },
+        env: {
+          ...process.env,
+          GITHUB_RUN_ID: 'proof-cli-run',
+          GITHUB_RUN_ATTEMPT: '1',
+          HOUSEKEEPING_BASE_SHA: 'proof-base-sha',
+        },
       });
       expect(output).toContain('allowed proven-housekeeping-prune');
 
@@ -361,11 +367,52 @@ describe('crawler slice integrity guard', () => {
         candidatePath,
       ], {
         encoding: 'utf8',
-        env: { ...process.env, GITHUB_RUN_ID: 'proof-cli-run', GITHUB_RUN_ATTEMPT: '1' },
+        env: {
+          ...process.env,
+          GITHUB_RUN_ID: 'proof-cli-run',
+          GITHUB_RUN_ATTEMPT: '1',
+          HOUSEKEEPING_BASE_SHA: 'proof-base-sha',
+        },
       });
       expect(stale.status).toBe(1);
       expect(`${stale.stdout}${stale.stderr}`).toContain('stale housekeeping proof');
       expect(stale.stdout).not.toContain('allowed proven-housekeeping-prune');
+
+      // Restore the valid base snapshot so the following case isolates the
+      // missing sidecar metadata rather than failing on an unrelated digest.
+      writeFileSync(basePath, previous);
+      writeFileSync(proofPath, `${JSON.stringify({
+        schemaVersion: 2,
+        path: filePath,
+        baseDigest: sha256(previous),
+        candidateDigest: sha256(next),
+        baseSha: null,
+        runId: null,
+        runAttempt: null,
+        entries: [{ job: removed, definitive: true, reason: 'http-404' }],
+      })}\n`);
+      const missingMetadata = spawnSync(process.execPath, [
+        cliPath,
+        filePath,
+        previousPath,
+        nextPath,
+        proofPath,
+        basePath,
+        candidatePath,
+      ], {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          GITHUB_RUN_ID: 'proof-cli-run',
+          GITHUB_RUN_ATTEMPT: '1',
+          HOUSEKEEPING_BASE_SHA: 'proof-base-sha',
+        },
+      });
+      expect(missingMetadata.status).toBe(1);
+      expect(`${missingMetadata.stdout}${missingMetadata.stderr}`).toContain(
+        'missing required run metadata',
+      );
+      expect(missingMetadata.stdout).not.toContain('allowed proven-housekeeping-prune');
 
       writeFileSync(proofPath, `${JSON.stringify({
         schemaVersion: 2,

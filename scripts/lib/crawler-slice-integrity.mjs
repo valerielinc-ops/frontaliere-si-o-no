@@ -295,7 +295,7 @@ export function assertCrawlerSliceWriteSafe(
 function runCli() {
   const [filePath, previousPath, nextPath, housekeepingProofPath, basePath, candidatePath] = process.argv.slice(2);
   if (!filePath || !previousPath || !nextPath) {
-    console.error('usage: crawler-slice-integrity.mjs <file> <previous> <next> [housekeeping-proof]');
+    console.error('usage: crawler-slice-integrity.mjs <file> <previous> <next> [housekeeping-proof] [base] [candidate]');
     process.exitCode = 2;
     return;
   }
@@ -313,19 +313,26 @@ function runCli() {
       }
       const baseRaw = basePath ? fs.readFileSync(basePath, 'utf8') : '';
       const candidateRaw = candidatePath ? fs.readFileSync(candidatePath, 'utf8') : '';
+      const proofBaseSha = String(proof.baseSha ?? '').trim();
+      const proofRunId = String(proof.runId ?? '').trim();
+      const proofRunAttempt = String(proof.runAttempt ?? '').trim();
       const currentRunId = String(process.env.GITHUB_RUN_ID || '').trim();
       const currentRunAttempt = String(process.env.GITHUB_RUN_ATTEMPT || '').trim();
       const expectedBaseSha = String(process.env.HOUSEKEEPING_BASE_SHA || '').trim();
       if (proof.baseDigest !== sha256(baseRaw) || proof.candidateDigest !== sha256(candidateRaw)) {
         throw new Error(`stale housekeeping proof: snapshot digest mismatch for ${filePath}`);
       }
-      if (proof.runId && currentRunId && String(proof.runId) !== currentRunId) {
+      if (!proofBaseSha || !proofRunId || !proofRunAttempt
+        || !currentRunId || !currentRunAttempt || !expectedBaseSha) {
+        throw new Error(`invalid housekeeping proof: missing required run metadata for ${filePath}`);
+      }
+      if (proofRunId !== currentRunId) {
         throw new Error(`stale housekeeping proof: run mismatch for ${filePath}`);
       }
-      if (proof.runAttempt && currentRunAttempt && String(proof.runAttempt) !== currentRunAttempt) {
+      if (proofRunAttempt !== currentRunAttempt) {
         throw new Error(`stale housekeeping proof: run attempt mismatch for ${filePath}`);
       }
-      if (proof.baseSha && expectedBaseSha && String(proof.baseSha) !== expectedBaseSha) {
+      if (proofBaseSha !== expectedBaseSha) {
         throw new Error(`stale housekeeping proof: base snapshot mismatch for ${filePath}`);
       }
       housekeepingProof = { ...proof, baseRaw, candidateRaw };

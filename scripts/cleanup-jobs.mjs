@@ -107,6 +107,15 @@ function writeHousekeepingProof(slicePath, entries, { baseRaw, candidateRaw } = 
   const target = housekeepingProofPath(slicePath);
   if (!target) return;
 
+  const baseSha = String(process.env.GITHUB_SHA || '').trim();
+  const runId = String(process.env.GITHUB_RUN_ID || '').trim();
+  const runAttempt = String(process.env.GITHUB_RUN_ATTEMPT || '').trim();
+  if (!baseSha || !runId || !runAttempt) {
+    throw new Error(
+      'cannot write housekeeping proof without GITHUB_SHA, GITHUB_RUN_ID, and GITHUB_RUN_ATTEMPT',
+    );
+  }
+
   fs.mkdirSync(path.dirname(target.proofPath), { recursive: true });
   const temporaryPath = `${target.proofPath}.${process.pid}.tmp`;
   try {
@@ -115,9 +124,9 @@ function writeHousekeepingProof(slicePath, entries, { baseRaw, candidateRaw } = 
       path: target.relativePath,
       baseDigest: sha256(baseRaw),
       candidateDigest: sha256(candidateRaw),
-      baseSha: String(process.env.GITHUB_SHA || '').trim() || null,
-      runId: String(process.env.GITHUB_RUN_ID || '').trim() || null,
-      runAttempt: String(process.env.GITHUB_RUN_ATTEMPT || '').trim() || null,
+      baseSha,
+      runId,
+      runAttempt,
       entries,
     }, null, 2)}\n`, 'utf8');
     fs.renameSync(temporaryPath, target.proofPath);
