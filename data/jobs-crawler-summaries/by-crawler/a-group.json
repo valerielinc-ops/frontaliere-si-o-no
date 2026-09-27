@@ -1,16 +1,16 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-09-26T23:39:10.828Z",
+  "generatedAt": "2026-09-27T05:15:11.202Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2556,
-  "avgDurationMs": 2556,
+  "durationMs": 1983,
+  "avgDurationMs": 1983,
   "durationHistory": [
-    2556
+    1983
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-26",
+      "postedDate": "2026-09-27",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -55,47 +55,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Hospitality Manager – Luxury Hospitality",
-      "slug": "hospitality-manager-luxury-hospitality-a-plus-plus-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/hospitality-manager-luxury-hospitality-724675/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/hospitality-manager-luxury-hospitality-724675/en/",
-      "company": "A++ Group",
-      "companyKey": "a-group",
-      "companyDomain": "a2plus.green",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "postalCode": "6900",
-      "streetAddress": "Via Molinazzo 4",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "architecture",
-      "sector": "Architettura & Design",
-      "source": "a-plus-plus-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-08-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "a-group-555f4c55dbc7",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-28T05:26:25.994Z",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/hospitality-manager-luxury-hospitality-724675/en",
-      "needsRetranslation": true,
-      "_qualityScore": 65,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
-        "translation": 15,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

@@ -1,23 +1,24 @@
 {
   "key": "bls",
   "label": "BLS AG",
-  "generatedAt": "2026-09-26T23:40:13.229Z",
-  "total": 17,
+  "generatedAt": "2026-09-27T05:14:22.908Z",
+  "total": 15,
   "discovered": null,
   "parsed": 15,
   "lastFetchOutcome": null,
-  "written": 17,
+  "written": 15,
   "authoritativeEmptySnapshot": false,
-  "newCount": 8,
-  "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 15285,
-  "avgDurationMs": 15285,
+  "newCount": 0,
+  "updatedCount": 15,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 13962,
+  "avgDurationMs": 13962,
   "durationHistory": [
-    15285
+    13962
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bls-a2395e9fb3eb",
       "slug": "mechaniker-in-schienenfahrzeuge-bls-ch",
@@ -30,7 +31,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mechaniker-in-schienenfahrzeuge/add3e6ed-28c6-4bed-bdd2-e9530f294dc8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:39:55.517Z",
+      "crawledAt": "2026-09-27T05:14:06.199Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,11 +49,13 @@
       "pensum": "60-100%",
       "salary": "88418",
       "applyUrl": "https://jobs.bls.ch/apply/ats/add3e6ed-28c6-4bed-bdd2-e9530f294dc8",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T23:39:55.517Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -68,7 +71,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/diagnostiker-in/b9bdabad-d3bc-4317-980e-40cb73672195",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:39:56.296Z",
+      "crawledAt": "2026-09-27T05:14:06.834Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -86,17 +89,19 @@
       "pensum": "60-100%",
       "salary": "101898",
       "applyUrl": "https://jobs.bls.ch/apply/ats/b9bdabad-d3bc-4317-980e-40cb73672195",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T23:39:56.296Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
     {
       "id": "bls-a8bef2e644a5",
-      "slug": "fachperson-reinigung-und-unterhalt-bls-ch",
+      "slug": "fachperson-reinigung-e-unterhalt-bls-ag-hasle-bei-burgdorf",
       "company": "BLS AG",
       "companyKey": "bls",
       "companyDomain": "bls.ch",
@@ -106,7 +111,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-reinigung-und-unterhalt/eb773d02-256e-42d4-9642-bf3001f4fd68",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:39:56.971Z",
+      "crawledAt": "2026-09-27T05:14:07.464Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -124,11 +129,13 @@
       "pensum": "50-100%",
       "salary": "74332",
       "applyUrl": "https://jobs.bls.ch/apply/ats/eb773d02-256e-42d4-9642-bf3001f4fd68",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T22:46:30.891Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -144,7 +151,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-produktmanagement-vertrieb/44ebf6c5-6272-4b61-a700-179715d9cb19",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:39:58.508Z",
+      "crawledAt": "2026-09-27T05:14:08.929Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -161,11 +168,13 @@
       "validThrough": "2026-10-16",
       "pensum": "60-100%",
       "applyUrl": "https://jobs.bls.ch/apply/ats/44ebf6c5-6272-4b61-a700-179715d9cb19",
-      "_qualityScore": 65,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T23:39:58.508Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 21,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -181,7 +190,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-sap-technologie/24e78809-44d5-4b7f-a597-b68042dea70f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:40:04.771Z",
+      "crawledAt": "2026-09-27T05:14:15.254Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -198,11 +207,13 @@
       "validThrough": "2026-10-14",
       "pensum": "70-100%",
       "applyUrl": "https://jobs.bls.ch/apply/ats/24e78809-44d5-4b7f-a597-b68042dea70f",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T23:40:04.771Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -218,7 +229,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachverantwortliche-r-iam/0b8a0bd1-28e7-47d7-bf45-01c2994d28e8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:39:57.826Z",
+      "crawledAt": "2026-09-27T05:14:08.203Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -235,11 +246,13 @@
       "validThrough": "2026-10-13",
       "pensum": "80-100%",
       "applyUrl": "https://jobs.bls.ch/apply/ats/0b8a0bd1-28e7-47d7-bf45-01c2994d28e8",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T23:39:57.826Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -255,7 +268,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-lokomotiven/5ecfee78-9a11-46c9-9e59-4fae639bea2a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:40:04.080Z",
+      "crawledAt": "2026-09-27T05:14:14.530Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -273,11 +286,13 @@
       "pensum": "60-100%",
       "salary": "88418",
       "applyUrl": "https://jobs.bls.ch/apply/ats/5ecfee78-9a11-46c9-9e59-4fae639bea2a",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T23:40:04.080Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -293,7 +308,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-automatiker-in/8988a228-5190-40c9-863b-e0e52b394870",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:40:05.454Z",
+      "crawledAt": "2026-09-27T05:14:15.999Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -311,16 +326,16 @@
       "pensum": "80-100%",
       "salary": "88418",
       "applyUrl": "https://jobs.bls.ch/apply/ats/8988a228-5190-40c9-863b-e0e52b394870",
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T22:46:39.303Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "bls-9c3138a4033d",
       "slug": "elektroinstallateur-in-bls-ch",
@@ -333,7 +348,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in/03c64118-291d-47b3-8c2e-ed41dfcb5ab3",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:40:02.621Z",
+      "crawledAt": "2026-09-27T05:14:13.052Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -351,6 +366,7 @@
       "pensum": "50-100%",
       "salary": "98179",
       "applyUrl": "https://jobs.bls.ch/apply/ats/03c64118-291d-47b3-8c2e-ed41dfcb5ab3",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-09T14:06:15.744Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -372,7 +388,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/devops-engineer/9f444a72-ac31-48e8-af8c-3dcbaf4edc95",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:40:02.002Z",
+      "crawledAt": "2026-09-27T05:14:12.414Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -389,6 +405,7 @@
       "validThrough": "2026-10-07",
       "pensum": "70-100%",
       "applyUrl": "https://jobs.bls.ch/apply/ats/9f444a72-ac31-48e8-af8c-3dcbaf4edc95",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:58:28.744Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -410,7 +427,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teilprojektleiter-in-oberbauleitung-loetschberg-basistunnel/2fd274d2-f0cf-435e-b83a-4c30bf6664cf",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:40:01.265Z",
+      "crawledAt": "2026-09-27T05:14:11.684Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -449,7 +466,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/99858068-a3fb-41fb-aa2f-dbd64dae6eb0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:39:59.812Z",
+      "crawledAt": "2026-09-27T05:14:10.310Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -467,6 +484,7 @@
       "pensum": "80-100%",
       "salary": "88418",
       "applyUrl": "https://jobs.bls.ch/apply/ats/99858068-a3fb-41fb-aa2f-dbd64dae6eb0",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:29:08.112Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -488,7 +506,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/d31bf417-0bf5-4aff-be08-d38c97a45489",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:40:00.563Z",
+      "crawledAt": "2026-09-27T05:14:10.945Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -506,6 +524,7 @@
       "pensum": "80-100%",
       "salary": "88418",
       "applyUrl": "https://jobs.bls.ch/apply/ats/d31bf417-0bf5-4aff-be08-d38c97a45489",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:29:07.410Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -527,7 +546,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrzeugbereitsteller-in/a8bc0154-aea7-4676-8a48-44f8fdb1ba88",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:40:03.365Z",
+      "crawledAt": "2026-09-27T05:14:13.808Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -545,6 +564,7 @@
       "pensum": "80-100%",
       "salary": "76200",
       "applyUrl": "https://jobs.bls.ch/apply/ats/a8bc0154-aea7-4676-8a48-44f8fdb1ba88",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:29:09.774Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -566,7 +586,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mitarbeiter-in-montage/9cec9d21-68ad-4fb0-abb8-f629847a6d4a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:39:59.122Z",
+      "crawledAt": "2026-09-27T05:14:09.571Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -584,6 +604,7 @@
       "pensum": "60-100%",
       "salary": "76200",
       "applyUrl": "https://jobs.bls.ch/apply/ats/9cec9d21-68ad-4fb0-abb8-f629847a6d4a",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-25T10:09:00.521Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -594,8 +615,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "bls-96a54e15e203",
       "slug": "metalworker-in-navigatore-in-thun-bls-ag-bern",
@@ -632,6 +652,7 @@
       "addressRegion": "BE",
       "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-thun/e010111f-5205-4020-9688-81bf2100eb0f",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -675,6 +696,7 @@
       "addressRegion": "BE",
       "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-interlaken/149bbf4e-e1e4-437b-b72f-fbcc4472d71b",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -683,5 +705,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
