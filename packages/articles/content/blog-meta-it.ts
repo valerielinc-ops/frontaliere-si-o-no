@@ -12129,6 +12129,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dumenza-furti-serata-settembre.title': 'Dumenza, tre furti in casa e un colpo fallito',
     'blog.article.dumenza-furti-serata-settembre.excerpt': 'Tre abitazioni colpite in via Santuario, via Fiume e via Dante. In via XX Settembre i ladri sono fuggiti dopo aver sentito i proprietari.',
     'blog.article.dumenza-furti-serata-settembre.imageAlt': 'Via residenziale di un borgo vicino al confine tra Ticino e Italia al tramonto',
+    'blog.article.bollettino-frontaliere-2026-09-27.title': 'Bollettino del frontaliere – 27 settembre 2026: 3544 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-09-27.excerpt': 'I numeri di oggi, 27 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-27.imageAlt': 'I numeri del giorno per i frontalieri – 27 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-27.seoDescription': 'Bollettino frontalieri del 27 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-27.ogDescription': 'I numeri del 27 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
