@@ -342,6 +342,49 @@ describe('crawler slice integrity guard', () => {
       .toBe('buehler-foreign-prune');
   });
 
+  it('rejects a removed legacy Bühler row with a non-integer miss streak', () => {
+    const previous = json({
+      crawlerKey: 'buehler',
+      jobs: [
+        buehlerJob(
+          'https://jobs.buhlergroup.com/job-vacancies/foreign-fractional',
+          'Plymouth',
+          CRAWLER_GRACE_PERIOD_MAX_MISSES + 0.5,
+        ),
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil', 'Uzwil'),
+      ],
+    });
+    const next = json({
+      crawlerKey: 'buehler',
+      jobs: [buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil', 'Uzwil')],
+    });
+
+    expect(isSafeBuehlerForeignPruneJobs(
+      'data/jobs/by-crawler/buehler.json',
+      JSON.parse(previous).jobs,
+      JSON.parse(next).jobs,
+    )).toBe(false);
+  });
+
+  it('rejects a retained Swiss Bühler row without source provenance', () => {
+    const previous = json({
+      crawlerKey: 'buehler',
+      jobs: [
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/foreign', 'Plymouth', CRAWLER_GRACE_PERIOD_MAX_MISSES),
+        buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil', 'Uzwil'),
+      ],
+    });
+    const sourceLessNextJob = buehlerJob('https://jobs.buhlergroup.com/job-vacancies/uzwil', 'Uzwil');
+    Reflect.deleteProperty(sourceLessNextJob, 'source');
+    const next = json({ crawlerKey: 'buehler', jobs: [sourceLessNextJob] });
+
+    expect(isSafeBuehlerForeignPruneJobs(
+      'data/jobs/by-crawler/buehler.json',
+      JSON.parse(previous).jobs,
+      JSON.parse(next).jobs,
+    )).toBe(false);
+  });
+
   it('keeps the Bühler shrink guarded when the migration proof is incomplete', () => {
     const previous = json({
       crawlerKey: 'buehler',

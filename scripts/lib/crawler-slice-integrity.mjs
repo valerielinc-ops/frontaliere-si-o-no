@@ -124,6 +124,7 @@ function isLegacySwissReHqFallback(job) {
 }
 
 function isLegacyBuehlerRow(job) {
+  const missStreak = Number(job?.crawlerMissStreak);
   return (
     String(job?.companyKey ?? '').trim() === 'buehler'
     && normalizedJobField(job?.source) === BUEHLER_LEGACY_SOURCE
@@ -131,7 +132,8 @@ function isLegacyBuehlerRow(job) {
     && normalizedJobField(job?.country) === 'ch'
     && normalizedJobField(job?.canton) === 'sg'
     && normalizedJobField(job?.addressRegion) === 'sg'
-    && Number(job?.crawlerMissStreak) >= CRAWLER_GRACE_PERIOD_MAX_MISSES
+    && Number.isInteger(missStreak)
+    && missStreak >= CRAWLER_GRACE_PERIOD_MAX_MISSES
   );
 }
 
@@ -149,6 +151,7 @@ function isCurrentBuehlerSwissJob(job) {
   const location = String(job?.location ?? '').trim();
   return (
     String(job?.companyKey ?? '').trim() === 'buehler'
+    && normalizedJobField(job?.source) === BUEHLER_LEGACY_SOURCE
     && normalizedJobField(job?.addressCountry) === 'ch'
     && normalizedJobField(job?.country) === 'ch'
     && normalizedJobField(job?.canton) === 'sg'
