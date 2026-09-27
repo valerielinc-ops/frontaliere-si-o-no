@@ -6824,6 +6824,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.congedo-parentale-firme-riuscita.title': 'Parental leave: 136 thousand signatures collected in Switzerland',
     'blog.article.congedo-parentale-firme-riuscita.excerpt': 'Popular initiative for parental leave successful with 136\'000 signatures. Submission planned at the Federal Chancellery.',
     'blog.article.congedo-parentale-firme-riuscita.imageAlt': 'Signature collection for the parental leave popular initiative in Switzerland',
+    'blog.article.esercito-divisa-grigia-dismissione.title': 'Army, farewell to the dress uniform, and decommissioned uniforms are burned',
+    'blog.article.esercito-divisa-grigia-dismissione.excerpt': 'Since 2025, the traditional gray uniform of the Swiss army is assigned only for representative tasks, generating savings of about 55 million.',
+    'blog.article.esercito-divisa-grigia-dismissione.imageAlt': 'Swiss army uniforms in Bern',
 };
 
 export default blogMetaChEn;
