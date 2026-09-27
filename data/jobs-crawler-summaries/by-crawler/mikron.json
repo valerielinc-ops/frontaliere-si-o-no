@@ -1,18 +1,53 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-09-26T14:14:26.500Z",
+  "generatedAt": "2026-09-26T23:45:08.713Z",
   "total": 6,
-  "newCount": 5,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15653,
-  "avgDurationMs": 15653,
+  "durationMs": 14313,
+  "avgDurationMs": 14313,
   "durationHistory": [
-    15653
+    14313
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "url": "https://www.mikron.com/en/polymecanic-team-leader",
+      "applyUrl": "https://www.mikron.com/en/polymecanic-team-leader",
+      "title": "Polymecanic Team Leader",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "polymecanic-team-leader-mikron",
+      "sourceLang": "fr",
+      "category": "management",
+      "datePosted": "2026-09-04",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "firstSeenAt": "2026-09-04T13:45:42.652Z",
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 15
+      }
+    },
     {
       "url": "https://www.mikron.com/en/controls-engineer-specialist-mfd",
       "applyUrl": "https://www.mikron.com/en/controls-engineer-specialist-mfd",
@@ -36,6 +71,7 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "firstSeenAt": "2026-09-26T14:14:20.306Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "_qualityScore": 66,
@@ -69,6 +105,7 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "firstSeenAt": "2026-09-26T14:14:20.306Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "_qualityScore": 66,
@@ -102,6 +139,7 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "firstSeenAt": "2026-09-26T14:14:20.306Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "_qualityScore": 66,
@@ -135,13 +173,14 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "firstSeenAt": "2026-09-26T14:14:20.306Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
-      "_qualityScore": 66,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
+        "translation": 17,
         "completeness": 15
       }
     },
@@ -168,48 +207,13 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "firstSeenAt": "2026-09-26T14:14:20.306Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
-      "_qualityScore": 66,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
-        "completeness": 15
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "url": "https://www.mikron.com/en/polymecanic-team-leader",
-      "applyUrl": "https://www.mikron.com/en/polymecanic-team-leader",
-      "title": "Polymecanic Team Leader",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Boudry",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2017",
-      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
-      "slug": "polymecanic-team-leader-mikron",
-      "sourceLang": "fr",
-      "category": "management",
-      "datePosted": "2026-09-04",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Boudry"
-      },
-      "firstSeenAt": "2026-09-04T13:45:42.652Z",
-      "addressLocality": "Boudry",
-      "addressRegion": "NE",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 21,
         "completeness": 15
       }

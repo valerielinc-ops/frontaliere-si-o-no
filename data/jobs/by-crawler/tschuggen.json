@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-09-26T14:02:40.901Z",
+  "assembledAt": "2026-09-26T23:41:12.865Z",
   "jobs": [
     {
       "id": "bewerbermanagement-stellen-f444ba36dc64",
@@ -9,7 +9,7 @@
         "it": "food-and-beverage-manager-m-f-d-in-occupazione-permanente-tschuggen-collection-st-moritz",
         "en": "food-and-beverage-manager-m-f-d-in-permanent-employment-tschuggen-collection-st-moritz",
         "de": "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
-        "fr": "gestionnaire-des-aliments-et-boissons-m-f-j-en-emploi-permanent-tschuggen-collection-st-moritz"
+        "fr": "food-and-beverage-manager-m-w-d-poste-a-duree-indeterminee-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:35.192Z",
+      "crawledAt": "2026-09-26T23:41:06.085Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -55,21 +55,26 @@
         "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-bewerbermanagement-stellen-ch",
         "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
         "f-b-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
+        "gestionnaire-des-aliments-et-boissons-m-f-j-en-emploi-permanent-tschuggen-collection-st-moritz",
+        "food-and-beverage-manager-m-f-d-in-occupazione-permanente-tschuggen-collection-st-moritz",
         "food-and-beverage-manager-m-w-d-poste-a-duree-indeterminee-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-bewerbermanagement-stellen-ch",
           "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
-          "f-b-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
+          "f-b-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
+          "food-and-beverage-manager-m-f-d-in-occupazione-permanente-tschuggen-collection-st-moritz"
         ],
         "de": [
           "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-bewerbermanagement-stellen-ch"
         ],
         "fr": [
+          "gestionnaire-des-aliments-et-boissons-m-f-j-en-emploi-permanent-tschuggen-collection-st-moritz",
           "food-and-beverage-manager-m-w-d-poste-a-duree-indeterminee-tschuggen-collection-st-moritz"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:46:41.897Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
@@ -84,8 +89,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-a863307370a6",
@@ -118,7 +122,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:34.208Z",
+      "crawledAt": "2026-09-26T23:41:05.100Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -143,7 +147,8 @@
         "service-employees-m-f-d-winter-season-2026-2027-tschuggen-collection-arosa",
         "servicemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "employes-des-services-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-arosa",
-        "servicemitarbeiter-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch"
+        "servicemitarbeiter-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
+        "professionista-del-servizio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -153,7 +158,8 @@
           "service-employees-m-f-d-winter-season-2026-2027-tschuggen-collection-arosa",
           "servicemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch",
           "employes-des-services-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-arosa",
-          "servicemitarbeiter-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch"
+          "servicemitarbeiter-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
+          "professionista-del-servizio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa"
         ],
         "en": [
           "servicepraktikant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
@@ -169,6 +175,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:33.506Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -215,7 +222,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:33.238Z",
+      "crawledAt": "2026-09-26T23:41:04.147Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -235,7 +242,8 @@
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugsByLocale": {
         "de": [
-          "sous-chef-m-w-d-wintersaison-2026-27-tschuggen-ch"
+          "sous-chef-m-w-d-wintersaison-2026-27-tschuggen-ch",
+          "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch"
         ],
         "it": [
           "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
@@ -262,6 +270,7 @@
         "sous-chef-m-w-d-wintersaison-2026-27-tschuggen-ch",
         "sous-chef-h-f-d-saison-d-hiver-2026-27-tschuggen-collection-arosa"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T21:43:13.922Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -276,8 +285,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-db8be080832f",
@@ -310,7 +318,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1059/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:32.261Z",
+      "crawledAt": "2026-09-26T23:41:03.186Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -330,12 +338,14 @@
       "hotelName": "Valsana Hotel Arosa",
       "previousSlugs": [
         "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch",
-        "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-collection-arosa"
+        "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-collection-arosa",
+        "masseur-cosmeticista-m-f-d-stagione-invernale-26-27-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch",
-          "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-collection-arosa"
+          "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-collection-arosa",
+          "masseur-cosmeticista-m-f-d-stagione-invernale-26-27-tschuggen-collection-arosa"
         ],
         "en": [
           "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch"
@@ -344,6 +354,7 @@
           "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:43:40.622Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -358,8 +369,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-2bb7c02e5260",
@@ -392,7 +402,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1394/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:30.693Z",
+      "crawledAt": "2026-09-26T23:41:01.647Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -411,11 +421,13 @@
       "department": "Küche",
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugs": [
-        "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "dipendente-ufficio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+          "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+          "dipendente-ufficio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
         ],
         "en": [
           "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch"

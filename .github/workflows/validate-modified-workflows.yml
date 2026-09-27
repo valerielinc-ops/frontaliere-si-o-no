@@ -43,6 +43,7 @@ jobs:
             !/data/evidence-index.json
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
+            /scripts/ci/line-at.mjs
           sparse-checkout-cone-mode: false
 
       - name: Validate workflow contracts

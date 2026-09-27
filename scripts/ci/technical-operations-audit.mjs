@@ -80,6 +80,8 @@ function lineFor(source, needle) {
   // old slice+split rescanned the whole prefix for every call (quadratic in the
   // number of steps); retain one file-local index and resolve each match with
   // a binary search instead.
+  // shared helper indexes each source once and resolves matches with a binary
+  // search instead of rescanning the whole prefix for every call.
   return lineAt(source, index);
 }
 

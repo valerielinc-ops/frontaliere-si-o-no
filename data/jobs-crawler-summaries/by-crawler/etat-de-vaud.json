@@ -1,7 +1,7 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-09-26T14:10:42.238Z",
+  "generatedAt": "2026-09-26T23:46:54.368Z",
   "total": 45,
   "discovered": null,
   "parsed": 41,
@@ -9,16 +9,18 @@
   "written": 45,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 22445,
-  "avgDurationMs": 22445,
+  "unchangedCount": 1,
+  "durationMs": 22236,
+  "avgDurationMs": 22236,
   "durationHistory": [
-    22445
+    22236
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5876",
       "slug": "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-vevey",
@@ -52,7 +54,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "sourceIdentity": "url:https://offres-emploi.vd.ch/",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -61,7 +63,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

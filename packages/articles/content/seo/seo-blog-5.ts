@@ -94726,6 +94726,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-brezzo-bedero-rifiuti-lago-maggiore': {
+    title: 'Denunciato per rifiuti nel lago Maggiore a Brezzo di Bedero',
+    description: 'Carabinieri Forestali denunciano un residente di Brezzo di Bedero per aver gettato macerie edili nel lago Maggiore. Obbligo di recupero a proprie spese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, denunciato, rifiuti, lago, maggiore',
+    ogTitle: 'Macerie nel lago Maggiore: denunciato proprietario a Brezzo',
+    ogDescription: 'Un proprietario di casa a Brezzo di Bedero è stato denunciato per aver sversato macerie edili nel lago Maggiore. I sommozzatori hanno recuperato detriti a 13 metri di profondità. Obbligo di ripristino a sue spese.',
+    canonicalPath: '/articoli-frontaliere/brezzo-bedero-rifiuti-lago-maggiore',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Denunciato per rifiuti nel lago Maggiore a Brezzo di Bedero",
+      "description": "Carabinieri Forestali denunciano un residente di Brezzo di Bedero per aver gettato macerie edili nel lago Maggiore. Obbligo di recupero a proprie spese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/brezzo-bedero-rifiuti-lago-maggiore.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Detriti edili e macerie sul fondale del lago Maggiore a Brezzo di Bedero"
+      },
+      "datePublished": "2026-09-27T00:22:56+00:00",
+      "dateModified": "2026-09-27T00:22:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/brezzo-bedero-rifiuti-lago-maggiore/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
