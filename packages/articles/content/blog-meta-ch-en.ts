@@ -6860,6 +6860,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.votazioni-ginevra-contraccezione-libera.title': 'Geneva approves free contraception with 58,5%',
     'blog.article.votazioni-ginevra-contraccezione-libera.excerpt': '58,5% of Geneva voters approved free contraception; turnout 44,2%, estimated cost 20 million francs/year, implementation expected in 2028.',
     'blog.article.votazioni-ginevra-contraccezione-libera.imageAlt': 'Pharmacist handing a contraceptive pill package to diverse people in a Geneva pharmacy',
+    'blog.article.zurigo-suicidio-assistito.title': 'Zurich, yes to assisted suicide in healthcare facilities',
+    'blog.article.zurigo-suicidio-assistito.excerpt': 'In Zurich, 68,1% approve assisted suicide in healthcare facilities. Turnout 47,6%; the law on teachers was rejected by 59,2%.',
+    'blog.article.zurigo-suicidio-assistito.imageAlt': 'Zurich vote on assisted suicide in healthcare facilities',
 };
 
 export default blogMetaChEn;

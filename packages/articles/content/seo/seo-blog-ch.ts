@@ -88940,6 +88940,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zurigo-suicidio-assistito': {
+    title: 'Zurigo, sì al suicidio assistito nelle strutture sanitarie',
+    description: 'Zurigo: 68,1% al suicidio assistito in case anziani, cure, ospedali e riabilitazione; partecipazione 47,6%. No 59,2% agli insegnanti, costi temuti 83 milioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, zurigo, suicidio, assistito, nelle',
+    ogTitle: 'Zurigo, sì al suicidio assistito nelle strutture sanitarie',
+    ogDescription: 'Il voto di Zurigo estende l\'obbligo di consentire il suicidio assistito a case per anziani, strutture di cura, ospedali e cliniche di riabilitazione. Restano fuori psichiatria e carceri; bocciata la legge sugli insegnanti.',
+    canonicalPath: '/articoli-svizzera/zurigo-suicidio-assistito/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zurigo, sì al suicidio assistito nelle strutture sanitarie",
+      "description": "Zurigo: 68,1% al suicidio assistito in case anziani, cure, ospedali e riabilitazione; partecipazione 47,6%. No 59,2% agli insegnanti, costi temuti 83 milioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zurigo-suicidio-assistito.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Voto a Zurigo sull'obbligo del suicidio assistito nelle strutture sanitarie"
+      },
+      "datePublished": "2026-09-27T20:26:34+00:00",
+      "dateModified": "2026-09-27T20:26:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zurigo-suicidio-assistito/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

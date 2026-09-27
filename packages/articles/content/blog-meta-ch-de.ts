@@ -6860,6 +6860,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.votazioni-ginevra-contraccezione-libera.title': 'Genf befürwortet kostenlose Verhütung mit 58,5%',
     'blog.article.votazioni-ginevra-contraccezione-libera.excerpt': '58,5% der Genfer Stimmberechtigten haben die kostenlose Verhütung gebilligt; Beteiligung 44,2%, geschätzte Kosten 20 Millionen Franken/Jahr, Umsetzung für 2028 vorgesehen.',
     'blog.article.votazioni-ginevra-contraccezione-libera.imageAlt': 'Apothekerin, die ein Verhütungspaket an verschiedene Personen in einer Genfer Apotheke übergibt',
+    'blog.article.zurigo-suicidio-assistito.title': 'Zürich, Ja zum assistierten Suizid in Gesundheitseinrichtungen',
+    'blog.article.zurigo-suicidio-assistito.excerpt': 'In Zürich befürworten 68,1% den assistierten Suizid in Gesundheitseinrichtungen. Beteiligung 47,6%; das Lehrergesetz wurde mit 59,2% abgelehnt.',
+    'blog.article.zurigo-suicidio-assistito.imageAlt': 'Abstimmung in Zürich über assistierten Suizid in Gesundheitseinrichtungen',
 };
 
 export default blogMetaChDe;

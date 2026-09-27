@@ -20608,6 +20608,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'zurigo-suicidio-assistito',
+    category: 'novita',
+    date: '2026-09-27T20:26:34.846Z',
+    image: '/images/blog/zurigo-suicidio-assistito.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
