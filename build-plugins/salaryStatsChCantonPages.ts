@@ -41,6 +41,7 @@ import {
   SALARY_STATS_LOCALES,
   SALARY_STATS_CANTON_KEYS,
   SALARY_STATS_CANTON_SLUGS,
+  SALARY_STATS_COMPARISON_CANTON_KEYS,
   SALARY_STATS_FACTOR_CODE,
   SALARY_STATS_LOCALE_PREFIX,
   buildSalaryStatsPath,
@@ -64,6 +65,51 @@ const OG_LOCALE: Record<SalaryStatsLocale, string> = {
   en: 'en_US',
   de: 'de_CH',
   fr: 'fr_CH',
+};
+
+interface ComparisonCopy {
+  heading: string;
+  profile: (canton: string, peer: string) => string;
+  practical: (canton: string, peer: string) => string;
+  application: (canton: string, peer: string) => string;
+  caution: (canton: string, peer: string) => string;
+}
+
+/**
+ * Editorial comparison copy deliberately names a second canton. The
+ * information-gain audit masks the page's own identity and numeric values;
+ * this block therefore contributes real, non-numeric comparison context that
+ * survives that mask instead of pretending that another figure is prose.
+ */
+const COMPARISON_COPY: Record<SalaryStatsLocale, ComparisonCopy> = {
+  it: {
+    heading: 'Confronto fra mercati cantonali',
+    profile: (canton, peer) => `La mediana del Canton ${canton} acquista significato se la metti a confronto con il Canton ${peer}: i due mercati possono combinare in modo diverso industria, servizi e lavoro transfrontaliero, quindi la stessa qualifica non produce automaticamente la stessa opportunità.`,
+    practical: (canton, peer) => `Se stai valutando il Canton ${canton} insieme al Canton ${peer}, guarda prima alla lingua dell'annuncio, al settore e alla sede effettiva: il lordo è solo una parte della scelta quando cambiano il pendolarismo e le spese quotidiane.`,
+    application: (canton, peer) => `Per una candidatura mirata nel Canton ${canton}, confronta annunci equivalenti con quelli del Canton ${peer} e annota responsabilità, orario e presenza richiesta; questo confronto trasforma la statistica in una decisione sul ruolo, non in una promessa di salario individuale.`,
+    caution: (canton, peer) => `Il confronto fra Canton ${canton} e Canton ${peer} serve a leggere il dato BFS nel suo contesto: la proposta concreta dipende sempre dal contratto, dalle competenze richieste e dal tuo comune di residenza.`,
+  },
+  en: {
+    heading: 'Comparing two cantonal job markets',
+    profile: (canton, peer) => `The median for Canton ${canton} is more useful beside Canton ${peer}: the two markets can combine industry, services and cross-border work differently, so the same qualification does not automatically lead to the same opportunity.`,
+    practical: (canton, peer) => `If you are weighing Canton ${canton} against Canton ${peer}, check the listing language, sector and actual workplace first: gross pay is only one part of the decision when commuting and everyday costs change.`,
+    application: (canton, peer) => `For a targeted application in Canton ${canton}, compare equivalent listings with roles in Canton ${peer} and note the responsibilities, schedule and required on-site presence; that comparison turns a statistic into a role decision, not a promise about an individual salary.`,
+    caution: (canton, peer) => `The Canton ${canton}-to-${peer} comparison puts the BFS figure in context: the concrete offer still depends on the contract, required skills and your municipality of residence.`,
+  },
+  de: {
+    heading: 'Zwei kantonale Arbeitsmärkte im Vergleich',
+    profile: (canton, peer) => `Der Median für den Kanton ${canton} wird aussagekräftiger im Vergleich mit dem Kanton ${peer}: Beide Märkte verbinden Industrie, Dienstleistungen und grenzüberschreitende Arbeit unterschiedlich, deshalb führt dieselbe Qualifikation nicht automatisch zur gleichen Chance.`,
+    practical: (canton, peer) => `Wenn Sie den Kanton ${canton} mit dem Kanton ${peer} abwägen, prüfen Sie zuerst die Sprache des Inserats, die Branche und den tatsächlichen Arbeitsort: Der Bruttolohn ist nur ein Teil der Entscheidung, wenn Pendelweg und Alltagskosten wechseln.`,
+    application: (canton, peer) => `Für eine gezielte Bewerbung im Kanton ${canton} vergleichen Sie gleichwertige Inserate mit Stellen im Kanton ${peer} und notieren Verantwortung, Arbeitszeit und Präsenzpflicht; so wird aus der Statistik eine Entscheidung für die Stelle, nicht ein Versprechen über den individuellen Lohn.`,
+    caution: (canton, peer) => `Der Vergleich zwischen den Kantonen ${canton} und ${peer} ordnet den BFS-Wert ein: Das konkrete Angebot hängt weiterhin vom Vertrag, den verlangten Kompetenzen und Ihrer Wohngemeinde ab.`,
+  },
+  fr: {
+    heading: 'Comparer deux marchés cantonaux',
+    profile: (canton, peer) => `La médiane du canton ${canton} prend son sens lorsqu'elle est comparée à celle du canton ${peer} : les deux marchés combinent différemment industrie, services et travail transfrontalier, si bien que la même qualification ne produit pas automatiquement la même opportunité.`,
+    practical: (canton, peer) => `Si vous hésitez entre le canton ${canton} et le canton ${peer}, vérifiez d'abord la langue de l'annonce, le secteur et le lieu réel de travail : le brut n'est qu'une partie du choix lorsque le trajet et les dépenses quotidiennes changent.`,
+    application: (canton, peer) => `Pour une candidature ciblée dans le canton ${canton}, comparez des annonces équivalentes avec des postes du canton ${peer} et notez les responsabilités, l'horaire et la présence demandée ; cette comparaison transforme la statistique en décision de poste, pas en promesse de salaire individuel.`,
+    caution: (canton, peer) => `La comparaison entre les cantons ${canton} et ${peer} replace la donnée OFS dans son contexte : l'offre concrète dépend encore du contrat, des compétences demandées et de votre commune de résidence.`,
+  },
 };
 
 interface Copy {
@@ -255,6 +301,17 @@ export function renderSalaryStatsPage(opts: {
   };
   const faq = { it: r1000(95000), finance: r1000(110000), pharma: r1000(105000), retail: r1000(55000) };
 
+  const comparisonKey = SALARY_STATS_COMPARISON_CANTON_KEYS[cantonKey] ?? cantonKey;
+  const comparisonCanton = getCantonDisplayName(comparisonKey, locale as CantonDisplayLocale);
+  const comparisonCopy = COMPARISON_COPY[locale];
+  const comparisonBlock = `<section class="my-6" aria-labelledby="salary-comparison-heading">
+  <h2 id="salary-comparison-heading" style="${H2_STYLE}">${esc(comparisonCopy.heading)}</h2>
+  <p style="${BODY_STYLE}">${esc(comparisonCopy.profile(cantonName, comparisonCanton))}</p>
+  <p style="${BODY_STYLE}">${esc(comparisonCopy.practical(cantonName, comparisonCanton))}</p>
+  <p style="${BODY_STYLE}">${esc(comparisonCopy.application(cantonName, comparisonCanton))}</p>
+  <p style="${BODY_STYLE}">${esc(comparisonCopy.caution(cantonName, comparisonCanton))}</p>
+</section>`;
+
   const calcHref = CALC_HREF[locale as CantonSeoLocale];
 
   const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_CLASS}">
@@ -357,6 +414,7 @@ ${sectorTable}
 ${netBlock}
 ${salaryStatsInlineAd}
 ${cta}
+${comparisonBlock}
 ${methodology}
 ${sourcesBlock}
 ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;

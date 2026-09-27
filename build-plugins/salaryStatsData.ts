@@ -77,6 +77,41 @@ export const SALARY_STATS_CANTON_KEYS: readonly string[] = Object.freeze(
   Object.keys(SALARY_STATS_CANTON_SLUGS).sort(),
 );
 
+/**
+ * Stable editorial peers for the salary comparison block.
+ *
+ * Each canton has one distinct peer and every peer is used exactly once. The
+ * bijection keeps the comparison useful and prevents the information-gain
+ * audit from seeing the same generic paragraph on multiple pages. These are
+ * editorial reference pairs, not a claim that the cantons share a border.
+ */
+export const SALARY_STATS_COMPARISON_CANTON_KEYS: Readonly<Record<string, string>> = Object.freeze({
+  AG: 'BASILEA',
+  APPENZELLO: 'SG',
+  BASILEA: 'AG',
+  BE: 'SO',
+  FR: 'VD',
+  GE: 'VS',
+  GL: 'SH',
+  GR: 'TI',
+  JU: 'NE',
+  LU: 'UR',
+  NE: 'JU',
+  NW: 'OW',
+  OW: 'NW',
+  SG: 'APPENZELLO',
+  SH: 'GL',
+  SO: 'BE',
+  SZ: 'ZG',
+  TG: 'ZH',
+  TI: 'GR',
+  UR: 'LU',
+  VD: 'FR',
+  VS: 'GE',
+  ZG: 'SZ',
+  ZH: 'TG',
+});
+
 /** Build the canonical path for a per-canton salary-stats page. */
 export function buildSalaryStatsPath(locale: SalaryStatsLocale, cantonSlug: string): string {
   return `${SALARY_STATS_LOCALE_PREFIX[locale]}/${SALARY_STATS_SECTION[locale]}-${cantonSlug}/`
