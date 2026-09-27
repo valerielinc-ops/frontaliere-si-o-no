@@ -147,10 +147,13 @@ export const RAIL_RESERVE_CSS =
  * the async sheet swaps in on a cold static page.
  */
 const STATIC_AD_SELECTOR = 'ins.ads' + 'bygoogle';
+const STATIC_AD_LEGACY_SELECTOR = `${STATIC_AD_SELECTOR}[data-ad-slot="2093992129"]`;
+const STATIC_AD_COLLAPSE_SELECTOR =
+  `${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed],${STATIC_AD_LEGACY_SELECTOR}[data-ad-status="unfilled"]`;
 
 export const STATIC_AD_COLLAPSE_CSS =
-  `${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]{min-height:0!important;max-height:0!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;display:block!important}` +
-  `:where(div,li,section):has(> ${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}`;
+  `${STATIC_AD_COLLAPSE_SELECTOR}{min-height:0!important;max-height:0!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;display:block!important}` +
+  `:where(div,li,section):has(> ${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]),:where(div,li,section):has(> ${STATIC_AD_LEGACY_SELECTOR}[data-ad-status="unfilled"]){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}`;
 
 /**
  * Static SEO landing layout, mirrored from the ASYNC `seo-static.css`

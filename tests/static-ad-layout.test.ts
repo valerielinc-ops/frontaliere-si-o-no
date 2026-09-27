@@ -19,6 +19,9 @@ describe('static AdSense layout recovery', () => {
 
   it('collapses a static slot only after no-fill or the shared fill budget', () => {
     expect(ADSENSE_LOADER_CONTENT).toContain('data-ft-static-ad');
+    expect(ADSENSE_LOADER_CONTENT).toContain("staticAdLegacySlot='2093992129'");
+    expect(ADSENSE_LOADER_CONTENT).toContain("getAttribute('data-ad-slot')===staticAdLegacySlot");
+    expect(ADSENSE_LOADER_CONTENT).toContain('staticAdIsTarget(slots[i])');
     expect(ADSENSE_LOADER_CONTENT).toContain('data-ft-static-ad-collapsed');
     expect(ADSENSE_LOADER_CONTENT).toContain("getAttribute('data-ad-status')==='unfilled'");
     expect(ADSENSE_LOADER_CONTENT).toContain(String(AD_FILL_TIMEOUT_MS));
@@ -42,9 +45,11 @@ describe('static AdSense layout recovery', () => {
     const css = readFileSync(resolve(ROOT, 'index.css'), 'utf8');
 
     expect(css).toContain('ins.adsbygoogle[data-ft-static-ad-collapsed]');
+    expect(css).toContain('data-ad-slot="2093992129"][data-ad-status="unfilled"]');
     expect(css).toContain('height: 0 !important');
     expect(css).toContain(':where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed])');
     expect(STATIC_AD_COLLAPSE_CSS).toContain('data-ft-static-ad-collapsed');
+    expect(STATIC_AD_COLLAPSE_CSS).toContain('data-ad-slot="2093992129"');
   });
 });
 
