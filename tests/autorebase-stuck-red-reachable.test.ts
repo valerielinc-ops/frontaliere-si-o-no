@@ -21,7 +21,11 @@
 // in ~2 minuti.
 //
 // Questi test pinnano l'ORDINE, non l'esito: il calcolo deve precedere il solo
-// gate near-merge e nessuna label operativa deve introdurre un veto separato.
+// gate near-merge e nessuna label operativa, DA SOLA, deve introdurre un veto
+// separato. Dal 2026-09-27 `needs-human` insieme a un ultimo verdetto del
+// reviewer bloccante è un veto (loop #9959, `needsHumanBlocksAutorebase`), ma
+// viene valutato DOPO questo calcolo e non tocca una PR senza verdetto
+// bloccante — che è il caso #6253/#6254/#6255.
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -42,6 +46,9 @@ describe('pr-autorebase: lo stuck-red rescue è raggiungibile', () => {
     expect(calc, 'il calcolo dello stuck-red è sparito').toBeGreaterThan(-1);
     expect(body).not.toContain("labels.includes('needs-human')");
     expect(body).not.toContain('decideNeedsHumanPass');
+    // L'unico veto `needs-human` ammesso segue il calcolo e dipende dal verdetto.
+    const veto = at('needsHumanBlocksAutorebase({ labels, verdict: reviewerVerdict })');
+    expect(veto, 'veto needs-human+verdetto assente o spostato').toBeGreaterThan(calc);
   });
 
   it('non condiziona il calcolo a !nearMerge', () => {
