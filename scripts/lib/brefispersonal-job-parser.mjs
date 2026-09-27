@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
@@ -121,6 +121,47 @@ async function fetchJobListings() {
 }
 
 /**
+ * Resolve the source-backed geography for a Brefis listing.
+ *
+ * Brefis currently emits the canton code (`ZH`) in both `location` and
+ * `addressLocality`. The shared resolver correctly rejects that as a
+ * municipality, so use a city from the same vacancy description only when it
+ * corroborates the structured canton. If the description has no city, retain
+ * the structured canton-only evidence instead of inventing an employer HQ.
+ *
+ * @param {Record<string, any>} listing
+ * @param {string} descriptionText
+ * @returns {{ location: string, canton: string, addressCountry?: string }|null}
+ */
+export function resolveBrefispersonalGeography(listing, descriptionText = '') {
+  const addressLocality = normalizeSpace(listing?.addressLocality || '');
+  const addressRegion = normalizeSpace(listing?.addressRegion || '');
+  const structuredCanton = inferSwissTargetCanton(addressRegion || listing?.location || '');
+  const cantonOnlyLocality = Boolean(
+    addressLocality
+    && /^[A-Za-z]{2}$/.test(addressLocality)
+    && inferSwissTargetCanton(addressLocality) === structuredCanton,
+  );
+  const structuredListing = cantonOnlyLocality
+    ? { ...listing, addressLocality: '' }
+    : listing;
+  const structured = resolveSourceBackedSwissGeography(structuredListing);
+  if (!cantonOnlyLocality) return structured;
+
+  const city = rescueSwissCityFromText(descriptionText);
+  if (city && (!structuredCanton || inferSwissTargetCanton(city) === structuredCanton)) {
+    const fromDescription = resolveSourceBackedSwissGeography({
+      location: city,
+      addressLocality: city,
+      addressRegion,
+      addressCountry: listing?.addressCountry || 'CH',
+    });
+    if (fromDescription) return fromDescription;
+  }
+  return structured;
+}
+
+/**
  * Fetch all brefis personal ag jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -146,14 +187,14 @@ export async function fetchAllBrefispersonalJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing);
+    const descriptionHtml = listing.description || '';
+    const descriptionText = stripHtml(descriptionHtml);
+    if (!descriptionText) continue;
+    const geography = resolveBrefispersonalGeography(listing, descriptionText);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
     const { location, canton } = geography;
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) continue;
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
