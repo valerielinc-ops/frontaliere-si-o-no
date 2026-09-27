@@ -94999,6 +94999,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cannobio-caserma-spagnulo': {
+    title: 'Cannobio, caserma intitolata ad Angelo Spagnulo',
+    description: 'A Cannobio la caserma dei Carabinieri è stata intitolata ad Angelo Spagnulo, ucciso nel 2005 a 25 anni mentre tentava di fermare una rapina. Il ricordo è vivo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cannobio, caserma, intitolata, angelo',
+    ogTitle: 'Cannobio ricorda Angelo Spagnulo con una caserma',
+    ogDescription: 'La cerimonia a Cannobio ha ricordato il Carabiniere Scelto Angelo Spagnulo, ucciso a 25 anni nel 2005 mentre, libero dal servizio, tentava di fermare una rapina. Presenti la famiglia, il sindaco Gianmaria Minazzi e i vertici dell\'Arma.',
+    canonicalPath: '/articoli-frontaliere/cannobio-caserma-spagnulo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cannobio, caserma intitolata ad Angelo Spagnulo",
+      "description": "A Cannobio la caserma dei Carabinieri è stata intitolata ad Angelo Spagnulo, ucciso nel 2005 a 25 anni mentre tentava di fermare una rapina. Il ricordo è vivo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cannobio-caserma-spagnulo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cerimonia a Cannobio per l'intitolazione della caserma dei Carabinieri ad Angelo Spagnulo"
+      },
+      "datePublished": "2026-09-27T05:23:47+00:00",
+      "dateModified": "2026-09-27T05:23:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cannobio-caserma-spagnulo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
