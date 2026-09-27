@@ -17,6 +17,7 @@
  * the listing without knowing anything about the vendor. It degrades honestly:
  * a page with no repeated template yields nothing rather than yielding noise.
  */
+import { createHash } from 'node:crypto';
 import { normalizeHost, safeDecodePath } from './registrable.mjs';
 import { decodeEntities } from './entities.mjs';
 import { readAttr, scanHtmlTags } from '../html-attr.mjs';
@@ -208,6 +209,35 @@ function firstString(v) {
   return '';
 }
 
+// These fields describe freshness/expiry of a posting, not its identity. They
+// are allowed to change while the same vacancy remains live. Every other
+// structured field stays in the payload: in particular `identifier`,
+// `employmentType` and `hiringOrganization` can distinguish two URL-less
+// postings that happen to share the same title, date, description and place.
+const JSONLD_IDENTITY_VOLATILE_KEYS = new Set([
+  'dateModified',
+  'validThrough',
+]);
+
+/**
+ * Canonicalise a JSON-LD node without depending on source object key order.
+ * Arrays retain their order because it can itself be meaningful (for example
+ * an ordered list of locations or identifiers).
+ *
+ * @param {any} value
+ * @param {string} [key]
+ * @returns {any}
+ */
+function canonicalJsonLdIdentity(value, key = '') {
+  if (JSONLD_IDENTITY_VOLATILE_KEYS.has(key)) return undefined;
+  if (Array.isArray(value)) return value.map((item) => canonicalJsonLdIdentity(item));
+  if (!value || typeof value !== 'object') return value;
+  return Object.fromEntries(Object.keys(value).sort().flatMap((childKey) => {
+    const canonical = canonicalJsonLdIdentity(value[childKey], childKey);
+    return canonical === undefined ? [] : [[childKey, canonical]];
+  }));
+}
+
 /**
  * Normalised vacancy record. Field names mirror the ones the site's job
  * pipeline already uses, so a synthesised crawler needs no translation layer.
@@ -215,6 +245,7 @@ function firstString(v) {
  * @typedef {Object} Vacancy
  * @property {string} title
  * @property {string} url
+ * @property {string} [sourceUrl] The fetched page when `url` is an inline-posting identity
  * @property {boolean} [urlExplicit] Whether the structured record itself named the URL
  * @property {string} [company]
  * @property {string} [location]
@@ -241,16 +272,38 @@ function firstString(v) {
 export function extractJsonLd(html, pageUrl) {
   /** @type {Vacancy[]} */
   const out = [];
-  for (const node of jsonLdBlocks(html)) {
-    if (!isJobPostingNode(node)) continue;
+  const postingNodes = jsonLdBlocks(html).filter(isJobPostingNode);
+  const urlLessPostingCount = postingNodes.filter((node) => !firstString(node.url) && !firstString(node.sameAs)).length;
+  for (const node of postingNodes) {
     const locationCandidates = schemaJobLocationCandidates(node.jobLocation);
     const primaryLocation = locationCandidates[0] || { location: '', addressCountry: '' };
     const rawExplicitUrl = firstString(node.url) || firstString(node.sameAs);
     let explicitUrl = rawExplicitUrl;
     try { if (rawExplicitUrl) explicitUrl = new URL(rawExplicitUrl, pageUrl).toString(); } catch { /* retain raw evidence */ }
+    // Some listing pages (notably Grischa Personal) publish many independent
+    // JobPosting nodes inline but omit `url` from every node. Using the seed
+    // URL for all of them makes the production Map collapse the whole page to
+    // one vacancy. A deterministic fragment preserves the fetched source page
+    // for transport while giving each distinct inline posting a stable
+    // identity. Exact duplicate nodes still collapse by content fingerprint.
+    const title = firstString(node.title) || firstString(node.name);
+    const sourceUrl = !rawExplicitUrl && urlLessPostingCount > 1 ? pageUrl : undefined;
+    let inlineIdentityUrl = pageUrl;
+    if (sourceUrl) {
+      const fingerprint = JSON.stringify(canonicalJsonLdIdentity(node));
+      const digest = createHash('sha1').update(fingerprint).digest('hex').slice(0, 12);
+      try {
+        const identity = new URL(pageUrl);
+        identity.hash = `job-${digest}`;
+        inlineIdentityUrl = identity.toString();
+      } catch {
+        inlineIdentityUrl = `${pageUrl}#job-${digest}`;
+      }
+    }
     out.push({
-      title: firstString(node.title) || firstString(node.name),
-      url: explicitUrl || pageUrl,
+      title,
+      url: explicitUrl || inlineIdentityUrl,
+      ...(sourceUrl ? { sourceUrl } : {}),
       urlExplicit: Boolean(rawExplicitUrl),
       company: firstString(node.hiringOrganization),
       location: primaryLocation.location || '',
@@ -296,8 +349,44 @@ function canonicalIdentityUrl(value = '') {
  * @param {Partial<Vacancy>[]} records
  * @param {string} pageUrl
  * @param {string} renderedTitle
+ * @param {string} [recordUrl] inline identity URL from the listing row
  */
-function selectDetailStructuredRecords(records, pageUrl, renderedTitle) {
+function selectDetailStructuredRecords(records, pageUrl, renderedTitle, recordUrl = '') {
+  // A URL-less listing row carries a deterministic `#job-…` fragment. The
+  // detail request necessarily fetches the shared source page, so title-based
+  // selection would merge every inline JobPosting into every row. Select the
+  // one structured record carrying the requested fragment before applying the
+  // ordinary URL/title compatibility rules. A complementary representation
+  // from another format is safe only when it has the same title.
+  let requestedHash = '';
+  try { requestedHash = new URL(recordUrl).hash; } catch { /* no inline target */ }
+  if (requestedHash.startsWith('#job-')) {
+    const fragmentMatches = records.filter((record) => {
+      try { return new URL(record.url).hash === requestedHash; } catch { return false; }
+    });
+    if (fragmentMatches.length === 1) {
+      const [selected] = fragmentMatches;
+      const selectedTitleIdentity = identityText(selected.title);
+      const complementaryByFormat = new Map();
+      for (const record of records) {
+        if (record === selected
+          || record.urlExplicit
+          || record.via === selected.via
+          || identityText(record.title) !== selectedTitleIdentity) continue;
+        const matches = complementaryByFormat.get(record.via) || [];
+        matches.push(record);
+        complementaryByFormat.set(record.via, matches);
+      }
+      const complementary = [];
+      for (const matches of complementaryByFormat.values()) {
+        if (matches.length === 1) complementary.push(matches[0]);
+      }
+      return [selected, ...complementary];
+    }
+    // A fragment that no longer maps to exactly one source record is an
+    // identity mismatch, not permission to fall back to page-wide evidence.
+    return [];
+  }
   if (records.length <= 1) return records;
   const pageIdentity = canonicalIdentityUrl(pageUrl);
   const explicitUrlMatches = records.filter(
@@ -357,6 +446,7 @@ function selectDetailStructuredRecords(records, pageUrl, renderedTitle) {
  *
  * @param {string} html
  * @param {string} pageUrl
+ * @param {{ recordUrl?: string }} [opts]
  * @returns {{
  *   title: string,
  *   location: string,
@@ -377,7 +467,7 @@ function selectDetailStructuredRecords(records, pageUrl, renderedTitle) {
  *   hasStructuredVacancy: boolean,
  * }}
  */
-export function extractDetailFields(html = '', pageUrl = '') {
+export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // A detail page can expose JSON-LD and microdata simultaneously, sometimes
   // with complementary or conflicting locations. Preserve every candidate so
   // authoritative foreign evidence cannot disappear merely because the other
@@ -387,7 +477,12 @@ export function extractDetailFields(html = '', pageUrl = '') {
     ...extractMicrodata(html, pageUrl),
   ]);
   const renderedTitle = textOf(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
-  const structuredRecords = selectDetailStructuredRecords(allStructuredRecords, pageUrl, renderedTitle);
+  const structuredRecords = selectDetailStructuredRecords(
+    allStructuredRecords,
+    pageUrl,
+    renderedTitle,
+    opts.recordUrl,
+  );
   const ambiguousStructuredSiblings = allStructuredRecords.length > 1 && !structuredRecords.length;
   const structured = structuredRecords[0] || {};
   // The first H1 can be the employer or brand while the selected JobPosting
