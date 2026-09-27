@@ -12156,6 +12156,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-icesport-open-day.title': 'Icesport Varese: Open Day mit über 100 Jugendlichen auf dem Eis',
     'blog.article.varese-icesport-open-day.excerpt': 'Am Samstag, den 5. September, lockte der Tag der offenen Tür von Icesport Varese über hundert Kinder und Jugendliche aufs Eis, wobei die meisten Gruppen nahezu ausgebucht waren.',
     'blog.article.varese-icesport-open-day.imageAlt': 'Kindern beim Schnüren der Eisschuhe beim Icesport Varese Open Day',
+    'blog.article.varese-lentigione-pareggio-mangano.title': 'Varese-Lentigation 1-1: Mangano Para Elfmeterschießen 95\'',
+    'blog.article.varese-lentigione-pareggio-mangano.excerpt': 'Der Varese reißt der Lentigione dank der entscheidenden Parade von Mangano in der Erholung nach dem Tor von Beretta und dem Unentschieden von Bontempi einen Punkt ab.',
+    'blog.article.varese-lentigione-pareggio-mangano.imageAlt': 'Professioneller Fußballplatz mit grünem Gras und weißen Linien',
 };
 
 export default blogMetaDe;

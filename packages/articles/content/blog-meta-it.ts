@@ -12158,6 +12158,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-icesport-open-day.title': 'Icesport Varese: Open Day da oltre 100 ragazzi sul ghiaccio',
     'blog.article.varese-icesport-open-day.excerpt': 'Sabato 5 settembre l\'Open Day di Icesport Varese ha attirato oltre cento bambini e ragazzi sul ghiaccio, con la maggior parte dei gruppi prossimi al tutto esaurito.',
     'blog.article.varese-icesport-open-day.imageAlt': 'Bambini che allacciano i pattini durante l\'Open Day di Icesport Varese',
+    'blog.article.varese-lentigione-pareggio-mangano.title': 'Varese-Lentigione 1-1: Mangano para il rigore al 95\'',
+    'blog.article.varese-lentigione-pareggio-mangano.excerpt': 'Il Varese strappa un punto al Lentigione grazie alla parata decisiva di Mangano nel recupero, dopo il gol di Beretta e il pareggio di Bontempi.',
+    'blog.article.varese-lentigione-pareggio-mangano.imageAlt': 'Campo da calcio professionale con erba verde e linee bianche',
 };
 
 export default blogMetaIt;
