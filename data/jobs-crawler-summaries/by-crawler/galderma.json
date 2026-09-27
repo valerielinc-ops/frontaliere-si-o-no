@@ -1,7 +1,7 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-09-26T14:26:50.953Z",
+  "generatedAt": "2026-09-27T00:04:47.059Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,10 +12,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 206296,
-  "avgDurationMs": 206296,
+  "durationMs": 226146,
+  "avgDurationMs": 226146,
   "durationHistory": [
-    206296
+    226146
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Group-Commercial-FP-A-Manager_JR020691-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:24:51.551Z",
+      "crawledAt": "2026-09-27T00:02:31.448Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-HR-EMEA---Canada_JR020136-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:25:21.958Z",
+      "crawledAt": "2026-09-27T00:03:05.692Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Lausanne/Medical-Scientific-Liaison-Romandie---Ticino_JR020215-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:25:47.181Z",
+      "crawledAt": "2026-09-27T00:03:34.797Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -137,13 +137,13 @@
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
       "title": "Medical Scientific Liaison - Northern & Eastern Switzerland",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zug",
       "canton": "ZG",
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Medical-Scientific-Liaison---Northern---Eastern-Switzerland_JR019888-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:26:03.732Z",
+      "crawledAt": "2026-09-27T00:03:52.596Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -162,11 +162,11 @@
       "localeMismatchSuppressedLen": 3999,
       "retranslationAttempts": 6,
       "firstSeenAt": "2026-07-29T11:35:52.731Z",
-      "_qualityScore": 71,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 20,
         "completeness": 14
       }
     }
