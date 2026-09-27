@@ -1720,7 +1720,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  permits: {
  title: 'Permesso G Svizzera 2026: Requisiti, Costi e Durata 5 Anni',
- description: 'Permesso G frontaliere 2026: residenza entro 20 km dal confine, contratto svizzero, rientro settimanale, durata 5 anni. Confronta requisiti e costi con B, C e L.',
+ description: 'Permesso G frontalieri 2026: residenza entro 20 km, contratto svizzero, rientro settimanale e durata 5 anni. Confronta requisiti e costi con B, C e L.',
  keywords: 'permesso g svizzera, permesso b svizzera, permesso c svizzera, permesso l svizzera, permesso frontaliere requisiti, permesso dimora svizzera, documenti permesso lavoro svizzera',
  ogTitle: 'Permessi Lavoro Svizzera | Guida G, B, C, L per Frontalieri',
  ogDescription: 'Permesso G: residenza entro 20 km, contratto CH, rientro settimanale, durata 5 anni. Permesso B: dimora in Svizzera. Confronta G, B, C e L con requisiti, documenti e costi aggiornati 2026.',
@@ -6419,7 +6419,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  guidaCompleta: {
- title: 'Lavoro Frontaliere Svizzera 2026: Permesso G, Tasse e Stipendio Netto',
+ title: 'Lavoro frontaliere Svizzera 2026: permesso G, tasse e netto',
  description: 'Lavoro frontaliere Svizzera-Italia 2026: permesso G, tassazione Nuovo Accordo, stipendio netto, AVS/LPP, LAMal e dichiarazione redditi in un\'unica guida.',
  keywords: 'lavoro frontaliere svizzera 2026, guida completa frontaliere, permesso G svizzera, nuovo accordo frontalieri, imposta alla fonte ticino, frontaliere italia svizzera, lavorare in svizzera dall italia, tassazione frontalieri 2026, assicurazione LAMal frontalieri, pendolare svizzera italia',
  ogTitle: 'Guida Completa al Lavoro Frontaliere in Svizzera 2026',
