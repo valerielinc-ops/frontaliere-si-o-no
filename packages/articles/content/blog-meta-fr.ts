@@ -12138,6 +12138,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-sinigaglia-eventi-privati.title': 'Como 1907 ouvre le Sinigaglia aux événements et aux réunions privées',
     'blog.article.como-sinigaglia-eventi-privati.excerpt': 'Le club lance la Corporate Collection : Trophy Room, terrasses, Club House et suites executive disponibles en dehors des matchs. Jusqu’à 160 invités par espace.',
     'blog.article.como-sinigaglia-eventi-privati.imageAlt': 'Terrasse du stade Sinigaglia surplombant le lac de Côme lors d\'un événement d\'entreprise (Como)',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.title': 'Double attaque ATM Ossona nuit 25-26 septembre',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.excerpt': 'Dans la nuit du vendredi 25 au samedi 26 septembre, peu avant 4 heures, deux explosions ont frappé le Banco Bpm sur la piazza Litta et le Postamat de la via Baracca à Ossona. Les carabiniers de la Compagnia di Abbiategrasso enquêtent.',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.imageAlt': 'Scène nocturne calme devant un distributeur automatique dans une ville frontalière du Tessin, lumières de police en arrière-plan',
+    'blog.article.luvinate-scuola-sicurezza.title': 'Luvinate, école ouverte entre sécurité et prévention',
+    'blog.article.luvinate-scuola-sicurezza.excerpt': 'À l’école primaire Pedotti de Luvinate, Fête de l’Accueil avec la Police scientifique, la Croix-Rouge, le cyberharcèlement, l’anglais et les premiers secours pour les enfants en classe.',
+    'blog.article.luvinate-scuola-sicurezza.imageAlt': 'Écoliers pendant des ateliers de sécurité et de prévention',
+    'blog.article.bellinzona-voto-castelli.title': 'Bellinzone rejette le projet « forteresse »',
+    'blog.article.bellinzona-voto-castelli.excerpt': '54% des votants ont rejeté le plan de 19,1 millions visant à mettre en valeur et à moderniser le site UNESCO des châteaux de Bellinzone ; participation à 47,5%.',
+    'blog.article.bellinzona-voto-castelli.imageAlt': 'Les châteaux de Bellinzone au cœur du vote sur le projet forteresse',
 };
 
 export default blogMetaFr;

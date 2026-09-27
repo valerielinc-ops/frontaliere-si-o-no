@@ -12137,6 +12137,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-sinigaglia-eventi-privati.title': 'Como 1907 apre il Sinigaglia a eventi e riunioni private',
     'blog.article.como-sinigaglia-eventi-privati.excerpt': 'Il club lancia la Corporate Collection: Trophy Room, terrazze, Club House e suite executive disponibili fuori dalle partite. Fino a 160 ospiti per spazio.',
     'blog.article.como-sinigaglia-eventi-privati.imageAlt': 'Terrazza dello stadio Sinigaglia con vista sul Lago di Como durante evento aziendale',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.title': 'Doppio assalto bancomat Ossona notte 25-26 settembre',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.excerpt': 'Nella notte tra venerdì 25 e sabato 26 settembre, poco prima delle 4, due esplosioni hanno colpito il Banco Bpm in piazza Litta e il Postamat di via Baracca a Ossona. Indagano i carabinieri della Compagnia di Abbiategrasso.',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.imageAlt': 'Notte silenziosa davanti a uno sportello automatico in una località di confine ticinese, luci della polizia sullo sfondo',
+    'blog.article.luvinate-scuola-sicurezza.title': 'Luvinate, scuola aperta tra sicurezza e prevenzione',
+    'blog.article.luvinate-scuola-sicurezza.excerpt': 'Alla primaria Pedotti di Luvinate, Festa dell\'Accoglienza con Polizia Scientifica, Croce Rossa, cyberbullismo, inglese e primo soccorso per i bambini in classe.',
+    'blog.article.luvinate-scuola-sicurezza.imageAlt': 'Bambini della primaria durante laboratori di sicurezza e prevenzione',
+    'blog.article.bellinzona-voto-castelli.title': 'Bellinzona boccia il progetto «fortezza»',
+    'blog.article.bellinzona-voto-castelli.excerpt': 'Il 54% dei votanti ha respinto il piano da 19,1 milioni per valorizzare e modernizzare il sito UNESCO dei castelli di Bellinzona; partecipazione al 47,5%.',
+    'blog.article.bellinzona-voto-castelli.imageAlt': 'I castelli di Bellinzona al centro del voto sul progetto fortezza',
 };
 
 export default blogMetaIt;

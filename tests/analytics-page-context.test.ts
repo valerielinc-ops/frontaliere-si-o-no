@@ -96,4 +96,37 @@ describe('deriveAnalyticsPageContext', () => {
       contentLocale: 'fr',
     });
   });
+
+  it('classifies the events section by template and locale', () => {
+    expect(deriveAnalyticsPageContext('/eventi/')).toMatchObject({
+      contentGroup: 'events',
+      pageTemplate: 'events_index',
+      siteSection: 'events',
+      routeFamily: 'events_index',
+      contentLocale: 'it',
+    });
+
+    expect(deriveAnalyticsPageContext('/de/veranstaltungen/tessin/diese-woche/')).toMatchObject({
+      contentGroup: 'events',
+      pageTemplate: 'events_digest',
+      contentLocale: 'de',
+    });
+
+    expect(deriveAnalyticsPageContext('/fr/evenements/tessin/autres-evenements/')).toMatchObject({
+      pageTemplate: 'events_other',
+      routeFamily: 'events_other',
+      contentLocale: 'fr',
+    });
+
+    expect(deriveAnalyticsPageContext('/en/events/ticino/lugano/concerto-2026-07-04/')).toMatchObject({
+      pageTemplate: 'event_detail',
+      routeFamily: 'event_detail',
+      contentLocale: 'en',
+    });
+
+    expect(deriveAnalyticsPageContext('/eventi/ticino/lugano/page-2/')).toMatchObject({
+      pageTemplate: 'events_overflow',
+      routeFamily: 'events_overflow',
+    });
+  });
 });

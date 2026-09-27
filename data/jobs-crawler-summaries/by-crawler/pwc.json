@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-09-26T23:40:53.045Z",
+  "generatedAt": "2026-09-27T11:31:13.824Z",
   "total": 153,
   "newCount": 0,
   "updatedCount": 105,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 2950,
-  "avgDurationMs": 2950,
+  "durationMs": 4303,
+  "avgDurationMs": 4303,
   "durationHistory": [
-    2950
+    4303
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -121,6 +121,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-24T14:23:28.277Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -197,6 +198,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -312,6 +314,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
