@@ -12122,6 +12122,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-voto-neutralita-alimentazione.title': 'Switzerland votes on neutrality and food',
     'blog.article.svizzera-voto-neutralita-alimentazione.excerpt': 'Today Switzerland votes on neutrality and a food initiative (70% self-sufficiency in 10 years); nine cantons are also deciding on cantonal issues, including cross-border mobility.',
     'blog.article.svizzera-voto-neutralita-alimentazione.imageAlt': 'Voting station in Ticino with ballots and ballot box',
+    'blog.article.ottobre-millestrade-professioni-ticino.title': 'October with Millestrade: open doors, internships and TicinoSkills',
+    'blog.article.ottobre-millestrade-professioni-ticino.excerpt': 'The orientation month with Millestrade starts from 3 October in Gordola: visits to the centres, technical internships and TicinoSkills championships for young people and families.',
+    'blog.article.ottobre-millestrade-professioni-ticino.imageAlt': 'Young people visiting Gordola training center workshops during TicinoSkills',
 };
 
 export default blogMetaEn;
