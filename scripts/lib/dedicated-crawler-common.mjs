@@ -4442,7 +4442,7 @@ export function validateDedicatedLocaleCoverage({
     // A job carrying an active crawlerMissStreak (mergePreserveLocaleData's
     // grace-period retention, dedicated-crawler-common.mjs) was NOT matched
     // by this run's fresh fetch — it's a carry-over already scheduled to be
-    // dropped after GRACE_PERIOD_MAX_MISSES, not new/verified data. Hard-
+    // dropped after CRAWLER_GRACE_PERIOD_MAX_MISSES, not new/verified data. Hard-
     // failing on its (possibly now-untrusted) URL creates a deadlock for any
     // crawler that migrates its source ATS to a new domain: the commit step
     // only runs on crawler_exit==0, so a validation failure here means the
@@ -7395,7 +7395,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // pattern for whole-crawl failures) so a single bad run doesn't
   // silently archive a still-open job; only let it drop — and flow
   // into computeCrawlDiff's removedJobs / archive path — once it has
-  // been missing for GRACE_PERIOD_MAX_MISSES consecutive runs in a row.
+  // been missing for CRAWLER_GRACE_PERIOD_MAX_MISSES consecutive runs in a row.
   // Independently, crawledAt older than ACTIVE_JOB_RETIREMENT_DAYS leaves
   // the active slice even on miss 1: miss-streak grace never advanced for
   // EOC/JYSK rows that stayed "known" without a recrawl heartbeat.
