@@ -224,7 +224,13 @@ const TAXONOMY = [
   // Precedence is intentional: when a finding mentions both surfaces, the
   // topic bucket wins before the sibling-sweep process bucket below.
   { key: 'canonical-sitemap', re: /\b(?:canonical|sitemaps?|noindex|cross-section)\b/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
-  { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|\bpat\b|credential|secret|branch protection|push.*workflow/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
+  // Keep this bucket about authentication/capability mistakes. The former
+  // `push.*workflow` alternative matched any workflow finding whose prose
+  // mentioned a push and later said "workflow" (#9566/#9326/#9218), merging
+  // trigger/retry correctness with credential scope and repeatedly re-firing
+  // this escalation. Those findings still go through the fingerprint safety
+  // net; they must not inflate the credential bucket.
+  { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|github[_ .-]?token|\bpat\b|app token|credential|secret|branch protection|token\s+(?:scope|permission|capabilit)/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
   // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
   // brand names, canton-aware slug naming, missing/untranslated keys. The old regex
   // `/locale|i18n|translat|canton-?aware|naming|brand/i` was far too loose: the bare
