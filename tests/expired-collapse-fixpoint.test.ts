@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { collapseDuplicateRouteEntries } from '../scripts/lib/expired-jobs-archive.mjs';
+import {
+  collapseDuplicateRouteEntries,
+  MAX_COLLAPSE_PASSES,
+} from '../scripts/lib/expired-jobs-archive.mjs';
 import { localeRouteKeys } from '../scripts/reconcile-crawler-company-ownership.mjs';
 import capRefusedFixture from './__fixtures__/expired-collapse-cap-refused-roche.json';
 import multipassFixture from './__fixtures__/expired-collapse-multipass-coop-ticino.json';
@@ -27,9 +30,6 @@ import multipassFixture from './__fixtures__/expired-collapse-multipass-coop-tic
  * il collasso legge. Sono pinnate e non lette dal corpus vivo: il gate deve
  * fallire quando cambia il CODICE, non quando i crawler pubblicano.
  */
-
-/** Tetto oltre il quale l'iterazione e' considerata non convergente. */
-const MAX_COLLAPSE_PASSES = 8;
 
 /**
  * Profilo MISURATO di ogni fixture (2026-09-06), letto come CRICCHETTO: ogni
@@ -150,6 +150,14 @@ describe('collapseDuplicateRouteEntries fixed point', () => {
     const again = collapseDuplicateRouteEntries(stable, { source: 'fixpoint-probe' });
     expect(JSON.stringify(again.entries)).toBe(JSON.stringify(stable));
     expect(again.collapsed).toBe(0);
+  });
+
+  it.each(fixtures)('returns a fixed point in one call on %s', (_name, fixture) => {
+    const first = collapseDuplicateRouteEntries(fixture, { source: 'fixed-point-contract' });
+    const second = collapseDuplicateRouteEntries(first.entries, { source: 'fixed-point-contract' });
+
+    expect(JSON.stringify(second.entries)).toBe(JSON.stringify(first.entries));
+    expect(second.collapsed).toBe(0);
   });
 
   it('keeps every route of the input served at the fixed point', () => {
