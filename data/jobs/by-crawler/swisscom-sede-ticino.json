@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-09-27T05:17:39.786Z",
+  "assembledAt": "2026-09-27T05:51:05.030Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Microsoft-Licensing-Sales-Specialist_R-0006153",
@@ -63,9 +63,9 @@
           "microsoft-licensing-sales-specialist-swisscom-zurich-drxgn2"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:27:52.672Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -107,12 +107,12 @@
         "de": "Datacenter Specialized Sales",
         "fr": "Datacenter Ventes spécialisées"
       },
-      "slug": "datacenter-specialized-sales-swisscom-zurich-drxcu0",
+      "slug": "datacenter-commercializzazione-swisscom-zurich",
       "slugByLocale": {
-        "it": "datacenter-specialized-sales-swisscom-zurich-drxcu0",
+        "it": "datacenter-commercializzazione-swisscom-zurich",
         "en": "datacenter-specialized-sales-swisscom-zurich-drxcu0",
         "de": "datacenter-specialized-sales-swisscom-zurich-drxcu0",
-        "fr": "datacenter-specialized-sales-swisscom-zurich-drxcu0"
+        "fr": "datacenter-ventes-specialisees-swisscom-zurich"
       },
       "category": "technology",
       "datePosted": "2026-09-26",
@@ -130,6 +130,17 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:10:08.553Z",
       "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "datacenter-specialized-sales-swisscom-zurich-drxcu0"
+        ],
+        "fr": [
+          "datacenter-specialized-sales-swisscom-zurich-drxcu0"
+        ]
+      },
+      "previousSlugs": [
+        "datacenter-specialized-sales-swisscom-zurich-drxcu0"
+      ],
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -591,9 +602,9 @@
           "it-consulente-full-stack-software-ingegnere-swisscom-sede-ticino-zurich"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -672,9 +683,9 @@
           "projektleiter-sicherheitssysteme-swisscom-sede-ticino-st-gallen"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:43:40.656Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "currency": "CHF",
@@ -754,9 +765,9 @@
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-avry-sur-matran-drxxmj"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -836,9 +847,9 @@
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-neuchatel-drxxmh"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "currency": "CHF",
@@ -918,9 +929,9 @@
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sierre-drxxmf"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -1160,9 +1171,9 @@
           "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-drxxn7"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1307,9 +1318,9 @@
           "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-drxxnd"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1546,9 +1557,9 @@
           "senior-sap-technology-berater-swisscom-sede-ticino-zurich"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-29T00:55:24.315Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1719,9 +1730,9 @@
           "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
