@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import {
   assertAccumulatorByteFloor,
   isCatastrophicAccumulatorShrink,
@@ -19,6 +20,10 @@ const SWISS_RE_LEGACY_HQ_FALLBACK_LOCATION_RE = /^(?:z(?:u|ü)rich|washington d)
 
 function normalizedPath(filePath) {
   return String(filePath ?? '').replace(/\\/g, '/');
+}
+
+function sha256(raw) {
+  return createHash('sha256').update(String(raw), 'utf8').digest('hex');
 }
 
 function parseJobs(raw) {
@@ -214,10 +219,26 @@ export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, r
  */
 export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofEntries) {
   if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  const proof = Array.isArray(proofEntries)
+    ? { entries: proofEntries }
+    : proofEntries && typeof proofEntries === 'object' ? proofEntries : null;
+  const entries = proof?.entries;
   const previousJobs = parseJobs(previousRaw);
   const nextJobs = parseJobs(nextRaw);
   if (!previousJobs || !nextJobs || previousJobs.length <= nextJobs.length) return false;
-  if (!Array.isArray(proofEntries) || proofEntries.length === 0) return false;
+  if (!Array.isArray(entries) || entries.length === 0) return false;
+  if (proof?.baseDigest && (!proof.baseRaw || sha256(proof.baseRaw) !== proof.baseDigest)) return false;
+  if (proof?.candidateDigest && (!proof.candidateRaw || sha256(proof.candidateRaw) !== proof.candidateDigest)) return false;
+  if (
+    proof?.runId
+    && process.env.GITHUB_RUN_ID
+    && String(proof.runId) !== String(process.env.GITHUB_RUN_ID)
+  ) return false;
+  if (
+    proof?.runAttempt
+    && process.env.GITHUB_RUN_ATTEMPT
+    && String(proof.runAttempt) !== String(process.env.GITHUB_RUN_ATTEMPT)
+  ) return false;
 
   const previousIds = uniqueIdentities(previousJobs);
   const nextIds = uniqueIdentities(nextJobs);
@@ -231,7 +252,7 @@ export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofE
   }
 
   const provenIds = new Set();
-  for (const entry of proofEntries) {
+  for (const entry of entries) {
     if (entry?.definitive !== true) return false;
     const identity = jobIdentity(entry.job);
     if (!identity || provenIds.has(identity)) return false;
@@ -272,7 +293,7 @@ export function assertCrawlerSliceWriteSafe(
 }
 
 function runCli() {
-  const [filePath, previousPath, nextPath, housekeepingProofPath] = process.argv.slice(2);
+  const [filePath, previousPath, nextPath, housekeepingProofPath, basePath, candidatePath] = process.argv.slice(2);
   if (!filePath || !previousPath || !nextPath) {
     console.error('usage: crawler-slice-integrity.mjs <file> <previous> <next> [housekeeping-proof]');
     process.exitCode = 2;
@@ -284,13 +305,30 @@ function runCli() {
       const proof = JSON.parse(fs.readFileSync(housekeepingProofPath, 'utf8'));
       if (
         !proof
-        || proof.schemaVersion !== 1
+        || proof.schemaVersion !== 2
         || normalizedPath(proof.path) !== normalizedPath(filePath)
         || !Array.isArray(proof.entries)
       ) {
         throw new Error(`invalid or path-mismatched housekeeping proof for ${filePath}`);
       }
-      housekeepingProof = proof.entries;
+      const baseRaw = basePath ? fs.readFileSync(basePath, 'utf8') : '';
+      const candidateRaw = candidatePath ? fs.readFileSync(candidatePath, 'utf8') : '';
+      const currentRunId = String(process.env.GITHUB_RUN_ID || '').trim();
+      const currentRunAttempt = String(process.env.GITHUB_RUN_ATTEMPT || '').trim();
+      const expectedBaseSha = String(process.env.HOUSEKEEPING_BASE_SHA || '').trim();
+      if (proof.baseDigest !== sha256(baseRaw) || proof.candidateDigest !== sha256(candidateRaw)) {
+        throw new Error(`stale housekeeping proof: snapshot digest mismatch for ${filePath}`);
+      }
+      if (proof.runId && currentRunId && String(proof.runId) !== currentRunId) {
+        throw new Error(`stale housekeeping proof: run mismatch for ${filePath}`);
+      }
+      if (proof.runAttempt && currentRunAttempt && String(proof.runAttempt) !== currentRunAttempt) {
+        throw new Error(`stale housekeeping proof: run attempt mismatch for ${filePath}`);
+      }
+      if (proof.baseSha && expectedBaseSha && String(proof.baseSha) !== expectedBaseSha) {
+        throw new Error(`stale housekeeping proof: base snapshot mismatch for ${filePath}`);
+      }
+      housekeepingProof = { ...proof, baseRaw, candidateRaw };
     }
     const result = assertCrawlerSliceWriteSafe(
       filePath,

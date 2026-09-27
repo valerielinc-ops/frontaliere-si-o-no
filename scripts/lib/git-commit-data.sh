@@ -2000,9 +2000,24 @@ commit_isolated_from_worktree() {
         housekeeping_proof_path="$(housekeeping_proof_path_for_file "$f")"
         if [ -f "$housekeeping_proof_path" ]; then
           echo "🔎 grouped-isolated: applying housekeeping proof for $f"
+          proof_base_path="$integrity_dir/base.json"
+          proof_candidate_path="$integrity_dir/candidate.json"
+          if [ -n "$base_blob" ]; then
+            if ! git cat-file blob "$base_blob" > "$proof_base_path"; then
+              echo "❌ grouped-isolated: could not materialize housekeeping proof base for $f"
+              return 1
+            fi
+          else
+            : > "$proof_base_path"
+          fi
+          if ! cp "$local_merge_path" "$proof_candidate_path"; then
+            echo "❌ grouped-isolated: could not materialize housekeeping proof candidate for $f"
+            return 1
+          fi
           integrity_args+=("$housekeeping_proof_path")
+          integrity_args+=("$proof_base_path" "$proof_candidate_path")
         fi
-        if ! node "$(dirname "$0")/crawler-slice-integrity.mjs" "${integrity_args[@]}"; then
+        if ! HOUSEKEEPING_BASE_SHA="$base_sha" node "$(dirname "$0")/crawler-slice-integrity.mjs" "${integrity_args[@]}"; then
           echo "❌ grouped-isolated: refusing catastrophic crawler slice shrink: $f"
           return 1
         fi

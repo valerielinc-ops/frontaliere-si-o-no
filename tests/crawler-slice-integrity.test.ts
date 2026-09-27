@@ -1,7 +1,8 @@
 // @vitest-environment node
 
 import { describe, expect, it } from 'vitest';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -14,6 +15,10 @@ import {
 } from '../scripts/lib/crawler-slice-integrity.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from '../scripts/lib/crawler-grace-policy.mjs';
 import { writeJsonAtomic } from '../scripts/lib/atomic-write-json.mjs';
+
+function sha256(raw: string) {
+  return createHash('sha256').update(raw, 'utf8').digest('hex');
+}
 
 function swissReJob(url: string, location: string, description: string) {
   return {
@@ -310,13 +315,21 @@ describe('crawler slice integrity guard', () => {
     const previousPath = join(root, 'previous.json');
     const nextPath = join(root, 'next.json');
     const proofPath = join(root, 'proof.json');
+    const basePath = join(root, 'base.json');
+    const candidatePath = join(root, 'candidate.json');
     const cliPath = resolve(import.meta.dirname, '../scripts/lib/crawler-slice-integrity.mjs');
     try {
       writeFileSync(previousPath, previous);
       writeFileSync(nextPath, next);
+      writeFileSync(basePath, previous);
+      writeFileSync(candidatePath, next);
       writeFileSync(proofPath, `${JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         path: filePath,
+        baseDigest: sha256(previous),
+        candidateDigest: sha256(next),
+        runId: 'proof-cli-run',
+        runAttempt: '1',
         entries: [{ job: removed, definitive: true, reason: 'http-404' }],
       })}\n`);
 
@@ -326,12 +339,39 @@ describe('crawler slice integrity guard', () => {
         previousPath,
         nextPath,
         proofPath,
-      ], { encoding: 'utf8' });
+        basePath,
+        candidatePath,
+      ], {
+        encoding: 'utf8',
+        env: { ...process.env, GITHUB_RUN_ID: 'proof-cli-run', GITHUB_RUN_ATTEMPT: '1' },
+      });
       expect(output).toContain('allowed proven-housekeeping-prune');
 
+      writeFileSync(basePath, json({
+        crawlerKey: 'convit-holding',
+        jobs: [removed, { ...retained, title: 'new snapshot' }],
+      }));
+      const stale = spawnSync(process.execPath, [
+        cliPath,
+        filePath,
+        previousPath,
+        nextPath,
+        proofPath,
+        basePath,
+        candidatePath,
+      ], {
+        encoding: 'utf8',
+        env: { ...process.env, GITHUB_RUN_ID: 'proof-cli-run', GITHUB_RUN_ATTEMPT: '1' },
+      });
+      expect(stale.status).toBe(1);
+      expect(`${stale.stdout}${stale.stderr}`).toContain('stale housekeeping proof');
+      expect(stale.stdout).not.toContain('allowed proven-housekeeping-prune');
+
       writeFileSync(proofPath, `${JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         path: 'data/jobs/by-crawler/other.json',
+        baseDigest: sha256(previous),
+        candidateDigest: sha256(next),
         entries: [{ job: removed, definitive: true, reason: 'http-404' }],
       })}\n`);
       expect(() => execFileSync(process.execPath, [
@@ -340,6 +380,8 @@ describe('crawler slice integrity guard', () => {
         previousPath,
         nextPath,
         proofPath,
+        basePath,
+        candidatePath,
       ], { encoding: 'utf8' })).toThrow(/path-mismatched housekeeping proof/);
     } finally {
       rmSync(root, { recursive: true, force: true });

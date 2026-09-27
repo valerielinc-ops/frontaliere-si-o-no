@@ -12,6 +12,7 @@
  */
 
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -80,6 +81,10 @@ function readJson(filePath) {
   return JSON.parse(raw);
 }
 
+function sha256(raw) {
+  return createHash('sha256').update(String(raw), 'utf8').digest('hex');
+}
+
 function housekeepingProofPath(slicePath) {
   const relativePath = path.relative(process.cwd(), slicePath);
   if (
@@ -96,8 +101,9 @@ function housekeepingProofPath(slicePath) {
   };
 }
 
-function writeHousekeepingProof(slicePath, entries) {
+function writeHousekeepingProof(slicePath, entries, { baseRaw, candidateRaw } = {}) {
   if (!Array.isArray(entries) || entries.length === 0) return;
+  if (typeof baseRaw !== 'string' || typeof candidateRaw !== 'string') return;
   const target = housekeepingProofPath(slicePath);
   if (!target) return;
 
@@ -105,8 +111,13 @@ function writeHousekeepingProof(slicePath, entries) {
   const temporaryPath = `${target.proofPath}.${process.pid}.tmp`;
   try {
     fs.writeFileSync(temporaryPath, `${JSON.stringify({
-      schemaVersion: 1,
+      schemaVersion: 2,
       path: target.relativePath,
+      baseDigest: sha256(baseRaw),
+      candidateDigest: sha256(candidateRaw),
+      baseSha: String(process.env.GITHUB_SHA || '').trim() || null,
+      runId: String(process.env.GITHUB_RUN_ID || '').trim() || null,
+      runAttempt: String(process.env.GITHUB_RUN_ATTEMPT || '').trim() || null,
       entries,
     }, null, 2)}\n`, 'utf8');
     fs.renameSync(temporaryPath, target.proofPath);
@@ -453,7 +464,8 @@ async function main() {
       return;
     }
     console.log(`📦 Slice-only housekeeping: ${SLICE_FILE}`);
-    const sliceData = readJson(slicePath);
+    const sliceRaw = fs.readFileSync(slicePath, 'utf8');
+    const sliceData = JSON.parse(sliceRaw);
     const sliceJobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : (Array.isArray(sliceData) ? sliceData : []);
     if (sliceJobs.length === 0) {
       console.log('ℹ️  Slice is empty — skip housekeeping');
@@ -605,7 +617,10 @@ async function main() {
           ? { ...sliceData, jobs: kept, assembledAt: new Date().toISOString() }
           : kept;
         writeJson(slicePath, envelope, { housekeepingProof: urlRemoved });
-        writeHousekeepingProof(slicePath, urlRemoved);
+        writeHousekeepingProof(slicePath, urlRemoved, {
+          baseRaw: sliceRaw,
+          candidateRaw: fs.readFileSync(slicePath, 'utf8'),
+        });
         console.log(`✅ Slice cleaned: ${hardenedJobs.length} → ${kept.length} jobs (-${totalRemoved})`);
       } else {
         console.log('✅ Slice clean — no jobs removed.');
