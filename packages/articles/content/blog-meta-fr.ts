@@ -12135,6 +12135,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-27.imageAlt': 'Les chiffres du jour pour les frontaliers – 27 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-27.seoDescription': 'Bulletin du frontalier du 27 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-27.ogDescription': 'Les chiffres du 27 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.como-sinigaglia-eventi-privati.title': 'Como 1907 ouvre le Sinigaglia aux événements et aux réunions privées',
+    'blog.article.como-sinigaglia-eventi-privati.excerpt': 'Le club lance la Corporate Collection : Trophy Room, terrasses, Club House et suites executive disponibles en dehors des matchs. Jusqu’à 160 invités par espace.',
+    'blog.article.como-sinigaglia-eventi-privati.imageAlt': 'Terrasse du stade Sinigaglia surplombant le lac de Côme lors d\'un événement d\'entreprise (Como)',
 };
 
 export default blogMetaFr;
