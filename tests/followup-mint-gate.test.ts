@@ -35,6 +35,10 @@ import {
   canMintQueueLabel,
   hasNeedsHumanLabel,
   hasAutomationDeferredLabel,
+  demotedItemsBySourcePr,
+  qualifySourcePrLookups,
+  triageMarkerCitesBucket,
+  preserveDemotedOnSourcePrs,
 } from '../scripts/ci/gate-minted-followups.mjs';
 import { citedTokens, hasFalsifiableAcceptance, splitFollowupItems } from '../scripts/ci/followup-resolution-match.mjs';
 
@@ -282,6 +286,85 @@ describe('gate sul conio — la demozione non perde il testo', () => {
   });
 });
 
+describe('gate sul conio — conservazione per item e per repository', () => {
+  const dailyItem = (id: string, sources: string, what: string) => [
+    `\n- State: open`,
+    `- Sources: ${sources}`,
+    `- Suggested action: controllare ${what}`,
+  ].join('\n');
+  const marker = (bucket: number) => JSON.stringify({ comments: [
+    { body: `## Post-merge follow-up triage\nBucket giornaliero: #${bucket} (daily).` },
+  ] });
+
+  it('ogni item demoto va solo sulle PR della SUA Sources; senza Sources, sul fallback', () => {
+    const groups = demotedItemsBySourcePr([
+      dailyItem('a', 'PR #1742', 'a'),
+      dailyItem('b', 'PR #1740; PR #1742', 'b'),
+      '\n- Suggested action: nessuna fonte',
+    ], [1740, 1742, 1771]);
+    const byPr = Object.fromEntries(groups.map(({ pr, items }) => [pr, items.map((it) => /controllare (\w)/.exec(it)?.[1] ?? 'x')]));
+    expect(byPr).toEqual({ 1742: ['a', 'b', 'x'], 1740: ['b', 'x'], 1771: ['x'] });
+  });
+
+  it('il ramo suppress di un daily conserva il TESTO, non [object Object]', () => {
+    const body = [
+      '## Batch',
+      '- Daily key: 2026-09-25 (Europe/Zurich)',
+      '- State: collecting',
+      '- Target repository: o/r',
+      '',
+      '### FU-2026-09-25-001 — vago',
+      '- State: open',
+      '- Sources: PR #1742',
+      '- Suggested action: controllare il file',
+      '',
+    ].join('\n');
+    const d = decideMintGate({ title: 'follow-up(daily:2026-09-25): 1 item — o/r', body }, { triageComplete: true });
+    expect(d.action).toBe('suppress');
+    expect(d.demoted.every((it: unknown) => typeof it === 'string')).toBe(true);
+    expect(demotedBlock(d.demoted)).toContain('- Sources: PR #1742');
+    expect(demotedBlock(d.demoted)).not.toContain('[object Object]');
+  });
+
+  it('qualifica la PR col repository il cui marker cita il bucket', () => {
+    const site = { repo: 'site/r', read: () => ({ ok: true, comments: marker(1234) }) };
+    const corpus = { repo: 'corpus/r', read: () => ({ ok: true, comments: marker(9769) }) };
+    expect(triageMarkerCitesBucket(marker(9769), 9769)).toBe(true);
+    expect(triageMarkerCitesBucket(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\nbucket per PR #9769: #1' }] }), 9769)).toBe(false);
+    expect(qualifySourcePrLookups(1742, 9769, [site, corpus])!.map((l) => l.repo)).toEqual(['corpus/r']);
+    // Nessun marker cita il bucket: risoluzione legacy, primo repository in cui e' una PR.
+    expect(qualifySourcePrLookups(1742, 5555, [site, corpus])!.map((l) => l.repo)).toEqual(['site/r']);
+    // Lettura indisponibile prima di poter decidere: null, niente riscrittura.
+    const broken = { repo: 'corpus/r', read: () => ({ ok: false, notPr: false }) };
+    expect(qualifySourcePrLookups(1742, 9769, [site, broken])).toBeNull();
+    const absent = { repo: 'corpus/r', read: () => ({ ok: false, notPr: true }) };
+    expect(qualifySourcePrLookups(1742, 9769, [absent])).toEqual([]);
+  });
+
+  it('un commento per PR sorgente, con i soli suoi item', () => {
+    const posts: Array<{ repo: string; pr: number; body: string }> = [];
+    const lookups = [
+      { repo: 'site/r', read: (n: number) => (n === 1742 ? { ok: true, comments: marker(1) } : { ok: false, notPr: true }) },
+      { repo: 'corpus/r', read: () => ({ ok: true, comments: marker(9769) }) },
+    ];
+    const results = preserveDemotedOnSourcePrs({
+      bucketNumber: 9769,
+      demoted: [dailyItem('a', 'PR #1742', 'uno'), dailyItem('b', 'PR #1740', 'due')],
+      fallbackTargets: [1740, 1742],
+      intro: '<!-- followup-mint-gate -->\nIssue #9769 resta aperta',
+      lookups,
+      post: (lookup: { repo: string }, pr: number, body: string) => { posts.push({ repo: lookup.repo, pr, body }); return 'ok'; },
+      log: () => {},
+    });
+    expect(results).toEqual(['ok', 'ok']);
+    expect(posts.map((p) => `${p.repo}#${p.pr}`)).toEqual(['corpus/r#1742', 'corpus/r#1740']);
+    expect(posts[0].body).toContain('controllare uno');
+    expect(posts[0].body).not.toContain('controllare due');
+    expect(posts[1].body).toContain('controllare due');
+    expect(posts[1].body).not.toContain('controllare uno');
+  });
+});
+
 describe('gate sul conio — pin sul sorgente', () => {
   it('PIN: il sealing richiede triage_complete verificato su ogni PR, mai batch vuoto/solo exit 0', () => {
     const src = readFileSync(GATE_SRC, 'utf-8');
@@ -290,9 +373,11 @@ describe('gate sul conio — pin sul sorgente', () => {
     expect(wf).toContain('Verify complete follow-up triage');
     expect(wf).toContain('triage_complete=$complete');
     expect(wf).toContain('BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}');
-    expect(wf).toContain('contains("## Post-merge follow-up triage")');
     expect(src).toContain("process.env.COLLECTION_OK === 'true'");
-    expect(wf).toContain('bucket_persisted_for_pr');
+    // Marker e persistenza per ogni PR si verificano con il predicato unico del
+    // collector, non con una copia bash (che non conosceva la prova del gate).
+    expect(wf).toContain('node scripts/ci/collect-followup-batch.mjs --verify-persistence "$csv"');
+    expect(wf).not.toContain('bucket_persisted_for_pr');
     expect(wf).toContain('persistence_ok=$persistence_ok');
     expect(wf).not.toContain("steps.collect.outputs.batch_count == '0' || steps.followup.outputs.claude_outcome");
   });

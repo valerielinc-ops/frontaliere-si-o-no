@@ -1,5 +1,4 @@
 import { describe, it, expect, afterEach } from 'vitest';
-import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
@@ -35,7 +34,11 @@ import {
 } from '../scripts/ci/gate-minted-followups.mjs';
 import { dailyBucketCloseGate, reconcileDailyItems } from '../scripts/ci/reconcile-followups.mjs';
 import { dailyBucketQueueDecision, dailyMutexDecision, flattenPaginatedOpenPrs, openPrForDailyItem } from '../scripts/ci/followup-drainer.mjs';
-import { triageDailyKey } from '../scripts/ci/collect-followup-batch.mjs';
+import {
+  triageDailyKey,
+  triageMarkerPersistenceExpectation,
+  verifyTriageMarkerPersistence,
+} from '../scripts/ci/collect-followup-batch.mjs';
 
 const DAY = '2026-09-09';
 const DAILY_MUTEX_GROUP = 'followup-daily-${{ github.repository }}';
@@ -82,47 +85,39 @@ describe('daily writer concurrency contract', () => {
 });
 
 describe('post-merge triage marker contract', () => {
+  // Lo step di verifica dello YAML non riscrive piu' il predicato in bash: invoca
+  // `collect-followup-batch.mjs --verify-persistence`. I contratti restano gli
+  // stessi e si esercitano direttamente sul predicato unico.
   it('treats an explicit zero-candidate marker naming an unchanged bucket as empty', () => {
-    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
-    // L'invariante non cambia: quel marker va classificato come VUOTO e non deve
-    // mai produrre `persistence_ok=false`. Il discriminante e' il CONTEGGIO sulla
-    // riga di claim, e la grammatica vive in `claim_head` (una sola sorgente nel
-    // bash, allineata al gemello JS e case-insensitive).
-    const head = workflow.match(/claim_head='([^']+)'/)?.[1];
-    expect(head).toBeTruthy();
-
     const marker = '## Post-merge follow-up triage\n\nCreated/updated: 0 issue — nessun item nuovo aggiunto al daily bucket #8248.';
-    const claimLines = execFileSync('grep', ['-Ei', head!], { input: marker, encoding: 'utf8' });
-    expect(claimLines.trim()).not.toBe('');
-    // `grep -Eqvi` esce 1 quando NESSUNA riga viola il pattern del claim a zero:
-    // e' la condizione con cui lo YAML imposta `zero_claim=true`.
-    expect(() => execFileSync('grep', ['-Eqvi', `${head}[[:space:]]*0([^0-9.]|$)`], { input: claimLines })).toThrow();
-
-    const zeroResultBranch = workflow
-      .split('elif [ -z "$bucket_refs" ]')[0]
-      .split('if [ "$zero_claim" = true ]')
-      .at(-1);
-    expect(zeroResultBranch).toBeTruthy();
-    expect(zeroResultBranch).not.toContain('persistence_ok=false');
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [], requiresBucket: false });
+    expect(verifyTriageMarkerPersistence(marker, 8101, () => {
+      throw new Error('un claim a zero non deve leggere nessun bucket');
+    })).toBe(true);
   });
 
   it('keeps the #9286 unchanged-bucket prose on the zero-result path', () => {
-    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
     const marker = '## Post-merge follow-up triage\n\nCreated/updated: nessun item per questa PR; bucket giornaliero #9508 non modificato da questa PR.';
-    const claimLine = marker.split('\n').find((line) => line.startsWith('Created/updated:'))!;
-    expect(claimLine).toMatch(/nessun\s+item\s+per\s+questa\s+PR/i);
-    expect(claimLine).toMatch(/bucket[^#]*#9508[^\n]*non\s+modificato\s+da\s+questa\s+PR/i);
-    expect(workflow).toContain('unchanged_bucket_zero=false');
-    expect(workflow).toMatch(/\[ "\$zero_claim" = true \] \|\| \[ "\$unchanged_bucket_zero" = true \]/);
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [], requiresBucket: false });
   });
 
   it('reads positive persistence only from the explicit creation/update line', () => {
-    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
     // I riferimenti al bucket si leggono SOLO dalle righe di claim: una prosa
     // che cita un bucket storico per contesto non e' una promessa di persistenza.
-    const bucketLine = workflow.split('\n').find((line) => line.includes('bucket_refs=$(printf'));
-    expect(bucketLine).toContain('$claim_lines');
-    expect(bucketLine).toMatch(/bucket\[\[:space:\]\]\*:\?\[\[:space:\]\]\*#\[0-9\]\+/);
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: 1 item nel bucket: #9102',
+      '',
+      'Contesto: il bucket #8000 era gia\' sigillato.',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [9102], requiresBucket: true });
+  });
+
+  it('the workflow verifier delegates to the collector predicate', () => {
+    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+    expect(workflow).toContain('node scripts/ci/collect-followup-batch.mjs --verify-persistence "$csv"');
+    expect(workflow).not.toContain('claim_head=');
   });
 });
 

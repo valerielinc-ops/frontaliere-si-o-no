@@ -20,7 +20,11 @@ import {
   parseMergedPRs,
   hasTriageComment,
   latestTriageCommentBody,
+  latestTriageComment,
+  gatePreservedFollowupMatches,
   persistedBucketIssueMatches,
+  readBucketIssue,
+  verifyPersistenceCli,
   triageMarkerPersistenceExpectation,
   verifyTriageMarkerPersistence,
   canonicalLogin,
@@ -334,6 +338,109 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
       if (bucket !== 8293) throw new Error(`historical bucket ${bucket} must not be read`);
       return current;
     })).toBe(true);
+  });
+});
+
+describe('item demotato dal gate DOPO il marker (run 36212700029, 36202115664)', () => {
+  // Riproduzione del caso reale: il marker di PR #9633 cita il bucket #9769,
+  // poi il gate sul conio demota FU-2026-09-25-011 e lo toglie dal corpo del
+  // bucket, conservandolo in un commento sulla PR. Il bucket non cita piu' la
+  // PR: senza la prova del gate la verifica restava rossa per 48h.
+  const MARKER_AT = '2026-09-25T02:40:00Z';
+  const marker = '## Post-merge follow-up triage\nCreated/updated: daily bucket #9769 `follow-up(daily:2026-09-25)` con 1 item';
+  const bucketAfterDemotion = {
+    number: 9769,
+    title: 'follow-up(daily:2026-09-25): 7 items — valerielinc-ops/frontaliere-si-o-no',
+    body: '### FU-2026-09-25-001 — altro item\n- Sources: PR #9560\n',
+  };
+  const gateComment = (createdAt: string, pr = 9633, bucket = 9769) => ({
+    createdAt,
+    body: [
+      '<!-- followup-mint-gate -->',
+      '## Item demoti dal gate sul conio',
+      '',
+      `Non tracciati come item. Issue #${bucket} resta aperta con 7 item validi; questi sono stati tolti dal suo corpo e vivono solo qui.`,
+      '',
+      '### (senza titolo)',
+      `- Sources: PR #${pr}; PR body \`## Non implementato (ancora)\``,
+      '- Target repository: valerielinc-ops/frontaliere-si-o-no',
+    ].join('\n'),
+  });
+  const comments = (...extra: object[]) => JSON.stringify({
+    comments: [{ createdAt: MARKER_AT, body: marker }, ...extra],
+  });
+
+  it('verifica OK: il commento del gate posteriore al marker prova la persistenza', () => {
+    const prComments = comments(gateComment('2026-09-25T02:43:00Z'));
+    expect(verifyTriageMarkerPersistence(marker, 9633, () => bucketAfterDemotion, prComments)).toBe(true);
+    expect(persistedBucketIssueMatches(bucketAfterDemotion, 9633, prComments, Date.parse(MARKER_AT))).toBe(true);
+  });
+
+  it('senza commento del gate il bucket demotato resta non provato (fail-closed)', () => {
+    expect(verifyTriageMarkerPersistence(marker, 9633, () => bucketAfterDemotion, comments())).toBe(false);
+    expect(verifyTriageMarkerPersistence(marker, 9633, () => bucketAfterDemotion)).toBe(false);
+  });
+
+  it('una prova del gate ANTERIORE al marker, di un altro bucket o di un altra PR non vale', () => {
+    expect(verifyTriageMarkerPersistence(marker, 9633, () => bucketAfterDemotion,
+      comments(gateComment('2026-09-25T02:30:00Z')))).toBe(false);
+    expect(verifyTriageMarkerPersistence(marker, 9633, () => bucketAfterDemotion,
+      comments(gateComment('2026-09-25T02:43:00Z', 9633, 9770)))).toBe(false);
+    expect(verifyTriageMarkerPersistence(marker, 9633, () => bucketAfterDemotion,
+      comments(gateComment('2026-09-25T02:43:00Z', 9634)))).toBe(false);
+  });
+
+  it('senza createdAt leggibile la prova del gate non vale', () => {
+    expect(gatePreservedFollowupMatches(comments(gateComment('2026-09-25T02:43:00Z')), 9769, 9633, undefined)).toBe(false);
+    expect(gatePreservedFollowupMatches(comments(gateComment('non una data')), 9769, 9633, MARKER_AT)).toBe(false);
+    expect(latestTriageComment(comments())).toEqual({ body: marker, at: Date.parse(MARKER_AT) });
+  });
+
+  it('legge il bucket in ENTRAMBI i repository e usa il token di ciascuno', () => {
+    const calls: Array<{ args: string[]; token: string }> = [];
+    const run = (args: string[], token: string) => {
+      calls.push({ args, token });
+      const repo = args[args.indexOf('--repo') + 1];
+      return repo === 'nanakokyobashi-rgb/frontaliere-articles' ? null : JSON.stringify(bucketAfterDemotion);
+    };
+    const read = readBucketIssue(9769, run, ['valerielinc-ops/frontaliere-si-o-no', 'nanakokyobashi-rgb/frontaliere-articles']);
+    expect(read.candidates).toHaveLength(1);
+    expect(read.candidates[0].repo).toBe('valerielinc-ops/frontaliere-si-o-no');
+    expect(read.unreadable).toBe(true);
+    expect(calls.map((call) => call.args[call.args.indexOf('--repo') + 1])).toEqual([
+      'valerielinc-ops/frontaliere-si-o-no',
+      'nanakokyobashi-rgb/frontaliere-articles',
+    ]);
+    // Provato in un repository: l'altro illeggibile non rende la PR non verificata.
+    expect(verifyTriageMarkerPersistence(marker, 9633, () => read, comments(gateComment('2026-09-25T02:43:00Z')))).toBe(true);
+  });
+
+  it('--verify-persistence: esito OK sul caso demotato, rosso sul marker senza prova', () => {
+    const lines: string[] = [];
+    const ok = verifyPersistenceCli(['9633'], {
+      read: () => comments(gateComment('2026-09-25T02:43:00Z')),
+      readIssue: () => bucketAfterDemotion,
+      log: (line: string) => lines.push(line),
+    });
+    expect(ok).toBe(true);
+    expect(lines.join('\n')).toContain('PR #9633: persistenza provata');
+
+    lines.length = 0;
+    const ko = verifyPersistenceCli(['9633', 'x'], {
+      read: () => comments(),
+      readIssue: () => bucketAfterDemotion,
+      log: (line: string) => lines.push(line),
+    });
+    expect(ko).toBe(false);
+    expect(lines.join('\n')).toContain('triage incompleta: PR #9633');
+    expect(lines.join('\n')).toContain("triage incompleta: PR 'x' non numerica");
+  });
+
+  it('--verify-persistence: PR senza marker o commenti illeggibili = incompleta', () => {
+    const lines: string[] = [];
+    expect(verifyPersistenceCli(['9633'], { read: () => null, log: (l: string) => lines.push(l) })).toBe(false);
+    expect(verifyPersistenceCli(['9633'], { read: () => JSON.stringify({ comments: [] }), log: (l: string) => lines.push(l) })).toBe(false);
+    expect(lines.every((line) => line.includes('senza marker di triage leggibile'))).toBe(true);
   });
 });
 
