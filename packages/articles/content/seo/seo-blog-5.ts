@@ -95623,6 +95623,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vitalizio-claudio-zali-quesiti': {
+    title: 'Vitalizio Claudio Zali: i dubbi della politica',
+    description: 'Deputati Mps chiedono chiarimenti sul vitalizio di Claudio Zali: prelievo di 700mila franchi e impatto della riforma previdenziale del 2020. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vitalizio, claudio, zali, dubbi',
+    ogTitle: 'Vitalizio Claudio Zali: i dubbi della politica',
+    ogDescription: 'I deputati Giuseppe Sergi e Matteo Pronzini chiedono chiarimenti sul calcolo del vitalizio di Claudio Zali, includendo l\'effetto del prelievo di 700mila franchi e della riforma del 2020.',
+    canonicalPath: '/articoli-frontaliere/vitalizio-claudio-zali-quesiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vitalizio Claudio Zali: i dubbi della politica",
+      "description": "Deputati Mps chiedono chiarimenti sul vitalizio di Claudio Zali: prelievo di 700mila franchi e impatto della riforma previdenziale del 2020. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vitalizio-claudio-zali-quesiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo governativo di Bellinzona, sede del Consiglio di Stato del Canton Ticino"
+      },
+      "datePublished": "2026-09-27T23:22:17+00:00",
+      "dateModified": "2026-09-27T23:22:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vitalizio-claudio-zali-quesiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

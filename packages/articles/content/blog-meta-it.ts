@@ -12164,6 +12164,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.basket-varese-bologna-esordio-lba.title': 'Varese-bologna: esordio LBA alla itelyum arena',
     'blog.article.basket-varese-bologna-esordio-lba.excerpt': 'La Openjobmetis Varese sfida la Virtus Bologna domenica 27 settembre alle 19. Assente McDowell-White, in dubbio Della Valle.',
     'blog.article.basket-varese-bologna-esordio-lba.imageAlt': 'Vista panoramica del lago di Lugano al tramonto',
+    'blog.article.vitalizio-claudio-zali-quesiti.title': 'Vitalizio Claudio Zali: i dubbi della politica',
+    'blog.article.vitalizio-claudio-zali-quesiti.excerpt': 'Deputati Mps chiedono chiarimenti su prelievo anticipato di 700mila franchi e calcolo della pensione del dimissionario ministro',
+    'blog.article.vitalizio-claudio-zali-quesiti.imageAlt': 'Palazzo governativo di Bellinzona, sede del Consiglio di Stato del Canton Ticino',
 };
 
 export default blogMetaIt;
