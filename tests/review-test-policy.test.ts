@@ -24,11 +24,14 @@ import { codeContributionFingerprint } from '../scripts/ci/auto-merge-eval.mjs';
 const head = 'a'.repeat(40);
 const reviewRevision = `body:${'c'.repeat(64)}`;
 const reviewRevisionMarker = `<!-- REVIEW_INPUT_REVISION: ${reviewRevision} -->`;
-function fixture({ files = ['tests/a.test.ts'], complete = true, changedHead = false, previous = '', reviews = [] as any[] } = {}) {
+function fixture({ files = ['tests/a.test.ts'], complete = true, changedHead = false, previous = '', reviews = [] as any[], postAuthorType = 'Bot', postAuthorLogin = 'frontaliere-automation[bot]' } = {}) {
   const posts: any[] = [];
   let reads = 0;
   const ghFn = (args: string[], options: any = {}) => {
-    if (args.includes('POST')) { posts.push(JSON.parse(options.input)); return {}; }
+    if (args.includes('POST')) {
+      posts.push(JSON.parse(options.input));
+      return { user: { type: postAuthorType, login: postAuthorLogin } };
+    }
     if (args[0] === 'pr') return { changedFiles: complete ? files.length : files.length + 1, files };
     if (args[1].endsWith('/files')) return args.includes('--slurp') ? [files.map(filename => ({ filename, previous_filename: previous }))] : files.join('\n');
     if (args[1].endsWith('/reviews')) return reviews;
@@ -226,6 +229,11 @@ describe('owner policy excluding test files from review', () => {
     expect(f.posts[0].body).toContain(TEST_REVIEW_MARKER);
     expect(f.posts[0].body).toContain(reviewRevisionMarker);
     expect(f.posts[0].body).toContain('## LGTM');
+  });
+  it('fails closed when the review API reports a non-App author', () => {
+    const f = fixture({ postAuthorLogin: 'github-actions[bot]' });
+    expect(() => postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn }))
+      .toThrow(/identità della review App non verificabile/i);
   });
   it('does not publish an automatic LGTM when the reviews API is malformed', () => {
     const f = fixture({ reviews: null as any });
@@ -523,6 +531,15 @@ describe('owner policy excluding test files from review', () => {
     expect(steps.find((s: any) => s.id === 'quota')).toBeUndefined();
     for (const id of ['prefetch', 'codex_review']) expect(steps.find((s: any) => s.id === id).if).toContain("tier != 'tests-only'");
     for (const step of steps.filter((s: any) => String(s.name).startsWith('vitest '))) expect(step.if ?? '').not.toContain('tests-only');
+  });
+  it('publishes the tests-only review with the App identity and fails closed without it', () => {
+    const workflow = YAML.parse(readFileSync('.github/workflows/tests.yml', 'utf8'));
+    const review = workflow.jobs.vitest.steps.find((step: any) => step.id === 'test_only_review');
+    expect(review.env?.GH_TOKEN).toBeUndefined();
+    expect(review.run).toContain('if [ -z "${APP_TOKEN:-}" ]');
+    expect(review.run).toContain('GH_TOKEN="$APP_TOKEN" node');
+    expect(review.run).toContain('Token App assente');
+    expect(review.run).toContain('exit 1');
   });
   it('mantiene un solo tests.yml/check e porta il ledger-only prima del checkout', () => {
     const workflow = YAML.parse(readFileSync('.github/workflows/tests.yml', 'utf8')) as any;
