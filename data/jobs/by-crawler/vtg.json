@@ -9395,9 +9395,9 @@
         "fr": "chef-d-apprentissage-efz-confederazione-svizzera-wangen-an-der-aare"
       },
       "titleByLocale": {
-        "it": "Apprendista Koch/Köchin CFC",
-        "en": "Apprentice Koch/Köchin EFZ",
         "de": "Lernende/-r Koch/Köchin EFZ",
+        "it": "Apprentice chef EFZ",
+        "en": "Apprentice Koch/Köchin EFZ",
         "fr": "Apprenti/e Koch/Köchin EFZ"
       },
       "descriptionByLocale": {
@@ -9408,6 +9408,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9421,9 +9423,7 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "addressRegion": "BE"
     },
     {
       "id": "company-s8ouf3",
@@ -10402,9 +10402,9 @@
         "fr": "apprenti-e-koch-kochin-efz-swiss-armed-forces-vtg-bern-pi3gq2"
       },
       "titleByLocale": {
-        "it": "Apprendista Koch/Köchin CFC",
-        "en": "Apprentice Koch/Köchin EFZ",
         "de": "Lernende/-r Koch/Köchin EFZ",
+        "it": "Apprentice chef EFZ",
+        "en": "Apprentice Koch/Köchin EFZ",
         "fr": "Apprenti/e Koch/Köchin EFZ"
       },
       "descriptionByLocale": {
@@ -10415,6 +10415,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10428,9 +10430,7 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "Bern",
-      "addressRegion": "NW",
-      "salaryMin": 58500,
-      "salaryMax": 89000
+      "addressRegion": "NW"
     },
     {
       "id": "company-6bo5b4",
