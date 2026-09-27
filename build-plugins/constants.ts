@@ -938,7 +938,7 @@ export const OFFERWALL_FC_SNIPPET = `<script>${FC_JOBBOARD_OFFERWALL_GATE_JS}(fu
  * this snippet needs no further change (issue #1911 item 1).
  */
 export const DRIVEBY_AD_SNIPPET = `<div class="my-6">
-    ${adSlotHtml('FT_DRIVEBY_ATF_DISPLAY')}
+    ${adSlotHtml('FT_DRIVEBY_ATF_DISPLAY', { collapseWhenUnfilled: true })}
   </div>`;
 
 export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">

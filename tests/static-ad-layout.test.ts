@@ -10,8 +10,8 @@ import { AD_FILL_TIMEOUT_MS } from '@/services/adsenseSlots';
 const ROOT = resolve(__dirname, '..');
 
 describe('static AdSense layout recovery', () => {
-  it('marks every build-time slot for the static loader', () => {
-    const html = adSlotHtml('FT_DRIVEBY_ATF_DISPLAY');
+  it('marks the drive-by slot for the static loader', () => {
+    const html = adSlotHtml('FT_DRIVEBY_ATF_DISPLAY', { collapseWhenUnfilled: true });
 
     expect(html).toContain('data-ft-static-ad="true"');
     expect(html).toContain('min-height:1100px');
