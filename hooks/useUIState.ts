@@ -35,6 +35,55 @@ function deferAttributionPageView(path: string): boolean {
  return pageTemplate === 'job_detail' || pageTemplate === 'jobs_company';
 }
 
+function readDocumentTitle(): string | undefined {
+ const title = typeof document !== 'undefined' ? document.title.trim() : '';
+ return title || undefined;
+}
+
+/** Route changes update the shell title asynchronously. Wait for a title
+ * mutation (or a short bounded fallback) so GA4 does not attach the previous
+ * page's title to the new path. */
+function trackPageViewAfterNavigation(path: string, options?: { immediate?: boolean }): void {
+ if (options?.immediate) {
+  Analytics.trackPageView(path, readDocumentTitle());
+  return;
+ }
+
+ if (typeof document === 'undefined') {
+  Analytics.trackPageView(path);
+  return;
+ }
+
+ const previousTitle = document.title;
+ let settled = false;
+ let observer: MutationObserver | undefined;
+ let timeoutId: number | undefined;
+ const finish = () => {
+  if (settled) return;
+  settled = true;
+  observer?.disconnect();
+  if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+  Analytics.trackPageView(path, readDocumentTitle());
+ };
+
+ const titleNode = document.querySelector('title');
+ if (typeof MutationObserver !== 'undefined') {
+  observer = new MutationObserver(() => {
+   if (document.title && document.title !== previousTitle) finish();
+  });
+  observer.observe(titleNode || document.head, { childList: true, characterData: true, subtree: true });
+ }
+
+ // Covers synchronous title changes and environments without MutationObserver.
+ const raf = window.requestAnimationFrame;
+ if (typeof raf === 'function') {
+  raf(() => raf(finish));
+ } else {
+  window.setTimeout(finish, 0);
+ }
+ timeoutId = window.setTimeout(finish, 400);
+}
+
 export function useUIState(activeTab: ActiveTab): UIState {
  const [translationsReady, setTranslationsReady] = useState(isTranslationsReady);
  const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
@@ -101,7 +150,7 @@ export function useUIState(activeTab: ActiveTab): UIState {
  const run = () => {
  Analytics.init();
  const initialPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
- if (!deferAttributionPageView(initialPath)) Analytics.trackPageView(initialPath);
+ if (!deferAttributionPageView(initialPath)) Analytics.trackPageView(initialPath, readDocumentTitle());
  // Generic session-init marker (kept for session-level dashboards). The
  // calculator funnel uses `funnel: 'calculator'` instead, emitted via
  // fireCalcEntryIfNeeded — see Phase 4 of the May 18 recovery plan.
@@ -154,8 +203,10 @@ export function useUIState(activeTab: ActiveTab): UIState {
  // Centralized SPA pageview tracking for all route changes
  useEffect(() => {
  const trackCurrentLocation = () => {
- const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
- if (!deferAttributionPageView(path)) Analytics.trackPageView(path);
+  const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  if (!deferAttributionPageView(path)) {
+   trackPageViewAfterNavigation(path, { immediate: trackImmediately });
+  }
  // Also emit calc-funnel entry if the new route is any calc URL and we
  // haven't fired it yet this session (deduped via sessionStorage). This
  // covers in-SPA navigation into the calculator from any other tab.
@@ -171,6 +222,7 @@ export function useUIState(activeTab: ActiveTab): UIState {
  };
 
  const originalPushState = history.pushState;
+ const trackImmediately = typeof originalPushState !== 'function';
 
  history.pushState = function (...args) {
  // Defensive guard (issue #4304, hardened #5606): a live PostHog cluster

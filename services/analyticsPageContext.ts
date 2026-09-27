@@ -1,4 +1,5 @@
 import { isJobBoardSectorHubPath as isSharedJobBoardSectorHubPath } from '../build-plugins/shared/jobSectorSlugs.mjs';
+import { classifyEventsPage } from '../scripts/lib/eventsSections.mjs';
 
 export type AnalyticsPageContext = {
  contentGroup: string;
@@ -88,6 +89,17 @@ export function deriveAnalyticsPageContext(inputPath: string): AnalyticsPageCont
  contentLocale,
  routeFamily: !tail ? 'jobs_index' : isCompany ? 'jobs_company' : isSearch ? 'jobs_search' : isSectorHub ? 'jobs_sector' : 'job_detail',
  };
+ }
+
+ const eventsPageTemplate = classifyEventsPage(localPath);
+ if (eventsPageTemplate) {
+  return {
+   contentGroup: 'events',
+   pageTemplate: eventsPageTemplate,
+   siteSection: 'events',
+   contentLocale,
+   routeFamily: eventsPageTemplate,
+  };
  }
 
  if (startsWithAny(localPath, articleRoots)) {
