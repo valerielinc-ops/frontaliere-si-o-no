@@ -32,9 +32,10 @@
  * `overflow-x: clip` (NOT `overflow: hidden`, which would make it a scroll
  * container and silently break this) — see App.tsx app-shell-col.
  *
- * Reading-page rails use the 300px track at ≥1400px and a 160px track on the
- * intermediate desktop tier (1200–1399px). SPA tool rails keep their existing
- * ≥1400px gate and pass `narrow` explicitly.
+ * Article reading-page rails use the 300px track at ≥1400px and a 160px track
+ * on the intermediate desktop tier (1200–1399px). Static reading rails use
+ * `desktopRail`; SPA tool rails keep their existing ≥1400px gate and pass
+ * `narrow` explicitly.
  *
  * Renders multiple GPT slots of the same /23355151813/article-rail-{side} unit;
  * each GptAdSlot mints a unique div id, so multi-slot serving is fine. Same
@@ -71,9 +72,12 @@ export interface ArticleRailAdStackProps {
   /**
    * Narrow (160px) gutter — the SPA tool-page rail. Forwarded to ArticleRailAd
    * so it requests only 160-wide creatives (no overflow). Reading-page rails
-   * (300px) omit this.
+   * (300px) omit this. The article compact tier uses the same 160px creative
+   * set through `compact`.
    */
   narrow?: boolean;
+  /** Article reading-page compact tier (1200–1399px). */
+  compact?: boolean;
   /**
    * Static SEO reading-page rail. Unlike SPA tool rails, this is visible from
    * 1200px upward; ArticleRailAd switches to 160px creatives below 1400px.
@@ -94,7 +98,7 @@ const MAX_PANELS = 6;
 // gutter short. Mirrors AdSenseBanner's fill-timeout intent.
 const FILL_GRACE_MS = 6000;
 
-const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false, desktopRail = false, onEmptyResolved }) => {
+const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false, compact = false, desktopRail = false, onEmptyResolved }) => {
   const ref = useRef<HTMLDivElement>(null);
   // Per-panel GPT verdict, keyed by panel index (true = reported empty).
   const emptyByIndex = useRef<Map<number, boolean>>(new Map());
@@ -190,11 +194,18 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
     };
   }, [maxPanels]);
 
+  const visibilityClass = compact
+    ? 'hidden xlc:flex xlc:flex-col xlc:flex-1 xlc:min-h-0 xlw:hidden'
+    : desktopRail
+      ? 'ft-static-rail-stack'
+      : 'hidden xlw:flex xlw:flex-col xlw:flex-1 xlw:min-h-0';
+
   return (
     // Outer `flex-1` claims the full gutter height so the sticky cluster has room
-    // to travel and the layout/CLS slot is reserved. Static reading pages use
-    // the 1200px desktop tier; SPA tool rails retain the existing xlw gate.
-    <div ref={ref} className={desktopRail ? 'ft-static-rail-stack' : 'hidden xlw:flex xlw:flex-col xlw:flex-1 xlw:min-h-0'}>
+    // to travel and the layout/CLS slot is reserved. The compact article tier
+    // uses 160px creatives from 1200–1399px; static reading pages use the
+    // 1200px desktop tier; SPA tool rails retain the existing xlw gate.
+    <div ref={ref} className={visibilityClass}>
       {/* Inner cluster pins to the viewport top and rides the whole scroll, so a
           tall article's gutter never goes blank below the physical ads. */}
       <div className="sticky top-6 flex flex-col gap-2">
@@ -204,7 +215,8 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
             side={side}
             enabled={enabled}
             reserve={i === 0}
-            narrow={narrow}
+            narrow={narrow || compact}
+            compact={compact}
             desktopRail={desktopRail}
             onEmptyChange={(isEmpty) => handlePanelEmpty(i, isEmpty)}
           />

@@ -692,7 +692,8 @@ body.modal-open .google-auto-placed {
    footprint. The parent rule also removes the wrapper's margin, otherwise a
    failed 1100px drive-by slot would leave a misleading band around the zeroed
    <ins>. */
-ins.adsbygoogle[data-ft-static-ad-collapsed] {
+ins.adsbygoogle[data-ft-static-ad-collapsed],
+ins.adsbygoogle[data-ad-slot="2093992129"][data-ad-status="unfilled"] {
   min-height: 0 !important;
   max-height: 0 !important;
   height: 0 !important;
@@ -701,7 +702,8 @@ ins.adsbygoogle[data-ft-static-ad-collapsed] {
   overflow: hidden !important;
   display: block !important;
 }
-:where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]) {
+:where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]),
+:where(div, li, section):has(> ins.adsbygoogle[data-ad-slot="2093992129"][data-ad-status="unfilled"]) {
   height: 0 !important;
   min-height: 0 !important;
   margin-block: 0 !important;
@@ -839,6 +841,10 @@ input[type=number] { -moz-appearance: textfield; }
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Content-driven compact breakpoint: the article can reserve 160px ad rails
+     from 1200px without squeezing the reading column below its desktop measure. */
+  --breakpoint-xlc: 1200px;
 
   /* Extra desktop breakpoint between xl (1280) and 2xl (1536), used by the
      article side-rail layout to widen the gutters to 300px half-page ad rails.

@@ -15,6 +15,9 @@ import { isGreyGlobe, LOGO_BOT_USER_AGENT } from './google-favicon.mjs';
 export const DEFAULT_ASSET_BASE_URL = 'https://cdn.frontaliereticino.ch';
 export const DEFAULT_FETCH_TIMEOUT_MS = 8_000;
 export const MAX_LOGO_BODY_BYTES = 2 * 1024 * 1024;
+// The largest rendered employer-logo slot is 80px. Keep a small source-size
+// buffer so raster logos are not served at (or above) their native resolution.
+export const MIN_LOGO_QUALITY_DIMENSION_PX = 96;
 
 function trimTrailingSlash(value) {
   return String(value || '').trim().replace(/\/+$/, '');
@@ -115,6 +118,134 @@ function detectImageFormat(body) {
   return head.startsWith('<svg') || head.startsWith('<?xml') ? 'svg' : null;
 }
 
+function readUInt24LE(body, offset) {
+  return body[offset] | (body[offset + 1] << 8) | (body[offset + 2] << 16);
+}
+
+function readSvgLength(value) {
+  const match = String(value || '').match(/^\s*([0-9]+(?:\.[0-9]+)?)/);
+  const number = match ? Number(match[1]) : 0;
+  return Number.isFinite(number) && number > 0 ? number : null;
+}
+
+function readSvgDimensions(body) {
+  const root = body.subarray(0, 16 * 1024).toString('utf8').match(/<svg\b[^>]*>/i)?.[0] || '';
+  const viewBox = root.match(/\bviewBox\s*=\s*["']\s*[-+0-9.e]+\s+[-+0-9.e]+\s+([-+0-9.e]+)\s+([-+0-9.e]+)\s*["']/i);
+  if (viewBox) {
+    const width = Number(viewBox[1]);
+    const height = Number(viewBox[2]);
+    if (Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0) {
+      return { width, height };
+    }
+  }
+  return {
+    width: readSvgLength(root.match(/\bwidth\s*=\s*["']([^"']+)["']/i)?.[1]),
+    height: readSvgLength(root.match(/\bheight\s*=\s*["']([^"']+)["']/i)?.[1]),
+  };
+}
+
+function readJpegDimensions(body) {
+  if (body.length < 4 || body[0] !== 0xff || body[1] !== 0xd8) return null;
+  let offset = 2;
+  while (offset + 3 < body.length) {
+    while (offset < body.length && body[offset] === 0xff) offset++;
+    if (offset >= body.length) break;
+    const marker = body[offset++];
+    if (marker === 0xd8 || marker === 0xd9) continue;
+    if (marker === 0xda) break;
+    if (offset + 1 >= body.length) break;
+    const segmentLength = body.readUInt16BE(offset);
+    if (segmentLength < 2 || offset + segmentLength > body.length) break;
+    const isSof = [
+      0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7,
+      0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf,
+    ].includes(marker);
+    if (isSof && segmentLength >= 7) {
+      return {
+        width: body.readUInt16BE(offset + 5),
+        height: body.readUInt16BE(offset + 3),
+      };
+    }
+    offset += segmentLength;
+  }
+  return null;
+}
+
+/**
+ * Read intrinsic dimensions without trusting the response MIME type. SVG is
+ * treated as vector content even when it has no explicit width/height.
+ */
+export function readImageDimensions(body, format = detectImageFormat(body)) {
+  if (!body || body.length === 0) return null;
+  const bytes = Buffer.isBuffer(body) ? body : Buffer.from(body);
+  if (format === 'svg') return { ...readSvgDimensions(bytes), vector: true };
+  if (format === 'png' && bytes.length >= 24) {
+    return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20), vector: false };
+  }
+  if (format === 'gif' && bytes.length >= 10) {
+    return { width: bytes.readUInt16LE(6), height: bytes.readUInt16LE(8), vector: false };
+  }
+  if (format === 'jpg') return { ...readJpegDimensions(bytes), vector: false };
+  if (format === 'webp' && bytes.length >= 16 && bytes.toString('ascii', 0, 4) === 'RIFF') {
+    const chunk = bytes.toString('ascii', 12, 16);
+    if (chunk === 'VP8X' && bytes.length >= 30) {
+      return {
+        width: 1 + readUInt24LE(bytes, 24),
+        height: 1 + readUInt24LE(bytes, 27),
+        vector: false,
+      };
+    }
+    if (chunk === 'VP8L' && bytes.length >= 26 && bytes[20] === 0x2f) {
+      return {
+        width: 1 + (bytes[21] | (bytes[22] << 8) | ((bytes[23] & 0x3f) << 16)),
+        height: 1 + ((bytes[23] >> 6) | (bytes[24] << 2) | ((bytes[25] & 0x0f) << 10)),
+        vector: false,
+      };
+    }
+    if (chunk === 'VP8 ' && bytes.length >= 30
+      && bytes[23] === 0x9d && bytes[24] === 0x01 && bytes[25] === 0x2a) {
+      return {
+        width: bytes.readUInt16LE(26) & 0x3fff,
+        height: bytes.readUInt16LE(28) & 0x3fff,
+        vector: false,
+      };
+    }
+  }
+  if (format === 'ico' && bytes.length >= 8) {
+    const imageCount = bytes.readUInt16LE(4);
+    let largest = null;
+    for (let index = 0; index < imageCount; index++) {
+      const entryOffset = 6 + index * 16;
+      if (entryOffset + 2 > bytes.length) break;
+      const width = bytes[entryOffset] || 256;
+      const height = bytes[entryOffset + 1] || 256;
+      if (!largest || Math.max(width, height) > Math.max(largest.width, largest.height)) {
+        largest = { width, height };
+      }
+    }
+    if (largest) return { ...largest, vector: false };
+  }
+  return null;
+}
+
+export function assessLogoQuality({ format, width, height, vector = false } = {}) {
+  if (format === 'svg' || vector) return { status: 'good', reason: 'vector' };
+  if (!Number.isFinite(width) || width <= 0 || !Number.isFinite(height) || height <= 0) {
+    return { status: 'unverified', reason: 'dimensions-unavailable' };
+  }
+  const maxDimension = Math.max(width, height);
+  if (maxDimension < MIN_LOGO_QUALITY_DIMENSION_PX) {
+    return {
+      status: 'low-quality',
+      reason: 'intrinsic-dimensions-too-small',
+      width,
+      height,
+      maxDimension,
+    };
+  }
+  return { status: 'good', reason: 'intrinsic-dimensions-ok', width, height, maxDimension };
+}
+
 export function detectLogoExtension(body, contentType = '') {
   const format = detectImageFormat(body);
   if (!format) return null;
@@ -180,6 +311,9 @@ export async function fetchVerifiedLogo(url, options = {}) {
     if (!extension) {
       return { status: 'broken', reason: 'not-an-image', statusCode: response.status, contentType };
     }
+    const format = detectImageFormat(body);
+    const dimensions = readImageDimensions(body, format);
+    const quality = assessLogoQuality({ format, ...dimensions });
     return {
       status: 'valid',
       body,
@@ -188,6 +322,10 @@ export async function fetchVerifiedLogo(url, options = {}) {
       statusCode: response.status,
       contentType,
       url: response.url || url,
+      width: dimensions?.width || null,
+      height: dimensions?.height || null,
+      qualityStatus: quality.status,
+      qualityReason: quality.reason,
     };
   } catch (error) {
     return {
@@ -210,10 +348,16 @@ function buildCheckUrl(reference, assetBaseUrl) {
 export async function validateLogoReference(reference, options = {}) {
   const { kind, reference: value } = reference;
   if (kind === 'missing' || kind === 'initials') {
-    return { status: kind, reference: value, url: null };
+    return { status: kind, reference: value, url: null, qualityStatus: 'not-applicable' };
   }
   if (kind === 'invalid') {
-    return { status: 'broken', reference: value, url: null, reason: 'invalid-logo-reference' };
+    return {
+      status: 'broken',
+      reference: value,
+      url: null,
+      reason: 'invalid-logo-reference',
+      qualityStatus: 'not-applicable',
+    };
   }
 
   const assetBaseUrl = options.assetBaseUrl === undefined
@@ -234,6 +378,10 @@ export async function validateLogoReference(reference, options = {}) {
       statusCode: result.statusCode,
       contentType: result.contentType,
       bytes: result.bytes,
+      width: result.width,
+      height: result.height,
+      qualityStatus: result.qualityStatus,
+      qualityReason: result.qualityReason,
     };
   } catch (error) {
     return { status: 'broken', reference: value, url, reason: String(error?.message || error), statusCode: 0 };
@@ -261,20 +409,52 @@ function statusForRecords(records) {
   const counts = { valid: 0, missing: 0, initials: 0, broken: 0, unverified: 0 };
   for (const record of records) counts[record.validation.status] = (counts[record.validation.status] || 0) + 1;
   const invalid = counts.missing + counts.initials + counts.broken + counts.unverified;
-  let status = 'ok';
-  if (counts.valid === 0) {
-    if (counts.broken > 0 && counts.missing + counts.initials + counts.unverified === 0) status = 'broken';
-    else if (counts.unverified > 0 && counts.missing + counts.initials + counts.broken === 0) status = 'unverified';
-    else status = 'missing';
-  } else if (invalid > 0) {
-    status = 'partial';
+  const qualityCounts = { goodQuality: 0, lowQuality: 0, qualityUnverified: 0 };
+  for (const record of records) {
+    if (record.validation.qualityStatus === 'good') qualityCounts.goodQuality++;
+    if (record.validation.qualityStatus === 'low-quality') qualityCounts.lowQuality++;
+    if (record.validation.qualityStatus === 'unverified') qualityCounts.qualityUnverified++;
   }
-  return { ...counts, invalid, status };
+  const qualityMeasured = qualityCounts.goodQuality + qualityCounts.lowQuality + qualityCounts.qualityUnverified > 0;
+  const qualityInvalid = qualityCounts.lowQuality + qualityCounts.qualityUnverified;
+  const qualityStatus = !qualityMeasured
+    ? 'not-applicable'
+    : qualityCounts.lowQuality > 0
+      ? 'low-quality'
+      : qualityCounts.qualityUnverified > 0
+        ? 'unverified'
+        : 'ok';
+  let coverageStatus = 'ok';
+  if (counts.valid === 0) {
+    if (counts.broken > 0 && counts.missing + counts.initials + counts.unverified === 0) coverageStatus = 'broken';
+    else if (counts.unverified > 0 && counts.missing + counts.initials + counts.broken === 0) coverageStatus = 'unverified';
+    else coverageStatus = 'missing';
+  } else if (invalid > 0) {
+    coverageStatus = 'partial';
+  }
+  const status = coverageStatus !== 'ok'
+    ? coverageStatus
+    : qualityStatus === 'low-quality'
+      ? 'low-quality'
+      : qualityStatus === 'unverified'
+        ? 'quality-unverified'
+        : 'ok';
+  return {
+    ...counts,
+    invalid,
+    qualityStatus,
+    ...qualityCounts,
+    qualityInvalid,
+    affectedJobCount: invalid + qualityInvalid,
+    status,
+  };
 }
 
 function companyEntry(companyKey, records, counts) {
   const missingRecords = records.filter((r) => r.validation.status === 'missing' || r.validation.status === 'initials');
   const brokenRecords = records.filter((r) => r.validation.status === 'broken');
+  const lowQualityRecords = records.filter((r) => r.validation.qualityStatus === 'low-quality');
+  const qualityUnverifiedRecords = records.filter((r) => r.validation.qualityStatus === 'unverified');
   const sourceCrawlers = [...new Set(records.map((r) => sourceCrawlerForJob(r.job)).filter(Boolean))].sort();
   return {
     companyKey,
@@ -283,12 +463,19 @@ function companyEntry(companyKey, records, counts) {
     missingJobCount: counts.missing + counts.initials,
     brokenJobCount: counts.broken,
     unverifiedJobCount: counts.unverified,
-    affectedJobCount: counts.invalid,
+    lowQualityJobCount: counts.lowQuality,
+    qualityUnverifiedJobCount: counts.qualityUnverified,
+    qualityAffectedJobCount: counts.qualityInvalid,
+    invalid: counts.invalid,
+    affectedJobCount: counts.affectedJobCount,
     status: counts.status,
+    qualityStatus: counts.qualityStatus,
     exampleUrl: firstExample(records, (r) => r.job?.url) || null,
     examples: {
       missing: firstExample(missingRecords, (r) => r.job?.url),
       broken: firstExample(brokenRecords, (r) => r.job?.url),
+      lowQuality: firstExample(lowQualityRecords, (r) => r.job?.url),
+      qualityUnverified: firstExample(qualityUnverifiedRecords, (r) => r.job?.url),
     },
     sourceCrawlers,
   };
@@ -368,6 +555,8 @@ export async function auditCompanyLogos(jobs, {
   const brokenCompanies = companies.filter((c) => c.status === 'broken');
   const partialCompanies = companies.filter((c) => c.status === 'partial');
   const unverifiedCompanies = companies.filter((c) => c.status === 'unverified');
+  const lowQualityCompanies = companies.filter((c) => c.lowQualityJobCount > 0);
+  const qualityUnverifiedCompanies = companies.filter((c) => c.qualityUnverifiedJobCount > 0);
   const affectedCompanies = companies.filter((c) => c.status !== 'ok');
   const referencesOutput = [...references.values()].map((r) => ({
     reference: r.reference,
@@ -378,7 +567,10 @@ export async function auditCompanyLogos(jobs, {
   }))
     .sort((a, b) => String(a.url || a.reference).localeCompare(String(b.url || b.reference)));
   const problemReferences = referencesOutput.filter(
-    (reference) => reference.status === 'broken' || reference.status === 'unverified',
+    (reference) => reference.status === 'broken'
+      || reference.status === 'unverified'
+      || reference.qualityStatus === 'low-quality'
+      || reference.qualityStatus === 'unverified',
   );
   const checkedReferences = referencesOutput.filter(
     (reference) => reference.kind === 'local'
@@ -394,16 +586,23 @@ export async function auditCompanyLogos(jobs, {
     broken: brokenCompanies.length,
     brokenJobCount: brokenCompanies.reduce((sum, c) => sum + c.brokenJobCount, 0),
     partial: partialCompanies.length,
-    partialJobCount: partialCompanies.reduce((sum, c) => sum + c.affectedJobCount, 0),
+    partialJobCount: partialCompanies.reduce((sum, c) => sum + c.invalid, 0),
     unverified: unverifiedCompanies.length,
-    unverifiedJobCount: unverifiedCompanies.reduce((sum, c) => sum + c.affectedJobCount, 0),
+    unverifiedJobCount: unverifiedCompanies.reduce((sum, c) => sum + c.invalid, 0),
+    lowQuality: lowQualityCompanies.length,
+    lowQualityJobCount: lowQualityCompanies.reduce((sum, c) => sum + c.lowQualityJobCount, 0),
+    qualityUnverified: qualityUnverifiedCompanies.length,
+    qualityUnverifiedJobCount: qualityUnverifiedCompanies.reduce((sum, c) => sum + c.qualityUnverifiedJobCount, 0),
     referenceCount: checkedReferences.length,
     validReferenceCount: checkedReferences.filter((reference) => reference.status === 'valid').length,
+    qualityOkReferenceCount: checkedReferences.filter((reference) => reference.qualityStatus === 'good').length,
     affectedCompanies: affectedCompanies,
     companies: noLogoCompanies,
     brokenCompanies,
     partialCompanies,
     unverifiedCompanies,
+    lowQualityCompanies,
+    qualityUnverifiedCompanies,
     references: problemReferences,
   };
 }

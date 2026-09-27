@@ -116,6 +116,13 @@ export const RAIL_RESERVE_CSS =
   '.ft-rail-aside{display:none}' +
   '.ft-rail-aside-x{display:none}' +
   '.ft-rail-grid-spa{display:contents}' +
+  '@media(min-width:1200px){' +
+  '.xlc\\:max-w-6xl{max-width:72rem}' +
+  '}' +
+  '@media(min-width:1200px) and (max-width:1279.98px){' +
+  '.ft-blog-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-c-l,160px) minmax(0,1fr) var(--ft-rail-w-c-r,160px);gap:1rem}' +
+  '.ft-blog-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
+  '}' +
   '.ft-static-rail-stack,.ft-static-rail-panel{display:none}' +
   '@media(min-width:1200px) and (max-width:1399.98px){' +
   '.ft-rail-grid{display:grid;grid-template-columns:160px minmax(0,1fr) 160px;gap:1rem;margin-inline:auto;max-width:1768px}' +
@@ -126,15 +133,16 @@ export const RAIL_RESERVE_CSS =
   '.ft-static-rail-panel{display:block}' +
   '}' +
   '@media(min-width:1280px) and (max-width:1399.98px){' +
-  '.ft-rail-grid-x{display:grid;grid-template-columns:180px 1fr 180px;gap:1rem}' +
+  '.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-m-l,180px) minmax(0,1fr) var(--ft-rail-w-m-r,180px);gap:1rem}' +
   '.ft-rail-aside-x{display:block}' +
+  '.ft-blog-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
   '}' +
   '@media(min-width:1400px){' +
   'main:not(.seo-static-content):not(.cluster-seo-prose){max-width:calc(100vw - 360px)}' +
   '#main-content.plate-auctions-main{max-width:none!important}' +
   '.ft-rail-grid{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:1rem;margin-inline:auto;max-width:1768px}' +
   '.ft-rail-grid-spa{display:grid;grid-template-columns:160px minmax(0,1fr) 160px;gap:1rem}' +
-  '.ft-rail-grid-x{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:1rem}' +
+  '.ft-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-l,300px) minmax(0,1fr) var(--ft-rail-w-r,300px);gap:1rem}' +
   '.ft-rail-aside,.ft-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
   '}' +
   '@media(min-width:1800px){main:not(.seo-static-content):not(.cluster-seo-prose){max-width:calc(100vw - 420px)}}';
@@ -147,10 +155,13 @@ export const RAIL_RESERVE_CSS =
  * the async sheet swaps in on a cold static page.
  */
 const STATIC_AD_SELECTOR = 'ins.ads' + 'bygoogle';
+const STATIC_AD_LEGACY_SELECTOR = `${STATIC_AD_SELECTOR}[data-ad-slot="2093992129"]`;
+const STATIC_AD_COLLAPSE_SELECTOR =
+  `${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed],${STATIC_AD_LEGACY_SELECTOR}[data-ad-status="unfilled"]`;
 
 export const STATIC_AD_COLLAPSE_CSS =
-  `${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]{min-height:0!important;max-height:0!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;display:block!important}` +
-  `:where(div,li,section):has(> ${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}`;
+  `${STATIC_AD_COLLAPSE_SELECTOR}{min-height:0!important;max-height:0!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;display:block!important}` +
+  `:where(div,li,section):has(> ${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]),:where(div,li,section):has(> ${STATIC_AD_LEGACY_SELECTOR}[data-ad-status="unfilled"]){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}`;
 
 /**
  * Static SEO landing layout, mirrored from the ASYNC `seo-static.css`

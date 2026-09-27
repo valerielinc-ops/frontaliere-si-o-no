@@ -27,7 +27,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -148,22 +148,6 @@ function buildDetailUrl(id) {
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-async function fetchJson(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': USER_AGENT, Accept: 'application/json,*/*' },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function buildParsedJob(rec) {
   const title = normalizeSpace(rec?.name || '');
   if (!title || title.length < 3) return null;
@@ -238,7 +222,9 @@ export async function fetchAllLaliveJobs() {
 
   let records = [];
   try {
-    records = await fetchJson(PERSONIO_API_URL);
+    records = await fetchJson(PERSONIO_API_URL, {
+      headers: { 'User-Agent': USER_AGENT, Accept: 'application/json,*/*' },
+    });
   } catch (err) {
     console.warn(`⚠️ Personio search.json fetch failed: ${err?.message || err}`);
     return [];
