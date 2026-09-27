@@ -73,6 +73,7 @@ import {
   type SaveJobSurface,
 } from '@/services/pendingSaveJob';
 import {
+ BEHAVIOR_DATA_CHANGED_EVENT,
  type BehaviorData,
  getBehaviorData,
  readBehaviorAndMarkVisit,
@@ -2715,6 +2716,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
   setBehaviorData(getBehaviorData());
  }
  }, [enablePersonalization, enableApplicationIntentRanking, behaviorHydrationRevision]);
+
+ // Preference changes happen in the profile surface, which can remain mounted
+ // beside the board during an SPA session. Refresh immediately so a signal
+ // opt-out also removes the local ranking treatment without a full remount.
+ useEffect(() => {
+  const onBehaviorDataChanged = () => setBehaviorData(getBehaviorData());
+  window.addEventListener(BEHAVIOR_DATA_CHANGED_EVENT, onBehaviorDataChanged);
+  return () => window.removeEventListener(BEHAVIOR_DATA_CHANGED_EVENT, onBehaviorDataChanged);
+ }, []);
 
  // Load survey-derived job-match profile (sector/canton/experience level).
  // Independent of behaviorData: a user who only completed SalarySurvey (no
@@ -7078,7 +7088,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(undefined);
  };
 
- const recordJobApplicationIntent = (job: JobListing, surface: string): Promise<boolean> => recordApplicationIntent({
+ const recordJobApplicationIntent = (job: JobListing, surface: string): Promise<boolean> => {
+  const rawMode = (job as { applyMode?: string }).applyMode;
+  const applicationMode = rawMode === 'in_house' || rawMode === 'forward_email' ? rawMode : 'external';
+  return recordApplicationIntent({
    job: {
     id: job.id,
     slug: job.slug,
@@ -7086,12 +7099,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyKey: job.companyKey,
     title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
    },
+   applicationMode,
    origin: typeof window !== 'undefined' ? window.location.pathname : '/',
    surface,
    consentText: t('jobBoard.applicationIntentConsent'),
    authEmail: getAuthEmail(authUser),
    authUser,
   });
+ };
 
   const trackPublisherApplySignals = (
   job: JobListing,
@@ -7273,7 +7288,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
     promise: recordJobApplicationIntent(job, surface),
    };
   } else {
+   // In-house/forward-email applications have no external hand-off to await;
+   // the server-side intent is still recorded before the form is shown.
    applicationIntentSyncRef.current = null;
+   void recordJobApplicationIntent(job, surface);
   }
   if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
    onRequireAuth?.();

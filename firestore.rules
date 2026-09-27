@@ -1100,6 +1100,12 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // One-shot reminder delivery claims are server-owned idempotency records;
+    // exposing them would reveal account-linked intent ids and delivery state.
+    match /application_intent_reminder_deliveries/{intentId} {
+      allow read, write: if false;
+    }
+
     // Candidate applications (in-house / forward modes). Contains PII, so reads
     // are restricted to the publisher who owns the target job (denormalized
     // publisherUid) — never public. Create is open (candidate submits) but the

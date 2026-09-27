@@ -1551,6 +1551,60 @@ async function fetchSubscribers() {
   } catch (e) {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
   }
+
+  // Application-intent personalization is private and account-backed. Join
+  // it only through the verified Auth uid stored on the subscriber document
+  // and the matching marker written by the authenticated client; an email
+  // address alone is not proof that an anonymous browser signal belongs to
+  // this newsletter relationship.
+  try {
+    const personalizationByEmail = new Map();
+    const personalizationSnap = await db.collectionGroup('private').get();
+    for (const docSnap of personalizationSnap.docs || []) {
+      if (docSnap.id !== 'personalization') continue;
+      const subscriberRef = docSnap.ref.parent.parent;
+      const email = normalizeEmail(subscriberRef?.id);
+      const subscriber = email ? subscribers.get(email) : null;
+      if (!subscriber?.userId) continue;
+      const personalization = docSnap.data() || {};
+      const uid = String(subscriber.userId).trim();
+      if (!uid || personalization.applicationIntentAuthUid !== uid) continue;
+      if (personalization.applicationIntent) {
+        personalizationByEmail.set(email, { uid, applicationIntent: personalization.applicationIntent });
+      }
+    }
+
+    // The newsletter sender must re-read the account preference from its
+    // owner document. A private profile can be stale after the preference
+    // center changed it, and a missing/erroring owner read must fail closed.
+    const uids = [...new Set([...personalizationByEmail.values()].map((entry) => entry.uid))];
+    if (uids.length > 0) {
+      if (typeof db.getAll !== 'function') throw new Error('batched users profile lookup unavailable');
+      const accountProfiles = new Map();
+      const PROFILE_CHUNK_SIZE = 200;
+      for (let i = 0; i < uids.length; i += PROFILE_CHUNK_SIZE) {
+        const chunk = uids.slice(i, i + PROFILE_CHUNK_SIZE);
+        const snapshots = await db.getAll(...chunk.map((uid) => db.collection('users').doc(uid)));
+        snapshots.forEach((snapshot, index) => {
+          const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
+          if (!exists) return;
+          const data = snapshot.data() || {};
+          accountProfiles.set(chunk[index], { optedOut: data.applicationIntent?.optedOut === true });
+        });
+      }
+      for (const [email, candidate] of personalizationByEmail) {
+        const account = accountProfiles.get(candidate.uid);
+        if (!account || account.optedOut) continue;
+        const subscriber = subscribers.get(email);
+        if (subscriber) subscriber.applicationIntent = candidate.applicationIntent;
+      }
+    }
+  } catch (e) {
+    // Browsing personalization is optional. A failed join must not change the
+    // newsletter audience or turn anonymous/stale account data into a
+    // recommendation signal.
+    console.warn('⚠️ Application-intent personalization fetch failed:', e.message);
+  }
   console.log(`\ud83d\udc65 Subscribers eligible: ${subscribers.size} (excludedNoBasis ${excludedNoBasis})`);
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers

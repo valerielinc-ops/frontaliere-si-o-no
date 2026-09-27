@@ -31,10 +31,65 @@ import admin from 'firebase-admin';
 import {
  APPLICATION_INTENTS_COLLECTION,
  APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION,
+ APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION,
  buildApplicationIntentAccountTombstone,
 } from './applicationIntentPrivacy.js';
 
 const DELETE_PAGE_SIZE = 450;
+const SUBSCRIBER_UID_FIELDS = Object.freeze(['user_id', 'userId', 'uid', 'auth_uid']);
+
+function normalizedEmail(value) {
+ const email = typeof value === 'string' ? value.trim().toLowerCase() : '';
+ return email && email.includes('@') ? email : '';
+}
+
+function emailFromPersonalizationPath(path) {
+ const segments = String(path || '').split('/');
+ if (segments.length !== 4 || segments[0] !== 'newsletter_subscribers' || segments[2] !== 'private') return '';
+ return normalizedEmail(segments[1]);
+}
+
+/**
+ * Find every email-keyed projection that still proves ownership of the Auth
+ * uid. Firebase Auth exposes only the current email on onDelete; an address
+ * change can therefore leave the old subscriber/private documents behind if
+ * cleanup trusts the event's email alone.
+ */
+async function collectHistoricalSubscriberEmails(db, uid, currentEmail) {
+ const emails = new Set();
+ const current = normalizedEmail(currentEmail);
+ if (current) emails.add(current);
+
+ for (const collectionName of ['newsletter_subscribers', 'job_alert_subscribers']) {
+  const collection = db.collection(collectionName);
+  if (typeof collection?.where !== 'function') continue;
+  for (const field of SUBSCRIBER_UID_FIELDS) {
+   const snapshot = await collection.where(field, '==', uid).get();
+   for (const docSnap of snapshot?.docs || []) {
+    const email = normalizedEmail(docSnap.id);
+    if (email) emails.add(email);
+   }
+  }
+ }
+
+ // The private projection is the durable binding used by newsletter/job-alert
+ // personalization. A collection-group lookup covers old email documents
+ // even after the public subscriber row stopped carrying the uid.
+ if (typeof db.collectionGroup === 'function') {
+  const privateCollection = db.collectionGroup('private');
+  const query = typeof privateCollection?.where === 'function'
+   ? privateCollection.where('applicationIntentAuthUid', '==', uid)
+   : privateCollection;
+  const snapshot = await query.get();
+  for (const docSnap of snapshot?.docs || []) {
+   if (docSnap.id !== 'personalization') continue;
+   const email = emailFromPersonalizationPath(docSnap.ref?.path);
+   if (email) emails.add(email);
+  }
+ }
+
+ return [...emails];
+}
 
 export const ACCOUNT_DELETED_STATUS = 'account_deleted';
 
@@ -95,7 +150,11 @@ export async function tombstoneApplicationIntentDataForDeletedUser(uid, injected
  const db = injectedDb || admin.firestore();
  const tombstone = buildApplicationIntentAccountTombstone(uid);
  if (!tombstone) {
-  return { tombstonedApplicationIntents: 0, tombstonedApplicationIntentAccount: false };
+  return {
+   tombstonedApplicationIntents: 0,
+   deletedApplicationIntentReminderDeliveries: 0,
+   tombstonedApplicationIntentAccount: false,
+  };
  }
 
  const accountTombstoneRef = db
@@ -105,6 +164,18 @@ export async function tombstoneApplicationIntentDataForDeletedUser(uid, injected
  await accountTombstoneRef.set(tombstone, { merge: true });
 
  const refs = await collectApplicationIntentRefs(db, tombstone.userId);
+ let deletedApplicationIntentReminderDeliveries = 0;
+ for (let offset = 0; offset < refs.length; offset += DELETE_PAGE_SIZE) {
+  const batch = db.batch();
+  const page = refs.slice(offset, offset + DELETE_PAGE_SIZE);
+  for (const ref of page) {
+   batch.delete(db.collection(APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION).doc(ref.id));
+  }
+  if (page.length > 0) {
+   await batch.commit();
+   deletedApplicationIntentReminderDeliveries += page.length;
+  }
+ }
  let tombstonedApplicationIntents = 0;
  for (let offset = 0; offset < refs.length; offset += DELETE_PAGE_SIZE) {
   const batch = db.batch();
@@ -114,7 +185,11 @@ export async function tombstoneApplicationIntentDataForDeletedUser(uid, injected
   tombstonedApplicationIntents += page.length;
  }
 
- return { tombstonedApplicationIntents, tombstonedApplicationIntentAccount: true };
+ return {
+  tombstonedApplicationIntents,
+  deletedApplicationIntentReminderDeliveries,
+  tombstonedApplicationIntentAccount: true,
+ };
 }
 
 /**
@@ -212,6 +287,11 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
   await Promise.all([
     db.collection('newsletter_subscribers').doc(email).set(newsletterTombstone, { merge: true }),
     db.collection('job_alert_subscribers').doc(email).set(jobAlertTombstone, { merge: true }),
+    // Browsing/application-intent personalization is account-linked private
+    // data. Unlike the public subscriber row it has no useful post-deletion
+    // tombstone semantics, so remove it rather than leaving a UID-bound copy.
+    db.collection('newsletter_subscribers').doc(email)
+      .collection('private').doc('personalization').delete(),
   ]);
 
   return { tombstonedNewsletter: true, tombstonedJobAlert: true };
@@ -220,13 +300,20 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
 /**
  * @param {{uid: string, email?: string|null}} user
  * @param {import('firebase-admin/firestore').Firestore} [injectedDb]
- * @returns {Promise<{deletedSavedJobs: number, tombstonedNewsletter: boolean, tombstonedJobAlert: boolean, deletedPetitionSignature: boolean, tombstonedApplicationIntents: number, tombstonedApplicationIntentAccount: boolean}>}
+ * @returns {Promise<{deletedSavedJobs: number, tombstonedNewsletter: boolean, tombstonedJobAlert: boolean, deletedPetitionSignature: boolean, tombstonedApplicationIntents: number, deletedApplicationIntentReminderDeliveries: number, tombstonedApplicationIntentAccount: boolean}>}
  */
 export async function cleanupUserDataForDeletedAccount(user, injectedDb) {
  const db = injectedDb || admin.firestore();
  const { uid, email } = user || {};
  const applicationIntent = await tombstoneApplicationIntentDataForDeletedUser(uid, db);
- const subscribers = await tombstoneEmailKeyedSubscribers(email, db);
+ const subscriberEmails = await collectHistoricalSubscriberEmails(db, uid, email);
+ const subscriberResults = await Promise.all(
+  subscriberEmails.map((subscriberEmail) => tombstoneEmailKeyedSubscribers(subscriberEmail, db)),
+ );
+ const subscribers = {
+  tombstonedNewsletter: subscriberResults.some((result) => result.tombstonedNewsletter),
+  tombstonedJobAlert: subscriberResults.some((result) => result.tombstonedJobAlert),
+ };
  // The tombstone is the safety boundary: finish it before best-effort data
  // deletion so a savedJobs failure can never leave the old email lifecycle
  // without an address-level cleanup marker.
