@@ -88901,6 +88901,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-votazioni-ginevra-contraccezione-libera': {
+    title: 'Ginevra approva la contraccezione gratuita con il 58,5%',
+    description: 'Ginevra ha votato sì alla contraccezione gratuita (58,5%) con 44,2% di partecipazione; approvato anche credito mobilità 39,5 milioni CHF e rifiutata riforma',
+    keywords: 'frontalieri, ticino, svizzera, italia, ginevra, approva, contraccezione, gratuita',
+    ogTitle: 'Ginevra approva la contraccezione gratuita con il 58,5%',
+    ogDescription: 'Nel voto cantonale ginevrino del 2025, il 58,5% degli elettori ha approvato l\'iniziativa per la contraccezione gratuita, con una partecipazione del 44,2%. Sono stati inoltre autorizzati 39,5 milioni di franchi per infrastrutture di mobilità',
+    canonicalPath: '/articoli-svizzera/votazioni-ginevra-contraccezione-libera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ginevra approva la contraccezione gratuita con il 58,5%",
+      "description": "Ginevra ha votato sì alla contraccezione gratuita (58,5%) con 44,2% di partecipazione; approvato anche credito mobilità 39,5 milioni CHF e rifiutata riforma",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazioni-ginevra-contraccezione-libera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Farmacista che consegna una confezione di pillola anticoncezionale a persone diverse in una farmacia di Ginevra"
+      },
+      "datePublished": "2026-09-27T19:40:14+00:00",
+      "dateModified": "2026-09-27T19:40:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazioni-ginevra-contraccezione-libera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
