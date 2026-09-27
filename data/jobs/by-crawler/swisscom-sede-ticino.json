@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-09-27T05:51:05.030Z",
+  "assembledAt": "2026-09-27T15:08:29.230Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Microsoft-Licensing-Sales-Specialist_R-0006153",
@@ -127,20 +127,22 @@
       "sourceLang": "de",
       "jobReqId": "R-0006698",
       "id": "swisscom-sede-ticino-cda4a7278ed3",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:10:08.553Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "datacenter-specialized-sales-swisscom-zurich-drxcu0",
+        "datacenter-commercializzazione-swisscom-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "datacenter-specialized-sales-swisscom-zurich-drxcu0"
+          "datacenter-specialized-sales-swisscom-zurich-drxcu0",
+          "datacenter-commercializzazione-swisscom-zurich"
         ],
         "fr": [
           "datacenter-specialized-sales-swisscom-zurich-drxcu0"
         ]
       },
-      "previousSlugs": [
-        "datacenter-specialized-sales-swisscom-zurich-drxcu0"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T14:10:08.553Z",
+      "crawledAt": "",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",

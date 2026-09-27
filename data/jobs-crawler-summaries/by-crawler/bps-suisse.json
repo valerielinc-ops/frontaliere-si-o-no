@@ -1,19 +1,21 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-09-27T00:03:29.624Z",
+  "generatedAt": "2026-09-27T15:23:53.110Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5075,
-  "avgDurationMs": 5075,
+  "unchangedCount": 4,
+  "durationMs": 4777,
+  "avgDurationMs": 4777,
   "durationHistory": [
-    5075
+    4777
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bps-suisse-7e40eb648fab",
       "title": "Consulente Alla Clientela Individuale",
@@ -37,7 +39,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-27",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-27T00:03:21.471Z",
+      "crawledAt": "2026-09-27T15:23:45.429Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -79,7 +81,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-27",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-27T00:03:22.313Z",
+      "crawledAt": "2026-09-27T15:23:46.399Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -122,7 +124,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-27",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-27T00:03:22.665Z",
+      "crawledAt": "2026-09-27T15:23:46.690Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -164,7 +166,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-27",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-27T00:03:23.102Z",
+      "crawledAt": "2026-09-27T15:23:46.950Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -175,6 +177,7 @@
       "firstSeenAt": "2026-04-13T10:08:40.551Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -183,7 +186,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
