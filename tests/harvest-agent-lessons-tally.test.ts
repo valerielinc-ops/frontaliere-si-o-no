@@ -58,11 +58,11 @@ describe('tallyFindings — dedup per (PR, bucket)', () => {
         '❓ q: gli Auto Ads in-page cadono dentro #root',
         '❓ q: non verificato AdSense fuori da #root',
         '🟡 nit: adsense loader iniettato due volte',
-      ].join('\n'))],
+    ].join('\n'))],
     }];
     const { counts } = tallyFindings(prs);
     // solo la riga 🟡 è countable, e comunque dedup per-PR → 1
-    expect(counts['auto-ads']).toBe(1);
+    expect(counts['adsense-loader-contract']).toBe(1);
   });
 
   it('più review della STESSA PR (re-review) restano 1 per bucket', () => {
@@ -87,8 +87,8 @@ describe('tallyFindings — scenario #2124 sotto la soglia di escalation', () =>
     ];
     const { counts } = tallyFindings(prs);
     // solo #2102 (🟡) conta → 1, ben sotto 6 → niente escalation
-    expect(counts['auto-ads'] ?? 0).toBe(1);
-    expect(counts['auto-ads'] ?? 0).toBeLessThan(3 * 2);
+    expect(counts['adsense-loader-contract'] ?? 0).toBe(1);
+    expect(counts['adsense-loader-contract'] ?? 0).toBeLessThan(3 * 2);
   });
 });
 
@@ -132,9 +132,42 @@ describe('tallyFindings — recap LGTM "Nessun/Zero 🔴" non gonfia sibling-cla
   });
 });
 
-describe('bucketFinding — invariato', () => {
-  it('mappa il topic adsense sul bucket auto-ads', () => {
-    expect(bucketFinding('🟡 adsense loader doppio')).toBe('auto-ads');
+describe('bucketFinding — AdsSense findings keep their failure mode (#10115)', () => {
+  it('mantiene il finding generico adsense nel fallback auto-ads', () => {
+    expect(bucketFinding('🟡 adsense non viene inizializzato sulla pagina')).toBe('auto-ads');
+  });
+
+  // Verbatim dalla finestra che ha aperto #10115. Sono cinque difetti Ads
+  // distinti: thin/noindex, lifecycle dello slot, bot-gate e delivery del
+  // loader. Il test protegge la misura, non la soglia: i due renderer thin
+  // restano nello stesso sottobucket e i tre finding diversi non vengono più
+  // sommati.
+  const findings: Array<[string, string, string]> = [
+    ['#10030', '🔴 Important: [funnel] The new `DRIVEBY_AD_SNIPPET` and `ARTICLE_INLINE_MOBILE` units are emitted unconditionally before the `wordCount`-based robots decision, so a thin render can be `noindex,follow` while still carrying manual AdSense units; gate both new interpolations on the same `indexable` value used by `robots` and `endOfContentMultiplexHtml.', 'adsense-thin-content'],
+    ['#10028', '🔴 Important: [funnel] The new static-slot watcher is reachable only through `startAds()`, but the loader returns before `startAds()` when consent is absent or `reader_noads_active` is true, so the marked drive-by `<ins>` keeps its 1100px reserve forever. Initialize the watcher before the consent/ads-loading gate while keeping the AdSense request consent-gated.', 'adsense-slot-lifecycle'],
+    ['#9836', '🔴 Important: [funnel] `matchesAutomationScreenSignature()` classifies as bot every session Windows Chrome otherwise normal with screen CSS 1280x1200 and English language or `Asia/Singapore`; the same inline rule feeds the AdSense/job-gate, so a real session loses ads and access to the CTA.', 'adsense-bot-gate'],
+    ['#9835', '🔴 Important: [funnel] `extractAssetUrlsFromHtml()` drops same-origin `/assets/...` references, while the graph verdict does not reject a successful entry with zero discovered CDN assets; other locales can keep the global graph green while that page has no CSS, SPA bundle, or AdSense loader.', 'adsense-loader-contract'],
+    ['#9492', '🔴 Important: [funnel] the second related-search renderer still calls `endOfContentMultiplexHtml({ indexable: true })`, so thin cluster pages emitted through that path continue to receive the manual multiplex slot this PR is intended to suppress.', 'adsense-thin-content'],
+  ];
+
+  it('does not collapse heterogeneous reviewer findings into auto-ads', () => {
+    for (const [pr, line, expected] of findings) {
+      expect(bucketFinding(line), pr).toBe(expected);
+    }
+  });
+
+  it('still counts a repeated concrete class, while keeping distinct classes separate', () => {
+    const prs = findings.map(([number, line]) => ({
+      number: Number(number.slice(1)),
+      mergedAt: '2026-09-27T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: line }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['adsense-thin-content']).toBe(2);
+    expect(counts['adsense-slot-lifecycle']).toBe(1);
+    expect(counts['adsense-bot-gate']).toBe(1);
+    expect(counts['adsense-loader-contract']).toBe(1);
+    expect(counts['auto-ads']).toBeUndefined();
   });
 });
 
