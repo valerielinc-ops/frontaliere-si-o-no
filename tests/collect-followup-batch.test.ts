@@ -9,6 +9,7 @@
  * normalizzazione login, max-turns floor.
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   collectionWindowStartISO,
   positiveHours,
@@ -30,6 +31,7 @@ import {
   canonicalLogin,
   maxTurnsFor,
   selectFollowupSessionBatch,
+  FOLLOWUP_SESSION_BATCH_LIMIT,
   deferredCount,
   orderCandidatesFifo,
   shouldTriageAfterCandidateGate,
@@ -471,21 +473,24 @@ describe('ordine FIFO dei candidati', () => {
   // taglia la coda, quindi servendo prima le PR recenti la coda vecchia non
   // veniva mai lavorata. Questo test fallisce se si torna all'ordine naturale
   // della Search API.
-  const searchApiOrder = [
-    { number: 9132, mergedAt: '2026-09-18T12:00:00Z' },
-    { number: 9099, mergedAt: '2026-09-18T06:00:00Z' },
-    { number: 9050, mergedAt: '2026-09-17T23:00:00Z' },
-    { number: 9010, mergedAt: '2026-09-17T08:00:00Z' },
-    { number: 8990, mergedAt: '2026-09-17T01:00:00Z' },
-  ];
+  // Ordine naturale della Search API: dal piu recente. Una PR oltre il cap, cosi
+  // il test resta vero qualunque sia FOLLOWUP_SESSION_BATCH_LIMIT.
+  const total = FOLLOWUP_SESSION_BATCH_LIMIT + 1;
+  const base = Date.parse('2026-09-17T00:00:00Z');
+  const searchApiOrder = Array.from({ length: total }, (_, i) => ({
+    number: 9200 - i,
+    mergedAt: new Date(base + (total - i) * 3600_000).toISOString(),
+  }));
 
   it('serve prima le PR piu vecchie, cosi il cap rinvia le piu recenti', () => {
     const ordered = orderCandidatesFifo(searchApiOrder);
-    expect(ordered.map((p) => p.number)).toEqual([8990, 9010, 9050, 9099, 9132]);
+    expect(ordered.map((p) => p.number)).toEqual(searchApiOrder.map((p) => p.number).reverse());
     const session = selectFollowupSessionBatch(ordered.map((p) => p.number));
-    // Le 4 piu VECCHIE entrano in sessione; la piu recente e' quella rinviata,
-    // ed e' anche quella che la finestra successiva ritrovera' comunque.
-    expect(session).toEqual([8990, 9010, 9050, 9099]);
+    // Le piu VECCHIE entrano in sessione; la piu recente (#9200) e' quella
+    // rinviata, ed e' anche quella che la finestra successiva ritrovera' comunque.
+    expect(session).toHaveLength(FOLLOWUP_SESSION_BATCH_LIMIT);
+    expect(session).not.toContain(9200);
+    expect(session[0]).toBe(9200 - FOLLOWUP_SESSION_BATCH_LIMIT);
     expect(deferredCount(ordered, session)).toBe(1);
   });
 
@@ -500,9 +505,31 @@ describe('ordine FIFO dei candidati', () => {
 
 describe('follow-up provider session bound', () => {
   it('defers overflow PRs without mutating the candidate list', () => {
-    const candidates = [1, 2, 3, 4, 5, 6];
-    expect(selectFollowupSessionBatch(candidates)).toEqual([1, 2, 3, 4]);
-    expect(candidates).toEqual([1, 2, 3, 4, 5, 6]);
+    const candidates = Array.from({ length: FOLLOWUP_SESSION_BATCH_LIMIT + 2 }, (_, i) => i + 1);
+    const snapshot = [...candidates];
+    expect(selectFollowupSessionBatch(candidates)).toEqual(snapshot.slice(0, FOLLOWUP_SESSION_BATCH_LIMIT));
+    expect(candidates).toEqual(snapshot);
+  });
+
+  // Capacità vs flusso (2026-09-27). Con cap 4 la coda non si smaltiva: ~5 run
+  // reali/giorno (gap mediano misurato 4,9h sul cron ogni 3h) = ~20 PR/giorno,
+  // contro rinvii di 65-146 PR a ogni run. Il cap deve coprire il picco di
+  // candidati misurato (~80/giorno: 110 merge x ~72% oltre i gate) alla cadenza
+  // REALE, e cap x caso peggiore per PR misurato (399 s/PR sul gemello corpus,
+  // bootstrap incluso) deve stare sotto il watchdog Codex del workflow.
+  // Alzare il cap senza il watchdog (o viceversa) rompe questo test.
+  it('il cap copre il picco di candidati alla cadenza reale e sta sotto il watchdog', () => {
+    const MEASURED_RUNS_PER_DAY = 5;
+    const PEAK_CANDIDATES_PER_DAY = 80;
+    const WORST_SECONDS_PER_PR = 399;
+    expect(FOLLOWUP_SESSION_BATCH_LIMIT * MEASURED_RUNS_PER_DAY).toBeGreaterThanOrEqual(PEAK_CANDIDATES_PER_DAY);
+    const workflow = readFileSync(
+      new URL('../.github/workflows/post-merge-followup.yml', import.meta.url),
+      'utf8',
+    );
+    const watchdogMinutes = Number(/exec_timeout_minutes: "(\d+)"/u.exec(workflow)?.[1]);
+    expect(watchdogMinutes).toBeGreaterThan(0);
+    expect(FOLLOWUP_SESSION_BATCH_LIMIT * WORST_SECONDS_PER_PR).toBeLessThanOrEqual(watchdogMinutes * 60);
   });
 
   it('conta il residuo rinviato senza trasformarlo in un errore di raccolta', () => {
