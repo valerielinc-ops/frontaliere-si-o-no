@@ -12116,6 +12116,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cannobio-caserma-spagnulo.title': 'Cannobio, barracks named after Angelo Spagnulo',
     'blog.article.cannobio-caserma-spagnulo.excerpt': 'At Cannobio the Carabinieri Station remembers the chosen carabiniere killed in 2005 at the age of 25 while trying to stop a robbery.',
     'blog.article.cannobio-caserma-spagnulo.imageAlt': 'Ceremony in Cannobio for the Carabinieri station named after Angelo Spagnulo',
+    'blog.article.villa-mirabello-tre-valli.title': 'Villa mirabello: shows three valleys of Varese and solidarity',
+    'blog.article.villa-mirabello-tre-valli.excerpt': 'At Villa Mirabello, Varese, the exhibition ‘Tre Valli Varesine. When cycling is passion’ is open with free admission until October 11, and the charitable initiative ‘Author’s shot, gesture of love’ supports Il Pane di Sant\'Antonio ODV.',
+    'blog.article.villa-mirabello-tre-valli.imageAlt': 'Tre Valli Varesine photography exhibition at Villa Mirabello, Varese',
 };
 
 export default blogMetaEn;

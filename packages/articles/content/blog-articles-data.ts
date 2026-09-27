@@ -36376,6 +36376,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'villa-mirabello-tre-valli',
+ category: 'novita',
+ date: '2026-09-27T06:41:53.851Z',
+ image: '/images/blog/villa-mirabello-tre-valli.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
