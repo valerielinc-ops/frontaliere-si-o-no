@@ -95389,6 +95389,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-scuola-nazario-sauro-lettera': {
+    title: 'Como, lettera dalla Nazario Sauro: \'Non siamo un pacco\'',
+    description: 'La vicepreside Ilaria Flauto chiede confronto sul piano comunale 2027/28: il plesso di Via Perti passerebbe all\'IC Como Lago, rompendo la continuità didattica',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, lettera, dalla, nazario',
+    ogTitle: 'Como: \'Non siamo un pacco\', la lettera della Nazario Sauro contro il trasferimento',
+    ogDescription: 'La docente e vicepreside Ilaria Flauto scrive alle istituzioni contro lo spostamento della primaria Nazario Sauro dall\'IC Como Borgovico all\'IC Como Lago previsto per il 2027/28. Dieci anni di curricolo condiviso, formazione docenti, progetti e spazi',
+    canonicalPath: '/articoli-frontaliere/como-scuola-nazario-sauro-lettera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, lettera dalla Nazario Sauro: 'Non siamo un pacco'",
+      "description": "La vicepreside Ilaria Flauto chiede confronto sul piano comunale 2027/28: il plesso di Via Perti passerebbe all'IC Como Lago, rompendo la continuità didattica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-scuola-nazario-sauro-lettera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola primaria Nazario Sauro a Como, centro storico vicino al lago"
+      },
+      "datePublished": "2026-09-27T14:25:18+00:00",
+      "dateModified": "2026-09-27T14:25:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-scuola-nazario-sauro-lettera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

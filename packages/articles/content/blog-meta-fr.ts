@@ -12147,6 +12147,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bellinzona-voto-castelli.title': 'Bellinzone rejette le projet « forteresse »',
     'blog.article.bellinzona-voto-castelli.excerpt': '54% des votants ont rejeté le plan de 19,1 millions visant à mettre en valeur et à moderniser le site UNESCO des châteaux de Bellinzone ; participation à 47,5%.',
     'blog.article.bellinzona-voto-castelli.imageAlt': 'Les châteaux de Bellinzone au cœur du vote sur le projet forteresse',
+    'blog.article.como-scuola-nazario-sauro-lettera.title': 'Côme, lettre de la Nazario Sauro : « Nous ne sommes pas un colis »',
+    'blog.article.como-scuola-nazario-sauro-lettera.excerpt': 'Ilaria Flauto conteste le transfert de l’école primaire Nazario Sauro à l’IC Como Lago dans le plan 2027/28 : dix ans de travail pédagogique risquent d’être effacés.',
+    'blog.article.como-scuola-nazario-sauro-lettera.imageAlt': 'École primaire Nazario Sauro à Côme, centre historique près du lac (Como)',
 };
 
 export default blogMetaFr;

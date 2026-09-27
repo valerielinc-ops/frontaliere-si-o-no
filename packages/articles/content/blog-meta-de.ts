@@ -12144,6 +12144,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzona-voto-castelli.title': 'Bellinzona lehnt das Projekt «Festung» ab',
     'blog.article.bellinzona-voto-castelli.excerpt': '54% der Stimmberechtigten haben den 19,1-Millionen-Plan zur Aufwertung und Modernisierung der UNESCO-Stätte der Burgen von Bellinzona abgelehnt; die Beteiligung lag bei 47,5%.',
     'blog.article.bellinzona-voto-castelli.imageAlt': 'Die Burgen von Bellinzona im Zentrum der Abstimmung zum Festungsprojekt',
+    'blog.article.como-scuola-nazario-sauro-lettera.title': 'Como, Brief von Nazario Sauro: "Wir sind kein Paket"',
+    'blog.article.como-scuola-nazario-sauro-lettera.excerpt': 'Ilaria Flauto stellt die Verlegung der Grundschule Nazario Sauro an die IC Como Lago im Plan 2027/28 infrage: Zehn Jahre pädagogischer Arbeit drohen ausgelöscht zu werden.',
+    'blog.article.como-scuola-nazario-sauro-lettera.imageAlt': 'Grundschule Nazario Sauro in Como Altstadt am See',
 };
 
 export default blogMetaDe;

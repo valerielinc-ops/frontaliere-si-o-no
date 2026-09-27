@@ -12146,6 +12146,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-voto-castelli.title': 'Bellinzona boccia il progetto «fortezza»',
     'blog.article.bellinzona-voto-castelli.excerpt': 'Il 54% dei votanti ha respinto il piano da 19,1 milioni per valorizzare e modernizzare il sito UNESCO dei castelli di Bellinzona; partecipazione al 47,5%.',
     'blog.article.bellinzona-voto-castelli.imageAlt': 'I castelli di Bellinzona al centro del voto sul progetto fortezza',
+    'blog.article.como-scuola-nazario-sauro-lettera.title': 'Como, lettera dalla Nazario Sauro: \'Non siamo un pacco\'',
+    'blog.article.como-scuola-nazario-sauro-lettera.excerpt': 'Ilaria Flauto contesta il trasferimento della primaria Nazario Sauro all\'IC Como Lago nel piano 2027/28: dieci anni di lavoro didattico rischiano di essere cancellati.',
+    'blog.article.como-scuola-nazario-sauro-lettera.imageAlt': 'Scuola primaria Nazario Sauro a Como, centro storico vicino al lago',
 };
 
 export default blogMetaIt;
