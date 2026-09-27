@@ -9,6 +9,8 @@ import { describe, expect, it } from 'vitest';
 import {
   parseConvitDetailPage,
   parseConvitListingPage,
+  isConvitListingPage,
+  createConvitListingSourceValidator,
   buildConvitLocalizedContent,
   isConvitSwissRelevant,
   inferConvitCanton,
@@ -286,6 +288,41 @@ describe('convit-job-parser / parseConvitListingPage', () => {
 
   it('returns empty array for empty HTML', () => {
     expect(parseConvitListingPage('')).toEqual([]);
+  });
+
+  it('recognizes a Convit listing shell and rejects a generic degraded page', () => {
+    expect(isConvitListingPage(
+      '<link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">',
+    )).toBe(true);
+    expect(isConvitListingPage('<title>Just a moment...</title><p>Checking your browser</p>')).toBe(false);
+  });
+
+  it('uses a complete listing snapshot to distinguish stale detail URLs from live listings', async () => {
+    const validate = createConvitListingSourceValidator([
+      { detailUrl: 'https://www.careers-page.com/convit-holding-gmbh/job/ABC123' },
+    ], { complete: true });
+    const verdicts = await validate([
+      { id: 'current', url: 'https://www.careers-page.com/convit-holding-gmbh/job/ABC123/' },
+      { id: 'stale', url: 'https://www.careers-page.com/convit-holding-gmbh/job/OLD999' },
+    ]);
+
+    expect(verdicts).toEqual([
+      { id: 'current', valid: true, reason: 'still-in-convit-listing' },
+      {
+        id: 'stale',
+        valid: false,
+        definitive: true,
+        reason: 'not-in-complete-convit-listing',
+      },
+    ]);
+  });
+
+  it('never treats an incomplete listing snapshot as proof that a URL disappeared', async () => {
+    const validate = createConvitListingSourceValidator([], { complete: false });
+    const [verdict] = await validate([
+      { id: 'unknown', url: 'https://www.careers-page.com/convit-holding-gmbh/job/OLD999' },
+    ]);
+    expect(verdict).toMatchObject({ valid: true, definitive: false });
   });
 });
 

@@ -20,6 +20,7 @@ import {
 } from './target-swiss-locations.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './crawler-location-config.mjs';
 import { stripLocationRegionMarkers } from './job-location-plausibility.mjs';
+import { extractStableJobId } from './job-match-key.mjs';
 
 const HQ = getCompanyDefaults('convit');
 
@@ -76,6 +77,23 @@ function slugify(value = '') {
 /**
  * Parse the listing page HTML and return an array of { title, code, detailUrl }
  */
+export function isConvitListingPage(html = '') {
+  const document = new JSDOM(html).window.document;
+  const canonicalSignals = [
+    document.querySelector('link[rel="canonical"]')?.getAttribute('href'),
+    document.querySelector('meta[property="og:url"]')?.getAttribute('content'),
+  ];
+  const textSignals = [
+    document.title,
+    document.body?.textContent,
+  ];
+  const source = [...canonicalSignals, ...textSignals]
+    .filter(Boolean)
+    .join('\n')
+    .toLowerCase();
+  return source.includes(COMPANY_SLUG) || /convit\s+holding(?:\s+gmbh)?/i.test(source);
+}
+
 export function parseConvitListingPage(html = '') {
   const document = new JSDOM(html).window.document;
   const anchors = [...document.querySelectorAll('a[href]')];
@@ -111,6 +129,45 @@ export function parseConvitListingPage(html = '') {
   }
 
   return results;
+}
+
+/**
+ * Build the source validator used when the complete Convit listing snapshot
+ * proves a shrink. careers-page.com can keep old detail pages reachable after
+ * removing them from the employer's listing, so a detail-page HTTP 200 is not
+ * evidence that the vacancy is still open. An incomplete/empty snapshot must
+ * remain fail-open: it can never prove a job gone.
+ */
+export function createConvitListingSourceValidator(listings = [], { complete = false } = {}) {
+  const listedKeys = new Set(
+    (Array.isArray(listings) ? listings : [])
+      .map((listing) => extractStableJobId(listing?.detailUrl || listing?.url))
+      .filter(Boolean),
+  );
+
+  return async (jobs = []) => (Array.isArray(jobs) ? jobs : []).map((job) => {
+    const key = extractStableJobId(job?.url);
+    const id = job?.id || key || '';
+    if (!complete || listedKeys.size === 0 || !key) {
+      return {
+        id,
+        valid: true,
+        definitive: false,
+        reason: !complete || listedKeys.size === 0
+          ? 'incomplete-convit-listing-snapshot'
+          : 'missing-stable-job-id',
+      };
+    }
+    if (listedKeys.has(key)) {
+      return { id, valid: true, reason: 'still-in-convit-listing' };
+    }
+    return {
+      id,
+      valid: false,
+      definitive: true,
+      reason: 'not-in-complete-convit-listing',
+    };
+  });
 }
 
 const MIN_DESCRIPTION_LENGTH = 350;

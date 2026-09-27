@@ -41,6 +41,8 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseConvitListingPage,
+  isConvitListingPage,
+  createConvitListingSourceValidator,
   parseConvitDetailPage,
   buildConvitLocalizedContent,
   isConvitSwissRelevant,
@@ -154,7 +156,13 @@ async function fetchAllListings() {
       html = await fetchText(url);
     } catch (err) {
       console.log(`  ⚠️ Page ${page} fetch failed: ${err.message}`);
-      break;
+      // A partial page walk is not an authoritative source snapshot. Let the
+      // crawler boundary preserve the previous slice instead of treating the
+      // pages fetched so far as the employer's complete inventory.
+      throw err;
+    }
+    if (!isConvitListingPage(html)) {
+      throw new Error(`Convit listing page ${page} returned an unrecognized or degraded HTML document`);
     }
     const items = parseConvitListingPage(html);
     const newItems = items.filter((item) => !seenCodes.has(item.code));
@@ -169,7 +177,7 @@ async function fetchAllListings() {
   }
 
   console.log(`📋 Total unique listings: ${allItems.length}`);
-  return allItems;
+  return { items: allItems, complete: true };
 }
 
 async function enrichWithDetails(listings) {
@@ -353,7 +361,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const listings = await fetchAllListings();
+  const { items: listings, complete: listingSnapshotComplete } = await fetchAllListings();
   if (listings.length === 0) {
     console.log('⚠️ No listings found on Convit careers page — skipping.');
     return;
@@ -407,7 +415,13 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, { isTargetJob });
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    // The listing walk is complete only when every requested page was fetched
+    // and every response had the Convit source shell. This source-level proof
+    // handles stale detail URLs without weakening the global shrink threshold.
+    validate: createConvitListingSourceValidator(listings, { complete: listingSnapshotComplete }),
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'Convit Holding',
