@@ -283,6 +283,43 @@ describe('prospector public-only polite transport', () => {
     );
   });
 
+  it('uses an opt-in browser rescue after the direct page and Jina both hit the WAF', async () => {
+    const seed = 'https://hotelcareer.example/jobs/vereina';
+    const detail = 'https://hotelcareer.example/jobs/vereina/chef-de-partie-123';
+    const listing = `<a href="/jobs/vereina/chef-de-partie-123">Chef de partie</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Chef de partie</h1><div class="job-location">Klosters</div>'
+      + '<article class="vacancy-description">Prepare and coordinate kitchen service for the hotel team, '
+      + 'maintain food quality and hygiene standards, and support the daily operation with colleagues across '
+      + 'the restaurant and guest service departments in Klosters.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 403, null, 'Challenge Validation');
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 403, null, 'Challenge Validation'));
+    const browserFetchImpl = vi.fn(async () => listing);
+
+    const rows = await runSpecInProduction({
+      companyKey: 'vereinaklosters', companyName: 'Vereina', companyHost: 'hotelcareer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/vereina/*', detailEnrichment: true,
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      browserFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Chef de partie', url: detail, location: 'Klosters', canton: 'GR',
+    })]);
+    expect(browserFetchImpl).toHaveBeenCalledWith(seed, expect.objectContaining({ timeoutMs: undefined }));
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
+  });
+
   it('rescues an Akamai challenge served as HTTP 200 instead of treating it as an empty listing', async () => {
     const seed = 'https://employer.example/jobs';
     const detail = 'https://employer.example/careers/detail/1';
