@@ -72,5 +72,6 @@ describe('per-canton non-TI sector hub is content-first (propagated from PR #111
     expect(block).toContain('[...SHARED_ALL_CANTON_CODES, AGGREGATE_KEY]');
     expect(block).toContain('isAggregate ? aggregateSectorBuckets.get(sector)');
     expect(block).toContain('sharedResolveCantonSection(locale, jobCanton)');
+    expect(block).toContain('sectionByLocale[locale]');
   });
 });

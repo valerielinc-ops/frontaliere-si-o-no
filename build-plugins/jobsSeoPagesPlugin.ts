@@ -8576,7 +8576,11 @@ ${staticAnalyticsHtml}
  const jobCanton = isAggregate
  ? sharedResolveJobCanton(job as { canton?: string; location?: string })
  : canton;
- const jobSection = isAggregate ? sharedResolveCantonSection(locale, jobCanton) : sectionSlug;
+ const jobSection = isAggregate
+ ? jobCanton
+ ? sharedResolveCantonSection(locale, jobCanton)
+ : sectionByLocale[locale]
+ : sectionSlug;
  return mapCantonJobToListItem(job, i, locale, jobSection, jobCanton);
  }),
  });
