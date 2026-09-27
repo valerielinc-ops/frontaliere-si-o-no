@@ -4675,10 +4675,10 @@
       "id": "soh-solothurner-spitaeler-2b6afe6acb41",
       "slug": "infermiere-a-di-posizionamento-f-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "infermiere-a-di-posizionamento-f-m-d-solothurner-spitaler-soh-olten",
-        "en": "lagerungspflegerin-lagerungspfleger-m-w-d-solothurner-spitaler-ag-soh-olten",
         "de": "lagerungspflegerin-lagerungspfleger-w-m-d-solothurner-spitaler-soh-olten",
-        "fr": "lagerungspflegerin-lagerungspfleger-m-w-d-solothurner-spitaler-ag-soh-olten"
+        "en": "operating-room-positioning-specialist-f-m-d-solothurner-spitaler-soh-olten",
+        "fr": "infirmier-ere-en-positionnement-au-bloc-operatoire-f-h-d-solothurner-spitaler-soh-olten",
+        "it": "infermiere-a-di-posizionamento-f-m-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -4721,19 +4721,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "de": [
-          "lagerungspflegerin-lagerungspfleger-w-m-d-soh-solothurner-spitaeler-olten",
-          "lagerungspflegerin-lagerungspfleger-w-m-d-solothurner-spitaler-soh-olten"
-        ],
         "it": [
           "lagerungspflegerin-lagerungspfleger-w-m-d-soh-solothurner-spitaeler-olten",
           "infermiere-a-di-posizionamento-f-m-d-solothurner-spitaler-soh-olten"
         ],
+        "de": [
+          "lagerungspflegerin-lagerungspfleger-w-m-d-soh-solothurner-spitaeler-olten",
+          "lagerungspflegerin-lagerungspfleger-w-m-d-solothurner-spitaler-soh-olten"
+        ],
         "en": [
-          "operating-room-positioning-specialist-f-m-d-solothurner-spitaler-soh-olten"
+          "lagerungspflegerin-lagerungspfleger-m-w-d-solothurner-spitaler-ag-soh-olten"
         ],
         "fr": [
-          "infirmier-ere-en-positionnement-au-bloc-operatoire-f-h-d-solothurner-spitaler-soh-olten"
+          "lagerungspflegerin-lagerungspfleger-m-w-d-solothurner-spitaler-ag-soh-olten"
         ]
       },
       "previousSlugs": [
@@ -4741,9 +4741,9 @@
         "operating-room-positioning-specialist-f-m-d-solothurner-spitaler-soh-olten",
         "infirmier-ere-en-positionnement-au-bloc-operatoire-f-h-d-solothurner-spitaler-soh-olten",
         "lagerungspflegerin-lagerungspfleger-w-m-d-solothurner-spitaler-soh-olten",
-        "infermiere-a-di-posizionamento-f-m-d-solothurner-spitaler-soh-olten"
+        "infermiere-a-di-posizionamento-f-m-d-solothurner-spitaler-soh-olten",
+        "lagerungspflegerin-lagerungspfleger-m-w-d-solothurner-spitaler-ag-soh-olten"
       ],
-      "firstSeenAt": "2026-05-19T13:04:19.211Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -4756,7 +4756,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-19T13:04:19.211Z"
     },
     {
       "id": "soh-solothurner-spitaeler-0920088130d8",
@@ -6493,10 +6494,10 @@
       "id": "soh-solothurner-spitaeler-e0038529f7c1",
       "slug": "nachdiplomstudium-hf-intensivpflege-m-w-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
-        "it": "nachdiplomstudium-hf-intensivpflege-m-w-d-solothurner-spitaler-ag-soh-olten",
-        "en": "nachdiplomstudium-hf-intensivpflege-m-w-d-solothurner-spitaler-ag-soh-olten",
         "de": "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "nachdiplomstudium-hf-intensivpflege-m-w-d-solothurner-spitaler-ag-soh-olten"
+        "it": "corso-post-diploma-hf-cure-intensiva-uomo-donna-solothurner-spitaler-soh-olten",
+        "en": "postgraduate-hf-intensive-care-nursing-m-f-d-solothurner-spitaler-soh-olten",
+        "fr": "formation-post-diplome-hf-soins-intensifs-h-f-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -6538,6 +6539,13 @@
       "applyUrl": "https://jobs.so-h.ch/offene-stellen/nachdiplomstudium-hf-intensivpflege-w-m-d/344f9bb6-c6a2-44be-aeb6-b915a268c0f2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
+          "corso-post-diploma-hf-cure-intensiva-uomo-donna-solothurner-spitaler-soh-olten",
+          "nachdiplomstudium-hf-intensivpflege-m-w-d-solothurner-spitaler-ag-soh-olten"
+        ]
+      },
       "previousSlugs": [
         "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
         "corso-post-diploma-hf-cure-intensiva-uomo-donna-solothurner-spitaler-soh-olten",
@@ -6545,20 +6553,6 @@
         "formation-post-diplome-hf-soins-intensifs-h-f-solothurner-spitaler-soh-olten",
         "nachdiplomstudium-hf-intensivpflege-m-w-d-solothurner-spitaler-ag-soh-olten"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
-          "corso-post-diploma-hf-cure-intensiva-uomo-donna-solothurner-spitaler-soh-olten",
-          "nachdiplomstudium-hf-intensivpflege-m-w-d-solothurner-spitaler-ag-soh-olten"
-        ],
-        "en": [
-          "postgraduate-hf-intensive-care-nursing-m-f-d-solothurner-spitaler-soh-olten"
-        ],
-        "fr": [
-          "formation-post-diplome-hf-soins-intensifs-h-f-solothurner-spitaler-soh-olten"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T13:16:30.086Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -6571,7 +6565,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-21T13:16:30.086Z"
     },
     {
       "id": "soh-solothurner-spitaeler-d4519b37671b",
@@ -6687,10 +6682,10 @@
       "id": "soh-solothurner-spitaeler-559e41eeea68",
       "slug": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten",
-        "en": "nachdiplomstudium-hf-notfallpflege-m-w-d-solothurner-spitaler-ag-soh-olten",
         "de": "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch",
-        "fr": "nachdiplomstudium-hf-notfallpflege-m-w-d-solothurner-spitaler-ag-soh-olten"
+        "it": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "postgraduate-hf-emergency-care-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "soins-d-urgence-de-niveau-superieur-en-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -6733,19 +6728,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "de": [
-          "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
-          "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch"
-        ],
         "it": [
           "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
           "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten"
         ],
+        "de": [
+          "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
+          "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch"
+        ],
         "en": [
-          "postgraduate-hf-emergency-care-w-m-d-solothurner-spitaler-soh-olten"
+          "nachdiplomstudium-hf-notfallpflege-m-w-d-solothurner-spitaler-ag-soh-olten"
         ],
         "fr": [
-          "soins-d-urgence-de-niveau-superieur-en-m-j-solothurner-spitaler-soh-olten"
+          "nachdiplomstudium-hf-notfallpflege-m-w-d-solothurner-spitaler-ag-soh-olten"
         ]
       },
       "previousSlugs": [
@@ -6753,9 +6748,9 @@
         "postgraduate-hf-emergency-care-w-m-d-solothurner-spitaler-soh-olten",
         "soins-d-urgence-de-niveau-superieur-en-m-j-solothurner-spitaler-soh-olten",
         "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch",
-        "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten"
+        "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten",
+        "nachdiplomstudium-hf-notfallpflege-m-w-d-solothurner-spitaler-ag-soh-olten"
       ],
-      "firstSeenAt": "2026-05-21T13:16:26.167Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -6768,7 +6763,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-21T13:16:26.167Z"
     },
     {
       "id": "soh-solothurner-spitaeler-93ed98ab9416",
@@ -14615,9 +14611,9 @@
       "id": "soh-solothurner-spitaeler-8a545ea5dd1a",
       "slug": "assistente-infermieristico-assistente-infermieristico-geriatria-acuta-m-f-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
+        "de": "pflegeassistentin-pflegeassistent-akutgeriatrie-w-m-d-soh-solothurner-spitaeler-olten",
         "it": "assistente-infermieristico-assistente-infermieristico-geriatria-acuta-m-f-d-solothurner-spitaler-ag-soh-olten",
         "en": "nursing-assistant-nursing-assistant-acute-geriatrics-m-f-d-solothurner-spitaler-ag-soh-olten",
-        "de": "pflegeassistentin-pflegeassistent-akutgeriatrie-w-m-d-soh-solothurner-spitaeler-olten",
         "fr": "assistant-infirmier-assistant-infirmier-en-geriatrie-aigue-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
@@ -14637,7 +14633,6 @@
         "de": "Das bewegen Sie bei uns\n\n• Betreuung und Pflege der Patientinnen und Patienten im Frühdienst und Spätdienst\n\n• Regelmässiger Austausch und zuverlässige Zusammenarbeit im Tandem\n\n• Verantwortung für hauswirtschaftliche und administrative Tätigkeiten\n\n• Mitgestaltung einer aktiven und positiven Teamkultur\n\nDas bringen Sie mit\n\n• Pflegeassistentin oder Pflegeassistent SRK\n\n• Deutschkenntnisse Niveau B2\n\n• Mindestens 1 Jahr Berufserfahrung in einem Akutspital oder in der Langzeitpflege\n\n• Engagierte, belastbare und innovative Persönlichkeit mit einer guten Prioritätensetzung\n\n• Freude und Engagement für Veränderungen und Neuerungen mit Einbringen von eigenen Ideen und Lösungsvorschlägen\n\nBei Fragen zur Stelle (Referenz %kundenfeld-520%):\n\nFrau C. Aebi\nCO-Stationsleitung\nTel: +41 (0)62 311 52 40\n\nÜber die Solothurner Spitäler AG\n\nDas Kantonsspital Olten (KSO) garantiert die erweiterte medizinische Grundversorgung der Region Olten-Gösgen und Thal-Gäu. Rund 1'300 Mitarbeiterinnen und Mitarbeiter sorgen rund um die Uhr für die medizinische Betreuung und das Wohlergehen der Patientinnen und Patienten. Ergänzend zur Grundversorgung besitzt das KSO die Schwerpunktangebote Akutgeriatrie, Wirbelsäulenchirurgie und Urologie.",
         "fr": "Ça te pousse avec nous.\n\n• Soins et soins aux patients en début et en fin de service\n\n• Échange régulier et coopération fiable en tandem\n\n• Responsabilité des activités internes et administratives\n\n• Créer une culture d'équipe active et positive\n\nC'est ce qu'ils apportent.\n\n• Assistant de soins ou assistant infirmier SRK\n\n• Niveau B2\n\n• Au moins 1 an d'expérience professionnelle dans un hôpital aigu ou dans des soins de longue durée\n\n• Personnalité engagée, résiliente et innovante avec un bon ensemble de priorités\n\n• Joy et engagement pour les changements et les innovations en présentant vos propres idées et solutions\n\nPour les questions sur l'emploi (référence %champ client-52%):\n\nMme C. Aebi\nLigne de station de CO\nTél.: +41 (0)62 311 52 40\n\nÀ propos du Soleure Spitäler AG\n\nL'hôpital cantonal Olten (KSO) garantit l'extension des soins médicaux de base dans les régions Olten-Gösgen et Thal-Gäu. Environ 1 300 employés fournissent des soins médicaux et le bien-être des patients 24 heures sur 24. En plus des soins de base, l'OSK a les principales offres de gériatrie aiguë, chirurgie de la colonne vertébrale et urologie."
       },
-      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://jobs.so-h.ch/offene-stellen/pflegeassistentin-pflegeassistent-akutgeriatrie-w-m-d/f5e58e46-33fd-46a0-99d9-43ec1f97cedc",
@@ -14660,7 +14655,21 @@
       "applyUrl": "https://jobs.so-h.ch/offene-stellen/pflegeassistentin-pflegeassistent-akutgeriatrie-w-m-d/f5e58e46-33fd-46a0-99d9-43ec1f97cedc",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
       "firstSeenAt": "2026-09-26T13:56:17.001Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "pflegeassistentin-pflegeassistent-akutgeriatrie-w-m-d-soh-solothurner-spitaeler-olten"
@@ -14674,20 +14683,7 @@
       },
       "previousSlugs": [
         "pflegeassistentin-pflegeassistent-akutgeriatrie-w-m-d-soh-solothurner-spitaeler-olten"
-      ],
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-25e2dfbbd275",

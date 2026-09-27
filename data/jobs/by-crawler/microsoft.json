@@ -50,13 +50,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "principal-software-engineer-microsoft-zurich",
-        "principal-software-ingegnere-microsoft-zurich"
+        "principal-software-engineer-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-software-engineer-microsoft-zurich",
-          "principal-software-ingegnere-microsoft-zurich"
+          "principal-software-engineer-microsoft-zurich"
         ],
         "de": [
           "principal-software-engineer-microsoft-zurich"
@@ -195,20 +193,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-specialist-ai-business-process-dynamics-365-power-platform-microsoft-zurich",
-        "soluzione-specialista-ai-business-process-dynamics-365-power-platform-microsoft-zurich"
+        "solution-specialist-ai-business-process-dynamics-365-power-platform-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-specialist-ai-business-process-dynamics-365-power-platform-microsoft-zurich",
-          "soluzione-specialista-ai-business-process-dynamics-365-power-platform-microsoft-zurich"
+          "solution-specialist-ai-business-process-dynamics-365-power-platform-microsoft-zurich"
         ],
         "fr": [
           "solution-specialist-ai-business-process-dynamics-365-power-platform-microsoft-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:36.407Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -223,7 +218,8 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8058"
+      "postalCode": "8058",
+      "needsRetranslation": true
     },
     {
       "id": "microsoft-200055941",
@@ -273,13 +269,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-engineer-microsoft-zurich",
-        "senior-software-ingegnere-microsoft-zurich"
+        "senior-software-engineer-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-microsoft-zurich",
-          "senior-software-ingegnere-microsoft-zurich"
+          "senior-software-engineer-microsoft-zurich"
         ],
         "de": [
           "senior-software-engineer-microsoft-zurich"
@@ -374,8 +368,8 @@
       "id": "microsoft-200047151",
       "slug": "gestione-degli-appalti-microsoft-zurich",
       "slugByLocale": {
-        "it": "gestione-degli-appalti-microsoft-zurich",
         "en": "procurement-manager-microsoft-zurich",
+        "it": "gestione-degli-appalti-microsoft-zurich",
         "de": "beschaffungsmanager-microsoft-zurich",
         "fr": "gestionnaire-des-achats-microsoft-zurich"
       },
@@ -417,21 +411,6 @@
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556957384",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T13:55:10.442Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "procurement-manager-microsoft-zurich"
-        ],
-        "de": [
-          "procurement-manager-microsoft-zurich"
-        ],
-        "fr": [
-          "procurement-manager-microsoft-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "procurement-manager-microsoft-zurich"
-      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -446,7 +425,22 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8058"
+      "postalCode": "8058",
+      "firstSeenAt": "2026-09-26T13:55:10.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-manager-microsoft-zurich"
+        ],
+        "de": [
+          "procurement-manager-microsoft-zurich"
+        ],
+        "fr": [
+          "procurement-manager-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-manager-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200056114",
@@ -563,17 +557,14 @@
       "firstSeenAt": "2026-08-10T10:28:35.165Z",
       "previousSlugsByLocale": {
         "it": [
-          "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-          "member-of-technical-staff-software-engineer-microsoft-zurich"
+          "member-of-technical-staff-data-research-engineer-microsoft-zurich"
         ],
         "en": [
-          "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-          "member-of-technical-staff-software-engineer-microsoft-zurich"
+          "member-of-technical-staff-data-research-engineer-microsoft-zurich"
         ]
       },
       "previousSlugs": [
-        "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-        "member-of-technical-staff-software-engineer-microsoft-zurich"
+        "member-of-technical-staff-data-research-engineer-microsoft-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -639,13 +630,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-technology-transformation-executive-financial-services-microsoft-zurich",
-        "ai-technology-transformation-executive-servizi-finanziari-microsoft-zurich"
+        "ai-technology-transformation-executive-financial-services-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-technology-transformation-executive-financial-services-microsoft-zurich",
-          "ai-technology-transformation-executive-servizi-finanziari-microsoft-zurich"
+          "ai-technology-transformation-executive-financial-services-microsoft-zurich"
         ],
         "fr": [
           "ai-technology-transformation-executive-financial-services-microsoft-zurich"
@@ -853,8 +842,7 @@
         "customer-success-account-manager-microsoft-zurich-2",
         "customer-success-account-manager-microsoft-zurich",
         "gestione-account-di-successo-del-cliente-microsoft-zurich-906d96",
-        "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96",
-        "gestione-account-di-successo-del-cliente-microsoft-zurich"
+        "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -862,8 +850,7 @@
           "customer-success-account-manager-microsoft-zurich-2",
           "customer-success-account-manager-microsoft-zurich",
           "gestione-account-di-successo-del-cliente-microsoft-zurich-906d96",
-          "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96",
-          "gestione-account-di-successo-del-cliente-microsoft-zurich"
+          "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96"
         ],
         "de": [
           "customer-success-account-manager-microsoft-zurich"

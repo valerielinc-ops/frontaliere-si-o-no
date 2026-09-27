@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "des-civilistes-aide-socio-administratif-100-min-6-mois-differents-lieux-hospice-general",
-        "i-civili-aiutano-socio-amministrativo-100-min-6-mesi-varie-localita-hospice-general-geneve-switzerland"
+        "des-civilistes-aide-socio-administratif-100-min-6-mois-differents-lieux-hospice-general"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "des-civilistes-aide-socio-administratif-100-min-6-mois-differents-lieux-hospice-general",
-          "i-civili-aiutano-socio-amministrativo-100-min-6-mesi-varie-localita-hospice-general-geneve-switzerland"
+          "des-civilistes-aide-socio-administratif-100-min-6-mois-differents-lieux-hospice-general"
         ],
         "en": [
           "des-civilistes-aide-socio-administratif-100-min-6-mois-differents-lieux-hospice-general"
@@ -134,13 +132,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "civiliste-aide-manutentionnaire-100-min-6-mois-aide-aux-migrants-hospice-general-geneve",
-        "aide-manutenzione-civile-100-min-6-mesi-assistenza-ai-migranti-hospice-general-geneve-switzerland"
+        "civiliste-aide-manutentionnaire-100-min-6-mois-aide-aux-migrants-hospice-general-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "civiliste-aide-manutentionnaire-100-min-6-mois-aide-aux-migrants-hospice-general-geneve",
-          "aide-manutenzione-civile-100-min-6-mesi-assistenza-ai-migranti-hospice-general-geneve-switzerland"
+          "civiliste-aide-manutentionnaire-100-min-6-mois-aide-aux-migrants-hospice-general-geneve"
         ],
         "en": [
           "civiliste-aide-manutentionnaire-100-min-6-mois-aide-aux-migrants-hospice-general-geneve"
@@ -168,10 +164,10 @@
       "id": "hospice-general-131476839382",
       "slug": "un-civilista-aiuta-l-animatore-100-min-6-mesi-casa-di-vacanza-per-anziani-la-nuova-roseraie-saint-legier-vd-hospice",
       "slugByLocale": {
+        "fr": "un-civiliste-aide-animateur-100-min-6-mois-maison-de-vacances-pour-seniors-la-nouvelle",
         "it": "un-civilista-aiuta-l-animatore-100-min-6-mesi-casa-di-vacanza-per-anziani-la-nuova-roseraie-saint-legier-vd-hospice",
         "en": "a-civilist-helps-animator-100-min-6-months-holiday-home-for-seniors-the-new-roseraie-saint-legier-vd-hospice-general",
-        "de": "ein-zivilist-hilft-animator-100-min-6-monate-ferienhaus-fur-senioren-die-neue-roseraie-saint-legier-vd-hospice-general",
-        "fr": "un-civiliste-aide-animateur-100-min-6-mois-maison-de-vacances-pour-seniors-la-nouvelle"
+        "de": "ein-zivilist-hilft-animator-100-min-6-monate-ferienhaus-fur-senioren-die-neue-roseraie-saint-legier-vd-hospice-general"
       },
       "company": "Hospice général",
       "companyKey": "hospice-general",
@@ -214,6 +210,19 @@
       "jobReqId": "744000113099616",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
       "firstSeenAt": "2026-09-26T13:55:34.092Z",
       "previousSlugsByLocale": {
         "it": [
@@ -228,20 +237,7 @@
       },
       "previousSlugs": [
         "un-civiliste-aide-animateur-100-min-6-mois-maison-de-vacances-pour-seniors-la-nouvelle"
-      ],
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "hospice-general-0713b8f45fa7",
@@ -294,13 +290,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-civiliste-aide-animateur-100-min-4-mois-au-cad-centre-d-animation-pour-les-seniors-a",
-        "un-civilista-aiuta-l-animatore-100-min-4-mesi-presso-cad-un-centro-di-animazione-per-anziani-a-lancy-hospice-f2de58"
+        "un-civiliste-aide-animateur-100-min-4-mois-au-cad-centre-d-animation-pour-les-seniors-a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-civiliste-aide-animateur-100-min-4-mois-au-cad-centre-d-animation-pour-les-seniors-a",
-          "un-civilista-aiuta-l-animatore-100-min-4-mesi-presso-cad-un-centro-di-animazione-per-anziani-a-lancy-hospice-f2de58"
+          "un-civiliste-aide-animateur-100-min-4-mois-au-cad-centre-d-animation-pour-les-seniors-a"
         ],
         "en": [
           "un-civiliste-aide-animateur-100-min-4-mois-au-cad-centre-d-animation-pour-les-seniors-a"

@@ -407,7 +407,7 @@
       "slug": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
       "slugByLocale": {
         "it": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
-        "en": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp",
+        "en": "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
         "de": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
         "fr": "genie-du-travail-pour-6-a-12-mois-m-f-j-lonza-ch"
       },
@@ -464,7 +464,6 @@
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-19T22:15:31.217Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -479,7 +478,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-fbebc1351939",
@@ -4837,10 +4837,10 @@
       "id": "lonza-65553d5c3a1c",
       "slug": "biotecnologo-m-f-d-lonza-ch",
       "slugByLocale": {
-        "it": "biotecnologo-m-f-d-lonza-ch",
-        "en": "biotechnologist-m-w-d-lonza-visp",
         "de": "biotechnologist-m-f-d-lonza-ch",
-        "fr": "biotechnologist-m-w-d-lonza-visp"
+        "it": "biotecnologo-m-f-d-lonza-ch",
+        "fr": "biotechnologue-m-f-d-lonza-ch",
+        "en": "biotechn-dlz-m-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -4880,26 +4880,26 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:38:09.229Z",
       "jobReqId": "R73688",
-      "previousSlugs": [
-        "biotechnologist-m-f-d-lonza-ch",
-        "biotechn-dlz-m-f-d-lonza-visp",
-        "biotechnologue-m-f-d-lonza-ch",
-        "biotecnologo-m-f-d-lonza-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "biotechnologist-m-f-d-lonza-ch",
           "biotecnologo-m-f-d-lonza-ch"
         ],
         "en": [
-          "biotechn-dlz-m-f-d-lonza-visp"
+          "biotechnologist-m-w-d-lonza-visp"
         ],
         "fr": [
-          "biotechnologue-m-f-d-lonza-ch"
+          "biotechnologist-m-w-d-lonza-visp"
         ]
       },
+      "previousSlugs": [
+        "biotechnologist-m-f-d-lonza-ch",
+        "biotechn-dlz-m-f-d-lonza-visp",
+        "biotechnologue-m-f-d-lonza-ch",
+        "biotecnologo-m-f-d-lonza-ch",
+        "biotechnologist-m-w-d-lonza-visp"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-22T11:36:14.341Z",
       "salaryMin": 81000,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -4913,7 +4913,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-07-22T11:36:14.341Z"
     },
     {
       "id": "lonza-98469a40e604",
@@ -7066,14 +7067,16 @@
       "sourceLang": "en",
       "crawledAt": "2026-09-26T23:37:47.475Z",
       "jobReqId": "R78180",
+      "previousSlugs": [
+        "project-leader-quality-control-bioconjugates-phd-graduates-as-well-as-experienced-professionals-welcome-f-m-d-lonza-ch"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "project-leader-quality-control-bioconjugates-phd-graduates-as-well-as-experienced-professionals-welcome-f-m-d-ll2977",
-          "project-leader-quality-control-bioconjugates-phd-graduates-as-well-as-experienced-professionals-welcome-f-m-d-lonza-ch"
-        ],
         "it": [
           "project-leader-quality-control-bioconjugates-phd-graduates-as-well-as-experienced-professionals-welcome-f-m-d-lonza-ch",
           "leader-del-progetto-controllo-qualita-bioconjugates-laureati-in-dottorato-e-professionisti-esperti-accolgono-m-f-d-lonza"
+        ],
+        "en": [
+          "project-leader-quality-control-bioconjugates-phd-graduates-as-well-as-experienced-professionals-welcome-f-m-d-lonza-ch"
         ],
         "de": [
           "project-leader-quality-control-bioconjugates-phd-graduates-as-well-as-experienced-professionals-welcome-f-m-d-lonza-ch"
@@ -7082,11 +7085,6 @@
           "project-leader-quality-control-bioconjugates-phd-graduates-as-well-as-experienced-professionals-welcome-f-m-d-lonza-ch"
         ]
       },
-      "previousSlugs": [
-        "project-leader-quality-control-bioconjugates-phd-graduates-as-well-as-experienced-professionals-welcome-f-m-d-lonza-ch",
-        "project-leader-quality-control-bioconjugates-phd-graduates-as-well-as-experienced-professionals-welcome-f-m-d-ll2977",
-        "leader-del-progetto-controllo-qualita-bioconjugates-laureati-in-dottorato-e-professionisti-esperti-accolgono-m-f-d-lonza"
-      ],
       "firstSeenAt": "2026-08-19T09:46:36.914Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -10749,7 +10747,7 @@
       "slugByLocale": {
         "it": "leiter-ausbildung-large-scale-small-molecules-m-w-d-lonza-visp",
         "en": "leiter-ausbildung-large-scale-small-molecules-w-m-d-lonza-ch",
-        "de": "leiter-ausbildung-large-scale-small-molecules-m-w-d-lonza-visp",
+        "de": "leiterausbildung-gro-e-kleine-molekule-m-w-d-lonza-visp",
         "fr": "leiter-ausbildung-petites-molecules-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -10794,8 +10792,7 @@
         "leiter-ausbildung-large-scale-small-molecules-w-m-d-lonza-ch",
         "leiterausbildung-gro-e-kleine-molekule-m-w-d-lonza-ch",
         "leiter-ausbildung-petites-molecules-h-f-d-lonza-ch",
-        "leiter-ausbildung-large-scale-small-molecules-m-w-d-lonza-ch",
-        "leiterausbildung-gro-e-kleine-molekule-m-w-d-lonza-visp"
+        "leiter-ausbildung-large-scale-small-molecules-m-w-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10806,8 +10803,7 @@
         ],
         "de": [
           "leiter-ausbildung-large-scale-small-molecules-w-m-d-lonza-ch",
-          "leiterausbildung-gro-e-kleine-molekule-m-w-d-lonza-ch",
-          "leiterausbildung-gro-e-kleine-molekule-m-w-d-lonza-visp"
+          "leiterausbildung-gro-e-kleine-molekule-m-w-d-lonza-ch"
         ],
         "fr": [
           "leiter-ausbildung-petites-molecules-h-f-d-lonza-ch",
@@ -13109,7 +13105,7 @@
         "it": "senior-direttore-strategy-lonza-basel",
         "en": "senior-director-strategy-lonza-ch",
         "de": "senior-direktor-strategy-lonza-basel",
-        "fr": "senior-director-strategy-lonza-basel"
+        "fr": "directeur-principal-strategie-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -13168,7 +13164,6 @@
           "senior-director-strategy-lonza-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:11:16.372Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -13183,7 +13178,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-0a2073b7b939",
@@ -14468,13 +14464,11 @@
       "crawledAt": "2026-09-26T23:36:31.789Z",
       "jobReqId": "R78923",
       "previousSlugs": [
-        "qc-project-leader-80-100-m-w-d-lonza-ch",
-        "leader-del-progetto-qc-80-100-m-f-d-lonza-visp"
+        "qc-project-leader-80-100-m-w-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qc-project-leader-80-100-m-w-d-lonza-ch",
-          "leader-del-progetto-qc-80-100-m-f-d-lonza-visp"
+          "qc-project-leader-80-100-m-w-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-09-23T23:39:36.156Z",
@@ -14698,13 +14692,11 @@
       "crawledAt": "2026-09-26T23:36:29.255Z",
       "jobReqId": "R78401",
       "previousSlugs": [
-        "csv-engineer-biologics-80-100-m-f-d-lonza-ch",
-        "csv-ingegnere-biologics-80-100-m-f-d-lonza-visp"
+        "csv-engineer-biologics-80-100-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "csv-engineer-biologics-80-100-m-f-d-lonza-ch",
-          "csv-ingegnere-biologics-80-100-m-f-d-lonza-visp"
+          "csv-engineer-biologics-80-100-m-f-d-lonza-ch"
         ],
         "de": [
           "csv-engineer-biologics-80-100-m-f-d-lonza-ch"
@@ -14841,17 +14833,14 @@
       "crawledAt": "2026-09-26T23:36:27.711Z",
       "jobReqId": "R79338",
       "previousSlugs": [
-        "intern-quality-control-bioanalytics-80-100-lonza-ch",
-        "tirocinante-quality-control-bioanalytics-80-100-lonza-visp"
+        "intern-quality-control-bioanalytics-80-100-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-quality-control-bioanalytics-80-100-lonza-ch",
-          "tirocinante-quality-control-bioanalytics-80-100-lonza-visp"
+          "intern-quality-control-bioanalytics-80-100-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-09-23T23:39:31.497Z",
-      "needsRetranslation": true,
       "salaryMin": 55000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -14865,7 +14854,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-9c6a8ec2e132",
@@ -15161,13 +15151,11 @@
       "crawledAt": "2026-09-26T23:36:24.750Z",
       "jobReqId": "R79594",
       "previousSlugs": [
-        "msat-expert-contamination-control-80-100-lonza-ch",
-        "msat-expert-controllo-della-contaminazione-80-100-lonza-stein"
+        "msat-expert-contamination-control-80-100-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "msat-expert-contamination-control-80-100-lonza-ch",
-          "msat-expert-controllo-della-contaminazione-80-100-lonza-stein"
+          "msat-expert-contamination-control-80-100-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-09-23T23:39:28.699Z",
@@ -15833,18 +15821,15 @@
       "jobReqId": "R79582",
       "previousSlugs": [
         "ei-c-mes-application-manager-80-100-m-f-d-lonza-ch",
-        "ei-c-mes-deltav-application-manager-80-100-m-f-d-lonza-ch",
-        "responsabile-applicazioni-mes-ei-c-80-100-m-f-d-lonza-visp"
+        "ei-c-mes-deltav-application-manager-80-100-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ei-c-mes-application-manager-80-100-m-f-d-lonza-ch",
-          "ei-c-mes-deltav-application-manager-80-100-m-f-d-lonza-ch",
-          "responsabile-applicazioni-mes-ei-c-80-100-m-f-d-lonza-visp"
+          "ei-c-mes-deltav-application-manager-80-100-m-f-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-09-23T23:39:27.264Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -15858,7 +15843,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-b3ec20de536c",
@@ -16096,9 +16082,9 @@
       "id": "lonza-826b2b86d270",
       "slug": "coordinatore-production-supply-logistica-80-100-m-w-d-lonza-visp",
       "slugByLocale": {
+        "de": "coordinator-production-supply-logistics-80-100-m-w-d-lonza-ch",
         "it": "coordinatore-production-supply-logistica-80-100-m-w-d-lonza-visp",
         "en": "coordinator-production-supply-logistics-80-100-m-w-d-lonza-ch",
-        "de": "coordinator-production-supply-logistics-80-100-m-w-d-lonza-ch",
         "fr": "coordinateur-production-supply-logistique-80-100-m-w-d-lonza-visp"
       },
       "company": "Lonza",
@@ -16139,19 +16125,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-26T23:36:14.364Z",
       "jobReqId": "R79532",
-      "firstSeenAt": "2026-09-26T13:53:08.373Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "coordinator-production-supply-logistics-80-100-m-w-d-lonza-ch"
-        ],
-        "fr": [
-          "coordinator-production-supply-logistics-80-100-m-w-d-lonza-ch"
-        ]
-      },
-      "previousSlugs": [
-        "coordinator-production-supply-logistics-80-100-m-w-d-lonza-ch"
-      ],
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -16165,7 +16138,20 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-09-26T13:53:08.373Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinator-production-supply-logistics-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "coordinator-production-supply-logistics-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "coordinator-production-supply-logistics-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-b86579ff19c8",

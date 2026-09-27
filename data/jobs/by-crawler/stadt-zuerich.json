@@ -17439,10 +17439,10 @@
       "id": "stadt-zuerich-3c2d5897965a",
       "slug": "gartner-in-stadt-zurich",
       "slugByLocale": {
-        "it": "gartner-in-stadt-zurich",
-        "en": "gartner-in-stadt-zurich",
         "de": "gartner-in-stadt-zuerich-zurigo-51345",
-        "fr": "gartner-in-stadt-zurich"
+        "it": "giardiniere-stadt-zurich-zurich-626657",
+        "en": "gardener-stadt-zurich-zurich-626657",
+        "fr": "jardinier-stadt-zurich-zurich-626657"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -17487,6 +17487,13 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "51345",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-in-stadt-zuerich-zurigo-51345",
+          "giardiniere-stadt-zurich-zurich-626657",
+          "gartner-in-stadt-zurich"
+        ]
+      },
       "previousSlugs": [
         "gartner-in-stadt-zuerich-zurigo-51345",
         "giardiniere-stadt-zurich-zurich-626657",
@@ -17494,21 +17501,7 @@
         "jardinier-stadt-zurich-zurich-626657",
         "gartner-in-stadt-zurich"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gartner-in-stadt-zuerich-zurigo-51345",
-          "giardiniere-stadt-zurich-zurich-626657",
-          "gartner-in-stadt-zurich"
-        ],
-        "en": [
-          "gardener-stadt-zurich-zurich-626657"
-        ],
-        "fr": [
-          "jardinier-stadt-zurich-zurich-626657"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-02T13:50:31.085Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -17521,7 +17514,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-02T13:50:31.085Z"
     },
     {
       "id": "stadt-zuerich-67af2926775a",
@@ -17605,9 +17599,9 @@
       "id": "stadt-zuerich-79115d2f3c18",
       "slug": "gastro-allrounder-in-stadt-zurich",
       "slugByLocale": {
-        "it": "gastro-allrounder-in-stadt-zurich",
-        "en": "gastro-allrounder-in-stadt-zurich-zurich",
         "de": "gastro-allrounder-in-stadt-zuerich-zurigo-51367",
+        "en": "gastro-allrounder-in-stadt-zurich-zurich",
+        "it": "gastronomia-stadt-zurich-zurich",
         "fr": "gastro-allrounder-in-stadt-zurich"
       },
       "company": "Stadt Zürich",
@@ -17653,11 +17647,6 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Entsorgung + Recycling Zürich",
       "referenceNumber": "51367",
-      "previousSlugs": [
-        "gastro-allrounder-in-stadt-zuerich-zurigo-51367",
-        "gastronomia-stadt-zurich-zurich",
-        "gastro-allrounder-in-stadt-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "gastro-allrounder-in-stadt-zuerich-zurigo-51367",
@@ -17668,8 +17657,12 @@
           "gastronomia-stadt-zurich-zurich"
         ]
       },
+      "previousSlugs": [
+        "gastro-allrounder-in-stadt-zuerich-zurigo-51367",
+        "gastronomia-stadt-zurich-zurich",
+        "gastro-allrounder-in-stadt-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T16:12:36.166Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -17682,7 +17675,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-01T16:12:36.166Z"
     },
     {
       "id": "stadt-zuerich-de8a48dfd507",
@@ -17815,13 +17809,11 @@
       "unit": "Elektrizitätswerk",
       "referenceNumber": "51692",
       "previousSlugs": [
-        "sachbearbeiter-in-debitorenmanagement-stadt-zuerich-zurigo-51692",
-        "sachbearbeiter-in-debitorenmanagement-stadt-zurich-zurich"
+        "sachbearbeiter-in-debitorenmanagement-stadt-zuerich-zurigo-51692"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-debitorenmanagement-stadt-zuerich-zurigo-51692",
-          "sachbearbeiter-in-debitorenmanagement-stadt-zurich-zurich"
+          "sachbearbeiter-in-debitorenmanagement-stadt-zuerich-zurigo-51692"
         ]
       },
       "needsRetranslation": true,
@@ -21739,10 +21731,10 @@
       "id": "stadt-zuerich-682f929dfdaf",
       "slug": "insegnante-di-infanzia-in-hf-stadt-zurich-zurich",
       "slugByLocale": {
+        "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694",
         "it": "insegnante-di-infanzia-in-hf-stadt-zurich-zurich",
         "en": "childhood-teacher-in-hf-stadt-zurich-zurich",
-        "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694",
-        "fr": "kindheitspadagog-in-hf-stadt-zurich"
+        "fr": "professeur-d-enfance-en-hf-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -21787,14 +21779,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "50694",
-      "previousSlugs": [
-        "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694",
-        "professeur-d-enfance-en-hf-stadt-zurich-zurich",
-        "kindheitspadagog-in-hf-stadt-zurich",
-        "kindheitspadagog-in-hf-stadt-zurich-et7nyg",
-        "insegnante-di-infanzia-in-hf-stadt-zurich-zurich",
-        "childhood-teacher-in-hf-stadt-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694",
@@ -21811,8 +21795,15 @@
           "kindheitspadagog-in-hf-stadt-zurich"
         ]
       },
+      "previousSlugs": [
+        "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694",
+        "professeur-d-enfance-en-hf-stadt-zurich-zurich",
+        "kindheitspadagog-in-hf-stadt-zurich",
+        "kindheitspadagog-in-hf-stadt-zurich-et7nyg",
+        "insegnante-di-infanzia-in-hf-stadt-zurich-zurich",
+        "childhood-teacher-in-hf-stadt-zurich-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:28:23.273Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -21825,7 +21816,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T14:28:23.273Z"
     },
     {
       "id": "stadt-zuerich-f8fc543332a0",
@@ -21881,14 +21873,12 @@
       "referenceNumber": "51706",
       "previousSlugs": [
         "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51706",
-        "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich",
-        "inventario-specialistico-beni-per-figli-80-100-stadt-zurich-zurich"
+        "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51706",
-          "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich",
-          "inventario-specialistico-beni-per-figli-80-100-stadt-zurich-zurich"
+          "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
         ],
         "en": [
           "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
@@ -21966,14 +21956,12 @@
       "referenceNumber": "51705",
       "previousSlugs": [
         "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51705",
-        "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich",
-        "inventario-del-cancelliere-beni-dei-figli-80-100-stadt-zurich-zurich"
+        "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51705",
-          "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich",
-          "inventario-del-cancelliere-beni-dei-figli-80-100-stadt-zurich-zurich"
+          "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
         ],
         "en": [
           "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
@@ -26403,13 +26391,11 @@
       "unit": "Kreisschulbehörde Waidberg",
       "referenceNumber": "51729",
       "previousSlugs": [
-        "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729",
-        "scuola-di-pedagogia-sociale-riedhof-punten-stadt-zurich-zurich"
+        "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729",
-          "scuola-di-pedagogia-sociale-riedhof-punten-stadt-zurich-zurich"
+          "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729"
         ],
         "en": [
           "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729"
@@ -29784,10 +29770,10 @@
       "id": "stadt-zuerich-405b4ac0728d",
       "slug": "educazione-dell-infanzia-hf-stadt-zurich-zurich",
       "slugByLocale": {
+        "de": "kindheitspadagog-in-hf-stadt-zurich-zurich",
         "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich",
         "en": "childhood-education-hf-stadt-zurich-zurich",
-        "de": "kindheitspadagog-in-hf-stadt-zurich-zurich",
-        "fr": "kindheitspadagog-in-hf-stadt-zurich"
+        "fr": "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -29833,21 +29819,18 @@
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51457",
       "previousSlugsByLocale": {
-        "de": [
-          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
-          "kindheitspadagog-in-hf-stadt-zurich-zurich"
-        ],
         "it": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
           "kindheitspadagog-in-hf-stadt-zurich",
           "educazione-dell-infanzia-hf-stadt-zurich-zurich"
         ],
+        "de": [
+          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
+          "kindheitspadagog-in-hf-stadt-zurich-zurich"
+        ],
         "en": [
           "kindheitspadagog-in-hf-stadt-zurich",
           "childhood-education-hf-stadt-zurich-zurich"
-        ],
-        "fr": [
-          "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d"
         ]
       },
       "previousSlugs": [
@@ -29859,7 +29842,6 @@
         "childhood-education-hf-stadt-zurich-zurich"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:28:23.266Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -29872,16 +29854,17 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T14:28:23.266Z"
     },
     {
       "id": "stadt-zuerich-46feb067c099",
       "slug": "operatore-di-impianti-di-riscaldamento-nell-impianto-di-riciclo-dei-rifiuti-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "operatore-di-impianti-di-riscaldamento-nell-impianto-di-riciclo-dei-rifiuti-stadt-zurich-zurich",
-        "en": "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zurich",
         "de": "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zuerich-zurigo-50406",
-        "fr": "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zurich"
+        "it": "operatore-di-impianti-di-riscaldamento-nell-impianto-di-riciclo-dei-rifiuti-stadt-zurich-zurich",
+        "en": "heating-plant-operator-in-refuse-recycling-plant-stadt-zurich-zurich",
+        "fr": "operateur-d-installation-de-chauffage-dans-l-installation-de-recyclage-des-dechets-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -29926,26 +29909,26 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Entsorgung + Recycling Zürich",
       "referenceNumber": "50406",
-      "previousSlugs": [
-        "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zuerich-zurigo-50406",
-        "heating-plant-operator-in-refuse-recycling-plant-stadt-zurich-zurich",
-        "operateur-d-installation-de-chauffage-dans-l-installation-de-recyclage-des-dechets-stadt-zurich-zurich",
-        "operatore-di-impianti-di-riscaldamento-nell-impianto-di-riciclo-dei-rifiuti-stadt-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zuerich-zurigo-50406",
           "operatore-di-impianti-di-riscaldamento-nell-impianto-di-riciclo-dei-rifiuti-stadt-zurich-zurich"
         ],
         "en": [
-          "heating-plant-operator-in-refuse-recycling-plant-stadt-zurich-zurich"
+          "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zurich"
         ],
         "fr": [
-          "operateur-d-installation-de-chauffage-dans-l-installation-de-recyclage-des-dechets-stadt-zurich-zurich"
+          "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zurich"
         ]
       },
+      "previousSlugs": [
+        "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zuerich-zurigo-50406",
+        "heating-plant-operator-in-refuse-recycling-plant-stadt-zurich-zurich",
+        "operateur-d-installation-de-chauffage-dans-l-installation-de-recyclage-des-dechets-stadt-zurich-zurich",
+        "operatore-di-impianti-di-riscaldamento-nell-impianto-di-riciclo-dei-rifiuti-stadt-zurich-zurich",
+        "heizwerkfuhrer-in-kehrichtverwertungsanlage-stadt-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:28:23.266Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -29958,7 +29941,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T14:28:23.266Z"
     },
     {
       "id": "stadt-zuerich-8b9423137fb3",
@@ -30012,22 +29996,19 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Gesundheitszentren für das Alter",
       "referenceNumber": "50507",
-      "previousSlugs": [
-        "chefarzt-in-geriatrie-stadt-zuerich-zurigo-50507",
-        "chief-physician-geriatrics-stadt-zurich-zurich",
-        "principale-medico-geriatrico-stadt-zurich-zurich",
-        "chefarzt-in-geriatrie-stadt-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "chefarzt-in-geriatrie-stadt-zuerich-zurigo-50507",
-          "principale-medico-geriatrico-stadt-zurich-zurich"
+          "chefarzt-in-geriatrie-stadt-zuerich-zurigo-50507"
         ],
         "en": [
           "chief-physician-geriatrics-stadt-zurich-zurich",
           "chefarzt-in-geriatrie-stadt-zurich"
         ]
       },
+      "previousSlugs": [
+        "chefarzt-in-geriatrie-stadt-zuerich-zurigo-50507",
+        "chefarzt-in-geriatrie-stadt-zurich"
+      ],
       "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -30095,26 +30076,21 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Sonderpädagogik",
       "referenceNumber": "50842",
-      "previousSlugs": [
-        "padagogische-betreuungsassistenz-hps-stadt-zuerich-zurigo-50842",
-        "padagogische-betreuungsassistenz-hps-stadt-zurich",
-        "assistenza-educativa-hps-40-stadt-zurich-zurich",
-        "aide-a-l-education-sph-40-stadt-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "padagogische-betreuungsassistenz-hps-stadt-zuerich-zurigo-50842",
-          "assistenza-educativa-hps-40-stadt-zurich-zurich"
+          "padagogische-betreuungsassistenz-hps-stadt-zuerich-zurigo-50842"
         ],
         "de": [
           "padagogische-betreuungsassistenz-hps-stadt-zuerich-zurigo-50842"
         ],
         "fr": [
-          "padagogische-betreuungsassistenz-hps-stadt-zurich",
-          "aide-a-l-education-sph-40-stadt-zurich-zurich"
+          "padagogische-betreuungsassistenz-hps-stadt-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-25T15:03:48.451Z",
+      "previousSlugs": [
+        "padagogische-betreuungsassistenz-hps-stadt-zuerich-zurigo-50842",
+        "padagogische-betreuungsassistenz-hps-stadt-zurich"
+      ],
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -30127,7 +30103,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T15:03:48.451Z"
     },
     {
       "id": "stadt-zuerich-ee4973e01d03",
@@ -30258,13 +30235,11 @@
       "unit": "Sportamt",
       "referenceNumber": "51764",
       "previousSlugs": [
-        "hr-generalist-in-befristet-bis-31-03-2027-stadt-zuerich-zurigo-51764",
-        "risorse-umane-generalist-in-befristet-bis-31-03-2027-stadt-zurich"
+        "hr-generalist-in-befristet-bis-31-03-2027-stadt-zuerich-zurigo-51764"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-generalist-in-befristet-bis-31-03-2027-stadt-zuerich-zurigo-51764",
-          "risorse-umane-generalist-in-befristet-bis-31-03-2027-stadt-zurich"
+          "hr-generalist-in-befristet-bis-31-03-2027-stadt-zuerich-zurigo-51764"
         ]
       },
       "needsRetranslation": true,
@@ -30336,13 +30311,11 @@
       "unit": "Kreisschulbehörde Schwamendingen",
       "referenceNumber": "51765",
       "previousSlugs": [
-        "fachverantwortliche-r-hausdienst-und-technik-stadt-zuerich-zurigo-51765",
-        "fachverantwortliche-r-hausdienst-e-technik-stadt-zurich"
+        "fachverantwortliche-r-hausdienst-und-technik-stadt-zuerich-zurigo-51765"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-hausdienst-und-technik-stadt-zuerich-zurigo-51765",
-          "fachverantwortliche-r-hausdienst-e-technik-stadt-zurich"
+          "fachverantwortliche-r-hausdienst-und-technik-stadt-zuerich-zurigo-51765"
         ]
       },
       "needsRetranslation": true,
@@ -30414,13 +30387,11 @@
       "unit": "Entsorgung + Recycling Zürich",
       "referenceNumber": "51766",
       "previousSlugs": [
-        "fachspezialist-in-abfalllogistik-papier-80-100-befristet-fur-6-monate-stadt-zuerich-zurigo",
-        "fachspezialist-in-abfalllogistik-papier-80-100-befristet-per-6-monate-stadt-zurich"
+        "fachspezialist-in-abfalllogistik-papier-80-100-befristet-fur-6-monate-stadt-zuerich-zurigo"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-abfalllogistik-papier-80-100-befristet-fur-6-monate-stadt-zuerich-zurigo",
-          "fachspezialist-in-abfalllogistik-papier-80-100-befristet-per-6-monate-stadt-zurich"
+          "fachspezialist-in-abfalllogistik-papier-80-100-befristet-fur-6-monate-stadt-zuerich-zurigo"
         ]
       },
       "needsRetranslation": true,
@@ -30492,13 +30463,11 @@
       "unit": "Finanzverwaltung",
       "referenceNumber": "51758",
       "previousSlugs": [
-        "direktor-in-finanzverwaltung-stadt-zuerich-zurigo-51758",
-        "direktor-in-finanzverwaltung-stadt-zurich-zurich"
+        "direktor-in-finanzverwaltung-stadt-zuerich-zurigo-51758"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "direktor-in-finanzverwaltung-stadt-zuerich-zurigo-51758",
-          "direktor-in-finanzverwaltung-stadt-zurich-zurich"
+          "direktor-in-finanzverwaltung-stadt-zuerich-zurigo-51758"
         ]
       },
       "needsRetranslation": true,
@@ -30891,13 +30860,11 @@
       "unit": "Amt für Zusatzleistungen zur AHV IV",
       "referenceNumber": "51760",
       "previousSlugs": [
-        "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zuerich-zurigo-51760",
-        "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zurich-zurich"
+        "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zuerich-zurigo-51760"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zuerich-zurigo-51760",
-          "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zurich-zurich"
+          "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zuerich-zurigo-51760"
         ]
       },
       "needsRetranslation": true,
@@ -31138,13 +31105,11 @@
       "unit": "Gesundheitszentren für das Alter",
       "referenceNumber": "51768",
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-standort-bachwiesen-stadt-zuerich-zurigo-51768",
-        "collaboratore-trice-in-reinigung-standort-bachwiesen-stadt-zurich"
+        "mitarbeiter-in-reinigung-standort-bachwiesen-stadt-zuerich-zurigo-51768"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-standort-bachwiesen-stadt-zuerich-zurigo-51768",
-          "collaboratore-trice-in-reinigung-standort-bachwiesen-stadt-zurich"
+          "mitarbeiter-in-reinigung-standort-bachwiesen-stadt-zuerich-zurigo-51768"
         ]
       },
       "needsRetranslation": true,
@@ -31387,13 +31352,11 @@
       "unit": "Gesundheitszentren für das Alter",
       "referenceNumber": "51745",
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-standort-kaferberg-stadt-zuerich-zurigo-51745",
-        "collaboratore-trice-in-hauswirtschaft-standort-kaferberg-stadt-zurich"
+        "mitarbeiter-in-hauswirtschaft-standort-kaferberg-stadt-zuerich-zurigo-51745"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hauswirtschaft-standort-kaferberg-stadt-zuerich-zurigo-51745",
-          "collaboratore-trice-in-hauswirtschaft-standort-kaferberg-stadt-zurich"
+          "mitarbeiter-in-hauswirtschaft-standort-kaferberg-stadt-zuerich-zurigo-51745"
         ]
       },
       "needsRetranslation": true,
@@ -31465,13 +31428,11 @@
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "51751",
       "previousSlugs": [
-        "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751",
-        "capo-dell-assistenza-extrascolastica-pedagogico-sociale-stadt-zurich-zurich"
+        "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751",
-          "capo-dell-assistenza-extrascolastica-pedagogico-sociale-stadt-zurich-zurich"
+          "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751"
         ],
         "en": [
           "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751"
@@ -31549,14 +31510,12 @@
       "referenceNumber": "51753",
       "previousSlugs": [
         "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753",
-        "projektleiter-in-baumanagement-stadt-zurich",
-        "project-manager-gestione-delle-costruzioni-stadt-zurich-zurich"
+        "projektleiter-in-baumanagement-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753",
-          "projektleiter-in-baumanagement-stadt-zurich",
-          "project-manager-gestione-delle-costruzioni-stadt-zurich-zurich"
+          "projektleiter-in-baumanagement-stadt-zurich"
         ],
         "en": [
           "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753"
@@ -31566,7 +31525,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:43:19.009Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -31579,7 +31537,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-d9d40522eb6d",
@@ -31635,14 +31594,12 @@
       "referenceNumber": "51740",
       "previousSlugs": [
         "fachbearbeiter-in-immobilienokonomie-stadt-zuerich-zurigo-51740",
-        "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich",
-        "specialista-in-economia-immobiliare-stadt-zurich-zurich"
+        "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachbearbeiter-in-immobilienokonomie-stadt-zuerich-zurigo-51740",
-          "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich",
-          "specialista-in-economia-immobiliare-stadt-zurich-zurich"
+          "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich"
         ],
         "en": [
           "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich"
@@ -31970,11 +31927,7 @@
       "department": "Hochbaudepartement",
       "unit": "Amt für Hochbauten",
       "referenceNumber": "51748",
-      "previousSlugs": [
-        "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zuerich-zurigo",
-        "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zurich-zurich",
-        "architekt-in-eth-fh-come-projektleiter-in-der-projektentwicklung-stadt-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zuerich-zurigo",
@@ -31987,8 +31940,10 @@
           "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:43:19.010Z",
+      "previousSlugs": [
+        "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zuerich-zurigo",
+        "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zurich-zurich"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -32001,7 +31956,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:43:19.010Z"
     },
     {
       "id": "stadt-zuerich-587274b52287",
@@ -34184,13 +34140,11 @@
       "unit": "Verkehrsbetriebe",
       "referenceNumber": "48889",
       "previousSlugs": [
-        "fachverantwortliche-r-arbeitssicherheit-und-gesundheitsschutz-stadt-zuerich-zurigo-48889",
-        "fachverantwortliche-r-arbeitssicherheit-e-gesundheitsschutz-stadt-zurich"
+        "fachverantwortliche-r-arbeitssicherheit-und-gesundheitsschutz-stadt-zuerich-zurigo-48889"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-arbeitssicherheit-und-gesundheitsschutz-stadt-zuerich-zurigo-48889",
-          "fachverantwortliche-r-arbeitssicherheit-e-gesundheitsschutz-stadt-zurich"
+          "fachverantwortliche-r-arbeitssicherheit-und-gesundheitsschutz-stadt-zuerich-zurigo-48889"
         ]
       },
       "needsRetranslation": true,
