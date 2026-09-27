@@ -18,12 +18,16 @@ function distIndexPath(pathname: string): string {
   return `/virtual/dist${pathname}index.html`;
 }
 
+function relativeDistIndexPath(pathname: string): string {
+  return `${pathname.replace(/^\/+/, '')}index.html`;
+}
+
 describe('information-gain: weekly job-market snapshot pages are data-driven', () => {
   it('recognises weekly roots emitted for every locale', () => {
     for (const locale of LOCALES) {
-      const path = buildWeeklyPath(locale, 16, 2026);
+      const path = buildWeeklyPath(locale, 2026, 16);
       expect(isWeeklyJobMarketSnapshotPath(path), path).toBe(true);
-      expect(isWeeklyJobMarketSnapshotPath(distIndexPath(path)), `${path} dist`).toBe(true);
+      expect(isWeeklyJobMarketSnapshotPath(relativeDistIndexPath(path)), `${path} dist`).toBe(true);
     }
   });
 
@@ -31,7 +35,7 @@ describe('information-gain: weekly job-market snapshot pages are data-driven', (
     for (const locale of LOCALES) {
       const path = buildCantonSnapshotPath(locale, 'argovia');
       expect(isWeeklyJobMarketSnapshotPath(path), path).toBe(true);
-      expect(isWeeklyJobMarketSnapshotPath(distIndexPath(path)), `${path} dist`).toBe(true);
+      expect(isWeeklyJobMarketSnapshotPath(relativeDistIndexPath(path)), `${path} dist`).toBe(true);
     }
   });
 
@@ -46,7 +50,7 @@ describe('information-gain: weekly job-market snapshot pages are data-driven', (
   it('keeps all weekly and canton snapshot pages out of editorial scoring', () => {
     const auditor = createInformationGainAuditor({ dist: '/virtual/dist', sampleRate: 1 });
     const paths = [
-      ...LOCALES.map((locale) => buildWeeklyPath(locale, 16, 2026)),
+      ...LOCALES.map((locale) => buildWeeklyPath(locale, 2026, 16)),
       ...LOCALES.map((locale) => buildCantonSnapshotPath(locale, 'argovia')),
     ];
 
