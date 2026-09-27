@@ -6812,6 +6812,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.onere-premi-cassa-malati-nzz.title': 'Krankenkassenprämien: Die Nettobelastung blieb stabil',
     'blog.article.onere-premi-cassa-malati-nzz.excerpt': 'NZZ-Analyse zu 300\'000 Familien: Zwischen 2016 und 2023 blieb die Nettobelastung durch Prämien dank Subventionen und Einkommenswachstum stabil.',
     'blog.article.onere-premi-cassa-malati-nzz.imageAlt': 'Städtische Ansicht der Schweiz, Symbol für Lebenskosten und Familienausgaben',
+    'blog.article.congedo-parentale-136000-firme.title': 'Elternzeit: 136\'000 Unterschriften für die Initiative gesammelt',
+    'blog.article.congedo-parentale-136000-firme.excerpt': '136\'000 Unterschriften für die Elternurlaubsinitiative erreicht. Die Hinterlegung bei der Bundeskanzlei ist für nächste Woche geplant.',
+    'blog.article.congedo-parentale-136000-firme.imageAlt': 'Unterschriftensammlung für die Elternzeitinitiative in der Schweiz',
 };
 
 export default blogMetaChDe;

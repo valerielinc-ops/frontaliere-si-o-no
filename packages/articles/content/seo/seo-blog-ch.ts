@@ -88316,6 +88316,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congedo-parentale-136000-firme': {
+    title: 'Congedo parentale: raccolte 136\'000 firme per l\'iniziativa',
+    description: 'L\'iniziativa popolare per il congedo parentale ha raccolto 136\'000 firme. Deposito previsto alla Cancelleria federale. Scopri tutti i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, congedo, parentale, raccolte, firme',
+    ogTitle: 'Congedo parentale: raccolte 136\'000 firme in Svizzera',
+    ogDescription: 'Raggiunte 136\'000 sottoscrizioni per l\'iniziativa popolare sul congedo parentale. Il testo prevede 18 settimane per ciascun genitore e sarà depositato la prossima settimana.',
+    canonicalPath: '/articoli-svizzera/congedo-parentale-136000-firme/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Congedo parentale: raccolte 136'000 firme per l'iniziativa",
+      "description": "L'iniziativa popolare per il congedo parentale ha raccolto 136'000 firme. Deposito previsto alla Cancelleria federale. Scopri tutti i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/congedo-parentale-136000-firme.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Raccolta firme per l'iniziativa sul congedo parentale in Svizzera"
+      },
+      "datePublished": "2026-09-27T01:48:34+00:00",
+      "dateModified": "2026-09-27T01:48:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/congedo-parentale-136000-firme/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
