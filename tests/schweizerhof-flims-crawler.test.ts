@@ -59,7 +59,7 @@ describe('Schweizerhof crawler parser', () => {
     });
 
     it('trusts the official HCM4all ATS source', () => {
-      expect(isTrustedDomain('https://romantikhotels.hcm4all.de/list/18877')).toBe(true);
+      expect(isTrustedDomain('https://romantikhotels.hcm4all.de/list/?l=de')).toBe(true);
     });
 
     it('rejects other domains', () => {
