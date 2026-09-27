@@ -2300,6 +2300,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'esercito-divisa-grigia-dismissione': { it: 'esercito-divisa-grigia-dismissione', en: 'swiss-army-grey-uniform-disposal', de: 'schweizer-armee-graue-uniform-entsorgung', fr: 'armee-suisse-uniforme-gris-elimination' },
  'manifestazione-diritti-migranti-berna': { it: 'manifestazione-diritti-migranti-berna', en: 'migrant-rights-demonstration-bern', de: 'demonstration-migrantenrechte-bern', fr: 'manifestation-droits-migrants-berne' },
  'voti-federali-neutralita-alimentazione': { it: 'voti-federali-neutralita-alimentazione', en: 'swiss-federal-votes-neutrality-food', de: 'schweizer-bundesabstimmungen-neutralitaet-ernaehrung', fr: 'votes-federaux-neutralite-alimentation' },
+ 'guida-tirocinio-soletta': { it: 'guida-tirocinio-soletta', en: 'solothurn-apprenticeship-vocational-training', de: 'berufslehre-berufsbildung-solothurn', fr: 'apprentissage-formation-professionnelle-soleure' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

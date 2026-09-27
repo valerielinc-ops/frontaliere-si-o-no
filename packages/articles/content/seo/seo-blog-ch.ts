@@ -88589,6 +88589,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-tirocinio-soletta': {
+    title: 'Apprendistato e formazione professionale nel Canton Soletta',
+    description: 'Guida all\'apprendistato nel Canton Soletta: contratto, salario, orari, ferie, contributi AVS/AI/IPG, maturità professionale e fisco svizzero per orientarsi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, canton',
+    ogTitle: 'Apprendistato e formazione professionale nel Canton Soletta',
+    ogDescription: 'Una guida operativa per leggere il tirocinio a Soletta: come separare salario, orari e ferie da AVS/AI/IPG, LAMal, imposte federali, cantonali e comunali, locazione e permessi, organizzando la ricerca del posto e il controllo della busta paga.',
+    canonicalPath: '/articoli-svizzera/guida-tirocinio-soletta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale nel Canton Soletta",
+      "description": "Guida all'apprendistato nel Canton Soletta: contratto, salario, orari, ferie, contributi AVS/AI/IPG, maturità professionale e fisco svizzero per orientarsi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-tirocinio-soletta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendista in un laboratorio svizzero durante la formazione professionale"
+      },
+      "datePublished": "2026-09-27T07:51:32+00:00",
+      "dateModified": "2026-09-27T07:51:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-tirocinio-soletta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -20527,6 +20527,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'guida-tirocinio-soletta',
+    category: 'pratico',
+    date: '2026-09-27T07:51:32.333Z',
+    image: '/images/blog/guida-tirocinio-soletta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
