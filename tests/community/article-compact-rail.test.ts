@@ -18,7 +18,9 @@ describe('article compact ad rail contract', () => {
     expect(BLOG).toContain('xlc:grid-cols-[var(--ft-rail-w-c-l,160px)_minmax(0,1fr)_var(--ft-rail-w-c-r,160px)]');
     expect(BLOG).toContain('xlc:max-w-6xl');
     expect(INDEX_HTML).toContain('.ft-blog-rail-grid-x { display: grid;');
+    expect(INDEX_HTML).toContain('@media (min-width: 1200px) {\n        .xlc\\:max-w-6xl { max-width: 72rem; }\n      }');
     expect(CRITICAL_CSS).toContain("'.ft-blog-rail-grid-x{display:grid;");
+    expect(CRITICAL_CSS).toContain("'.xlc\\\\:max-w-6xl{max-width:72rem}' +");
   });
 
   it('mounts compact rails only on article surfaces and on both sides', () => {
@@ -26,6 +28,8 @@ describe('article compact ad rail contract', () => {
     expect(BLOG).toMatch(/ArticleRailAdStack side="left"[\s\S]*?compact/);
     expect(BLOG).toMatch(/ArticleRailAdStack side="right"[\s\S]*?compact/);
     expect(BLOG).toContain('const adEligibleRail = adEligible && (isDesktopXl || isCompactRail);');
+    expect(BLOG).toContain("const isDesktopXl = useMediaQuery('(min-width: 1280px)') === true;");
+    expect(BLOG).toContain("const isCompactRail = useMediaQuery('(min-width: 1200px) and (max-width: 1399.98px)') === true;");
     expect(BLOG).toContain('<ArticleRailAdStack side="left" enabled={adEligibleRail}');
     expect(BLOG).toContain('<ArticleRailAdStack side="right" enabled={adEligibleRail}');
     expect(BLOG).toContain("const BLOG_ARTICLE_RAIL_ASIDE_CLASS_X = 'ft-rail-aside-x ft-blog-rail-aside-x hidden xlc:flex");

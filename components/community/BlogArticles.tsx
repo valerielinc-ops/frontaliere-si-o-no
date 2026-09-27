@@ -1329,8 +1329,8 @@ function BlogArticles({
 
  // Device breakpoints for conditional ad rendering (prevents CSS-hidden width=0 bug)
  const isMobile = useMediaQuery('(max-width: 639px)'); // sm breakpoint
- const isDesktopXl = useMediaQuery('(min-width: 1280px)'); // xl breakpoint
- const isCompactRail = useMediaQuery('(min-width: 1200px) and (max-width: 1399px)');
+ const isDesktopXl = useMediaQuery('(min-width: 1280px)') === true; // xl breakpoint
+ const isCompactRail = useMediaQuery('(min-width: 1200px) and (max-width: 1399.98px)') === true;
 
  // Mobile infinite scroll: accumulate articles instead of paginating
  const [mobileArticleLimit, setMobileArticleLimit] = useState(ARTICLES_PER_PAGE);

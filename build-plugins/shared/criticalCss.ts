@@ -116,6 +116,9 @@ export const RAIL_RESERVE_CSS =
   '.ft-rail-aside{display:none}' +
   '.ft-rail-aside-x{display:none}' +
   '.ft-rail-grid-spa{display:contents}' +
+  '@media(min-width:1200px){' +
+  '.xlc\\:max-w-6xl{max-width:72rem}' +
+  '}' +
   '@media(min-width:1200px) and (max-width:1279.98px){' +
   '.ft-blog-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-c-l,160px) minmax(0,1fr) var(--ft-rail-w-c-r,160px);gap:1rem}' +
   '.ft-blog-rail-aside-x{display:flex;flex-direction:column;min-height:600px}' +
