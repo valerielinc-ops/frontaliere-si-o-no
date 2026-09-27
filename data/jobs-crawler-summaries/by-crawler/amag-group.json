@@ -1,16 +1,16 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-09-27T05:17:16.088Z",
+  "generatedAt": "2026-09-27T11:34:36.262Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 149715,
-  "avgDurationMs": 149715,
+  "durationMs": 136267,
+  "avgDurationMs": 136267,
   "durationHistory": [
-    149715
+    136267
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,17 +37,16 @@
       "contractType": "full-time",
       "validThrough": "2026-12-01",
       "id": "amag-group-639847205108",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T14:04:48.923Z",
-      "_qualityScore": 78,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -190,17 +189,16 @@
       "contractType": "full-time",
       "validThrough": "2027-03-01",
       "id": "amag-group-078b29e50992",
-      "needsRetranslation": true,
       "salaryMin": 50500,
       "salaryMax": 77000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T14:04:48.923Z",
-      "_qualityScore": 78,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     }
