@@ -290,6 +290,51 @@ describe('prospector public-only polite transport', () => {
     expect(jinaFetchImpl).toHaveBeenCalledTimes(2);
   });
 
+  it('rotates Jina again when a marked challenge is followed by an empty 200 proxy page', async () => {
+    const seed = 'https://employer.example/jobs';
+    const detail = 'https://employer.example/careers/detail/1';
+    const challenge = '<html><head><title>Challenge Validation</title></head>'
+      + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+      + `${' blocked'.repeat(30)}</body></html>`;
+    const emptyProxyPage = `<html><body>${'No positions available right now. '.repeat(20)}</body></html>`;
+    const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
+      + 'coordinate production releases, improve observability, support colleagues across the platform team, '
+      + 'and document resilient operational practices for every service owner.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, challenge);
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    let jinaCalls = 0;
+    const jinaFetchImpl = vi.fn(async (url: string) => response(
+      url,
+      200,
+      null,
+      jinaCalls++ === 0 ? emptyProxyPage : listing,
+    ));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+      rescueOnEmptyListing: true,
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
+    })]);
+    expect(jinaFetchImpl).toHaveBeenCalledTimes(2);
+  });
+
   it('rescues a spec-scoped unmarked HTTP 200 interstitial after empty extraction', async () => {
     const seed = 'https://employer.example/jobs';
     const detail = 'https://employer.example/careers/detail/1';
