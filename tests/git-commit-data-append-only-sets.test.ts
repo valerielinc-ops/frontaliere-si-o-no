@@ -102,6 +102,24 @@ function runScript(h: Harness, extraPaths: string[], sliceFile?: string): void {
     },
   });
 }
+function runLegacyScript(h: Harness, extraPaths: string[]): string {
+  return execFileSync(BASH_BIN, [SCRIPT_PATH, 'test commit', ...extraPaths], {
+    cwd: h.repoDir,
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      JOBS_SLICE_FILE: '',
+      DATA_PIPELINE_LEASE: '0',
+      SKIP_AI_TRANSLATION: '1',
+      SLUG_HISTORY_SUMMARY_FILE: join(h.repoDir, 'no-such-slug-history-summary.txt'),
+      GH_TOKEN: '',
+      GITHUB_TOKEN: '',
+      GITHUB_RUN_ID: '',
+      GITHUB_REPOSITORY: '',
+      GITHUB_OUTPUT: '',
+    },
+  });
+}
 function runExtraOnlyScript(h: Harness, extraPaths: string[]): void {
   execFileSync(BASH_BIN, [SCRIPT_PATH, '--extra-only', 'record generation ledger', ...extraPaths], {
     cwd: h.repoDir,
@@ -155,6 +173,45 @@ function job(overrides: Partial<JobRecord> = {}): JobRecord {
 const SLICE = 'data/jobs/by-crawler/acme.json';
 
 describe('git-commit-data.sh 3-way merge — append-only slug/path registries (#4887)', () => {
+  it('canonicalizes expired routes after a successful stash pop', () => {
+    const h = initHarness();
+    const expiredSlice = 'data/jobs/expired/by-crawler/fachkraft.json';
+    const expiredEntry = (slug: string, expiredAt: string) => ({
+      companyKey: 'fachkraft',
+      slug,
+      slugByLocale: { it: slug, de: `${slug}-de` },
+      previousSlugs: ['shared-fachkraft-route'],
+      previousSlugsByLocale: {
+        it: ['shared-fachkraft-route'],
+        de: ['shared-fachkraft-route'],
+      },
+      expiredAt,
+    });
+
+    try {
+      writeJson(h.repoDir, expiredSlice, []);
+      commitAndPush(h.repoDir, 'seed expired archive');
+      pushFromConcurrentWriter(
+        h,
+        (dir) => writeFileSync(join(dir, 'remote-only.txt'), 'remote change\n'),
+        'remote non-conflicting update',
+      );
+
+      writeJson(h.repoDir, expiredSlice, [
+        expiredEntry('fachkraft-older', daysAgo(5)),
+        expiredEntry('fachkraft-newer', daysAgo(1)),
+      ]);
+
+      const output = runLegacyScript(h, [expiredSlice]);
+      const published = readFromOrigin<Array<{ slug: string }>>(h, expiredSlice);
+      expect(published).toHaveLength(1);
+      expect(published[0].slug).toBe('fachkraft-newer');
+      expect(output).toContain(`canonicalized expired archive slice ${expiredSlice}`);
+    } finally {
+      cleanup(h);
+    }
+  });
+
   it('re-canonicalizes expired routes after a concurrent 3-way slice merge', () => {
     const h = initHarness();
     const expiredSlice = 'data/jobs/expired/by-crawler/fachkraft.json';

@@ -623,6 +623,21 @@ cleanup_rebase_snapshot() {
   rm -rf "$snapshot_dir"
 }
 
+canonicalize_restored_expired_slices() {
+  local f
+  # A clean stash pop can still create a semantic route duplicate without a
+  # Git conflict. Apply the invariant to every restored expired slice, not only
+  # paths that Git reported as unmerged.
+  for f in "${RESOLVED_FILES[@]}"; do
+    [[ "$f" == data/jobs/expired/by-crawler/*.json ]] || continue
+    [ -f "$f" ] || continue
+    if ! node "$(dirname "$0")/../ci/canonicalize-expired-archive-slice.mjs" "$f" "$f"; then
+      echo "❌ Failed expired archive route canonicalization for $f"
+      return 1
+    fi
+  done
+}
+
 restore_stashed_changes_with_safe_merge() {
   local snapshot_dir="$1"
   local conflict_message="$2"
@@ -632,6 +647,9 @@ restore_stashed_changes_with_safe_merge() {
   local key_hint=""
 
   if git stash pop 2>/dev/null; then
+    if ! canonicalize_restored_expired_slices; then
+      exit 1
+    fi
     return 0
   fi
 
@@ -681,13 +699,6 @@ restore_stashed_changes_with_safe_merge() {
         exit 1
       }
 
-      if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
-        if ! node "$(dirname "$0")/../ci/canonicalize-expired-archive-slice.mjs" "$f" "$f"; then
-          echo "❌ Failed expired archive route canonicalization for $f"
-          exit 1
-        fi
-      fi
-
       # The seo-404 compat accumulator is sharded across
       # data/seo-404-compat/part-*.json (issue #2988). Re-prune it AFTER the
       # whole merge loop (not here per-shard): a mid-loop prune would read the
@@ -703,6 +714,10 @@ restore_stashed_changes_with_safe_merge() {
       cp "$snapshot_dir/local/$f" "$f"
     fi
   done
+
+  if ! canonicalize_restored_expired_slices; then
+    exit 1
+  fi
 
   # Re-validate the sharded seo-404 compat store once, after all shard merges.
   # mergeArrayByDelta keeps everything already present in the remote/upstream
