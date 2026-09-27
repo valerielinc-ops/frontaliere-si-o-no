@@ -510,6 +510,23 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
   });
 
+  it('mirrors every IndexedDB lifecycle pattern so stale GA4 events cannot reopen #9466', () => {
+    const samples = [
+      'Connection to Indexed Database server lost.',
+      "Failed to execute 'transaction' on 'IDBDatabase': The database connection is closing.",
+      'InvalidStateError: Object store cannot be found in the database',
+      'UnknownError: an internal IDBDatabase operation failed',
+      'Database deleted by request of the user',
+    ];
+    const denySources = ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source);
+    for (const sample of samples) {
+      const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test(sample));
+      expect(benignPattern, `missing shared benign pattern for ${sample}`).toBeDefined();
+      expect(denySources).toContain(benignPattern!.source);
+      expect(isIssueDenied(sample)).toBe(true);
+    }
+  });
+
   it('mirrors the unsupported-browser "Unexpected token ?" parse pattern from services/benignErrorPatterns.ts byte-for-byte (#4172)', () => {
     const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test("Unexpected token '?'"));
     expect(benignPattern).toBeDefined();
