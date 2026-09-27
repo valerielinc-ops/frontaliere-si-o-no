@@ -1,16 +1,16 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-09-26T23:38:42.193Z",
-  "total": 61,
+  "generatedAt": "2026-09-27T14:57:46.323Z",
+  "total": 60,
   "newCount": 1,
   "updatedCount": 59,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 40379,
-  "avgDurationMs": 40379,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 50415,
+  "avgDurationMs": 50415,
   "durationHistory": [
-    40379
+    50415
   ],
   "newJobs": [
     {
@@ -27,7 +27,7 @@
       "postalCode": "3818",
       "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "category": "healthcare",
-      "datePosted": "2026-09-26",
+      "datePosted": "2026-09-27",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -1036,8 +1036,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000150953900-secretaire-medical-e-bilingue-fr-all-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000150953900-secretaire-medical-e-bilingue-fr-all-?oga=true",
@@ -1076,5 +1075,6 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

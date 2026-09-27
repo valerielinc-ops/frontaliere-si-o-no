@@ -1,21 +1,21 @@
 {
   "key": "richemont",
   "label": "Richemont",
-  "generatedAt": "2026-09-26T23:48:07.335Z",
-  "total": 179,
+  "generatedAt": "2026-09-27T15:07:32.549Z",
+  "total": 178,
   "discovered": null,
   "parsed": 180,
   "lastFetchOutcome": null,
-  "written": 179,
+  "written": 178,
   "authoritativeEmptySnapshot": false,
   "newCount": 2,
   "updatedCount": 178,
   "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 556810,
-  "avgDurationMs": 556810,
+  "unchangedCount": 0,
+  "durationMs": 560051,
+  "avgDurationMs": 560051,
   "durationHistory": [
-    556810
+    560051
   ],
   "newJobs": [
     {
@@ -30,7 +30,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133520/stagiaire-demarches-de-progres/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:47:57.765Z",
+      "crawledAt": "2026-09-27T15:07:21.128Z",
       "addressLocality": "La Chaux-De-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -42,7 +42,7 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "postedDate": "2026-09-27",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr133520/stagiaire-demarches-de-progres/",
       "jobReqId": "jr133520",
       "_qualityScore": 61,
@@ -65,7 +65,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133526/stagiaire-demarches-de-progres/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:47:57.770Z",
+      "crawledAt": "2026-09-27T15:07:21.132Z",
       "addressLocality": "La Chaux-De-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       "sector": "Lusso / Orologeria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "postedDate": "2026-09-27",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr133526/stagiaire-demarches-de-progres/",
       "jobReqId": "jr133526",
       "_qualityScore": 63,
@@ -102,7 +102,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr134201/prototypiste/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T23:47:57.618Z",
+      "crawledAt": "2026-09-27T15:07:20.995Z",
       "addressLocality": "Les Breuleux",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -117,13 +117,12 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr134201/prototypiste/",
       "jobReqId": "jr134201",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.260Z",
-      "_qualityScore": 78,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -139,7 +138,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr134159/intern-trade-marketing-assets-100/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T23:47:57.623Z",
+      "crawledAt": "2026-09-27T15:07:20.999Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -154,6 +153,7 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr134159/intern-trade-marketing-assets-100/",
       "jobReqId": "jr134159",
+      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -174,7 +174,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr134158/apprenti-mecanicien-de-production-cfc/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.661Z",
+      "crawledAt": "2026-09-27T15:07:21.036Z",
       "addressLocality": "Glovelier",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -189,13 +189,12 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr134158/apprenti-mecanicien-de-production-cfc/",
       "jobReqId": "jr134158",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:07:23.290Z",
-      "_qualityScore": 73,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -211,7 +210,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr134075/assistant-de-direction/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.716Z",
+      "crawledAt": "2026-09-27T15:07:21.084Z",
       "addressLocality": "Le Crêt-Du-Locle",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -226,13 +225,12 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr134075/assistant-de-direction/",
       "jobReqId": "jr134075",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.329Z",
-      "_qualityScore": 76,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -248,7 +246,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr134072/stage-ingenieur-achats/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:47:57.721Z",
+      "crawledAt": "2026-09-27T15:07:21.088Z",
       "addressLocality": "Le Sentier",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -265,11 +263,11 @@
       "jobReqId": "jr134072",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.333Z",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 20,
         "completeness": 14
       }
     },
@@ -285,7 +283,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133977/emailleur/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:47:57.727Z",
+      "crawledAt": "2026-09-27T15:07:21.095Z",
       "addressLocality": "Le Crêt-Du-Locle",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -321,7 +319,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133802/manager-mecanique-et-outillage/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:47:57.737Z",
+      "crawledAt": "2026-09-27T15:07:21.103Z",
       "addressLocality": "Le Sentier",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -338,11 +336,11 @@
       "jobReqId": "jr133802",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.347Z",
-      "_qualityScore": 73,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -358,7 +356,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133772/sales-purchasing-advisor/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:47:57.738Z",
+      "crawledAt": "2026-09-27T15:07:21.104Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -373,13 +371,12 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr133772/sales-purchasing-advisor/",
       "jobReqId": "jr133772",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.347Z",
-      "_qualityScore": 78,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -395,7 +392,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133589/retail-operations-coordinator/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:47:57.760Z",
+      "crawledAt": "2026-09-27T15:07:21.122Z",
       "addressLocality": "Couvet",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -410,13 +407,12 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr133589/retail-operations-coordinator/",
       "jobReqId": "jr133589",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.362Z",
-      "_qualityScore": 80,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -432,7 +428,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133224/constructeur-mouvements/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.764Z",
+      "crawledAt": "2026-09-27T15:07:21.126Z",
       "addressLocality": "Le Brassus",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -447,13 +443,12 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr133224/constructeur-mouvements/",
       "jobReqId": "jr133224",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.365Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -469,7 +464,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133547/chef-de-projet-qualite/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T23:47:57.770Z",
+      "crawledAt": "2026-09-27T15:07:21.131Z",
       "addressLocality": "Le Crêt-Du-Locle",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -486,11 +481,11 @@
       "jobReqId": "jr133547",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.369Z",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 20,
         "completeness": 14
       }
     },
@@ -506,7 +501,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133372/assistant-boutique-manager/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.786Z",
+      "crawledAt": "2026-09-27T15:07:21.145Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -542,7 +537,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133316/stagiaire-finance/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.796Z",
+      "crawledAt": "2026-09-27T15:07:21.153Z",
       "addressLocality": "Le Crêt-Du-Locle",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -578,7 +573,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133325/apprenti-horloger/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:47:57.802Z",
+      "crawledAt": "2026-09-27T15:07:21.158Z",
       "addressLocality": "Couvet",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -595,11 +590,11 @@
       "jobReqId": "jr133325",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:07:23.387Z",
-      "_qualityScore": 73,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -615,7 +610,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133324/apprenti-horloger-de-production-cfc/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.811Z",
+      "crawledAt": "2026-09-27T15:07:21.166Z",
       "addressLocality": "Couvet",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -632,11 +627,11 @@
       "jobReqId": "jr133324",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:07:23.393Z",
-      "_qualityScore": 73,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -652,7 +647,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133118/constructeur/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.823Z",
+      "crawledAt": "2026-09-27T15:07:21.177Z",
       "addressLocality": "Le Crêt-Du-Locle",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -668,10 +663,10 @@
       "applyUrl": "https://careers.richemont.com/en/jobs/jr133118/constructeur/",
       "jobReqId": "jr133118",
       "firstSeenAt": "2026-09-26T14:07:23.402Z",
-      "_qualityScore": 64,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 15,
         "completeness": 14
       }
@@ -688,7 +683,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr133001/technicien-de-maintenance/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T23:47:57.829Z",
+      "crawledAt": "2026-09-27T15:07:21.183Z",
       "addressLocality": "Le Crêt-Du-Locle",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -705,11 +700,11 @@
       "jobReqId": "jr133001",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.406Z",
-      "_qualityScore": 59,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 10,
+        "richness": 18,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -725,7 +720,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132960/formateur-metiers/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:47:57.833Z",
+      "crawledAt": "2026-09-27T15:07:21.186Z",
       "addressLocality": "Le Crêt-Du-Locle",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -742,10 +737,10 @@
       "jobReqId": "jr132960",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.409Z",
-      "_qualityScore": 59,
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 10,
         "completeness": 14
       }
@@ -762,7 +757,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132937/events-coordinator-intern/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T23:47:57.836Z",
+      "crawledAt": "2026-09-27T15:07:21.188Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -777,12 +772,11 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132937/events-coordinator-intern/",
       "jobReqId": "jr132937",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:07:23.411Z",
-      "_qualityScore": 64,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 15,
         "completeness": 14
       }
@@ -799,7 +793,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132750/gestionnaire-paie-et-assurances-sociales/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.842Z",
+      "crawledAt": "2026-09-27T15:07:21.194Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -814,10 +808,11 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132750/gestionnaire-paie-et-assurances-sociales/",
       "jobReqId": "jr132750",
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 15,
         "completeness": 14
       }
@@ -834,7 +829,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132682/technicien-methodes-qualite/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.851Z",
+      "crawledAt": "2026-09-27T15:07:21.202Z",
       "addressLocality": "Le Crêt-Du-Locle",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -849,13 +844,12 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132682/technicien-methodes-qualite/",
       "jobReqId": "jr132682",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.422Z",
-      "_qualityScore": 59,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 10,
+        "richness": 18,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -871,7 +865,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132628/stagiaire-projets-ia-rh/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.855Z",
+      "crawledAt": "2026-09-27T15:07:21.206Z",
       "addressLocality": "Le Crêt-Du-Locle",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -886,13 +880,12 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132628/stagiaire-projets-ia-rh/",
       "jobReqId": "jr132628",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:07:23.425Z",
-      "_qualityScore": 59,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 10,
+        "richness": 18,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -908,7 +901,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132637/ingenieur-ri-systemes-mecatroniques-et-logiciels/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.859Z",
+      "crawledAt": "2026-09-27T15:07:21.210Z",
       "addressLocality": "Buttes",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -923,13 +916,12 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132637/ingenieur-ri-systemes-mecatroniques-et-logiciels/",
       "jobReqId": "jr132637",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.428Z",
-      "_qualityScore": 59,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 10,
+        "richness": 18,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -945,7 +937,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132611/ingenieur-ri-mecatroniqueelectronique/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.867Z",
+      "crawledAt": "2026-09-27T15:07:21.217Z",
       "addressLocality": "Buttes",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -961,10 +953,10 @@
       "applyUrl": "https://careers.richemont.com/en/jobs/jr132611/ingenieur-ri-mecatroniqueelectronique/",
       "jobReqId": "jr132611",
       "firstSeenAt": "2026-09-26T14:07:23.434Z",
-      "_qualityScore": 64,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 15,
         "completeness": 14
       }
@@ -981,7 +973,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132589/chef-de-projets/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T23:47:57.871Z",
+      "crawledAt": "2026-09-27T15:07:21.220Z",
       "addressLocality": "Buttes",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -998,10 +990,10 @@
       "jobReqId": "jr132589",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.437Z",
-      "_qualityScore": 59,
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 10,
         "completeness": 14
       }
@@ -1018,7 +1010,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132534/senior-sales-associate/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.873Z",
+      "crawledAt": "2026-09-27T15:07:21.223Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1035,10 +1027,10 @@
       "jobReqId": "jr132534",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.438Z",
-      "_qualityScore": 59,
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 10,
         "completeness": 14
       }
@@ -1055,7 +1047,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132531/sales-associate/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.874Z",
+      "crawledAt": "2026-09-27T15:07:21.223Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1072,10 +1064,10 @@
       "jobReqId": "jr132531",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-21T16:11:45.788Z",
-      "_qualityScore": 59,
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 10,
         "completeness": 14
       }
@@ -1092,7 +1084,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr132340/boutique-manager/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.877Z",
+      "crawledAt": "2026-09-27T15:07:21.226Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1109,10 +1101,10 @@
       "jobReqId": "jr132340",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-02T13:47:34.197Z",
-      "_qualityScore": 59,
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 10,
         "completeness": 14
       }
@@ -1129,7 +1121,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr131779/data-project-management-intern/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.891Z",
+      "crawledAt": "2026-09-27T15:07:21.237Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1144,10 +1136,11 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr131779/data-project-management-intern/",
       "jobReqId": "jr131779",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 15,
         "completeness": 14
       }
@@ -1164,7 +1157,7 @@
       "url": "https://careers.richemont.com/en/jobs/jr131050/responsable-outillage/",
       "source": "Richemont Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T23:47:57.917Z",
+      "crawledAt": "2026-09-27T15:07:21.249Z",
       "addressLocality": "Le Crêt-Du-Locle",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1179,60 +1172,17 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://careers.richemont.com/en/jobs/jr131050/responsable-outillage/",
       "jobReqId": "jr131050",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:23.459Z",
-      "_qualityScore": 59,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 10,
+        "richness": 18,
+        "translation": 15,
         "completeness": 14
       }
     }
   ],
   "removedJobs": [
-    {
-      "id": "richemont-09a98599968d",
-      "slug": "corso-r-i-elettronica-furtiva-richemont-buttes",
-      "company": "Richemont",
-      "companyKey": "richemont",
-      "companyDomain": "richemont.com",
-      "title": "Stage R&I - Electronique furtive",
-      "location": "Buttes",
-      "canton": "GE",
-      "url": "https://careers.richemont.com/en/jobs/jr134117/stage-ri-electronique-furtive/",
-      "source": "Richemont Dedicated Parser (Playwright)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:56:37.670Z",
-      "addressLocality": "Buttes",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Lusso / Orologeria",
-      "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Lusso / Orologeria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://careers.richemont.com/en/jobs/jr134117/stage-ri-electronique-furtive/",
-      "jobReqId": "jr134117",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-23T23:56:37.670Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "richemont-523a4ab12ab8",
       "slug": "specialista-di-lavorazione-procadrans-la-chaux-de-fonds",
@@ -1274,5 +1224,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
