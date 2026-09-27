@@ -234,6 +234,40 @@ describe('prospector location and identity contract', () => {
     }
   });
 
+  it('does not collapse URL-less inline JobPosting rows from one listing page', async () => {
+    const inlinePosting = (title: string, datePosted: string) => ({
+      '@type': 'JobPosting',
+      title,
+      description: 'Eine ausreichend lange Stellenbeschreibung mit mehreren Worten und konkreten Aufgaben für die ausgeschriebene Position.',
+      datePosted,
+      jobLocation: { address: { addressLocality: 'Chur', addressCountry: 'CH' } },
+    });
+    const listing = [
+      inlinePosting('CAD-Zeichner', '2026-09-10'),
+      inlinePosting('Bauführer', '2026-09-11'),
+    ].map((node) => `<script type="application/ld+json">${JSON.stringify(node)}</script>`).join('');
+    politeFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      body: listing,
+      url: SEED_URL,
+      host: new URL(SEED_URL).hostname,
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'inline-listing',
+      companyName: 'Inline Listing',
+      mode: 'jsonld',
+      detailEnrichment: false,
+      seedUrls: [SEED_URL],
+    } as any);
+
+    expect(rows).toHaveLength(2);
+    expect(new Set(rows.map((row) => row.url)).size).toBe(2);
+    expect(rows.every((row) => row.sourceUrl === SEED_URL)).toBe(true);
+    expect(rows.every((row) => row.canton === 'GR')).toBe(true);
+  });
+
   it('replays one complete growing pagination snapshot without identity churn', async () => {
     const listingCalls = new Map<number, number>();
     const listingPage = (page: number) => {

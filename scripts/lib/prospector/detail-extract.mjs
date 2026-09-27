@@ -23,7 +23,7 @@ import { extractUmantisDetailFields, umantisDetailFallbackUrl } from './umantis-
  * @param {{ platform?: string }} spec
  * @param {string} html
  * @param {string} url
- * @param {{ detailExtractor?: (html: string, url: string) => any }} [opts]
+ * @param {{ detailExtractor?: (html: string, url: string) => any, recordUrl?: string }} [opts]
  * @returns {any}
  */
 export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
@@ -32,7 +32,7 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     || (spec?.platform === 'pageexecutive.com'
       ? extractPageExecutiveDetailFields
       : extractDetailFields);
-  const detail = base(html, url);
+  const detail = base(html, url, { recordUrl: opts.recordUrl });
   if (spec?.platform !== 'umantis.com') return detail;
   // A tenant extractor read the very same page: its output is the whole
   // verdict, EMPTY FIELDS INCLUDED. An empty location means "nothing here

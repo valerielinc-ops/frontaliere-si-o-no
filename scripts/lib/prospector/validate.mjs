@@ -290,7 +290,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
     fetchOptions.spec || {},
     res.body,
     res.url || vacancy.url,
-    { detailExtractor: fetchOptions.detailExtractor },
+    { detailExtractor: fetchOptions.detailExtractor, recordUrl: vacancy.url },
   );
   out.sourceBackedLocation = Boolean(resolveDetailOrListingSwissGeography(detail, vacancy).geography);
   // Free-text evidence, not a verdict: whether a pair is the workplace or the
