@@ -6842,6 +6842,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iniziativa-neutralita-respinta.title': 'Initiative zur Neutralität von 71 % abgelehnt',
     'blog.article.iniziativa-neutralita-respinta.excerpt': 'Die nationale Projektion gibt ein klares Nein zu 71% für die Neutralitätsinitiative an. Im Tessin liegt das Nein nach 86 Gemeinden bei 51,2%.',
     'blog.article.iniziativa-neutralita-respinta.imageAlt': 'Eidgenössische Abstimmungsurnen in der Schweiz',
+    'blog.article.iniziativa-alimentazione-respinta.title': 'Fütterungsinitiative: Deutlich abgelehnt von den Kantonen',
+    'blog.article.iniziativa-alimentazione-respinta.excerpt': 'Die Ernährungsinitiative wurde von den Schweizer Kantonen deutlich abgelehnt. Im Tessin erreichten die Gegner 68,66%.',
+    'blog.article.iniziativa-alimentazione-respinta.imageAlt': 'Schweizer Agrarlandschaft mit Feldern und Bergen',
+    'blog.article.vaud-voto-taglio-fiscale.title': 'Waadt: Ja zur Senkung der Steuern um 12%',
+    'blog.article.vaud-voto-taglio-fiscale.excerpt': '53,1% der Stimmberechtigten im Kanton Waadt befürworten eine Senkung der Einkommens- und Vermögenssteuern um 12%; Stimmbeteiligung bei 50,0%.',
+    'blog.article.vaud-voto-taglio-fiscale.imageAlt': 'Institutionelles Gebäude im Kanton Waadt zur Abstimmung über eine Steuersenkung',
 };
 
 export default blogMetaChDe;

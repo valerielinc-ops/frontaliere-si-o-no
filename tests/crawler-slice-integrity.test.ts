@@ -8,6 +8,7 @@ import {
   assertCrawlerSliceWriteSafe,
   isProvenCrossCrawlerDedupPrune,
   isSafeSwissReForeignPrune,
+  isSafeSwissReForeignPruneJobs,
 } from '../scripts/lib/crawler-slice-integrity.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from '../scripts/lib/crawler-grace-policy.mjs';
 import { writeJsonAtomic } from '../scripts/lib/atomic-write-json.mjs';
@@ -162,6 +163,35 @@ describe('crawler slice integrity guard', () => {
     expect(isSafeSwissReForeignPrune('data/jobs/by-crawler/swiss-re.json', previous, next)).toBe(false);
     expect(() => assertCrawlerSliceWriteSafe('data/jobs/by-crawler/swiss-re.json', previous, next))
       .toThrow(/catastrophic truncation avoided/);
+  });
+
+  it('allows the observed legacy Swiss Re HQ-fallback rows during the source-geography migration', () => {
+    const legacyMetadata = {
+      companyKey: 'swiss-re',
+      source: 'Swiss Re Dedicated Parser',
+      addressCountry: 'CH',
+      country: 'CH',
+      canton: 'ZH',
+      addressRegion: 'ZH',
+    };
+    const previous = [
+      {
+        ...swissReJob('https://jobs.swissre.com/zurich-legacy', 'Zürich', 'x'.repeat(700_000)),
+        ...legacyMetadata,
+      },
+      {
+        ...swissReJob('https://jobs.swissre.com/washington-legacy', 'Washington D', 'y'.repeat(700_000)),
+        ...legacyMetadata,
+      },
+      swissReJob('https://jobs.swissre.com/bratislava', 'Bratislava, SK', 'z'.repeat(700_000)),
+    ];
+    const nextJobs = [swissReJob('https://jobs.swissre.com/zurich', 'Zurich, CH', 'x'.repeat(100_000))];
+    const next = json(nextJobs);
+
+    expect(isSafeSwissReForeignPruneJobs('data/jobs/by-crawler/swiss-re.json', previous, nextJobs)).toBe(true);
+    expect(isSafeSwissReForeignPrune('data/jobs/by-crawler/swiss-re.json', json(previous), next)).toBe(true);
+    expect(assertCrawlerSliceWriteSafe('data/jobs/by-crawler/swiss-re.json', json(previous), next).reason)
+      .toBe('swiss-re-foreign-prune');
   });
 
   it('blocks the destructive write before the atomic rename', () => {

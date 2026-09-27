@@ -10,11 +10,14 @@
 import {
  APPLICATION_INTENTS_COLLECTION,
  APPLICATION_INTENT_RETENTION_DAYS,
+ APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION,
 } from './applicationIntentRetention.js';
 
 export { APPLICATION_INTENTS_COLLECTION, APPLICATION_INTENT_RETENTION_DAYS };
 export const APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION = 'application_intent_account_tombstones';
+export { APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION };
 export const APPLICATION_INTENT_OPT_OUT_FIELD = 'applicationIntent.optedOut';
+export const APPLICATION_INTENT_REMINDER_OPT_OUT_FIELD = 'applicationIntentReminder.optedOut';
 export const APPLICATION_INTENT_ACCOUNT_DELETED_STATUS = 'account_deleted';
 
 const RETENTION_MS = APPLICATION_INTENT_RETENTION_DAYS * 24 * 60 * 60 * 1000;
@@ -42,6 +45,11 @@ function timestampToMillis(value) {
  */
 export function isApplicationIntentOptedOut(profile) {
   return profile?.applicationIntent?.optedOut === true;
+}
+
+/** Email-only preference. It never disables the application-intent signal. */
+export function isApplicationIntentReminderOptedOut(profile) {
+  return profile?.applicationIntentReminder?.optedOut === true;
 }
 
 /**
@@ -105,8 +113,14 @@ function canUseApplicationIntent({
   accountDeleted = false,
   now = Date.now(),
   requireRetention = false,
+  requireReminderPreference = false,
 }) {
-  if (accountDeleted || isApplicationIntentOptedOut(profile) || isApplicationIntentTombstone(intent)) {
+  if (
+    accountDeleted
+    || isApplicationIntentOptedOut(profile)
+    || (requireReminderPreference && isApplicationIntentReminderOptedOut(profile))
+    || isApplicationIntentTombstone(intent)
+  ) {
     return false;
   }
   const resolved = resolveApplicationIntentIdentity(identity || intent);
@@ -137,6 +151,7 @@ export function canSendApplicationIntentReminder({ profile, intent, userId, acco
     accountDeleted,
     now,
     requireRetention: true,
+    requireReminderPreference: true,
   });
 }
 
