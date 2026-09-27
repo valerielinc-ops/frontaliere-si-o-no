@@ -623,6 +623,21 @@ cleanup_rebase_snapshot() {
   rm -rf "$snapshot_dir"
 }
 
+canonicalize_restored_expired_slices() {
+  local f
+  # A clean stash pop can still create a semantic route duplicate without a
+  # Git conflict. Apply the invariant to every restored expired slice, not only
+  # paths that Git reported as unmerged.
+  for f in "${RESOLVED_FILES[@]}"; do
+    [[ "$f" == data/jobs/expired/by-crawler/*.json ]] || continue
+    [ -f "$f" ] || continue
+    if ! node "$(dirname "$0")/../ci/canonicalize-expired-archive-slice.mjs" "$f" "$f"; then
+      echo "❌ Failed expired archive route canonicalization for $f"
+      return 1
+    fi
+  done
+}
+
 restore_stashed_changes_with_safe_merge() {
   local snapshot_dir="$1"
   local conflict_message="$2"
@@ -632,6 +647,9 @@ restore_stashed_changes_with_safe_merge() {
   local key_hint=""
 
   if git stash pop 2>/dev/null; then
+    if ! canonicalize_restored_expired_slices; then
+      exit 1
+    fi
     return 0
   fi
 
@@ -696,6 +714,10 @@ restore_stashed_changes_with_safe_merge() {
       cp "$snapshot_dir/local/$f" "$f"
     fi
   done
+
+  if ! canonicalize_restored_expired_slices; then
+    exit 1
+  fi
 
   # Re-validate the sharded seo-404 compat store once, after all shard merges.
   # mergeArrayByDelta keeps everything already present in the remote/upstream
@@ -1679,7 +1701,7 @@ append_translation_stats_to_index() {
 commit_isolated_from_worktree() {
   local base_sha remote_sha remote_tree new_tree new_commit
   local tmp_index merge_dir
-  local f local_blob remote_blob base_blob blob_to_stage key_hint mode_to_stage local_merge_path conflict_scan_path
+  local f local_blob remote_blob base_blob blob_to_stage key_hint mode_to_stage local_merge_path candidate_path conflict_scan_path
   local snapshot_operation snapshot_state registry_status
   local ownership_root ownership_base_path ownership_output_path ownership_result crawler_key ownership_helper
   local has_primary_slice=false delay
@@ -1752,6 +1774,7 @@ commit_isolated_from_worktree() {
     for f in "${RESOLVED_FILES[@]}"; do
       remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
       local_merge_path="$f"
+      candidate_path="$local_merge_path"
       mode_to_stage="100644"
 
       if [ "$GROUP_BATCH" = true ]; then
@@ -1799,6 +1822,12 @@ commit_isolated_from_worktree() {
         fi
         local_blob="$(git hash-object -w -- "$f")"
         base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+      fi
+
+      if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
+        mkdir -p "$merge_dir/candidate/$(dirname "$f")"
+        cp "$local_merge_path" "$merge_dir/candidate/$f"
+        candidate_path="$merge_dir/candidate/$f"
       fi
 
       # A finalizer always appends a JSONL record before the ledger reaches
@@ -1951,6 +1980,7 @@ commit_isolated_from_worktree() {
             echo "❌ grouped-isolated: crawler generation ledger merge failed for $f — refusing to drop durable history"
             return 1
           fi
+          candidate_path="$merge_dir/out/$f"
           blob_to_stage="$(git hash-object -w -- "$merge_dir/out/$f")"
         elif merge_json_3way \
           "$merge_dir/base/$f" \
@@ -1959,6 +1989,7 @@ commit_isolated_from_worktree() {
           "$merge_dir/out/$f" \
           "$key_hint" \
           "$f"; then
+          candidate_path="$merge_dir/out/$f"
           blob_to_stage="$(git hash-object -w -- "$merge_dir/out/$f")"
         else
           if [ "$GROUP_BATCH" = true ]; then
@@ -1968,6 +1999,15 @@ commit_isolated_from_worktree() {
           # Preserve the established non-batch policy for sequential callers.
           echo "⚠️ grouped-isolated: 3-way merge failed for $f — keeping local content"
         fi
+      fi
+
+      if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
+        if ! node "$(dirname "$0")/../ci/canonicalize-expired-archive-slice.mjs" \
+          "$candidate_path" "$f"; then
+          echo "❌ grouped-isolated: expired archive route canonicalization failed for $f"
+          return 1
+        fi
+        blob_to_stage="$(git hash-object -w -- "$candidate_path")"
       fi
 
       # Guard the exact blob that will enter the isolated commit, after the
