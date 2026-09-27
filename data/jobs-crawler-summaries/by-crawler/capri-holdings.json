@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-26T14:14:59.754Z",
+  "generatedAt": "2026-09-26T23:54:25.719Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 27895,
-  "avgDurationMs": 27895,
+  "durationMs": 24012,
+  "avgDurationMs": 24012,
   "durationHistory": [
-    27895
+    24012
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -93,51 +93,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
-      "title": "Payroll & Time & Attendance Integration Manager (EMEA)",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6928",
-      "streetAddress": "Via Cantonale 2c",
-      "slug": "responsabile-dell-integrazione-paghe-tempo-e-presenze-emea-capri-holdings-michael-kors-versace-manno",
-      "category": "management",
-      "datePosted": "2026-05-30",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Manno"
-      },
-      "id": "capri-holdings-6e41d510f493",
-      "firstSeenAt": "2026-05-30T10:16:45.294Z",
-      "crawledAt": "",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://capri.wd1.myworkdayjobs.com/en-us/michael_kors/job/manno/payroll---time---attendance-integration-manager--emea-_r_784558",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
