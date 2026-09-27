@@ -126,13 +126,15 @@
  *      `main` for legacy/local runs. The old `-b main` query never saw the
  *      shadow runs that actually execute the crawlers.
  *   4. Fetch that run's job(s) via the Jobs API and find the STEP named `Run <slug>`
- *      inside it — steps have their OWN independent `conclusion` in the API response
- *      (confirmed empirically against a live run using this repo's other background-step
- *      workflow), so a sibling crawler's failure in the same job does NOT affect this
- *      step's own conclusion.
- *   5. If that STEP's conclusion is `success` and the run started after the issue was
+ *      inside it. Its API `conclusion` is NOT the crawler's outcome: the step is
+ *      `continue-on-error: true`, so GitHub reports `success` even when the crawler
+ *      failed (measured 2026-09-27, corpus run 36328240478: 5 failed members, all
+ *      `success`). decideCrawlerMemberConclusion() resolves the real outcome: a green
+ *      group job proves every member succeeded; a red one is read through the
+ *      aggregate's per-member annotations (`<slug>: crawler exited with status N`).
+ *   5. If that member outcome is `success` and the run started after the issue was
  *      opened → close, exactly as the non-crawler path (structural hold included).
- *      Otherwise keep open.
+ *      Otherwise (failed, or not provable) keep open.
  *   If the crawler can't be found in any current group file (renamed/removed), or the
  *   step can't be found in the run's job list (renamed background step id) → keep open
  *   (same conservative bias as the "no completed run" case).
@@ -1204,13 +1206,114 @@ export function crawlerWorkflowReference(group, issueRepo = REPO, runRepo = CRAW
   return runRepo && runRepo !== issueRepo ? group.filename : group.name;
 }
 
-// Most-recent COMPLETED run of the named GROUP workflow, then the conclusion of the
-// SPECIFIC background step named `Run <slug>` inside that run's job (steps carry their
-// own independent conclusion in the Jobs API — a sibling crawler's failure in the same
-// job does not affect this step's own conclusion). Returns
+// Messaggi che lo step `Aggregate crawler outcomes` generato da
+// scripts/generate-crawler-group-workflows.mjs (buildCrawlerAggregateShellBody) emette
+// per ogni membro NON riuscito. Il prefisso `<slug>: ` e' lo stesso slug dello step
+// `Run <slug>`; un test legge il workflow generato e tiene i due lati allineati.
+export const CRAWLER_MEMBER_FAILURE_ANNOTATION_RE =
+  /^[^\s:]+: (?:crawler exited with status|invalid terminal status)/;
+export const CRAWLER_MEMBER_WARNING_ANNOTATION_RE =
+  /^[^\s:]+: (?:no terminal status was published|runner shutdown recorded as systemic outcome)/;
+// Limiti documentati di GitHub Actions: oltre, le annotation vengono scartate in
+// silenzio. Raggiunto il tetto, l'assenza di una riga non prova piu' nulla.
+export const GITHUB_ANNOTATIONS_PER_STEP_LIMIT = 10;
+export const GITHUB_ANNOTATIONS_PER_JOB_LIMIT = 50;
+
+/**
+ * Esito REALE di un membro crawler dentro la run di gruppo.
+ *
+ * Lo step `Run <slug>` e' generato con `continue-on-error: true` (serve a lasciare
+ * `job.status == 'success'` al commit dei fratelli sani), quindi nella Jobs API la sua
+ * `conclusion` e' SEMPRE `success`, anche quando il crawler e' fallito: GitHub espone
+ * `outcome` solo nel contesto `steps.*`, non nell'API. Misurato il 2026-09-27 sulla run
+ * corpus 36328240478 (gruppo 24): confederazione, knowledge-lab, lwphr, protectas e convit
+ * falliti, tutti `conclusion: success` nella Jobs API. Leggere quella conclusion chiudeva
+ * la issue `Crawler Failure: Run <slug>` sulla stessa run rossa che l'aveva riaperta
+ * (#9586, 15:14 → 15:50): 9 auto-resolve su 15 dal 2026-09-08 citavano come «verde» una
+ * run in cui quel crawler era fallito, e il fixer non vedeva mai i crashatori cronici.
+ *
+ * Fonte usata qui, in ordine:
+ *   1. step non concluso o conclusion diversa da `success` → quella conclusion;
+ *   2. job `success` → verde: lo step finale del gruppo esce 1 con qualunque failure,
+ *      missing o systemic, quindi un job verde prova che ogni membro e' riuscito;
+ *   3. job non `failure` (cancelled, timed_out, …) → non verde;
+ *   4. job `failure` → le annotation del job: una riga `<slug>: …` di livello failure, o
+ *      un warning dell'aggregato (missing, exit 143) per quello slug, prova che il membro
+ *      non e' verde; nessuna riga, con annotation leggibili e sotto i tetti di GitHub,
+ *      prova che il rosso era di un fratello.
+ * Ritorna `null` quando la prova manca (annotation illeggibili, vuote o troncate): il
+ * chiamante tiene aperta la issue, come ogni altro fallback di questo file.
+ *
+ * @param {{ slug: string, stepStatus?: string, stepConclusion?: string,
+ *           jobConclusion?: string, annotationPages?: unknown }} input
+ * @returns {string|null} `success`, un'altra conclusion non verde, oppure `null`
+ */
+export function decideCrawlerMemberConclusion({
+  slug,
+  stepStatus,
+  stepConclusion,
+  jobConclusion,
+  annotationPages,
+} = {}) {
+  if (!slug) return null;
+  if (stepStatus !== 'completed') return null;
+  if (stepConclusion !== 'success') return stepConclusion || null;
+  if (jobConclusion === 'success') return 'success';
+  if (jobConclusion !== 'failure') return jobConclusion || null;
+  if (!hasReadableAnnotations(annotationPages)) return null;
+
+  const annotations = annotationPages.flat();
+  const prefix = `${slug}: `;
+  let aggregateFailures = 0;
+  let aggregateWarnings = 0;
+  for (const annotation of annotations) {
+    const level = annotation?.annotation_level;
+    const message = annotation.message;
+    const isAggregateWarning = level === 'warning' && CRAWLER_MEMBER_WARNING_ANNOTATION_RE.test(message);
+    // Un `::error::<slug>: …` (aggregato, exit 43 dello step, …) o un warning
+    // dell'aggregato (missing, exit 143) sono entrambi «non verde». Un warning libero
+    // dello stesso crawler no: non deve tenere aperta per sempre una issue guarita.
+    if (message.startsWith(prefix) && (level === 'failure' || isAggregateWarning)) return 'failure';
+    if (level === 'failure' && CRAWLER_MEMBER_FAILURE_ANNOTATION_RE.test(message)) aggregateFailures += 1;
+    if (isAggregateWarning) aggregateWarnings += 1;
+  }
+  if (
+    annotations.length >= GITHUB_ANNOTATIONS_PER_JOB_LIMIT
+    || aggregateFailures >= GITHUB_ANNOTATIONS_PER_STEP_LIMIT
+    || aggregateWarnings >= GITHUB_ANNOTATIONS_PER_STEP_LIMIT
+  ) {
+    return null;
+  }
+  return 'success';
+}
+
+/** `https://api.github.com/repos/o/r/check-runs/1` → `repos/o/r/check-runs/1`. */
+export function checkRunApiPath(checkRunUrl) {
+  const match = /^(?:https:\/\/api\.github\.com\/)?(repos\/[^/]+\/[^/]+\/check-runs\/\d+)$/.exec(String(checkRunUrl ?? ''));
+  return match ? match[1] : null;
+}
+
+function readCheckRunAnnotations(checkRunUrl, token) {
+  const apiPath = checkRunApiPath(checkRunUrl);
+  if (!apiPath) return null;
+  const out = gh(['api', `${apiPath}/annotations`, '--paginate', '--slurp'], { allowFailure: true, token });
+  if (out === null) return null;
+  try {
+    return JSON.parse(out);
+  } catch {
+    return null;
+  }
+}
+
+// Most-recent COMPLETED run of the named GROUP workflow, then the outcome of the
+// SPECIFIC crawler member `Run <slug>` inside that run's job. The step's own Jobs API
+// conclusion is not that outcome (continue-on-error, see
+// decideCrawlerMemberConclusion), so a failed group job is resolved through the
+// aggregate's per-member annotations. Returns
 // { conclusion, status: 'completed', createdAt, databaseId } shaped like a run object
 // (so the caller's existing green/afterFailure logic works unchanged), or null if the
-// run, job, or step can't be resolved.
+// run, job, or step can't be resolved. `conclusion: 'unknown'` means the member outcome
+// could not be proved, and keeps the issue open.
 function latestCompletedCrawlerStepRun(slug) {
   const group = findCrawlerGroupWorkflow(slug);
   const workflowRef = crawlerWorkflowReference(group);
@@ -1237,10 +1340,20 @@ function latestCompletedCrawlerStepRun(slug) {
   for (const job of jobsData.jobs || []) {
     const step = (job.steps || []).find((s) => s.name === stepName);
     if (step) {
+      const needsAnnotations = step.status === 'completed'
+        && step.conclusion === 'success'
+        && job.conclusion === 'failure';
+      const conclusion = decideCrawlerMemberConclusion({
+        slug,
+        stepStatus: step.status,
+        stepConclusion: step.conclusion,
+        jobConclusion: job.conclusion,
+        annotationPages: needsAnnotations ? readCheckRunAnnotations(job.check_run_url, runToken) : undefined,
+      });
       return {
         databaseId: run.databaseId,
         status: step.status,
-        conclusion: step.conclusion,
+        conclusion: conclusion ?? 'unknown',
         createdAt: run.createdAt,
         repository: CRAWLER_RUN_REPO,
       };

@@ -25,8 +25,12 @@ import path from 'node:path';
 import {
   TITLE_RE,
   CRAWLER_STEP_RE,
+  CRAWLER_MEMBER_FAILURE_ANNOTATION_RE,
+  CRAWLER_MEMBER_WARNING_ANNOTATION_RE,
   crawlerRunToken,
   crawlerWorkflowReference,
+  checkRunApiPath,
+  decideCrawlerMemberConclusion,
   buildRunListArgs,
   filterCrawlerRecoveryRuns,
   findCrawlerGroupWorkflow,
@@ -237,5 +241,168 @@ describe('findCrawlerGroupWorkflowName — resolves a crawler slug to its CURREN
     expect(workflow).toContain('CRAWLER_RUN_REPO: nanakokyobashi-rgb/frontaliere-articles');
     expect(workflow).toContain('Load cross-repo token from Remote Config');
     expect(workflow).toContain('GITHUB_PAT_NANAKO non caricato');
+  });
+});
+
+// Annotation REALI della run corpus 36328240478 (gruppo 24, 2026-09-27): cinque membri
+// falliti, tutti con `conclusion: success` nella Jobs API perché `Run <slug>` è
+// continue-on-error. È la run che #9586 citava come «Green run» chiudendo la issue di
+// confederazione 36 minuti dopo averla riaperta.
+const GROUP_24_RED_ANNOTATIONS = [[
+  { annotation_level: 'failure', message: 'Process completed with exit code 1.' },
+  {
+    annotation_level: 'failure',
+    message: 'crawler group completed with 12 succeeded, 5 failed, 0 missing, 0 systemic; healthy siblings were preserved, but the group remains failed until incomplete crawlers are recovered',
+  },
+  { annotation_level: 'failure', message: 'convit: crawler exited with status 1' },
+  { annotation_level: 'failure', message: 'knowledge-lab: crawler exited with status 1' },
+  { annotation_level: 'failure', message: 'lwphr: crawler exited with status 1' },
+  { annotation_level: 'failure', message: 'protectas: crawler exited with status 1' },
+  { annotation_level: 'failure', message: 'confederazione: crawler exited with status 1' },
+  { annotation_level: 'failure', message: 'Process completed with exit code 1.' },
+  { annotation_level: 'notice', message: 'The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026.' },
+]];
+
+const redMemberStep = { stepStatus: 'completed', stepConclusion: 'success', jobConclusion: 'failure' };
+
+describe('decideCrawlerMemberConclusion — the Run <slug> step conclusion is not the member outcome', () => {
+  it('keeps a failed member red although its continue-on-error step reports success', () => {
+    expect(decideCrawlerMemberConclusion({
+      ...redMemberStep,
+      slug: 'confederazione',
+      annotationPages: GROUP_24_RED_ANNOTATIONS,
+    })).toBe('failure');
+  });
+
+  it('treats a member of a red group as recovered when only siblings failed', () => {
+    expect(decideCrawlerMemberConclusion({
+      ...redMemberStep,
+      slug: 'anicura',
+      annotationPages: GROUP_24_RED_ANNOTATIONS,
+    })).toBe('success');
+  });
+
+  it('does not confuse a slug with a longer sibling slug sharing its prefix', () => {
+    expect(decideCrawlerMemberConclusion({
+      ...redMemberStep,
+      slug: 'knowledge',
+      annotationPages: GROUP_24_RED_ANNOTATIONS,
+    })).toBe('success');
+  });
+
+  it('trusts a green group job without reading annotations', () => {
+    expect(decideCrawlerMemberConclusion({
+      slug: 'confederazione',
+      stepStatus: 'completed',
+      stepConclusion: 'success',
+      jobConclusion: 'success',
+    })).toBe('success');
+  });
+
+  it('returns the step conclusion when the step itself did not succeed', () => {
+    expect(decideCrawlerMemberConclusion({
+      slug: 'confederazione',
+      stepStatus: 'completed',
+      stepConclusion: 'skipped',
+      jobConclusion: 'failure',
+    })).toBe('skipped');
+  });
+
+  it('never calls a cancelled or timed-out group green', () => {
+    for (const jobConclusion of ['cancelled', 'timed_out']) {
+      expect(decideCrawlerMemberConclusion({
+        slug: 'anicura',
+        stepStatus: 'completed',
+        stepConclusion: 'success',
+        jobConclusion,
+      })).toBe(jobConclusion);
+    }
+  });
+
+  it('keeps missing (warning) and systemic exit-143 members non-green', () => {
+    const pages = [[
+      { annotation_level: 'warning', message: 'lidl: no terminal status was published' },
+      { annotation_level: 'warning', message: 'fust: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed' },
+    ]];
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'lidl', annotationPages: pages })).toBe('failure');
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'fust', annotationPages: pages })).toBe('failure');
+  });
+
+  it('ignores a free-form warning of the same crawler', () => {
+    const pages = [[
+      { annotation_level: 'failure', message: 'lwphr: crawler exited with status 1' },
+      { annotation_level: 'warning', message: 'lidl: detail page fell back to listing description' },
+    ]];
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'lidl', annotationPages: pages })).toBe('success');
+  });
+
+  it('keeps the exit-43 shared-precondition message non-green', () => {
+    const pages = [[{
+      annotation_level: 'failure',
+      message: "alpiq: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class).",
+    }]];
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'alpiq', annotationPages: pages })).toBe('failure');
+  });
+
+  it('returns null when a failed job has unreadable or empty annotations', () => {
+    for (const annotationPages of [null, undefined, [], [[]], [[{ annotation_level: 'failure' }]]]) {
+      expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages })).toBeNull();
+    }
+  });
+
+  it('returns null when GitHub may have truncated the per-member annotations', () => {
+    const tenFailures = Array.from({ length: 10 }, (_, index) => ({
+      annotation_level: 'failure',
+      message: `member-${index}: crawler exited with status 43`,
+    }));
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: [tenFailures] })).toBeNull();
+
+    const fiftyNotices = Array.from({ length: 50 }, () => ({ annotation_level: 'notice', message: 'noise' }));
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: [fiftyNotices] })).toBeNull();
+  });
+});
+
+describe('checkRunApiPath', () => {
+  it('turns the Jobs API check_run_url into a relative gh api path', () => {
+    expect(checkRunApiPath('https://api.github.com/repos/nanakokyobashi-rgb/frontaliere-articles/check-runs/108645067464'))
+      .toBe('repos/nanakokyobashi-rgb/frontaliere-articles/check-runs/108645067464');
+    expect(checkRunApiPath('repos/o/r/check-runs/1')).toBe('repos/o/r/check-runs/1');
+  });
+
+  it('rejects anything that is not a check-run URL', () => {
+    for (const value of [undefined, '', 'https://example.com/repos/o/r/check-runs/1', 'repos/o/r/actions/runs/1']) {
+      expect(checkRunApiPath(value)).toBeNull();
+    }
+  });
+});
+
+describe('crawler member annotations stay aligned with the generated group workflows', () => {
+  // Osservatore: se il generatore cambia il testo delle annotation dell'aggregato o
+  // toglie continue-on-error allo step di risultato, la lettura qui sopra va rivista.
+  const corpusWorkflowsDir = path.resolve(import.meta.dirname, '..', '.github', 'corpus-workflows');
+  const groupFiles = fs.existsSync(corpusWorkflowsDir)
+    ? fs.readdirSync(corpusWorkflowsDir).filter((file) => /^crawler-group-\d+\.yml$/.test(file))
+    : [];
+
+  it('finds the generated corpus group workflows', () => {
+    expect(groupFiles.length).toBeGreaterThan(0);
+  });
+
+  it.each(groupFiles)('%s emits the per-member messages the reconciler parses', (file) => {
+    const content = fs.readFileSync(path.join(corpusWorkflowsDir, file), 'utf8');
+    const slugs = [...content.matchAll(/^\s*- name: Run (\S+)\s*$/gm)].map((match) => match[1]);
+    expect(slugs.length).toBeGreaterThan(0);
+    for (const slug of slugs) {
+      const stepStart = content.search(new RegExp(`^\\s*- name: Run ${slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'm'));
+      const stepHead = content.slice(stepStart, stepStart + 400);
+      expect(stepHead).toMatch(/continue-on-error: true/);
+
+      const failureLine = `echo "::error::${slug}: crawler exited with status $status"`;
+      const missingLine = `echo "::warning::${slug}: no terminal status was published"`;
+      expect(content).toContain(failureLine);
+      expect(content).toContain(missingLine);
+      expect(CRAWLER_MEMBER_FAILURE_ANNOTATION_RE.test(`${slug}: crawler exited with status 1`)).toBe(true);
+      expect(CRAWLER_MEMBER_WARNING_ANNOTATION_RE.test(`${slug}: no terminal status was published`)).toBe(true);
+    }
   });
 });
