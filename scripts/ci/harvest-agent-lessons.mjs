@@ -13,7 +13,10 @@
 //   - prints a human summary to stdout
 //   - appends `has_novel=<bool>` and `novel_count=<n>` to $GITHUB_OUTPUT
 //
-// Env knobs: WINDOW_DAYS (14), THRESHOLD (3), MAX_PRS (40), MAX_ISSUES (120).
+// Env knobs: WINDOW_DAYS (14), THRESHOLD (3), MAX_PRS (0), MAX_ISSUES (0).
+// MAX_PRS / MAX_ISSUES a 0 = nessun tetto: la finestra si legge INTERA (vedi
+// `collectWindow`). Un tetto esplicito resta possibile, ma viene dichiarato
+// come vista parziale, mai applicato in silenzio.
 //
 // Pure helpers (detectSeverity / tallyFindings / bucketFinding / issueClass /
 // severityLabelForCount / parseEscalationKey) are exported and unit-tested; the
@@ -34,8 +37,25 @@ export { hasEnumeratedItems };
 
 const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', 14);
 const THRESHOLD = intFromEnv('THRESHOLD', 3);
-const MAX_PRS = intFromEnv('MAX_PRS', 40);
-const MAX_ISSUES = intFromEnv('MAX_ISSUES', 120);
+// Default 0 = nessun tetto. Fino al 2026-09-27 erano 40 e 120, e la «finestra
+// di 14 giorni» era una finzione: il sito mergia 70-120 PR al giorno (999 PR
+// dal 13 al 27-09), quindi `--limit 40` leggeva le review delle ultime ~12 ore;
+// le issue `agent:triaged` aggiornate nella finestra erano 664 e ne entravano
+// 120. Misurato sulla stessa finestra: capped 0 NOVEL / 0 ESCALATE per 30+ run
+// di fila, finestra intera 1 NOVEL + 2 ESCALATE. Il corpus (126 PR, 182 issue
+// in 14 giorni) ne leggeva abbastanza da produrre lezioni, e per questo il
+// difetto sembrava del solo sito.
+const MAX_PRS = intFromEnv('MAX_PRS', 0);
+const MAX_ISSUES = intFromEnv('MAX_ISSUES', 0);
+// La search API di GitHub restituisce al massimo 1000 risultati per query:
+// oltre, `gh ... --limit N` si ferma senza errore. Per questo la finestra si
+// legge un giorno alla volta (`collectWindow`) e un giorno che tocca il tetto
+// viene dichiarato troncato.
+export const SEARCH_RESULT_CAP = 1000;
+// `gh pr list --json reviews` / `gh issue list --json comments` leggono al
+// massimo 100 nodi annidati per elemento: chi li raggiunge viene riletto con
+// `gh pr view` / `gh issue view`, che paginano.
+export const NESTED_PAGE_CAP = 100;
 const OUT = process.env.HARVEST_OUT || 'harvest-clusters.json';
 const NO_AUTOCLOSE = process.env.FOLLOWUP_NO_AUTOCLOSE === '1' || process.env.NO_AUTOCLOSE === '1';
 // EFFICACY_FACTOR: a documented pattern that STILL recurs at ≥ THRESHOLD×factor
@@ -58,6 +78,94 @@ function ghJson(args) {
   const raw = gh(args).trim();
   if (!raw) return null;
   try { return JSON.parse(raw); } catch { return null; }
+}
+
+// Le liste della finestra portano body e commenti: una pagina GraphQL da 100
+// issue puo' rispondere 504 (misurato il 2026-09-27 su `updated:2026-09-27`).
+// Un 504 e' transitorio, quindi si ritenta prima di dichiarare il giorno fallito.
+function ghJsonRetry(args, attempts = 3) {
+  for (let i = 1; i <= attempts; i++) {
+    const out = ghJson(args);
+    if (out !== null) return out;
+    if (i < attempts) Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 3000 * i);
+  }
+  return null;
+}
+
+// ---- Window coverage (pure → unit-tested) ----------------------------------
+/**
+ * I giorni UTC `YYYY-MM-DD` da `sinceDay` a `todayDay` inclusi.
+ * @param {string} sinceDay
+ * @param {string} todayDay
+ * @returns {string[]}
+ */
+export function windowDays(sinceDay, todayDay) {
+  const days = [];
+  const end = Date.parse(`${todayDay}T00:00:00Z`);
+  for (let t = Date.parse(`${sinceDay}T00:00:00Z`); Number.isFinite(t) && t <= end; t += 86_400_000) {
+    days.push(new Date(t).toISOString().slice(0, 10));
+  }
+  return days;
+}
+
+/**
+ * Legge la finestra un giorno alla volta e unisce per `number`. `fetchDay`
+ * restituisce le righe del giorno, oppure `null` se la lettura e' fallita.
+ * Un giorno che raggiunge `cap` righe e' TRONCATO dalla search API; un giorno
+ * fallito e' un BUCO: entrambi finiscono nel risultato, perche' una finestra
+ * letta a meta' che si dichiara intera e' esattamente il guasto che ha tenuto
+ * l'harvester del sito a zero lezioni per settimane.
+ * @param {string[]} days
+ * @param {(day: string) => Array<{number: number}> | null} fetchDay
+ * @param {{cap?: number}} [opts]
+ */
+export function collectWindow(days, fetchDay, { cap = SEARCH_RESULT_CAP } = {}) {
+  const byNumber = new Map();
+  const truncatedDays = [];
+  const failedDays = [];
+  for (const day of days) {
+    const rows = fetchDay(day);
+    if (!Array.isArray(rows)) { failedDays.push(day); continue; }
+    if (rows.length >= cap) truncatedDays.push(day);
+    for (const r of rows) {
+      if (r && r.number != null && !byNumber.has(r.number)) byNumber.set(r.number, r);
+    }
+  }
+  const items = [...byNumber.values()].sort((a, b) => b.number - a.number);
+  return { items, truncatedDays, failedDays };
+}
+
+/**
+ * Tetto opzionale: `max` 0 = nessun tetto. Restituisce anche se ha tagliato,
+ * cosi' il chiamante lo dichiara invece di tacerlo.
+ * @template T
+ * @param {T[]} items
+ * @param {number} max
+ * @returns {{items: T[], cut: number}}
+ */
+export function applyCap(items, max) {
+  if (!max || items.length <= max) return { items, cut: 0 };
+  return { items: items.slice(0, max), cut: items.length - max };
+}
+
+/**
+ * Le righe `::warning::` di copertura: vuote quando la finestra e' stata
+ * letta per intero.
+ * @param {string} label
+ * @param {{truncatedDays: string[], failedDays: string[]}} window
+ * @param {number} cut
+ * @returns {string[]}
+ */
+export function coverageWarnings(label, { truncatedDays, failedDays }, cut) {
+  const out = [];
+  if (truncatedDays.length) {
+    out.push(`::warning::${label}: giorni al tetto della search API (${SEARCH_RESULT_CAP}), vista PARZIALE: ${truncatedDays.join(', ')}`);
+  }
+  if (failedDays.length) {
+    out.push(`::warning::${label}: lettura fallita, giorni MANCANTI dalla finestra: ${failedDays.join(', ')}`);
+  }
+  if (cut) out.push(`::warning::${label}: tetto esplicito, ${cut} elementi della finestra esclusi (vista PARZIALE)`);
+  return out;
 }
 
 // ---- Reviewer-finding taxonomy: stable buckets via regex on finding text. ----
@@ -948,20 +1056,35 @@ async function main() {
   // `mergedAt` fetched here (not from `pr view`) so tallyFindings can stamp each
   // example with it — needed so the post-fix re-escalation guard below can filter
   // reviewer-finding examples the same way it already filters fix-outcome ones.
-  const mergedPrs = ghJson(['pr', 'list', '--state', 'merged', '--search', `merged:>=${sinceDay}`,
-    '--limit', String(MAX_PRS), '--json', 'number,mergedAt']) || [];
+  // Reviews e commenti arrivano nella stessa lista (una query per giorno), non
+  // con un `view` per elemento: con la finestra intera il sito ha ~1000 PR e
+  // ~650 issue, e un `view` ciascuna costerebbe ~10 minuti di chiamate seriali.
+  const days = windowDays(sinceDay, new Date().toISOString().slice(0, 10));
+  const coverage = [];
+  const prWindow = collectWindow(days, (day) => ghJsonRetry(['pr', 'list', '--state', 'merged',
+    '--search', `merged:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', 'number,mergedAt,reviews']));
+  const prCap = applyCap(prWindow.items, MAX_PRS);
+  coverage.push(...coverageWarnings('merged PRs', prWindow, prCap.cut));
+  const mergedPrs = prCap.items;
   const prReviews = [];
-  for (const { number, mergedAt } of mergedPrs) {
-    const data = ghJson(['pr', 'view', String(number), '--json', 'reviews']);
-    prReviews.push({ number, reviews: data?.reviews || [], mergedAt });
+  for (const { number, mergedAt, reviews } of mergedPrs) {
+    let all = reviews || [];
+    if (all.length >= NESTED_PAGE_CAP) {
+      const data = ghJson(['pr', 'view', String(number), '--json', 'reviews']);
+      if (data?.reviews) all = data.reviews;
+    }
+    prReviews.push({ number, reviews: all, mergedAt });
   }
   const { counts: findingCounts, examples: findingExamples } = tallyFindings(prReviews);
 
   // ---- 2. Recurring issue classes (created in window) ----
   const issueCounts = {};
   const issueExamples = {};
-  const allIssues = ghJson(['issue', 'list', '--state', 'all', '--search', `created:>=${sinceDay}`,
-    '--limit', String(MAX_ISSUES), '--json', 'number,title,labels']) || [];
+  const issueWindow = collectWindow(days, (day) => ghJsonRetry(['issue', 'list', '--state', 'all',
+    '--search', `created:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', 'number,title,labels']));
+  const issueCap = applyCap(issueWindow.items, MAX_ISSUES);
+  coverage.push(...coverageWarnings('issues', issueWindow, issueCap.cut));
+  const allIssues = issueCap.items;
   for (const it of allIssues) {
     const cls = issueClass(it.title, it.labels);
     if (!cls) continue;
@@ -979,13 +1102,23 @@ async function main() {
   // land, not noise. Surfaced in the harvest output (and in $GITHUB_OUTPUT) so it is
   // visible without reading 31 run logs by hand.
   const recoverableMaxTurns = [];
-  const fixIssues = ghJson(['issue', 'list', '--search', `label:agent:triaged updated:>=${sinceDay}`,
-    '--state', 'all', '--limit', String(MAX_ISSUES), '--json', 'number,title,labels']) || [];
-  for (const issue of fixIssues.slice(0, MAX_ISSUES)) {
+  // `body` entra nella lista perche' i classificatori `isAvoidable*` lo leggono
+  // (`issue.body`): prima la lista chiedeva solo number,title,labels e il body
+  // arrivava sempre vuoto.
+  const fixWindow = collectWindow(days, (day) => ghJsonRetry(['issue', 'list', '--state', 'all',
+    '--search', `label:agent:triaged updated:${day}`, '--limit', String(SEARCH_RESULT_CAP),
+    '--json', 'number,title,labels,body,comments']));
+  const fixCap = applyCap(fixWindow.items, MAX_ISSUES);
+  coverage.push(...coverageWarnings('fix-issues', fixWindow, fixCap.cut));
+  const fixIssues = fixCap.items;
+  for (const issue of fixIssues) {
     const { number } = issue;
     const labelNames = (issue.labels || []).map((l) => l.name);
-    const data = ghJson(['issue', 'view', String(number), '--json', 'comments']);
-    const comments = data?.comments || [];
+    let comments = issue.comments || [];
+    if (comments.length >= NESTED_PAGE_CAP) {
+      const data = ghJson(['issue', 'view', String(number), '--json', 'comments']);
+      if (data?.comments) comments = data.comments;
+    }
     // Dedup PER-ISSUE: una stessa issue ri-accodata dal followup-drainer (rescue
     // a 3 tentativi) può postare lo STESSO marker N volte. Contarli tutti gonfia
     // il bucket (3 run di UNA issue → conta 3) e fa scattare l'escalation su una
@@ -1133,12 +1266,16 @@ async function main() {
   const result = { generatedForWindowDays: WINDOW_DAYS, threshold: THRESHOLD,
     efficacyFactor: EFFICACY_FACTOR, since: sinceDay, totalClusters: clusters.length,
     novelClusters: novel.length, escalationClusters: escalations.length, clusters,
-    recoverableMaxTurns };
+    recoverableMaxTurns,
+    coverage: { days: days.length, mergedPrs: mergedPrs.length, issues: allIssues.length,
+      fixIssues: fixIssues.length, partial: coverage.length > 0, warnings: coverage } };
   fs.writeFileSync(OUT, JSON.stringify(result, null, 2));
 
   // ---- Human summary ----
   console.log(`Lessons harvest — window ${WINDOW_DAYS}d (since ${sinceDay}), threshold ≥${THRESHOLD}`);
-  console.log(`Merged PRs scanned: ${mergedPrs.length} · issues scanned: ${allIssues.length} · fix-issues: ${fixIssues.length}`);
+  console.log(`Merged PRs scanned: ${mergedPrs.length} · issues scanned: ${allIssues.length} · fix-issues: ${fixIssues.length}` +
+    ` · window: ${days.length} days, ${coverage.length ? 'PARTIAL' : 'complete'}`);
+  for (const w of coverage) console.log(w);
   if (!clusters.length) console.log('No recurring clusters above threshold.');
   for (const c of clusters) {
     const tag = c.novel ? 'NOVEL' : c.recurringDespiteRule ? 'ESCALATE' : 'documented';
