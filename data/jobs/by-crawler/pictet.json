@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-09-26T14:03:40.863Z",
+  "assembledAt": "2026-09-26T23:39:01.337Z",
   "jobs": [
     {
       "id": "pictet-59ef9db88701",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125064&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:03:36.334Z",
+      "crawledAt": "2026-09-26T23:38:56.229Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:44:47.743Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -112,7 +113,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124982&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:03:35.664Z",
+      "crawledAt": "2026-09-26T23:38:55.684Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -143,6 +144,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:44:47.250Z",
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -188,7 +190,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125052&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:03:33.556Z",
+      "crawledAt": "2026-09-26T23:38:53.667Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -215,8 +217,8 @@
           "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:44:45.090Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:44:45.090Z",
       "salaryMin": 57000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -235,34 +237,34 @@
       "id": "pictet-5cc31d91e95e",
       "slug": "collaborateur-trice-production-support-pictet-geneva",
       "slugByLocale": {
-        "fr": "collaborateur-trice-production-support-pictet-geneva",
         "it": "collaborateur-trice-production-support-pictet-geneva",
         "en": "collaborateur-trice-production-support-pictet-geneva",
-        "de": "collaborateur-trice-production-support-pictet-geneva"
+        "de": "collaborateur-trice-production-support-pictet-geneva",
+        "fr": "collaborateur-trice-production-support-pictet-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
       "companyDomain": "pictet.com",
       "title": "Collaborateur/trice Production Support",
       "titleByLocale": {
-        "fr": "Collaborateur/trice Production Support",
         "it": "Collaborateur/trice Production Support",
         "en": "Collaborateur/trice Production Support",
-        "de": "Collaborateur/trice Production Support"
+        "de": "Collaborateur/trice Production Support",
+        "fr": "Collaborateur/trice Production Support"
       },
       "description": "Your team\n\nLes opérations assurent un traitement sécurisé et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes veillent à ce que toutes les activités respectent les réglementations et gèrent les risques. En développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et de l’immobilier.\n\nLe service Transaction Processing gère l’exécution, le suivi des opérations financières du Groupe. Il intervient sur les transferts de titres, mouvements de cash, paiements, opérations sur instruments financiers.\n\nL’équipe Production Support est le point d’entrée et l’interlocuteur privilégié pour les Business Lines clientes, les équipes opérationnelles, chefs de projets et équipes IT. Elle joue un rôle central dans la coordination, le testing business, le change management et la documentation des flux et processus.\nLa capacité à promouvoir l'amélioration continue des processus et la qualité du service à la clientèle sont les valeurs promues par l’équipe.\nProduction Support agit comme un véritable hub de communication et de collaboration, favorisant le partage d’information, l’entraide et la montée en compétence collective.\n\nYour role\n\n• Coordonner des projets transverses impliquant plusieurs équipes (opérationnelles, IT, métiers), organiser et animer des séances de suivi, assurer la transmission et la clarté de l’information.\n• Identifier, en lien avec les équipes opérationnelles, les axes d’amélioration des process et initier des projets pour optimiser l’efficacité et réduire les risques opérationnels des équipes de Transaction Processing.\n• Participer activement à l’analyse, au testing business et au change management lors de la mise en place de nouveaux process.\n• Dans le cadre de projet, s’assurer que les flux business et les processus sont documentés, que les procédures sont mises à jour ainsi que les supports de formation.\n• Réaliser des contrôles récurrents de 2ème niveau\n• Assurer l’onboarding des nouveaux clients de nos Business Lines PAM et PAS au niveau banque dépositaire\n• Encourager la coopération et le partage d’expertise en sollicitant les interlocuteurs clés pour faire émerger des solutions concrètes et efficientes.\n\nYour profile\n\n• Bachelor en finance, systèmes d’information ou titre jugé équivalent.\n• Expérience confirmée (5 ans minimum) dans le domaine bancaire, idéalement en coordination ou gestion de projets.\n• Excellente connaissance des activités et flux opérationnels de banque dépositaire.\n• Compétences en gestion de projet, business analyse, testing et change management.\n• Maîtrise d’Avaloq et des outils financiers (un atout).\n• Parfaite maîtrise du français et de l’anglais (écrit et oral).\n• Maîtrise des outils informatiques MS Office ; Aisance avec les outils IA ; connaissance de Jira, Sharepoint, Wiki, Phyton, WBA Excel.\n• Esprit d'équipe, communication, goût pour la documentation et capacité à mobiliser les bonnes personnes.\n• Domiciles en Suisse requis.\n\nNote\n\nWe will not accept any CVs via agencies\n\nPSO/JLS/CB\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
-        "fr": "Your team\n\nLes opérations assurent un traitement sécurisé et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes veillent à ce que toutes les activités respectent les réglementations et gèrent les risques. En développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et de l’immobilier.\n\nLe service Transaction Processing gère l’exécution, le suivi des opérations financières du Groupe. Il intervient sur les transferts de titres, mouvements de cash, paiements, opérations sur instruments financiers.\n\nL’équipe Production Support est le point d’entrée et l’interlocuteur privilégié pour les Business Lines clientes, les équipes opérationnelles, chefs de projets et équipes IT. Elle joue un rôle central dans la coordination, le testing business, le change management et la documentation des flux et processus.\nLa capacité à promouvoir l'amélioration continue des processus et la qualité du service à la clientèle sont les valeurs promues par l’équipe.\nProduction Support agit comme un véritable hub de communication et de collaboration, favorisant le partage d’information, l’entraide et la montée en compétence collective.\n\nYour role\n\n• Coordonner des projets transverses impliquant plusieurs équipes (opérationnelles, IT, métiers), organiser et animer des séances de suivi, assurer la transmission et la clarté de l’information.\n• Identifier, en lien avec les équipes opérationnelles, les axes d’amélioration des process et initier des projets pour optimiser l’efficacité et réduire les risques opérationnels des équipes de Transaction Processing.\n• Participer activement à l’analyse, au testing business et au change management lors de la mise en place de nouveaux process.\n• Dans le cadre de projet, s’assurer que les flux business et les processus sont documentés, que les procédures sont mises à jour ainsi que les supports de formation.\n• Réaliser des contrôles récurrents de 2ème niveau\n• Assurer l’onboarding des nouveaux clients de nos Business Lines PAM et PAS au niveau banque dépositaire\n• Encourager la coopération et le partage d’expertise en sollicitant les interlocuteurs clés pour faire émerger des solutions concrètes et efficientes.\n\nYour profile\n\n• Bachelor en finance, systèmes d’information ou titre jugé équivalent.\n• Expérience confirmée (5 ans minimum) dans le domaine bancaire, idéalement en coordination ou gestion de projets.\n• Excellente connaissance des activités et flux opérationnels de banque dépositaire.\n• Compétences en gestion de projet, business analyse, testing et change management.\n• Maîtrise d’Avaloq et des outils financiers (un atout).\n• Parfaite maîtrise du français et de l’anglais (écrit et oral).\n• Maîtrise des outils informatiques MS Office ; Aisance avec les outils IA ; connaissance de Jira, Sharepoint, Wiki, Phyton, WBA Excel.\n• Esprit d'équipe, communication, goût pour la documentation et capacité à mobiliser les bonnes personnes.\n• Domiciles en Suisse requis.\n\nNote\n\nWe will not accept any CVs via agencies\n\nPSO/JLS/CB\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "it": "Your team\n\nLes opérations assurent un traitement sécurisé et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes veillent à ce que toutes les activités respectent les réglementations et gèrent les risques. En développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et de l’immobilier.\n\nLe service Transaction Processing gère l’exécution, le suivi des opérations financières du Groupe. Il intervient sur les transferts de titres, mouvements de cash, paiements, opérations sur instruments financiers.\n\nL’équipe Production Support est le point d’entrée et l’interlocuteur privilégié pour les Business Lines clientes, les équipes opérationnelles, chefs de projets et équipes IT. Elle joue un rôle central dans la coordination, le testing business, le change management et la documentation des flux et processus.\nLa capacité à promouvoir l'amélioration continue des processus et la qualité du service à la clientèle sont les valeurs promues par l’équipe.\nProduction Support agit comme un véritable hub de communication et de collaboration, favorisant le partage d’information, l’entraide et la montée en compétence collective.\n\nYour role\n\n• Coordonner des projets transverses impliquant plusieurs équipes (opérationnelles, IT, métiers), organiser et animer des séances de suivi, assurer la transmission et la clarté de l’information.\n• Identifier, en lien avec les équipes opérationnelles, les axes d’amélioration des process et initier des projets pour optimiser l’efficacité et réduire les risques opérationnels des équipes de Transaction Processing.\n• Participer activement à l’analyse, au testing business et au change management lors de la mise en place de nouveaux process.\n• Dans le cadre de projet, s’assurer que les flux business et les processus sont documentés, que les procédures sont mises à jour ainsi que les supports de formation.\n• Réaliser des contrôles récurrents de 2ème niveau\n• Assurer l’onboarding des nouveaux clients de nos Business Lines PAM et PAS au niveau banque dépositaire\n• Encourager la coopération et le partage d’expertise en sollicitant les interlocuteurs clés pour faire émerger des solutions concrètes et efficientes.\n\nYour profile\n\n• Bachelor en finance, systèmes d’information ou titre jugé équivalent.\n• Expérience confirmée (5 ans minimum) dans le domaine bancaire, idéalement en coordination ou gestion de projets.\n• Excellente connaissance des activités et flux opérationnels de banque dépositaire.\n• Compétences en gestion de projet, business analyse, testing et change management.\n• Maîtrise d’Avaloq et des outils financiers (un atout).\n• Parfaite maîtrise du français et de l’anglais (écrit et oral).\n• Maîtrise des outils informatiques MS Office ; Aisance avec les outils IA ; connaissance de Jira, Sharepoint, Wiki, Phyton, WBA Excel.\n• Esprit d'équipe, communication, goût pour la documentation et capacité à mobiliser les bonnes personnes.\n• Domiciles en Suisse requis.\n\nNote\n\nWe will not accept any CVs via agencies\n\nPSO/JLS/CB\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "en": "Your team\n\nLes opérations assurent un traitement sécurisé et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes veillent à ce que toutes les activités respectent les réglementations et gèrent les risques. En développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et de l’immobilier.\n\nLe service Transaction Processing gère l’exécution, le suivi des opérations financières du Groupe. Il intervient sur les transferts de titres, mouvements de cash, paiements, opérations sur instruments financiers.\n\nL’équipe Production Support est le point d’entrée et l’interlocuteur privilégié pour les Business Lines clientes, les équipes opérationnelles, chefs de projets et équipes IT. Elle joue un rôle central dans la coordination, le testing business, le change management et la documentation des flux et processus.\nLa capacité à promouvoir l'amélioration continue des processus et la qualité du service à la clientèle sont les valeurs promues par l’équipe.\nProduction Support agit comme un véritable hub de communication et de collaboration, favorisant le partage d’information, l’entraide et la montée en compétence collective.\n\nYour role\n\n• Coordonner des projets transverses impliquant plusieurs équipes (opérationnelles, IT, métiers), organiser et animer des séances de suivi, assurer la transmission et la clarté de l’information.\n• Identifier, en lien avec les équipes opérationnelles, les axes d’amélioration des process et initier des projets pour optimiser l’efficacité et réduire les risques opérationnels des équipes de Transaction Processing.\n• Participer activement à l’analyse, au testing business et au change management lors de la mise en place de nouveaux process.\n• Dans le cadre de projet, s’assurer que les flux business et les processus sont documentés, que les procédures sont mises à jour ainsi que les supports de formation.\n• Réaliser des contrôles récurrents de 2ème niveau\n• Assurer l’onboarding des nouveaux clients de nos Business Lines PAM et PAS au niveau banque dépositaire\n• Encourager la coopération et le partage d’expertise en sollicitant les interlocuteurs clés pour faire émerger des solutions concrètes et efficientes.\n\nYour profile\n\n• Bachelor en finance, systèmes d’information ou titre jugé équivalent.\n• Expérience confirmée (5 ans minimum) dans le domaine bancaire, idéalement en coordination ou gestion de projets.\n• Excellente connaissance des activités et flux opérationnels de banque dépositaire.\n• Compétences en gestion de projet, business analyse, testing et change management.\n• Maîtrise d’Avaloq et des outils financiers (un atout).\n• Parfaite maîtrise du français et de l’anglais (écrit et oral).\n• Maîtrise des outils informatiques MS Office ; Aisance avec les outils IA ; connaissance de Jira, Sharepoint, Wiki, Phyton, WBA Excel.\n• Esprit d'équipe, communication, goût pour la documentation et capacité à mobiliser les bonnes personnes.\n• Domiciles en Suisse requis.\n\nNote\n\nWe will not accept any CVs via agencies\n\nPSO/JLS/CB\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "de": "Your team\n\nLes opérations assurent un traitement sécurisé et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes veillent à ce que toutes les activités respectent les réglementations et gèrent les risques. En développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et de l’immobilier.\n\nLe service Transaction Processing gère l’exécution, le suivi des opérations financières du Groupe. Il intervient sur les transferts de titres, mouvements de cash, paiements, opérations sur instruments financiers.\n\nL’équipe Production Support est le point d’entrée et l’interlocuteur privilégié pour les Business Lines clientes, les équipes opérationnelles, chefs de projets et équipes IT. Elle joue un rôle central dans la coordination, le testing business, le change management et la documentation des flux et processus.\nLa capacité à promouvoir l'amélioration continue des processus et la qualité du service à la clientèle sont les valeurs promues par l’équipe.\nProduction Support agit comme un véritable hub de communication et de collaboration, favorisant le partage d’information, l’entraide et la montée en compétence collective.\n\nYour role\n\n• Coordonner des projets transverses impliquant plusieurs équipes (opérationnelles, IT, métiers), organiser et animer des séances de suivi, assurer la transmission et la clarté de l’information.\n• Identifier, en lien avec les équipes opérationnelles, les axes d’amélioration des process et initier des projets pour optimiser l’efficacité et réduire les risques opérationnels des équipes de Transaction Processing.\n• Participer activement à l’analyse, au testing business et au change management lors de la mise en place de nouveaux process.\n• Dans le cadre de projet, s’assurer que les flux business et les processus sont documentés, que les procédures sont mises à jour ainsi que les supports de formation.\n• Réaliser des contrôles récurrents de 2ème niveau\n• Assurer l’onboarding des nouveaux clients de nos Business Lines PAM et PAS au niveau banque dépositaire\n• Encourager la coopération et le partage d’expertise en sollicitant les interlocuteurs clés pour faire émerger des solutions concrètes et efficientes.\n\nYour profile\n\n• Bachelor en finance, systèmes d’information ou titre jugé équivalent.\n• Expérience confirmée (5 ans minimum) dans le domaine bancaire, idéalement en coordination ou gestion de projets.\n• Excellente connaissance des activités et flux opérationnels de banque dépositaire.\n• Compétences en gestion de projet, business analyse, testing et change management.\n• Maîtrise d’Avaloq et des outils financiers (un atout).\n• Parfaite maîtrise du français et de l’anglais (écrit et oral).\n• Maîtrise des outils informatiques MS Office ; Aisance avec les outils IA ; connaissance de Jira, Sharepoint, Wiki, Phyton, WBA Excel.\n• Esprit d'équipe, communication, goût pour la documentation et capacité à mobiliser les bonnes personnes.\n• Domiciles en Suisse requis.\n\nNote\n\nWe will not accept any CVs via agencies\n\nPSO/JLS/CB\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below"
+        "de": "Your team\n\nLes opérations assurent un traitement sécurisé et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes veillent à ce que toutes les activités respectent les réglementations et gèrent les risques. En développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et de l’immobilier.\n\nLe service Transaction Processing gère l’exécution, le suivi des opérations financières du Groupe. Il intervient sur les transferts de titres, mouvements de cash, paiements, opérations sur instruments financiers.\n\nL’équipe Production Support est le point d’entrée et l’interlocuteur privilégié pour les Business Lines clientes, les équipes opérationnelles, chefs de projets et équipes IT. Elle joue un rôle central dans la coordination, le testing business, le change management et la documentation des flux et processus.\nLa capacité à promouvoir l'amélioration continue des processus et la qualité du service à la clientèle sont les valeurs promues par l’équipe.\nProduction Support agit comme un véritable hub de communication et de collaboration, favorisant le partage d’information, l’entraide et la montée en compétence collective.\n\nYour role\n\n• Coordonner des projets transverses impliquant plusieurs équipes (opérationnelles, IT, métiers), organiser et animer des séances de suivi, assurer la transmission et la clarté de l’information.\n• Identifier, en lien avec les équipes opérationnelles, les axes d’amélioration des process et initier des projets pour optimiser l’efficacité et réduire les risques opérationnels des équipes de Transaction Processing.\n• Participer activement à l’analyse, au testing business et au change management lors de la mise en place de nouveaux process.\n• Dans le cadre de projet, s’assurer que les flux business et les processus sont documentés, que les procédures sont mises à jour ainsi que les supports de formation.\n• Réaliser des contrôles récurrents de 2ème niveau\n• Assurer l’onboarding des nouveaux clients de nos Business Lines PAM et PAS au niveau banque dépositaire\n• Encourager la coopération et le partage d’expertise en sollicitant les interlocuteurs clés pour faire émerger des solutions concrètes et efficientes.\n\nYour profile\n\n• Bachelor en finance, systèmes d’information ou titre jugé équivalent.\n• Expérience confirmée (5 ans minimum) dans le domaine bancaire, idéalement en coordination ou gestion de projets.\n• Excellente connaissance des activités et flux opérationnels de banque dépositaire.\n• Compétences en gestion de projet, business analyse, testing et change management.\n• Maîtrise d’Avaloq et des outils financiers (un atout).\n• Parfaite maîtrise du français et de l’anglais (écrit et oral).\n• Maîtrise des outils informatiques MS Office ; Aisance avec les outils IA ; connaissance de Jira, Sharepoint, Wiki, Phyton, WBA Excel.\n• Esprit d'équipe, communication, goût pour la documentation et capacité à mobiliser les bonnes personnes.\n• Domiciles en Suisse requis.\n\nNote\n\nWe will not accept any CVs via agencies\n\nPSO/JLS/CB\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "fr": "Your team\n\nLes opérations assurent un traitement sécurisé et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes veillent à ce que toutes les activités respectent les réglementations et gèrent les risques. En développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et de l’immobilier.\n\nLe service Transaction Processing gère l’exécution, le suivi des opérations financières du Groupe. Il intervient sur les transferts de titres, mouvements de cash, paiements, opérations sur instruments financiers.\n\nL’équipe Production Support est le point d’entrée et l’interlocuteur privilégié pour les Business Lines clientes, les équipes opérationnelles, chefs de projets et équipes IT. Elle joue un rôle central dans la coordination, le testing business, le change management et la documentation des flux et processus.\nLa capacité à promouvoir l'amélioration continue des processus et la qualité du service à la clientèle sont les valeurs promues par l’équipe.\nProduction Support agit comme un véritable hub de communication et de collaboration, favorisant le partage d’information, l’entraide et la montée en compétence collective.\n\nYour role\n\n• Coordonner des projets transverses impliquant plusieurs équipes (opérationnelles, IT, métiers), organiser et animer des séances de suivi, assurer la transmission et la clarté de l’information.\n• Identifier, en lien avec les équipes opérationnelles, les axes d’amélioration des process et initier des projets pour optimiser l’efficacité et réduire les risques opérationnels des équipes de Transaction Processing.\n• Participer activement à l’analyse, au testing business et au change management lors de la mise en place de nouveaux process.\n• Dans le cadre de projet, s’assurer que les flux business et les processus sont documentés, que les procédures sont mises à jour ainsi que les supports de formation.\n• Réaliser des contrôles récurrents de 2ème niveau\n• Assurer l’onboarding des nouveaux clients de nos Business Lines PAM et PAS au niveau banque dépositaire\n• Encourager la coopération et le partage d’expertise en sollicitant les interlocuteurs clés pour faire émerger des solutions concrètes et efficientes.\n\nYour profile\n\n• Bachelor en finance, systèmes d’information ou titre jugé équivalent.\n• Expérience confirmée (5 ans minimum) dans le domaine bancaire, idéalement en coordination ou gestion de projets.\n• Excellente connaissance des activités et flux opérationnels de banque dépositaire.\n• Compétences en gestion de projet, business analyse, testing et change management.\n• Maîtrise d’Avaloq et des outils financiers (un atout).\n• Parfaite maîtrise du français et de l’anglais (écrit et oral).\n• Maîtrise des outils informatiques MS Office ; Aisance avec les outils IA ; connaissance de Jira, Sharepoint, Wiki, Phyton, WBA Excel.\n• Esprit d'équipe, communication, goût pour la documentation et capacité à mobiliser les bonnes personnes.\n• Domiciles en Suisse requis.\n\nNote\n\nWe will not accept any CVs via agencies\n\nPSO/JLS/CB\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below"
       },
       "location": "Geneva",
       "canton": "GE",
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:03:32.266Z",
+      "crawledAt": "2026-09-26T23:38:52.603Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -278,10 +280,9 @@
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "jobReqId": "125071",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T14:03:32.266Z",
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -294,8 +295,7 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T14:03:32.266Z"
+      }
     },
     {
       "id": "pictet-206a06b28cff",
@@ -328,7 +328,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125106&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:03:31.109Z",
+      "crawledAt": "2026-09-26T23:38:51.650Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -345,10 +345,14 @@
       "jobReqId": "125106",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-25T14:49:40.787Z",
+      "previousSlugs": [
+        "private-assets-operations-specialist-pictet-geneva",
+        "private-assets-operations-specialista-pictet-group-geneva"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "private-assets-operations-specialist-pictet-geneva"
+          "private-assets-operations-specialist-pictet-geneva",
+          "private-assets-operations-specialista-pictet-group-geneva"
         ],
         "de": [
           "private-assets-operations-specialist-pictet-geneva"
@@ -357,9 +361,8 @@
           "private-assets-operations-specialist-pictet-geneva"
         ]
       },
-      "previousSlugs": [
-        "private-assets-operations-specialist-pictet-geneva"
-      ],
+      "firstSeenAt": "2026-09-25T14:49:40.787Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

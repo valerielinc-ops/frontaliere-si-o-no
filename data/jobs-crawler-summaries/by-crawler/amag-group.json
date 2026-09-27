@@ -1,21 +1,22 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-09-26T14:04:53.459Z",
+  "generatedAt": "2026-09-26T23:38:36.270Z",
   "total": 5,
-  "newCount": 2,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 140043,
-  "avgDurationMs": 140043,
+  "unchangedCount": 1,
+  "durationMs": 150696,
+  "avgDurationMs": 150696,
   "durationHistory": [
-    140043
+    150696
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Meccatronico/a di automobili - 100%",
-      "slug": "meccatronico-a-di-automobili-100",
+      "slug": "meccatronico-a-di-automobili-100-amag-group-gordola",
       "url": "https://jobs.amag-group.ch/Meccatronicoa-di-automobili-100-it-j23673.html",
       "applyUrl": "https://jobs.amag-group.ch/Meccatronicoa-di-automobili-100-it-f23673.html",
       "company": "AMAG Group",
@@ -35,46 +36,21 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "2026-12-01",
-      "_qualityScore": 67,
+      "id": "amag-group-639847205108",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-26T14:04:48.923Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 10,
-        "completeness": 14
+        "translation": 16,
+        "completeness": 19
       }
     },
-    {
-      "title": "Apprendisti meccatronici d'automobili AFC (m/f) - AMAG Ticino - estate 2027",
-      "slug": "apprendisti-meccatronici-d-automobili-afc-m-f-amag-ticino-estate-2027",
-      "url": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-j23683.html",
-      "applyUrl": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-f23683.html",
-      "company": "AMAG Group",
-      "companyKey": "amag-group",
-      "companyDomain": "amag-group.ch",
-      "location": "Tutti",
-      "addressLocality": "Tutti",
-      "addressRegion": "JU",
-      "addressCountry": "CH",
-      "canton": "JU",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Automotive & Mobilità",
-      "source": "amag-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-09-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2027-03-01",
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "title": "Apprendista (magazzino) Impiegato/a del comm. al dettaglio AFC After-Sales Automobile 2027 (m/f) - AMAG Breganzona",
       "slug": "apprendista-magazzino-impiegato-a-del-comm-al-dettaglio-afc-after-sales-automobile-2027-m-f-amag-breganzona",
@@ -188,5 +164,43 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Apprendisti meccatronici d'automobili AFC (m/f) - AMAG Ticino - estate 2027",
+      "slug": "apprendisti-meccatronici-d-automobili-afc-m-f-amag-ticino-estate-2027",
+      "url": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-j23683.html",
+      "applyUrl": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-f23683.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Tutti",
+      "addressLocality": "Tutti",
+      "addressRegion": "JU",
+      "addressCountry": "CH",
+      "canton": "JU",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2027-03-01",
+      "id": "amag-group-078b29e50992",
+      "needsRetranslation": true,
+      "salaryMin": 50500,
+      "salaryMax": 77000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-26T14:04:48.923Z",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 19
+      }
+    }
+  ]
 }

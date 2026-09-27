@@ -1,23 +1,24 @@
 {
   "key": "pictet",
   "label": "Pictet Group",
-  "generatedAt": "2026-09-26T14:03:42.995Z",
+  "generatedAt": "2026-09-26T23:39:04.700Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
   "written": 5,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14267,
-  "avgDurationMs": 14267,
+  "durationMs": 12273,
+  "avgDurationMs": 12273,
   "durationHistory": [
-    14267
+    12273
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "pictet-5cc31d91e95e",
       "slug": "collaborateur-trice-production-support-pictet-geneva",
@@ -30,7 +31,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:03:32.266Z",
+      "crawledAt": "2026-09-26T23:38:52.603Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -45,16 +46,16 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "jobReqId": "125071",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T14:03:32.266Z",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "pictet-206a06b28cff",
       "slug": "private-assets-operations-specialist-pictet-geneva",
@@ -67,7 +68,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125106&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:03:31.109Z",
+      "crawledAt": "2026-09-26T23:38:51.650Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -103,7 +104,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125052&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:03:33.556Z",
+      "crawledAt": "2026-09-26T23:38:53.667Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -118,6 +119,7 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125052&selected_lang=en_GB",
       "jobReqId": "125052",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-23T23:44:45.090Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -139,7 +141,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124982&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:03:35.664Z",
+      "crawledAt": "2026-09-26T23:38:55.684Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -175,7 +177,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125064&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:03:36.334Z",
+      "crawledAt": "2026-09-26T23:38:56.229Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
