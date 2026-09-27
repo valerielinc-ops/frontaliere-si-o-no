@@ -88706,6 +88706,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-alimentazione-respinta': {
+    title: 'Iniziativa alimentazione: nettamente respinta da Cantoni',
+    description: 'L\'iniziativa per la sicurezza alimentare è stata respinta da tutti i Cantoni scrutinati. In Ticino il no al 68,66%. Scopri tutti i dati ufficiali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, alimentazione, nettamente, respinta',
+    ogTitle: 'Iniziativa alimentazione nettamente respinta dai Cantoni',
+    ogDescription: 'L\'iniziativa sull\'alimentazione è stata respinta da tutti i 16 Cantoni con spoglio completato. In Ticino i contrari sono al 68,66% e nei Grigioni al 75,01%. Ecco tutti i dettagli e i dati ufficiali del voto.',
+    canonicalPath: '/articoli-svizzera/iniziativa-alimentazione-respinta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa alimentazione: nettamente respinta da Cantoni",
+      "description": "L'iniziativa per la sicurezza alimentare è stata respinta da tutti i Cantoni scrutinati. In Ticino il no al 68,66%. Scopri tutti i dati ufficiali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iniziativa-alimentazione-respinta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campagna agricola svizzera con campi coltivati e montagne sullo sfondo"
+      },
+      "datePublished": "2026-09-27T12:30:19+00:00",
+      "dateModified": "2026-09-27T12:30:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-alimentazione-respinta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

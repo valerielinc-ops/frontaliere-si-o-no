@@ -6842,6 +6842,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iniziativa-neutralita-respinta.title': 'Iniziativa sulla neutralità respinta dal 71%',
     'blog.article.iniziativa-neutralita-respinta.excerpt': 'La proiezione nazionale indica un netto no al 71% per l\'Iniziativa sulla neutralità. In Ticino il no si attesta al 51,2% dopo 86 comuni.',
     'blog.article.iniziativa-neutralita-respinta.imageAlt': 'Urne e votazioni federali in Svizzera sulla neutralità',
+    'blog.article.iniziativa-alimentazione-respinta.title': 'Iniziativa alimentazione: nettamente respinta da Cantoni',
+    'blog.article.iniziativa-alimentazione-respinta.excerpt': 'L\'Iniziativa sull\'alimentazione è stata nettamente respinta dai Cantoni svizzeri. In Ticino i contrari hanno raggiunto il 68,66%.',
+    'blog.article.iniziativa-alimentazione-respinta.imageAlt': 'Campagna agricola svizzera con campi coltivati e montagne sullo sfondo',
 };
 
 export default blogMetaChIt;
