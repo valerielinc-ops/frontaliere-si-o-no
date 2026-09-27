@@ -423,6 +423,7 @@ const UNSUB_PROXIES = {
   '/disiscrivi-outreach': `${CF_FN_BASE}/outreachUnsubscribe`,
   '/disiscrivi-newsletter': `${CF_FN_BASE}/newsletterManageSubscription`,
   '/disiscrivi-promemoria-salvati': `${CF_FN_BASE}/savedJobsDigestUnsubscribe`,
+  '/disiscrivi-promemoria-candidature': `${CF_FN_BASE}/applicationIntentReminderUnsubscribe`,
 };
 
 // Returns the upstream Cloud Function origin for an unsubscribe path (bare or
@@ -437,7 +438,7 @@ function unsubProxyOrigin(pathname) {
 // ── Keeping the credential out of Cloud Run's request log (#5746) ───────────
 //
 // Cloud Run writes `httpRequest.requestUrl` — the whole URL, query string
-// included — for every invocation of the four functions above, into the
+// included — for every invocation of the five functions above, into the
 // `_Default` bucket, readable by anybody with `logging.viewer`. Measured over
 // the seven days to 2026-08-13: 3.131 requests carrying BOTH an address and a
 // credential, 995 distinct real addresses. Identity and session key, appaired,
@@ -447,7 +448,7 @@ function unsubProxyOrigin(pathname) {
 // nothing from here. What is left is a link inside an email, and that link
 //
 //   - is a GET issued by a mail client, so it has no body to move anything into;
-//   - must keep working with NO JavaScript — these four functions render the
+//   - must keep working with NO JavaScript — these five functions render the
 //     confirmation page themselves for exactly that reason, so the fragment `#`,
 //     which never reaches a server at all, is not available either;
 //   - was minted years ago in some cases and cannot be reshaped retroactively;
@@ -489,7 +490,8 @@ export const PRIVATE_UNSUB_PARAMS = Object.freeze(['email', 'ne', 'token', 't', 
  * A pre-#5746 function handed a stripped URL answers 400 (missing address —
  * newsletterManageSubscription, jobAlertUnsubscribe) or 403 (credential failed
  * to verify because it never arrived — savedJobsDigestUnsubscribe,
- * outreachUnsubscribe). Both refuse BEFORE any write, so replaying them is
+ * applicationIntentReminderUnsubscribe, outreachUnsubscribe). They refuse
+ * BEFORE any write, so replaying them is
  * side-effect free. 5xx is deliberately not here: a 500 may land after a write,
  * and repeating it would be the one way this could unsubscribe somebody twice.
  */

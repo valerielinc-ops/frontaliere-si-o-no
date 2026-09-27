@@ -10,9 +10,11 @@
 import admin from 'firebase-admin';
 
 export const APPLICATION_INTENTS_COLLECTION = 'application_intents';
+export const APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION = 'application_intent_reminder_deliveries';
 export const APPLICATION_INTENT_RETENTION_DAYS = 90;
 export const APPLICATION_INTENT_RETENTION_PAGE_SIZE = 450;
 export const APPLICATION_INTENT_RETENTION_MAX_PAGES = 20;
+export const FIRESTORE_BATCH_MAX_OPERATIONS = 500;
 
 const EXPIRY_FIELDS = Object.freeze(['expiresAt', 'retentionUntil']);
 
@@ -85,19 +87,31 @@ async function purgeExpiryField({ collection, db, field, cutoff, cutoffMs }) {
 
     pages += 1;
     scanned += docs.length;
-    const batch = db.batch();
     let pagePurged = 0;
+    const deletionRefs = [];
     for (const doc of docs) {
       const expiryMs = demonstrableExpiry(documentData(doc), field);
       if (expiryMs === null || expiryMs > cutoffMs) {
         skipped += 1;
         continue;
       }
-      batch.delete(doc.ref);
+      deletionRefs.push(doc.ref);
+      // Delivery claims contain the Auth uid and are keyed by the intent id;
+      // they must not outlive the 90-day source record.
+      const deliveryCollection = db.collection(APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION);
+      if (typeof deliveryCollection?.doc === 'function') {
+        deletionRefs.push(deliveryCollection.doc(doc.id));
+      }
       pagePurged += 1;
     }
     if (pagePurged > 0) {
-      await batch.commit();
+      for (let offset = 0; offset < deletionRefs.length; offset += FIRESTORE_BATCH_MAX_OPERATIONS) {
+        const batch = db.batch();
+        for (const ref of deletionRefs.slice(offset, offset + FIRESTORE_BATCH_MAX_OPERATIONS)) {
+          batch.delete(ref);
+        }
+        await batch.commit();
+      }
       purged += pagePurged;
     }
 
