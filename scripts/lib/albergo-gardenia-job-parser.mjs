@@ -634,7 +634,9 @@ export async function fetchAlbergoGardeniaSourcePage(
     const connectionFailure = responseStatus === 0
       && !response?.blockedByRobots
       && !response?.policyBlocked;
-    const wafBlock = WAF_IP_BLOCK_STATUS.has(responseStatus);
+    const wafBlock = WAF_IP_BLOCK_STATUS.has(responseStatus)
+      && !response?.blockedByRobots
+      && !response?.policyBlocked;
     if (!connectionFailure && !wafBlock) return response;
     if (wafBlock) {
       if (!browserFetchPage) return response;

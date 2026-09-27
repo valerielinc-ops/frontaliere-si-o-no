@@ -263,6 +263,31 @@ describe('Albergo Gardenia authoritative crawler', () => {
     );
   });
 
+  it.each([
+    ['robots denial', { blockedByRobots: true }],
+    ['URL-policy denial', { policyBlocked: true }],
+  ])('does not bypass a deterministic %s marked as a WAF status', async (_label, denial) => {
+    const fetchPage = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 415,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+      ...denial,
+    }));
+    const browserFetchPage = vi.fn();
+
+    const response = await fetchAlbergoGardeniaSourcePage(ALBERGO_GARDENIA_SITEMAP_URL, {
+      kind: 'sitemap',
+      fetchPage,
+      browserFetchPage,
+    });
+
+    expect(response).toMatchObject({ ok: false, status: 415, ...denial });
+    expect(fetchPage).toHaveBeenCalledOnce();
+    expect(browserFetchPage).not.toHaveBeenCalled();
+  });
+
   it('warns when the sticky transport budget margin thins as content pages accumulate', async () => {
     const sitemap = representativeSitemap();
     let now = 0;
