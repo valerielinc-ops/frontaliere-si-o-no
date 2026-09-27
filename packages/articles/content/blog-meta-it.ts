@@ -242,7 +242,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.simulazione-fiscale-frontaliere-2026.excerpt': 'Come cambia lo stipendio netto dal 2026? Analizziamo un salario di 65\'000 CHF: ecco quanto resta in tasca con il nuovo regime fiscale italo-svizzero.',
  'blog.article.simulazione-fiscale-frontaliere-2026.imageAlt': 'Simulazione dell\'impatto del nuovo accordo fiscale per frontalieri, vista dal cruscotto di un\'auto al valico di Chiasso.',
  'blog.article.lamal-cmi-scelta-frontaliere-2026.title': 'LAMal o CMI 2026: la scelta chiave per il frontaliere',
- 'blog.article.lamal-cmi-scelta-frontaliere-2026.excerpt': 'Con premi LAMal 2026 da 279 a 487 CHF per chi risiede in Italia e la CMI che resta nel SSN senza premio, la decisione per i frontalieri in Ticino diventa cruciale. Analisi dei costi, coperture e casi pratici.',
+ 'blog.article.lamal-cmi-scelta-frontaliere-2026.excerpt': 'Con premi LAMal variabili da verificare sulla panoramica ufficiale UFSP/Priminfo e la CMI che resta nel SSN senza premio, la decisione per i frontalieri in Ticino diventa cruciale. Analisi dei costi, coperture e casi pratici.',
  'blog.article.lamal-cmi-scelta-frontaliere-2026.imageAlt': 'Scrivania con contratto di lavoro svizzero e passaporto italiano, con vista sul Lago di Lugano, simbolo della scelta assicurativa del frontaliere.',
  'blog.article.credito-imposta-doppia-tassazione.title': 'Doppia imposizione: come funziona il credito d\'imposta',
  'blog.article.credito-imposta-doppia-tassazione.excerpt': 'La guida definitiva per i \'nuovi frontalieri\' del Ticino. Come evitare di pagare due volte le tasse sul reddito svizzero grazie al credito d\'imposta nel Modello 730. Esempio pratico con un salario di 65.000 CHF.',
