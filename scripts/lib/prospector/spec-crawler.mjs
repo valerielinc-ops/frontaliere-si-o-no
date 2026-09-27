@@ -231,6 +231,35 @@ function matchKnownTemplate(links, templateRx, host) {
 }
 
 /**
+ * Extract listing candidates using the same cascade as production.
+ *
+ * Keeping the template override here is important for the empty-page rescue:
+ * a clean Jina response must be judged by the exact same evidence rules as
+ * the direct response, otherwise the fallback could accept a navigation link
+ * that the normal path would reject.
+ *
+ * @param {string} html
+ * @param {string} effectiveUrl
+ * @param {RegExp|null} templateRx
+ * @returns {{ links: Array<{ url: string, text: string }>, candidates: any[] }}
+ */
+function extractListingCandidates(html, effectiveUrl, templateRx) {
+  const links = extractLinks(html, effectiveUrl);
+  const { vacancies } = extractVacancies(html, effectiveUrl, links);
+  // jsonld/microdata are stronger evidence than any link-shape guess, so
+  // only override when the generic cascade fell back to (or below) its own
+  // template heuristic and we hold a better one already vetted for this spec.
+  let candidates = vacancies;
+  if (templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
+    let host = '';
+    try { host = normalizeHost(new URL(effectiveUrl).hostname); } catch { /* skip override */ }
+    const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
+    if (direct.length) candidates = direct;
+  }
+  return { links, candidates };
+}
+
+/**
  * Listing rows a spec yields, before any detail-page enrichment.
  *
  * Extracted from `runSpecInProduction()` because the offline measurements have
@@ -259,23 +288,42 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       // infra and must soft-exit, an HTTP status is a real break.
       throw err;
     }
-    const html = page.body;
+    let html = page.body;
     if (!html) continue;
-    const effectiveSeedUrl = page.url || seed;
-    const umantisListingEvidence = spec.platform === 'umantis.com'
+    let effectiveSeedUrl = page.url || seed;
+    let umantisListingEvidence = spec.platform === 'umantis.com'
       ? extractUmantisListingEvidence(html, effectiveSeedUrl)
       : new Map();
-    const links = extractLinks(html, effectiveSeedUrl);
-    const { vacancies } = extractVacancies(html, effectiveSeedUrl, links);
-    // jsonld/microdata are stronger evidence than any link-shape guess, so
-    // only override when the generic cascade fell back to (or below) its own
-    // template heuristic and we hold a better one already vetted for this spec.
-    let candidates = vacancies;
-    if (templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
-      let host = '';
-      try { host = normalizeHost(new URL(effectiveSeedUrl).hostname); } catch { /* skip override */ }
-      const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
-      if (direct.length) candidates = direct;
+    let { links, candidates } = extractListingCandidates(html, effectiveSeedUrl, templateRx);
+
+    // Some protected boards answer the direct request with a 200 interstitial
+    // that has no stable challenge marker. That page is indistinguishable from
+    // a legitimate empty employer page until the same seed is viewed through
+    // the clean-IP rescue. Opt-in is deliberately spec-scoped: only a crawler
+    // with evidence of this source-specific failure pays for the extra fetch.
+    if (!candidates.length && spec.rescueOnEmptyListing === true
+      && !page.proxiedBy && runtime.disableWafProxy !== true) {
+      const proxiedBody = await fetchHtmlViaJinaWithRetry(effectiveSeedUrl, {
+        timeoutMs: runtime.timeoutMs,
+        retries: runtime.jinaRetries,
+        retryBaseMs: runtime.jinaRetryBaseMs,
+        fetchImpl: runtime.jinaFetchImpl,
+        sleepImpl: runtime.jinaSleepImpl,
+      });
+      if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
+        const rescued = extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx);
+        if (rescued.candidates.length) {
+          console.warn(
+            `[prospector:${spec.companyKey}] direct seed yielded no listings; using clean-IP rescue (${rescued.candidates.length} candidates)`,
+          );
+          html = proxiedBody;
+          ({ links, candidates } = rescued);
+          effectiveSeedUrl = page.url || seed;
+          umantisListingEvidence = spec.platform === 'umantis.com'
+            ? extractUmantisListingEvidence(html, effectiveSeedUrl)
+            : new Map();
+        }
+      }
     }
     if (!candidates.length) {
       // Un seed che risponde 200 senza nessun annuncio è indistinguibile, a
