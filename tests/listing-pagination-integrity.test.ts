@@ -60,6 +60,14 @@ describe('listing pagination integrity', () => {
     }
   });
 
+  it('keeps Sunrise Phenom pages in one provider session', () => {
+    const source = fs.readFileSync(path.join(ROOT, 'scripts', 'update-sunrise-jobs.mjs'), 'utf8');
+    expect(source).toContain('fetchHtmlWithCookies');
+    expect(source).toContain('const listingCookieJar = new Map()');
+    expect(source).toContain('fetchTextWithCookies(url, listingCookieJar)');
+    expect(source).toContain('cookieJar,');
+  });
+
   it('does not treat a raw empty Sunrise payload as authoritative empty evidence', () => {
     const source = fs.readFileSync(path.join(ROOT, 'scripts', 'update-sunrise-jobs.mjs'), 'utf8');
     expect(source).not.toContain('emptyStateObserved: rawRecordCount === 0');
