@@ -305,6 +305,32 @@ describe('handleApplicationIntentReminderUnsubscribe — forensics', () => {
     expect(sets[0]).not.toHaveProperty('applicationIntent');
     expect(sets[0]).not.toHaveProperty('savedJobsDigest');
   });
+
+  it('persists the opt-out when the valid uid has no users profile yet', async () => {
+    const sets: Record<string, any>[] = [];
+    const db = {
+      collection: () => ({
+        doc: () => ({
+          get: async () => ({ exists: false, data: () => undefined }),
+          set: async (data: any) => { sets.push(data); },
+        }),
+      }),
+    };
+    const result = await handleApplicationIntentReminderUnsubscribe({
+      uid: UID,
+      email: 'new-user@example.com',
+      token: generateApplicationIntentReminderUnsubToken(UID, SECRET),
+      secret: SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(sets).toHaveLength(1);
+    expect(sets[0].applicationIntentReminder).toMatchObject({
+      optedIn: false,
+      optedOut: true,
+    });
+  });
 });
 
 describe('handleOutreachUnsubscribe — forensics', () => {

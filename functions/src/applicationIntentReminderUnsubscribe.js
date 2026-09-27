@@ -92,7 +92,7 @@ export async function handleApplicationIntentReminderUnsubscribe({
 
   const userRef = db.collection('users').doc(uid);
   const userDoc = await userRef.get();
-  if (!userDoc.exists || userDoc.data()?.applicationIntentReminder?.optedOut === true) {
+  if (userDoc.exists && userDoc.data()?.applicationIntentReminder?.optedOut === true) {
     return {
       status: 200,
       html: buildConfirmationHtml({
