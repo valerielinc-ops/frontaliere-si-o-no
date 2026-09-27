@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-09-26T23:39:19.382Z",
+  "assembledAt": "2026-09-27T14:57:03.339Z",
   "jobs": [
     {
       "id": "company-7uc0r2",
@@ -87,7 +87,8 @@
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
       "postalCode": "2543",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "crawlerMissStreak": 1
     }
   ]
 }

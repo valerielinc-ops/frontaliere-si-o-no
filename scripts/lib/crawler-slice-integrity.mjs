@@ -3,6 +3,7 @@ import {
   assertAccumulatorByteFloor,
   isCatastrophicAccumulatorShrink,
 } from './accumulator-byte-floor-guard.mjs';
+import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
@@ -77,6 +78,29 @@ function isExplicitForeignLocation(location) {
   return Boolean(codes?.length && codes.every((code) => code !== 'CH'));
 }
 
+function isGraceExhaustedLegacyLocation(job) {
+  const location = String(job?.location ?? '').trim();
+  const missStreak = Number(job?.crawlerMissStreak);
+  return Boolean(
+    location
+    && terminalCountryCodes(location) === null
+    && Number.isInteger(missStreak)
+    && missStreak >= CRAWLER_GRACE_PERIOD_MAX_MISSES
+  );
+}
+
+function isGraceRetainedLegacyLocation(job) {
+  const location = String(job?.location ?? '').trim();
+  const missStreak = Number(job?.crawlerMissStreak);
+  return Boolean(
+    location
+    && terminalCountryCodes(location) === null
+    && Number.isInteger(missStreak)
+    && missStreak > 0
+    && missStreak <= CRAWLER_GRACE_PERIOD_MAX_MISSES
+  );
+}
+
 function isLegacySwissReHqFallback(job) {
   return (
     String(job?.companyKey ?? '').trim() === 'swiss-re'
@@ -95,8 +119,10 @@ export function isCrawlerSlicePath(filePath) {
 
 /**
  * Recognise only the Swiss Re source-geography migration proved by issue
- * #9876: every retained record is explicitly Swiss, and every removed record
- * is either explicitly non-CH or carries the exact legacy HQ-fallback marker
+ * #9876: every retained record is explicitly Swiss or an ambiguous legacy
+ * record still carrying a positive miss streak within the merge grace period,
+ * and every removed record is either explicitly non-CH, an ambiguous legacy
+ * record whose grace is exhausted, or the exact legacy HQ-fallback marker
  * observed before #9858. Unknown, mixed, malformed, or empty locations stay
  * on the generic fail-closed path.
  */
@@ -111,7 +137,7 @@ export function isSafeSwissReForeignPruneJobs(filePath, previousJobs, nextJobs) 
   if (!previousIds || !nextIds) return false;
 
   for (const job of nextJobs) {
-    if (!isExplicitSwissLocation(job?.location)) return false;
+    if (!isExplicitSwissLocation(job?.location) && !isGraceRetainedLegacyLocation(job)) return false;
     if (String(job?.companyKey ?? '').trim() !== 'swiss-re') return false;
   }
 
@@ -121,7 +147,11 @@ export function isSafeSwissReForeignPruneJobs(filePath, previousJobs, nextJobs) 
   }
   return removedJobs.every((job) => (
     String(job?.companyKey ?? '').trim() === 'swiss-re'
-    && (isExplicitForeignLocation(job?.location) || isLegacySwissReHqFallback(job))
+    && (
+      isExplicitForeignLocation(job?.location)
+      || isGraceExhaustedLegacyLocation(job)
+      || isLegacySwissReHqFallback(job)
+    )
   ));
 }
 
@@ -147,7 +177,7 @@ export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, r
   const previousJobs = parseJobs(previousRaw);
   const nextJobs = parseJobs(nextRaw);
   const reference = Array.isArray(referenceJobs) ? referenceJobs : parseJobs(referenceJobs);
-  if (!previousJobs || !nextJobs || !reference || previousJobs.length <= nextJobs.length || nextJobs.length === 0) {
+  if (!previousJobs || !nextJobs || !reference || previousJobs.length <= nextJobs.length) {
     return false;
   }
 
