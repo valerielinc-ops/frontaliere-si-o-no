@@ -36270,6 +36270,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'manfrinati-sentenza-varese',
+ category: 'novita',
+ date: '2026-09-26T23:12:47.258Z',
+ image: '/images/blog/manfrinati-sentenza-varese.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'brezzo-bedero-rifiuti-lago-maggiore',
+ category: 'novita',
+ date: '2026-09-27T00:22:56.744Z',
+ image: '/images/blog/brezzo-bedero-rifiuti-lago-maggiore.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -29,6 +29,7 @@ import { parseDocument } from 'yaml';
 import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creator.mjs';
 import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 import { auditLoopFleetBindings } from './loop-fleet-registry-audit.mjs';
+import { lineAt } from './line-at.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -72,7 +73,13 @@ function isRecord(value) {
 
 function lineFor(source, needle) {
   const index = typeof needle === 'string' ? source.indexOf(needle) : source.search(needle);
-  return index < 0 ? 1 : source.slice(0, index).split(/\r?\n/).length;
+  if (index < 0) return 1;
+
+  // Workflow files are generated in the hundreds of kilobytes and this helper
+  // is called once per step, including for steps that produce no finding. The
+  // shared helper indexes each source once and resolves matches with a binary
+  // search instead of rescanning the whole prefix for every call.
+  return lineAt(source, index);
 }
 
 function finding(file, rule, severity, message, line = 1, evidence = null) {

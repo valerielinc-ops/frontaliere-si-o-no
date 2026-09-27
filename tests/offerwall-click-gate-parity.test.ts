@@ -20,7 +20,9 @@
  *   shows at once (holding it kept the CMP off screen in the live probe), and
  *   mark the gate `suppressed`.
  * The first, enum-less call proceeds at once everywhere (holding it delayed
- * the display ads in the live probe).
+ * the display ads in the live probe). If a later call is still enum-less, it
+ * fails closed because the Offerwall cannot be suppressed by type without its
+ * enum value.
  */
 import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -57,11 +59,18 @@ const COPIES: Array<[string, string]> = [
 type FakeMessage = { proceed: (...args: unknown[]) => void; calls: unknown[][] };
 type FakeWindow = {
   location: { pathname: string };
+  history: {
+    pushState: (...args: unknown[]) => void;
+    replaceState: (...args: unknown[]) => void;
+  };
+  addEventListener: (type: string, listener: () => void) => void;
+  dispatchEvent: (event: { type: string }) => boolean;
   localStorage: { getItem: (key: string) => string | null };
   document: { cookie: string };
   googlefc?: {
     MessageTypeEnum?: Record<string, number>;
     controlledMessagingFunction?: (message: FakeMessage) => void;
+    __ftOfferwallBootstrapComplete?: boolean;
   };
   __ftOfferwallGate?: { state?: string; release?: () => boolean };
 };
@@ -87,12 +96,30 @@ function install(
   }: { consent?: string | null; cookie?: string; preset?: FakeWindow['googlefc'] } = {},
 ): FakeWindow {
   const store: Record<string, string> = consent ? { [ADS_CONSENT_STORAGE_KEY]: consent } : {};
-  const win: FakeWindow = {
+  const listeners = new Map<string, Array<() => void>>();
+  const win = {
     location: { pathname },
-    localStorage: { getItem: (key) => store[key] ?? null },
+    history: {
+      pushState: (_state: unknown, _title: unknown, url?: unknown) => {
+        if (url !== undefined && url !== null) win.location.pathname = new URL(String(url), 'https://example.test').pathname;
+      },
+      replaceState: (_state: unknown, _title: unknown, url?: unknown) => {
+        if (url !== undefined && url !== null) win.location.pathname = new URL(String(url), 'https://example.test').pathname;
+      },
+    },
+    addEventListener: (type: string, listener: () => void) => {
+      const entries = listeners.get(type) ?? [];
+      entries.push(listener);
+      listeners.set(type, entries);
+    },
+    dispatchEvent: (event: { type: string }) => {
+      for (const listener of listeners.get(event.type) ?? []) listener();
+      return true;
+    },
+    localStorage: { getItem: (key: string) => store[key] ?? null },
     document: { cookie },
     googlefc: preset,
-  };
+  } satisfies FakeWindow;
   // eslint-disable-next-line no-new-func
   new Function('window', src)(win);
   return win;
@@ -100,7 +127,15 @@ function install(
 
 function message(): FakeMessage {
   const calls: unknown[][] = [];
-  return { calls, proceed: (...args: unknown[]) => calls.push(args) };
+  let completed = false;
+  return {
+    calls,
+    proceed: (...args: unknown[]) => {
+      if (completed) throw new Error('Funding Choices messages are one-shot');
+      completed = true;
+      calls.push(args);
+    },
+  };
 }
 
 const ENUM = { OFFERWALL: 1, AD_BLOCKING: 2 };
@@ -179,15 +214,39 @@ describe.each(COPIES)('%s', (_name, src) => {
   });
 
   it.each(['/articoli/fisco/', '/cerca-lavoro-ticino/tutti/page-2/', '/de/jobs-in-aargau/'])(
-    'proceeds the first, enum-less call at once (%s)',
+    'allows only the first enum-less call for bootstrap (%s)',
     (path) => {
       const win = install(src, path);
-      const m = message();
-      win.googlefc!.controlledMessagingFunction!(m);
-      expect(m.calls).toEqual([[true]]);
+      const bootstrap = message();
+      win.googlefc!.controlledMessagingFunction!(bootstrap);
+      expect(bootstrap.calls).toEqual([[true]]);
+      expect(win.googlefc!.__ftOfferwallBootstrapComplete).toBe(true);
+      expect(win.__ftOfferwallGate).toBeUndefined();
+
+      const unclassifiedOfferwall = message();
+      win.googlefc!.controlledMessagingFunction!(unclassifiedOfferwall);
+      expect(unclassifiedOfferwall.calls).toEqual([[false]]);
       expect(win.__ftOfferwallGate).toBeUndefined();
     },
   );
+
+  it.each(['/articoli/fisco/', '/cerca-lavoro-ticino/tutti/page-2/'])('uses the typed gate after bootstrap (%s)', (path) => {
+    const win = install(src, path);
+    const bootstrap = message();
+    win.googlefc!.controlledMessagingFunction!(bootstrap);
+    expect(bootstrap.calls).toEqual([[true]]);
+
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const typed = message();
+    win.googlefc!.controlledMessagingFunction!(typed);
+    if (isJobBoardSectionPathname(path)) {
+      expect(typed.calls).toEqual([]);
+      expect(win.__ftOfferwallGate?.state).toBe('held');
+    } else {
+      expect(typed.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+      expect(win.__ftOfferwallGate?.state).toBe('off_board');
+    }
+  });
 
   it.each([
     ['no decision anywhere', { consent: null, cookie: cookieWith(FCCDCF_BEFORE_CONSENT) }],
@@ -253,11 +312,75 @@ describe.each(COPIES)('%s', (_name, src) => {
     const win = install(src, '/cerca-lavoro-ticino/', { preset: { controlledMessagingFunction: existing } });
     expect(win.googlefc!.controlledMessagingFunction).toBe(existing);
   });
+
+  it('follows pushState, replaceState, and popstate without reinstalling the callback', () => {
+    const win = install(src, '/articoli/fisco/');
+    const callback = win.googlefc!.controlledMessagingFunction!;
+    win.googlefc!.MessageTypeEnum = ENUM;
+
+    const initial = message();
+    callback(initial);
+    expect(initial.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('off_board');
+
+    win.history.pushState({}, '', '/cerca-lavoro-ticino/');
+    const pushed = message();
+    callback(pushed);
+    expect(pushed.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+
+    win.history.replaceState({}, '', '/articoli/fisco/');
+    expect(pushed.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('off_board');
+
+    win.location.pathname = '/cerca-lavoro-ticino/';
+    win.dispatchEvent({ type: 'popstate' });
+    const popped = message();
+    callback(popped);
+    expect(popped.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+
+    win.location.pathname = '/articoli/fisco/';
+    win.dispatchEvent({ type: 'popstate' });
+    expect(popped.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('off_board');
+    expect(win.googlefc!.controlledMessagingFunction).toBe(callback);
+  });
+
+  it('waits for a fresh Offerwall callback when entering the job board', () => {
+    const win = install(src, '/');
+    const callback = win.googlefc!.controlledMessagingFunction!;
+
+    const first = message();
+    callback(first);
+    expect(first.calls).toEqual([[true]]);
+
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const offBoardOfferwall = message();
+    callback(offBoardOfferwall);
+    expect(offBoardOfferwall.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('off_board');
+
+    win.history.pushState({}, '', '/it/cerca-lavoro-ticino/');
+    expect(win.__ftOfferwallGate?.state).toBe('idle');
+    expect(win.__ftOfferwallGate!.release).toBeUndefined();
+
+    const destinationOfferwall = message();
+    callback(destinationOfferwall);
+    expect(destinationOfferwall.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+    expect(win.__ftOfferwallGate!.release!()).toBe(true);
+    expect(offBoardOfferwall.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(destinationOfferwall.calls).toEqual([[true]]);
+    expect([offBoardOfferwall, destinationOfferwall]
+      .flatMap((m) => m.calls)
+      .filter(([proceed]) => proceed === true)).toHaveLength(1);
+  });
 });
 
 /** The path regex literal a gate copy tests `pathname` against. */
 function gatePathRegex(src: string): RegExp {
-  const m = src.match(/if\s*\(\s*!\/((?:\\.|[^/\\\n])+)\/\.test\(p\)\)/);
+  const m = src.match(/function\s+isJobBoardPath\s*\(\)\s*\{[\s\S]*?return\s*\/((?:\\.|[^/\\\n])+)\/\.test\(p\)/);
   if (!m) throw new Error('gate copy no longer tests the pathname with a regex literal');
   return new RegExp(m[1]);
 }

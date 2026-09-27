@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-09-26T14:25:20.096Z",
+  "generatedAt": "2026-09-27T00:04:07.496Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 166531,
-  "avgDurationMs": 166531,
+  "durationMs": 131018,
+  "avgDurationMs": 131018,
   "durationHistory": [
-    166531
+    131018
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-26T14:25:15.881Z",
+      "crawledAt": "2026-09-27T00:04:02.068Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -92,6 +92,7 @@
       "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
       "sourceIdentity": "url:https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco",
       "needsRetranslation": true,
+      "crawlerMissStreak": 1,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,

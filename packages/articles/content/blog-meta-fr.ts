@@ -12091,6 +12091,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parita-salariale-carta-ticino.title': 'Égalité salariale dans le public tessinois : prochaines étapes',
     'blog.article.parita-salariale-carta-ticino.excerpt': 'Plus de trente communes tessinoises ont adhéré à la Charte pour l\'égalité salariale ; en 2024, la différence dans le secteur public était de 847 francs et Locarno investit plus de 3,2 millions par an dans des mesures de conciliation travail-famille.',
     'blog.article.parita-salariale-carta-ticino.imageAlt': 'Façade de la mairie de Locarno avec des employés tessinois qui marchent, soleil et atmosphère professionnelle',
+    'blog.article.manfrinati-sentenza-varese.title': 'Varese, marco manfrinati condamné à la prison à perpétuité',
+    'blog.article.manfrinati-sentenza-varese.excerpt': 'La Cour d\'assises de Varese a condamné à la réclusion à perpétuité Marco Manfrinati pour le meurtre de Fabio Limido et la tentative de meurtre de Lavinia Limido.',
+    'blog.article.manfrinati-sentenza-varese.imageAlt': 'Actualité locale à Varese : rue urbaine évoquant les faits de la via Ciro Menotti',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.title': 'Plaint pour déchets dans le lac Majeur à Brezzo di Bedero',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.excerpt': 'Les Carabiniers forestiers dénoncent un propriétaire : des gravats jetés depuis la terrasse dans l’eau à 7-13 mètres de profondeur.',
+    'blog.article.brezzo-bedero-rifiuti-lago-maggiore.imageAlt': 'Débris de construction et gravats au fond du lac Majeur à Brezzo di Bedero',
 };
 
 export default blogMetaFr;

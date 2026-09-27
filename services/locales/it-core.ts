@@ -802,7 +802,7 @@ const translations: Record<string, string> = {
  'jobBoard.requirementsHeading': 'Competenze richieste',
  'jobBoard.faq.title': 'Domande frequenti su questo annuncio',
  'jobBoard.apply': 'Candidati',
- 'jobBoard.applicationIntent.disclosure': 'Selezionando «Candidati» acconsenti a registrare il tuo interesse per questo annuncio. Registriamo il click e i dati tecnici necessari; non significa che la candidatura sia stata completata.',
+ 'jobBoard.applicationIntentConsent': 'Selezionando «Candidati» acconsenti a registrare il tuo interesse per questo annuncio. Registriamo il click e i dati tecnici necessari; non significa che la candidatura sia stata completata.',
  'jobBoard.assisted.title': 'Vuoi delegare questa candidatura?',
  'jobBoard.assisted.body': 'Carica il CV e i dati necessari: prepareremo e invieremo manualmente la candidatura per questo annuncio, quando il processo dell’azienda lo consente.',
  'jobBoard.assisted.stepsLabel': 'Come funziona',

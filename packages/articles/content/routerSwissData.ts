@@ -2292,6 +2292,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sanzioni-finanziarie-onu-2026': { it: 'sanzioni-finanziarie-onu-2026', en: 'onu-financial-sanctions-2026', de: 'onu-finanzsanktionen-2026', fr: 'sanctions-financieres-onu-2026' },
  'jans-monaco-lotta-trafficanti': { it: 'jans-monaco-lotta-trafficanti', en: 'jans-munich-human-trafficking-fight', de: 'jans-muenchen-menschenhandel-bekaempfung', fr: 'jans-munich-lutte-trafiquants-etres-humains' },
  'risarcimenti-grandine-svizzera-2026': { it: 'risarcimenti-grandine-svizzera-2026', en: 'swiss-hail-insurance-claims-2026', de: 'schweiz-hagelversicherung-entschaedigungen-2026', fr: 'suisse-indemnisations-grele-2026' },
+ 'onere-premi-cassa-malati-nzz': { it: 'onere-premi-cassa-malati-nzz', en: 'health-insurance-premiums-burden-nzz', de: 'krankenkassenpraemien-belastung-nzz', fr: 'primes-assurance-maladie-charge-nzz' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -4,9 +4,9 @@
     "title": "Buyer (Women",
     "titleByLocale": {
       "it": "Buyer (Women",
+      "fr": "Buyer (Women",
       "en": "Buyer (Women",
-      "de": "Käufer (Frauen)",
-      "fr": "Buyer (Women"
+      "de": "Buyer (Women"
     },
     "company": "Manor AG",
     "companyKey": "manor",
@@ -21,28 +21,30 @@
     "slugByLocale": {
       "it": "manor-buyer-women-basel-1689e4",
       "en": "manor-buyer-women-basel-1689e4",
-      "de": "kaufer-frauen-manor-ag-basel",
+      "de": "manor-buyer-women-basel-1689e4",
       "fr": "manor-buyer-women-basel-1689e4"
     },
     "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.469Z",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
     "previousSlugs": [
-      "manor-buyer-women-basel-3",
       "manor-buyer-women-basel-2",
       "manor-buyer-women-basel",
-      "manor-buyer-women-basel-168a4t"
+      "manor-buyer-women-basel-168a4t",
+      "manor-buyer-women-basel-3",
+      "kaufer-frauen-manor-ag-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "manor-buyer-women-basel-3",
         "manor-buyer-women-basel-2",
-        "manor-buyer-women-basel-168a4t"
+        "manor-buyer-women-basel-168a4t",
+        "manor-buyer-women-basel-3"
       ],
       "en": [
         "manor-buyer-women-basel-168a4t"
       ],
       "de": [
-        "manor-buyer-women-basel-168a4t"
+        "manor-buyer-women-basel-168a4t",
+        "kaufer-frauen-manor-ag-basel"
       ],
       "fr": [
         "manor-buyer-women-basel-168a4t"
@@ -67,6 +69,50 @@
         "title": "Buyer (Women"
       }
     ]
+  },
+  {
+    "slug": "manor-collaborateur-trice-vente-bijouterie-50-geneve-3h3gul",
+    "title": "Collaborateur/trice vente  (Bijouterie) 50%",
+    "titleByLocale": {
+      "it": "Collaborateur/trice vente  (Bijouterie) 50%",
+      "en": "Collaborateur/trice vente (Bijouterie) 50%",
+      "de": "Collaborateur/trice vente (Bijouterie) 50%",
+      "fr": "Collaborateur/trice vente (Bijouterie) 50%"
+    },
+    "company": "Manor AG",
+    "companyKey": "manor",
+    "location": "Genève",
+    "addressLocality": "Genève",
+    "descriptionByLocale": {
+      "it": "Collaborateur/trice vente  (Bijouterie) 50% presso Manor, con sede a Genève, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "en": "Collaborateur/trice vente  (Bijouterie) 50% at Manor, located in Genève, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+      "de": "Collaborateur/trice vente  (Bijouterie) 50% bei Manor, gelegen in Genève, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+      "fr": "Collaborateur/trice vente  (Bijouterie) 50% chez Manor, situé à Genève, Canton de Genève, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+    },
+    "slugByLocale": {
+      "it": "manor-collaborateur-trice-vente-bijouterie-50-geneve-3h3gul",
+      "en": "manor-collaborateur-trice-vente-bijouterie-50-geneve-3h3gul",
+      "de": "manor-collaborateur-trice-vente-bijouterie-50-geneve-3h3gul",
+      "fr": "manor-collaborateur-trice-vente-bijouterie-50-geneve-3h3gul"
+    },
+    "sector": "",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
+    "previousSlugs": [
+      "manor-collaborateur-trice-vente-bijouterie-50-geneve-2",
+      "manor-collaborateur-trice-vente-bijouterie-50-geneve"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "manor-collaborateur-trice-vente-bijouterie-50-geneve-2"
+      ]
+    },
+    "salaryMin": 36000,
+    "salaryMax": 55500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "dedupArchive": true,
+    "sourceIdentity": "url:https://positions.manor.ch/job/gen%c3%a8ve-1-collaborateurtrice-vente-%28bijouterie%29-50/1368730855",
+    "firstSeenAt": "2026-09-19T23:05:15.844Z"
   },
   {
     "slug": "manor-head-of-retail-media-100-basel-0r20tf",
@@ -94,27 +140,10 @@
       "fr": "manor-head-of-retail-media-100-basel-0r20tf"
     },
     "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.469Z",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
     "previousSlugs": [
-      "manor-head-of-retail-media-100-basel",
-      "manor-head-of-retail-media-100-basel-0r202q",
-      "manor-head-of-retail-media-100-basel-2"
+      "manor-head-of-retail-media-100-basel"
     ],
-    "previousSlugsByLocale": {
-      "it": [
-        "manor-head-of-retail-media-100-basel-0r202q",
-        "manor-head-of-retail-media-100-basel-2"
-      ],
-      "en": [
-        "manor-head-of-retail-media-100-basel-0r202q"
-      ],
-      "de": [
-        "manor-head-of-retail-media-100-basel-0r202q"
-      ],
-      "fr": [
-        "manor-head-of-retail-media-100-basel-0r202q"
-      ]
-    },
     "salaryMin": 103500,
     "salaryMax": 159500,
     "salaryCurrency": "CHF",
@@ -134,6 +163,106 @@
         "title": "Head of Retail Media 100%"
       }
     ]
+  },
+  {
+    "slug": "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4kw3",
+    "title": "Mitarbeiter*in Kasse 20%",
+    "titleByLocale": {
+      "it": "Collaboratore/trice*in Kasse 20%",
+      "de": "Mitarbeiter*in Kasse 20%",
+      "en": "Mitarbeiter*in Kasse 20%",
+      "fr": "Mitarbeiter*in Kasse 20%"
+    },
+    "company": "Manor AG",
+    "companyKey": "manor",
+    "location": "Pfäffikon",
+    "addressLocality": "Pfäffikon",
+    "descriptionByLocale": {
+      "it": "Mitarbeiter*in Kasse 20% presso Manor, con sede a Pfäffikon, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "en": "Mitarbeiter*in Kasse 20% at Manor, located in Pfäffikon, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+      "de": "Mitarbeiter*in Kasse 20% bei Manor, gelegen in Pfäffikon, Kanton Zürich, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+      "fr": "Mitarbeiter*in Kasse 20% chez Manor, situé à Pfäffikon, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+    },
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4kw3",
+      "en": "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4kw3",
+      "de": "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4kw3",
+      "fr": "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4kw3"
+    },
+    "sector": "",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
+    "previousSlugs": [
+      "manor-mitarbeiter-in-kasse-20-pfaffikon-2",
+      "manor-mitarbeiter-in-kasse-20-pfaffikon"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "manor-mitarbeiter-in-kasse-20-pfaffikon-2"
+      ]
+    },
+    "salaryMin": 16600,
+    "salaryMax": 25500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "dedupArchive": true,
+    "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-kasse-20/1368732055",
+    "firstSeenAt": "2026-09-19T23:05:15.844Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-kasse-20/1368732055",
+        "firstSeenAt": "2026-09-19T23:05:15.844Z",
+        "title": "Mitarbeiter*in Kasse 20%"
+      },
+      {
+        "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-kasse-20/1368732155",
+        "firstSeenAt": "2026-09-19T23:05:15.844Z",
+        "title": "Mitarbeiter*in Kasse 20%"
+      }
+    ]
+  },
+  {
+    "slug": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmjif",
+    "title": "Mitarbeiter*in Logistik 100%",
+    "titleByLocale": {
+      "it": "Collaboratore/trice*in Logistik 100%",
+      "de": "Mitarbeiter*in Logistik 100%",
+      "en": "Mitarbeiter*in Logistik 100%",
+      "fr": "Mitarbeiter*in Logistik 100%"
+    },
+    "company": "Manor AG",
+    "companyKey": "manor",
+    "location": "Hochdorf",
+    "addressLocality": "Hochdorf",
+    "descriptionByLocale": {
+      "it": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "en": "Mitarbeiter*in Logistik 100% at Manor, located in Hochdorf, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+      "de": "Mitarbeiter*in Logistik 100% bei Manor, gelegen in Hochdorf, Kanton Luzern, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+      "fr": "Mitarbeiter*in Logistik 100% chez Manor, situé à Hochdorf, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+    },
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmjif",
+      "en": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmjif",
+      "de": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmjif",
+      "fr": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmjif"
+    },
+    "sector": "",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
+    "previousSlugs": [
+      "manor-mitarbeiter-in-logistik-100-hochdorf-2",
+      "manor-mitarbeiter-in-logistik-100-hochdorf"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "manor-mitarbeiter-in-logistik-100-hochdorf-2"
+      ]
+    },
+    "salaryMin": 69500,
+    "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "dedupArchive": true,
+    "sourceIdentity": "url:https://positions.manor.ch/job/hochdorf-mitarbeiterin-logistik-100/1368627955",
+    "firstSeenAt": "2026-09-19T23:05:15.844Z"
   },
   {
     "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-0ox213",
@@ -161,7 +290,7 @@
       "de": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-0ox213"
     },
     "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.469Z",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
     "previousSlugs": [
       "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf",
       "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
@@ -240,14 +369,13 @@
       "de": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-0ox2rs"
     },
     "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.469Z",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
     "previousSlugs": [
       "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
       "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
       "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-9pzn7e",
       "logistics-employee-monday-temporary-help-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-      "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-      "in-der-zeitschrift-montagsaus-ilffe-emanor-20-manor-ag-hochdorf"
+      "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -258,8 +386,7 @@
         "logistics-employee-monday-temporary-help-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
       ],
       "de": [
-        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-9pzn7e",
-        "in-der-zeitschrift-montagsaus-ilffe-emanor-20-manor-ag-hochdorf"
+        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-9pzn7e"
       ],
       "fr": [
         "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
@@ -311,22 +438,14 @@
       "fr": "manor-mitarbeiter-in-verkauf-30-pfaffikon-2zn3j6"
     },
     "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.469Z",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
     "previousSlugs": [
       "manor-mitarbeiter-in-verkauf-30-pfaffikon-2",
-      "manor-mitarbeiter-in-verkauf-30-pfaffikon",
-      "mitarbeiter-in-sales-30-manor-ag-pfaffikon",
-      "mitarbeiter-in-vente-30-manor-ag-pfaffikon"
+      "manor-mitarbeiter-in-verkauf-30-pfaffikon"
     ],
     "previousSlugsByLocale": {
       "it": [
         "manor-mitarbeiter-in-verkauf-30-pfaffikon-2"
-      ],
-      "en": [
-        "mitarbeiter-in-sales-30-manor-ag-pfaffikon"
-      ],
-      "fr": [
-        "mitarbeiter-in-vente-30-manor-ag-pfaffikon"
       ]
     },
     "salaryMin": 24900,
@@ -335,210 +454,6 @@
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
     "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-verkauf-30/1368628555",
-    "firstSeenAt": "2026-09-19T23:05:15.844Z"
-  },
-  {
-    "slug": "manor-collaborateur-trice-vente-bijouterie-50-geneve-3h3gul",
-    "title": "Collaborateur/trice vente  (Bijouterie) 50%",
-    "titleByLocale": {
-      "it": "Collaborateur/trice vente  (Bijouterie) 50%",
-      "en": "Collaborateur/trice vente (Bijouterie) 50%",
-      "de": "Collaborateur/trice vente (Bijouterie) 50%",
-      "fr": "Collaborateur/trice vente (Bijouterie) 50%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Genève",
-    "addressLocality": "Genève",
-    "descriptionByLocale": {
-      "it": "Collaborateur/trice vente  (Bijouterie) 50% presso Manor, con sede a Genève, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "en": "Collaborateur/trice vente  (Bijouterie) 50% at Manor, located in Genève, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-      "de": "Collaborateur/trice vente  (Bijouterie) 50% bei Manor, gelegen in Genève, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-      "fr": "Collaborateur/trice vente  (Bijouterie) 50% chez Manor, situé à Genève, Canton de Genève, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-    },
-    "slugByLocale": {
-      "it": "manor-collaborateur-trice-vente-bijouterie-50-geneve-3h3gul",
-      "en": "manor-collaborateur-trice-vente-bijouterie-50-geneve-3h3gul",
-      "de": "manor-collaborateur-trice-vente-bijouterie-50-geneve-3h3gul",
-      "fr": "manor-collaborateur-trice-vente-bijouterie-50-geneve-3h3gul"
-    },
-    "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.468Z",
-    "previousSlugs": [
-      "manor-collaborateur-trice-vente-bijouterie-50-geneve-2",
-      "manor-collaborateur-trice-vente-bijouterie-50-geneve"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "manor-collaborateur-trice-vente-bijouterie-50-geneve-2"
-      ]
-    },
-    "salaryMin": 36000,
-    "salaryMax": 55500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "dedupArchive": true,
-    "sourceIdentity": "url:https://positions.manor.ch/job/gen%c3%a8ve-1-collaborateurtrice-vente-%28bijouterie%29-50/1368730855",
-    "firstSeenAt": "2026-09-19T23:05:15.844Z"
-  },
-  {
-    "slug": "manor-collaborateur-trice-vente-parfumerie-50-geneve-3h3d54",
-    "title": "Collaborateur/trice vente (Parfumerie) 50%",
-    "titleByLocale": {
-      "it": "Collaborateur/trice vente (Parfumerie) 50%",
-      "en": "Collaborateur/trice vente (Parfumerie) 50%",
-      "de": "Collaborateur/trice vente (Parfumerie) 50%",
-      "fr": "Collaborateur/trice vente (Parfumerie) 50%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Genève",
-    "addressLocality": "Genève",
-    "descriptionByLocale": {
-      "it": "Collaborateur/trice vente (Parfumerie) 50% presso Manor, con sede a Genève, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "en": "Collaborateur/trice vente (Parfumerie) 50% at Manor, located in Genève, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-      "de": "Collaborateur/trice vente (Parfumerie) 50% bei Manor, gelegen in Genève, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-      "fr": "Collaborateur/trice vente (Parfumerie) 50% chez Manor, situé à Genève, Canton de Genève, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-    },
-    "slugByLocale": {
-      "it": "manor-collaborateur-trice-vente-parfumerie-50-geneve-3h3d54",
-      "en": "manor-collaborateur-trice-vente-parfumerie-50-geneve-3h3d54",
-      "de": "manor-collaborateur-trice-vente-parfumerie-50-geneve-3h3d54",
-      "fr": "manor-collaborateur-trice-vente-parfumerie-50-geneve-3h3d54"
-    },
-    "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.468Z",
-    "previousSlugs": [
-      "manor-collaborateur-trice-vente-parfumerie-50-geneve-2",
-      "manor-collaborateur-trice-vente-parfumerie-50-geneve-3h3d54",
-      "manor-collaborateur-trice-vente-parfumerie-50-geneve"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "manor-collaborateur-trice-vente-parfumerie-50-geneve-2",
-        "manor-collaborateur-trice-vente-parfumerie-50-geneve-3h3d54"
-      ]
-    },
-    "salaryMin": 36000,
-    "salaryMax": 55500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "dedupArchive": true,
-    "sourceIdentity": "url:https://positions.manor.ch/job/gen%c3%a8ve-1-collaborateurtrice-vente-%28parfumerie%29-50/1368730355",
-    "firstSeenAt": "2026-09-23T23:53:59.307Z"
-  },
-  {
-    "slug": "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4kw3",
-    "title": "Mitarbeiter*in Kasse 20%",
-    "titleByLocale": {
-      "it": "Collaboratore/trice*in Kasse 20%",
-      "en": "Mitarbeiter*in Kasse 20%",
-      "de": "Mitarbeiter*in Kasse 20%",
-      "fr": "Mitarbeiter* dans Kasse 20%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Pfäffikon",
-    "addressLocality": "Pfäffikon",
-    "descriptionByLocale": {
-      "it": "Mitarbeiter*in Kasse 20% presso Manor, con sede a Pfäffikon, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "en": "Mitarbeiter*in Kasse 20% at Manor, located in Pfäffikon, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-      "de": "Mitarbeiter*in Kasse 20% bei Manor, gelegen in Pfäffikon, Kanton Zürich, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-      "fr": "Mitarbeiter*in Kasse 20% chez Manor, situé à Pfäffikon, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-    },
-    "slugByLocale": {
-      "it": "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4kw3",
-      "en": "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4kw3",
-      "de": "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4kw3",
-      "fr": "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4kw3"
-    },
-    "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.468Z",
-    "previousSlugs": [
-      "manor-mitarbeiter-in-kasse-30-pfaffikon-mitarbeiterin-kasse-30",
-      "manor-mitarbeiter-in-kasse-20-pfaffikon-2",
-      "manor-mitarbeiter-in-kasse-20-pfaffikon",
-      "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4lms"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "manor-mitarbeiter-in-kasse-30-pfaffikon-mitarbeiterin-kasse-30",
-        "manor-mitarbeiter-in-kasse-20-pfaffikon-2",
-        "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4lms"
-      ],
-      "de": [
-        "manor-mitarbeiter-in-kasse-30-pfaffikon-mitarbeiterin-kasse-30",
-        "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4lms"
-      ],
-      "en": [
-        "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4lms"
-      ],
-      "fr": [
-        "manor-mitarbeiter-in-kasse-20-pfaffikon-3h4lms"
-      ]
-    },
-    "salaryMin": 16600,
-    "salaryMax": 25500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "dedupArchive": true,
-    "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-kasse-20/1368732055",
-    "firstSeenAt": "2026-09-19T23:05:15.844Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-kasse-20/1368732055",
-        "firstSeenAt": "2026-09-19T23:05:15.844Z",
-        "title": "Mitarbeiter*in Kasse 20%"
-      },
-      {
-        "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-kasse-20/1368732155",
-        "firstSeenAt": "2026-09-19T23:05:15.844Z",
-        "title": "Mitarbeiter*in Kasse 20%"
-      }
-    ]
-  },
-  {
-    "slug": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmjif",
-    "title": "Mitarbeiter*in Logistik 100%",
-    "titleByLocale": {
-      "it": "Collaboratore/trice*in Logistik 100%",
-      "de": "Mitarbeiter*in Logistik 100%",
-      "en": "Mitarbeiter*in Logistik 100%",
-      "fr": "Mitarbeiter*in Logistik 100%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Hochdorf",
-    "addressLocality": "Hochdorf",
-    "descriptionByLocale": {
-      "it": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "en": "Mitarbeiter*in Logistik 100% at Manor, located in Hochdorf, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-      "de": "Mitarbeiter*in Logistik 100% bei Manor, gelegen in Hochdorf, Kanton Luzern, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-      "fr": "Mitarbeiter*in Logistik 100% chez Manor, situé à Hochdorf, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-    },
-    "slugByLocale": {
-      "it": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmjif",
-      "en": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmjif",
-      "de": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmjif",
-      "fr": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmjif"
-    },
-    "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.468Z",
-    "previousSlugs": [
-      "manor-mitarbeiter-in-logistik-100-hochdorf-2",
-      "manor-mitarbeiter-in-logistik-100-hochdorf"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "manor-mitarbeiter-in-logistik-100-hochdorf-2"
-      ]
-    },
-    "salaryMin": 69500,
-    "salaryMax": 106000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "dedupArchive": true,
-    "sourceIdentity": "url:https://positions.manor.ch/job/hochdorf-mitarbeiterin-logistik-100/1368627955",
     "firstSeenAt": "2026-09-19T23:05:15.844Z"
   },
   {
@@ -567,7 +482,7 @@
       "fr": "manor-mitarbeiter-in-verkauf-damenkonfektion-40-pfaffikon-gqz7ot"
     },
     "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.468Z",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
     "previousSlugs": [
       "manor-mitarbeiter-in-verkauf-damenkonfektion-40-pfaffikon-2",
       "manor-mitarbeiter-in-verkauf-damenkonfektion-40-pfaffikon"
@@ -583,50 +498,6 @@
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
     "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-verkauf-damenkonfektion-40/1369444755",
-    "firstSeenAt": "2026-09-25T14:52:29.523Z"
-  },
-  {
-    "slug": "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-h970p8",
-    "title": "Mitarbeiter*in Verkauf Herrenkonfektion 30%",
-    "titleByLocale": {
-      "it": "Collaboratore/trice*in vendita Herrenkonfektion 30%",
-      "de": "Mitarbeiter*in Verkauf Herrenkonfektion 30%",
-      "en": "Mitarbeiter*in Sales Herrenkonfektion 30%",
-      "fr": "Mitarbeiter*in Vente Herrenkonfektion 30%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Pfäffikon",
-    "addressLocality": "Pfäffikon",
-    "descriptionByLocale": {
-      "it": "Mitarbeiter*in Verkauf Herrenkonfektion 30% presso Manor, con sede a Pfäffikon, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "en": "Mitarbeiter*in Verkauf Herrenkonfektion 30% at Manor, located in Pfäffikon, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-      "de": "Mitarbeiter*in Verkauf Herrenkonfektion 30% bei Manor, gelegen in Pfäffikon, Kanton Zürich, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-      "fr": "Mitarbeiter*in Verkauf Herrenkonfektion 30% chez Manor, situé à Pfäffikon, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-    },
-    "slugByLocale": {
-      "it": "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-h970p8",
-      "en": "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-h970p8",
-      "de": "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-h970p8",
-      "fr": "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-h970p8"
-    },
-    "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.468Z",
-    "previousSlugs": [
-      "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-2",
-      "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-2"
-      ]
-    },
-    "salaryMin": 24900,
-    "salaryMax": 38300,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "dedupArchive": true,
-    "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-verkauf-herrenkonfektion-30/1369568955",
     "firstSeenAt": "2026-09-25T14:52:29.523Z"
   },
   {
@@ -655,7 +526,7 @@
       "fr": "manor-mitarbeiter-in-verkauf-home-30-pfaffikon-gr1n6r"
     },
     "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.468Z",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
     "previousSlugs": [
       "manor-mitarbeiter-in-verkauf-home-30-pfaffikon-2",
       "manor-mitarbeiter-in-verkauf-home-30-pfaffikon"
@@ -699,7 +570,7 @@
       "fr": "manor-mitarbeiter-in-verkauf-spielwaren-40-pfaffikon-gr0dye"
     },
     "sector": "",
-    "expiredAt": "2026-09-26T14:12:58.468Z",
+    "expiredAt": "2026-09-26T23:48:37.147Z",
     "previousSlugs": [
       "manor-mitarbeiter-in-verkauf-spielwaren-40-pfaffikon-2",
       "manor-mitarbeiter-in-verkauf-spielwaren-40-pfaffikon"
@@ -715,6 +586,50 @@
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
     "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-verkauf-spielwaren-40/1369446255",
+    "firstSeenAt": "2026-09-25T14:52:29.523Z"
+  },
+  {
+    "slug": "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-h970p8",
+    "title": "Mitarbeiter*in Verkauf Herrenkonfektion 30%",
+    "titleByLocale": {
+      "it": "Collaboratore/trice*in vendita Herrenkonfektion 30%",
+      "de": "Mitarbeiter*in Verkauf Herrenkonfektion 30%",
+      "en": "Mitarbeiter*in Sales Herrenkonfektion 30%",
+      "fr": "Mitarbeiter*in Vente Herrenkonfektion 30%"
+    },
+    "company": "Manor AG",
+    "companyKey": "manor",
+    "location": "Pfäffikon",
+    "addressLocality": "Pfäffikon",
+    "descriptionByLocale": {
+      "it": "Mitarbeiter*in Verkauf Herrenkonfektion 30% presso Manor, con sede a Pfäffikon, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "en": "Mitarbeiter*in Verkauf Herrenkonfektion 30% at Manor, located in Pfäffikon, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+      "de": "Mitarbeiter*in Verkauf Herrenkonfektion 30% bei Manor, gelegen in Pfäffikon, Kanton Zürich, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+      "fr": "Mitarbeiter*in Verkauf Herrenkonfektion 30% chez Manor, situé à Pfäffikon, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+    },
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-h970p8",
+      "en": "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-h970p8",
+      "de": "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-h970p8",
+      "fr": "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-h970p8"
+    },
+    "sector": "",
+    "expiredAt": "2026-09-26T23:48:37.146Z",
+    "previousSlugs": [
+      "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-2",
+      "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "manor-mitarbeiter-in-verkauf-herrenkonfektion-30-pfaffikon-2"
+      ]
+    },
+    "salaryMin": 24900,
+    "salaryMax": 38300,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "dedupArchive": true,
+    "sourceIdentity": "url:https://positions.manor.ch/job/pf%c3%a4ffikon-mitarbeiterin-verkauf-herrenkonfektion-30/1369568955",
     "firstSeenAt": "2026-09-25T14:52:29.523Z"
   },
   {

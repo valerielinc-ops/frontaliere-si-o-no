@@ -1,21 +1,21 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-09-26T14:19:48.953Z",
-  "total": 3,
+  "generatedAt": "2026-09-27T00:04:54.655Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 3,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4484,
-  "avgDurationMs": 4484,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 2311,
+  "avgDurationMs": 2311,
   "durationHistory": [
-    4484
+    2311
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:19:42.613Z",
+      "crawledAt": "2026-09-27T00:04:47.076Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -71,7 +71,7 @@
       "url": "https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:19:42.615Z",
+      "crawledAt": "2026-09-27T00:04:47.079Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -98,8 +98,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "beekeeper-877c21c09c76",
       "slug": "rappresentante-per-lo-sviluppo-commerciale-zurich-beekeeper-zurich",
@@ -135,6 +134,7 @@
       "salarySource": "estimated",
       "sourceIdentity": "url:https://job.lumapps.com/jobs/8241616-business-development-representative-zurich",
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -143,5 +143,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

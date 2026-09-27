@@ -765,7 +765,7 @@ const frCore: Record<string, string> = {
  'jobBoard.requirementsHeading': 'Compétences requises',
  'jobBoard.faq.title': 'Questions fréquentes sur cette offre',
  'jobBoard.apply': 'Postuler',
- 'jobBoard.applicationIntent.disclosure': 'En sélectionnant « Postuler », vous acceptez que nous enregistrions votre intérêt pour cette offre. Nous enregistrons le clic et les données techniques nécessaires ; cela ne signifie pas que la candidature est terminée.',
+ 'jobBoard.applicationIntentConsent': 'En sélectionnant « Postuler », vous acceptez que nous enregistrions votre intérêt pour cette offre. Nous enregistrons le clic et les données techniques nécessaires ; cela ne signifie pas que la candidature est terminée.',
  'jobBoard.assisted.title': 'Voulez-vous déléguer cette candidature ?',
  'jobBoard.assisted.body': 'Envoyez-nous votre CV et les informations nécessaires : nous préparerons et enverrons manuellement la candidature pour cette offre lorsque le processus de l’entreprise le permet.',
  'jobBoard.assisted.stepsLabel': 'Comment ça marche',

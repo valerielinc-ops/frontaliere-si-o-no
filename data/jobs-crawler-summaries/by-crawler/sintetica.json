@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-09-26T13:50:05.811Z",
+  "generatedAt": "2026-09-26T23:29:37.785Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11521,
-  "avgDurationMs": 11521,
+  "durationMs": 10551,
+  "avgDurationMs": 10551,
   "durationHistory": [
-    11521
+    10551
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -293,13 +293,13 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 15
       }
