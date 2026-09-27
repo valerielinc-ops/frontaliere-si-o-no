@@ -15,7 +15,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
@@ -97,26 +97,6 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        Origin: 'https://www.pwc.ch',
-        Referer: 'https://www.pwc.ch/',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
@@ -144,7 +124,13 @@ export async function fetchAllListings() {
 
   const fetchPage = async (offset) => {
     const url = `${API_BASE_URL}?lang=en&offset=${offset}&limit=${LISTING_PAGE_SIZE}`;
-    const data = await fetchJson(url);
+    const data = await fetchJson(url, {
+      timeoutMs: TIMEOUT_MS,
+      headers: {
+        Origin: 'https://www.pwc.ch',
+        Referer: 'https://www.pwc.ch/',
+      },
+    });
     const parsed = parsePwcJobs(data);
     return { ...parsed, url };
   };
