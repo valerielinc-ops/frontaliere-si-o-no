@@ -185,6 +185,7 @@ import { useNavigationState } from '@/hooks/useNavigationState';
 import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 import { installBlogImageCdnFallback } from '@/services/seo/blogImageCdn';
+import { getAutoAdOverlayClearance, subscribeToAutoAdOverlay } from '@/services/autoAdOverlay';
 import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
 import { useJobAlertReturnVisit } from '@/hooks/useJobAlertReturnVisit';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
@@ -400,6 +401,8 @@ const App: React.FC = () => {
 
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
+ const [autoAdOverlayClearance, setAutoAdOverlayClearance] = useState(() => getAutoAdOverlayClearance());
+ useEffect(() => subscribeToAutoAdOverlay(setAutoAdOverlayClearance), []);
  useSeoPageTracking();
  // "This person came back to the site" — the single fact a decayed job alert
  // needs to come back to life (#5705, owner's decision of 2026-08-14). Records
@@ -4139,7 +4142,11 @@ const App: React.FC = () => {
      identified visitor without stored proof — renders null for everyone else */}
  <CommunicationsConsentBanner email={authEmail} />
  {/* Mobile Bottom Navigation Bar */}
- <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
+ <nav
+ aria-label="Navigazione mobile"
+ className="mobile-bottom-nav fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]"
+ style={{ '--mobile-nav-ad-clearance': `${autoAdOverlayClearance}px` } as React.CSSProperties}
+ >
  <div className="grid grid-cols-6 h-14">
  {([
  { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator.mobile') },

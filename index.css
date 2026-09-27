@@ -1467,9 +1467,22 @@ input[type=number] { -moz-appearance: textfield; }
   bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px) + var(--bottom-prompt-ad-clearance, 0px));
   transition: bottom 180ms ease-out;
 }
+
+/* Google Auto Ads anchors are fixed to the bottom of the viewport. Keep the
+   mobile navigation in its own visible band above that anchor instead of
+   letting the creative cover its labels. App.tsx updates the custom property
+   from the same measured clearance used by bottom prompts; a missing/flow ad
+   keeps the native bottom-0 position. */
+.mobile-bottom-nav {
+  bottom: var(--mobile-nav-ad-clearance, 0px);
+  transition: bottom 180ms ease-out;
+}
 @media (min-width: 768px) {
   .above-mobile-nav {
     bottom: calc(1rem + var(--bottom-prompt-ad-clearance, 0px));
+  }
+  .mobile-bottom-nav {
+    bottom: 0;
   }
 }
 
