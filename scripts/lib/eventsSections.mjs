@@ -38,6 +38,16 @@
  *   bug class for a different page.
  */
 
+/** The localized root segments are shared by audits and runtime analytics. */
+export const EVENTS_ROOT_SEGMENTS = Object.freeze([
+  'eventi',
+  'events',
+  'veranstaltungen',
+  'evenements',
+]);
+
+const EVENTS_ROOT_PATTERN = EVENTS_ROOT_SEGMENTS.join('|');
+
 /**
  * Matches the leading events section segment of a normalised dist path
  * (a path beginning with `/`, optionally locale-prefixed `/en|/de|/fr`).
@@ -46,8 +56,49 @@
  * `/de/veranstaltungen/graubunden/…`, `/fr/evenements/vaud/…`,
  * `/eventi/questo-weekend/…` (digest landing).
  */
-export const EVENTS_SECTION_RX =
-  /(?:^|\/)(?:eventi|events|veranstaltungen|evenements)(?:\/[a-z][a-z-]*)?(?:\/|$)/;
+export const EVENTS_SECTION_RX = new RegExp(
+  `(?:^|\/)(?:${EVENTS_ROOT_PATTERN})(?:\/[a-z][a-z-]*)?(?:\/|$)`,
+);
+
+const EVENTS_DIGEST_SEGMENTS = new Set([
+  'questa-settimana',
+  'questo-weekend',
+  'this-week',
+  'this-weekend',
+  'diese-woche',
+  'dieses-wochenende',
+  'cette-semaine',
+  'ce-week-end',
+]);
+
+const EVENTS_OTHER_SEGMENTS = new Set([
+  'altri-eventi',
+  'other-events',
+  'weitere-veranstaltungen',
+  'autres-evenements',
+]);
+
+/**
+ * Classify the canonical page shape below a localized events root.
+ * `localPath` must already have its optional locale prefix removed.
+ * Keeping this classifier next to `EVENTS_SECTION_RX` prevents the GA4 route
+ * taxonomy from drifting away from the static-page/audit taxonomy.
+ */
+export function classifyEventsPage(localPath) {
+  const segments = String(localPath || '').split('/').filter(Boolean);
+  if (!EVENTS_ROOT_SEGMENTS.includes(segments[0])) return null;
+
+  const tail = segments.slice(1);
+  if (tail.length === 0) return 'events_index';
+  if (tail.length === 1) return 'events_hub';
+  if (tail.length === 2) {
+    if (EVENTS_DIGEST_SEGMENTS.has(tail[1])) return 'events_digest';
+    if (EVENTS_OTHER_SEGMENTS.has(tail[1])) return 'events_other';
+    return 'events_comune';
+  }
+  if (/^page-\d+$/.test(tail[tail.length - 1])) return 'events_overflow';
+  return 'event_detail';
+}
 
 /**
  * @param {string} normalisedPath path that already starts with `/` and has had

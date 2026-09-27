@@ -1,0 +1,21 @@
+{
+  "companyKey": "domino-rh-com",
+  "companyName": "DOMINO RH",
+  "companyHost": "domino-rh.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://domino-rh.com/offres-interim-cdd-cdi/"
+  ],
+  "detailTemplate": "/offres-emploi/rhone-alpes/69-rhone/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Médecin Généraliste – (F/H)",
+    "Technicien Génie Civil (F/H)"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-09-27T11:00:49.167Z"
+}

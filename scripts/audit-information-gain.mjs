@@ -60,6 +60,7 @@ import {
 import { isJobBoardContentPath } from './lib/jobBoardSections.mjs';
 import { isPlateAuctionSectionPath } from './lib/plateAuctionSections.mjs';
 import { isPharmacySectionPath } from './lib/pharmacySections.mjs';
+import { isFuelSectionPath } from './lib/fuelSections.mjs';
 
 /**
  * Median share of page-specific prose a gated cohort must clear.
@@ -317,6 +318,11 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // The route matcher covers both the directory and duty bases in all
       // four locales, including the Italian-border subtrees.
       if (isPharmacySectionPath(relPath)) return;
+      // Fuel-daily pages are structured price/station records. Their
+      // page-specific payload is numeric and therefore intentionally masked by
+      // informationGain; scoring the surrounding template prose would turn
+      // every locale × fuel section into an editorial false positive.
+      if (isFuelSectionPath(relPath)) return;
       fingerprints.push(fingerprintPage(relPath, html));
     },
     report() {

@@ -76,6 +76,22 @@ export function infeedAdGridBlockHtml(opts?: { experimentVariant?: InfeedAdVaria
   return `<div class="ft-infeed-ad my-3 sm:col-span-2 lg:col-span-3" role="presentation"${experimentAttrs}>${infeedAdInnerHtml()}</div>`;
 }
 
+function escapeAdLabel(value: string): string {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/** One full-width in-feed unit for the events card grid. It intentionally
+ * uses a single responsive `<ins>` and the same reserved 336px floor as the
+ * proven high-fill display unit; static pages cannot device-split safely. */
+export function eventsInfeedAdGridBlockHtml(label: string): string {
+  const safeLabel = escapeAdLabel(label);
+  return `<section class="ft-infeed-ad ev-ad my-3 sm:col-span-2 lg:col-span-3" aria-label="${safeLabel}" data-ad-placement="events-list-infeed"><p class="ev-ad-label">${safeLabel}</p>${adSlotHtml('EVENTS_LIST_INFEED')}</section>`;
+}
+
 /**
  * End-of-content multiplex ad for the static SSG "family" landing pages that
  * previously ran Auto Ads only — events, career, cost-of-living, comparisons,
