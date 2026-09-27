@@ -64,6 +64,7 @@ describe('verifyShrinkAgainstSource()', () => {
     expect(verdict.dead).toBe(13);
     expect(verdict.alive).toBe(0);
     expect(verdict.evidence).toHaveLength(13);
+    expect(verdict.evidence.every((entry) => entry.definitive === true)).toBe(true);
   });
 
   it('accepts an ATS "posting expired" marker as evidence, not just 404', async () => {
@@ -260,6 +261,7 @@ describe('verifyShrinkAgainstSource()', () => {
     });
     expect(verdict.corroborated).toBe(true);
     expect(verdict.evidence).toHaveLength(5);
+    expect(verdict.evidence.every((entry) => entry.definitive === false)).toBe(true);
   });
 
   it('leaves the guard threshold itself untouched (no ratio was lowered)', () => {
