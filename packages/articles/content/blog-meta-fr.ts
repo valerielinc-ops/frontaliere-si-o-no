@@ -12144,6 +12144,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.luvinate-scuola-sicurezza.title': 'Luvinate, école ouverte entre sécurité et prévention',
     'blog.article.luvinate-scuola-sicurezza.excerpt': 'À l’école primaire Pedotti de Luvinate, Fête de l’Accueil avec la Police scientifique, la Croix-Rouge, le cyberharcèlement, l’anglais et les premiers secours pour les enfants en classe.',
     'blog.article.luvinate-scuola-sicurezza.imageAlt': 'Écoliers pendant des ateliers de sécurité et de prévention',
+    'blog.article.bellinzona-voto-castelli.title': 'Bellinzone rejette le projet « forteresse »',
+    'blog.article.bellinzona-voto-castelli.excerpt': '54% des votants ont rejeté le plan de 19,1 millions visant à mettre en valeur et à moderniser le site UNESCO des châteaux de Bellinzone ; participation à 47,5%.',
+    'blog.article.bellinzona-voto-castelli.imageAlt': 'Les châteaux de Bellinzone au cœur du vote sur le projet forteresse',
 };
 
 export default blogMetaFr;

@@ -59,6 +59,7 @@ function dailyWorkflow(name: string) {
   const path = fileURLToPath(new URL(`../.github/workflows/${name}`, import.meta.url));
   return YAML.parse(readFileSync(path, 'utf8')) as {
     concurrency?: { group?: string; 'cancel-in-progress'?: boolean };
+    jobs: Record<string, { if?: string; concurrency?: { group?: string; 'cancel-in-progress'?: boolean } }>;
   };
 }
 
@@ -73,9 +74,13 @@ describe('daily writer concurrency contract', () => {
   });
 
   it('il drainer acquisisce lo stesso lock daily prima di leggere la coda', () => {
+    // Stesso group dei writer, ma sul job `drain`: GitHub condivide il mutex fra
+    // group job-level e workflow-level con lo stesso nome, e un job saltato dal
+    // suo `if:` non entra nel gruppo (non sostituisce la pending utile).
     const workflow = dailyWorkflow(DRAINER_WORKFLOW);
-    expect(workflow.concurrency?.group).toBe(DAILY_MUTEX_GROUP);
-    expect(workflow.concurrency?.['cancel-in-progress']).toBe(false);
+    expect(workflow.concurrency).toBeUndefined();
+    expect(workflow.jobs.drain.concurrency?.group).toBe(DAILY_MUTEX_GROUP);
+    expect(workflow.jobs.drain.concurrency?.['cancel-in-progress']).toBe(false);
   });
 });
 

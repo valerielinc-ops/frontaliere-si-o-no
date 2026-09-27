@@ -12143,6 +12143,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.luvinate-scuola-sicurezza.title': 'Luvinate, scuola aperta tra sicurezza e prevenzione',
     'blog.article.luvinate-scuola-sicurezza.excerpt': 'Alla primaria Pedotti di Luvinate, Festa dell\'Accoglienza con Polizia Scientifica, Croce Rossa, cyberbullismo, inglese e primo soccorso per i bambini in classe.',
     'blog.article.luvinate-scuola-sicurezza.imageAlt': 'Bambini della primaria durante laboratori di sicurezza e prevenzione',
+    'blog.article.bellinzona-voto-castelli.title': 'Bellinzona boccia il progetto «fortezza»',
+    'blog.article.bellinzona-voto-castelli.excerpt': 'Il 54% dei votanti ha respinto il piano da 19,1 milioni per valorizzare e modernizzare il sito UNESCO dei castelli di Bellinzona; partecipazione al 47,5%.',
+    'blog.article.bellinzona-voto-castelli.imageAlt': 'I castelli di Bellinzona al centro del voto sul progetto fortezza',
 };
 
 export default blogMetaIt;

@@ -29,9 +29,9 @@ permissions:
   issues: write
 
 concurrency:
-  # Deve coincidere con post-merge-followup.yml: il reconciler e il gate di
-  # sealing possono scrivere lo stesso bucket daily. Il drainer ha un mutex
-  # dedicato e non deve essere accodato dietro a questo batch.
+  # Deve coincidere con post-merge-followup.yml e con il job `drain` di
+  # followup-drainer.yml: il reconciler, il gate di sealing e il drainer
+  # possono toccare lo stesso bucket daily.
   group: followup-daily-${{ github.repository }}
   cancel-in-progress: false
 
