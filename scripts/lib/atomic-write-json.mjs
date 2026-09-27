@@ -34,11 +34,16 @@ let tmpSeq = 0;
  *
  * @param {string} filePath destination path
  * @param {unknown} value JSON-serializable value
- * @param {{compact?: boolean, dedupReferenceJobs?: unknown[] | null}} [opts]
+ * @param {{compact?: boolean, dedupReferenceJobs?: unknown[] | null, housekeepingProof?: unknown[] | null}} [opts]
  *   `compact` emits minified JSON; `dedupReferenceJobs` is proof supplied only
- *   by the cross-crawler dedup maintenance command.
+ *   by the cross-crawler dedup maintenance command; `housekeepingProof` is
+ *   definitive URL evidence supplied only by the housekeeping command.
  */
-export function writeJsonAtomic(filePath, value, { compact = false, dedupReferenceJobs = null } = {}) {
+export function writeJsonAtomic(
+  filePath,
+  value,
+  { compact = false, dedupReferenceJobs = null, housekeepingProof = null } = {},
+) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   // Mutates `value` in place, re-capturing any slug this write would drop.
   // Never throws: slug preservation must not be able to fail a data write.
@@ -50,7 +55,10 @@ export function writeJsonAtomic(filePath, value, { compact = false, dedupReferen
   const json = compact ? JSON.stringify(value) : JSON.stringify(value, null, 2);
   const content = `${json}\n`;
   if (isCrawlerSlicePath(filePath) && fs.existsSync(filePath)) {
-    assertCrawlerSliceWriteSafe(filePath, fs.readFileSync(filePath, 'utf8'), content, { dedupReferenceJobs });
+    assertCrawlerSliceWriteSafe(filePath, fs.readFileSync(filePath, 'utf8'), content, {
+      dedupReferenceJobs,
+      housekeepingProof,
+    });
   }
   const tmp = `${filePath}.${process.pid}.${tmpSeq++}.tmp`;
   try {
