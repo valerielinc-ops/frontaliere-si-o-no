@@ -474,6 +474,105 @@ describe('native auto-merge gate (#8512)', () => {
     }).allow).toBe(false);
   });
 
+  // PR #10098 (2026-09-27): the review gate declassified the only 🔴 as
+  // outside the diff and approved at 17:47Z, but `post-review` runs inside the
+  // same `tests` run, which is still `in_progress` there. The proof demanded a
+  // completed run, so the in-job opt-in always declined and the PR waited for a
+  // `*/20` retry that GitHub had skipped since 17:44Z.
+  describe('prova outside-diff dalla run del chiamante (post-review, #10098)', () => {
+    const REPO = 'valerielinc-ops/frontaliere-si-o-no';
+    function inFlightEvidence(overrides: Record<string, any> = {}) {
+      const base = reviewGateEvidenceFor();
+      return {
+        ...base,
+        workflow: {
+          ...base.workflow,
+          status: 'in_progress',
+          conclusion: null,
+          // In flight, the run may not have been touched after the check closed.
+          updated_at: '2026-09-13T12:04:00Z',
+          ...overrides,
+        },
+      };
+    }
+    function decide(evidence: any, callerRunId: number | null) {
+      return reviewGateEvidenceDecision({
+        evidence,
+        repo: REPO,
+        head: HEAD,
+        review: review(OUTSIDE_FINDINGS_BODY),
+        reviewRevision: REVIEW_REVISION,
+        callerRunId,
+      });
+    }
+
+    it('accetta la run in corso quando è la run del chiamante', () => {
+      const result = decide(inFlightEvidence(), 700);
+      expect(result.allow).toBe(true);
+      expect(result.reason).toMatch(/run del chiamante in corso/);
+    });
+
+    it.each([
+      ['senza run del chiamante (retry schedulato)', null],
+      ['con la run di un altro chiamante', 701],
+    ])('rifiuta la run in corso %s', (_label, callerRunId) => {
+      expect(decide(inFlightEvidence(), callerRunId).allow).toBe(false);
+    });
+
+    it.each([
+      ['run del chiamante già completata ma rossa', { status: 'completed', conclusion: 'failure' }],
+      ['run del chiamante in coda', { status: 'queued' }],
+      ['run del chiamante con esito già scritto', { conclusion: 'cancelled' }],
+      ['run del chiamante su un\'altra HEAD', { head_sha: OLD_HEAD }],
+    ])('rifiuta %s', (_label, overrides) => {
+      expect(decide(inFlightEvidence(overrides), 700).allow).toBe(false);
+    });
+
+    it('tiene obbligatori job required, step review-gate e ordine anche nella run del chiamante', () => {
+      const evidence = inFlightEvidence();
+      expect(decide({ ...evidence, job: { ...evidence.job, status: 'in_progress', conclusion: null } }, 700).allow)
+        .toBe(false);
+      expect(decide({
+        ...evidence,
+        job: { ...evidence.job, steps: [{ ...evidence.job.steps[0], conclusion: 'failure' }] },
+      }, 700).allow).toBe(false);
+      expect(decide({
+        ...evidence,
+        job: {
+          ...evidence.job,
+          steps: [{
+            ...evidence.job.steps[0],
+            started_at: '2026-09-13T11:59:00Z',
+            completed_at: '2026-09-13T11:59:30Z',
+          }],
+        },
+      }, 700).allow).toBe(false);
+    });
+
+    it('evaluateNativeAutoMerge e revalidateNativeAutoMerge inoltrano callerRunId', () => {
+      const evidence = inFlightEvidence();
+      const input = {
+        pr: pr(),
+        reviews: [review(OUTSIDE_FINDINGS_BODY)],
+        checkRuns: [evidence.check],
+        reviewGateEvidence: evidence,
+        repository: REPO,
+      };
+      expect(evaluateNativeAutoMerge(input).allow).toBe(false);
+      expect(evaluateNativeAutoMerge({ ...input, callerRunId: 700 })).toMatchObject({ allow: true });
+      expect(revalidateNativeAutoMerge({ ...input, callerRunId: 700 }))
+        .toMatchObject({ allow: true, action: 'enable' });
+    });
+
+    it('il CLI passa GITHUB_RUN_ID a tutte e tre le rivalutazioni', () => {
+      const source = readFileSync('scripts/ci/native-automerge-gate.mjs', 'utf8');
+      expect(source).toMatch(/const CALLER_RUN_ID_ENV = 'GITHUB_RUN_ID';/);
+      const calls = source.match(/= revalidateNativeAutoMerge\(\{[\s\S]*?\n {2}\}\);/g) ?? [];
+      expect(calls).toHaveLength(3);
+      for (const call of calls) expect(call).toContain('callerRunId: callerRunIdFromEnv(),');
+    });
+  });
+
   it('rejects a proof tied to an older review id after a newer raw bot review', () => {
     const newer = review(OUTSIDE_FINDINGS_BODY, HEAD, '2026-09-13T12:04:00Z', { id: 2 });
     expect(evaluateNativeAutoMerge({
