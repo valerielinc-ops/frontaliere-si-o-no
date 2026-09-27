@@ -105,7 +105,10 @@ describe('issue-fix.yml wiring — gates on capability, never on token presence 
   const yml = readFileSync(new URL('../.github/workflows/issue-fix.yml', import.meta.url), 'utf8');
 
   it('the workflows-scope pre-flight guard is gated on APP_TOKEN_WORKFLOWS != true', () => {
-    expect(yml).toContain("if: env.APP_TOKEN_WORKFLOWS != 'true'");
+    // Il gate sullo snapshot verificato (#9285) precede la capacita', ma il guard
+    // resta legato ad APP_TOKEN_WORKFLOWS, mai alla presenza del token.
+    expect(yml).toMatch(/if: steps\.issue_snapshot\.outputs\.verified == 'true' && env\.APP_TOKEN_WORKFLOWS != 'true'/);
+    expect(yml).not.toMatch(/if: [^\n]*env\.APP_TOKEN == ''/);
   });
 
   it('the agent capability-guard prompt branches on APP_TOKEN_WORKFLOWS, not on APP_TOKEN', () => {

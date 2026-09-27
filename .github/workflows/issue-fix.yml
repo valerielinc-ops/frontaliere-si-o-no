@@ -390,6 +390,22 @@ jobs:
           fi
           issue_file="${RUNNER_TEMP}/issue-f1-f7-verify.json"
           gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels,comments > "$issue_file"
+          # Issue chiusa fra la label e lo snapshot (run 36305990899: #10017
+          # chiusa NOT_PLANNED 67s prima di questo step): non e' un guasto ma
+          # «niente da fare». Solo lo stato puo' divergere; numero, forma e
+          # fingerprint restano fail-closed sotto. verified=false tiene fermi
+          # tutti gli step successivi, quindi il job chiude verde senza Codex
+          # e senza issue «CI Failure: Issue fix» (#9285).
+          issue_state=$(jq -r --argjson issue_number "$ISSUE_NUMBER" '
+            if (.number == $issue_number) and ((.state | type) == "string")
+            then .state else "" end
+          ' "$issue_file")
+          if [ -n "$issue_state" ] && [ "$issue_state" != "OPEN" ]; then
+            echo "::notice::issue #${ISSUE_NUMBER} chiusa prima dello snapshot: niente da fare"
+            echo "closed=true" >> "$GITHUB_OUTPUT"
+            echo "verified=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           snapshot=$(jq -ceS --arg repo "$REPO" --argjson issue_number "$ISSUE_NUMBER" '
             if (.number == $issue_number)
               and (.state == "OPEN")
@@ -626,6 +642,10 @@ jobs:
       # Non blocca il run: Codex Luna Max è l'unico provider del lane.
       - name: Pre-flight — Codex lane quota telemetry (pre-npm)
         id: quota
+        # Gate sullo snapshot: senza, una issue chiusa prima dello snapshot
+        # acquisirebbe un quota-floor lease che il rilascio (gated su
+        # verified) non restituirebbe mai.
+        if: steps.issue_snapshot.outputs.verified == 'true'
         # Il beacon è best-effort e resta telemetria: un guasto infra non deve
         # sopprimere il run, e la quota Claude non salta Codex.
         continue-on-error: true
@@ -766,7 +786,7 @@ jobs:
         # FAIL-CLOSED: `mint-app-token.mjs` scrive APP_TOKEN_WORKFLOWS su OGNI cammino di
         # uscita, e una variabile non scritta è comunque `!= 'true'` → il guard gira. Non
         # esiste un modo di arrivare a «capacità concessa» senza che l'API l'abbia detto.
-        if: env.APP_TOKEN_WORKFLOWS != 'true' && steps.preflight.outputs.already_resolved != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && env.APP_TOKEN_WORKFLOWS != 'true' && steps.preflight.outputs.already_resolved != 'true'
         # PROCEED-SAFE, same contract as `preflight` above: the script is total (catches
         # its own throws → emits workflows_blocked=false), continue-on-error is
         # belt-and-suspenders so an infra fault never strands the issue.
@@ -795,7 +815,7 @@ jobs:
 
       - name: Pre-flight — in-progress claim gate (zero-Claude, mutex)
         id: claim
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         # FAIL-CLOSED: the script emits `in_flight=true` on a GitHub/API/parse
         # fault. A runner failure is also allowed to fail this job rather than
         # letting an unreadable mutex reach the fixer.
@@ -820,7 +840,7 @@ jobs:
 
       - name: Determine fix tier
         id: tier
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -1047,7 +1067,7 @@ jobs:
 
       - name: Closing keyword for the PR body (zero-Claude)
         id: closing
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -1119,7 +1139,7 @@ jobs:
 
       - name: Compose PR body contract for the prompt (zero-Claude)
         id: body_contract
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # PERCHÉ QUESTA PROSA NON STA PIÙ NELLO SCALARE `prompt:`. Oltre un
         # certo peso GitHub accetta il file ma lo rende con `jobs: []`: il
         # fixer smette di girare senza un rosso. Il testo qui sotto è
@@ -1177,7 +1197,7 @@ jobs:
 
       - name: Check for resumable WIP branch (zero-Claude)
         id: resume
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Problem A (#4337, confermato via GitHub API + run log): prima di questo
         # fix commit+push+PR accadevano SOLO alla fine del flusso (dopo il gate
         # test) — se `--max-turns` si esauriva PRIMA, il container CI moriva e
@@ -1203,7 +1223,7 @@ jobs:
           fi
 
       - name: Configure git identity
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           APP_TOKEN: ${{ env.APP_TOKEN }}
           APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
@@ -1246,7 +1266,7 @@ jobs:
           fi
 
       - name: Install deterministic PR body gate
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -1407,7 +1427,7 @@ jobs:
 
       - name: Enforce F1/F7 output diff gate (before checkpoint/push)
         id: diff_gate
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           REPO: ${{ github.repository }}
           VISION_APPROVED: ${{ needs.risk_policy.outputs.vision_approved }}
