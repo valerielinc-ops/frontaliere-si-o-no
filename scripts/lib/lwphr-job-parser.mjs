@@ -87,17 +87,64 @@ export function absoluteLwphrUrl(rawHref = '') {
   return `https://www.lwphr.ch${href.startsWith('/') ? '' : '/'}${href}`;
 }
 
+const LWPHR_OPEN_SECTION_RE = /\b(?:posizioni?\s+aperte|open\s+positio)/iu;
+const LWPHR_ARCHIVED_SECTION_RE = /\b(?:posizioni?\s+archiviate|archived\s+positions?)/iu;
+const LWPHR_PDF_HREF_RE = /\.pdf(?:[?#]|$)/iu;
+
+function isPdfLink(link) {
+  return LWPHR_PDF_HREF_RE.test(String(link.getAttribute('href') || '').trim());
+}
+
+function pdfLinksWithin(scope) {
+  return [...scope.querySelectorAll('a[href]')].filter(isPdfLink);
+}
+
+function sectionMarkerKind(element) {
+  const text = normalize(element.textContent || '').replace(/\u200b/g, ' ');
+  if (!text) return '';
+
+  const isOpen = LWPHR_OPEN_SECTION_RE.test(text);
+  const isArchived = LWPHR_ARCHIVED_SECTION_RE.test(text);
+  if (isOpen === isArchived) return '';
+  return isOpen ? 'open' : 'archived';
+}
+
+function collectSectionMarkers(document) {
+  return [...document.querySelectorAll('*')]
+    .map((element) => ({ element, kind: sectionMarkerKind(element) }))
+    .filter(({ kind }) => kind);
+}
+
+function collectOpenSectionLinks(document, documentPositionFollowing) {
+  const accordionItems = [...document.querySelectorAll('.accordion__item')];
+  const openItem = accordionItems.find((item) => {
+    const text = normalize(item.textContent || '').replace(/\u200b/g, ' ');
+    return LWPHR_OPEN_SECTION_RE.test(text) && !LWPHR_ARCHIVED_SECTION_RE.test(text);
+  });
+  if (openItem) return pdfLinksWithin(openItem);
+
+  const markers = collectSectionMarkers(document);
+  if (!markers.some(({ kind }) => kind === 'open')) {
+    throw new Error('Could not find LWPHR open positions section');
+  }
+
+  return pdfLinksWithin(document).filter((link) => {
+    let lastMarker = null;
+    for (const marker of markers) {
+      if (marker.element.compareDocumentPosition(link) & documentPositionFollowing) {
+        lastMarker = marker;
+      }
+    }
+    return lastMarker?.kind === 'open';
+  });
+}
+
 export function parseLwphrOpenJobs(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
-  const accordionItems = [...document.querySelectorAll('.accordion__item')];
-  const openItem = accordionItems.find((item) => /posizioni aperte|open positio/i.test(normalize(item.textContent || '')));
-  if (!openItem) {
-    throw new Error('Could not find LWPHR open positions accordion');
-  }
-
   const jobs = [];
-  for (const link of openItem.querySelectorAll('.accordion__content a[href$=".pdf"]')) {
+  const openLinks = collectOpenSectionLinks(document, dom.window.Node.DOCUMENT_POSITION_FOLLOWING);
+  for (const link of openLinks) {
     const title = normalize(decodeHtml(link.textContent || ''));
     const pdfUrl = absoluteLwphrUrl(link.getAttribute('href') || '');
     if (!title || title === ')' || title === '​') continue;

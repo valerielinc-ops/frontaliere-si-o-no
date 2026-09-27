@@ -17,11 +17,33 @@ const HTML = `
 </div>
 `;
 
+const CURRENT_SITE_HTML = `
+<section class="opportunities">
+  <h2>POsizioni aperte</h2>
+  <div class="open-list">
+    <a href="/uploads/1/4/6/5/146598773/planner.pdf">PLANNER</a>
+    <a href="/uploads/1/4/6/5/146598773/sales_e_marketing_manager.pdf">SALES E MARKETING MANAGER</a>
+  </div>
+  <h2>POSIZIONI ARCHIVIATE</h2>
+  <div class="archive-list">
+    <a href="/uploads/1/4/6/5/146598773/software_engineer.pdf">SOFTWARE ENGINEER</a>
+  </div>
+</section>
+`;
+
 describe('lwphr-job-parser', () => {
   it('extracts only open pdf jobs from the current accordion', () => {
     const jobs = parseLwphrOpenJobs(HTML);
     expect(jobs).toHaveLength(2);
     expect(jobs[0].pdfUrl).toContain('lwphr.ch/uploads/');
+  });
+
+  it('extracts open PDF jobs when the site no longer uses accordion markup', () => {
+    const jobs = parseLwphrOpenJobs(CURRENT_SITE_HTML);
+    expect(jobs.map((job) => job.title)).toEqual([
+      'PLANNER',
+      'SALES E MARKETING MANAGER',
+    ]);
   });
 
   it('infers Swiss locations from PDF text without inventing a city', () => {
