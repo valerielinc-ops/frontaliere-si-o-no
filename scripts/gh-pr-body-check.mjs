@@ -303,6 +303,33 @@ function parseIncludedJson(output) {
   return null;
 }
 
+/**
+ * Last HTTP status line of a `gh api --include` response (a redirect adds an
+ * earlier block). Quoted in every CAS read failure: run 36305192129 stopped on
+ * a bare "senza ETag/body verificabile" and the cause was not recoverable.
+ */
+function httpStatusLine(output) {
+  const lines = String(output || '').match(/^HTTP\/\S+[ \t]+\d{3}\b[^\r\n]*/gmu);
+  return lines?.at(-1)?.trim() || 'riga di stato HTTP assente';
+}
+
+/**
+ * Classify a CAS read response. «JSON non parsabile», «ETag assente» and «body
+ * non verificabile» are different failures with different fixes; each message
+ * carries the HTTP status line so the log names the cause.
+ */
+function describeCasReadFailure(output, parsed, etag) {
+  const status = httpStatusLine(output);
+  if (!parsed?.value || typeof parsed.value !== 'object' || Array.isArray(parsed.value)) {
+    return `risposta PR non parsabile come oggetto JSON (${status}; ${String(output || '').length} byte)`;
+  }
+  if (!etag) return `risposta PR senza header ETag (${status})`;
+  if (parsed.value.body !== null && typeof parsed.value.body !== 'string') {
+    return `risposta PR con body non verificabile (tipo ${parsed.value.body === undefined ? 'assente' : typeof parsed.value.body}; ${status})`;
+  }
+  return '';
+}
+
 function responseHeader(headers, name) {
   const pattern = new RegExp(`^${name}:\\s*(.+)$`, 'imu');
   return String(headers || '').match(pattern)?.[1]?.trim() || '';
@@ -327,8 +354,9 @@ function runConditionalBodyEdit(bodyFile, target) {
   }
   const parsed = parseIncludedJson(read.stdout);
   const etag = responseHeader(parsed?.headers, 'etag');
-  if (!parsed?.value || !etag || (parsed.value.body !== null && typeof parsed.value.body !== 'string')) {
-    process.stderr.write('::error::gh-pr-body-check: risposta PR senza ETag/body verificabile, nessuna scrittura CAS\n');
+  const readFailure = describeCasReadFailure(read.stdout, parsed, etag);
+  if (readFailure) {
+    process.stderr.write(`::error::gh-pr-body-check: ${readFailure}, nessuna scrittura CAS\n`);
     return EXIT_BLOCK;
   }
   const expected = normalizeReviewInputRevision(process.env.PR_BODY_EXPECTED_REVISION || '');

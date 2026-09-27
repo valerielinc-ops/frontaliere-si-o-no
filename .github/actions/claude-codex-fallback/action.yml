@@ -960,6 +960,22 @@ runs:
           } > "$target"
         }
 
+        # Host-side PR body CAS. The caller step sets PR_BODY_EXPECTED_REVISION
+        # (trusted admission/preflight output) and PR_NUMBER; the in-sandbox
+        # wrapper sees the same variable, but the model can unset it there
+        # (run 36302768673, PR #9959). This shell captured it before Codex
+        # exists, so the server gets a copy the model cannot change and
+        # re-checks every PR body write against it. Empty = no CAS.
+        codex_body_expected_revision="${PR_BODY_EXPECTED_REVISION:-}"
+        codex_body_pr_number="${PR_NUMBER:-}"
+        if [ -n "$codex_body_expected_revision" ]; then
+          if ! [[ "$codex_body_expected_revision" =~ ^body:[0-9a-fA-F]{64}$ ]] \
+            || ! [[ "$codex_body_pr_number" =~ ^[1-9][0-9]*$ ]]; then
+            echo '::error::PR_BODY_EXPECTED_REVISION requires a body:<sha256> value and a numeric PR_NUMBER for the host-side body CAS.'
+            exit 1
+          fi
+        fi
+
         # HEAD_SHA completes the review idempotency key of gh-server.mjs
         # (`reviewRetryDetails`: PR, exact body, full HEAD). Without it the key
         # is always null under `env -i`: the transient-5xx retry never ran and
@@ -967,6 +983,8 @@ runs:
         env -i \
           CODEX_BRIDGE_TRANSPORT=files \
           HEAD_SHA="${HEAD_SHA:-}" \
+          CODEX_GH_PR_BODY_EXPECTED_REVISION="$codex_body_expected_revision" \
+          CODEX_GH_PR_BODY_PR_NUMBER="$codex_body_pr_number" \
           CODEX_GH_AUTH="$codex_github_auth" \
           CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth" \
           CODEX_GH_SOCKET="$gh_socket" \
