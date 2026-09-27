@@ -22,14 +22,6 @@ on:
     workflows: ['Issue fix (Codex Luna Max → PR)']
     types: [completed]
 
-# Il gruppo della run è il mutex repo-scoped condiviso con i writer daily:
-# nessun wake-up può leggere lo stesso bucket mentre viene appeso o sigillato.
-# cancel:false e il cron rendono recuperabile una pending sostituita durante
-# un burst.
-concurrency:
-  group: followup-daily-${{ github.repository }}
-  cancel-in-progress: false
-
 permissions:
   contents: read
   actions: read
@@ -39,10 +31,26 @@ permissions:
 
 jobs:
   drain:
+    # Un issue-fix SKIPPED (es. label diversa da agent:fix) non libera slot né
+    # riaccoda nulla: non vale un wake-up.
     if: >-
-      github.event_name != 'issues' ||
-      github.event.label.name == 'agent:fix-queued' ||
-      github.event.label.name == 'agent:decompose-queued'
+      (github.event_name != 'issues' ||
+       github.event.label.name == 'agent:fix-queued' ||
+       github.event.label.name == 'agent:decompose-queued') &&
+      (github.event_name != 'workflow_run' ||
+       github.event.workflow_run.conclusion != 'skipped')
+    # Il gruppo è il mutex repo-scoped condiviso con i writer daily
+    # (post-merge-followup.yml, followup-reconcile.yml, a livello di workflow):
+    # nessun wake-up può leggere lo stesso bucket mentre viene appeso o sigillato.
+    # Sta sul JOB, non sulla run: un job saltato dal suo `if:` non entra nel
+    # gruppo. A livello di run ogni `issues: labeled` irrilevante e ogni
+    # `workflow_run` di un issue-fix skipped entrava nel gruppo e sostituiva la
+    # pending utile, per poi essere skippato (misurato: 708 run cancellate
+    # contro 173 riuscite in 31h). cancel:false e il cron rendono recuperabile
+    # una pending sostituita durante un burst.
+    concurrency:
+      group: followup-daily-${{ github.repository }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     # NON alzare questo cap. Il drain gira in ~5s: i due timeout visti finora
     # erano il setup, non il lavoro — il #5162 era il Checkout, il #7309 era
