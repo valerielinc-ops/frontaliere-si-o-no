@@ -25,15 +25,15 @@ const ghCommand = () => absoluteTool('TRUSTED_GH_BIN', 'gh');
 
 // Explicit pathspecs filter generated trees BEFORE Git requests missing blobs
 // from a partial clone. No GitHub diff/compare patch-size or file-count caps.
-const scopePathspec = exclusions =>
-  ['.', ...TEST_DIFF_EXCLUSIONS, ...exclusions.map(path => `:(top,exclude)${path}/**`)];
+const scopePathspec = (exclusions, { includeTests = false } = {}) =>
+  ['.', ...(includeTests ? [] : TEST_DIFF_EXCLUSIONS), ...exclusions.map(path => `:(top,exclude)${path}/**`)];
 const diffArgs = (base, head) =>
   ['--no-pager', 'diff', '--no-ext-diff', '--no-textconv', '--no-renames', base, head];
 
 /** Files changed between two pinned commits, under the review scope. */
-export function changedNames({ base, head, exclusions, cwd = process.cwd() }) {
+export function changedNames({ base, head, exclusions, includeTests = false, cwd = process.cwd() }) {
   sha(base); sha(head);
-  const names = run(gitCommand(), [...diffArgs(base, head), '--name-only', '-z', '--', ...scopePathspec(exclusions)], { cwd })
+  const names = run(gitCommand(), [...diffArgs(base, head), '--name-only', '-z', '--', ...scopePathspec(exclusions, { includeTests })], { cwd })
     .split('\0').filter(Boolean);
   if (names.some(name => /[\r\n]/.test(name))) throw new Error('Review file list cannot represent newline paths');
   return names;
@@ -55,7 +55,7 @@ export function changedNames({ base, head, exclusions, cwd = process.cwd() }) {
  * instead of a possibly partial delta.
  */
 export function movedSinceReview({
-  base, head, reviewedFrom, exclusions, reviewedBase = null, cwd = process.cwd(),
+  base, head, reviewedFrom, exclusions, includeTests = false, reviewedBase = null, cwd = process.cwd(),
 }) {
   sha(base); sha(head); sha(reviewedFrom);
   // `sha()` returns the value it validated, so both branches bind a checked SHA.
@@ -68,9 +68,9 @@ export function movedSinceReview({
       return null;
     }
   }
-  const moved = new Set(changedNames({ base: reviewedFrom, head, exclusions, cwd }));
+  const moved = new Set(changedNames({ base: reviewedFrom, head, exclusions, includeTests, cwd }));
   if (reviewedBase !== base) {
-    for (const name of changedNames({ base: reviewedBase, head: base, exclusions, cwd })) moved.add(name);
+    for (const name of changedNames({ base: reviewedBase, head: base, exclusions, includeTests, cwd })) moved.add(name);
   }
   return moved;
 }
@@ -90,18 +90,19 @@ export function movedSinceReview({
  */
 export function writeReviewDiff({
   base, head, directory, exclusions, incremental = false, reviewedFrom = null, reviewedBase = null,
+  includeTests = false,
   cwd = process.cwd(),
 }) {
   sha(base); sha(head);
-  const owned = changedNames({ base, head, exclusions, cwd });
+  const owned = changedNames({ base, head, exclusions, includeTests, cwd });
   const moved = reviewedFrom
-    ? movedSinceReview({ base, head, reviewedFrom, exclusions, reviewedBase, cwd }) ?? new Set(owned)
+    ? movedSinceReview({ base, head, reviewedFrom, exclusions, includeTests, reviewedBase, cwd }) ?? new Set(owned)
     : null;
   const names = moved ? owned.filter(name => moved.has(name)) : owned;
   // A restricted patch is addressed by explicit pathspecs. An EMPTY restriction
   // must stay empty: `git diff --` with no pathspec means "everything", so the
   // one case where nothing moved would silently serve the whole PR diff.
-  const paths = moved ? names.map(name => `:(top,literal)${name}`) : scopePathspec(exclusions);
+  const paths = moved ? names.map(name => `:(top,literal)${name}`) : scopePathspec(exclusions, { includeTests });
   const output = join(directory, incremental ? 'delta.patch' : 'diff.patch');
   const fd = openSync(output, 'w');
   try {
@@ -155,7 +156,15 @@ export function main(env = process.env, { api: injectedApi, cwd = process.cwd() 
   const exclusions = (env.REVIEW_DIFF_EXCLUSIONS ?? '').split(',').filter(Boolean);
   if (!exclusions.length || exclusions.some(path => !/^[\w-]+$/.test(path))) throw new Error('Invalid diff exclusions');
   const names = writeReviewDiff({
-    base: mergeBase, head, directory: env.CTX_DIR, exclusions, incremental, reviewedFrom, reviewedBase, cwd,
+    base: mergeBase,
+    head,
+    directory: env.CTX_DIR,
+    exclusions,
+    incremental,
+    reviewedFrom,
+    reviewedBase,
+    includeTests: env.INCLUDE_TESTS === 'true',
+    cwd,
   });
   console.log(`Complete review diff prepared before sandbox: ${names.length} files (${mergeBase}..${head}`
     + `${reviewedFrom ? `, narrowed to what moved since ${reviewedFrom}` : ''}).`);

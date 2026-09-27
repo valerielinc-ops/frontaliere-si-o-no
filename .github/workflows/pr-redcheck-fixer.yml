@@ -461,15 +461,20 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/prefetch-review-diff.mjs \
+            scripts/ci/review-test-policy.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \
             scripts/ci/fetch-pr-files.mjs \
             scripts/ci/lib/fetchPrFiles.mjs \
-            scripts/lib/int-from-env.mjs; do
+            scripts/lib/int-from-env.mjs \
+            scripts/lib/loop-fleet-contract.mjs; do
             download_main "$trusted_path"
           done
           node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/prefetch-review-diff.mjs"
+          node --check "$policy_root/scripts/ci/review-test-policy.mjs"
           node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
           node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
           printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
@@ -997,6 +1002,44 @@ jobs:
           echo "contesto raccolto: $(wc -c < "$OUT/failing.txt") byte, $(grep -c 'FAIL ' "$OUT/failing.txt" 2>/dev/null || echo 0) righe FAIL, $(grep -cE '\] exit=[1-9]' "$OUT/failing.txt" 2>/dev/null || true) righe di gate sorgente falliti."
           sed -n '1,25p' "$OUT/failing.txt"
 
+      # Il checkout è blobless: il modello non deve ricostruire il diff con
+      # `git diff origin/main...HEAD` dentro il sandbox. Quella lettura attiva
+      # lazy-fetch dei blob storici e, se il bridge incontra una finestra DNS,
+      # consuma il round senza lasciare né commit né diagnosi (issue #7310,
+      # run 36350181177). Il patch completo viene quindi materializzato prima
+      # dell'action dalla copia dell'helper scaricata da main; i test restano
+      # inclusi perché qui il bersaglio è un check rosso, non una review code.
+      - name: Prepare redcheck PR diff (zero-Claude)
+        id: diff_context
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success'
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          HEAD_SHA: ${{ needs.preflight.outputs.head_sha }}
+          CTX_DIR: ${{ runner.temp }}/redcheck
+          REVIEW_DIFF_EXCLUSIONS: data,public,reports,_newsletter_variants,docs
+          INCLUDE_TESTS: 'true'
+        run: |
+          set -uo pipefail
+          prefetch_ok=false
+          for attempt in 1 2 3; do
+            if GIT_TERMINAL_PROMPT=0 timeout 120 node "$TRUSTED_POLICY_ROOT/scripts/ci/prefetch-review-diff.mjs"; then
+              prefetch_ok=true
+              break
+            fi
+            echo "::warning::prefetch del diff redcheck fallito al tentativo $attempt/3; retry bounded prima di fermare il fixer."
+            if [ "$attempt" -lt 3 ]; then sleep $((attempt * 3)); fi
+          done
+          if [ "$prefetch_ok" != 'true' ] || [ ! -f "$CTX_DIR/diff.patch" ]; then
+            echo "::error::diff redcheck non preparabile dalla copia fidata di main: il modello non parte senza superficie verificabile."
+            exit 1
+          fi
+          echo "diff redcheck pronto: $(wc -c < "$CTX_DIR/diff.patch") byte."
+
       - name: Install deterministic PR body gate
         id: body_gate
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
@@ -1079,7 +1122,7 @@ jobs:
 
       - name: Run Codex Luna Max ❌-check-fix
         id: codex_fix
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.snapshot_final.outputs.snapshot_valid == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.diff_context.outcome == 'success' && steps.snapshot_final.outputs.snapshot_valid == 'true'
         # Tetto sullo step, stessa ragione del Checkout qui sopra: senza, l'unico
         # limite era il cap del job e la run moriva `cancelled`, che NON fa
         # scattare nessun `if: failure()` e si vede solo dallo scan periodico
@@ -1142,6 +1185,8 @@ jobs:
             **Obiettivo:** far tornare verde la CI su questo branch, senza indebolire nulla. NON mergiare.
 
             **Il contesto del fallimento è GIÀ stato raccolto** (zero-Claude) in `$RUNNER_TEMP/redcheck/failing.txt`: nomi dei test falliti, riepilogo vitest, ed estratto attorno al primo fallimento. **Leggilo con `Read` come PRIMA cosa.** Non rieseguire `gh run view --log`: è lo stesso output, pesa decine di MB, e scaricarlo è il primo consumatore di turni misurato in questo repo.
+
+            **Anche il diff della PR è GIÀ stato preparato** (zero-Claude) in `$RUNNER_TEMP/redcheck/diff.patch`: è il patch completo della superficie code/test della PR, filtrato solo dagli alberi generati. **Leggilo subito dopo `failing.txt`.** Il checkout usa `blob:none`: non ricostruire il contesto con `git diff origin/main...HEAD`, `git log` storico o `gh pr diff`, perché quelle chiamate riattivano lazy-fetch dentro il sandbox e un errore transitorio di rete trasformerebbe il round in uscita silenziosa senza commit. Dopo aver capito il difetto puoi usare Git normalmente per la verifica mirata del fix.
 
             **REGOLA #0, che viene prima di ogni altra: non si fa passare un test indebolendolo.**
             È il modo ovvio e sbagliato di chiudere questo task, ed è vietato da AGENTS.md non-negotiable #1. Concretamente, NON puoi:

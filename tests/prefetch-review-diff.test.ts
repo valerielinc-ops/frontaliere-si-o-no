@@ -47,6 +47,30 @@ describe('host-prepared complete review patch', () => {
     expect(names).toEqual(['binary.bin', 'deleted.js', 'large.js']);
   });
 
+  it('can include test files for a redcheck fixer while excluding generated data', () => {
+    const f = fixture();
+    mkdirSync(join(f.repo, 'tests'));
+    mkdirSync(join(f.repo, 'data'));
+    writeFileSync(join(f.repo, 'app.js'), 'export const app = 1;\n');
+    writeFileSync(join(f.repo, 'tests/failing.test.ts'), 'it("fails", () => {});\n');
+    writeFileSync(join(f.repo, 'data/generated.json'), 'generated-only\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'redcheck context');
+
+    const names = writeReviewDiff({
+      base: f.base,
+      head: f.git('rev-parse', 'HEAD'),
+      directory: f.output,
+      exclusions: ['data'],
+      includeTests: true,
+      cwd: f.repo,
+    });
+    const patch = readFileSync(join(f.output, 'diff.patch'), 'utf8');
+
+    expect(names).toEqual(['app.js', 'tests/failing.test.ts']);
+    expect(patch).toContain('failing.test.ts');
+    expect(patch).not.toContain('generated-only');
+  });
+
   it('keeps all 301 incremental files and omits the already-reviewed contribution', () => {
     const f = fixture();
     writeFileSync(join(f.repo, 'reviewed.js'), 'already reviewed\n');

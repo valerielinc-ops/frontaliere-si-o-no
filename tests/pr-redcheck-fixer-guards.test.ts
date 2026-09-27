@@ -177,6 +177,11 @@ describe('REGOLA #0 — il modo ovvio e sbagliato di far tornare verde un test',
     expect(prompt).toContain('npx vitest run');
     expect(prompt).toContain('non è un fix');
   });
+
+  it('fa leggere al modello il patch preparato senza lazy-fetch del contesto', () => {
+    expect(prompt).toContain('$RUNNER_TEMP/redcheck/diff.patch');
+    expect(prompt).toContain('non ricostruire il contesto con `git diff origin/main...HEAD`');
+  });
 });
 
 describe('costo — il contesto è raccolto senza Claude', () => {
@@ -193,6 +198,16 @@ describe('costo — il contesto è raccolto senza Claude', () => {
     // la diagnosi fuori strada.
     expect(src).toMatch(/FAIL /);
     expect(src).toContain('escape ANSI come TESTO');
+  });
+
+  it('prepara il diff dalla policy fidata prima del sandbox blobless', () => {
+    expect(src).toContain('Prepare redcheck PR diff (zero-Claude)');
+    expect(src).toContain('scripts/ci/prefetch-review-diff.mjs');
+    expect(src).toContain('scripts/lib/loop-fleet-contract.mjs');
+    expect(src).toContain('TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}');
+    expect(src).toContain("INCLUDE_TESTS: 'true'");
+    expect(src).toContain('timeout 120 node "$TRUSTED_POLICY_ROOT/scripts/ci/prefetch-review-diff.mjs"');
+    expect(src).toContain('$RUNNER_TEMP/redcheck/diff.patch');
   });
 });
 
