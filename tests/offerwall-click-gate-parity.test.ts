@@ -71,6 +71,7 @@ type FakeWindow = {
     MessageTypeEnum?: Record<string, number>;
     controlledMessagingFunction?: (message: FakeMessage) => void;
     __ftOfferwallBootstrapComplete?: boolean;
+    __ftOfferwallGateInstalled?: boolean;
   };
   __ftOfferwallGate?: { state?: string; release?: () => boolean };
 };
@@ -307,10 +308,39 @@ describe.each(COPIES)('%s', (_name, src) => {
     expect(late.calls).toEqual([[true]]);
   });
 
-  it('steps aside when another copy already installed the gate', () => {
-    const existing = () => {};
+  it('composes a pre-existing callback without bypassing the Offerwall gate', () => {
+    const existing = (delegated: FakeMessage) => delegated.proceed(true);
     const win = install(src, '/cerca-lavoro-ticino/', { preset: { controlledMessagingFunction: existing } });
-    expect(win.googlefc!.controlledMessagingFunction).toBe(existing);
+    expect(win.googlefc!.controlledMessagingFunction).not.toBe(existing);
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const m = message();
+    win.googlefc!.controlledMessagingFunction!(m);
+    expect(m.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+    expect(win.__ftOfferwallGate!.release!()).toBe(true);
+    expect(m.calls).toEqual([[true]]);
+  });
+
+  it('keeps a callback-style delegated decision pending until it arrives', async () => {
+    const existing = (delegated: FakeMessage) => {
+      setTimeout(() => delegated.proceed(true), 0);
+    };
+    const win = install(src, '/cerca-lavoro-ticino/', { preset: { controlledMessagingFunction: existing } });
+    const m = message();
+    win.googlefc!.controlledMessagingFunction!(m);
+
+    expect(m.calls).toEqual([]);
+    await new Promise<void>((resolve) => setTimeout(resolve, 0));
+    expect(m.calls).toEqual([[true]]);
+  });
+
+  it('preserves a pre-existing type-specific decision while adding the Offerwall restriction', () => {
+    const existing = (delegated: FakeMessage) => delegated.proceed(false, [ENUM.AD_BLOCKING]);
+    const win = install(src, '/articoli/fisco/', { preset: { controlledMessagingFunction: existing } });
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const m = message();
+    win.googlefc!.controlledMessagingFunction!(m);
+    expect(m.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
   });
 
   it('follows pushState, replaceState, and popstate without reinstalling the callback', () => {
