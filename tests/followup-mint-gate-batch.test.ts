@@ -464,6 +464,80 @@ else if (args[0] === 'pr' && (args[1] === 'view' || args[1] === 'comment')) {
     expect(after).toContain('FU-2026-09-25-001');
   });
 
+  it('suppress di un daily con conservazione fallita sulla PR sorgente: nessun close, issue aperta', () => {
+    // Review di #10070: il ramo `suppress` chiudeva la issue anche quando
+    // `preserveDemotedOnSourcePrs()` non era riuscito, perdendo l'unica copia
+    // integrale degli item demoti. Qui `gh pr comment` fallisce con un guasto
+    // (non «non e' una PR»): nessun `issue close`, nessun `issue comment`.
+    const tick = String.fromCharCode(96);
+    const issue = {
+      number: 9801,
+      title: 'follow-up(daily:2026-09-26): 1 item — site/r',
+      body: [
+        '## Batch',
+        '- Daily key: 2026-09-26 (Europe/Zurich)',
+        '- State: collecting',
+        '- Target repository: site/r',
+        '',
+        '## Item',
+        '',
+        '### FU-2026-09-26-001 — senza condizione di accettazione',
+        '- State: open',
+        '- Sources: PR #1742',
+        `- Target file: ${tick}scripts/example.mjs${tick}`,
+        '- Suggested action: controllare il file',
+        '',
+      ].join('\n'),
+      state: 'open',
+      labels: [{ name: 'follow-up' }],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'suppress-fail-calls.log');
+    const state = join(binDir, 'suppress-fail-state.json');
+    writeFileSync(log, '');
+    writeFileSync(state, JSON.stringify(issue));
+    const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify({ args }) + '\\n');
+const readState = () => JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+if (args[0] === 'api') {
+  const c = readState();
+  process.stdout.write(JSON.stringify([[{ number: c.number, title: c.title, state: 'open', labels: c.labels, created_at: c.createdAt }]]));
+} else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(readState()));
+else if (args[0] === 'pr' && args[1] === 'view') process.stdout.write(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\\nCreated/updated: daily bucket #9801 con 1 item' }] }));
+else if (args[0] === 'pr' && args[1] === 'comment') { process.stderr.write('HTTP 502: Bad Gateway\\n'); process.exit(1); }
+else if (args[0] === 'issue' && args[1] === 'close') { const u = readState(); u.state = 'closed'; fs.writeFileSync(process.env.STATE, JSON.stringify(u)); }
+`;
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '',
+        TRIAGE_COMPLETE: 'true',
+        DRY_RUN: '0',
+        GH_REPO: 'site/r',
+        GH_TOKEN: 'site-token',
+        CALL_LOG: log,
+        STATE: state,
+        COLLECTION_OK: 'true',
+        GITHUB_STEP_SUMMARY: '',
+      },
+    });
+    const calls = readFileSync(log, 'utf-8').trim().split('\n').map((line) => JSON.parse(line));
+    expect(out).toContain('#9801 (daily:2026-09-26) → suppress');
+    // La conservazione e' stata tentata ed e' fallita...
+    expect(calls.some((call) => call.args[0] === 'pr' && call.args[1] === 'comment')).toBe(true);
+    // ...quindi nessuna chiusura e nessun commento di soppressione sulla issue.
+    expect(calls.some((call) => call.args[0] === 'issue' && call.args[1] === 'close')).toBe(false);
+    expect(calls.some((call) => call.args[0] === 'issue' && call.args[1] === 'comment')).toBe(false);
+    expect(JSON.parse(readFileSync(state, 'utf-8')).state).toBe('open');
+    expect(out).toContain('NON chiudo la issue');
+  });
+
   it('consolida un gruppo sealed+collecting senza lasciare il duplicate in starvation', () => {
     const makeBody = (id: string, state: string, pr: number, token: string) => [
       '## Batch',

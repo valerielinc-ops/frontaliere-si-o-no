@@ -1454,6 +1454,14 @@ function main() {
           report.push(`- ⏭️ #${iss.number} demozione rinviata (commento sulla PR non riuscito) — PR #${pr}`);
           continue;
         }
+        // Stessa regola per la soppressione: chiudere la issue senza aver conservato
+        // gli item sulla PR sorgente (lookup o commento non riusciti) ne perderebbe
+        // l'unica copia leggibile fuori dalla coda. Issue lasciata aperta, retry.
+        if (d.action === 'suppress' && posted === null) {
+          console.log(`⚠️ #${iss.number}: conservazione sulla PR sorgente non riuscita → NON chiudo la issue. Il prossimo giro riprova.`);
+          report.push(`- ⏭️ #${iss.number} soppressione rinviata (commento sulla PR non riuscito) — PR #${pr}`);
+          continue;
+        }
         if (d.action === 'suppress') {
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
             `${why}\n\nNessun item valido resta: questa issue non sarebbe mai potuta uscire dalla coda (\`aggregateCloseGate()\` la blocca per costruzione). Chiusa in ingresso; il testo resta qui e nel commento di summary della PR #${pr}. Se un item era lavoro vero, riaprilo come issue autonoma con una riga \`Suggested action\` che citi il simbolo **nella sua forma di codice**: un identificatore nudo (\`nomeFunzione\`) e un path nudo (\`scripts/ci/foo.mjs\`) non contano, perché compaiono nel file citato a prescindere dal fix — servono \`nomeFunzione()\`, \`oggetto.campo\`, \`COSTANTE >= 1\` o simili (\`isDistinctiveToken()\`, classe #1647). In alternativa, e spesso piu' facile, dagli una scheda: una riga \`- METRICA: prima=<n> atteso=<n> | COMANDO: <comando che nomina un file, uno script o un test>\`. Il referente non deve esistere ancora — lo crea la PR di fix — ma una metrica gia' al bersaglio (\`prima=N atteso=N\`) viene rifiutata: non c'e' niente da muovere.`],
