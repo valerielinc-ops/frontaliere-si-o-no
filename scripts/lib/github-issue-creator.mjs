@@ -443,9 +443,10 @@ function migrateLegacyIssueTitle(issue, canonicalTitle, dedupKey) {
  * same signature; `sezione frontaliere` and `sezione svizzera` do not.
  *
  * This is the SECOND discriminator the reopen path needs, and the reason is in
- * searchSafePrefix above: the search prefix is a 60-char cut that drops the
- * token it split, so two DIFFERENT conditions routinely share it. Measured on
- * the corpus, `Watchdog generazione, sezione frontaliere: pool news svuotat`
+ * searchSafePrefix above: the search prefix is derived from a 60-char cut and
+ * can drop or extend the token it splits, so two DIFFERENT conditions can still
+ * share it. Measured on the corpus,
+ * `Watchdog generazione, sezione frontaliere: pool news svuotat`
  * and its `sezione svizzera` twin are 47 chars of common prefix apart — they
  * only diverge later — and on the site the four `escalation(harvester): …`
  * buckets share everything up to the cut. Reopening on the prefix alone would
@@ -928,8 +929,9 @@ function issueViewIsClosed(number) {
  * `persisted: true`. A refused or unverified close throws (the error carries
  * `persisted: false`) so callers cannot treat it as a successful no-op.
  *
- * @param {string} titlePrefix  Stable title (first DEDUP_TITLE_PREFIX_LEN chars
- *                              are matched, exactly as createGithubIssue dedups).
+ * @param {string} titlePrefix  Stable full title; its safe prefix derived from
+ *                              DEDUP_TITLE_PREFIX_LEN is matched exactly as
+ *                              createGithubIssue dedups.
  * @param {{ workflow?: string, runUrl?: string }} [ctx]
  */
 export function resolveGithubIssue(titlePrefix, { workflow, runUrl } = {}) {
