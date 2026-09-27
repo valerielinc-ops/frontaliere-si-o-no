@@ -213,7 +213,7 @@ const TAXONOMY = [
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
   // Precedence is intentional: when a finding mentions both surfaces, the
   // topic bucket wins before the sibling-sweep process bucket below.
-  { key: 'canonical-sitemap', re: /canonical|sitemap|noindex|cross-section/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
+  { key: 'canonical-sitemap', re: /\b(?:canonical|sitemaps?|noindex|cross-section)\b/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
   { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|\bpat\b|credential|secret|branch protection|push.*workflow/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
   // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
   // brand names, canton-aware slug naming, missing/untranslated keys. The old regex
@@ -502,6 +502,39 @@ export function stripNegatedImpactClauses(text) {
       SWEEP_ASSERTION_RE.test(sentenceAround(whole, offset, offset + match.length)) ? match : prefix + ' ');
 }
 
+// ---- `canonical-sitemap` false-positive guard -----------------------------
+// The topic regex is intentionally broad enough to catch every SEO surface,
+// but `canonical` is also a common application-domain adjective: canonical
+// vacancy links, canonical replacements, archive canonicalizers, and canonical
+// route URLs are not sitemap/canonical SEO findings. Once the negated-impact
+// recap is stripped, require an explicit SEO defect/surface signal before
+// assigning the topic bucket. Unmatched lines still reach fingerprintFinding()
+// below, so narrowing this bucket cannot silently discard a real recurrence.
+const NON_SEO_CANONICAL_MENTION_RE =
+  /\bcanonical(?:izer)?\b\s+(?:vacancy|job|listing|replacement|record|row|entry|entries|id|key|data(?:set)?|fallback|route|routes|slug|component|hub|duty|history|source|snapshot|payload|stats?|archive|document)\b/i;
+
+const CANONICAL_SEO_DEFECT_RE =
+  /\b(?:canonical[- ](?:missing|mismatch|drift)|self[- ]canonical|non[- ]canonical|rel\s*=\s*["']?canonical\b|canonical\s+(?:href|tag|markup|link)\b|(?:empty|missing|invalid|wrong|incorrect|broken|drift|mismatch|unset|unresolved|manca\w*|mancante|non\s+(?:emette|emesso|aggiorna|aggiornato|punta|include)|does\s+not\s+(?:emit|set|include|point)|fails?\s+to\s+(?:emit|set|include|point))[^.\n]{0,70}\bcanonical(?:s)?\b|\bcanonical(?:s)?\b[^.\n]{0,70}\b(?:mismatch|drift|missing|invalid|wrong|incorrect|broken|unresolved|consolidat\w*|redirect\w*|self[- ]canonical)\b|(?:tocca|touch(?:es)?|affect(?:s)?|impatt\w*)[^.\n]{0,45}\bcanonical(?:s)?\b)/i;
+
+const SITEMAP_SEO_DEFECT_RE =
+  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*|noindex|non[- ]canonical|canonical|loc|inventory|coverage|redirect\w*|unreachable|include(?:s|d)?|listed)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*|noindex|non[- ]canonical|canonical|loc|inventory|coverage|redirect\w*|unreachable|include(?:s|d)?|listed)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
+
+export function isGenuineCanonicalSitemapFinding(text) {
+  const s = String(text || '');
+  if (!s) return false;
+  // noindex is an SEO indexing directive by definition; the negated-impact
+  // strip has already removed the "not touched" recap when this is called from
+  // bucketFinding().
+  if (/\bnoindex\b/i.test(s)) return true;
+  if (/\bsitemaps?\b/i.test(s)) return SITEMAP_SEO_DEFECT_RE.test(s);
+  if (/\bcross-section\b/i.test(s)) {
+    return /\b(?:canonical|indexable|hreflang|robots?|google|seo)\b/i.test(s) &&
+      /\b(?:mismatch|drift|missing|wrong|incorrect|broken|non[- ]canonical|self[- ]canonical|not|fails?|cross-section)\b/i.test(s);
+  }
+  if (NON_SEO_CANONICAL_MENTION_RE.test(s)) return false;
+  return CANONICAL_SEO_DEFECT_RE.test(s);
+}
+
 export function bucketFinding(text) {
   // I bucket si scelgono sul testo SENZA le ricognizioni negate: una sitemap
   // nominata solo per dire che non e' stata toccata non e' un finding su di lei.
@@ -521,6 +554,11 @@ export function bucketFinding(text) {
     // declared false positives so the bucket counts only genuine unswept-sibling
     // findings, mirroring pr-body-contract's filter above.
     if (t.key === 'sibling-class-fix' && !isGenuineSiblingClassViolation(text)) continue;
+    // `canonical` is overloaded outside SEO (canonical vacancy links, archive
+    // canonicalizers, canonical replacements, route URLs). Keep those lines in
+    // the fingerprint safety-net instead of inflating the canonical-sitemap
+    // topic with unrelated reviewer findings.
+    if (t.key === 'canonical-sitemap' && !isGenuineCanonicalSitemapFinding(scannable)) continue;
     return t.key;
   }
   // La rete fingerprint riceve il testo INTERO, non quello strippato. Lo strip e'
