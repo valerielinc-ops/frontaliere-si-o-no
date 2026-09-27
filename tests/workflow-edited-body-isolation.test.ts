@@ -14,11 +14,13 @@ const script = recoveryScriptStep.with.script;
 const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 const require = createRequire(import.meta.url);
 
-async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false, markerExtra = {} as Record<string, unknown>, bodyEditedAt = null as string | null, attemptJobs = null as Array<{ conclusion: string; started_at?: string }> | null } = {}) {
+async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false, markerExtra = {} as Record<string, unknown>, bodyEditedAt = null as string | null, attemptJobs = null as Array<{ conclusion: string; started_at?: string }> | null, concurrentEdit = null as { body?: string; editedAt?: string } | null } = {}) {
   const reruns: number[] = [];
   const dispatches: unknown[] = [];
   const callOrder: string[] = [];
   const attemptRequests: Array<{ run_id: number; attempt_number: number }> = [];
+  let prBody = body;
+  let lastEditedAt = bodyEditedAt;
   let nativeAutoMergeRevoked = false;
   let reads = 0;
   const run = { id: 42, status, conclusion, run_attempt: changedAttempt ? 2 : 1, event: 'pull_request', head_sha: 'head' };
@@ -58,7 +60,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
     rest: {
       pulls: {
         list: 'pulls',
-        get: async () => ({ data: { state: 'open', body, head: { sha: ++reads > 1 && changedHead ? 'new' : 'head', ref: 'fork-branch' }, base: { ref: 'main' } } }),
+        get: async () => ({ data: { state: 'open', body: prBody, head: { sha: ++reads > 1 && changedHead ? 'new' : 'head', ref: 'fork-branch' }, base: { ref: 'main' } } }),
       },
       issues: {
         listComments: 'comments',
@@ -100,7 +102,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
           pullRequest: {
             id: 'PRID',
             state: 'OPEN',
-            lastEditedAt: bodyEditedAt,
+            lastEditedAt,
             autoMergeRequest: nativeAutoMerge && !nativeAutoMergeRevoked
               ? { enabledAt: '2026-09-19T08:00:00Z' }
               : null,
@@ -112,6 +114,9 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       if (endpoint === 'pulls') return [{ number: 1, draft: false, base: { ref: 'main' } }];
       if (endpoint === 'attemptJobs') {
         attemptRequests.push({ run_id: Number(params.run_id), attempt_number: Number(params.attempt_number) });
+        // An edit landing while the jobs are listed, after the first snapshot.
+        if (concurrentEdit?.body !== undefined) prBody = concurrentEdit.body;
+        if (concurrentEdit?.editedAt !== undefined) lastEditedAt = concurrentEdit.editedAt;
         return attemptJobs ?? [];
       }
       if (endpoint === 'runs') {
@@ -429,6 +434,13 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       expect(result.reruns).toEqual([42]);
       expect(result.dispatches).toEqual([]);
     }
+    // A marker for another body means an edit whose handler has not run yet.
+    const staleMarker = await runRecovery({
+      ...pending, bodyEditedAt: '2026-09-19T09:00:10Z', attemptJobs: [after],
+      markerExtra: { bodyRevision: reviewInputRevisionFromBody('older body') },
+    });
+    expect(staleMarker.reruns).toEqual([42]);
+    expect(staleMarker.attemptRequests).toEqual([]);
     // Without a durable marker the edit handler has just revoked native
     // auto-merge: only the rerun's completion brings the PR back to a merge.
     const unmarked = await runRecovery({
@@ -436,6 +448,30 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     });
     expect(unmarked.reruns).toEqual([42]);
     expect(unmarked.attemptRequests).toEqual([]);
+  });
+
+  it('leaves the epoch pending for a rerun when the body changes while the attempt is checked', async () => {
+    const markerState = (comments: Array<{ body: string }>) => {
+      const last = comments.at(-1)?.body || '';
+      return JSON.parse(last.slice(last.indexOf('{'), last.indexOf('-->')));
+    };
+    for (const concurrentEdit of [
+      { body: 'edited again', editedAt: '2026-09-19T09:05:00Z' },
+      { editedAt: '2026-09-19T09:05:00Z' },
+    ]) {
+      const result = await runRecovery({
+        body: 'success', conclusion: 'success', eventName: 'workflow_run', pendingStatus: 'pending',
+        bodyEditedAt: '2026-09-19T09:00:10Z',
+        attemptJobs: [{ conclusion: 'success', started_at: '2026-09-19T09:01:54Z' }],
+        concurrentEdit, returnComments: true,
+      });
+      expect(result.dispatches).toEqual([]);
+      expect(result.reruns).toEqual([42]);
+      expect(markerState(result.comments!)).toMatchObject({
+        status: 'queued', runId: 42, runAttempt: 2,
+        bodyRevision: reviewInputRevisionFromBody(concurrentEdit.body ?? 'success'),
+      });
+    }
   });
 
   it('does not retry a completed code failure after a body edit', async () => {
