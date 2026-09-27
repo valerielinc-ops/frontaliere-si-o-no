@@ -42,6 +42,7 @@ describe('offerwallClickGate', () => {
 
   afterEach(() => {
     vi.useRealTimers();
+    window.history.replaceState({}, '', '/');
     delete window.__ftOfferwallGate;
     document.body.innerHTML = '';
     document.cookie = `${FC_OFFERWALL_ENTITLEMENT_COOKIE}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
@@ -61,6 +62,15 @@ describe('offerwallClickGate', () => {
     holdOfferwall();
     expect(offerwallGateStatus()).toBe('held');
     expect(isOfferwallHeld()).toBe(true);
+  });
+
+  it('clears a stale off-board state after SPA entry into the job board', () => {
+    window.history.replaceState({}, '', '/cerca-lavoro-ticino/azienda-esempio/offerta/');
+    window.__ftOfferwallGate = { state: 'off_board' };
+
+    expect(offerwallGateStatus()).toBe('absent');
+    expect(window.__ftOfferwallGate?.state).toBe('idle');
+    expect(isOfferwallHeld()).toBe(false);
   });
 
   it('reports not_held when Funding Choices never held an Offerwall on this page', async () => {
