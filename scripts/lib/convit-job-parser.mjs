@@ -20,7 +20,6 @@ import {
 } from './target-swiss-locations.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './crawler-location-config.mjs';
 import { stripLocationRegionMarkers } from './job-location-plausibility.mjs';
-import { extractStableJobId } from './job-match-key.mjs';
 
 const HQ = getCompanyDefaults('convit');
 
@@ -28,6 +27,16 @@ const BASE_URL = 'https://www.careers-page.com';
 const COMPANY_SLUG = 'convit-holding-gmbh';
 const BASE_ORIGIN = new URL(BASE_URL).origin;
 const JOB_PATH_RE = new RegExp(`^/${COMPANY_SLUG}/job/([A-Za-z0-9]+)/?$`);
+
+function extractConvitListingCode(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl, BASE_URL);
+    if (url.origin !== BASE_ORIGIN) return '';
+    return url.pathname.match(JOB_PATH_RE)?.[1] || '';
+  } catch {
+    return '';
+  }
+}
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -141,12 +150,12 @@ export function parseConvitListingPage(html = '') {
 export function createConvitListingSourceValidator(listings = [], { complete = false } = {}) {
   const listedKeys = new Set(
     (Array.isArray(listings) ? listings : [])
-      .map((listing) => extractStableJobId(listing?.detailUrl || listing?.url))
+      .map((listing) => extractConvitListingCode(listing?.detailUrl || listing?.url).toLowerCase())
       .filter(Boolean),
   );
 
   return async (jobs = []) => (Array.isArray(jobs) ? jobs : []).map((job) => {
-    const key = extractStableJobId(job?.url);
+    const key = extractConvitListingCode(job?.url).toLowerCase();
     const id = job?.id || key || '';
     if (!complete || listedKeys.size === 0 || !key) {
       return {
@@ -155,7 +164,7 @@ export function createConvitListingSourceValidator(listings = [], { complete = f
         definitive: false,
         reason: !complete || listedKeys.size === 0
           ? 'incomplete-convit-listing-snapshot'
-          : 'missing-stable-job-id',
+          : 'missing-convit-listing-code',
       };
     }
     if (listedKeys.has(key)) {
