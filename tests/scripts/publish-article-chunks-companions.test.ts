@@ -51,7 +51,7 @@ describe('publish-article-chunks — registry never ships ahead of its translati
     // Order is the fix, not an optimisation: companions-first fails safe (the
     // client holds translations for articles it cannot see yet — invisible),
     // registries-first fails exactly the way production did.
-    const companionLoop = src.indexOf('for (const companion of COMPANION_CHUNKS)');
+    const companionLoop = src.indexOf('for (const companion of selected.companions)');
     const registryLoop = src.indexOf('for (const registry of REGISTRIES)');
     expect(companionLoop).toBeGreaterThan(-1);
     expect(registryLoop).toBeGreaterThan(-1);

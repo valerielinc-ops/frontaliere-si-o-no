@@ -189,11 +189,7 @@ jobs:
         if: steps.render.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           INPUT_SECTION: ${{ inputs.section }}
-        run: |
-          npx -y tsx@4 scripts/publish-article-chunks.mjs \
-            --section "$INPUT_SECTION" \
-            --strict \
-            --no-ticker
+        run: npx -y tsx@4 scripts/publish-article-chunks.mjs --section "$INPUT_SECTION" --strict --no-ticker
 
       # Mirrors the fault-tolerant parallel-push pattern at deploy.yml
       # (`push-section-shard.sh` fan-out, since #5130 driven by
