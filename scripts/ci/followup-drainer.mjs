@@ -254,7 +254,7 @@ const SETTLE_MIN = intFromEnv('FOLLOWUP_SETTLE_MIN', 3);
 // Quante run `issue-fix` possono essere vive insieme. Era 1 hard-coded — un
 // mutex, non un cap — poi alzato a 3 (2026-09-04). Il default locale resta 5:
 // è il massimo misurato come stabile dalla flotta locale. Il workflow remoto
-// configura esplicitamente 10 sui runner GitHub Actions; quel valore resta
+// configura esplicitamente 15 sui runner GitHub Actions; quel valore resta
 // bounded e protetto da claim/quota Codex, senza cambiare il fallback locale.
 // Override:
 // `FOLLOWUP_MAX_INFLIGHT_FIX=N` conserva il kill-switch e la telemetria — la
