@@ -31,7 +31,8 @@ import {
   canonicalLogin,
   maxTurnsFor,
   selectFollowupSessionBatch,
-  FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_SECONDS_PER_PR,
+  FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_DURATION_MS,
+  FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_PR_COUNT,
   FOLLOWUP_SESSION_BATCH_LIMIT,
   deferredCount,
   orderCandidatesFifo,
@@ -517,16 +518,12 @@ describe('follow-up provider session bound', () => {
   // gap mediano 4,9h) = ~20 PR/giorno contro rinvii di 65-146 PR a ogni run.
   // Tre vincoli letti dal workflow reale, così che cap, watchdog, step e cron
   // non possano divergere in silenzio:
-  //  1. cap x upper bound per PR osservato su un batch COMPLETATO
-  //     (ceil(1.792.000 ms / 21 PR) = 86 s, corpus 34602892494) < watchdog;
+  //  1. cap <= 21 PR, cioè il numero di PR commentate nel benchmark COMPLETATO
+  //     più lento (corpus 34602892494, 1.792.000 ms totali). Si confronta la
+  //     durata della sessione intera: la media per PR non è un upper bound;
   //  2. watchdog + setup/kill grace/coda (300 s) STRETTAMENTE sotto lo step;
   //  3. cap x run reali/giorno (cron nominali x 62%) >= picco di ~80 candidati
   //     al giorno (110 merge x ~72% oltre i gate).
-  const COMPLETED_BATCH_DURATION_MS = 1_792_000;
-  const COMPLETED_BATCH_PR_COUNT = 21;
-  const COMPLETED_BATCH_UPPER_BOUND_SECONDS_PER_PR = Math.ceil(
-    COMPLETED_BATCH_DURATION_MS / COMPLETED_BATCH_PR_COUNT / 1000,
-  );
   const CODEX_SETUP_AND_TAIL_SECONDS = 300;
   const CRON_EXECUTED_RATIO = 0.62;
   const PEAK_CANDIDATES_PER_DAY = 80;
@@ -542,12 +539,11 @@ describe('follow-up provider session bound', () => {
     const stepMinutes = Number(/timeout-minutes: (\d+)/u.exec(stepHead)?.[1]);
     expect(watchdogSeconds).toBeGreaterThan(0);
     expect(stepMinutes).toBeGreaterThan(0);
-    expect(FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_SECONDS_PER_PR)
-      .toBe(COMPLETED_BATCH_UPPER_BOUND_SECONDS_PER_PR);
-    const projectedDurationMs = FOLLOWUP_SESSION_BATCH_LIMIT
-      * FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_SECONDS_PER_PR * 1000;
-    expect(projectedDurationMs).toBeLessThan(6_840_000);
-    expect(projectedDurationMs).toBeLessThan(watchdogSeconds * 1000);
+    expect(FOLLOWUP_SESSION_BATCH_LIMIT)
+      .toBeLessThanOrEqual(FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_PR_COUNT);
+    expect(FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_DURATION_MS).toBeLessThan(6_840_000);
+    expect(FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_DURATION_MS)
+      .toBeLessThan(watchdogSeconds * 1000);
     expect(watchdogSeconds + CODEX_SETUP_AND_TAIL_SECONDS).toBeLessThan(stepMinutes * 60);
   });
 
