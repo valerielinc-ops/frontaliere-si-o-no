@@ -918,6 +918,39 @@ describe('vacancy extraction', () => {
     expect(first.url).not.toBe(second.url);
   });
 
+  it('does not merge an explicitly different same-title inline representation', () => {
+    const pageUrl = 'https://x.example/stellen/';
+    const html = `<h1>Careers</h1><script type="application/ld+json">${JSON.stringify([
+      {
+        '@type': 'JobPosting',
+        title: 'Primary Role',
+        description: 'Primary description with its own duties and location evidence.',
+        identifier: 'REQ-100',
+        jobLocation: { address: { addressLocality: 'Chur', addressCountry: 'CH' } },
+      },
+      {
+        '@type': 'JobPosting',
+        title: 'Secondary Role',
+        description: 'Secondary description with different duties and location evidence.',
+        identifier: 'REQ-200',
+        jobLocation: { address: { addressLocality: 'Zürich', addressCountry: 'CH' } },
+      },
+    ])}</script>` +
+      '<article itemscope itemtype="https://schema.org/JobPosting">'
+      + '<meta itemprop="title" content="Primary Role">'
+      + '<meta itemprop="url" content="https://x.example/stellen/other">'
+      + '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Lausanne">'
+      + '<meta itemprop="addressCountry" content="CH"></div></article>';
+    const [primary] = extractJsonLd(html, pageUrl);
+
+    const detail = extractRuntimeDetailFields({}, html, pageUrl, { recordUrl: primary.url });
+    expect(detail.title).toBe('Primary Role');
+    expect(detail.location).toBe('Chur');
+    expect(detail.description).toContain('Primary description');
+    expect(detail.description).not.toContain('Secondary description');
+    expect(detail.location).not.toContain('Lausanne');
+  });
+
   it('preserves country evidence and every JSON-LD job location', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting',

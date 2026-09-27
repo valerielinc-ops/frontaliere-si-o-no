@@ -367,9 +367,20 @@ function selectDetailStructuredRecords(records, pageUrl, renderedTitle, recordUr
     if (fragmentMatches.length === 1) {
       const [selected] = fragmentMatches;
       const selectedTitleIdentity = identityText(selected.title);
-      const complementary = records.filter((record) => record !== selected
-        && record.via !== selected.via
-        && identityText(record.title) === selectedTitleIdentity);
+      const complementaryByFormat = new Map();
+      for (const record of records) {
+        if (record === selected
+          || record.urlExplicit
+          || record.via === selected.via
+          || identityText(record.title) !== selectedTitleIdentity) continue;
+        const matches = complementaryByFormat.get(record.via) || [];
+        matches.push(record);
+        complementaryByFormat.set(record.via, matches);
+      }
+      const complementary = [];
+      for (const matches of complementaryByFormat.values()) {
+        if (matches.length === 1) complementary.push(matches[0]);
+      }
       return [selected, ...complementary];
     }
     // A fragment that no longer maps to exactly one source record is an
