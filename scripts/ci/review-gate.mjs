@@ -332,6 +332,7 @@ function emptyClassification(findings = []) {
     outside: [],
     inScope: [],
     unresolved: [],
+    ledgerDeclassified: [],
     outsideOnly: false,
     blocking: false,
   };
@@ -405,6 +406,7 @@ export function classifyReview(body, {
   const unresolved = [];
   const ignoredCitations = [];
   const bodyDeclassified = [];
+  const ledgerDeclassified = [];
 
   // Righe realmente confrontate fra l'ultima review e questa HEAD. Il seed con
   // l'elenco file della PR è la parte che rende la regola utile: dopo un merge
@@ -444,6 +446,10 @@ export function classifyReview(body, {
     if (bodyContractPassed && finding.citations.length === 0
         && isContractDomainBodyFinding(finding, prBody)) {
       bodyDeclassified.push(finding);
+      continue;
+    }
+    if (isLedgerAcceptanceFinding(finding)) {
+      ledgerDeclassified.push(finding);
       continue;
     }
     if (finding.citations.length === 0) {
@@ -514,7 +520,9 @@ export function classifyReview(body, {
     ignoredCitations,
     bodyDeclassified,
     staleDeclassified,
-    outsideOnly: (outside.length + bodyDeclassified.length + staleDeclassified.length) > 0
+    ledgerDeclassified,
+    outsideOnly: (outside.length + bodyDeclassified.length + staleDeclassified.length
+      + ledgerDeclassified.length) > 0
       && inScope.length === 0 && unresolved.length === 0,
     blocking: inScope.length > 0 || unresolved.length > 0,
   };
@@ -739,6 +747,46 @@ const STABLE_ID_TARGET_RE = /^[0-9a-f]{12}$/u;
  * potrebbero suggerire una conferma che il gate poi rifiuta. `null` per un
  * finding ancorato a un file, che si chiude con `path:L<n>`.
  */
+// L'Accettazione che si verifica solo sul bundle o sul ledger della review
+// stessa («il prossimo bundle deterministico contiene…», «`rg '**open**'
+// review-ctx/review-bundle.md` non produce output», «ogni ID risulta
+// `confirmed-fixed`»). Formule della review, non le parole nude: in questo repo
+// «bundle» e «ledger» sono anche il bundle JS e i ledger dei crawler.
+const LEDGER_ACCEPTANCE_RE = /review-bundle\.md|review-ctx\/|\b(?:prossimo|next)\s+(?:deterministic\s+)?bundle\b|\bbundle\s+(?:deterministico|successivo)\b|\bdeterministic\s+bundle\b/iu;
+// Tolti i path del bundle della review, la clausola non deve citare nulla del
+// repository: un path o un comando che esegue codice del repo la rendono una
+// verifica sulla PR (review 5330691138: «review-bundle.md exists and
+// scripts/ci/review-gate.mjs is correct» non è ledger-only).
+const LEDGER_PATH_RE = /\S*(?:review-ctx\/|review-bundle\.md)\S*/giu;
+const REPO_COMMAND_RE = /\b(?:npm|npx|node|vitest|tsx|git|bash|sh)\b/iu;
+
+function ledgerOnlyClause(clause) {
+  if (!LEDGER_ACCEPTANCE_RE.test(clause)) return false;
+  const rest = clause.replace(LEDGER_PATH_RE, ' ');
+  return extractFileCitations(rest).length === 0 && !REPO_COMMAND_RE.test(rest);
+}
+
+/**
+ * Un 🔴 senza file la cui Accettazione, in ogni sua clausola, si verifica solo
+ * sul bundle o sul ledger della review. Nessuna modifica alla PR può
+ * soddisfarla: REVIEW.md chiede un 🔴 chiudibile da un agente che legge solo
+ * quella riga, e questo non lo è per costruzione. Sulla PR 9959 questi
+ * meta-finding («il finding storico X resta open senza anchor») si sono
+ * rialzati da soli per 55 review, portando il ledger a 111 voci aperte, mentre
+ * il codice aveva già quattro `## LGTM`. Su 120 PR mergiate prima: zero 🔴
+ * senza file, quindi zero casi toccati. Ogni clausola vale fino a fine riga,
+ * così un rilievo vero che cita un meta-finding resta bloccante. Un 🔴
+ * ancorato a `PR body:L<n>` resta sulle regole del body
+ * (`isContractDomainBodyFinding`) e sulla sua conferma esatta.
+ */
+export function isLedgerAcceptanceFinding(finding) {
+  if ((finding?.citations || []).length > 0) return false;
+  if (prBodyAnchor(finding?.line) !== null || prBodyAnchor(finding?.text) !== null) return false;
+  const clauses = [...String(finding?.text || '').matchAll(/(?:Accettazione|Acceptance)\s*:\s*([^\n]*)/giu)]
+    .map((match) => match[1]);
+  return clauses.length > 0 && clauses.every(ledgerOnlyClause);
+}
+
 export function unanchoredConfirmationTarget(finding) {
   if ((finding?.citations || []).length > 0) return null;
   const bodyAnchor = prBodyAnchor(finding?.line);
@@ -1298,6 +1346,9 @@ export function partitionHistoricalImportantFindings(
     if (!includeLatest && index === latestIndex) break;
 
     for (const finding of parseImportantFindings(review?.body, citationExtractor)) {
+      // Un 🔴 verificabile solo sul ledger non diventa una voce del ledger:
+      // era esattamente il circuito che lo alimentava (`isLedgerAcceptanceFinding`).
+      if (isLedgerAcceptanceFinding(finding)) continue;
       const id = stableFindingId(finding);
       if (!firstSeenById.has(id)) firstSeenById.set(id, index);
       open.set(findingKey(finding), {
@@ -1847,6 +1898,7 @@ export function scopeExit(classification) {
   const declassified = [
     ...(classification.bodyDeclassified || []).map((finding) => ({ finding, reason: 'body' })),
     ...(classification.staleDeclassified || []).map((finding) => ({ finding, reason: 'stale' })),
+    ...(classification.ledgerDeclassified || []).map((finding) => ({ finding, reason: 'ledger' })),
   ];
   if (classification.blocking === true) {
     return { kind: SCOPE_EXITS.BLOCKING, bodyOnly, silent: false, declassified };
@@ -2027,6 +2079,9 @@ async function mintFollowup({ repo, pr, prUrl, findings }) {
 export function logClassification(classification) {
   for (const finding of classification.bodyDeclassified ?? []) {
     console.log(`review-gate: DECLASSIFIED-BODY finding=${finding.findingNumber} reason=deterministic PR-body contract passed on the current body; a body remark is at most a Nit`);
+  }
+  for (const finding of classification.ledgerDeclassified ?? []) {
+    console.log(`review-gate: DECLASSIFIED-LEDGER finding=${finding.findingNumber} reason=Important without a file whose acceptance is checked only on the review bundle/ledger; no change to the PR can satisfy it`);
   }
   for (const finding of classification.staleDeclassified ?? []) {
     console.log(`review-gate: DECLASSIFIED-UNCHANGED-LINE finding=${finding.findingNumber} id=${finding.stableId} reason=new Important anchored only on lines untouched since the previous review; declare 🔴 Important: [regression] to keep it blocking`);

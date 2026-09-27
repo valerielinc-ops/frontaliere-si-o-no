@@ -10,6 +10,7 @@ import {
   extractFileCitations,
   historicalImportantFindings,
   importantFindings,
+  isLedgerAcceptanceFinding,
   logClassification,
   CODEX_REVIEW_MARKER,
   normalizeReviewBody,
@@ -559,18 +560,19 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(historicalImportantFindings([anchored, review], { includeLatest: true })).toHaveLength(1);
   });
 
-  it('breaks the #9959 ledger loop: every restated ledger 🔴 closes by its printed id', () => {
-    // Forma reale delle review 5326530304 e 5326704826: 🔴 senza file sul
-    // ledger stesso, riformulati a ogni giro con prefissi diversi. Il testo
-    // normalizzato intero non viene mai ricopiato alla lettera; l'id sì.
+  it('closes restated unanchored 🔴 by their printed id, never by a prose paraphrase', () => {
+    // Forma delle review 5326530304 e 5326704826 (PR 9959): 🔴 senza file
+    // riformulati a ogni giro con prefissi diversi. Il testo normalizzato
+    // intero non viene mai ricopiato alla lettera; l'id sì. L'Accettazione qui
+    // è verificabile sulla PR: quella sul solo ledger è declassata (sotto).
     const meta = (id: number, text: string) => ({
       ...historicalImportantReview,
       id,
       body: `## Findings (Important: 1, Nit: 0)\n${text}\n## Adversarial check\n- ❓ q: nessuna.`,
     });
     const history = [
-      meta(10, 'Historical finding `c7a2dc47f1c0` (anchor non risolvibile): 🔴 Important: [process] Il finding storico resta open nel bundle senza testo o anchor verificabile; non può essere chiuso per silenzio. Accettazione: il bundle successivo contiene il testo del finding.'),
-      meta(11, '🔴 Important: [process] Il finding storico `e5269f0f9d49` resta open nel bundle senza testo o anchor verificabile; non può essere chiuso per silenzio. Accettazione: il prossimo bundle contiene il testo completo.'),
+      meta(10, 'Historical finding `c7a2dc47f1c0` (anchor non risolvibile): 🔴 Important: [process] Il body non dichiara la misura pre/post; non può essere chiuso per silenzio. Accettazione: il body riporta il delta pre/post.'),
+      meta(11, '🔴 Important: [process] Il finding storico `e5269f0f9d49` non ha una risposta del fixer; non può essere chiuso per silenzio. Accettazione: `node scripts/ci/pr-body-check-gate.mjs --body-file body.md` esce 0.'),
     ];
     const open = historicalImportantFindings(history, { includeLatest: true });
     expect(open).toHaveLength(2);
@@ -1871,5 +1873,104 @@ describe('review gate: fallback provenance reaches every authoritative consumer'
     const read = src.slice(src.indexOf('function readReviews'));
     expect(read).toContain('parseReviewPages(pages)');
     expect(read).toContain('reviews PR: JSON/pagine/entry malformate');
+  });
+});
+
+describe('review gate: an acceptance checked only on the review bundle/ledger is not a PR finding (PR 9959)', () => {
+  const bot = (id: number, body: string, commit = PRIOR_SHA) => ({
+    id,
+    user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    state: 'COMMENTED',
+    body,
+    commit_id: commit,
+  });
+  // Forme reali, dalle review 5326530304, 5328450715 e 5330565944.
+  const META = [
+    'Historical finding `c7a2dc47f1c0` (anchor non risolvibile): 🔴 Important: [process] Il finding storico resta open nel bundle senza testo o anchor verificabile; non può essere chiuso per silenzio. Accettazione: risposta del fixer al finding `c7a2dc47f1c0` → il bundle successivo contiene il testo del finding, il suo anchor e una risoluzione esplicita.',
+    'Historical finding 3e3cde56a33a: 🔴 Important: [process] Historical finding remains open in the bundle without a verifiable text or anchor. Accettazione: the next deterministic bundle contains the complete finding text, an anchor `path:L<line>` or `PR body:L<n>`, and an explicit resolution.',
+    "Historical findings `e5269f0f9d49`, `3e3cde56a33a`: 🔴 Important: [process] Gli Important storici senza file restano aperti. Accettazione: `rg -n '\\*\\*open\\*\\*' /home/runner/work/_temp/codex-home.pqfaVw/scratch/review-ctx/review-bundle.md` produce nessun output e ogni ID elencato risulta `confirmed-fixed`.",
+  ];
+  // Stessa accettazione, ma ancorato al body: resta sulle regole del body e
+  // sulla conferma esatta `PR body:L7` (review 5330691138).
+  const BODY_META = 'PR body:L7: 🔴 Important: [process] Il bundle deterministico mantiene ancora open 45 entry storiche. Accettazione: il prossimo bundle deterministico riporta tutti i 34 stable ID come `confirmed-fixed` e nessun ledger entry `open`.';
+
+  it('recognizes the review-ledger acceptances and nothing else', () => {
+    for (const text of META) {
+      const [finding] = importantFindings(text);
+      expect(isLedgerAcceptanceFinding(finding), text.slice(0, 60)).toBe(true);
+    }
+    for (const text of [
+      // Il rilievo vero di quella PR: resta bloccante.
+      'PR body:L3: 🔴 Important: [process] Il claim di ottimizzazione resta non validato. Accettazione: baseline pre/post dello stesso diff da 404 path → il body riporta il delta.',
+      // «bundle» e «ledger» del prodotto, non della review.
+      '🔴 Important: [contract] il bundle del client importa ancora `node:fs`. Accettazione: `npm run build` → il bundle del client non contiene `node:fs`.',
+      '🔴 Important: [process] il ledger dei crawler non registra la generazione. Accettazione: `data/crawler-generation-ledger.jsonl` contiene la riga della run.',
+      // Una clausola vera accanto a una sul ledger: resta bloccante.
+      '🔴 Important: [correctness] il conteggio è sbagliato. Accettazione: `npx vitest run tests/x.test.ts` passa.\nAccettazione: il prossimo bundle deterministico lo marca `confirmed-fixed`.',
+      // Nessuna accettazione: nessuna prova che sia solo sul ledger.
+      '🔴 Important: [process] il finding storico resta open nel bundle.',
+      BODY_META,
+      // Controesempi della review 5330691138: token nudo e clausola mista.
+      '🔴 Important: [process] x. Accettazione: confirmed-fixed',
+      '🔴 Important: [process] x. Accettazione: review-bundle.md exists and scripts/ci/review-gate.mjs is correct',
+      '🔴 Important: [process] x. Accettazione: il prossimo bundle deterministico è rigenerato da `npx vitest run tests/review-gate.test.ts`.',
+    ]) {
+      const [finding] = importantFindings(text);
+      expect(isLedgerAcceptanceFinding(finding), text.slice(0, 60)).toBe(false);
+    }
+    // Un finding ancorato a un file non è mai toccato.
+    const [anchored] = importantFindings('`scripts/ci/review-gate.mjs:L12`: 🔴 Important: il ledger perde voci. Accettazione: il prossimo bundle deterministico le mostra.');
+    expect(isLedgerAcceptanceFinding(anchored)).toBe(false);
+    // Il comando di accettazione della review costruisce il finding solo con `text`.
+    expect(isLedgerAcceptanceFinding({ citations: [], text: 'PR body:L7: 🔴 Important: [contract] performance claim. Accettazione: review-bundle.md' })).toBe(false);
+  });
+
+  it('leaves a body-anchored ledger remark to its exact PR body confirmation', () => {
+    const opened = bot(40, `## Findings (Important: 1, Nit: 0)\n${BODY_META}\n## Adversarial check`);
+    expect(historicalImportantFindings([opened], { includeLatest: true })).toHaveLength(1);
+    const confirmed = bot(41, '## Findings (Important: 0, Nit: 0)\nFix di `PR body:L7`: ok.\n## LGTM', HEAD_SHA);
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
+  it('keeps ledger-referential Important out of the historical ledger, and real ones in', () => {
+    const history = META.map((text, index) => bot(10 + index, `## Findings (Important: 1, Nit: 0)\n${text}\n## Adversarial check`));
+    expect(historicalImportantFindings(history, { includeLatest: true })).toHaveLength(0);
+    const real = bot(20, '## Findings (Important: 1, Nit: 0)\n🔴 Important: [process] contract remains unresolved. Accettazione: `node scripts/ci/pr-body-check-gate.mjs --body-file body.md` esce 0.');
+    expect(historicalImportantFindings([...history, real], { includeLatest: true })).toHaveLength(1);
+  });
+
+  it('approves a head whose only Important is a ledger meta-finding, and logs why', async () => {
+    const history = META.map((text, index) => bot(10 + index, `## Findings (Important: 1, Nit: 0)\n${text}\n## Adversarial check`));
+    const latest = bot(30, `## Findings (Important: 1, Nit: 0)\n${META[2]}\n\n## Adversarial check\n- ❓ q: nessuna. — deferred, non funnel-critical.`, HEAD_SHA);
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const result = await runReviewGate({
+        repo: 'owner/repo',
+        pr: 1,
+        headSha: HEAD_SHA,
+        reviews: [[...history, latest]],
+        classifyAndMintReviewFn: async (body: string) => {
+          const classification = await classifyCurrentDiff(body);
+          logClassification(classification);
+          return classification;
+        },
+        mutate: false,
+      });
+      expect(result.approved).toBe(true);
+      expect(log.mock.calls.flat().join('\n')).toMatch(/review-gate: DECLASSIFIED-LEDGER finding=1 /u);
+    } finally {
+      log.mockRestore();
+    }
+
+    const withReal = bot(31, `## Findings (Important: 2, Nit: 0)\n${META[2]}\n🔴 Important: [process] contract remains unresolved.\n## Adversarial check`, HEAD_SHA);
+    const blocked = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[...history, withReal]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+    expect(blocked.approved).toBe(false);
   });
 });
