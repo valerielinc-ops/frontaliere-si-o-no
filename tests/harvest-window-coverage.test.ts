@@ -93,6 +93,11 @@ describe('applyCap / coverageWarnings', () => {
     expect(w[0]).toMatch(/^::warning::fix-issues: .*580.*PARZIALE/);
   });
 
+  it('una issue idratata senza commenti leggibili rende la vista PARZIALE (review di #10118)', () => {
+    const w = coverageWarnings('fix-issues', { truncatedDays: [], failedDays: [] }, 0, [9912, 9913]);
+    expect(w).toEqual(['::warning::fix-issues: commenti illeggibili per 2 elementi, vista PARZIALE: #9912, #9913']);
+  });
+
   it('finestra completa = nessun warning', () => {
     expect(coverageWarnings('issues', { truncatedDays: [], failedDays: [] }, 0)).toEqual([]);
   });

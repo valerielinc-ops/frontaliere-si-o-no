@@ -172,9 +172,10 @@ export function applyCap(items, max) {
  * @param {string} label
  * @param {{truncatedDays: string[], failedDays: string[]}} window
  * @param {number} cut
+ * @param {number[]} [unreadItems] elementi letti senza i loro nodi annidati
  * @returns {string[]}
  */
-export function coverageWarnings(label, { truncatedDays, failedDays }, cut) {
+export function coverageWarnings(label, { truncatedDays, failedDays }, cut, unreadItems = []) {
   const out = [];
   if (truncatedDays.length) {
     out.push(`::warning::${label}: giorni al tetto della search API (${SEARCH_RESULT_CAP}), vista PARZIALE: ${truncatedDays.join(', ')}`);
@@ -183,6 +184,9 @@ export function coverageWarnings(label, { truncatedDays, failedDays }, cut) {
     out.push(`::warning::${label}: lettura fallita, giorni MANCANTI dalla finestra: ${failedDays.join(', ')}`);
   }
   if (cut) out.push(`::warning::${label}: tetto esplicito, ${cut} elementi della finestra esclusi (vista PARZIALE)`);
+  if (unreadItems.length) {
+    out.push(`::warning::${label}: commenti illeggibili per ${unreadItems.length} elementi, vista PARZIALE: ${unreadItems.map((n) => `#${n}`).join(', ')}`);
+  }
   return out;
 }
 
@@ -1129,13 +1133,21 @@ async function main() {
   // lista leggera e sui commenti per issue, invece di perdere il giorno.
   const fixListArgs = (day, fields) => ['issue', 'list', '--state', 'all',
     '--search', `label:agent:triaged updated:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', fields];
+  // Un `view` fallito nel ripiego NON diventa `comments: []` in silenzio: la
+  // issue finisce in `unreadItems` e la finestra si dichiara PARTIAL (review
+  // di #10118), perche' i suoi marker FIX_OUTCOME mancano dal conteggio.
+  const unreadFixIssues = [];
   const fixWindow = collectWindow(days, (day) => fetchDayWithFallback(
     () => ghJsonRetry(fixListArgs(day, 'number,title,labels,body,comments')),
     () => ghJsonRetry(fixListArgs(day, 'number,title,labels,body')),
-    (it) => ({ ...it, comments: ghJson(['issue', 'view', String(it.number), '--json', 'comments'])?.comments || [] }),
+    (it) => {
+      const view = ghJsonRetry(['issue', 'view', String(it.number), '--json', 'comments']);
+      if (!Array.isArray(view?.comments)) unreadFixIssues.push(it.number);
+      return { ...it, comments: view?.comments || [] };
+    },
   ));
   const fixCap = applyCap(fixWindow.items, MAX_ISSUES);
-  coverage.push(...coverageWarnings('fix-issues', fixWindow, fixCap.cut));
+  coverage.push(...coverageWarnings('fix-issues', fixWindow, fixCap.cut, unreadFixIssues));
   const fixIssues = fixCap.items;
   for (const issue of fixIssues) {
     const { number } = issue;
