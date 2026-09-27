@@ -66,4 +66,12 @@ describe('per-canton non-TI sector hub is content-first (propagated from PR #111
     expect(block).toContain('sJobs.map((j: any) => String(j.company');
     expect(block).toContain('sJobs.map((j: any) => String(j.location');
   });
+
+  it('emits the same sector matrix for the Switzerland aggregate', () => {
+    expect(block).toContain('const aggregateSectorBuckets');
+    expect(block).toContain('[...SHARED_ALL_CANTON_CODES, AGGREGATE_KEY]');
+    expect(block).toContain('isAggregate ? aggregateSectorBuckets.get(sector)');
+    expect(block).toContain('sharedResolveCantonSection(locale, jobCanton)');
+    expect(block).toContain('sectionByLocale[locale]');
+  });
 });

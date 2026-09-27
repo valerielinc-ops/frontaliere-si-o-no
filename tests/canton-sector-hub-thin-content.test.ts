@@ -84,4 +84,38 @@ describe('per-canton sector hub — thin-content floor at 0 matching jobs', () =
       ).toBeGreaterThanOrEqual(210);
     }
   });
+
+  it('national sector context uses Switzerland-wide wording', () => {
+    const nationalLocations = {
+      it: 'Svizzera',
+      en: 'Switzerland',
+      de: 'Schweiz',
+      fr: 'Suisse',
+    } as const;
+    const expectedHeadings = {
+      it: 'Vivere in Italia e lavorare in Svizzera',
+      en: 'Living in Italy and working in Switzerland',
+      de: 'In Italien wohnen und in der Schweiz arbeiten',
+      fr: 'Vivre en Italie et travailler en Suisse',
+    } as const;
+    const forbidden = {
+      it: [/Canton Svizzera/, /cantonale TI/, /comune ticinese di lavoro/],
+      en: [/Canton of Switzerland/, /Cantonal TI/, /Ticino work municipality/],
+      de: [/Kanton Schweiz/, /Tessiner Arbeitsgemeinde/],
+      fr: [/canton Suisse/, /commune tessinoise de travail/],
+    } as const;
+
+    for (const locale of LOCALES) {
+      const html = renderJobBoardCommuterContext({
+        locale,
+        location: nationalLocations[locale],
+        omitCommute: true,
+        sectorOrType: 'Infermieri',
+      });
+      expect(html, `${locale} national heading`).toContain(expectedHeadings[locale]);
+      for (const pattern of forbidden[locale]) {
+        expect(html, `${locale} contains canton-specific national copy`).not.toMatch(pattern);
+      }
+    }
+  });
 });
