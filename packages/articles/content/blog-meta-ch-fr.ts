@@ -6851,6 +6851,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.strage-parlamento-zugo-sicurezza.title': 'Zoug, il y a 25 ans, le massacre dans la salle du Parlement',
     'blog.article.strage-parlamento-zugo-sicurezza.excerpt': 'Le 27 septembre 2001, Friedrich Leibacher a tué 14 personnes et en a blessé 15 au Parlement de Zoug, tirant 91 coups de feu en 2 minutes et 34 secondes, entraînant un changement de sécurité.',
     'blog.article.strage-parlamento-zugo-sicurezza.imageAlt': 'Mesures de sécurité renforcées dans les parlements suisses après le massacre de Zoug',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.title': 'Initiative alimentaire : rejetée avec 72,5 % de non',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.excerpt': 'Le peuple suisse rejette la proposition de porter l\'auto-approvisionnement à 70 % en dix ans. Tous les cantons ont voté contre.',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.imageAlt': 'Paysage agricole suisse avec des pâturages verts',
 };
 
 export default blogMetaChFr;
