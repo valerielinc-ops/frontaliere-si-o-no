@@ -20500,6 +20500,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'esercito-divisa-grigia-dismissione',
+    category: 'novita',
+    date: '2026-09-27T04:24:48.607Z',
+    image: '/images/blog/esercito-divisa-grigia-dismissione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

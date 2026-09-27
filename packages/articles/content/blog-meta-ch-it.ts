@@ -6824,6 +6824,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.congedo-parentale-firme-riuscita.title': 'Congedo parentale: 136 mila firme raccolte in Svizzera',
     'blog.article.congedo-parentale-firme-riuscita.excerpt': 'Riuscita l\'iniziativa popolare per il congedo parentale con 136\'000 firme. Deposito previsto alla Cancelleria federale.',
     'blog.article.congedo-parentale-firme-riuscita.imageAlt': 'Raccolta firme per l\'iniziativa popolare sul congedo parentale in Svizzera',
+    'blog.article.esercito-divisa-grigia-dismissione.title': 'Esercito, addio alla tenuta d\'uscita e le uniformi dismesse vengono bruciate',
+    'blog.article.esercito-divisa-grigia-dismissione.excerpt': 'Dal 2025 la tradizionale divisa grigia dell\'esercito svizzero viene assegnata solo per compiti rappresentativi, generando un risparmio di circa 55 milioni.',
+    'blog.article.esercito-divisa-grigia-dismissione.imageAlt': 'Uniformi dell\'esercito svizzero a Berna',
 };
 
 export default blogMetaChIt;
