@@ -1,6 +1,6 @@
 {
   "crawlerKey": "komax",
-  "assembledAt": "2026-09-26T14:22:07.193Z",
+  "assembledAt": "2026-09-26T23:47:34.592Z",
   "jobs": [
     {
       "id": "komax-3a29c65992eb",
@@ -33,7 +33,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-2027-6036/1164647755/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:22:02.137Z",
+      "crawledAt": "2026-09-26T23:47:30.476Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -69,6 +69,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.826Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -97,10 +98,10 @@
       "companyDomain": "komaxgroup.com",
       "title": "Development Engineer Electronics with EMV lead",
       "titleByLocale": {
-        "de": "Elektronik-Entwicklungsingenieur mit EMV-Leitung",
+        "de": "Development Ingenieur Electronics with EMV lead",
         "en": "Development Engineer Electronics with EMV lead",
-        "it": "Elettronica per ingegnere di sviluppo con piombo EMC",
-        "fr": "Ingénieur de développement électronique avec EMC plomb"
+        "it": "Development Ingegnere Electronics with EMV lead",
+        "fr": "Development Ingénieur Electronics with EMV lead"
       },
       "description": "Ihr Aufgabengebiet\n\n• Fachliche Führung und Weiterentwicklung des Bereichs EMV (Definition von Standards, Sicherstellung der Einhaltung relevanter Normen, Weiterentwicklung und Schulung der internen EMV-Prozesse und EMV-Fachgruppe)\n\n• Unterstützung und Beratung bei internen EMV-Problemstellungen, Messungen und Fragestellungen\n\n• Produkteentwicklung von der Idee bis zur Serienfertigung sowie Unterhalt von bestehenden Produkten\n\n• Konzeption und Entwicklung von Elektronik und Firmware für die Maschinen und Module\n\n• Verantwortung im interdisziplinären Projektteam für Elektronik und Elektrik\n\n• Aufbau von Prototypen und Durchführung von Tests\n\nIhr Profil\n\n• Diplomierter Elektroingenieur FH / ETH\n\n• Mehrjährige Berufserfahrung in der Elektronikentwicklung (mindestens 3 Jahre)\n\n• Gute Kenntnisse im Bereich EMV für Elektronik und Verkabelung sowie EMV-Normen und Richtlinien oder Motivation sich diese vertieft anzueignen\n\n• Erfahrung mit EMV-Prüfungen und Messmethoden von Prints, Maschinen und Modulen oder Motivation sich diese vertieft anzueignen\n\n• Freude an interdisziplinären herausfordernden Aufgabenstellungen im Team sowie an der Entwicklung von Hardware und Maschinen\n\n• Selbständige Arbeitsweise mit rascher Auffassungsgabe und strukturierter Vorgehensweise\n\n• Teamorientierte Persönlichkeit mit der Fähigkeit, verschiedene Anspruchsgruppen einzubinden\n\n• Kenntnisse mit Altium für die Printentwicklung Schema und Layout sowie Erfahrung in der Programmierung mit C und C++ von Vorteil\n\n• Sehr gute Deutschkenntnisse und gute Englischkenntnisse\n\nIhre Benefits\n\nIhr neuer Arbeitsort in Dierikon ist mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen, wodurch sie beispielsweise von kostenfreien internen Englischkursen oder Zugang zu ausgewählten attraktiven Lernplattformen profitieren. Am Standort Dierikon gibt es moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n Haben Sie Fragen?\n\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\nJulian Singer\nHR Business Partner\njulian.singer@komaxgroup.com",
       "descriptionByLocale": {
@@ -114,7 +115,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Development-Engineer-Electronics-with-EMV-lead-6036/1165135955/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:22:02.136Z",
+      "crawledAt": "2026-09-26T23:47:30.475Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -133,6 +134,7 @@
       "jobReqId": "1165135955",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "development-engineer-electronics-with-emv-lead-komax-ch",
         "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
@@ -170,87 +172,6 @@
       }
     },
     {
-      "id": "komax-aafe73ad37b8",
-      "slug": "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon",
-      "slugByLocale": {
-        "it": "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon",
-        "en": "polymechanical-apprenticeship-in-efz-2027-komax-dierikon",
-        "de": "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
-        "fr": "l-apprentissage-polymecanique-en-efz-2027-komax-dierikon"
-      },
-      "company": "Komax",
-      "companyKey": "komax",
-      "companyDomain": "komaxgroup.com",
-      "title": "Lehrstelle Polymechaniker/in EFZ 2027",
-      "titleByLocale": {
-        "it": "Apprendistato polimeccanico in EFZ 2027",
-        "en": "Apprenticeship Position Polymachinist EFZ 2027",
-        "de": "Lehrstelle Polymechaniker/in EFZ 2027",
-        "fr": "Poste de travail Polymecanicien EFZ 2027"
-      },
-      "description": "An unserem Standort in Dierikon bieten wir per August 2027 diese spannende Ausbildungsstelle an.\n\nPolymechanikerinnen und Polymechaniker fertigen Werkstücke, stellen Werkzeuge und Vorrichtungen für die Produktion her oder bauen Geräte, Apparate, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte, erstellen technische Dokumente, bauen Prototypen oder führen Versuche durch. Sie wirken mit bei Inbetriebnahmen, beim Planen und Überwachen von Produktionsprozessen oder führen Instandhaltungsarbeiten an Produktionsanlagen aus.\n\nMögliche Tätigkeitsgebiete\nTeilefertigung\n\n• Einfache und hochkomplexe mechanische Werkstücke herstellen\n\n• Einzelteile zu Baugruppen für die Serienproduktion herstellen\n\n• Einrichtungen, Vorrichtungen und Hilfsmittel herstellen\n\n• Planen und Dokumentieren der hergestellten Werkstücke\n\n• Werkstücke selbständig programmieren\n\n• Einrichten und bedienen von CNC-Präzisionsmaschinen\n\n• Qualitätskontrolle der eigenen Werkstücke\n\nMontagetechnik\n\n• Baugruppen und Geräte montieren, einstellen und in Betrieb nehmen\n\n• Mithilfe bei Vor- und Endmontage\n\n• Arbeiten mit elektromechanischen Bauteilen, Motoren, Zylindern und Ventilen gemäss Instruktionen und Lieferantenmerkblättern\n\nEinsatzorte\n\n• Praktische Ausbildung: Komax Dierikon\n\n• Schulische Ausbildung: BBZ Wirtschaft, Informatik und Technik Emmen\n\n• Überbetriebliche Kurse: Swissmechanic Luzern\n\nVoraussetzungen\nSchulische Voraussetzungen\n\n• Sekundarschule Niveau B mit gutem bis sehr gutem Abschluss\n\n• Gute Leistungen in Mathematik und den naturwissenschaftlichen Fächern\n\nPersönliche Voraussetzungen\n\n• Wenn möglich Erfahrung im technischen Zeichnen\n\n• Interesse und sehr gute Leistungen in Mathematik und Physik\n\n• Interesse an technischen Zusammenhängen, Metallbearbeitung und Maschinen\n\n• Handwerkliches Geschick\n\n• Systematische Arbeitsweise\n\n• Gutes Vorstellungsvermögen\n\n• Keine Allergien auf Metalle, Fette und Öle\n\n• Freude am Arbeiten im Team\n\nDeine Zukunft ist uns wichtig!\nIn einem spannenden technischen Umfeld gestalten wir gemeinsam deinen Ausbildungsweg und bieten dir eine anspruchsvolle Tätigkeit mit viel Eigenverantwortung sowie Gestaltungsfreiraum. Wir sehen die Ausbildung von angehenden Berufsfachkräften als Gewinn und fördern mit qualitativ hochstehenden Berufslehren die Talente von morgen.\n\nWir freuen uns auf deine vollständige Bewerbung:\n\n• Motivationsschreiben\n\n• Lebenslauf inkl. Foto und Referenzen\n\n• Sämtliche Semesterzeugnisse der Oberstufe\n\n• Schnupperlehrberichte\n\n• Stellwerk\n\n• Basic- oder Multicheck\n\nPack diese Chance – bewirb dich noch heute!\n\nHast du noch Fragen?\nWir stehen dir gerne für weitere Auskünfte zur Verfügung:\nChristian Huber, Ausbildungsverantwortlicher, Tel. dir. +41 41 455 04 46\n\nWir sind jetzt auch auf TikTok – für echte Einblicke hinter die Kulissen:\n 🎥 @komax_schweiz",
-      "descriptionByLocale": {
-        "it": "A partire dall'agosto 2027 offriamo questo entusiasmante luogo di formazione presso il nostro sito Dierikon. La Polymechanics produce pezzi, produce strumenti e dispositivi per la produzione, assembla attrezzature, attrezzature, macchine o impianti. In collaborazione con altri esperti, elaborano ordini o progetti, creano documenti tecnici, costruiscono prototipi o svolgono esperimenti. Lavorano con la messa in servizio, la pianificazione e il monitoraggio dei processi produttivi o svolgono lavori di manutenzione su impianti di produzione. Possibilità di attività Produzione di pezzi\n• Pezzi meccanici semplici e altamente complessi\n• Rendere singoli pezzi in assemblaggi per la produzione in serie\n• Attrezzature, dispositivi e utensili di produzione\n• Pianificazione e documentazione dei pezzi lavorati\n• Programming pezzi indipendentemente\n• Impostazione e funzionamento di macchine di precisione CNC\n• Controllo della qualità dei propri pezzi Tecnologia di assemblaggio\n• Montaggio, installazione e messa in servizio di assemblaggi e attrezzature\n• Utilizzo di assemblaggi pre e finali\n• Lavorazione con componenti elettromeccanici, motori, Cilindri e valvole secondo istruzioni e note del fornitore Sedi\n• Formazione pratica: Komax Dierikon\n• Formazione scolastica: BBZ Economia, Informatica e Tecnologia Emmen\n• Corsi super-aziendali: Swissmechanic Luzern Requisiti scolastici Requisiti scolastici\n• Livello secondario B con buone ottime qualifiche\n• Buon rendimento in matematica e materie scientifiche Requisiti personali\n• Se possibile esperienza nel disegno tecnico\n• Interesse e ottime prestazioni in matematica e fisica\n• Interesse per i collegamenti tecnici, Lavorazione dei metalli e delle macchine\n• Capacità\n• Metodo di lavoro sistematico\n• Buona immaginazione\n• Nessuna allergia ai metalli, ai grassi e agli oli\n• Gioia nel lavorare nel team Il tuo futuro è importante per noi! In un ambiente tecnico emozionante, progettiamo insieme il tuo corso di formazione e ti offriamo un lavoro impegnativo con molta responsabilità e libertà di progettazione. Vediamo la formazione di potenziali professionisti come un guadagno e promuovere i talenti di domani con apprendistati professionali di alta qualità. Attendiamo con ansia la tua applicazione completa:\n• lettera di motivazione\n• CV compresa foto e riferimenti\n• Tutti i certificati semestri del livello superiore\n• rapporti scolastici\n• interblocco\n• Basic or Multicheck Pack questa opportunità. applicare oggi! Avete domande? Siamo lieti di fornirvi ulteriori informazioni: Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 Siamo ora anche su TikTok. per le vere e proprie intuizioni dietro le quinte:",
-        "en": "As of August 2027, we are offering this exciting training place at our Dierikon site. Polymechanics manufacture workpieces, manufacture tools and devices for production, or assemble equipment, equipment, machines or plants. In cooperation with other experts, they process orders or projects, create technical documents, build prototypes or carry out experiments. They work with commissioning, planning and monitoring production processes or carry out maintenance work on production plants. Possible areas of activity Part production\n• Simple and highly complex mechanical workpieces\n• Making individual parts into assemblies for series production\n• Manufacturing equipment, devices and tools\n• Planning and documenting the manufactured workpieces\n• Programming workpieces independently\n• Setting up and operating CNC precision machines\n• Quality control of the own workpieces Assembly technology\n• Assembly, setting up and commissioning assemblies and equipment\n• Using pre- and final assembly\n• Working with electromechanical components, motors, Cylinders and valves according to instructions and supplier notes Locations\n• Practical training: Komax Dierikon\n• School education: BBZ Economics, Computer Science and Technology Emmen\n• Super-company courses: Swissmechanic Luzern Requirements School requirements\n• Secondary level B with good to very good qualifications\n• Good performance in mathematics and the scientific subjects Personal requirements\n• If possible experience in technical drawing\n• Interest and very good performance in mathematics and physics\n• Interest in technical connections, Metalworking and machines\n• Skills\n• Systematic working method\n• Good imagination\n• No allergies to metals, fats and oils\n• Joy in working in the team Your future is important to us! In an exciting technical environment, we will jointly design your training course and offer you a demanding job with a lot of responsibility and design freedom. We see the training of prospective professional professionals as a gain and promote the talents of tomorrow with high-quality professional apprenticeships. We look forward to your complete application:\n• letter of motivation\n• CV including photo and references\n• All semester certificates of the upper level\n• schooling reports\n• interlocking\n• Basic or Multicheck Pack this opportunity – apply today! Do you have any questions? We are happy to provide you with further information: Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 We are now also on TikTok – for real insights behind the scenes:",
-        "de": "An unserem Standort in Dierikon bieten wir per August 2027 diese spannende Ausbildungsstelle an.\n\nPolymechanikerinnen und Polymechaniker fertigen Werkstücke, stellen Werkzeuge und Vorrichtungen für die Produktion her oder bauen Geräte, Apparate, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte, erstellen technische Dokumente, bauen Prototypen oder führen Versuche durch. Sie wirken mit bei Inbetriebnahmen, beim Planen und Überwachen von Produktionsprozessen oder führen Instandhaltungsarbeiten an Produktionsanlagen aus.\n\nMögliche Tätigkeitsgebiete\nTeilefertigung\n\n• Einfache und hochkomplexe mechanische Werkstücke herstellen\n\n• Einzelteile zu Baugruppen für die Serienproduktion herstellen\n\n• Einrichtungen, Vorrichtungen und Hilfsmittel herstellen\n\n• Planen und Dokumentieren der hergestellten Werkstücke\n\n• Werkstücke selbständig programmieren\n\n• Einrichten und bedienen von CNC-Präzisionsmaschinen\n\n• Qualitätskontrolle der eigenen Werkstücke\n\nMontagetechnik\n\n• Baugruppen und Geräte montieren, einstellen und in Betrieb nehmen\n\n• Mithilfe bei Vor- und Endmontage\n\n• Arbeiten mit elektromechanischen Bauteilen, Motoren, Zylindern und Ventilen gemäss Instruktionen und Lieferantenmerkblättern\n\nEinsatzorte\n\n• Praktische Ausbildung: Komax Dierikon\n\n• Schulische Ausbildung: BBZ Wirtschaft, Informatik und Technik Emmen\n\n• Überbetriebliche Kurse: Swissmechanic Luzern\n\nVoraussetzungen\nSchulische Voraussetzungen\n\n• Sekundarschule Niveau B mit gutem bis sehr gutem Abschluss\n\n• Gute Leistungen in Mathematik und den naturwissenschaftlichen Fächern\n\nPersönliche Voraussetzungen\n\n• Wenn möglich Erfahrung im technischen Zeichnen\n\n• Interesse und sehr gute Leistungen in Mathematik und Physik\n\n• Interesse an technischen Zusammenhängen, Metallbearbeitung und Maschinen\n\n• Handwerkliches Geschick\n\n• Systematische Arbeitsweise\n\n• Gutes Vorstellungsvermögen\n\n• Keine Allergien auf Metalle, Fette und Öle\n\n• Freude am Arbeiten im Team\n\nDeine Zukunft ist uns wichtig!\nIn einem spannenden technischen Umfeld gestalten wir gemeinsam deinen Ausbildungsweg und bieten dir eine anspruchsvolle Tätigkeit mit viel Eigenverantwortung sowie Gestaltungsfreiraum. Wir sehen die Ausbildung von angehenden Berufsfachkräften als Gewinn und fördern mit qualitativ hochstehenden Berufslehren die Talente von morgen.\n\nWir freuen uns auf deine vollständige Bewerbung:\n\n• Motivationsschreiben\n\n• Lebenslauf inkl. Foto und Referenzen\n\n• Sämtliche Semesterzeugnisse der Oberstufe\n\n• Schnupperlehrberichte\n\n• Stellwerk\n\n• Basic- oder Multicheck\n\nPack diese Chance – bewirb dich noch heute!\n\nHast du noch Fragen?\nWir stehen dir gerne für weitere Auskünfte zur Verfügung:\nChristian Huber, Ausbildungsverantwortlicher, Tel. dir. +41 41 455 04 46\n\nWir sind jetzt auch auf TikTok – für echte Einblicke hinter die Kulissen:\n🎥 @komax_schweiz",
-        "fr": "En date du 2027 août, nous offrons cette formation passionnante sur notre site de Dierikon. Polymécanique fabrique des pièces, des outils et des dispositifs de production, ou assemble des équipements, des équipements, des machines ou des usines. En collaboration avec d'autres experts, ils traitent des commandes ou des projets, créent des documents techniques, construisent des prototypes ou réalisent des expériences. Domaines d'activité possibles Production de pièces\n• Pièces mécaniques simples et très complexes\n• Fabrication de pièces individuelles en assemblages pour la production de série\n• Fabrication d'équipements, de dispositifs et d'outils\n• Planification et documentation des pièces fabriquées\n• Programmation indépendante des pièces\n• Mise en place et fonctionnement de machines de précision CNC\n• Contrôle de qualité des pièces propres Technologie de montage\n• Montage, mise en place et mise en service des assemblages et des équipements\n• Utilisation de l'assemblage pré- et final\n• Travail avec des composants électromécaniques, des moteurs, Cylindres et vannes selon les instructions et les notes du fournisseur Emplacements\n• Formation pratique: Komax Dierikon\n• Enseignement scolaire: BBZ Economie, Informatique et Technologie Emmen\n• Cours Super-entreprise: Suisse Mécanique Luzern Exigences Exigences scolaires\n• Niveau secondaire B avec de bonnes qualifications à très bonnes qualifications\n• Bonne performance en mathématiques et les matières scientifiques Exigences personnelles\n• Si possible expérience dans le dessin technique\n• Intérêt et très bonne performance en mathématiques et en physique\n• Intérêt dans les connexions techniques, Travail des métaux et machines\n• Compétences\n• Méthode de travail systématique\n• Bonne imagination\n• Pas d'allergies aux métaux, aux graisses et aux huiles\n• Joy au travail dans l'équipe Votre avenir est important pour nous! Dans un environnement technique passionnant, nous concevons conjointement votre formation et vous offrons un travail exigeant avec beaucoup de responsabilité et de liberté de conception. Nous considérons la formation de professionnels potentiels comme un gain et promouvoir les talents de demain avec des apprentissages professionnels de haute qualité. Nous attendons avec impatience votre candidature complète:\n• lettre de motivation\n• CV incluant photo et références\n• Tous les certificats de semestre du niveau supérieur\n• rapports scolaires\n• interlockage\n• Basic or Multicheck Pack cette opportunité – postuler aujourd'hui! Vous avez des questions? Nous sommes heureux de vous fournir des informations complémentaires : Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 Nous sommes maintenant aussi sur TikTok – pour de véritables aperçus dans les coulisses :"
-      },
-      "location": "Dierikon",
-      "canton": "LU",
-      "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Polymechanikerin-EFZ-2027-6036/1164647155/",
-      "source": "Komax Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:22:02.135Z",
-      "addressLocality": "Dierikon",
-      "addressRegion": "LU",
-      "streetAddress": "Industriestrasse 6",
-      "postalCode": "6036",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "entry",
-      "sector": "Industria / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Polymechanikerin-EFZ-2027-6036/1164647155/",
-      "jobReqId": "1164647155",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
-        "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
-          "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon"
-        ],
-        "en": [
-          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
-        ],
-        "fr": [
-          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:37:16.823Z",
-      "salaryMin": 52000,
-      "salaryMax": 70000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 70000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "komax-2aed90f8cb85",
       "slug": "apprendistato-logistiker-in-cfc-2027-komax-dierikon",
       "slugByLocale": {
@@ -281,7 +202,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Logistikerin-EFZ-2027-6036/1164647555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:22:02.135Z",
+      "crawledAt": "2026-09-26T23:47:30.475Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -357,6 +278,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -367,6 +289,88 @@
           "@type": "QuantitativeValue",
           "minValue": 58500,
           "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "komax-aafe73ad37b8",
+      "slug": "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon",
+      "slugByLocale": {
+        "it": "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon",
+        "en": "polymechanical-apprenticeship-in-efz-2027-komax-dierikon",
+        "de": "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
+        "fr": "l-apprentissage-polymecanique-en-efz-2027-komax-dierikon"
+      },
+      "company": "Komax",
+      "companyKey": "komax",
+      "companyDomain": "komaxgroup.com",
+      "title": "Lehrstelle Polymechaniker/in EFZ 2027",
+      "titleByLocale": {
+        "it": "Apprendistato polimeccanico in EFZ 2027",
+        "en": "Apprenticeship Position Polymachinist EFZ 2027",
+        "de": "Lehrstelle Polymechaniker/in EFZ 2027",
+        "fr": "Poste de travail Polymecanicien EFZ 2027"
+      },
+      "description": "An unserem Standort in Dierikon bieten wir per August 2027 diese spannende Ausbildungsstelle an.\n\nPolymechanikerinnen und Polymechaniker fertigen Werkstücke, stellen Werkzeuge und Vorrichtungen für die Produktion her oder bauen Geräte, Apparate, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte, erstellen technische Dokumente, bauen Prototypen oder führen Versuche durch. Sie wirken mit bei Inbetriebnahmen, beim Planen und Überwachen von Produktionsprozessen oder führen Instandhaltungsarbeiten an Produktionsanlagen aus.\n\nMögliche Tätigkeitsgebiete\nTeilefertigung\n\n• Einfache und hochkomplexe mechanische Werkstücke herstellen\n\n• Einzelteile zu Baugruppen für die Serienproduktion herstellen\n\n• Einrichtungen, Vorrichtungen und Hilfsmittel herstellen\n\n• Planen und Dokumentieren der hergestellten Werkstücke\n\n• Werkstücke selbständig programmieren\n\n• Einrichten und bedienen von CNC-Präzisionsmaschinen\n\n• Qualitätskontrolle der eigenen Werkstücke\n\nMontagetechnik\n\n• Baugruppen und Geräte montieren, einstellen und in Betrieb nehmen\n\n• Mithilfe bei Vor- und Endmontage\n\n• Arbeiten mit elektromechanischen Bauteilen, Motoren, Zylindern und Ventilen gemäss Instruktionen und Lieferantenmerkblättern\n\nEinsatzorte\n\n• Praktische Ausbildung: Komax Dierikon\n\n• Schulische Ausbildung: BBZ Wirtschaft, Informatik und Technik Emmen\n\n• Überbetriebliche Kurse: Swissmechanic Luzern\n\nVoraussetzungen\nSchulische Voraussetzungen\n\n• Sekundarschule Niveau B mit gutem bis sehr gutem Abschluss\n\n• Gute Leistungen in Mathematik und den naturwissenschaftlichen Fächern\n\nPersönliche Voraussetzungen\n\n• Wenn möglich Erfahrung im technischen Zeichnen\n\n• Interesse und sehr gute Leistungen in Mathematik und Physik\n\n• Interesse an technischen Zusammenhängen, Metallbearbeitung und Maschinen\n\n• Handwerkliches Geschick\n\n• Systematische Arbeitsweise\n\n• Gutes Vorstellungsvermögen\n\n• Keine Allergien auf Metalle, Fette und Öle\n\n• Freude am Arbeiten im Team\n\nDeine Zukunft ist uns wichtig!\nIn einem spannenden technischen Umfeld gestalten wir gemeinsam deinen Ausbildungsweg und bieten dir eine anspruchsvolle Tätigkeit mit viel Eigenverantwortung sowie Gestaltungsfreiraum. Wir sehen die Ausbildung von angehenden Berufsfachkräften als Gewinn und fördern mit qualitativ hochstehenden Berufslehren die Talente von morgen.\n\nWir freuen uns auf deine vollständige Bewerbung:\n\n• Motivationsschreiben\n\n• Lebenslauf inkl. Foto und Referenzen\n\n• Sämtliche Semesterzeugnisse der Oberstufe\n\n• Schnupperlehrberichte\n\n• Stellwerk\n\n• Basic- oder Multicheck\n\nPack diese Chance – bewirb dich noch heute!\n\nHast du noch Fragen?\nWir stehen dir gerne für weitere Auskünfte zur Verfügung:\nChristian Huber, Ausbildungsverantwortlicher, Tel. dir. +41 41 455 04 46\n\nWir sind jetzt auch auf TikTok – für echte Einblicke hinter die Kulissen:\n 🎥 @komax_schweiz",
+      "descriptionByLocale": {
+        "it": "A partire dall'agosto 2027 offriamo questo entusiasmante luogo di formazione presso il nostro sito Dierikon. La Polymechanics produce pezzi, produce strumenti e dispositivi per la produzione, assembla attrezzature, attrezzature, macchine o impianti. In collaborazione con altri esperti, elaborano ordini o progetti, creano documenti tecnici, costruiscono prototipi o svolgono esperimenti. Lavorano con la messa in servizio, la pianificazione e il monitoraggio dei processi produttivi o svolgono lavori di manutenzione su impianti di produzione. Possibilità di attività Produzione di pezzi\n• Pezzi meccanici semplici e altamente complessi\n• Rendere singoli pezzi in assemblaggi per la produzione in serie\n• Attrezzature, dispositivi e utensili di produzione\n• Pianificazione e documentazione dei pezzi lavorati\n• Programming pezzi indipendentemente\n• Impostazione e funzionamento di macchine di precisione CNC\n• Controllo della qualità dei propri pezzi Tecnologia di assemblaggio\n• Montaggio, installazione e messa in servizio di assemblaggi e attrezzature\n• Utilizzo di assemblaggi pre e finali\n• Lavorazione con componenti elettromeccanici, motori, Cilindri e valvole secondo istruzioni e note del fornitore Sedi\n• Formazione pratica: Komax Dierikon\n• Formazione scolastica: BBZ Economia, Informatica e Tecnologia Emmen\n• Corsi super-aziendali: Swissmechanic Luzern Requisiti scolastici Requisiti scolastici\n• Livello secondario B con buone ottime qualifiche\n• Buon rendimento in matematica e materie scientifiche Requisiti personali\n• Se possibile esperienza nel disegno tecnico\n• Interesse e ottime prestazioni in matematica e fisica\n• Interesse per i collegamenti tecnici, Lavorazione dei metalli e delle macchine\n• Capacità\n• Metodo di lavoro sistematico\n• Buona immaginazione\n• Nessuna allergia ai metalli, ai grassi e agli oli\n• Gioia nel lavorare nel team Il tuo futuro è importante per noi! In un ambiente tecnico emozionante, progettiamo insieme il tuo corso di formazione e ti offriamo un lavoro impegnativo con molta responsabilità e libertà di progettazione. Vediamo la formazione di potenziali professionisti come un guadagno e promuovere i talenti di domani con apprendistati professionali di alta qualità. Attendiamo con ansia la tua applicazione completa:\n• lettera di motivazione\n• CV compresa foto e riferimenti\n• Tutti i certificati semestri del livello superiore\n• rapporti scolastici\n• interblocco\n• Basic or Multicheck Pack questa opportunità. applicare oggi! Avete domande? Siamo lieti di fornirvi ulteriori informazioni: Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 Siamo ora anche su TikTok. per le vere e proprie intuizioni dietro le quinte:",
+        "en": "As of August 2027, we are offering this exciting training place at our Dierikon site. Polymechanics manufacture workpieces, manufacture tools and devices for production, or assemble equipment, equipment, machines or plants. In cooperation with other experts, they process orders or projects, create technical documents, build prototypes or carry out experiments. They work with commissioning, planning and monitoring production processes or carry out maintenance work on production plants. Possible areas of activity Part production\n• Simple and highly complex mechanical workpieces\n• Making individual parts into assemblies for series production\n• Manufacturing equipment, devices and tools\n• Planning and documenting the manufactured workpieces\n• Programming workpieces independently\n• Setting up and operating CNC precision machines\n• Quality control of the own workpieces Assembly technology\n• Assembly, setting up and commissioning assemblies and equipment\n• Using pre- and final assembly\n• Working with electromechanical components, motors, Cylinders and valves according to instructions and supplier notes Locations\n• Practical training: Komax Dierikon\n• School education: BBZ Economics, Computer Science and Technology Emmen\n• Super-company courses: Swissmechanic Luzern Requirements School requirements\n• Secondary level B with good to very good qualifications\n• Good performance in mathematics and the scientific subjects Personal requirements\n• If possible experience in technical drawing\n• Interest and very good performance in mathematics and physics\n• Interest in technical connections, Metalworking and machines\n• Skills\n• Systematic working method\n• Good imagination\n• No allergies to metals, fats and oils\n• Joy in working in the team Your future is important to us! In an exciting technical environment, we will jointly design your training course and offer you a demanding job with a lot of responsibility and design freedom. We see the training of prospective professional professionals as a gain and promote the talents of tomorrow with high-quality professional apprenticeships. We look forward to your complete application:\n• letter of motivation\n• CV including photo and references\n• All semester certificates of the upper level\n• schooling reports\n• interlocking\n• Basic or Multicheck Pack this opportunity – apply today! Do you have any questions? We are happy to provide you with further information: Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 We are now also on TikTok – for real insights behind the scenes:",
+        "de": "An unserem Standort in Dierikon bieten wir per August 2027 diese spannende Ausbildungsstelle an.\n\nPolymechanikerinnen und Polymechaniker fertigen Werkstücke, stellen Werkzeuge und Vorrichtungen für die Produktion her oder bauen Geräte, Apparate, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte, erstellen technische Dokumente, bauen Prototypen oder führen Versuche durch. Sie wirken mit bei Inbetriebnahmen, beim Planen und Überwachen von Produktionsprozessen oder führen Instandhaltungsarbeiten an Produktionsanlagen aus.\n\nMögliche Tätigkeitsgebiete\nTeilefertigung\n\n• Einfache und hochkomplexe mechanische Werkstücke herstellen\n\n• Einzelteile zu Baugruppen für die Serienproduktion herstellen\n\n• Einrichtungen, Vorrichtungen und Hilfsmittel herstellen\n\n• Planen und Dokumentieren der hergestellten Werkstücke\n\n• Werkstücke selbständig programmieren\n\n• Einrichten und bedienen von CNC-Präzisionsmaschinen\n\n• Qualitätskontrolle der eigenen Werkstücke\n\nMontagetechnik\n\n• Baugruppen und Geräte montieren, einstellen und in Betrieb nehmen\n\n• Mithilfe bei Vor- und Endmontage\n\n• Arbeiten mit elektromechanischen Bauteilen, Motoren, Zylindern und Ventilen gemäss Instruktionen und Lieferantenmerkblättern\n\nEinsatzorte\n\n• Praktische Ausbildung: Komax Dierikon\n\n• Schulische Ausbildung: BBZ Wirtschaft, Informatik und Technik Emmen\n\n• Überbetriebliche Kurse: Swissmechanic Luzern\n\nVoraussetzungen\nSchulische Voraussetzungen\n\n• Sekundarschule Niveau B mit gutem bis sehr gutem Abschluss\n\n• Gute Leistungen in Mathematik und den naturwissenschaftlichen Fächern\n\nPersönliche Voraussetzungen\n\n• Wenn möglich Erfahrung im technischen Zeichnen\n\n• Interesse und sehr gute Leistungen in Mathematik und Physik\n\n• Interesse an technischen Zusammenhängen, Metallbearbeitung und Maschinen\n\n• Handwerkliches Geschick\n\n• Systematische Arbeitsweise\n\n• Gutes Vorstellungsvermögen\n\n• Keine Allergien auf Metalle, Fette und Öle\n\n• Freude am Arbeiten im Team\n\nDeine Zukunft ist uns wichtig!\nIn einem spannenden technischen Umfeld gestalten wir gemeinsam deinen Ausbildungsweg und bieten dir eine anspruchsvolle Tätigkeit mit viel Eigenverantwortung sowie Gestaltungsfreiraum. Wir sehen die Ausbildung von angehenden Berufsfachkräften als Gewinn und fördern mit qualitativ hochstehenden Berufslehren die Talente von morgen.\n\nWir freuen uns auf deine vollständige Bewerbung:\n\n• Motivationsschreiben\n\n• Lebenslauf inkl. Foto und Referenzen\n\n• Sämtliche Semesterzeugnisse der Oberstufe\n\n• Schnupperlehrberichte\n\n• Stellwerk\n\n• Basic- oder Multicheck\n\nPack diese Chance – bewirb dich noch heute!\n\nHast du noch Fragen?\nWir stehen dir gerne für weitere Auskünfte zur Verfügung:\nChristian Huber, Ausbildungsverantwortlicher, Tel. dir. +41 41 455 04 46\n\nWir sind jetzt auch auf TikTok – für echte Einblicke hinter die Kulissen:\n🎥 @komax_schweiz",
+        "fr": "En date du 2027 août, nous offrons cette formation passionnante sur notre site de Dierikon. Polymécanique fabrique des pièces, des outils et des dispositifs de production, ou assemble des équipements, des équipements, des machines ou des usines. En collaboration avec d'autres experts, ils traitent des commandes ou des projets, créent des documents techniques, construisent des prototypes ou réalisent des expériences. Domaines d'activité possibles Production de pièces\n• Pièces mécaniques simples et très complexes\n• Fabrication de pièces individuelles en assemblages pour la production de série\n• Fabrication d'équipements, de dispositifs et d'outils\n• Planification et documentation des pièces fabriquées\n• Programmation indépendante des pièces\n• Mise en place et fonctionnement de machines de précision CNC\n• Contrôle de qualité des pièces propres Technologie de montage\n• Montage, mise en place et mise en service des assemblages et des équipements\n• Utilisation de l'assemblage pré- et final\n• Travail avec des composants électromécaniques, des moteurs, Cylindres et vannes selon les instructions et les notes du fournisseur Emplacements\n• Formation pratique: Komax Dierikon\n• Enseignement scolaire: BBZ Economie, Informatique et Technologie Emmen\n• Cours Super-entreprise: Suisse Mécanique Luzern Exigences Exigences scolaires\n• Niveau secondaire B avec de bonnes qualifications à très bonnes qualifications\n• Bonne performance en mathématiques et les matières scientifiques Exigences personnelles\n• Si possible expérience dans le dessin technique\n• Intérêt et très bonne performance en mathématiques et en physique\n• Intérêt dans les connexions techniques, Travail des métaux et machines\n• Compétences\n• Méthode de travail systématique\n• Bonne imagination\n• Pas d'allergies aux métaux, aux graisses et aux huiles\n• Joy au travail dans l'équipe Votre avenir est important pour nous! Dans un environnement technique passionnant, nous concevons conjointement votre formation et vous offrons un travail exigeant avec beaucoup de responsabilité et de liberté de conception. Nous considérons la formation de professionnels potentiels comme un gain et promouvoir les talents de demain avec des apprentissages professionnels de haute qualité. Nous attendons avec impatience votre candidature complète:\n• lettre de motivation\n• CV incluant photo et références\n• Tous les certificats de semestre du niveau supérieur\n• rapports scolaires\n• interlockage\n• Basic or Multicheck Pack cette opportunité – postuler aujourd'hui! Vous avez des questions? Nous sommes heureux de vous fournir des informations complémentaires : Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 Nous sommes maintenant aussi sur TikTok – pour de véritables aperçus dans les coulisses :"
+      },
+      "location": "Dierikon",
+      "canton": "LU",
+      "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Polymechanikerin-EFZ-2027-6036/1164647155/",
+      "source": "Komax Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T23:47:30.474Z",
+      "addressLocality": "Dierikon",
+      "addressRegion": "LU",
+      "streetAddress": "Industriestrasse 6",
+      "postalCode": "6036",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "INTERN",
+      "experienceLevel": "entry",
+      "sector": "Industria / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Polymechanikerin-EFZ-2027-6036/1164647155/",
+      "jobReqId": "1164647155",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
+        "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
+          "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon"
+        ],
+        "en": [
+          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
+        ],
+        "fr": [
+          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T11:37:16.823Z",
+      "needsRetranslation": true,
+      "salaryMin": 52000,
+      "salaryMax": 70000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 52000,
+          "maxValue": 70000,
           "unitText": "YEAR"
         }
       }
@@ -402,7 +406,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:22:02.133Z",
+      "crawledAt": "2026-09-26T23:47:30.473Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -439,8 +443,8 @@
           "facility-manager-w-m-d-komax-ch"
         ]
       },
-      "firstSeenAt": "2026-09-21T16:17:37.993Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T16:17:37.993Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -486,7 +490,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Eink%C3%A4ufer-in-Elektronik-80-100-3608/1165310355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:22:02.132Z",
+      "crawledAt": "2026-09-26T23:47:30.473Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -540,8 +544,8 @@
       "id": "komax-5dc9d2ba6fee",
       "slug": "lead-group-it-service-desk-w-m-d-komax-ch",
       "slugByLocale": {
-        "en": "lead-group-it-service-desk-w-m-d-komax-ch",
         "it": "lead-group-it-service-desk-w-m-d-komax-ch",
+        "en": "lead-group-it-service-desk-w-m-d-komax-ch",
         "de": "lead-group-it-service-desk-w-m-d-komax-ch",
         "fr": "lead-group-it-service-desk-w-m-d-komax-ch"
       },
@@ -550,15 +554,15 @@
       "companyDomain": "komaxgroup.com",
       "title": "Lead Group IT Service Desk (w/m/d)",
       "titleByLocale": {
-        "en": "Lead Group IT Service Desk (w/m/d)",
         "it": "Lead Group IT Service Desk (w/m/d)",
+        "en": "Lead Group IT Service Desk (w/m/d)",
         "de": "Lead Group IT Service Desk (w/m/d)",
         "fr": "Lead Group IT Service Desk (w/m/d)"
       },
       "description": "Your tasks:\n\n• Own and continuously enhance End-User Services, including IT Helpdesk, Service Desk, 1st Level Support, and End-User Computing, ensuring reliable and business-focused service delivery.\n\n• Ensure stable, secure, and efficient IT operations while delivering an outstanding end-user experience through high-quality support services and effective issue resolution.\n\n• Drive process optimization and automation initiatives to improve service efficiency, reduce costs, and implement scalable support delivery models, including nearshore, offshore, and outsourcing solutions.\n\n• Define and manage end-user workplace standards, including device lifecycle management, procurement processes, onboarding, and replacement programs in alignment with business and security requirements.\n\n• Lead, develop, and motivate a high-performing IT support team through recruitment, coaching, training, and performance development while fostering a culture of continuous improvement.\n\n• Establish and implement policies, procedures, documentation, self-service capabilities, and automation standards to improve operational effectiveness and empower both employees and support teams.\n\n• Support strategic IT initiatives and business transformation projects, including post-merger integrations, site consolidations, hypercare activities, and change management programs.\n\nYour profile:\n\n• At least 10 years of experience in IT support.\n\n• At least 5 years of experience in a leadership role.\n\n• Strong technical background and experience in the areas of ITSM Standards, IT Helpdesk, 1st Level Support, End-User Services, End-User Computing (EUC) and Modern Workplace.\n\n• Bachelor’s degree in computer science or related field.\n\n• Entrepreneurial and business-minded thinking\n\n• Languages: German and English\n\n• Ability to focus under pressure and strong communication skills.\n\n• Problem-solving skills\n\n• Willingness to travel\n\nYour benefits:\nYour new workplace in Dierikon is newly built and equipped with state-of-the-art technology and work equipment. Your workplace is located in one of the modern open-plan offices, which also have inspiring meeting zones and a large terrace for various employee events. Komax AG offers its employees flexible working time models. Komax AG is committed to the further training of its employees and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon site, there are also modern break rooms and the option of discounted lunch in a neighboring partner restaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
       "descriptionByLocale": {
-        "en": "Your tasks:\n\n• Own and continuously enhance End-User Services, including IT Helpdesk, Service Desk, 1st Level Support, and End-User Computing, ensuring reliable and business-focused service delivery.\n\n• Ensure stable, secure, and efficient IT operations while delivering an outstanding end-user experience through high-quality support services and effective issue resolution.\n\n• Drive process optimization and automation initiatives to improve service efficiency, reduce costs, and implement scalable support delivery models, including nearshore, offshore, and outsourcing solutions.\n\n• Define and manage end-user workplace standards, including device lifecycle management, procurement processes, onboarding, and replacement programs in alignment with business and security requirements.\n\n• Lead, develop, and motivate a high-performing IT support team through recruitment, coaching, training, and performance development while fostering a culture of continuous improvement.\n\n• Establish and implement policies, procedures, documentation, self-service capabilities, and automation standards to improve operational effectiveness and empower both employees and support teams.\n\n• Support strategic IT initiatives and business transformation projects, including post-merger integrations, site consolidations, hypercare activities, and change management programs.\n\nYour profile:\n\n• At least 10 years of experience in IT support.\n\n• At least 5 years of experience in a leadership role.\n\n• Strong technical background and experience in the areas of ITSM Standards, IT Helpdesk, 1st Level Support, End-User Services, End-User Computing (EUC) and Modern Workplace.\n\n• Bachelor’s degree in computer science or related field.\n\n• Entrepreneurial and business-minded thinking\n\n• Languages: German and English\n\n• Ability to focus under pressure and strong communication skills.\n\n• Problem-solving skills\n\n• Willingness to travel\n\nYour benefits:\nYour new workplace in Dierikon is newly built and equipped with state-of-the-art technology and work equipment. Your workplace is located in one of the modern open-plan offices, which also have inspiring meeting zones and a large terrace for various employee events. Komax AG offers its employees flexible working time models. Komax AG is committed to the further training of its employees and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon site, there are also modern break rooms and the option of discounted lunch in a neighboring partner restaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
         "it": "Your tasks:\n\n• Own and continuously enhance End-User Services, including IT Helpdesk, Service Desk, 1st Level Support, and End-User Computing, ensuring reliable and business-focused service delivery.\n\n• Ensure stable, secure, and efficient IT operations while delivering an outstanding end-user experience through high-quality support services and effective issue resolution.\n\n• Drive process optimization and automation initiatives to improve service efficiency, reduce costs, and implement scalable support delivery models, including nearshore, offshore, and outsourcing solutions.\n\n• Define and manage end-user workplace standards, including device lifecycle management, procurement processes, onboarding, and replacement programs in alignment with business and security requirements.\n\n• Lead, develop, and motivate a high-performing IT support team through recruitment, coaching, training, and performance development while fostering a culture of continuous improvement.\n\n• Establish and implement policies, procedures, documentation, self-service capabilities, and automation standards to improve operational effectiveness and empower both employees and support teams.\n\n• Support strategic IT initiatives and business transformation projects, including post-merger integrations, site consolidations, hypercare activities, and change management programs.\n\nYour profile:\n\n• At least 10 years of experience in IT support.\n\n• At least 5 years of experience in a leadership role.\n\n• Strong technical background and experience in the areas of ITSM Standards, IT Helpdesk, 1st Level Support, End-User Services, End-User Computing (EUC) and Modern Workplace.\n\n• Bachelor’s degree in computer science or related field.\n\n• Entrepreneurial and business-minded thinking\n\n• Languages: German and English\n\n• Ability to focus under pressure and strong communication skills.\n\n• Problem-solving skills\n\n• Willingness to travel\n\nYour benefits:\nYour new workplace in Dierikon is newly built and equipped with state-of-the-art technology and work equipment. Your workplace is located in one of the modern open-plan offices, which also have inspiring meeting zones and a large terrace for various employee events. Komax AG offers its employees flexible working time models. Komax AG is committed to the further training of its employees and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon site, there are also modern break rooms and the option of discounted lunch in a neighboring partner restaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
+        "en": "Your tasks:\n\n• Own and continuously enhance End-User Services, including IT Helpdesk, Service Desk, 1st Level Support, and End-User Computing, ensuring reliable and business-focused service delivery.\n\n• Ensure stable, secure, and efficient IT operations while delivering an outstanding end-user experience through high-quality support services and effective issue resolution.\n\n• Drive process optimization and automation initiatives to improve service efficiency, reduce costs, and implement scalable support delivery models, including nearshore, offshore, and outsourcing solutions.\n\n• Define and manage end-user workplace standards, including device lifecycle management, procurement processes, onboarding, and replacement programs in alignment with business and security requirements.\n\n• Lead, develop, and motivate a high-performing IT support team through recruitment, coaching, training, and performance development while fostering a culture of continuous improvement.\n\n• Establish and implement policies, procedures, documentation, self-service capabilities, and automation standards to improve operational effectiveness and empower both employees and support teams.\n\n• Support strategic IT initiatives and business transformation projects, including post-merger integrations, site consolidations, hypercare activities, and change management programs.\n\nYour profile:\n\n• At least 10 years of experience in IT support.\n\n• At least 5 years of experience in a leadership role.\n\n• Strong technical background and experience in the areas of ITSM Standards, IT Helpdesk, 1st Level Support, End-User Services, End-User Computing (EUC) and Modern Workplace.\n\n• Bachelor’s degree in computer science or related field.\n\n• Entrepreneurial and business-minded thinking\n\n• Languages: German and English\n\n• Ability to focus under pressure and strong communication skills.\n\n• Problem-solving skills\n\n• Willingness to travel\n\nYour benefits:\nYour new workplace in Dierikon is newly built and equipped with state-of-the-art technology and work equipment. Your workplace is located in one of the modern open-plan offices, which also have inspiring meeting zones and a large terrace for various employee events. Komax AG offers its employees flexible working time models. Komax AG is committed to the further training of its employees and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon site, there are also modern break rooms and the option of discounted lunch in a neighboring partner restaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
         "de": "Your tasks:\n\n• Own and continuously enhance End-User Services, including IT Helpdesk, Service Desk, 1st Level Support, and End-User Computing, ensuring reliable and business-focused service delivery.\n\n• Ensure stable, secure, and efficient IT operations while delivering an outstanding end-user experience through high-quality support services and effective issue resolution.\n\n• Drive process optimization and automation initiatives to improve service efficiency, reduce costs, and implement scalable support delivery models, including nearshore, offshore, and outsourcing solutions.\n\n• Define and manage end-user workplace standards, including device lifecycle management, procurement processes, onboarding, and replacement programs in alignment with business and security requirements.\n\n• Lead, develop, and motivate a high-performing IT support team through recruitment, coaching, training, and performance development while fostering a culture of continuous improvement.\n\n• Establish and implement policies, procedures, documentation, self-service capabilities, and automation standards to improve operational effectiveness and empower both employees and support teams.\n\n• Support strategic IT initiatives and business transformation projects, including post-merger integrations, site consolidations, hypercare activities, and change management programs.\n\nYour profile:\n\n• At least 10 years of experience in IT support.\n\n• At least 5 years of experience in a leadership role.\n\n• Strong technical background and experience in the areas of ITSM Standards, IT Helpdesk, 1st Level Support, End-User Services, End-User Computing (EUC) and Modern Workplace.\n\n• Bachelor’s degree in computer science or related field.\n\n• Entrepreneurial and business-minded thinking\n\n• Languages: German and English\n\n• Ability to focus under pressure and strong communication skills.\n\n• Problem-solving skills\n\n• Willingness to travel\n\nYour benefits:\nYour new workplace in Dierikon is newly built and equipped with state-of-the-art technology and work equipment. Your workplace is located in one of the modern open-plan offices, which also have inspiring meeting zones and a large terrace for various employee events. Komax AG offers its employees flexible working time models. Komax AG is committed to the further training of its employees and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon site, there are also modern break rooms and the option of discounted lunch in a neighboring partner restaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
         "fr": "Your tasks:\n\n• Own and continuously enhance End-User Services, including IT Helpdesk, Service Desk, 1st Level Support, and End-User Computing, ensuring reliable and business-focused service delivery.\n\n• Ensure stable, secure, and efficient IT operations while delivering an outstanding end-user experience through high-quality support services and effective issue resolution.\n\n• Drive process optimization and automation initiatives to improve service efficiency, reduce costs, and implement scalable support delivery models, including nearshore, offshore, and outsourcing solutions.\n\n• Define and manage end-user workplace standards, including device lifecycle management, procurement processes, onboarding, and replacement programs in alignment with business and security requirements.\n\n• Lead, develop, and motivate a high-performing IT support team through recruitment, coaching, training, and performance development while fostering a culture of continuous improvement.\n\n• Establish and implement policies, procedures, documentation, self-service capabilities, and automation standards to improve operational effectiveness and empower both employees and support teams.\n\n• Support strategic IT initiatives and business transformation projects, including post-merger integrations, site consolidations, hypercare activities, and change management programs.\n\nYour profile:\n\n• At least 10 years of experience in IT support.\n\n• At least 5 years of experience in a leadership role.\n\n• Strong technical background and experience in the areas of ITSM Standards, IT Helpdesk, 1st Level Support, End-User Services, End-User Computing (EUC) and Modern Workplace.\n\n• Bachelor’s degree in computer science or related field.\n\n• Entrepreneurial and business-minded thinking\n\n• Languages: German and English\n\n• Ability to focus under pressure and strong communication skills.\n\n• Problem-solving skills\n\n• Willingness to travel\n\nYour benefits:\nYour new workplace in Dierikon is newly built and equipped with state-of-the-art technology and work equipment. Your workplace is located in one of the modern open-plan offices, which also have inspiring meeting zones and a large terrace for various employee events. Komax AG offers its employees flexible working time models. Komax AG is committed to the further training of its employees and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon site, there are also modern break rooms and the option of discounted lunch in a neighboring partner restaurant.\n\nDo you have any questions?\nFor further details, please contact:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com"
       },
@@ -567,7 +571,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T14:22:02.131Z",
+      "crawledAt": "2026-09-26T23:47:30.472Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -585,10 +589,9 @@
       "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481155/",
       "jobReqId": "1165481155",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T00:10:25.496Z",
       "salaryMin": 114500,
       "salaryMax": 195000,
       "salarySource": "estimated",
@@ -601,8 +604,7 @@
           "maxValue": 195000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-24T00:10:25.496Z"
+      }
     },
     {
       "id": "komax-b5882ca23e19",
@@ -618,10 +620,10 @@
       "companyDomain": "komaxgroup.com",
       "title": "Sales Switzerland / Technical Sales Engineer (w/m/d)",
       "titleByLocale": {
-        "de": "Vertrieb Schweiz / Technischer Vertriebsingenieur (m/w/d)",
+        "de": "Sales Switzerland / Technical Sales Ingenieur (w/m/d)",
         "en": "Sales Switzerland / Technical Sales Engineer (w/m/d)",
-        "it": "Sales Switzerland / Ingegnere Commerciale Tecnico (m/f/d)",
-        "fr": "Ventes en Suisse / Ingénieur technique des ventes (h/f/d)"
+        "it": "Sales Switzerland / Technical Sales Ingegnere (w/m/d)",
+        "fr": "Sales Switzerland / Technical Sales Ingénieur (w/m/d)"
       },
       "description": "Dein Aufgabengebiet\n\nVertrieb & Neukundengewinnung\n\n• Aktive Akquise von Neukunden in der Schweiz und in Liechtenstein\n\n• Identifikation von Marktpotenzialen und neuen Geschäftsmöglichkeiten\n\n• Entwicklung und Umsetzung von Verkaufsstrategien\n\n• Durchführung von Bedarfsanalysen und Lösungspräsentationen\n\n• Verhandlung von Angeboten und Verträgen\n\nGeschäftsentwicklung\n\n• Betreuung und Ausbau bestehender Schlüsselkunden\n\n• Aufbau langfristiger Kundenbeziehungen\n\n• Erkennen von Cross- und Upselling-Potenzialen\n\n• Regelmäßige Kundenbesuche\n\nProjektmanagement\n\n• Begleitung komplexer Investitionsprojekte\n\n• Inhouse Koordination mit Vertriebsinnendienst, Applikationsteam und Serviceteam\n\n• Unterstützung bei Maschinenabnahmen und Inbetriebnahmen\n\n• Sicherstellung einer hohen Kundenzufriedenheit während des gesamten Verkaufsprozesses\n\nMarkt\n\n• Analyse von Wettbewerb, Markt- und Branchentrends\n\n• Dokumentation aller Aktivitäten im CRM-System (Salesforce)\n\n• Erstellung von Forecasts und Verkaufsberichten\n\n• Mitarbeit bei Messen, Kundenveranstaltungen und Marketingaktivitäten\n\nDein Profil\n\nPersönliche Kompetenzen\n\n• Ausgeprägte Hunter-Mentalität\n\n• Hohe Eigenmotivation und Abschlussstärke\n\n• Unternehmerisches Denken und Handeln\n\n• Kommunikations- und Verhandlungsgeschick\n\n• Strukturierte und selbständige Arbeitsweise\n\n• Begeisterung für technische Lösungen\n\n• Reisebereitschaft innerhalb der DACH Region\n\nFachliche Qualifikationen\n\n• Technische oder kaufmännische Grundausbildung\n\n• Weiterbildung im Verkauf, Marketing oder Betriebswirtschaft von Vorteil\n\n• Langjährige Erfahrung im Maschinenbau, der Automatisierungstechnik oder industriellen Produktion\n\n• Sicherer Umgang mit Salesforce\n\nDas zeichnet erfolgreiche Mitarbeitende in dieser Rolle aus\n\n• Du besuchst Kunden proaktiv und regelmässig\n\n• Du wartest nicht auf Anfragen, sondern schaffst neue Projekte\n\n• Du baust belastbare Netzwerke auf Entscheider-Ebene auf\n\n• Du verstehst die technische Prozesse in der Draht- und Kalbelkonfektion und sprichst die Sprache der Kunden\n\n• Du arbeitest datengetrieben und nutzen CRM konsequent als Verkaufswerkzeug\n\n• Du bist ein Teamplayer und nutzt das DACH Netzwerk\n\n• Französisch als weitere Sprache wäre ein Vorteil\n\nDeine Benefits\n\nDein neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Dein Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
       "descriptionByLocale": {
@@ -635,7 +637,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Sales-Switzerland-Technical-Sales-Engineer-%28wmd%29-6036/1165252455/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:22:02.130Z",
+      "crawledAt": "2026-09-26T23:47:30.471Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -654,6 +656,7 @@
       "jobReqId": "1165252455",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
         "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh",
@@ -716,7 +719,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1165469655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:22:02.128Z",
+      "crawledAt": "2026-09-26T23:47:30.470Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -745,8 +748,8 @@
           "assistenza-tecnica-80-100-m-f-komax-thun"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:09:01.971Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:09:01.971Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -766,7 +769,7 @@
       "slug": "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon",
       "slugByLocale": {
         "it": "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon",
-        "en": "lead-group-it-service-desk-w-m-d-komax-ch-jisu5n",
+        "en": "lead-group-it-service-desk-w-m-d-komax-ch",
         "de": "leitgruppe-it-service-desk-m-w-d-komax-dierikon",
         "fr": "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon"
       },
@@ -813,6 +816,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lead-group-it-service-desk-w-m-d-komax-ch",
+        "lead-group-it-service-desk-w-m-d-komax-ch-jisu5n",
         "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
@@ -824,6 +828,7 @@
           "lead-group-it-service-desk-w-m-d-komax-ch"
         ],
         "en": [
+          "lead-group-it-service-desk-w-m-d-komax-ch-jisu5n",
           "lead-group-it-service-desk-w-m-d-komax-ch"
         ]
       },
@@ -841,7 +846,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

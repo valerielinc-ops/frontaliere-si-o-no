@@ -1,16 +1,16 @@
 {
   "key": "rapelli",
   "label": "Rapelli",
-  "generatedAt": "2026-09-26T14:16:46.580Z",
+  "generatedAt": "2026-09-26T23:45:32.802Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6937,
-  "avgDurationMs": 6937,
+  "durationMs": 6223,
+  "avgDurationMs": 6223,
   "durationHistory": [
-    6937
+    6223
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Collaboratore-Confezionamento-Crudi-%28100%29-TI/1408373633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T14:16:36.686Z",
+      "crawledAt": "2026-09-26T23:45:24.954Z",
       "firstSeenAt": "2026-09-19T23:17:53.063Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -66,7 +66,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T14:16:38.444Z",
+      "crawledAt": "2026-09-26T23:45:26.431Z",
       "firstSeenAt": "2026-09-08T23:33:45.493Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -97,7 +97,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Responsabile-Intermedio-Produzione%2C-100-%28mwd%29-TI/1431352833/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T14:16:36.353Z",
+      "crawledAt": "2026-09-26T23:45:24.631Z",
       "firstSeenAt": "2026-08-31T17:32:26.004Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-HR-Payroll-Assistant-%28mfd%29%2C-50-70-TI/1431685933/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T14:16:38.818Z",
+      "crawledAt": "2026-09-26T23:45:26.719Z",
       "firstSeenAt": "2026-08-31T17:32:25.492Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -159,7 +159,8 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T14:16:37.030Z",
+      "crawledAt": "2026-09-26T23:45:25.249Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-14T12:02:51.149Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -190,8 +191,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T14:16:37.387Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-09-26T23:45:25.539Z",
       "firstSeenAt": "2026-07-14T12:02:51.962Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -222,7 +222,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T14:16:37.714Z",
+      "crawledAt": "2026-09-26T23:45:25.833Z",
       "firstSeenAt": "2026-07-14T12:02:51.478Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -253,7 +253,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Collaboratricecollaboratore-Spedizione%2C-100-TI/1390401733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T14:16:38.079Z",
+      "crawledAt": "2026-09-26T23:45:26.122Z",
       "firstSeenAt": "2026-07-14T12:02:52.545Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -284,7 +284,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-HR-Admin-&-General-Services-80-100-%28mfd%29-TI/1410412533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-26T14:16:36.014Z",
+      "crawledAt": "2026-09-26T23:45:24.309Z",
       "firstSeenAt": "2026-07-07T12:05:14.994Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -324,7 +324,8 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
