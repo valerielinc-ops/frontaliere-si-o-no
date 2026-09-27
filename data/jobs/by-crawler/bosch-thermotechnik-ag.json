@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bosch-thermotechnik-ag",
-  "assembledAt": "2026-09-26T23:31:06.568Z",
+  "assembledAt": "2026-09-27T05:17:20.980Z",
   "jobs": [
     {
       "title": "Praktikum in der Prozessoptimierung (w/m/div.) REF297091A",
@@ -497,8 +497,8 @@
       },
       "previousSlugs": [
         "technical-instructor-support-heat-pumps-f-m-div-rec-295358-s-bosch-thermotechnik-ag-pratteln",
-        "technischer-instruktor-support-warmepumpen-w-m-div-ref295358s-bosch-pratteln",
         "technical-instructor-support-heat-pumps-f-m-div-ref-295358-s-bosch-thermotechnik-ag-pratteln",
+        "technischer-instruktor-support-warmepumpen-w-m-div-ref295358s-bosch-pratteln",
         "technischer-instruktor-support-warmepumpen-w-m-div-ref295358s-bosch-thermotechnik-ag-pratteln"
       ],
       "sourceIdentity": "url:https://jobs.bosch.com/en/job/ref295358s-technischer-instruktor-support-waermepumpen-w-m-div-ref295358s",
@@ -547,14 +547,6 @@
       },
       "id": "bosch-thermotechnik-ag-29568349558c",
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiter-maschinenbau-bosch-st-niklaus"
-        ]
-      },
-      "previousSlugs": [
-        "projektleiter-maschinenbau-bosch-st-niklaus"
-      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
@@ -569,7 +561,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T23:31:04.313Z"
+      "firstSeenAt": "2026-09-26T23:31:04.313Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-maschinenbau-bosch-st-niklaus"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-maschinenbau-bosch-st-niklaus"
+      ]
     }
   ]
 }
