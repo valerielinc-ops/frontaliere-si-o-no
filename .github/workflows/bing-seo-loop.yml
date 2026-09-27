@@ -103,6 +103,12 @@ jobs:
           cache: npm
 
       - name: Install dependencies
+        env:
+          # The Bing audit does not need the optional CUDA execution provider.
+          # onnxruntime-node's Linux install hook downloads that provider from
+          # NuGet; skipping only that payload keeps the other lifecycle hooks
+          # active while avoiding a flaky native dependency on this CPU job.
+          ONNXRUNTIME_NODE_INSTALL: skip
         run: npm ci
 
       - name: Prepare Firebase credentials
