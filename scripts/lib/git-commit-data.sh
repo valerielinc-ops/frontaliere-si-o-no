@@ -681,6 +681,13 @@ restore_stashed_changes_with_safe_merge() {
         exit 1
       }
 
+      if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
+        if ! node "$(dirname "$0")/../ci/canonicalize-expired-archive-slice.mjs" "$f" "$f"; then
+          echo "❌ Failed expired archive route canonicalization for $f"
+          exit 1
+        fi
+      fi
+
       # The seo-404 compat accumulator is sharded across
       # data/seo-404-compat/part-*.json (issue #2988). Re-prune it AFTER the
       # whole merge loop (not here per-shard): a mid-loop prune would read the
@@ -1679,7 +1686,7 @@ append_translation_stats_to_index() {
 commit_isolated_from_worktree() {
   local base_sha remote_sha remote_tree new_tree new_commit
   local tmp_index merge_dir
-  local f local_blob remote_blob base_blob blob_to_stage key_hint mode_to_stage local_merge_path conflict_scan_path
+  local f local_blob remote_blob base_blob blob_to_stage key_hint mode_to_stage local_merge_path candidate_path conflict_scan_path
   local snapshot_operation snapshot_state registry_status
   local ownership_root ownership_base_path ownership_output_path ownership_result crawler_key ownership_helper
   local has_primary_slice=false delay
@@ -1752,6 +1759,7 @@ commit_isolated_from_worktree() {
     for f in "${RESOLVED_FILES[@]}"; do
       remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
       local_merge_path="$f"
+      candidate_path="$local_merge_path"
       mode_to_stage="100644"
 
       if [ "$GROUP_BATCH" = true ]; then
@@ -1951,6 +1959,7 @@ commit_isolated_from_worktree() {
             echo "❌ grouped-isolated: crawler generation ledger merge failed for $f — refusing to drop durable history"
             return 1
           fi
+          candidate_path="$merge_dir/out/$f"
           blob_to_stage="$(git hash-object -w -- "$merge_dir/out/$f")"
         elif merge_json_3way \
           "$merge_dir/base/$f" \
@@ -1959,6 +1968,7 @@ commit_isolated_from_worktree() {
           "$merge_dir/out/$f" \
           "$key_hint" \
           "$f"; then
+          candidate_path="$merge_dir/out/$f"
           blob_to_stage="$(git hash-object -w -- "$merge_dir/out/$f")"
         else
           if [ "$GROUP_BATCH" = true ]; then
@@ -1968,6 +1978,15 @@ commit_isolated_from_worktree() {
           # Preserve the established non-batch policy for sequential callers.
           echo "⚠️ grouped-isolated: 3-way merge failed for $f — keeping local content"
         fi
+      fi
+
+      if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
+        if ! node "$(dirname "$0")/../ci/canonicalize-expired-archive-slice.mjs" \
+          "$candidate_path" "$f"; then
+          echo "❌ grouped-isolated: expired archive route canonicalization failed for $f"
+          return 1
+        fi
+        blob_to_stage="$(git hash-object -w -- "$candidate_path")"
       fi
 
       # Guard the exact blob that will enter the isolated commit, after the

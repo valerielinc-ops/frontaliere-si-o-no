@@ -34,6 +34,7 @@ import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync
 import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
 import { digestDocument } from '../scripts/lib/crawler-generation-contract.mjs';
+import { localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
@@ -154,6 +155,48 @@ function job(overrides: Partial<JobRecord> = {}): JobRecord {
 const SLICE = 'data/jobs/by-crawler/acme.json';
 
 describe('git-commit-data.sh 3-way merge — append-only slug/path registries (#4887)', () => {
+  it('re-canonicalizes expired routes after a concurrent 3-way slice merge', () => {
+    const h = initHarness();
+    const expiredSlice = 'data/jobs/expired/by-crawler/fachkraft.json';
+    const daysAgo = (days: number): string => new Date(Date.now() - days * 86_400_000).toISOString();
+    const expiredEntry = (slug: string, expiredAt: string) => ({
+      companyKey: 'fachkraft',
+      slug,
+      slugByLocale: { it: slug, de: `${slug}-de` },
+      previousSlugs: ['shared-fachkraft-route'],
+      previousSlugsByLocale: {
+        it: ['shared-fachkraft-route'],
+        de: ['shared-fachkraft-route'],
+      },
+      expiredAt,
+    });
+
+    try {
+      // The checkout base is empty. Two writers independently add different
+      // current slugs that still claim the same historical route.
+      writeJson(h.repoDir, expiredSlice, []);
+      commitAndPush(h.repoDir, 'seed expired archive');
+      const older = expiredEntry('fachkraft-older', daysAgo(5));
+      const newer = expiredEntry('fachkraft-newer', daysAgo(1));
+      pushFromConcurrentWriter(h, (dir) => writeJson(dir, expiredSlice, [older]), 'remote expired archive update');
+      writeJson(h.repoDir, expiredSlice, [newer]);
+
+      runScript(h, [], expiredSlice);
+
+      const published = readFromOrigin<typeof older[]>(h, expiredSlice);
+      expect(published).toHaveLength(1);
+      expect(published[0].slug).toBe('fachkraft-newer');
+      const routes = [...localeRouteKeys(published[0])];
+      expect(new Set(routes).size).toBe(routes.length);
+      expect(routes).toContain('it:fachkraft-older');
+      expect(routes).toContain('de:fachkraft-older-de');
+      expect(routes).toContain('it:shared-fachkraft-route');
+      expect(routes).toContain('de:shared-fachkraft-route');
+    } finally {
+      cleanup(h);
+    }
+  });
+
   it('preserves concurrent crawler generation ledger appends', () => {
     const h = initHarness();
     const ledger = 'data/crawler-generation-ledger.jsonl';
