@@ -16,7 +16,10 @@ name: Post-merge follow-up triage
 # indietro (vedi collect-followup-batch.mjs).
 on:
   schedule:
-    - cron: '0 */3 * * *' # ogni 3h
+    # 3h→2h (2026-09-27): GitHub esegue ~62% dei cron nominali (gap mediano
+    # misurato 4,9h sul cron da 3h); con il cap di sessione a 14 PR servono
+    # ~7 run reali/giorno per coprire il flusso. Il corpus gira al minuto 40.
+    - cron: '0 */2 * * *' # ogni 2h
   workflow_dispatch:
     inputs:
       pr_number:
@@ -44,7 +47,7 @@ concurrency:
 jobs:
   followup:
     # Trigger:
-    # - `schedule`: batch automatico ogni 3h delle PR mergiate dall'owner
+    # - `schedule`: batch automatico ogni 2h delle PR mergiate dall'owner
     #   (`valerielinc-ops` / `frontaliere-automation[bot]`) — il filtro autore vive
     #   ora in `collect-followup-batch.mjs`, non più nell'`if:` del job.
     # - `workflow_dispatch` (closes #774): backfill manuale di UNA PR già mergiata ma
@@ -56,7 +59,10 @@ jobs:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     # 30→40 (2026-07-17): headroom per il cap turni dinamico alzato (max 80→240).
-    timeout-minutes: 40 # batch di N PR in una sessione (era 10 per una sola PR)
+    # 40→140 (2026-09-27): il cap di sessione passa da 4 a 14 PR
+    # (FOLLOWUP_SESSION_BATCH_LIMIT). 140 = step Codex 120 + pre-step misurato
+    # (checkout+collect fino a ~10 min con ~200 PR in finestra) + coda ~1 min.
+    timeout-minutes: 140 # batch di N PR in una sessione (era 10 per una sola PR)
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -235,12 +241,15 @@ jobs:
 
       - name: Run Codex Luna Max follow-up triage (batch)
         # Tetto sullo step: senza, l'unico limite era il cap del job
-        # (40min) e la run ci moriva `cancelled` — che NON fa scattare
+        # (ora 140min) e la run ci moriva `cancelled` — che NON fa scattare
         # nessun `if: failure()` e si vede solo dallo scan periodico
         # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
-        # 32min = cap del job meno il setup pre-provider misurato (~98s
-        # sulle ultime run) e una coda per gli step `if: always()`.
-        timeout-minutes: 32
+        # 120min (era 32) = il tetto massimo per uno step agentico, lo stesso
+        # del gemello corpus (claude-step-timeout.test.mjs): watchdog Codex
+        # 114 min + setup Codex (~2-4 min) + kill grace + finalize ci stanno
+        # dentro, e resta sotto il job da 140 min con il pre-step e la coda
+        # degli step `if: always()`.
+        timeout-minutes: 120
         id: followup
         # Gira SOLO se il batch ha almeno una PR. Per le altre run (finestra vuota /
         # tutte già-triagiate / tutte scartate dai gate) la sessione del provider è
@@ -282,7 +291,17 @@ jobs:
           # evitando che il watchdog diventi un cap più basso del collector.
           # Benchmark batch_count=27: provider+setup post 1.816.453 ms (30,27 min),
           # watchdog 31 min e step 32 min non attivati; margine watchdog 43.547 ms.
-          exec_timeout_minutes: "31"
+          # 31→114 min (2026-09-27, cap di sessione 4→14 PR): la base è il
+          # benchmark production-equivalent COMPLETATO più lento, corpus 34602892494:
+          # 21 PR commentate in 1.792.000 ms (batch_count=36, bootstrap incluso).
+          # È un envelope di sessione intera, non una media per PR: una media
+          # non è un upper bound per il costo della singola PR. Il target di 14
+          # è coperto dal benchmark completato da 21 PR; la durata totale di
+          # 1792 s resta sotto il watchdog da 6840 s. Watchdog + setup/kill
+          # grace/coda (~5 min) = 119 min, sotto lo step da 120. Il run
+          # 36009410204 (4 PR uccise a 1803 s) resta solo diagnostico: >=451 s/PR
+          # è censurato e non un upper bound.
+          exec_timeout_minutes: "114"
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}
@@ -306,7 +325,7 @@ jobs:
             - Cerca prima un issue aperto con quella chiave e quel repository. Se esiste, rileggi il body immediatamente prima dell'append; confronta la baseline (o una hash), ricostruisci l'append dalla lettura nuova su divergenza e non sovrascrivere contenuto concorrente. Se trovi un bucket `collecting` storico che contiene una PR della finestra, riusa quella chiave/titolo anche se il retry è entrato nel giorno successivo: mai sdoppiare la finestra. Se non esiste, crea UNA sola issue per gruppo con `State: collecting`; non aggiungere `agent:fix` né `agent:fix-queued` durante la raccolta.
             - Ogni item deve avere un ID stabile `FU-YYYY-MM-DD-NNN`, assegnato una sola volta, e i campi `Target repository`, `Target file`, `Original text`, `Suggested action`, `Acceptance token`, `Sources`. Deduplica col fingerprint `target repository + target file + token/azione normalizzata`; su match aggiungi la PR alla riga `Sources`, non un secondo item.
             - Il body resta `State: collecting` finché tutti i chunk seriali del batch sono conclusi. Non troncare mai il set per un cap “max 10”: il cap vale solo per chunk/sessione. Un errore lascia il bucket collecting e la finestra senza avanzare; il retry riusa la stessa chiave e le PR già commentate restano idempotenti.
-            - Se la finestra supera il budget della sessione, il collector fornisce al massimo quattro PR e dichiara il residuo in `deferred_count`, lasciando `collection_ok=true`: il troncamento è un rinvio pianificato, non un errore, e la run schedulata deve restare VERDE. Processa tutte le PR emesse e nient'altro: il residuo è compito della finestra successiva, che salta per idempotenza le PR già commentate. Non trattare `deferred_count > 0` come un motivo per allargare il lavoro, per lasciare un commento di allarme o per aprire un secondo bucket sullo stesso `(daily_key, target repository)`.
+            - Se la finestra supera il budget della sessione, il collector fornisce al massimo `FOLLOWUP_SESSION_BATCH_LIMIT` PR (oggi 14) e dichiara il residuo in `deferred_count`, lasciando `collection_ok=true`: il troncamento è un rinvio pianificato, non un errore, e la run schedulata deve restare VERDE. Processa tutte le PR emesse e nient'altro: il residuo è compito della finestra successiva, che salta per idempotenza le PR già commentate. Non trattare `deferred_count > 0` come un motivo per allargare il lavoro, per lasciare un commento di allarme o per aprire un secondo bucket sullo stesso `(daily_key, target repository)`.
             - Solo il gate zero-agent successivo demota gli item privi di acceptance falsificabile, porta il bucket a `State: sealed` e aggiunge `agent:fix-queued`. Un bucket collecting non è lavorabile dal drainer.
             - Una PR di fix daily con `Addresses #<bucket>` e `Follow-up item: FU-...` passa il gate anti-nipote solo per cercare finding nuovi: non creare issue figlie. Leggi il bucket padre nello stesso repository target; i finding già coperti dal padre aggiornano `Sources`/si deduplicano, quelli genuinamente nuovi si appendono al padre (se sealed, riportalo a collecting per il gate successivo). Se il padre è illeggibile, posta il blocco sulla PR e non creare un contenitore alternativo.
 
