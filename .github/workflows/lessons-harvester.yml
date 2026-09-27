@@ -194,6 +194,7 @@ jobs:
             - Mai abbassare gate/quality. Nel ramo PR: SOLO file `.md`. Il fix strutturale di un'escalation si propone via la issue auto-creata, non si committa qui.
 
             **Se (e solo se) hai ≥1 regola `novel` nuova utile → apri una PR doc:**
+            **Questo container CI è GIÀ un checkout isolato monouso** (`actions/checkout@v5` fresh a ogni run). **NON creare un worktree (`git worktree add`, `.worktrees/**`, `.claude/worktrees/**`)**: la regola "worktree-first" di `AGENTS.md` vale per le sessioni interattive locali, non qui. Lavora nella root del checkout con `git checkout -b`: il bridge Git host-side pusha SOLO il branch checked-out nella root (da un worktree risponde `Git push requires a checked-out current work branch under refs/heads`), e anche il wrapper `gh pr create` va eseguito dalla root. Misurato sulla run 36336838172: proposta committata in `.worktrees/`, push rifiutato dal bridge, `gh pr create` in exit 3, 0 PR.
             1. `git config user.name "Valerie Linc"; git config user.email "valerielinc@gmail.com"`.
             2. `git checkout -b lessons/auto-harvest-$(date -u +%Y%m%d)`.
             3. Applica gli edit `.md` (Edit/Write). Nessun path home assoluto, nessuna email personale.
