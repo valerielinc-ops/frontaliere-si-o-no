@@ -6869,6 +6869,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fisioterapia-ticino-moratoria.title': 'Physiothérapie au Tessin : le moratoire ne suffit pas, Physioswiss',
     'blog.article.fisioterapia-ticino-moratoria.excerpt': 'Au Tessin, la physiothérapie ambulatoire progresse ; les remboursements par assuré ont augmenté de 42 % entre 2017 et 2023 et l’étude SUPSI a été remise en mai 2026.',
     'blog.article.fisioterapia-ticino-moratoria.imageAlt': 'Kinésithérapeute assistant un patient dans une clinique ambulatoire à Lugano avec vue sur le lac',
+    'blog.article.zurigo-norme-grattacieli-votazione.title': 'Zurich approuve des normes plus strictes pour les gratte-ciel',
+    'blog.article.zurigo-norme-grattacieli-votazione.excerpt': 'Zurich a approuvé la variante la plus stricte du plan d’aménagement avec 62,6% des voix et une participation de 45,8%, tandis que la ville compte environ 300 bâtiments de plus de 25 mètres.',
+    'blog.article.zurigo-norme-grattacieli-votazione.imageAlt': 'Vue de la skyline de Zurich avec zones limitées pour les gratte‑ciel près des voies ferrées et d\'Oerlikon',
 };
 
 export default blogMetaChFr;
