@@ -6866,6 +6866,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sanita-alta-engadina-samedan.title': 'Sanità Alta Engadina: approvati accordi fino al 2029',
     'blog.article.sanita-alta-engadina-samedan.excerpt': 'Il voto degli undici Comuni assicura quasi 28,5 milioni di franchi per l\'ospedale di Samedan, case anziani, Spitex e l\'ente Sanadura dal 2027 al 2029.',
     'blog.article.sanita-alta-engadina-samedan.imageAlt': 'Struttura sanitaria in ambiente alpino svizzero',
+    'blog.article.fisioterapia-ticino-moratoria.title': 'Fisioterapia in Ticino: moratoria non basta, Physioswiss',
+    'blog.article.fisioterapia-ticino-moratoria.excerpt': 'In Ticino la fisioterapia ambulatoriale cresce; i rimborsi per assicurato sono aumentati del 42% tra 2017 e 2023 e lo studio SUPSI è stato consegnato a maggio 2026.',
+    'blog.article.fisioterapia-ticino-moratoria.imageAlt': 'Fisioterapista che assiste un paziente in una clinica ambulatoriale a Lugano con vista sul lago',
 };
 
 export default blogMetaChIt;

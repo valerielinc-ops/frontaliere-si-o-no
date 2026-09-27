@@ -6866,6 +6866,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sanita-alta-engadina-samedan.title': 'Gesundheitsversorgung Oberengadin: Vereinbarungen bis 2029 genehmigt',
     'blog.article.sanita-alta-engadina-samedan.excerpt': 'Die Zustimmung der elf Gemeinden sichert von 2027 bis 2029 fast 28,5 Millionen Franken für das Spital Samedan, Altersheime, Spitex und die Sanadura.',
     'blog.article.sanita-alta-engadina-samedan.imageAlt': 'Gesundheitseinrichtung in einer Schweizer Alpenumgebung',
+    'blog.article.fisioterapia-ticino-moratoria.title': 'Physiotherapie im Tessin: Moratorium reicht nicht aus, Physioswiss',
+    'blog.article.fisioterapia-ticino-moratoria.excerpt': 'Im Tessin nimmt die ambulante Physiotherapie zu; die Erstattungen pro Versicherten stiegen zwischen 2017 und 2023 um 42% und die SUPSI-Studie wurde im Mai 2026 übergeben.',
+    'blog.article.fisioterapia-ticino-moratoria.imageAlt': 'Physiotherapeut, der einem Patienten in einer ambulanten Klinik in Lugano mit Seeblick hilft',
 };
 
 export default blogMetaChDe;
