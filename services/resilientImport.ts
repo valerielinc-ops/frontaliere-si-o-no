@@ -358,6 +358,37 @@ const BUST_TIMEOUT_MS = 4000;
 // sync across all three, none of the non-module copies can import this file).
 const RESOURCE_TIMING_BUFFER_SIZE = 1000;
 
+const ASSET_CHUNK_URL_RE = /^https?:\/\/[^/]+\/assets\/[^?#\s]+\.(?:js|css)(?:[?#].*)?$/i;
+
+function isAssetChunkUrl(value: string): boolean {
+  return ASSET_CHUNK_URL_RE.test(value);
+}
+
+/**
+ * Recover the first-party asset URL carried by a dynamic-import rejection.
+ * Native `import()` does not create a DOM node, and a failed request may not
+ * produce a Resource Timing entry, so the error message is the only reliable
+ * source for the exact chunk that must be refetched (#9465).
+ */
+export function extractAssetChunkUrl(error: unknown): string | null {
+  const value = error as {
+    message?: unknown;
+    payload?: { message?: unknown };
+    detail?: { message?: unknown };
+  } | null | undefined;
+  const messages = [value?.message, value?.payload?.message, value?.detail?.message]
+    .filter((message): message is string => typeof message === 'string');
+
+  for (const message of messages) {
+    const candidates = message.match(/https?:\/\/[^\s"'<>]+/g) || [];
+    for (const candidate of candidates) {
+      const cleaned = candidate.replace(/[),.;]+$/, '');
+      if (isAssetChunkUrl(cleaned)) return cleaned;
+    }
+  }
+  return null;
+}
+
 /**
  * Overwrite the STALE entries the skewed chunks occupy in the browser's HTTP
  * disk cache, so the subsequent reload loads a consistent, current chunk set.
@@ -377,7 +408,7 @@ const RESOURCE_TIMING_BUFFER_SIZE = 1000;
  * batch races a {@link BUST_TIMEOUT_MS} timer, so recovery never hangs. Resolves
  * once the cache has been refreshed (or the timer fires); the caller then reloads.
  */
-export async function bustAssetHttpCache(): Promise<void> {
+export async function bustAssetHttpCache(additionalUrls: readonly string[] = []): Promise<void> {
   if (typeof window === 'undefined' || typeof fetch !== 'function') return;
 
   try {
@@ -388,7 +419,7 @@ export async function bustAssetHttpCache(): Promise<void> {
     /* unsupported — proceed with whatever entries the buffer already holds. */
   }
 
-  let urls: string[] = [];
+  let urls: string[] = additionalUrls.filter(isAssetChunkUrl);
   try {
     const entries =
       typeof performance !== 'undefined' && typeof performance.getEntriesByType === 'function'
@@ -457,7 +488,7 @@ export async function bustAssetHttpCache(): Promise<void> {
  * CacheStorage is usually empty for `/assets`, while the browser HTTP cache
  * is not; every dynamic-import recovery path must clear both before retrying.
  */
-export async function clearAssetCaches(): Promise<void> {
+export async function clearAssetCaches(reason?: unknown): Promise<void> {
   if (typeof window === 'undefined') return;
 
   if ('caches' in window) {
@@ -469,7 +500,8 @@ export async function clearAssetCaches(): Promise<void> {
     }
   }
 
-  await bustAssetHttpCache();
+  const failedAssetUrl = extractAssetChunkUrl(reason);
+  await bustAssetHttpCache(failedAssetUrl ? [failedAssetUrl] : []);
 }
 
 /**
@@ -503,7 +535,7 @@ export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
   } catch {
     /* storage unavailable */
   }
-  await clearAssetCaches();
+  await clearAssetCaches(reason);
   window.location.reload();
   return true;
 }
@@ -565,7 +597,7 @@ export async function resilientImport<T>(
     // Clear both cache layers before retrying. Stable asset URLs can otherwise
     // serve the same stale bytes from the browser HTTP cache even when
     // CacheStorage is empty.
-    await clearAssetCaches();
+    await clearAssetCaches(err);
     // Retry once after cache clear.
     try {
       return await attempt();
@@ -579,7 +611,7 @@ export async function resilientImport<T>(
           // chunk (HTML served for a purged name, or a skewed dependency)
           // would otherwise be re-served from the disk cache and the reload
           // wasted.
-          await clearAssetCaches();
+          await clearAssetCaches(err2);
           window.location.reload();
         }
       }

@@ -97,6 +97,30 @@ describe('resilientImport', () => {
     }
   });
 
+  it('refetches the failed dynamic-import URL when Resource Timing has no entry', async () => {
+    const originalFetch = (globalThis as any).fetch;
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
+    const timingSpy = vi.spyOn(performance, 'getEntriesByType').mockReturnValue([] as unknown as PerformanceEntryList);
+    (globalThis as any).fetch = fetchMock;
+    const failedUrl = 'https://cdn.frontaliereticino.ch/assets/seoService.js';
+    const stale = Object.assign(
+      new Error(`Failed to fetch dynamically imported module: ${failedUrl}`),
+      { name: 'ChunkLoadError' },
+    );
+    const factory = vi
+      .fn()
+      .mockRejectedValueOnce(stale)
+      .mockResolvedValueOnce({ updateMetaTags: vi.fn() });
+
+    try {
+      await expect(resilientImport(factory)).resolves.toEqual({ updateMetaTags: expect.any(Function) });
+      expect(fetchMock).toHaveBeenCalledWith(failedUrl, expect.objectContaining({ cache: 'reload' }));
+    } finally {
+      timingSpy.mockRestore();
+      (globalThis as any).fetch = originalFetch;
+    }
+  });
+
   it('reloads up to MAX_RELOADS times per session when the chunk is truly gone', async () => {
     const reload = vi.fn();
     Object.defineProperty(window, 'location', {
