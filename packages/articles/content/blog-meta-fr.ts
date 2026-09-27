@@ -12162,6 +12162,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-lentigione-pareggio-mangano.title': 'Varese-Lentigione 1-1 : Mangano arrête le penalty à la 95\'',
     'blog.article.varese-lentigione-pareggio-mangano.excerpt': 'Le Varese arrache un point au Lentigione grâce à l’arrêt décisif de Mangano dans le temps additionnel, après le but de Beretta et l’égalisation de Bontempi.',
     'blog.article.varese-lentigione-pareggio-mangano.imageAlt': 'Terrain de football professionnel avec herbe verte et lignes blanches',
+    'blog.article.basket-varese-bologna-esordio-lba.title': 'Varese-bologne : début du LBA à l\'itelyum arena',
+    'blog.article.basket-varese-bologna-esordio-lba.excerpt': 'L\'Openjobmetis Varese défie la Virtus Bologna le dimanche 27 septembre à 19h. Absent McDowell-White, en doute Della Valle.',
+    'blog.article.basket-varese-bologna-esordio-lba.imageAlt': 'Vue panoramique du lac de Lugano au coucher du soleil',
 };
 
 export default blogMetaFr;

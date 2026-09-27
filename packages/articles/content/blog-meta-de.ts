@@ -12159,6 +12159,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-lentigione-pareggio-mangano.title': 'Varese-Lentigation 1-1: Mangano Para Elfmeterschießen 95\'',
     'blog.article.varese-lentigione-pareggio-mangano.excerpt': 'Der Varese reißt der Lentigione dank der entscheidenden Parade von Mangano in der Erholung nach dem Tor von Beretta und dem Unentschieden von Bontempi einen Punkt ab.',
     'blog.article.varese-lentigione-pareggio-mangano.imageAlt': 'Professioneller Fußballplatz mit grünem Gras und weißen Linien',
+    'blog.article.basket-varese-bologna-esordio-lba.title': 'Varese-Bologna: LBA-Debüt auf der itelyum arena',
+    'blog.article.basket-varese-bologna-esordio-lba.excerpt': 'Die Openjobmetis Varese fordert die Virtus Bologna am Sonntag, den 27. September um 19 Uhr heraus. Abwesend McDowell-White, im Zweifel des Tals.',
+    'blog.article.basket-varese-bologna-esordio-lba.imageAlt': 'Panoramablick auf den Luganersee bei Sonnenuntergang',
 };
 
 export default blogMetaDe;

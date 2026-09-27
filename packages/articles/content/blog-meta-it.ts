@@ -12161,6 +12161,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-lentigione-pareggio-mangano.title': 'Varese-Lentigione 1-1: Mangano para il rigore al 95\'',
     'blog.article.varese-lentigione-pareggio-mangano.excerpt': 'Il Varese strappa un punto al Lentigione grazie alla parata decisiva di Mangano nel recupero, dopo il gol di Beretta e il pareggio di Bontempi.',
     'blog.article.varese-lentigione-pareggio-mangano.imageAlt': 'Campo da calcio professionale con erba verde e linee bianche',
+    'blog.article.basket-varese-bologna-esordio-lba.title': 'Varese-bologna: esordio LBA alla itelyum arena',
+    'blog.article.basket-varese-bologna-esordio-lba.excerpt': 'La Openjobmetis Varese sfida la Virtus Bologna domenica 27 settembre alle 19. Assente McDowell-White, in dubbio Della Valle.',
+    'blog.article.basket-varese-bologna-esordio-lba.imageAlt': 'Vista panoramica del lago di Lugano al tramonto',
 };
 
 export default blogMetaIt;
