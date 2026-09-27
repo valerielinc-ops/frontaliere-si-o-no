@@ -23,6 +23,7 @@ import { describe, it, expect } from 'vitest';
 import {
   isReportableRun,
   isReportableScope,
+  isIntentionalFailureWorkflow,
   cronFieldValues,
   maxCronGapMinutes,
   dormancyThresholdMinutes,
@@ -169,6 +170,35 @@ describe('isReportableRun — cosa suona l\'allarme', () => {
 
   it('IGNORE_WORKFLOWS esclude per nome', () => {
     expect(isReportableRun(run(), { since, ignore: new Set(['sync-pharmacy-duties']) })).toBe(false);
+  });
+
+  it('non riporta il rosso intenzionale di Quality alerts', () => {
+    expect(isIntentionalFailureWorkflow({
+      workflow_name: 'Quality alerts',
+      workflow_path: '.github/workflows/quality-alerts.yml',
+    })).toBe(true);
+    expect(isReportableRun(run({
+      workflow_name: 'Quality alerts',
+      workflow_path: '.github/workflows/quality-alerts.yml',
+    }), { since, ignore: new Set() })).toBe(false);
+  });
+
+  it('riconosce il contratto per path anche se il nome è cambiato', () => {
+    expect(isIntentionalFailureWorkflow({
+      workflow_name: 'Renamed quality signal',
+      workflow_path: '.github/workflows/quality-alerts.yml',
+    })).toBe(true);
+  });
+
+  it('non nasconde un normale workflow che fallisce', () => {
+    expect(isIntentionalFailureWorkflow({
+      workflow_name: 'Quality alerts copy',
+      workflow_path: '.github/workflows/quality-alerts-copy.yml',
+    })).toBe(false);
+    expect(isReportableRun(run({
+      workflow_name: 'Quality alerts copy',
+      workflow_path: '.github/workflows/quality-alerts-copy.yml',
+    }), { since, ignore: new Set() })).toBe(true);
   });
 });
 
