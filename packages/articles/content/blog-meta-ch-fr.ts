@@ -6827,6 +6827,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.esercito-divisa-grigia-dismissione.title': 'Armée, adieu à la tenue de sortie et les uniformes réformés sont brûlés',
     'blog.article.esercito-divisa-grigia-dismissione.excerpt': 'Depuis 2025, l\'uniforme gris traditionnel de l\'armée suisse n\'est attribué que pour des tâches représentatives, générant une économie d\'environ 55 millions.',
     'blog.article.esercito-divisa-grigia-dismissione.imageAlt': 'Uniforms de l\'armee suisse a Berne',
+    'blog.article.manifestazione-diritti-migranti-berna.title': 'Manifestation à Berne pour les droits des migrants',
+    'blog.article.manifestazione-diritti-migranti-berna.excerpt': 'Plusieurs milliers de personnes ont manifesté à Berne contre le durcissement du droit d\'asile, réclamant des droits fondamentaux et la liberté de mouvement.',
+    'blog.article.manifestazione-diritti-migranti-berna.imageAlt': 'Manifestation à Berne pour les droits des migrants devant la Place fédérale',
 };
 
 export default blogMetaChFr;

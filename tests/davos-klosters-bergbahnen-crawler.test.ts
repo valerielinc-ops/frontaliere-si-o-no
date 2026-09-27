@@ -61,6 +61,37 @@ const SAMPLE_LISTING_HTML = `
 </body></html>
 `;
 
+const CURRENT_LISTING_HTML = `
+<ul class="list-unstyled job-list">
+  <li class="job-list-item stretch-link">
+    <div class="job-list-item__content-wrapper">
+      <h3 class="h5 mb-0">Ablöser Schneeräumung &amp; Bahnanlagen</h3>
+      <p class="description text-muted mb-0">
+        ab November 2026
+        |
+        100%
+        |
+        Bergbahnen
+      </p>
+    </div>
+    <a href="/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399"
+       class="btn btn-primary stretch-link__link"
+       aria-label="Details anzeigen Ablöser Schneeräumung &amp; Bahnanlagen">
+      <span class="btn__text">Details anzeigen</span>
+    </a>
+  </li>
+  <li class="job-list-item stretch-link">
+    <div class="job-list-item__content-wrapper">
+      <h3 class="h5 mb-0">Allrounder:in Bergrestaurant Jatzmeder</h3>
+      <p class="description text-muted mb-0">ab Wintersaison 2026 | 80 - 100% | Gastro &amp; Bar</p>
+    </div>
+    <a href="/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691">
+      Details anzeigen
+    </a>
+  </li>
+</ul>
+`;
+
 const SAMPLE_DETAIL_HTML = `
 <html lang="de"><body>
 <main id="main-content" role="main" class="content-block">
@@ -155,6 +186,25 @@ describe('Davos Klosters Bergbahnen job parser', () => {
       expect(jobs[0].department).toBe('Gastro & Bar');
       expect(jobs[1].percentage).toBe('100%');
       expect(jobs[1].department).toBe('Bergbahnen');
+    });
+
+    it('extracts the current job-list markup and pipe-delimited metadata', () => {
+      const jobs = parseDavosKlostersBergbahnenListingHtml(CURRENT_LISTING_HTML);
+      expect(jobs).toHaveLength(2);
+      expect(jobs[0]).toMatchObject({
+        title: 'Ablöser Schneeräumung & Bahnanlagen',
+        jobId: '2475399',
+        period: 'ab November 2026',
+        percentage: '100%',
+        department: 'Bergbahnen',
+      });
+      expect(jobs[1]).toMatchObject({
+        title: 'Allrounder:in Bergrestaurant Jatzmeder',
+        jobId: '3916691',
+        period: 'ab Wintersaison 2026',
+        percentage: '80 - 100%',
+        department: 'Gastro & Bar',
+      });
     });
 
     it("keeps an apostrophe inside a double-quoted detail href", () => {

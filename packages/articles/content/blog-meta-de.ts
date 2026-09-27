@@ -12112,6 +12112,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-gestore-asilo-ticino.title': 'Asylzentrum Tessin: Wechsel von AOZ zu ORS weckt Sorgen um Arbeitsplätze',
     'blog.article.cambio-gestore-asilo-ticino.excerpt': 'Ab Januar verlässt die AOZ die Zentren Balerna und Chiasso; ORS könnte nach Angaben der Gewerkschaften bis zu 80 der 120 Beschäftigten einstellen – 40 Stellen sind gefährdet.',
     'blog.article.cambio-gestore-asilo-ticino.imageAlt': 'Asylbewerber-Zentrum in Balerna, Tessin, mit modernen Gebäuden und grünen Hügeln',
+    'blog.article.cannobio-caserma-spagnulo.title': 'Cannobio, Kasernen benannt nach Angelo Spagnulo',
+    'blog.article.cannobio-caserma-spagnulo.excerpt': 'Um Cannobio erinnert sich die Carabinieri-Station an den ausgewählten Carabiniere, der 2005 im Alter von 25 Jahren getötet wurde, als er versuchte, einen Raub zu verhindern.',
+    'blog.article.cannobio-caserma-spagnulo.imageAlt': 'Gedenkfeier in Cannobio zur Benennung der Carabinieri-Station nach Angelo Spagnulo',
 };
 
 export default blogMetaDe;

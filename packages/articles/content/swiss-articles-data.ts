@@ -20509,6 +20509,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'manifestazione-diritti-migranti-berna',
+    category: 'novita',
+    date: '2026-09-27T05:04:57.578Z',
+    image: '/images/blog/manifestazione-diritti-migranti-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
