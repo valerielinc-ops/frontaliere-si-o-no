@@ -1,23 +1,24 @@
 {
   "key": "psgn",
   "label": "Psychiatrie St.Gallen",
-  "generatedAt": "2026-09-26T13:52:55.525Z",
-  "total": 14,
+  "generatedAt": "2026-09-26T23:35:30.674Z",
+  "total": 10,
   "discovered": null,
   "parsed": 10,
   "lastFetchOutcome": null,
-  "written": 14,
+  "written": 10,
   "authoritativeEmptySnapshot": false,
-  "newCount": 3,
-  "updatedCount": 7,
-  "removedCount": 1,
-  "unchangedCount": 4,
-  "durationMs": 11334,
-  "avgDurationMs": 11334,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 4,
+  "unchangedCount": 0,
+  "durationMs": 10516,
+  "avgDurationMs": 10516,
   "durationHistory": [
-    11334
+    10516
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "psgn-4d60fa03bd10",
       "slug": "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
@@ -31,7 +32,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/a15e19e6-43ae-4854-9360-01e0ed53dd7b",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:52:40.167Z",
+      "crawledAt": "2026-09-26T23:35:15.206Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -46,11 +47,12 @@
       "featured": false,
       "postedDate": "2026-09-26",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/a15e19e6-43ae-4854-9360-01e0ed53dd7b",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-09-21T15:58:38.959Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 18,
         "completeness": 17
       }
     },
@@ -67,7 +69,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/af7ffde4-e050-4e90-8c24-1807ef681d29",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:52:43.198Z",
+      "crawledAt": "2026-09-26T23:35:17.941Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -82,11 +84,12 @@
       "featured": false,
       "postedDate": "2026-09-26",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/af7ffde4-e050-4e90-8c24-1807ef681d29",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-09-21T15:58:39.552Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 18,
         "completeness": 17
       }
     },
@@ -97,13 +100,13 @@
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
       "title": "Pharma-Assistentin / Pharma-Assistent",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Wil SG",
       "canton": "SG",
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/pharma-assistentin-pharma-assistent/a76d67ae-55b8-428f-8bb9-de97fe37aad9",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:52:39.559Z",
+      "crawledAt": "2026-09-26T23:35:14.667Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -126,9 +129,7 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "psgn-cf446ff19f71",
       "slug": "dipl-pflegefachperson-oder-fachperson-gesundheit-fur-pflegepool-psgn-wil-sg",
@@ -142,7 +143,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-oder-fachperson-gesundheit-fuer-pflegepool/09866c11-ae8a-4869-858c-9a6e6b07cf05",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:52:40.785Z",
+      "crawledAt": "2026-09-26T23:35:15.763Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -179,7 +180,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/29afc59c-f53e-42bb-97de-ce28a01e22ee",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:52:41.389Z",
+      "crawledAt": "2026-09-26T23:35:16.318Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -216,7 +217,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/029f935d-b1de-4265-b6cb-b508d42ca908",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:52:41.986Z",
+      "crawledAt": "2026-09-26T23:35:16.841Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -253,7 +254,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/be06b315-4a06-4703-b98b-2070b57a36d2",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:52:42.579Z",
+      "crawledAt": "2026-09-26T23:35:17.410Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -290,7 +291,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/5b05bd04-a71d-44b3-ab06-f6fcaf3c63b7",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:52:43.797Z",
+      "crawledAt": "2026-09-26T23:35:18.490Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -327,7 +328,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/cb7e0f30-1eab-4b49-8ab9-cc7722af9cfd",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:52:44.278Z",
+      "crawledAt": "2026-09-26T23:35:18.962Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -364,7 +365,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/8413c529-b221-4a88-8207-007d3797f953",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:52:44.929Z",
+      "crawledAt": "2026-09-26T23:35:19.512Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -390,48 +391,6 @@
     }
   ],
   "removedJobs": [
-    {
-      "id": "psgn-eee150944b61",
-      "slug": "assistente-farmaceutico-assistente-farmaceutico-per-la-gestione-della-farmacia-della-clinica-organizzativa-psychiatrie",
-      "company": "Psychiatrie St.Gallen",
-      "companyKey": "psgn",
-      "companyDomain": "psychiatrie-sg.ch",
-      "title": "Pharma-Assistentin / Pharma-Assistent zur organisatorischen Klinikapothekenleitung",
-      "location": "Wil SG",
-      "canton": "SG",
-      "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/pharma-assistentin-pharma-assistent-zur-organisatorischen-klinikapothekenleitung/a76d67ae-55b8-428f-8bb9-de97fe37aad9",
-      "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:42.698Z",
-      "addressLocality": "Wil SG",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9500",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/pharma-assistentin-pharma-assistent-zur-organisatorischen-klinikapothekenleitung/a76d67ae-55b8-428f-8bb9-de97fe37aad9",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-25T14:44:42.698Z",
-      "needsRetranslation": true,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "psgn-cbf7bc141cff",
       "slug": "interno-di-psicologia-psychiatrie-st-gallen-wil-sg",
@@ -546,7 +505,6 @@
       "salaryMax": 114000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -587,7 +545,6 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -596,5 +553,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

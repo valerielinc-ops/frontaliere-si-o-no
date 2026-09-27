@@ -1,6 +1,6 @@
 {
   "crawlerKey": "guggerbach",
-  "assembledAt": "2026-09-26T13:53:15.512Z",
+  "assembledAt": "2026-09-26T23:37:07.879Z",
   "jobs": [
     {
       "id": "guggerbach-b74196236ac9",
@@ -33,7 +33,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:53:11.055Z",
+      "crawledAt": "2026-09-26T23:37:03.374Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -77,6 +77,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:45:47.914Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -122,7 +123,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:53:11.053Z",
+      "crawledAt": "2026-09-26T23:37:03.373Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -166,6 +167,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:45:47.912Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -211,7 +213,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:53:11.051Z",
+      "crawledAt": "2026-09-26T23:37:03.372Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -250,6 +252,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:22.476Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "salarySource": "estimated",
@@ -295,7 +298,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:53:11.050Z",
+      "crawledAt": "2026-09-26T23:37:03.371Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -332,6 +335,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:45:47.911Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -377,7 +381,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/selbstaendige-coiffeuse-coiffeur",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:53:11.046Z",
+      "crawledAt": "2026-09-26T23:37:03.368Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -414,8 +418,8 @@
           "selbstandige-coiffeuse-coiffeur-davos-platz-guggerbach-ch"
         ]
       },
-      "firstSeenAt": "2026-09-09T13:45:47.908Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T13:45:47.908Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
