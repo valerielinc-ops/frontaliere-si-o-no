@@ -122,6 +122,18 @@ export const ISSUE_DENY_PATTERNS = [
   // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
   // — parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").
   /Firebase:.*auth\/network-request-failed/i,
+  // IndexedDB lifecycle noise — the browser may lose an app-owned connection
+  // while a tab is suspended or site data is cleared. The client has a
+  // recovery/fallback path and the PostHog filter already drops this family;
+  // keep residual GA4 events in the trailing report window from reopening a
+  // resolved issue (notably #9466). MUST mirror the six IDB patterns in
+  // services/benignErrorPatterns.ts byte-for-byte.
+  /Connection to Indexed Database server lost/i,
+  /Failed to execute 'transaction' on 'IDBDatabase'/i,
+  /InvalidStateError.*IDBDatabase/i,
+  /Object store cannot be found in the database/i,
+  /UnknownError.*IDBDatabase/i,
+  /Database deleted by request of the user/i,
   // Unsupported-browser parse failure (#4172): a browser too old to parse
   // optional-chaining `?.` / nullish `??` throws "Unexpected token '?'" on a
   // modern chunk. Below our Vite `build.target: 'modules'` baseline → an
