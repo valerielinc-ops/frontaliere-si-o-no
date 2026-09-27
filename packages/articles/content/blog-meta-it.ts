@@ -12105,6 +12105,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vetri-rotti-como-notte.title': 'Como, due arresti per furto e danni alle auto',
     'blog.article.vetri-rotti-como-notte.excerpt': 'La Polizia di Stato di Como ha arrestato un 30enne marocchino e un 23enne spagnolo: cinque altre auto avevano i vetri infranti.',
     'blog.article.vetri-rotti-como-notte.imageAlt': 'Auto parcheggiate in una strada di Como con i vetri dei finestrini infranti',
+    'blog.article.cultura-gravedona-porlezza.title': 'Gravedona ed Uniti, Porlezza: 1,5 milioni per la cultura',
+    'blog.article.cultura-gravedona-porlezza.excerpt': 'Regione Lombardia assegna oltre 1,5 milioni a Gravedona ed Uniti e Porlezza: 502.082 euro alla Chiesa della Madonna della Soledad e 1 milione a Villa Marzorati.',
+    'blog.article.cultura-gravedona-porlezza.imageAlt': 'Chiesa della Madonna della Soledad e Villa Marzorati al centro di un investimento culturale',
 };
 
 export default blogMetaIt;
