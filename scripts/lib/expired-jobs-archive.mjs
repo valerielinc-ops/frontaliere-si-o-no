@@ -524,7 +524,7 @@ function compareArchiveEntries(a, b) {
  * crawler cron where a throw would abort the whole archival step. The residual
  * duplicates stay visible to `assertNoDuplicateRoutesWithin`.
  */
-export function collapseDuplicateRouteEntries(entries, { source = 'expired-archive-dedup' } = {}) {
+function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-dedup' } = {}) {
   const namespaced = (entry) => (entry?.companyKey
     ? [...localeRouteKeys(entry)].map((route) => `${entry.companyKey}::${route}`)
     : []);
@@ -670,4 +670,59 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     unmergeable,
     capRefused,
   };
+}
+
+/**
+ * The legacy-route cap can make a component unmergeable for one pass while a
+ * different component is still removable. Removing that other component may
+ * make the first component mergeable on the next pass, so every archive
+ * writer must receive a fixed point rather than a merely sorted intermediate.
+ *
+ * Eight passes is the measured upper bound for the committed fixtures and is
+ * deliberately finite: a cycle or a newly introduced non-convergent merge is
+ * a correctness failure, not a reason to churn a large archive indefinitely.
+ */
+export const MAX_COLLAPSE_PASSES = 8;
+
+export function collapseDuplicateRouteEntries(entries, options = {}) {
+  let current = entries;
+  let currentSignature = JSON.stringify(current);
+  const seenSignatures = new Set([currentSignature]);
+  let collapsed = 0;
+  let slugsTransferred = 0;
+  let firstPassCapRefused = 0;
+
+  for (let pass = 0; pass < MAX_COLLAPSE_PASSES; pass += 1) {
+    const result = collapseDuplicateRouteEntriesOnce(current, options);
+    if (pass === 0) firstPassCapRefused = result.capRefused;
+    collapsed += result.collapsed;
+    slugsTransferred += result.slugsTransferred;
+
+    const nextSignature = JSON.stringify(result.entries);
+    if (nextSignature === currentSignature) {
+      return {
+        ...result,
+        collapsed,
+        slugsTransferred,
+        // Preserve the pre-fixpoint meaning used by the archive reports:
+        // this is the number refused by the first canonical pass. The final
+        // pass is exposed separately for convergence diagnostics.
+        capRefused: firstPassCapRefused,
+        finalCapRefused: result.capRefused,
+      };
+    }
+
+    if (seenSignatures.has(nextSignature)) {
+      throw new Error(
+        `expired archive route collapse did not converge: cycle detected after ${pass + 1} pass(es)`,
+      );
+    }
+    seenSignatures.add(nextSignature);
+    current = result.entries;
+    currentSignature = nextSignature;
+  }
+
+  throw new Error(
+    `expired archive route collapse did not converge after ${MAX_COLLAPSE_PASSES} passes`,
+  );
 }
