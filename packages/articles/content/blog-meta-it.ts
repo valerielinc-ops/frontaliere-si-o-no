@@ -12152,6 +12152,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sagra-uva-mendrisio-bilancio.title': 'Sagra dell\'uva a Mendrisio: bilancio positivo',
     'blog.article.sagra-uva-mendrisio-bilancio.excerpt': 'Bilancio positivo per la 70ª Sagra dell\'uva di Mendrisio: stimate 20-25mila persone e nessun intervento di rilievo per la sicurezza.',
     'blog.article.sagra-uva-mendrisio-bilancio.imageAlt': 'Visitatori alla Sagra dell\'uva nel centro di Mendrisio',
+    'blog.article.trofeo-binda-cittiglio-marzo-2027.title': 'Trofeo Binda: appuntamento al 14 marzo 2027',
+    'blog.article.trofeo-binda-cittiglio-marzo-2027.excerpt': 'Cittiglio si conferma capitale del ciclismo femminile: il 14 marzo 2027 tornano il Trofeo Binda WorldTour e la prova junior nelle Valli del Verbano.',
+    'blog.article.trofeo-binda-cittiglio-marzo-2027.imageAlt': 'Ciclismo femminile professionistico nelle Valli del Verbano durante il Trofeo Binda.',
 };
 
 export default blogMetaIt;
