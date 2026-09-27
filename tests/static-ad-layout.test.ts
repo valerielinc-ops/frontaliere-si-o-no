@@ -25,6 +25,18 @@ describe('static AdSense layout recovery', () => {
     expect(ADSENSE_LOADER_CONTENT).toContain("existing.addEventListener('load',armSlots");
   });
 
+  it('arms static collapse before consent and no-ads gates can return', () => {
+    const armIndex = ADSENSE_LOADER_CONTENT.indexOf('staticAdArm();');
+    const noAdsIndex = ADSENSE_LOADER_CONTENT.indexOf(
+      "if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';",
+    );
+    const consentIndex = ADSENSE_LOADER_CONTENT.indexOf('if(hasConsent()){');
+
+    expect(armIndex).toBeGreaterThan(-1);
+    expect(noAdsIndex).toBeGreaterThan(armIndex);
+    expect(consentIndex).toBeGreaterThan(armIndex);
+  });
+
   it('zeroes both the inline reserve and its wrapper margin', () => {
     const css = readFileSync(resolve(ROOT, 'index.css'), 'utf8');
 
