@@ -203,13 +203,13 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'impot-source-tessin-baremes-a-b-c-h',
     },
     titles: {
-      it: 'Imposta alla fonte Ticino 2026: tabelle A, B, C, H spiegate',
+      it: 'Imposta alla fonte Ticino 2026: tabelle A, B, C, H per frontalieri',
       en: 'Ticino withholding tax 2026: tables A, B, C, H explained',
       de: 'Quellensteuer Tessin 2026: Tabellen A, B, C, H erklärt',
       fr: 'Impôt à la source Tessin 2026: barèmes A, B, C, H expliqués',
     },
     descriptions: {
-      it: 'Guida alle tabelle fiscali dell\'imposta alla fonte in Ticino: tabella A (single), B (coniugato), C (coniugato con coniuge lavoratore), H (genitori single). Esempi pratici 2026.',
+      it: 'Tabelle A, B, C e H dell\'imposta alla fonte Ticino 2026: aliquote, stato civile, figli e calcolo del netto per frontalieri.',
       en: 'Guide to Ticino withholding tax tables: table A (single), B (married), C (married working spouse), H (single parents). Practical 2026 examples.',
       de: 'Leitfaden zu den Quellensteuertabellen im Tessin: Tabelle A (ledig), B (verheiratet), C (verheiratet mit arbeitendem Ehepartner), H (alleinerziehend). Praktische Beispiele 2026.',
       fr: 'Guide des barèmes de l\'impôt à la source au Tessin: barème A (célibataire), B (marié), C (marié conjoint actif), H (parent seul). Exemples pratiques 2026.',
@@ -539,7 +539,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
       fr: 'Impôts frontaliers Tessin 2026 : guide fiscal complet',
     },
     descriptions: {
-      it: 'Guida fiscale per frontalieri: imposta alla fonte in Ticino, nuovo accordo Italia-Svizzera, vecchi vs nuovi frontalieri, doppia imposizione e detrazioni deducibili.',
+      it: 'Guida fiscale frontalieri Ticino 2026: imposta alla fonte, nuovo accordo Italia-Svizzera, vecchi e nuovi regimi e doppia imposizione.',
       en: 'Tax guide for cross-border workers: Ticino withholding tax, new Italy-Switzerland agreement, old vs new cross-border workers, double taxation and deductions.',
       de: 'Steuerratgeber für Grenzgänger: Quellensteuer Tessin, neues Abkommen Italien-Schweiz, alte vs neue Grenzgänger, Doppelbesteuerung und Abzüge.',
       fr: 'Guide fiscal pour frontaliers : impôt à la source au Tessin, nouvel accord Italie-Suisse, anciens vs nouveaux frontaliers, double imposition et déductions.',

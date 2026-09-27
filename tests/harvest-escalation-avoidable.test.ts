@@ -380,13 +380,31 @@ describe('isGenuineSiblingClassViolation — conta solo il sibling non-sweepato,
     )).toBe(false);
   });
 
-  it('vocabolario sibling senza affermazione né falso-positivo dichiarato → conservativo: violazione', () => {
+  it('sibling esplicitamente non toccato senza affermazione → violazione genuina', () => {
     expect(isGenuineSiblingClassViolation('🟡 sibling non toccato, verificare a mano')).toBe(true);
   });
 
   it('"non è un falso positivo" (rifiuto esplicito) → resta violazione genuina (issue #3367)', () => {
     expect(isGenuineSiblingClassViolation(
       '🔴 Important: non è un falso positivo, il sibling condivide lo stesso bug non sweepato.',
+    )).toBe(true);
+  });
+
+  it('same-level sibling in a parser is a domain relation, not a cross-file sweep finding', () => {
+    expect(isGenuineSiblingClassViolation(
+      '🔴 Important: la regex attraversa un wrapper nested invece del sibling same-level e chiude la riga prima della location; limita il boundary al livello DOM corretto.',
+    )).toBe(false);
+  });
+
+  it('a sibling named only as consumer scope is not proof of an unswept class', () => {
+    expect(isGenuineSiblingClassViolation(
+      '🟡 Nit: il body descrive quattro consumer sibling come parte della copertura, ma il diff contiene solo il nuovo fallback; misura il claim sul diff effettivo.',
+    )).toBe(false);
+  });
+
+  it('keeps a defect in the sibling checker itself as actionable evidence', () => {
+    expect(isGenuineSiblingClassViolation(
+      '🔴 Important: la dichiarazione esportata non produce un fatto utilizzabile e i consumer importati vengono omessi dal sibling sweep.',
     )).toBe(true);
   });
 });
@@ -403,5 +421,11 @@ describe('bucketFinding — sibling-class-fix scarta i falsi positivi (#3325)', 
       'Cross-file (sticky sibling-check): non replicano il pattern fixato qui — nessun 🔴/🟡 da propagare.',
     );
     expect(b).not.toBe('sibling-class-fix');
+  });
+
+  it('non classifica il boundary semantico same-level come ricorrenza cross-file', () => {
+    expect(bucketFinding(
+      'scripts/lib/mikron-job-parser.mjs:L148: 🔴 Important: la regex attraversa un wrapper nested invece del sibling same-level e chiude la riga prima della location.',
+    )).not.toBe('sibling-class-fix');
   });
 });
