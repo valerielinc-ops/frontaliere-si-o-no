@@ -1671,6 +1671,55 @@ jobs:
           gh pr edit "$PR" --repo "$REPO" --add-label agent:autofix
           echo "provenance: PR #$PR marcata agent:autofix."
 
+      - name: Close the PR a conflict hand-off supersedes (zero-Claude)
+        # L'issue di hand-off chiede all'agente di chiudere la PR #N dopo aver
+        # aperto quella nuova, ma il bridge GitHub del fixer Codex rifiuta
+        # `gh pr close` (#10133 e #10140, 27-09): #N restava aperta e in
+        # conflitto finche' il recycle, dopo 24 h, la chiudeva e rimetteva in
+        # coda la sua issue sorgente. La chiude qui il workflow, solo dopo una
+        # delivery verificata la cui PR dichiara `Supersedes #N`.
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          SNAPSHOT: ${{ runner.temp }}/issue-fix-ctx/issue.json
+        run: |
+          set -uo pipefail
+          title=$(jq -r '.title // ""' "$SNAPSHOT" 2>/dev/null || true)
+          handoff_re='^Conflitto con main( dopo LGTM)?: riapplicare la PR #([1-9][0-9]*) su main$'
+          if [[ ! "$title" =~ $handoff_re ]]; then
+            echo "handoff-close: #$ISSUE non e' un hand-off di conflitto — skip."
+            exit 0
+          fi
+          ORIGIN="${BASH_REMATCH[2]}"
+          evidence_file="${PR_DELIVERY_EVIDENCE_FILE:-}"
+          DELIVERY_STATUS=unavailable
+          if [ -n "$evidence_file" ] && [ -r "$evidence_file" ]; then
+            DELIVERY_STATUS=$(jq -er '.status // "unavailable"' "$evidence_file" 2>/dev/null) || DELIVERY_STATUS=unavailable
+          fi
+          if [ "$DELIVERY_STATUS" != "verified-delivery" ]; then
+            echo "handoff-close: delivery=$DELIVERY_STATUS — #$ORIGIN resta aperta."
+            exit 0
+          fi
+          PR=$(jq -er '.prNumber // empty' "$evidence_file" 2>/dev/null || true)
+          if [[ ! "$PR" =~ ^[1-9][0-9]*$ ]] || [ "$PR" = "$ORIGIN" ]; then
+            echo "handoff-close: PR consegnata non verificabile — #$ORIGIN resta aperta."
+            exit 0
+          fi
+          if ! gh pr view "$PR" --repo "$REPO" --json body --jq .body | grep -Eqi "supersedes[[:space:]]+#${ORIGIN}([^0-9]|$)"; then
+            echo "handoff-close: la PR #$PR non dichiara Supersedes #$ORIGIN — #$ORIGIN resta aperta."
+            exit 0
+          fi
+          STATE=$(gh pr view "$ORIGIN" --repo "$REPO" --json state --jq .state 2>/dev/null || true)
+          if [ "$STATE" != "OPEN" ]; then
+            echo "handoff-close: #$ORIGIN e' ${STATE:-illeggibile} — niente da chiudere."
+            exit 0
+          fi
+          gh pr close "$ORIGIN" --repo "$REPO" --comment "Sostituita dalla PR #$PR, che riapplica questo diff su main (hand-off #$ISSUE). Chiusa dal workflow issue-fix: il bridge del fixer non puo' chiudere PR."
+          echo "handoff-close: PR #$ORIGIN chiusa, sostituita da #$PR."
+
       - name: Emit FIX_OUTCOME telemetry (deterministic backstop)
         # Skip on short-circuit: the pre-flight gate already posted the granular
         # `<!-- FIX_OUTCOME: already-fixed -->` marker (preflight) or
