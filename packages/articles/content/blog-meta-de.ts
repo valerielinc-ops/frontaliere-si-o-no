@@ -12147,6 +12147,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-scuola-nazario-sauro-lettera.title': 'Como, Brief von Nazario Sauro: "Wir sind kein Paket"',
     'blog.article.como-scuola-nazario-sauro-lettera.excerpt': 'Ilaria Flauto stellt die Verlegung der Grundschule Nazario Sauro an die IC Como Lago im Plan 2027/28 infrage: Zehn Jahre pädagogischer Arbeit drohen ausgelöscht zu werden.',
     'blog.article.como-scuola-nazario-sauro-lettera.imageAlt': 'Grundschule Nazario Sauro in Como Altstadt am See',
+    'blog.article.sagra-uva-mendrisio-bilancio.title': 'Traubenfest in Mendrisio: positive Bilanz',
+    'blog.article.sagra-uva-mendrisio-bilancio.excerpt': 'Positive Bilanz für das 70. Traubenfest von Mendrisio: schätzungsweise 20-25 Tausend Personen und kein nennenswerter Sicherheitseinsatz.',
+    'blog.article.sagra-uva-mendrisio-bilancio.imageAlt': 'Besucher am Traubenfest im Zentrum von Mendrisio',
 };
 
 export default blogMetaDe;

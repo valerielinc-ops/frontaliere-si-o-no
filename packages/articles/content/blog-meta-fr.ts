@@ -12150,6 +12150,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-scuola-nazario-sauro-lettera.title': 'Côme, lettre de la Nazario Sauro : « Nous ne sommes pas un colis »',
     'blog.article.como-scuola-nazario-sauro-lettera.excerpt': 'Ilaria Flauto conteste le transfert de l’école primaire Nazario Sauro à l’IC Como Lago dans le plan 2027/28 : dix ans de travail pédagogique risquent d’être effacés.',
     'blog.article.como-scuola-nazario-sauro-lettera.imageAlt': 'École primaire Nazario Sauro à Côme, centre historique près du lac (Como)',
+    'blog.article.sagra-uva-mendrisio-bilancio.title': 'Fête du raisin à Mendrisio : bilan positif',
+    'blog.article.sagra-uva-mendrisio-bilancio.excerpt': 'Bilan positif pour la 70e Fête du raisin de Mendrisio : 20-25 mille personnes estimées et aucune intervention notable pour la sécurité.',
+    'blog.article.sagra-uva-mendrisio-bilancio.imageAlt': 'Visiteurs à la fête du raisin au centre de Mendrisio',
 };
 
 export default blogMetaFr;

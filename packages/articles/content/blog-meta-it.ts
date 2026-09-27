@@ -12149,6 +12149,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-scuola-nazario-sauro-lettera.title': 'Como, lettera dalla Nazario Sauro: \'Non siamo un pacco\'',
     'blog.article.como-scuola-nazario-sauro-lettera.excerpt': 'Ilaria Flauto contesta il trasferimento della primaria Nazario Sauro all\'IC Como Lago nel piano 2027/28: dieci anni di lavoro didattico rischiano di essere cancellati.',
     'blog.article.como-scuola-nazario-sauro-lettera.imageAlt': 'Scuola primaria Nazario Sauro a Como, centro storico vicino al lago',
+    'blog.article.sagra-uva-mendrisio-bilancio.title': 'Sagra dell\'uva a Mendrisio: bilancio positivo',
+    'blog.article.sagra-uva-mendrisio-bilancio.excerpt': 'Bilancio positivo per la 70ª Sagra dell\'uva di Mendrisio: stimate 20-25mila persone e nessun intervento di rilievo per la sicurezza.',
+    'blog.article.sagra-uva-mendrisio-bilancio.imageAlt': 'Visitatori alla Sagra dell\'uva nel centro di Mendrisio',
 };
 
 export default blogMetaIt;
