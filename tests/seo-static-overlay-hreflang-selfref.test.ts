@@ -57,6 +57,7 @@ describe('static-overlay hreflang self-reference is preserved after hydration', 
   beforeEach(() => {
     vi.spyOn(console, 'warn').mockImplementation(() => {});
     document.querySelectorAll('link[hreflang]').forEach((el) => el.remove());
+    document.querySelector('main.seo-static-content')?.remove();
   });
 
   it('the landing URL is a staticOverlay route whose slug collapses in buildAllLocalePaths', () => {
@@ -88,5 +89,31 @@ describe('static-overlay hreflang self-reference is preserved after hydration', 
       .querySelector('link[hreflang="x-default"]')
       ?.getAttribute('href');
     expect(xDefault).toBe(SELF_HREF);
+  });
+
+  it('preserves page-specific static metadata on the border-wait map', async () => {
+    const mapPath = '/guida-frontaliere/mappa-live-valichi/';
+    const staticTitle = 'Mappa live dei valichi ticinesi | Frontaliere Ticino';
+    const staticDescription = 'Tempi di attesa aggiornati ai valichi del Ticino.';
+
+    const main = document.createElement('main');
+    main.className = 'seo-static-content';
+    document.body.appendChild(main);
+    document.title = staticTitle;
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]')
+      ?? document.createElement('meta');
+    description.name = 'description';
+    description.content = staticDescription;
+    if (!description.parentNode) document.head.appendChild(description);
+
+    await loadAllLocaleChunks('it');
+    setLocale('it');
+    window.history.replaceState({}, '', mapPath);
+
+    const { route } = parsePath(mapPath);
+    await updateMetaTags(getSeoSection(route));
+
+    expect(document.title).toBe(staticTitle);
+    expect(document.querySelector('meta[name="description"]')?.content).toBe(staticDescription);
   });
 });
