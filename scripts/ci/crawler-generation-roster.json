@@ -96,10 +96,8 @@
     "13": [
       "1a-hunkeler",
       "abraxas",
-      "afry",
       "answerconsulting",
       "banca-sempione",
-      "buehler",
       "careers",
       "cern",
       "csvp-poschiavo",
@@ -407,11 +405,12 @@
       "migros-hq",
       "nestle",
       "posta-svizzera-centro-regionale",
-      "postauto",
       "premiumpflege24"
     ],
     "24": [
+      "afry",
       "anicura",
+      "buehler",
       "capri-holdings",
       "cnp",
       "confederazione-ticino",
@@ -423,6 +422,7 @@
       "lwphr",
       "mcdonald-s-switzerland",
       "pole-sante-pays-enhaut",
+      "postauto",
       "postfinance",
       "protectas",
       "sunrise-sede-ticino",
@@ -1306,5 +1306,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:de1a8b9d887cd696710a865c4524659460c15bfc0577e80ac85b838e8b88fcd5"
+  "digest": "sha256:e0115611f9d7eac81d4e2a7ce2ecb1fc9f981c6d9cfe07c95e9661511f9e32fa"
 }

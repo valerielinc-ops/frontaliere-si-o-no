@@ -550,14 +550,22 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(unanchoredConfirmationTarget(anchored)).toBeNull();
   });
 
-  it('never lets an id confirmation close a finding anchored on a file', () => {
+  it('closes a finding anchored on a file by id only together with its file re-confirmed (#10025)', () => {
     const anchored = { ...historicalImportantReview, body: reviewFor('src/changed.mjs', 'the parser drops the last row') };
     const [finding] = importantFindings(anchored.body);
-    const review = {
+    const review = (...confirmations: string[]) => ({
       ...alignmentLgtmReview,
-      body: `## Findings (Important: 0, Nit: 0)\nFix di \`${stableFindingId(finding)}\`: ok.\n## LGTM`,
-    };
-    expect(historicalImportantFindings([anchored, review], { includeLatest: true })).toHaveLength(1);
+      body: `## Findings (Important: 0, Nit: 0)\n${confirmations.join('\n')}\n## LGTM`,
+    });
+    const id = `Fix di \`${stableFindingId(finding)}\`: ok.`;
+    // L'id da solo non prova che il file sia stato riaperto all'HEAD.
+    expect(historicalImportantFindings([anchored, review(id)], { includeLatest: true })).toHaveLength(1);
+    expect(historicalImportantFindings([anchored, review(id, 'Fix di `src/changed.mjs:L40`: ok.')], { includeLatest: true }))
+      .toHaveLength(0);
+    // L'id di un altro finding non chiude questo.
+    const other = importantFindings(reviewFor('src/changed.mjs', 'the parser drops the first row').body)[0];
+    expect(historicalImportantFindings([anchored, review(`Fix di \`${stableFindingId(other)}\`: ok.`)], { includeLatest: true }))
+      .toHaveLength(1);
   });
 
   it('closes restated unanchored 🔴 by their printed id, never by a prose paraphrase', () => {
@@ -1972,5 +1980,82 @@ describe('review gate: an acceptance checked only on the review bundle/ledger is
       mutate: false,
     });
     expect(blocked.approved).toBe(false);
+  });
+});
+
+describe('review gate: the stable id confirms a finding with cited files (#10025)', () => {
+  const bot = (id: number, body: string, commit: string) => ({
+    id,
+    user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    state: 'COMMENTED',
+    body,
+    commit_id: commit,
+  });
+  const FP = '.github/workflows/fast-publish-article.yml';
+  const RS = '.github/workflows/resync-cdn-article-chunks.yml';
+  // Forma reale della review delle 14:01 su #10025: tre 🔴 sugli stessi due
+  // workflow, ciascuno con una citazione per file.
+  const opening = bot(1, [
+    '## Findings (Important: 3, Nit: 0)',
+    `- ${FP}:L196, ${RS}:L84: 🔴 Important: [correctness] il lease viene rilasciato senza verificare lo SHA esatto dell'oggetto.`,
+    `- ${FP}:L212, ${RS}:L97: 🔴 Important: [correctness] il lease non viene rinnovato durante la pubblicazione lunga.`,
+    `- ${FP}:L320, ${RS}:L121: 🔴 Important: [correctness] il rilascio non usa If-Match e può cancellare il lease di un altro writer.`,
+  ].join('\n'), 'a'.repeat(40));
+  const findings = importantFindings(opening.body);
+  const ids = findings.map((finding) => stableFindingId(finding));
+  const approving = (confirmations: string[]) => bot(2, [
+    '## Findings (Important: 0, Nit: 0)',
+    ...confirmations,
+    '',
+    '## LGTM',
+  ].join('\n'), 'b'.repeat(40));
+
+  it('replay: four moved-line confirmations per file for three findings close nothing', () => {
+    const moved = [214, 241, 385, 393].map((line) => `Fix di \`${FP}:L${line}\`: ok.`)
+      .concat([101, 126, 164, 172].map((line) => `Fix di \`${RS}:L${line}\`: ok.`));
+    expect(findings).toHaveLength(3);
+    expect(historicalImportantFindings([opening, approving(moved)])).toHaveLength(3);
+  });
+
+  it('the stable ids plus the re-confirmed files close exactly the confirmed findings', () => {
+    expect(new Set(ids).size).toBe(3);
+    const files = [`Fix di \`${FP}:L214\`: ok.`, `Fix di \`${RS}:L101\`: ok.`];
+    const byId = (list: string[]) => list.map((id) => `Fix di \`${id}\`: ok.`);
+    // Gli id senza nessun file riconfermato non chiudono nulla.
+    expect(historicalImportantFindings([opening, approving(byId(ids))])).toHaveLength(3);
+    expect(historicalImportantFindings([opening, approving([...byId(ids), ...files])])).toHaveLength(0);
+    const open = historicalImportantFindings([opening, approving([...byId([ids[1]]), ...files])]);
+    expect(open.map((finding) => stableFindingId(finding)).sort()).toEqual([ids[0], ids[2]].sort());
+    // Un file citato senza conferma lascia il finding aperto.
+    expect(historicalImportantFindings([opening, approving([...byId(ids), files[0]])])).toHaveLength(3);
+  });
+
+  it('acceptance of review 5331196488: one id for a two-file finding is not enough', () => {
+    const twoFiles = bot(1, '## Findings (Important: 1, Nit: 0)\n- a.yml:L1, b.yml:L2: 🔴 Important: [correctness] il lock non viene ricontrollato prima del push.', 'a'.repeat(40));
+    const [finding] = importantFindings(twoFiles.body);
+    const id = `Fix di \`${stableFindingId(finding)}\`: ok.`;
+    expect(historicalImportantFindings([twoFiles, approving([id])])).toHaveLength(1);
+    expect(historicalImportantFindings([twoFiles, approving([id, 'Fix di `a.yml:L9`: ok.'])])).toHaveLength(1);
+    expect(historicalImportantFindings([twoFiles, approving([id, 'Fix di `a.yml:L9`: ok.', 'Fix di `b.yml:L7`: ok.'])]))
+      .toHaveLength(0);
+  });
+
+  it('an unknown or truncated id closes nothing', () => {
+    expect(historicalImportantFindings([opening, approving([
+      'Fix di `0123456789ab`: ok.',
+      `Fix di \`${ids[0].slice(0, 11)}\`: ok.`,
+    ])])).toHaveLength(3);
+  });
+
+  it('logs the id as the confirmation of a blocking in-diff finding', () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const classification = classifyReview(opening.body, { files: [FP, RS], complete: true, repositoryPaths: [FP, RS] });
+      logClassification(classification);
+      expect(log.mock.calls.flat().join('\n'))
+        .toContain(`review-gate: BLOCKING finding=1 path=${FP},${RS} reason=at least one cited file is in the current PR diff confirm="${ids[0]}"`);
+    } finally {
+      log.mockRestore();
+    }
   });
 });
