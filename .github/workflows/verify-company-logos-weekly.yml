@@ -2,7 +2,8 @@ name: Verify Company Logos (weekly)
 
 # Assembles the canonical dataset, resolves every effective logo through the
 # same resolver used by the renderers, and probes the resulting local and
-# external references. Writes broken ones to data/company-logos-broken.json;
+# external references and checks raster resolution. Writes broken or
+# low-quality ones to data/company-logos-broken.json;
 # the companion audit workflow opens the actionable issue.
 #
 # Runs every Sunday 04:00 UTC.

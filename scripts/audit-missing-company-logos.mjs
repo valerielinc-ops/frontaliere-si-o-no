@@ -21,6 +21,7 @@ import {
   auditCompanyLogos,
   DEFAULT_ASSET_BASE_URL,
   loadCanonicalJobs,
+  MIN_LOGO_QUALITY_DIMENSION_PX,
 } from './lib/company-logo-audit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -46,7 +47,11 @@ function formatSource(report) {
 function buildIssueBody(report) {
   const top = report.affectedCompanies.slice(0, TOP_N_IN_ISSUE);
   const rows = top.map((company) => {
-    const example = company.examples.broken || company.examples.missing || company.exampleUrl;
+    const example = company.examples.broken
+      || company.examples.missing
+      || company.examples.lowQuality
+      || company.examples.qualityUnverified
+      || company.exampleUrl;
     const link = example ? `[esempio](${example})` : '—';
     return `| \`${issueSafe(company.companyKey)}\` | ${issueSafe(company.companyName)} | ${company.status} | ${company.affectedJobCount} | ${link} |`;
   }).join('\n');
@@ -56,13 +61,15 @@ function buildIssueBody(report) {
 
 L'audit usa ${formatSource(report)} e invoca \`resolveCompanyLogoUrl()\` da \`services/jobDataNormalization.ts\`, cioè lo stesso resolver usato dai job card SPA e statici. Ogni riferimento non locale viene verificato con una richiesta HTTP; i path locali vengono verificati contro il CDN configurato.
 
-**${report.affectedCompanies.length} aziende** hanno almeno un annuncio non coperto o non verificabile:
+**${report.affectedCompanies.length} aziende** hanno almeno un annuncio non coperto, non verificabile o di qualità insufficiente:
 
 | stato | aziende | annunci interessati |
 |---|---:|---:|
 | missing | ${report.missing} | ${report.missingJobCount} |
 | broken | ${report.broken} | ${report.brokenJobCount} |
 | partial | ${report.partial} | ${report.partialJobCount} |
+| low-quality | ${report.lowQuality} | ${report.lowQualityJobCount} |
+| quality-unverified | ${report.qualityUnverified} | ${report.qualityUnverifiedJobCount} |
 | unverified | ${report.unverified} | ${report.unverifiedJobCount} |
 
 Il report completo è \`data/company-logos-missing.json\`; viene rigenerato dal workflow ogni domenica.
@@ -77,7 +84,7 @@ ${restCount ? `\n_...e altre ${restCount} aziende nell'elenco completo._\n` : ''
 ## Come risolvere
 
 1. Assemblare il dataset e provare l'acquisizione guidata: \`node scripts/download-missing-company-logos.mjs --from-audit --dry-run\`, poi ripetere senza \`--dry-run\` dopo aver controllato i domini proposti.
-2. Sostituire ogni URL esterno con stato \`broken\` con un asset locale verificato; non usare favicon generici o Clearbit come sorgente runtime.
+2. Sostituire ogni URL esterno con stato \`broken\` con un asset locale verificato e ogni raster \`low-quality\` con una sorgente di almeno ${MIN_LOGO_QUALITY_DIMENSION_PX} px sul lato maggiore; non usare favicon generici o Clearbit come sorgente runtime.
 3. Rilanciare l'audit e controllare anche le pagine pubblicate dopo il deploy.
 
 ## Non implementato (ancora)
@@ -129,6 +136,7 @@ async function main() {
     `missing: ${payload.missing} (${payload.missingJobCount}),`,
     `broken: ${payload.broken} (${payload.brokenJobCount}),`,
     `partial: ${payload.partial} (${payload.partialJobCount}),`,
+    `low-quality: ${payload.lowQuality} (${payload.lowQualityJobCount}),`,
     `valid: ${payload.withLogo}. Scritto ${OUTPUT}`,
   ].join(' '));
 

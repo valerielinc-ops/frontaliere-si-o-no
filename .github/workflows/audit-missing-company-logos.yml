@@ -2,10 +2,11 @@ name: Audit Missing Company Logos (weekly)
 
 # Trova le aziende per cui services/jobDataNormalization.ts::resolveCompanyLogoUrl()
 # non produce una copertura verificabile: `null` per tutti gli annunci, oppure
-# un riferimento locale/esterno rotto. Le pagine mostrano il badge iniziali
+# un riferimento locale/esterno rotto o un'immagine raster di qualità
+# insufficiente. Le pagine mostrano il badge iniziali
 # colorato nei casi senza logo (vedi scripts/audit-missing-company-logos.mjs).
-# Il report include anche i riferimenti rotti che prima finivano soltanto nel
-# workflow verify-company-logos-weekly.yml.
+# Il report include anche i riferimenti rotti e quelli di qualità insufficiente
+# che prima finivano soltanto nel workflow verify-company-logos-weekly.yml.
 #
 # Prima assembla il dataset canonico come fa il build; poi scrive
 # data/company-logos-missing.json e, se ci sono anomalie, apre/aggiorna UNA

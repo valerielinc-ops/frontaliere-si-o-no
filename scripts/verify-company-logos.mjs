@@ -55,6 +55,20 @@ async function main() {
       status: statusCode || 0,
       contentType,
     }));
+  const qualityReferences = audit.references
+    .filter((reference) => reference.qualityStatus === 'low-quality'
+      || reference.qualityStatus === 'unverified')
+    .map((entry) => ({
+      reference: entry.reference,
+      kind: entry.kind,
+      jobs: entry.jobs,
+      companyKeys: entry.companyKeys,
+      url: entry.url,
+      qualityStatus: entry.qualityStatus,
+      qualityReason: entry.qualityReason,
+      width: entry.width,
+      height: entry.height,
+    }));
   const payload = {
     generatedAt: new Date().toISOString(),
     source: {
@@ -63,6 +77,7 @@ async function main() {
     },
     checked: audit.referenceCount,
     ok: audit.validReferenceCount,
+    qualityOk: audit.qualityOkReferenceCount,
     broken: brokenReferences.length,
     brokenJobCount: audit.brokenJobCount,
     missing: audit.missing,
@@ -70,15 +85,23 @@ async function main() {
     partial: audit.partial,
     partialJobCount: audit.partialJobCount,
     unverified: audit.unverified,
+    unverifiedJobCount: audit.unverifiedJobCount,
+    lowQuality: audit.lowQuality,
+    lowQualityJobCount: audit.lowQualityJobCount,
+    qualityUnverified: audit.qualityUnverified,
+    qualityUnverifiedJobCount: audit.qualityUnverifiedJobCount,
     urls: brokenReferences,
+    quality: qualityReferences,
   };
 
   await mkdir(path.dirname(OUTPUT), { recursive: true });
   await writeFile(OUTPUT, `${JSON.stringify(payload, null, 2)}\n`);
   console.log(
     `[verify-company-logos] ${payload.source.jobCount} annunci — riferimenti verificati: ${payload.checked}, `
-    + `ok: ${payload.ok}, broken: ${payload.broken} (${payload.brokenJobCount} annunci), `
-    + `missing: ${payload.missing} (${payload.missingJobCount} annunci). Scritto ${OUTPUT}`,
+    + `ok: ${payload.ok}, quality-ok: ${payload.qualityOk}, `
+    + `broken: ${payload.broken} (${payload.brokenJobCount} annunci), `
+    + `missing: ${payload.missing} (${payload.missingJobCount} annunci), `
+    + `low-quality: ${payload.lowQuality} (${payload.lowQualityJobCount} annunci). Scritto ${OUTPUT}`,
   );
 }
 
