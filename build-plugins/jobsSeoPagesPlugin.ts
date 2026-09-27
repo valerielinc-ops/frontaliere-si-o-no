@@ -2550,7 +2550,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    : { '@type': 'ListItem', position: i + 1, name: jobTitle, url: abs };
  };
  const dateStamp = new Date().toISOString().slice(0, 10);
- const currentYear = new Date().getFullYear();
+ const cantonTitleYear = new Date().getFullYear();
  const searchRoutePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
  it: 'ricerca',
  en: 'search',
@@ -11111,7 +11111,7 @@ ${staticAnalyticsHtml}
      if (meetsThreshold) {
        shardUrls.push({ loc: canonicalUrl, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: entry.key });
      }
-     const labels = buildCantonLocaleLabels(entry.locale, display, cantonCount, currentYear);
+     const labels = buildCantonLocaleLabels(entry.locale, display, cantonCount, cantonTitleYear);
      // The visible `lede` stays short (header tagline); the SEO meta + JSON-LD
      // description use a 140-160 char canton+count-aware snippet so GSC no
      // longer flags "Description too short" (issue #2996). The thin
