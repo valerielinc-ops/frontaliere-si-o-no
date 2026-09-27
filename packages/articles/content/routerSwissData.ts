@@ -2307,6 +2307,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'vaud-voto-taglio-fiscale': { it: 'vaud-voto-taglio-fiscale', en: 'vaud-vote-tax-cut', de: 'waadt-abstimmung-steuersenkung', fr: 'vaud-vote-baisse-impots' },
  'strage-parlamento-zugo-sicurezza': { it: 'strage-parlamento-zugo-sicurezza', en: 'zug-parliament-massacre-security', de: 'zug-parlamentsmassaker-sicherheit', fr: 'massacre-parlement-zoug-securite' },
  'voto-iniziativa-alimentazione-svizzera': { it: 'voto-iniziativa-alimentazione-svizzera', en: 'switzerland-food-initiative-vote', de: 'schweiz-ernaehrungsinitiative-abstimmung', fr: 'suisse-initiative-alimentation-vote' },
+ 'valutazione-secondo-sistema-difesa': { it: 'valutazione-secondo-sistema-difesa', en: 'evaluation-second-defense-system', de: 'bewertung-zweites-verteidigungssystem', fr: 'evaluation-second-systeme-defense' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
