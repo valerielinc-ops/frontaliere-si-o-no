@@ -6821,6 +6821,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-auto-elettriche-2026.title': 'Schweiz und Elektroautos: Positionen, Laden und Steuern',
     'blog.article.svizzera-auto-elettriche-2026.excerpt': 'Mitte 2026 belegt die Schweiz bei der Elektrifizierung von Fahrzeugen den 16. Platz in Europa. Ein Viertel der Neuzulassungen ist elektrisch.',
     'blog.article.svizzera-auto-elettriche-2026.imageAlt': 'Elektroauto an einer öffentlichen Ladestation in der Schweiz',
+    'blog.article.congedo-parentale-firme-riuscita.title': 'Elternzeit: 136 Tausend Unterschriften in der Schweiz gesammelt',
+    'blog.article.congedo-parentale-firme-riuscita.excerpt': 'Die Volksinitiative zum Elternurlaub mit 136\'000 Unterschriften gelingt. Vorgesehenes Depot bei der Bundeskanzlei.',
+    'blog.article.congedo-parentale-firme-riuscita.imageAlt': 'Unterschriftensammlung für die Volksinitiative zum Elternurlaub in der Schweiz',
 };
 
 export default blogMetaChDe;
