@@ -566,16 +566,20 @@ export async function loadTabTranslations(tab: string): Promise<void> {
  listeners.forEach(fn => fn(currentLocale));
 }
 
-/** Load ALL translation chunks (IT + current locale). Used by site search. */
+/**
+ * Load ALL translation chunks (IT + current locale). Used by site search.
+ * Never rejects: a chunk that fails to load stays unmarked, so t() falls back
+ * to Italian for its keys and the next call retries it.
+ */
 export async function loadAllTranslations(): Promise<void> {
- await itReady;
+ await itReady.catch(swallowBackgroundLoadError);
  const promises: Promise<void>[] = [];
  for (const [page, loader] of Object.entries(itPageLoaders)) {
  if (!loadedItPages.has(page)) {
  promises.push(loader().then(m => {
  mergeItTranslations(m.default);
  loadedItPages.add(page);
- }));
+ }).catch(swallowBackgroundLoadError));
  }
  }
  if (currentLocale !== 'it') {
@@ -586,7 +590,7 @@ export async function loadAllTranslations(): Promise<void> {
  promises.push(loader().then(m => {
  mergeLocaleTranslations(currentLocale, m.default);
  loadedLocaleChunks[currentLocale].add(page);
- }));
+ }).catch(swallowBackgroundLoadError));
  }
  }
  }
