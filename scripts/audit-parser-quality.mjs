@@ -19,7 +19,11 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
-import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs';
+import {
+  extractDetailFields,
+  extractJsonLd,
+  selectDetailStructuredRecords,
+} from './lib/prospector/extract.mjs';
 import { decodeEntities as decodeScrapedHtmlEntities } from './lib/prospector/entities.mjs';
 import { resolveSourceBackedSwissGeography } from './lib/prospector/location-evidence.mjs';
 import { readAttr } from './lib/html-attr.mjs';
@@ -655,8 +659,16 @@ function withLocationEvidenceCounts(observation, beforeGate, afterGate, includeD
  */
 export function extractSourceLocationObservation(html = '', pageUrl = '', {
   includeDiagnostics = false,
+  recordUrl = '',
 } = {}) {
-  const structuredItems = extractJsonLd(html, pageUrl);
+  const allStructuredItems = extractJsonLd(html, pageUrl);
+  const renderedTitle = plainText(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
+  const structuredItems = recordUrl
+    ? selectDetailStructuredRecords(allStructuredItems, pageUrl, renderedTitle, recordUrl)
+    : allStructuredItems;
+  const recordIdentityUnresolved = Boolean(recordUrl)
+    && allStructuredItems.length > 1
+    && structuredItems.length === 0;
   const rawStructuredCandidates = structuredItems
     .flatMap((item) => item.locationCandidates || [])
     .filter((candidate) => plainText(candidate.location));
@@ -679,6 +691,18 @@ export function extractSourceLocationObservation(html = '', pageUrl = '', {
       { location: structured.location, evidence: 'jsonld' },
       structuredBeforeGate,
       structuredAfterGate,
+      includeDiagnostics,
+    );
+  }
+
+  // A shared listing/detail response may contain authoritative markup for more
+  // than one vacancy. Once the requested row cannot be matched, the remaining
+  // DOM is page-wide evidence and must not be attributed to that row.
+  if (recordIdentityUnresolved) {
+    return withLocationEvidenceCounts(
+      { location: '', evidence: 'generic' },
+      { jsonld: Number(rawStructuredCandidates.length > 0), 'strong-markup': 0 },
+      { jsonld: 0, 'strong-markup': 0 },
       includeDiagnostics,
     );
   }
@@ -1118,12 +1142,13 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       };
     }
     try {
-      const detail = extractDetail(fetched.body, fetched.url || item.url);
+      const recordUrl = item.job?.url || item.url;
+      const detail = extractDetail(fetched.body, fetched.url || item.url, { recordUrl });
       detail.headingSublineFields = vacancyHeadingSublineFields(fetched.body, detail.title);
       const locationObservation = observeLocation(
         fetched.body,
         fetched.url || item.url,
-        { includeDiagnostics: true },
+        { includeDiagnostics: true, recordUrl },
       );
       if (locationObservation.location) detail.location = locationObservation.location;
       const locationEvidence = locationObservation.evidence;
