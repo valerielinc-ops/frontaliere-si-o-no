@@ -953,10 +953,13 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.reason).toMatch(/stale fallback/i);
   });
 
-  it('accepts a Codex review only with strict evidence, marker and exact HEAD', async () => {
+  it.each([
+    ['github-actions[bot]', 'Bot'],
+    ['frontaliere-automation[bot]', 'User'],
+  ])('accepts a Codex review from %s only with strict evidence, marker and exact HEAD', async (login, type) => {
     const codexReview = {
       id: 5,
-      user: { type: 'Bot', login: 'github-actions[bot]' },
+      user: { type, login },
       state: 'COMMENTED',
       body: `${CODEX_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
       commit_id: HEAD_SHA,

@@ -9,16 +9,20 @@
  */
 import { appendFileSync, readFileSync, realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
-import { isReviewerBot, REDFLAG_IMPORTANT_RE } from './constants.mjs';
+import {
+  CODEX_FALLBACK_REVIEW_MARKER,
+  isCodexFallbackReview,
+  isReviewerBot,
+  REDFLAG_IMPORTANT_RE,
+} from './constants.mjs';
 import {
   normalizeReviewInputRevision,
   normalizeReviewInputRevisionInput,
   reviewHasInputRevision,
 } from './review-input-revision.mjs';
 
-export const CODEX_FALLBACK_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
+export { CODEX_FALLBACK_REVIEW_MARKER };
 export const TEST_ONLY_REVIEW_MARKER = '<!-- TEST_ONLY_AUTOMATIC_REVIEW -->';
-const CODEX_FALLBACK_REVIEWER_RE = /^github-actions\[bot\]$/i;
 const TEST_ONLY_REVIEW_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
 const FINDINGS_HEADING_RE = /^\s{0,3}#{1,3}\s+Findings\b[^\n]*$/i;
 const ANY_HEADING_RE = /^\s{0,3}#{1,3}\s+\S/;
@@ -123,12 +127,10 @@ function isReadableVerdict(review) {
 }
 
 export function isManagedReviewer(review) {
+  if (isCodexFallbackReview(review)) return true;
   if (isReviewerBot(review?.user)) return true;
-  const login = review?.user?.login || '';
   const body = reviewBody(review);
-  if (CODEX_FALLBACK_REVIEWER_RE.test(login) && body.includes(CODEX_FALLBACK_REVIEW_MARKER)) {
-    return true;
-  }
+  const login = review?.user?.login || '';
   return TEST_ONLY_REVIEW_BOT_RE.test(login) && body.includes(TEST_ONLY_REVIEW_MARKER);
 }
 

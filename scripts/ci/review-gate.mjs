@@ -21,7 +21,11 @@ import { execFileSync } from 'node:child_process';
 import { realpathSync, readFileSync, appendFileSync } from 'node:fs';
 import { isAbsolute } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
+import {
+  CODEX_FALLBACK_REVIEW_MARKER,
+  isCodexFallbackReview,
+  REDFLAG_IMPORTANT_RE,
+} from './lib/constants.mjs';
 import { boundReviewsToFirstHeadVerdict } from './lib/pr-review-admission.mjs';
 import {
   contributionFingerprint,
@@ -69,8 +73,7 @@ const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])
 // This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only
 // together with a validated Codex evidence file plus an exact HEAD commit and
 // review marker. It does not broaden ordinary Claude reviewer identity.
-const CODEX_REVIEWER_LOGIN_RE = /^(?:github-actions\[bot\]|frontaliere-automation\[bot\])$/iu;
-export const CODEX_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
+export const CODEX_REVIEW_MARKER = CODEX_FALLBACK_REVIEW_MARKER;
 const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
 
 /**
@@ -1455,7 +1458,7 @@ function latestCodexReviewer(reviews, headSha, { reviewRevision } = {}) {
   const list = reviewerList(reviews);
   for (let index = list.length - 1; index >= 0; index -= 1) {
     const review = list[index];
-    if (review?.user?.type !== 'Bot' || !CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')) continue;
+    if (!isCodexFallbackReview(review)) continue;
     if (!isTerminalManagedReview(review)) continue;
     if (String(review.commit_id || '') !== String(headSha || '')) continue;
     if (!String(review.body || '').includes(CODEX_REVIEW_MARKER)) continue;
@@ -1850,12 +1853,11 @@ function staleFallbackCarryForward({
   if (findings.length === 0 || findings.some((finding) =>
     finding.parserUncertain || finding.citations.length === 0)) return null;
 
-  const bots = reviewerList(reviews).filter((review) =>
-    review?.user?.type === 'Bot'
-      && isTerminalManagedReview(review)
-      && (REVIEWER_LOGIN_RE.test(review.user.login || '')
-        || CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')),
-  );
+  const bots = reviewerList(reviews).filter((review) => {
+    const isClaudeReview = review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '');
+    return isTerminalManagedReview(review) && (isClaudeReview || isCodexFallbackReview(review));
+  });
   const latestIndex = bots.findIndex((review) => review === latest);
   if (latestIndex < 1) return null;
 

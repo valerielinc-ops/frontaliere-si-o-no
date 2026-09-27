@@ -7,7 +7,7 @@
 import { describe, it, expect } from 'vitest';
 import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk, reviewCommitMatchesHead } from '../scripts/ci/auto-merge-eval.mjs';
 import { decisionDeferralsAreSpecific } from '../scripts/lib/pr-body-sections-check.mjs';
-import { isReviewerBot } from '../scripts/ci/lib/constants.mjs';
+import { isCodexFallbackReview, isReviewerBot } from '../scripts/ci/lib/constants.mjs';
 import { REVIEW_WORKFLOW_DRIFT_FILES } from '../scripts/ci/lib/constants.mjs';
 
 describe('isReviewerBot', () => {
@@ -24,6 +24,24 @@ describe('isReviewerBot', () => {
     expect(isReviewerBot({ type: 'Bot', login: 'claude' })).toBe(false);
     expect(isReviewerBot({ login: 'claude' })).toBe(false);
     expect(isReviewerBot({ type: 'Bot', login: 'github-actions[bot]' })).toBe(false);
+  });
+});
+
+describe('isCodexFallbackReview', () => {
+  const marker = '<!-- CODEX_FALLBACK_REVIEW -->';
+
+  it.each(['github-actions[bot]', 'frontaliere-automation[bot]'])(
+    'accepts the marked fallback from %s without relying on user.type',
+    (login) => {
+      expect(isCodexFallbackReview({ user: { login }, body: marker })).toBe(true);
+    },
+  );
+
+  it('fails closed for missing markers and look-alike identities', () => {
+    expect(isCodexFallbackReview({ user: { login: 'github-actions[bot]' }, body: '## LGTM' })).toBe(false);
+    expect(isCodexFallbackReview({ user: { login: 'frontaliere-automation-evil[bot]' }, body: marker })).toBe(false);
+    expect(isCodexFallbackReview({ user: { login: 'github-actions' }, body: marker })).toBe(false);
+    expect(isCodexFallbackReview({ user: { login: 'github-actions[bot]' }, body: null })).toBe(false);
   });
 });
 

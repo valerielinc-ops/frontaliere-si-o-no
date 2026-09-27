@@ -131,6 +131,25 @@ export function isReviewerBot(user) {
 }
 
 /**
+ * A Codex fallback review is trusted only when both its exact automation
+ * identity and the explicit fallback marker are present. The GitHub REST API
+ * does not expose a stable `user.type` across the historical and App-backed
+ * review payloads, so the login is the identity contract; a missing or
+ * look-alike login remains fail-closed.
+ */
+export const CODEX_FALLBACK_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
+const CODEX_FALLBACK_REVIEWER_LOGIN_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
+
+export function isCodexFallbackReview(review) {
+  const login = review?.user?.login;
+  const body = review?.body;
+  return typeof login === 'string'
+    && typeof body === 'string'
+    && CODEX_FALLBACK_REVIEWER_LOGIN_RE.test(login)
+    && body.includes(CODEX_FALLBACK_REVIEW_MARKER);
+}
+
+/**
  * File la cui modifica impedisce STRUTTURALMENTE al reviewer Claude di girare
  * sulla PR → niente `## LGTM` → l'auto-merge normale non scatta → senza fallback
  * la PR resta ferma in attesa di un merge manuale.
