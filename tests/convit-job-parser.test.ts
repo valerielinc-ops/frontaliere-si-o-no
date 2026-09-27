@@ -233,6 +233,29 @@ describe('convit-job-parser / parseConvitListingPage', () => {
     expect(items[1].code).toBe('DEF456');
   });
 
+  it('finds canonical detail links outside legacy list wrappers and ignores apply links', () => {
+    const html = `<!DOCTYPE html><html><body>
+      <div class="job-card">
+        <a href="/convit-holding-gmbh/job/GHI789/apply">Candidati</a>
+        <a href="/convit-holding-gmbh/job/GHI789">
+          <h3 class="job-title">Consulente previdenziale digitale</h3>
+        </a>
+      </div>
+      <section class="position-card">
+        <a href="https://www.careers-page.com/convit-holding-gmbh/job/JKL012/">
+          Responsabile amministrazione
+        </a>
+      </section>
+    </body></html>`;
+
+    const items = parseConvitListingPage(html);
+
+    expect(items).toHaveLength(2);
+    expect(items.map(({ code }) => code)).toEqual(['GHI789', 'JKL012']);
+    expect(items[0].title).toBe('Consulente previdenziale digitale');
+    expect(items[1].title).toBe('Responsabile amministrazione');
+  });
+
   it('builds correct detailUrl', () => {
     const items = parseConvitListingPage(listingHtml);
     expect(items[0].detailUrl).toBe('https://www.careers-page.com/convit-holding-gmbh/job/ABC123');

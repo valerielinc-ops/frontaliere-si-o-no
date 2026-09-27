@@ -3,7 +3,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * Convit Holding GmbH — careers-page.com (Manatal ATS) parser
  *
  * Listing page: https://www.careers-page.com/convit-holding-gmbh
- *   - Jobs in <li class="list-group-item"> with <a href="/convit-holding-gmbh/job/{CODE}">
+ *   - Jobs expose canonical <a href="/convit-holding-gmbh/job/{CODE}"> detail links
  *
  * Detail page: https://www.careers-page.com/convit-holding-gmbh/job/{CODE}
  *   - Title in <h1 class="...job-position-break">
@@ -25,6 +25,8 @@ const HQ = getCompanyDefaults('convit');
 
 const BASE_URL = 'https://www.careers-page.com';
 const COMPANY_SLUG = 'convit-holding-gmbh';
+const BASE_ORIGIN = new URL(BASE_URL).origin;
+const JOB_PATH_RE = new RegExp(`^/${COMPANY_SLUG}/job/([A-Za-z0-9]+)/?$`);
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -63,22 +65,28 @@ function slugify(value = '') {
  */
 export function parseConvitListingPage(html = '') {
   const document = new JSDOM(html).window.document;
-  const items = [...document.querySelectorAll('li.list-group-item')];
+  const anchors = [...document.querySelectorAll('a[href]')];
   const seen = new Set();
   const results = [];
 
-  for (const li of items) {
-    const anchor = li.querySelector('a[href*="/job/"]');
-    if (!anchor) continue;
+  for (const anchor of anchors) {
     const href = String(anchor.getAttribute('href') || '').trim();
-    const match = href.match(/\/job\/([A-Za-z0-9]+)/);
+    let url;
+    try {
+      url = new URL(href, BASE_URL);
+    } catch {
+      continue;
+    }
+    if (url.origin !== BASE_ORIGIN) continue;
+
+    const match = url.pathname.match(JOB_PATH_RE);
     if (!match) continue;
     const code = match[1];
     if (seen.has(code)) continue;
     seen.add(code);
 
-    const titleSpan = anchor.querySelector('span.job-position-break');
-    const title = normalizeSpace(titleSpan?.textContent || anchor.textContent || '');
+    const titleElement = anchor.querySelector('span.job-position-break, [class*="job-position"], [class*="job-title"]');
+    const title = normalizeSpace(titleElement?.textContent || anchor.textContent || '');
     if (!title) continue;
 
     results.push({
