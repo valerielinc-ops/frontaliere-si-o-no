@@ -1411,6 +1411,76 @@ export function retiredEdgeResponse(url) {
   });
 }
 
+// Apex aliases that were still being reported by Bing as 404/301 noise even
+// though their canonical localized resource exists. This table is deliberately
+// separate from EDGE_RETIRED_PATHS: those entries are corpus article
+// retirements and are derived from the append-only article registry, while
+// these are site-level route aliases owned by the edge router.
+export const EDGE_LEGACY_REDIRECTS = Object.freeze({
+  '/jobs-im-tessin/': '/de/jobs-im-tessin/',
+  '/grenzgaenger-artikel/': '/de/grenzgaenger-artikel/',
+  '/trouver-emploi-tessin/': '/fr/trouver-emploi-tessin/',
+  '/nav:pension/': '/tasse-e-pensione/calcola-previdenza/',
+  // These two legacy SPA bridges were 200/noindex pages. Keep the same
+  // destinations as legacyRedirectsPlugin, but expose the migration as a
+  // real HTTP redirect so crawlers do not retain a noindex warning URL.
+  '/servizi-partner/': '/',
+  '/en/partner-services/': '/en/',
+  '/de/partner-dienste/': '/de/',
+  '/fr/services-partenaires/': '/fr/',
+  '/job-board/': '/cerca-lavoro-svizzera/',
+});
+
+// `/calcolatore-5x1000/` has no current page or supported replacement. A
+// genuine 410 is the correct terminal state: it removes the URL from the
+// index without inventing a topical redirect or a misleading soft-404.
+export const EDGE_LEGACY_GONE_PATHS = Object.freeze({
+  '/calcolatore-5x1000/': null,
+});
+
+function lookupLegacyTable(pathname, table) {
+  const own = (key) => Object.prototype.hasOwnProperty.call(table, key);
+  const path = normaliseRetiredPath(pathname);
+  if (own(path)) return table[path];
+  if (!path.endsWith('/') && own(`${path}/`)) return table[`${path}/`];
+  if (path.endsWith('/index.html')) {
+    const dir = path.slice(0, -'index.html'.length);
+    if (own(dir)) return table[dir];
+  }
+  return undefined;
+}
+
+/**
+ * Serve apex route aliases before the Pages passthrough. The Wrangler routes
+ * for these paths are explicit in wrangler.toml; keeping the response here
+ * makes the HTTP contract testable without relying on a live Cloudflare zone.
+ */
+export function apexLegacyResponse(url) {
+  const redirect = lookupLegacyTable(url.pathname, EDGE_LEGACY_REDIRECTS);
+  if (redirect !== undefined) {
+    return new Response(null, {
+      status: 301,
+      headers: {
+        Location: redirect + url.search + url.hash,
+        'Cache-Control': RETIRED_MOVED_CACHE_CONTROL,
+      },
+    });
+  }
+  const gone = lookupLegacyTable(url.pathname, EDGE_LEGACY_GONE_PATHS);
+  if (gone !== undefined) {
+    const path = normaliseRetiredPath(url.pathname);
+    return new Response(buildGonePage(path), {
+      status: 410,
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': NOT_FOUND_CACHE_CONTROL,
+        'X-Robots-Tag': 'noindex',
+      },
+    });
+  }
+  return null;
+}
+
 
 // Returns a within-locale 301 Response when the requested path is a company-hub
 // orphaned only by a wrong-locale company prefix (e.g. the IT `azienda-` prefix
@@ -1740,6 +1810,13 @@ async function serveShard(request, url, origin, recoveryLocale, ctx) {
 export default {
   async fetch(request, _env, ctx) {
     const url = new URL(request.url);
+
+    // Apex legacy aliases (localized roots, the old malformed nav token and
+    // the retired 5x1000 calculator) must be answered before the default
+    // Pages passthrough. Without this branch those paths bypass the Worker and
+    // remain 404/soft-404 URLs even though their target/status is deterministic.
+    const apexLegacy = apexLegacyResponse(url);
+    if (apexLegacy) return apexLegacy;
 
     // One-click unsubscribe (job-alert + cold-outreach): transparently proxy to
     // the matching Cloud Function, preserving method + query + body so the RFC

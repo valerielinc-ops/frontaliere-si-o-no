@@ -56,6 +56,19 @@ routes = [
   { pattern = "frontaliereticino.ch/fr/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr.html", zone_name = "frontaliereticino.ch" },
+  # Apex legacy aliases. These paths are outside the /en|/de|/fr locale routes
+  # and therefore need their own wildcard route so query-string variants reach
+  # the same deterministic 301/410 response in locale-router.js.
+  { pattern = "frontaliereticino.ch/jobs-im-tessin*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/grenzgaenger-artikel*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/trouver-emploi-tessin*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/nav:pension*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/calcolatore-5x1000*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/servizi-partner*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/partner-services*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/partner-dienste*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/services-partenaires*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/job-board*", zone_name = "frontaliereticino.ch" },
   # Ticino section (IT apex prefix) → origin-ticino-it (one shard repo per locale;
   # see locale-router.js SECTION_ORIGIN.ticino). The en/de/fr Ticino subpaths
   # (/en/find-jobs-ticino, /de/jobs-im-tessin, /fr/trouver-emploi-tessin) already

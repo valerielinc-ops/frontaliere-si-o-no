@@ -112,6 +112,7 @@ describe('Bing SEO live contract', () => {
       homepageUrl: URL,
       titleUrls: [titleUrl],
       indexNowUrls: [staleUrl],
+      routeContracts: [],
       fetchImpl: async (url) => {
         if (url === URL) {
           return {
@@ -137,5 +138,37 @@ describe('Bing SEO live contract', () => {
 
     expect(result.findings).toEqual([]);
     expect(result.warnings.map((item) => item.code)).toEqual(['indexnow-stale-url']);
+  });
+
+  it('checks HTTP contracts for edge aliases, gone URLs and indexable landings', async () => {
+    const result = await auditLive({
+      homepageUrl: URL,
+      titleUrls: [],
+      indexNowUrls: [],
+      routeContracts: [
+        { url: URL + 'legacy/', path: '/legacy/', expectedStatus: 301, location: '/canonical/' },
+        { url: URL + 'gone/', path: '/gone/', expectedStatus: 410 },
+        { url: URL + 'landing/', path: '/landing/', expectedStatus: 200 },
+      ],
+      fetchImpl: async (url) => {
+        if (url === URL) return {
+          status: 200,
+          url,
+          headers: new Headers(),
+          text: async () => '<title>Home</title><link rel="canonical" href="https://frontaliereticino.ch/"><h1>Home</h1>',
+        };
+        if (url.endsWith('/legacy/')) return { status: 301, url, headers: new Headers({ location: '/canonical/' }), text: async () => '' };
+        if (url.endsWith('/gone/')) return { status: 410, url, headers: new Headers({ 'x-robots-tag': 'noindex' }), text: async () => '' };
+        return {
+          status: 200,
+          url,
+          headers: new Headers(),
+          text: async () => '<title>Landing</title><link rel="canonical" href="https://frontaliereticino.ch/landing/">',
+        };
+      },
+    });
+
+    expect(result.findings).toEqual([]);
+    expect(result.summary.routeContracts).toBe(3);
   });
 });

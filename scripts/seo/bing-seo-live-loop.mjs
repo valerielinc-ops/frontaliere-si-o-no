@@ -16,6 +16,7 @@ import { fileURLToPath } from 'node:url';
 import {
   BING_HOMEPAGE_URL,
   BING_INDEXNOW_REMEDIATION_URLS,
+  BING_ROUTE_CONTRACTS,
   BING_SEO_BASE_URL,
   BING_TITLE_AUDIT_URLS,
   BING_TITLE_MAX_CHARS,
@@ -142,14 +143,75 @@ export function auditHtml(
   return { ...parsed, findings };
 }
 
-async function fetchDocument(url, { fetchImpl = globalThis.fetch, timeoutMs = 30_000 } = {}) {
+function responseHeader(response, name) {
+  return response?.headers?.get?.(name) || response?.headers?.[name] || '';
+}
+
+async function fetchDocument(url, { fetchImpl = globalThis.fetch, timeoutMs = 30_000, redirect = 'follow' } = {}) {
   const response = await fetchImpl(url, {
     headers: { 'user-agent': LIVE_USER_AGENT, accept: 'text/html,application/xhtml+xml' },
-    redirect: 'follow',
+    redirect,
     signal: AbortSignal.timeout(timeoutMs),
   });
   const html = await response.text();
   return { response, html };
+}
+
+function routeLocationMatches(actual, expected, url) {
+  if (!actual) return false;
+  try {
+    return normalizeUrl(new URL(actual, url).toString())
+      === normalizeUrl(new URL(expected, BING_SEO_BASE_URL).toString());
+  } catch {
+    return actual === expected;
+  }
+}
+
+async function auditRouteContracts(routeContracts, { fetchImpl, pages, findings }) {
+  for (const contract of routeContracts) {
+    const url = contract.url || `${BING_SEO_BASE_URL}${contract.path}`;
+    try {
+      const { response, html } = await fetchDocument(url, { fetchImpl, redirect: 'manual' });
+      pages.push({
+        url,
+        status: response.status,
+        finalUrl: response.url || url,
+        expectedStatus: contract.expectedStatus,
+      });
+      if (response.status !== contract.expectedStatus) {
+        findings.push(finding(
+          'route-status',
+          url,
+          `HTTP ${response.status}; atteso HTTP ${contract.expectedStatus}.`,
+        ));
+        continue;
+      }
+      const location = responseHeader(response, 'location');
+      if (contract.location && !routeLocationMatches(location, contract.location, url)) {
+        findings.push(finding(
+          'route-location',
+          url,
+          `Location ${location || '(assente)'}; atteso ${contract.location}.`,
+        ));
+      }
+      if (contract.expectedStatus === 410 && !/\bnoindex\b/i.test(responseHeader(response, 'x-robots-tag'))) {
+        findings.push(finding(
+          'route-gone-noindex',
+          url,
+          'Una risposta 410 deve esporre X-Robots-Tag: noindex.',
+        ));
+      }
+      if (contract.expectedStatus === 200) {
+        findings.push(...auditHtml(url, html, {
+          checkCanonical: true,
+          canonicalUrl: url,
+        }).findings);
+      }
+    } catch (error) {
+      pages.push({ url, status: 0, error: error?.message || String(error), expectedStatus: contract.expectedStatus });
+      findings.push(finding('route-fetch-error', url, error?.message || String(error)));
+    }
+  }
 }
 
 export async function auditLive({
@@ -157,6 +219,7 @@ export async function auditLive({
   titleUrls = BING_TITLE_AUDIT_URLS,
   indexNowUrls = BING_INDEXNOW_REMEDIATION_URLS,
   homepageUrl = BING_HOMEPAGE_URL,
+  routeContracts = BING_ROUTE_CONTRACTS,
 } = {}) {
   const urls = [...new Set([homepageUrl, ...titleUrls, ...indexNowUrls])];
   const titleUrlSet = new Set(titleUrls);
@@ -203,6 +266,8 @@ export async function auditLive({
     }
   }
 
+  await auditRouteContracts(routeContracts, { fetchImpl, pages, findings });
+
   return {
     checkedAt: new Date().toISOString(),
     baseUrl: BING_SEO_BASE_URL,
@@ -215,6 +280,7 @@ export async function auditLive({
       warnings: warnings.length,
       titlePages: titleUrls.length,
       indexNowPages: indexNowUrls.length,
+      routeContracts: routeContracts.length,
     },
   };
 }
@@ -242,6 +308,9 @@ export function checkSource({ repoRoot = REPO_ROOT } = {}) {
   const staticPages = read('build-plugins/staticPagesPlugin.ts');
   const redirects = read('build-plugins/legacyRedirectsPlugin.ts');
   const loopWorkflow = read('.github/workflows/bing-seo-loop.yml');
+  const policy = read('scripts/seo/bing-seo-policy.mjs');
+  const treeCrawler = read('scripts/seo/bing-site-explorer-crawl.mjs');
+  const treeReporter = read('scripts/seo/bing-site-explorer-report.mjs');
   if (!/<h1\s+id="homepage-static-h1">[^<]+<\/h1>/i.test(index)) {
     findings.push(sourceFinding(
       'homepage-h1-source',
@@ -284,6 +353,27 @@ export function checkSource({ repoRoot = REPO_ROOT } = {}) {
       'indexnow-dispatch-input',
       '.github/workflows/bing-seo-loop.yml',
       'Il dispatch manuale deve conservare false per submit_indexnow; true è il default solo dello schedule.',
+    ));
+  }
+  if (!treeCrawler.includes('--inventory-only') || !treeCrawler.includes('partitionFor') || !treeReporter.includes('aggregateCrawlReports')) {
+    findings.push(sourceFinding(
+      'full-tree-crawler-source',
+      'scripts/seo/bing-site-explorer-crawl.mjs',
+      'Il loop deve enumerare il grafo sitemap, partizionare ogni URL e aggregare i report senza scraping della UI Bing.',
+    ));
+  }
+  if (!loopWorkflow.includes('tree-inventory:') || !loopWorkflow.includes('tree-crawl:') || !loopWorkflow.includes('tree-report:')) {
+    findings.push(sourceFinding(
+      'full-tree-workflow-source',
+      '.github/workflows/bing-seo-loop.yml',
+      'Il workflow deve eseguire inventario, matrix crawl completo e aggregazione con issue deduplicata.',
+    ));
+  }
+  if (!policy.includes('BING_ROUTE_CONTRACTS') || !policy.includes("'/calcolatore-5x1000/'")) {
+    findings.push(sourceFinding(
+      'route-contract-source',
+      'scripts/seo/bing-seo-policy.mjs',
+      'La policy deve conservare i contratti HTTP per alias, 410 e landing emerse dall’audit Bing.',
     ));
   }
 

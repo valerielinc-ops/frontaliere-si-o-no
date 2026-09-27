@@ -2,7 +2,13 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
-import { buildAllRssFeeds, buildSectionFeeds, RSS_SECTIONS, RSS_MAX_ITEMS } from '../packages/articles/engine/rssFeeds.mjs';
+import {
+  buildAllRssFeeds,
+  buildSectionFeeds,
+  RSS_SECTIONS,
+  RSS_MAX_ITEMS,
+  sanitizeFeedBody,
+} from '../packages/articles/engine/rssFeeds.mjs';
 import { repairSerpSnippet } from '../build-plugins/shared/clauseTail.mjs';
 
 /**
@@ -85,6 +91,16 @@ const REGISTRY = [
 ];
 
 describe('packages/articles/engine/rssFeeds', () => {
+  it('removes internal nav actions while preserving real markdown URLs', () => {
+    const sanitized = sanitizeFeedBody(
+      '[Calcola la pensione](nav:pension) — [Guida](https://frontaliereticino.ch/guida/) nav:calculator',
+    );
+
+    expect(sanitized).toContain('Calcola la pensione');
+    expect(sanitized).toContain('[Guida](https://frontaliereticino.ch/guida/)');
+    expect(sanitized).not.toContain('nav:');
+  });
+
   it('reads the corpus from the layout it is given, not a hardcoded site path', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
