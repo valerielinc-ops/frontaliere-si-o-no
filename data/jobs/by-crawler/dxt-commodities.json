@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-09-23T19:52:07.730Z",
+  "assembledAt": "2026-09-26T23:43:21.009Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1",
@@ -63,6 +63,7 @@
       ],
       "firstSeenAt": "2026-07-10T12:04:35.208Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -80,8 +81,7 @@
       "streetAddress": "Corso Elvezia 14",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "sourceIdentity": "url:https://dxt.com/careers?panel=20897_1"
+      "addressRegion": "TI"
     },
     {
       "url": "https://dxt.com/careers/?panel=20897_2",
@@ -103,7 +103,7 @@
         "it": "Junior Contabile",
         "en": "Junior Accountant",
         "de": "Junior Buchhalter",
-        "fr": "Comptable junior"
+        "fr": "Junior Accountant"
       },
       "slug": "junior-contabile-dxt-commodities-s-a-lugano",
       "slugByLocale": {
@@ -143,6 +143,7 @@
       },
       "firstSeenAt": "2026-09-11T13:33:33.445Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
@@ -160,8 +161,7 @@
       "streetAddress": "Corso Elvezia 14",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "sourceIdentity": "url:https://dxt.com/careers?panel=20897_2"
+      "addressRegion": "TI"
     }
   ]
 }
