@@ -612,8 +612,8 @@
       "id": "ubs-8ce56ec478fa",
       "slug": "2027-internship-e-e-wealth-management-ch-bern-ubs-plateau-suisse",
       "slugByLocale": {
-        "it": "2027-internship-e-e-wealth-management-ch-bern-ubs-plateau-suisse",
         "en": "2027-internship-e-e-wealth-management-ch-bern-ubs-plateau-suisse",
+        "it": "2027-internship-e-e-wealth-management-ch-bern-ubs-plateau-suisse",
         "de": "2027-internship-e-e-wealth-management-ch-bern-ubs-plateau-suisse",
         "fr": "2027-stage-e-e-wealth-management-ch-berne-ubs-plateau-suisse"
       },
@@ -663,7 +663,6 @@
         "categoryRaw": "Client advisory / Relationship management",
         "jobType": ""
       },
-      "firstSeenAt": "2026-09-26T13:52:39.951Z",
       "salaryMin": 61000,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -678,6 +677,7 @@
         }
       },
       "addressRegion": "BE",
+      "firstSeenAt": "2026-09-26T13:52:39.951Z",
       "needsRetranslation": true
     },
     {
@@ -1400,8 +1400,8 @@
       "id": "ubs-5df4f0e3710c",
       "slug": "2027-stage-clienti-aziendali-aargau-solothurn-ubs-aargau-solothurn",
       "slugByLocale": {
-        "it": "2027-stage-clienti-aziendali-aargau-solothurn-ubs-aargau-solothurn",
         "en": "2027-internship-corporate-clients-aargau-solothurn-ubs-aargau-solothurn",
+        "it": "2027-stage-clienti-aziendali-aargau-solothurn-ubs-aargau-solothurn",
         "de": "2027-praktikum-firmenkunden-aargau-solothurn-ubs-aargau-solothurn",
         "fr": "2027-stage-clients-corporatifs-argovie-solothurn-ubs-aargau-solothurn"
       },
@@ -1451,6 +1451,20 @@
         "categoryRaw": "Client advisory / Relationship management",
         "jobType": ""
       },
+      "salaryMin": 61000,
+      "salaryMax": 93500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61000,
+          "maxValue": 93500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "SO",
       "firstSeenAt": "2026-09-26T13:52:39.849Z",
       "previousSlugsByLocale": {
         "it": [
@@ -1465,21 +1479,7 @@
       },
       "previousSlugs": [
         "2027-internship-corporate-clients-aargau-solothurn-ubs-aargau-solothurn"
-      ],
-      "salaryMin": 61000,
-      "salaryMax": 93500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 61000,
-          "maxValue": 93500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "SO"
+      ]
     },
     {
       "id": "ubs-218cfcf6afc2",
@@ -1849,13 +1849,11 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "2027-graduate-talent-program-global-markets-credit-solutions-zh-ubs-zurich",
-        "programma-talenti-laureati-2027-global-markets-credit-solutions-zh-ubs-zurich"
+        "2027-graduate-talent-program-global-markets-credit-solutions-zh-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "2027-graduate-talent-program-global-markets-credit-solutions-zh-ubs-zurich",
-          "programma-talenti-laureati-2027-global-markets-credit-solutions-zh-ubs-zurich"
+          "2027-graduate-talent-program-global-markets-credit-solutions-zh-ubs-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -3917,10 +3915,10 @@
       "id": "ubs-b69cdf6c409c",
       "slug": "2027-apprendimento-bancario-formazione-aziendale-di-base-biel-ubs-plateau-suisse",
       "slugByLocale": {
+        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-bienne-ubs-plateau-suisse",
         "it": "2027-apprendimento-bancario-formazione-aziendale-di-base-biel-ubs-plateau-suisse",
         "en": "2027-banking-learning-basic-business-training-biel-ubs-plateau-suisse",
-        "de": "2027-banking-learning-basic-business-training-biel-ubs-plateau-suisse",
-        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-bienne-ubs-plateau-suisse"
+        "de": "2027-banking-learning-basic-business-training-biel-ubs-plateau-suisse"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3968,6 +3966,20 @@
         "categoryRaw": "",
         "jobType": ""
       },
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 105500,
+          "maxValue": 185000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
       "firstSeenAt": "2026-09-26T13:52:39.781Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
@@ -3983,30 +3995,16 @@
       },
       "previousSlugs": [
         "2027-apprentissage-bancaire-formation-commerciale-de-base-bienne-ubs-plateau-suisse"
-      ],
-      "salaryMin": 105500,
-      "salaryMax": 185000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 105500,
-          "maxValue": 185000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
+      ]
     },
     {
       "id": "ubs-efca9faecf62",
       "slug": "2027-apprendimento-bancario-formazione-aziendale-di-base-jura-ubs-suisse-romande",
       "slugByLocale": {
+        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-jura-ubs-suisse-romande",
         "it": "2027-apprendimento-bancario-formazione-aziendale-di-base-jura-ubs-suisse-romande",
         "en": "2027-banking-learning-basic-business-training-jura-ubs-suisse-romande",
-        "de": "2027-banking-learning-grundlegendes-business-training-jura-ubs-suisse-romande",
-        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-jura-ubs-suisse-romande"
+        "de": "2027-banking-learning-grundlegendes-business-training-jura-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4054,6 +4052,20 @@
         "categoryRaw": "",
         "jobType": ""
       },
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
       "firstSeenAt": "2026-09-26T13:52:39.779Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
@@ -4069,30 +4081,16 @@
       },
       "previousSlugs": [
         "2027-apprentissage-bancaire-formation-commerciale-de-base-jura-ubs-suisse-romande"
-      ],
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
+      ]
     },
     {
       "id": "ubs-d665b23c2984",
       "slug": "2027-apprendimento-bancario-formazione-aziendale-di-base-neuchatel-ubs-suisse-romande",
       "slugByLocale": {
+        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-neuchatel-ubs-suisse-romande",
         "it": "2027-apprendimento-bancario-formazione-aziendale-di-base-neuchatel-ubs-suisse-romande",
         "en": "2027-banking-learning-basic-business-training-neuchatel-ubs-suisse-romande",
-        "de": "2027-banking-learning-basic-business-training-neuenburg-ubs-suisse-romande",
-        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-neuchatel-ubs-suisse-romande"
+        "de": "2027-banking-learning-basic-business-training-neuenburg-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4140,6 +4138,20 @@
         "categoryRaw": "",
         "jobType": ""
       },
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
       "firstSeenAt": "2026-09-26T13:52:39.776Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
@@ -4155,21 +4167,7 @@
       },
       "previousSlugs": [
         "2027-apprentissage-bancaire-formation-commerciale-de-base-neuchatel-ubs-suisse-romande"
-      ],
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
+      ]
     },
     {
       "id": "ubs-5f8bc0353354",
@@ -4454,10 +4452,10 @@
       "id": "ubs-5c883516e038",
       "slug": "2027-apprendimento-bancario-formazione-aziendale-di-base-fribourg-ubs-suisse-romande",
       "slugByLocale": {
+        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-fribourg-ubs-suisse-romande",
         "it": "2027-apprendimento-bancario-formazione-aziendale-di-base-fribourg-ubs-suisse-romande",
         "en": "2027-banking-learning-basic-business-training-fribourg-ubs-suisse-romande",
-        "de": "2027-banking-learning-basis-business-training-freiburg-ubs-suisse-romande",
-        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-fribourg-ubs-suisse-romande"
+        "de": "2027-banking-learning-basis-business-training-freiburg-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4505,6 +4503,20 @@
         "categoryRaw": "",
         "jobType": ""
       },
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
       "firstSeenAt": "2026-09-26T13:52:39.767Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
@@ -4520,30 +4532,16 @@
       },
       "previousSlugs": [
         "2027-apprentissage-bancaire-formation-commerciale-de-base-fribourg-ubs-suisse-romande"
-      ],
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
+      ]
     },
     {
       "id": "ubs-cb53bfc8e542",
       "slug": "2027-apprendimento-bancario-formazione-aziendale-di-base-vaud-ubs-suisse-romande",
       "slugByLocale": {
+        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-vaud-ubs-suisse-romande",
         "it": "2027-apprendimento-bancario-formazione-aziendale-di-base-vaud-ubs-suisse-romande",
         "en": "2027-banking-learning-basic-business-training-vaud-ubs-suisse-romande",
-        "de": "2027-banking-learning-grundlegendes-business-training-waadt-ubs-suisse-romande",
-        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-vaud-ubs-suisse-romande"
+        "de": "2027-banking-learning-grundlegendes-business-training-waadt-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4591,6 +4589,20 @@
         "categoryRaw": "",
         "jobType": ""
       },
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
       "firstSeenAt": "2026-09-26T13:52:39.765Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
@@ -4606,30 +4618,16 @@
       },
       "previousSlugs": [
         "2027-apprentissage-bancaire-formation-commerciale-de-base-vaud-ubs-suisse-romande"
-      ],
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
+      ]
     },
     {
       "id": "ubs-a0e45cbd3d53",
       "slug": "2027-apprendimento-bancario-formazione-aziendale-di-base-ginevra-ubs-suisse-romande",
       "slugByLocale": {
+        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-geneve-ubs-suisse-romande",
         "it": "2027-apprendimento-bancario-formazione-aziendale-di-base-ginevra-ubs-suisse-romande",
         "en": "2027-banking-learning-basic-business-training-geneva-ubs-suisse-romande",
-        "de": "2027-banking-learning-basic-business-training-genf-ubs-suisse-romande",
-        "fr": "2027-apprentissage-bancaire-formation-commerciale-de-base-geneve-ubs-suisse-romande"
+        "de": "2027-banking-learning-basic-business-training-genf-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4677,6 +4675,20 @@
         "categoryRaw": "",
         "jobType": ""
       },
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
       "firstSeenAt": "2026-09-26T13:52:39.762Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
@@ -4692,21 +4704,7 @@
       },
       "previousSlugs": [
         "2027-apprentissage-bancaire-formation-commerciale-de-base-geneve-ubs-suisse-romande"
-      ],
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
+      ]
     },
     {
       "id": "ubs-0248c9fe1939",
@@ -6116,10 +6114,10 @@
       "id": "ubs-8eb54fd6bc91",
       "slug": "advisor-ere-cliente-privato-affluente-sion-80-100-ubs-valais",
       "slugByLocale": {
+        "fr": "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs-valais",
         "it": "advisor-ere-cliente-privato-affluente-sion-80-100-ubs-valais",
         "en": "advisor-ere-private-clientele-affluent-sion-80-100-ubs-valais",
-        "de": "advisor-ere-private-clientele-affluent-sion-80-100-ubs-valais",
-        "fr": "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs-valais"
+        "de": "advisor-ere-private-clientele-affluent-sion-80-100-ubs-valais"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -6167,6 +6165,20 @@
         "categoryRaw": "Conseil clientèle / Relationship management",
         "jobType": ""
       },
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS",
       "firstSeenAt": "2026-09-26T13:52:39.615Z",
       "previousSlugsByLocale": {
         "it": [
@@ -6181,21 +6193,7 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs-valais"
-      ],
-      "salaryMin": 72000,
-      "salaryMax": 111000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS"
+      ]
     },
     {
       "id": "ubs-fe3309b53f02",
@@ -6694,10 +6692,10 @@
       "id": "ubs-5bda176c3ed0",
       "slug": "advisor-ere-private-clientele-affifluent-sierre-80-100-ubs-valais",
       "slugByLocale": {
+        "fr": "conseiller-ere-clientele-privee-affluent-sierre-80-100-ubs-valais",
         "it": "advisor-ere-private-clientele-affifluent-sierre-80-100-ubs-valais",
         "en": "advisor-ere-private-clientele-affifluent-sierre-80-100-ubs-valais",
-        "de": "advisor-ere-private-clientele-affifluent-sierre-80-100-ubs-valais",
-        "fr": "conseiller-ere-clientele-privee-affluent-sierre-80-100-ubs-valais"
+        "de": "advisor-ere-private-clientele-affifluent-sierre-80-100-ubs-valais"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -6745,6 +6743,20 @@
         "categoryRaw": "Conseil clientèle / Relationship management",
         "jobType": ""
       },
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS",
       "firstSeenAt": "2026-09-26T13:52:39.395Z",
       "previousSlugsByLocale": {
         "it": [
@@ -6759,21 +6771,7 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-privee-affluent-sierre-80-100-ubs-valais"
-      ],
-      "salaryMin": 72000,
-      "salaryMax": 111000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS"
+      ]
     },
     {
       "id": "ubs-4aeefc73e242",
@@ -7066,10 +7064,10 @@
       "id": "ubs-bac59af2162f",
       "slug": "advisor-ere-private-clientele-affluent-fribourg-ubs-suisse-romande",
       "slugByLocale": {
+        "fr": "conseiller-ere-clientele-privee-affluent-fribourg-ubs-suisse-romande",
         "it": "advisor-ere-private-clientele-affluent-fribourg-ubs-suisse-romande",
         "en": "advisor-ere-private-clientele-affluent-fribourg-ubs-suisse-romande",
-        "de": "advisor-ere-private-clientele-affluent-freiburg-ubs-suisse-romande",
-        "fr": "conseiller-ere-clientele-privee-affluent-fribourg-ubs-suisse-romande"
+        "de": "advisor-ere-private-clientele-affluent-freiburg-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -7117,6 +7115,20 @@
         "categoryRaw": "Conseil clientèle / Relationship management",
         "jobType": ""
       },
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
       "firstSeenAt": "2026-09-26T13:52:39.279Z",
       "previousSlugsByLocale": {
         "it": [
@@ -7131,21 +7143,7 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-privee-affluent-fribourg-ubs-suisse-romande"
-      ],
-      "salaryMin": 72000,
-      "salaryMax": 111000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
+      ]
     },
     {
       "id": "ubs-c5b7b54bc391",

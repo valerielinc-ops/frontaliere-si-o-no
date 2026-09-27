@@ -1299,7 +1299,7 @@
         "it": "interno-presso-la-segreteria-medica-stadtspital-zurich-zurich",
         "en": "intern-at-the-medical-secretariat-stadtspital-zurich-zurich",
         "de": "praktikantin-im-arztsekretariat-stadtspital-zuerich-50517",
-        "fr": "praktikantin-im-arztsekretariat-stadtspital-zurich"
+        "fr": "stagiaire-au-secretariat-medical-stadtspital-zurich-zurich-4104a5"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1366,7 +1366,6 @@
           "praktikantin-im-arztsekretariat-stadtspital-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -1380,7 +1379,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-29ac5f3ddff3",
@@ -1490,7 +1490,7 @@
       "slug": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
       "slugByLocale": {
         "it": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich",
+        "en": "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich",
         "de": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
         "fr": "technologue-des-instruments-medicaux-technologie-des-instruments-medicaux-stadtspital-zurich-zurich"
       },
@@ -1559,7 +1559,6 @@
           "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1573,7 +1572,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-f23f9a39f5b6",
@@ -2747,14 +2747,16 @@
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
         "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-dwaowz",
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-um0f84"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
           "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-dwaowz",
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-um0f84"
         ],
         "de": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310"
@@ -12034,17 +12036,14 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "49192",
       "previousSlugs": [
-        "fachperson-gesundheit-neonatologie-efz-stadtspital-zuerich-49192",
-        "fachperson-gesundheit-neonatologie-cfc-stadtspital-zurich-zurich"
+        "fachperson-gesundheit-neonatologie-efz-stadtspital-zuerich-49192"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-neonatologie-efz-stadtspital-zuerich-49192",
-          "fachperson-gesundheit-neonatologie-cfc-stadtspital-zurich-zurich"
+          "fachperson-gesundheit-neonatologie-efz-stadtspital-zuerich-49192"
         ]
       },
       "firstSeenAt": "2026-09-25T15:07:53.944Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -12057,7 +12056,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-6fb0ededdfac",

@@ -12102,6 +12102,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-micromobilita-tradate.title': 'Tradate, incidente con un mezzo elettrico: un ferito',
     'blog.article.incidente-micromobilita-tradate.excerpt': 'Incidente alle 7.01 in via Bruno Passerini a Tradate: coinvolto un giovane di 25 anni. Sul posto ambulanza, soccorso avanzato e carabinieri.',
     'blog.article.incidente-micromobilita-tradate.imageAlt': 'Strada urbana e mezzo di micromobilità elettrica in una scena di cronaca locale',
+    'blog.article.vetri-rotti-como-notte.title': 'Como, due arresti per furto e danni alle auto',
+    'blog.article.vetri-rotti-como-notte.excerpt': 'La Polizia di Stato di Como ha arrestato un 30enne marocchino e un 23enne spagnolo: cinque altre auto avevano i vetri infranti.',
+    'blog.article.vetri-rotti-como-notte.imageAlt': 'Auto parcheggiate in una strada di Como con i vetri dei finestrini infranti',
 };
 
 export default blogMetaIt;

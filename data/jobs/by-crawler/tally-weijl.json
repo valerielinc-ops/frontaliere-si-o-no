@@ -1627,10 +1627,10 @@
       "id": "tally-weijl-d716d2416717",
       "slug": "assistenza-flessibile-tally-weijl-bern",
       "slugByLocale": {
+        "de": "flexible-aushilfe-tally-weijl-bern",
         "it": "assistenza-flessibile-tally-weijl-bern",
         "en": "flexible-assistance-tally-weijl-bern",
-        "de": "flexible-aushilfe-tally-weijl-bern",
-        "fr": "flexible-aushilfe-tally-weijl-bern"
+        "fr": "assistance-souple-tally-weijl-bern"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -1669,22 +1669,21 @@
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4o/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "flexible-aushilfe-tally-weijl-bern",
-        "assistance-souple-tally-weijl-bern",
-        "assistenza-flessibile-tally-weijl-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "flexible-aushilfe-tally-weijl-bern",
           "assistenza-flessibile-tally-weijl-bern"
         ],
         "fr": [
-          "assistance-souple-tally-weijl-bern"
+          "flexible-aushilfe-tally-weijl-bern"
         ]
       },
+      "previousSlugs": [
+        "flexible-aushilfe-tally-weijl-bern",
+        "assistance-souple-tally-weijl-bern",
+        "assistenza-flessibile-tally-weijl-bern"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-03T12:35:19.101Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1698,7 +1697,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-08-03T12:35:19.101Z"
     },
     {
       "id": "tally-weijl-59950cdafc4d",
@@ -2315,7 +2315,7 @@
       "id": "tally-weijl-6dfb4331c1aa",
       "slug": "fitting-models-tally-weijl-basel",
       "slugByLocale": {
-        "it": "fitting-models-tally-weijl-basel",
+        "it": "moduli-di-montaggio-tally-weijl-basel",
         "en": "fitting-models-tally-weijl-basel",
         "de": "passformmodell-tally-weijl-basel",
         "fr": "modele-d-essayage-tally-weijl-basel"
@@ -2390,15 +2390,9 @@
       },
       "previousSlugs": [
         "fitting-modelle-tally-weijl-basel",
-        "modeles-d-ajustement-tally-weijl-basel",
-        "moduli-di-montaggio-tally-weijl-basel",
-        "fitting-models-tally-weijl-basel"
+        "modeles-d-ajustement-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "moduli-di-montaggio-tally-weijl-basel",
-          "fitting-models-tally-weijl-basel"
-        ],
         "de": [
           "fitting-modelle-tally-weijl-basel"
         ],
@@ -2406,7 +2400,6 @@
           "modeles-d-ajustement-tally-weijl-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:23:39.249Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2421,7 +2414,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "tally-weijl-2a50bb322c64",

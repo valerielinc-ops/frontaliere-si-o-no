@@ -2568,17 +2568,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-system-engineer-stadler-rail-ch",
-        "software-system-ingegnere-stadler-rail-wallisellen"
+        "software-system-engineer-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-system-engineer-stadler-rail-ch",
-          "software-system-ingegnere-stadler-rail-wallisellen"
+          "software-system-engineer-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-09-25T15:22:55.131Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2591,7 +2588,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-3dcac4e17cb8",
@@ -7891,10 +7889,10 @@
       "id": "stadler-rail-cd0a1fb9c2ae",
       "slug": "reclutamento-stadler-rail-wallisellen",
       "slugByLocale": {
-        "it": "reclutamento-stadler-rail-wallisellen",
-        "en": "testing-commissioning-engineer-stadler-rail-wallisellen",
         "de": "testing-commissioning-ingenieur-stadler-rail-wallisellen",
-        "fr": "testing-commissioning-ingenieur-stadler-rail-wallisellen"
+        "en": "recruiting-stadler-rail-wallisellen",
+        "fr": "recrutement-stadler-rail-wallisellen",
+        "it": "reclutamento-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -7936,19 +7934,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "de": [
-          "testing-commissioning-engineer-stadler-rail-ch",
-          "testing-commissioning-ingenieur-stadler-rail-wallisellen"
-        ],
         "it": [
           "testing-commissioning-engineer-stadler-rail-ch",
           "reclutamento-stadler-rail-wallisellen"
         ],
         "en": [
-          "recruiting-stadler-rail-wallisellen"
+          "testing-commissioning-engineer-stadler-rail-wallisellen"
+        ],
+        "de": [
+          "testing-commissioning-engineer-stadler-rail-ch",
+          "testing-commissioning-ingenieur-stadler-rail-wallisellen"
         ],
         "fr": [
-          "recrutement-stadler-rail-wallisellen"
+          "testing-commissioning-ingenieur-stadler-rail-wallisellen"
         ]
       },
       "previousSlugs": [
@@ -7956,10 +7954,10 @@
         "recruiting-stadler-rail-wallisellen",
         "recrutement-stadler-rail-wallisellen",
         "testing-commissioning-ingenieur-stadler-rail-wallisellen",
-        "reclutamento-stadler-rail-wallisellen"
+        "reclutamento-stadler-rail-wallisellen",
+        "testing-commissioning-engineer-stadler-rail-wallisellen"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T07:53:08.867Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -7972,7 +7970,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-10T07:53:08.867Z"
     },
     {
       "id": "stadler-rail-92c482a57849",
@@ -10182,10 +10181,10 @@
       "id": "stadler-rail-8aa4f06b29fb",
       "slug": "lackierer-in-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "lackierer-in-stadler-rail-bussnang",
-        "en": "lackierer-in-stadler-rail-bussnang",
         "de": "lackierer-in-stadler-rail-ch",
-        "fr": "lackierer-in-stadler-rail-bussnang"
+        "en": "painters-in-stadler-rail-bussnang",
+        "fr": "peintres-en-stadler-rail-bussnang",
+        "it": "verniciatore-in-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -10226,6 +10225,13 @@
       "applyUrl": "https://careers.stadlerrail.com/job/Bussnang-Lackiererin-TG-T-9565/1329093255/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "lackierer-in-stadler-rail-ch",
+          "verniciatore-in-stadler-rail-bussnang",
+          "lackierer-in-stadler-rail-bussnang"
+        ]
+      },
       "previousSlugs": [
         "lackierer-in-stadler-rail-ch",
         "verniciatore-in-stadler-rail-bussnang",
@@ -10233,21 +10239,7 @@
         "peintres-en-stadler-rail-bussnang",
         "lackierer-in-stadler-rail-bussnang"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lackierer-in-stadler-rail-ch",
-          "verniciatore-in-stadler-rail-bussnang",
-          "lackierer-in-stadler-rail-bussnang"
-        ],
-        "en": [
-          "painters-in-stadler-rail-bussnang"
-        ],
-        "fr": [
-          "peintres-en-stadler-rail-bussnang"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-07T10:29:56.318Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -10260,7 +10252,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T10:29:56.318Z"
     },
     {
       "id": "stadler-rail-fbca01063b41",

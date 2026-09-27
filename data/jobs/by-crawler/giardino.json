@@ -72,20 +72,17 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer",
-        "chef-de-rank-50-nascondi-cerca-50-ecco-giardino-group-champfer"
+        "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer",
-          "chef-de-rank-50-nascondi-cerca-50-ecco-giardino-group-champfer"
+          "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer"
         ],
         "fr": [
           "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer"
         ]
       },
       "firstSeenAt": "2026-09-25T15:04:35.324Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 39000,
       "salarySource": "estimated",
@@ -98,7 +95,8 @@
           "maxValue": 39000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "giardino-227608c1543b",
@@ -169,21 +167,7 @@
           "Ein gepflegtes Erscheinungsbild und sicheres Auftreten"
         ]
       },
-      "previousSlugs": [
-        "night-auditor-giardino-group-champfer",
-        "auditore-notturno-giardino-group-champfer"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "night-auditor-giardino-group-champfer",
-          "auditore-notturno-giardino-group-champfer"
-        ],
-        "fr": [
-          "night-auditor-giardino-group-champfer"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T15:04:35.177Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -196,7 +180,19 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T15:04:35.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "night-auditor-giardino-group-champfer"
+        ],
+        "fr": [
+          "night-auditor-giardino-group-champfer"
+        ]
+      },
+      "previousSlugs": [
+        "night-auditor-giardino-group-champfer"
+      ]
     },
     {
       "id": "giardino-e4acc19666d6",
@@ -266,18 +262,25 @@
           "Italienisch- und/oder Französischkenntnisse sind von Vorteil"
         ]
       },
-      "previousSlugs": [
-        "capo-di-grado-giardino-group-champfer",
-        "chef-de-rang-giardino-group-champfer-xfwxht",
-        "chief-of-rank-giardino-group-champfer",
-        "chef-de-rang-giardino-group-champfer",
-        "capo-di-stato-maggiore-giardino-group-champfer"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 105000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-04T23:13:18.868Z",
       "previousSlugsByLocale": {
         "it": [
           "capo-di-grado-giardino-group-champfer",
-          "chef-de-rang-giardino-group-champfer",
-          "capo-di-stato-maggiore-giardino-group-champfer"
+          "chef-de-rang-giardino-group-champfer"
         ],
         "en": [
           "chef-de-rang-giardino-group-champfer-xfwxht",
@@ -291,27 +294,18 @@
           "chef-de-rang-giardino-group-champfer-xfwxht"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-04T23:13:18.868Z",
-      "salaryMin": 83500,
-      "salaryMax": 105000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "capo-di-grado-giardino-group-champfer",
+        "chef-de-rang-giardino-group-champfer-xfwxht",
+        "chief-of-rank-giardino-group-champfer",
+        "chef-de-rang-giardino-group-champfer"
+      ]
     },
     {
       "id": "giardino-331d4d0ff96a",
       "slug": "restaurant-manager-giardino-group-champfer",
       "slugByLocale": {
-        "it": "restaurant-manager-giardino-group-champfer",
+        "it": "responsabile-del-ristorante-giardino-group-champfer",
         "en": "restaurant-manager-giardino-group-champfer",
         "de": "restaurant-manager-giardino-group-champfer",
         "fr": "directeur-du-restaurant-giardino-group-champfer"
@@ -376,21 +370,6 @@
           "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
         ]
       },
-      "previousSlugs": [
-        "responsabile-del-ristorante-giardino-group-champfer",
-        "restaurant-manager-giardino-group-champfer"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-del-ristorante-giardino-group-champfer",
-          "restaurant-manager-giardino-group-champfer"
-        ],
-        "fr": [
-          "restaurant-manager-giardino-group-champfer"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T23:13:18.866Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -403,7 +382,9 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-04T23:13:18.866Z",
+      "needsRetranslation": true
     }
   ]
 }

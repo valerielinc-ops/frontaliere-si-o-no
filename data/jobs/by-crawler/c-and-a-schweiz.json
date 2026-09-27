@@ -463,10 +463,10 @@
       "id": "c-and-a-schweiz-b28a0eac3fd9",
       "slug": "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke",
       "slugByLocale": {
-        "it": "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke",
-        "en": "sales-associate-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke",
         "de": "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
-        "fr": "vendeur-se-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke"
+        "it": "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke",
+        "en": "sales-associate-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke-ch",
+        "fr": "vendeur-se-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -506,24 +506,27 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=65780&career_ns=job_application&lang=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
-        "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
           "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke"
         ],
         "en": [
-          "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch"
+          "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
+          "sales-associate-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke"
         ],
         "fr": [
-          "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch"
+          "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
+          "vendeur-se-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:56:50.929Z",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
+        "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke",
+        "sales-associate-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke",
+        "vendeur-se-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-a-schweiz-emmenbrucke"
+      ],
       "salaryMin": 17700,
       "salaryMax": 27200,
       "salarySource": "estimated",
@@ -536,7 +539,8 @@
           "maxValue": 27200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T13:56:50.929Z"
     },
     {
       "id": "c-and-a-schweiz-42cf1ea46b68",
@@ -3256,12 +3260,12 @@
     },
     {
       "id": "c-and-a-schweiz-2ca3e51cc997",
-      "slug": "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch",
+      "slug": "vendite-collaboratore-focus-gestione-della-merchandise-30-c-a-schweiz-marin-ch",
       "slugByLocale": {
-        "it": "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch",
-        "en": "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch",
-        "de": "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch",
-        "fr": "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch"
+        "fr": "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch",
+        "it": "vendite-collaboratore-focus-gestione-della-merchandise-30-c-a-schweiz-marin-ch",
+        "en": "sales-collaborator-focus-merchandise-management-30-c-a-schweiz-marin-ch",
+        "de": "sales-collaboration-focus-merchandise-management-30-c-a-schweiz-marin-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3314,7 +3318,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T13:56:39.691Z"
+      "firstSeenAt": "2026-09-26T13:56:39.691Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-de-vente-focus-gestion-marchandise-30-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-9ef29efa681c",
@@ -3484,10 +3502,10 @@
       "id": "c-and-a-schweiz-a5a3503dc07f",
       "slug": "store-visual-merchandiser-m-w-d-80-100-per-emmen-c-a-schweiz-emmenbrucke",
       "slugByLocale": {
+        "de": "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch",
         "it": "store-visual-merchandiser-m-w-d-80-100-per-emmen-c-a-schweiz-emmenbrucke",
         "en": "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch",
-        "de": "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch",
-        "fr": "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch"
+        "fr": "magasiner-un-marchand-visuel-h-f-d-80-100-pour-emmen-c-a-schweiz-emmenbrucke-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3531,6 +3549,9 @@
       "previousSlugsByLocale": {
         "it": [
           "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch"
+        ],
+        "fr": [
+          "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch"
         ]
       },
       "previousSlugs": [
@@ -3553,12 +3574,12 @@
     },
     {
       "id": "c-and-a-schweiz-e23c6d50c3c9",
-      "slug": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch",
+      "slug": "concentrazione-di-gestione-del-prodotto-m-f-d-30-cdi-c-a-schweiz-marin-ch",
       "slugByLocale": {
-        "it": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch",
-        "en": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch",
-        "de": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch",
-        "fr": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch"
+        "fr": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch",
+        "it": "concentrazione-di-gestione-del-prodotto-m-f-d-30-cdi-c-a-schweiz-marin-ch",
+        "en": "sales-collaborator-m-f-d-product-management-focus-30-cdi-c-a-schweiz-marin-ch",
+        "de": "sales-collaborator-m-w-d-produktmanagement-fokus-30-cdi-c-a-schweiz-marin-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3611,7 +3632,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T13:56:38.434Z"
+      "firstSeenAt": "2026-09-26T13:56:38.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-310ee2d8e590",
@@ -4086,13 +4121,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-20-fur-olten-befristet-c-and-a-schweiz-ch",
-        "collaboratore-trice-im-vendita-m-w-d-20-per-olten-befristet-c-a-schweiz-olten"
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-olten-befristet-c-and-a-schweiz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-m-w-d-20-fur-olten-befristet-c-and-a-schweiz-ch",
-          "collaboratore-trice-im-vendita-m-w-d-20-per-olten-befristet-c-a-schweiz-olten"
+          "mitarbeiter-im-verkauf-m-w-d-20-fur-olten-befristet-c-and-a-schweiz-ch"
         ],
         "en": [
           "mitarbeiter-im-verkauf-m-w-d-20-fur-olten-befristet-c-and-a-schweiz-ch"
@@ -4166,13 +4199,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-50-in-egerkingen-befristet-c-and-a-schweiz-ch",
-        "collaboratore-trice-im-vendita-m-w-d-50-in-egerkingen-befristet-c-a-schweiz-egerkingen"
+        "mitarbeiter-im-verkauf-m-w-d-50-in-egerkingen-befristet-c-and-a-schweiz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-m-w-d-50-in-egerkingen-befristet-c-and-a-schweiz-ch",
-          "collaboratore-trice-im-vendita-m-w-d-50-in-egerkingen-befristet-c-a-schweiz-egerkingen"
+          "mitarbeiter-im-verkauf-m-w-d-50-in-egerkingen-befristet-c-and-a-schweiz-ch"
         ],
         "en": [
           "mitarbeiter-im-verkauf-m-w-d-50-in-egerkingen-befristet-c-and-a-schweiz-ch"
