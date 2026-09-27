@@ -1279,6 +1279,13 @@ describe('crawler synthesis', () => {
     expect(crawlerKeyFor({ tenantHost: 'cippatrasporti.altamiraweb.com' })).toBe('cippatrasporti');
   });
 
+  it('uses the employer name for generic hosted-ATS tenant labels', () => {
+    expect(crawlerKeyFor({ tenantHost: 'apply.refline.ch', name: 'BSZ Stiftung' }))
+      .toBe('bsz-stiftung');
+    expect(crawlerKeyFor({ tenantHost: 'careers.accor.com', name: 'Ibis Budget' }))
+      .toBe('ibis-budget');
+  });
+
   it('finds the template shared by a listing', () => {
     expect(commonUrlTemplate([
       'https://x.example/annunci-lavoro/A-1.htm',

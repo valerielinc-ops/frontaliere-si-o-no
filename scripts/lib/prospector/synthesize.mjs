@@ -77,6 +77,18 @@ export function commonUrlTemplate(urls = []) {
   return out.join('/');
 }
 
+// Hosted ATS vendors often expose every employer from an infrastructure label
+// such as `apply.refline.ch` or `jobs.vendor.example`. Using that label as the
+// crawler key collides with an existing hand-written crawler (and lets a later
+// synthesis overwrite its spec). Keep the tenant label for name-like hosts,
+// but derive the key from the employer name when the label is only platform
+// plumbing.
+const GENERIC_TENANT_LABELS = new Set([
+  'app', 'apps', 'apply', 'career', 'careers', 'job', 'jobboard',
+  'job-boards', 'jobs', 'karriere', 'portal', 'recruiting', 'recruitingapp',
+  'stellen', 'www',
+]);
+
 /**
  * A crawler key that is stable, filesystem-safe and unique enough to sit
  * alongside the 580-odd existing crawler keys.
@@ -91,7 +103,8 @@ export function crawlerKeyFor(candidate) {
   // gruppi di workflow. Quando il vendor usa id anonimi, il nome dell'azienda
   // — che la pagina del tenant ci ha gia' dato — e' l'unica cosa leggibile.
   const opaqueLabel = /^[a-z]*[-_]?\d{2,}$/i.test(fromHost) || /^\d/.test(fromHost);
-  const preferred = opaqueLabel && candidate.name ? candidate.name : fromHost;
+  const genericLabel = GENERIC_TENANT_LABELS.has(fromHost.toLowerCase());
+  const preferred = (opaqueLabel || genericLabel) && candidate.name ? candidate.name : fromHost;
   const base = preferred || candidate.domain?.split('.')[0] || candidate.name || 'unknown';
   return String(base)
     .toLowerCase()
