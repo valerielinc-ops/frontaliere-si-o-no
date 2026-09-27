@@ -22,7 +22,12 @@ function initClonePair() {
   return { originDir, repoDir };
 }
 
-function runScript(repoDir: string, sliceFile: string, githubOutput = '') {
+function runScript(
+  repoDir: string,
+  sliceFile: string,
+  githubOutput = '',
+  extraEnv: Record<string, string> = {},
+) {
   execFileSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'test commit'], {
     cwd: repoDir,
     env: {
@@ -35,6 +40,7 @@ function runScript(repoDir: string, sliceFile: string, githubOutput = '') {
       GITHUB_RUN_ID: '',
       GITHUB_REPOSITORY: '',
       GITHUB_OUTPUT: githubOutput,
+      ...extraEnv,
     },
   });
 }
@@ -980,6 +986,78 @@ exec ${JSON.stringify(process.execPath)} "$@"
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
       rmSync(otherDir, { recursive: true, force: true });
+    }
+  });
+
+  it('carries a path-bound housekeeping proof through a 3-way slice merge', () => {
+    const { originDir, repoDir } = initClonePair();
+    const otherDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-other-'));
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-proof-'));
+
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      const removed = {
+        id: 'closed',
+        url: 'https://convit.example/closed',
+        description: 'x'.repeat(1_400_000),
+      };
+      const retained = {
+        id: 'retained',
+        url: 'https://convit.example/retained',
+        description: 'y'.repeat(100_000),
+      };
+      writeFileSync(
+        join(repoDir, 'data/jobs/by-crawler/a.json'),
+        `${JSON.stringify([removed, retained])}\n`,
+      );
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      // The local cleanup result removes only the definitively dead record.
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), `${JSON.stringify([retained])}\n`);
+      const proofDir = join(runnerTemp, 'frontaliere-housekeeping-proofs');
+      const proofPath = join(proofDir, 'data/jobs/by-crawler/a.json.housekeeping-proof.json');
+      mkdirSync(join(proofDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(proofPath, `${JSON.stringify({
+        schemaVersion: 1,
+        path: 'data/jobs/by-crawler/a.json',
+        entries: [{ job: removed, definitive: true, reason: 'http-404' }],
+      })}\n`);
+
+      // A concurrent writer changes the retained record on origin/main. This
+      // forces the isolated commit path to run its 3-way JSON merge before the
+      // final accumulator guard sees the candidate shrink.
+      execFileSync('git', ['clone', '-q', originDir, join(otherDir, 'clone')]);
+      const otherClone = join(otherDir, 'clone');
+      execFileSync('git', ['config', 'user.email', 'other@example.com'], { cwd: otherClone });
+      execFileSync('git', ['config', 'user.name', 'Other'], { cwd: otherClone });
+      const remoteRetained = { ...retained, title: 'remote update' };
+      writeFileSync(
+        join(otherClone, 'data/jobs/by-crawler/a.json'),
+        `${JSON.stringify([removed, remoteRetained])}\n`,
+      );
+      execFileSync('git', ['add', '.'], { cwd: otherClone });
+      execFileSync('git', ['commit', '-q', '-m', 'other writer: update retained job'], { cwd: otherClone });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: otherClone });
+
+      runScript(repoDir, 'data/jobs/by-crawler/a.json', '', {
+        JOBS_HOUSEKEEPING_PROOF_DIR: proofDir,
+      });
+
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      const merged = JSON.parse(execFileSync(
+        'git',
+        ['show', 'origin/main:data/jobs/by-crawler/a.json'],
+        { cwd: repoDir, encoding: 'utf-8' },
+      ));
+      expect(merged).toHaveLength(1);
+      expect(merged[0]).toMatchObject({ id: 'retained', title: 'remote update' });
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(otherDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
     }
   });
 

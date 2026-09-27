@@ -61,6 +61,15 @@ const SKIP_URL_VALIDATION = String(process.env.JOBS_SKIP_URL_VALIDATION || '0') 
  *  in the deploy pipeline instead of per-crawler. */
 const SLICE_FILE = String(process.env.JOBS_SLICE_FILE || '').trim();
 
+// A slice can be rewritten once more by git-commit-data.sh after this process
+// exits (for example when origin/main moved and the isolated commit path does
+// a 3-way merge). Keep the definitive URL evidence outside the checkout so it
+// cannot be staged accidentally, but in a deterministic per-slice location
+// that the commit helper can consume in the same runner job.
+const HOUSEKEEPING_PROOF_DIR = process.env.JOBS_HOUSEKEEPING_PROOF_DIR
+  ? path.resolve(process.env.JOBS_HOUSEKEEPING_PROOF_DIR)
+  : path.resolve(process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp', 'frontaliere-housekeeping-proofs');
+
 /** Maximum age in days before a job is considered stale regardless of URL status.
  *  Override via JOBS_STALE_DAYS env var. Default: 60 days. */
 const STALE_DAYS = Math.max(7, Math.min(180, intFromEnv('JOBS_STALE_DAYS', 60)));
@@ -69,6 +78,42 @@ const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 function readJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(raw);
+}
+
+function housekeepingProofPath(slicePath) {
+  const relativePath = path.relative(process.cwd(), slicePath);
+  if (
+    !relativePath
+    || path.isAbsolute(relativePath)
+    || relativePath === '..'
+    || relativePath.startsWith(`..${path.sep}`)
+  ) {
+    return null;
+  }
+  return {
+    relativePath: relativePath.split(path.sep).join('/'),
+    proofPath: path.join(HOUSEKEEPING_PROOF_DIR, `${relativePath}.housekeeping-proof.json`),
+  };
+}
+
+function writeHousekeepingProof(slicePath, entries) {
+  if (!Array.isArray(entries) || entries.length === 0) return;
+  const target = housekeepingProofPath(slicePath);
+  if (!target) return;
+
+  fs.mkdirSync(path.dirname(target.proofPath), { recursive: true });
+  const temporaryPath = `${target.proofPath}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(temporaryPath, `${JSON.stringify({
+      schemaVersion: 1,
+      path: target.relativePath,
+      entries,
+    }, null, 2)}\n`, 'utf8');
+    fs.renameSync(temporaryPath, target.proofPath);
+  } catch (error) {
+    try { fs.unlinkSync(temporaryPath); } catch { /* best-effort cleanup */ }
+    throw error;
+  }
 }
 
 function normalizeScopeValue(value) {
@@ -560,6 +605,7 @@ async function main() {
           ? { ...sliceData, jobs: kept, assembledAt: new Date().toISOString() }
           : kept;
         writeJson(slicePath, envelope, { housekeepingProof: urlRemoved });
+        writeHousekeepingProof(slicePath, urlRemoved);
         console.log(`✅ Slice cleaned: ${hardenedJobs.length} → ${kept.length} jobs (-${totalRemoved})`);
       } else {
         console.log('✅ Slice clean — no jobs removed.');

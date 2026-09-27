@@ -462,6 +462,15 @@ is_job_slice_path() {
   return 1
 }
 
+# cleanup-jobs.mjs writes definitive URL evidence outside the checkout. Keep
+# the lookup deterministic across the cleanup and isolated-commit processes,
+# while allowing tests and callers to provide an explicit runner-local root.
+housekeeping_proof_path_for_file() {
+  local file_path="$1"
+  local proof_dir="${JOBS_HOUSEKEEPING_PROOF_DIR:-${RUNNER_TEMP:-${TMPDIR:-/tmp}}/frontaliere-housekeeping-proofs}"
+  printf '%s/%s.housekeeping-proof.json\n' "${proof_dir%/}" "$file_path"
+}
+
 # Path-class classifier for the batch snapshot fail-closed contract (#7054).
 # Reviewer follow-up #7060 flagged two open questions: whether the fail-closed
 # abort's blast radius on non-job paths (summary/translation-cache/adapter) is
@@ -1983,8 +1992,17 @@ commit_isolated_from_worktree() {
           echo "❌ grouped-isolated: could not materialize crawler slice for integrity guard: $f"
           return 1
         fi
-        if ! node "$(dirname "$0")/crawler-slice-integrity.mjs" \
-          "$f" "$integrity_dir/previous.json" "$integrity_dir/next.json"; then
+        integrity_args=(
+          "$f"
+          "$integrity_dir/previous.json"
+          "$integrity_dir/next.json"
+        )
+        housekeeping_proof_path="$(housekeeping_proof_path_for_file "$f")"
+        if [ -f "$housekeeping_proof_path" ]; then
+          echo "🔎 grouped-isolated: applying housekeeping proof for $f"
+          integrity_args+=("$housekeeping_proof_path")
+        fi
+        if ! node "$(dirname "$0")/crawler-slice-integrity.mjs" "${integrity_args[@]}"; then
           echo "❌ grouped-isolated: refusing catastrophic crawler slice shrink: $f"
           return 1
         fi

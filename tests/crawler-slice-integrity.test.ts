@@ -1,8 +1,9 @@
 // @vitest-environment node
 
 import { describe, expect, it } from 'vitest';
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
-import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import {
   assertCrawlerSliceWriteSafe,
@@ -297,6 +298,52 @@ describe('crawler slice integrity guard', () => {
       next,
       { housekeepingProof: [{ job: removed, definitive: false }] },
     )).toThrow(/catastrophic truncation avoided/);
+  });
+
+  it('loads only a path-bound housekeeping proof at the commit-helper CLI boundary', () => {
+    const root = mkdtempSync(join(tmpdir(), 'crawler-slice-proof-cli-'));
+    const removed = dedupJob('https://convit.example/cli-removed', 'Closed CLI', 'x'.repeat(1_400_000));
+    const retained = dedupJob('https://convit.example/cli-retained', 'Open CLI', 'y'.repeat(100_000));
+    const previous = json({ crawlerKey: 'convit-holding', jobs: [removed, retained] });
+    const next = json({ crawlerKey: 'convit-holding', jobs: [retained] });
+    const filePath = 'data/jobs/by-crawler/convit-holding.json';
+    const previousPath = join(root, 'previous.json');
+    const nextPath = join(root, 'next.json');
+    const proofPath = join(root, 'proof.json');
+    const cliPath = resolve(import.meta.dirname, '../scripts/lib/crawler-slice-integrity.mjs');
+    try {
+      writeFileSync(previousPath, previous);
+      writeFileSync(nextPath, next);
+      writeFileSync(proofPath, `${JSON.stringify({
+        schemaVersion: 1,
+        path: filePath,
+        entries: [{ job: removed, definitive: true, reason: 'http-404' }],
+      })}\n`);
+
+      const output = execFileSync(process.execPath, [
+        cliPath,
+        filePath,
+        previousPath,
+        nextPath,
+        proofPath,
+      ], { encoding: 'utf8' });
+      expect(output).toContain('allowed proven-housekeeping-prune');
+
+      writeFileSync(proofPath, `${JSON.stringify({
+        schemaVersion: 1,
+        path: 'data/jobs/by-crawler/other.json',
+        entries: [{ job: removed, definitive: true, reason: 'http-404' }],
+      })}\n`);
+      expect(() => execFileSync(process.execPath, [
+        cliPath,
+        filePath,
+        previousPath,
+        nextPath,
+        proofPath,
+      ], { encoding: 'utf8' })).toThrow(/path-mismatched housekeeping proof/);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('keeps an unreferenced large removal fail-closed', () => {

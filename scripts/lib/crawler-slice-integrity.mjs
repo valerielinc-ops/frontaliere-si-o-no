@@ -272,17 +272,31 @@ export function assertCrawlerSliceWriteSafe(
 }
 
 function runCli() {
-  const [filePath, previousPath, nextPath] = process.argv.slice(2);
+  const [filePath, previousPath, nextPath, housekeepingProofPath] = process.argv.slice(2);
   if (!filePath || !previousPath || !nextPath) {
-    console.error('usage: crawler-slice-integrity.mjs <file> <previous> <next>');
+    console.error('usage: crawler-slice-integrity.mjs <file> <previous> <next> [housekeeping-proof]');
     process.exitCode = 2;
     return;
   }
   try {
+    let housekeepingProof = null;
+    if (housekeepingProofPath) {
+      const proof = JSON.parse(fs.readFileSync(housekeepingProofPath, 'utf8'));
+      if (
+        !proof
+        || proof.schemaVersion !== 1
+        || normalizedPath(proof.path) !== normalizedPath(filePath)
+        || !Array.isArray(proof.entries)
+      ) {
+        throw new Error(`invalid or path-mismatched housekeeping proof for ${filePath}`);
+      }
+      housekeepingProof = proof.entries;
+    }
     const result = assertCrawlerSliceWriteSafe(
       filePath,
       fs.readFileSync(previousPath, 'utf8'),
       fs.readFileSync(nextPath, 'utf8'),
+      { housekeepingProof },
     );
     if (result.reason) console.log(`crawler slice integrity: allowed ${result.reason} for ${filePath}`);
   } catch (error) {
