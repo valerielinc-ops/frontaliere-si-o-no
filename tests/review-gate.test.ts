@@ -15,6 +15,7 @@ import {
   normalizeReviewBody,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
+import { stableFindingId } from '../scripts/ci/lib/review-findings.mjs';
 
 const DIFF_FILES = ['src/changed.mjs'];
 const TREE_FILES = ['src/changed.mjs', 'scripts/legacy.mjs', 'scripts/other.mjs'];
@@ -452,10 +453,12 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
   it('emits the exact normalized key for an unresolved unanchored Important', async () => {
     const log = vi.spyOn(console, 'log').mockImplementation(() => {});
     try {
-      logClassification(await classifyCurrentDiff(unanchoredImportantReview.body));
+      const classification = await classifyCurrentDiff(unanchoredImportantReview.body);
+      logClassification(classification);
 
+      const id = stableFindingId(classification.unresolved[0]);
       expect(log).toHaveBeenCalledWith(
-        'review-gate: BLOCKING finding=1 reason=nessun file citato expectedKey="🔴 Important: process contract remains unresolved"',
+        `review-gate: BLOCKING finding=1 reason=nessun file citato id=${id} expectedKey="🔴 Important: process contract remains unresolved"`,
       );
     } finally {
       log.mockRestore();
@@ -478,6 +481,87 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
 
     expect(result.approved).toBe(true);
     expect(result.classification.findings).toHaveLength(0);
+  });
+
+  it('allows an unanchored Important after its ledger id has an explicit confirmation', async () => {
+    const [finding] = importantFindings(unanchoredImportantReview.body);
+    const fixedReview = {
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n\nFix di \`${stableFindingId(finding)}\`: ok.\n\n## LGTM`,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[unanchoredImportantReview, fixedReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.findings).toHaveLength(0);
+  });
+
+  it('closes an unanchored Important by id only when the whole confirmation target is that id', () => {
+    const [finding] = importantFindings(unanchoredImportantReview.body);
+    const id = stableFindingId(finding);
+    const review = (confirmation: string) => ({
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${confirmation}\n## LGTM`,
+    });
+    for (const confirmation of [
+      // L'id citato dentro una frase è contesto, non il target della conferma.
+      `Fix di \`Historical finding ${id}: il bundle riporta il testo\`: ok.`,
+      `Fix di \`${id.toUpperCase()}\`: ok.`,
+      `Fix di \`${id.slice(0, 11)}\`: ok.`,
+      'Fix di `000000000000`: ok.',
+    ]) {
+      expect(historicalImportantFindings([unanchoredImportantReview, review(confirmation)], { includeLatest: true }))
+        .toHaveLength(1);
+    }
+    expect(historicalImportantFindings([unanchoredImportantReview, review(`Fix di \`${id}\`: ok.`)], { includeLatest: true }))
+      .toHaveLength(0);
+  });
+
+  it('never lets an id confirmation close a finding anchored on a file', () => {
+    const anchored = { ...historicalImportantReview, body: reviewFor('src/changed.mjs', 'the parser drops the last row') };
+    const [finding] = importantFindings(anchored.body);
+    const review = {
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\nFix di \`${stableFindingId(finding)}\`: ok.\n## LGTM`,
+    };
+    expect(historicalImportantFindings([anchored, review], { includeLatest: true })).toHaveLength(1);
+  });
+
+  it('breaks the #9959 ledger loop: every restated ledger 🔴 closes by its printed id', () => {
+    // Forma reale delle review 5326530304 e 5326704826: 🔴 senza file sul
+    // ledger stesso, riformulati a ogni giro con prefissi diversi. Il testo
+    // normalizzato intero non viene mai ricopiato alla lettera; l'id sì.
+    const meta = (id: number, text: string) => ({
+      ...historicalImportantReview,
+      id,
+      body: `## Findings (Important: 1, Nit: 0)\n${text}\n## Adversarial check\n- ❓ q: nessuna.`,
+    });
+    const history = [
+      meta(10, 'Historical finding `c7a2dc47f1c0` (anchor non risolvibile): 🔴 Important: [process] Il finding storico resta open nel bundle senza testo o anchor verificabile; non può essere chiuso per silenzio. Accettazione: il bundle successivo contiene il testo del finding.'),
+      meta(11, '🔴 Important: [process] Il finding storico `e5269f0f9d49` resta open nel bundle senza testo o anchor verificabile; non può essere chiuso per silenzio. Accettazione: il prossimo bundle contiene il testo completo.'),
+    ];
+    const open = historicalImportantFindings(history, { includeLatest: true });
+    expect(open).toHaveLength(2);
+
+    const narrative = {
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${open.map((finding) =>
+        `Fix di \`Historical finding ${stableFindingId(finding)}: il bundle corrente riporta il testo completo\`: ok.`).join('\n')}\n## LGTM`,
+    };
+    expect(historicalImportantFindings([...history, narrative], { includeLatest: true })).toHaveLength(2);
+
+    const byId = {
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${open.map((finding) =>
+        `Fix di \`${stableFindingId(finding)}\`: ok.`).join('\n')}\n## LGTM`,
+    };
+    expect(historicalImportantFindings([...history, byId], { includeLatest: true })).toHaveLength(0);
   });
 
   it('resolves a PR body finding only with an explicit matching metadata line', () => {
