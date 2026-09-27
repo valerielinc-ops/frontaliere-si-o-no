@@ -66,6 +66,9 @@ async function runCleanupSlice(slicePath: string, expiredDir: string): Promise<R
         JOBS_SKIP_URL_VALIDATION: '1',
         JOBS_STALE_DAYS: '60',
         JOBS_EXPIRED_SLICES_DIR: expiredDir,
+        GITHUB_SHA: 'test-housekeeping-sha',
+        GITHUB_RUN_ID: 'test-housekeeping-run',
+        GITHUB_RUN_ATTEMPT: '1',
       },
     });
 
@@ -93,6 +96,9 @@ async function runCleanupSliceWithUrlValidation(slicePath: string, expiredDir: s
         JOBS_SKIP_LOCALE_HARDENING: '1',
         JOBS_STALE_DAYS: '60',
         JOBS_EXPIRED_SLICES_DIR: expiredDir,
+        GITHUB_SHA: 'test-housekeeping-sha',
+        GITHUB_RUN_ID: 'test-housekeeping-run',
+        GITHUB_RUN_ATTEMPT: '1',
       },
     });
 
@@ -195,6 +201,51 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
       expect(keptJobs).toHaveLength(1);
       expect(keptJobs[0].id).toBe('job-apply-url-001');
       expect(output).toContain('Slice clean');
+    } finally {
+      await new Promise<void>((resolve) => server.close(() => resolve()));
+    }
+  });
+
+  it('accepts a large housekeeping shrink when every removed URL is definitively gone', async () => {
+    const server = http.createServer((req, res) => {
+      if (String(req.url || '').startsWith('/gone/')) {
+        res.writeHead(404, { 'content-type': 'text/html' });
+        res.end('<html><body>Not found</body></html>');
+        return;
+      }
+      res.writeHead(200, { 'content-type': 'text/html' });
+      res.end('<html><body>Open vacancy</body></html>');
+    });
+    await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
+
+    try {
+      const address = server.address();
+      if (!address || typeof address === 'string') throw new Error('test server did not bind to a port');
+      const baseUrl = `http://127.0.0.1:${address.port}`;
+      const dir = makeTempDir();
+      const slicePath = path.join(dir, 'data', 'jobs', 'by-crawler', 'convit-holding.json');
+      fs.mkdirSync(path.dirname(slicePath), { recursive: true });
+      const expiredDir = path.join(dir, 'expired');
+      const jobs: CleanupSliceJob[] = Array.from({ length: 90 }, (_, index) => buildJob({
+        id: `convit-${index}`,
+        slug: `convit-position-${index}`,
+        title: `Convit position ${index}`,
+        crawledAt: new Date().toISOString(),
+        url: `${baseUrl}/${index < 81 ? 'gone' : 'live'}/${index}`,
+        description: 'x'.repeat(20_000),
+      }));
+
+      fs.writeFileSync(slicePath, JSON.stringify({ crawlerKey: 'convit-holding', jobs }, null, 2), 'utf-8');
+
+      const result = await runCleanupSliceWithUrlValidation(slicePath, expiredDir);
+      const output = result.stdout + result.stderr;
+      expect(result.code, output).toBe(0);
+      expect(output).toContain('Removed 81 invalid-URL jobs from slice.');
+      expect(output).toContain('Slice cleaned: 90 → 9 jobs (-81)');
+
+      const sliceParsed = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+      const keptJobs: CleanupSliceJob[] = Array.isArray(sliceParsed?.jobs) ? sliceParsed.jobs : sliceParsed;
+      expect(keptJobs).toHaveLength(9);
     } finally {
       await new Promise<void>((resolve) => server.close(() => resolve()));
     }

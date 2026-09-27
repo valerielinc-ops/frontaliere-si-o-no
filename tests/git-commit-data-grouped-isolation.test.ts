@@ -1,6 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
 import { execFileSync, spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { chmodSync, existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { delimiter, dirname, join, resolve } from 'node:path';
@@ -8,6 +9,10 @@ import { delimiter, dirname, join, resolve } from 'node:path';
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
 const GENERATION_TOKEN = '9001-2';
+
+function sha256(raw: string) {
+  return createHash('sha256').update(raw, 'utf8').digest('hex');
+}
 
 // The script uses `declare -A` (associative arrays), requiring bash 4+.
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
@@ -22,7 +27,12 @@ function initClonePair() {
   return { originDir, repoDir };
 }
 
-function runScript(repoDir: string, sliceFile: string, githubOutput = '') {
+function runScript(
+  repoDir: string,
+  sliceFile: string,
+  githubOutput = '',
+  extraEnv: Record<string, string> = {},
+) {
   execFileSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'test commit'], {
     cwd: repoDir,
     env: {
@@ -35,6 +45,7 @@ function runScript(repoDir: string, sliceFile: string, githubOutput = '') {
       GITHUB_RUN_ID: '',
       GITHUB_REPOSITORY: '',
       GITHUB_OUTPUT: githubOutput,
+      ...extraEnv,
     },
   });
 }
@@ -980,6 +991,114 @@ exec ${JSON.stringify(process.execPath)} "$@"
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
       rmSync(otherDir, { recursive: true, force: true });
+    }
+  });
+
+  it('carries a path-bound housekeeping proof through a 3-way slice merge', () => {
+    const { originDir, repoDir } = initClonePair();
+    const otherDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-other-'));
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-proof-'));
+
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      const removed = {
+        id: 'closed',
+        url: 'https://convit.example/closed',
+        description: 'x'.repeat(1_400_000),
+      };
+      const retained = {
+        id: 'retained',
+        url: 'https://convit.example/retained',
+        description: 'y'.repeat(100_000),
+      };
+      writeFileSync(
+        join(repoDir, 'data/jobs/by-crawler/a.json'),
+        `${JSON.stringify([removed, retained])}\n`,
+      );
+      const baseRaw = readFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), 'utf8');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      const proofBaseSha = execFileSync('git', ['rev-parse', 'HEAD'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).trim();
+
+      // The local cleanup result removes only the definitively dead record.
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), `${JSON.stringify([retained])}\n`);
+      const proofDir = join(runnerTemp, 'frontaliere-housekeeping-proofs');
+      const proofPath = join(proofDir, 'data/jobs/by-crawler/a.json.housekeeping-proof.json');
+      mkdirSync(join(proofDir, 'data/jobs/by-crawler'), { recursive: true });
+      const candidateRaw = `${JSON.stringify([retained])}\n`;
+      writeFileSync(proofPath, `${JSON.stringify({
+        schemaVersion: 2,
+        path: 'data/jobs/by-crawler/a.json',
+        baseDigest: sha256(baseRaw),
+        candidateDigest: sha256(candidateRaw),
+        baseSha: proofBaseSha,
+        runId: 'proof-group-run',
+        runAttempt: '1',
+        entries: [{ job: removed, definitive: true, reason: 'http-404' }],
+      })}\n`);
+
+      // A concurrent writer changes the retained record on origin/main. This
+      // forces the isolated commit path to run its 3-way JSON merge before the
+      // final accumulator guard sees the candidate shrink.
+      execFileSync('git', ['clone', '-q', originDir, join(otherDir, 'clone')]);
+      const otherClone = join(otherDir, 'clone');
+      execFileSync('git', ['config', 'user.email', 'other@example.com'], { cwd: otherClone });
+      execFileSync('git', ['config', 'user.name', 'Other'], { cwd: otherClone });
+      const remoteRetained = { ...retained, title: 'remote update' };
+      writeFileSync(
+        join(otherClone, 'data/jobs/by-crawler/a.json'),
+        `${JSON.stringify([removed, remoteRetained])}\n`,
+      );
+      execFileSync('git', ['add', '.'], { cwd: otherClone });
+      execFileSync('git', ['commit', '-q', '-m', 'other writer: update retained job'], { cwd: otherClone });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: otherClone });
+
+      runScript(repoDir, 'data/jobs/by-crawler/a.json', '', {
+        JOBS_HOUSEKEEPING_PROOF_DIR: proofDir,
+        HOUSEKEEPING_BASE_SHA: proofBaseSha,
+        GITHUB_SHA: proofBaseSha,
+        GITHUB_RUN_ID: 'proof-group-run',
+        GITHUB_RUN_ATTEMPT: '1',
+      });
+
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      const merged = JSON.parse(execFileSync(
+        'git',
+        ['show', 'origin/main:data/jobs/by-crawler/a.json'],
+        { cwd: repoDir, encoding: 'utf-8' },
+      ));
+      expect(merged).toHaveLength(1);
+      expect(merged[0]).toMatchObject({ id: 'retained', title: 'remote update' });
+
+      // The sidecar is deliberately left in place. A second invocation with
+      // a different local snapshot must not reuse the first run's proof.
+      const changedCandidate = `${JSON.stringify([{ ...retained, title: 'different snapshot' }])}\n`;
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), changedCandidate);
+      const stale = spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'second update'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+        env: {
+          ...groupEnv(repoDir, runnerTemp),
+          JOBS_SLICE_FILE: 'data/jobs/by-crawler/a.json',
+          JOBS_HOUSEKEEPING_PROOF_DIR: proofDir,
+          HOUSEKEEPING_BASE_SHA: proofBaseSha,
+          GITHUB_SHA: proofBaseSha,
+          GITHUB_RUN_ID: 'proof-group-run-2',
+          GITHUB_RUN_ATTEMPT: '1',
+        },
+      });
+      expect(stale.status).toBe(1);
+      expect(`${stale.stdout}${stale.stderr}`).toContain('stale housekeeping proof');
+      expect(stale.stdout).not.toContain('allowed proven-housekeeping-prune');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(otherDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
     }
   });
 

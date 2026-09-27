@@ -303,6 +303,21 @@ function escapeCData(text) {
   return String(text || '').replace(/]]>/g, ']]]]><![CDATA[>');
 }
 
+/**
+ * Remove the SPA-only `nav:<action>` links from syndicated article bodies.
+ *
+ * `nav:` is an internal router action, not a URL scheme. Leaving markdown such
+ * as `[Calcola la pensione](nav:pension)` in RSS therefore gives crawlers a
+ * malformed relative URL (`/nav:pension/`) which cannot exist on the site.
+ * Article HTML already treats these links as plain text; RSS must keep the
+ * same safe representation instead of exporting the private routing syntax.
+ */
+export function sanitizeFeedBody(body) {
+  return String(body || '')
+    .replace(/\[([^\]]+)\]\(\s*nav:[^)]+\)/gi, '$1')
+    .replace(/\bnav:[a-z0-9-]+\b/gi, '');
+}
+
 function toRfc822(isoDate) {
   try {
     return new Date(isoDate).toUTCString();
@@ -379,7 +394,7 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
   // slug.
   const itemsXml = topItems
     .map((item) => {
-      const body = bodies?.get(item.articleId);
+      const body = sanitizeFeedBody(bodies?.get(item.articleId));
       const contentEncoded = body
         ? `\n      <content:encoded><![CDATA[${escapeCData(body)}]]></content:encoded>`
         : '';

@@ -35,7 +35,12 @@ jobs:
   harvest:
     runs-on: ubuntu-latest
     # 12→18 (2026-07-17): headroom per il cap turni alzato 20→30.
-    timeout-minutes: 18
+    # 18→32 (2026-09-27): da #10104 l'harvester legge la finestra INTERA
+    # (1239 PR, 667 fix-issue invece di 40/120) e l'aggregazione dura ~5,5 min
+    # invece di ~1,2; con 5 cluster NOVEL la proposta Codex ha superato i 12
+    # min dello step (run 36334623872, cancellata al cap del job). Il gemello
+    # del corpus, 1 cluster, chiude la proposta in ~6,5 min.
+    timeout-minutes: 32
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -135,7 +140,9 @@ jobs:
         # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
         # 12min = cap del job meno il setup pre-Codex misurato (~105s
         # sulle ultime run) e una coda per gli step `if: always()`.
-        timeout-minutes: 12
+        # 12→22 (2026-09-27): stessa regola, setup pre-Codex ora ~6 min
+        # (finestra intera, run 36334623872): 32 − 6 − coda ≈ 22.
+        timeout-minutes: 22
         # Escalations are auto-filed by the harvest step above → Codex is spent
         # ONLY when a genuinely-new (novel) recurring pattern needs a doc rule.
         if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
@@ -187,6 +194,7 @@ jobs:
             - Mai abbassare gate/quality. Nel ramo PR: SOLO file `.md`. Il fix strutturale di un'escalation si propone via la issue auto-creata, non si committa qui.
 
             **Se (e solo se) hai ≥1 regola `novel` nuova utile → apri una PR doc:**
+            **Questo container CI è GIÀ un checkout isolato monouso** (`actions/checkout@v5` fresh a ogni run). **NON creare un worktree (`git worktree add`, `.worktrees/**`, `.claude/worktrees/**`)**: la regola "worktree-first" di `AGENTS.md` vale per le sessioni interattive locali, non qui. Lavora nella root del checkout con `git checkout -b`: il bridge Git host-side pusha SOLO il branch checked-out nella root (da un worktree risponde `Git push requires a checked-out current work branch under refs/heads`), e anche il wrapper `gh pr create` va eseguito dalla root. Misurato sulla run 36336838172: proposta committata in `.worktrees/`, push rifiutato dal bridge, `gh pr create` in exit 3, 0 PR.
             1. `git config user.name "Valerie Linc"; git config user.email "valerielinc@gmail.com"`.
             2. `git checkout -b lessons/auto-harvest-$(date -u +%Y%m%d)`.
             3. Applica gli edit `.md` (Edit/Write). Nessun path home assoluto, nessuna email personale.

@@ -1167,6 +1167,24 @@ function findingConfirmed(
       || (stableId !== null && confirmation.stableId === stableId)
       || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
   }
+  // L'id stabile sceglie QUALE finding si chiude anche quando le righe si sono
+  // spostate (#10025): con piu' 🔴 sullo stesso file le conferme a riga
+  // spostata si accoppiano solo per conteggio esatto, e 4 conferme per 3
+  // finding su `fast-publish-article.yml` non ne chiudevano nessuno (una
+  // `## LGTM` con `Important: 0` restava BLOCKING). L'id da solo pero' non
+  // prova che ogni file citato sia stato riaperto all'HEAD: serve anche una
+  // conferma `path:L<n>` di QUESTA review per ciascun path citato, a una riga
+  // qualunque. Un anchor o un companion mai riconfermato tiene il finding
+  // aperto (review 5331196488).
+  const citedStableId = stableFindingId(finding);
+  if (confirmations.some((confirmation) => confirmation.stableId === citedStableId)) {
+    const confirmedPaths = confirmations.flatMap((confirmation) => confirmation.citations)
+      .map((candidate) => candidate.path);
+    const citedPaths = [...new Set(finding.citations.map((citation) => citation.path))];
+    if (citedPaths.every((path) => confirmedPaths.some((candidate) => citationPathMatches(candidate, path)))) {
+      return true;
+    }
+  }
   // Le citazioni chiuse dall'accoppiamento per cardinalita' non passano da
   // `citationConfirmed`: li' l'ambiguita' di path dentro lo stesso finding e'
   // per costruzione irrisolvibile, e il conteggio l'ha gia' risolta.
@@ -2095,7 +2113,7 @@ export function logClassification(classification) {
     }
   }
   for (const finding of classification.inScope) {
-    console.log(`review-gate: BLOCKING finding=${finding.findingNumber} path=${finding.resolvedFiles.join(',')} reason=at least one cited file is in the current PR diff`);
+    console.log(`review-gate: BLOCKING finding=${finding.findingNumber} path=${finding.resolvedFiles.join(',')} reason=at least one cited file is in the current PR diff confirm=${JSON.stringify(stableFindingId(finding))}`);
   }
   for (const finding of classification.unresolved) {
     const expectedKey = finding.citations?.length === 0

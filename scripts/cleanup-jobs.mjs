@@ -12,6 +12,7 @@
  */
 
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -61,6 +62,15 @@ const SKIP_URL_VALIDATION = String(process.env.JOBS_SKIP_URL_VALIDATION || '0') 
  *  in the deploy pipeline instead of per-crawler. */
 const SLICE_FILE = String(process.env.JOBS_SLICE_FILE || '').trim();
 
+// A slice can be rewritten once more by git-commit-data.sh after this process
+// exits (for example when origin/main moved and the isolated commit path does
+// a 3-way merge). Keep the definitive URL evidence outside the checkout so it
+// cannot be staged accidentally, but in a deterministic per-slice location
+// that the commit helper can consume in the same runner job.
+const HOUSEKEEPING_PROOF_DIR = process.env.JOBS_HOUSEKEEPING_PROOF_DIR
+  ? path.resolve(process.env.JOBS_HOUSEKEEPING_PROOF_DIR)
+  : path.resolve(process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp', 'frontaliere-housekeeping-proofs');
+
 /** Maximum age in days before a job is considered stale regardless of URL status.
  *  Override via JOBS_STALE_DAYS env var. Default: 60 days. */
 const STALE_DAYS = Math.max(7, Math.min(180, intFromEnv('JOBS_STALE_DAYS', 60)));
@@ -69,6 +79,61 @@ const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 function readJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(raw);
+}
+
+function sha256(raw) {
+  return createHash('sha256').update(String(raw), 'utf8').digest('hex');
+}
+
+function housekeepingProofPath(slicePath) {
+  const relativePath = path.relative(process.cwd(), slicePath);
+  if (
+    !relativePath
+    || path.isAbsolute(relativePath)
+    || relativePath === '..'
+    || relativePath.startsWith(`..${path.sep}`)
+  ) {
+    return null;
+  }
+  return {
+    relativePath: relativePath.split(path.sep).join('/'),
+    proofPath: path.join(HOUSEKEEPING_PROOF_DIR, `${relativePath}.housekeeping-proof.json`),
+  };
+}
+
+function writeHousekeepingProof(slicePath, entries, { baseRaw, candidateRaw } = {}) {
+  if (!Array.isArray(entries) || entries.length === 0) return;
+  if (typeof baseRaw !== 'string' || typeof candidateRaw !== 'string') return;
+  const target = housekeepingProofPath(slicePath);
+  if (!target) return;
+
+  const baseSha = String(process.env.GITHUB_SHA || '').trim();
+  const runId = String(process.env.GITHUB_RUN_ID || '').trim();
+  const runAttempt = String(process.env.GITHUB_RUN_ATTEMPT || '').trim();
+  if (!baseSha || !runId || !runAttempt) {
+    throw new Error(
+      'cannot write housekeeping proof without GITHUB_SHA, GITHUB_RUN_ID, and GITHUB_RUN_ATTEMPT',
+    );
+  }
+
+  fs.mkdirSync(path.dirname(target.proofPath), { recursive: true });
+  const temporaryPath = `${target.proofPath}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(temporaryPath, `${JSON.stringify({
+      schemaVersion: 2,
+      path: target.relativePath,
+      baseDigest: sha256(baseRaw),
+      candidateDigest: sha256(candidateRaw),
+      baseSha,
+      runId,
+      runAttempt,
+      entries,
+    }, null, 2)}\n`, 'utf8');
+    fs.renameSync(temporaryPath, target.proofPath);
+  } catch (error) {
+    try { fs.unlinkSync(temporaryPath); } catch { /* best-effort cleanup */ }
+    throw error;
+  }
 }
 
 function normalizeScopeValue(value) {
@@ -408,7 +473,8 @@ async function main() {
       return;
     }
     console.log(`📦 Slice-only housekeeping: ${SLICE_FILE}`);
-    const sliceData = readJson(slicePath);
+    const sliceRaw = fs.readFileSync(slicePath, 'utf8');
+    const sliceData = JSON.parse(sliceRaw);
     const sliceJobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : (Array.isArray(sliceData) ? sliceData : []);
     if (sliceJobs.length === 0) {
       console.log('ℹ️  Slice is empty — skip housekeeping');
@@ -468,7 +534,12 @@ async function main() {
             const fallback = fallbackById.get(resolveJobDiffKey(job));
             if (fallback && fallback.valid !== false) return true;
             if (isFreshProtected(job) && !c.definitive) return true;
-            urlRemoved.push({ id: resolveJobDiffKey(job), reason: c.reason });
+            urlRemoved.push({
+              job,
+              id: resolveJobDiffKey(job),
+              reason: c.reason,
+              definitive: c.definitive === true,
+            });
             return false;
           }
           return true;
@@ -554,7 +625,11 @@ async function main() {
         const envelope = (sliceData && typeof sliceData === 'object' && !Array.isArray(sliceData))
           ? { ...sliceData, jobs: kept, assembledAt: new Date().toISOString() }
           : kept;
-        writeJson(slicePath, envelope);
+        writeJson(slicePath, envelope, { housekeepingProof: urlRemoved });
+        writeHousekeepingProof(slicePath, urlRemoved, {
+          baseRaw: sliceRaw,
+          candidateRaw: fs.readFileSync(slicePath, 'utf8'),
+        });
         console.log(`✅ Slice cleaned: ${hardenedJobs.length} → ${kept.length} jobs (-${totalRemoved})`);
       } else {
         console.log('✅ Slice clean — no jobs removed.');

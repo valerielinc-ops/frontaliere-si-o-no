@@ -128,6 +128,7 @@ describe('pagination source identity contract', () => {
       },
     })).rejects.toMatchObject({
       code: 'ERR_PAGINATION_NO_UNIQUE_PROGRESS',
+      feedEndpointUnavailable: true,
     });
     expect(reloads).toBe(2);
     expect(tracker.scannedRows).toBe(1);

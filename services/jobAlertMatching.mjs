@@ -358,6 +358,25 @@ function hardKeywordValuesForAlert(alert, subscriber) {
 }
 
 /**
+ * Remove only the source-offer location that the newsletter backfill writer
+ * placed in the alert before it learned to keep that context soft. Explicit
+ * or edited alert locations remain hard: the raw array must be exactly the
+ * single value generated from `job_location`, including casing and whitespace.
+ * This mirrors buildAlertPayload's write-time migration for existing alerts
+ * that have not received another subscriber write yet.
+ */
+function hardLocationValuesForAlert(alert, subscriber) {
+  const values = Array.isArray(alert?.locations) ? alert.locations : [];
+  const marker = String(alert?.backfilled_from || alert?.backfilledFrom || '').trim();
+  if (!marker.startsWith('newsletter_subscribers:') || values.length === 0) return values;
+
+  const sourceLocation = String(subscriber?.job_location || '').trim();
+  if (!sourceLocation) return values;
+  const generated = [sourceLocation];
+  return JSON.stringify(values) === JSON.stringify(generated) ? [] : values;
+}
+
+/**
  * Normalize a company display name / key into a compact, canonical token:
  * lowercased, accent-stripped, alphanumerics only, with declared brand aliases
  * folded by the shared company profile slug. This reconciles the newsletter
@@ -525,7 +544,8 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   //    soft profile-derived signals (newsletter geo/interest + pref cities),
   //    used only for the +2 ranking boost so a profile city never silently
   //    constrains an alert the user scoped differently.
-  const alertLocations = uniq((a.locations || []).map((l) => String(l || '').toLowerCase()));
+  const alertLocations = uniq(hardLocationValuesForAlert(a, sub)
+    .map((l) => String(l || '').toLowerCase()));
   const locations = uniq([
     ...alertLocations,
     String(sub.location_interest || '').toLowerCase(),

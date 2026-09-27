@@ -44,7 +44,7 @@ import { PARTNERS, buildAffiliateLinkHref, partnerRelAttr, type AffiliatePartner
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const GptPocSlot = lazyRetry(() => import('@/components/shared/GptPocSlot'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
-import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
+import { useRailGridCollapse, RAIL_GRID_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import { AD_SLOTS, isPlaceholderAdSlot } from '@/services/adsenseSlots';
 import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
@@ -56,6 +56,13 @@ const ConsultingCTA = lazyRetry(() => import('@/components/calculator/Consulting
 const PreferredSourceCTA = lazyRetry(() => import('@/components/shared/PreferredSourceCTA'));
 const InlineFuelPriceTable = lazyRetry(() => import('@/components/blog/InlineFuelPriceTable'));
 const InlineBorderWaitRanking = lazyRetry(() => import('@/components/blog/InlineBorderWaitRanking'));
+
+// BlogArticles is the only reading surface that opts into the compact rail
+// tier. The shared grid keeps the existing 180px/300px behavior for job/tool
+// pages; this adds a 160px tier only where the 1200–1279px article shell has
+// enough room for a useful center column and 160x600 creatives.
+const BLOG_ARTICLE_RAIL_GRID_CLASS_X = `ft-blog-rail-grid-x ${RAIL_GRID_CLASS_X} xlc:grid xlc:gap-4 xlc:grid-cols-[var(--ft-rail-w-c-l,160px)_minmax(0,1fr)_var(--ft-rail-w-c-r,160px)]`;
+const BLOG_ARTICLE_RAIL_ASIDE_CLASS_X = 'ft-rail-aside-x ft-blog-rail-aside-x hidden xlc:flex xlc:flex-col xlw:flex xlw:flex-col';
 
 /** Blog articles that should render the live Swiss fuel price table inline. */
 const FUEL_PRICE_ARTICLE_IDS: ReadonlySet<string> = new Set([
@@ -1322,7 +1329,8 @@ function BlogArticles({
 
  // Device breakpoints for conditional ad rendering (prevents CSS-hidden width=0 bug)
  const isMobile = useMediaQuery('(max-width: 639px)'); // sm breakpoint
- const isDesktopXl = useMediaQuery('(min-width: 1280px)'); // xl breakpoint
+ const isDesktopXl = useMediaQuery('(min-width: 1280px)') === true; // xl breakpoint
+ const isCompactRail = useMediaQuery('(min-width: 1200px) and (max-width: 1399.98px)') === true;
 
  // Mobile infinite scroll: accumulate articles instead of paginating
  const [mobileArticleLimit, setMobileArticleLimit] = useState(ARTICLES_PER_PAGE);
@@ -1343,8 +1351,9 @@ function BlogArticles({
  // resolved to `undefined` and the guard threw a TypeError straight past the
  // chunk-load recovery path — where the `.catch()` below swallowed it, stranding every
  // article page on this component's loading skeleton with a silent console (#4959).
- // Reading the static binding removes the network hop, and with it that whole class
- // of build-shape skew between the app bundle and an independently published corpus.
+ // The static binding is now paired with the publisher's named `ARTICLES` export and
+ // companion-first ordering, so the CDN registry can advance with the hub without
+ // recreating that old Rollup namespace mismatch.
  // Svizzera has no static importer (dynamic-only — verified in the shipped chunk), so
  // it keeps resilientImport: a real fetch failure there still self-heals via
  // cache-bust + budgeted reload.
@@ -2104,6 +2113,7 @@ function BlogArticles({
  // and avoids thin-content penalties. Articles below this threshold
  // should be enriched via AI expansion (FRO-292) rather than lowering the bar.
  const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= AD_ELIGIBLE_MIN_WORDS && bodyCharCount >= AD_ELIGIBLE_MIN_CHARS;
+ const adEligibleRail = adEligible && (isDesktopXl || isCompactRail);
  const adEligibleInline = adEligible;
  // Number of stacked side-rail ad panels, scaled to body length so the chain
  // fills (but doesn't overcrowd) the gutter: ~1 panel per 700 words, 1–4.
@@ -2206,7 +2216,7 @@ function BlogArticles({
 
 
  return (
- <div className="max-w-3xl xl:max-xlw:max-w-6xl xlw:max-w-[1440px] mx-auto">
+ <div className="max-w-3xl xlc:max-w-6xl xlw:max-w-[1440px] mx-auto">
  {/* Reading progress bar */}
  <div
  className="fixed top-0 left-0 z-50 h-[3px] w-full bg-gradient-to-r from-accent-strong via-accent-strong to-accent-strong-hover transition-transform duration-150 ease-out origin-left [transform:var(--sx)]"
@@ -2228,28 +2238,26 @@ function BlogArticles({
  {t('blog.backToList')}
  </button>
 
- {/* 3-column grid: left rail | article | right rail. Narrow 180px rails at
-     xl (1280–1399), widening to 300px at ≥1400px (the `xlw` breakpoint) to
-     host the half-page side-rail ads (ArticleRailAd). The two tiers use
-     MUTUALLY-EXCLUSIVE ranges (`xl:max-xlw:` = 1280–1399 only) instead of
-     letting `xl:` and `xlw:` both match ≥1400: in v4 the `xl:` rule emits
-     after `xlw:` and would win the cascade, pinning the rails at 180px and
-     making a 300px creative overflow the article (see index.css @theme). */}
- <div className={RAIL_GRID_CLASS_X} style={railStyle}>
+ {/* 3-column grid: left rail | article | right rail. The article adds a
+     compact 160px rail tier at 1200–1279px, keeps the existing 180px tier at
+     1280–1399px, and widens to 300px at ≥1400px (`xlw`). Every ad tier uses
+     creatives that fit its column, so the reading measure never pays for a
+     300px creative inside a compact gutter. */}
+ <div className={BLOG_ARTICLE_RAIL_GRID_CLASS_X} style={railStyle}>
 
  {/* ── Left Rail (desktop only) ── */}
- <aside className={RAIL_ASIDE_CLASS_X}>
- {/* Top content rides the gutter top: sticky at the narrow xl tier, static at
-     xlw so the ad chain below can claim the full column height. */}
- <div className="space-y-3 xl:max-xlw:sticky xl:max-xlw:top-6 xlw:flex-none">
+ <aside className={BLOG_ARTICLE_RAIL_ASIDE_CLASS_X}>
+ {/* The compact/wide ad chain owns the sticky behavior; keeping the supporting
+     cards in normal flow prevents them from overlapping the paying creative. */}
+ <div className="space-y-3 xlc:static xlw:flex-none">
  <p className="text-xs font-medium text-muted uppercase tracking-wider">
  {t('affiliate.sectionTitle')}
  </p>
  {sidePartners.slice(0, 2).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i} />)}
  </div>
- {/* Full-length half-page rail-ad chain (≥1400px) — covers the gutter
-     top-to-bottom instead of one ad leaving the lower gutter empty. */}
- <Suspense fallback={null}><ArticleRailAdStack side="left" enabled={adEligible} count={railAdCount} onEmptyResolved={onLeftEmptyResolved} /></Suspense>
+ {/* Full-length half-page rail-ad chain — compact 160px creatives from
+     1200px, then the existing 300px tier from 1400px. */}
+ <Suspense fallback={null}><ArticleRailAdStack side="left" enabled={adEligibleRail} count={railAdCount} compact={isCompactRail} onEmptyResolved={onLeftEmptyResolved} /></Suspense>
  </aside>
 
  <article ref={articleRef} className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-lg">
@@ -2819,10 +2827,10 @@ function BlogArticles({
  </article>
 
  {/* ── Right Rail (desktop only) ── */}
- <aside className={RAIL_ASIDE_CLASS_X}>
- {/* Top content (TOC + resources) rides the gutter top: sticky at the narrow
-     xl tier, static at xlw so the ad chain below claims the full column. */}
- <div className="space-y-3 xl:max-xlw:sticky xl:max-xlw:top-6 xlw:flex-none">
+ <aside className={BLOG_ARTICLE_RAIL_ASIDE_CLASS_X}>
+ {/* The compact/wide ad chain owns the sticky behavior; TOC and resources stay
+     in normal flow so they cannot overlap the paying creative. */}
+ <div className="space-y-3 xlc:static xlw:flex-none">
  {/* Desktop TOC */}
  {showToc && (
  <nav className="max-h-[calc(100vh-8rem)] overflow-y-auto pb-3 mb-1" aria-label={t('blog.toc.title')}>
@@ -2876,8 +2884,9 @@ function BlogArticles({
  {t('affiliate.disclosure')}
  </p>
  </div>
- {/* Full-length half-page rail-ad chain (≥1400px) — covers the gutter top-to-bottom. */}
- <Suspense fallback={null}><ArticleRailAdStack side="right" enabled={adEligible} count={railAdCount} onEmptyResolved={onRightEmptyResolved} /></Suspense>
+ {/* Full-length half-page rail-ad chain — compact 160px creatives from
+     1200px, then the existing 300px tier from 1400px. */}
+ <Suspense fallback={null}><ArticleRailAdStack side="right" enabled={adEligibleRail} count={railAdCount} compact={isCompactRail} onEmptyResolved={onRightEmptyResolved} /></Suspense>
  </aside>
 
  </div>

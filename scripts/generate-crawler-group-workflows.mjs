@@ -116,6 +116,20 @@ const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.y
 export const CRAWLER_GENERATION_TOKEN_EXPR =
   "${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}";
 export const CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR = CRAWLER_GENERATION_TOKEN_EXPR;
+export const GENERATION_TOKEN_DISPATCH_INPUT = Object.freeze({
+  description: 'Generation correlation token <run_id>-<run_attempt>; leave empty on a manual dispatch to derive it from this run',
+  required: false,
+  default: '',
+  type: 'string',
+});
+export const CRAWLER_GENERATION_TOKEN_PREFLIGHT_STEP_NAME = 'Validate crawler generation token before crawling';
+
+function crawlerGenerationTokenPreflightStep() {
+  return {
+    name: CRAWLER_GENERATION_TOKEN_PREFLIGHT_STEP_NAME,
+    run: 'node scripts/check-crawler-generation-token.mjs',
+  };
+}
 
 // Runtime overrides used by the legacy crawler shell fragments. Declare them
 // in both workflow forms and address them through the portable `inputs`
@@ -278,6 +292,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/crawler-generation-group-ids.mjs',
   'scripts/lib/crawler-generation-receipt.mjs',
   'scripts/lib/crawler-generation-token.mjs',
+  'scripts/lib/crawler-grace-policy.mjs',
   'scripts/lib/crawler-slice-integrity.mjs',
   'scripts/lib/global-data-pipeline-lease.mjs',
   'scripts/lib/job-match-key.mjs',
@@ -1593,6 +1608,12 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
     with: { 'fetch-depth': 50 },
   });
 
+  // Fail fast on a malformed explicit generation token. The commit path
+  // rejects it anyway (fail-closed), but only after every member has crawled:
+  // on 2026-09-27 five manual dispatches with `backlog-100-…` tokens burned
+  // 30-60 minutes each and marked every member exit 43.
+  steps.push(crawlerGenerationTokenPreflightStep());
+
   steps.push(restoreCrawlerAiCacheStep(groupName));
 
   steps.push({
@@ -1738,15 +1759,21 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
   });
   steps.push({
     name: 'Commit crawler group data atomically',
-    // The reusable workflow keeps a coordinate-derived token only as a
-    // diagnostic fallback for legacy callers. The aggregate records every
+    // The token is the job-level `inputs.generation_token || <run_id>-<run_attempt>`,
+    // validated by the preflight before any crawl: a malformed explicit value
+    // stops the job there, so `crawler_group_setup` never succeeds and this
+    // step never runs. An empty input on a manual corpus dispatch therefore
+    // publishes under the run's own coordinates, the same grammar the
+    // orchestrator uses, instead of forcing the caller to invent a token
+    // (#10101 follow-up: `backlog-100-…` crawled for an hour, then exit 43).
+    // The aggregate records every
     // member's terminal outcome, but a failed/missing member has no descriptor
     // to publish: `--group-batch` therefore publishes only data explicitly
     // produced by successful siblings. The finalizer below receives the
     // aggregate `wait_outcome` and remains fail-closed for the group manifest.
     // A retryable ref/lease loss is retried in THIS token; exhausting that
     // bounded retry is a real step failure, never a green "next cycle" result.
-    if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
+    if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
     run: crawlerGroupBatchCommitRun(groupIndex),
   });
   steps.push(saveCrawlerAiCacheStep(groupName));
@@ -1778,6 +1805,8 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
             default: '1',
             type: 'string',
           },
+          // The legacy site entry point stays token-required: it is disabled
+          // in favour of the corpus artifact (see the header of these files).
           generation_token: {
             description: 'Explicit generation correlation token (shadow only)',
             required: true,
@@ -2038,8 +2067,8 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
 
   const logicInputs = structuredClone(workflow.on.workflow_dispatch.inputs);
   // The cross-repo minimal caller predates this input. Keep the reusable
-  // contract callable during the rollout; its fallback remains diagnostic-only
-  // because the group commit step requires the explicit binding.
+  // contract callable without it: the job derives `<run_id>-<run_attempt>`
+  // and the preflight rejects only a malformed explicit value.
   logicInputs.generation_token = {
     ...logicInputs.generation_token,
     required: false,
@@ -2528,15 +2557,13 @@ function groupTrigger(logic) {
     runtimeInputs[input] = inputs[input];
     delete inputs[input];
   }
-  // Standalone corpus callers have exactly one supported caller: the site
-  // orchestrator, which always passes the correlation token. Keep this input
-  // required and without a default; the reusable site workflow remains
-  // optional because its direct/manual path intentionally owns the fallback.
-  inputs.generation_token = {
-    ...inputs.generation_token,
-    required: true,
-  };
-  delete inputs.generation_token.default;
+  // The site orchestrator always passes its correlation token. A manual
+  // dispatch used to be forced to invent one because the input was required,
+  // and free-form values (`backlog-100-…`) failed only at commit time. Leave
+  // it empty and the job derives `<run_id>-<run_attempt>`, the same grammar
+  // the orchestrator uses; an explicit malformed value still fails closed,
+  // now in the preflight before any crawl.
+  inputs.generation_token = { ...GENERATION_TOKEN_DISPATCH_INPUT };
   return {
     workflow_dispatch: {
       inputs: {
