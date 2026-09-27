@@ -108,7 +108,10 @@ const SEARCH_PAGE_SIZE = 100;
 // ~7,4 run reali x
 // 14 = ~104 PR/giorno, oltre il picco di ~80 candidati/giorno. Il tipico è molto
 // più basso: qui 32-259 s/PR con 4 PR e ~58 s/PR sul batch da 19 di
-// 34602590662. Il gemello corpus è `adapted`: stesso cap, watchdog e cadenza.
+// 34602590662. Misura con il cap 14 in produzione (gemello corpus, run
+// 36352293610, 2026-09-27): batch_count=14, sessione Codex 1503 s (22% del
+// watchdog), triage_complete=true con 14/14 PR verificate, job 29 min.
+// Il gemello corpus è `adapted`: stesso cap, watchdog e cadenza.
 //
 // Una finestra più larga del cap NON è un errore di raccolta: è un rinvio
 // PIANIFICATO. Il troncamento viene dichiarato in `deferred_count`, mentre
