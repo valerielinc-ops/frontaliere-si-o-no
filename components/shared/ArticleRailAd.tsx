@@ -1,8 +1,8 @@
 /**
  * ArticleRailAd — desktop article side-rail GPT half-page ad (left or right).
  *
- * Fills the wide whitespace gutters beside the article column on large desktop
- * viewports (the rails widen to 300px at ≥1400px — see BlogArticles). Serves a
+ * Fills the desktop whitespace gutters beside the article column (160px compact
+ * rails from 1200px and 300px rails at ≥1400px — see BlogArticles). Serves a
  * dedicated GAM ad unit (/23355151813/article-rail-{left,right}, sizes
  * 300x600 / 160x600 / 300x250 + fluid, AdSense backfill on) via GPT, so AdSense
  * Auto Ads keep serving untouched. Created programmatically by
@@ -11,7 +11,8 @@
  * Lives inside the rail's existing `sticky top-6` stack, so the half-page ad
  * rides down the gutter as the reader scrolls. Runtime kill-switch: Firebase
  * Remote Config `KILL_ARTICLE_RAIL_ADS` (kills both rails, ~1 min, no redeploy;
- * default-safe = shown). Visibility is also CSS-gated to ≥1400px by the caller.
+ * default-safe = shown). Visibility is CSS-gated to the selected rail tier by
+ * the caller.
  */
 
 import React from 'react';
@@ -46,20 +47,23 @@ export interface ArticleRailAdProps {
   /**
    * Narrow (160px) gutter — the SPA tool-page rail. Restricts requested sizes to
    * 160-wide so no creative overflows the column. Reading-page rails (300px)
-   * omit this and keep the full premium size set.
+   * omit this and keep the full premium size set. `compact` applies the same
+   * size restriction to the article's intermediate desktop tier.
    */
   narrow?: boolean;
+  /** Article reading-page compact tier (1200–1399px). */
+  compact?: boolean;
   /** GPT fill verdict for this panel (`true` = no fill). Bubbled up by the stack
    *  so an all-empty rail can collapse its reserved gutter. */
   onEmptyChange?: (empty: boolean) => void;
 }
 
-const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true, reserve = true, narrow = false, onEmptyChange }) => {
+const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true, reserve = true, narrow = false, compact = false, onEmptyChange }) => {
   const { articleRailAds: killed, headerBidding: hbKilled } = useKillSwitches();
   return (
     <GptAdSlot
       adUnitPath={RAIL_AD_UNIT_PATHS[side]}
-      sizes={narrow ? RAIL_SIZES_NARROW : RAIL_SIZES}
+      sizes={narrow || compact ? RAIL_SIZES_NARROW : RAIL_SIZES}
       killed={killed}
       headerBiddingKilled={hbKilled}
       enabled={enabled}
@@ -67,10 +71,9 @@ const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true, res
       minHeight={reserve ? 600 : 0}
       // One panel in the rail stack; the stack stacks several back-to-back to
       // fill the gutter top-to-bottom (separation comes from the stack's flex
-      // gap, so no `mt-*` here). CSS-gated to the widened (≥1400px) rail via the
-      // `xlw` breakpoint (the arbitrary `min-[1400px]:` variant lost the v4
-      // cascade to `xl:`, so the rail never widened — see index.css @theme).
-      className="hidden xlw:block w-full text-center"
+      // gap, so no `mt-*` here). The compact reading tier uses 160-wide
+      // creatives from 1200–1399px; the wide tier remains 300px at `xlw`.
+      className={compact ? 'hidden xlc:block xlw:hidden w-full text-center' : 'hidden xlw:block w-full text-center'}
     />
   );
 };

@@ -32,8 +32,8 @@
  * `overflow-x: clip` (NOT `overflow: hidden`, which would make it a scroll
  * container and silently break this) — see App.tsx app-shell-col.
  *
- * The whole track only materialises at the widened (≥1400px / `xlw`) rail,
- * matching ArticleRailAd's own CSS gate.
+ * The track materialises at the article's compact (1200–1399px) or widened
+ * (≥1400px / `xlw`) rail, matching ArticleRailAd's selected CSS gate.
  *
  * Renders multiple GPT slots of the same /23355151813/article-rail-{side} unit;
  * each GptAdSlot mints a unique div id, so multi-slot serving is fine. Same
@@ -70,9 +70,12 @@ export interface ArticleRailAdStackProps {
   /**
    * Narrow (160px) gutter — the SPA tool-page rail. Forwarded to ArticleRailAd
    * so it requests only 160-wide creatives (no overflow). Reading-page rails
-   * (300px) omit this.
+   * (300px) omit this. The article compact tier uses the same 160px creative
+   * set through `compact`.
    */
   narrow?: boolean;
+  /** Article reading-page compact tier (1200–1399px). */
+  compact?: boolean;
 }
 
 // Approx height of one half-page rail panel (600px creative + flex gap).
@@ -88,7 +91,7 @@ const MAX_PANELS = 6;
 // gutter short. Mirrors AdSenseBanner's fill-timeout intent.
 const FILL_GRACE_MS = 6000;
 
-const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false, onEmptyResolved }) => {
+const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false, compact = false, onEmptyResolved }) => {
   const ref = useRef<HTMLDivElement>(null);
   // Per-panel GPT verdict, keyed by panel index (true = reported empty).
   const emptyByIndex = useRef<Map<number, boolean>>(new Map());
@@ -184,12 +187,16 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
     };
   }, [maxPanels]);
 
+  const visibilityClass = compact
+    ? 'hidden xlc:flex xlc:flex-col xlc:flex-1 xlc:min-h-0 xlw:hidden'
+    : 'hidden xlw:flex xlw:flex-col xlw:flex-1 xlw:min-h-0';
+
   return (
     // Outer `flex-1` claims the full gutter height so the sticky cluster has room
-    // to travel and the layout/CLS slot is reserved. Only the widened rail
-    // (`xlw`, ≥1400px) hosts the chain — the narrow xl tier (1280–1399) shows no
-    // rail ads, exactly as before.
-    <div ref={ref} className="hidden xlw:flex xlw:flex-col xlw:flex-1 xlw:min-h-0">
+    // to travel and the layout/CLS slot is reserved. The compact article tier
+    // uses 160px creatives from 1200–1399px; the existing wide tier remains
+    // 300px at ≥1400px.
+    <div ref={ref} className={visibilityClass}>
       {/* Inner cluster pins to the viewport top and rides the whole scroll, so a
           tall article's gutter never goes blank below the physical ads. */}
       <div className="sticky top-6 flex flex-col gap-2">
@@ -199,7 +206,8 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
             side={side}
             enabled={enabled}
             reserve={i === 0}
-            narrow={narrow}
+            narrow={narrow || compact}
+            compact={compact}
             onEmptyChange={(isEmpty) => handlePanelEmpty(i, isEmpty)}
           />
         ))}
