@@ -431,7 +431,10 @@ jobs:
             const anchors = finding.citations
               .map((citation) => `${citation.path}${citation.line ? `:L${citation.line}` : ''}`)
               .join(', ');
-            console.log(`- \`${findings.stableFindingId(finding)}\` (${anchors || 'anchor non risolvibile'}):`);
+            const target = typeof gate.unanchoredConfirmationTarget === 'function'
+              ? gate.unanchoredConfirmationTarget(finding)
+              : null;
+            console.log(`- \`${findings.stableFindingId(finding)}\` (${anchors || (target ? `senza file: rispondi con \`${target}\`` : 'anchor non risolvibile')}):`);
             console.log(finding.text);
             console.log('');
           }
@@ -1622,6 +1625,7 @@ jobs:
             - `` `path:L<n>` — fixed: <cosa hai cambiato, con path:L>. Verifica: <comando dell'Accettazione, o test eseguito> → <esito> `` (se il 🔴 non aveva `Accettazione:`, chiudi con `` Accettazione proposta: <il controllo eseguito> ``)
             - `` `path:L<n>` — disputed: <evidenza dal codice attuale (path:L) o bullet del body con stato chiudente, e perché il finding non si applica> ``
             - `` `path:L<n>` — not-fixable: <motivo concreto: decisione del proprietario, misura live, root cause non chiara> ``
+            Un 🔴 senza file si risponde con il target stampato accanto a lui fra i «🔴 aperti secondo il gate» (`PR body:L<n>` oppure l'id del ledger) al posto dell'anchor. Se il suo oggetto è il ledger o il bundle della review stessa («il finding storico `<id>` resta open senza testo o anchor»), non c'è niente da correggere né nel codice né nel body: rispondi `` `<target>` — disputed: rilievo sul ledger della review, non sulla PR; il reviewer lo chiude con Fix di `<target>`: ok. `` e non riscrivere il body per questo. Mai righe `Fix di …: ok.` nel body della PR: il gate legge le conferme solo dalle review del bot (#9959: 92 righe nel body, zero chiusure).
             Lo step successivo la pubblica sulla PR; il reviewer la trova nel suo bundle e deve rispondere voce per voce (`Fix di …: ok` oppure 🔴 con `Replica:`), come prescrive REVIEW.md «Re-review convergence». `disputed` solo con evidenza concreta, mai per un finding che scegli di non fare. Il veto di uno stato dichiarato nel body (regole sopra) è un `disputed` che cita quel bullet. La risposta pubblicata vale come spiegazione: non serve un commento a parte.
 
             **Constraint:**
