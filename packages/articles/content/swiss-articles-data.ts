@@ -20518,6 +20518,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'voti-federali-neutralita-alimentazione',
+    category: 'novita',
+    date: '2026-09-27T06:56:40.137Z',
+    image: '/images/blog/voti-federali-neutralita-alimentazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

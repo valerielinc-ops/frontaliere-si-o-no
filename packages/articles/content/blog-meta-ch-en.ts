@@ -6830,6 +6830,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.manifestazione-diritti-migranti-berna.title': 'Demonstration in Bern for migrants\' rights',
     'blog.article.manifestazione-diritti-migranti-berna.excerpt': 'Several thousand people demonstrated in Bern against the tightening of asylum law, calling for fundamental rights and freedom of movement.',
     'blog.article.manifestazione-diritti-migranti-berna.imageAlt': 'Protest in Bern for migrant rights in front of the Federal Square',
+    'blog.article.voti-federali-neutralita-alimentazione.title': 'Federal votes: neutrality and feeding at the polls',
+    'blog.article.voti-federali-neutralita-alimentazione.excerpt': 'The Swiss population votes today on neutrality and food. The key data, polls and the position of the federal institutions.',
+    'blog.article.voti-federali-neutralita-alimentazione.imageAlt': 'Voting ballots for the Swiss federal initiatives on neutrality and food security',
 };
 
 export default blogMetaChEn;
