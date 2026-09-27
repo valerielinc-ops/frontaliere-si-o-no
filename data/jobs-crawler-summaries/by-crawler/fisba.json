@@ -1,7 +1,7 @@
 {
   "key": "fisba",
   "label": "FISBA AG",
-  "generatedAt": "2026-09-26T23:54:00.093Z",
+  "generatedAt": "2026-09-27T15:14:55.609Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,10 +12,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7087,
-  "avgDurationMs": 7087,
+  "durationMs": 7768,
+  "avgDurationMs": 7768,
   "durationHistory": [
-    7087
+    7768
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:53:55.213Z",
+      "crawledAt": "2026-09-27T15:14:48.391Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -68,7 +68,7 @@
       "url": "https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:53:55.213Z",
+      "crawledAt": "2026-09-27T15:14:48.392Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://fisba.com/en/jobs/lernender-mechanikpraktikerin-eba-werkstoff-glas-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:53:55.214Z",
+      "crawledAt": "2026-09-27T15:14:48.393Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "url": "https://fisba.com/en/jobs/spontaneous-unsolicited-application",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:53:55.212Z",
+      "crawledAt": "2026-09-27T15:14:48.389Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -157,6 +157,7 @@
       "featured": false,
       "postedDate": "2021-09-21",
       "applyUrl": "https://fisba.com/en/jobs/spontaneous-unsolicited-application",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-25T15:09:05.587Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
