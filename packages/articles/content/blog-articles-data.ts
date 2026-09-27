@@ -36340,6 +36340,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cultura-gravedona-porlezza',
+ category: 'novita',
+ date: '2026-09-27T03:28:29.465Z',
+ image: '/images/blog/cultura-gravedona-porlezza.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

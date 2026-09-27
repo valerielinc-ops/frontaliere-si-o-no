@@ -519,7 +519,8 @@
     <script>
       (function(){
         var g = window.googlefc = window.googlefc || {};
-        if (g.controlledMessagingFunction) return;
+        if (g.__ftOfferwallGateInstalled) return;
+        var previousControlledMessagingFunction = g.controlledMessagingFunction;
         function isJobBoardPath(){
           var p = window.location && window.location.pathname || '';
           return /^(?:\/(?:it|en|de|fr))?\/(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*(?:\/|$)/.test(p);
@@ -534,9 +535,41 @@
           }
           return d;
         }
-        function hold(w, message, offerwall){
+        function captureDecision(allow, types){
+          return {
+            allow: allow !== false,
+            types: Array.isArray(types) ? types.slice() : undefined
+          };
+        }
+        function appendTypes(target, types){
+          for (var i = 0; i < (types || []).length; i++) {
+            if (target.indexOf(types[i]) === -1) target.push(types[i]);
+          }
+        }
+        function mergeDecisions(previous, gate){
+          var p = previous || { allow: true };
+          var q = gate || { allow: true };
+          if (p.allow && q.allow) return { allow: true };
+          if (!p.allow && (!p.types || !p.types.length)) return { allow: false };
+          if (!q.allow && (!q.types || !q.types.length)) return { allow: false };
+          var types = [];
+          appendTypes(types, p.types);
+          appendTypes(types, q.types);
+          return { allow: false, types: types };
+        }
+        function deliver(message, previous, gate){
+          var decision = mergeDecisions(previous, gate);
+          if (decision.allow) {
+            message.proceed(true);
+          } else if (decision.types && decision.types.length) {
+            message.proceed(false, decision.types);
+          } else {
+            message.proceed(false);
+          }
+        }
+        function hold(w, entry, offerwall){
           w.held = w.held || [];
-          w.held.push(message);
+          w.held.push(entry);
           w.offerwall = offerwall;
           w.state = 'held';
           w.release = function(){
@@ -544,7 +577,7 @@
             w.state = 'released';
             var h = w.held.splice(0);
             for (var i = 0; i < h.length; i++) {
-              try { h[i].proceed(true); } catch (e) {}
+              try { deliver(h[i].message, h[i].previous, { allow: true }); } catch (e) {}
             }
             return true;
           };
@@ -570,9 +603,9 @@
               ? w.offerwall
               : (g.MessageTypeEnum || {}).OFFERWALL;
             for (var i = 0; i < h.length; i++) {
-              try {
-                o === undefined ? h[i].proceed(false) : h[i].proceed(false, [o]);
-              } catch (e) {}
+              try { deliver(h[i].message, h[i].previous, o === undefined
+                ? { allow: false }
+                : { allow: false, types: [o] }); } catch (e) {}
             }
           }
           w.state = 'off_board';
@@ -596,7 +629,7 @@
           }
           if (typeof window.addEventListener === 'function') window.addEventListener('popstate', syncRoute);
         }
-        g.controlledMessagingFunction = function(message){
+        function handleControlledMessaging(message, previous){
           var E = g.MessageTypeEnum || {};
           // The first call arrives with an empty enum and must proceed at
           // once: holding it delays the CMP and the display ads. If a later
@@ -604,32 +637,60 @@
           // cannot be suppressed by type without its enum value.
           if (typeof E.OFFERWALL !== 'number') {
             if (g.__ftOfferwallBootstrapComplete) {
-              message.proceed(false);
+              deliver(message, previous, { allow: false });
               return;
             }
             g.__ftOfferwallBootstrapComplete = true;
-            message.proceed(true);
+            deliver(message, previous, { allow: true });
             return;
           }
           syncRoute();
           if (!isJobBoardPath()) {
             var w = window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'off_board', held: [] };
             w.reacquire = true;
-            message.proceed(false, [E.OFFERWALL]);
+            deliver(message, previous, { allow: false, types: [E.OFFERWALL] });
             return;
           }
           if (!hasConsentDecision()) {
             window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'suppressed', held: [] };
-            message.proceed(false, [E.OFFERWALL]);
+            deliver(message, previous, { allow: false, types: [E.OFFERWALL] });
             return;
           }
           var w = window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'idle', held: [] };
           if (w.state === 'released') {
-            message.proceed(true);
+            deliver(message, previous, { allow: true });
             return;
           }
-          hold(w, message, E.OFFERWALL);
+          hold(w, { message: message, previous: previous }, E.OFFERWALL);
+        }
+        g.controlledMessagingFunction = function(message){
+          var self = this;
+          var done = false;
+          var finish = function(previous){
+            if (done) return;
+            done = true;
+            handleControlledMessaging(message, previous || { allow: false });
+          };
+          if (typeof previousControlledMessagingFunction !== 'function') {
+            finish({ allow: true });
+            return;
+          }
+          var delegated = Object.create(message);
+          delegated.proceed = function(allow, types){
+            finish(captureDecision(allow, types));
+          };
+          var result;
+          try {
+            result = previousControlledMessagingFunction.call(self, delegated);
+          } catch (e) {
+            finish({ allow: false });
+            return;
+          }
+          if (result && typeof result.then === 'function') {
+            result.then(function(){ if (!done) finish({ allow: false }); }, function(){ finish({ allow: false }); });
+          }
         };
+        g.__ftOfferwallGateInstalled = true;
         watchRoutes();
       })();
     </script>

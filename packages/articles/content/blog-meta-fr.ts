@@ -12106,6 +12106,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vetri-rotti-como-notte.title': 'Côme, deux arrestations pour vol et dégradations de voitures',
     'blog.article.vetri-rotti-como-notte.excerpt': 'La Police d\'État de Como a arrêté un Marocain de 30 ans et un Espagnol de 23 ans : cinq autres voitures avaient les vitres brisées.',
     'blog.article.vetri-rotti-como-notte.imageAlt': 'Voitures garées dans une rue de Côme aux vitres latérales brisées (Como)',
+    'blog.article.cultura-gravedona-porlezza.title': 'Gravedona ed Uniti, Porlezza : 1,5 millions pour la culture',
+    'blog.article.cultura-gravedona-porlezza.excerpt': 'La Région Lombardie attribue plus de 1,5 million à Gravedona ed Uniti et Porlezza : 502.082 euros à l\'église de la Madonna della Soledad et 1 million à la Villa Marzorati.',
+    'blog.article.cultura-gravedona-porlezza.imageAlt': 'Église Madonna della Soledad et Villa Marzorati au cœur d’un investissement culturel',
 };
 
 export default blogMetaFr;

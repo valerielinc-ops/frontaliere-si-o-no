@@ -6818,6 +6818,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.amag-auto-elettriche-svizzera.title': 'Auto elettriche in Svizzera: calano le posizioni in Europa',
     'blog.article.amag-auto-elettriche-svizzera.excerpt': 'La Svizzera scende dal quinto al sedicesimo posto per l\'elettrificazione delle vetture. I dettagli secondo il CEO di Amag Helmut Ruhl.',
     'blog.article.amag-auto-elettriche-svizzera.imageAlt': 'Auto elettriche parcheggiate in Svizzera con montagne sullo sfondo',
+    'blog.article.svizzera-auto-elettriche-2026.title': 'Svizzera e auto elettriche: posizioni, ricarica e imposte',
+    'blog.article.svizzera-auto-elettriche-2026.excerpt': 'A metà 2026 la Svizzera è al 16esimo posto in Europa per l\'elettrificazione delle vetture. Un quarto delle nuove immatricolazioni è elettrico.',
+    'blog.article.svizzera-auto-elettriche-2026.imageAlt': 'Auto elettrica in carica presso una stazione pubblica in Svizzera',
+    'blog.article.congedo-parentale-firme-riuscita.title': 'Congedo parentale: 136 mila firme raccolte in Svizzera',
+    'blog.article.congedo-parentale-firme-riuscita.excerpt': 'Riuscita l\'iniziativa popolare per il congedo parentale con 136\'000 firme. Deposito previsto alla Cancelleria federale.',
+    'blog.article.congedo-parentale-firme-riuscita.imageAlt': 'Raccolta firme per l\'iniziativa popolare sul congedo parentale in Svizzera',
 };
 
 export default blogMetaChIt;
