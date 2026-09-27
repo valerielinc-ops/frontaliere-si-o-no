@@ -12148,6 +12148,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-scuola-nazario-sauro-lettera.title': 'Como, letter from Nazario Sauro: \'We are not a package\'',
     'blog.article.como-scuola-nazario-sauro-lettera.excerpt': 'Ilaria Flute disputes the transfer of the Nazario Sauro primary school to IC Como Lago in the 2027/28 plan: ten years of educational work risk being cancelled.',
     'blog.article.como-scuola-nazario-sauro-lettera.imageAlt': 'Nazario Sauro primary school in Como historic center near the lake',
+    'blog.article.sagra-uva-mendrisio-bilancio.title': 'Grape Festival in Mendrisio: positive outcome',
+    'blog.article.sagra-uva-mendrisio-bilancio.excerpt': 'Positive outcome for the 70th Mendrisio Grape Festival: an estimated 20,000–25,000 people and no major security interventions.',
+    'blog.article.sagra-uva-mendrisio-bilancio.imageAlt': 'Visitors at the grape festival in Mendrisio town centre',
 };
 
 export default blogMetaEn;

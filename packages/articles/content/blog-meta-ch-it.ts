@@ -6851,6 +6851,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.strage-parlamento-zugo-sicurezza.title': 'Zugo, 25 anni fa la strage nell’aula del Parlamento',
     'blog.article.strage-parlamento-zugo-sicurezza.excerpt': 'Il 27 settembre 2001, Friedrich Leibacher uccise 14 persone e ne ferì 15 nel Parlamento di Zugo, sparando 91 colpi in 2 minuti e 34 secondi, portando a un cambio nella sicurezza.',
     'blog.article.strage-parlamento-zugo-sicurezza.imageAlt': 'Misure di sicurezza rafforzate nei parlamenti svizzeri dopo la strage di Zugo',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.title': 'Iniziativa alimentazione: bocciata con il 72,5% di no',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.excerpt': 'Il popolo svizzero respinge la proposta di portare l\'autoapprovvigionamento al 70% in dieci anni. Tutti i Cantoni hanno votato contro.',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.imageAlt': 'Paesaggio agricolo svizzero con pascoli verdi',
+    'blog.article.valutazione-secondo-sistema-difesa.title': 'Difesa aerea: conclusa la valutazione del Bodluv GR 2',
+    'blog.article.valutazione-secondo-sistema-difesa.excerpt': 'Armasuisse ha chiuso la valutazione per il secondo sistema di difesa terra-aria Bodluv GR 2. La scelta passa al Consiglio federale.',
+    'blog.article.valutazione-secondo-sistema-difesa.imageAlt': 'Valutazione del secondo sistema di difesa terra-aria in Svizzera',
 };
 
 export default blogMetaChIt;

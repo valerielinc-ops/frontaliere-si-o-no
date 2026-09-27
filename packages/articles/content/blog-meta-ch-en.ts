@@ -6851,6 +6851,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.strage-parlamento-zugo-sicurezza.title': 'Zug, 25 years ago the massacre in the Parliament chamber',
     'blog.article.strage-parlamento-zugo-sicurezza.excerpt': 'On September 27, 2001, Friedrich Leibacher killed 14 people and wounded 15 in the Zug Parliament, firing 91 shots in 2 minutes and 34 seconds, leading to a change in security.',
     'blog.article.strage-parlamento-zugo-sicurezza.imageAlt': 'Reinforced security measures in Swiss parliaments after the Zug massacre',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.title': 'Feeding initiative: rejected with 72.5% of no',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.excerpt': 'The Swiss people reject the proposal to increase self-sufficiency to 70% in ten years. All the cantons voted against it.',
+    'blog.article.voto-iniziativa-alimentazione-svizzera.imageAlt': 'Swiss agricultural landscape with green pastures',
+    'blog.article.valutazione-secondo-sistema-difesa.title': 'Air defense: evaluation of Bodluv GR 2 completed',
+    'blog.article.valutazione-secondo-sistema-difesa.excerpt': 'Armasuisse has completed the evaluation for the second Bodluv GR 2 ground-to-air defense system. The choice goes to the Federal Council.',
+    'blog.article.valutazione-secondo-sistema-difesa.imageAlt': 'Evaluation of the second ground-to-air defense system in Switzerland',
 };
 
 export default blogMetaChEn;
