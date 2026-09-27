@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-26T10:32:31.238Z",
+  "updatedAt": "2026-09-27T11:00:27.130Z",
   "platforms": {
     "4insiders.swiss": {
       "domain": "4insiders.swiss",
@@ -71,12 +71,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "app.jobportal.abaservices.ch": 123
+        "app.jobportal.abaservices.ch": 128
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:32:21.923Z",
-      "note": "careers outlink, score 6"
+      "note": "apply-host cluster from SECO ZG"
     },
     "adelboden-lenk.ch": {
       "domain": "adelboden-lenk.ch",
@@ -140,7 +140,9 @@
         "schweizer-armee---armeestab-a-stab",
         "xn--eidgenssische-steuerverwaltung-estv-tqd",
         "schweizerisches-bundesarchiv-bar",
-        "xn--bundesamt-fr-verkehr-bav-5sc"
+        "xn--bundesamt-fr-verkehr-bav-5sc",
+        "xn--bundesamt-fr-polizei-fedpol-s3c",
+        "xn--bundesamt-fr-energie-bfe-5sc"
       ],
       "markers": [],
       "hostSamples": [
@@ -148,7 +150,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.admin.ch": 229
+        "jobs.admin.ch": 237
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -229,12 +231,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "aplitrak.com": 56
+        "aplitrak.com": 58
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-09-04T08:07:32.194Z",
-      "note": "apply-host cluster from SECO GR"
+      "note": "apply-host cluster from SECO FR"
     },
     "applytojob.com": {
       "domain": "applytojob.com",
@@ -250,11 +252,11 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "fincons.applytojob.com": 40,
-        "boardinternationalsa.applytojob.com": 40
+        "fincons.applytojob.com": 41,
+        "boardinternationalsa.applytojob.com": 41
       },
       "pathHits": {
-        "/apply": 80
+        "/apply": 82
       },
       "tenantCount": 31,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -357,10 +359,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "app.beehire.com": 120
+        "app.beehire.com": 123
       },
       "pathHits": {
-        "/invite": 120
+        "/invite": 123
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -454,7 +456,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "job.bkw.com": 398
+        "job.bkw.com": 406
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -569,7 +571,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "chrampfcheibe.ch": 68
+        "chrampfcheibe.ch": 71
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -629,7 +631,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "collardi.ch": 80
+        "collardi.ch": 82
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -667,10 +669,10 @@
       "tenantShape": "subdomain",
       "hostHits": {
         "stobag.contactrh.com": 9,
-        "tertianum-produktion.contactrh.com": 135,
+        "tertianum-produktion.contactrh.com": 136,
         "sv-schweiz-ag.contactrh.com": 19,
-        "geberit.contactrh.com": 17,
-        "vat-vakuumventile-ag.contactrh.com": 32,
+        "geberit.contactrh.com": 18,
+        "vat-vakuumventile-ag.contactrh.com": 34,
         "tecan-trading-ag.contactrh.com": 5,
         "spar-management-ag.contactrh.com": 2,
         "bouygues-construction-it.contactrh.com": 2
@@ -707,17 +709,17 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "jobs.coopjobs.ch": 289,
+        "jobs.coopjobs.ch": 294,
         "coopjobs.ch": 2
       },
       "pathHits": {
         "/postes-vacantes": 3,
-        "/offene-stellen": 189,
+        "/offene-stellen": 191,
         "/content": 1
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "apply-host cluster from SECO SO",
+      "note": "apply-host cluster from SECO VS",
       "lastExpandedAt": "2026-09-21T10:21:33.219Z",
       "expansionAttempts": 2
     },
@@ -737,12 +739,12 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "chopard.csod.com": 101,
-        "groupemutuel.csod.com": 46,
-        "msc.csod.com": 9
+        "chopard.csod.com": 103,
+        "groupemutuel.csod.com": 51,
+        "msc.csod.com": 10
       },
       "pathHits": {
-        "/ux": 80
+        "/ux": 82
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -791,7 +793,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "cvmanager.ch": 493
+        "cvmanager.ch": 505
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -874,10 +876,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.dualoo.com": 470
+        "jobs.dualoo.com": 484
       },
       "pathHits": {
-        "/portal": 270
+        "/portal": 277
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -896,7 +898,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "easyapply.jobs": 284
+        "easyapply.jobs": 292
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -933,8 +935,8 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "api.easytemp.ch": 529,
-        "ats.easytemp.ch": 82
+        "api.easytemp.ch": 544,
+        "ats.easytemp.ch": 85
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -1013,7 +1015,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "ars2.equest.com": 52
+        "ars2.equest.com": 54
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -1033,7 +1035,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "eteach.com": 22
+        "eteach.com": 24
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -1080,10 +1082,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.galenica.com": 309
+        "jobs.galenica.com": 315
       },
       "pathHits": {
-        "/it": 231
+        "/it": 237
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -1196,7 +1198,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "careers.gevernova.com": 6
+        "careers.gevernova.com": 7
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -1279,15 +1281,15 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "boards.greenhouse.io": 82,
-        "job-boards.eu.greenhouse.io": 83,
+        "boards.greenhouse.io": 84,
+        "job-boards.eu.greenhouse.io": 85,
         "job-boards.greenhouse.io": 3
       },
       "pathHits": {
-        "/onrunning": 41,
-        "/proton": 41,
-        "/vaxcyte": 41,
-        "/veeamsoftware": 41
+        "/onrunning": 42,
+        "/proton": 42,
+        "/vaxcyte": 42,
+        "/veeamsoftware": 42
       },
       "tenantCount": 1,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -1447,7 +1449,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "hoteljob-schweiz.de": 561
+        "hoteljob-schweiz.de": 579
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -1643,12 +1645,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "inrecruiting.intervieweb.it": 110
+        "inrecruiting.intervieweb.it": 113
       },
       "pathHits": {
-        "/fiammcomponents": 40,
-        "/impresapizzarotti": 40,
-        "/a2plus": 30
+        "/fiammcomponents": 41,
+        "/impresapizzarotti": 41,
+        "/a2plus": 31
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -1725,10 +1727,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "my.jobalino.ch": 333
+        "my.jobalino.ch": 344
       },
       "pathHits": {
-        "/job": 200
+        "/job": 205
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -1768,17 +1770,17 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "jdchlu365682.jobdesk.ch": 189,
-        "jdchag711092.jobdesk.ch": 78,
-        "jdchbs193852.jobdesk.ch": 70,
-        "jdchbs039583.jobdesk.ch": 22,
-        "jdchzg725110.jobdesk.ch": 18,
-        "jdchbe629887.jobdesk.ch": 8,
-        "jdchsg001385.jobdesk.ch": 44,
-        "jdchlu448923.jobdesk.ch": 13,
-        "jdchlu365681.jobdesk.ch": 7,
-        "jdchnw915712.jobdesk.ch": 9,
-        "jdchzh931426.jobdesk.ch": 2
+        "jdchlu365682.jobdesk.ch": 197,
+        "jdchag711092.jobdesk.ch": 81,
+        "jdchbs193852.jobdesk.ch": 73,
+        "jdchbs039583.jobdesk.ch": 23,
+        "jdchzg725110.jobdesk.ch": 19,
+        "jdchbe629887.jobdesk.ch": 9,
+        "jdchsg001385.jobdesk.ch": 46,
+        "jdchlu448923.jobdesk.ch": 15,
+        "jdchlu365681.jobdesk.ch": 8,
+        "jdchnw915712.jobdesk.ch": 10,
+        "jdchzh931426.jobdesk.ch": 3
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -1835,7 +1837,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobeo.ch": 850
+        "jobeo.ch": 883
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -1906,7 +1908,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jura.ch": 215
+        "jura.ch": 218
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -1959,7 +1961,10 @@
         "inclusion-handicap",
         "schulen-nach-bern",
         "bruno-manser-fonds",
-        "stiftung-paneco"
+        "stiftung-paneco",
+        "rebel-communication",
+        "xn--schweizerisches-rotes-kreuz-kanton-zrich-kge",
+        "xn--zentrum-fr-spielsucht-und-andere-verhaltensschte-47e9a"
       ],
       "markers": [],
       "hostSamples": [
@@ -1967,7 +1972,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "kampajobs.ch": 219
+        "kampajobs.ch": 236
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -2240,7 +2245,9 @@
         "xn--kita-msliburg-1oba",
         "chinderstube-mettmi",
         "chinderstern-wallisellen",
-        "kita-einzigartig-niederglatt"
+        "kita-einzigartig-niederglatt",
+        "xn--fugu-kinderkrippe-winterthur-lokstadt-ylb24d",
+        "chinderhuus-wirbelwind-werdwies"
       ],
       "markers": [],
       "hostSamples": [
@@ -2248,7 +2255,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "krippenstellen.ch": 1642
+        "krippenstellen.ch": 1696
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -2269,12 +2276,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.lever.co": 120
+        "jobs.lever.co": 123
       },
       "pathHits": {
-        "/anybotics": 40,
-        "/sonarsource": 40,
-        "/tsmg": 40
+        "/anybotics": 41,
+        "/sonarsource": 41,
+        "/tsmg": 41
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -2304,7 +2311,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "go.licorn.ch": 177
+        "go.licorn.ch": 191
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -2365,7 +2372,7 @@
       "tenantShape": "subdomain",
       "hostHits": {
         "mcdonalds.ch": 25,
-        "jobs.mcdonalds.ch": 45
+        "jobs.mcdonalds.ch": 47
       },
       "pathHits": {},
       "tenantCount": 1,
@@ -2480,7 +2487,9 @@
         "berner-kulturagenda",
         "swatch-ltd",
         "flyerline-schweiz-ag",
-        "kantonale-verwaltung-zug"
+        "kantonale-verwaltung-zug",
+        "cp9-ag",
+        "tui-suisse-ltd"
       ],
       "markers": [],
       "hostSamples": [
@@ -2488,7 +2497,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "medienjobs.ch": 534
+        "medienjobs.ch": 556
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -2523,10 +2532,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.migros.ch": 183
+        "jobs.migros.ch": 187
       },
       "pathHits": {
-        "/de": 78
+        "/de": 80
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:14.168Z",
@@ -2646,7 +2655,8 @@
         "miele-ag",
         "g.-arlesheim",
         "xn--lgt-financial-services-ag,-vaduz,-zweigniederlassung-zrich-u9f",
-        "pwc-holdings-schweiz-gmbh"
+        "pwc-holdings-schweiz-gmbh",
+        "c224-alcon-switzerland-sa-unternehmen"
       ],
       "markers": [],
       "hostSamples": [
@@ -2678,83 +2688,83 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "alcon.wd5.myworkdayjobs.com": 49,
-        "fielmann.wd3.myworkdayjobs.com": 40,
-        "kantonsspitalbaden.wd3.myworkdayjobs.com": 40,
-        "lonza.wd3.myworkdayjobs.com": 159,
-        "medbase.wd502.myworkdayjobs.com": 40,
-        "nvidia.wd5.myworkdayjobs.com": 40,
-        "roche.wd3.myworkdayjobs.com": 40,
-        "sulzer.wd502.myworkdayjobs.com": 40,
-        "trafigura.wd3.myworkdayjobs.com": 58,
-        "vontobel.wd3.myworkdayjobs.com": 40,
-        "csl.wd1.myworkdayjobs.com": 43,
-        "eraneos.wd3.myworkdayjobs.com": 50,
-        "hamilton.wd3.myworkdayjobs.com": 40,
-        "huntsman.wd1.myworkdayjobs.com": 66,
-        "medtronic.wd1.myworkdayjobs.com": 40,
-        "novartis.wd3.myworkdayjobs.com": 59,
+        "alcon.wd5.myworkdayjobs.com": 51,
+        "fielmann.wd3.myworkdayjobs.com": 41,
+        "kantonsspitalbaden.wd3.myworkdayjobs.com": 41,
+        "lonza.wd3.myworkdayjobs.com": 163,
+        "medbase.wd502.myworkdayjobs.com": 41,
+        "nvidia.wd5.myworkdayjobs.com": 41,
+        "roche.wd3.myworkdayjobs.com": 41,
+        "sulzer.wd502.myworkdayjobs.com": 41,
+        "trafigura.wd3.myworkdayjobs.com": 59,
+        "vontobel.wd3.myworkdayjobs.com": 41,
+        "csl.wd1.myworkdayjobs.com": 44,
+        "eraneos.wd3.myworkdayjobs.com": 51,
+        "hamilton.wd3.myworkdayjobs.com": 41,
+        "huntsman.wd1.myworkdayjobs.com": 68,
+        "medtronic.wd1.myworkdayjobs.com": 41,
+        "novartis.wd3.myworkdayjobs.com": 60,
         "otis.wd5.myworkdayjobs.com": 1,
-        "siegfried.wd103.myworkdayjobs.com": 89,
-        "abbott.wd5.myworkdayjobs.com": 40,
-        "georgfischer.wd103.myworkdayjobs.com": 40,
-        "lindtspruengli.wd103.myworkdayjobs.com": 40,
-        "stryker.wd1.myworkdayjobs.com": 40,
-        "vfc.wd5.myworkdayjobs.com": 40,
-        "bossard.wd103.myworkdayjobs.com": 67,
-        "lombardodier.wd3.myworkdayjobs.com": 40,
+        "siegfried.wd103.myworkdayjobs.com": 91,
+        "abbott.wd5.myworkdayjobs.com": 41,
+        "georgfischer.wd103.myworkdayjobs.com": 41,
+        "lindtspruengli.wd103.myworkdayjobs.com": 41,
+        "stryker.wd1.myworkdayjobs.com": 41,
+        "vfc.wd5.myworkdayjobs.com": 41,
+        "bossard.wd103.myworkdayjobs.com": 68,
+        "lombardodier.wd3.myworkdayjobs.com": 41,
         "onehealthineers.wd3.myworkdayjobs.com": 39,
-        "trumpf.wd3.myworkdayjobs.com": 78,
-        "galderma.wd3.myworkdayjobs.com": 40,
-        "lsi.wd3.myworkdayjobs.com": 50,
-        "everestre.wd5.myworkdayjobs.com": 40,
-        "logitech.wd5.myworkdayjobs.com": 40,
+        "trumpf.wd3.myworkdayjobs.com": 79,
+        "galderma.wd3.myworkdayjobs.com": 41,
+        "lsi.wd3.myworkdayjobs.com": 51,
+        "everestre.wd5.myworkdayjobs.com": 41,
+        "logitech.wd5.myworkdayjobs.com": 41,
         "temenos.wd103.myworkdayjobs.com": 22,
-        "rituals.wd3.myworkdayjobs.com": 40,
-        "ardian.wd103.myworkdayjobs.com": 40,
-        "swisslife.wd3.myworkdayjobs.com": 40,
-        "bracco.wd103.myworkdayjobs.com": 40,
-        "capri.wd1.myworkdayjobs.com": 40,
-        "fnz.wd3.myworkdayjobs.com": 40,
-        "juliusbaer.wd3.myworkdayjobs.com": 40,
-        "swisscom.wd103.myworkdayjobs.com": 273,
-        "otis.wd504.myworkdayjobs.com": 39,
+        "rituals.wd3.myworkdayjobs.com": 41,
+        "ardian.wd103.myworkdayjobs.com": 41,
+        "swisslife.wd3.myworkdayjobs.com": 41,
+        "bracco.wd103.myworkdayjobs.com": 41,
+        "capri.wd1.myworkdayjobs.com": 41,
+        "fnz.wd3.myworkdayjobs.com": 41,
+        "juliusbaer.wd3.myworkdayjobs.com": 41,
+        "swisscom.wd103.myworkdayjobs.com": 279,
+        "otis.wd504.myworkdayjobs.com": 40,
         "hitachi.wd1.myworkdayjobs.com": 19,
         "accelleron.wd3.myworkdayjobs.com": 63,
-        "abb.wd3.myworkdayjobs.com": 18,
-        "getec.wd103.myworkdayjobs.com": 33,
-        "weleda.wd3.myworkdayjobs.com": 38,
+        "abb.wd3.myworkdayjobs.com": 19,
+        "getec.wd103.myworkdayjobs.com": 34,
+        "weleda.wd3.myworkdayjobs.com": 40,
         "swarovski.wd3.myworkdayjobs.com": 131,
-        "fmc.wd12.myworkdayjobs.com": 34,
+        "fmc.wd12.myworkdayjobs.com": 35,
         "msf.wd3.myworkdayjobs.com": 15,
-        "weforum.wd3.myworkdayjobs.com": 30,
+        "weforum.wd3.myworkdayjobs.com": 31,
         "alsa.wd3.myworkdayjobs.com": 6,
         "bdx.wd1.myworkdayjobs.com": 6,
-        "rbi.wd3.myworkdayjobs.com": 33,
-        "biibhr.wd3.myworkdayjobs.com": 39,
-        "pwc.wd3.myworkdayjobs.com": 4,
-        "bernergroup.wd3.myworkdayjobs.com": 31,
-        "gunvor.wd3.myworkdayjobs.com": 28,
-        "sunrise.wd3.myworkdayjobs.com": 182,
+        "rbi.wd3.myworkdayjobs.com": 34,
+        "biibhr.wd3.myworkdayjobs.com": 40,
+        "pwc.wd3.myworkdayjobs.com": 5,
+        "bernergroup.wd3.myworkdayjobs.com": 32,
+        "gunvor.wd3.myworkdayjobs.com": 29,
+        "sunrise.wd3.myworkdayjobs.com": 188,
         "idexcorp.wd5.myworkdayjobs.com": 7,
-        "zuehlke.wd3.myworkdayjobs.com": 9,
+        "zuehlke.wd3.myworkdayjobs.com": 10,
         "electrolux.wd3.myworkdayjobs.com": 8,
-        "miele.wd3.myworkdayjobs.com": 8,
-        "lgt.wd3.myworkdayjobs.com": 2
+        "miele.wd3.myworkdayjobs.com": 9,
+        "lgt.wd3.myworkdayjobs.com": 3
       },
       "pathHits": {
-        "/en-US": 863,
-        "/en": 549,
-        "/LindtSpruengliGroupCareers": 40,
-        "/vfc_careers": 40,
-        "/TRUMPF_Graduates_and_Professionals": 53,
-        "/it-IT": 80
+        "/en-US": 885,
+        "/en": 561,
+        "/LindtSpruengliGroupCareers": 41,
+        "/vfc_careers": 41,
+        "/TRUMPF_Graduates_and_Professionals": 54,
+        "/it-IT": 82
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.698Z",
       "note": "apply-host cluster from SECO ZH",
-      "lastExpandedAt": "2026-09-19T09:25:54.059Z",
-      "expansionAttempts": 2
+      "lastExpandedAt": "2026-09-27T10:38:19.383Z",
+      "expansionAttempts": 3
     },
     "myworkdaysite.com": {
       "domain": "myworkdaysite.com",
@@ -2771,7 +2781,7 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "wd502.myworkdaysite.com": 84,
+        "wd502.myworkdaysite.com": 86,
         "wd3.myworkdaysite.com": 10
       },
       "pathHits": {},
@@ -2794,10 +2804,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "app.ncoreplat.com": 80
+        "app.ncoreplat.com": 82
       },
       "pathHits": {
-        "/jobposition": 80
+        "/jobposition": 82
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -2836,7 +2846,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "offresemploi.ne.ch": 378
+        "offresemploi.ne.ch": 384
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -2856,7 +2866,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "newwork-hr.ch": 50
+        "newwork-hr.ch": 52
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -2925,8 +2935,8 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "spitex-zuerich.onlyfy.jobs": 40,
-        "vamed-ag-ch.onlyfy.jobs": 40,
+        "spitex-zuerich.onlyfy.jobs": 41,
+        "vamed-ag-ch.onlyfy.jobs": 41,
         "fust.onlyfy.jobs": 11,
         "aenova-group.onlyfy.jobs": 7,
         "freitag.onlyfy.jobs": 1,
@@ -2934,7 +2944,7 @@
         "iqair-ag.onlyfy.jobs": 4
       },
       "pathHits": {
-        "/de": 80
+        "/de": 82
       },
       "tenantCount": 4,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -2956,11 +2966,11 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "evht.fa.ocs.oraclecloud.eu": 40,
-        "iaadtu.fa.ocs.oraclecloud.eu": 40
+        "evht.fa.ocs.oraclecloud.eu": 41,
+        "iaadtu.fa.ocs.oraclecloud.eu": 41
       },
       "pathHits": {
-        "/hcmUI": 80
+        "/hcmUI": 82
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -3033,17 +3043,17 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "link.ostendis.com": 461,
+        "link.ostendis.com": 467,
         "odm.ostendis.com": 5
       },
       "pathHits": {
-        "/publication": 160
+        "/publication": 164
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
       "note": "apply-host cluster from SECO SO",
-      "lastExpandedAt": "2026-09-20T09:44:47.378Z",
-      "expansionAttempts": 2
+      "lastExpandedAt": "2026-09-27T10:47:08.312Z",
+      "expansionAttempts": 3
     },
     "paraplegie.ch": {
       "domain": "paraplegie.ch",
@@ -3080,12 +3090,12 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "kellerhals-carrard.jobs.personio.com": 40,
-        "lalive-law.jobs.personio.com": 40,
-        "swsieber.jobs.personio.com": 40
+        "kellerhals-carrard.jobs.personio.com": 41,
+        "lalive-law.jobs.personio.com": 41,
+        "swsieber.jobs.personio.com": 41
       },
       "pathHits": {
-        "/job": 120
+        "/job": 123
       },
       "tenantCount": 3,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -3109,12 +3119,12 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "felfel.jobs.personio.de": 40,
-        "yapeal-ag.jobs.personio.de": 40,
-        "igroove.jobs.personio.de": 40
+        "felfel.jobs.personio.de": 41,
+        "yapeal-ag.jobs.personio.de": 41,
+        "igroove.jobs.personio.de": 41
       },
       "pathHits": {
-        "/job": 120
+        "/job": 123
       },
       "tenantCount": 4,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -3160,12 +3170,12 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "bellinz.pi-asp.de": 41,
-        "locarno.pi-asp.de": 41,
-        "stiftdia.pi-asp.de": 63
+        "bellinz.pi-asp.de": 42,
+        "locarno.pi-asp.de": 42,
+        "stiftdia.pi-asp.de": 64
       },
       "pathHits": {
-        "/bewerber-web": 145
+        "/bewerber-web": 148
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -3253,10 +3263,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "job.post.ch": 538
+        "job.post.ch": 552
       },
       "pathHits": {
-        "/default": 130
+        "/default": 132
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -3532,11 +3542,11 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "ohws.prospective.ch": 6332,
+        "ohws.prospective.ch": 6524,
         "atsconnector.prospective.ch": 6
       },
       "pathHits": {
-        "/public": 150
+        "/public": 154
       },
       "tenantCount": 3,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -3544,8 +3554,8 @@
       "listingPaths": [
         "/public"
       ],
-      "lastExpandedAt": "2026-09-19T09:21:21.051Z",
-      "expansionAttempts": 2
+      "lastExpandedAt": "2026-09-27T10:33:38.129Z",
+      "expansionAttempts": 3
     },
     "publicjobs.ch": {
       "domain": "publicjobs.ch",
@@ -3560,10 +3570,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "publicjobs.ch": 80
+        "publicjobs.ch": 82
       },
       "pathHits": {
-        "/jobs": 80
+        "/jobs": 82
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -3583,7 +3593,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.pwc.ch": 20
+        "jobs.pwc.ch": 22
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -3608,13 +3618,13 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "bitfinex.recruitee.com": 4,
+        "bitfinex.recruitee.com": 5,
         "chmedia.recruitee.com": 1,
-        "climeworks.recruitee.com": 41,
-        "tether.recruitee.com": 41
+        "climeworks.recruitee.com": 42,
+        "tether.recruitee.com": 42
       },
       "pathHits": {
-        "/o": 86
+        "/o": 89
       },
       "tenantCount": 1,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -3667,20 +3677,20 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "apply.refline.ch": 837
+        "apply.refline.ch": 857
       },
       "pathHits": {
-        "/163206": 40,
-        "/792841": 40,
-        "/424626": 40,
-        "/486538": 40,
-        "/126757": 40,
-        "/514915": 40,
-        "/878019": 40,
-        "/673276": 40,
-        "/780392": 40,
-        "/116352": 40,
-        "/640332": 40
+        "/163206": 41,
+        "/792841": 41,
+        "/424626": 41,
+        "/486538": 41,
+        "/126757": 41,
+        "/514915": 41,
+        "/878019": 41,
+        "/673276": 41,
+        "/780392": 41,
+        "/116352": 41,
+        "/640332": 41
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -3703,13 +3713,13 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "app.reflinejobs.io": 162
+        "app.reflinejobs.io": 166
       },
       "pathHits": {
-        "/3316": 40,
-        "/1531": 40,
-        "/2044": 40,
-        "/1474": 40
+        "/3316": 41,
+        "/1531": 41,
+        "/2044": 41,
+        "/1474": 41
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -3788,7 +3798,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "rhne.ch": 38
+        "rhne.ch": 40
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -3814,13 +3824,13 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "chris.my.salesforce-sites.com": 25,
-        "foeurope.my.salesforce-sites.com": 101,
-        "fs-2662.my.salesforce-sites.com": 41,
-        "sygnumpeopleportal.my.salesforce-sites.com": 41
+        "chris.my.salesforce-sites.com": 26,
+        "foeurope.my.salesforce-sites.com": 105,
+        "fs-2662.my.salesforce-sites.com": 42,
+        "sygnumpeopleportal.my.salesforce-sites.com": 42
       },
       "pathHits": {
-        "/recruit": 82
+        "/recruit": 84
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -3961,7 +3971,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "short.sg": 24
+        "short.sg": 28
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -4011,24 +4021,24 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.smartrecruiters.com": 1184
+        "jobs.smartrecruiters.com": 1216
       },
       "pathHits": {
-        "/CERN": 40,
-        "/HUG": 40,
-        "/SwissMedicalNetwork1": 433,
-        "/Talan": 40,
-        "/AudemarsPiguet": 40,
-        "/imad": 40,
-        "/SMGSwissMarketplaceGroup": 40,
-        "/Swissquote": 40,
-        "/EtablissementsPublicsPourLIntegration": 40,
-        "/Sobi": 40,
-        "/Ardentis1": 40,
-        "/StaubliGroup": 40,
-        "/Oetiker": 40,
-        "/KIABI": 40,
-        "/Hospicegeneral": 40
+        "/CERN": 41,
+        "/HUG": 41,
+        "/SwissMedicalNetwork1": 443,
+        "/Talan": 41,
+        "/AudemarsPiguet": 41,
+        "/imad": 41,
+        "/SMGSwissMarketplaceGroup": 41,
+        "/Swissquote": 41,
+        "/EtablissementsPublicsPourLIntegration": 41,
+        "/Sobi": 41,
+        "/Ardentis1": 41,
+        "/StaubliGroup": 41,
+        "/Oetiker": 41,
+        "/KIABI": 41,
+        "/Hospicegeneral": 41
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.709Z",
@@ -4139,14 +4149,14 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "vaudoise.softgarden.io": 40,
-        "etavis.softgarden.io": 528,
+        "vaudoise.softgarden.io": 41,
+        "etavis.softgarden.io": 541,
         "vonrotz.softgarden.io": 6,
         "kind.softgarden.io": 1,
         "itskanal.softgarden.io": 1
       },
       "pathHits": {
-        "/job": 562
+        "/job": 576
       },
       "tenantCount": 3,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -4205,19 +4215,19 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "live.solique.ch": 2957
+        "live.solique.ch": 3037
       },
       "pathHits": {
-        "/adullam": 41,
-        "/ipw": 41,
-        "/ksw": 41,
-        "/ktzh": 41,
-        "/ottosag": 41,
-        "/planzer": 41,
-        "/rieter": 41,
-        "/spital-emmental": 41,
-        "/stiftung-gesundheitsversorgung-oberengadin": 41,
-        "/svar": 41
+        "/adullam": 42,
+        "/ipw": 42,
+        "/ksw": 42,
+        "/ktzh": 42,
+        "/ottosag": 42,
+        "/planzer": 42,
+        "/rieter": 42,
+        "/spital-emmental": 42,
+        "/stiftung-gesundheitsversorgung-oberengadin": 42,
+        "/svar": 42
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -4672,7 +4682,23 @@
         "xn--schulgemeinde-stfa-0tb",
         "werkschule-grundhof",
         "frauenberatung-sexuelle-gewalt",
-        "xn--kindes--und-erwachsenenschutzbehrde-krd"
+        "xn--kindes--und-erwachsenenschutzbehrde-krd",
+        "offene-jugendarbeit-region-rohrdorferberg",
+        "personalabteilung-stadt-baden",
+        "pro-senectute-aargau",
+        "gartenhof-fahrni",
+        "sozialdienst-region-jungfrau",
+        "sothegra-sozialtherapie-gmbh",
+        "wohnschule-dentenberg",
+        "sozialabteilung-herzogenbuchsee",
+        "glarnersteg",
+        "nellen-&-partner-ag",
+        "gemeinde-degersheim",
+        "xn--daheim-verein-fr-wohnen-und-gelebte-integration-r4e",
+        "xn--schweizerisches-rotes-kreuz-kanton-zrich-kge",
+        "reformierte-kirche-knonauer-amt",
+        "rietberg-montessori-schule",
+        "gemeinde-lindau,-abteilung-soziales"
       ],
       "markers": [],
       "hostSamples": [
@@ -4680,7 +4706,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "sozialinfo.ch": 4405
+        "sozialinfo.ch": 4555
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -4981,7 +5007,9 @@
         "etuna-friedberg",
         "xn--rbhof-gra",
         "stier-&-partner-gmbh",
-        "stiftung-solvita"
+        "stiftung-solvita",
+        "spitex-sempachersee-plus-ag",
+        "insos-sg-ai"
       ],
       "markers": [],
       "hostSamples": [
@@ -4989,7 +5017,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "sozjobs.ch": 2880
+        "sozjobs.ch": 2967
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -5088,7 +5116,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "sta.jobs": 210
+        "sta.jobs": 216
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -5138,13 +5166,13 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "career012.successfactors.eu": 63,
-        "career5.successfactors.eu": 92,
+        "career012.successfactors.eu": 65,
+        "career5.successfactors.eu": 96,
         "career2.successfactors.eu": 32,
         "performancemanager5.successfactors.eu": 13
       },
       "pathHits": {
-        "/career": 80
+        "/career": 82
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -5255,7 +5283,15 @@
         "albiez-de-tomasi-gmbh",
         "holzer-kobler-architekturen",
         "xn--drig-ag-n2a",
-        "mercuri-urval-ag"
+        "mercuri-urval-ag",
+        "xn--fanzun-ag-architekten--ingenieure--berater-h7bm",
+        "tropeano-architekten",
+        "konstantin-architektur-ag",
+        "unik-architektur-ag",
+        "codes-sa",
+        "graber-pulver-architekt",
+        "schaub-zwicky-architekt",
+        "xn--ladner-meier-architekten-zrich-kopenhagen-tje"
       ],
       "markers": [],
       "hostSamples": [
@@ -5263,12 +5299,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "swiss-architects.com": 779
+        "swiss-architects.com": 801
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:28:39.776Z",
-      "note": "apply-host cluster from SECO GR"
+      "note": "apply-host cluster from SECO ZH"
     },
     "swiss-solidarity.org": {
       "domain": "swiss-solidarity.org",
@@ -5347,14 +5383,14 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "victorinox-career.talent-soft.com": 40,
-        "aarreha-bewerber.talent-soft.com": 40,
-        "rehabbasel-career.talent-soft.com": 40,
-        "molecularpartners-career.talent-soft.com": 40
+        "victorinox-career.talent-soft.com": 41,
+        "aarreha-bewerber.talent-soft.com": 41,
+        "rehabbasel-career.talent-soft.com": 41,
+        "molecularpartners-career.talent-soft.com": 41
       },
       "pathHits": {
-        "/stelle": 120,
-        "/job": 40
+        "/stelle": 123,
+        "/job": 41
       },
       "tenantCount": 8,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -5397,12 +5433,12 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "ckw.teamtailor.com": 40,
-        "kernkraftwerkleibstadtag.teamtailor.com": 40,
-        "axposystemsag.teamtailor.com": 39
+        "ckw.teamtailor.com": 41,
+        "kernkraftwerkleibstadtag.teamtailor.com": 41,
+        "axposystemsag.teamtailor.com": 40
       },
       "pathHits": {
-        "/jobs": 119
+        "/jobs": 122
       },
       "tenantCount": 4,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -5577,51 +5613,51 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "recruitingapp-122706.umantis.com": 40,
-        "recruitingapp-12705.umantis.com": 40,
-        "recruitingapp-2316.umantis.com": 40,
-        "recruitingapp-2761.umantis.com": 42,
-        "recruitingapp-2904.umantis.com": 40,
-        "recruitingapp-2924.umantis.com": 40,
-        "recruitingapp-3030.umantis.com": 40,
-        "recruitingapp-2800.umantis.com": 103,
-        "recruitingapp-2850.umantis.com": 133,
-        "recruitingapp-2884.umantis.com": 40,
-        "recruitingapp-2908.umantis.com": 40,
-        "recruitingapp-3010.umantis.com": 40,
-        "recruitingapp-2607.umantis.com": 40,
-        "recruitingapp-2736.umantis.com": 53,
-        "recruitingapp-2939.umantis.com": 40,
-        "recruitingapp-2966.umantis.com": 40,
-        "recruitingapp-2998.umantis.com": 40,
-        "recruitingapp-2912.umantis.com": 40,
-        "recruitingapp-2979.umantis.com": 42,
-        "recruitingapp-1251.umantis.com": 40,
-        "recruitingapp-2997.umantis.com": 40,
-        "jsafrasarasin.umantis.com": 20,
-        "recruitingapp-2765.umantis.com": 99,
+        "recruitingapp-122706.umantis.com": 41,
+        "recruitingapp-12705.umantis.com": 41,
+        "recruitingapp-2316.umantis.com": 41,
+        "recruitingapp-2761.umantis.com": 43,
+        "recruitingapp-2904.umantis.com": 41,
+        "recruitingapp-2924.umantis.com": 41,
+        "recruitingapp-3030.umantis.com": 41,
+        "recruitingapp-2800.umantis.com": 106,
+        "recruitingapp-2850.umantis.com": 136,
+        "recruitingapp-2884.umantis.com": 41,
+        "recruitingapp-2908.umantis.com": 41,
+        "recruitingapp-3010.umantis.com": 41,
+        "recruitingapp-2607.umantis.com": 41,
+        "recruitingapp-2736.umantis.com": 55,
+        "recruitingapp-2939.umantis.com": 41,
+        "recruitingapp-2966.umantis.com": 41,
+        "recruitingapp-2998.umantis.com": 41,
+        "recruitingapp-2912.umantis.com": 41,
+        "recruitingapp-2979.umantis.com": 43,
+        "recruitingapp-1251.umantis.com": 41,
+        "recruitingapp-2997.umantis.com": 41,
+        "jsafrasarasin.umantis.com": 21,
+        "recruitingapp-2765.umantis.com": 101,
         "recruitingapp-2690.umantis.com": 40,
-        "recruitingapp-2717.umantis.com": 27,
-        "recruitingapp-3040.umantis.com": 23,
+        "recruitingapp-2717.umantis.com": 28,
+        "recruitingapp-3040.umantis.com": 24,
         "recruitingapp-2702.umantis.com": 4,
         "recruitingapp-662.umantis.com": 17,
-        "recruitingapp-2976.umantis.com": 20,
-        "recruitingapp-2876.umantis.com": 309,
+        "recruitingapp-2976.umantis.com": 21,
+        "recruitingapp-2876.umantis.com": 323,
         "recruitingapp-2970.umantis.com": 2,
         "recruitingapp-2781.umantis.com": 30,
         "recruitingapp-2910.umantis.com": 1,
         "recruitingapp-3017.umantis.com": 1,
         "recruitingapp-2618.umantis.com": 17,
-        "recruitingapp-3042.umantis.com": 24,
+        "recruitingapp-3042.umantis.com": 25,
         "recruitingapp-3027.umantis.com": 8,
-        "recruitingapp-2889.umantis.com": 18,
+        "recruitingapp-2889.umantis.com": 19,
         "recruitingapp-2769.umantis.com": 10,
         "recruitingapp-2797.umantis.com": 5,
         "recruitingapp-3018.umantis.com": 3,
-        "recruitingapp-5597.de.umantis.com": 8
+        "recruitingapp-5597.de.umantis.com": 9
       },
       "pathHits": {
-        "/Vacancies": 840
+        "/Vacancies": 861
       },
       "tenantCount": 108,
       "discoveredAt": "2026-08-21T09:05:27.709Z",
@@ -5630,8 +5666,8 @@
         "/Vacancies",
         "/Jobs"
       ],
-      "lastExpandedAt": "2026-09-20T09:41:24.490Z",
-      "expansionAttempts": 2
+      "lastExpandedAt": "2026-09-27T10:43:54.327Z",
+      "expansionAttempts": 3
     },
     "valens.ch": {
       "domain": "valens.ch",
@@ -5650,7 +5686,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.valens.ch": 58
+        "jobs.valens.ch": 61
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -5768,12 +5804,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "apply.workable.com": 120
+        "apply.workable.com": 123
       },
       "pathHits": {
-        "/guess-europe-sagl": 40,
-        "/sophia-genetics": 40,
-        "/debiopharm": 40
+        "/guess-europe-sagl": 41,
+        "/sophia-genetics": 41,
+        "/debiopharm": 41
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -5898,7 +5934,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "career.bellfoodgroup.com": 11
+        "career.bellfoodgroup.com": 13
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -5974,7 +6010,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "job-too.ch": 107
+        "job-too.ch": 120
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -6141,7 +6177,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "more-jobs.ch": 301
+        "more-jobs.ch": 346
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -6160,7 +6196,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "bm-emploi.ch": 5
+        "bm-emploi.ch": 6
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -6179,7 +6215,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "arbeitskraft.ch": 2
+        "arbeitskraft.ch": 3
       },
       "pathHits": {},
       "tenantCount": 0,
