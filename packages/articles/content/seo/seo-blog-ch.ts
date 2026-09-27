@@ -88433,6 +88433,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congedo-parentale-firme-riuscita': {
+    title: 'Congedo parentale: 136 mila firme raccolte in Svizzera',
+    description: 'Riuscita l\'iniziativa popolare sul congedo parentale in Svizzera con 136\'000 firme raccolte. 18 settimane per ciascun genitore. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, congedo, parentale, mila, firme',
+    ogTitle: 'Congedo parentale: raccolte 136\'000 firme per l\'iniziativa popolare',
+    ogDescription: 'Riuscita l\'iniziativa popolare per un congedo parentale in Svizzera. Raccolte 136\'000 firme, superata la soglia di 100\'000. Deposito previsto alla Cancelleria federale la prossima settimana.',
+    canonicalPath: '/articoli-svizzera/congedo-parentale-firme-riuscita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Congedo parentale: 136 mila firme raccolte in Svizzera",
+      "description": "Riuscita l'iniziativa popolare sul congedo parentale in Svizzera con 136'000 firme raccolte. 18 settimane per ciascun genitore. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/congedo-parentale-firme-riuscita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Raccolta firme per l'iniziativa popolare sul congedo parentale in Svizzera"
+      },
+      "datePublished": "2026-09-27T03:45:48+00:00",
+      "dateModified": "2026-09-27T03:45:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/congedo-parentale-firme-riuscita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -20491,6 +20491,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'congedo-parentale-firme-riuscita',
+    category: 'novita',
+    date: '2026-09-27T03:45:48.720Z',
+    image: '/images/blog/congedo-parentale-firme-riuscita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

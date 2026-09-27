@@ -6821,6 +6821,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-auto-elettriche-2026.title': 'Switzerland and electric cars: positions, charging and taxes',
     'blog.article.svizzera-auto-elettriche-2026.excerpt': 'In mid-2026, Switzerland ranks 16th in Europe for the electrification of cars. One quarter of new registrations are electric.',
     'blog.article.svizzera-auto-elettriche-2026.imageAlt': 'Electric car charging at a public station in Switzerland',
+    'blog.article.congedo-parentale-firme-riuscita.title': 'Parental leave: 136 thousand signatures collected in Switzerland',
+    'blog.article.congedo-parentale-firme-riuscita.excerpt': 'Popular initiative for parental leave successful with 136\'000 signatures. Submission planned at the Federal Chancellery.',
+    'blog.article.congedo-parentale-firme-riuscita.imageAlt': 'Signature collection for the parental leave popular initiative in Switzerland',
 };
 
 export default blogMetaChEn;
