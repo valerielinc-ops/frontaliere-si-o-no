@@ -9,6 +9,12 @@ const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler
 const ACTIVE_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/[^/]+\.json$/;
 const SWISS_RE_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/swiss-re\.json$/;
 const TERMINAL_COUNTRY_RE = /,\s*([A-Za-z]{2})\s*$/;
+// These are the only unqualified locations observed in the Swiss Re slice
+// written before #9858.  The old parser stamped its Swiss Re HQ metadata on
+// them even though the source did not prove a Swiss workplace.  Keep this
+// allowlist deliberately narrow: a generic unknown locality must still fail
+// closed at the accumulator guard.
+const SWISS_RE_LEGACY_HQ_FALLBACK_LOCATION_RE = /^(?:z(?:u|ü)rich|washington d)$/i;
 
 function normalizedPath(filePath) {
   return String(filePath ?? '').replace(/\\/g, '/');
@@ -71,6 +77,18 @@ function isExplicitForeignLocation(location) {
   return Boolean(codes?.length && codes.every((code) => code !== 'CH'));
 }
 
+function isLegacySwissReHqFallback(job) {
+  return (
+    String(job?.companyKey ?? '').trim() === 'swiss-re'
+    && normalizedJobField(job?.source) === 'swiss re dedicated parser'
+    && normalizedJobField(job?.addressCountry) === 'ch'
+    && normalizedJobField(job?.country) === 'ch'
+    && normalizedJobField(job?.canton) === 'zh'
+    && normalizedJobField(job?.addressRegion) === 'zh'
+    && SWISS_RE_LEGACY_HQ_FALLBACK_LOCATION_RE.test(normalizedJobField(job?.location))
+  );
+}
+
 export function isCrawlerSlicePath(filePath) {
   return JOB_SLICE_PATH_RE.test(normalizedPath(filePath));
 }
@@ -78,13 +96,12 @@ export function isCrawlerSlicePath(filePath) {
 /**
  * Recognise only the Swiss Re source-geography migration proved by issue
  * #9876: every retained record is explicitly Swiss, and every removed record
- * has an unambiguous non-CH terminal country code. Unknown, mixed, malformed,
- * or empty locations stay on the generic fail-closed path.
+ * is either explicitly non-CH or carries the exact legacy HQ-fallback marker
+ * observed before #9858. Unknown, mixed, malformed, or empty locations stay
+ * on the generic fail-closed path.
  */
-export function isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw) {
+export function isSafeSwissReForeignPruneJobs(filePath, previousJobs, nextJobs) {
   if (!SWISS_RE_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
-  const previousJobs = parseJobs(previousRaw);
-  const nextJobs = parseJobs(nextRaw);
   if (!previousJobs || !nextJobs || previousJobs.length <= nextJobs.length || nextJobs.length === 0) {
     return false;
   }
@@ -104,8 +121,12 @@ export function isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw) {
   }
   return removedJobs.every((job) => (
     String(job?.companyKey ?? '').trim() === 'swiss-re'
-    && isExplicitForeignLocation(job?.location)
+    && (isExplicitForeignLocation(job?.location) || isLegacySwissReHqFallback(job))
   ));
+}
+
+export function isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw) {
+  return isSafeSwissReForeignPruneJobs(filePath, parseJobs(previousRaw), parseJobs(nextRaw));
 }
 
 /**
