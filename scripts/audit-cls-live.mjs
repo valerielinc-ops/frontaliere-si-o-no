@@ -112,7 +112,7 @@ function saveBaseline(baseline) {
 }
 
 // Retry on transient PSI 5xx errors (Lighthouse-side flakes) and response
-// stream interruptions. Backoff: 2s/4s/8s.
+// stream interruptions. Backoff: 2s/4s/8s/16s (30s maximum wait).
 // PSI returns 500/502 surprisingly often under load; treating them as hard
 // failures fails the deploy gate even when Google is the problem, not us.
 // 4xx errors (bad URL, missing key, quota) are NOT retried with the same
@@ -120,7 +120,10 @@ function saveBaseline(baseline) {
 // retry loop cannot fix. A configured key rejected with 401/403 gets one
 // deliberate keyless fallback below, because PSI can still serve the request
 // without a key and the live gate must not confuse key configuration with CLS.
-const PSI_MAX_ATTEMPTS = 3;
+// A body can terminate repeatedly while PSI is under load. Three attempts
+// still produced one false live failure in consecutive deploys (#9978), so
+// keep the retry bounded but allow the provider a longer recovery window.
+const PSI_MAX_ATTEMPTS = 5;
 const PSI_RETRY_BASE_MS = 2000;
 
 function sleep(ms) {
@@ -198,7 +201,7 @@ export function compactShiftItems(audit, limit = 5) {
   }));
 }
 
-export async function runPsiRequest(url, strategy, apiKey = '', fetchImpl = fetch) {
+export async function runPsiRequest(url, strategy, apiKey = '', fetchImpl = fetch, sleepImpl = sleep) {
   const params = new URLSearchParams({ url, strategy, category: 'performance' });
   if (apiKey) params.set('key', apiKey);
   const endpoint = `${PSI_ENDPOINT}?${params.toString()}`;
@@ -212,7 +215,7 @@ export async function runPsiRequest(url, strategy, apiKey = '', fetchImpl = fetc
       // Network-layer failure (DNS, ECONNRESET, abort). Treat as transient.
       lastError = new Error(`PSI network error for ${url} (${strategy}): ${e.message || e}`);
       if (attempt < PSI_MAX_ATTEMPTS) {
-        await sleep(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
+        await sleepImpl(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
         continue;
       }
       throw lastError;
@@ -227,7 +230,7 @@ export async function runPsiRequest(url, strategy, apiKey = '', fetchImpl = fetc
     } catch (e) {
       lastError = new Error(`PSI network error for ${url} (${strategy}): ${e.message || e}`);
       if (attempt < PSI_MAX_ATTEMPTS) {
-        await sleep(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
+        await sleepImpl(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
         continue;
       }
       throw lastError;
@@ -246,7 +249,7 @@ export async function runPsiRequest(url, strategy, apiKey = '', fetchImpl = fetc
     if (!isTransient5xx || attempt >= PSI_MAX_ATTEMPTS) {
       throw lastError;
     }
-    await sleep(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
+    await sleepImpl(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
   }
   // Defensive — unreachable, the loop always either returns or throws.
   throw lastError || new Error(`PSI failed after ${PSI_MAX_ATTEMPTS} attempts for ${url} (${strategy})`);

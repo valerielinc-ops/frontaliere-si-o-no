@@ -29,6 +29,7 @@ import { parseDocument } from 'yaml';
 import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creator.mjs';
 import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 import { auditLoopFleetBindings } from './loop-fleet-registry-audit.mjs';
+import { lineAt } from './line-at.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -70,37 +71,15 @@ function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }
 
-const LINE_STARTS_CACHE = new Map();
-
-function lineStartsFor(source) {
-  const cached = LINE_STARTS_CACHE.get(source);
-  if (cached) return cached;
-
-  const starts = [0];
-  for (let index = source.indexOf('\n'); index >= 0; index = source.indexOf('\n', index + 1)) {
-    starts.push(index + 1);
-  }
-  // Tests also call the text auditor with many synthetic sources. Bound the
-  // cache so a long-lived audit process cannot retain an unbounded set of
-  // unrelated source strings.
-  if (LINE_STARTS_CACHE.size >= 512) LINE_STARTS_CACHE.clear();
-  LINE_STARTS_CACHE.set(source, starts);
-  return starts;
-}
-
 function lineFor(source, needle) {
   const index = typeof needle === 'string' ? source.indexOf(needle) : source.search(needle);
   if (index < 0) return 1;
 
-  const starts = lineStartsFor(source);
-  let low = 0;
-  let high = starts.length;
-  while (low < high) {
-    const middle = (low + high) >>> 1;
-    if (starts[middle] <= index) low = middle + 1;
-    else high = middle;
-  }
-  return low;
+  // Workflow files are generated in the hundreds of kilobytes and this helper
+  // is called once per step, including for steps that produce no finding. The
+  // shared helper indexes each source once and resolves matches with a binary
+  // search instead of rescanning the whole prefix for every call.
+  return lineAt(source, index);
 }
 
 function finding(file, rule, severity, message, line = 1, evidence = null) {
