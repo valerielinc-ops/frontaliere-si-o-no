@@ -225,4 +225,72 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
     expect(violations[0].file).toBe(jobStatsFile);
     writeSpy.mockRestore();
   });
+
+  it('ignores the proven Swiss Re foreign-listing prune', async () => {
+    const swissReFile = 'data/jobs/by-crawler/swiss-re.json';
+    const previous = JSON.stringify([
+      { url: 'https://jobs.swissre.com/bratislava', companyKey: 'swiss-re', location: 'Bratislava, SK' },
+      { url: 'https://jobs.swissre.com/mexico-city', companyKey: 'swiss-re', location: 'Mexico City, MX' },
+    ]);
+    const next = JSON.stringify([
+      { url: 'https://jobs.swissre.com/zurich', companyKey: 'swiss-re', location: 'Zurich, CH' },
+    ]);
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${swissReFile}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '2000000' : '100000';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? previous : next;
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    expect(JSON.parse(written)).toEqual([]);
+    writeSpy.mockRestore();
+  });
+
+  it('does not exempt an unsafe Swiss Re slice shrink', async () => {
+    const swissReFile = 'data/jobs/by-crawler/swiss-re.json';
+    const previous = JSON.stringify([
+      { url: 'https://jobs.swissre.com/zurich-1', companyKey: 'swiss-re', location: 'Zurich, CH' },
+      { url: 'https://jobs.swissre.com/zurich-2', companyKey: 'swiss-re', location: 'Zurich, CH' },
+    ]);
+    const next = JSON.stringify([
+      { url: 'https://jobs.swissre.com/zurich-1', companyKey: 'swiss-re', location: 'Zurich, CH' },
+    ]);
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${swissReFile}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '2000000' : '100000';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? previous : next;
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    const violations = JSON.parse(written);
+    expect(violations).toHaveLength(1);
+    expect(violations[0].file).toBe(swissReFile);
+    writeSpy.mockRestore();
+  });
 });
