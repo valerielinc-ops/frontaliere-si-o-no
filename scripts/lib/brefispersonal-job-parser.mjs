@@ -26,6 +26,19 @@ export const BREFISPERSONAL_COMPANY_DOMAIN = 'brefis.ch';
 const BREFISPERSONAL_LEGACY_DOMAIN = 'brefispersonal.ch';
 const CAREER_URL = 'https://brefis.ch/Vacancyboard/Detail/46980';
 
+// A free-text city is usable for this source only when the vacancy itself
+// labels it as a workplace.  Employer HQ/office prose is not a job location.
+const BREFIS_WORKPLACE_CONTEXT_RE = /(?:\b(?:arbeitsort|einsatzort|arbeitsplatz|t[aä]tigkeitsort|dienstort|lieu\s+de\s+travail|lieu\s+d['’]affectation|luogo\s+di\s+lavoro|sede\s+di\s+lavoro|posto\s+di\s+lavoro|localit[aà]\s+di\s+lavoro|work(?:place|ing\s+location)|based\s+(?:in|at)|location)\b\s*(?:(?:ist|is|[=:–—-])\s*)?|\b(?:einsatz|eins[aä]tze|t[aä]tigkeit|arbeiten|arbeit)\b\s+(?:in|am|bei)\s+|\b(?:im|in\s+der|aus\s+dem|in)\s+(?:raum|region|grossraum)\s+|\b(?:poste|posto|lavoro|travail)\b\s+(?:a|in|à)\s+)([^.;!?\n]{0,160})/giu;
+
+function rescueBrefisWorkplaceCity(descriptionText = '') {
+  if (!descriptionText) return '';
+  for (const match of descriptionText.matchAll(BREFIS_WORKPLACE_CONTEXT_RE)) {
+    const city = rescueSwissCityFromText(match[1] || '');
+    if (city) return city;
+  }
+  return '';
+}
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -139,17 +152,17 @@ export function resolveBrefispersonalGeography(listing, descriptionText = '') {
   const structuredCanton = inferSwissTargetCanton(addressRegion || listing?.location || '');
   const cantonOnlyLocality = Boolean(
     addressLocality
+    && structuredCanton
     && /^[A-Za-z]{2}$/.test(addressLocality)
     && inferSwissTargetCanton(addressLocality) === structuredCanton,
   );
-  const structuredListing = cantonOnlyLocality
-    ? { ...listing, addressLocality: '' }
-    : listing;
-  const structured = resolveSourceBackedSwissGeography(structuredListing);
+  const structured = cantonOnlyLocality
+    ? resolveSourceBackedSwissGeography({ ...listing, addressLocality: '' })
+    : resolveSourceBackedSwissGeography(listing);
   if (!cantonOnlyLocality) return structured;
 
-  const city = rescueSwissCityFromText(descriptionText);
-  if (city && (!structuredCanton || inferSwissTargetCanton(city) === structuredCanton)) {
+  const city = rescueBrefisWorkplaceCity(descriptionText);
+  if (city && inferSwissTargetCanton(city) === structuredCanton) {
     const fromDescription = resolveSourceBackedSwissGeography({
       location: city,
       addressLocality: city,
@@ -227,7 +240,7 @@ export async function fetchAllBrefispersonalJobs() {
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressLocality: normalizeSpace(geography.location || listing.addressLocality || location.split(/[,;/|]/)[0]),
       addressRegion: normalizeSpace(listing.addressRegion || canton),
       addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
       country: normalizeSpace(listing.addressCountry || 'CH'),
