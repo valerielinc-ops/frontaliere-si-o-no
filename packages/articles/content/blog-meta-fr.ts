@@ -12130,6 +12130,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dumenza-furti-serata-settembre.title': 'Dumence, trois cambriolages et un coup raté',
     'blog.article.dumenza-furti-serata-settembre.excerpt': 'Trois habitations cambriolées rue Santuario, rue Fiume et rue Dante. Rue XX Settembre, les voleurs ont pris la fuite après avoir entendu les propriétaires.',
     'blog.article.dumenza-furti-serata-settembre.imageAlt': 'Rue résidentielle d’un village près de la frontière entre le Tessin et l’Italie',
+    'blog.article.bollettino-frontaliere-2026-09-27.title': 'Bulletin du frontalier – 27 septembre 2026 : 3 544 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-09-27.excerpt': 'Les chiffres du jour, 27 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-27.imageAlt': 'Les chiffres du jour pour les frontaliers – 27 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-27.seoDescription': 'Bulletin du frontalier du 27 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-27.ogDescription': 'Les chiffres du 27 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
