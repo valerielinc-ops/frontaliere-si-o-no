@@ -26,9 +26,9 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
 
-import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, buildCanonicalBridgePage } from './constants';
+import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, buildCanonicalBridgePage, DRIVEBY_AD_SNIPPET } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
@@ -353,6 +353,8 @@ export function renderProfessionCityPage(opts: {
   };
   const prose = renderCantonSeoProse(proseOpts);
 
+  const professionCityInlineAd = `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`;
+
   // ── Stessa collisione di professionCantonLandings.ts, qui ancora LATENTE ──
   //
   // Il secondo candidato del `<title>` e' `BRIDGE_COPY[locale].title`, e per
@@ -383,8 +385,10 @@ export function renderProfessionCityPage(opts: {
   const main = `<div class="cl-fun">${breadcrumb}
 ${header}
 ${tiles}
+${DRIVEBY_AD_SNIPPET}
 ${employers}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cityDisplay))} →</a></p>
+${professionCityInlineAd}
 ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
 
   const breadcrumbLd = {
