@@ -83,18 +83,32 @@ function isGraceExhaustedLegacyLocation(job) {
   );
 }
 
+function isGraceRetainedLegacyLocation(job) {
+  const location = String(job?.location ?? '').trim();
+  const missStreak = Number(job?.crawlerMissStreak);
+  return Boolean(
+    location
+    && terminalCountryCodes(location) === null
+    && Number.isInteger(missStreak)
+    && missStreak > 0
+    && missStreak <= CRAWLER_GRACE_PERIOD_MAX_MISSES
+  );
+}
+
 export function isCrawlerSlicePath(filePath) {
   return JOB_SLICE_PATH_RE.test(normalizedPath(filePath));
 }
 
 /**
  * Recognise only the Swiss Re source-geography migration proved by issue
- * #9876: every retained record is explicitly Swiss, and every removed record
- * is either an unambiguous non-CH listing or an ambiguous legacy record that
- * has already exhausted the merge grace period. The latter is needed because
- * the pre-migration Zürich-HQ fallback emitted no terminal country code; the
- * merge retires those records only after repeated source misses. An ambiguous
- * record without an exhausted grace period stays fail-closed.
+ * #9876: every retained record is explicitly Swiss or an ambiguous legacy
+ * record still carrying a positive miss streak within the merge grace period,
+ * and every removed record is either an unambiguous non-CH listing or an
+ * ambiguous legacy record that has already exhausted that grace period. The
+ * latter is needed because the pre-migration Zürich-HQ fallback emitted no
+ * terminal country code; the merge retires those records only after repeated
+ * source misses. An ambiguous record without a valid grace streak stays
+ * fail-closed.
  */
 export function isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw) {
   if (!SWISS_RE_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
@@ -109,7 +123,7 @@ export function isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw) {
   if (!previousIds || !nextIds) return false;
 
   for (const job of nextJobs) {
-    if (!isExplicitSwissLocation(job?.location)) return false;
+    if (!isExplicitSwissLocation(job?.location) && !isGraceRetainedLegacyLocation(job)) return false;
     if (String(job?.companyKey ?? '').trim() !== 'swiss-re') return false;
   }
 

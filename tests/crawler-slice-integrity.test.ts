@@ -71,6 +71,29 @@ describe('crawler slice integrity guard', () => {
       .toBe('swiss-re-foreign-prune');
   });
 
+  it('allows a mixed-streak Swiss Re prune while retaining the survivor in grace', () => {
+    const previous = json([
+      swissReJob('https://jobs.swissre.com/zurich', 'Zürich, CH', 'x'.repeat(100_000)),
+      {
+        ...swissReJob('https://jobs.swissre.com/legacy-drop', 'Zürich-HQ', 'x'.repeat(700_000)),
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
+      },
+      {
+        ...swissReJob('https://jobs.swissre.com/legacy-keep', 'Zürich-HQ', 'x'.repeat(700_000)),
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES - 1,
+      },
+    ]);
+    const next = json([
+      swissReJob('https://jobs.swissre.com/zurich', 'Zürich, CH', 'x'.repeat(100_000)),
+      {
+        ...swissReJob('https://jobs.swissre.com/legacy-keep', 'Zürich-HQ', 'x'.repeat(700_000)),
+        crawlerMissStreak: CRAWLER_GRACE_PERIOD_MAX_MISSES,
+      },
+    ]);
+
+    expect(isSafeSwissReForeignPrune('data/jobs/by-crawler/swiss-re.json', previous, next)).toBe(true);
+  });
+
   it('does not waive the guard for an explicit Swiss record even after grace', () => {
     const previous = json([
       {
