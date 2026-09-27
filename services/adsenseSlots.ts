@@ -101,6 +101,17 @@ export const AD_SLOTS = {
  fullWidthResponsive: true,
  placeholderMinHeight: 336,
  },
+ /** Event listing: one responsive in-feed display unit after the first
+  * value block. Reuses JOBLIST_INFEED_DESKTOP until the owner creates a
+  * dedicated `FT_EVENTS_INFEED_DISPLAY` unit in the AdSense console; keeping
+  * a named registry key still lets the page template and future reporting
+  * change independently from job-list code. */
+ EVENTS_LIST_INFEED: {
+ slot: '8164676143',
+ format: 'auto',
+ fullWidthResponsive: true,
+ placeholderMinHeight: 336,
+ },
  /** Job listing: mobile in-feed (responsive DISPLAY).
   *  Switched 2026-06-25 from the FEED native unit (6979586981, ~45% fill, RPM
   *  €0.11) to a responsive DISPLAY unit for the same fill/RPM reason as

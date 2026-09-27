@@ -47,7 +47,7 @@ import { WriteCollector } from './batchWrite';
 import { shouldEmitLocale, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
 import { BASE_URL, BUILD_DATE_STAMP, buildCanonicalBridgePage, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { adSlotHtml, endOfContentMultiplexHtml, eventsInfeedAdGridBlockHtml } from './lib/adSlotHtml';
 import { truncateHeadline, TITLE_MAX_CHARS, composePlaceTitle } from './shared/titleSuffix';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -214,6 +214,15 @@ const PAST_EVENT_NOTICE: Record<Locale, string> = {
   en: 'This event has already taken place — the details below are kept for reference only.',
   de: 'Diese Veranstaltung hat bereits stattgefunden — die Angaben dienen nur noch zur Information.',
   fr: 'Cet événement a déjà eu lieu — les informations ci-dessous ne sont conservées qu\'à titre de référence.',
+};
+
+const EVENT_LIST_INFEED_AFTER = 12;
+const EVENT_LIST_INFEED_MARKER = '<!-- EVENTS_LIST_INFEED -->';
+const EVENT_AD_LABEL: Record<Locale, string> = {
+  it: 'Pubblicità',
+  en: 'Advertisement',
+  de: 'Werbung',
+  fr: 'Publicité',
 };
 
 // Inbound crosslinks the issue asks for: tie event pages into the existing
@@ -1483,13 +1492,27 @@ function eventListItemLd(event: SiteEvent, locale: Locale, position: number, det
   };
 }
 
-function renderEventList(events: SiteEvent[], locale: Locale, detailHref?: DetailHref): string {
+function renderEventList(
+  events: SiteEvent[],
+  locale: Locale,
+  detailHref?: DetailHref,
+  opts?: { infeedAd?: boolean },
+): string {
   if (events.length === 0) {
     return `<p class="rounded-md border border-edge bg-surface p-4 text-sm text-body">${esc(COPY[locale].noEventsSoon)}</p>`;
   }
-  return `<div class="ev-grid">${events
-    .map((e) => renderEventCard(e, locale, detailHref ? detailHref(e) : null))
-    .join('')}</div>`;
+  const cards = events.map((e) => renderEventCard(e, locale, detailHref ? detailHref(e) : null));
+  if (opts?.infeedAd && cards.length > EVENT_LIST_INFEED_AFTER) {
+    cards.splice(EVENT_LIST_INFEED_AFTER, 0, EVENT_LIST_INFEED_MARKER);
+  }
+  return `<div class="ev-grid">${cards.join('')}</div>`;
+}
+
+function injectEventListingAd(body: string, locale: Locale, indexable: boolean): string {
+  return body.replace(
+    EVENT_LIST_INFEED_MARKER,
+    indexable ? eventsInfeedAdGridBlockHtml(EVENT_AD_LABEL[locale]) : '',
+  );
 }
 
 /**
@@ -1757,6 +1780,62 @@ function renderCrosslinks(locale: Locale): string {
   </section>`;
 }
 
+const EVENTS_JOURNEY_COPY: Record<
+  Locale,
+  { title: string; lede: string; national: string; weekend: string; week: string }
+> = {
+  it: {
+    title: 'Esplora l’agenda eventi',
+    lede: 'Dall’agenda generale agli eventi del cantone, con selezioni aggiornate per questa settimana e per il weekend.',
+    national: 'Tutti gli eventi in Svizzera',
+    weekend: 'Eventi questo weekend',
+    week: 'Eventi questa settimana',
+  },
+  en: {
+    title: 'Explore the events agenda',
+    lede: 'Move from the national agenda to your canton, then browse the latest weekly and weekend selections.',
+    national: 'All events in Switzerland',
+    weekend: 'Events this weekend',
+    week: 'Events this week',
+  },
+  de: {
+    title: 'Veranstaltungsagenda entdecken',
+    lede: 'Von der Schweizer Agenda zu deinem Kanton und den aktuellen Übersichten für diese Woche und das Wochenende.',
+    national: 'Alle Veranstaltungen in der Schweiz',
+    weekend: 'Veranstaltungen dieses Wochenende',
+    week: 'Veranstaltungen diese Woche',
+  },
+  fr: {
+    title: 'Explorer l’agenda des événements',
+    lede: 'De l’agenda suisse à votre canton, puis vers les sélections de la semaine et du week-end.',
+    national: 'Tous les événements en Suisse',
+    weekend: 'Événements ce week-end',
+    week: 'Événements cette semaine',
+  },
+};
+
+/** Purposeful, localized links between the high-volume detail pages and the
+ * lower-volume hubs/digests. `currentPath` prevents self-links while keeping
+ * the same compact navigation block reusable on every event template. */
+function renderEventsJourney(locale: Locale, canton: string, currentPath: string): string {
+  const copy = EVENTS_JOURNEY_COPY[locale];
+  const links: Array<{ href: string; label: string }> = [];
+  const add = (href: string, label: string) => {
+    if (href !== currentPath) links.push({ href, label });
+  };
+
+  add(nationalIndexPath(locale), copy.national);
+  add(pathFor(locale, canton), copyFor(canton, locale).hubLabel);
+  add(pathForDigest(locale, canton, EVENTS_DIGEST_SLUGS.weekend), copy.weekend);
+  add(pathForDigest(locale, canton, EVENTS_DIGEST_SLUGS.week), copy.week);
+
+  return `<section class="ev-panel" data-events-navigation="1">
+    <h2 class="ev-h2">${esc(copy.title)}</h2>
+    <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(copy.lede)}</p>
+    <div class="ev-xgrid">${links.map((link) => `<a class="ev-xlink" href="${esc(link.href)}">${esc(link.label)}</a>`).join('')}</div>
+  </section>`;
+}
+
 function renderFaq(items: Array<{ q: string; a: string }>, title: string): string {
   return `<section class="ev-panel">
     <h2 class="ev-h2">${esc(title)}</h2>
@@ -1982,7 +2061,7 @@ export function renderHubPage(params: {
   // below so the two never drift.
   const dynamicFaq = dynamicFaqPair(locale, events, dateStamp, copy.faqHubDynamicQ, copy.faqHubDynamicAHasEvents, copy.faqHubDynamicAEmpty);
 
-  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8" data-events-page="events_hub" data-events-path="${esc(canonicalPath)}" data-events-lifecycle="active">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -2011,7 +2090,7 @@ export function renderHubPage(params: {
 
     <section class="mt-8 ev-featured">
       <h2 class="font-display text-2xl font-bold text-heading">${esc(copy.upcoming)}</h2>
-      <div class="mt-4">${renderEventList(upcoming, locale, detailHref)}</div>
+      <div class="mt-4">${renderEventList(upcoming, locale, detailHref, { infeedAd: true })}</div>
     </section>
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
@@ -2066,14 +2145,15 @@ export function renderHubPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
+  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.hubTitle,
     description: copy.hubDesc,
     canonicalUrl,
     hreflangHtml: buildAlternates(canton),
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
@@ -2126,7 +2206,7 @@ export function renderEventsIndexPage(params: {
     )
     .join('');
 
-  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8" data-events-page="events_index" data-events-path="${esc(canonicalPath)}" data-events-lifecycle="active">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -2149,7 +2229,7 @@ export function renderEventsIndexPage(params: {
 
     <section class="mt-8 ev-featured">
       <h2 class="font-display text-2xl font-bold text-heading">${esc(copy.upcoming)}</h2>
-      <div class="mt-4">${renderEventList(upcoming, locale, detailHref)}</div>
+      <div class="mt-4">${renderEventList(upcoming, locale, detailHref, { infeedAd: true })}</div>
     </section>
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
@@ -2196,14 +2276,15 @@ export function renderEventsIndexPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
+  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.metaTitle,
     description: copy.metaDesc,
     canonicalUrl,
     hreflangHtml: buildNationalAlternates(),
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
@@ -2237,7 +2318,7 @@ export function renderComunePage(params: {
   // so weekCount/next stay accurate even on comuni with >40 upcoming events.
   const dynamicFaq = dynamicFaqPair(locale, events, dateStamp, copy.faqComuneDynamicQ(comune), (weekCount, title, date) => copy.faqComuneDynamicAHasEvents(comune, weekCount, title, date), copy.faqComuneDynamicAEmpty(comune));
 
-  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8" data-events-page="events_comune" data-events-path="${esc(canonicalPath)}" data-events-lifecycle="active">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -2255,6 +2336,8 @@ export function renderComunePage(params: {
       <p class="relative mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
 
+    ${renderEventsJourney(locale, canton, canonicalPath)}
+
     <dl class="mt-5 grid gap-3 sm:grid-cols-3">
       ${renderMetric(copy.statEvents, String(events.length))}
       ${renderMetric(copy.statWeekend, String(weekendCount))}
@@ -2263,7 +2346,7 @@ export function renderComunePage(params: {
 
     <section class="mt-8 ev-featured">
       <h2 class="font-display text-2xl font-bold text-heading">${esc(copy.eventsIn(comune))}</h2>
-      <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
+      <div class="mt-4">${renderEventList(list, locale, detailHref, { infeedAd: true })}</div>
     </section>
 
     ${renderOverflowIndex(events, EVENT_CARD_CAP, locale, detailHref, { canton, comune })}
@@ -2317,14 +2400,15 @@ export function renderComunePage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
+  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.comuneTitle(comune),
     description: copy.comuneDesc(comune),
     canonicalUrl,
     hreflangHtml: buildAlternates(canton, comune),
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
@@ -2497,7 +2581,7 @@ export function renderOtherEventsPage(params: {
   const list = visibleEventsWithMarkupPriority(events, dateStamp, OTHER_EVENTS_CARD_CAP);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
 
-  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8" data-events-page="events_other" data-events-path="${esc(canonicalPath)}" data-events-lifecycle="active">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -2515,6 +2599,8 @@ export function renderOtherEventsPage(params: {
       <p class="relative mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
 
+    ${renderEventsJourney(locale, canton, canonicalPath)}
+
     <dl class="mt-5 grid gap-3 sm:grid-cols-3">
       ${renderMetric(copy.statEvents, String(events.length))}
       ${renderMetric(copy.statWeekend, String(weekendCount))}
@@ -2523,7 +2609,7 @@ export function renderOtherEventsPage(params: {
 
     <section class="mt-8 ev-featured">
       <h2 class="font-display text-2xl font-bold text-heading">${esc(oeCopy.h1)}</h2>
-      <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
+      <div class="mt-4">${renderEventList(list, locale, detailHref, { infeedAd: true })}</div>
     </section>
 
     ${renderOverflowIndex(events, OTHER_EVENTS_CARD_CAP, locale, detailHref, { canton, comune: OTHER_EVENTS_COMUNE_KEY })}
@@ -2575,14 +2661,15 @@ export function renderOtherEventsPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
+  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
   const html = buildSeoPageHtml({
     locale,
     title: oeCopy.metaTitle,
     description: oeCopy.metaDesc,
     canonicalUrl,
     hreflangHtml: buildAlternates(canton, OTHER_EVENTS_COMUNE_KEY),
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
@@ -2654,7 +2741,7 @@ export function renderOverflowLadderPage(params: {
   const ladderTitle = oCopy.ladderTitle(label, page, pageCount);
   const ladderH1 = differentiateH1FromTitle(ladderTitle, ladderTitle, locale);
 
-  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8" data-events-page="events_overflow" data-events-path="${esc(canonicalPath)}" data-events-lifecycle="overflow">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -2672,6 +2759,8 @@ export function renderOverflowLadderPage(params: {
       <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(oCopy.ladderLede(label, rowCount))}</p>
       <p class="mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
+
+    ${renderEventsJourney(locale, canton, canonicalPath)}
 
     ${renderOverflowIndex(events, cap, locale, detailHref, { canton, comune, page })}
 
@@ -2860,7 +2949,7 @@ function eventDetailMetaTitle(rawTitle: string, suffixes: readonly string[]): st
 const DETAIL_TITLE_SUFFIXES: Record<Locale, (comune: string) => string[]> = {
   it: (c) => [` — ${c} (Ticino) | Eventi`, ` — ${c} | Eventi`, ` — ${c}`],
   en: (c) => [` — ${c} (Ticino) | Events`, ` — ${c} | Events`, ` — ${c}`],
-  de: (c) => [` — ${c} (Tessin) | Veranstaltungen`, ` — ${c} | Veranstaltungen`, ` — ${c}`],
+  de: (c) => [` — ${c} (Tessin) | Veranstaltung`, ` — ${c} | Veranstaltung`, ` — ${c}`],
   fr: (c) => [` — ${c} (Tessin) | Événements`, ` — ${c} | Événements`, ` — ${c}`],
 };
 
@@ -2925,7 +3014,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
   },
   de: {
     metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.de(c)),
-    metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Datum, Uhrzeit, Ort und Link zur offiziellen Website der Veranstaltung.`,
+    metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Offizielle Infos zu Datum, Uhrzeit und Veranstaltungsort.`,
     whenLabel: 'Wann',
     whereLabel: 'Wo',
     catLabel: 'Kategorie',
@@ -3150,7 +3239,7 @@ export function renderEventDetailPage(params: {
   const heroImage = renderEventHero(event, title, cat, when, displayComune);
   const inlineAdMarker = '<!-- EVENT_INLINE_AD -->';
 
-  const body = `${EVENTS_STYLE_BLOCK}<div class="ev-wrap3">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="ev-wrap3" data-events-page="event_detail" data-events-path="${esc(canonicalPath)}" data-events-lifecycle="${isPast ? 'past' : 'active'}">
     <nav class="ev-crumb" aria-label="Breadcrumb">
       <a class="ev-lnk" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -3176,6 +3265,8 @@ export function renderEventDetailPage(params: {
     </header>
 
     ${isPast ? `<p class="ev-past">${esc(PAST_EVENT_NOTICE[locale])}</p>` : ''}
+
+    ${renderEventsJourney(locale, canton, canonicalPath)}
 
     <dl class="ev-dl">
       ${renderMetric(dc.whenLabel, `${esc(when)}${time}`)}
@@ -3427,7 +3518,7 @@ export function renderDigestPage(params: {
     )
     .join('');
 
-  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8" data-events-page="events_digest" data-events-path="${esc(canonicalPath)}" data-events-lifecycle="active">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -3444,6 +3535,8 @@ export function renderDigestPage(params: {
       <p class="mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
 
+    ${renderEventsJourney(locale, canton, canonicalPath)}
+
     <dl class="mt-5 grid gap-3 sm:grid-cols-3">
       ${renderMetric(copy.statEvents, String(events.length))}
       ${renderMetric(copy.statComuni, String(byComune.size))}
@@ -3452,7 +3545,7 @@ export function renderDigestPage(params: {
 
     <section class="mt-8 ev-featured">
       <h2 class="font-display text-2xl font-bold text-heading">${esc(dc.h1)}</h2>
-      <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
+      <div class="mt-4">${renderEventList(list, locale, detailHref, { infeedAd: true })}</div>
     </section>
 
     ${
@@ -3499,7 +3592,8 @@ export function renderDigestPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const indexable = events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS;
+  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
   const html = buildSeoPageHtml({
     locale,
     title: dc.title,
@@ -3510,7 +3604,7 @@ export function renderDigestPage(params: {
     // chrome (lede + methodology + FAQ) alone always clears MIN_INDEXABLE_WORDS,
     // so an EMPTY window must be gated on events.length, not the body word count
     // (else a "no events this weekend" page gets indexed + sitemapped).
-    robots: events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
