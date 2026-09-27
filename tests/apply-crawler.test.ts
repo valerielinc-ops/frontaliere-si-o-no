@@ -6,12 +6,20 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/apply-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('LEITpuls AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(APPLY_KEY).toBe('apply');
     expect(APPLY_COMPANY_NAME).toBe('LEITpuls AG');
+  });
+
+  it('keeps the shared runtime spec bound to the LEITpuls tenant', () => {
+    const spec = loadSpec(APPLY_KEY);
+    expect(spec.companyName).toBe(APPLY_COMPANY_NAME);
+    expect(spec.seedUrls).toContain('https://apply.refline.ch/968123/1468/pub/de/index.html');
+    expect(spec.detailTemplate).toBe('/968123/1468/pub/de/index.html');
   });
 
   // ── isCompanyJob ──

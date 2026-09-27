@@ -1279,6 +1279,30 @@ describe('crawler synthesis', () => {
     expect(crawlerKeyFor({ tenantHost: 'cippatrasporti.altamiraweb.com' })).toBe('cippatrasporti');
   });
 
+  it('uses the employer name for generic hosted-ATS tenant labels', () => {
+    expect(crawlerKeyFor({ tenantHost: 'apply.refline.ch', name: 'BSZ Stiftung' }))
+      .toBe('bsz-stiftung');
+    expect(crawlerKeyFor({ tenantHost: 'careers.accor.com', name: 'Ibis Budget' }))
+      .toBe('ibis-budget');
+  });
+
+  it('uses the validated employer domain when a generic tenant has no usable name', () => {
+    const keys = ['', '   ', undefined, '!!!'].map((name) => crawlerKeyFor({
+      tenantHost: 'apply.refline.ch',
+      domain: 'leitpuls.example',
+      name,
+    }));
+    expect(keys).toEqual(['leitpuls-example', 'leitpuls-example', 'leitpuls-example', 'leitpuls-example']);
+  });
+
+  it('keeps the registrable-domain suffix in generic fallback keys', () => {
+    const acmeCh = crawlerKeyFor({ tenantHost: 'apply.refline.ch', domain: 'acme.ch' });
+    const acmeCom = crawlerKeyFor({ tenantHost: 'apply.refline.ch', domain: 'acme.com' });
+    expect(acmeCh).toBe('acme-ch');
+    expect(acmeCom).toBe('acme-com');
+    expect(acmeCh).not.toBe(acmeCom);
+  });
+
   it('finds the template shared by a listing', () => {
     expect(commonUrlTemplate([
       'https://x.example/annunci-lavoro/A-1.htm',
