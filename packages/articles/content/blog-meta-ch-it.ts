@@ -6842,6 +6842,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iniziativa-neutralita-respinta.title': 'Iniziativa sulla neutralità respinta dal 71%',
     'blog.article.iniziativa-neutralita-respinta.excerpt': 'La proiezione nazionale indica un netto no al 71% per l\'Iniziativa sulla neutralità. In Ticino il no si attesta al 51,2% dopo 86 comuni.',
     'blog.article.iniziativa-neutralita-respinta.imageAlt': 'Urne e votazioni federali in Svizzera sulla neutralità',
+    'blog.article.iniziativa-alimentazione-respinta.title': 'Iniziativa alimentazione: nettamente respinta da Cantoni',
+    'blog.article.iniziativa-alimentazione-respinta.excerpt': 'L\'Iniziativa sull\'alimentazione è stata nettamente respinta dai Cantoni svizzeri. In Ticino i contrari hanno raggiunto il 68,66%.',
+    'blog.article.iniziativa-alimentazione-respinta.imageAlt': 'Campagna agricola svizzera con campi coltivati e montagne sullo sfondo',
+    'blog.article.vaud-voto-taglio-fiscale.title': 'Vaud: sì al taglio del 12% delle imposte',
+    'blog.article.vaud-voto-taglio-fiscale.excerpt': 'Il 53,1% dei votanti nel canton Vaud approva un taglio del 12% alle imposte su reddito e sostanza; partecipazione al 50,0%.',
+    'blog.article.vaud-voto-taglio-fiscale.imageAlt': 'Edificio istituzionale nel canton Vaud per la votazione sulla riduzione delle imposte',
 };
 
 export default blogMetaChIt;

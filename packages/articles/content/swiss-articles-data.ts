@@ -20554,6 +20554,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'iniziativa-alimentazione-respinta',
+    category: 'novita',
+    date: '2026-09-27T12:30:19.773Z',
+    image: '/images/blog/iniziativa-alimentazione-respinta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'vaud-voto-taglio-fiscale',
+    category: 'fiscale',
+    date: '2026-09-27T13:05:48.387Z',
+    image: '/images/blog/vaud-voto-taglio-fiscale.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

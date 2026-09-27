@@ -12141,6 +12141,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.luvinate-scuola-sicurezza.title': 'Luvinate, offene Schule zwischen Sicherheit und Prävention',
     'blog.article.luvinate-scuola-sicurezza.excerpt': 'An der Grundschule Pedotti in Luvinate: Begrüßungsfest mit der Kriminalpolizei, dem Roten Kreuz, Cybermobbing, Englisch und Erster Hilfe für die Kinder im Klassenzimmer.',
     'blog.article.luvinate-scuola-sicurezza.imageAlt': 'Grundschulkinder bei Workshops zu Sicherheit und Prävention',
+    'blog.article.bellinzona-voto-castelli.title': 'Bellinzona lehnt das Projekt «Festung» ab',
+    'blog.article.bellinzona-voto-castelli.excerpt': '54% der Stimmberechtigten haben den 19,1-Millionen-Plan zur Aufwertung und Modernisierung der UNESCO-Stätte der Burgen von Bellinzona abgelehnt; die Beteiligung lag bei 47,5%.',
+    'blog.article.bellinzona-voto-castelli.imageAlt': 'Die Burgen von Bellinzona im Zentrum der Abstimmung zum Festungsprojekt',
 };
 
 export default blogMetaDe;
