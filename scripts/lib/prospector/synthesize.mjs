@@ -90,6 +90,40 @@ const GENERIC_TENANT_LABELS = new Set([
 ]);
 
 /**
+ * Turn a candidate-provided identity into the key form used by crawler files.
+ * Keeping the normalization in one place matters here: whitespace and names
+ * made only of punctuation must be rejected before the generic ATS fallback is
+ * selected, rather than becoming an empty key after the choice was made.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+function crawlerKeyToken(value) {
+  return String(value ?? '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 48);
+}
+
+/**
+ * The employer-owned domain is the safe identity fallback when an ATS tenant
+ * has no usable employer name. `registrableDomain` strips a vendor subdomain
+ * and the first label is the validated employer token used by the key contract.
+ *
+ * @param {unknown} domain
+ * @returns {string}
+ */
+function employerDomainToken(domain) {
+  const normalized = registrableDomain(normalizeHost(String(domain ?? '')));
+  const token = normalized.split('.')[0] || '';
+  if (!/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(token)) return '';
+  return crawlerKeyToken(token);
+}
+
+/**
  * A crawler key that is stable, filesystem-safe and unique enough to sit
  * alongside the 580-odd existing crawler keys.
  *
@@ -104,14 +138,16 @@ export function crawlerKeyFor(candidate) {
   // — che la pagina del tenant ci ha gia' dato — e' l'unica cosa leggibile.
   const opaqueLabel = /^[a-z]*[-_]?\d{2,}$/i.test(fromHost) || /^\d/.test(fromHost);
   const genericLabel = GENERIC_TENANT_LABELS.has(fromHost.toLowerCase());
-  const preferred = (opaqueLabel || genericLabel) && candidate.name ? candidate.name : fromHost;
-  const base = preferred || candidate.domain?.split('.')[0] || candidate.name || 'unknown';
-  return String(base)
-    .toLowerCase()
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '')
-    .slice(0, 48);
+  const nameKey = crawlerKeyToken(candidate.name);
+  const domainKey = employerDomainToken(candidate.domain);
+  const hasEmployerName = Boolean(nameKey
+    && nameKey !== fromHost.toLowerCase()
+    && !GENERIC_TENANT_LABELS.has(nameKey));
+  const preferred = opaqueLabel || genericLabel
+    ? (hasEmployerName ? nameKey : domainKey)
+    : crawlerKeyToken(fromHost);
+  const base = preferred || (!opaqueLabel && !genericLabel ? domainKey || nameKey : '') || 'unknown';
+  return crawlerKeyToken(base);
 }
 
 /**

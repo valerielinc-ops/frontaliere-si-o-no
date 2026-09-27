@@ -1286,6 +1286,15 @@ describe('crawler synthesis', () => {
       .toBe('ibis-budget');
   });
 
+  it('uses the validated employer domain when a generic tenant has no usable name', () => {
+    const keys = ['', '   ', undefined, '!!!'].map((name) => crawlerKeyFor({
+      tenantHost: 'apply.refline.ch',
+      domain: 'leitpuls.example',
+      name,
+    }));
+    expect(keys).toEqual(['leitpuls', 'leitpuls', 'leitpuls', 'leitpuls']);
+  });
+
   it('finds the template shared by a listing', () => {
     expect(commonUrlTemplate([
       'https://x.example/annunci-lavoro/A-1.htm',
