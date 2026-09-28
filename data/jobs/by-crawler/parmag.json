@@ -1,6 +1,6 @@
 {
   "crawlerKey": "parmag",
-  "assembledAt": "2026-09-27T14:48:49.796Z",
+  "assembledAt": "2026-09-28T04:53:47.323Z",
   "jobs": [
     {
       "id": "parmag-da6a774782e1",
@@ -33,7 +33,7 @@
       "url": "https://parmag.ch/stellen/303?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.949Z",
+      "crawledAt": "2026-09-28T04:53:42.363Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://parmag.ch/stellen/311?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.948Z",
+      "crawledAt": "2026-09-28T04:53:42.362Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://parmag.ch/stellen/317?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.947Z",
+      "crawledAt": "2026-09-28T04:53:42.361Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -222,8 +222,8 @@
           "senior-consulente-sap-fi-co-m-w-d-ref-1242-parmag-ag-bern-oder-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.679Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:53:57.679Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -234,90 +234,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "parmag-d2899436b83e",
-      "slug": "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich",
-      "slugByLocale": {
-        "it": "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich",
-        "en": "azure-cloud-engineer-m-w-d-ref-1251-parmag-ag-zurich",
-        "de": "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
-        "fr": "azure-cloud-ingenieur-m-w-d-ref-1251-parmag-ag-zurich"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "Azure Cloud Engineer (m/w/d), Ref. 1251",
-      "titleByLocale": {
-        "it": "Azure Cloud Ingegnere (m/w/d), Ref. 1251",
-        "en": "Azure Cloud Engineer (m/w/d), Ref. 1251",
-        "de": "Azure Cloud Ingenieur (m/w/d), Ref. 1251",
-        "fr": "Azure Cloud Ingénieur (m/w/d), Ref. 1251"
-      },
-      "description": "Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden Ihre Herausforderung: Sie sind bei der Implementierung und Ausarbeitung von Cloud-Lösungsarchitekturen beteiligt. Dabei beraten Sie die Kunden in Projekten beim Einsatz von Cloud-Technologien. Sie unterstützen die Kunden bei der Analyse, Konzeption und Umsetzung und hinterfragen den Status quo. Weiter bringen Sie Verbesserungsvorschläge für die heute bestehenden Cloud-Umgebungen ein und geben Ihr Knowhow gerne den Kunden weiter. Ihre Kompetenz: Nach Ihrem (Fach-) Hochschulabschluss in der Informatik konnten Sie schon Erfahrung im genannten Bereich sammeln. Sie kennen sich bestens aus mit Microsoft Cloud Adoption Framework für Azure und sind sicher im Umgang mit Terraform. Weiter sind Sie erfahren im Aufbau von Azure DevOps Pipelines und Hub-/Spoke-Architekturen auf Azure. Auch konnten Sie bereits erste Erfahrungen mit Cloud-Architekturen sammeln. Unser Angebot: Es erwartet Sie eine abwechslungsreiche Tätigkeit in einem Umfeld, bei welchem Sie Ihre Erfahrungen in Azure einbringen und weiterentwickeln können. Ein junges und aufgestelltes Team an einem modernen Arbeitsplatz freut sich auf Sie. Ist Ihr Interesse geweckt? Ich freue mich sehr über Ihre Bewerbung. Senden Sie mir Ihre Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch @parmag.ch.",
-      "descriptionByLocale": {
-        "it": "Cloud e Kubernets ti ispirano allo stesso modo? Allora abbiamo qui la posizione ottimale per voi Il nostro cliente è specializzato per progetti di digitalizzazione IT con i vostri clienti",
-        "en": "Does Cloud and Kubernets inspire you equally? Then we have here the optimal position for you Our customer is specialized for IT digitization projects with your customers",
-        "de": "Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden Ihre Herausforderung: Sie sind bei der Implementierung und Ausarbeitung von Cloud-Lösungsarchitekturen beteiligt. Dabei beraten Sie die Kunden in Projekten beim Einsatz von Cloud-Technologien. Sie unterstützen die Kunden bei der Analyse, Konzeption und Umsetzung und hinterfragen den Status quo. Weiter bringen Sie Verbesserungsvorschläge für die heute bestehenden Cloud-Umgebungen ein und geben Ihr Knowhow gerne den Kunden weiter. Ihre Kompetenz: Nach Ihrem (Fach-) Hochschulabschluss in der Informatik konnten Sie schon Erfahrung im genannten Bereich sammeln. Sie kennen sich bestens aus mit Microsoft Cloud Adoption Framework für Azure und sind sicher im Umgang mit Terraform. Weiter sind Sie erfahren im Aufbau von Azure DevOps Pipelines und Hub-/Spoke-Architekturen auf Azure. Auch konnten Sie bereits erste Erfahrungen mit Cloud-Architekturen sammeln. Unser Angebot: Es erwartet Sie eine abwechslungsreiche Tätigkeit in einem Umfeld, bei welchem Sie Ihre Erfahrungen in Azure einbringen und weiterentwickeln können. Ein junges und aufgestelltes Team an einem modernen Arbeitsplatz freut sich auf Sie. Ist Ihr Interesse geweckt? Ich freue mich sehr über Ihre Bewerbung. Senden Sie mir Ihre Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch @parmag.ch.",
-        "fr": "Nuage et Kubernets vous inspirent-ils également ? Notre client est spécialisé dans les projets de numérisation informatique avec vos clients"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/327?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.945Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://parmag.ch/stellen/327?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
-        "parmag-ag-zurich-parmag-ch",
-        "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
-          "parmag-ag-zurich-parmag-ch",
-          "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich"
-        ],
-        "en": [
-          "parmag-ag-zurich-parmag-ch"
-        ],
-        "de": [
-          "parmag-ag-zurich-parmag-ch"
-        ],
-        "fr": [
-          "parmag-ag-zurich-parmag-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T15:58:24.810Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
           "unitText": "YEAR"
         }
       }
@@ -353,7 +269,7 @@
       "url": "https://parmag.ch/stellen/322?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.945Z",
+      "crawledAt": "2026-09-28T04:53:42.360Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -407,6 +323,90 @@
       }
     },
     {
+      "id": "parmag-d2899436b83e",
+      "slug": "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich",
+      "slugByLocale": {
+        "it": "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich",
+        "en": "azure-cloud-engineer-m-w-d-ref-1251-parmag-ag-zurich",
+        "de": "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
+        "fr": "azure-cloud-ingenieur-m-w-d-ref-1251-parmag-ag-zurich"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "Azure Cloud Engineer (m/w/d), Ref. 1251",
+      "titleByLocale": {
+        "it": "Azure Cloud Ingegnere (m/w/d), Ref. 1251",
+        "en": "Azure Cloud Engineer (m/w/d), Ref. 1251",
+        "de": "Azure Cloud Ingenieur (m/w/d), Ref. 1251",
+        "fr": "Azure Cloud Ingénieur (m/w/d), Ref. 1251"
+      },
+      "description": "Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden Ihre Herausforderung: Sie sind bei der Implementierung und Ausarbeitung von Cloud-Lösungsarchitekturen beteiligt. Dabei beraten Sie die Kunden in Projekten beim Einsatz von Cloud-Technologien. Sie unterstützen die Kunden bei der Analyse, Konzeption und Umsetzung und hinterfragen den Status quo. Weiter bringen Sie Verbesserungsvorschläge für die heute bestehenden Cloud-Umgebungen ein und geben Ihr Knowhow gerne den Kunden weiter. Ihre Kompetenz: Nach Ihrem (Fach-) Hochschulabschluss in der Informatik konnten Sie schon Erfahrung im genannten Bereich sammeln. Sie kennen sich bestens aus mit Microsoft Cloud Adoption Framework für Azure und sind sicher im Umgang mit Terraform. Weiter sind Sie erfahren im Aufbau von Azure DevOps Pipelines und Hub-/Spoke-Architekturen auf Azure. Auch konnten Sie bereits erste Erfahrungen mit Cloud-Architekturen sammeln. Unser Angebot: Es erwartet Sie eine abwechslungsreiche Tätigkeit in einem Umfeld, bei welchem Sie Ihre Erfahrungen in Azure einbringen und weiterentwickeln können. Ein junges und aufgestelltes Team an einem modernen Arbeitsplatz freut sich auf Sie. Ist Ihr Interesse geweckt? Ich freue mich sehr über Ihre Bewerbung. Senden Sie mir Ihre Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch @parmag.ch.",
+      "descriptionByLocale": {
+        "it": "Cloud e Kubernets ti ispirano allo stesso modo? Allora abbiamo qui la posizione ottimale per voi Il nostro cliente è specializzato per progetti di digitalizzazione IT con i vostri clienti",
+        "en": "Does Cloud and Kubernets inspire you equally? Then we have here the optimal position for you Our customer is specialized for IT digitization projects with your customers",
+        "de": "Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden Ihre Herausforderung: Sie sind bei der Implementierung und Ausarbeitung von Cloud-Lösungsarchitekturen beteiligt. Dabei beraten Sie die Kunden in Projekten beim Einsatz von Cloud-Technologien. Sie unterstützen die Kunden bei der Analyse, Konzeption und Umsetzung und hinterfragen den Status quo. Weiter bringen Sie Verbesserungsvorschläge für die heute bestehenden Cloud-Umgebungen ein und geben Ihr Knowhow gerne den Kunden weiter. Ihre Kompetenz: Nach Ihrem (Fach-) Hochschulabschluss in der Informatik konnten Sie schon Erfahrung im genannten Bereich sammeln. Sie kennen sich bestens aus mit Microsoft Cloud Adoption Framework für Azure und sind sicher im Umgang mit Terraform. Weiter sind Sie erfahren im Aufbau von Azure DevOps Pipelines und Hub-/Spoke-Architekturen auf Azure. Auch konnten Sie bereits erste Erfahrungen mit Cloud-Architekturen sammeln. Unser Angebot: Es erwartet Sie eine abwechslungsreiche Tätigkeit in einem Umfeld, bei welchem Sie Ihre Erfahrungen in Azure einbringen und weiterentwickeln können. Ein junges und aufgestelltes Team an einem modernen Arbeitsplatz freut sich auf Sie. Ist Ihr Interesse geweckt? Ich freue mich sehr über Ihre Bewerbung. Senden Sie mir Ihre Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch @parmag.ch.",
+        "fr": "Nuage et Kubernets vous inspirent-ils également ? Notre client est spécialisé dans les projets de numérisation informatique avec vos clients"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/327?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T04:53:42.359Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/327?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
+        "parmag-ag-zurich-parmag-ch",
+        "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
+          "parmag-ag-zurich-parmag-ch",
+          "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich"
+        ],
+        "en": [
+          "parmag-ag-zurich-parmag-ch"
+        ],
+        "de": [
+          "parmag-ag-zurich-parmag-ch"
+        ],
+        "fr": [
+          "parmag-ag-zurich-parmag-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T15:58:24.810Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "parmag-c3991a17b89b",
       "slug": "test-ingegnere-m-w-d-ref-1266-parmag-ag-region-bern",
       "slugByLocale": {
@@ -437,7 +437,7 @@
       "url": "https://parmag.ch/stellen/345?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.944Z",
+      "crawledAt": "2026-09-28T04:53:42.358Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -466,8 +466,8 @@
           "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.675Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:53:57.675Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -513,7 +513,7 @@
       "url": "https://parmag.ch/stellen/352?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.943Z",
+      "crawledAt": "2026-09-28T04:53:42.357Z",
       "addressLocality": "Bern / Ittigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -576,7 +576,7 @@
       "url": "https://parmag.ch/stellen/353?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.942Z",
+      "crawledAt": "2026-09-28T04:53:42.356Z",
       "addressLocality": "Bern / Ittigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -622,82 +622,6 @@
       }
     },
     {
-      "id": "parmag-a2d94efd9862",
-      "slug": "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich",
-      "slugByLocale": {
-        "it": "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich",
-        "en": "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
-        "de": "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
-        "fr": "consultant-technique-ecm-h-f-d-ref-1274-parmag-ag-zurich"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "Technical Consultant ECM (m/w/d), Ref. 1274",
-      "titleByLocale": {
-        "it": "Technical Consulente ECM (m/w/d), Ref. 1274",
-        "en": "Technical Consultant ECM (m/w/d), Ref. 1274",
-        "de": "Technical Berater ECM (m/w/d), Ref. 1274",
-        "fr": "Consultant technique ECM (h/f/d), Réf. 1274"
-      },
-      "description": "Du bist an vordester Front bei der Entwicklung von Information Management Lösungen für deine zukünftigen Kunden. Unsere Partnerin ist eine IT-Dienstleisterin mit Kunden vorallem im Bereich der öffentlichen Verwaltung und Gesundheitswesen. Ihre Herausforderung: Bei dieser spannenden Stelle bist du für die Analysierung, Konzipierung und Realisierung in den Bereichen der Dokumenten-, Prozess- und Dossierverwaltung tätig. Ebenfalls kommen die Rechnungsverarbeitung sowie GEWER und Vertragswesen dazu. Du berätst die Kunden im Bereich Implementierung und Unterhalt vom Enterprise Content Management (ECM) Lösungen. Weiter erstellst du Dokumentationen, schulst Kunden und begleitest diese bei der optimalen Lösungenfindung. Ihre Kompetenz: Du bist ein System Techniker mit einem Studium in Informations Management oder Wirtschaftsinformatik. Du kann schon etwas Erfahrung im Bereich der Informations Management aufweisen und besitzt eine grosse Kommunikationsstärke. Du kennst dich aus mit IT-Projekten und bist erfahren mit Business Applikationen und Schnittstellen aus dem Projektgeschäft. Weiter kennst du dich bestens aus mit Microsoft Client-/ und Serverumgebungen, Datenbanksystemen und Scripting. Unser Angebot: Wäre diese Stelle etwas für dich? Dann zögere nicht und sende mir noch heute deine Unterlagen (CV, Zeugnisse und Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf deine Bewerbung, ein Bewerberbrief ist nicht nötig.",
-      "descriptionByLocale": {
-        "it": "Sei all'avanguardia nello sviluppo di soluzioni di gestione delle informazioni per i tuoi futuri clienti. Il nostro partner è un fornitore di servizi IT con i clienti, soprattutto nel campo della pubblica amministrazione e della sanità. La vostra sfida: In questa posizione emozionante, si lavora per l'analisi, il concepimento e la realizzazione nei settori del documento, del processo e della gestione dei dossier. Sono inclusi anche il trattamento delle fatture e GEWER e il contratto. Si consiglia ai clienti di implementare e mantenere le soluzioni Enterprise Content Management (ECM). Inoltre, si crea documentazione, formare i clienti e accompagnarli nella soluzione ottimale di ricerca. La tua competenza: Sei un tecnico di sistema con una laurea in Gestione dell'informazione o Informatica aziendale. Si può già avere una certa esperienza nella gestione delle informazioni e avere una grande forza di comunicazione. Hai familiarità con i progetti IT e sono esperti con applicazioni aziendali e interfacce dal business del progetto. Inoltre, sei molto familiare con ambienti client e server Microsoft, sistemi di database e scripting. La nostra offerta: Questo lavoro sarebbe qualcosa per voi? Allora non esitate e inviatemi i vostri documenti (CV, certificati e diplomi) oggi a patrick.brayenovitch@parmag.ch . Non vedo l'ora che la vostra domanda, una lettera di domanda non è necessaria.",
-        "en": "You are at the forefront of developing information management solutions for your future customers. Our partner is an IT service provider with customers, especially in the field of public administration and healthcare. Your challenge: In this exciting position, you work for the analysis, conception and realization in the areas of document, process and dossier management. Invoice processing as well as GEWER and contracting are also included. You will advise customers on the implementation and maintenance of Enterprise Content Management (ECM) solutions. Furthermore, you create documentation, train customers and accompany them in the optimal solution finding. Your competence: You are a system technician with a degree in Information Management or Business Informatics. You can already have some experience in information management and have a great communication strength. You are familiar with IT projects and are experienced with business applications and interfaces from the project business. Furthermore, you are very familiar with Microsoft client and server environments, database systems and scripting. Our offer: Would this job be something for you? Then do not hesitate and send me your documents (CV, certificates and diplomas) today to patrick.brayenovitch@parmag.ch . I am looking forward to your application, a letter of application is not necessary.",
-        "de": "Du bist an vordester Front bei der Entwicklung von Information Management Lösungen für deine zukünftigen Kunden. Unsere Partnerin ist eine IT-Dienstleisterin mit Kunden vorallem im Bereich der öffentlichen Verwaltung und Gesundheitswesen. Ihre Herausforderung: Bei dieser spannenden Stelle bist du für die Analysierung, Konzipierung und Realisierung in den Bereichen der Dokumenten-, Prozess- und Dossierverwaltung tätig. Ebenfalls kommen die Rechnungsverarbeitung sowie GEWER und Vertragswesen dazu. Du berätst die Kunden im Bereich Implementierung und Unterhalt vom Enterprise Content Management (ECM) Lösungen. Weiter erstellst du Dokumentationen, schulst Kunden und begleitest diese bei der optimalen Lösungenfindung. Ihre Kompetenz: Du bist ein System Techniker mit einem Studium in Informations Management oder Wirtschaftsinformatik. Du kann schon etwas Erfahrung im Bereich der Informations Management aufweisen und besitzt eine grosse Kommunikationsstärke. Du kennst dich aus mit IT-Projekten und bist erfahren mit Business Applikationen und Schnittstellen aus dem Projektgeschäft. Weiter kennst du dich bestens aus mit Microsoft Client-/ und Serverumgebungen, Datenbanksystemen und Scripting. Unser Angebot: Wäre diese Stelle etwas für dich? Dann zögere nicht und sende mir noch heute deine Unterlagen (CV, Zeugnisse und Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf deine Bewerbung, ein Bewerberbrief ist nicht nötig.",
-        "fr": "Vous êtes à l'avant-garde du développement de solutions de gestion de l'information pour vos futurs clients. Notre partenaire est un fournisseur de services informatiques avec des clients, en particulier dans le domaine de l'administration publique et des soins de santé. Votre défi : Dans cette position passionnante, vous travaillez pour l'analyse, la conception et la réalisation dans les domaines de la gestion des documents, des processus et des dossiers. Le traitement des factures ainsi que le GEWER et la passation de marchés sont également inclus. Vous conseillerez les clients sur la mise en œuvre et la maintenance des solutions Enterprise Content Management (ECM). De plus, vous créez de la documentation, formez les clients et les accompagnez dans la recherche de la solution optimale.\n• Vos compétences : Vous êtes technicien système avec un diplôme en gestion de l'information ou en informatique d'affaires. Vous pouvez déjà avoir une certaine expérience en gestion de l'information et avoir une grande force de communication. Vous connaissez les projets informatiques et avez de l'expérience dans les applications et les interfaces du projet. De plus, vous connaissez très bien les environnements client et serveur de Microsoft, les systèmes de bases de données et les scripts. Notre offre: Ce travail serait-il quelque chose pour vous? Alors n'hésitez pas et envoyez-moi vos documents (CV, certificats et diplômes) aujourd'hui à patrick.brayenovitch@parmag.ch . J'attends avec impatience votre demande, une lettre de demande n'est pas nécessaire."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/356?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.941Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://parmag.ch/stellen/356?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
-        "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
-          "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich"
-        ],
-        "fr": [
-          "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:38:58.308Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "parmag-065aefb22879",
       "slug": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
       "slugByLocale": {
@@ -728,7 +652,7 @@
       "url": "https://parmag.ch/stellen/355?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.941Z",
+      "crawledAt": "2026-09-28T04:53:42.356Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -774,6 +698,82 @@
       }
     },
     {
+      "id": "parmag-a2d94efd9862",
+      "slug": "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich",
+      "slugByLocale": {
+        "it": "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich",
+        "en": "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
+        "de": "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
+        "fr": "consultant-technique-ecm-h-f-d-ref-1274-parmag-ag-zurich"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "Technical Consultant ECM (m/w/d), Ref. 1274",
+      "titleByLocale": {
+        "it": "Technical Consulente ECM (m/w/d), Ref. 1274",
+        "en": "Technical Consultant ECM (m/w/d), Ref. 1274",
+        "de": "Technical Berater ECM (m/w/d), Ref. 1274",
+        "fr": "Consultant technique ECM (h/f/d), Réf. 1274"
+      },
+      "description": "Du bist an vordester Front bei der Entwicklung von Information Management Lösungen für deine zukünftigen Kunden. Unsere Partnerin ist eine IT-Dienstleisterin mit Kunden vorallem im Bereich der öffentlichen Verwaltung und Gesundheitswesen. Ihre Herausforderung: Bei dieser spannenden Stelle bist du für die Analysierung, Konzipierung und Realisierung in den Bereichen der Dokumenten-, Prozess- und Dossierverwaltung tätig. Ebenfalls kommen die Rechnungsverarbeitung sowie GEWER und Vertragswesen dazu. Du berätst die Kunden im Bereich Implementierung und Unterhalt vom Enterprise Content Management (ECM) Lösungen. Weiter erstellst du Dokumentationen, schulst Kunden und begleitest diese bei der optimalen Lösungenfindung. Ihre Kompetenz: Du bist ein System Techniker mit einem Studium in Informations Management oder Wirtschaftsinformatik. Du kann schon etwas Erfahrung im Bereich der Informations Management aufweisen und besitzt eine grosse Kommunikationsstärke. Du kennst dich aus mit IT-Projekten und bist erfahren mit Business Applikationen und Schnittstellen aus dem Projektgeschäft. Weiter kennst du dich bestens aus mit Microsoft Client-/ und Serverumgebungen, Datenbanksystemen und Scripting. Unser Angebot: Wäre diese Stelle etwas für dich? Dann zögere nicht und sende mir noch heute deine Unterlagen (CV, Zeugnisse und Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf deine Bewerbung, ein Bewerberbrief ist nicht nötig.",
+      "descriptionByLocale": {
+        "it": "Sei all'avanguardia nello sviluppo di soluzioni di gestione delle informazioni per i tuoi futuri clienti. Il nostro partner è un fornitore di servizi IT con i clienti, soprattutto nel campo della pubblica amministrazione e della sanità. La vostra sfida: In questa posizione emozionante, si lavora per l'analisi, il concepimento e la realizzazione nei settori del documento, del processo e della gestione dei dossier. Sono inclusi anche il trattamento delle fatture e GEWER e il contratto. Si consiglia ai clienti di implementare e mantenere le soluzioni Enterprise Content Management (ECM). Inoltre, si crea documentazione, formare i clienti e accompagnarli nella soluzione ottimale di ricerca. La tua competenza: Sei un tecnico di sistema con una laurea in Gestione dell'informazione o Informatica aziendale. Si può già avere una certa esperienza nella gestione delle informazioni e avere una grande forza di comunicazione. Hai familiarità con i progetti IT e sono esperti con applicazioni aziendali e interfacce dal business del progetto. Inoltre, sei molto familiare con ambienti client e server Microsoft, sistemi di database e scripting. La nostra offerta: Questo lavoro sarebbe qualcosa per voi? Allora non esitate e inviatemi i vostri documenti (CV, certificati e diplomi) oggi a patrick.brayenovitch@parmag.ch . Non vedo l'ora che la vostra domanda, una lettera di domanda non è necessaria.",
+        "en": "You are at the forefront of developing information management solutions for your future customers. Our partner is an IT service provider with customers, especially in the field of public administration and healthcare. Your challenge: In this exciting position, you work for the analysis, conception and realization in the areas of document, process and dossier management. Invoice processing as well as GEWER and contracting are also included. You will advise customers on the implementation and maintenance of Enterprise Content Management (ECM) solutions. Furthermore, you create documentation, train customers and accompany them in the optimal solution finding. Your competence: You are a system technician with a degree in Information Management or Business Informatics. You can already have some experience in information management and have a great communication strength. You are familiar with IT projects and are experienced with business applications and interfaces from the project business. Furthermore, you are very familiar with Microsoft client and server environments, database systems and scripting. Our offer: Would this job be something for you? Then do not hesitate and send me your documents (CV, certificates and diplomas) today to patrick.brayenovitch@parmag.ch . I am looking forward to your application, a letter of application is not necessary.",
+        "de": "Du bist an vordester Front bei der Entwicklung von Information Management Lösungen für deine zukünftigen Kunden. Unsere Partnerin ist eine IT-Dienstleisterin mit Kunden vorallem im Bereich der öffentlichen Verwaltung und Gesundheitswesen. Ihre Herausforderung: Bei dieser spannenden Stelle bist du für die Analysierung, Konzipierung und Realisierung in den Bereichen der Dokumenten-, Prozess- und Dossierverwaltung tätig. Ebenfalls kommen die Rechnungsverarbeitung sowie GEWER und Vertragswesen dazu. Du berätst die Kunden im Bereich Implementierung und Unterhalt vom Enterprise Content Management (ECM) Lösungen. Weiter erstellst du Dokumentationen, schulst Kunden und begleitest diese bei der optimalen Lösungenfindung. Ihre Kompetenz: Du bist ein System Techniker mit einem Studium in Informations Management oder Wirtschaftsinformatik. Du kann schon etwas Erfahrung im Bereich der Informations Management aufweisen und besitzt eine grosse Kommunikationsstärke. Du kennst dich aus mit IT-Projekten und bist erfahren mit Business Applikationen und Schnittstellen aus dem Projektgeschäft. Weiter kennst du dich bestens aus mit Microsoft Client-/ und Serverumgebungen, Datenbanksystemen und Scripting. Unser Angebot: Wäre diese Stelle etwas für dich? Dann zögere nicht und sende mir noch heute deine Unterlagen (CV, Zeugnisse und Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf deine Bewerbung, ein Bewerberbrief ist nicht nötig.",
+        "fr": "Vous êtes à l'avant-garde du développement de solutions de gestion de l'information pour vos futurs clients. Notre partenaire est un fournisseur de services informatiques avec des clients, en particulier dans le domaine de l'administration publique et des soins de santé. Votre défi : Dans cette position passionnante, vous travaillez pour l'analyse, la conception et la réalisation dans les domaines de la gestion des documents, des processus et des dossiers. Le traitement des factures ainsi que le GEWER et la passation de marchés sont également inclus. Vous conseillerez les clients sur la mise en œuvre et la maintenance des solutions Enterprise Content Management (ECM). De plus, vous créez de la documentation, formez les clients et les accompagnez dans la recherche de la solution optimale.\n• Vos compétences : Vous êtes technicien système avec un diplôme en gestion de l'information ou en informatique d'affaires. Vous pouvez déjà avoir une certaine expérience en gestion de l'information et avoir une grande force de communication. Vous connaissez les projets informatiques et avez de l'expérience dans les applications et les interfaces du projet. De plus, vous connaissez très bien les environnements client et serveur de Microsoft, les systèmes de bases de données et les scripts. Notre offre: Ce travail serait-il quelque chose pour vous? Alors n'hésitez pas et envoyez-moi vos documents (CV, certificats et diplômes) aujourd'hui à patrick.brayenovitch@parmag.ch . J'attends avec impatience votre demande, une lettre de demande n'est pas nécessaire."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/356?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T04:53:42.355Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://parmag.ch/stellen/356?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
+        "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
+          "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich"
+        ],
+        "fr": [
+          "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:38:58.308Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "parmag-43009ec898df",
       "slug": "application-ingegnere-m-w-d-ref-1278-parmag-ag-bern-oder-zurich",
       "slugByLocale": {
@@ -804,7 +804,7 @@
       "url": "https://parmag.ch/stellen/360?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.940Z",
+      "crawledAt": "2026-09-28T04:53:42.354Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -830,8 +830,8 @@
           "application-ingegnere-m-w-d-ref-1278-parmag-ag-bern-oder-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.670Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:53:57.670Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -877,7 +877,7 @@
       "url": "https://parmag.ch/stellen/365?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.939Z",
+      "crawledAt": "2026-09-28T04:53:42.353Z",
       "addressLocality": "Region Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -952,7 +952,7 @@
       "url": "https://parmag.ch/stellen/370?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.938Z",
+      "crawledAt": "2026-09-28T04:53:42.352Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -981,8 +981,8 @@
           "ict-system-specialist-m-w-d-ref-1288-region-bern-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.668Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:53:57.668Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1028,7 +1028,7 @@
       "url": "https://parmag.ch/stellen/371?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.937Z",
+      "crawledAt": "2026-09-28T04:53:42.351Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1054,8 +1054,8 @@
           "software-ingegnere-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.667Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:53:57.667Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1101,7 +1101,7 @@
       "url": "https://parmag.ch/stellen/373?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.935Z",
+      "crawledAt": "2026-09-28T04:53:42.350Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1127,8 +1127,8 @@
           "data-ingegnere-m-w-d-ref-1291-parmag-ag-zurich-oder-bern"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.665Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:53:57.665Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1174,7 +1174,7 @@
       "url": "https://parmag.ch/stellen/377?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.934Z",
+      "crawledAt": "2026-09-28T04:53:42.349Z",
       "addressLocality": "Stadt Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1258,7 +1258,7 @@
       "url": "https://parmag.ch/stellen/384?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.933Z",
+      "crawledAt": "2026-09-28T04:53:42.348Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1337,7 +1337,7 @@
       "url": "https://parmag.ch/stellen/385?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.932Z",
+      "crawledAt": "2026-09-28T04:53:42.347Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1415,7 +1415,7 @@
       "url": "https://parmag.ch/stellen/386?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.931Z",
+      "crawledAt": "2026-09-28T04:53:42.346Z",
       "addressLocality": "Biel, Neuenburg & Freiburg",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1499,7 +1499,7 @@
       "url": "https://parmag.ch/stellen/387?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:48:43.929Z",
+      "crawledAt": "2026-09-28T04:53:42.345Z",
       "addressLocality": "Basel-Stadt, Basellandschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
