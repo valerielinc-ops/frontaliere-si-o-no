@@ -12175,6 +12175,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kastritis-varese-bologna-assenze.title': 'Kastritis: absences are not excuses, get to work immediately',
     'blog.article.kastritis-varese-bologna-assenze.excerpt': 'After the defeat at Masnago against Virtus Bologna, the coach identifies the work and the away trip to Scafati as priorities.',
     'blog.article.kastritis-varese-bologna-assenze.imageAlt': 'Masnago arena during the Pallacanestro Varese vs Virtus Bologna match',
+    'blog.article.manfrinati-ergastolo-casbeno-varese.title': 'Manfrinati sentenced to life imprisonment for murder',
+    'blog.article.manfrinati-ergastolo-casbeno-varese.excerpt': 'Assize Court of Varese: life imprisonment with daytime isolation. Compensation exceeding 2 million. Appeal announced.',
+    'blog.article.manfrinati-ergastolo-casbeno-varese.imageAlt': 'View of a residential street in an Italian neighborhood near the Swiss border, grey and silent atmosphere.',
 };
 
 export default blogMetaEn;
