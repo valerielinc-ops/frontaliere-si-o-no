@@ -6905,6 +6905,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: Tessiner Landwirt im Schweizer Kalender',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'Der 29-Jährige aus Bellinzona erzählt von seiner Lehre auf Deutsch, der Schließung des Betriebs mit 650 Hühnern und der intensiven Arbeit von bis zu 15 Stunden pro Tag.',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, 29-jähriger Tessiner Landwirt, Porträt für den Schweizer Bauernkalender',
+    'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilaterale III: Start der Marathonberatungen im Ständerat',
+    'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'Heute beginnt die dreitägige Debatte über das Stabilisierungspaket Schweiz-EU. Im Plenum werden mindestens fünf Bundesräte erwartet.',
+    'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Bundeskammern',
 };
 
 export default blogMetaChDe;
