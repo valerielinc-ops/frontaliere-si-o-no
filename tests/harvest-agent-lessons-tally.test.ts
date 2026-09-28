@@ -192,6 +192,45 @@ describe('bucketFinding — AdsSense findings keep their failure mode (#10115)',
   });
 });
 
+describe('bucketFinding — adsense-bot-gate richiede due segnali espliciti (#10209)', () => {
+  const genuine = [
+    '🔴 Important: `matchesAutomationScreenSignature()` classifies as bot every session Windows Chrome otherwise normal; the same inline rule feeds the AdSense/job-gate, so a real session loses ads and access to the CTA.',
+    '🔴 Important: the bot gate misclassifies legitimate users and suppresses Auto Ads for a real session.',
+    '🔴 Important: a false positive in the AdSense bot classifier blocks the user CTA.',
+  ];
+
+  const falsePositives = [
+    // #10125: `load` and `automatic` must not satisfy `ads?` + `automation`.
+    '.github/workflows/bing-seo-loop.yml:L370: 🔴 Important: the new tree-report steps authenticate the issue creator with `${{ github.token }}`, so the automatic triage/fixer can stop at an unprocessed backlog issue. Load and use the App or PAT credential.',
+    // #10066: an advertised listing and a camel-case helper are not an
+    // AdSense bot-gate finding.
+    'scripts/lib/prospector/spec-crawler.mjs:L89: 🔴 Important: the browser rescue cannot restore the advertised listings; inspect the settled page before accepting `looksLikeAntiBotChallenge()`.',
+    // #10051: `ad` + `both` is not the pair of signals the bucket measures.
+    'components/community/BlogArticles.tsx:L2218: 🔴 Important: the first-paint grid rules are emitted in both critical CSS surfaces, so the article shell adds CLS.',
+    // #9956: `instead` + `antiBotExhausted` must not match either.
+    'scripts/lib/prospector/spec-crawler.mjs:L119: 🔴 Important: a transport failure is mislabeled instead of retaining its classification; gate `antiBotExhausted` on a confirmed response.',
+  ];
+
+  it('mantiene i finding reali del gate', () => {
+    for (const line of genuine) expect(bucketFinding(line), line).toBe('adsense-bot-gate');
+  });
+
+  it('scarta i falsi positivi osservati nella finestra dell’escalation', () => {
+    for (const line of falsePositives) {
+      expect(bucketFinding(line), line).not.toBe('adsense-bot-gate');
+    }
+  });
+
+  it('non riapre il bucket quando la finestra contiene solo quei falsi positivi', () => {
+    const prs = falsePositives.map((line, i) => ({
+      number: 10200 + i,
+      reviews: [claudeReview(line)],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['adsense-bot-gate'] ?? 0).toBe(0);
+  });
+});
+
 describe('tallyFindings — esempio porta `at` = PR mergedAt (post-fix guard, #5516)', () => {
   // reviewer-finding non aveva mai un timestamp per-esempio, quindi la guardia
   // post-fix (examplesSinceFix) non poteva filtrare le occorrenze pre-fix: un

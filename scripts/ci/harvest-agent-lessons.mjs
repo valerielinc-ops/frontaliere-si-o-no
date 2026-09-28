@@ -206,6 +206,12 @@ export function coverageWarnings(label, { truncatedDays, failedDays }, cut, unre
 //     `recurringDespiteRule` → the prose rule isn't working → escalate to a
 //     STRUCTURAL fix (template / CI gate / shared module), not another line.
 //     (These 4 buckets were the harvester's blind spot until 2026-06-04.)
+const ADSENSE_BOT_GATE_AD_SURFACE = String.raw`(?:\badsense\b|\badsbygoogle\b|\bauto[- ]?ads?\b|\bads?\b|\badvertising\b|\badvertisements?\b|\bcta\b)`;
+const ADSENSE_BOT_GATE_SIGNAL = String.raw`(?:\b(?:bot|bots)\b|\banti[- ]?bot\b|\bautomation(?:[- ]?(?:gate|classifier|detector|signature))?\b|\bscreen\s+signature\b|\bfalse\s+positive\b|\b(?:real|legitimate)\s+(?:session|user)\b)`;
+const ADSENSE_BOT_GATE_RE = new RegExp(
+  String.raw`(?:${ADSENSE_BOT_GATE_AD_SURFACE}[\s\S]{0,180}${ADSENSE_BOT_GATE_SIGNAL}|${ADSENSE_BOT_GATE_SIGNAL}[\s\S]{0,180}${ADSENSE_BOT_GATE_AD_SURFACE})`,
+  'i',
+);
 const TAXONOMY = [
   { key: 'structured-data', re: /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i, docKeys: ['structured data', 'json-ld', 'basesalary'] },
   { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'] },
@@ -217,7 +223,13 @@ const TAXONOMY = [
   // improve the measurement by preserving the failure mode in the bucket key.
   { key: 'adsense-thin-content', re: /(?:(?:thin|noindex|indexable|word[- ]?count|below[- ]floor|mfa)[\s\S]{0,220}(?:adsense|ad(?:s)?\b|slot|multiplex)|(?:adsense|manual\s+(?:ad|adsense)|multiplex|slot)[\s\S]{0,220}(?:thin|noindex|indexable|word[- ]?count|below[- ]floor|mfa))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'adsense-slot-lifecycle', re: /(?:(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>)[\s\S]{0,180}(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)|(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)[\s\S]{0,180}(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>))/i, docKeys: ['auto ads', 'adsense'] },
-  { key: 'adsense-bot-gate', re: /(?:(?:adsense|auto ?ads|ads?\b|advertis(?:e|ing|ements)|cta)[\s\S]{0,180}(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)|(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)[\s\S]{0,180}(?:adsense|auto ?ads|ads?\b|advertis(?:e|ing|ements)|cta))/i, docKeys: ['auto ads', 'adsense'] },
+  // Keep both sides explicit and word-bounded. The previous `ads?`/`bot`
+  // fragments matched the tail of ordinary words (`load` + `automation`,
+  // `advertised` + `antiBotChallenge`, `ad` + `both`, `instead` +
+  // `antiBotExhausted`) and turned unrelated funnel findings into this bucket
+  // (#10209). A bot-gate finding must mention an ad surface and a genuine
+  // bot/automation signal; short substrings are not evidence.
+  { key: 'adsense-bot-gate', re: ADSENSE_BOT_GATE_RE, docKeys: ['auto ads', 'adsense'] },
   { key: 'adsense-loader-contract', re: /(?:(?:adsense|adsbygoogle|auto ?ads)[\s\S]{0,220}(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)|(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)[\s\S]{0,220}(?:adsense|adsbygoogle|auto ?ads))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'] },
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
