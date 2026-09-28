@@ -112,6 +112,8 @@ describe('observation window — completion time, not start time', () => {
     });
     expect(createdRanges.every((range) => range.includes('..'))).toBe(true);
     const [oldest] = createdRanges[0].split('..');
+    // The created-at range starts before the observation cutoff, so its total
+    // age is the three-day run horizon plus this fixture's 40-minute lookback.
     const searchHorizonMs = Date.now() - Date.parse(oldest);
     expect(searchHorizonMs).toBeGreaterThanOrEqual((3 * 24 * 60 + 40) * MINUTE);
     expect(searchHorizonMs).toBeLessThan((3 * 24 * 60 + 41) * MINUTE);
