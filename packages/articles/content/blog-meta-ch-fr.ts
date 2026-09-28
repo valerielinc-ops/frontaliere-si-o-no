@@ -6899,6 +6899,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-neutralita-alimentazione-respinto.title': 'Vote du 27 septembre : non catégorique à la neutralité et à la nourriture',
     'blog.article.voto-neutralita-alimentazione-respinto.excerpt': 'Le 27 septembre, plus de 70 % ont rejeté l\'initiative sur la neutralité et 72,5 % celle sur l\'alimentation dans tous les cantons.',
     'blog.article.voto-neutralita-alimentazione-respinto.imageAlt': 'Citoyens suisses devant un bureau de vote lors des votations du 27 septembre, résultats clairs sur neutralité et alimentation.',
+    'blog.article.friburgo-imposta-eredi-regole.title': 'Impôt succession et donation : taux Fribourg',
+    'blog.article.friburgo-imposta-eredi-regole.excerpt': 'Canton de Fribourg, fisc à trois niveaux : comment distinguer les compétences, les taux de parenté, les exonérations, la déclaration et les délais à vérifier.',
+    'blog.article.friburgo-imposta-eredi-regole.imageAlt': 'Bâtiment d\'une administration cantonale suisse pour un guide sur les droits de succession et de donation.',
 };
 
 export default blogMetaChFr;

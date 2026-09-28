@@ -6899,6 +6899,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-neutralita-alimentazione-respinto.title': 'September 27 vote: a resounding no to neutrality and food',
     'blog.article.voto-neutralita-alimentazione-respinto.excerpt': 'On 27 September, over 70% rejected the neutrality initiative and 72.5% rejected the food initiative in all cantons.',
     'blog.article.voto-neutralita-alimentazione-respinto.imageAlt': 'Swiss citizens at a polling station during the September 27 votes, clear results on neutrality and food initiatives.',
+    'blog.article.friburgo-imposta-eredi-regole.title': 'Inheritance and gift tax: Fribourg rates',
+    'blog.article.friburgo-imposta-eredi-regole.excerpt': 'Canton of Fribourg, three-tier taxation: how to distinguish responsibilities, rates by relationship, exemptions, tax return and deadlines to verify.',
+    'blog.article.friburgo-imposta-eredi-regole.imageAlt': 'Swiss cantonal administration building for an editorial guide on inheritance and gift tax.',
 };
 
 export default blogMetaChEn;

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Sep 2026 03:51:29 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 04:25:31 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,72 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Inheritance and gift tax: Fribourg rates</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/fribourg-inheritance-gift-tax/</link>
+      <description><![CDATA[Canton of Fribourg, three-tier taxation: how to distinguish responsibilities, rates by relationship, exemptions, tax return and deadlines to verify.]]></description>
+      <content:encoded><![CDATA[## In brief
+- Three levels: federal, cantonal, and municipal.
+- Each Canton has its own law and multiplier.
+- The Municipality applies the multiplier to the cantonal level.
+- AFC/ESTV manages IFD and VAT.
+
+## Key facts
+- Tax levels → federal, cantonal, municipal
+- Federal competence → AFC/ESTV: IFD and VAT
+- Cantonal competence → cantonal administrations: cantonal and municipal taxes
+- Social security → UFAS/BSV: AVS/AI/LPP
+- Statistics → UST/BFS
+
+Three levels make up the Swiss tax system: direct federal tax, cantonal level, and municipal level. This is the framework to keep in mind when addressing the topic of inheritance and gift tax in the Canton of Fribourg. The scope includes rates linked to degree of kinship, exemptions for spouse and descendants, declaration and deadlines to be respected.
+
+The available overview does not show percentage rates nor expiration dates. Therefore we can establish the verifiable structure: each Canton has its own law and its own multiplier; for Municipalities, the multiplier applies to the cantonal amount. This prevents replacing a cantonal verification with a generic number valid for all of Switzerland.
+
+### Who handles what
+
+For the federal level, AFC/ESTV is associated with direct federal tax and VAT. Cantonal administrations are instead the reference indicated for cantonal and municipal taxation. UFAS/BSV concerns social security, including AVS/AI/LPP, and does not set taxes. UST/BFS concerns statistics and not rates.
+
+The distinction is operational for those who must organize their procedure. The question about rates in Fribourg should not be mixed with a question about social security or statistics. Whoever prepares the tax return can build a separate sheet with the kinship relationship, the possible exemption referred to in the topic, the competent authority, and the deadline to verify. These are the four points indicated by the editorial angle, without adding percentages not present.
+## The practical map of responsibilities
+
+When trying to determine which rate applies to an inheritance or a gift, the first check is not a comparison between figures. It is identifying the tax level and the competent authority. The three-level model makes it possible not to confuse a federal item with a cantonal or municipal item.
+
+| Item to classify | Reference indicated by the source |
+|---|---|
+| Federal direct tax and VAT | AFC/ESTV |
+| Cantonal and municipal taxes | Cantonal administrations |
+| AVS/AI/LPP | UFAS/BSV, social security, not taxes |
+| Statistics | UST/BFS, not rates |
+
+For the Canton of Fribourg, the practical consequence is clear: every search must start from the level to which the question belongs. The source establishes that the Cantons have their own law and multiplier and that the Municipality applies the multiplier to the cantonal one. A percentage taken from another Canton therefore cannot automatically be transferred to the case of Fribourg. The material does not provide a numerical table with which to compare degrees of kinship.
+
+### Three useful distinctions
+
+The first distinction concerns federal direct tax and VAT on the one hand, and cantonal and municipal taxation on the other. The second concerns social security: AVS/AI and LPP belong to the field of social security and must not be used to derive tax rates. The third concerns LAMal. For residents, it is compulsory health insurance, to be taken out within three months of arrival; it is private, has per-capita premiums and is neither a tax nor a payroll contribution. Premiums vary by Canton and region, and premium reductions are cantonal.
+
+costo della vita in Svizzera also does not replace a tax assessment. It may be a budget comparison, but it does not provide the percentage of an inheritance or gift tax. Separating these areas reduces the risk of attributing to UST/BFS, UFAS/BSV or LAMal offices a responsibility that the source does not assign to them.
+## Practical procedure for verification
+
+A coherent process based on the available data can be organized into four steps, keeping the tax issue, family relationship and administrative competence distinct.
+
+- Define the transaction: inheritance or gift. The issue requires a specific reading and not a generic entry on the cost of living.
+- Indicate the degree of kinship. This is the first element referred to for linking the research to the rates and exemptions for spouses and descendants.
+- Separate the tax levels. Keep the direct federal tax distinct from the cantonal and communal components; remember that the Municipality applies the multiplier to the cantonal tax.
+- Assign the correct reference. AFC/ESTV concerns direct federal tax and VAT; cantonal administrations concern cantonal and communal taxation.
+
+### The final checklist
+
+The verification checklist can have four fields: family relationship, treatment of the exemptions referred to in the case, declaration and deadline to be observed. Its purpose is to make visible the questions still to be checked with the competent cantonal administration, without filling the spaces with percentages or dates that do not emerge from the available framework.
+
+It is also advisable to keep non-tax areas separate. UFAS/BSV concerns AVS/AI/LPP and social security; UST/BFS concerns statistics. LAMal is compulsory insurance for residents, with per-capita premiums and a cantonal reduction, not a tax to be added to an inheritance tax rate. This distinction avoids using a payslip, an insurance premium or a statistical figure as a substitute for cantonal verification.
+
+To complete the verification with an indicative calculation of income and taxes, use the calcolatore stipendio/imposte.]]></content:encoded>
+      <pubDate>Mon, 28 Sep 2026 04:25:31 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/friburgo-imposta-eredi-regole</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/friburgo-imposta-eredi-regole.webp" medium="image"/>
+    </item>
     <item>
       <title>September 27 vote: a resounding no to neutrality and food</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/neutrality-food-initiative-rejected/</link>
@@ -3792,93 +3858,6 @@ The site's most visited pages, organized by topic, serve to access the essential
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/seco-commercio-misure-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/seco-commercio-misure-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Zug: economic promotion halted, 272 apartments under 1800 francs</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/keiser-stop-economic-promotion-zug/</link>
-      <description><![CDATA[Urban Keiser (Korporation Zug) calls for an end to economic promotion: unsustainable growth, skyrocketing rents. 272 homes at <1800 CHF, long waiting list. Elections 4 October.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Urban Keiser calls for an end to economic promotion in Zug
-- Korporation Zug is building 272 affordable apartments
-- A 3,5-room apartment costs less than 1800 francs
-- Canton elections will be held on 4 October
-
-## Key facts
-- Who → Urban Keiser, president of Korporation Zug
-- Where → Canton Zug
-- What → End to economic promotion
-- Housing → 272 apartments
-- Rent → Less than 1800 francs for 3,5 rooms
-- Elections → 4 October
-- Outlook → Population increasing by 50% in 20 years
-
-The 61-year-old Urban Keiser, president of Korporation Zug, is calling for an end to economic promotion in the canton of Zug. In his view, growth has driven housing costs up to an intolerable level. The statement is contained in an interview published by Tages-Anzeiger.
-
-Korporation Zug is a public-law community similar to a Ticinese patriziato, but extending across the entire canton. It is the canton’s largest landowner and builds affordable apartments.
-
-### An offer that is not enough
-
-Keiser recalls that until about 20 years ago, local residents were able to find housing. Today, it has become difficult. For this reason, the corporation is developing a residential complex with 272 apartments. The rent for a 3,5-room apartment costs less than 1800 francs and immediately generated a long waiting list.
-
-The allocation follows clear criteria. Keiser cites minimum occupancy and explains that people who grew up in Zug have priority. He admits that this choice might not be politically correct, but says that the corporation proceeds this way.
-
-The city’s catchment area, according to the interviewee, is the entire world. He points to three reasons: low taxes, a safe environment and enchanting landscapes. In his view, 100'000 apartments could be built and all of them sold. Since demand cannot be met, it remains possible to manage the allocation.
-
-Keiser says he has almost no contact with the Expats, high-income foreign workers who converge on Zug. He acknowledges the decline of German in some places, the changing nature of urban life and the loss of customs, such as selling the Carnival newspaper early in the morning. «These things cannot be stopped», he maintains.
-
-### Incentives and crafts
-
-Regarding growth, Keiser replies: «Absolutely not. In fact, economic incentives could be abolished altogether». He criticizes the welcome given to new companies: when a start-up or cryptocurrency company arrives in Zug, the state council almost as a whole goes to shake hands. In his carpentry business, which is nearly 100 years old, he would not have seen anyone. Craftspeople would by now be a curiosity.
-## The growth fueling the housing crisis
-
-The story of Zug sets two effects of the same policy against each other: economic attractiveness and the difficulty of finding a home. Growth creates demand, but housing availability does not keep pace. For those observing the cost of living in Switzerland, the concrete issue is the relationship between an affordable rent and demand far exceeding supply.
-
-The interview describes a city capable of attracting people from all over the world thanks to low taxes, a safe environment and enchanting landscapes. The pressure therefore concerns not only those looking for a new home. It also concerns the possibility of allocating housing when the number of requests exceeds the number of available homes.
-
-### Land, regulations and timeframes
-
-Keiser argues that only those who own land can build housing and observes that politicians, obviously, do not. The criticism concerns the transition from promises to implementation: according to him, the corporation sees no concrete evidence of the support it received, while regulations are being tightened.
-
-In the case described, the result would be slower and more expensive construction. The corporation reportedly experienced this with a project dragged out for 20 years. For a family or a worker looking for a home, such long timeframes make future availability uncertain and leave the waiting list as a sign of the existing pressure.
-
-The issue cannot be resolved simply by increasing the number of apartments. The source also shows the role of selection: minimum occupancy and priority for people who grew up in Zug are criteria used to manage demand that, according to Keiser, cannot be fully met.
-
-### Wealth and social transformation
-
-The interview also connects the housing crisis to inheritances. If a clause is missing and one child wants to receive money, the siblings may no longer be able to pay them because prices have risen so much. The house is then sold, usually to foreigners. Rising property prices therefore change not only access to rental housing, but also the possibility of keeping a property in the family.
-
-On 4 ottobre, there will be cantonal elections. Keiser observes that all parties make housing their flagship issue, but believes that little will change because politicians do not own land. To compare the tax burden on the budget, calcolatore imposte is available.
-
-His forecast for the next 20 years includes a population increase of 50%, more skyscrapers in the center, the loss of some traditions and an even more conservative canton. The lower social classes, according to Keiser, will be even more marginalized. He defines this process as «Monacoisierung», a transformation toward a reality similar to the Principality of Monaco.
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare CHF-EUR exchange options and banks for cross-border workers.
-## From the news to a concrete decision
-
-The source does not indicate a portal, office or procedure for submitting a housing application. For those considering a home in Zug, however, the available information can be organized without adding requirements not mentioned in the interview.
-
-### Four checks before taking action
-
-1. Identify the Korporation Zug residential complex described in the source and distinguish this project from the canton’s generic housing supply.
-
-2. Use the rent indicated for a 3.5-room apartment as a reference: less than 1800 francs. However, the amount does not mean immediate availability, because the project has produced a long waiting list.
-
-3. Verify the allocation criteria explicitly cited. The corporation considers minimum occupancy and gives priority to people who grew up in Zug. The source does not list any other requirements or documents, so it is not correct to add them.
-
-4. Consider waiting as part of the search. The affordable price may attract many requests, and allocation management becomes necessary when demand exceeds the number of housing units.
-
-For those who already own a property, the action indicated by the interview concerns the contract. Keiser considers a fairly solid agreement necessary so that the house remains in the family. If a clause is missing and one child wants the money, the other siblings may no longer be able to afford it after the price increase. In that case, the property is sold, usually to foreigners.
-
-Reading election proposals also requires a concrete check. On October 4, voters will choose the cantonal parliament; according to the source, all parties have made housing their flagship issue. It is therefore worth checking whether a promise considers land availability, construction timelines and the effect of stricter regulations, the three elements indicated by Keiser.
-
-To compare the burden of housing on the family budget, use the calcolatore stipendio from Frontaliere Ticino.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/zugo%3a-%22basta-promozione-economica%22%2c-dice-numero-uno-patriziato/92119901)*]]></content:encoded>
-      <pubDate>Sat, 26 Sep 2026 05:15:31 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/keiser-stop-promozione-zugo</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/keiser-stop-promozione-zugo.webp" medium="image"/>
     </item>
   </channel>
 </rss>

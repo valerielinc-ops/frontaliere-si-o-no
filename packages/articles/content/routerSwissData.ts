@@ -2322,6 +2322,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'friburgo-successione-donazione-aliquote': { it: 'friburgo-successione-donazione-aliquote', en: 'fribourg-inheritance-gift-tax-rates', de: 'freiburg-erbschaft-schenkung-steuersaetze', fr: 'fribourg-impot-succession-donation-taux' },
  'popolo-svizzero-boccia-neutralita': { it: 'popolo-svizzero-boccia-neutralita', en: 'swiss-people-reject-neutrality', de: 'schweizer-volk-lehnt-neutralitaet-ab', fr: 'peuple-suisse-rejette-la-neutralite' },
  'voto-neutralita-alimentazione-respinto': { it: 'voto-neutralita-alimentazione-respinto', en: 'neutrality-food-initiative-rejected', de: 'neutralitaet-ernaehrungs-initiative-abgelehnt', fr: 'neutralite-alimentation-initiative-rejectee' },
+ 'friburgo-imposta-eredi-regole': { it: 'friburgo-imposta-eredi-regole', en: 'fribourg-inheritance-gift-tax', de: 'erbschaft-schenkungsteuer-freiburg', fr: 'droits-succession-donation-fribourg' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
