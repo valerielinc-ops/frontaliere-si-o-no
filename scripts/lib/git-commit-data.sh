@@ -1833,12 +1833,27 @@ commit_isolated_from_worktree() {
       else
         # The legacy isolated path still reads its caller's current worktree.
         # Only --group-batch is snapshot-bound by the deferred descriptors.
-        [ -f "$f" ] || continue
+        base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+        if [ ! -f "$f" ]; then
+          # --extra-only names its complete ownership surface explicitly. A
+          # missing named file is therefore a requested deletion, not an
+          # unrelated absent path to skip. Delete only the blob this checkout
+          # actually observed; a newer remote value belongs to another writer
+          # and must fail closed instead of being erased.
+          [ "$EXTRA_ONLY" = true ] || continue
+          [ -n "$remote_blob" ] || continue
+          if [ -z "$base_blob" ] || [ "$remote_blob" != "$base_blob" ]; then
+            echo "❌ grouped-isolated: explicit delete conflicts with a newer remote blob for $f"
+            return 1
+          fi
+          GIT_INDEX_FILE="$tmp_index" git update-index --force-remove -- "$f"
+          computed_count=$((computed_count + 1))
+          continue
+        fi
         if git check-ignore -q "$f" 2>/dev/null; then
           continue
         fi
         local_blob="$(git hash-object -w -- "$f")"
-        base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
       fi
 
       if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
