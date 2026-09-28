@@ -6932,6 +6932,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parita-sessuale-consiglio-stati.title': 'Geschlechtergleichstellung: Antrag zur Geschlechtsidentität abgelehnt',
     'blog.article.parita-sessuale-consiglio-stati.excerpt': 'Der Ständerat hat mit 25 zu 19 Stimmen die Motion abgelehnt, das Gleichstellungsgesetz auf Fälle der sexuellen Orientierung und der Geschlechtsidentität auszuweiten.',
     'blog.article.parita-sessuale-consiglio-stati.imageAlt': 'Ansicht von Bellinzona, Sitz des Ständerates',
+    'blog.article.misure-poverta-lavoro-svizzera.title': 'Caritas: mehr Unterstützung für arme Arbeitnehmer',
+    'blog.article.misure-poverta-lavoro-svizzera.excerpt': 'Fast 360\'000 Arbeitnehmende in der Schweiz, 8,8% der Erwerbstätigen, verdienen nicht genug für die familiären Bedürfnisse: Caritas schlägt einen Mindestlohn und gezielte Unterstützungsmassnahmen vor.',
+    'blog.article.misure-poverta-lavoro-svizzera.imageAlt': 'Schweizer Arbeitnehmer prüft am Küchentisch das Familienbudget',
 };
 
 export default blogMetaChDe;
