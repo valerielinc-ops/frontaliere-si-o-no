@@ -1,0 +1,76 @@
+name: crawler-quarantine-review
+
+# Uscita dal gruppo di quarantena dei crawler (data/crawler-quarantine.json).
+#
+# Legge le ondate osservate del gruppo di quarantena nel repo che esegue i
+# crawler e applica, deterministicamente, le due uscite decise da
+# scripts/lib/crawler-quarantine.mjs:
+#   - rientro nel gruppo di origine dopo 4 ondate verdi consecutive;
+#   - ritiro (con issue «Crawler ritirato: <slug>») dopo 10 ondate rosse
+#     consecutive o 7 giorni di fallimento.
+# Tiene inoltre aperta la issue di ogni fallimento noto escluso dal verdetto.
+# Se una decisione cambia registro o gruppi apre UNA PR (mai due insieme), che
+# il ciclo del repo revisiona e mergia su `## LGTM`.
+#
+# Ogni 6 ore: le ondate partono alle 09:00 e alle 21:00 UTC con ore di ritardo,
+# e il gruppo chiude dopo 1-3 ore; una lettura ogni 6 ore vede ogni ondata una
+# volta senza inseguirla.
+
+on:
+  schedule:
+    - cron: '47 1,7,13,19 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: crawler-quarantine-review
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      # Il generatore dei gruppi importa `yaml`.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      # La PR tocca `.github/workflows/crawler-group-*.yml`: GitHub rifiuta che
+      # GITHUB_TOKEN li scriva, serve il token della App (stesso pattern di
+      # prospector-loop.yml).
+      - name: Mint App token
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Review the quarantine group
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          git config user.name 'frontaliere-automation[bot]'
+          git config user.email '296434481+frontaliere-automation[bot]@users.noreply.github.com'
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo "::warning::App token non disponibile: decisioni calcolate e stampate, nessuna PR (i gruppi di workflow non si possono pushare con GITHUB_TOKEN)."
+            node scripts/crawler-quarantine-review.mjs
+            exit 0
+          fi
+          # actions/checkout scrive un extraheader con GITHUB_TOKEN che ha la
+          # precedenza sull'URL: senza toglierlo il push torna al token sbagliato.
+          git config --unset-all "http.https://github.com/.extraheader" || true
+          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          node scripts/crawler-quarantine-review.mjs --open-pr
