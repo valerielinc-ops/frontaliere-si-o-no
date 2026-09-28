@@ -90266,6 +90266,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parlamento-svizzera-cripto-centrali': {
+    title: 'Parlamento svizzero approva credito centrali e norma cripto',
+    description: 'Il Parlamento svizzero ha votato il credito di 131,3 milioni per le centrali di riserva, approvato il decreto sulle cripto-attività con 126 voti contro 61',
+    keywords: 'frontalieri, ticino, svizzera, italia, parlamento, svizzero, approva, credito',
+    ogTitle: 'Parlamento svizzero approva credito centrali e norma cripto',
+    ogDescription: 'Durante la sessione parlamentare a Berna, il Consiglio nazionale ha autorizzato 131,3 milioni di franchi per le future centrali elettriche di riserva, con 100 milioni per la pianificazione e 31,3 milioni per la centrale transitoria di Monthey fino',
+    canonicalPath: '/articoli-svizzera/parlamento-svizzera-cripto-centrali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parlamento svizzero approva credito centrali e norma cripto",
+      "description": "Il Parlamento svizzero ha votato il credito di 131,3 milioni per le centrali di riserva, approvato il decreto sulle cripto-attività con 126 voti contro 61",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parlamento-svizzera-cripto-centrali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio del Parlamento federale svizzero a Berna con bandiera e simboli di energia e cripto"
+      },
+      "datePublished": "2026-09-28T19:21:55+00:00",
+      "dateModified": "2026-09-28T19:21:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parlamento-svizzera-cripto-centrali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
