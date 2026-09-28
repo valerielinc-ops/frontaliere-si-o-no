@@ -23,6 +23,7 @@ import { isElementInViewport } from '@/services/adViewport';
 import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
 import { isAdSenseAllowed, onAdsConsentChange } from '@/services/adsConsent';
 import {
+ AD_BANNER_STATE_ATTR,
  AD_FILL_TIMEOUT_MS,
  AD_SLOT_VIEWPORT_ROOT_MARGIN,
  MULTIPLEX_DESKTOP_MIN_HEIGHT,
@@ -578,11 +579,14 @@ export default function AdSenseBanner({
  const isVisible = state === 'filled';
  const isCollapsed = state === 'collapsed';
  const isReservingSpace = !isVisible && !isCollapsed;
+ // The wrapper carries `state` as AD_BANNER_STATE_ATTR: the per-page ad
+ // diagnosis (services/adPageDiag.ts) counts a slot here as collapsed from it.
 
  return (
  <div
  ref={wrapperRef}
  className={className}
+ {...{ [AD_BANNER_STATE_ATTR]: state }}
  style={{
  contain: 'content',
  transition: 'min-height 300ms ease-out, max-height 300ms ease-out, opacity 200ms ease',
