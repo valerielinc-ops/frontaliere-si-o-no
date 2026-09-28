@@ -12198,6 +12198,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hotel-ristoranti-salari-2027.title': 'Hotels und Restaurants: Mindestlöhne +0,6% im Jahr 2027',
     'blog.article.hotel-ristoranti-salari-2027.excerpt': 'Im Hotel- und Gastgewerbe werden die Mindestlöhne 2027 um 0,6 % steigen: für Kat. II von 4\'070 auf 4\'094 Bruttofranken.',
     'blog.article.hotel-ristoranti-salari-2027.imageAlt': 'Vorbereiteter Speisesaal eines Schweizer Hotelrestaurants',
+    'blog.article.targhe-ricerche-pagamento.title': 'Kennzeichen Tessin: Bezahlte Suche ab 1. November',
+    'blog.article.targhe-ricerche-pagamento.excerpt': 'Ab dem 1. November 2026 kehrt die Tessiner Kennzeichenliste auf den eAutoindex zurück: Einzelne Suchanfragen werden bezahlt, um die automatisierte Datenerfassung einzudämmen.',
+    'blog.article.targhe-ricerche-pagamento.imageAlt': 'Tessiner Fahrzeugkennzeichen und eAutoindex für kostenpflichtige Abfragen',
 };
 
 export default blogMetaDe;

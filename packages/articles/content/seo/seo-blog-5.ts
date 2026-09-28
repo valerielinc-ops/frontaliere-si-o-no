@@ -96091,6 +96091,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-targhe-ricerche-pagamento': {
+    title: 'Targhe Ticino: ricerche a pagamento dal 1° novembre',
+    description: 'Dal 1° novembre 2026 l’elenco targhe ticinese torna su eAutoindex: le singole ricerche saranno a pagamento per frenare la raccolta automatizzata dei dati.',
+    keywords: 'frontalieri, ticino, svizzera, italia, targhe, ricerche, pagamento, novembre',
+    ogTitle: 'Targhe Ticino: ricerche a pagamento dal 1° novembre',
+    ogDescription: 'Dal 1° novembre 2026 l’elenco targhe ticinese torna su eAutoindex con ricerche singole a pagamento, dopo la sottrazione su larga scala di dati pubblici. Chi aveva chiesto l’esclusione dei propri dati resterà fuori dalla piattaforma.',
+    canonicalPath: '/articoli-frontaliere/targhe-ricerche-pagamento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Targhe Ticino: ricerche a pagamento dal 1° novembre",
+      "description": "Dal 1° novembre 2026 l’elenco targhe ticinese torna su eAutoindex: le singole ricerche saranno a pagamento per frenare la raccolta automatizzata dei dati.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/targhe-ricerche-pagamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Elenco targhe ticinese e piattaforma eAutoindex per le ricerche a pagamento"
+      },
+      "datePublished": "2026-09-28T09:27:49+00:00",
+      "dateModified": "2026-09-28T09:27:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/targhe-ricerche-pagamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

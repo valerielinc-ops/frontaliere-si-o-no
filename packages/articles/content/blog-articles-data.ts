@@ -36619,6 +36619,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'targhe-ricerche-pagamento',
+ category: 'novita',
+ date: '2026-09-28T09:27:49.221Z',
+ image: '/images/blog/targhe-ricerche-pagamento.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
