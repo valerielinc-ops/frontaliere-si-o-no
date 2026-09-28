@@ -407,6 +407,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'data/jobs paths are created inside a mkdtemp git fixture; only the source module is read from the checkout',
   },
   {
+    file: 'tests/git-commit-data-retry-reuse.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'all data/jobs paths belong to temporary bare repositories created under os.tmpdir(); the checkout read is limited to the script under test',
+  },
+  {
     file: 'tests/generate-crawler-group-workflows.test.ts',
     roots: ['data/jobs/'],
     reason: 'job slice paths are asserted YAML/env strings, not checkout filesystem reads',
