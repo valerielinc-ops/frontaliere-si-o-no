@@ -19,6 +19,7 @@ import {
   renderDigestPage,
   renderOtherEventsPage,
   renderOverflowLadderPage,
+  buildSitemap,
   DIGESTS,
   assignEventSlugs,
   changedEventSlugMigrations,
@@ -484,7 +485,7 @@ describe('renderEventDetailPage', () => {
     expect(guidlePage.html).toContain('data-hero-mode=image');
     expect(guidlePage.html).toContain('class=ev-heroimg');
   });
-  it('does not add manual slots to the noindex past-event bridge', () => {
+  it('keeps historical detail pages indexable without stale Event JSON-LD', () => {
     const pastPage = renderEventDetailPage({
       locale: 'it',
       event: EVENT as never,
@@ -496,11 +497,13 @@ describe('renderEventDetailPage', () => {
       detailHref: (() => null) as never,
       isPast: true,
     });
-    expect(pastPage.html).toContain('noindex,follow');
-    expect(pastPage.html).not.toContain('data-ad-slot=1982411173');
-    expect(pastPage.html).not.toContain('data-ad-slot="1982411173"');
-    expect(pastPage.html).not.toContain('data-ad-slot=5196931137');
-    expect(pastPage.html).not.toContain('data-ad-slot="5196931137"');
+    expect(pastPage.html).toContain('index, follow');
+    expect(pastPage.html).not.toContain('noindex');
+    expect(pastPage.html).not.toContain('"@context":"https://schema.org","@type":"Event"');
+    expect(pastPage.html).toContain('"@type":"BreadcrumbList"');
+    expect(pastPage.html).toContain('data-events-lifecycle=past');
+    expect(pastPage.html).toMatch(/data-ad-slot=["']?1982411173/);
+    expect(pastPage.html).toMatch(/data-ad-slot=["']?5196931137/);
   });
   it('links the source as a nofollow official-site CTA and lists other events in the comune', () => {
     expect(page.html).toContain(EVENT.url);
@@ -662,6 +665,18 @@ describe('renderEventDetailPage', () => {
     expect(titleTag.length).toBeGreaterThan(0);
     expect(titleTag.length).toBeLessThanOrEqual(66);
     expect(titleTag).toContain('Appenzell Rhodes-Extérieures');
+  });
+});
+
+describe('buildSitemap historical detail entries', () => {
+  it('publishes historical detail routes with the same locale alternates as live details', () => {
+    const dateStamp = new Date().toISOString().slice(0, 10);
+    const xml = buildSitemap([], dateStamp, [{ canton: 'TI', comune: 'Lugano', slug: 'evento-storico' }]);
+
+    expect(xml).toContain('<loc>https://frontaliereticino.ch/eventi/ticino/lugano/evento-storico/</loc>');
+    expect(xml).toContain('hreflang="en" href="https://frontaliereticino.ch/en/events/ticino/lugano/evento-storico/"');
+    expect(xml).toContain('hreflang="de" href="https://frontaliereticino.ch/de/veranstaltungen/tessin/lugano/evento-storico/"');
+    expect(xml).toContain('hreflang="fr" href="https://frontaliereticino.ch/fr/evenements/tessin/lugano/evento-storico/"');
   });
 });
 

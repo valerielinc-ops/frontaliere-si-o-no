@@ -187,7 +187,8 @@ export function publishedEventRoutes(events, todayIso) {
  * All events whose last relevant date is before today, sorted like the
  * short-grace helper. The page builder uses this permanent archive pass so a
  * historical detail URL never becomes a 404 merely because it aged out of a
- * bridge window. These pages remain noindex and outside the sitemap.
+ * bridge window. The page builder keeps these routes as indexable historical
+ * archive pages so direct links do not lose their search visibility.
  */
 export function allEndedEvents(events, todayIso) {
   const today = todayIso || isoDay(new Date());
