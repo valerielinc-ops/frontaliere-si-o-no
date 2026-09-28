@@ -36601,6 +36601,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'credito-imposta-spesa-ticino',
+ category: 'fiscale',
+ date: '2026-09-28T08:02:36.189Z',
+ image: '/images/blog/credito-imposta-spesa-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

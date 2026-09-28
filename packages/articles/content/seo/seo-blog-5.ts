@@ -96013,6 +96013,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-credito-imposta-spesa-ticino': {
+    title: 'Credito d’imposta per spese ticinesi: idea Giovani Centro',
+    description: 'Proposta dei Giovani del Centro: credito d’imposta del 25% su spese fino al 5% dello stipendio (max 5.000 CHF). Simulazione 170.000 lavoratori porta a 850',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, spese, ticinesi',
+    ogTitle: 'Credito d’imposta per spese ticinesi: idea Giovani Centro',
+    ogDescription: 'Scopri la proposta dei Giovani del Centro per un credito d’imposta del 25% sulle spese effettuate in Ticino, fino al 5% dello stipendio con tetto di 5.000 franchi. La simulazione su 170.000 lavoratori mostra un potenziale aumento di spesa di 850',
+    canonicalPath: '/articoli-frontaliere/credito-imposta-spesa-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d’imposta per spese ticinesi: idea Giovani Centro",
+      "description": "Proposta dei Giovani del Centro: credito d’imposta del 25% su spese fino al 5% dello stipendio (max 5.000 CHF). Simulazione 170.000 lavoratori porta a 850",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-imposta-spesa-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato di Lugano con gente che fa acquisti in negozi locali sotto cielo alpino"
+      },
+      "datePublished": "2026-09-28T08:02:36+00:00",
+      "dateModified": "2026-09-28T08:02:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-imposta-spesa-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
