@@ -1,6 +1,6 @@
 {
   "crawlerKey": "im-bethesda-spital",
-  "assembledAt": "2026-09-28T04:56:32.088Z",
+  "assembledAt": "2026-09-28T21:14:54.600Z",
   "jobs": [
     {
       "id": "im-bethesda-spital-a1480b59921f",
@@ -33,7 +33,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-686f0be949cf",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.073Z",
+      "crawledAt": "2026-09-28T21:14:50.635Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-basel-basel-stadt-im"
+        "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-basel-basel-stadt-im",
+        "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-im-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-basel-basel-stadt-im"
+          "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-basel-basel-stadt-im",
+          "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-im-bethesda-spital-basel"
         ]
       },
       "needsRetranslation": true,
@@ -71,144 +73,6 @@
           "@type": "QuantitativeValue",
           "minValue": 72500,
           "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "im-bethesda-spital-d07140d0cd1d",
-      "slug": "medico-senior-medico-senior-medicina-di-emergenza-60-80-im-bethesda-spital-basel-basel-stadt",
-      "slugByLocale": {
-        "it": "medico-senior-medico-senior-medicina-di-emergenza-60-80-im-bethesda-spital-basel-basel-stadt",
-        "en": "senior-physician-senior-physician-emergency-medicine-60-80-im-bethesda-spital-basel-basel-stadt",
-        "de": "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch",
-        "fr": "medecin-superieur-medecin-superieur-medecine-d-urgence-60-80-im-bethesda-spital-basel-basel-stadt"
-      },
-      "company": "& im Bethesda Spital",
-      "companyKey": "im-bethesda-spital",
-      "companyDomain": "bethesda-spital.ch",
-      "title": "Oberärztin / Oberarzt Notfallmedizin 60-80%",
-      "titleByLocale": {
-        "it": "medico senior / medico senior medicina di emergenza 60-80 %",
-        "en": "Senior physician / Senior physician Emergency medicine 60-80 %",
-        "de": "Oberärztin / Oberarzt Notfallmedizin 60-80%",
-        "fr": "Médecin supérieur / Médecin supérieur Médecine d'urgence 60-80 %"
-      },
-      "description": "Zur Stärkung des ärztlichen Teams suchen wir nach Vereinbarung eine/n Oberarzt/-ärztin Notfallmedizin 60-80%",
-      "descriptionByLocale": {
-        "de": "Zur Stärkung des ärztlichen Teams suchen wir nach Vereinbarung eine/n Oberarzt/-ärztin Notfallmedizin 60-80%"
-      },
-      "location": "Basel, Basel-Stadt",
-      "canton": "BS",
-      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-da574726f840",
-      "source": "& im Bethesda Spital Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.072Z",
-      "addressLocality": "Basel",
-      "addressRegion": "Basel-Stadt",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4052",
-      "streetAddress": "Gellertstrasse 144",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-da574726f840",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:01:29.727Z",
-      "salaryMin": 49600,
-      "salaryMax": 75200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49600,
-          "maxValue": 75200,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
-        ],
-        "en": [
-          "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
-        ],
-        "fr": [
-          "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
-        ]
-      },
-      "previousSlugs": [
-        "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
-      ]
-    },
-    {
-      "id": "im-bethesda-spital-a7720e2052eb",
-      "slug": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
-      "slugByLocale": {
-        "it": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
-        "en": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
-        "de": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
-        "fr": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch"
-      },
-      "company": "& im Bethesda Spital",
-      "companyKey": "im-bethesda-spital",
-      "companyDomain": "bethesda-spital.ch",
-      "title": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
-      "titleByLocale": {
-        "it": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
-        "en": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
-        "de": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
-        "fr": "OP-Lagerungspfleger/in im Wunschpensum 80–100%"
-      },
-      "description": "Für unsere modern ausgestattete OP-Abteilung suchen wir nach Vereinbarung eine/n OP-Lagerungspfleger/in (80–100%)",
-      "descriptionByLocale": {
-        "de": "Für unsere modern ausgestattete OP-Abteilung suchen wir nach Vereinbarung eine/n OP-Lagerungspfleger/in (80–100%)"
-      },
-      "location": "Basel, Basel-Stadt",
-      "canton": "BS",
-      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-7db730b42f17",
-      "source": "& im Bethesda Spital Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.071Z",
-      "addressLocality": "Basel",
-      "addressRegion": "Basel-Stadt",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4052",
-      "streetAddress": "Gellertstrasse 144",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-7db730b42f17",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:01:29.727Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -244,7 +108,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-b68fafd8c3cf",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.071Z",
+      "crawledAt": "2026-09-28T21:14:50.634Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -278,6 +142,146 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:01:29.727Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 129500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "im-bethesda-spital-d07140d0cd1d",
+      "slug": "medico-senior-medico-senior-medicina-di-emergenza-60-80-im-bethesda-spital-basel-basel-stadt",
+      "slugByLocale": {
+        "it": "medico-senior-medico-senior-medicina-di-emergenza-60-80-im-bethesda-spital-basel-basel-stadt",
+        "en": "senior-physician-senior-physician-emergency-medicine-60-80-im-bethesda-spital-basel-basel-stadt",
+        "de": "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch",
+        "fr": "medecin-superieur-medecin-superieur-medecine-d-urgence-60-80-im-bethesda-spital-basel-basel-stadt"
+      },
+      "company": "& im Bethesda Spital",
+      "companyKey": "im-bethesda-spital",
+      "companyDomain": "bethesda-spital.ch",
+      "title": "Oberärztin / Oberarzt Notfallmedizin 60-80%",
+      "titleByLocale": {
+        "it": "medico senior / medico senior medicina di emergenza 60-80 %",
+        "en": "Senior physician / Senior physician Emergency medicine 60-80 %",
+        "de": "Oberärztin / Oberarzt Notfallmedizin 60-80%",
+        "fr": "Médecin supérieur / Médecin supérieur Médecine d'urgence 60-80 %"
+      },
+      "description": "Zur Stärkung des ärztlichen Teams suchen wir nach Vereinbarung eine/n Oberarzt/-ärztin Notfallmedizin 60-80%",
+      "descriptionByLocale": {
+        "de": "Zur Stärkung des ärztlichen Teams suchen wir nach Vereinbarung eine/n Oberarzt/-ärztin Notfallmedizin 60-80%"
+      },
+      "location": "Basel, Basel-Stadt",
+      "canton": "BS",
+      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-da574726f840",
+      "source": "& im Bethesda Spital Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:14:50.634Z",
+      "addressLocality": "Basel",
+      "addressRegion": "Basel-Stadt",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4052",
+      "streetAddress": "Gellertstrasse 144",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-da574726f840",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch",
+        "medico-senior-medico-senior-medicina-di-emergenza-60-80-im-bethesda-spital-basel-basel-stadt"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch",
+          "medico-senior-medico-senior-medicina-di-emergenza-60-80-im-bethesda-spital-basel-basel-stadt"
+        ],
+        "en": [
+          "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T16:01:29.727Z",
+      "salaryMin": 68400,
+      "salaryMax": 103600,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68400,
+          "maxValue": 103600,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "im-bethesda-spital-a7720e2052eb",
+      "slug": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+      "slugByLocale": {
+        "it": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "en": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "de": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "fr": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch"
+      },
+      "company": "& im Bethesda Spital",
+      "companyKey": "im-bethesda-spital",
+      "companyDomain": "bethesda-spital.ch",
+      "title": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
+      "titleByLocale": {
+        "it": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
+        "en": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
+        "de": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
+        "fr": "OP-Lagerungspfleger/in im Wunschpensum 80–100%"
+      },
+      "description": "Für unsere modern ausgestattete OP-Abteilung suchen wir nach Vereinbarung eine/n OP-Lagerungspfleger/in (80–100%)",
+      "descriptionByLocale": {
+        "de": "Für unsere modern ausgestattete OP-Abteilung suchen wir nach Vereinbarung eine/n OP-Lagerungspfleger/in (80–100%)"
+      },
+      "location": "Basel, Basel-Stadt",
+      "canton": "BS",
+      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-7db730b42f17",
+      "source": "& im Bethesda Spital Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:14:50.633Z",
+      "addressLocality": "Basel",
+      "addressRegion": "Basel-Stadt",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4052",
+      "streetAddress": "Gellertstrasse 144",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-7db730b42f17",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T16:01:29.727Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -297,7 +301,7 @@
       "slug": "observice-observice-radiology-80-100-im-bethesda-spital-basel-basel-stadt",
       "slugByLocale": {
         "it": "observice-observice-radiology-80-100-im-bethesda-spital-basel-basel-stadt",
-        "en": "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "en": "observice-observice-radiology-80-100-im-bethesda-spital-basel",
         "de": "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
         "fr": "radiologie-observice-observice-80-100-im-bethesda-spital-basel-basel-stadt"
       },
@@ -323,7 +327,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-6563b3622fc0",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.069Z",
+      "crawledAt": "2026-09-28T21:14:50.632Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -341,7 +345,24 @@
       "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-6563b3622fc0",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "observice-observice-radiology-80-100-im-bethesda-spital-basel-basel-stadt"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+          "observice-observice-radiology-80-100-im-bethesda-spital-basel-basel-stadt"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
+        ]
+      },
       "firstSeenAt": "2026-09-21T16:01:29.727Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -354,18 +375,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
-        ],
-        "fr": [
-          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
-        ]
-      },
-      "previousSlugs": [
-        "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
-      ]
+      }
     },
     {
       "id": "im-bethesda-spital-277b93b896cb",
@@ -398,7 +408,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-e2cf983347f5",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.068Z",
+      "crawledAt": "2026-09-28T21:14:50.631Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -417,11 +427,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-basel-basel-stadt-im"
+        "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-basel-basel-stadt-im",
+        "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-im-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-basel-basel-stadt-im"
+          "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-basel-basel-stadt-im",
+          "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-im-bethesda-spital-basel"
         ]
       },
       "needsRetranslation": true,
@@ -436,6 +448,89 @@
           "@type": "QuantitativeValue",
           "minValue": 49600,
           "maxValue": 75200,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "im-bethesda-spital-4d8ff5f4b916",
+      "slug": "diploma-esperto-esperto-anestesia-cura-hf-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt",
+      "slugByLocale": {
+        "it": "diploma-esperto-esperto-anestesia-cura-hf-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt",
+        "en": "diploma-expert-expert-anesthesia-care-hf-in-the-desired-range-40-100-im-bethesda-spital-basel-basel-stadt",
+        "de": "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-basel-basel-stadt-im",
+        "fr": "diplome-expert-expert-soins-d-anesthesie-hf-dans-la-gamme-souhaitee-40-100-im-bethesda-spital-basel-basel-stadt"
+      },
+      "company": "& im Bethesda Spital",
+      "companyKey": "im-bethesda-spital",
+      "companyDomain": "bethesda-spital.ch",
+      "title": "Diplom Experte / Expertin Anästhesiepflege HF im Wunschpensum 40-100%",
+      "titleByLocale": {
+        "it": "Diploma esperto / esperto anestesia cura HF nella gamma desiderata 40-100 %",
+        "en": "Diplom Experte / Expertin Anästhesiepflege HF im Wunschpensum 40-100%",
+        "de": "Diplom Experte / Expertin Anästhesiepflege HF im Wunschpensum 40-100%",
+        "fr": "Diplôme Expert / Expert Soins d'anesthésie HF dans la gamme souhaitée 40-100 %"
+      },
+      "description": "Für unser Team der Anästhesiepflege suchen wir per sofort oder nach Vereinbarung eine/n Dipl. Experte / Expertin Anästhesiepflege HF im Wunschpensum 40-100%",
+      "descriptionByLocale": {
+        "it": "Per il nostro team di anestesia la cura che stiamo cercando un dipl immediatamente o di accordo. Expert / Expert anesthesia care HF nella gamma desiderata 40-100 %",
+        "en": "For our team of anesthesia care we are looking for a dipl immediately or by agreement. Expert / Expert anesthesia care HF in the desired range 40-100 %",
+        "de": "Für unser Team der Anästhesiepflege suchen wir per sofort oder nach Vereinbarung eine/n Dipl. Experte / Expertin Anästhesiepflege HF im Wunschpensum 40-100%",
+        "fr": "Pour notre équipe de soins d'anesthésie, nous cherchons un dipl immédiatement ou d'un commun accord. Expert / Soins d'anesthésie expert HF dans la gamme souhaitée 40-100 %"
+      },
+      "location": "Basel, Basel-Stadt",
+      "canton": "BS",
+      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-62a12ed2768e",
+      "source": "& im Bethesda Spital Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:14:50.630Z",
+      "addressLocality": "Basel",
+      "addressRegion": "Basel-Stadt",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4052",
+      "streetAddress": "Gellertstrasse 144",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-62a12ed2768e",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-basel-basel-stadt-im",
+        "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel",
+        "diploma-esperto-esperto-anestesia-cura-hf-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-basel-basel-stadt-im",
+          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel",
+          "diploma-esperto-esperto-anestesia-cura-hf-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt"
+        ],
+        "en": [
+          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
+        ],
+        "fr": [
+          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
+        ]
+      },
+      "firstSeenAt": "2026-09-21T16:01:29.727Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -471,7 +566,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-e5b73e8a6685",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.066Z",
+      "crawledAt": "2026-09-28T21:14:50.630Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -490,11 +585,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel"
+        "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel",
+        "medizinische-praxisassistentin-cfc-o-diplomierte-pflegefachperson-hf-fh-80-100-im-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel"
+          "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel",
+          "medizinische-praxisassistentin-cfc-o-diplomierte-pflegefachperson-hf-fh-80-100-im-bethesda-spital-basel"
         ],
         "en": [
           "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel"
@@ -504,86 +601,6 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:01:29.727Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "im-bethesda-spital-4d8ff5f4b916",
-      "slug": "diploma-esperto-esperto-anestesia-cura-hf-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt",
-      "slugByLocale": {
-        "it": "diploma-esperto-esperto-anestesia-cura-hf-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt",
-        "en": "diploma-expert-expert-anesthesia-care-hf-in-the-desired-range-40-100-im-bethesda-spital-basel-basel-stadt",
-        "de": "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-basel-basel-stadt-im",
-        "fr": "diplome-expert-expert-soins-d-anesthesie-hf-dans-la-gamme-souhaitee-40-100-im-bethesda-spital-basel-basel-stadt"
-      },
-      "company": "& im Bethesda Spital",
-      "companyKey": "im-bethesda-spital",
-      "companyDomain": "bethesda-spital.ch",
-      "title": "Diplom Experte / Expertin Anästhesiepflege HF im Wunschpensum 40-100%",
-      "titleByLocale": {
-        "it": "Diploma esperto / esperto anestesia cura HF nella gamma desiderata 40-100 %",
-        "en": "Diploma Expert / Expert Anesthesia care HF in the desired range 40-100 %",
-        "de": "Diplom Experte / Expertin Anästhesiepflege HF im Wunschpensum 40-100%",
-        "fr": "Diplôme Expert / Expert Soins d'anesthésie HF dans la gamme souhaitée 40-100 %"
-      },
-      "description": "Für unser Team der Anästhesiepflege suchen wir per sofort oder nach Vereinbarung eine/n Dipl. Experte / Expertin Anästhesiepflege HF im Wunschpensum 40-100%",
-      "descriptionByLocale": {
-        "it": "Per il nostro team di anestesia la cura che stiamo cercando un dipl immediatamente o di accordo. Expert / Expert anesthesia care HF nella gamma desiderata 40-100 %",
-        "en": "For our team of anesthesia care we are looking for a dipl immediately or by agreement. Expert / Expert anesthesia care HF in the desired range 40-100 %",
-        "de": "Für unser Team der Anästhesiepflege suchen wir per sofort oder nach Vereinbarung eine/n Dipl. Experte / Expertin Anästhesiepflege HF im Wunschpensum 40-100%",
-        "fr": "Pour notre équipe de soins d'anesthésie, nous cherchons un dipl immédiatement ou d'un commun accord. Expert / Soins d'anesthésie expert HF dans la gamme souhaitée 40-100 %"
-      },
-      "location": "Basel, Basel-Stadt",
-      "canton": "BS",
-      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-62a12ed2768e",
-      "source": "& im Bethesda Spital Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.065Z",
-      "addressLocality": "Basel",
-      "addressRegion": "Basel-Stadt",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4052",
-      "streetAddress": "Gellertstrasse 144",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-62a12ed2768e",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-basel-basel-stadt-im",
-        "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-basel-basel-stadt-im",
-          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
-        ],
-        "en": [
-          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
-        ],
-        "fr": [
-          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
-        ]
-      },
       "firstSeenAt": "2026-09-21T16:01:29.727Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -630,7 +647,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-64626de7988e",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.064Z",
+      "crawledAt": "2026-09-28T21:14:50.629Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -650,12 +667,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-basel-basel-stadt-im-bethesda",
-        "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
+        "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
+        "dipl-specialista-in-radiologia-nella-gamma-desiderata-da-70-a-100-im-bethesda-spital-basel-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-basel-basel-stadt-im-bethesda",
-          "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
+          "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
+          "dipl-specialista-in-radiologia-nella-gamma-desiderata-da-70-a-100-im-bethesda-spital-basel-basel-stadt"
         ],
         "en": [
           "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
@@ -685,7 +704,7 @@
       "slug": "infermiera-hf-fh-100-im-bethesda-spital-basel-basel-stadt",
       "slugByLocale": {
         "it": "infermiera-hf-fh-100-im-bethesda-spital-basel-basel-stadt",
-        "en": "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "en": "dipl-nurse-hf-fh-100-im-bethesda-spital-basel",
         "de": "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch",
         "fr": "infirmiere-diplomee-hf-fh-100-im-bethesda-spital-basel-basel-stadt"
       },
@@ -711,7 +730,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-cde11a6b4d57",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.063Z",
+      "crawledAt": "2026-09-28T21:14:50.628Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -729,7 +748,24 @@
       "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-cde11a6b4d57",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "infermiera-hf-fh-100-im-bethesda-spital-basel-basel-stadt"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch",
+          "infermiera-hf-fh-100-im-bethesda-spital-basel-basel-stadt"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch"
+        ]
+      },
       "firstSeenAt": "2026-09-21T16:01:29.727Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -742,18 +778,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch"
-      ]
+      }
     },
     {
       "id": "im-bethesda-spital-da8662dc880f",
@@ -783,7 +808,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-e9c395b4aab0",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.062Z",
+      "crawledAt": "2026-09-28T21:14:50.627Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -803,12 +828,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-basel-basel-stadt-im-bethesda",
-        "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel"
+        "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel",
+        "dipl-tecnica-chirurgica-specialistica-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-basel-basel-stadt-im-bethesda",
-          "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel"
+          "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel",
+          "dipl-tecnica-chirurgica-specialistica-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt"
         ],
         "en": [
           "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel"
@@ -864,7 +891,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-b74dd5f7f818",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.061Z",
+      "crawledAt": "2026-09-28T21:14:50.626Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -883,11 +910,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda"
+        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda",
+        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda"
+          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda",
+          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel"
         ]
       },
       "needsRetranslation": true,
@@ -937,7 +966,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-2c4be85d5031",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.060Z",
+      "crawledAt": "2026-09-28T21:14:50.625Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -955,6 +984,22 @@
       "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-2c4be85d5031",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch",
+        "infermiere-professionale-hf-fh-80-im-bethesda-spital-basel-basel-stadt"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch",
+          "infermiere-professionale-hf-fh-80-im-bethesda-spital-basel-basel-stadt"
+        ],
+        "en": [
+          "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
+        ],
+        "fr": [
+          "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
+        ]
+      },
       "firstSeenAt": "2026-09-21T16:01:29.727Z",
       "salaryMin": 49600,
       "salaryMax": 75200,
@@ -968,21 +1013,7 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
-        ],
-        "en": [
-          "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
-        ],
-        "fr": [
-          "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
-        ]
-      },
-      "previousSlugs": [
-        "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
-      ]
+      }
     },
     {
       "id": "im-bethesda-spital-05fab5ad5d48",
@@ -1015,7 +1046,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-f8eccc37df02",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.055Z",
+      "crawledAt": "2026-09-28T21:14:50.622Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
