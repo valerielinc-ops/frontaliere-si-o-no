@@ -63,6 +63,7 @@ jobs:
     # ~422 MB across 595 files.
     timeout-minutes: 20
     env:
+      APPROVAL_TRUSTED_SCHEDULE: 'true'
       DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
       ONLY: ${{ github.event.inputs.only || 'both' }}
       REPORT_DATE: ${{ github.event.inputs.date || '' }}
@@ -99,9 +100,9 @@ jobs:
       - name: Post to LinkedIn (member)
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
-          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
-          ALLOW_SIDE_EFFECT: 'true'
-          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
+          ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
         run: |
           set -euo pipefail
           ARGS=()
@@ -111,7 +112,7 @@ jobs:
           node scripts/post-to-linkedin-member.mjs ${ARGS[@]+"${ARGS[@]}"}
 
       - name: Commit posted ledger
-        if: success() && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
         run: |
           set -euo pipefail
           # `git diff --quiet <path>` on a path that has never existed exits

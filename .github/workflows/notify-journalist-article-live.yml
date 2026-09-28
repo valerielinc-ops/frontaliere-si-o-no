@@ -34,6 +34,8 @@ jobs:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      APPROVAL_TRUSTED_SCHEDULE: 'true'
 
     steps:
       - name: Checkout
@@ -66,7 +68,15 @@ jobs:
 
       - name: Verify + notify live journalist articles
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/notify-journalist-article-live.mjs
+        env:
+          ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
+        run: |
+          if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
+            echo "::notice::Scheduled journalist notification is unarmed; keeping this run dry/no-op."
+            exit 0
+          fi
+          node scripts/notify-journalist-article-live.mjs
 
       - name: Report failure to GitHub Issues
         if: failure()

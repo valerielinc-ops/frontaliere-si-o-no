@@ -55,6 +55,7 @@ jobs:
     # — full checkout + assemble-jobs-dataset for the job slot.
     timeout-minutes: 20
     env:
+      APPROVAL_TRUSTED_SCHEDULE: 'true'
       # Weekly cron ⇒ border; daily cron / manual ⇒ input (empty = article+job).
       ONLY: ${{ github.event.inputs.only || (github.event.schedule == '5 7 * * 1' && 'border' || '') }}
       DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
@@ -97,9 +98,9 @@ jobs:
       - name: Post to Instagram
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
-          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
-          ALLOW_SIDE_EFFECT: 'true'
-          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
+          ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
         run: |
           set -euo pipefail
           ARGS=()
@@ -109,7 +110,7 @@ jobs:
           npx --no-install tsx scripts/post-to-instagram.mjs ${ARGS[@]+"${ARGS[@]}"}
 
       - name: Commit posted ledger
-        if: success() && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
         run: |
           set -euo pipefail
           # Same fix as linkedin-member-daily.yml (#6424): `git diff --quiet

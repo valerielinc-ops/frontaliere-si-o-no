@@ -38,6 +38,8 @@ jobs:
   cleanup:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      APPROVAL_TRUSTED_SCHEDULE: 'true'
 
     steps:
       - name: Checkout
@@ -96,8 +98,8 @@ jobs:
       - name: Cleanup Mailjet contacts
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
-          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
           KEEP: ${{ inputs.keep || '500' }}
-          ALLOW_SIDE_EFFECT: 'true'
-          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+          ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
         run: node scripts/cleanup-mailjet-contacts.mjs

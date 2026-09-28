@@ -51,6 +51,7 @@ jobs:
     # crossover), so it shares the same shrinking margin as its two siblings.
     timeout-minutes: 20
     env:
+      APPROVAL_TRUSTED_SCHEDULE: 'true'
       # Weekly cron ⇒ border; daily cron / manual ⇒ input or 'jobs'.
       MODE: ${{ github.event.inputs.mode || (github.event.schedule == '0 7 * * 1' && 'border' || 'jobs') }}
       DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
@@ -75,8 +76,8 @@ jobs:
 
       - name: Resolve real-send flag
         env:
-          ALLOW_SIDE_EFFECT: 'true'
-          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+          ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
         run: |
           if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
             echo "TELEGRAM_SEND=" >> "$GITHUB_ENV"
@@ -101,7 +102,7 @@ jobs:
         run: node scripts/post-to-telegram.mjs preferred-source
 
       - name: Commit posted ledgers
-        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (env.MODE == 'jobs' || env.MODE == 'preferred-source')
+        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (env.MODE == 'jobs' || env.MODE == 'preferred-source') && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"

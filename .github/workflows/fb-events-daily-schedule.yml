@@ -42,6 +42,8 @@ jobs:
   schedule:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      APPROVAL_TRUSTED_SCHEDULE: 'true'
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -65,13 +67,13 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FB_EVENT_VOLUME: ${{ github.event.inputs.volume || '3' }}
-          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
-          ALLOW_SIDE_EFFECT: 'true'
-          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
+          ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
         run: node scripts/schedule-fb-events-daily.mjs
 
       - name: Commit posted-events tracking
-        if: success() && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
