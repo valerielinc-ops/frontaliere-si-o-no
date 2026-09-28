@@ -89759,6 +89759,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-formazione-primo-soccorso-pediatrico-ticino': {
+    title: 'Primo soccorso pediatrico: richiesta di formazione obbligatoria',
+    description: 'Nel 2025 sono stati registrati 296 interventi su bambini sotto i 6 anni in Ticino. È richiesta una formazione obbligatoria e biennale per chi accudisce bambini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, soccorso, pediatrico, richiesta',
+    ogTitle: 'Primo soccorso pediatrico in Ticino: richiesta di formazione obbligatoria',
+    ogDescription: 'Una mozione inoltrata al Consiglio di Stato a Bellinzona chiede di rendere obbligatoria la formazione in primo soccorso pediatrico per chi lavora con i bambini, basando la proposta sui 296 interventi registrati nel 2025.',
+    canonicalPath: '/articoli-svizzera/formazione-primo-soccorso-pediatrico-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo soccorso pediatrico: richiesta di formazione obbligatoria",
+      "description": "Nel 2025 sono stati registrati 296 interventi su bambini sotto i 6 anni in Ticino. È richiesta una formazione obbligatoria e biennale per chi accudisce bambini.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/formazione-primo-soccorso-pediatrico-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Formazione in primo soccorso pediatrico in Ticino"
+      },
+      "datePublished": "2026-09-28T10:44:52+00:00",
+      "dateModified": "2026-09-28T10:44:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/formazione-primo-soccorso-pediatrico-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

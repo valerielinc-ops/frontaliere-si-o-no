@@ -6923,6 +6923,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.navigazione-sostenibile-svizzera.title': 'Ritardo normativo navi, fornitori svizzeri sotto pressione',
     'blog.article.navigazione-sostenibile-svizzera.excerpt': 'Decisione IMO su emissioni zero posticipata a dicembre. Accelleron e Burckhardt Compression riducono aspettative, ABB mantiene attività normali.',
     'blog.article.navigazione-sostenibile-svizzera.imageAlt': 'Vista aerea del Lago Lugano con navi cargo in lontananza',
+    'blog.article.formazione-primo-soccorso-pediatrico-ticino.title': 'Primo soccorso pediatrico: richiesta di formazione obbligatoria',
+    'blog.article.formazione-primo-soccorso-pediatrico-ticino.excerpt': 'Nel 2025 sono stati registrati 296 interventi su bambini fino a 6 anni. La mozione chiede formazione certificata e biennale.',
+    'blog.article.formazione-primo-soccorso-pediatrico-ticino.imageAlt': 'Formazione in primo soccorso pediatrico in Ticino',
 };
 
 export default blogMetaChIt;
