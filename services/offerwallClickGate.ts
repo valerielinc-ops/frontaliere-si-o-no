@@ -44,8 +44,16 @@ declare global {
   }
 }
 
-/** Time the Offerwall has to render after the release (2.0-2.8 s live). */
-export const OFFERWALL_APPEAR_TIMEOUT_MS = 5000;
+/**
+ * Time the Offerwall has to render after the release. Measured 2.0-2.8 s on
+ * 25-26/09, then 1.7-4.8 s on desktop on 28-09. At 5 s the timeout cut off the
+ * slow ones: 17 of 59 releases ended in `appear_timeout` with no other rewarded
+ * demand to offer, since the GPT fallback has no fill. Visitors with no
+ * consent decision, for whom no ad can be served, no longer reach the release
+ * (services/offerwallRecovery.ts), so this wait is only for an Offerwall that
+ * can still come.
+ */
+export const OFFERWALL_APPEAR_TIMEOUT_MS = 10_000;
 /**
  * Nothing on screen yet this long after the release: reported once through
  * `onSlow`, so a caller can prepare a fallback before the appear timeout.

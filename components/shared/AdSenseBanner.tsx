@@ -21,7 +21,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
 import { isElementInViewport } from '@/services/adViewport';
 import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
-import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
+import { isAdSenseAllowed, onAdsConsentChange } from '@/services/adsConsent';
 import {
  AD_FILL_TIMEOUT_MS,
  AD_SLOT_VIEWPORT_ROOT_MARGIN,
@@ -230,9 +230,11 @@ export default function AdSenseBanner({
  // missed path is a silent bypass. Also kept separate from the
  // `hasActiveReaderNoAdsEntitlement()` early return in that effect, which
  // never sees the idle/interaction callbacks that fire later.
- // Fails closed: any read failure means "no consent". See services/adsConsent.ts.
+ // Open once the visitor answered the CMP either way: without Purpose 1
+ // consent Google serves Limited Ads (isAdSenseAllowed in services/adsConsent.ts).
+ // Fails closed: any read failure means "no decision".
  // Analytics / PostHog / Clarity are NOT gated here — owner decision in #5842.
- if (!isAdsConsentGranted()) return;
+ if (!isAdSenseAllowed()) return;
  const existing = document.querySelector<HTMLScriptElement>('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
  if (existing) {
  // adsbygoogle global means the script has already loaded (e.g. via
