@@ -70,6 +70,7 @@ export const INSIGHTS_SCHEMA_VERSION = 2;
 export const DELIVERY_UNAVAILABLE = 'non disponibile';
 export const EVENT_QUERY_PAGE_SIZE = 10_000;
 export const GA4_EVENT_QUERY_PAGE_SIZE = 100_000;
+export const D18_ARTIFACT_MAX_ADS_PER_COMPANY = 5;
 const DAY_MS = 86_400_000;
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -3103,10 +3104,88 @@ export function buildD18PayloadFromQuerySnapshots({
   return payload;
 }
 
-function writeJsonAtomically(filePath, value) {
+function d18AdMetricActivityScore(metric) {
+  return [
+    metric?.value,
+    metric?.parts?.historicalBackup?.value,
+    metric?.parts?.currentPrimary?.value,
+  ].reduce((score, value) => {
+    const number = Number(value);
+    return Number.isFinite(number) && number > 0 ? score + number : score;
+  }, 0);
+}
+
+function d18AdActivityScore(ad) {
+  return Object.values(ad?.metrics || {}).reduce((score, metric) => score + d18AdMetricActivityScore(metric), 0);
+}
+
+/**
+ * Keep the uploaded D18 artifact bounded without changing the in-memory
+ * calculation or the company-level totals. The complete by-ad breakdown is
+ * still available to the legacy writer; the artifact retains the most active
+ * deterministic sample and declares the omitted detail explicitly.
+ */
+export function boundD18Artifact(payload, {
+  maxAdsPerCompany = D18_ARTIFACT_MAX_ADS_PER_COMPANY,
+} = {}) {
+  if (!payload || typeof payload !== 'object' || !Array.isArray(payload.companies)) {
+    throw new Error('D18 payload companies are required before bounding the artifact');
+  }
+  if (!Number.isInteger(maxAdsPerCompany) || maxAdsPerCompany < 1) {
+    throw new Error('D18 artifact ad limit must be a positive integer');
+  }
+
+  let totalAds = 0;
+  let includedAds = 0;
+  let companiesTruncated = 0;
+  const selection = 'observed_activity_desc_then_job_id';
+  const companies = payload.companies.map((company) => {
+    const allAds = Array.isArray(company.byAd) ? company.byAd : [];
+    const byAd = [...allAds]
+      .sort((left, right) => (
+        d18AdActivityScore(right) - d18AdActivityScore(left)
+        || String(left?.jobId || left?.canonicalSlug || '').localeCompare(String(right?.jobId || right?.canonicalSlug || ''))
+      ))
+      .slice(0, maxAdsPerCompany);
+    const omitted = allAds.length - byAd.length;
+    totalAds += allAds.length;
+    includedAds += byAd.length;
+    if (omitted > 0) companiesTruncated += 1;
+    return {
+      ...company,
+      byAd,
+      byAdCoverage: {
+        limitPerCompany: maxAdsPerCompany,
+        selection,
+        total: allAds.length,
+        included: byAd.length,
+        omitted,
+        truncated: omitted > 0,
+      },
+    };
+  });
+
+  return {
+    ...payload,
+    companies,
+    detailCoverage: {
+      byAd: {
+        limitPerCompany: maxAdsPerCompany,
+        selection,
+        total: totalAds,
+        included: includedAds,
+        omitted: totalAds - includedAds,
+        companiesTruncated,
+        truncated: totalAds !== includedAds,
+      },
+    },
+  };
+}
+
+function writeJsonAtomically(filePath, value, { space = 2 } = {}) {
   const temporaryPath = `${filePath}.${process.pid}.tmp`;
   try {
-    fs.writeFileSync(temporaryPath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+    fs.writeFileSync(temporaryPath, `${JSON.stringify(value, null, space)}\n`, 'utf8');
     fs.renameSync(temporaryPath, filePath);
   } catch (error) {
     try { fs.unlinkSync(temporaryPath); } catch { /* preserve the original error */ }
@@ -3487,7 +3566,8 @@ async function main() {
       deliveryRecords: replay?.deliveryRecords || [],
       ga4EvidenceWindow: d18EvidenceWindow,
     });
-    writeJsonAtomically(d18JsonOutputPath, d18Payload);
+    const d18Artifact = boundD18Artifact(d18Payload);
+    writeJsonAtomically(d18JsonOutputPath, d18Artifact, { space: 0 });
     console.log(`D18 JSON written to ${d18JsonOutputPath}.`);
     console.log(`D18 regimes: GA4 ${d18Payload.sourceRegimes.ga4.status}; PostHog ${d18Payload.sourceRegimes.posthog.status}.`);
     console.log(`D18 evidence: ${d18Payload.evidence.status} (${runMode}); GA4 emission_id ${d18Payload.evidence.ga4.emissionId.status}.`);
