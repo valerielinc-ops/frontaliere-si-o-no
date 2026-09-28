@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-09-27T14:57:03.339Z",
+  "assembledAt": "2026-09-28T05:02:18.821Z",
   "jobs": [
     {
       "id": "company-7uc0r2",
@@ -23,7 +23,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-09-26T23:39:04.824Z",
+      "crawledAt": "2026-09-28T05:02:04.712Z",
       "firstSeenAt": "2026-09-24T14:28:31.911Z",
       "titleByLocale": {
         "de": "Logistiker:in Lehrstelle 2027",
@@ -87,8 +87,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
       "postalCode": "2543",
-      "needsRetranslation": true,
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     }
   ]
 }
