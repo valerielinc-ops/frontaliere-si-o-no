@@ -17,30 +17,27 @@ Se non passa questi filtri → drop.
 
 ## Policy automazione bounded F1/F7
 
-Dal 2026-09-24 (policy `f1-f7-v4`, DECISIONS.md «Nessun veto sul ciclo
-autonomo») la policy condivisa `scripts/ci/lib/automation-risk-policy.mjs` non
-blocca più nessuna issue. `deploy-workflow-functions`,
-`secrets-roles-permissions`, `billing-revenue-partner`,
-`published-content-seo-auto-ads`, `outreach-communications`, `control-plane`
-(`.github/workflows/**`, `.github/actions/**`, `scripts/ci/**`, classifier,
-policy, native gate, evaluator, `REVIEW.md`), path ignoti, categorie ignote e
-`needs-human` sono **evidenza**, su issue e PR: il fixer li riceve e il
-reviewer li deve pesare. Solo metadata issue illeggibili fermano `risk_policy`,
-che non è un veto ma un retry. Una PR che tocca quei domini richiede quindi
-più attenzione in review, non un'approvazione umana.
+Dal 2026-09-24 (`f1-f7-v4`, DECISIONS.md «Nessun veto sul ciclo autonomo»)
+`scripts/ci/lib/automation-risk-policy.mjs` non blocca issue. Sono **evidenza**:
+`deploy-workflow-functions`, `secrets-roles-permissions`,
+`billing-revenue-partner`, `published-content-seo-auto-ads`,
+`outreach-communications`, `control-plane` (`.github/workflows/**`,
+`.github/actions/**`, `scripts/ci/**`, classifier, policy, native gate,
+evaluator, `REVIEW.md`), path/categorie ignoti, `needs-human`. Solo metadata
+illeggibili fermano `risk_policy` per retry; il resto richiede attenzione, non
+approvazione umana.
 
-Sulle PR il native gate richiede metadata/file-list completi, review `## LGTM`,
-check verdi e HEAD esatta; dati incompleti → deny fail-closed senza
-`humanApprovalRequired`. Con snapshot verificabile F1/F7, control-plane e path
-ignoti non sono veto. `needs-human` è tracking e non blocca auto-merge,
-autorebase o dispatch. Il gate riacquisisce i dati e applica
-`--match-head-commit`, anche alla mutazione legacy `--auto`.
+Native gate PR: metadata/file-list completi, review `## LGTM`, check verdi, HEAD
+esatta; incompleti → deny fail-closed senza `humanApprovalRequired`. Snapshot
+verificabile: F1/F7, control-plane, path ignoti non sono veto; `needs-human` è
+tracking. Il gate riacquisisce i dati e applica `--match-head-commit` anche a
+`--auto` legacy.
 
-`enable-native-automerge.yml` e `retry-native-automerge.yml` scaricano da `main`
-gli helper trusted, ne verificano la sintassi e applicano `surface='pull-request'`:
-workflow, azioni, `scripts/ci/**`, classifier o `REVIEW.md` non richiedono da soli
-approvazione umana. La policy non modifica branch protection, ruoli o impostazioni
-amministrative; se GitHub non consente la verifica, il gate resta fail-closed.
+`enable-native-automerge.yml` e `retry-native-automerge.yml`: helper trusted da
+`main`, sintassi verificata, `surface='pull-request'`. Workflow, azioni,
+`scripts/ci/**`, classifier o `REVIEW.md` non richiedono soli approvazione
+umana. Nessuna modifica a branch protection/ruoli/impostazioni; verifica GitHub
+impossibile → fail-closed.
 
 ## Severity
 
@@ -122,15 +119,13 @@ PR body DEVE avere:
 
 ### Una sola fonte di verità sul body
 
-`scripts/lib/pr-body-sections-check.mjs` valida deterministicamente sezioni,
-stati, `Motivo`/`Prossimo passo`, placeholder e `Closes` nello step
-`PR-body completeness` di `tests.yml`; il bundle riporta
-`## Deterministic body contract`. Se è ✅, il body non genera 🔴 Important: al
-massimo 🟡 Nit su `PR body:L<n>`. Stati accettati, incluso `blocked: <causa>`, e
-un `Prossimo passo` concreto non si ridiscutono. Il gate marca
-`DECLASSIFIED-BODY` un 🔴 ancorato solo a `## Non implementato`; il claim perf
-senza baseline dello step 7 resta 🔴. Nuove regole vanno nel contratto. Qui resta
-da giudicare la coerenza tra `## Implementato` e diff o l'assenza del verdetto.
+`scripts/lib/pr-body-sections-check.mjs` valida sezioni, stati,
+`Motivo`/`Prossimo passo`, placeholder, `Closes` in `PR-body completeness` di
+`tests.yml`; bundle: `## Deterministic body contract`. Se ✅, niente 🔴 dal body,
+al massimo 🟡 su `PR body:L<n>`; stati accettati (`blocked: <causa>` incluso) e
+`Prossimo passo` concreto non si ridiscutono. 🔴 solo su Non implementato →
+`DECLASSIFIED-BODY`; claim perf senza baseline (step 7) resta 🔴. Nuove regole
+vanno nel contratto; qui giudica Implementato-vs-diff o verdetto assente.
 
 ### Reviewer behavior
 
@@ -151,12 +146,11 @@ da giudicare la coerenza tra `## Implementato` e diff o l'assenza del verdetto.
 
 ### Pre-output adversarial check (tier high)
 
-Tier `high`: prima del summary aggiungi `## Adversarial check` con 3 rischi di
-comportamento NON verificati (regex edge case, exit-code, file related,
-idempotenza), mai missing-coverage. Usa ❓ q; ogni domanda non-funnel termina
-`— deferred, non funnel-critical.`. `(report-only)` o parole sparse non bastano.
-Un rischio funnel-critical (SEO/redirect/structured-data/AdSense/sitemap/
-indicizzabilità) va come 🔴 Important in `## Findings`. Tier normal: skip.
+Tier `high`: prima del summary, `## Adversarial check` con 3 rischi NON verificati
+(regex edge, exit-code, file related, idempotenza), mai missing-coverage. Usa ❓ q;
+non-funnel termina `— deferred, non funnel-critical.`. `(report-only)`/parole
+sparse non bastano. Rischio funnel-critical (SEO/redirect/structured-data/
+AdSense/sitemap/indicizzabilità) → 🔴 Important in `## Findings`. Normal: skip.
 
 `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs` e `bulletState()`
 gestiscono gli stati chiudenti: niente `agent:fix`/`needs-human` nei PR body;
@@ -164,12 +158,11 @@ gestiscono gli stati chiudenti: niente `agent:fix`/`needs-human` nei PR body;
 
 ## Verification
 
-I behavior claim richiedono `file:linea`. Proba input degeneri, race, default
-permanenti e refresh autore con `❓ q:`. Un dubbio su
-writeJson/persistenza indicizzata, canonical/redirect/previousSlugs, structured
-data, sitemap, AdSense o indicizzabilità è funnel-critical: promuovilo a 🔴
-Important oppure linka una follow-up; non può convivere con `## LGTM` né sparire
-come "Pre-existing / out of scope".
+Behavior claim: `file:linea`. Proba input degeneri, race, default permanenti,
+refresh autore con `❓ q:`. Dubbio su writeJson/persistenza indicizzata,
+canonical/redirect/previousSlugs, structured data, sitemap, AdSense o
+indicizzabilità = funnel-critical: 🔴 Important o follow-up; non convive con
+`## LGTM` né sparisce come "Pre-existing / out of scope".
 
 ## Identità di un finding
 
