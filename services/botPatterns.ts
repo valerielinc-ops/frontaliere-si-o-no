@@ -161,14 +161,19 @@ export function matchesAutomationScreenSignature(ua: string): boolean {
  * so unlike the 1280x1200 fleet above the screen cannot pin it.
  */
 export const AUTOMATION_LANGUAGE = 'zh-cn';
-/** Time-zone prefix of every clock the site's Ticino/Lombardy audience sets. */
-export const AUDIENCE_TIME_ZONE_PREFIX = 'Europe/';
+/** The four time zones observed in the measured zh-CN desktop Chrome fleet. */
+export const AUTOMATION_LANGUAGE_TIME_ZONES: readonly string[] = [
+  'Asia/Shanghai',
+  'Asia/Hong_Kong',
+  'Asia/Singapore',
+  'America/Los_Angeles',
+];
 
 /**
  * Conservative match for that fleet. ALL of these must hold:
  *  - a desktop Chrome UA on Windows or macOS (`chrome/`, no `mobile`);
  *  - `navigator.language` exactly `zh-CN`;
- *  - a known time zone outside Europe.
+ *  - one of the four time zones observed in that fleet.
  * A Chinese-speaking frontaliere in Ticino or Lombardy has a European clock
  * and still passes, as does any mobile or non-Chrome visitor. Unknown time
  * zone (Intl missing) → no match. `ua` is the lowercased user agent, as in
@@ -185,7 +190,7 @@ export function matchesAutomationLanguageSignature(ua: string): boolean {
   } catch {
     // Intl unavailable: time zone unknown, the rule does not fire.
   }
-  return timeZone !== '' && !timeZone.startsWith(AUDIENCE_TIME_ZONE_PREFIX);
+  return AUTOMATION_LANGUAGE_TIME_ZONES.includes(timeZone);
 }
 
 /**
@@ -200,8 +205,8 @@ export function matchesAutomationLanguageSignature(ua: string): boolean {
  *     contexts is bounded by REQUIRING the UA to claim a "real" browser.
  *  6. Automation screen signature — the 1280x1200 Windows/Chrome fleet
  *     (`matchesAutomationScreenSignature`), which passes every layer above.
- *  7. Automation language signature — the zh-CN desktop Chrome fleet on a
- *     non-European clock (`matchesAutomationLanguageSignature`).
+ *  7. Automation language signature — the zh-CN desktop Chrome fleet on one
+ *     of its four observed clocks (`matchesAutomationLanguageSignature`).
  *
  * On purpose NOT here: WebGL renderer / canvas fingerprint / TLS JA3.
  * Those add weight but are bypassable by `puppeteer-extra-plugin-stealth`

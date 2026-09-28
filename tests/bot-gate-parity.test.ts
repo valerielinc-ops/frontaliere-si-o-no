@@ -253,10 +253,10 @@ describe('automation screen signature (1280x1200 Windows/Chrome)', () => {
 });
 
 /**
- * Automation language signature (zh-CN desktop Chrome fleet on a non-European
+ * Automation language signature (zh-CN desktop Chrome fleet on an observed
  * clock, PostHog 2026-09): positive AND negative matrix on BOTH gates.
  */
-describe('automation language signature (zh-CN desktop Chrome, non-European clock)', () => {
+describe('automation language signature (zh-CN desktop Chrome, observed clock)', () => {
   const WIN_CHROME = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
   const MAC_CHROME = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
   const LINUX_CHROME = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
@@ -321,6 +321,10 @@ describe('automation language signature (zh-CN desktop Chrome, non-European cloc
   const negatives: ReadonlyArray<readonly [string, string, string, string]> = [
     ['Chinese-speaking frontaliere in Ticino', WIN_CHROME, 'zh-CN', 'Europe/Zurich'],
     ['Chinese-speaking reader in Lombardy on macOS', MAC_CHROME, 'zh-CN', 'Europe/Rome'],
+    ['zh-CN Windows Chrome on an unobserved Tokyo clock', WIN_CHROME, 'zh-CN', 'Asia/Tokyo'],
+    ['zh-CN Windows Chrome on an unobserved New York clock', WIN_CHROME, 'zh-CN', 'America/New_York'],
+    ['zh-CN macOS Chrome on an unobserved Tokyo clock', MAC_CHROME, 'zh-CN', 'Asia/Tokyo'],
+    ['zh-CN macOS Chrome on an unobserved New York clock', MAC_CHROME, 'zh-CN', 'America/New_York'],
     ['Traditional Chinese UI in Asia', WIN_CHROME, 'zh-TW', 'Asia/Taipei'],
     ['Italian UI on a Shanghai clock', WIN_CHROME, 'it-IT', 'Asia/Shanghai'],
     ['English UI on a Los Angeles clock', MAC_CHROME, 'en-US', 'America/Los_Angeles'],
