@@ -1632,12 +1632,12 @@
     },
     {
       "id": "viva-luzern-619179aa9f19",
-      "slug": "kochin-koch-viva-luzern-luzern",
+      "slug": "cuocere-cucinare-viva-luzern-luzern",
       "slugByLocale": {
-        "it": "kochin-koch-viva-luzern-luzern",
-        "en": "kochin-koch-viva-luzern-luzern",
+        "it": "cuocere-cucinare-viva-luzern-luzern",
+        "en": "cook-cook-viva-luzern-luzern",
         "de": "kochin-koch-viva-luzern-luzern",
-        "fr": "kochin-koch-viva-luzern-luzern"
+        "fr": "cuisiniere-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1691,7 +1691,21 @@
           "maxValue": 86500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-viva-luzern-luzern"
+        ],
+        "en": [
+          "kochin-koch-viva-luzern-luzern"
+        ],
+        "fr": [
+          "kochin-koch-viva-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-viva-luzern-luzern"
+      ]
     }
   ]
 }

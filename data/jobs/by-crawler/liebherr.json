@@ -696,9 +696,9 @@
     },
     {
       "id": "liebherr-5006b8cc15c6",
-      "slug": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
+      "slug": "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen",
       "slugByLocale": {
-        "it": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
+        "it": "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen",
         "en": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
         "de": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
         "fr": "groupe-auditeur-interne-h-f-d-liebherr-nussbaumen"
@@ -755,7 +755,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "group-internal-auditor-m-w-d-liebherr-nussbaumen"
+        ]
+      },
+      "previousSlugs": [
+        "group-internal-auditor-m-w-d-liebherr-nussbaumen"
+      ]
     },
     {
       "id": "liebherr-0836de1a03e3",
@@ -4763,12 +4771,12 @@
     },
     {
       "id": "liebherr-be2c769e14fa",
-      "slug": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
+      "slug": "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen-62c873",
       "slugByLocale": {
-        "it": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
+        "it": "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen-62c873",
         "en": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
-        "de": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
-        "fr": "group-internal-auditor-m-f-d-liebherr-nussbaumen"
+        "de": "konzerninterner-auditor-m-w-d-liebherr-nussbaumen",
+        "fr": "groupe-auditeur-interne-h-f-d-liebherr-nussbaumen-62c873"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4822,7 +4830,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "group-internal-auditor-m-f-d-liebherr-nussbaumen"
+        ],
+        "de": [
+          "group-internal-auditor-m-f-d-liebherr-nussbaumen"
+        ],
+        "fr": [
+          "group-internal-auditor-m-f-d-liebherr-nussbaumen"
+        ]
+      },
+      "previousSlugs": [
+        "group-internal-auditor-m-f-d-liebherr-nussbaumen"
+      ]
     },
     {
       "id": "liebherr-3a31a93060ef",
@@ -6125,12 +6147,12 @@
     },
     {
       "id": "liebherr-b2c132525b1e",
-      "slug": "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2",
+      "slug": "transfer-prezzo-studente-di-lavoro-60-80-liebherr-nussbaumen-05e489",
       "slugByLocale": {
-        "it": "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2",
+        "it": "transfer-prezzo-studente-di-lavoro-60-80-liebherr-nussbaumen-05e489",
         "en": "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
         "de": "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2",
-        "fr": "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2"
+        "fr": "prix-de-transfert-etudiant-travailleur-60-80-liebherr-nussbaumen-05e489"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -6172,11 +6194,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "transfer-pricing-working-student-60-80-liebherr-nussbaumen"
+        "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
+        "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "transfer-pricing-working-student-60-80-liebherr-nussbaumen"
+          "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
+          "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2"
+        ],
+        "fr": [
+          "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2"
         ]
       },
       "needsRetranslation": true,

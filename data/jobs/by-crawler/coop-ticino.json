@@ -2312,7 +2312,7 @@
       },
       "slugByLocale": {
         "it": "assistente-marketing-m-f-d-salad-convenienza-vegetale-80-100-coop-genossenschaft-basel",
-        "en": "marketing-assistent-w-m-d-bereich-salat-gemuseconvenience-80-100-coop-genossenschaft-basel",
+        "en": "marketing-assistant-m-f-d-salad-vegetable-convenience-80-100-coop-genossenschaft-basel",
         "de": "marketing-assistent-m-w-d-bereich-salat-gemuseconvenience-80-100-coop-basel-4tbxy0",
         "fr": "assistant-de-marketing-h-f-d-salade-et-legumes-80-100-coop-genossenschaft-basel"
       },
@@ -2338,7 +2338,7 @@
         ],
         "en": [
           "marketing-assistent-m-w-d-bereich-salat-gemuseconvenience-80-100-coop-basel-4tbxy0",
-          "marketing-assistant-m-f-d-salad-vegetable-convenience-80-100-coop-genossenschaft-basel"
+          "marketing-assistent-w-m-d-bereich-salat-gemuseconvenience-80-100-coop-genossenschaft-basel"
         ],
         "fr": [
           "marketing-assistent-m-w-d-bereich-salat-gemuseconvenience-80-100-coop-basel-4tbxy0"
@@ -2346,8 +2346,8 @@
       },
       "previousSlugs": [
         "marketing-assistent-m-w-d-bereich-salat-gemuseconvenience-80-100-coop-basel-4tbxy0",
-        "marketing-assistant-m-f-d-salad-vegetable-convenience-80-100-coop-genossenschaft-basel",
-        "marketing-assistent-m-w-d-bereich-salat-gemuseconvenience-80-100-coop-basel"
+        "marketing-assistent-m-w-d-bereich-salat-gemuseconvenience-80-100-coop-basel",
+        "marketing-assistent-w-m-d-bereich-salat-gemuseconvenience-80-100-coop-genossenschaft-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -11008,7 +11008,7 @@
         "it": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
         "en": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
         "de": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
-        "fr": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
+        "fr": "stv-directeurs-regionaux-viege-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
       },
       "addressLocality": "Region Brig, Visp, Zermatt und Goms",
       "addressRegion": "VS",
@@ -11039,14 +11039,16 @@
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
         ],
         "fr": [
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
         ]
       },
       "previousSlugs": [
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-bern-9q6o7h",
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-2",
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500
@@ -11384,7 +11386,7 @@
     },
     {
       "id": "company-6odqnw",
-      "slug": "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-2",
+      "slug": "amministratore-delegato-amministratore-delegato-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
       "company": "Coop Genossenschaft",
       "title": "Geschäftsführerin / Geschäftsführer Oberwallis",
       "location": "Region Brig, Visp, Zermatt und Goms",
@@ -11431,10 +11433,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
-        "en": "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
+        "it": "amministratore-delegato-amministratore-delegato-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
+        "en": "managing-director-managing-director-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
         "de": "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
-        "fr": "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw"
+        "fr": "directeur-general-directeur-general-oberwallis-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
       },
       "addressLocality": "Region Brig, Visp, Zermatt und Goms",
       "addressRegion": "BE",
@@ -11451,7 +11453,23 @@
         }
       },
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-2"
+        ],
+        "en": [
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw"
+        ],
+        "fr": [
+          "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-6odqnw",
+        "geschaftsfuhrerin-geschaftsfuhrer-oberwallis-coop-region-brig-visp-zermatt-und-goms-2"
+      ]
     },
     {
       "id": "company-3pj8po",
@@ -11505,7 +11523,7 @@
         "it": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
         "en": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
         "de": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
-        "fr": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
+        "fr": "stv-directeurs-regionaux-viege-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms-e9e3c8"
       },
       "addressLocality": "Region Brig, Visp, Zermatt und Goms",
       "addressRegion": "VS",
@@ -11523,11 +11541,15 @@
         }
       },
       "previousSlugs": [
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3"
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3",
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3"
+        ],
+        "fr": [
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
         ]
       },
       "salaryMin": 60500,
@@ -11585,7 +11607,7 @@
         "it": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
         "en": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
         "de": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
-        "fr": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32"
+        "fr": "stv-directeurs-regionaux-viege-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms-630d95"
       },
       "addressLocality": "Region Brig, Visp, Zermatt und Goms",
       "addressRegion": "VS",
@@ -11603,11 +11625,15 @@
         }
       },
       "previousSlugs": [
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-4"
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-4",
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-4"
+        ],
+        "fr": [
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32"
         ]
       },
       "salaryMin": 60500,
