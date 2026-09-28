@@ -6893,6 +6893,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.friburgo-successione-donazione-aliquote.title': 'Friburgo: successioni e donazioni, aliquote e esenzioni',
     'blog.article.friburgo-successione-donazione-aliquote.excerpt': 'Nessuna aliquota federale unica: in Canton Friburgo le tasse seguono il grado di parentela e le esenzioni per coniuge e discendenti.',
     'blog.article.friburgo-successione-donazione-aliquote.imageAlt': 'Edificio amministrativo cantonale a Friburgo per la gestione delle imposte di successione e donazione',
+    'blog.article.popolo-svizzero-boccia-neutralita.title': 'Iniziativa sulla neutralità bocciata dal popolo svizzero',
+    'blog.article.popolo-svizzero-boccia-neutralita.excerpt': 'L\'iniziativa sulla neutralità è stata bocciata con circa il 70% di no; non ha ottenuto la maggioranza dei cantoni dopo lo spoglio in 15 di essi, mentre il Ticino mostra una leggera divergenza.',
+    'blog.article.popolo-svizzero-boccia-neutralita.imageAlt': 'Piazza del Palazzo federale a Berna con cittadini e materiale della votazione sulla neutralità',
 };
 
 export default blogMetaChIt;

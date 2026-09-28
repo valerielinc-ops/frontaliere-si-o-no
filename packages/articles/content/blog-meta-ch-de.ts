@@ -6893,6 +6893,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.friburgo-successione-donazione-aliquote.title': 'Freiburg: Erbschaften und Schenkungen, Steuersätze und Befreiungen',
     'blog.article.friburgo-successione-donazione-aliquote.excerpt': 'Kein einheitlicher Bundessteuersatz: Im Kanton Freiburg richten sich die Steuern nach dem Verwandtschaftsgrad und den Befreiungen für Ehepartner und Nachkommen.',
     'blog.article.friburgo-successione-donazione-aliquote.imageAlt': 'Kantonales Verwaltungsgebäude in Freiburg für die Erbschafts- und Schenkungssteuer',
+    'blog.article.popolo-svizzero-boccia-neutralita.title': 'Neutralitätsinitiative vom Schweizer Volk abgelehnt',
+    'blog.article.popolo-svizzero-boccia-neutralita.excerpt': 'Die Initiative zur Neutralität wurde mit rund 70 % Nein-Stimmen abgelehnt; sie erreichte nach der Auszählung in 15 Kantonen nicht die Mehrheit der Kantone, während das Tessin eine leichte Abweichung zeigt.',
+    'blog.article.popolo-svizzero-boccia-neutralita.imageAlt': 'Bundesplatz in Bern mit Wählerinnen und Wählern sowie Kampagnenmaterial zur Neutralitätsinitiative',
 };
 
 export default blogMetaChDe;

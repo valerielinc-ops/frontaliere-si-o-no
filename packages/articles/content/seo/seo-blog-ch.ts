@@ -89369,6 +89369,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-popolo-svizzero-boccia-neutralita': {
+    title: 'Iniziativa sulla neutralità bocciata dal popolo svizzero',
+    description: 'L\'iniziativa sulla neutralità è stata respinta con circa il 70% di no, senza maggioranza cantonale dopo lo spoglio in 15 cantoni. Il Ticino mostra una leggera',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, sulla, neutralità, bocciata',
+    ogTitle: 'Iniziativa sulla neutralità bocciata dal popolo svizzero',
+    ogDescription: 'Il popolo svizzero ha bocciato l\'iniziativa sulla neutralità con un no intorno al 70%. Non è stata raggiunta la maggioranza dei cantoni dopo lo spoglio in 15 di essi. Il Ticino si discosta in parte dal rifiuto nazionale. L\'iniziativa era sostenuta',
+    canonicalPath: '/articoli-svizzera/popolo-svizzero-boccia-neutralita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa sulla neutralità bocciata dal popolo svizzero",
+      "description": "L'iniziativa sulla neutralità è stata respinta con circa il 70% di no, senza maggioranza cantonale dopo lo spoglio in 15 cantoni. Il Ticino mostra una leggera",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/popolo-svizzero-boccia-neutralita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza del Palazzo federale a Berna con cittadini e materiale della votazione sulla neutralità"
+      },
+      "datePublished": "2026-09-28T03:12:15+00:00",
+      "dateModified": "2026-09-28T03:12:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/popolo-svizzero-boccia-neutralita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
