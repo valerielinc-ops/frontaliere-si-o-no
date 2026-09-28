@@ -36529,6 +36529,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dumenza-case-colpite-venerdi',
+ category: 'novita',
+ date: '2026-09-28T00:30:08.609Z',
+ image: '/images/blog/dumenza-case-colpite-venerdi.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -12168,6 +12168,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-rapina-gioielleria-arresti.title': 'Como, Raubüberfall auf Juweliergeschäft: zwei weitere Festnahmen',
     'blog.article.como-rapina-gioielleria-arresti.excerpt': 'Ein 32-Jähriger mit Wohnsitz in der Schweiz und ein 25-Jähriger aus der Provinz Monza wurden wegen des 90mila Euro schweren Raubüberfalls auf Stroili in Tavernola festgenommen.',
     'blog.article.como-rapina-gioielleria-arresti.imageAlt': 'Juweliergeschäft in einem Einkaufszentrum nach einem Raub in Tavernola',
+    'blog.article.dumenza-case-colpite-venerdi.title': 'Dumenza, drei Einbrüche in Häuser und einer gescheitert',
+    'blog.article.dumenza-case-colpite-venerdi.excerpt': 'Drei Häuser wurden am Freitagabend, dem 25. September, bei Dumenza getroffen: Bargeld, Gold und Geld wurden gestohlen. Ein vierter Versuch scheiterte.',
+    'blog.article.dumenza-case-colpite-venerdi.imageAlt': 'Wohnstrasse im Tessin bei Dämmerung',
 };
 
 export default blogMetaDe;
