@@ -136,6 +136,16 @@ function extractStackFrameOrigins(event: PostHogExceptionEvent): string[] {
 }
 
 /**
+ * The capturing browser's user agent: posthog-js stamps `$raw_user_agent` on
+ * every event; fall back to `navigator` when it is absent.
+ */
+function eventUserAgent(event: PostHogExceptionEvent): string {
+  const raw = event.properties?.$raw_user_agent;
+  if (typeof raw === 'string' && raw) return raw;
+  return typeof navigator !== 'undefined' ? navigator.userAgent || '' : '';
+}
+
+/**
  * True when the exception has at least one resolved stack frame AND every
  * frame's origin matches a known third-party script we do not control
  * (see `THIRD_PARTY_STACK_ORIGINS`). An exception with zero frames is NOT
@@ -236,7 +246,7 @@ export function createExceptionFilter() {
     if (isGoogleIosAppInjectedStackOverflow(
       blob,
       origins.length > 0 ? origins.join('\n') : rawStack,
-      typeof navigator === 'undefined' ? '' : navigator.userAgent,
+      eventUserAgent(event),
     )) return null;
     // Zero resolved frames → fall back to the raw stack we recorded ahead of
     // PostHog's own handler and classify on its SHAPE (#4173).

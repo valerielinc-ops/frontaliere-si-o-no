@@ -19,6 +19,7 @@
  */
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { isGoogleIosAppInjectedStackOverflow } from '@/services/benignErrorPatterns';
+import { createExceptionFilter } from '@/services/posthog-error-filter';
 
 const DOC = 'https://frontaliereticino.ch/cerca-lavoro-ticino/case-anziani/';
 const MESSAGE = 'RangeError: Maximum call stack size exceeded.';
@@ -147,5 +148,64 @@ describe('GA4 global error tracking drops the injected stack overflow (#8773)', 
     Object.defineProperty(event, 'reason', { value: reason });
     window.dispatchEvent(event);
     expect(appErrors()).toEqual([]);
+  });
+});
+
+describe('PostHog $exception before_send drops the injected stack overflow (#8773)', () => {
+  const beforeSend = createExceptionFilter();
+
+  /** The `$exception` shape posthog-js hands to `before_send` for this fault. */
+  function overflowException(userAgent: string, filenames: string[]) {
+    return {
+      event: '$exception',
+      properties: {
+        $raw_user_agent: userAgent,
+        $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+        $exception_list: [{
+          type: 'RangeError',
+          value: 'Maximum call stack size exceeded.',
+          stacktrace: { frames: filenames.map((filename, i) => ({ filename, function: i % 2 ? 'Ok' : 'Qk', lineno: 226, colno: 408 })) },
+        }],
+      },
+    };
+  }
+
+  const docFrames = Array.from({ length: 12 }, () => DOC);
+
+  it('drops the production event from Chrome for iOS', () => {
+    expect(beforeSend(overflowException(UA.chromeIos, docFrames))).toBeNull();
+  });
+
+  it('drops the production event from the Google app on iOS', () => {
+    expect(beforeSend(overflowException(UA.googleAppIos, docFrames))).toBeNull();
+  });
+
+  it('drops the synthetic variant whose only frame is `undefined`', () => {
+    expect(beforeSend(overflowException(UA.chromeIos, ['undefined']))).toBeNull();
+  });
+
+  it('KEEPS the same event from plain iOS Safari', () => {
+    const event = overflowException(UA.safariIos, docFrames);
+    expect(beforeSend(event)).toBe(event);
+  });
+
+  it('KEEPS a Chrome-iOS stack overflow with a frame in one of our chunks', () => {
+    const event = overflowException(UA.chromeIos, ['https://cdn.frontaliereticino.ch/assets/App.js', ...docFrames]);
+    expect(beforeSend(event)).toBe(event);
+  });
+
+  it('KEEPS any other exception from Chrome for iOS', () => {
+    const event = overflowException(UA.chromeIos, docFrames);
+    event.properties.$exception_values = [{ type: 'TypeError', value: 'undefined is not an object' }];
+    event.properties.$exception_list[0].value = 'undefined is not an object';
+    expect(beforeSend(event)).toBe(event);
+  });
+
+  it('falls back to navigator.userAgent when $raw_user_agent is missing', () => {
+    vi.spyOn(window.navigator, 'userAgent', 'get').mockReturnValue(UA.chromeIos);
+    const event = overflowException('', docFrames);
+    delete (event.properties as { $raw_user_agent?: string }).$raw_user_agent;
+    expect(beforeSend(event)).toBeNull();
+    vi.restoreAllMocks();
   });
 });
