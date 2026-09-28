@@ -318,9 +318,9 @@ describe('prospector public-only polite transport', () => {
   });
 
   it('uses an opt-in browser rescue after the direct page and Jina both hit the WAF', async () => {
-    const seed = 'https://hotelcareer.example/jobs/vereina';
-    const detail = 'https://hotelcareer.example/jobs/vereina/chef-de-partie-123';
-    const listing = `<a href="/jobs/vereina/chef-de-partie-123">Chef de partie</a>${' listing'.repeat(60)}`;
+    const seed = 'https://hotelcareer.example/jobs/vereina/';
+    const detail = 'https://hotelcareer.example/jobs/vereina/chef-de-partie-123/';
+    const listing = `<a href="/jobs/vereina/chef-de-partie-123/">Chef de partie</a>${' listing'.repeat(60)}`;
     const detailHtml = '<h1>Chef de partie</h1><div class="job-location">Klosters</div>'
       + '<article class="vacancy-description">Prepare and coordinate kitchen service for the hotel team, '
       + 'maintain food quality and hygiene standards, and support the daily operation with colleagues across '
@@ -493,7 +493,7 @@ describe('prospector public-only polite transport', () => {
 
     const rows = await runSpecInProduction({
       companyKey: 'vereinaklosters', companyName: 'Vereina', companyHost: 'hotelcareer.example',
-      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/vereina/*',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/vereina/*/',
       rescueOnEmptyListing: true, emptyListingOutcome: 'anti_bot_block',
     } as any, {
       fetchImpl,
