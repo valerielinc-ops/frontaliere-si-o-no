@@ -915,6 +915,11 @@ export async function runSpecInProduction(spec, runtime = {}) {
     // Workers complete out of order; index-addressed writes keep the listing
     // order deterministic so stable downstream sorts do not churn job slices.
     const enriched = new Array(rows.length);
+    const emptyOutcome = spec.rescueOnEmptyListing === true
+      && runtime.disableWafProxy !== true
+      ? configuredEmptyListingOutcome(spec)
+      : null;
+    let detailAntiBotFailures = 0;
     let geographyDrops = 0;
     let descriptionDrops = 0;
     let detailCandidateDrops = 0;
@@ -962,7 +967,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
           if (!geography) { geographyDrops++; continue; }
           if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
           enriched[index] = { ...publishable, ...geography };
-        } catch {
+        } catch (err) {
+          if (err?.antiBotExhausted) detailAntiBotFailures++;
           // A failed detail fetch/extraction carries no source-backed tenant
           // evidence. Never let index-only fields satisfy the detail gate.
           detailCandidateDrops++;
@@ -977,7 +983,23 @@ export async function runSpecInProduction(spec, runtime = {}) {
       'descrizione source-backed assente o non verificabile');
     reportDroppedRows(spec, detailCandidateDrops, rows.length,
       'identità tenant assente nella pagina dettaglio source-backed');
-    return copySpecFetchMetadata(enriched.filter(Boolean), rows);
+    const publishedRows = enriched.filter(Boolean);
+    // A protected source can expose real listing links while blocking every
+    // detail page. Without carrying the same explicit outcome used by the
+    // zero-candidate rescue, the standard pipeline turns that proven outage
+    // into a misleading generic `no-jobs-parsed` result. Only classify this
+    // narrow case when every candidate exhausted the anti-bot rescue and the
+    // spec explicitly opted into an empty-listing outcome; ordinary parser or
+    // geography drops remain fail-closed without reinterpretation.
+    if (publishedRows.length === 0 && rows.length > 0
+      && emptyOutcome && detailAntiBotFailures === rows.length) {
+      copySpecFetchMetadata(publishedRows, {
+        fetchOutcome: emptyOutcome,
+        discoveredCount: rows.length,
+        fetchDetail: `${rows.length} detail page(s) exhausted anti-bot rescue`,
+      });
+    }
+    return copySpecFetchMetadata(publishedRows, rows);
   } finally {
     try {
       await validateUrl.dispatcher.close();

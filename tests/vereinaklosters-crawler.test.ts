@@ -1,7 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   VEREINAKLOSTERS_KEY,
   VEREINAKLOSTERS_COMPANY_NAME,
+  fetchAllVereinaklostersJobs,
   isVereinaklostersJob,
   isTrustedDomain,
 } from '../scripts/lib/vereinaklosters-job-parser.mjs';
@@ -53,6 +54,10 @@ describe('Vereina crawler parser', () => {
       expect(isTrustedDomain('https://careers.hotelcareer.ch/job/456')).toBe(true);
     });
 
+    it('trusts the reviewed secondary public job board', () => {
+      expect(isTrustedDomain('https://local-job.ch/job/chef-de-rang-m-w-3795033/')).toBe(true);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });
@@ -61,6 +66,44 @@ describe('Vereina crawler parser', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
     });
+  });
+
+  it('falls back to a source-backed secondary listing after a primary anti-bot zero', async () => {
+    const primaryListings = Object.assign([], {
+      fetchOutcome: 'anti_bot_block',
+      discoveredCount: 0,
+    });
+    const secondaryListings = [{
+      title: 'Chef de Rang (m/w)',
+      url: 'https://local-job.ch/job/chef-de-rang-m-w-3795033/',
+      location: 'Serneus, GR',
+      description: Array(60).fill('Serviceaufgaben und Betreuung der Restaurantgäste im Hotelbetrieb.').join(' '),
+    }];
+    const primaryFetchImpl = vi.fn(async () => primaryListings);
+    const secondaryFetchImpl = vi.fn(async () => secondaryListings);
+
+    const jobs = await fetchAllVereinaklostersJobs({ primaryFetchImpl, secondaryFetchImpl });
+
+    expect(primaryFetchImpl).toHaveBeenCalledOnce();
+    expect(secondaryFetchImpl).toHaveBeenCalledOnce();
+    expect(jobs).toEqual([expect.objectContaining({
+      companyKey: 'vereinaklosters',
+      title: 'Chef de Rang (m/w)',
+      canton: 'GR',
+      url: 'https://local-job.ch/job/chef-de-rang-m-w-3795033/',
+    })]);
+    expect(jobs).not.toHaveProperty('fetchOutcome');
+  });
+
+  it('keeps the primary anti-bot evidence when the fallback is unavailable', async () => {
+    const primaryListings = Object.assign([], { fetchOutcome: 'anti_bot_block' });
+    const jobs = await fetchAllVereinaklostersJobs({
+      primaryFetchImpl: async () => primaryListings,
+      secondaryFetchImpl: async () => { throw new Error('secondary unavailable'); },
+    });
+
+    expect(jobs).toEqual([]);
+    expect(jobs).toHaveProperty('fetchOutcome', 'anti_bot_block');
   });
 
   // ── slugify (imported from crawler-template) ──
