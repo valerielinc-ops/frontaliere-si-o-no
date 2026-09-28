@@ -215,7 +215,18 @@ const TAXONOMY = [
   // #9836, #9835 and #9492 into `auto-ads`, so the harvester escalated a topic
   // even though no single antipattern recurred. Keep the threshold unchanged;
   // improve the measurement by preserving the failure mode in the bucket key.
-  { key: 'adsense-thin-content', re: /(?:(?:thin|noindex|indexable|word[- ]?count|below[- ]floor|mfa)[\s\S]{0,220}(?:adsense|ad(?:s)?\b|slot|multiplex)|(?:adsense|manual\s+(?:ad|adsense)|multiplex|slot)[\s\S]{0,220}(?:thin|noindex|indexable|word[- ]?count|below[- ]floor|mfa))/i, docKeys: ['auto ads', 'adsense'] },
+  //
+  // `noindex`/`indexable` alone are deliberately NOT thin-content evidence:
+  // SEO parser and audit findings mention both routinely, while `ad` alone also
+  // appears in ordinary prose such as "metadata"/"head". Require an explicit
+  // content-floor signal and an explicit ad-unit surface in the same finding.
+  // This keeps a real "thin page still carries AdSense" finding countable while
+  // leaving unrelated noindex, missing-ad and generic SEO findings to their own
+  // bucket/fingerprint (measured on #10177, #10037 and #9910).
+  { key: 'adsense-thin-content', re: new RegExp(
+    String.raw`(?:(?:thin(?:[- ]content)?|word[- ]?count|below[- ]floor|mfa)[\s\S]{0,220}(?:adsense|adsbygoogle|auto[- ]?ads|manual\s+(?:ad|adsense)|multiplex|<ins\b|(?:ad|ads)\s+(?:unit|slot|block|snippet|placement)|(?:unit|slot|block|snippet|placement)\s+(?:ad|ads))|(?:adsense|adsbygoogle|auto[- ]?ads|manual\s+(?:ad|adsense)|multiplex|<ins\b|(?:ad|ads)\s+(?:unit|slot|block|snippet|placement)|(?:unit|slot|block|snippet|placement)\s+(?:ad|ads))[\s\S]{0,220}(?:thin(?:[- ]content)?|word[- ]?count|below[- ]floor|mfa))`,
+    'i',
+  ), docKeys: ['auto ads', 'adsense'] },
   { key: 'adsense-slot-lifecycle', re: /(?:(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>)[\s\S]{0,180}(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)|(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)[\s\S]{0,180}(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'adsense-bot-gate', re: /(?:(?:adsense|auto ?ads|ads?\b|advertis(?:e|ing|ements)|cta)[\s\S]{0,180}(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)|(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)[\s\S]{0,180}(?:adsense|auto ?ads|ads?\b|advertis(?:e|ing|ements)|cta))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'adsense-loader-contract', re: /(?:(?:adsense|adsbygoogle|auto ?ads)[\s\S]{0,220}(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)|(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)[\s\S]{0,220}(?:adsense|adsbygoogle|auto ?ads))/i, docKeys: ['auto ads', 'adsense'] },
