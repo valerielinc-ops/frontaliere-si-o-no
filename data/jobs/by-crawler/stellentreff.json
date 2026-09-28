@@ -1,87 +1,14 @@
 {
   "crawlerKey": "stellentreff",
-  "assembledAt": "2026-09-28T03:27:49.258Z",
+  "assembledAt": "2026-09-28T04:57:44.061Z",
   "jobs": [
-    {
-      "id": "stellentreff-7f7513dc5880",
-      "slug": "maler-in-per-dekorative-e-fassadenarbeiten-stellentreff-ag-sursee",
-      "slugByLocale": {
-        "de": "maler-in-fur-dekorative-und-fassadenarbeiten-sursee-luzern-stellentreff-ch",
-        "it": "maler-in-per-dekorative-e-fassadenarbeiten-stellentreff-ag-sursee",
-        "en": "maler-in-fur-dekorative-und-fassadenarbeiten-sursee-luzern-stellentreff-ch",
-        "fr": "maler-in-fur-dekorative-und-fassadenarbeiten-sursee-luzern-stellentreff-ch"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Maler/in für dekorative und Fassadenarbeiten",
-      "titleByLocale": {
-        "de": "Maler/in für dekorative und Fassadenarbeiten",
-        "it": "Maler/in per dekorative e Fassadenarbeiten",
-        "en": "Maler/in für dekorative und Fassadenarbeiten",
-        "fr": "Maler/in für dekorative und Fassadenarbeiten"
-      },
-      "description": "Tätigkeiten Allgemeine Malerarbeiten im Bereich Malen, Tapezieren, Spritzen, Gipsen, Dekorative Arbeiten, Fassaden \n• Anforderungen Abgeschlossene Berufslehre als Maler Führerschein Kat. B Zuverlässiger Teamplayer Angebot Interessante und abwechslungsreiche Arbeiten Kleines und motiviertes Team Gute Entlöhnung",
-      "descriptionByLocale": {
-        "de": "Tätigkeiten Allgemeine Malerarbeiten im Bereich Malen, Tapezieren, Spritzen, Gipsen, Dekorative Arbeiten, Fassaden \n• Anforderungen Abgeschlossene Berufslehre als Maler Führerschein Kat. B Zuverlässiger Teamplayer Angebot Interessante und abwechslungsreiche Arbeiten Kleines und motiviertes Team Gute Entlöhnung",
-        "it": "Tätigkeiten Allgemeine Malerarbeiten im Bereich Malen, Tapezieren, Spritzen, Gipsen, Dekorative Arbeiten, Fassaden \n• Anforderungen Abgeschlossene Berufslehre als Maler Führerschein Kat. B Zuverlässiger Teamplayer Angebot Interessante und abwechslungsreiche Arbeiten Kleines und motiviertes Team Gute Entlöhnung",
-        "en": "Tätigkeiten Allgemeine Malerarbeiten im Bereich Malen, Tapezieren, Spritzen, Gipsen, Dekorative Arbeiten, Fassaden \n• Anforderungen Abgeschlossene Berufslehre als Maler Führerschein Kat. B Zuverlässiger Teamplayer Angebot Interessante und abwechslungsreiche Arbeiten Kleines und motiviertes Team Gute Entlöhnung",
-        "fr": "Tätigkeiten Allgemeine Malerarbeiten im Bereich Malen, Tapezieren, Spritzen, Gipsen, Dekorative Arbeiten, Fassaden \n• Anforderungen Abgeschlossene Berufslehre als Maler Führerschein Kat. B Zuverlässiger Teamplayer Angebot Interessante und abwechslungsreiche Arbeiten Kleines und motiviertes Team Gute Entlöhnung"
-      },
-      "location": "Sursee, Luzern",
-      "canton": "LU",
-      "url": "https://www.stellentreff.ch/stellen/maler-in-sursee-temporaer-117174/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.767Z",
-      "addressLocality": "Sursee",
-      "addressRegion": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-28",
-      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-sursee-temporaer-117174/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-dekorative-und-fassadenarbeiten-sursee-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "maler-in-fur-dekorative-und-fassadenarbeiten-sursee-luzern-stellentreff-ch"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T03:27:43.767Z"
-    },
     {
       "id": "stellentreff-5e90940a4178",
       "slug": "maler-in-per-anspruchsvolle-renovationsprojekte-stellentreff-ag-sarnen",
       "slugByLocale": {
-        "de": "maler-in-fur-anspruchsvolle-renovationsprojekte-sarnen-obwalden-stellentreff-ch",
         "it": "maler-in-per-anspruchsvolle-renovationsprojekte-stellentreff-ag-sarnen",
         "en": "maler-in-fur-anspruchsvolle-renovationsprojekte-sarnen-obwalden-stellentreff-ch",
+        "de": "maler-in-fur-anspruchsvolle-renovationsprojekte-sarnen-obwalden-stellentreff-ch",
         "fr": "maler-in-fur-anspruchsvolle-renovationsprojekte-sarnen-obwalden-stellentreff-ch"
       },
       "company": "Stellentreff AG",
@@ -89,24 +16,24 @@
       "companyDomain": "stellentreff.ch",
       "title": "Maler/in für anspruchsvolle Renovationsprojekte",
       "titleByLocale": {
-        "de": "Maler/in für anspruchsvolle Renovationsprojekte",
         "it": "Maler/in per anspruchsvolle Renovationsprojekte",
         "en": "Maler/in für anspruchsvolle Renovationsprojekte",
+        "de": "Maler/in für anspruchsvolle Renovationsprojekte",
         "fr": "Maler/in für anspruchsvolle Renovationsprojekte"
       },
       "description": "Tätigkeiten Anstreichen von Fassaden, Wänden, Decken, Türen, Fenster und anderen Gebäudeteilen bei Neubau- und Renovationsobjekten im Innen- und Aussenraum. \n• Anforderungen Grundbildung als Maler Mehrjährige Berufserfahrung Selbständige und exakte Arbeitsweise Teamfähigkeit und Pünktlichkeit Freude am Umgang mit anspruchsvollen Kunden Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
       "descriptionByLocale": {
+        "it": "Tätigkeiten Anstreichen von Fassaden, Wänden, Decken, Türen, Fenster und anderen Gebäudeteilen bei Neubau- und Renovationsobjekten im Innen- und Aussenraum.\n• Anforderungen Grundbildung als Maler Mehrjährige Berufserfahrung Selbständige und exakte Arbeitsweise Teamfähigkeit und Pünktlichkeit Freude am Umgang mit anspruchsvollen Kunden Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
+        "en": "Tätigkeiten Anstreichen von Fassaden, Wänden, Decken, Türen, Fenster und anderen Gebäudeteilen bei Neubau- und Renovationsobjekten im Innen- und Aussenraum.\n• Anforderungen Grundbildung als Maler Mehrjährige Berufserfahrung Selbständige und exakte Arbeitsweise Teamfähigkeit und Pünktlichkeit Freude am Umgang mit anspruchsvollen Kunden Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
         "de": "Tätigkeiten Anstreichen von Fassaden, Wänden, Decken, Türen, Fenster und anderen Gebäudeteilen bei Neubau- und Renovationsobjekten im Innen- und Aussenraum. \n• Anforderungen Grundbildung als Maler Mehrjährige Berufserfahrung Selbständige und exakte Arbeitsweise Teamfähigkeit und Pünktlichkeit Freude am Umgang mit anspruchsvollen Kunden Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-        "it": "Tätigkeiten Anstreichen von Fassaden, Wänden, Decken, Türen, Fenster und anderen Gebäudeteilen bei Neubau- und Renovationsobjekten im Innen- und Aussenraum. \n• Anforderungen Grundbildung als Maler Mehrjährige Berufserfahrung Selbständige und exakte Arbeitsweise Teamfähigkeit und Pünktlichkeit Freude am Umgang mit anspruchsvollen Kunden Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-        "en": "Tätigkeiten Anstreichen von Fassaden, Wänden, Decken, Türen, Fenster und anderen Gebäudeteilen bei Neubau- und Renovationsobjekten im Innen- und Aussenraum. \n• Anforderungen Grundbildung als Maler Mehrjährige Berufserfahrung Selbständige und exakte Arbeitsweise Teamfähigkeit und Pünktlichkeit Freude am Umgang mit anspruchsvollen Kunden Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-        "fr": "Tätigkeiten Anstreichen von Fassaden, Wänden, Decken, Türen, Fenster und anderen Gebäudeteilen bei Neubau- und Renovationsobjekten im Innen- und Aussenraum. \n• Anforderungen Grundbildung als Maler Mehrjährige Berufserfahrung Selbständige und exakte Arbeitsweise Teamfähigkeit und Pünktlichkeit Freude am Umgang mit anspruchsvollen Kunden Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn."
+        "fr": "Tätigkeiten Anstreichen von Fassaden, Wänden, Decken, Türen, Fenster und anderen Gebäudeteilen bei Neubau- und Renovationsobjekten im Innen- und Aussenraum.\n• Anforderungen Grundbildung als Maler Mehrjährige Berufserfahrung Selbständige und exakte Arbeitsweise Teamfähigkeit und Pünktlichkeit Freude am Umgang mit anspruchsvollen Kunden Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn."
       },
       "location": "Sarnen, Obwalden",
       "canton": "OW",
       "url": "https://www.stellentreff.ch/stellen/maler-in-sarnen-temporaer-117214/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.766Z",
+      "crawledAt": "2026-09-28T04:57:39.386Z",
       "addressLocality": "Sarnen",
       "addressRegion": "Obwalden",
       "addressCountry": "CH",
@@ -121,18 +48,17 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-sarnen-temporaer-117214/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "maler-in-fur-anspruchsvolle-renovationsprojekte-sarnen-obwalden-stellentreff-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-anspruchsvolle-renovationsprojekte-sarnen-obwalden-stellentreff-ch"
         ]
       },
-      "previousSlugs": [
-        "maler-in-fur-anspruchsvolle-renovationsprojekte-sarnen-obwalden-stellentreff-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T03:27:43.766Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -145,16 +71,86 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "stellentreff-7f7513dc5880",
+      "slug": "maler-in-per-dekorative-e-fassadenarbeiten-stellentreff-ag-sursee",
+      "slugByLocale": {
+        "it": "maler-in-per-dekorative-e-fassadenarbeiten-stellentreff-ag-sursee",
+        "en": "maler-in-fur-dekorative-und-fassadenarbeiten-sursee-luzern-stellentreff-ch",
+        "de": "maler-in-fur-dekorative-und-fassadenarbeiten-sursee-luzern-stellentreff-ch",
+        "fr": "maler-in-fur-dekorative-und-fassadenarbeiten-sursee-luzern-stellentreff-ch"
       },
-      "firstSeenAt": "2026-09-28T03:27:43.766Z"
+      "company": "Stellentreff AG",
+      "companyKey": "stellentreff",
+      "companyDomain": "stellentreff.ch",
+      "title": "Maler/in für dekorative und Fassadenarbeiten",
+      "titleByLocale": {
+        "it": "Maler/in per dekorative e Fassadenarbeiten",
+        "en": "Maler/in für dekorative und Fassadenarbeiten",
+        "de": "Maler/in für dekorative und Fassadenarbeiten",
+        "fr": "Maler/in für dekorative und Fassadenarbeiten"
+      },
+      "description": "Tätigkeiten Allgemeine Malerarbeiten im Bereich Malen, Tapezieren, Spritzen, Gipsen, Dekorative Arbeiten, Fassaden \n• Anforderungen Abgeschlossene Berufslehre als Maler Führerschein Kat. B Zuverlässiger Teamplayer Angebot Interessante und abwechslungsreiche Arbeiten Kleines und motiviertes Team Gute Entlöhnung",
+      "descriptionByLocale": {
+        "it": "Tätigkeiten Allgemeine Malerarbeiten im Bereich Malen, Tapezieren, Spritzen, Gipsen, Dekorative Arbeiten, Fassaden\n• Anforderungen Abgeschlossene Berufslehre als Maler Führerschein Kat. B Zuverlässiger Teamplayer Angebot Interessante und abwechslungsreiche Arbeiten Kleines und motiviertes Team Gute Entlöhnung",
+        "en": "Tätigkeiten Allgemeine Malerarbeiten im Bereich Malen, Tapezieren, Spritzen, Gipsen, Dekorative Arbeiten, Fassaden\n• Anforderungen Abgeschlossene Berufslehre als Maler Führerschein Kat. B Zuverlässiger Teamplayer Angebot Interessante und abwechslungsreiche Arbeiten Kleines und motiviertes Team Gute Entlöhnung",
+        "de": "Tätigkeiten Allgemeine Malerarbeiten im Bereich Malen, Tapezieren, Spritzen, Gipsen, Dekorative Arbeiten, Fassaden \n• Anforderungen Abgeschlossene Berufslehre als Maler Führerschein Kat. B Zuverlässiger Teamplayer Angebot Interessante und abwechslungsreiche Arbeiten Kleines und motiviertes Team Gute Entlöhnung",
+        "fr": "Tätigkeiten Allgemeine Malerarbeiten im Bereich Malen, Tapezieren, Spritzen, Gipsen, Dekorative Arbeiten, Fassaden\n• Anforderungen Abgeschlossene Berufslehre als Maler Führerschein Kat. B Zuverlässiger Teamplayer Angebot Interessante und abwechslungsreiche Arbeiten Kleines und motiviertes Team Gute Entlöhnung"
+      },
+      "location": "Sursee, Luzern",
+      "canton": "LU",
+      "url": "https://www.stellentreff.ch/stellen/maler-in-sursee-temporaer-117174/",
+      "source": "Stellentreff AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T04:57:39.386Z",
+      "addressLocality": "Sursee",
+      "addressRegion": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-sursee-temporaer-117174/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "maler-in-fur-dekorative-und-fassadenarbeiten-sursee-luzern-stellentreff-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "maler-in-fur-dekorative-und-fassadenarbeiten-sursee-luzern-stellentreff-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T03:27:43.767Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "stellentreff-ee42a809922e",
       "slug": "maler-in-per-fassaden-e-kundenmalerei-stellentreff-ag-schaffhausen",
       "slugByLocale": {
-        "de": "maler-in-fur-fassaden-und-kundenmalerei-schaffhausen-schaffhausen-stellentreff-ch",
         "it": "maler-in-per-fassaden-e-kundenmalerei-stellentreff-ag-schaffhausen",
         "en": "maler-in-fur-fassaden-und-kundenmalerei-schaffhausen-schaffhausen-stellentreff-ch",
+        "de": "maler-in-fur-fassaden-und-kundenmalerei-schaffhausen-schaffhausen-stellentreff-ch",
         "fr": "maler-in-fur-fassaden-und-kundenmalerei-schaffhausen-schaffhausen-stellentreff-ch"
       },
       "company": "Stellentreff AG",
@@ -162,24 +158,24 @@
       "companyDomain": "stellentreff.ch",
       "title": "Maler/in für - Fassaden und Kundenmalerei",
       "titleByLocale": {
-        "de": "Maler/in für - Fassaden und Kundenmalerei",
         "it": "Maler/in per - Fassaden e Kundenmalerei",
         "en": "Maler/in für - Fassaden und Kundenmalerei",
+        "de": "Maler/in für - Fassaden und Kundenmalerei",
         "fr": "Maler/in für - Fassaden und Kundenmalerei"
       },
       "description": "Tätigkeiten Kundenmalerei Neu- und Umbauten Fassaden Spritzarbeiten \n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ Kundenfreundliches Auftreten Fundierten Branchenerfahrung Teamplayer Zuverlässig Freunde und Interesse am Beruf Führerausweis Kat. B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
       "descriptionByLocale": {
+        "it": "Tätigkeiten Kundenmalerei Neu- und Umbauten Fassaden Spritzarbeiten\n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ Kundenfreundliches Auftreten Fundierten Branchenerfahrung Teamplayer Zuverlässig Freunde und Interesse am Beruf Führerausweis Kat. B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
+        "en": "Tätigkeiten Kundenmalerei Neu- und Umbauten Fassaden Spritzarbeiten\n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ Kundenfreundliches Auftreten Fundierten Branchenerfahrung Teamplayer Zuverlässig Freunde und Interesse am Beruf Führerausweis Kat. B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
         "de": "Tätigkeiten Kundenmalerei Neu- und Umbauten Fassaden Spritzarbeiten \n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ Kundenfreundliches Auftreten Fundierten Branchenerfahrung Teamplayer Zuverlässig Freunde und Interesse am Beruf Führerausweis Kat. B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "it": "Tätigkeiten Kundenmalerei Neu- und Umbauten Fassaden Spritzarbeiten \n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ Kundenfreundliches Auftreten Fundierten Branchenerfahrung Teamplayer Zuverlässig Freunde und Interesse am Beruf Führerausweis Kat. B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "en": "Tätigkeiten Kundenmalerei Neu- und Umbauten Fassaden Spritzarbeiten \n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ Kundenfreundliches Auftreten Fundierten Branchenerfahrung Teamplayer Zuverlässig Freunde und Interesse am Beruf Führerausweis Kat. B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "fr": "Tätigkeiten Kundenmalerei Neu- und Umbauten Fassaden Spritzarbeiten \n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ Kundenfreundliches Auftreten Fundierten Branchenerfahrung Teamplayer Zuverlässig Freunde und Interesse am Beruf Führerausweis Kat. B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn."
+        "fr": "Tätigkeiten Kundenmalerei Neu- und Umbauten Fassaden Spritzarbeiten\n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ Kundenfreundliches Auftreten Fundierten Branchenerfahrung Teamplayer Zuverlässig Freunde und Interesse am Beruf Führerausweis Kat. B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn."
       },
       "location": "Schaffhausen, Schaffhausen",
       "canton": "SH",
       "url": "https://www.stellentreff.ch/stellen/maler-in-schaffhausen-temporaer-117198/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.765Z",
+      "crawledAt": "2026-09-28T04:57:39.385Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "Schaffhausen",
       "addressCountry": "CH",
@@ -194,18 +190,17 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-schaffhausen-temporaer-117198/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "maler-in-fur-fassaden-und-kundenmalerei-schaffhausen-schaffhausen-stellentreff-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-fassaden-und-kundenmalerei-schaffhausen-schaffhausen-stellentreff-ch"
         ]
       },
-      "previousSlugs": [
-        "maler-in-fur-fassaden-und-kundenmalerei-schaffhausen-schaffhausen-stellentreff-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T03:27:43.765Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -218,89 +213,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-28T03:27:43.765Z"
-    },
-    {
-      "id": "stellentreff-3767f4e45b0d",
-      "slug": "malerpraktiker-in-per-renovationsarbeiten-stellentreff-ag-sursee",
-      "slugByLocale": {
-        "de": "malerpraktiker-in-fur-renovationsarbeiten-sursee-luzern-stellentreff-ch",
-        "it": "malerpraktiker-in-per-renovationsarbeiten-stellentreff-ag-sursee",
-        "en": "malerpraktiker-in-fur-renovationsarbeiten-sursee-luzern-stellentreff-ch",
-        "fr": "malerpraktiker-in-fur-renovationsarbeiten-sursee-luzern-stellentreff-ch"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Malerpraktiker/in für Renovationsarbeiten",
-      "titleByLocale": {
-        "de": "Malerpraktiker/in für Renovationsarbeiten",
-        "it": "Malerpraktiker/in per Renovationsarbeiten",
-        "en": "Malerpraktiker/in für Renovationsarbeiten",
-        "fr": "Malerpraktiker/in für Renovationsarbeiten"
-      },
-      "description": "Tätigkeiten Ausführung von Kundenmalerarbeiten mit hoher Qualität Durchführung von Renovationsarbeiten im vorgesehenen Zeitrahmen Sicherstellung einer sauberen und effizienten Arbeitsweise \n• Anforderungen Abgeschlossene Lehre als Malerpraktiker Hohes Verantwortungsbewusstsein und selbstständige Arbeitsweise Ausgeprägte Teamfähigkeit und Zuverlässigkeit Führerschein wird als Vorteil betrachtet Angebot Vielfältige spannende \n• Aufgaben in einem familiär geführten Unternehmen Übernahme von verantwortungsvollen Tätigkeiten Attraktive und leistungsgerechte Vergütung",
-      "descriptionByLocale": {
-        "de": "Tätigkeiten Ausführung von Kundenmalerarbeiten mit hoher Qualität Durchführung von Renovationsarbeiten im vorgesehenen Zeitrahmen Sicherstellung einer sauberen und effizienten Arbeitsweise \n• Anforderungen Abgeschlossene Lehre als Malerpraktiker Hohes Verantwortungsbewusstsein und selbstständige Arbeitsweise Ausgeprägte Teamfähigkeit und Zuverlässigkeit Führerschein wird als Vorteil betrachtet Angebot Vielfältige spannende \n• Aufgaben in einem familiär geführten Unternehmen Übernahme von verantwortungsvollen Tätigkeiten Attraktive und leistungsgerechte Vergütung",
-        "it": "Tätigkeiten Ausführung von Kundenmalerarbeiten mit hoher Qualität Durchführung von Renovationsarbeiten im vorgesehenen Zeitrahmen Sicherstellung einer sauberen und effizienten Arbeitsweise \n• Anforderungen Abgeschlossene Lehre als Malerpraktiker Hohes Verantwortungsbewusstsein und selbstständige Arbeitsweise Ausgeprägte Teamfähigkeit und Zuverlässigkeit Führerschein wird als Vorteil betrachtet Angebot Vielfältige spannende \n• Aufgaben in einem familiär geführten Unternehmen Übernahme von verantwortungsvollen Tätigkeiten Attraktive und leistungsgerechte Vergütung",
-        "en": "Tätigkeiten Ausführung von Kundenmalerarbeiten mit hoher Qualität Durchführung von Renovationsarbeiten im vorgesehenen Zeitrahmen Sicherstellung einer sauberen und effizienten Arbeitsweise \n• Anforderungen Abgeschlossene Lehre als Malerpraktiker Hohes Verantwortungsbewusstsein und selbstständige Arbeitsweise Ausgeprägte Teamfähigkeit und Zuverlässigkeit Führerschein wird als Vorteil betrachtet Angebot Vielfältige spannende \n• Aufgaben in einem familiär geführten Unternehmen Übernahme von verantwortungsvollen Tätigkeiten Attraktive und leistungsgerechte Vergütung",
-        "fr": "Tätigkeiten Ausführung von Kundenmalerarbeiten mit hoher Qualität Durchführung von Renovationsarbeiten im vorgesehenen Zeitrahmen Sicherstellung einer sauberen und effizienten Arbeitsweise \n• Anforderungen Abgeschlossene Lehre als Malerpraktiker Hohes Verantwortungsbewusstsein und selbstständige Arbeitsweise Ausgeprägte Teamfähigkeit und Zuverlässigkeit Führerschein wird als Vorteil betrachtet Angebot Vielfältige spannende \n• Aufgaben in einem familiär geführten Unternehmen Übernahme von verantwortungsvollen Tätigkeiten Attraktive und leistungsgerechte Vergütung"
-      },
-      "location": "Sursee, Luzern",
-      "canton": "LU",
-      "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-sursee-temporaer-117047/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.761Z",
-      "addressLocality": "Sursee",
-      "addressRegion": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-28",
-      "applyUrl": "https://www.stellentreff.ch/stellen/malerpraktiker-in-sursee-temporaer-117047/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "malerpraktiker-in-fur-renovationsarbeiten-sursee-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "malerpraktiker-in-fur-renovationsarbeiten-sursee-luzern-stellentreff-ch"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T03:27:43.761Z"
+      }
     },
     {
       "id": "stellentreff-d8fa2efbffa7",
       "slug": "maler-in-per-renovationsprojekte-stellentreff-ag-sursee",
       "slugByLocale": {
-        "de": "maler-in-fur-renovationsprojekte-sursee-luzern-stellentreff-ch",
         "it": "maler-in-per-renovationsprojekte-stellentreff-ag-sursee",
         "en": "maler-in-fur-renovationsprojekte-sursee-luzern-stellentreff-ch",
+        "de": "maler-in-fur-renovationsprojekte-sursee-luzern-stellentreff-ch",
         "fr": "maler-in-fur-renovationsprojekte-sursee-luzern-stellentreff-ch"
       },
       "company": "Stellentreff AG",
@@ -308,24 +229,24 @@
       "companyDomain": "stellentreff.ch",
       "title": "Maler/in für Renovationsprojekte",
       "titleByLocale": {
-        "de": "Maler/in für Renovationsprojekte",
         "it": "Maler/in per Renovationsprojekte",
         "en": "Maler/in für Renovationsprojekte",
+        "de": "Maler/in für Renovationsprojekte",
         "fr": "Maler/in für Renovationsprojekte"
       },
       "description": "Tätigkeiten Kundenmalerarbeiten professionell ausführen Renovationsprojekte sorgfältig umsetzen Fassadeninstandsetzungen behandeln \n• Anforderungen Abgeschlossene Berufsausbildung als Maler Strukturierte und effiziente Arbeitsweise Teamorientiertes Verhalten Führerschein ist von Vorteil Angebot Abwechslungsreiche Tätigkeiten in einem familiären Umfeld Übernahme von viel Verantwortung Attraktive und leistungsgerechte Bezahlung",
       "descriptionByLocale": {
+        "it": "Tätigkeiten Kundenmalerarbeiten professionell ausführen Renovationsprojekte sorgfältig umsetzen Fassadeninstandsetzungen behandeln\n• Anforderungen Abgeschlossene Berufsausbildung als Maler Strukturierte und effiziente Arbeitsweise Teamorientiertes Verhalten Führerschein ist von Vorteil Angebot Abwechslungsreiche Tätigkeiten in einem familiären Umfeld Übernahme von viel Verantwortung Attraktive und leistungsgerechte Bezahlung",
+        "en": "Tätigkeiten Kundenmalerarbeiten professionell ausführen Renovationsprojekte sorgfältig umsetzen Fassadeninstandsetzungen behandeln\n• Anforderungen Abgeschlossene Berufsausbildung als Maler Strukturierte und effiziente Arbeitsweise Teamorientiertes Verhalten Führerschein ist von Vorteil Angebot Abwechslungsreiche Tätigkeiten in einem familiären Umfeld Übernahme von viel Verantwortung Attraktive und leistungsgerechte Bezahlung",
         "de": "Tätigkeiten Kundenmalerarbeiten professionell ausführen Renovationsprojekte sorgfältig umsetzen Fassadeninstandsetzungen behandeln \n• Anforderungen Abgeschlossene Berufsausbildung als Maler Strukturierte und effiziente Arbeitsweise Teamorientiertes Verhalten Führerschein ist von Vorteil Angebot Abwechslungsreiche Tätigkeiten in einem familiären Umfeld Übernahme von viel Verantwortung Attraktive und leistungsgerechte Bezahlung",
-        "it": "Tätigkeiten Kundenmalerarbeiten professionell ausführen Renovationsprojekte sorgfältig umsetzen Fassadeninstandsetzungen behandeln \n• Anforderungen Abgeschlossene Berufsausbildung als Maler Strukturierte und effiziente Arbeitsweise Teamorientiertes Verhalten Führerschein ist von Vorteil Angebot Abwechslungsreiche Tätigkeiten in einem familiären Umfeld Übernahme von viel Verantwortung Attraktive und leistungsgerechte Bezahlung",
-        "en": "Tätigkeiten Kundenmalerarbeiten professionell ausführen Renovationsprojekte sorgfältig umsetzen Fassadeninstandsetzungen behandeln \n• Anforderungen Abgeschlossene Berufsausbildung als Maler Strukturierte und effiziente Arbeitsweise Teamorientiertes Verhalten Führerschein ist von Vorteil Angebot Abwechslungsreiche Tätigkeiten in einem familiären Umfeld Übernahme von viel Verantwortung Attraktive und leistungsgerechte Bezahlung",
-        "fr": "Tätigkeiten Kundenmalerarbeiten professionell ausführen Renovationsprojekte sorgfältig umsetzen Fassadeninstandsetzungen behandeln \n• Anforderungen Abgeschlossene Berufsausbildung als Maler Strukturierte und effiziente Arbeitsweise Teamorientiertes Verhalten Führerschein ist von Vorteil Angebot Abwechslungsreiche Tätigkeiten in einem familiären Umfeld Übernahme von viel Verantwortung Attraktive und leistungsgerechte Bezahlung"
+        "fr": "Tätigkeiten Kundenmalerarbeiten professionell ausführen Renovationsprojekte sorgfältig umsetzen Fassadeninstandsetzungen behandeln\n• Anforderungen Abgeschlossene Berufsausbildung als Maler Strukturierte und effiziente Arbeitsweise Teamorientiertes Verhalten Führerschein ist von Vorteil Angebot Abwechslungsreiche Tätigkeiten in einem familiären Umfeld Übernahme von viel Verantwortung Attraktive und leistungsgerechte Bezahlung"
       },
       "location": "Sursee, Luzern",
       "canton": "LU",
       "url": "https://www.stellentreff.ch/stellen/maler-in-sursee-temporaer-117049/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.760Z",
+      "crawledAt": "2026-09-28T04:57:39.383Z",
       "addressLocality": "Sursee",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -340,18 +261,17 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-sursee-temporaer-117049/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "maler-in-fur-renovationsprojekte-sursee-luzern-stellentreff-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-renovationsprojekte-sursee-luzern-stellentreff-ch"
         ]
       },
-      "previousSlugs": [
-        "maler-in-fur-renovationsprojekte-sursee-luzern-stellentreff-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T03:27:43.760Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -364,16 +284,86 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "stellentreff-3767f4e45b0d",
+      "slug": "malerpraktiker-in-per-renovationsarbeiten-stellentreff-ag-sursee",
+      "slugByLocale": {
+        "it": "malerpraktiker-in-per-renovationsarbeiten-stellentreff-ag-sursee",
+        "en": "malerpraktiker-in-fur-renovationsarbeiten-sursee-luzern-stellentreff-ch",
+        "de": "malerpraktiker-in-fur-renovationsarbeiten-sursee-luzern-stellentreff-ch",
+        "fr": "malerpraktiker-in-fur-renovationsarbeiten-sursee-luzern-stellentreff-ch"
       },
-      "firstSeenAt": "2026-09-28T03:27:43.760Z"
+      "company": "Stellentreff AG",
+      "companyKey": "stellentreff",
+      "companyDomain": "stellentreff.ch",
+      "title": "Malerpraktiker/in für Renovationsarbeiten",
+      "titleByLocale": {
+        "it": "Malerpraktiker/in per Renovationsarbeiten",
+        "en": "Malerpraktiker/in für Renovationsarbeiten",
+        "de": "Malerpraktiker/in für Renovationsarbeiten",
+        "fr": "Malerpraktiker/in für Renovationsarbeiten"
+      },
+      "description": "Tätigkeiten Ausführung von Kundenmalerarbeiten mit hoher Qualität Durchführung von Renovationsarbeiten im vorgesehenen Zeitrahmen Sicherstellung einer sauberen und effizienten Arbeitsweise \n• Anforderungen Abgeschlossene Lehre als Malerpraktiker Hohes Verantwortungsbewusstsein und selbstständige Arbeitsweise Ausgeprägte Teamfähigkeit und Zuverlässigkeit Führerschein wird als Vorteil betrachtet Angebot Vielfältige spannende \n• Aufgaben in einem familiär geführten Unternehmen Übernahme von verantwortungsvollen Tätigkeiten Attraktive und leistungsgerechte Vergütung",
+      "descriptionByLocale": {
+        "it": "Tätigkeiten Ausführung von Kundenmalerarbeiten mit hoher Qualität Durchführung von Renovationsarbeiten im vorgesehenen Zeitrahmen Sicherstellung einer sauberen und effizienten Arbeitsweise\n• Anforderungen Abgeschlossene Lehre als Malerpraktiker Hohes Verantwortungsbewusstsein und selbstständige Arbeitsweise Ausgeprägte Teamfähigkeit und Zuverlässigkeit Führerschein wird als Vorteil betrachtet Angebot Vielfältige spannende\n• Aufgaben in einem familiär geführten Unternehmen Übernahme von verantwortungsvollen Tätigkeiten Attraktive und leistungsgerechte Vergütung",
+        "en": "Tätigkeiten Ausführung von Kundenmalerarbeiten mit hoher Qualität Durchführung von Renovationsarbeiten im vorgesehenen Zeitrahmen Sicherstellung einer sauberen und effizienten Arbeitsweise\n• Anforderungen Abgeschlossene Lehre als Malerpraktiker Hohes Verantwortungsbewusstsein und selbstständige Arbeitsweise Ausgeprägte Teamfähigkeit und Zuverlässigkeit Führerschein wird als Vorteil betrachtet Angebot Vielfältige spannende\n• Aufgaben in einem familiär geführten Unternehmen Übernahme von verantwortungsvollen Tätigkeiten Attraktive und leistungsgerechte Vergütung",
+        "de": "Tätigkeiten Ausführung von Kundenmalerarbeiten mit hoher Qualität Durchführung von Renovationsarbeiten im vorgesehenen Zeitrahmen Sicherstellung einer sauberen und effizienten Arbeitsweise \n• Anforderungen Abgeschlossene Lehre als Malerpraktiker Hohes Verantwortungsbewusstsein und selbstständige Arbeitsweise Ausgeprägte Teamfähigkeit und Zuverlässigkeit Führerschein wird als Vorteil betrachtet Angebot Vielfältige spannende \n• Aufgaben in einem familiär geführten Unternehmen Übernahme von verantwortungsvollen Tätigkeiten Attraktive und leistungsgerechte Vergütung",
+        "fr": "Tätigkeiten Ausführung von Kundenmalerarbeiten mit hoher Qualität Durchführung von Renovationsarbeiten im vorgesehenen Zeitrahmen Sicherstellung einer sauberen und effizienten Arbeitsweise\n• Anforderungen Abgeschlossene Lehre als Malerpraktiker Hohes Verantwortungsbewusstsein und selbstständige Arbeitsweise Ausgeprägte Teamfähigkeit und Zuverlässigkeit Führerschein wird als Vorteil betrachtet Angebot Vielfältige spannende\n• Aufgaben in einem familiär geführten Unternehmen Übernahme von verantwortungsvollen Tätigkeiten Attraktive und leistungsgerechte Vergütung"
+      },
+      "location": "Sursee, Luzern",
+      "canton": "LU",
+      "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-sursee-temporaer-117047/",
+      "source": "Stellentreff AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T04:57:39.383Z",
+      "addressLocality": "Sursee",
+      "addressRegion": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://www.stellentreff.ch/stellen/malerpraktiker-in-sursee-temporaer-117047/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "malerpraktiker-in-fur-renovationsarbeiten-sursee-luzern-stellentreff-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "malerpraktiker-in-fur-renovationsarbeiten-sursee-luzern-stellentreff-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T03:27:43.761Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "stellentreff-96ef333609fa",
       "slug": "gartner-in-hilfsarbeiter-in-per-gartenbau-stellentreff-ag-bulach",
       "slugByLocale": {
-        "de": "gartner-in-hilfsarbeiter-in-fur-gartenbau-bulach-zurich-stellentreff-ch",
         "it": "gartner-in-hilfsarbeiter-in-per-gartenbau-stellentreff-ag-bulach",
         "en": "gartner-in-hilfsarbeiter-in-fur-gartenbau-bulach-zurich-stellentreff-ch",
+        "de": "gartner-in-hilfsarbeiter-in-fur-gartenbau-bulach-zurich-stellentreff-ch",
         "fr": "gartner-in-hilfsarbeiter-in-fur-gartenbau-bulach-zurich-stellentreff-ch"
       },
       "company": "Stellentreff AG",
@@ -381,24 +371,24 @@
       "companyDomain": "stellentreff.ch",
       "title": "Gärtner/in (Hilfsarbeiter/in) für Gartenbau",
       "titleByLocale": {
-        "de": "Gärtner/in (Hilfsarbeiter/in) für Gartenbau",
         "it": "Gärtner/in (Hilfsarbeiter/in) per Gartenbau",
         "en": "Gärtner/in (Hilfsarbeiter/in) für Gartenbau",
+        "de": "Gärtner/in (Hilfsarbeiter/in) für Gartenbau",
         "fr": "Gärtner/in (Hilfsarbeiter/in) für Gartenbau"
       },
       "description": "Tätigkeiten Erstellen von Neuanlagen und Umänderungen Gestalten und bepflanzen von Gärten Herstellen von Mauern Gartenbau \n• Anforderungen Vielseitige Fachkenntnisse im Gartenbau Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
       "descriptionByLocale": {
+        "it": "Tätigkeiten Erstellen von Neuanlagen und Umänderungen Gestalten und bepflanzen von Gärten Herstellen von Mauern Gartenbau\n• Anforderungen Vielseitige Fachkenntnisse im Gartenbau Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
+        "en": "Tätigkeiten Erstellen von Neuanlagen und Umänderungen Gestalten und bepflanzen von Gärten Herstellen von Mauern Gartenbau\n• Anforderungen Vielseitige Fachkenntnisse im Gartenbau Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
         "de": "Tätigkeiten Erstellen von Neuanlagen und Umänderungen Gestalten und bepflanzen von Gärten Herstellen von Mauern Gartenbau \n• Anforderungen Vielseitige Fachkenntnisse im Gartenbau Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "it": "Tätigkeiten Erstellen von Neuanlagen und Umänderungen Gestalten und bepflanzen von Gärten Herstellen von Mauern Gartenbau \n• Anforderungen Vielseitige Fachkenntnisse im Gartenbau Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "en": "Tätigkeiten Erstellen von Neuanlagen und Umänderungen Gestalten und bepflanzen von Gärten Herstellen von Mauern Gartenbau \n• Anforderungen Vielseitige Fachkenntnisse im Gartenbau Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
-        "fr": "Tätigkeiten Erstellen von Neuanlagen und Umänderungen Gestalten und bepflanzen von Gärten Herstellen von Mauern Gartenbau \n• Anforderungen Vielseitige Fachkenntnisse im Gartenbau Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn."
+        "fr": "Tätigkeiten Erstellen von Neuanlagen und Umänderungen Gestalten und bepflanzen von Gärten Herstellen von Mauern Gartenbau\n• Anforderungen Vielseitige Fachkenntnisse im Gartenbau Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Führerausweis B von Vorteil Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn."
       },
       "location": "Bülach, Zürich",
       "canton": "ZH",
       "url": "https://www.stellentreff.ch/stellen/gaertner-in-hilfsarbeiter-in-buelach-temporaer-117003/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.759Z",
+      "crawledAt": "2026-09-28T04:57:39.382Z",
       "addressLocality": "Bülach",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -413,18 +403,17 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://www.stellentreff.ch/stellen/gaertner-in-hilfsarbeiter-in-buelach-temporaer-117003/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gartner-in-hilfsarbeiter-in-fur-gartenbau-bulach-zurich-stellentreff-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-hilfsarbeiter-in-fur-gartenbau-bulach-zurich-stellentreff-ch"
         ]
       },
-      "previousSlugs": [
-        "gartner-in-hilfsarbeiter-in-fur-gartenbau-bulach-zurich-stellentreff-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T03:27:43.759Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -435,80 +424,6 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T03:27:43.759Z"
-    },
-    {
-      "id": "stellentreff-efb234913c36",
-      "slug": "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau",
-      "slugByLocale": {
-        "it": "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau",
-        "en": "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
-        "de": "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
-        "fr": "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern"
-      },
-      "company": "Stellentreff AG",
-      "companyKey": "stellentreff",
-      "companyDomain": "stellentreff.ch",
-      "title": "Anlagen- und Apparatebauer/in (Hilfsarbeiter/in) für interne Pumpenmontage",
-      "titleByLocale": {
-        "it": "Anlagen- e Apparatebauer/in (Hilfsarbeiter/in) per interne Pumpenmontage",
-        "en": "Anlagen- und Apparatebauer/in (Hilfsarbeiter/in) für interne Pumpenmontage",
-        "de": "Anlagen- und Apparatebauer/in (Hilfsarbeiter/in) für interne Pumpenmontage",
-        "fr": "Anlagen- und Apparatebauer/in (Hilfsarbeiter/in) für interne Pumpenmontage"
-      },
-      "description": "Tätigkeiten Interne Montagen von diversen Pumpen Allgemeine Arbeiten in der Produktion sowie Aushilfe in der Logistik \n• Anforderungen Gutes technisches Verständnis Interessiert an einer langfristigen Anstellung Gutes Deutsch in Wort und Schrift Angebot Spannende Arbeiten mit einer langfristigen Anstellung Erfolgsbeteiligung Super Team",
-      "descriptionByLocale": {
-        "it": "Attività Installazione interna di varie pompe Lavoro generale in produzione e assistenza nella logistica\n• Requisiti Buona comprensione tecnica Interessato a un impiego a lungo termine Buono tedesco in Word e offerta di scrittura Lavoro emozionante con un lavoro a lungo termine Condivisione di successo Super Team",
-        "en": "Activities Internal installation of various pumps General work in production as well as assistance in logistics\n• Requirements Good technical understanding Interested in a long-term employment Good German in Word and Writing Offer Exciting work with a long-term employment Success sharing Super Team",
-        "de": "Tätigkeiten Interne Montagen von diversen Pumpen Allgemeine Arbeiten in der Produktion sowie Aushilfe in der Logistik \n• Anforderungen Gutes technisches Verständnis Interessiert an einer langfristigen Anstellung Gutes Deutsch in Wort und Schrift Angebot Spannende Arbeiten mit einer langfristigen Anstellung Erfolgsbeteiligung Super Team",
-        "fr": "Activités Installation interne de différentes pompes Travaux généraux en production et assistance logistique\n• Exigences Bonne compréhension technique Intéressé par un emploi à long terme Offre de bon allemand en paroles et en écriture Travail passionnant avec un emploi à long terme Partage de succès Super Team"
-      },
-      "location": "Willisau, Luzern",
-      "canton": "LU",
-      "url": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-willisau-temporaer-117031/",
-      "source": "Stellentreff AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.758Z",
-      "addressLocality": "Willisau",
-      "addressRegion": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-26",
-      "applyUrl": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-willisau-temporaer-117031/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
-        "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
-          "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:59:14.396Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -544,7 +459,7 @@
       "url": "https://www.stellentreff.ch/stellen/zimmermann-zimmerin-hilfsarbeiter-in-sursee-temporaer-116814/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.756Z",
+      "crawledAt": "2026-09-28T04:57:39.381Z",
       "addressLocality": "Sursee",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -570,6 +485,79 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:59:14.395Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stellentreff-efb234913c36",
+      "slug": "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau",
+      "slugByLocale": {
+        "it": "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau",
+        "en": "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
+        "de": "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
+        "fr": "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern"
+      },
+      "company": "Stellentreff AG",
+      "companyKey": "stellentreff",
+      "companyDomain": "stellentreff.ch",
+      "title": "Anlagen- und Apparatebauer/in (Hilfsarbeiter/in) für interne Pumpenmontage",
+      "titleByLocale": {
+        "it": "Anlagen- e Apparatebauer/in (Hilfsarbeiter/in) per interne Pumpenmontage",
+        "en": "Anlagen- und Apparatebauer/in (Hilfsarbeiter/in) für interne Pumpenmontage",
+        "de": "Anlagen- und Apparatebauer/in (Hilfsarbeiter/in) für interne Pumpenmontage",
+        "fr": "Anlagen- und Apparatebauer/in (Hilfsarbeiter/in) für interne Pumpenmontage"
+      },
+      "description": "Tätigkeiten Interne Montagen von diversen Pumpen Allgemeine Arbeiten in der Produktion sowie Aushilfe in der Logistik \n• Anforderungen Gutes technisches Verständnis Interessiert an einer langfristigen Anstellung Gutes Deutsch in Wort und Schrift Angebot Spannende Arbeiten mit einer langfristigen Anstellung Erfolgsbeteiligung Super Team",
+      "descriptionByLocale": {
+        "it": "Attività Installazione interna di varie pompe Lavoro generale in produzione e assistenza nella logistica\n• Requisiti Buona comprensione tecnica Interessato a un impiego a lungo termine Buono tedesco in Word e offerta di scrittura Lavoro emozionante con un lavoro a lungo termine Condivisione di successo Super Team",
+        "en": "Activities Internal installation of various pumps General work in production as well as assistance in logistics\n• Requirements Good technical understanding Interested in a long-term employment Good German in Word and Writing Offer Exciting work with a long-term employment Success sharing Super Team",
+        "de": "Tätigkeiten Interne Montagen von diversen Pumpen Allgemeine Arbeiten in der Produktion sowie Aushilfe in der Logistik \n• Anforderungen Gutes technisches Verständnis Interessiert an einer langfristigen Anstellung Gutes Deutsch in Wort und Schrift Angebot Spannende Arbeiten mit einer langfristigen Anstellung Erfolgsbeteiligung Super Team",
+        "fr": "Activités Installation interne de différentes pompes Travaux généraux en production et assistance logistique\n• Exigences Bonne compréhension technique Intéressé par un emploi à long terme Offre de bon allemand en paroles et en écriture Travail passionnant avec un emploi à long terme Partage de succès Super Team"
+      },
+      "location": "Willisau, Luzern",
+      "canton": "LU",
+      "url": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-willisau-temporaer-117031/",
+      "source": "Stellentreff AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T04:57:39.381Z",
+      "addressLocality": "Willisau",
+      "addressRegion": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-26",
+      "applyUrl": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-willisau-temporaer-117031/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
+        "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern",
+          "anlagen-e-apparatebauer-in-hilfsarbeiter-in-per-interne-pumpenmontage-stellentreff-ag-willisau"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:59:14.396Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -615,7 +603,7 @@
       "url": "https://www.stellentreff.ch/stellen/schreiner-in-hilfsarbeiter-in-hochdorf-temporaer-116892/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.755Z",
+      "crawledAt": "2026-09-28T04:57:39.380Z",
       "addressLocality": "Hochdorf",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -686,7 +674,7 @@
       "url": "https://www.stellentreff.ch/stellen/metallbauer-in-hilfsarbeiter-in-luzern-temporaer-116870/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.754Z",
+      "crawledAt": "2026-09-28T04:57:39.379Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -757,7 +745,7 @@
       "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-winterthur-temporaer-116844/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.753Z",
+      "crawledAt": "2026-09-28T04:57:39.378Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -834,7 +822,7 @@
       "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-luzern-temporaer-116922/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.753Z",
+      "crawledAt": "2026-09-28T04:57:39.378Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -911,7 +899,7 @@
       "url": "https://www.stellentreff.ch/stellen/malerpraktiker-in-buelach-temporaer-116826/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.752Z",
+      "crawledAt": "2026-09-28T04:57:39.377Z",
       "addressLocality": "Bülach",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -990,7 +978,7 @@
       "url": "https://www.stellentreff.ch/stellen/maler-in-herisau-temporaer-116800/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.751Z",
+      "crawledAt": "2026-09-28T04:57:39.376Z",
       "addressLocality": "Herisau",
       "addressRegion": "Appenzell Ausserrhoden",
       "addressCountry": "CH",
@@ -1071,7 +1059,7 @@
       "url": "https://www.stellentreff.ch/stellen/maler-in-zofingen-temporaer-116918/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.750Z",
+      "crawledAt": "2026-09-28T04:57:39.375Z",
       "addressLocality": "Zofingen",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -1151,7 +1139,7 @@
       "url": "https://www.stellentreff.ch/stellen/maler-in-luzern-temporaer-116920/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.750Z",
+      "crawledAt": "2026-09-28T04:57:39.375Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -1231,7 +1219,7 @@
       "url": "https://www.stellentreff.ch/stellen/maler-in-winterthur-temporaer-116846/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.749Z",
+      "crawledAt": "2026-09-28T04:57:39.374Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1311,7 +1299,7 @@
       "url": "https://www.stellentreff.ch/stellen/maler-in-hilfsarbeiter-in-luzern-temporaer-116924/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.748Z",
+      "crawledAt": "2026-09-28T04:57:39.373Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -1391,7 +1379,7 @@
       "url": "https://www.stellentreff.ch/stellen/maler-in-buelach-temporaer-116824/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.747Z",
+      "crawledAt": "2026-09-28T04:57:39.372Z",
       "addressLocality": "Bülach",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1469,7 +1457,7 @@
       "url": "https://www.stellentreff.ch/stellen/fassadenbauer-in-winterthur-temporaer-116876/",
       "source": "Stellentreff AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:27:43.744Z",
+      "crawledAt": "2026-09-28T04:57:39.370Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1578,7 +1566,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellentreff-d86e1de1d22b",
@@ -1659,7 +1647,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellentreff-ab5429895e6a",
@@ -1740,7 +1728,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellentreff-2330d207759d",
@@ -1819,7 +1807,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellentreff-eed42f99dd80",
@@ -1898,7 +1886,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellentreff-27a6ad02aae2",
@@ -1979,7 +1967,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
