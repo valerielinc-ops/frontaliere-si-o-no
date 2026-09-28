@@ -103,7 +103,11 @@ export function mergeEventHistory(existing, incoming) {
   return preserveEventHistory(incoming, existing ? [existing] : []);
 }
 
-/** Match the build plugin's collision-resolved slug assignment in data code. */
+/**
+ * Match the build plugin's collision-resolved slug assignment in data code.
+ * @param {Iterable<string>} [reservedBaseSlugs]
+ * @returns {Map<string, string>}
+ */
 export function assignEventSlugsForHistory(list, reservedBaseSlugs = new Set()) {
   const used = new Set([...reservedBaseSlugs].map((slug) => reserveLadderShape(slug, 'evento')));
   const slugFor = new Map();
