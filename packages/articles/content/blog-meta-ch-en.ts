@@ -6884,6 +6884,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esito-iniziativa-neutralita-svizzera.title': 'Neutrality initiative: rejected by 70,2% of voters',
     'blog.article.esito-iniziativa-neutralita-svizzera.excerpt': '70,2% of voters rejected the initiative on neutrality. The no vote came from all Cantons, with voter turnout at 47,1%.',
     'blog.article.esito-iniziativa-neutralita-svizzera.imageAlt': 'Swiss flag in front of the Federal Palace in Bern',
+    'blog.article.lucerna-voto-tifosi-ocse.title': 'Lucerne: vote on fans, shops and OECD funds',
+    'blog.article.lucerna-voto-tifosi-ocse.excerpt': 'In Lucerne, both the initiative and the counterproposal on fan violence pass. 58.8% choose the counterproposal; the go-ahead is also given to shops, schools and economic promotion.',
+    'blog.article.lucerna-voto-tifosi-ocse.imageAlt': 'Lucerne vote with ballot box and football atmosphere',
 };
 
 export default blogMetaChEn;
