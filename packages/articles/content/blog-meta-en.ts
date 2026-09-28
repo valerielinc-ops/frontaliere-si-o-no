@@ -12169,6 +12169,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-rapina-gioielleria-arresti.title': 'Como, jewelry store robbery: two more arrests',
     'blog.article.como-rapina-gioielleria-arresti.excerpt': 'A 32-year-old resident of Switzerland and a 25-year-old from the province of Monza arrested for the 90mila euro robbery at Stroili in Tavernola.',
     'blog.article.como-rapina-gioielleria-arresti.imageAlt': 'Jewelry store in a shopping center after a robbery in Tavernola',
+    'blog.article.dumenza-case-colpite-venerdi.title': 'Dumenza, three home burglaries and one failed attempt',
+    'blog.article.dumenza-case-colpite-venerdi.excerpt': 'Three homes targeted in Dumenza on the evening of Friday, September 25: cash, gold and money stolen. A fourth attempt failed.',
+    'blog.article.dumenza-case-colpite-venerdi.imageAlt': 'Residential street at dusk in Ticino',
 };
 
 export default blogMetaEn;

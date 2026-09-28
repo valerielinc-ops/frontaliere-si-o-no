@@ -12170,6 +12170,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-rapina-gioielleria-arresti.title': 'Como, rapina alla gioielleria: altri due arresti',
     'blog.article.como-rapina-gioielleria-arresti.excerpt': 'Arrestati un 32enne residente in Svizzera e un 25enne della provincia di Monza per la rapina da 90mila euro alla Stroili di Tavernola.',
     'blog.article.como-rapina-gioielleria-arresti.imageAlt': 'Gioielleria in un centro commerciale dopo una rapina a Tavernola',
+    'blog.article.dumenza-case-colpite-venerdi.title': 'Dumenza, tre furti nelle case e uno fallito',
+    'blog.article.dumenza-case-colpite-venerdi.excerpt': 'Tre abitazioni colpite a Dumenza nella serata di venerdì 25 settembre: rubati contanti, oro e denaro. Un quarto tentativo è fallito.',
+    'blog.article.dumenza-case-colpite-venerdi.imageAlt': 'Via residenziale al crepuscolo in Ticino',
 };
 
 export default blogMetaIt;

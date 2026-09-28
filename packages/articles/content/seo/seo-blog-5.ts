@@ -95701,6 +95701,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dumenza-case-colpite-venerdi': {
+    title: 'Dumenza, tre furti nelle case e uno fallito | Frontaliere Ticino',
+    description: 'Tre furti in abitazione a Dumenza nella serata del 25 settembre: colpite via Santuario, via Fiume e via Dante. Fallito un quarto colpo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, dumenza, furti, nelle, case',
+    ogTitle: 'Dumenza, tre furti in una sera',
+    ogDescription: 'Tre furti consumati e un quarto tentativo fallito a Dumenza nella serata di venerdì 25 settembre. Le abitazioni colpite si trovano in via Santuario, via Fiume e via Dante; in via XX Settembre i ladri sono fuggiti dopo avere sentito i proprietari.',
+    canonicalPath: '/articoli-frontaliere/dumenza-case-colpite-venerdi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dumenza, tre furti nelle case e uno fallito",
+      "description": "Tre furti in abitazione a Dumenza nella serata del 25 settembre: colpite via Santuario, via Fiume e via Dante. Fallito un quarto colpo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dumenza-case-colpite-venerdi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via residenziale al crepuscolo in Ticino"
+      },
+      "datePublished": "2026-09-28T00:30:08+00:00",
+      "dateModified": "2026-09-28T00:30:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumenza-case-colpite-venerdi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

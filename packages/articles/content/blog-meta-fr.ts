@@ -12171,6 +12171,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-rapina-gioielleria-arresti.title': 'Côme, vol à la bijouterie : deux autres arrestations',
     'blog.article.como-rapina-gioielleria-arresti.excerpt': 'Un homme de 32 ans résidant en Suisse et un homme de 25 ans de la province de Monza ont été arrêtés pour le vol de 90 000 euros à Stroili di Tavernola.',
     'blog.article.como-rapina-gioielleria-arresti.imageAlt': 'Bijouterie dans un centre commercial après un braquage à Tavernola',
+    'blog.article.dumenza-case-colpite-venerdi.title': 'Dumenza, trois cambriolages dans des maisons et un cambriolage raté',
+    'blog.article.dumenza-case-colpite-venerdi.excerpt': 'Trois habitations cambriolées à Dumenza dans la soirée du vendredi 25 septembre : des espèces, de l\'or et de l\'argent ont été volés. Une quatrième tentative a échoué.',
+    'blog.article.dumenza-case-colpite-venerdi.imageAlt': 'Rue résidentielle au crépuscule au Tessin',
 };
 
 export default blogMetaFr;
