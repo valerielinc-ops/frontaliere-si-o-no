@@ -10,21 +10,21 @@ La forma canonica è:
 follow-up(daily:YYYY-MM-DD): N item — owner/repo
 ```
 
-La chiave è il giorno della run riuscita in `Europe/Zurich`, mai `mergedAt`. Il watermark avanza solo con run riuscita; il retry rilegge la finestra. `## Post-merge follow-up triage` è marker di idempotenza per-PR, anche in bucket esistente.
+Chiave = giorno della run riuscita in `Europe/Zurich`, mai `mergedAt`. Solo il successo avanza il watermark; il retry rilegge la finestra. `## Post-merge follow-up triage` è il marker idempotente per-PR, anche in bucket esistente.
 
-Una PR daily con `Addresses #<bucket>` e `Follow-up item: FU-...` cerca finding nuovi: quelli coperti si aggiornano in `Sources`, quelli nuovi entrano nel bucket padre (che torna `collecting` se `sealed` e viene risigillato). Padre illeggibile → blocco sulla PR, nessun contenitore alternativo.
+Una PR daily con `Addresses #<bucket>` e `Follow-up item: FU-...` cerca finding nuovi: aggiorna `Sources` per i coperti e aggiunge gli altri al padre, riaprendo `collecting` e risigillando. Padre illeggibile → blocco sulla PR, nessun contenitore alternativo.
 
-Ogni bucket segue `State: collecting` → `State: sealed`. Durante la raccolta non porta `agent:fix`/`agent:fix-queued`; il gate riusa `hasFalsifiableAcceptance()`, completa i chunk, demota gli item non verificabili, sigilla e aggiunge `agent:fix-queued`. Un errore lascia `collecting` senza perdere item o watermark.
+Ogni bucket va da `State: collecting` a `State: sealed`. In raccolta non porta `agent:fix`/`agent:fix-queued`; il gate completa i chunk, usa `hasFalsifiableAcceptance()`, demota gli item non verificabili, sigilla e aggiunge `agent:fix-queued`. Un errore lascia `collecting`, item e watermark intatti.
 
-Ogni item usa ID stabile `FU-YYYY-MM-DD-NNN` e contiene `State`, `Sources`, `Target repository`, `Target file`, `Original text`, `Suggested action` e `Acceptance token`. Dedup: `target repository + target file + token/azione normalizzata`; il match accorpa in `Sources`. Append concorrenti: rileggi, confronta baseline e ricostruisci su divergenza; sealing/demozione anche in commenti append-only.
+Ogni item ha ID stabile `FU-YYYY-MM-DD-NNN` e campi `State`, `Sources`, `Target repository`, `Target file`, `Original text`, `Suggested action`, `Acceptance token`. Dedup su `target repository + target file + token/azione normalizzata`; match → accorpa `Sources`. Append concorrenti: rileggi e ricostruisci se la baseline diverge; sealing/demozione anche in commenti append-only.
 
-Il drainer promuove bucket `sealed` con item `open` e senza PR che dichiari l'ID. `issue-fix` seleziona un item per run. PR parziale: `Addresses #<bucket>` + `Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`. Il reconciler chiude con tutti gli item validi `done` e provati; body illeggibile, stato ambiguo, acceptance assente o prova debole lasciano aperto.
+Il drainer promuove bucket `sealed` con item `open` senza PR che ne dichiari l'ID; `issue-fix` ne seleziona uno per run. PR parziale: `Addresses #<bucket>` + `Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`. Il reconciler chiude solo con tutti gli item validi `done` e provati; body/stato/acceptance/prova non affidabili lasciano aperto.
 
 ## Gate grandchild-suppression (zero-agente, PRIMA del triage)
 
-`post-merge-followup.yml` gira su OGNI PR mergiata dall'owner — **incluse le PR che FIXANO un follow-up**. Senza guardia, ogni merge può generare follow-up.
+`post-merge-followup.yml` gira su OGNI PR mergiata dall'owner, **incluse le fix di follow-up**: senza guardia ogni merge può generarne altri.
 
-Lo step deterministico `scripts/ci/is-followup-fix-pr.mjs` (zero-agente) precede il lane Codex e salta i fixer branch che puntano a `follow-up`. Una fix daily con `Addresses #<bucket>` + `Follow-up item: FU-...` cerca finding nuovi e li aggiunge al bucket **padre**, mai a nuova issue. Scope deferred resta nel padre. **Proceed-safe**: branch/body illeggibile o `gh issue view` in errore → triage normale.
+Lo step zero-agente `scripts/ci/is-followup-fix-pr.mjs` precede Codex e salta i fixer branch diretti a `follow-up`. Una fix daily con `Addresses #<bucket>` + `Follow-up item: FU-...` aggiunge finding nuovi al **padre**, mai a nuova issue; scope deferred resta lì. **Proceed-safe**: branch/body illeggibile o errore `gh issue view` → triage normale.
 
 ## Scopo
 
@@ -97,38 +97,38 @@ Droppa se l'item è essenzialmente uno di:
 
 ### Hard-exclude: live-verification-only item (mai aprire follow-up — batch in checklist)
 
-Categoria a sé, **mai mintata come issue `follow-up`** (reason: `live-verify-only`), prima del filtro funnel, **a prescindere dalla fonte** (reviewer 🟡/❓/adversarial OPPURE PR body `## Non implementato` / `## Test plan` checkbox `- [ ]` non spuntata). È `live-verify-only` quando l'**unica azione è verificare il sito già deployato**, senza file da editare: non è fixabile da `agent:fix`.
+Categoria **mai mintata come issue `follow-up`** (reason: `live-verify-only`), prima del filtro funnel, da ogni fonte (reviewer 🟡/❓/adversarial o PR body `## Non implementato`/`## Test plan` `- [ ]`). Vale quando l'**unica azione è verificare il sito deployato**, senza file da editare: `agent:fix` non può farlo.
 
-Riconosci `live-verify-only` dalle frasi-segnale nell'item (l'azione è SOLO ispezione runtime, nessuna edit di file):
+Segnali `live-verify-only` (SOLO ispezione runtime, nessun edit):
 
 - "verify live" / "verifica live" / "post-deploy" / "(post-merge, live)" / "(live)" / "controlla in prod" / "su prod" / "una volta deployato".
 - "curl" la URL di produzione / "live-200" / "live curl" / controllo HTTP status sul sito live.
 - "render at NNNpx" / "renderizza a 382px" / "apri DevTools" / "ispeziona nel browser" / "Playwright hydration" / verifica visuale o CLS a runtime.
 - Checkbox `## Test plan` `- [ ]` esplicitamente etichettata `(post-merge, live)` / `(live)` / "verifica post-deploy" e non spuntata (il reviewer la flagga 🟡 "ricorda spunta post-merge", vedi `REVIEW.md → Test plan compliance`).
 
-**Routing (NON drop silenzioso):** questi item NON diventano issue, ma confluiscono in **un'unica checklist batchata** `Live-verification` nel commento di chiusura (`## Closing comment`), senza fixer. Checklist per PR, mai issue per voce.
+**Routing, non drop silenzioso:** niente issue; un'unica checklist `Live-verification` per PR nel `## Closing comment`, senza fixer.
 
-**NON classificare `live-verify-only`** un item che **mescola** verifica live e azione reale su un file ("aggiungi `min-height` a `AdSlot.tsx` E poi verifica il CLS live"): la parte editabile resta candidate normale. Solo l'intera azione di ispezione runtime è `live-verify-only`; nel dubbio → actionable.
+**NON `live-verify-only`** se mescola verifica e file editabile ("aggiungi `min-height` a `AdSlot.tsx` E poi verifica il CLS live"): resta candidate. Solo ispezione runtime → live-only; dubbio → actionable.
 
-**Override deterministico (presenza di file-path = actionable):** se `Original text` + `## Suggested action` contiene un percorso editabile `.tsx` / `.ts` / `.mjs` / `.js` / `.yml` / `.yaml` / `.json` / `.md` / `.css` (es. `scripts/foo.mjs`, `components/Bar.tsx`, `build-plugins/baz.ts`), **classifica `actionable`** a prescindere dalle frasi live-verify. `/sitemap.xml` non è path-token (`.xml`/`.html` esclusi).
+**Override deterministico:** un path editabile in `Original text` + `## Suggested action` (`.tsx`/`.ts`/`.mjs`/`.js`/`.yml`/`.yaml`/`.json`/`.md`/`.css`, es. `scripts/foo.mjs`, `components/Bar.tsx`, `build-plugins/baz.ts`) rende **`actionable`** nonostante frasi live. `/sitemap.xml` non è path-token (`.xml`/`.html` esclusi).
 
 ### Hard-exclude: no-acceptance-condition — ora ANCHE un gate deterministico dopo il conio
 
-La regola è: `Suggested action` deve citare fra backtick almeno un token-codice distintivo. Una `no-valid-item` non si chiude MAI: `aggregateCloseGate()` la blocca per evidenza assente.
+`Suggested action` deve citare in backtick un token-codice distintivo. `no-valid-item` non si chiude MAI: `aggregateCloseGate()` la blocca per evidenza assente.
 
-Lo step `Gate sul conio` (`scripts/ci/gate-minted-followups.mjs`, zero-agente) rilegge la issue e usa l'oracolo di chiusura `hasFalsifiableAcceptance()` in `scripts/ci/followup-resolution-match.mjs`. Gli item non validi vengono **demoti** e riscritti in `Live-verification`; senza item la issue viene **soppressa**. Un corpo senza struttura non viene soppresso.
+`Gate sul conio` (`scripts/ci/gate-minted-followups.mjs`, zero-agente) rilegge la issue e usa `hasFalsifiableAcceptance()` da `scripts/ci/followup-resolution-match.mjs`. Item invalidi → **demoti** in `Live-verification`; zero item → issue **soppressa**. Corpo senza struttura → non soppresso.
 
 Conseguenza: senza `- Suggested action:` con token-codice l'item non sopravvive. Scrivi simbolo, costante o path che un `grep` futuro troverà.
 
-**Seconda strada: la scheda con un `COMANDO`.** L'oracolo è una **disgiunzione**: passa `Suggested action` + token distintivo **oppure** `- METRICA: prima=<n> atteso=<n> | COMANDO: <comando>` con referente file/script/test (path con `/` e un'estensione). È il campo `COMANDO` già emesso da `issue-decompose.yml` (`## Scheda`) e `scripts/audit-canton-url-drift.mjs`:
+**Seconda strada: scheda con `COMANDO`.** L'oracolo accetta `Suggested action` + token **oppure** `- METRICA: prima=<n> atteso=<n> | COMANDO: <comando>` con referente file/script/test (path con `/` ed estensione). È il `COMANDO` di `issue-decompose.yml` (`## Scheda`) e `scripts/audit-canton-url-drift.mjs`:
 
 - **Il referente non deve esistere ancora.** Un test futuro è valido: l'esistenza si verifica alla chiusura.
 - **Una metrica già al bersaglio viene rifiutata.** `prima=N atteso=N` è rifiutato; una soglia (`atteso=<N`) resta ammessa.
 - **Il gate non esegue il comando.** Verifica referente e forma, non che oggi fallisca.
 
-Il ramo vive in `hasFalsifiableAcceptance()`, condiviso da apertura e chiusura. Un item ammesso senza token prescritti mantiene `detectAlreadyResolved()` a `false`: la disgiunzione allarga il conio, non la chiusura.
+Il ramo è in `hasFalsifiableAcceptance()`, condiviso da apertura/chiusura. Item ammesso senza token mantiene `detectAlreadyResolved()` a `false`: allarga il conio, non la chiusura.
 
-**Il metro si applica alla tua `Suggested action`, non al bullet grezzo — e il token si DERIVA, non si aspetta.** `suggestedActionText()` sul grezzo include `Original text`, ma la chiusura lo esclude: il falso match diventa `no-valid-item`. `citedTokens()` può dare `["manifest.counts"]` sul grezzo e `[]` sull'item. Aggiungi file/simbolo/campo (`nomeFunzione()`, `oggetto.campo`, `COSTANTE >= 1`), non identificatore/path nudo: `isDistinctiveToken()` li rifiuta. Rinuncia solo se non c'è nulla da toccare.
+**Il metro vale sulla tua `Suggested action`, non sul grezzo; il token si DERIVA.** `suggestedActionText()` grezzo include `Original text`, la chiusura no: falso match → `no-valid-item`. `citedTokens()` può dare `["manifest.counts"]` sul grezzo e `[]` sull'item. Aggiungi file/simbolo/campo (`nomeFunzione()`, `oggetto.campo`, `COSTANTE >= 1`), non identificatore/path nudo rifiutato da `isDistinctiveToken()`. Rinuncia solo senza nulla da toccare.
 
 ## Dedup
 
@@ -210,7 +210,7 @@ Skipped: P item (🔴 pre-merge or duplicate active follow-up)
 
 Zero item dopo filtro+dedup e zero live-verify → `## Post-merge follow-up triage: zero outstanding items.` senza bucket. Solo live-verify → summary con `Live-verification` e `Created: 0 issue (solo live-verification batchata)`.
 
-Candidati tutti `Dropped`/`Skipped` (zero item persistiti da QUESTA PR, anche se il bucket del giorno esiste) → la riga di claim resta `Created/updated: 0 item.` con lo **0 in cifre**. Il verifier deterministico dello step «Verify complete follow-up triage» legge il numero, non la prosa: «nessun nuovo item nel bucket giornaliero» senza cifra resta un claim da provare e rende rossa la run (35904571443, 35933207218).
+Tutti `Dropped`/`Skipped` (zero item da QUESTA PR, anche con bucket esistente) → claim `Created/updated: 0 item.` con **0 in cifre**. «Verify complete follow-up triage» legge il numero: prosa senza cifra rende rossa la run (35904571443, 35933207218).
 
 ## Supersede detection → spostata su `followup-reconcile` (deterministica, zero-agente)
 
