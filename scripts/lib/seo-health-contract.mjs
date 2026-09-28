@@ -254,6 +254,7 @@ export function isJobDetailPath(value, base = SITE_ORIGIN) {
   if (parts.length !== sectionIndex + 2) return false;
   const slug = parts[sectionIndex + 1].replace(/\.html$/i, '').toLowerCase();
   return Boolean(slug)
+    && slug !== 'alle'
     && !JOB_DETAIL_EXCLUDED_SLUG_RX.test(slug)
     && !JOB_DETAIL_FILTER_SLUG_RX.test(slug)
     && !JOB_DETAIL_EDITORIAL_SLUGS.has(slug);
