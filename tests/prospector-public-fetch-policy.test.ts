@@ -280,6 +280,84 @@ describe('prospector public-only polite transport', () => {
     expect(fetchImpl).not.toHaveBeenCalledWith(unrelated, expect.anything());
   });
 
+  it('filters a multi-employer ATS by tenant evidence on enriched detail pages', async () => {
+    const seed = 'https://romantik.example/list/';
+    const wanted = 'https://romantik.example/list/18877';
+    const unrelated = 'https://romantik.example/list/19310';
+    const listing = `<a href="/list/18877">Housekeeping-Mitarbeiter/in (m/w/d)</a>`
+      + `<a href="/list/19310">Chef de Service (m/w)</a>`;
+    const wantedDetail = '<h1>Housekeeping-Mitarbeiter/in (m/w/d)</h1><div class="job-location">Flims</div>'
+      + '<article class="vacancy-description">'
+      + 'Darum sollten Sie zum Schweizerhof Flims kommen. Unterstützen Sie unser Team '
+      + 'mit einer verantwortungsvollen Tätigkeit und geregelten Arbeitszeiten.'
+      + '</article>';
+    const unrelatedDetail = '<h1>Chef de Service (m/w)</h1><div class="job-location">Grindelwald</div>'
+      + '<article class="vacancy-description">'
+      + 'Das Romantik Hotel Schweizerhof Grindelwald sucht Unterstützung im Service. '
+      + 'Wir bieten eine abwechslungsreiche Aufgabe und faire Arbeitszeiten.'
+      + '</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      if (url === wanted) return response(url, 200, null, wantedDetail);
+      if (url === unrelated) return response(url, 200, null, unrelatedDetail);
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Schweizerhof',
+      companyHost: 'romantik.example', mode: 'template', seedUrls: [seed],
+      detailTemplate: '/list/*', detailEnrichment: true,
+      detailCandidateText: 'Schweizerhof Flims',
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Housekeeping-Mitarbeiter/in (m/w/d)', url: wanted, location: 'Flims', canton: 'GR',
+    })]);
+    expect(fetchImpl).toHaveBeenCalledWith(unrelated, expect.objectContaining({ redirect: 'manual' }));
+  });
+
+  it.each([
+    ['a detail page without tenant evidence', false],
+    ['a detail fetch error', true],
+  ])('fails closed when index-only tenant text is available but %s', async (_caseName, detailFetchFails) => {
+    const seed = 'https://romantik.example/list/';
+    const job = 'https://romantik.example/list/18877';
+    const listing = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Housekeeping-Mitarbeiter/in (m/w/d)',
+      url: job,
+      description: 'Schweizerhof listing teaser with enough indexed text to look complete even when the detail response lacks tenant evidence.',
+      jobLocation: { address: { addressLocality: 'Flims', addressCountry: 'CH' } },
+    })}</script>`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      if (url === job && detailFetchFails) throw new Error('detail unavailable');
+      if (url === job) return response(url, 200, null,
+        '<h1>Housekeeping-Mitarbeiter/in (m/w/d)</h1><div class="job-location">Flims</div>');
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Example',
+      companyHost: 'romantik.example', mode: 'jsonld', seedUrls: [seed],
+      detailEnrichment: true, detailCandidateText: 'schweizerhof',
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+      jinaRetries: 0,
+    });
+
+    expect(rows).toEqual([]);
+  });
+
   it('rescues a WAF 403 through Jina while keeping the prospector URL policy in front', async () => {
     const seed = 'https://employer.example/jobs';
     const detail = 'https://employer.example/careers/detail/1';
@@ -477,6 +555,61 @@ describe('prospector public-only polite transport', () => {
       title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
     })]);
     expect(jinaFetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('keeps an explicit zero outcome when every source rescue still yields no accepted detail link', async () => {
+    const seed = 'https://hotelcareer.example/jobs/vereina';
+    const interstitial = '<html><head><title>Access Denied</title></head>'
+      + '<body><p>Request could not be completed.</p></body></html>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, interstitial);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, interstitial));
+    const browserFetchImpl = vi.fn(async () => interstitial);
+
+    const rows = await runSpecInProduction({
+      companyKey: 'vereinaklosters', companyName: 'Vereina', companyHost: 'hotelcareer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/vereina/*',
+      rescueOnEmptyListing: true, emptyListingOutcome: 'anti_bot_block',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      browserFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([]);
+    expect(rows).toHaveProperty('fetchOutcome', 'anti_bot_block');
+    expect(rows).toHaveProperty('discoveredCount', 0);
+    expect(rows).toHaveProperty('fetchDetail', expect.stringContaining('Access Denied'));
+    expect(browserFetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('does not invent a fetch outcome for an unconfigured legitimate empty listing', async () => {
+    const seed = 'https://employer.example/jobs';
+    const empty = '<html><head><title>Open positions</title></head><body>No positions.</body></html>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, empty);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([]);
+    expect(rows).not.toHaveProperty('fetchOutcome');
   });
 
   it('rescues a connection-level seed failure through Jina instead of returning zero listings', async () => {
