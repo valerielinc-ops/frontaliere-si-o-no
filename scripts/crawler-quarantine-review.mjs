@@ -44,6 +44,7 @@ import {
   waveFromRunAnnotations,
 } from './lib/crawler-quarantine.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { checkRunApiPath } from './ci/close-recovered-failure-issues.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(SCRIPT_PATH), '..');
@@ -87,7 +88,9 @@ export function collectWaves({ corpusRepo, group, limit, memberSlugs, api = ghJs
     const jobs = api(['api', `repos/${corpusRepo}/actions/runs/${run.id}/jobs`]);
     const job = (jobs.jobs ?? [])[0];
     if (!job) continue;
-    const annotations = api(['api', `repos/${corpusRepo}/check-runs/${job.id}/annotations?per_page=100`]);
+    const checkRunPath = checkRunApiPath(job.check_run_url);
+    if (!checkRunPath) continue;
+    const annotations = api(['api', `${checkRunPath}/annotations?per_page=100`]);
     const wave = waveFromRunAnnotations({
       run: { id: run.id, createdAt: run.created_at, conclusion: run.conclusion },
       annotations,

@@ -228,7 +228,7 @@ describe('waveFromRunAnnotations', () => {
 });
 
 describe('collectWaves', () => {
-  it('reads completed runs, their first job and its annotations through gh', () => {
+  it('reads annotations from the job check-run, not the job id', () => {
     const calls: string[] = [];
     const api = (args: string[]) => {
       const endpoint = args[1];
@@ -239,12 +239,16 @@ describe('collectWaves', () => {
           { id: 12, created_at: '2026-09-28T03:37:54Z', conclusion: 'cancelled', html_url: 'u' },
         ] };
       }
-      if (endpoint.endsWith('/runs/11/jobs')) return { jobs: [{ id: 99 }] };
-      if (endpoint.includes('/check-runs/99/annotations')) return [];
+      if (endpoint.endsWith('/runs/11/jobs')) {
+        return { jobs: [{ id: 123, check_run_url: 'https://api.github.com/repos/o/r/check-runs/987' }] };
+      }
+      if (endpoint.includes('/check-runs/987/annotations')) return [];
       throw new Error(`unexpected ${endpoint}`);
     };
     const result = collectWaves({ corpusRepo: 'o/r', group: 24, limit: 5, memberSlugs: ['a'], api });
     expect(result).toEqual([{ runId: 11, createdAt: '2026-09-28T05:06:58Z', source: 'legacy', outcomes: { a: 'success' }, url: 'u' }]);
+    expect(calls).toContain('repos/o/r/check-runs/987/annotations?per_page=100');
+    expect(calls.some((endpoint) => endpoint.includes('/check-runs/123/'))).toBe(false);
     expect(calls).toHaveLength(3);
   });
 });
