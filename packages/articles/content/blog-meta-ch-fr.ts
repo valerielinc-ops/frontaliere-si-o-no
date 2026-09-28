@@ -6896,6 +6896,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.popolo-svizzero-boccia-neutralita.title': 'Initiative sur la neutralité rejetée par le peuple suisse',
     'blog.article.popolo-svizzero-boccia-neutralita.excerpt': 'L’initiative sur la neutralité a été rejetée avec environ 70 % de non ; elle n’a pas obtenu la majorité des cantons après le dépouillement dans 15 d’entre eux, tandis que le Tessin affiche une légère divergence.',
     'blog.article.popolo-svizzero-boccia-neutralita.imageAlt': 'Place du Palais fédéral à Berne avec électeurs et matériel de campagne sur l\'initiative de neutralité',
+    'blog.article.voto-neutralita-alimentazione-respinto.title': 'Vote du 27 septembre : non catégorique à la neutralité et à la nourriture',
+    'blog.article.voto-neutralita-alimentazione-respinto.excerpt': 'Le 27 septembre, plus de 70 % ont rejeté l\'initiative sur la neutralité et 72,5 % celle sur l\'alimentation dans tous les cantons.',
+    'blog.article.voto-neutralita-alimentazione-respinto.imageAlt': 'Citoyens suisses devant un bureau de vote lors des votations du 27 septembre, résultats clairs sur neutralité et alimentation.',
 };
 
 export default blogMetaChFr;
