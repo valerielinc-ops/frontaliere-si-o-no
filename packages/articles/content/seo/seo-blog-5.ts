@@ -95857,6 +95857,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canottieri-varese-nagano-patto': {
+    title: 'Canottieri Varese firma patto d’amicizia con Nagano Rowing',
+    description: 'Il 25 settembre la Canottieri Varese e la Nagano Rowing Association hanno siglato un accordo di gemellaggio in videoconferenza tra Schiranna e Shimosuwa',
+    keywords: 'frontalieri, ticino, svizzera, italia, canottieri, varese, firma, patto',
+    ogTitle: 'Canottieri Varese firma patto d’amicizia con Nagano Rowing',
+    ogDescription: 'Venerdì 25 settembre, in videoconferenza tra la sede storica della Schiranna a Varese e le autorità di Shimosuwa, la Società Canottieri Varese e la Nagano Rowing Association hanno firmato un patto di amicizia e collaborazione internazionale',
+    canonicalPath: '/articoli-frontaliere/canottieri-varese-nagano-patto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canottieri Varese firma patto d’amicizia con Nagano Rowing",
+      "description": "Il 25 settembre la Canottieri Varese e la Nagano Rowing Association hanno siglato un accordo di gemellaggio in videoconferenza tra Schiranna e Shimosuwa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canottieri-varese-nagano-patto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imbarcazioni da canottaggio sul lago di Lugano con vista sulle montagne ticinesi"
+      },
+      "datePublished": "2026-09-28T04:47:15+00:00",
+      "dateModified": "2026-09-28T04:47:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/canottieri-varese-nagano-patto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
