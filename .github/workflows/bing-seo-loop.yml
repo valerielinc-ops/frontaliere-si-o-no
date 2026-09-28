@@ -303,8 +303,8 @@ jobs:
             --timeout-ms 30000 \
             --retries 4 \
             --rescue-concurrency 2 \
-            --rescue-retries 2 \
-            --rescue-delay-ms 1000 \
+            --rescue-retries 4 \
+            --rescue-delay-ms 3000 \
             --out "$RUNNER_TEMP/partition-${{ matrix.partition }}.json"
 
       - name: Upload partition report
