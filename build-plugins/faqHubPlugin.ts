@@ -250,7 +250,7 @@ function mdLinks(s: string): string {
  * zero hyperlinked). First matching rule wins. Mechanical pass — no
  * invented deep paths, only verified real root domains; covers every
  * distinct citation label present in the dataset at authoring time
- * (298/298 unique labels across all 4 locales).
+ * (including the FSIO label used by the English LPP answer).
  */
 const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
   [/eur-?lex|reg\.?\s*ue\s*\d|règl\.?\s*ue|eu[\s-]?vo|eu reg\./i, 'https://eur-lex.europa.eu/'],
@@ -268,7 +268,7 @@ const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
   [/agcom/i, 'https://www.agcom.it/'],
   [/arcobaleno\.ch/i, 'https://www.arcobaleno.ch/'],
   [/\bffs\b|\bsbb\b|\bcff\b/i, 'https://www.sbb.ch/'],
-  [/\bufas\b|\bbsv\b|ofas/i, 'https://www.bsv.admin.ch/'],
+  [/\b(?:ufas|fsio)\b|\bbsv\b|ofas/i, 'https://www.bsv.admin.ch/'],
   [/\bufsp\b|\bbag\b|\bofsp\b/i, 'https://www.bag.admin.ch/'],
   [/\bufse\b|ufficio federale di statistica|\bbfs\b|\bust\b,|\bofs\b/i, 'https://www.bfs.admin.ch/'],
   [/\bseco\b/i, 'https://www.seco.admin.ch/'],

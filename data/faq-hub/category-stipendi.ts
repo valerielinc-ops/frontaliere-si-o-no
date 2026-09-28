@@ -139,7 +139,7 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
         "Selon CCT et contrat. L'ordonnance sur les coûts (RS 642.118.1) et la circulaire AFC 22 fixent les plafonds sans justificatif : CHF 15 repas extérieur, CHF 0,70/km voiture privée [source : AFC circ. 22]. La CCT nationale construction : CHF 18 repas si chantier >8 km, CHF 0,45/km transport ou billet CFF remboursé. Les indemnités (Spesen) ne sont pas du salaire, non imposables à la source ni IRPEF [source : CO art. 327a]. Forfaitaires au-delà des plafonds : part excédentaire imposable. L'employeur doit documenter la politique.",
     },
     sources: [
-      'https://www.estv.admin.ch/dam/estv/it/dokumente/dbst/kreisschreiben/1-022-D-2012-i.pdf',
+      'https://www.estv.admin.ch/it/circolari-imposta-federale-diretta',
     ],
   },
   {
