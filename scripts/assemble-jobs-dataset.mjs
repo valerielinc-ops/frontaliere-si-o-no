@@ -61,7 +61,10 @@ import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { isSafeSourceGeographyPruneJobs } from './lib/crawler-slice-integrity.mjs';
+import {
+  isSafeSourceGeographyPruneJobs,
+  writeHousekeepingProofFile,
+} from './lib/crawler-slice-integrity.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
@@ -2358,6 +2361,9 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
+  const previousSliceRaw = options.housekeepingProof && fs.existsSync(slicePath)
+    ? fs.readFileSync(slicePath, 'utf8')
+    : null;
   const existingFirstSeen = new Map();
   // ── postedDate churn guard (#1720 item 4) ─────────────────────────────
   // Listing-only parsers without a source date set `postedDate: new Date()…`
@@ -2551,6 +2557,16 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   );
   if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
     console.log(`  🧭 prev-slug ownership: redirected ${ownership.moved} confirmed foreign route(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`);
+  }
+  if (Array.isArray(options.housekeepingProof) && options.housekeepingProof.length > 0) {
+    // The isolated commit helper validates the bytes after its own merge, not
+    // the in-process write above. Persist the same definitive evidence in its
+    // external sidecar only after ownership/decontamination has produced the
+    // final candidate bytes, so a later candidate digest check remains exact.
+    writeHousekeepingProofFile(slicePath, options.housekeepingProof, {
+      baseRaw: previousSliceRaw,
+      candidateRaw: fs.readFileSync(slicePath, 'utf8'),
+    });
   }
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
   console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${finalJobs.length} jobs${hardeningSuffix})`);

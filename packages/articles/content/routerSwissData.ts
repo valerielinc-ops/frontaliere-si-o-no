@@ -2324,6 +2324,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'voto-neutralita-alimentazione-respinto': { it: 'voto-neutralita-alimentazione-respinto', en: 'neutrality-food-initiative-rejected', de: 'neutralitaet-ernaehrungs-initiative-abgelehnt', fr: 'neutralite-alimentation-initiative-rejectee' },
  'friburgo-imposta-eredi-regole': { it: 'friburgo-imposta-eredi-regole', en: 'fribourg-inheritance-gift-tax', de: 'erbschaft-schenkungsteuer-freiburg', fr: 'droits-succession-donation-fribourg' },
  'massimo-balena-calendario-agricoltori-ticino': { it: 'massimo-balena-calendario-agricoltori-ticino', en: 'massimo-balena-swiss-farmer-calendar', de: 'massimo-balena-schweizer-landbaukalender', fr: 'massimo-balena-calendrier-agriculteurs' },
+ 'maratona-bilaterali-iii-consiglio': { it: 'maratona-bilaterali-iii-consiglio', en: 'marathon-bilaterals-iii-council', de: 'marathon-bilateralen-iii-rat', fr: 'marathon-bilaterales-iii-conseil' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

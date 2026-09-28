@@ -46,20 +46,27 @@ function withJobs(payload, jobs) {
  * @param {{ urlsByKey?: Map<string, Set<string>> }} ownership
  * @returns {{ payload: unknown, dropped: {url: string, owner: string}[] }}
  */
-export function filterNewForeignClaims(crawlerKey, payload, basePayload, ownership) {
+/**
+ * Jobs of `payload` that the writer's base snapshot did not already publish.
+ * A base URL is already published by this crawler from the writer's point of
+ * view. Keep it even if the remote tree also contains another claimant: the
+ * existing duplicate needs slug/previousSlugs adjudication.
+ */
+export function newClaims(payload, basePayload) {
   const jobs = jobsFromPayload(payload, 'local slice');
   const baseJobs = basePayload === undefined ? [] : jobsFromPayload(basePayload, 'base slice');
   const baseUrls = new Set(
     baseJobs.map((job) => normalizeJobUrl(job?.url || '')).filter(Boolean),
   );
-
-  // A base URL is already published by this crawler from the writer's point
-  // of view. Keep it even if the remote tree also contains another claimant:
-  // the existing duplicate needs slug/previousSlugs adjudication.
-  const newJobs = jobs.filter((job) => {
+  return jobs.filter((job) => {
     const url = normalizeJobUrl(job?.url || '');
     return !url || !baseUrls.has(url);
   });
+}
+
+export function filterNewForeignClaims(crawlerKey, payload, basePayload, ownership) {
+  const jobs = jobsFromPayload(payload, 'local slice');
+  const newJobs = newClaims(payload, basePayload);
   const guarded = dropForeignOwnedVacancies(crawlerKey, newJobs, ownership);
   const droppedUrls = new Set(guarded.dropped.map(({ url }) => url));
   const filtered = jobs.filter((job) => !droppedUrls.has(normalizeJobUrl(job?.url || '')));
@@ -68,15 +75,30 @@ export function filterNewForeignClaims(crawlerKey, payload, basePayload, ownersh
 }
 
 function main() {
-  const [, , crawlerKey, basePath, localPath, ownershipRoot, outputPath] = process.argv;
+  const [, , crawlerKey, basePath, localPath, ownershipRoot, outputPath, verdictPath] = process.argv;
   if (!crawlerKey || !localPath || !ownershipRoot || !outputPath) {
     throw new Error(
-      'usage: crawler-commit-ownership.mjs <crawler-key> <base-json|-> <local-json> <ownership-root> <output-json>',
+      'usage: crawler-commit-ownership.mjs <crawler-key> <base-json|-> <local-json> <ownership-root> <output-json> [verdict-path]',
     );
   }
 
   const localPayload = readJson(localPath);
   const basePayload = readJson(basePath, { missing: true });
+  // No new claim, nothing the remote ownership view could refuse:
+  // dropForeignOwnedVacancies([]) drops nothing, so skip the scan of every
+  // remote slice (~360 MB of JSON, ~1.3-2 s per call). A translate-pending
+  // commit hands this helper ~560 slices per push attempt, none with a new
+  // URL, and that scan was ~80% of each 20-minute attempt.
+  // The optional verdict file tells the caller whether the result depended on
+  // the ownership view (`consulted`) or only on base+local (`skipped`).
+  if (newClaims(localPayload, basePayload).length === 0) {
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.copyFileSync(localPath, outputPath);
+    if (verdictPath) fs.writeFileSync(verdictPath, 'skipped\n', 'utf8');
+    process.stdout.write(JSON.stringify({ dropped: [] }));
+    return;
+  }
+  if (verdictPath) fs.writeFileSync(verdictPath, 'consulted\n', 'utf8');
   const ownership = loadSourceHostOwnership(ownershipRoot, { urls: true });
   const { payload, dropped } = filterNewForeignClaims(
     crawlerKey,
