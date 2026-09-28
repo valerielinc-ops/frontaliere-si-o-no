@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeHousekeepingProofFile } from './lib/crawler-slice-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_EXPIRED_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler');
@@ -24,31 +25,39 @@ export const LEGACY_SCRATCH_ARCHIVES = Object.freeze([
 ]);
 
 function readValidatedArchive(filePath, expectedCompanyKey) {
-  let payload;
+  const raw = fs.readFileSync(filePath, 'utf8');
+  let entries;
   try {
-    payload = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    entries = JSON.parse(raw);
   } catch (error) {
     throw new Error(`legacy scratch archive ${filePath} is not valid JSON: ${error.message}`, { cause: error });
   }
-  if (!Array.isArray(payload)) {
+  if (!Array.isArray(entries)) {
     throw new Error(`legacy scratch archive ${filePath} is not a JSON array`);
   }
-  const unexpected = payload.findIndex((entry) => entry?.companyKey !== expectedCompanyKey);
+  const unexpected = entries.findIndex((entry) => entry?.companyKey !== expectedCompanyKey);
   if (unexpected !== -1) {
     throw new Error(
       `legacy scratch archive ${filePath} contains a non-${expectedCompanyKey} entry at index ${unexpected}`,
     );
   }
-  return payload;
+  return { raw, entries };
 }
 
 /**
  * Purge only the explicitly retired scratch archives.
  *
- * @param {{expiredDir?: string, apply?: boolean}} [options]
+ * @param {{expiredDir?: string, apply?: boolean, proofDir?: string, env?: NodeJS.ProcessEnv, cwd?: string, baseSha?: string}} [options]
  * @returns {{filesScanned: number, filesAbsent: number, filesRemoved: string[], wouldRemove: string[]}}
  */
-export function purgeLegacyCrawlerResidues({ expiredDir = DEFAULT_EXPIRED_DIR, apply = false } = {}) {
+export function purgeLegacyCrawlerResidues({
+  expiredDir = DEFAULT_EXPIRED_DIR,
+  apply = false,
+  proofDir,
+  env = process.env,
+  cwd = process.cwd(),
+  baseSha = '',
+} = {}) {
   const filesRemoved = [];
   const wouldRemove = [];
   let filesScanned = 0;
@@ -63,11 +72,28 @@ export function purgeLegacyCrawlerResidues({ expiredDir = DEFAULT_EXPIRED_DIR, a
     if (!fs.statSync(filePath).isFile()) {
       throw new Error(`legacy scratch archive ${filePath} is not a regular file`);
     }
-    const entries = readValidatedArchive(filePath, companyKey);
+    const { raw, entries } = readValidatedArchive(filePath, companyKey);
     filesScanned += 1;
     if (!apply) {
       wouldRemove.push(filePath);
       continue;
+    }
+    const slicePath = `data/jobs/expired/by-crawler/${file}`;
+    const candidateRaw = '[]\n';
+    const proofWritten = writeHousekeepingProofFile(slicePath, [{
+      operation: 'retired-scratch-archive-delete',
+      companyKey,
+      entryCount: entries.length,
+    }], {
+      baseRaw: raw,
+      candidateRaw,
+      proofDir,
+      env,
+      cwd,
+      baseSha,
+    });
+    if (!proofWritten) {
+      throw new Error(`could not write housekeeping proof for ${slicePath}`);
     }
     fs.rmSync(filePath);
     filesRemoved.push(filePath);
