@@ -58,7 +58,7 @@ const META_TAG_RE = /<meta\b((?:[^>"']|"[^"]*"|'[^']*')*)>/gi;
  */
 const ATTR_RE = /([^\s"'>/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'`=<>]*)))?/g;
 
-function parseAttributes(rawAttrs) {
+export function parseAttributes(rawAttrs) {
   const attrs = Object.create(null);
   ATTR_RE.lastIndex = 0;
   let m;

@@ -65,6 +65,13 @@ describe('Bing SEO live contract', () => {
     expect(findings).toEqual(expect.arrayContaining(['title-too-long', 'canonical-drift']));
   });
 
+  it('parses minified attributes without matching data attributes or values', () => {
+    const canonical = `${URL}minified/`;
+    expect(parseHtmlContract(`<link rel=canonical href=${canonical}>`).canonical).toBe(canonical);
+    expect(parseHtmlContract('<link data-rel=canonical data-href=/fake>').canonical).toBe('');
+    expect(parseHtmlContract('<link data="rel=canonical href=https://example.test/fake/">').canonical).toBe('');
+  });
+
   it('keeps the observed policy sets unique and bounded', () => {
     expect(new Set(BING_TITLE_AUDIT_URLS).size).toBe(BING_TITLE_AUDIT_URLS.length);
     expect(new Set(BING_INDEXNOW_REMEDIATION_URLS).size).toBe(BING_INDEXNOW_REMEDIATION_URLS.length);

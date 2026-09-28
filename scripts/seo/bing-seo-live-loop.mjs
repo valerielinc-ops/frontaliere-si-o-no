@@ -21,6 +21,7 @@ import {
   BING_TITLE_AUDIT_URLS,
   BING_TITLE_MAX_CHARS,
 } from './bing-seo-policy.mjs';
+import { parseAttributes } from '../lib/meta-description-extract.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const LIVE_USER_AGENT = 'frontaliere-bing-seo-loop/1.0 (+https://frontaliereticino.ch/)';
@@ -53,10 +54,8 @@ export function normalizeUrl(value) {
 }
 
 function extractAttribute(attributes, name) {
-  const match = String(attributes || '').match(
-    new RegExp('\\b' + name + '\\s*=\\s*(["' + "'" + '])(.*?)\\1', 'i'),
-  );
-  return match?.[2] || '';
+  const parsed = parseAttributes(attributes);
+  return parsed[String(name || '').toLowerCase()] || '';
 }
 
 function isHiddenHeading(attributes) {
