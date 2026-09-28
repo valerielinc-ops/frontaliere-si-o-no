@@ -6920,6 +6920,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.title': 'Pronto Consulto: telephone service to provide guidance in the Mendrisiotto',
     'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.excerpt': 'Service available Mon‑Fri 9‑17 at 091 811 30 20, doctor called back within 30 minutes, one-year trial with approximately 800 calls per year.',
     'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.imageAlt': 'Doctor answering a Pronto Consulto phone call in a Swiss clinic',
+    'blog.article.navigazione-sostenibile-svizzera.title': 'Regulatory delay for ships, Swiss suppliers under pressure',
+    'blog.article.navigazione-sostenibile-svizzera.excerpt': 'IMO decision on zero emissions postponed to December. Accelleron and Burckhardt Compression lower expectations, ABB maintains normal operations.',
+    'blog.article.navigazione-sostenibile-svizzera.imageAlt': 'Aerial view of Lake Lugano with cargo ships in the distance',
 };
 
 export default blogMetaChEn;

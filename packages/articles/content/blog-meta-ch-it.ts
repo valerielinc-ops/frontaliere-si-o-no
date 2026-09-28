@@ -6920,6 +6920,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.title': 'Pronto Consulto: servizio telefonico per orientare nel Mendrisiotto',
     'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.excerpt': 'Servizio attivo lun‑ven 9‑17 al 091 811 30 20, medico richiamato entro 30 minuti, sperimentazione di un anno con circa 800 chiamate annue.',
     'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.imageAlt': 'Medico che risponde a una telefonata di Pronto Consulto in ambulatorio svizzero',
+    'blog.article.navigazione-sostenibile-svizzera.title': 'Ritardo normativo navi, fornitori svizzeri sotto pressione',
+    'blog.article.navigazione-sostenibile-svizzera.excerpt': 'Decisione IMO su emissioni zero posticipata a dicembre. Accelleron e Burckhardt Compression riducono aspettative, ABB mantiene attività normali.',
+    'blog.article.navigazione-sostenibile-svizzera.imageAlt': 'Vista aerea del Lago Lugano con navi cargo in lontananza',
 };
 
 export default blogMetaChIt;
