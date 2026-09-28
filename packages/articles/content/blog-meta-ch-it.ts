@@ -6881,6 +6881,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.voto-iniziative-neutralita-cibo.title': 'Voto svizzero: no a neutralità e sicurezza alimentare',
     'blog.article.voto-iniziative-neutralita-cibo.excerpt': 'Il 70,1% respinge l\'iniziativa sulla neutralità e il 72,5% quella sulla sicurezza alimentare. Tutti i Cantoni hanno votato contro.',
     'blog.article.voto-iniziative-neutralita-cibo.imageAlt': 'Urna elettorale svizzera per il voto sulle iniziative su neutralità e sicurezza alimentare',
+    'blog.article.esito-iniziativa-neutralita-svizzera.title': 'Iniziativa neutralità: bocciata dal 70,2% degli elettori',
+    'blog.article.esito-iniziativa-neutralita-svizzera.excerpt': 'Il 70,2% dei votanti ha respinto l\'iniziativa sulla neutralità. Il no è arrivato da tutti i Cantoni con una partecipazione alle urne del 47,1%.',
+    'blog.article.esito-iniziativa-neutralita-svizzera.imageAlt': 'Bandiera svizzera davanti a Palazzo federale a Berna',
 };
 
 export default blogMetaChIt;

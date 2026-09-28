@@ -6881,6 +6881,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-iniziative-neutralita-cibo.title': 'Schweizer Abstimmung: Nein zu Neutralität und Ernährungssicherheit',
     'blog.article.voto-iniziative-neutralita-cibo.excerpt': '70,1% lehnen die Initiative zur Neutralität ab und 72,5% jene zur Ernährungssicherheit. Alle Kantone haben dagegen gestimmt.',
     'blog.article.voto-iniziative-neutralita-cibo.imageAlt': 'Schweizer Wahlurne zur Abstimmung über Neutralität und Ernährungssicherheit',
+    'blog.article.esito-iniziativa-neutralita-svizzera.title': 'Neutralitätsinitiative: von 70,2% der Wähler abgelehnt',
+    'blog.article.esito-iniziativa-neutralita-svizzera.excerpt': '70,2% der Stimmberechtigten lehnten die Neutralitätsinitiative ab. Das Nein kam aus allen Kantonen mit einer Wahlbeteiligung von 47,1%.',
+    'blog.article.esito-iniziativa-neutralita-svizzera.imageAlt': 'Schweizer Flagge vor dem Bundeshaus in Bern',
 };
 
 export default blogMetaChDe;
