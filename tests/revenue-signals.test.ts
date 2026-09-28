@@ -134,9 +134,10 @@ describe('real GA4 hours (Italy + Switzerland)', () => {
   });
 });
 
-describe('monitorDecision', () => {
-  const collapsed = () => degrade(syntheticWeeks(), '2026092711', '2026092716', (c) => ({ ...c, ad_consent_granted: 0, ad_consent_denied: 0 }));
+// CMP decisions at zero on 2026-09-27 11-16h, the shape of the #9974 suppression.
+const collapsed = () => degrade(syntheticWeeks(), '2026092711', '2026092716', (c) => ({ ...c, ad_consent_granted: 0, ad_consent_denied: 0 }));
 
+describe('monitorDecision', () => {
   it('alarms, then watches for a day, then recovers', () => {
     const hours = collapsed();
     expect(monitorDecision({ hours, currentHour: '2026092714' }).status).toBe('alarm');
