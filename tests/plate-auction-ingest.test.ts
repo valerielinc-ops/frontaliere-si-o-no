@@ -16,6 +16,21 @@ const previousRow = {
 };
 
 describe('plate-auction ingest resilience', () => {
+  it('does not carry stale rows for a blocked source into the snapshot', async () => {
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['gl'],
+      fetchers: { gl: async () => { throw new Error('blocked source must not be fetched'); } },
+      previous: {
+        generatedAt: '2026-09-27T12:00:00.000Z',
+        auctions: [{ id: 'gl-stale-1', sourceKey: 'GL', platePrefix: 'GL', auctionStatus: 'active' }],
+      },
+      now: NOW,
+    });
+
+    expect(snapshot.auctions).toEqual([]);
+    expect(snapshot.sources.gl).toMatchObject({ status: 'blocked', rowCount: 0 });
+  });
+
   it('closes an expired observation without manufacturing a final price', async () => {
     const snapshot = await collectPlateAuctions({
       selectedCantons: ['gr'],
