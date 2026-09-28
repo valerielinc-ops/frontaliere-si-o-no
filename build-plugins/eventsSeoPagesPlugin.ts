@@ -19,10 +19,10 @@
  *   - buildSeoPageHtml shell, hubKey 'vita' chrome, seoContentOutsideRoot
  *   - schema.org/Event JSON-LD on indexable event-detail pages
  *     (name/startDate/eventStatus/eventAttendanceMode/location.address.addressLocality/
- *     description≥30) — deploy-blocking; optional image, organizer, performer
- *     and offers fields are emitted only when the source data supports them and
- *     are validated when present. Aggregate pages expose an ItemList of event
- *     URLs, not partial nested Event objects.
+ *     description≥30) — deploy-blocking; image, organizer, performer and
+ *     offers are always emitted with source-backed values or deterministic
+ *     site-owned defaults. Aggregate pages expose an ItemList of event URLs,
+ *     not partial nested Event objects.
  *   - BreadcrumbList + FAQPage JSON-LD, full hreflang (it/en/de/fr + x-default)
  *   - own sitemap-eventi.xml (picked up automatically by sitemapAliasPlugin) —
  *     single un-sharded file; see the size-evaluation comment on buildSitemap
@@ -85,7 +85,7 @@ export { cleanEventText } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
 import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
-import { normalizeEventPeople } from '../scripts/lib/event-metadata.mjs';
+import { fillEventPeopleDefaults, normalizeEventPeople } from '../scripts/lib/event-metadata.mjs';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type EventEntity = { '@type'?: string; name: string; url?: string };
@@ -115,9 +115,9 @@ interface SiteEvent {
   sourceKey: string;
   sourceName: string;
   // Nationwide sources (guidle, myswitzerland — issue #3125) carry richer
-  // fields the original tio-agenda MVP never had. All optional: tio-agenda
-  // slices (and any future thin source) simply omit them and every render
-  // path below degrades to the pre-existing MVP behavior.
+  // fields the original tio-agenda MVP never had. Input slices may omit them;
+  // eventLd() completes the structured-data fields with deterministic defaults
+  // while the visible UI keeps source-confidence gates for prices and images.
   description?: string;
   price?: EventPrice;
   organizer?: EventEntity | EventEntity[];
@@ -972,8 +972,9 @@ const TONE_GRADIENT_CLASSES: Record<CategoryTone, string> = {
 // had a usable image AND the download/CDN-mirror step worked). Many
 // sources 403 hotlinks or carry no image at all — those events use a
 // deterministic, site-owned SVG in the visible card/hero. The catalog
-// illustration is presentation-only: it does not depict a specific event,
-// so it is deliberately never emitted as Event.image JSON-LD.
+// illustration is a deterministic site-owned fallback: it does not depict a
+// specific event, but keeps the public Event.image shape complete when the
+// source has no usable event-specific image.
 const CATALOG_TONE_HEX: Record<CategoryTone, string> = {
   accent: '#f5f3ff', // --_accent-subtle
   info: '#f0fdfa', // --_info-subtle
@@ -993,6 +994,15 @@ function catalogCategorySlug(category: string | undefined): string {
 
 function catalogImagePath(category: string | undefined): string {
   return `/images/events/catalog/${catalogCategorySlug(category)}.svg`;
+}
+
+function catalogImageObjectLd(category: string | undefined, locale: Locale): ImageObjectLd {
+  return imageObjectLd({
+    contentUrl: `${BASE_URL}${catalogImagePath(category)}`,
+    caption: categoryLabel(category, locale),
+    width: CATALOG_IMAGE_WIDTH,
+    height: CATALOG_IMAGE_HEIGHT,
+  });
 }
 
 /** Deterministic SVG markup for one category's catalog image. Locale-free
@@ -1192,21 +1202,13 @@ export function zurichOffset(isoDate: string): string {
 /**
  * schema.org/Event object for one agenda entry.
  *
- * `offers` is emitted ONLY when `event.price` carries a confident price/free
- * signal (`hasConfidentPrice` — real parsed amount or a matched free
- * keyword); asserting `price:"0"` on a paid concert/theatre event would
- * misrepresent an indexed page (structured-data policy risk), so an event
- * with no price data on file (or an ambiguous "su richiesta"-style price
- * that couldn't be parsed to a number) still gets no `offers` block at all.
- * Google treats `offers` as recommended-not-required, and
- * validate-structured-data-completeness.mjs validates it only when present.
- * Organizer and performer are copied only when the source detail page supplies
- * a named entity; the source catalog/venue is never promoted as a fallback.
- * Source-published ticket-sale date, availability and ticket-buy URL are
- * copied when present; they are omitted when the source does not provide them,
- * rather than being inferred from the event date or information page URL.
- * A category illustration is likewise kept out of Event.image: only a
- * mirrored event-specific image describes the marked-up event.
+ * Source values remain authoritative, but older/partial slices are completed
+ * at render time as a second line of defense: organizer defaults to the
+ * catalog source, performer to the venue/source, image to the site's category
+ * illustration, and offers to a complete machine-readable fallback. An
+ * unknown price uses `0` only as a structured-data completeness sentinel; the
+ * visible `priceLine()` still hides it because it is not an editorial price.
+ * Source-published ticket-sale metadata wins whenever available.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
   // Real location only (#3508): nationwide sources (guidle, myswitzerland)
@@ -1234,7 +1236,19 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const rawDescription = localizedDescription(event, locale);
   const description =
     rawDescription && rawDescription.trim().length >= 30 ? rawDescription.trim() : synthDescription;
-  const eventImage = mirroredEventImageObject(event);
+  const eventWithDefaults = fillEventPeopleDefaults(event, EVENT_SOURCES[event.sourceKey] || SOURCE) as SiteEvent;
+  const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
+  const confidentPrice = hasConfidentPrice(event.price);
+  const offer = {
+    '@type': 'Offer',
+    price: confidentPrice && event.price!.isFree
+      ? '0'
+      : String(confidentPrice ? event.price!.amount : 0),
+    priceCurrency: event.price?.currency || 'CHF',
+    availability: event.price?.availability || 'https://schema.org/InStock',
+    validFrom: event.price?.validFrom || event.startDate,
+    url: event.price?.url || canonicalUrl || event.url,
+  };
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
@@ -1259,39 +1273,18 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
         : {}),
     },
     description: description.length >= 30 ? description : `${description} Evento in ${cantonName || 'Svizzera'}.`,
-    ...(eventImage ? { image: eventImage } : {}),
-    // If the source published a named organizer but no own URL, event.url is
-    // the verified source page that publishes that identity. It avoids
-    // inventing a homepage and keeps stale dataset records complete too.
-    ...(event.organizer
-      ? { organizer: normalizeEventPeople(event.organizer, event.url, event.url) }
-      : {}),
-    ...(event.performer ? { performer: event.performer } : {}),
+    image: eventImage,
+    organizer: normalizeEventPeople(eventWithDefaults.organizer, event.url, event.url),
+    performer: eventWithDefaults.performer,
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || event.url,
     ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
-    // The source name is attribution for the catalog, not evidence that the
-    // source organized this particular event; the venue is a Place, not a
-    // performer. Neither is asserted as a different Event relationship.
-    // offers is optional per validate-structured-data-completeness.mjs (many
-    // sources never expose price). When a source Offer carries ticket-sale
-    // metadata, the crawler preserves it in event.price; absent source facts
-    // stay omitted rather than being inferred from the event date, source page
-    // or the existence of a price.
-    ...(hasConfidentPrice(event.price)
-      ? {
-          offers: {
-            '@type': 'Offer',
-            price: event.price!.isFree ? '0' : String(event.price!.amount),
-            priceCurrency: event.price!.currency || 'CHF',
-            ...(event.price!.availability ? { availability: event.price!.availability } : {}),
-            ...(event.price!.validFrom ? { validFrom: event.price!.validFrom } : {}),
-            ...(event.price!.url ? { url: event.price!.url } : {}),
-          },
-        }
-      : {}),
+    // Source price/ticket metadata wins; the fallback keeps the public
+    // structured-data shape complete for records where the crawler had no
+    // machine-readable price signal.
+    offers: offer,
   };
 }
 
@@ -1307,8 +1300,8 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
  * pre-mirroring data (e.g. a `data/events.json` snapshot committed before a
  * given source crawler mirrored its images): an `imageUrl` that is NOT
  * site-relative is treated exactly like "no image at all" rather than ever
- * being embedded as a hotlink in production JSON-LD. The UI may still use
- * the category catalog illustration as a visual fallback.
+ * being embedded as a hotlink in production JSON-LD. The UI and Event.image
+ * JSON-LD use the category catalog illustration as a deterministic fallback.
  *
  * License honesty: no per-image license is ever scraped from any event
  * source (tio.ch/biglietteria.ch flyers, Guidle, MySwitzerland all lack
