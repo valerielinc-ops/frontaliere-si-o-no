@@ -20,9 +20,11 @@
  *
  * The probe never clicks the consent button, so no ad is requested from CI,
  * and it aborts analytics beacons so its visits stay out of GA4 and Clarity.
- * It presents a regular Chrome user agent and hides navigator.webdriver:
- * the ad loaders skip automation (services/botPatterns.ts), which would
- * otherwise read as "Funding Choices never loaded".
+ * It presents a regular Chrome user agent, hides navigator.webdriver and runs
+ * full Chromium rather than chrome-headless-shell: the ad loaders skip
+ * automation (services/botPatterns.ts), which would otherwise read as
+ * "Funding Choices never loaded". Before probing it checks its own browser
+ * against the same signals and fails as `probe_flagged_as_bot` instead.
  *
  * Usage:
  *   node scripts/probe-live-consent-message.mjs            # exit 1 on a fail
@@ -33,16 +35,19 @@
  *   LIVE_BASE_URL           default https://frontaliereticino.ch
  *   PLAYWRIGHT_BROWSERS_PATH  as installed by the calling workflow
  *   CHROMIUM_EXECUTABLE_PATH  optional, local runs whose Playwright cache lacks
- *                             the pinned headless revision
+ *                             the pinned Chromium revision; must be a full
+ *                             Chrome/Chromium, not chrome-headless-shell
  */
 
 import { pathToFileURL } from 'node:url';
 
 import { writeAuditReport } from './lib/auditReport.mjs';
 import {
+  BROWSER_FINGERPRINT_JS,
   CMF_RECORDER_INIT_JS,
   FC_PREVIEW_QUERY,
   bestVerdict,
+  botFingerprintVerdict,
   classifyConsentProbe,
   navigationErrorVerdict,
 } from './lib/consent-message-probe.mjs';
@@ -73,17 +78,33 @@ export function probeUrl(baseUrl, path, stamp = Date.now()) {
   return url.toString();
 }
 
-async function probeOnce(browser, userAgent, url) {
+async function newProbeContext(browser, userAgent) {
   const context = await browser.newContext({
     locale: 'it-CH',
     timezoneId: 'Europe/Zurich',
     userAgent,
     viewport: { width: 1280, height: 900 },
   });
+  await context.addInitScript(() => {
+    Object.defineProperty(Navigator.prototype, 'webdriver', { configurable: true, get: () => false });
+  });
+  return context;
+}
+
+// Read in the same context setup the pages get, so the verdict sees what the loaders see.
+async function browserFingerprint(browser, userAgent) {
+  const context = await newProbeContext(browser, userAgent);
   try {
-    await context.addInitScript(() => {
-      Object.defineProperty(Navigator.prototype, 'webdriver', { configurable: true, get: () => false });
-    });
+    const page = await context.newPage();
+    return await page.evaluate(BROWSER_FINGERPRINT_JS);
+  } finally {
+    await context.close();
+  }
+}
+
+async function probeOnce(browser, userAgent, url) {
+  const context = await newProbeContext(browser, userAgent);
+  try {
     await context.addInitScript(CMF_RECORDER_INIT_JS);
     await context.route(BLOCKED_REQUEST_RX, (route) => route.abort());
     const page = await context.newPage();
@@ -117,14 +138,22 @@ async function main() {
   const baseUrl = (process.env.LIVE_BASE_URL || 'https://frontaliereticino.ch').replace(/\/+$/, '');
   const { chromium } = await import('playwright');
   const executablePath = process.env.CHROMIUM_EXECUTABLE_PATH || undefined;
-  const browser = await chromium.launch({ headless: true, executablePath });
+  // Full Chromium in new headless mode, not Playwright's default
+  // chrome-headless-shell: the shell has no PDF plugin and no window.chrome,
+  // which the ad loaders' bot gate rejects (see botFingerprintVerdict).
+  const browser = await chromium.launch(executablePath ? { headless: true, executablePath } : { headless: true, channel: 'chromium' });
   // Headless Chromium announces itself as HeadlessChrome, which the ad loaders skip.
   const major = browser.version().split('.')[0];
   const userAgent = `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${major}.0.0.0 Safari/537.36`;
 
   const results = [];
   try {
+    const botVerdict = botFingerprintVerdict(await browserFingerprint(browser, userAgent));
     for (const path of paths) {
+      if (botVerdict) {
+        results.push({ path, ...botVerdict, calls: [], fcRequested: false, dialogVisible: false, attempts: 0 });
+        continue;
+      }
       const attempts = [];
       for (let i = 0; i < ATTEMPTS; i++) {
         const url = probeUrl(baseUrl, path);
