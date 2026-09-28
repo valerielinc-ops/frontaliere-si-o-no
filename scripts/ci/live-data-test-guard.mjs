@@ -412,6 +412,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'all data/jobs paths belong to temporary bare repositories created under os.tmpdir(); the checkout read is limited to the script under test',
   },
   {
+    file: 'tests/git-commit-data-legacy-staging.test.ts',
+    roots: ['data/jobs-crawler-summaries/', 'data/jobs/'],
+    reason: 'every data/jobs path is created or asserted inside mkdtemp git repositories under os.tmpdir(); the checkout read is limited to the script under test',
+  },
+  {
     file: 'tests/generate-crawler-group-workflows.test.ts',
     roots: ['data/jobs/'],
     reason: 'job slice paths are asserted YAML/env strings, not checkout filesystem reads',
