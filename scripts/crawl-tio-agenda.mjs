@@ -59,7 +59,12 @@ import {
   saveEventTitleTranslationCache,
 } from './lib/events-utils.mjs';
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-translate.mjs';
-import { extractEventPeopleFromText, extractEventPeopleFromTitle, normalizeEventPeople } from './lib/event-metadata.mjs';
+import {
+  extractEventPeopleFromText,
+  extractEventPeopleFromTitle,
+  normalizeEventPeopleFields,
+  normalizeEventPeople,
+} from './lib/event-metadata.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
@@ -306,9 +311,9 @@ export function extractTioDetailMetadata(html) {
 /**
  * Fetch each event's own detail page once and attach a `price` (the day-page
  * card this crawler otherwise parses never carries one — see file header).
- * Populating `price` here is what lets `eventLd()`
- * (build-plugins/eventsSeoPagesPlugin.ts) emit a real schema.org `offers`
- * block for tio-agenda events instead of always omitting it.
+ * Populating `price` here lets `eventLd()` preserve a real source price and
+ * its ticket metadata; when the detail page has no parseable price,
+ * eventLd() omits the unverified `offers` object.
  *
  * Not idempotent/cached like `mirrorEventImages` — every event is re-fetched
  * every run since price can change. A fetch failure (network/timeout) just
@@ -336,7 +341,7 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
       ...(metadata.performer ? { performer: metadata.performer } : {}),
       ...(detailComune ? { comune: detailComune, comuneMatch: 'exact' } : {}),
     };
-    out.push(next);
+    out.push(normalizeEventPeopleFields(next));
     if (fetchFn === fetchHtml) await sleep(PRICE_FETCH_DELAY_MS);
   }
   return out;

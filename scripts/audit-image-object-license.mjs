@@ -3,7 +3,8 @@
  * audit-image-object-license.mjs
  *
  * Post-build gate that fails on any `ImageObject` JSON-LD in `dist/` missing
- * one of the five GSC licensable-image fields:
+ * one of the five GSC licensable-image fields or containing an invalid URL
+ * in either URL field:
  *   - acquireLicensePage
  *   - copyrightNotice
  *   - license
@@ -23,7 +24,18 @@ import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 
 const REQUIRED_FIELDS = ['acquireLicensePage', 'copyrightNotice', 'license', 'creator', 'creditText'];
+const URL_FIELDS = ['acquireLicensePage', 'license'];
 const JSONLD_RE = /<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+
+function isHttpUrl(value) {
+  if (typeof value !== 'string') return false;
+  try {
+    const protocol = new URL(value).protocol;
+    return protocol === 'http:' || protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
 
 function walkImageObjects(node, visit) {
   if (!node || typeof node !== 'object') return;
@@ -54,9 +66,10 @@ export function createAuditor(opts = {}) {
         try { parsed = JSON.parse(m[1]); } catch { continue; }
         walkImageObjects(parsed, (img) => {
           const missing = REQUIRED_FIELDS.filter((f) => !(f in img));
-          if (missing.length > 0) {
+          const invalidUrls = URL_FIELDS.filter((f) => f in img && !isHttpUrl(img[f]));
+          if (missing.length > 0 || invalidUrls.length > 0) {
             const rel = relative(ROOT, file);
-            offenders.push({ path: rel, file: rel, missing, keys: Object.keys(img), metric: missing.length });
+            offenders.push({ path: rel, file: rel, missing, invalidUrls, keys: Object.keys(img), metric: missing.length + invalidUrls.length });
             fileSet.add(rel);
           }
         });
@@ -66,13 +79,13 @@ export function createAuditor(opts = {}) {
       const passed = offenders.length === 0;
       const humanSummary = passed
         ? 'ImageObject license-fields gate: 0 offenders'
-        : `${offenders.length} ImageObject(s) missing license fields across ${fileSet.size} page(s)`;
+        : `${offenders.length} ImageObject(s) with missing or invalid license fields across ${fileSet.size} page(s)`;
       return {
         passed,
         offendersTotal: offenders.length,
         offenders,
         threshold: { metric: 'count', value: 0, comparator: '<=' },
-        extra: { files: fileSet.size, limit, requiredFields: REQUIRED_FIELDS },
+        extra: { files: fileSet.size, limit, requiredFields: REQUIRED_FIELDS, urlFields: URL_FIELDS },
         humanSummary,
       };
     },
@@ -137,11 +150,12 @@ async function standalone() {
     console.log('✅ ImageObject license-fields gate: 0 offenders.');
   } else {
     console.error(`❌ ImageObject license-fields gate: ${result.offendersTotal} offending ImageObject(s) across ${result.extra.files} page(s).`);
-    console.error(`Required fields: ${REQUIRED_FIELDS.join(', ')}\n`);
+    console.error(`Required fields: ${REQUIRED_FIELDS.join(', ')}; URL fields: ${URL_FIELDS.join(', ')}\n`);
     console.error(`Full offender list (${result.offendersTotal} entries):`);
     for (const o of result.offenders) {
       console.error(`  - ${o.file}`);
       console.error(`      missing: ${o.missing.join(', ')}`);
+      console.error(`      invalid URL: ${o.invalidUrls.join(', ')}`);
       console.error(`      keys:    ${o.keys.join(', ')}`);
     }
     console.error(`\nFix: route the ImageObject through services/seo/imageObjectLd.ts (or the create-article.mjs generator for blog content).`);

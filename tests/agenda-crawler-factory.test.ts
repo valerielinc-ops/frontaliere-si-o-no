@@ -80,6 +80,8 @@ describe('createAgendaCrawler — crawl()', () => {
     for (const e of result.events) {
       expect(e.sourceKey).toBe(TEST_SOURCE_KEY);
       expect(e.sourceName).toBe('Test Agenda Factory Fixture');
+      expect(e.organizer).toBeUndefined();
+      expect(e.performer).toBeUndefined();
     }
 
     expect(existsSync(slicePath)).toBe(true);

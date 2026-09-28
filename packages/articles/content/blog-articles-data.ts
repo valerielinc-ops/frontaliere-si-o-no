@@ -36610,6 +36610,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'hotel-ristoranti-salari-2027',
+ category: 'novita',
+ date: '2026-09-28T08:42:44.651Z',
+ image: '/images/blog/hotel-ristoranti-salari-2027.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
