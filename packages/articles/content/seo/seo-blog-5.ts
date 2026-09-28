@@ -95740,6 +95740,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-kastritis-varese-bologna-assenze': {
+    title: 'Kastritis: assenze non sono alibi, lavorare subito',
+    description: 'Dopo la sconfitta di Masnago contro la Virtus Bologna, Kastritis invita a lavorare senza alibi e guarda alla trasferta di Scafati. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, kastritis, assenze, sono, alibi',
+    ogTitle: 'Kastritis: assenze non sono alibi, lavorare subito',
+    ogDescription: 'La Pallacanestro Varese perde contro la Virtus Bologna a Masnago. Kastritis analizza la gara, esclude le scuse e punta al lavoro immediato in vista della trasferta di Scafati.',
+    canonicalPath: '/articoli-frontaliere/kastritis-varese-bologna-assenze',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Kastritis: assenze non sono alibi, lavorare subito",
+      "description": "Dopo la sconfitta di Masnago contro la Virtus Bologna, Kastritis invita a lavorare senza alibi e guarda alla trasferta di Scafati. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/kastritis-varese-bologna-assenze.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzetto di Masnago durante la partita tra Pallacanestro Varese e Virtus Bologna"
+      },
+      "datePublished": "2026-09-28T00:59:23+00:00",
+      "dateModified": "2026-09-28T00:59:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kastritis-varese-bologna-assenze/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -36538,6 +36538,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'kastritis-varese-bologna-assenze',
+ category: 'novita',
+ date: '2026-09-28T00:59:23.828Z',
+ image: '/images/blog/kastritis-varese-bologna-assenze.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
