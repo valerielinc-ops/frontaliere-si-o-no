@@ -96559,6 +96559,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-ponti-gallerie-controllo-2026': {
+    title: 'Lombardia: 230.640 euro per ponti e gallerie nel Varesotto',
+    description: 'Regione Lombardia assegna 230.640 euro alla Provincia di Varese per verifiche su ponti, viadotti e gallerie entro il 30 novembre 2028, con rendicontazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, euro, ponti, gallerie',
+    ogTitle: 'Lombardia: 230.640 euro per ponti e gallerie nel Varesotto',
+    ogDescription: 'La delibera di Regione Lombardia stanzia 3,1 milioni di euro per il triennio 2026-2028, di cui 230.640 euro spettano alla Provincia di Varese. I fondi finanzieranno ispezioni, prove di carico, monitoraggi strutturali e attività di formazione',
+    canonicalPath: '/articoli-frontaliere/varese-ponti-gallerie-controllo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lombardia: 230.640 euro per ponti e gallerie nel Varesotto",
+      "description": "Regione Lombardia assegna 230.640 euro alla Provincia di Varese per verifiche su ponti, viadotti e gallerie entro il 30 novembre 2028, con rendicontazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/varese-ponti-gallerie-controllo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con le montagne sullo sfondo e un segnale di confine stradale in primo piano"
+      },
+      "datePublished": "2026-09-28T22:58:10+00:00",
+      "dateModified": "2026-09-28T22:58:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-ponti-gallerie-controllo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

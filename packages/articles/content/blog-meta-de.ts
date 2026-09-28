@@ -12236,6 +12236,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.job-day-pa-como.title': 'Job Day Öffentliche Verwaltung in Como: Termine und Details',
     'blog.article.job-day-pa-como.excerpt': 'Am 1. Oktober in der Villa Gallia und der Villa Saporiti: 28 öffentliche Einrichtungen stellen gesuchte Profile, Ausschreibungen und berufliche Möglichkeiten vor.',
     'blog.article.job-day-pa-como.imageAlt': 'Villa Gallia und Villa Saporiti in Como für den Job Day der öffentlichen Verwaltung',
+    'blog.article.varese-ponti-gallerie-controllo-2026.title': 'Lombardei: 230.640 Euro für Brücken und Tunnel im Varese',
+    'blog.article.varese-ponti-gallerie-controllo-2026.excerpt': 'Die Region Lombardei weist der Provinz Varese 230.640 Euro für Kontrollen an Brücken, Viadukten und Tunneln zu, die bis zum 30. November 2028 abgeschlossen sein müssen, mit abschließender Abrechnung bis zum 15. Dezember 2028.',
+    'blog.article.varese-ponti-gallerie-controllo-2026.imageAlt': 'Blick auf den Luganer See mit den Alpen im Hintergrund und einem Grenzstraßenschild im Vordergrund',
 };
 
 export default blogMetaDe;
