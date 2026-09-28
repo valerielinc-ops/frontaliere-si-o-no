@@ -89408,6 +89408,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-voto-neutralita-alimentazione-respinto': {
+    title: 'Voto 27 settembre: no secco a neutralità e cibo',
+    description: 'Doppio no alle urne: oltre il 70% contro la neutralità e 72,5% contro l\'alimentazione. Cassis e Parmelin spiegano il futuro politico della Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, settembre, secco, neutralità',
+    ogTitle: 'Voto 27 settembre: no secco a neutralità e cibo',
+    ogDescription: 'Il 27 settembre la Svizzera ha detto no a due importanti iniziative. Oltre il 70% ha respinto la neutralità e il 72,5% l\'alimentazione. Ecco le reazioni di Cassis e Parmelin sul futuro del Paese e dell\'agricoltura.',
+    canonicalPath: '/articoli-svizzera/voto-neutralita-alimentazione-respinto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto 27 settembre: no secco a neutralità e cibo",
+      "description": "Doppio no alle urne: oltre il 70% contro la neutralità e 72,5% contro l'alimentazione. Cassis e Parmelin spiegano il futuro politico della Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/voto-neutralita-alimentazione-respinto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cittadini svizzeri presso un seggio elettorale durante le votazioni del 27 settembre, esito netto sulle iniziative di neutralità e alimentazione."
+      },
+      "datePublished": "2026-09-28T03:51:29+00:00",
+      "dateModified": "2026-09-28T03:51:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-neutralita-alimentazione-respinto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

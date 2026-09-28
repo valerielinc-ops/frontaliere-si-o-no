@@ -6896,6 +6896,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.popolo-svizzero-boccia-neutralita.title': 'Neutralitätsinitiative vom Schweizer Volk abgelehnt',
     'blog.article.popolo-svizzero-boccia-neutralita.excerpt': 'Die Initiative zur Neutralität wurde mit rund 70 % Nein-Stimmen abgelehnt; sie erreichte nach der Auszählung in 15 Kantonen nicht die Mehrheit der Kantone, während das Tessin eine leichte Abweichung zeigt.',
     'blog.article.popolo-svizzero-boccia-neutralita.imageAlt': 'Bundesplatz in Bern mit Wählerinnen und Wählern sowie Kampagnenmaterial zur Neutralitätsinitiative',
+    'blog.article.voto-neutralita-alimentazione-respinto.title': 'Abstimmung am 27. September: klares Nein zu Neutralität und Essen',
+    'blog.article.voto-neutralita-alimentazione-respinto.excerpt': 'Am 27. September lehnten über 70 Prozent die Neutralitätsinitiative und 72,5 Prozent die Ernährungsinitiative in allen Kantonen ab.',
+    'blog.article.voto-neutralita-alimentazione-respinto.imageAlt': 'Schweizer Bürger an einer Wahlurne bei den Abstimmungen vom 27. September, klares Ergebnis zu Neutralität und Ernährung.',
 };
 
 export default blogMetaChDe;

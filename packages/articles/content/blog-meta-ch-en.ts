@@ -6896,6 +6896,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.popolo-svizzero-boccia-neutralita.title': 'Initiative on neutrality rejected by the Swiss people',
     'blog.article.popolo-svizzero-boccia-neutralita.excerpt': 'The neutrality initiative was rejected with approximately 70% voting no; it did not obtain a majority of the cantons after the count in 15 of them, while Ticino shows a slight divergence.',
     'blog.article.popolo-svizzero-boccia-neutralita.imageAlt': 'Federal Palace square in Bern with voters and neutrality campaign material',
+    'blog.article.voto-neutralita-alimentazione-respinto.title': 'September 27 vote: a resounding no to neutrality and food',
+    'blog.article.voto-neutralita-alimentazione-respinto.excerpt': 'On 27 September, over 70% rejected the neutrality initiative and 72.5% rejected the food initiative in all cantons.',
+    'blog.article.voto-neutralita-alimentazione-respinto.imageAlt': 'Swiss citizens at a polling station during the September 27 votes, clear results on neutrality and food initiatives.',
 };
 
 export default blogMetaChEn;

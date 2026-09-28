@@ -2321,6 +2321,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bern-istruzione-qualita-respinta': { it: 'bern-istruzione-qualita-respinta', en: 'bern-quality-education-initiative-rejected', de: 'bern-bildungsqualitaet-initiative-abgelehnt', fr: 'berne-initiative-education-qualite-rejetee' },
  'friburgo-successione-donazione-aliquote': { it: 'friburgo-successione-donazione-aliquote', en: 'fribourg-inheritance-gift-tax-rates', de: 'freiburg-erbschaft-schenkung-steuersaetze', fr: 'fribourg-impot-succession-donation-taux' },
  'popolo-svizzero-boccia-neutralita': { it: 'popolo-svizzero-boccia-neutralita', en: 'swiss-people-reject-neutrality', de: 'schweizer-volk-lehnt-neutralitaet-ab', fr: 'peuple-suisse-rejette-la-neutralite' },
+ 'voto-neutralita-alimentazione-respinto': { it: 'voto-neutralita-alimentazione-respinto', en: 'neutrality-food-initiative-rejected', de: 'neutralitaet-ernaehrungs-initiative-abgelehnt', fr: 'neutralite-alimentation-initiative-rejectee' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
