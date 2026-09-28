@@ -1,14 +1,12 @@
 /**
- * Offerwall FC snippet for STATIC article pages — regression + drift guard.
+ * Offerwall FC snippet for STATIC pages — regression + drift guard.
  *
- * The GAM Offerwall is scoped to the article sections, which are emitted as
- * static SSG HTML by build-plugins/staticPagesPlugin.ts. That HTML head does
- * NOT carry index.html's inline Offerwall block, so on those pages the only
- * Funding Choices loader that runs is the network-code one pulled in by
- * adsbygoogle.js AFTER hydration — it fetches the Offerwall message but never
- * renders the overlay. OFFERWALL_FC_SNIPPET injects the publisher-id
- * MESSAGING loader at PARSE TIME so article pages reach parity with
- * index.html's render path. The custom newsletter choice is intentionally not
+ * Static SEO heads do NOT carry index.html's inline Offerwall block. The
+ * article owner (ogPagesPlugin) and the job-board owners
+ * (staticPagesPlugin/jobsSeoPagesPlugin) therefore need the publisher-id
+ * MESSAGING loader at PARSE TIME: relying on the network-code loader pulled in
+ * by adsbygoogle.js AFTER hydration can fetch the Offerwall message without
+ * rendering its overlay. The custom newsletter choice is intentionally not
  * emitted; Ad Manager owns the available choices.
  *
  * This test pins the snippet contract and asserts it cannot drift from the
@@ -83,7 +81,7 @@ describe('OFFERWALL_FC_SNIPPET — parity with index.html (drift guard)', () => 
   });
 });
 
-describe('OFFERWALL_FC_SNIPPET — wired into the article-page owners', () => {
+describe('OFFERWALL_FC_SNIPPET — wired into the static-page owners', () => {
   // The GAM Offerwall is scoped to the article sections. Those pages are emitted
   // by ogPagesPlugin (canonicalPrefix '/articoli-frontaliere/') — NOT staticPagesPlugin,
   // which skips them ("already exist"). The snippet MUST be injected by ogPagesPlugin
@@ -110,8 +108,15 @@ describe('OFFERWALL_FC_SNIPPET — wired into the article-page owners', () => {
     expect(src).toMatch(/\$\{OFFERWALL_FC_SNIPPET\}\s*\n\s*<\/head>\s*\n\s*<body>/);
   });
 
-  it('staticPagesPlugin keeps the isBlogDetailPage-gated fallback injection', () => {
+  it('staticPagesPlugin injects the snippet for every job-board section and blog detail', () => {
     const src = read('build-plugins/staticPagesPlugin.ts');
+    expect(src).toMatch(/const jobBoardOfferwallTag = isJobBoardPageUrl\(fullUrl\)/);
     expect(src).toMatch(/isBlogDetailPage\s*\?\s*`\\n\s*\$\{OFFERWALL_FC_SNIPPET\}`/);
+  });
+
+  it('jobsSeoPagesPlugin applies the same CMP contract to active job pages', () => {
+    const src = read('build-plugins/jobsSeoPagesPlugin.ts');
+    expect(src).toMatch(/GPT_BOOTSTRAP_TAG,\s*isJobBoardPageUrl/);
+    expect(src).toMatch(/const jobBoardOfferwallTag = isJobBoardPageUrl\(canonicalUrl\)/);
   });
 });

@@ -105,7 +105,7 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'components/shared/RelatedTools.tsx': 1,
   'components/tabs/CalcolatoreTabContent.tsx': 2,
   'functions/src/lib/newsletterUrlPaths.js': 5,
-  'infra/cloudflare-worker/locale-router.js': 4,
+  'infra/cloudflare-worker/locale-router.js': 0,
   'scripts/adsense-format-ab-report.mjs': 2,
   'scripts/analytics-report.mjs': 2,
   'scripts/audit-404-risk.mjs': 1,
