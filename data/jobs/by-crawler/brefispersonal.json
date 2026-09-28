@@ -1,6 +1,6 @@
 {
   "crawlerKey": "brefispersonal",
-  "assembledAt": "2026-09-27T15:21:56.089Z",
+  "assembledAt": "2026-09-28T03:44:18.775Z",
   "jobs": [
     {
       "id": "brefispersonal-9cc076f9b09d",
@@ -33,7 +33,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46966",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:21:52.805Z",
+      "crawledAt": "2026-09-28T03:44:13.602Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46965",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:21:52.805Z",
+      "crawledAt": "2026-09-28T03:44:13.602Z",
       "addressLocality": "ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -181,7 +181,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46967",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:21:52.804Z",
+      "crawledAt": "2026-09-28T03:44:13.599Z",
       "addressLocality": "ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -200,6 +200,80 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.060Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "brefispersonal-f64c2fc42acc",
+      "slug": "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich",
+      "slugByLocale": {
+        "it": "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich",
+        "en": "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
+        "de": "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
+        "fr": "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch"
+      },
+      "company": "brefis personal ag",
+      "companyKey": "brefispersonal",
+      "companyDomain": "brefis.ch",
+      "title": "Sanitärmonteur/in gelernt",
+      "titleByLocale": {
+        "it": "Sanitärmonteur/in gelernt",
+        "en": "Sanitärmonteur/in gelernt",
+        "de": "Sanitärmonteur/in gelernt",
+        "fr": "Sanitärmonteur/in gelernt"
+      },
+      "description": "Wir haben uns zum Ziel gesetzt, Stellensuchende und Unternehmen bedürfnisorientiert zusammenzuführen. Für unseren Mandanten, ein mittelgrosses Unternehmen in der Region Zürich, suchen wir ab sofort eine/n Sanitärmonteur/in gelernt in Temporäranstellung. \n• Ihre Aufgaben umfassen: Im Rohbau installieren Sie computergesteuerte Heizungsanlage, die auch für das notwendige Warmwasser sorgt Zuständig sind Sie auch für die Beladung und den Transport der Materialien für die Baustelle Zudem sind Sie für die Installation der Ver- und Entsorgungsleitungen für den Heiz- und Wasserkreislauf verantwortlich Ihre Leistungen protokollieren Sie regelmässig Sie warten und reinigen Maschinen sowie Werkzeuge, denn diese müssen für den nächsten Tag einsatzbereit sein Denken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+      "descriptionByLocale": {
+        "it": "Wir haben uns zum Ziel gesetzt, Stellensuchende und Unternehmen bedürfnisorientiert zusammenzuführen. Für unseren Mandanten, ein mittelgrosses Unternehmen in der Region Zürich, suchen wir ab sofort eine/n Sanitärmonteur/in gelernt in Temporäranstellung.\n• Ihre Aufgaben umfassen: Im Rohbau installieren Sie computergesteuerte Heizungsanlage, die auch für das notwendige Warmwasser sorgt Zuständig sind Sie auch für die Beladung und den Transport der Materialien für die Baustelle Zudem sind Sie für die Installation der Ver- und Entsorgungsleitungen für den Heiz- und Wasserkreislauf verantwortlich Ihre Leistungen protokollieren Sie regelmässig Sie warten und reinigen Maschinen sowie Werkzeuge, denn diese müssen für den nächsten Tag einsatzbereit sein Denken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "en": "Wir haben uns zum Ziel gesetzt, Stellensuchende und Unternehmen bedürfnisorientiert zusammenzuführen. Für unseren Mandanten, ein mittelgrosses Unternehmen in der Region Zürich, suchen wir ab sofort eine/n Sanitärmonteur/in gelernt in Temporäranstellung.\n• Ihre Aufgaben umfassen: Im Rohbau installieren Sie computergesteuerte Heizungsanlage, die auch für das notwendige Warmwasser sorgt Zuständig sind Sie auch für die Beladung und den Transport der Materialien für die Baustelle Zudem sind Sie für die Installation der Ver- und Entsorgungsleitungen für den Heiz- und Wasserkreislauf verantwortlich Ihre Leistungen protokollieren Sie regelmässig Sie warten und reinigen Maschinen sowie Werkzeuge, denn diese müssen für den nächsten Tag einsatzbereit sein Denken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "de": "Wir haben uns zum Ziel gesetzt, Stellensuchende und Unternehmen bedürfnisorientiert zusammenzuführen. Für unseren Mandanten, ein mittelgrosses Unternehmen in der Region Zürich, suchen wir ab sofort eine/n Sanitärmonteur/in gelernt in Temporäranstellung. \n• Ihre Aufgaben umfassen: Im Rohbau installieren Sie computergesteuerte Heizungsanlage, die auch für das notwendige Warmwasser sorgt Zuständig sind Sie auch für die Beladung und den Transport der Materialien für die Baustelle Zudem sind Sie für die Installation der Ver- und Entsorgungsleitungen für den Heiz- und Wasserkreislauf verantwortlich Ihre Leistungen protokollieren Sie regelmässig Sie warten und reinigen Maschinen sowie Werkzeuge, denn diese müssen für den nächsten Tag einsatzbereit sein Denken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "fr": "Wir haben uns zum Ziel gesetzt, Stellensuchende und Unternehmen bedürfnisorientiert zusammenzuführen. Für unseren Mandanten, ein mittelgrosses Unternehmen in der Region Zürich, suchen wir ab sofort eine/n Sanitärmonteur/in gelernt in Temporäranstellung.\n• Ihre Aufgaben umfassen: Im Rohbau installieren Sie computergesteuerte Heizungsanlage, die auch für das notwendige Warmwasser sorgt Zuständig sind Sie auch für die Beladung und den Transport der Materialien für die Baustelle Zudem sind Sie für die Installation der Ver- und Entsorgungsleitungen für den Heiz- und Wasserkreislauf verantwortlich Ihre Leistungen protokollieren Sie regelmässig Sie warten und reinigen Maschinen sowie Werkzeuge, denn diese müssen für den nächsten Tag einsatzbereit sein Denken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://brefis.ch/Vacancyboard/Detail/46968",
+      "source": "brefis personal ag Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T03:44:13.598Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8006",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-05",
+      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46968",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
+        "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
+          "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:22:20.059Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -245,7 +319,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46969",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:21:52.803Z",
+      "crawledAt": "2026-09-28T03:44:13.597Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -289,80 +363,6 @@
       }
     },
     {
-      "id": "brefispersonal-f64c2fc42acc",
-      "slug": "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich",
-      "slugByLocale": {
-        "it": "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich",
-        "en": "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
-        "de": "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
-        "fr": "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch"
-      },
-      "company": "brefis personal ag",
-      "companyKey": "brefispersonal",
-      "companyDomain": "brefis.ch",
-      "title": "Sanitärmonteur/in gelernt",
-      "titleByLocale": {
-        "it": "Sanitärmonteur/in gelernt",
-        "en": "Sanitärmonteur/in gelernt",
-        "de": "Sanitärmonteur/in gelernt",
-        "fr": "Sanitärmonteur/in gelernt"
-      },
-      "description": "Wir haben uns zum Ziel gesetzt, Stellensuchende und Unternehmen bedürfnisorientiert zusammenzuführen. Für unseren Mandanten, ein mittelgrosses Unternehmen in der Region Zürich, suchen wir ab sofort eine/n Sanitärmonteur/in gelernt in Temporäranstellung. \n• Ihre Aufgaben umfassen: Im Rohbau installieren Sie computergesteuerte Heizungsanlage, die auch für das notwendige Warmwasser sorgt Zuständig sind Sie auch für die Beladung und den Transport der Materialien für die Baustelle Zudem sind Sie für die Installation der Ver- und Entsorgungsleitungen für den Heiz- und Wasserkreislauf verantwortlich Ihre Leistungen protokollieren Sie regelmässig Sie warten und reinigen Maschinen sowie Werkzeuge, denn diese müssen für den nächsten Tag einsatzbereit sein Denken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Wir haben uns zum Ziel gesetzt, Stellensuchende und Unternehmen bedürfnisorientiert zusammenzuführen. Für unseren Mandanten, ein mittelgrosses Unternehmen in der Region Zürich, suchen wir ab sofort eine/n Sanitärmonteur/in gelernt in Temporäranstellung.\n• Ihre Aufgaben umfassen: Im Rohbau installieren Sie computergesteuerte Heizungsanlage, die auch für das notwendige Warmwasser sorgt Zuständig sind Sie auch für die Beladung und den Transport der Materialien für die Baustelle Zudem sind Sie für die Installation der Ver- und Entsorgungsleitungen für den Heiz- und Wasserkreislauf verantwortlich Ihre Leistungen protokollieren Sie regelmässig Sie warten und reinigen Maschinen sowie Werkzeuge, denn diese müssen für den nächsten Tag einsatzbereit sein Denken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "en": "Wir haben uns zum Ziel gesetzt, Stellensuchende und Unternehmen bedürfnisorientiert zusammenzuführen. Für unseren Mandanten, ein mittelgrosses Unternehmen in der Region Zürich, suchen wir ab sofort eine/n Sanitärmonteur/in gelernt in Temporäranstellung.\n• Ihre Aufgaben umfassen: Im Rohbau installieren Sie computergesteuerte Heizungsanlage, die auch für das notwendige Warmwasser sorgt Zuständig sind Sie auch für die Beladung und den Transport der Materialien für die Baustelle Zudem sind Sie für die Installation der Ver- und Entsorgungsleitungen für den Heiz- und Wasserkreislauf verantwortlich Ihre Leistungen protokollieren Sie regelmässig Sie warten und reinigen Maschinen sowie Werkzeuge, denn diese müssen für den nächsten Tag einsatzbereit sein Denken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "de": "Wir haben uns zum Ziel gesetzt, Stellensuchende und Unternehmen bedürfnisorientiert zusammenzuführen. Für unseren Mandanten, ein mittelgrosses Unternehmen in der Region Zürich, suchen wir ab sofort eine/n Sanitärmonteur/in gelernt in Temporäranstellung. \n• Ihre Aufgaben umfassen: Im Rohbau installieren Sie computergesteuerte Heizungsanlage, die auch für das notwendige Warmwasser sorgt Zuständig sind Sie auch für die Beladung und den Transport der Materialien für die Baustelle Zudem sind Sie für die Installation der Ver- und Entsorgungsleitungen für den Heiz- und Wasserkreislauf verantwortlich Ihre Leistungen protokollieren Sie regelmässig Sie warten und reinigen Maschinen sowie Werkzeuge, denn diese müssen für den nächsten Tag einsatzbereit sein Denken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "fr": "Wir haben uns zum Ziel gesetzt, Stellensuchende und Unternehmen bedürfnisorientiert zusammenzuführen. Für unseren Mandanten, ein mittelgrosses Unternehmen in der Region Zürich, suchen wir ab sofort eine/n Sanitärmonteur/in gelernt in Temporäranstellung.\n• Ihre Aufgaben umfassen: Im Rohbau installieren Sie computergesteuerte Heizungsanlage, die auch für das notwendige Warmwasser sorgt Zuständig sind Sie auch für die Beladung und den Transport der Materialien für die Baustelle Zudem sind Sie für die Installation der Ver- und Entsorgungsleitungen für den Heiz- und Wasserkreislauf verantwortlich Ihre Leistungen protokollieren Sie regelmässig Sie warten und reinigen Maschinen sowie Werkzeuge, denn diese müssen für den nächsten Tag einsatzbereit sein Denken Sie, dass Sie die richtige Person für den Job sind? Wir finden es für Sie heraus. Einfach Ihre Unterlagen und Zeugnisse an uns senden und dann kann nichts mehr schiefgehen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46968",
-      "source": "brefis personal ag Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:21:52.803Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8006",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-05",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46968",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
-        "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
-          "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:22:20.059Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "brefispersonal-da7fa6f8b6c7",
       "slug": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
       "slugByLocale": {
@@ -393,7 +393,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46971",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:21:52.802Z",
+      "crawledAt": "2026-09-28T03:44:13.596Z",
       "addressLocality": "ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -457,7 +457,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46973",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:21:52.801Z",
+      "crawledAt": "2026-09-28T03:44:13.594Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -531,7 +531,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46974",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:21:52.800Z",
+      "crawledAt": "2026-09-28T03:44:13.592Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -560,80 +560,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.049Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "brefispersonal-f5c0f71afd10",
-      "slug": "metallbauer-in-cfc-brefis-personal-ag-zurich",
-      "slugByLocale": {
-        "it": "metallbauer-in-cfc-brefis-personal-ag-zurich",
-        "en": "metallbauer-in-efz-zurich-brefispersonal-ch",
-        "de": "metallbauer-in-efz-zurich-brefispersonal-ch",
-        "fr": "metallbauer-in-efz-zurich-brefispersonal-ch"
-      },
-      "company": "brefis personal ag",
-      "companyKey": "brefispersonal",
-      "companyDomain": "brefis.ch",
-      "title": "Metallbauer/in EFZ",
-      "titleByLocale": {
-        "it": "Metallbauer/in CFC",
-        "en": "Metallbauer/in EFZ",
-        "de": "Metallbauer/in EFZ",
-        "fr": "Metallbauer/in EFZ"
-      },
-      "description": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ. \n• Ihre Aufgaben umfassen: Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition Ohne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\n• Ihre Aufgaben umfassen: Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition Ohne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "en": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\n• Ihre Aufgaben umfassen: Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition Ohne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "de": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ. \n• Ihre Aufgaben umfassen: Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition Ohne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
-        "fr": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\n• Ihre Aufgaben umfassen: Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition Ohne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46977",
-      "source": "brefis personal ag Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:21:52.799Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5000",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46977",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "metallbauer-in-efz-zurich-brefispersonal-ch",
-        "metallbauer-in-cfc-brefis-personal-ag-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "metallbauer-in-efz-zurich-brefispersonal-ch",
-          "metallbauer-in-cfc-brefis-personal-ag-zurich"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:22:20.043Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -679,7 +605,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46976",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:21:52.799Z",
+      "crawledAt": "2026-09-28T03:44:13.590Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -698,6 +624,80 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.044Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "brefispersonal-f5c0f71afd10",
+      "slug": "metallbauer-in-cfc-brefis-personal-ag-zurich",
+      "slugByLocale": {
+        "it": "metallbauer-in-cfc-brefis-personal-ag-zurich",
+        "en": "metallbauer-in-efz-zurich-brefispersonal-ch",
+        "de": "metallbauer-in-efz-zurich-brefispersonal-ch",
+        "fr": "metallbauer-in-efz-zurich-brefispersonal-ch"
+      },
+      "company": "brefis personal ag",
+      "companyKey": "brefispersonal",
+      "companyDomain": "brefis.ch",
+      "title": "Metallbauer/in EFZ",
+      "titleByLocale": {
+        "it": "Metallbauer/in CFC",
+        "en": "Metallbauer/in EFZ",
+        "de": "Metallbauer/in EFZ",
+        "fr": "Metallbauer/in EFZ"
+      },
+      "description": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ. \n• Ihre Aufgaben umfassen: Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition Ohne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+      "descriptionByLocale": {
+        "it": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\n• Ihre Aufgaben umfassen: Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition Ohne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "en": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\n• Ihre Aufgaben umfassen: Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition Ohne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "de": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ. \n• Ihre Aufgaben umfassen: Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition Ohne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden.",
+        "fr": "Wir sind die erste Anlaufstelle für die Personalvermittlung und suchen ab sofort für unseren Auftraggeber in der Region Zürich eine/n interessierte/n Metallbauer/in EFZ.\n• Ihre Aufgaben umfassen: Sie übernehmen alle anfallenden Arbeiten als Metallbauer/in EFZ Zur Verfügung stehen Ihnen zahlreiche Pläne, nach denen Sie selbständig vorgefertigte Teile montieren können Zu Ihrem Aufgabengebiet gehören auch die Organisation des Montageablaufes sowie die Materialdisposition Ohne Frage! Es ist ganz alleine Ihre Entscheidung. Wir werden Ihnen die Unterstützung geben, die Sie suchen. Wenn Sie soweit sind, freuen wir uns darauf, Sie so schnell wie möglich kennenzulernen. Hinweis: Bitte beachten Sie, dass Bewerbungen per Post gerne bearbeitet, jedoch aus administrativen Gründen nicht retourniert werden."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://brefis.ch/Vacancyboard/Detail/46977",
+      "source": "brefis personal ag Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T03:44:13.589Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5000",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-12",
+      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46977",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "metallbauer-in-efz-zurich-brefispersonal-ch",
+        "metallbauer-in-cfc-brefis-personal-ag-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-in-efz-zurich-brefispersonal-ch",
+          "metallbauer-in-cfc-brefis-personal-ag-zurich"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:22:20.043Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
