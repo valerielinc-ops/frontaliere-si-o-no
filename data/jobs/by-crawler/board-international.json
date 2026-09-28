@@ -1,6 +1,6 @@
 {
   "crawlerKey": "board-international",
-  "assembledAt": "2026-09-28T05:04:14.614Z",
+  "assembledAt": "2026-09-28T21:26:52.344Z",
   "jobs": [
     {
       "title": "Cloud Operations Specialist",
@@ -251,7 +251,6 @@
         "fr": "ux-designer-board-international-chiasso-switzerland"
       },
       "id": "board-international-549138686b90",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -266,7 +265,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T22:06:14.144Z"
+      "firstSeenAt": "2026-08-07T22:06:14.144Z",
+      "needsRetranslation": true
     }
   ]
 }
