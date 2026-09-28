@@ -210,11 +210,15 @@ describe('eventLd canonical', () => {
 });
 
 describe('eventLd source attribution (#3125)', () => {
-  it('omits organizer/performer when the source supplies no named entities', () => {
+  it('fills deterministic organizer/performer defaults without source metadata', () => {
     const guidleEvent = { ...EVENT, id: 'guidle:abc', sourceKey: 'guidle', sourceName: 'Guidle' };
     const ld = eventLd(guidleEvent as never, 'it') as Record<string, any>;
-    expect(ld.organizer).toBeUndefined();
-    expect(ld.performer).toBeUndefined();
+    expect(ld.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Guidle',
+      url: 'https://www.guidle.com/',
+    });
+    expect(ld.performer).toEqual({ '@type': 'Organization', name: EVENT.venue });
   });
 
   it('emits named organizer/performer metadata when the crawler supplies it', () => {
@@ -263,7 +267,7 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.location.address.postalCode).toBe('6900');
   });
 
-  it('omits offers when price is unknown', () => {
+  it('does not manufacture an Offer for a direct unpriced event input', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
     expect(ld.offers).toBeUndefined();
   });
@@ -276,9 +280,9 @@ describe('eventLd source attribution (#3125)', () => {
       price: '0',
       priceCurrency: 'CHF',
     });
-    expect(ld.offers.availability).toBeUndefined();
-    expect(ld.offers.validFrom).toBeUndefined();
-    expect(ld.offers.url).toBeUndefined();
+    expect(ld.offers.availability).toBe('https://schema.org/InStock');
+    expect(ld.offers.validFrom).toBe(EVENT.startDate);
+    expect(ld.offers.url).toBe(EVENT.url);
   });
 
   it('emits verified price fields for a paid event', () => {
@@ -286,9 +290,9 @@ describe('eventLd source attribution (#3125)', () => {
     const ld = eventLd(paidEvent as never, 'it') as Record<string, any>;
     expect(ld.offers.price).toBe('25');
     expect(ld.offers.priceCurrency).toBe('CHF');
-    expect(ld.offers.availability).toBeUndefined();
-    expect(ld.offers.validFrom).toBeUndefined();
-    expect(ld.offers.url).toBeUndefined();
+    expect(ld.offers.availability).toBe('https://schema.org/InStock');
+    expect(ld.offers.validFrom).toBe(EVENT.startDate);
+    expect(ld.offers.url).toBe(EVENT.url);
   });
 
   it('emits an ImageObject (GSC licensable-image quintet) with the mirrored image path, absolute-ized', () => {
@@ -312,19 +316,20 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.image.copyrightNotice).toBeTruthy();
   });
 
-  it('omits Event.image when the event has no event-specific image', () => {
+  it('uses the category catalog image when the event has no event-specific image', () => {
     const withoutImage = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(withoutImage.image).toBeUndefined();
+    expect(withoutImage.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/catalog/musica.svg');
   });
 
   it('never hotlinks a raw non-mirrored third-party image URL', () => {
     // Defense-in-depth: every crawler is contracted to only ever store a
     // mirrored `/images/events/...` path (or leave imageUrl unset), but a
     // stale pre-mirroring dataset snapshot could still carry a raw URL. That
-    // must NEVER be embedded (hotlinked) into production JSON-LD.
+    // must NEVER be embedded (hotlinked) into production JSON-LD; the
+    // deterministic category image remains the safe fallback.
     const hotlinked = { ...EVENT, imageUrl: 'https://biglietteria.ch/files/flyer.jpg' };
     const ld = eventLd(hotlinked as never, 'it') as Record<string, any>;
-    expect(ld.image).toBeUndefined();
+    expect(ld.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/catalog/musica.svg');
   });
 });
 
@@ -360,6 +365,7 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain('"@type":"Event"');
     expect(page.html).toContain(`"url":"https://frontaliereticino.ch/eventi/ticino/lugano/${slugifyEvent(EVENT)}/"`);
     expect(page.html).toContain(`"sameAs":["${EVENT.url}"]`);
+    expect(page.html).toContain('"offers":{"@type":"Offer","priceCurrency":"CHF"');
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
   });
