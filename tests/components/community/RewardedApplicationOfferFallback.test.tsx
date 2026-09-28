@@ -133,6 +133,8 @@ beforeAll(async () => {
 
 beforeEach(() => {
   vi.clearAllMocks();
+  // The Offerwall is released only with ad consent (services/offerwallRecovery.ts).
+  window.localStorage.setItem('frontaliere_ads_consent', 'granted');
   mocks.eligible = true;
   mocks.resolveOnAbort = true;
   mocks.gptProps = null;

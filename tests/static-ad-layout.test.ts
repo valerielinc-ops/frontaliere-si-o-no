@@ -34,7 +34,7 @@ describe('static AdSense layout recovery', () => {
     const noAdsIndex = ADSENSE_LOADER_CONTENT.indexOf(
       "if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';",
     );
-    const consentIndex = ADSENSE_LOADER_CONTENT.indexOf('if(hasConsent()){');
+    const consentIndex = ADSENSE_LOADER_CONTENT.indexOf('if(hasAdsDecision()){');
 
     expect(armIndex).toBeGreaterThan(-1);
     expect(noAdsIndex).toBeGreaterThan(armIndex);

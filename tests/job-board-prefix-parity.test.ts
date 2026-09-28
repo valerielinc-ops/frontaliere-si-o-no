@@ -235,12 +235,21 @@ describe('TI legacy section parity (issue #7491)', () => {
   ])('%s carries the canonical TI section roots', (rel) => {
     const src = fs.readFileSync(path.join(REPO_ROOT, rel), 'utf-8');
     const found = new Set(src.match(TI_SECTION_ROOT_RX) ?? []);
+    // A legacy redirect SOURCE is non-canonical by definition: the edge router
+    // sends the unprefixed de/fr roots to their canonical locale root
+    // (EDGE_LEGACY_REDIRECTS). It is allowed only when it redirects to a
+    // canonical root; any other non-canonical root still fails.
+    const redirectSources = new Set(
+      [...src.matchAll(/'(\/[a-z-]+)\/':\s*'(\/(?:en|de|fr)\/[a-z-]+)\/'/g)]
+        .filter(([, , target]) => CANONICAL_ROOTS.has(target))
+        .map(([, source]) => source),
+    );
 
     for (const root of CANONICAL_ROOTS) {
       expect(found, `${rel} no longer mentions ${root} — the boundary copy lost a locale`).toContain(root);
     }
     expect(
-      [...found].filter((f) => !CANONICAL_ROOTS.has(f)),
+      [...found].filter((f) => !CANONICAL_ROOTS.has(f) && !redirectSources.has(f)),
       `${rel} has a TI section root that is not canonical. Copy the values from ` +
         'build-plugins/shared/cantonResolvers.mjs (SECTION_LEGACY_TI) — the canonical table wins.',
     ).toEqual([]);

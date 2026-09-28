@@ -213,6 +213,7 @@ import {
 } from '@/services/rewardedApplicationAccess';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import { preloadRewardedWebAd } from '@/services/rewardedWebAd';
+import { takeOfferwallResume } from '@/services/offerwallRecovery';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
@@ -2537,6 +2538,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
  const [assistedApplicationJob, setAssistedApplicationJob] = useState<JobListing | null>(null);
  const [rewardedApplicationJob, setRewardedApplicationJob] = useState<JobListing | null>(null);
+ // The open rewarded offer resumes a click after the Offerwall recovery reload.
+ const [rewardedApplicationResumed, setRewardedApplicationResumed] = useState(false);
  // Synchronous twin of the two application offers' state: a double click on
  // "Candidati" runs handleApply twice before React re-renders, and the second
  // run must not emit a second apply/offer event pair (or a second rewarded
@@ -2545,6 +2548,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
   if (!rewardedApplicationJob && !assistedApplicationJob) applicationOfferOpenRef.current = false;
  }, [assistedApplicationJob, rewardedApplicationJob]);
+ useEffect(() => {
+  if (!rewardedApplicationJob) setRewardedApplicationResumed(false);
+ }, [rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
  const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
@@ -7200,6 +7206,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
   });
  };
 
+ // Only a fresh page load can hold the Offerwall for this click (see
+ // services/offerwallRecovery.ts): the offer has set the resume marker, and
+ // the effect after handleApply reopens the same click once the page is back.
+ // The application intent recorded by the click is given a moment to land
+ // first, as before a same-tab hand-off.
+ const handleRewardedApplicationReload = () => {
+  const job = rewardedApplicationJob;
+  if (!job) return;
+  const pendingIntent = applicationIntentSyncRef.current;
+  const intentSettled = pendingIntent?.jobId === String(job.id)
+   ? Promise.race([
+    pendingIntent.promise.then(() => undefined, () => undefined),
+    new Promise<void>((resolve) => { window.setTimeout(resolve, 1500); }),
+   ])
+   : Promise.resolve();
+  void intentSettled.then(() => window.location.reload());
+ };
+
  const handleRewardedApplicationUnavailable = (reason: string) => {
   const job = rewardedApplicationJob;
   if (!job) return;
@@ -7370,6 +7394,43 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  void redirectExternalApplication(job, surface, false);
  };
+
+ // Resume the click that reloaded the page for the Offerwall, once, when the
+ // same job detail is back with its apply path decided. The click's apply
+ // signals and intent were recorded before the reload; only the offer reopens.
+ const offerwallResumeCheckedRef = useRef(false);
+ useEffect(() => {
+  if (offerwallResumeCheckedRef.current || !selectedJob || !authResolved || !assistedApplicationVariantReady) return;
+  offerwallResumeCheckedRef.current = true;
+  if (!takeOfferwallResume(String(selectedJob.id))) return;
+  if (
+   assistedApplicationVariant !== 'rewarded_ad'
+   || killSwitches.rewardedApplicationAd
+   || !isExternalApplicationJob(selectedJob)
+   || applicationOfferOpenRef.current
+  ) return;
+  const context = {
+   ...assistedApplicationJobContext(selectedJob, assistedApplicationVariant),
+   surface: 'rewarded_application_resume',
+  };
+  const accessExpiresAt = getRewardedApplicationAccessExpiresAt();
+  if (accessExpiresAt !== null) {
+   trackAssistedApplicationEvent('rewarded_application_access_used', {
+    ...context,
+    access_expires_at: accessExpiresAt,
+    access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS,
+   });
+   // No click behind this hand-off: a new tab would be blocked.
+   void redirectExternalApplication(selectedJob, 'rewarded_application_entitlement', false, true);
+   return;
+  }
+  trackAssistedApplicationEvent('rewarded_application_offer_resumed', context);
+  applicationOfferOpenRef.current = true;
+  setRewardedApplicationResumed(true);
+  setRewardedApplicationJob(selectedJob);
+  // Checked once per page load, when the detail is ready.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [selectedJob, authResolved, assistedApplicationVariantReady]);
 
  const handleShare = async (job: JobListing) => {
  const url = `${window.location.origin}${buildJobPath(job)}`;
@@ -7746,6 +7807,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
     onContinue={handleRewardedApplicationContinue}
     onUnavailable={handleRewardedApplicationUnavailable}
     onDismiss={() => setRewardedApplicationJob(null)}
+    resumed={rewardedApplicationResumed}
+    onReload={handleRewardedApplicationReload}
    />
   </Suspense>
  ) : null;

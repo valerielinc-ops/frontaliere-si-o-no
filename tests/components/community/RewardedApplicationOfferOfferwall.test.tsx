@@ -104,6 +104,9 @@ beforeAll(async () => {
 
 beforeEach(() => {
   vi.clearAllMocks();
+  // The Offerwall is released only with ad consent (services/offerwallRecovery.ts);
+  // the recovery paths without it are in RewardedApplicationOfferRecovery.test.tsx.
+  window.localStorage.setItem('frontaliere_ads_consent', 'granted');
   mocks.status = 'absent';
   mocks.releaseOptions = null;
   mocks.resolveRelease = null;
