@@ -265,7 +265,7 @@ jobs:
     timeout-minutes: 50
     strategy:
       fail-fast: false
-      max-parallel: 8
+      max-parallel: 2
       matrix:
         # Keep this list explicit: coverage aggregation can fail closed if a
         # partition is ever omitted from a future edit.
@@ -302,7 +302,7 @@ jobs:
             --concurrency 8 \
             --timeout-ms 30000 \
             --retries 4 \
-            --rescue-concurrency 2 \
+            --rescue-concurrency 1 \
             --rescue-retries 4 \
             --rescue-delay-ms 3000 \
             --out "$RUNNER_TEMP/partition-${{ matrix.partition }}.json"

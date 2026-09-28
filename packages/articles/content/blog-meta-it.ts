@@ -12191,6 +12191,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mastini-fassa-hockey-2026.title': 'Mastini Varese verso Fassa: cerca primo punti in campionato',
     'blog.article.mastini-fassa-hockey-2026.excerpt': 'Sabato 26 settembre alle 18:30 i Mastini Varese affrontano il Fassa dopo l\'esordio perso 2-4 contro i Pirati di Appiano; la squadra cerca di sbloccare la classifica.',
     'blog.article.mastini-fassa-hockey-2026.imageAlt': 'Partita di hockey su ghiaccio dei Mastini Varese sul ghiaccio di Fassa, Trentino-Alto Adige',
+    'blog.article.cambi-ripetuti-cassa-malati.title': 'Cassa malati in Ticino: cambiare più volte conviene',
+    'blog.article.cambi-ripetuti-cassa-malati.excerpt': 'L\'analisi Axa rileva 563 franchi di risparmio al primo cambio della cassa malati e 633 in Ticino: confronto tra cambi successivi, età e cantoni svizzeri.',
+    'blog.article.cambi-ripetuti-cassa-malati.imageAlt': 'Mendrisio e il Canton Ticino sul tema dei premi della cassa malati',
+    'blog.article.credito-imposta-spesa-ticino.title': 'Credito d’imposta per spese ticinesi: idea Giovani Centro',
+    'blog.article.credito-imposta-spesa-ticino.excerpt': 'Fino al 5% dello stipendio, tetto 5.000 franchi, credito del 25% sulla spesa; simulazione 170.000 lavoratori porta a 850 milioni di spesa aggiuntiva e 212,5 milioni di costo pubblico.',
+    'blog.article.credito-imposta-spesa-ticino.imageAlt': 'Mercato di Lugano con gente che fa acquisti in negozi locali sotto cielo alpino',
 };
 
 export default blogMetaIt;

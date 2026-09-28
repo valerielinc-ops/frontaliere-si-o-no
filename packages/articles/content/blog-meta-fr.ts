@@ -12192,6 +12192,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mastini-fassa-hockey-2026.title': 'Mastini Varese vers Fassa : à la recherche de ses premiers points en championnat',
     'blog.article.mastini-fassa-hockey-2026.excerpt': 'Samedi 26 septembre à 18:30, les Mastini Varese affrontent le Fassa après avoir perdu leur match d\'ouverture 2-4 contre les Pirati di Appiano ; l\'équipe cherche à débloquer son compteur au classement.',
     'blog.article.mastini-fassa-hockey-2026.imageAlt': 'Match de hockey sur glace des Mastini Varese sur la patinoire de Fassa, Trentin-Haut-Adige',
+    'blog.article.cambi-ripetuti-cassa-malati.title': 'Assurance maladie au Tessin : changer plusieurs fois est avantageux',
+    'blog.article.cambi-ripetuti-cassa-malati.excerpt': 'L\'analyse Axa relève 563 francs d\'économies lors du premier changement de caisse-maladie et 633 au Tessin : comparaison entre changements successifs, âge et cantons suisses.',
+    'blog.article.cambi-ripetuti-cassa-malati.imageAlt': 'Mendrisio et le Tessin sur le thème des primes d\'assurance maladie',
+    'blog.article.credito-imposta-spesa-ticino.title': 'Crédit d’impôt pour frais tessinois : IDEA Jeunes Centre',
+    'blog.article.credito-imposta-spesa-ticino.excerpt': 'Jusqu’à 5% du salaire, plafond de 5.000 francs, crédit de 25% sur les dépenses ; une simulation portant sur 170.000 travailleurs porte à 850 millions de dépenses supplémentaires et à 212,5 millions de coût public.',
+    'blog.article.credito-imposta-spesa-ticino.imageAlt': 'Marché de Lugano avec des personnes faisant des achats dans des magasins locaux sous un ciel alpin',
 };
 
 export default blogMetaFr;
