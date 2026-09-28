@@ -12176,6 +12176,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kastritis-varese-bologna-assenze.title': 'Kastritis: assenze non sono alibi, lavorare subito',
     'blog.article.kastritis-varese-bologna-assenze.excerpt': 'Dopo la sconfitta a Masnago contro la Virtus Bologna, il coach indica il lavoro e la trasferta di Scafati come priorità.',
     'blog.article.kastritis-varese-bologna-assenze.imageAlt': 'Palazzetto di Masnago durante la partita tra Pallacanestro Varese e Virtus Bologna',
+    'blog.article.manfrinati-ergastolo-casbeno-varese.title': 'Manfrinati condannato all’ergastolo per omicidio',
+    'blog.article.manfrinati-ergastolo-casbeno-varese.excerpt': 'Corte d’Assise di Varese: ergastolo con isolamento diurno. Risarcimenti oltre 2 milioni. Appello annunciato.',
+    'blog.article.manfrinati-ergastolo-casbeno-varese.imageAlt': 'Vista di una strada residenziale in un quartiere italiano vicino al confine svizzero, atmosfera grigia e silenziosa.',
 };
 
 export default blogMetaIt;

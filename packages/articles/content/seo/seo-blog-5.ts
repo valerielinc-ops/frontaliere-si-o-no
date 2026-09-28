@@ -95779,6 +95779,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-manfrinati-ergastolo-casbeno-varese': {
+    title: 'Manfrinati condannato all’ergastolo per omicidio',
+    description: 'Corte d’Assise di Varese: ergastolo per Manfrinati. Stalking riconosciuto, risarcimenti oltre 2 milioni. Appello annunciato. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, manfrinati, condannato, ergastolo, omicidio',
+    ogTitle: 'Manfrinati condannato all’ergastolo per omicidio',
+    ogDescription: 'Marco Manfrinati condannato all’ergastolo dalla Corte d’Assise di Varese per l’omicidio di Fabio Limido e il tentato omicidio di Lavinia. Risarcimenti oltre 2 milioni. Ricorso in appello annunciato.',
+    canonicalPath: '/articoli-frontaliere/manfrinati-ergastolo-casbeno-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Manfrinati condannato all’ergastolo per omicidio",
+      "description": "Corte d’Assise di Varese: ergastolo per Manfrinati. Stalking riconosciuto, risarcimenti oltre 2 milioni. Appello annunciato. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/manfrinati-ergastolo-casbeno-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di una strada residenziale in un quartiere italiano vicino al confine svizzero, atmosfera grigia e silenziosa."
+      },
+      "datePublished": "2026-09-28T01:27:59+00:00",
+      "dateModified": "2026-09-28T01:27:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/manfrinati-ergastolo-casbeno-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

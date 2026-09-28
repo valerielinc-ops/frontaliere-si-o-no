@@ -36547,6 +36547,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'manfrinati-ergastolo-casbeno-varese',
+ category: 'novita',
+ date: '2026-09-28T01:27:59.718Z',
+ image: '/images/blog/manfrinati-ergastolo-casbeno-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
