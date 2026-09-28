@@ -20941,6 +20941,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'ia-lavoro-donne-uomini-2030',
+    category: 'novita',
+    date: '2026-09-28T22:31:41.641Z',
+    image: '/images/blog/ia-lavoro-donne-uomini-2030.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -90383,6 +90383,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ia-lavoro-donne-uomini-2030': {
+    title: 'IA e lavoro: impatto diverso su donne e uomini entro il 2030',
+    description: 'Entro il 2030, il 25% delle attività femminili e il 28% di quelle maschili potrebbe essere automatizzato; nei settori di assistenza, sanità ed educazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, impatto, diverso, donne',
+    ogTitle: 'IA e lavoro: impatto diverso su donne e uomini entro il 2030',
+    ogDescription: 'La ricerca Advance e McKinsey rivela che entro il 2030 circa il 25% delle attività femminili e il 28% di quelle maschili potrebbe essere automatizzato. Nei settori di assistenza, sanità ed educazione il potenziale di automazione è inferiore, pari',
+    canonicalPath: '/articoli-svizzera/ia-lavoro-donne-uomini-2030/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IA e lavoro: impatto diverso su donne e uomini entro il 2030",
+      "description": "Entro il 2030, il 25% delle attività femminili e il 28% di quelle maschili potrebbe essere automatizzato; nei settori di assistenza, sanità ed educazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ia-lavoro-donne-uomini-2030.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti svizzeri in ufficio a Zurigo che utilizzano strumenti di intelligenza artificiale"
+      },
+      "datePublished": "2026-09-28T22:31:41+00:00",
+      "dateModified": "2026-09-28T22:31:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ia-lavoro-donne-uomini-2030/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

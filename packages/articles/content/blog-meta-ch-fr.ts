@@ -6971,6 +6971,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.vaud-riduzione-reddito-sostanza.title': 'Vaud, réduction d\'impôt de 12 % sur le revenu et la fortune',
     'blog.article.vaud-riduzione-reddito-sostanza.excerpt': 'Le Vaud approuve une réduction de 12% des impôts cantonaux sur le revenu et la fortune. On parle de 272 millions de moins à partir du 1er janvier prochain.',
     'blog.article.vaud-riduzione-reddito-sostanza.imageAlt': 'Bâtiment public suisse avec des drapeaux, symbole du débat fiscal vaudois.',
+    'blog.article.ia-lavoro-donne-uomini-2030.title': 'IA et travail : impact différent sur les femmes et les hommes d’ici 2030',
+    'blog.article.ia-lavoro-donne-uomini-2030.excerpt': 'D\'ici 2030, environ 25 % des activités féminines et 28 % des activités masculines pourraient être automatisées ; dans les secteurs des soins, de la santé et de l\'éducation, le potentiel tombe à 19 %.',
+    'blog.article.ia-lavoro-donne-uomini-2030.imageAlt': 'Professionnels suisses dans un bureau à Zurich utilisant des outils d\'intelligence artificielle',
 };
 
 export default blogMetaChFr;
