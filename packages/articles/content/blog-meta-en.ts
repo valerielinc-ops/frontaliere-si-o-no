@@ -12181,6 +12181,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-lentigione-franco-ossola.title': 'Varese-Lentigione: Sunday 27 September at Franco Ossola',
     'blog.article.varese-lentigione-franco-ossola.excerpt': 'The Varese seeks confirmation after the success on the Pontedera. The match against Lentigione is played on Sunday 27 September at 3 pm in Masnago.',
     'blog.article.varese-lentigione-franco-ossola.imageAlt': 'Franco Ossola stadium in Masnago with a view of Monte Generoso before the Varese-Lentigione match',
+    'blog.article.canottieri-varese-nagano-patto.title': 'Canottieri Varese signs friendship pact with Nagano Rowing',
+    'blog.article.canottieri-varese-nagano-patto.excerpt': 'On Friday, September 25, in a videoconference between Schiranna and Shimosuwa, the Canottieri Varese Company and the Nagano Rowing Association signed a twinning agreement for cultural exchanges, shared training and technical development, with the first showcase in 2027.',
+    'blog.article.canottieri-varese-nagano-patto.imageAlt': 'Rowing boats on Lake Lugano with Ticino mountains in the background',
 };
 
 export default blogMetaEn;

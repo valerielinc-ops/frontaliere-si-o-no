@@ -36565,6 +36565,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'canottieri-varese-nagano-patto',
+ category: 'novita',
+ date: '2026-09-28T04:47:15.219Z',
+ image: '/images/blog/canottieri-varese-nagano-patto.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
