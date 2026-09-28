@@ -142,7 +142,7 @@ const TEXT_EXT = /\.(html?|xml|txt|json)$/i;
  * The `__CDN_DATA_BASE__` inject (scripts/offload-generated-images-cdn.mjs:326-348):
  * an optional `<link rel="preconnect"…><link rel="dns-prefetch"…>` hint pair
  * immediately followed by the data-base `<script>`, spliced in as one contiguous
- * string right after `<head…>` — never on its own, never reordered. Matches both
+ * string after the charset declaration in `<head>` — never on its own, never reordered. Matches both
  * the with-hints and hints-omitted (pre-existing preconnect) forms so the raw
  * dist HTML is recovered on the deploy side regardless of which form ran.
  */
