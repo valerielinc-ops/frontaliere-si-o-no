@@ -135,13 +135,18 @@ const SIDE_EFFECT_WORKFLOWS = [
  * dry-run/no-op instead of assuming that every cron is trusted.
  */
 const TRUSTED_SCHEDULE_SIDE_EFFECTS = [
-  ['fb-articles-daily-schedule.yml', 'Schedule FB articles', 'Commit posted-articles tracking'],
-  ['fb-events-daily-schedule.yml', 'Post FB events', 'Commit posted-events tracking'],
-  ['fb-jobs-daily-schedule.yml', 'Schedule FB jobs', 'Commit posted-jobs tracking'],
-  ['linkedin-member-daily.yml', 'Post to LinkedIn (member)', 'Commit posted ledger'],
-  ['mailtrap-suppression-retry.yml', 'Run suppression retry', null],
-  ['cleanup-mailjet-contacts.yml', 'Cleanup Mailjet contacts', null],
-  ['notify-journalist-article-live.yml', 'Verify + notify live journalist articles', null],
+  ['fb-articles-daily-schedule.yml', 'Schedule FB articles', 'Commit posted-articles tracking', true],
+  ['fb-events-daily-schedule.yml', 'Post FB events', 'Commit posted-events tracking', true],
+  ['fb-jobs-daily-schedule.yml', 'Schedule FB jobs', 'Commit posted-jobs tracking', true],
+  ['linkedin-member-daily.yml', 'Post to LinkedIn (member)', 'Commit posted ledger', false],
+  ['mailtrap-suppression-retry.yml', 'Run suppression retry', null, false],
+  ['cleanup-mailjet-contacts.yml', 'Cleanup Mailjet contacts', null, true],
+  ['notify-journalist-article-live.yml', 'Verify + notify live journalist articles', null, false],
+  // Same unguarded scheduled-side-effect class found by the sibling scan.
+  ['instagram-daily-broadcast.yml', 'Post to Instagram', 'Commit posted ledger', true],
+  ['reddit-jobs-daily-schedule.yml', 'Schedule Reddit jobs', 'Commit posted-jobs tracking', true],
+  ['telegram-channel-broadcast.yml', 'Resolve real-send flag', 'Commit posted ledgers', false],
+  ['tiktok-daily-broadcast.yml', 'Post to TikTok', 'Commit posted ledger', true],
 ] as const;
 
 const TRUSTED_SCHEDULE_LIVE_FLAG =
@@ -439,8 +444,8 @@ describe('publisher dispatch provenance verifier', () => {
 });
 
 describe('workflow wiring without the human approval gate', () => {
-  it('fail-closes the seven scheduled side effects without a trusted marker', () => {
-    for (const [name, sideEffectName, commitName] of TRUSTED_SCHEDULE_SIDE_EFFECTS) {
+  it('fail-closes inventoried scheduled side effects without a trusted marker', () => {
+    for (const [name, sideEffectName, commitName, usesDryRunEnv] of TRUSTED_SCHEDULE_SIDE_EFFECTS) {
       const source = workflow(name);
       expect(source, name).toContain("APPROVAL_TRUSTED_SCHEDULE: 'true'");
 
@@ -450,7 +455,7 @@ describe('workflow wiring without the human approval gate', () => {
       expect(sideEffect, name + ' / dry-run fallback').toContain(TRUSTED_SCHEDULE_DRY_RUN_FALLBACK);
       expect(sideEffect, name + ' / effective dry-run').toContain('EFFECTIVE_DRY_RUN');
 
-      if (name.startsWith('fb-') || name === 'cleanup-mailjet-contacts.yml') {
+      if (usesDryRunEnv) {
         expect(sideEffect, name + ' / script dry-run').toContain('DRY_RUN:');
       }
 
