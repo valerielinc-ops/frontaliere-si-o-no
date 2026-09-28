@@ -6887,6 +6887,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lucerna-voto-tifosi-ocse.title': 'Luzern: Abstimmung über Fans, Geschäfte und OECD-Fonds',
     'blog.article.lucerna-voto-tifosi-ocse.excerpt': 'In Luzern werden Initiative und Gegenvorschlag zur Gewalt von Fans angenommen. 58,8% wählen den Gegenvorschlag; grünes Licht auch für Geschäfte, Schule und Wirtschaftsförderung.',
     'blog.article.lucerna-voto-tifosi-ocse.imageAlt': 'Abstimmung in Luzern mit Wahlurne und Fussballatmosphäre',
+    'blog.article.bern-istruzione-qualita-respinta.title': 'Bern lehnt die Initiative für hochwertige Bildung ab',
+    'blog.article.bern-istruzione-qualita-respinta.excerpt': 'Mit 59,9% Nein und einer Beteiligung von 45,3% lehnen die Berner das Recht auf eine qualitativ hochwertige Bildung in der Kantonsverfassung ab.',
+    'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'Schulgebäude im Schweizer Kanton Bern',
 };
 
 export default blogMetaChDe;

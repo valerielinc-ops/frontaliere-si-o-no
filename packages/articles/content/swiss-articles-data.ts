@@ -20689,6 +20689,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bern-istruzione-qualita-respinta',
+    category: 'novita',
+    date: '2026-09-28T02:29:03.244Z',
+    image: '/images/blog/bern-istruzione-qualita-respinta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

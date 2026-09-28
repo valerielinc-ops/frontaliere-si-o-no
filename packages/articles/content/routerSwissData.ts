@@ -2318,6 +2318,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'voto-iniziative-neutralita-cibo': { it: 'voto-iniziative-neutralita-cibo', en: 'swiss-vote-neutrality-food-security', de: 'schweiz-votum-neutralitaet-lebensmittelsicherheit', fr: 'vote-suisse-neutralite-securite-alimentaire' },
  'esito-iniziativa-neutralita-svizzera': { it: 'esito-iniziativa-neutralita-svizzera', en: 'swiss-neutrality-initiative-result', de: 'ergebnis-neutralitaetsinitiative-schweiz', fr: 'resultat-initiative-neutralite-suisse' },
  'lucerna-voto-tifosi-ocse': { it: 'lucerna-voto-tifosi-ocse', en: 'lucerne-vote-fans-oecd-funds', de: 'luzern-abstimmung-fans-oecd-gelder', fr: 'lucerne-vote-supporters-fonds-ocde' },
+ 'bern-istruzione-qualita-respinta': { it: 'bern-istruzione-qualita-respinta', en: 'bern-quality-education-initiative-rejected', de: 'bern-bildungsqualitaet-initiative-abgelehnt', fr: 'berne-initiative-education-qualite-rejetee' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

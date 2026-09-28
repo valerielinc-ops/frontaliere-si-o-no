@@ -89291,6 +89291,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bern-istruzione-qualita-respinta': {
+    title: 'Berna respinge l\'iniziativa sull\'istruzione di qualità',
+    description: 'Berna respinge con il 59,9% di no l\'iniziativa sull\'istruzione di qualità: il diritto non entra nella Costituzione cantonale. Al voto ha partecipato il 45,3%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, respinge, iniziativa, sull',
+    ogTitle: 'Berna respinge l\'iniziativa sull\'istruzione di qualità',
+    ogDescription: 'Il voto nel Cantone di Berna boccia con il 59,9% di no l\'iniziativa che chiedeva di inserire nella Costituzione cantonale il diritto a un\'istruzione di qualità. La partecipazione al voto è stata del 45,3%.',
+    canonicalPath: '/articoli-svizzera/bern-istruzione-qualita-respinta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna respinge l'iniziativa sull'istruzione di qualità",
+      "description": "Berna respinge con il 59,9% di no l'iniziativa sull'istruzione di qualità: il diritto non entra nella Costituzione cantonale. Al voto ha partecipato il 45,3%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bern-istruzione-qualita-respinta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola del Cantone di Berna in una scena urbana svizzera"
+      },
+      "datePublished": "2026-09-28T02:29:03+00:00",
+      "dateModified": "2026-09-28T02:29:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bern-istruzione-qualita-respinta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
