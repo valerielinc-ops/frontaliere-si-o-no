@@ -334,7 +334,9 @@ const app: FirebaseApp = new Proxy({} as FirebaseApp, {
  if (!_app) {
  // If someone accesses `app` before async init completed, trigger it.
  // This is a fallback — callers should prefer `await getApp()`.
- getAppInstance();
+ void getAppInstance().catch((error) => {
+ reportCaughtError(error, 'firebase.legacyAppProxy');
+ });
  if (!_app) return undefined;
  }
  return Reflect.get(_app, prop, receiver);
