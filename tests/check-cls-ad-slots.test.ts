@@ -34,6 +34,9 @@ describe('check-cls-ad-slots — invariant', () => {
     // legitimately; every other build-plugin must use adSlotHtml().
     expect(ALLOWED.has('build-plugins/constants.ts')).toBe(true);
     expect(ALLOWED.has('build-plugins/htmlTemplate.ts')).toBe(true);
+    // The loader's ad_page_diag twin reads (never emits) ins.adsbygoogle.
+    expect(ALLOWED.has('build-plugins/shared/adPageDiagInline.ts')).toBe(true);
+    expect(ALLOWED.size).toBe(4);
     expect(AD_MARKER).toBe('adsbygoogle');
   });
 });

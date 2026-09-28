@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 /**
  * `ad_page_diag` — the per-page ad diagnosis has two runtimes that must agree:
  * services/adPageDiag.ts (SPA) and its ES5 twin AD_PAGE_DIAG_FN
@@ -41,16 +42,12 @@ import {
   AD_PAGE_DIAG_GA4_SHARED_DIMENSIONS,
 } from '../scripts/lib/ga4-ad-page-diag-definitions.mjs';
 
-type DiagWindow = Window & {
-  __ftAdDiag?: AdPageDiagHandle;
-  gtag?: (...args: unknown[]) => void;
-  adsbygoogle?: unknown;
-  googlefc?: unknown;
-  __tcfapi?: unknown;
-  __ftOfferwallGate?: unknown;
-  __ftAdBlock?: unknown;
-};
-const w = window as DiagWindow;
+// Loose view of `window`: the fixtures plant shapes (a loaded adsbygoogle
+// object, a bare googlefc) that the app's global Window typings do not allow.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type LooseWindow = { [key: string]: any; __ftAdDiag?: AdPageDiagHandle };
+const w = window as unknown as LooseWindow;
+type CollectWindow = Parameters<typeof collectAdPageDiag>[0];
 
 // eslint-disable-next-line no-new-func
 const inlineClassify = new Function(`return (${AD_PAGE_TEMPLATE_INLINE_FN});`)() as (p: string, d: Document) => AdPageTemplate;
@@ -275,7 +272,7 @@ describe('collector parity (TS ≡ inline)', () => {
   it('the pure TS collector matches what the handle reports', () => {
     jobDetailFixture();
     const handle = runTs();
-    expect(collectAdPageDiag(w, { path: handle.path, firstFill: -1, cmp: 0 }, 0, () => false)).toEqual(handle.collect(0));
+    expect(collectAdPageDiag(window as CollectWindow, { path: handle.path, firstFill: -1, cmp: 0 }, 0, () => false)).toEqual(handle.collect(0));
   });
 });
 
