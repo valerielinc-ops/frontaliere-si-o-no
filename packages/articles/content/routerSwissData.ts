@@ -2335,6 +2335,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'parita-sessuale-consiglio-stati': { it: 'parita-sessuale-consiglio-stati', en: 'gender-equality-council-states-vote', de: 'gender-gleichstellung-standesrat-abstimmung', fr: 'egalite-genre-conseil-des-etats-vote' },
  'misure-poverta-lavoro-svizzera': { it: 'misure-poverta-lavoro-svizzera', en: 'support-working-poor-switzerland', de: 'hilfe-fuer-working-poor-schweiz', fr: 'soutien-travailleurs-pauvres-suisse' },
  'swiss-starlink-flotta': { it: 'swiss-starlink-flotta', en: 'swiss-starlink-fleet-2029', de: 'swiss-starlink-flotte-2029', fr: 'swiss-starlink-flotte-2029' },
+ 'joseph-deiss-neutralita-attiva': { it: 'joseph-deiss-neutralita-attiva', en: 'joseph-deiss-active-neutrality', de: 'joseph-deiss-aktive-neutralitat', fr: 'joseph-deiss-neutralite-active' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

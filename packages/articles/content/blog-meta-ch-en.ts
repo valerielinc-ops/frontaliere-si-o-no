@@ -6938,6 +6938,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swiss-starlink-flotta.title': 'Swiss brings Starlink to its entire fleet by the end of 2029',
     'blog.article.swiss-starlink-flotta.excerpt': 'Swiss has activated Starlink on the first Airbus A320neo: the Zurich-Thessaloniki flight launches the plan to connect the entire fleet by the end of 2029.',
     'blog.article.swiss-starlink-flotta.imageAlt': 'Swiss aircraft above the clouds with satellite internet connectivity',
+    'blog.article.joseph-deiss-neutralita-attiva.title': 'Joseph Deiss: we want an active and evolutionary neutrality',
+    'blog.article.joseph-deiss-neutralita-attiva.excerpt': 'Over seven out of ten voters rejected the initiative for stricter neutrality; Deiss, at La Matinale RTS, stresses the need for active and evolutionary neutrality.',
+    'blog.article.joseph-deiss-neutralita-attiva.imageAlt': 'View of Lake Lugano with the Alps in the background, symbol of Switzerland\'s active neutrality.',
 };
 
 export default blogMetaChEn;
