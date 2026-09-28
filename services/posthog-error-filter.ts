@@ -68,6 +68,10 @@ export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   // third-party. Companion to the `standardSelectors` message pattern added
   // to UNIVERSAL_BENIGN_PATTERNS (covers cross-origin, no-frame case).
   /^https:\/\/www\.clarity\.ms\//i,
+  // Google Publisher Tags (GPT) — third-party stack audit.
+  // The library is third-party and can throw errors entirely inside its own
+  // securepubads.g.doubleclick.net frames; no first-party fix is possible.
+  /^https:\/\/securepubads\.g\.doubleclick\.net\//i,
 ];
 
 /**
