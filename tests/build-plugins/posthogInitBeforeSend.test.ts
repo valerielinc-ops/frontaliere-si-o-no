@@ -326,6 +326,59 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     expect(beforeSend(event)).toBe(event);
   });
 
+  // ── #8773 parity: Chrome-iOS / Google-app injected stack overflow ──
+  // The SPA twin lives in tests/google-ios-app-injected-stack-overflow.test.ts.
+  const CRIOS_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/154.0.8037.55 Mobile/15E148 Safari/604.1';
+  const GSA_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/436.4.969249353 Mobile/15E148 Safari/604.1';
+  const SAFARI_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1';
+  const JOB_PAGE = 'https://frontaliereticino.ch/de/jobs-in-bern/example-job/';
+  function injectedOverflow(userAgent: string, filenames: string[]) {
+    return {
+      event: '$exception',
+      properties: {
+        $raw_user_agent: userAgent,
+        $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+        $exception_list: [{
+          type: 'RangeError',
+          value: 'Maximum call stack size exceeded.',
+          stacktrace: { frames: filenames.map((filename) => ({ filename, lineno: 226, colno: 408 })) },
+        }],
+      },
+    };
+  }
+  const pageFrames = [JOB_PAGE, JOB_PAGE, JOB_PAGE, JOB_PAGE, JOB_PAGE, JOB_PAGE];
+  function withStaticUserAgent<T>(userAgent: string, callback: () => T): T {
+    const previous = Object.getOwnPropertyDescriptor(window.navigator, 'userAgent');
+    Object.defineProperty(window.navigator, 'userAgent', {
+      configurable: true,
+      get: () => userAgent,
+    });
+    try {
+      return callback();
+    } finally {
+      if (previous) Object.defineProperty(window.navigator, 'userAgent', previous);
+    }
+  }
+
+  it('drops the injected stack overflow from Chrome for iOS on a static page (#8773)', () => {
+    expect(withStaticUserAgent(CRIOS_UA, () => beforeSend(injectedOverflow(CRIOS_UA, pageFrames)))).toBeNull();
+  });
+
+  it('drops the injected stack overflow from the Google app on iOS (#8773)', () => {
+    expect(withStaticUserAgent(GSA_UA, () => beforeSend(injectedOverflow(GSA_UA, pageFrames)))).toBeNull();
+    expect(withStaticUserAgent(GSA_UA, () => beforeSend(injectedOverflow(GSA_UA, ['undefined'])))).toBeNull();
+  });
+
+  it('keeps the same stack overflow from plain iOS Safari (#8773)', () => {
+    const event = injectedOverflow(SAFARI_UA, pageFrames);
+    expect(withStaticUserAgent(SAFARI_UA, () => beforeSend(event))).toBe(event);
+  });
+
+  it('keeps a Chrome-iOS stack overflow with a frame in one of our chunks (#8773)', () => {
+    const event = injectedOverflow(CRIOS_UA, ['https://cdn.frontaliereticino.ch/assets/App.js', ...pageFrames]);
+    expect(withStaticUserAgent(CRIOS_UA, () => beforeSend(event))).toBe(event);
+  });
+
   it('installs the raw-stack recorder before posthog.init in the snippet (#4173)', () => {
     expect(POSTHOG_INIT_CONTENT.indexOf('__frRawStacks'))
       .toBeLessThan(POSTHOG_INIT_CONTENT.indexOf('posthog.init('));
