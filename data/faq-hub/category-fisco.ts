@@ -27,13 +27,13 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     answer: {
       it:
-        "Dal 1° gennaio 2024 è operativo il nuovo Accordo CH-IT sui frontalieri firmato il 23/12/2020 e ratificato con la Legge italiana 13 giugno 2023 n. 83 [fonte: Fedlex SR 0.642.045.43]. I «nuovi frontalieri» (assunti dopo il 17/07/2023) sono tassati in Svizzera alla fonte con aliquota piena e poi dichiarano il reddito in Italia con credito d'imposta fino all'80% del prelievo svizzero [fonte: Agenzia Entrate, Circ. 4/E 2024]. I «vecchi frontalieri» restano con tassazione esclusiva in Svizzera più ristorni ai Comuni italiani fino al 2033. Per il 2026 la franchigia IRPEF italiana sale a 10.000 € e la deduzione forfetaria sanitaria è 3.000 € [fonte: AFC Ticino, scheda 2026].",
+        "Dal 1° gennaio 2024 è operativo il nuovo Accordo CH-IT sui frontalieri firmato il 23/12/2020 e ratificato con la Legge italiana 13 giugno 2023 n. 83 [fonte: Fedlex SR 0.642.045.43]. I «nuovi frontalieri» (assunti dopo il 17/07/2023) sono tassati in Svizzera alla fonte con aliquota piena e poi dichiarano il reddito in Italia con credito d'imposta fino all'80% del prelievo svizzero [fonte: Agenzia Entrate, art. 66 L. 83/2023]. I «vecchi frontalieri» restano con tassazione esclusiva in Svizzera più ristorni ai Comuni italiani fino al 2033. Per il 2026 la franchigia IRPEF italiana sale a 10.000 € e la deduzione forfetaria sanitaria è 3.000 € [fonte: AFC Ticino, scheda 2026].",
       en:
-        "From 1 January 2024 the new CH-IT cross-border agreement signed 23/12/2020 and ratified by Italian Law 13 June 2023 No. 83 is in force [source: Fedlex SR 0.642.045.43]. «New» cross-border workers (hired after 17/07/2023) are taxed at source in Switzerland at full rate and then declare income in Italy with a tax credit up to 80% of the Swiss levy [source: Agenzia Entrate, Circolare 4/E 2024]. «Old» cross-border workers keep Swiss-only taxation with rebates to Italian border municipalities until 2033. For 2026 the Italian IRPEF exemption rises to €10,000 and the flat healthcare deduction to €3,000 [source: AFC Ticino, 2026 sheet].",
+        "From 1 January 2024 the new CH-IT cross-border agreement signed 23/12/2020 and ratified by Italian Law 13 June 2023 No. 83 is in force [source: Fedlex SR 0.642.045.43]. «New» cross-border workers (hired after 17/07/2023) are taxed at source in Switzerland at full rate and then declare income in Italy with a tax credit up to 80% of the Swiss levy [source: Agenzia Entrate, Italian Law 83/2023 art. 66]. «Old» cross-border workers keep Swiss-only taxation with rebates to Italian border municipalities until 2033. For 2026 the Italian IRPEF exemption rises to €10,000 and the flat healthcare deduction to €3,000 [source: AFC Ticino, 2026 sheet].",
       de:
-        "Seit dem 1. Januar 2024 gilt das neue CH-IT-Grenzgängerabkommen vom 23.12.2020, ratifiziert durch das italienische Gesetz 13. Juni 2023 Nr. 83 [Quelle: Fedlex SR 0.642.045.43]. «Neue» Grenzgänger (ab 17.07.2023 angestellt) zahlen in der Schweiz die volle Quellensteuer und versteuern das Einkommen zusätzlich in Italien mit Anrechnung bis 80 % der schweizerischen Abgabe [Quelle: Agenzia Entrate, Rundschr. 4/E 2024]. «Alte» Grenzgänger bleiben bis 2033 ausschliesslich in der Schweiz steuerpflichtig mit Rückzahlungen an italienische Grenzgemeinden. Für 2026 steigt der italienische IRPEF-Freibetrag auf 10'000 € und der Gesundheits-Pauschalabzug auf 3'000 € [Quelle: AFC Tessin, Merkblatt 2026].",
+        "Seit dem 1. Januar 2024 gilt das neue CH-IT-Grenzgängerabkommen vom 23.12.2020, ratifiziert durch das italienische Gesetz 13. Juni 2023 Nr. 83 [Quelle: Fedlex SR 0.642.045.43]. «Neue» Grenzgänger (ab 17.07.2023 angestellt) zahlen in der Schweiz die volle Quellensteuer und versteuern das Einkommen zusätzlich in Italien mit Anrechnung bis 80 % der schweizerischen Abgabe [Quelle: Agenzia Entrate, Art. 66 Gesetz 83/2023]. «Alte» Grenzgänger bleiben bis 2033 ausschliesslich in der Schweiz steuerpflichtig mit Rückzahlungen an italienische Grenzgemeinden. Für 2026 steigt der italienische IRPEF-Freibetrag auf 10'000 € und der Gesundheits-Pauschalabzug auf 3'000 € [Quelle: AFC Tessin, Merkblatt 2026].",
       fr:
-        "Depuis le 1er janvier 2024 le nouvel accord CH-IT sur les frontaliers du 23/12/2020, ratifié par la Loi italienne 13 juin 2023 n° 83, est en vigueur [source : Fedlex SR 0.642.045.43]. Les « nouveaux » frontaliers (embauchés après le 17/07/2023) sont imposés à la source en Suisse au taux plein puis déclarent le revenu en Italie avec crédit d'impôt jusqu'à 80 % du prélèvement suisse [source : Agenzia Entrate, circ. 4/E 2024]. Les « anciens » frontaliers gardent l'imposition exclusive en Suisse avec ristournes aux communes italiennes jusqu'en 2033. Pour 2026 la franchise IRPEF italienne passe à 10 000 € et la déduction santé forfaitaire à 3 000 € [source : AFC Tessin, fiche 2026].",
+        "Depuis le 1er janvier 2024 le nouvel accord CH-IT sur les frontaliers du 23/12/2020, ratifié par la Loi italienne 13 juin 2023 n° 83, est en vigueur [source : Fedlex SR 0.642.045.43]. Les « nouveaux » frontaliers (embauchés après le 17/07/2023) sont imposés à la source en Suisse au taux plein puis déclarent le revenu en Italie avec crédit d'impôt jusqu'à 80 % du prélèvement suisse [source : Agenzia Entrate, art. 66 de la loi 83/2023]. Les « anciens » frontaliers gardent l'imposition exclusive en Suisse avec ristournes aux communes italiennes jusqu'en 2033. Pour 2026 la franchise IRPEF italienne passe à 10 000 € et la déduction santé forfaitaire à 3 000 € [source : AFC Tessin, fiche 2026].",
     },
     relatedLinks: [
       {
@@ -67,7 +67,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     ],
     sources: [
       'https://www.fedlex.admin.ch/eli/cc/2023/694/it',
-      'https://www.agenziaentrate.gov.it/portale/documents/20143/5451565/Circolare+n.+4+del+12+febbraio+2024.pdf',
+      'https://www.agenziaentrate.gov.it/portale/documents/20143/5984217/1_TU_Redditi.pdf',
       'https://www4.ti.ch/dfe/dc/imposta-alla-fonte',
     ],
   },
@@ -133,13 +133,13 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     answer: {
       it:
-        "La Legge 13/06/2023 n. 83, art. 4, esclude dalla base imponibile IRPEF i primi 10.000 € del reddito da lavoro dipendente prestato in Svizzera per i «nuovi frontalieri» [fonte: Normattiva, L. 83/2023]. Dal 2024 la franchigia era 10.000 € e resta confermata anche per l'anno d'imposta 2026 [fonte: Circolare Agenzia Entrate 4/E 2024]. Non si cumula con la detassazione degli impatriati. Si applica una sola volta anche se il contribuente ha più datori di lavoro svizzeri. In dichiarazione va indicata nel quadro RC al rigo dedicato ai redditi esteri (codice 9), e il software RedditiPF 2026 la applica automaticamente se il codice Stato è CH. La franchigia si somma alla deduzione forfetaria sanitaria di 3.000 €.",
+        "La Legge 13/06/2023 n. 83, art. 4, esclude dalla base imponibile IRPEF i primi 10.000 € del reddito da lavoro dipendente prestato in Svizzera per i «nuovi frontalieri» [fonte: Normattiva, L. 83/2023]. Dal 2024 la franchigia era 10.000 € e resta confermata anche per l'anno d'imposta 2026 [fonte: Agenzia Entrate, Quadro RC Redditi 2026]. Non si cumula con la detassazione degli impatriati. Si applica una sola volta anche se il contribuente ha più datori di lavoro svizzeri. In dichiarazione va indicata nel quadro RC al rigo dedicato ai redditi esteri (codice 9), e il software RedditiPF 2026 la applica automaticamente se il codice Stato è CH. La franchigia si somma alla deduzione forfetaria sanitaria di 3.000 €.",
       en:
-        "Italian Law 13/06/2023 No. 83 art. 4 excludes the first €10,000 of Swiss employment income from the IRPEF tax base for «new» cross-border workers [source: Normattiva, L. 83/2023]. The exemption was €10,000 in 2024 and is confirmed for tax year 2026 [source: Agenzia Entrate Circular 4/E 2024]. It cannot be combined with the inbound-workers regime. It applies only once even if the taxpayer has multiple Swiss employers. In the tax return it is reported in box RC on the foreign-income line (code 9); the RedditiPF 2026 software applies it automatically when country code is CH. The exemption stacks with the €3,000 flat healthcare deduction.",
+        "Italian Law 13/06/2023 No. 83 art. 4 excludes the first €10,000 of Swiss employment income from the IRPEF tax base for «new» cross-border workers [source: Normattiva, L. 83/2023]. The exemption was €10,000 in 2024 and is confirmed for tax year 2026 [source: Agenzia Entrate, Redditi 2026 Quadro RC]. It cannot be combined with the inbound-workers regime. It applies only once even if the taxpayer has multiple Swiss employers. In the tax return it is reported in box RC on the foreign-income line (code 9); the RedditiPF 2026 software applies it automatically when country code is CH. The exemption stacks with the €3,000 flat healthcare deduction.",
       de:
-        "Das italienische Gesetz 13.06.2023 Nr. 83 Art. 4 nimmt die ersten 10 000 € des in der Schweiz erzielten Arbeitseinkommens der «neuen» Grenzgänger von der IRPEF aus [Quelle: Normattiva, L. 83/2023]. Der Freibetrag betrug 2024 10 000 € und ist für Steuerjahr 2026 bestätigt [Quelle: Rundschreiben Agenzia Entrate 4/E 2024]. Er ist nicht mit dem Impatriates-Regime kumulierbar. Er gilt nur einmal, auch bei mehreren Schweizer Arbeitgebern. In der Steuererklärung wird er im Block RC bei den ausländischen Einkünften (Code 9) eingetragen; die Software RedditiPF 2026 wendet ihn automatisch an. Der Freibetrag addiert sich zum Gesundheits-Pauschalabzug von 3 000 €.",
+        "Das italienische Gesetz 13.06.2023 Nr. 83 Art. 4 nimmt die ersten 10 000 € des in der Schweiz erzielten Arbeitseinkommens der «neuen» Grenzgänger von der IRPEF aus [Quelle: Normattiva, L. 83/2023]. Der Freibetrag betrug 2024 10 000 € und ist für Steuerjahr 2026 bestätigt [Quelle: Agenzia Entrate, Redditi 2026, Quadro RC]. Er ist nicht mit dem Impatriates-Regime kumulierbar. Er gilt nur einmal, auch bei mehreren Schweizer Arbeitgebern. In der Steuererklärung wird er im Block RC bei den ausländischen Einkünften (Code 9) eingetragen; die Software RedditiPF 2026 wendet ihn automatisch an. Der Freibetrag addiert sich zum Gesundheits-Pauschalabzug von 3 000 €.",
       fr:
-        "La loi italienne 13/06/2023 n° 83 art. 4 exclut de la base IRPEF les premiers 10 000 € de revenu de travail suisse des « nouveaux » frontaliers [source : Normattiva, L. 83/2023]. La franchise valait 10 000 € en 2024 et est confirmée pour l'année fiscale 2026 [source : circulaire Agenzia Entrate 4/E 2024]. Non cumulable avec le régime des impatriés. Elle s'applique une seule fois même avec plusieurs employeurs suisses. Dans la déclaration on la reporte au cadre RC à la ligne revenus étrangers (code 9) ; le logiciel RedditiPF 2026 l'applique automatiquement si le code pays est CH. Elle se cumule avec la déduction santé forfaitaire de 3 000 €.",
+        "La loi italienne 13/06/2023 n° 83 art. 4 exclut de la base IRPEF les premiers 10 000 € de revenu de travail suisse des « nouveaux » frontaliers [source : Normattiva, L. 83/2023]. La franchise valait 10 000 € en 2024 et est confirmée pour l'année fiscale 2026 [source : Agenzia Entrate, Redditi 2026, Quadro RC]. Non cumulable avec le régime des impatriés. Elle s'applique une seule fois même avec plusieurs employeurs suisses. Dans la déclaration on la reporte au cadre RC à la ligne revenus étrangers (code 9) ; le logiciel RedditiPF 2026 l'applique automatiquement si le code pays est CH. Elle se cumule avec la déduction santé forfaitaire de 3 000 €.",
     },
     relatedLinks: [
       {
@@ -159,7 +159,8 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     ],
     sources: [
       'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-06-13;83',
-      'https://www.agenziaentrate.gov.it/portale/documents/20143/5451565/Circolare+n.+4+del+12+febbraio+2024.pdf',
+      'https://www.agenziaentrate.gov.it/portale/documents/20143/5984217/1_TU_Redditi.pdf',
+      'https://infoprecompilata.agenziaentrate.gov.it/portale/quadro-rc',
     ],
   },
   {
@@ -189,7 +190,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     sources: [
       'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-12-30;213',
-      'https://www.agenziaentrate.gov.it/portale/documents/20143/5451565/Circolare+n.+4+del+12+febbraio+2024.pdf',
+      'https://www.agenziaentrate.gov.it/portale/documents/20143/5984217/1_TU_Redditi.pdf',
     ],
   },
   {
@@ -256,7 +257,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
         "Le nouveau frontalier remplit au moins : cadre RC (revenus d'emploi étrangers, code 4), cadre CE section I-A (crédit d'impôt étranger), cadre RW (surveillance fiscale des comptes suisses et 2e pilier >15 000 €), cadre RP pour les déductions (ligne RP26 code 10 pour la santé forfaitaire) et cadre AC pour les biens immobiliers étrangers [source : instructions Redditi PF 2026, Agenzia Entrate]. IVAFE non due sur comptes CH, IVIE due sur biens CH. Envoi au 30/09/2026 via Entratel/Fisconline ; les anciens frontaliers ne déposent pas.",
     },
     sources: [
-      'https://www.agenziaentrate.gov.it/portale/web/guest/schede/dichiarazioni/redditi-pf-2026',
+      'https://infoprecompilata.agenziaentrate.gov.it/portale/quadro-rc',
     ],
   },
   {
@@ -307,7 +308,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     sources: [
       'https://www.fedlex.admin.ch/eli/cc/2023/694/it',
-      'https://www.mef.gov.it/ministero/comunicati/2023/DM_10_10_2023_frontalieri.html',
+      'https://www.mef.gov.it/',
     ],
   },
   {
@@ -324,13 +325,13 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     answer: {
       it:
-        "Gli acquisti volontari nel 2° pilastro svizzero (Einkauf LPP) sono deducibili per il nuovo frontaliere solo limitatamente: l'art. 10 TUIR italiano non riconosce espressamente i contributi LPP eccedenti il minimo obbligatorio come oneri deducibili [fonte: Agenzia Entrate, Interpello 471/2022]. Restano deducibili in Svizzera per il calcolo dell'imposta alla fonte tramite procedura NOV (onere deducibile ex art. 89 LAID). Il nuovo frontaliere può comunque indicare in quadro RP gli oneri previdenziali obbligatori LPP trattenuti in busta paga fino al limite dell'art. 10 TUIR (5.300 €/anno). Gli acquisti volontari convengono quindi prevalentemente ai vecchi frontalieri non soggetti a IRPEF italiana.",
+        "Il trattamento fiscale di un riscatto o di un versamento volontario al 2° pilastro svizzero non è automatico: va verificato in base alla natura del versamento, al periodo d'imposta e alla documentazione disponibile; un acquisto volontario non va assimilato ai contributi LPP obbligatori trattenuti in busta paga [fonte: TUIR, art. 10, Normattiva]. Per il trattamento svizzero occorre verificare con l'istituto di previdenza e l'autorità fiscale la procedura applicabile. Prima di compilare il quadro RP, chiedere conferma a un CAF o a un professionista abilitato.",
       en:
-        "Voluntary buy-ins to the Swiss 2nd pillar (LPP Einkauf) are only partially deductible for the new cross-border worker: Italian TUIR art. 10 does not expressly allow LPP contributions exceeding the mandatory minimum as deductible charges [source: Agenzia Entrate, Ruling 471/2022]. They remain deductible in Switzerland via the NOV procedure (deductible charge under LHID art. 89). The new worker may still report mandatory LPP contributions withheld from salary in RP up to TUIR art. 10 limit (€5,300/year). Voluntary buy-ins are therefore mostly advantageous to «old» workers not subject to Italian IRPEF.",
+        "The Italian tax treatment of a Swiss 2nd-pillar buy-in or voluntary contribution is not automatic: it must be checked against the type of contribution, tax year and supporting documents; a voluntary buy-in should not be treated as equivalent to mandatory LPP contributions withheld from payroll [source: TUIR art. 10, Normattiva]. For the Swiss treatment, verify the applicable procedure with the pension institution and tax authority. Before reporting it in box RP, confirm the position with a qualified Italian tax adviser.",
       de:
-        "Freiwillige Einkäufe in die 2. Säule (BVG-Einkauf) sind für neue Grenzgänger nur beschränkt abziehbar: Der italienische TUIR Art. 10 anerkennt BVG-Beiträge über das Obligatorium hinaus nicht ausdrücklich als abzugsfähig [Quelle: Agenzia Entrate, Anfrage 471/2022]. In der Schweiz bleiben sie via NOV-Verfahren abziehbar (Art. 89 StHG). Pflicht-BVG-Beiträge im Lohnausweis können im Block RP bis zur TUIR-Art.-10-Grenze (5 300 €/Jahr) geltend gemacht werden. Freiwillige Einkäufe lohnen sich daher v. a. für alte Grenzgänger ohne IRPEF-Pflicht.",
+        "Die steuerliche Behandlung eines freiwilligen Einkaufs oder Beitrags in die schweizerische 2. Säule ist in Italien nicht automatisch: Sie muss anhand der Beitragsart, des Steuerjahres und der Belege geprüft werden; ein freiwilliger Einkauf darf nicht mit obligatorischen BVG-Beiträgen auf der Lohnabrechnung gleichgesetzt werden [Quelle: TUIR Art. 10, Normattiva]. Für die Schweizer Behandlung sind das Vorsorgeinstitut und die Steuerbehörde zur anwendbaren Regelung zu konsultieren. Vor dem Eintrag in Block RP sollte die Situation mit einer qualifizierten italienischen Steuerberatung geklärt werden.",
       fr:
-        "Les rachats volontaires au 2e pilier suisse (Einkauf LPP) ne sont que partiellement déductibles pour le nouveau frontalier : l'art. 10 TUIR italien ne reconnaît pas explicitement les cotisations LPP excédant le minimum obligatoire comme charges déductibles [source : Agenzia Entrate, réponse 471/2022]. Ils restent déductibles en Suisse via la procédure TOU (art. 89 LHID). Le nouveau frontalier peut reporter au cadre RP les cotisations LPP obligatoires retenues jusqu'à la limite TUIR art. 10 (5 300 €/an). Les rachats volontaires conviennent surtout aux anciens frontaliers non soumis à IRPEF.",
+        "Le traitement fiscal italien d'un rachat ou d'une cotisation volontaire au 2e pilier suisse n'est pas automatique : il doit être vérifié selon la nature du versement, l'exercice fiscal et les justificatifs ; un rachat volontaire ne doit pas être assimilé aux cotisations LPP obligatoires retenues sur la fiche de salaire [source : TUIR, art. 10, Normattiva]. Pour le traitement suisse, il faut vérifier la procédure applicable auprès de l'institution de prévoyance et de l'autorité fiscale. Avant de le reporter au cadre RP, confirmer la situation auprès d'un conseiller fiscal italien qualifié.",
     },
     relatedLinks: [
       {
@@ -349,7 +350,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
       },
     ],
     sources: [
-      'https://www.agenziaentrate.gov.it/portale/web/guest/-/risposta-n-471-del-2022',
+      'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1986-12-22;917',
     ],
   },
   {
@@ -375,7 +376,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
         "Oui. Pour le nouveau frontalier le 13e mois est revenu d'emploi art. 51 TUIR et entre dans la base IRPEF au cadre RC [source : instructions Redditi PF 2026]. Payé sur la fiche de décembre, la retenue suisse applique le barème annualisé ; conversion euro au taux moyen BCE de l'année (principe de caisse). Le crédit d'impôt couvre la retenue suisse. Primes one-shot et gratifications sont aussi déclarées sans régime de faveur italien. Pour les anciens frontaliers, le 13e mois reste imposé en Suisse uniquement.",
     },
     sources: [
-      'https://www.agenziaentrate.gov.it/portale/web/guest/schede/dichiarazioni/redditi-pf-2026',
+      'https://infoprecompilata.agenziaentrate.gov.it/portale/quadro-rc',
     ],
   },
   {
