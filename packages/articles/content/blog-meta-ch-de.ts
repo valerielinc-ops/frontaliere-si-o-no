@@ -6926,6 +6926,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.formazione-primo-soccorso-pediatrico-ticino.title': 'Pädiatrische Erste Hilfe: Anfrage nach einer verpflichtenden Schulung',
     'blog.article.formazione-primo-soccorso-pediatrico-ticino.excerpt': 'Im Jahr 2025 wurden 296 Eingriffe bei Kindern bis 6 Jahre registriert. Die Motion verlangt eine zertifizierte und zweijährige Ausbildung.',
     'blog.article.formazione-primo-soccorso-pediatrico-ticino.imageAlt': 'Pädiatrische Erste-Hilfe-Schulung im Tessin',
+    'blog.article.eni-prezzo-carburante-italia-svizzera.title': 'ENI schneidet Kraftstoff mit unsicherem Dominoeffekt in der Schweiz',
+    'blog.article.eni-prezzo-carburante-italia-svizzera.excerpt': 'Eni fixiert den Preis auf 2,19 €/l Diesel und 1,99 €/l Benzin (2,05 CHF und 1,88 CHF) für einen Monat, mögliche Verlängerung bis Ende des Jahres; 30 Enilive-Stationen im Tessin.',
+    'blog.article.eni-prezzo-carburante-italia-svizzera.imageAlt': 'Tankstelle in Lugano mit Preisschildern und Schweizer Flagge im Hintergrund',
 };
 
 export default blogMetaChDe;

@@ -6926,6 +6926,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.formazione-primo-soccorso-pediatrico-ticino.title': 'Paediatric first aid: mandatory training request',
     'blog.article.formazione-primo-soccorso-pediatrico-ticino.excerpt': 'In 2025, 296 interventions involving children up to 6 years old were recorded. The motion calls for certified, two-year training.',
     'blog.article.formazione-primo-soccorso-pediatrico-ticino.imageAlt': 'Pediatric first aid training in Ticino',
+    'blog.article.eni-prezzo-carburante-italia-svizzera.title': 'Eni cuts fuel, domino effect uncertain in Switzerland',
+    'blog.article.eni-prezzo-carburante-italia-svizzera.excerpt': 'Eni sets a price cap at 2,19 €/l for diesel and 1,99 €/l for petrol (2,05 CHF and 1,88 CHF) for one month, with a possible extension until the end of the year; 30 Enilive stations in Ticino.',
+    'blog.article.eni-prezzo-carburante-italia-svizzera.imageAlt': 'Fuel station in Lugano with price signs and Swiss flag in the background',
 };
 
 export default blogMetaChEn;

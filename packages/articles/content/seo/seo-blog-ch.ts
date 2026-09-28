@@ -89798,6 +89798,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eni-prezzo-carburante-italia-svizzera': {
+    title: 'Eni taglia carburante effetto domino incerto in Svizzera',
+    description: 'Eni ha introdotto un price cap su benzina e diesel in Italia a 2,19 €/l e 1,99 €/l, con possibili effetti sulle stazioni ticinesi ancora da confermare; analisi',
+    keywords: 'frontalieri, ticino, svizzera, italia, taglia, carburante, effetto, domino',
+    ogTitle: 'Eni taglia carburante effetto domino incerto in Svizzera',
+    ogDescription: 'Eni ha fissato un tetto di prezzo per benzina e diesel in Italia, mentre in Svizzera la situazione resta incerta. L\'articolo analizza il possibile effetto domino sulle reti IP e Esso, le 30 stazioni Enilive in Ticino e i passi da seguire',
+    canonicalPath: '/articoli-svizzera/eni-prezzo-carburante-italia-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eni taglia carburante effetto domino incerto in Svizzera",
+      "description": "Eni ha introdotto un price cap su benzina e diesel in Italia a 2,19 €/l e 1,99 €/l, con possibili effetti sulle stazioni ticinesi ancora da confermare; analisi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eni-prezzo-carburante-italia-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio a Lugano con cartelli dei prezzi del carburante e bandiera svizzera sullo sfondo"
+      },
+      "datePublished": "2026-09-28T11:23:17+00:00",
+      "dateModified": "2026-09-28T11:23:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eni-prezzo-carburante-italia-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
