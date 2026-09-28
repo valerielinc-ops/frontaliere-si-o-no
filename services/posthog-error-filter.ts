@@ -35,6 +35,7 @@
 import {
   UNIVERSAL_BENIGN_PATTERNS,
   BROWSER_EXTENSION_ORIGIN_PATTERN,
+  isGoogleIosAppInjectedStackOverflow,
   isOriginRedactedThirdPartyStack,
 } from './benignErrorPatterns';
 
@@ -226,10 +227,16 @@ export function createExceptionFilter() {
       }
     }
     if (isThirdPartyStackOnly(event)) return null;
+    const origins = extractStackFrameOrigins(event);
+    const rawStack = origins.length === 0 ? lookupRawErrorStack(blob) : '';
+    if (isGoogleIosAppInjectedStackOverflow(
+      blob,
+      origins.length > 0 ? origins.join('\n') : rawStack,
+      typeof navigator === 'undefined' ? '' : navigator.userAgent,
+    )) return null;
     // Zero resolved frames → fall back to the raw stack we recorded ahead of
     // PostHog's own handler and classify on its SHAPE (#4173).
-    if (extractStackFrameOrigins(event).length === 0
-      && isOriginRedactedThirdPartyStack(lookupRawErrorStack(blob))) {
+    if (origins.length === 0 && isOriginRedactedThirdPartyStack(rawStack)) {
       return null;
     }
     return event;

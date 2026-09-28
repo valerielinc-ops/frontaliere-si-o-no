@@ -31,6 +31,25 @@ interface CapturedInit {
   [key: string]: unknown;
 }
 
+const CHROME_IOS_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/153.0.8010.24 Mobile/15E148 Safari/604.1';
+
+function googleIosInjectedStackOverflowEvent(filename = 'https://frontaliereticino.ch/cerca-lavoro-ticino/case-anziani/') {
+  return {
+    event: '$exception',
+    properties: {
+      $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+      $exception_list: [{
+        type: 'RangeError',
+        value: 'Maximum call stack size exceeded.',
+        stacktrace: { frames: [
+          { filename, lineno: 226, colno: 408 },
+          { filename, lineno: 226, colno: 63 },
+        ] },
+      }],
+    },
+  };
+}
+
 /**
  * POSTHOG_INIT_CONTENT is a bot-gated IIFE that installs the standard
  * PostHog stub loader (`window.posthog=e; e._i=[]; e.init=function(...){...
@@ -127,6 +146,23 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
 
   it('keeps a real first-party TypeError', () => {
     const event = { event: '$exception', properties: { $exception_values: [{ type: 'TypeError', value: "Cannot read properties of undefined (reading 'foo')" }] } };
+    expect(beforeSend(event)).toBe(event);
+  });
+
+  it('drops the Google-injected stack overflow from Chrome for iOS (#8773)', () => {
+    Object.defineProperty(window.navigator, 'userAgent', {
+      configurable: true,
+      get: () => CHROME_IOS_UA,
+    });
+    expect(beforeSend(googleIosInjectedStackOverflowEvent())).toBeNull();
+  });
+
+  it('keeps a Chrome-iOS stack overflow that reaches a first-party asset (#8773)', () => {
+    Object.defineProperty(window.navigator, 'userAgent', {
+      configurable: true,
+      get: () => CHROME_IOS_UA,
+    });
+    const event = googleIosInjectedStackOverflowEvent('https://cdn.frontaliereticino.ch/assets/App.js');
     expect(beforeSend(event)).toBe(event);
   });
 

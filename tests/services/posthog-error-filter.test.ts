@@ -1,5 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import { createExceptionFilter } from '@/services/posthog-error-filter';
+
+const CHROME_IOS_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/153.0.8010.24 Mobile/15E148 Safari/604.1';
+const SAFARI_IOS_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1';
 
 const makeExceptionEvent = (...messages: string[]) => ({
   event: '$exception',
@@ -10,6 +13,10 @@ const makeExceptionEvent = (...messages: string[]) => ({
 
 describe('createExceptionFilter()', () => {
   const filter = createExceptionFilter();
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
 
   it('passes non-exception events through unchanged', () => {
     const event = { event: '$pageview', properties: { url: '/' } };
@@ -83,6 +90,41 @@ describe('createExceptionFilter()', () => {
 
   it('returns the event when exception payload is empty (avoid dropping by mistake)', () => {
     const event = { event: '$exception', properties: { $exception_values: [] } };
+    expect(filter(event)).toBe(event);
+  });
+
+  it('drops the Google-injected stack overflow from Chrome for iOS (#8773)', () => {
+    vi.stubGlobal('navigator', { userAgent: CHROME_IOS_UA });
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+        $exception_list: [{
+          type: 'RangeError',
+          value: 'Maximum call stack size exceeded.',
+          stacktrace: { frames: [
+            { filename: 'https://frontaliereticino.ch/cerca-lavoro-ticino/case-anziani/', lineno: 226, colno: 408 },
+            { filename: 'https://frontaliereticino.ch/cerca-lavoro-ticino/case-anziani/', lineno: 226, colno: 63 },
+          ] },
+        }],
+      },
+    };
+    expect(filter(event)).toBeNull();
+  });
+
+  it('keeps the same stack overflow outside the Google iOS apps (#8773)', () => {
+    vi.stubGlobal('navigator', { userAgent: SAFARI_IOS_UA });
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+        $exception_list: [{
+          type: 'RangeError',
+          value: 'Maximum call stack size exceeded.',
+          stacktrace: { frames: [{ filename: 'https://frontaliereticino.ch/', lineno: 226, colno: 408 }] },
+        }],
+      },
+    };
     expect(filter(event)).toBe(event);
   });
 

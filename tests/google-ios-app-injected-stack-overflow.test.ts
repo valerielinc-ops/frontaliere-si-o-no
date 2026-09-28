@@ -53,6 +53,11 @@ describe('isGoogleIosAppInjectedStackOverflow (#8773)', () => {
     expect(isGoogleIosAppInjectedStackOverflow(MESSAGE, INJECTED_STACK, UA.chromeIos)).toBe(true);
   });
 
+  it('recognises PostHog resolved frames attributed to the document URL', () => {
+    const resolvedOrigins = [DOC, DOC, DOC].join('\n');
+    expect(isGoogleIosAppInjectedStackOverflow(MESSAGE, resolvedOrigins, UA.chromeIos)).toBe(true);
+  });
+
   it('recognises the same stack from the Google app on iOS', () => {
     expect(isGoogleIosAppInjectedStackOverflow(MESSAGE, INJECTED_STACK, UA.googleAppIos)).toBe(true);
   });
