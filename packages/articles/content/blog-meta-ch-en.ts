@@ -6929,6 +6929,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.eni-prezzo-carburante-italia-svizzera.title': 'Eni cuts fuel, domino effect uncertain in Switzerland',
     'blog.article.eni-prezzo-carburante-italia-svizzera.excerpt': 'Eni sets a price cap at 2,19 €/l for diesel and 1,99 €/l for petrol (2,05 CHF and 1,88 CHF) for one month, with a possible extension until the end of the year; 30 Enilive stations in Ticino.',
     'blog.article.eni-prezzo-carburante-italia-svizzera.imageAlt': 'Fuel station in Lugano with price signs and Swiss flag in the background',
+    'blog.article.parita-sessuale-consiglio-stati.title': 'Sexual equality: motion on gender identity rejected',
+    'blog.article.parita-sessuale-consiglio-stati.excerpt': 'The Council of States rejected, by 25 votes to 19, the motion to extend the Gender Equality Act to cases involving sexual orientation and gender identity.',
+    'blog.article.parita-sessuale-consiglio-stati.imageAlt': 'View of Bellinzona, seat of the Council of States',
 };
 
 export default blogMetaChEn;

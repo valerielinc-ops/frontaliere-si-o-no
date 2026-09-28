@@ -6929,6 +6929,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.eni-prezzo-carburante-italia-svizzera.title': 'ENI coupe carburant effet domino incertain en Suisse',
     'blog.article.eni-prezzo-carburante-italia-svizzera.excerpt': 'ENI fixe le prix cap à 2,19 € / l diesel et 1,99 € / l essence (2,05 CHF et 1,88 CHF) pour un mois, prolongation possible jusqu\'à la fin de l\'année ; 30 stations Enilive au Tessin.',
     'blog.article.eni-prezzo-carburante-italia-svizzera.imageAlt': 'Station-service à Lugano avec panneaux de prix du carburant et drapeau suisse en arrière-plan',
+    'blog.article.parita-sessuale-consiglio-stati.title': 'Égalité sexuelle : la motion sur l\'identité de genre rejetée',
+    'blog.article.parita-sessuale-consiglio-stati.excerpt': 'Le Conseil des États a rejeté par 25 voix contre 19 la motion visant à étendre la loi sur l’égalité aux cas d’orientation sexuelle et d’identité de genre.',
+    'blog.article.parita-sessuale-consiglio-stati.imageAlt': 'Vue de Bellinzona, siège du Conseil des États',
 };
 
 export default blogMetaChFr;

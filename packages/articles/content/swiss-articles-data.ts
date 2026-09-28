@@ -20815,6 +20815,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'parita-sessuale-consiglio-stati',
+    category: 'novita',
+    date: '2026-09-28T11:54:41.086Z',
+    image: '/images/blog/parita-sessuale-consiglio-stati.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

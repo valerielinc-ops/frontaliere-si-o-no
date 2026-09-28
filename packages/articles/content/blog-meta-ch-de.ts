@@ -6929,6 +6929,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.eni-prezzo-carburante-italia-svizzera.title': 'ENI schneidet Kraftstoff mit unsicherem Dominoeffekt in der Schweiz',
     'blog.article.eni-prezzo-carburante-italia-svizzera.excerpt': 'Eni fixiert den Preis auf 2,19 €/l Diesel und 1,99 €/l Benzin (2,05 CHF und 1,88 CHF) für einen Monat, mögliche Verlängerung bis Ende des Jahres; 30 Enilive-Stationen im Tessin.',
     'blog.article.eni-prezzo-carburante-italia-svizzera.imageAlt': 'Tankstelle in Lugano mit Preisschildern und Schweizer Flagge im Hintergrund',
+    'blog.article.parita-sessuale-consiglio-stati.title': 'Geschlechtergleichstellung: Antrag zur Geschlechtsidentität abgelehnt',
+    'blog.article.parita-sessuale-consiglio-stati.excerpt': 'Der Ständerat hat mit 25 zu 19 Stimmen die Motion abgelehnt, das Gleichstellungsgesetz auf Fälle der sexuellen Orientierung und der Geschlechtsidentität auszuweiten.',
+    'blog.article.parita-sessuale-consiglio-stati.imageAlt': 'Ansicht von Bellinzona, Sitz des Ständerates',
 };
 
 export default blogMetaChDe;
