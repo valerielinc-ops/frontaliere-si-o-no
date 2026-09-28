@@ -107,6 +107,54 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(report.statusCounts).toEqual({ 200: 1 });
   });
 
+  it('rescues a transient failure after the normal partition pass', async () => {
+    let calls = 0;
+    const report = await crawlPartition({
+      manifest: { baseUrl: BASE, urls: [`${BASE}/rescue/`] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueConcurrency: 1,
+      rescueRetries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async () => {
+        calls += 1;
+        if (calls === 1) return new Response('', { status: 503 });
+        return new Response('<title>Rescued</title><link rel="canonical" href="https://frontaliereticino.ch/rescue/">', {
+          status: 200,
+          headers: { 'content-type': 'text/html' },
+        });
+      },
+    });
+
+    expect(calls).toBe(2);
+    expect(report.findings).toEqual([]);
+    expect(report.statusCounts).toEqual({ 200: 1 });
+  });
+
+  it('keeps a persistent transient failure actionable after rescue', async () => {
+    let calls = 0;
+    const report = await crawlPartition({
+      manifest: { baseUrl: BASE, urls: [`${BASE}/persistent-503/`] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueConcurrency: 1,
+      rescueRetries: 1,
+      rescueDelayMs: 0,
+      fetchImpl: async () => {
+        calls += 1;
+        return new Response('', { status: 503 });
+      },
+    });
+
+    expect(calls).toBe(3);
+    expect(report.findings.map((item) => item.code)).toEqual(['http-error']);
+    expect(report.statusCounts).toEqual({ 503: 1 });
+  });
+
   it('fails closed when a sitemap responds successfully with no supported entries', async () => {
     const inventory = await collectSitemapInventory({
       baseUrl: 'https://example.test',
