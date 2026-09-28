@@ -17,18 +17,29 @@
  * overlaps the nav, so Google stays in charge of where the chip goes.
  * `translate` is a transform: moving the box is not a layout shift.
  *
- * Full-viewport layers (consent dialog, vignette, offerwall) are left alone:
- * they are meant to cover the nav.
+ * Layers that span the viewport — as wide as it (≥90%) or taller than 40% of
+ * it — and take clicks are panels meant to cover the page (consent banner or
+ * dialog, vignette, offerwall, full-width anchor): they are left alone, and so
+ * is everything inside them. Only a click-through (`pointer-events: none`)
+ * spanning layer is looked into, because it merely positions what it hosts.
  */
 
 /** Space kept between the nav's bottom edge and a moved overlay. */
 export const NAV_OVERLAY_GAP_PX = 8;
-/** Overlays taller than this share of the viewport are dialogs, not chips. */
-const MAX_OVERLAY_VIEWPORT_RATIO = 0.4;
+/** Overlays taller than this share of the viewport are panels, not chips. */
+const MAX_OVERLAY_HEIGHT_RATIO = 0.4;
+/** Overlays at least this share of the viewport wide are panels, not chips. */
+const MAX_OVERLAY_WIDTH_RATIO = 0.9;
 /** Horizontal distance between probes along the nav band. */
 const PROBE_STEP_PX = 48;
 /** Scroll only re-runs discovery this often; moved overlays update every frame. */
 const SCROLL_DISCOVERY_INTERVAL_MS = 1000;
+/**
+ * Extra discovery passes after an overlay mutation: a style change often only
+ * STARTS a CSS transition, and the box reaches the nav band later without any
+ * further mutation, scroll or resize.
+ */
+const MUTATION_FOLLOW_UP_MS = [300, 1000];
 /** Diagnostic marker carrying the applied offset in px. */
 export const NAV_OVERLAY_SHIFT_ATTR = 'data-ft-nav-clear';
 
@@ -58,10 +69,11 @@ function deepElementFromPoint(x: number, y: number): Element | null {
 
 /**
  * The box to move for an element found on the nav band: the outermost
- * fixed/absolute ancestor that React did not render and that is not a
- * full-viewport layer. `null` when the hit is our own UI.
+ * fixed/absolute ancestor that React did not render and that does not span
+ * the viewport. `null` when the hit is our own UI or sits inside a panel that
+ * spans the viewport and takes clicks.
  */
-export function findCoveringOverlay(hit: Element, viewportHeight: number): HTMLElement | null {
+export function findCoveringOverlay(hit: Element, viewportWidth: number, viewportHeight: number): HTMLElement | null {
  const positioned: HTMLElement[] = [];
  let element: Element | null = hit;
  for (let depth = 0; element && depth < 16; depth += 1) {
@@ -74,8 +86,13 @@ export function findCoveringOverlay(hit: Element, viewportHeight: number): HTMLE
  element = parentAcrossShadow(element);
  }
  for (let index = positioned.length - 1; index >= 0; index -= 1) {
- const rect = positioned[index].getBoundingClientRect();
- if (rect.height > 0 && rect.height <= viewportHeight * MAX_OVERLAY_VIEWPORT_RATIO) return positioned[index];
+ const candidate = positioned[index];
+ const rect = candidate.getBoundingClientRect();
+ if (rect.height <= 0) continue;
+ const spansViewport = rect.width >= viewportWidth * MAX_OVERLAY_WIDTH_RATIO
+ || rect.height > viewportHeight * MAX_OVERLAY_HEIGHT_RATIO;
+ if (!spansViewport) return candidate;
+ if (window.getComputedStyle(candidate).pointerEvents !== 'none') return null;
  }
  return null;
 }
@@ -100,6 +117,7 @@ export function installNavOverlayGuard(nav: HTMLElement): () => void {
  let frame: number | null = null;
  let pendingDiscovery = false;
  let lastDiscovery = 0;
+ let followUps: number[] = [];
 
  const apply = (element: HTMLElement, px: number): void => {
  if (px <= 0) {
@@ -132,7 +150,7 @@ export function installNavOverlayGuard(nav: HTMLElement): () => void {
  apply(element, navOverlayShift(rect.top - applied, rect.height, navRect.top, navRect.bottom));
  });
 
- if (!discover) return;
+ if (discover) {
  lastDiscovery = Date.now();
  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -141,12 +159,18 @@ export function installNavOverlayGuard(nav: HTMLElement): () => void {
  for (const y of rows) {
  const hit = deepElementFromPoint(x, y);
  if (!hit || nav.contains(hit)) continue;
- const overlay = findCoveringOverlay(hit, viewportHeight);
+ const overlay = findCoveringOverlay(hit, viewportWidth, viewportHeight);
  if (!overlay || shifted.has(overlay)) continue;
  const rect = overlay.getBoundingClientRect();
  apply(overlay, navOverlayShift(rect.top, rect.height, navRect.top, navRect.bottom));
  }
  }
+ }
+
+ // A moved overlay can travel with no event we could observe (a CSS
+ // transition, a move inside a closed shadow root): while one is moved,
+ // re-measure it on every frame. The loop stops by itself once none is.
+ if (shifted.size > 0) schedule(false);
  };
 
  const schedule = (withDiscovery: boolean): void => {
@@ -167,7 +191,10 @@ export function installNavOverlayGuard(nav: HTMLElement): () => void {
  const observer = typeof MutationObserver === 'undefined'
  ? null
  : new MutationObserver((records) => {
- if (records.some((record) => !appRoots.some((root) => root.contains(record.target)))) schedule(true);
+ if (!records.some((record) => !appRoots.some((root) => root.contains(record.target)))) return;
+ schedule(true);
+ followUps.forEach((timer) => window.clearTimeout(timer));
+ followUps = MUTATION_FOLLOW_UP_MS.map((delay) => window.setTimeout(() => schedule(true), delay));
  });
  observer?.observe(document.documentElement, {
  childList: true,
@@ -175,9 +202,8 @@ export function installNavOverlayGuard(nav: HTMLElement): () => void {
  attributes: true,
  attributeFilter: ['class', 'style', 'hidden'],
  });
- // Overlays living in a shadow root move without a mutation we can see:
- // re-check what we moved every frame, and look for new ones at most once a
- // second while scrolling.
+ // Moved overlays are already re-measured every frame by `refresh`; scrolling
+ // additionally looks for new ones at most once a second.
  const onScroll = (): void => schedule(Date.now() - lastDiscovery >= SCROLL_DISCOVERY_INTERVAL_MS);
  const onResize = (): void => schedule(true);
  window.addEventListener('scroll', onScroll, { passive: true });
@@ -186,6 +212,8 @@ export function installNavOverlayGuard(nav: HTMLElement): () => void {
 
  return () => {
  observer?.disconnect();
+ followUps.forEach((timer) => window.clearTimeout(timer));
+ followUps = [];
  window.removeEventListener('scroll', onScroll);
  window.removeEventListener('resize', onResize);
  if (frame !== null) window.cancelAnimationFrame(frame);

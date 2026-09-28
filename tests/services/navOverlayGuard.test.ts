@@ -94,7 +94,7 @@ describe('findCoveringOverlay', () => {
  it('returns the outermost fixed box a third party injected', () => {
  setViewport(1540, 900);
  const { host, chip } = mountChip({ top: 14, left: 1017, width: 505, height: 48 });
- expect(findCoveringOverlay(chip, 900)).toBe(host);
+ expect(findCoveringOverlay(chip, 1540, 900)).toBe(host);
  });
 
  it('ignores our own React-rendered UI', () => {
@@ -102,13 +102,31 @@ describe('findCoveringOverlay', () => {
  const { host, chip } = mountChip({ top: 14, left: 1017, width: 505, height: 48 });
  markReact(host);
  markReact(chip);
- expect(findCoveringOverlay(chip, 900)).toBeNull();
+ expect(findCoveringOverlay(chip, 1540, 900)).toBeNull();
  });
 
  it('leaves full-viewport layers (consent, vignette) alone', () => {
  setViewport(1540, 900);
  const { chip } = mountChip({ top: 0, left: 0, width: 1540, height: 900 });
- expect(findCoveringOverlay(chip, 900)).toBeNull();
+ expect(findCoveringOverlay(chip, 1540, 900)).toBeNull();
+ });
+
+ it('leaves a viewport-wide but short panel alone, including its positioned children', () => {
+ setViewport(1540, 1000);
+ const { host, chip } = mountChip({ top: 0, left: 0, width: 1540, height: 300 });
+ chip.style.position = 'absolute';
+ setBox(chip, { top: 20, left: 1400, width: 120, height: 40 });
+ expect(findCoveringOverlay(host, 1540, 1000)).toBeNull();
+ expect(findCoveringOverlay(chip, 1540, 1000)).toBeNull();
+ });
+
+ it('looks inside a click-through viewport-wide layer for the chip it hosts', () => {
+ setViewport(1540, 900);
+ const { host, chip } = mountChip({ top: 0, left: 0, width: 1540, height: 900 });
+ host.style.pointerEvents = 'none';
+ chip.style.position = 'fixed';
+ setBox(chip, { top: 14, left: 1017, width: 505, height: 48 });
+ expect(findCoveringOverlay(chip, 1540, 900)).toBe(chip);
  });
 });
 
@@ -162,6 +180,40 @@ describe('installNavOverlayGuard', () => {
 
  expect(host.style.getPropertyValue('translate')).toBe('');
  expect(host.hasAttribute(NAV_OVERLAY_SHIFT_ATTR)).toBe(false);
+ teardown();
+ });
+
+ it('re-measures a moved overlay on the next frame when CSS moves it without any event', async () => {
+ setViewport(1540, 900);
+ const nav = mountNav();
+ const { host } = mountChip({ top: 14, left: 1017, width: 505, height: 48 });
+ stubHitTesting([host, nav]);
+
+ const teardown = installNavOverlayGuard(nav);
+ await flushFrames();
+ expect(host.getAttribute(NAV_OVERLAY_SHIFT_ATTR)).toBe(String(81 + NAV_OVERLAY_GAP_PX - 14));
+
+ // A CSS transition drops the chip's own top from 14px to 30px: no mutation,
+ // scroll or resize is dispatched.
+ setBox(host, { top: 30, left: 1017, width: 505, height: 48 });
+ await flushFrames();
+
+ expect(host.getAttribute(NAV_OVERLAY_SHIFT_ATTR)).toBe(String(81 + NAV_OVERLAY_GAP_PX - 30));
+ expect(host.getBoundingClientRect().top).toBeGreaterThanOrEqual(81);
+ teardown();
+ });
+
+ it('does not move a viewport-wide short panel that covers the nav', async () => {
+ setViewport(1540, 1000);
+ const nav = mountNav();
+ const { host } = mountChip({ top: 0, left: 0, width: 1540, height: 300 });
+ stubHitTesting([host, nav]);
+
+ const teardown = installNavOverlayGuard(nav);
+ await flushFrames();
+
+ expect(host.hasAttribute(NAV_OVERLAY_SHIFT_ATTR)).toBe(false);
+ expect(host.style.getPropertyValue('translate')).toBe('');
  teardown();
  });
 
