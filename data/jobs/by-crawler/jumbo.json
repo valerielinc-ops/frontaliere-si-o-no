@@ -16821,12 +16821,12 @@
     },
     {
       "id": "jumbo-0a6da029-631",
-      "slug": "verkaufsberater-in-garden-jumbo-wettingen",
+      "slug": "vendite-advisor-garden-jumbo-wettingen",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-wettingen",
-        "it": "verkaufsberater-in-garden-jumbo-wettingen",
-        "en": "verkaufsberater-in-garden-jumbo-wettingen",
-        "fr": "verkaufsberater-in-garden-jumbo-wettingen"
+        "it": "vendite-advisor-garden-jumbo-wettingen",
+        "en": "sales-advisor-garden-jumbo-wettingen",
+        "fr": "conseiller-aux-ventes-jardin-jumbo-wettingen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16896,16 +16896,30 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-wettingen"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-wettingen"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-wettingen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-wettingen"
+      ]
     },
     {
       "id": "jumbo-7cd53977-7be",
-      "slug": "verkaufsberater-in-garden-jumbo-wurenlingen",
+      "slug": "vendite-advisor-garden-jumbo-wurenlingen",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-wurenlingen",
-        "it": "verkaufsberater-in-garden-jumbo-wurenlingen",
-        "en": "verkaufsberater-in-garden-jumbo-wurenlingen",
-        "fr": "verkaufsberater-in-garden-jumbo-wurenlingen"
+        "it": "vendite-advisor-garden-jumbo-wurenlingen",
+        "en": "sales-advisor-garden-jumbo-wurenlingen",
+        "fr": "conseiller-aux-ventes-jardin-jumbo-wurenlingen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16963,11 +16977,19 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-wurenlingen-aargau-6h6hcp"
+        "verkaufsberater-in-garden-jumbo-wurenlingen-aargau-6h6hcp",
+        "verkaufsberater-in-garden-jumbo-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-garden-jumbo-wurenlingen-aargau-6h6hcp"
+          "verkaufsberater-in-garden-jumbo-wurenlingen-aargau-6h6hcp",
+          "verkaufsberater-in-garden-jumbo-wurenlingen"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-wurenlingen"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-wurenlingen"
         ]
       },
       "firstSeenAt": "2026-09-26T23:37:58.401Z",
