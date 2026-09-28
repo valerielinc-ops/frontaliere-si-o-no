@@ -108,8 +108,9 @@ describe('plate-auction sources registry schema', () => {
     expect(registry.sources.ai.accessMethod).toBe('pdf');
     expect(registry.sources.bs.status).toBe('active');
     expect(registry.sources.bs.accessMethod).toBe('pdf');
-    expect(registry.sources.gl.status).toBe('active');
-    expect(registry.sources.gl.accessMethod).toBe('json-api');
+    expect(registry.sources.gl.status).toBe('blocked');
+    expect(registry.sources.gl.accessMethod).toBe('manual');
+    expect(registry.sources.gl.notes).toMatch(/served HTML/);
     expect(registry.sources.lu.status).toBe('active');
     expect(registry.sources.ur.status).toBe('active');
     expect(registry.sources.zg.status).toBe('no-public-auction');
