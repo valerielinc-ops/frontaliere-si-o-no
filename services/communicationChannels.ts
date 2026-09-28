@@ -333,6 +333,32 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     },
   }),
   Object.freeze({
+    id: 'application-intent-reminder',
+    sender: 'scripts/send-application-intent-reminders.mjs',
+    workflow: '.github/workflows/send-application-intent-reminders.yml',
+    cron: '17 8 * * *',
+    status: 'live',
+    consentCategory: 'jobs',
+    name: {
+      it: 'Promemoria delle candidature',
+      en: 'Application reminders',
+      de: 'Bewerbungserinnerungen',
+      fr: 'Rappels de candidature',
+    },
+    what: {
+      it: 'Un promemoria sugli annunci per cui hai cliccato «Candidati», con alcune offerte simili. Il click non viene trattato come prova di una candidatura inviata.',
+      en: 'A reminder about the listings where you clicked “Apply”, with a few similar jobs. The click is not treated as proof that an application was sent.',
+      de: 'Eine Erinnerung an die Stellen, bei denen auf „Bewerben“ geklickt wurde, mit einigen ähnlichen Stellen. Der Klick gilt nicht als Nachweis einer gesendeten Bewerbung.',
+      fr: 'Un rappel des offres pour lesquelles vous avez cliqué sur « Postuler », avec quelques offres similaires. Le clic n’est pas considéré comme la preuve d’une candidature envoyée.',
+    },
+    cadence: {
+      it: 'Ogni giorno alle 08:17 UTC, una sola volta per ogni click «Candidati», almeno 48 ore dopo, e solo con un account e i promemoria attivi.',
+      en: 'Every day at 08:17 UTC, once per “Apply” click, at least 48 hours after it, and only with an account and reminders switched on.',
+      de: 'Täglich um 08:17 UTC, einmal pro Klick auf „Bewerben“, frühestens 48 Stunden danach und nur mit Konto und aktivierten Erinnerungen.',
+      fr: 'Chaque jour à 08:17 UTC, une seule fois par clic sur « Postuler », au moins 48 heures après, et seulement avec un compte et les rappels activés.',
+    },
+  }),
+  Object.freeze({
     id: 'onboarding-drip',
     sender: 'scripts/send-onboarding-drip.mjs',
     workflow: '.github/workflows/send-onboarding-drip.yml',
@@ -535,7 +561,7 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
  * formula's own `version` is bumped too. One page edit, one consent version —
  * which is the property the whole arrangement exists to buy.
  */
-export const COMMUNICATIONS_PAGE_VERSION = '2026-09-25.2';
+export const COMMUNICATIONS_PAGE_VERSION = '2026-09-28.1';
 
 /**
  * Published version → fingerprint of the page content at that version.
@@ -576,6 +602,10 @@ export const COMMUNICATIONS_PAGE_REVISIONS: Readonly<Record<string, string>> = O
   // 2026-09-25 — the advertising disclosure was aligned with the channel's
   // live state in all supported locales.
   '2026-09-25.2': '473abb454e6e1791',
+  // 2026-09-28 — the application-intent reminder (#10057) had been sending
+  // since 2026-09-27 without a row here, so the page under-reported what we
+  // send; it is now listed under the jobs category.
+  '2026-09-28.1': 'c2e8edf95491a55f',
 });
 
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */
