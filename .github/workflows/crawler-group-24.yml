@@ -4748,495 +4748,639 @@ jobs:
           failure_count=0
           missing_count=0
           systemic_count=0
-          printf '%s\n' '### Crawler group 24 outcome' >> "$summary_file"
+          tolerated_count=0
+          quarantine_today="${CRAWLER_QUARANTINE_TODAY:-$(date -u +%F)}"
+          outcomes_json=''
+          printf '%s\n' '### Crawler group 24 outcome (quarantine group)' >> "$summary_file"
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           status_file="$state_dir/mcdonald-s-switzerland.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::mcdonald-s-switzerland: no terminal status was published"
             printf '%s\n' '| mcdonald-s-switzerland | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::mcdonald-s-switzerland: invalid terminal status: $status"
               printf '%s\n' '| mcdonald-s-switzerland | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::mcdonald-s-switzerland: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| mcdonald-s-switzerland | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| mcdonald-s-switzerland | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::mcdonald-s-switzerland: crawler exited with status $status"
               printf '| mcdonald-s-switzerland | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"mcdonald-s-switzerland\":\"$outcome\""
           status_file="$state_dir/pole-sante-pays-enhaut.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::pole-sante-pays-enhaut: no terminal status was published"
             printf '%s\n' '| pole-sante-pays-enhaut | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::pole-sante-pays-enhaut: invalid terminal status: $status"
               printf '%s\n' '| pole-sante-pays-enhaut | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::pole-sante-pays-enhaut: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| pole-sante-pays-enhaut | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| pole-sante-pays-enhaut | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::pole-sante-pays-enhaut: crawler exited with status $status"
               printf '| pole-sante-pays-enhaut | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"pole-sante-pays-enhaut\":\"$outcome\""
           status_file="$state_dir/fondation-domus.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::fondation-domus: no terminal status was published"
             printf '%s\n' '| fondation-domus | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::fondation-domus: invalid terminal status: $status"
               printf '%s\n' '| fondation-domus | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::fondation-domus: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| fondation-domus | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| fondation-domus | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::fondation-domus: crawler exited with status $status"
               printf '| fondation-domus | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"fondation-domus\":\"$outcome\""
           status_file="$state_dir/cnp.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::cnp: no terminal status was published"
             printf '%s\n' '| cnp | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::cnp: invalid terminal status: $status"
               printf '%s\n' '| cnp | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::cnp: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| cnp | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| cnp | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::cnp: crawler exited with status $status"
               printf '| cnp | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"cnp\":\"$outcome\""
           status_file="$state_dir/fachkraft.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::fachkraft: no terminal status was published"
             printf '%s\n' '| fachkraft | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::fachkraft: invalid terminal status: $status"
               printf '%s\n' '| fachkraft | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::fachkraft: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| fachkraft | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| fachkraft | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::fachkraft: crawler exited with status $status"
               printf '| fachkraft | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"fachkraft\":\"$outcome\""
           status_file="$state_dir/postfinance.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::postfinance: no terminal status was published"
             printf '%s\n' '| postfinance | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::postfinance: invalid terminal status: $status"
               printf '%s\n' '| postfinance | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::postfinance: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| postfinance | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| postfinance | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::postfinance: crawler exited with status $status"
               printf '| postfinance | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"postfinance\":\"$outcome\""
           status_file="$state_dir/tsmg.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::tsmg: no terminal status was published"
             printf '%s\n' '| tsmg | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::tsmg: invalid terminal status: $status"
               printf '%s\n' '| tsmg | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::tsmg: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| tsmg | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| tsmg | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::tsmg: crawler exited with status $status"
               printf '| tsmg | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"tsmg\":\"$outcome\""
           status_file="$state_dir/anicura.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::anicura: no terminal status was published"
             printf '%s\n' '| anicura | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::anicura: invalid terminal status: $status"
               printf '%s\n' '| anicura | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::anicura: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| anicura | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| anicura | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::anicura: crawler exited with status $status"
               printf '| anicura | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"anicura\":\"$outcome\""
           status_file="$state_dir/fisba.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::fisba: no terminal status was published"
             printf '%s\n' '| fisba | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::fisba: invalid terminal status: $status"
               printf '%s\n' '| fisba | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::fisba: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| fisba | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| fisba | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::fisba: crawler exited with status $status"
               printf '| fisba | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"fisba\":\"$outcome\""
           status_file="$state_dir/tpl-lugano.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::tpl-lugano: no terminal status was published"
             printf '%s\n' '| tpl-lugano | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::tpl-lugano: invalid terminal status: $status"
               printf '%s\n' '| tpl-lugano | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::tpl-lugano: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| tpl-lugano | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| tpl-lugano | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::tpl-lugano: crawler exited with status $status"
               printf '| tpl-lugano | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"tpl-lugano\":\"$outcome\""
           status_file="$state_dir/capri-holdings.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::capri-holdings: no terminal status was published"
             printf '%s\n' '| capri-holdings | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::capri-holdings: invalid terminal status: $status"
               printf '%s\n' '| capri-holdings | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::capri-holdings: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| capri-holdings | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| capri-holdings | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::capri-holdings: crawler exited with status $status"
               printf '| capri-holdings | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"capri-holdings\":\"$outcome\""
           status_file="$state_dir/confederazione.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::confederazione: no terminal status was published"
             printf '%s\n' '| confederazione | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::confederazione: invalid terminal status: $status"
               printf '%s\n' '| confederazione | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::confederazione: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| confederazione | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| confederazione | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::confederazione: crawler exited with status $status"
               printf '| confederazione | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"confederazione\":\"$outcome\""
           status_file="$state_dir/protectas.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::protectas: no terminal status was published"
             printf '%s\n' '| protectas | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::protectas: invalid terminal status: $status"
               printf '%s\n' '| protectas | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::protectas: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| protectas | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| protectas | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
+            elif [[ ! "$quarantine_today" > "2026-10-03" ]]; then
+              echo "::warning::protectas: fallimento noto in quarantena (exit $status), tracciato da #10084 fino al 2026-10-03; escluso dal verdetto del gruppo"
+              printf '| protectas | failed (%s), noto: #10084 fino al 2026-10-03 |\n' "$status" >> "$summary_file"
+              tolerated_count=$((tolerated_count + 1))
+              outcome=failure
             else
-              echo "::error::protectas: crawler exited with status $status"
-              printf '| protectas | failed (%s) |\n' "$status" >> "$summary_file"
+              echo "::error::protectas: quarantena scaduta il 2026-10-03 senza recupero (issue #10084, exit $status); il crawler va riparato o ritirato"
+              printf '| protectas | failed (%s), quarantena scaduta il 2026-10-03 |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"protectas\":\"$outcome\""
           status_file="$state_dir/lwphr.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::lwphr: no terminal status was published"
             printf '%s\n' '| lwphr | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::lwphr: invalid terminal status: $status"
               printf '%s\n' '| lwphr | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::lwphr: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| lwphr | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| lwphr | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
+            elif [[ ! "$quarantine_today" > "2026-10-03" ]]; then
+              echo "::warning::lwphr: fallimento noto in quarantena (exit $status), tracciato da #10085 fino al 2026-10-03; escluso dal verdetto del gruppo"
+              printf '| lwphr | failed (%s), noto: #10085 fino al 2026-10-03 |\n' "$status" >> "$summary_file"
+              tolerated_count=$((tolerated_count + 1))
+              outcome=failure
             else
-              echo "::error::lwphr: crawler exited with status $status"
-              printf '| lwphr | failed (%s) |\n' "$status" >> "$summary_file"
+              echo "::error::lwphr: quarantena scaduta il 2026-10-03 senza recupero (issue #10085, exit $status); il crawler va riparato o ritirato"
+              printf '| lwphr | failed (%s), quarantena scaduta il 2026-10-03 |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"lwphr\":\"$outcome\""
           status_file="$state_dir/sunrise.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::sunrise: no terminal status was published"
             printf '%s\n' '| sunrise | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::sunrise: invalid terminal status: $status"
               printf '%s\n' '| sunrise | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::sunrise: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| sunrise | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| sunrise | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::sunrise: crawler exited with status $status"
               printf '| sunrise | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"sunrise\":\"$outcome\""
           status_file="$state_dir/knowledge-lab.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::knowledge-lab: no terminal status was published"
             printf '%s\n' '| knowledge-lab | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::knowledge-lab: invalid terminal status: $status"
               printf '%s\n' '| knowledge-lab | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::knowledge-lab: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| knowledge-lab | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| knowledge-lab | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
+            elif [[ ! "$quarantine_today" > "2026-10-03" ]]; then
+              echo "::warning::knowledge-lab: fallimento noto in quarantena (exit $status), tracciato da #10083 fino al 2026-10-03; escluso dal verdetto del gruppo"
+              printf '| knowledge-lab | failed (%s), noto: #10083 fino al 2026-10-03 |\n' "$status" >> "$summary_file"
+              tolerated_count=$((tolerated_count + 1))
+              outcome=failure
             else
-              echo "::error::knowledge-lab: crawler exited with status $status"
-              printf '| knowledge-lab | failed (%s) |\n' "$status" >> "$summary_file"
+              echo "::error::knowledge-lab: quarantena scaduta il 2026-10-03 senza recupero (issue #10083, exit $status); il crawler va riparato o ritirato"
+              printf '| knowledge-lab | failed (%s), quarantena scaduta il 2026-10-03 |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"knowledge-lab\":\"$outcome\""
           status_file="$state_dir/convit.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::convit: no terminal status was published"
             printf '%s\n' '| convit | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::convit: invalid terminal status: $status"
               printf '%s\n' '| convit | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::convit: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| convit | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| convit | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
+            elif [[ ! "$quarantine_today" > "2026-10-04" ]]; then
+              echo "::warning::convit: fallimento noto in quarantena (exit $status), tracciato da #10087 fino al 2026-10-04; escluso dal verdetto del gruppo"
+              printf '| convit | failed (%s), noto: #10087 fino al 2026-10-04 |\n' "$status" >> "$summary_file"
+              tolerated_count=$((tolerated_count + 1))
+              outcome=failure
             else
-              echo "::error::convit: crawler exited with status $status"
-              printf '| convit | failed (%s) |\n' "$status" >> "$summary_file"
+              echo "::error::convit: quarantena scaduta il 2026-10-04 senza recupero (issue #10087, exit $status); il crawler va riparato o ritirato"
+              printf '| convit | failed (%s), quarantena scaduta il 2026-10-04 |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"convit\":\"$outcome\""
           status_file="$state_dir/afry.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::afry: no terminal status was published"
             printf '%s\n' '| afry | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::afry: invalid terminal status: $status"
               printf '%s\n' '| afry | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::afry: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| afry | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| afry | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::afry: crawler exited with status $status"
               printf '| afry | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"afry\":\"$outcome\""
           status_file="$state_dir/buehler.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::buehler: no terminal status was published"
             printf '%s\n' '| buehler | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::buehler: invalid terminal status: $status"
               printf '%s\n' '| buehler | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::buehler: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| buehler | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| buehler | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::buehler: crawler exited with status $status"
               printf '| buehler | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"buehler\":\"$outcome\""
           status_file="$state_dir/postauto.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::postauto: no terminal status was published"
             printf '%s\n' '| postauto | missing status |' >> "$summary_file"
             missing_count=$((missing_count + 1))
+            outcome=missing
           else
             status="$(cat "$status_file" 2>/dev/null || true)"
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::postauto: invalid terminal status: $status"
               printf '%s\n' '| postauto | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             elif [ "$status" -eq 143 ]; then
               echo "::warning::postauto: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| postauto | systemic runner shutdown (143) |' >> "$summary_file"
               systemic_count=$((systemic_count + 1))
+              outcome=systemic
             elif [ "$status" -eq 0 ]; then
               printf '%s\n' '| postauto | success |' >> "$summary_file"
               success_count=$((success_count + 1))
+              outcome=success
             else
               echo "::error::postauto: crawler exited with status $status"
               printf '| postauto | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+              outcome=failure
             fi
           fi
-          printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
-          if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
+          outcomes_json="${outcomes_json}${outcomes_json:+,}\"postauto\":\"$outcome\""
+          printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $tolerated_count known failures in quarantine, $missing_count missing, $systemic_count systemic." >> "$summary_file"
+          if [ "$failure_count" -gt 0 ] || [ "$tolerated_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
           else
             wait_outcome=success
           fi
-          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "systemic_count=$systemic_count" "wait_outcome=$wait_outcome" >> "$output_file"
+          echo "::notice title=crawler-quarantine-outcomes::{\"schemaVersion\":1,\"group\":\"24\",\"outcomes\":{$outcomes_json}}"
+          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "systemic_count=$systemic_count" "tolerated_count=$tolerated_count" "wait_outcome=$wait_outcome" >> "$output_file"
           exit 0
       - name: Commit crawler group data atomically
         if: always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'
@@ -5363,6 +5507,7 @@ jobs:
           CRAWLER_AGGREGATE_FAILURES: ${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}
           CRAWLER_AGGREGATE_MISSING: ${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}
           CRAWLER_AGGREGATE_SYSTEMIC: ${{ steps.crawler_aggregate.outputs.systemic_count || '0' }}
+          CRAWLER_AGGREGATE_TOLERATED: ${{ steps.crawler_aggregate.outputs.tolerated_count || '0' }}
         run: |-
           set -euo pipefail
           aggregate_outcome="${CRAWLER_AGGREGATE_OUTCOME:-failure}"
@@ -5370,25 +5515,29 @@ jobs:
           failure_count="${CRAWLER_AGGREGATE_FAILURES:-invalid}"
           missing_count="${CRAWLER_AGGREGATE_MISSING:-invalid}"
           systemic_count="${CRAWLER_AGGREGATE_SYSTEMIC:-0}"
+          tolerated_count="${CRAWLER_AGGREGATE_TOLERATED:-invalid}"
           if [ "$aggregate_outcome" != "success" ]; then
             echo "::error::crawler aggregate step did not complete; group failed after preserving already-running siblings"
             exit 1
           fi
-          for count in "$success_count" "$failure_count" "$missing_count" "$systemic_count"; do
+          for count in "$success_count" "$failure_count" "$missing_count" "$systemic_count" "$tolerated_count"; do
             if ! [[ "$count" =~ ^[0-9]+$ ]]; then
               echo "::error::crawler aggregate produced an invalid count: $count"
               exit 1
             fi
           done
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then
-            echo "::error::crawler group completed with $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic; healthy siblings were preserved, but the group remains failed until incomplete crawlers are recovered"
+            echo "::error::crawler group completed with $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic; healthy siblings were preserved, $tolerated_count known failures are excluded by the quarantine registry, and the failures counted here are new, regressions or past their deadline"
             exit 1
           fi
           if [ "$systemic_count" -gt 0 ]; then
             echo "::error::crawler group interrupted: $systemic_count member(s) stopped by a runner shutdown (exit 143) before completing; $success_count succeeded and were preserved, no per-crawler issue filed (systemic class), and the interrupted crawlers keep their previous data until the next wave"
             exit 1
           fi
-          echo "✅ all $success_count crawler members completed successfully; $systemic_count systemic outcomes recorded"
+          if [ "$tolerated_count" -gt 0 ]; then
+            echo "::warning::quarantine group: $success_count succeeded, $tolerated_count known failures excluded from the verdict until their deadline (data/crawler-quarantine.json); no new failure"
+          fi
+          echo "✅ quarantine group: $success_count succeeded, $tolerated_count known failures tolerated, no new failure or regression; $systemic_count systemic outcomes recorded"
       - name: Release cross-entry crawler live-run lease
         if: always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'
         continue-on-error: true
