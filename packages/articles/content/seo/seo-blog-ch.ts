@@ -89642,6 +89642,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambiare-cassa-malati-risparmio': {
+    title: 'Cambiare cassa malati fa risparmiare fino a 633 franchi',
+    description: 'Secondo lo studio Axa, cambiare assicuratore di base permette di risparmiare in media 563 franchi al primo passaggio e 383 franchi nei successivi; in Ticino',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambiare, cassa, malati, risparmiare',
+    ogTitle: 'Cambiare cassa malati fa risparmiare fino a 633 franchi',
+    ogDescription: 'Lo studio di Axa mostra che cambiare regolarmente l\'assicuratore di base obbligatoria può far risparmiare fino a 633 franchi all\'anno in Ticino e 563 franchi in media nazionale al primo cambio, con un ulteriore risparmio medio di 383 franchi',
+    canonicalPath: '/articoli-svizzera/cambiare-cassa-malati-risparmio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambiare cassa malati fa risparmiare fino a 633 franchi",
+      "description": "Secondo lo studio Axa, cambiare assicuratore di base permette di risparmiare in media 563 franchi al primo passaggio e 383 franchi nei successivi; in Ticino",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cambiare-cassa-malati-risparmio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che confronta premi di assicurazione sanitaria su un laptop davanti a un lago svizzero"
+      },
+      "datePublished": "2026-09-28T08:28:01+00:00",
+      "dateModified": "2026-09-28T08:28:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cambiare-cassa-malati-risparmio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

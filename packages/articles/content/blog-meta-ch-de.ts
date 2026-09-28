@@ -6914,6 +6914,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-digitale-cyber-preparazione.title': 'Schweiz digital führend, aber bei der Cyberabwehr im Rückstand',
     'blog.article.svizzera-digitale-cyber-preparazione.excerpt': 'Die Schweiz führt die digitale Wettbewerbsfähigkeit mit 100/100 an, belegt bei der Cyber-Bereitschaft jedoch nur Platz 31 von 66 (5,32/10); die Angriffe haben um 35% zugenommen, und im letzten Jahr wurden 7 Vorfälle gezählt.',
     'blog.article.svizzera-digitale-cyber-preparazione.imageAlt': 'Schweizer Rechenzentrum mit Schweizer Flagge, Symbol für digitale Wettbewerbsfähigkeit',
+    'blog.article.cambiare-cassa-malati-risparmio.title': 'Ein Wechsel der Krankenkasse spart bis zu 633 Franken',
+    'blog.article.cambiare-cassa-malati-risparmio.excerpt': 'Gemäss AXA spart der erste Wechsel durchschnittlich 563 Franken pro Jahr, der nächste 383 Franken; im Tessin beträgt die anfängliche Ersparnis 633 Franken.',
+    'blog.article.cambiare-cassa-malati-risparmio.imageAlt': 'Person, die Krankenversicherungsprämien auf einem Laptop mit Blick auf einen Schweizer See vergleicht',
 };
 
 export default blogMetaChDe;

@@ -2327,6 +2327,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'maratona-bilaterali-iii-consiglio': { it: 'maratona-bilaterali-iii-consiglio', en: 'marathon-bilaterals-iii-council', de: 'marathon-bilateralen-iii-rat', fr: 'marathon-bilaterales-iii-conseil' },
  'esito-campagna-blocher': { it: 'esito-campagna-blocher', en: 'outcome-campaign-blocher', de: 'ausgang-kampagne-blocher', fr: 'resultat-campagne-blocher' },
  'svizzera-digitale-cyber-preparazione': { it: 'svizzera-digitale-cyber-preparazione', en: 'switzerland-digital-cyber-preparation', de: 'schweiz-digital-cyber-vorbereitung', fr: 'suisse-numerique-cyber-preparation' },
+ 'cambiare-cassa-malati-risparmio': { it: 'cambiare-cassa-malati-risparmio', en: 'switching-health-insurance-savings', de: 'krankenkasse-wechsel-einsparungen', fr: 'changer-assurance-maladie-economies' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

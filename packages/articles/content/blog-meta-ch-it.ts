@@ -6914,6 +6914,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-digitale-cyber-preparazione.title': 'Svizzera leader digitale ma indietro nella cyber difesa',
     'blog.article.svizzera-digitale-cyber-preparazione.excerpt': 'La Svizzera guida la competitività digitale con 100/100, ma è soltanto 31ª su 66 per preparazione cyber (5,32/10); gli attacchi sono aumentati del 35% e si contano 7 incidenti nell’ultimo anno.',
     'blog.article.svizzera-digitale-cyber-preparazione.imageAlt': 'Data center svizzero con bandiera svizzera, rappresentante competitività digitale',
+    'blog.article.cambiare-cassa-malati-risparmio.title': 'Cambiare cassa malati fa risparmiare fino a 633 franchi',
+    'blog.article.cambiare-cassa-malati-risparmio.excerpt': 'Secondo Axa, il primo cambio fa risparmiare in media 563 franchi annui, il successivo 383 franchi; in Ticino il risparmio iniziale raggiunge 633 franchi.',
+    'blog.article.cambiare-cassa-malati-risparmio.imageAlt': 'Persona che confronta premi di assicurazione sanitaria su un laptop davanti a un lago svizzero',
 };
 
 export default blogMetaChIt;
