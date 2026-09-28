@@ -1,16 +1,16 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-09-28T05:09:51.919Z",
+  "generatedAt": "2026-09-28T21:33:16.980Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5431,
-  "avgDurationMs": 5431,
+  "durationMs": 4235,
+  "avgDurationMs": 4235,
   "durationHistory": [
-    5431
+    4235
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-28",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T05:09:42.965Z",
+      "crawledAt": "2026-09-28T21:33:10.873Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -81,7 +81,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-28",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T05:09:43.987Z",
+      "crawledAt": "2026-09-28T21:33:11.765Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -92,7 +92,6 @@
       "firstSeenAt": "2026-07-29T22:14:16.881Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-compliance_officer.php",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -124,7 +123,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-28",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T05:09:44.410Z",
+      "crawledAt": "2026-09-28T21:33:12.056Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -166,7 +165,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-28",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T05:09:44.785Z",
+      "crawledAt": "2026-09-28T21:33:12.442Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -177,7 +176,6 @@
       "firstSeenAt": "2026-04-13T10:08:40.551Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
