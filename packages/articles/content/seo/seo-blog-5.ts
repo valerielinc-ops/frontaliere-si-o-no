@@ -95935,6 +95935,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mastini-fassa-hockey-2026': {
+    title: 'Mastini Varese verso Fassa: cerca primo punti in campionato',
+    description: 'Sabato 26 settembre alle 18:30 i Mastini Varese giocano a Fassa dopo l\'esordio 2-4 contro i Pirati di Appiano; la squadra cerca di sbloccare la classifica',
+    keywords: 'frontalieri, ticino, svizzera, italia, mastini, varese, verso, fassa',
+    ogTitle: 'Mastini Varese verso Fassa: cerca primo punti in campionato',
+    ogDescription: 'I Mastini Varese si preparano alla trasferta di Fassa sabato 26 settembre alle 18:30, dopo l\'esordio perso 2-4 contro i Pirati di Appiano. L\'articolo analizza la prestazione della squadra, il lavoro della difesa, la gestione delle energie',
+    canonicalPath: '/articoli-frontaliere/mastini-fassa-hockey-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mastini Varese verso Fassa: cerca primo punti in campionato",
+      "description": "Sabato 26 settembre alle 18:30 i Mastini Varese giocano a Fassa dopo l'esordio 2-4 contro i Pirati di Appiano; la squadra cerca di sbloccare la classifica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mastini-fassa-hockey-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di hockey su ghiaccio dei Mastini Varese sul ghiaccio di Fassa, Trentino-Alto Adige"
+      },
+      "datePublished": "2026-09-28T06:39:03+00:00",
+      "dateModified": "2026-09-28T06:39:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mastini-fassa-hockey-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
