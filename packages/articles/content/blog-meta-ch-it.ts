@@ -6902,6 +6902,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.friburgo-imposta-eredi-regole.title': 'Imposta successione e donazione: aliquote Friburgo',
     'blog.article.friburgo-imposta-eredi-regole.excerpt': 'Cantone di Friburgo, fisco a tre livelli: come distinguere competenze, aliquote per parentela, esenzioni, dichiarazione e termini da verificare.',
     'blog.article.friburgo-imposta-eredi-regole.imageAlt': 'Edificio di un\'amministrazione cantonale svizzera per una guida su successioni e donazioni.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: agricoltore ticinese nel calendario svizzero',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'Il 29enne di Bellinzona racconta l\'apprendistato in tedesco, la chiusura dell\'azienda con 650 galline e il lavoro intensivo fino a 15 ore al giorno.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, agricoltore ticinese di 29 anni, ritratto per il Calendario degli agricoltori svizzeri',
 };
 
 export default blogMetaChIt;

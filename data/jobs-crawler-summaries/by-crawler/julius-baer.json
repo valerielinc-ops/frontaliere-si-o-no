@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-09-27T14:49:48.966Z",
+  "generatedAt": "2026-09-28T04:55:23.159Z",
   "total": 76,
   "newCount": 0,
   "updatedCount": 76,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 48524,
-  "avgDurationMs": 48524,
+  "durationMs": 63864,
+  "avgDurationMs": 63864,
   "durationHistory": [
-    48524
+    63864
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1068,47 +1068,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer---Governance---Policies-100---f-m-d-_r-19465",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer---Governance---Policies-100---f-m-d-_r-19465",
-      "title": "Compliance Officer - Governance & Policies 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "compliance-officer-governance-policies-100-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-08-20",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "PART_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-08-20T21:32:07.803Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

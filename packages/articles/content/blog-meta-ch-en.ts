@@ -6902,6 +6902,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.friburgo-imposta-eredi-regole.title': 'Inheritance and gift tax: Fribourg rates',
     'blog.article.friburgo-imposta-eredi-regole.excerpt': 'Canton of Fribourg, three-tier taxation: how to distinguish responsibilities, rates by relationship, exemptions, tax return and deadlines to verify.',
     'blog.article.friburgo-imposta-eredi-regole.imageAlt': 'Swiss cantonal administration building for an editorial guide on inheritance and gift tax.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: Ticino farmer in the Swiss calendar',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'The 29-year-old from Bellinzona recounts the apprenticeship in German, the closure of the company with 650 hens, and the intensive work of up to 15 hours a day.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, 29-year-old Ticino farmer, portrait for the Swiss Farmers\' Calendar',
 };
 
 export default blogMetaChEn;
