@@ -32,11 +32,12 @@ describe('scheduled data workflow contracts (#8500, #8485)', () => {
       cleanupWorkflow.indexOf('- name: Commit Phase 1'),
     );
     expect(cleanupStep).toContain("JOBS_SKIP_URL_VALIDATION: '1'");
-    expect(cleanupStep).toContain('set -euo pipefail');
-    expect(cleanupStep).toContain('JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs');
+    expect(cleanupStep).toContain('bash scripts/cleanup-stale-job-slices.sh');
     expect(cleanupStep).not.toContain('cleanup-jobs.mjs || true');
     expect(cleanupStep).not.toContain('JOBS_HOUSEKEEPING_TIMEOUT_MS');
     expect(cleanupStep).not.toContain('JOBS_HOUSEKEEPING_CONCURRENCY');
+    expect(cleanupWorkflow).toContain('benchmark-cleanup-slices:');
+    expect(cleanupWorkflow).toContain("github.event.inputs.benchmark_only == 'true'");
   });
 
   it('#8485 uses the relevant fail-closed contracts instead of an unrelated full suite', () => {
