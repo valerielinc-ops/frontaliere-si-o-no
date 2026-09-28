@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   createPostHogQuotaFilter,
+  isLocalDevHost,
   POSTHOG_EVENT_SAMPLE_RATE,
   shouldCapturePostHogEvent,
 } from '@/services/posthogQuota';
@@ -10,6 +11,15 @@ function event(sessionId: string, name = 'custom_event') {
 }
 
 describe('PostHog quota sampling', () => {
+  it('recognizes only loopback/local development hosts', () => {
+    expect(isLocalDevHost('localhost')).toBe(true);
+    expect(isLocalDevHost('127.0.0.1')).toBe(true);
+    expect(isLocalDevHost('::1')).toBe(true);
+    expect(isLocalDevHost('[::1]')).toBe(true);
+    expect(isLocalDevHost('frontaliereticino.ch')).toBe(false);
+    expect(isLocalDevHost('localhost.example')).toBe(false);
+  });
+
   it('keeps replay snapshots and identity events even at zero analytics sampling', () => {
     expect(shouldCapturePostHogEvent(event('session-a', '$snapshot'), 0)).toBe(true);
     expect(shouldCapturePostHogEvent(event('session-a', '$exception'), 0)).toBe(true);
