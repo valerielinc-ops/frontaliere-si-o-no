@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import {
+  pairedRestorePaths,
+  restoreDataIntegrityFiles,
+  restorePathsForViolations,
+} from '../scripts/ci/restore-data-integrity-files.mjs';
 
 const SOURCE = readFileSync(
   resolve(import.meta.dirname, '../scripts/ci/restore-data-integrity-files.mjs'),
@@ -12,20 +17,74 @@ const WORKFLOW_SOURCE = readFileSync(
 );
 
 describe('data-integrity conflict recovery', () => {
+  const active = 'data/jobs/by-crawler/convit-holding.json';
+  const expired = 'data/jobs/expired/by-crawler/convit-holding.json';
+
   it('reads the guard payload from the environment and restores every listed file', () => {
     expect(SOURCE).toContain('process.env.BEFORE');
     expect(SOURCE).toContain('process.env.VIOLATIONS');
-    expect(SOURCE).toContain(
-      "['checkout', '--ignore-skip-worktree-bits', before, '--', violation.file]",
-    );
-    expect(SOURCE).toContain("['add', '--sparse', '--', violation.file]");
+    expect(SOURCE).toContain('pairedRestorePaths');
+    expect(SOURCE).toContain('restorePathsForViolations');
+    expect(SOURCE).toContain("['checkout', '--ignore-skip-worktree-bits', before, '--', file]");
+    expect(SOURCE).toContain("['add', '--sparse', '--', file]");
     expect(SOURCE).toContain('Array.isArray(violations)');
   });
 
   it('restores sparse-excluded files in the main guard workflow', () => {
-    expect(WORKFLOW_SOURCE).toContain(
-      'git checkout --ignore-skip-worktree-bits "$BEFORE" -- "$f"',
-    );
-    expect(WORKFLOW_SOURCE).toContain('git add --sparse -- "$f"');
+    expect(WORKFLOW_SOURCE).toContain('node scripts/ci/restore-data-integrity-files.mjs');
+    expect(WORKFLOW_SOURCE).not.toContain('while IFS= read -r -u 9 f');
+  });
+
+  it('pairs both directions only for real crawler slices and deduplicates them', () => {
+    expect(pairedRestorePaths(active)).toEqual([active, expired]);
+    expect(pairedRestorePaths(expired)).toEqual([expired, active]);
+    expect(pairedRestorePaths('data/jobs/by-crawler/convit-holding-locale-cache.json'))
+      .toEqual(['data/jobs/by-crawler/convit-holding-locale-cache.json']);
+    expect(restorePathsForViolations([{ file: active }, { file: expired }]))
+      .toEqual([active, expired]);
+  });
+
+  it('checks out and stages the active/expired pair from BEFORE', () => {
+    const calls: string[][] = [];
+    const exec = (_command: string, args: string[]) => {
+      calls.push(args);
+      return '';
+    };
+
+    restoreDataIntegrityFiles({
+      before: 'before-sha',
+      violationsText: JSON.stringify([{ file: active }]),
+      exec,
+    });
+
+    expect(calls.filter(([command]) => command === 'checkout')).toEqual([
+      ['checkout', '--ignore-skip-worktree-bits', 'before-sha', '--', active],
+      ['checkout', '--ignore-skip-worktree-bits', 'before-sha', '--', expired],
+    ]);
+    expect(calls.filter(([command]) => command === 'add')).toEqual([
+      ['add', '--sparse', '--', active],
+      ['add', '--sparse', '--', expired],
+    ]);
+  });
+
+  it('does not invent a missing historical counterpart', () => {
+    const calls: string[][] = [];
+    const exec = (_command: string, args: string[]) => {
+      calls.push(args);
+      if (args[0] === 'cat-file' && args[2] === `before-sha:${expired}`) {
+        throw new Error('missing at BEFORE');
+      }
+      return '';
+    };
+
+    restoreDataIntegrityFiles({
+      before: 'before-sha',
+      violationsText: JSON.stringify([{ file: active }]),
+      exec,
+    });
+
+    expect(calls.filter(([command]) => command === 'checkout')).toEqual([
+      ['checkout', '--ignore-skip-worktree-bits', 'before-sha', '--', active],
+    ]);
   });
 });
