@@ -89993,6 +89993,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centri-asilo-ors-subentro-ticino': {
+    title: 'Subentro ORS nei centri d\'asilo: garanzie chieste',
+    description: 'Il subentro di ORS nei centri d\'asilo ticinesi è previsto per il 1 gennaio 2027; AOZ impiega 120 persone e fino a 40 posti sono a rischio se Chiasso non riapre',
+    keywords: 'frontalieri, ticino, svizzera, italia, subentro, centri, asilo, garanzie',
+    ogTitle: 'Subentro ORS nei centri d\'asilo: garanzie chieste',
+    ogDescription: 'Il subentro di ORS nei centri federali d\'asilo, deciso dalla SEM per il 1 gennaio 2027, mette in forse il futuro di 120 dipendenti AOZ in Ticino. L\'assemblea VPOD di Balerna avverte che, senza la riapertura del centro di Chiasso, fino a 40 posti',
+    canonicalPath: '/articoli-svizzera/centri-asilo-ors-subentro-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Subentro ORS nei centri d'asilo: garanzie chieste",
+      "description": "Il subentro di ORS nei centri d'asilo ticinesi è previsto per il 1 gennaio 2027; AOZ impiega 120 persone e fino a 40 posti sono a rischio se Chiasso non riapre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centri-asilo-ors-subentro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Richiedenti asilo davanti a un centro federale d'asilo in Ticino con operatori sullo sfondo"
+      },
+      "datePublished": "2026-09-28T13:36:03+00:00",
+      "dateModified": "2026-09-28T13:36:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/centri-asilo-ors-subentro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

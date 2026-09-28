@@ -6941,6 +6941,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.joseph-deiss-neutralita-attiva.title': 'Joseph Deiss : nous voulons une neutralité active et évolutive',
     'blog.article.joseph-deiss-neutralita-attiva.excerpt': 'Plus de sept votants sur dix ont rejeté l\'initiative pour une neutralité plus rigide ; Deiss, à La Matinale RTS, souligne la nécessité d\'une neutralité active et évolutive.',
     'blog.article.joseph-deiss-neutralita-attiva.imageAlt': 'Vue du lac de Lugano avec les Alpes en arrière-plan, symbole de la neutralité active de la Suisse.',
+    'blog.article.centri-asilo-ors-subentro-ticino.title': 'Subentro ORS dans les centres d\'asile : garanties demandées',
+    'blog.article.centri-asilo-ors-subentro-ticino.excerpt': 'La reprise par ORS dans les centres fédéraux d\'asile est prévue pour le 1er janvier 2027 ; AOZ emploie 120 personnes au Tessin et, si Chiasso ne rouvre pas, jusqu\'à 40 postes sont menacés.',
+    'blog.article.centri-asilo-ors-subentro-ticino.imageAlt': 'Demandeurs d\'asile devant un centre fédéral d\'asile au Tessin avec du personnel en arrière-plan',
 };
 
 export default blogMetaChFr;

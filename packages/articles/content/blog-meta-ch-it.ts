@@ -6941,6 +6941,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.joseph-deiss-neutralita-attiva.title': 'Joseph Deiss: vogliamo una neutralità attiva e evolutiva',
     'blog.article.joseph-deiss-neutralita-attiva.excerpt': 'Oltre sette votanti su dieci hanno respinto l\'iniziativa per una neutralità più rigida; Deiss, a La Matinale RTS, sottolinea la necessità di una neutralità attiva e evolutiva.',
     'blog.article.joseph-deiss-neutralita-attiva.imageAlt': 'Vista del lago di Lugano con le Alpi sullo sfondo, simbolo di neutralità attiva della Svizzera.',
+    'blog.article.centri-asilo-ors-subentro-ticino.title': 'Subentro ORS nei centri d\'asilo: garanzie chieste',
+    'blog.article.centri-asilo-ors-subentro-ticino.excerpt': 'Il subentro di ORS nei centri federali d\'asilo è previsto per il 1 gennaio 2027; AOZ impiega 120 persone in Ticino e, se Chiasso non riapre, fino a 40 posti sono a rischio.',
+    'blog.article.centri-asilo-ors-subentro-ticino.imageAlt': 'Richiedenti asilo davanti a un centro federale d\'asilo in Ticino con operatori sullo sfondo',
 };
 
 export default blogMetaChIt;
