@@ -7,26 +7,52 @@
  * that belongs to the site's published event routes.
  */
 
-import { isoDay, slugifyEvent } from './events-utils.mjs';
+import {
+  isoDay,
+  slugifyEvent,
+  reserveLadderShape,
+  disambiguateEventSlug,
+  resolveCantonUrlKey,
+  upcomingEvents,
+  OTHER_EVENTS_COMUNE_KEY,
+  UNRESOLVED_CANTON_KEY,
+} from './events-utils.mjs';
 
-/** The route currently derived for an event. */
-export function eventRouteForHistory(event) {
-  const slug = slugifyEvent(event);
-  if (!slug) return null;
+function routeBucketForEvent(event) {
+  const rawCanton = typeof event?.canton === 'string' ? event.canton.trim() : '';
+  const rawComune = typeof event?.comune === 'string' ? event.comune.trim() : '';
   return {
-    ...(typeof event?.canton === 'string' && event.canton.trim() ? { canton: event.canton.trim() } : {}),
-    ...(typeof event?.comune === 'string' && event.comune.trim() ? { comune: event.comune.trim() } : {}),
+    canton: rawCanton ? resolveCantonUrlKey(rawCanton) : UNRESOLVED_CANTON_KEY,
+    comune: rawComune || OTHER_EVENTS_COMUNE_KEY,
+  };
+}
+
+/** The resolved route currently derived for an event. */
+export function eventRouteForHistory(event, overrides = {}) {
+  const slug = overrides.slug || event?.__historySlug || slugifyEvent(event);
+  if (!slug) return null;
+  const bucket = routeBucketForEvent(event);
+  return {
+    canton: overrides.canton || event?.__historyCanton || bucket.canton,
+    comune: overrides.comune || event?.__historyComune || bucket.comune,
     slug,
   };
 }
 
-function normalizeEventHistoryRoute(route) {
+function normalizeEventHistoryRoute(route, fallbackRoute) {
   if (!route || typeof route !== 'object') return null;
   const slug = typeof route.slug === 'string' ? route.slug.trim() : '';
   if (!slug) return null;
   return {
-    ...(typeof route.canton === 'string' && route.canton.trim() ? { canton: route.canton.trim() } : {}),
-    ...(typeof route.comune === 'string' && route.comune.trim() ? { comune: route.comune.trim() } : {}),
+    canton: resolveCantonUrlKey(
+      typeof route.canton === 'string' && route.canton.trim()
+        ? route.canton.trim()
+        : fallbackRoute?.canton || UNRESOLVED_CANTON_KEY,
+    ),
+    comune:
+      typeof route.comune === 'string' && route.comune.trim()
+        ? route.comune.trim()
+        : fallbackRoute?.comune || OTHER_EVENTS_COMUNE_KEY,
     slug,
   };
 }
@@ -38,17 +64,24 @@ function eventHistoryRouteKey(route) {
 /** Carry route history from older records into a newer event record. */
 export function preserveEventHistory(event, priorEvents = []) {
   const current = eventRouteForHistory(event);
-  const candidates = [
-    ...(Array.isArray(event?.previousRoutes) ? event.previousRoutes : []),
-    ...priorEvents.flatMap((record) => [
-      ...(Array.isArray(record?.previousRoutes) ? record.previousRoutes : []),
-      eventRouteForHistory(record),
-    ]),
-  ];
+  const candidates = [];
+  const priorFallbacks = priorEvents.map((record) => eventRouteForHistory(record));
+  for (let index = 0; index < priorEvents.length; index += 1) {
+    const record = priorEvents[index];
+    const fallback = priorFallbacks[index];
+    candidates.push(fallback);
+    for (const route of Array.isArray(record?.previousRoutes) ? record.previousRoutes : []) {
+      candidates.push(normalizeEventHistoryRoute(route, fallback));
+    }
+  }
+  const incomingFallback = priorFallbacks[0] || current;
+  for (const route of Array.isArray(event?.previousRoutes) ? event.previousRoutes : []) {
+    candidates.push(normalizeEventHistoryRoute(route, incomingFallback));
+  }
   const seen = new Set();
   const previousRoutes = [];
   for (const candidate of candidates) {
-    const route = normalizeEventHistoryRoute(candidate);
+    const route = candidate?.slug ? candidate : normalizeEventHistoryRoute(candidate, incomingFallback);
     if (!route) continue;
     if (current && eventHistoryRouteKey(route) === eventHistoryRouteKey(current)) continue;
     const key = eventHistoryRouteKey(route);
@@ -68,6 +101,70 @@ export function preserveEventHistory(event, priorEvents = []) {
 /** Merge a fresh crawl record without losing the old URL(s) for its id. */
 export function mergeEventHistory(existing, incoming) {
   return preserveEventHistory(incoming, existing ? [existing] : []);
+}
+
+/** Match the build plugin's collision-resolved slug assignment in data code. */
+export function assignEventSlugsForHistory(list, reservedBaseSlugs = new Set()) {
+  const used = new Set([...reservedBaseSlugs].map((slug) => reserveLadderShape(slug, 'evento')));
+  const slugFor = new Map();
+  for (const event of list) {
+    const base = slugifyEvent(event);
+    let slug = base;
+    let n = 2;
+    while (used.has(slug)) slug = disambiguateEventSlug(base, n++);
+    used.add(slug);
+    slugFor.set(event.id, slug);
+  }
+  return slugFor;
+}
+
+function routeGroups(events) {
+  const groups = new Map();
+  for (const event of events) {
+    const route = eventRouteForHistory(event);
+    const key = `${route.canton}|${route.comune}`;
+    const group = groups.get(key) || { canton: route.canton, comune: route.comune, events: [] };
+    group.events.push(event);
+    groups.set(key, group);
+  }
+  return groups;
+}
+
+/** Derive the route slug that the last static build assigned to each event. */
+export function publishedEventRoutes(events, todayIso) {
+  const liveRoutes = new Map();
+  const routes = new Map();
+  for (const group of routeGroups(upcomingEvents(events, todayIso)).values()) {
+    const assigned = assignEventSlugsForHistory(group.events);
+    const reserved = new Set();
+    for (const event of group.events) {
+      const route = eventRouteForHistory(event, {
+        canton: group.canton,
+        comune: group.comune,
+        slug: assigned.get(event.id),
+      });
+      routes.set(event.id, route);
+      reserved.add(route.slug);
+    }
+    liveRoutes.set(`${group.canton}|${group.comune}`, reserved);
+  }
+  for (const group of routeGroups(allEndedEvents(events, todayIso)).values()) {
+    const assigned = assignEventSlugsForHistory(
+      group.events,
+      liveRoutes.get(`${group.canton}|${group.comune}`) || new Set(),
+    );
+    for (const event of group.events) {
+      routes.set(
+        event.id,
+        eventRouteForHistory(event, {
+          canton: group.canton,
+          comune: group.comune,
+          slug: assigned.get(event.id),
+        }),
+      );
+    }
+  }
+  return routes;
 }
 
 /**

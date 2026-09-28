@@ -53,11 +53,12 @@ import { fileURLToPath } from 'node:url';
 import {
   EVENTS_SLICE_DIR,
   EVENTS_DATASET_PATH,
+  loadEventsDataset,
   normalizeText,
   resolveItalianFrontierComuni,
   haversineKm,
 } from './lib/events-utils.mjs';
-import { preserveEventHistory } from './lib/events-retention.mjs';
+import { preserveEventHistory, publishedEventRoutes } from './lib/events-retention.mjs';
 
 function readSlices() {
   if (!existsSync(EVENTS_SLICE_DIR)) return [];
@@ -288,6 +289,9 @@ export function attachItalianFrontierComuni(events) {
 }
 
 function assemble() {
+  const priorDataset = loadEventsDataset(EVENTS_DATASET_PATH);
+  const priorById = new Map(priorDataset.events.map((event) => [event.id, event]));
+  const priorRoutes = publishedEventRoutes(priorDataset.events, priorDataset.generatedAt?.slice(0, 10));
   const slices = readSlices();
   const byId = new Map();
 
@@ -306,8 +310,19 @@ function assemble() {
   const merged = [...byId.values()].map(({ __ts, ...ev }) => ev);
   const { events: deduped, mergedAway } = dedupeFuzzy(merged);
   const frontierAttached = attachItalianFrontierComuni(deduped);
+  const withHistory = deduped.map((event) => {
+    const prior = priorById.get(event.id);
+    const priorRoute = priorRoutes.get(event.id);
+    if (!prior || !priorRoute) return event;
+    return preserveEventHistory(event, [{
+      ...prior,
+      __historySlug: priorRoute.slug,
+      __historyCanton: priorRoute.canton,
+      __historyComune: priorRoute.comune,
+    }]);
+  });
 
-  const events = deduped.sort(
+  const events = withHistory.sort(
     (a, b) =>
       (a.startDate || '').localeCompare(b.startDate || '') ||
       (a.title || '').localeCompare(b.title || ''),

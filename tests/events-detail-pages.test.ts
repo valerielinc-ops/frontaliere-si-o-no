@@ -8,7 +8,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
+import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, UNRESOLVED_CANTON_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
 import {
   eventLd,
   cleanEventText,
@@ -1304,6 +1304,25 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
         fromComune: 'Genève',
       },
     ]);
+  });
+
+  it('uses the persisted unresolved/other bucket for a bare historical route', () => {
+    const event = {
+      ...EVENT,
+      id: 'myswitzerland:bucket-shift',
+      title: 'Mostra senza bucket',
+      startDate: '2026-09-27',
+      canton: 'TI',
+      comune: 'Lugano',
+      previousRoutes: [{ slug: 'mostra-senza-bucket-2026-09-26' }],
+    };
+    const assigned = assignEventSlugs([event] as never);
+    const migrations = historicalEventSlugMigrations([event] as never, 'TI', 'Lugano', assigned);
+    expect(migrations[0]).toMatchObject({
+      fromCanton: UNRESOLVED_CANTON_KEY,
+      fromComune: OTHER_EVENTS_COMUNE_KEY,
+      fromSlug: 'mostra-senza-bucket-2026-09-26',
+    });
   });
 
   it('keeps the pre-budget tie-breaker inside the published slug budget', () => {

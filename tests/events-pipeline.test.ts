@@ -31,8 +31,15 @@ import {
   recentlyEndedEvents,
   groupByComune,
   loadCantonComuni,
+  OTHER_EVENTS_COMUNE_KEY,
+  UNRESOLVED_CANTON_KEY,
 } from '../scripts/lib/events-utils.mjs';
-import { allEndedEvents, mergeEventHistory, preserveEventHistory } from '../scripts/lib/events-retention.mjs';
+import {
+  allEndedEvents,
+  mergeEventHistory,
+  preserveEventHistory,
+  publishedEventRoutes,
+} from '../scripts/lib/events-retention.mjs';
 import { mergeEventsIntoSlice } from '../scripts/lib/crawl-checkpoint.mjs';
 import { pruneFailedImageRefs } from '../scripts/push-mirrored-event-images-cdn.mjs';
 import { eventLd, zurichOffset } from '../build-plugins/eventsSeoPagesPlugin';
@@ -301,6 +308,36 @@ describe('events-utils helpers', () => {
       { canton: 'GE', comune: 'Genève', slug: 'mostra-2026-09-26' },
     ]);
     expect(preserveEventHistory(merged, [previous]).previousRoutes).toHaveLength(1);
+  });
+
+  it('persists the resolved historical bucket when an event moves from unresolved/other to a real route', () => {
+    const previous = {
+      id: 'myswitzerland:unresolved-move',
+      title: 'Mostra senza comune',
+      startDate: '2026-09-26',
+      canton: '',
+      comune: '',
+    };
+    const current = { ...previous, startDate: '2026-09-27', canton: 'TI', comune: 'Lugano' };
+    expect(mergeEventHistory(previous, current).previousRoutes?.[0]).toEqual({
+      canton: UNRESOLVED_CANTON_KEY,
+      comune: OTHER_EVENTS_COMUNE_KEY,
+      slug: 'mostra-senza-comune-2026-09-26',
+    });
+  });
+
+  it('uses the collision-resolved published slug when a sibling event changes date', () => {
+    const first = { id: 'guidle:first', title: 'Titolo uguale', startDate: '2026-09-26', canton: 'TI', comune: 'Lugano' };
+    const second = { id: 'guidle:second', title: 'Titolo uguale', startDate: '2026-09-26', canton: 'TI', comune: 'Lugano' };
+    const priorRoutes = publishedEventRoutes([first, second], '2026-09-26');
+    const current = { ...second, startDate: '2026-09-27' };
+    const merged = preserveEventHistory(current, [{ ...second, __historySlug: priorRoutes.get(second.id).slug }]);
+    expect(priorRoutes.get(second.id).slug).toBe('titolo-uguale-2026-09-26-2');
+    expect(merged.previousRoutes?.[0]).toEqual({
+      canton: 'TI',
+      comune: 'Lugano',
+      slug: 'titolo-uguale-2026-09-26-2',
+    });
   });
 
   it('retains expired and gone records in an event slice', () => {

@@ -80,7 +80,7 @@ import {
   normalizeText,
   cleanEventText,
 } from '../scripts/lib/events-utils.mjs';
-import { allEndedEvents } from '../scripts/lib/events-retention.mjs';
+import { allEndedEvents, assignEventSlugsForHistory } from '../scripts/lib/events-retention.mjs';
 export { cleanEventText } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -3787,23 +3787,7 @@ function patchInboundLink(distDir: string, relIndex: string, locale: Locale): bo
  * fighting over the same URL).
  */
 export function assignEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySet<string> = new Set()): Map<string, string> {
-  const used = new Set<string>([...reservedBaseSlugs].map((slug) => reserveLadderShape(slug, 'evento')));
-  const slugFor = new Map<string, string>();
-  for (const ev of list) {
-    const base = slugifyEvent(ev);
-    let slug = base;
-    let n = 2;
-    // The `-N` tie-breaker mints a FINISHED segment, so it has to honour the
-    // reserved ladder shape too: base `page` (a dateless event titled `Page`,
-    // which `slugifyEvent()` correctly leaves alone) would otherwise give the
-    // second sibling `page-2` — the URL of ladder page 2 of this very bucket
-    // (issue #7743). `reserveLadderShape()` runs inside the loop so the
-    // disambiguated candidate is re-checked against `used`.
-    while (used.has(slug)) slug = disambiguateEventSlug(base, n++);
-    used.add(slug);
-    slugFor.set(ev.id, slug);
-  }
-  return slugFor;
+  return assignEventSlugsForHistory(list, reservedBaseSlugs);
 }
 
 function assignLegacyEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySet<string> = new Set()): Map<string, string> {
@@ -3887,7 +3871,7 @@ export function historicalEventSlugMigrations(
     return ev.previousRoutes.flatMap((route) => {
       const fromSlug = typeof route?.slug === 'string' ? route.slug.trim() : '';
       if (!fromSlug) return [];
-      const fromCanton = route.canton ? resolveCantonUrlKey(route.canton) : canton;
+      const fromCanton = route.canton || UNRESOLVED_CANTON_KEY;
       const fromComune = route.comune || OTHER_EVENTS_COMUNE_KEY;
       if (fromCanton === canton && fromComune === comune && fromSlug === toSlug) return [];
       return [{
