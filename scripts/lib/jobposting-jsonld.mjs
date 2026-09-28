@@ -68,6 +68,24 @@ export function extractJobPostingDescription(html = '') {
 }
 
 /**
+ * Extract one scalar field from the first schema.org JobPosting found in the
+ * document. Company parsers use this for metadata such as datePosted and
+ * employmentType while keeping the JSON-LD traversal in this shared helper.
+ *
+ * @param {string} html
+ * @param {string} field
+ * @returns {unknown} raw field value, or '' when absent
+ */
+export function extractJobPostingField(html = '', field = '') {
+  const key = String(field || '').trim();
+  if (!key) return '';
+  for (const node of extractJobPostingNodes(html)) {
+    if (node[key] != null && node[key] !== '') return node[key];
+  }
+  return '';
+}
+
+/**
  * Extract the primary structured address from a schema.org JobPosting.
  *
  * Personio can expose a human-facing office label (for example "Zürich

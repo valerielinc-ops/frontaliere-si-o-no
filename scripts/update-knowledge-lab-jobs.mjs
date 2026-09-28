@@ -2,15 +2,19 @@
 /**
  * Knowledge Lab — Dedicated Crawler
  *
- * Crawls via Freshteam API (https://klab.freshteam.com/api/job_postings)
- * 1. Fetches all published jobs in one API call (with auth token) — the feed
- *    is national (no canton/region facet), Knowledge Lab is a CH-wide employer
- * 2. Keeps jobs whose branch city resolves to any of the 26 Swiss cantons;
- *    drops non-CH / unresolved (foreign) jobs
+ * Crawls the public Freshteam careers portal (https://klab.freshteam.com/jobs/)
+ * 1. Discovers published detail links from the public listing page, then reads
+ *    each detail page for the complete JobPosting description and location —
+ *    the feed is national (no canton/region facet), Knowledge Lab is a CH-wide
+ *    employer
+ * 2. Keeps jobs whose detail-page location resolves to any of the 26 Swiss
+ *    cantons; drops non-CH / unresolved (foreign) jobs
  * 3. Merges into data/jobs.json
  * 4. Updates adapter config
  *
- * No detail page fetching needed — Freshteam API includes full descriptions.
+ * Closed detail links are skipped. An open detail page without a title,
+ * location, or rich description is a source-contract failure so the existing
+ * snapshot is preserved instead of publishing a thin or mislocated job.
  */
 
 import fs from 'node:fs';
@@ -42,9 +46,11 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
-import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import {
-  parseKnowledgeLabListingJson,
+  KNOWLEDGE_LAB_FRESHTEAM_JOBS_URL,
+  parseKnowledgeLabPublicDetailHtml,
+  parseKnowledgeLabPublicListingHtml,
   buildKnowledgeLabLocalizedContent,
   isKnowledgeLabSwissRelevant,
   inferKnowledgeLabCanton,
@@ -65,9 +71,11 @@ const COMPANY_NAME = 'Knowledge Lab';
 const COMPANY_HOST = 'knowledge-lab.ch';
 const COMPANY_DOMAIN = 'knowledge-lab.ch';
 const CAREERS_URL = 'https://knowledge-lab.ch/en/who-we-are/careers';
-const FRESHTEAM_API = 'https://klab.freshteam.com/api/job_postings?status=published';
-const FRESHTEAM_TOKEN = 'dCgoskmdTBBZPx2XPT-hyQ';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const FRESHTEAM_HEADERS = {
+  Accept: 'text/html,application/xhtml+xml',
+  'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+};
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
@@ -135,20 +143,63 @@ function inferSector() {
 }
 
 async function fetchAllListings() {
-  console.log('🔍 Fetching Knowledge Lab jobs via Freshteam API...');
-  console.log(`  📡 ${FRESHTEAM_API}`);
+  console.log('🔍 Fetching Knowledge Lab jobs from the public Freshteam portal...');
+  console.log(`  📡 ${KNOWLEDGE_LAB_FRESHTEAM_JOBS_URL}`);
 
-  const json = await fetchJson(FRESHTEAM_API, {
+  const listingHtml = await fetchHtml(KNOWLEDGE_LAB_FRESHTEAM_JOBS_URL, {
     timeoutMs: TIMEOUT_MS,
-    label: 'Knowledge Lab Freshteam API',
-    headers: {
-      Authorization: `Bearer ${FRESHTEAM_TOKEN}`,
-      'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-    },
+    label: 'Knowledge Lab Freshteam public careers portal',
+    headers: FRESHTEAM_HEADERS,
   });
-  const { items, totalResults } = parseKnowledgeLabListingJson(json);
+  const listing = parseKnowledgeLabPublicListingHtml(listingHtml);
+  if (!listing.recognized) {
+    throw new Error('Freshteam public careers page was not recognized; refusing to treat an HTML contract change as an empty feed');
+  }
+  if (listing.items.length === 0) {
+    if (listing.hasOpenPositionSignals && !/no\s+jobs\s+found/i.test(listingHtml)) {
+      throw new Error('Freshteam public careers page advertises open positions but exposes no detail links');
+    }
+    console.log('📋 No published detail links on the public Freshteam portal.');
+    return [];
+  }
 
-  console.log(`📋 Total published listings: ${totalResults}`);
+  console.log(`📋 Public detail links discovered: ${listing.items.length}`);
+  const items = [];
+  for (const candidate of listing.items) {
+    let detailHtml;
+    try {
+      detailHtml = await fetchHtml(candidate.detailUrl, {
+        timeoutMs: TIMEOUT_MS,
+        label: `Knowledge Lab Freshteam detail ${candidate.jobId}`,
+        headers: FRESHTEAM_HEADERS,
+      });
+    } catch (error) {
+      // A stale list link can disappear between the listing and detail fetch.
+      // Treat only an explicit gone/not-found response as closed; all other
+      // failures remain fatal so a transient or source-wide outage is visible.
+      if (error?.status === 404 || error?.status === 410) {
+        console.warn(`⚠️ Skipping stale Freshteam detail ${candidate.detailUrl} (HTTP ${error.status}).`);
+        continue;
+      }
+      throw error;
+    }
+
+    const row = parseKnowledgeLabPublicDetailHtml(
+      detailHtml,
+      candidate.detailUrl,
+      candidate.title,
+    );
+    if (row?.closed) {
+      console.log(`ℹ️ Skipping closed Freshteam detail ${candidate.detailUrl}`);
+      continue;
+    }
+    if (!row || row.incomplete) {
+      throw new Error(`Freshteam detail ${candidate.detailUrl} did not expose a complete title, location, and rich description`);
+    }
+    items.push(row);
+  }
+
+  console.log(`📋 Open detail pages parsed: ${items.length}`);
   return items;
 }
 
@@ -245,9 +296,9 @@ function updateAdapterConfig(jobs) {
     companyHost: COMPANY_HOST,
     enabled: true,
     priority: 18,
-    crawlerModes: ['api'],
-    seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Knowledge Lab crawler uses the complete Freshteam API response (klab.freshteam.com/api/job_postings) for all published jobs with descriptions. Each vacancy is retained only when its branch city passes isTargetSwissLocation across all 26 cantons; the canton is inferred from that same city and foreign branches (including Madrid and Belgrade) are rejected. Zurich and Mendrisio are current Swiss sites, not the geographic scope.',
+    crawlerModes: ['html'],
+    seedUrls: [CAREERS_URL, KNOWLEDGE_LAB_FRESHTEAM_JOBS_URL],
+    notes: 'Dedicated Knowledge Lab crawler discovers the public Freshteam careers portal and fetches each detail page for the complete JobPosting description and location. Closed/stale detail links are skipped; an open page without complete structured content fails closed. Each vacancy is retained only when its detail-page location passes isTargetSwissLocation across all 26 cantons; the canton is inferred from that same city and foreign branches (including Madrid and Belgrade) are rejected. Zurich and Mendrisio are current Swiss sites, not the geographic scope.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -275,11 +326,11 @@ async function main() {
   console.log('  Knowledge Lab — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page:   ${CAREERS_URL}`);
-  console.log(`  Freshteam API:  ${FRESHTEAM_API}\n`);
+  console.log(`  Freshteam jobs: ${KNOWLEDGE_LAB_FRESHTEAM_JOBS_URL}\n`);
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {
-    console.log('⚠️ No listings found on Freshteam API — skipping.');
+    console.log('⚠️ No listings found on the public Freshteam portal — skipping.');
     return;
   }
 
