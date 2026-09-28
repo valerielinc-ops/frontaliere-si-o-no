@@ -6956,6 +6956,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.norme-biosicurezza-peste-suina.title': 'Nuove norme contro la peste suina africana',
     'blog.article.norme-biosicurezza-peste-suina.excerpt': 'L\'USAV fissa requisiti di biosicurezza per gli allevamenti suini: la conformità PSA offre agevolazioni nel traffico di animali in caso di epidemia.',
     'blog.article.norme-biosicurezza-peste-suina.imageAlt': 'Allevamento suino svizzero con misure di biosicurezza contro la peste suina africana',
+    'blog.article.migros-tegut-24-acquirenti.title': 'Migros cerca acquirenti per 24 negozi Tegut',
+    'blog.article.migros-tegut-24-acquirenti.excerpt': 'L\'antitrust tedesco ha autorizzato Edeka a rilevare 178 dei 202 punti vendita Tegut; restano 24 negozi da cedere, oltre a 41 punti Teo, il panificio Herzberger e un centro logistico.',
+    'blog.article.migros-tegut-24-acquirenti.imageAlt': 'Interno di un supermercato Migros in Svizzera con scaffali e casse',
 };
 
 export default blogMetaChIt;

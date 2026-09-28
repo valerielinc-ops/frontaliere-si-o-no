@@ -90188,6 +90188,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-migros-tegut-24-acquirenti': {
+    title: 'Migros cerca acquirenti per 24 negozi Tegut | Frontaliere Ticino',
+    description: 'Migros Zurigo deve trovare nuovi acquirenti per 24 supermercati Tegut in Germania dopo che l\'antitrust ha autorizzato Edeka a rilevare 178 punti vendita',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, cerca, acquirenti, negozi',
+    ogTitle: 'Migros cerca acquirenti per 24 negozi Tegut',
+    ogDescription: 'L\'autorità tedesca della concorrenza ha ridotto l\'acquisizione di Tegut da parte di Edeka a 178 dei 202 punti vendita inizialmente previsti, lasciando 24 negozi da assegnare ad altri acquirenti. Il pacchetto approvato comprende inoltre 41 punti',
+    canonicalPath: '/articoli-svizzera/migros-tegut-24-acquirenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros cerca acquirenti per 24 negozi Tegut",
+      "description": "Migros Zurigo deve trovare nuovi acquirenti per 24 supermercati Tegut in Germania dopo che l'antitrust ha autorizzato Edeka a rilevare 178 punti vendita",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/migros-tegut-24-acquirenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un supermercato Migros in Svizzera con scaffali e casse"
+      },
+      "datePublished": "2026-09-28T18:01:39+00:00",
+      "dateModified": "2026-09-28T18:01:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-tegut-24-acquirenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
