@@ -220,15 +220,9 @@ function updateBaseline(output, entry) {
   };
 }
 export function rollupTranslationObservability(history, report) {
-  const output = history?.schemaVersion === 1 ? structuredClone(history) : {
-    schemaVersion: 1,
-    weeks: [],
-    months: [],
-    baselineReports: [],
-    seenReports: [],
-    costComparisonReports: [],
-  };
+  const output = history?.schemaVersion === 1 ? structuredClone(history) : { schemaVersion: 1, weeks: [], months: [], baselineReports: [], seenReports: [] };
   output.seenReports ||= [];
+  output.costComparisonReports ||= [];
   updateBaseline(output);
   updateCostComparison(output);
   if (!validDigest(report)) throw new TypeError('Translation observability report digest mismatch');
