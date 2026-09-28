@@ -816,6 +816,41 @@ describe('enrichEventsWithTranslations — partial cache re-validation (#3427)',
     expect(cache['mercatino di natale']).toBeUndefined();
   });
 
+  // Review 5344081136: the deadline must stop the NEXT locale of a title whose
+  // first call crossed it, not only the next title.
+  it('stops before the next locale when a call crosses the deadline', async () => {
+    let now = 1_000;
+    const clock = vi.spyOn(Date, 'now').mockImplementation(() => now);
+    try {
+      const cache: Record<string, Record<string, string>> = { 'concerto sinfonico': { en: 'Old-en' } };
+      const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) => {
+        now = 5_000; // this call ends past the deadline
+        return `Translated-${targetLang}`;
+      });
+      const out = await enrichEventsWithTranslations(events, cache, translateFn, { deadline: 2_000 });
+      expect(translateFn).toHaveBeenCalledTimes(1);
+      expect(translateFn.mock.calls[0][0].targetLang).toBe('de');
+      expect(out[0].titleByLocale).toEqual({ it: 'Concerto sinfonico', en: 'Old-en', de: 'Translated-de' });
+      expect(cache['concerto sinfonico']).toEqual({ en: 'Old-en', de: 'Translated-de' });
+    } finally {
+      clock.mockRestore();
+    }
+  });
+
+  it('treats a whitespace-only cached locale as missing, in the output too', async () => {
+    const cache: Record<string, Record<string, string>> = {
+      'concerto sinfonico': { en: '   ', de: 'Good-de', fr: 'Good-fr' },
+    };
+    const translateFn = vi.fn(fakeTranslate);
+    const deferredOut = await enrichEventsWithTranslations(events, cache, translateFn, { deadline: Date.now() - 1 });
+    expect(translateFn).not.toHaveBeenCalled();
+    expect(deferredOut[0].titleByLocale).toEqual({ it: 'Concerto sinfonico', de: 'Good-de', fr: 'Good-fr' });
+
+    await enrichEventsWithTranslations(events, cache, translateFn);
+    expect(translateFn.mock.calls.map(([args]) => args.targetLang)).toEqual(['en']);
+    expect(cache['concerto sinfonico'].en).toBe('Translated-en');
+  });
+
   // #7771: un titolo gia' identico in una lingua (un festival, un toponimo)
   // esce '' dalla cascata dal #7750 in poi. Senza memo di quell'esito l'entry
   // non raggiungeva mai i tre locale, non veniva mai scritta, e questo crawler

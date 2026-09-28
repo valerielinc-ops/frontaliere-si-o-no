@@ -415,8 +415,10 @@ function isSettledTranslation(value) {
  * distinct titles were in that state, each with one or two locales already
  * translated and thrown away.
  *
- * `deadline` (epoch ms, opt-in) caps the pass: past it, titles that still
- * need the network keep their Italian text (cached locales are still used).
+ * `deadline` (epoch ms, opt-in) caps the pass. It is checked before EVERY
+ * network call, not only before a title: past it, the locales still missing
+ * keep their Italian text (cached locales are still used), including the rest
+ * of a title whose first call crossed the deadline.
  *
  * Returns a NEW array (does not mutate `events`). `translateFn`/`cache` are
  * injectable so tests can verify the enrichment without a live network call.
@@ -437,11 +439,15 @@ export async function enrichEventsWithTranslations(
     }
     let entry = cache[key] || {};
     const missing = TRANSLATE_LOCALES.filter((locale) => !isSettledTranslation(entry[locale]));
-    if (missing.length > 0 && deadline !== null && Date.now() >= deadline) {
-      deferred += 1;
-    } else if (missing.length > 0) {
+    if (missing.length > 0) {
       entry = { ...entry };
+      let asked = false;
       for (const locale of missing) {
+        if (deadline !== null && Date.now() >= deadline) {
+          deferred += 1;
+          break;
+        }
+        asked = true;
         const { text: translated, passthrough } = asTranslationResult(
           await translateFn({
             text: ev.title,
@@ -460,12 +466,12 @@ export async function enrichEventsWithTranslations(
         else if (passthrough) entry[locale] = null;
         if (translateFn === freeTranslateWithRetryDetailed) await sleep(TRANSLATE_DELAY_MS);
       }
-      if (TRANSLATE_LOCALES.some((locale) => isSettledTranslation(entry[locale]))) cache[key] = entry;
+      if (asked && TRANSLATE_LOCALES.some((locale) => isSettledTranslation(entry[locale]))) cache[key] = entry;
     }
     // I marker `null` non sono traduzioni: il locale resta scoperto e legge
     // l'italiano come prima, esattamente come quando la traduzione mancava.
     const usable = Object.fromEntries(
-      Object.entries(entry).filter(([, v]) => typeof v === 'string' && v),
+      Object.entries(entry).filter(([, v]) => typeof v === 'string' && v.trim() !== ''),
     );
     if (Object.keys(usable).length === 0) {
       out.push({ ...ev });
