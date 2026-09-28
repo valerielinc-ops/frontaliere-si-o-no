@@ -12184,6 +12184,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.canottieri-varese-nagano-patto.title': 'Canottieri Varese signs friendship pact with Nagano Rowing',
     'blog.article.canottieri-varese-nagano-patto.excerpt': 'On Friday, September 25, in a videoconference between Schiranna and Shimosuwa, the Canottieri Varese Company and the Nagano Rowing Association signed a twinning agreement for cultural exchanges, shared training and technical development, with the first showcase in 2027.',
     'blog.article.canottieri-varese-nagano-patto.imageAlt': 'Rowing boats on Lake Lugano with Ticino mountains in the background',
+    'blog.article.busto-saronno-sequestro-giocattoli.title': 'Seizure of toys and unsafe devices in Lombardy',
+    'blog.article.busto-saronno-sequestro-giocattoli.excerpt': 'Over 20 thousand toys and 300 electrical devices seized. Fines of 10 thousand euros and complaints for commercial fraud.',
+    'blog.article.busto-saronno-sequestro-giocattoli.imageAlt': 'Non-compliant toys and electrical devices seized by the Financial Guard in Busto Arsizio and Saronno.',
 };
 
 export default blogMetaEn;
