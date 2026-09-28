@@ -73,10 +73,18 @@ jobs:
           # nested pattern removes any dependence on non-cone recursion edge cases
           # (a top-level-only materialization would re-break Report-failure with
           # `Cannot find module`). Harmless if redundant.
+          #
+          # data/canton-municipalities.json: crawler-generation-dispatch.mjs
+          # reaches it through atomic-write-json -> crawler-slice-integrity ->
+          # target-swiss-locations (static JSON import). Without it the preflight
+          # died with ERR_MODULE_NOT_FOUND and no wave was launched (run
+          # 36359258430, after #10145). tests/crawler-generation-dispatch-workflow
+          # asserts the whole import closure is materialized here.
           sparse-checkout: |
             .github/workflows
             .github/corpus-workflows/contract.json
             .github/corpus-workflows/observers/workflows/crawler-generation-observer-shadow.yml
+            data/canton-municipalities.json
             functions/src/githubApiHeaders.js
             scripts
             scripts/lib

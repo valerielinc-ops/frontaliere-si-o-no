@@ -293,6 +293,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/crawler-generation-receipt.mjs',
   'scripts/lib/crawler-generation-token.mjs',
   'scripts/lib/crawler-grace-policy.mjs',
+  'scripts/lib/crawler-location-config.mjs',
   'scripts/lib/crawler-slice-integrity.mjs',
   'scripts/lib/global-data-pipeline-lease.mjs',
   'scripts/lib/job-match-key.mjs',
@@ -301,6 +302,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/prospector/country-inventory.mjs',
   'scripts/lib/slug-history-journal.mjs',
   'scripts/lib/slug-preservation-guard.mjs',
+  'scripts/lib/target-swiss-locations.mjs',
 ]);
 
 const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
