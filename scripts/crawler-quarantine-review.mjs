@@ -174,7 +174,10 @@ function performIssueActions({ decisions, registry, corpusRepo }) {
     if (d.action === 'mark-failing') {
       const deadline = quarantineDeadline({ failingSince: d.failingSince });
       const note = `Il crawler \`${d.slug}\` e' rosso nel gruppo di quarantena ${registry.group}: ${evidence}. Da ora il suo fallimento e' **noto** ed escluso dal verdetto del gruppo fino al **${deadline}** (\`data/crawler-quarantine.json\`). Alla scadenza, o dopo ${QUARANTINE_RETIRE_RED_WAVES} ondate rosse consecutive, \`scripts/crawler-quarantine-review.mjs\` lo ritira; con ${QUARANTINE_REJOIN_GREEN_WAVES} ondate verdi rientra.`;
-      let issue = findOpenIssueByExactTitle(`Crawler Failure: Run ${d.slug}`);
+      // The per-crawler reporter's issue first; then one this script opened on
+      // an earlier run whose PR never landed, so a retry does not duplicate it.
+      let issue = findOpenIssueByExactTitle(`Crawler Failure: Run ${d.slug}`)
+        ?? findOpenIssueByExactTitle(`Crawler in quarantena: ${d.slug}`);
       if (issue) comment(issue, note);
       else issue = createIssue({ title: `Crawler in quarantena: ${d.slug}`, body: note, labels: ['bug', 'crawlers'] });
       issues[d.slug] = issue;
@@ -183,8 +186,9 @@ function performIssueActions({ decisions, registry, corpusRepo }) {
       if (previous !== 'OPEN') console.log(`  riaperta #${d.issue} (${d.slug} ancora rosso)`);
     } else if (d.action === 'retire') {
       const body = `\`${d.slug}\` e' stato ritirato dalla quarantena del gruppo ${registry.group}: ${d.reason}; ${evidence}. Il fallimento era tracciato da #${d.issue}.\n\nEffetto: il crawler resta in \`data/crawler-manifest.json\` ma non e' piu' schedulato (\`retired\` in \`data/crawler-quarantine.json\`); i suoi annunci non vengono piu' aggiornati e scadono con la pulizia ordinaria.\n\nPer riattivarlo: riparare il crawler, togliere la voce \`retired\` e rigenerare i gruppi. Per eliminarlo: rimuoverlo dal manifest.`;
-      issues[d.slug] = createIssue({ title: `Crawler ritirato: ${d.slug}`, body, labels: ['bug', 'crawlers'] });
-      comment(d.issue, `Ritirato dalla quarantena: vedi #${issues[d.slug]}.`);
+      const existing = findOpenIssueByExactTitle(`Crawler ritirato: ${d.slug}`);
+      issues[d.slug] = existing ?? createIssue({ title: `Crawler ritirato: ${d.slug}`, body, labels: ['bug', 'crawlers'] });
+      if (!existing) comment(d.issue, `Ritirato dalla quarantena: vedi #${issues[d.slug]}.`);
     }
   }
   return issues;
