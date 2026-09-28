@@ -366,3 +366,46 @@ describe('bucketFinding — workflow-scope-creds conta capability, non ogni push
     )).toBe('workflow-scope-creds');
   });
 });
+
+// Verbatim dalle review che hanno alimentato l'escalation #10210. Il bucket
+// deve misurare il difetto di classe "contenuto sotto floor + unità AdSense",
+// non ogni finding che nomina noindex/indexable o una pubblicità mancante.
+const ADSENSE_THIN_CONTENT_FINDINGS: Array<[string, string]> = [
+  ['#10030', 'The new `DRIVEBY_AD_SNIPPET` and `ARTICLE_INLINE_MOBILE` units are emitted unconditionally before the `wordCount`-based robots decision, so a thin render can be `noindex,follow` while still carrying manual AdSense units; gate both new interpolations on the same indexable value used by `robots` and `endOfContentMultiplexHtml`.'],
+  ['#9492', 'the second related-search renderer still calls `endOfContentMultiplexHtml({ indexable: true })`, so thin cluster pages emitted through that path continue to receive the manual multiplex slot this PR is intended to suppress.'],
+];
+
+const NON_ADSENSE_THIN_CONTENT_FINDINGS: Array<[string, string]> = [
+  ['#10177', 'The new unquoted branch searches the entire raw attribute string instead of tokenizing attribute names, so valid `data-name=robots data-content=noindex`, data="name=robots content=noindex", and data-href=/fake are misread as real SEO attributes or links; replace the global lookup with a sequential attribute tokenizer that consumes one attribute at a time before matching name.'],
+  ['#10037', 'The indexable overflow template still renders its card list through `renderOverflowIndex(...)` without the new in-feed marker, so an overflow page with more than 12 cards misses the promised events-list ad while the other indexable lists receive it.'],
+  ['#9910', '`NOINDEX_META_RE` recognizes a false meta robots content=noindex inside a comment or script, so these two audits can classify a page indexable as historical and stop blocking its target hreflang missing.'],
+];
+
+describe('bucketFinding — adsense-thin-content richiede entrambi i segnali (#10210)', () => {
+  for (const [pr, line] of ADSENSE_THIN_CONTENT_FINDINGS) {
+    it(`${pr}: contenuto sotto floor con unità AdSense resta nel bucket`, () => {
+      expect(bucketFinding(`🔴 Important: ${line}`)).toBe('adsense-thin-content');
+    });
+  }
+
+  for (const [pr, line] of NON_ADSENSE_THIN_CONTENT_FINDINGS) {
+    it(`${pr}: noindex/indexable o ad mancante non è thin-content AdSense`, () => {
+      const bucket = bucketFinding(`🔴 Important: ${line}`);
+      expect(bucket).not.toBe('adsense-thin-content');
+      expect(bucket?.startsWith('adsense-') ?? false).toBe(false);
+    });
+  }
+
+  it('la tally per PR non riapre il bucket sui tre falsi positivi della finestra', () => {
+    const prs = [
+      ...ADSENSE_THIN_CONTENT_FINDINGS,
+      ...NON_ADSENSE_THIN_CONTENT_FINDINGS,
+    ].map(([number, line], i) => ({
+      number: Number(number.slice(1)) || 10000 + i,
+      mergedAt: '2026-09-28T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n🔴 Important: ${line}\n` }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['adsense-thin-content']).toBe(2);
+  });
+});
