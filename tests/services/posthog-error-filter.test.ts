@@ -220,6 +220,50 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBeNull();
   });
 
+  it('drops GPT errors whose entire stack is from securepubads.g.doubleclick.net', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'googletag error' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'googletag error',
+            stacktrace: {
+              frames: [
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 1, colno: 1 },
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 2, colno: 1 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBeNull();
+  });
+
+  it('keeps GPT errors with a mixed first-party + third-party stack', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'googletag error' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'googletag error',
+            stacktrace: {
+              frames: [
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 1, colno: 1 },
+                { filename: 'https://frontaliereticino.ch/assets/index-entry.js', lineno: 12, colno: 4 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBe(event);
+  });
+
   it('supports junk_drawer.raw_frame.filename fallback for unresolved frames', () => {
     const event = {
       event: '$exception',
