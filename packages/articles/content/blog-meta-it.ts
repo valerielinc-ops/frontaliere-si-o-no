@@ -12173,6 +12173,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dumenza-case-colpite-venerdi.title': 'Dumenza, tre furti nelle case e uno fallito',
     'blog.article.dumenza-case-colpite-venerdi.excerpt': 'Tre abitazioni colpite a Dumenza nella serata di venerdì 25 settembre: rubati contanti, oro e denaro. Un quarto tentativo è fallito.',
     'blog.article.dumenza-case-colpite-venerdi.imageAlt': 'Via residenziale al crepuscolo in Ticino',
+    'blog.article.kastritis-varese-bologna-assenze.title': 'Kastritis: assenze non sono alibi, lavorare subito',
+    'blog.article.kastritis-varese-bologna-assenze.excerpt': 'Dopo la sconfitta a Masnago contro la Virtus Bologna, il coach indica il lavoro e la trasferta di Scafati come priorità.',
+    'blog.article.kastritis-varese-bologna-assenze.imageAlt': 'Palazzetto di Masnago durante la partita tra Pallacanestro Varese e Virtus Bologna',
 };
 
 export default blogMetaIt;

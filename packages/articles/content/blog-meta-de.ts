@@ -12171,6 +12171,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dumenza-case-colpite-venerdi.title': 'Dumenza, drei Einbrüche in Häuser und einer gescheitert',
     'blog.article.dumenza-case-colpite-venerdi.excerpt': 'Drei Häuser wurden am Freitagabend, dem 25. September, bei Dumenza getroffen: Bargeld, Gold und Geld wurden gestohlen. Ein vierter Versuch scheiterte.',
     'blog.article.dumenza-case-colpite-venerdi.imageAlt': 'Wohnstrasse im Tessin bei Dämmerung',
+    'blog.article.kastritis-varese-bologna-assenze.title': 'Kastritis: Fehlzeiten sind keine Ausrede, sofort arbeiten',
+    'blog.article.kastritis-varese-bologna-assenze.excerpt': 'Nach der Niederlage in Masnago gegen Virtus Bologna gibt der Coach die Arbeit und die Reise von Scafati als Priorität an.',
+    'blog.article.kastritis-varese-bologna-assenze.imageAlt': 'Masnago-Arena während des Spiels zwischen Pallacanestro Varese und Virtus Bologna',
 };
 
 export default blogMetaDe;
