@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-09-27T15:19:23.410Z",
+  "assembledAt": "2026-09-28T03:43:20.995Z",
   "jobs": [
     {
       "id": "giardino-2403a22d9a66",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:19:19.427Z",
+      "crawledAt": "2026-09-28T03:43:14.652Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -131,7 +131,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:19:19.407Z",
+      "crawledAt": "2026-09-28T03:43:14.520Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -229,7 +229,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:19:19.386Z",
+      "crawledAt": "2026-09-28T03:43:14.396Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -338,7 +338,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-restaurant-manager.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T15:19:19.363Z",
+      "crawledAt": "2026-09-28T03:43:14.266Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -376,16 +376,16 @@
           "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-04T23:13:18.866Z",
+      "previousSlugs": [
+        "responsabile-del-ristorante-giardino-group-champfer"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-del-ristorante-giardino-group-champfer"
         ]
       },
-      "previousSlugs": [
-        "responsabile-del-ristorante-giardino-group-champfer"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-04T23:13:18.866Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
