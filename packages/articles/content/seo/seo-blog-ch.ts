@@ -89954,6 +89954,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-joseph-deiss-neutralita-attiva': {
+    title: 'Joseph Deiss: vogliamo una neutralità attiva e evolutiva',
+    description: 'L\'iniziativa per una neutralità più rigida è stata respinta da oltre il 70% dei votanti; Joseph Deiss, ex consigliere federale, invita a una neutralità attiva',
+    keywords: 'frontalieri, ticino, svizzera, italia, joseph, deiss, vogliamo, neutralità',
+    ogTitle: 'Joseph Deiss: vogliamo una neutralità attiva e evolutiva',
+    ogDescription: 'Il voto popolare ha bocciato l\'iniziativa per una neutralità più rigida nella Costituzione svizzera, con oltre il 70% di contrari. Joseph Deiss, ex capo del DFAE, interpreta il risultato come richiesta di una neutralità attiva e capace di evolvere',
+    canonicalPath: '/articoli-svizzera/joseph-deiss-neutralita-attiva/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Joseph Deiss: vogliamo una neutralità attiva e evolutiva",
+      "description": "L'iniziativa per una neutralità più rigida è stata respinta da oltre il 70% dei votanti; Joseph Deiss, ex consigliere federale, invita a una neutralità attiva",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/joseph-deiss-neutralita-attiva.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con le Alpi sullo sfondo, simbolo di neutralità attiva della Svizzera."
+      },
+      "datePublished": "2026-09-28T13:17:06+00:00",
+      "dateModified": "2026-09-28T13:17:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/joseph-deiss-neutralita-attiva/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
