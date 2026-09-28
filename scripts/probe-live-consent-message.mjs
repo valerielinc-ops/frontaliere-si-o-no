@@ -47,7 +47,7 @@ import {
   navigationErrorVerdict,
 } from './lib/consent-message-probe.mjs';
 
-const DEFAULT_PATHS = ['/', '/cerca-lavoro-ticino/', '/cerca-lavoro-zurigo/'];
+const DEFAULT_PATHS = ['/', '/cerca-lavoro-ticino/', '/cerca-lavoro-zurigo/']; // cathedral-allow: live consent probe path
 const WAIT_MS = 30_000;
 const ATTEMPTS = 2;
 

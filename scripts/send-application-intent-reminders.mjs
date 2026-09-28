@@ -64,7 +64,7 @@ function jobPageUrl(job, locale = 'it') {
   const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
   return slug
     ? `${BASE_URL}${localePathPrefix(locale)}/${boardPath}/${slug}/`
-    : `${BASE_URL}/cerca-lavoro-ticino/`;
+    : `${BASE_URL}/cerca-lavoro-ticino/`; // cathedral-allow: application fallback URL
 }
 
 function profileUrl(locale = 'it') {

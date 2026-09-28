@@ -44,9 +44,9 @@ export const BING_INDEXNOW_REMEDIATION_URLS = [
 // outside the sitemap crawl: retired aliases and edge redirects are checked
 // for their HTTP status, while the employer landing is checked as indexable.
 export const BING_ROUTE_CONTRACTS = [
-  { path: '/jobs-im-tessin/', expectedStatus: 301, location: '/de/jobs-im-tessin/' },
+  { path: '/jobs-im-tessin/', expectedStatus: 301, location: '/de/jobs-im-tessin/' }, // cathedral-allow: legacy SEO route contract
   { path: '/grenzgaenger-artikel/', expectedStatus: 301, location: '/de/grenzgaenger-artikel/' },
-  { path: '/trouver-emploi-tessin/', expectedStatus: 301, location: '/fr/trouver-emploi-tessin/' },
+  { path: '/trouver-emploi-tessin/', expectedStatus: 301, location: '/fr/trouver-emploi-tessin/' }, // cathedral-allow: legacy SEO route contract
   { path: '/nav:pension/', expectedStatus: 301, location: '/tasse-e-pensione/calcola-previdenza/' },
   { path: '/servizi-partner/', expectedStatus: 301, location: '/' },
   { path: '/en/partner-services/', expectedStatus: 301, location: '/en/' },
