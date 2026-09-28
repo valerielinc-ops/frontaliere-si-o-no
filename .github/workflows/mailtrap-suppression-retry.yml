@@ -47,6 +47,8 @@ jobs:
     # MIN_API_CALL_INTERVAL_MS=6s (mailtrapSuppressionsApi.mjs) => up to
     # ~160min; 200min leaves margin instead of killing the job mid-run.
     timeout-minutes: 200
+    env:
+      APPROVAL_TRUSTED_SCHEDULE: 'true'
 
     steps:
       - name: Checkout
@@ -107,8 +109,8 @@ jobs:
           # Scheduled runs apply; manual runs use the chosen mode (default
           # dry-run — safe to inspect before acting).
           MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode || 'dry-run' }}
-          ALLOW_SIDE_EFFECT: 'true'
-          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+          ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
         run: |
           if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
             MODE=dry-run

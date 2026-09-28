@@ -96,8 +96,10 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 
 ### Abort senza PR (no fix forzato)
 
-- Root cause non determinabile con confidenza → commento "serve indagine umana" + termina.
-- **`no-pr-no-root-cause` è ammesso solo per un difetto code/site-owned riproducibile la cui causa resta indeterminata dopo la diagnosi.** Target assente o cross-repo, già risolto/non riproducibile, blocker di fonte/capability o sola prova runtime mancante → usa l’esito/label specifico (`already-fixed`, `blocked-*` o `automation-deferred`) con evidenza e prossimo passo; non usarlo come contenitore di «nessuna PR sicura».
+- **Valgono solo i codici `FIX_OUTCOME` di `issue-fix.yml` (step 8):** `pr-created`, `blocked-workflows-scope`, `blocked-secrets`, `blocked-admin-settings`, `no-root-cause`, `overlap-skip`, `pr-already-open`, `already-fixed`, `revenue-tracker-manual`. Un codice inventato non è un verdetto: il drainer non lo parcheggia (`NON_RETRYABLE`) e ri-accoda la issue. `automation-deferred` è una label, non un esito.
+- Root cause non determinabile con confidenza → commento "Root cause non determinata: <cosa hai trovato>" con `<!-- FIX_OUTCOME: no-root-cause -->` + `<!-- AUTOMATION_DEFERRED: technical -->`, label `automation-deferred`, termina. Nessuna domanda al proprietario.
+- Già risolto su `main` → `already-fixed` + `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->`. Capability mancante → il `blocked-*` che la nomina.
+- Issue nel repo sbagliato → migrala nel repo proprietario, collega le schede, chiudi l'errata con evidenza (`DECISIONS.md`). Manca solo il dato → strumenta, non parcheggiare (`DECISIONS.md`).
 - **I segreti CI SONO**: Remote Config carica `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri parametri in `process.env`. Implementa i fix che li richiedono; `blocked-secrets` vale **solo** per variabile davvero vuota, nominando la variabile (`RC_TO_ENV`).
   - **Eccezione — rotazione di credenziali.** L'autorizzazione copre l'USO, non la ROTAZIONE (`DECISIONS.md`). Richieste di ruotare/rigenerare/revocare restano umane: commento "rotazione di credenziali — resta una decisione umana (DECISIONS.md)" e termina PRIMA del diff.
 - **Capability-guard scope `.github/workflows/**` (turno ~1, PRIMA di implementare).** Senza `APP_TOKEN_WORKFLOWS == 'true'` il push workflow fallisce **sempre**: posta il diff + "serve scope `workflows` / mano umana" e **TERMINA SUBITO**. Repo-setting/branch-protection/admin-API (403) → `blocked-admin-settings`.
@@ -194,7 +196,9 @@ Pattern ricorrenti rientrano.
 - **Telemetria (deterministica, senza agente)**: marker `<!-- FIX_OUTCOME: <code> -->` (codici: step 8) e reviewer-finding 🔴/🟡/❓ nei review body. Store = GitHub.
 - **Aggregazione**: `scripts/ci/harvest-agent-lessons.mjs` (deterministica, daily), finestra 14gg, soglia ≥3; dopo dedup dei doc tiene solo cluster `novel`.
 - **Proposta (1 turno Codex Luna Max, solo se `has_novel`)**: aggiunte chirurgiche → **1 PR** `lessons/auto-harvest-*`; una sola proposta pendente.
-- **Gate umano OBBLIGATORIO**: PR di regole mai auto-mergiata; review umana. Solo `.md`, mai logica.
+- **Registro**: ogni decisione su un cluster (`added`/`declined`) va in `scripts/ci/lessons-harvester-registry.json` nella stessa PR; un cluster registrato torna `novel` solo con ≥ soglia esempi nuovi dopo la decisione.
+- **Gate = quello di ogni PR** (`DECISIONS.md`): `tests` verde, `## LGTM` del reviewer sulla stessa HEAD, auto-merge nativo. Nessun gate umano. Solo `.md` e registro, mai logica.
+- **Esito verificato**: Codex scrive `lessons-harvester-outcome.txt` (`pr:<N>` / `none:<motivo>` / `failed:<causa>`); lo step successivo lo confronta con PR e branch reali e rende rossa la run se manca o non torna.
 - **Kill-switch**: disabilita `lessons-harvester.yml` da Actions UI; oppure alza `THRESHOLD`/abbassa `WINDOW_DAYS` via `workflow_dispatch`.
 
 ## Guardrail (da AGENTS.md, vincolanti)

@@ -57,8 +57,9 @@ describe('decideNoCodeDeltaTier', () => {
 
   it.each([
     ['fingerprint differs', { fpHead: FP, fpPrior: OTHER_FP }],
-    ['head fingerprint unknown', { fpHead: 'NULL', fpPrior: FP }],
-    ['prior fingerprint unknown', { fpHead: FP, fpPrior: '' }],
+    ['head fingerprint unknown', { fpHead: 'UNKNOWN', fpPrior: FP }],
+    ['prior fingerprint unknown', { fpHead: FP, fpPrior: 'UNKNOWN' }],
+    ['legacy NULL fingerprint', { fpHead: 'NULL', fpPrior: FP }],
   ])('falls back to a full review when the %s', (_label, fps) => {
     expect(decideNoCodeDeltaTier({ reviews: [lgtm], headSha: HEAD, priorCommit: PRIOR, ...fps }).tier).toBe('full');
   });
@@ -233,6 +234,12 @@ describe('tests.yml wiring', () => {
     expect(tier).toContain('BODY_REREVIEW');
   });
 
+  it('uses UNKNOWN when fingerprint calculation fails', () => {
+    const tier = byId('tier')?.run || '';
+    expect(tier).toContain('|| echo UNKNOWN');
+    expect(tier).not.toContain('|| echo NULL');
+  });
+
   it('publishes the carry without a model and keeps the model off that tier', () => {
     const carry = byId('carry_forward_review');
     expect(carry?.if).toContain("steps.tier.outputs.tier == 'carry-forward'");
@@ -247,6 +254,24 @@ describe('tests.yml wiring', () => {
   it('feeds the guard with the body edit time', () => {
     expect(byId('guard')?.run).toContain('lastEditedAt');
     expect(byId('guard')?.run).toContain('--body-edited-at');
+  });
+});
+
+describe('pr-contribution-fingerprint CLI', () => {
+  const script = fileURLToPath(new URL('../scripts/ci/pr-contribution-fingerprint.mjs', import.meta.url));
+
+  it('prints UNKNOWN when the contribution cannot be calculated', () => {
+    const result = spawnSync(process.execPath, [script, HEAD], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no',
+        TRUSTED_GH_BIN: '/usr/bin/false',
+      },
+    });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toBe('UNKNOWN\n');
   });
 });
 
@@ -307,7 +332,7 @@ describe('tier step: fingerprint before the code delta (#9968)', () => {
       writeFileSync(join(ci, 'pr-contribution-fingerprint.mjs'), [
         "import { readFileSync } from 'node:fs';",
         "const fps = JSON.parse(readFileSync(new URL('./fps.json', import.meta.url), 'utf8'));",
-        "process.stdout.write(`${fps[process.argv[2]] ?? 'NULL'}\\n`);",
+        "process.stdout.write(`${fps[process.argv[2]] ?? 'UNKNOWN'}\\n`);",
         '',
       ].join('\n'));
       writeFileSync(join(dir, 'gh.cjs'), [
@@ -381,8 +406,8 @@ describe('tier step: fingerprint before the code delta (#9968)', () => {
   });
 
   it.each([
-    ['the HEAD fingerprint is NULL', { [PRIOR_9968]: SAME }],
-    ['both fingerprints are NULL', {}],
+    ['the HEAD fingerprint is UNKNOWN', { [PRIOR_9968]: SAME }],
+    ['both fingerprints are UNKNOWN', {}],
   ])('keeps the incremental review when %s', (_label, fps: Record<string, string>) => {
     const run = runTier({ reviewPages: reviewsOneToFour, fps });
     expect(run.status, run.stderr).toBe(0);

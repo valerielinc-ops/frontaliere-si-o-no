@@ -6932,6 +6932,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parita-sessuale-consiglio-stati.title': 'Sexual equality: motion on gender identity rejected',
     'blog.article.parita-sessuale-consiglio-stati.excerpt': 'The Council of States rejected, by 25 votes to 19, the motion to extend the Gender Equality Act to cases involving sexual orientation and gender identity.',
     'blog.article.parita-sessuale-consiglio-stati.imageAlt': 'View of Bellinzona, seat of the Council of States',
+    'blog.article.misure-poverta-lavoro-svizzera.title': 'Caritas: more support for the working poor',
+    'blog.article.misure-poverta-lavoro-svizzera.excerpt': 'Nearly 360\'000 workers in Switzerland, 8,8% of the workforce, do not earn enough to meet family needs: Caritas proposes a minimum wage and targeted support.',
+    'blog.article.misure-poverta-lavoro-svizzera.imageAlt': 'Swiss worker reviews a family budget at a kitchen table',
+    'blog.article.swiss-starlink-flotta.title': 'Swiss brings Starlink to its entire fleet by the end of 2029',
+    'blog.article.swiss-starlink-flotta.excerpt': 'Swiss has activated Starlink on the first Airbus A320neo: the Zurich-Thessaloniki flight launches the plan to connect the entire fleet by the end of 2029.',
+    'blog.article.swiss-starlink-flotta.imageAlt': 'Swiss aircraft above the clouds with satellite internet connectivity',
+    'blog.article.joseph-deiss-neutralita-attiva.title': 'Joseph Deiss: we want an active and evolutionary neutrality',
+    'blog.article.joseph-deiss-neutralita-attiva.excerpt': 'Over seven out of ten voters rejected the initiative for stricter neutrality; Deiss, at La Matinale RTS, stresses the need for active and evolutionary neutrality.',
+    'blog.article.joseph-deiss-neutralita-attiva.imageAlt': 'View of Lake Lugano with the Alps in the background, symbol of Switzerland\'s active neutrality.',
+    'blog.article.centri-asilo-ors-subentro-ticino.title': 'ORS takeover at asylum centers: guarantees requested',
+    'blog.article.centri-asilo-ors-subentro-ticino.excerpt': 'ORS’s takeover of the federal asylum centers is scheduled for January 1, 2027; AOZ employs 120 people in Ticino and, if Chiasso does not reopen, up to 40 positions are at risk.',
+    'blog.article.centri-asilo-ors-subentro-ticino.imageAlt': 'Asylum seekers in front of a federal reception centre in Ticino with staff in the background',
+    'blog.article.lingotti-oro-export-svizzera.title': 'Gold bars: Italian exports to Switzerland +57%',
+    'blog.article.lingotti-oro-export-svizzera.excerpt': 'In August, Italian exports outside the EU grew by 16.1%: +57% to Switzerland, with gold bars indicated by ISTAT. Detailed data will come later.',
+    'blog.article.lingotti-oro-export-svizzera.imageAlt': 'Gold bars linked to Italian exports to Switzerland',
 };
 
 export default blogMetaChEn;
