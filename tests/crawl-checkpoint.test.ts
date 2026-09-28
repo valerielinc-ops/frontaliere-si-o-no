@@ -133,7 +133,7 @@ describe('mergeEventsIntoSlice', () => {
     expect(byId['guidle:b']).toBeDefined(); // survived, untouched this run
   });
 
-  it('drops ids explicitly marked gone', () => {
+  it('retains ids explicitly marked gone for the permanent SEO archive', () => {
     mergeEventsIntoSlice({
       slicePath,
       sourceKey: 'guidle',
@@ -152,10 +152,10 @@ describe('mergeEventsIntoSlice', () => {
       crawledAt: '2026-07-03T00:00:00.000Z',
     });
 
-    expect(total).toBe(0);
+    expect(total).toBe(1);
   });
 
-  it('prunes events whose last relevant date has already passed', () => {
+  it('retains events whose last relevant date has already passed', () => {
     mergeEventsIntoSlice({
       slicePath,
       sourceKey: 'guidle',
@@ -173,7 +173,7 @@ describe('mergeEventsIntoSlice', () => {
     const ids = written.events.map((e: any) => e.id);
     expect(ids).toContain('guidle:future');
     expect(ids).toContain('guidle:ongoing');
-    expect(ids).not.toContain('guidle:past');
+    expect(ids).toContain('guidle:past');
   });
 
   it('recovers from a corrupt existing slice by starting fresh instead of crashing', () => {

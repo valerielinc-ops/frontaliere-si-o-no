@@ -692,7 +692,14 @@
       "imageUrl": "/images/events/ge-agenda-florian-luthi-fantomes-meteores.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-27T11:32:02.926Z"
+      "crawledAt": "2026-09-27T11:32:02.926Z",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "florian-luthi-fantomes-meteores-2026-09-26"
+        }
+      ]
     },
     {
       "id": "ge-agenda:vendredis-bien",

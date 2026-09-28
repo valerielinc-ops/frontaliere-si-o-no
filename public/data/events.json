@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-27T11:34:13.719Z",
-  "totalEvents": 8795,
+  "generatedAt": "2026-09-28T08:51:58.808Z",
+  "totalEvents": 8796,
   "events": [
     {
       "id": "myswitzerland:e5955a176fa94905a6d8d2906b0bad80",
@@ -19216,7 +19216,14 @@
         "lng": 9.5339709
       },
       "recurring": true,
-      "imageUrl": "/images/events/myswitzerland-a088145743a1490a93ff58eb52641424.jpg"
+      "imageUrl": "/images/events/myswitzerland-a088145743a1490a93ff58eb52641424.jpg",
+      "previousRoutes": [
+        {
+          "canton": "GR",
+          "comune": "Chur",
+          "slug": "open-training-acroyoga-partner-and-aerial-2026-07-06-2"
+        }
+      ]
     },
     {
       "id": "myswitzerland:2d6cbc7bb2324ca89c5ce383f613f206",
@@ -62272,6 +62279,43 @@
       "imageUrl": "/images/events/myswitzerland-ece73dd93d4c40dfa66414a0e403cada.jpg"
     },
     {
+      "id": "myswitzerland:f6460648604d4fa4a4544b1135469967",
+      "title": "MILKSHAKE - Women only party Zurich - ultimate girls night",
+      "titleByLocale": {
+        "it": "MILKSHAKE - Women only party Zurich - ultimate girls night",
+        "en": "MILKSHAKE - Women only party Zurich - ultimate girls night",
+        "de": "MILKSHAKE - Women only party Zurich - ultimate girls night",
+        "fr": "MILKSHAKE - Women only party Zurich - ultimate girls night"
+      },
+      "description": "La festa solo per donne di Zurigo! drink di benvenuto, terrazza sul tetto e molto altro al SOHO. Drink di benvenuto. Musica degli anni ’80, ’90 00s.",
+      "descriptionByLocale": {
+        "it": "La festa solo per donne di Zurigo! drink di benvenuto, terrazza sul tetto e molto altro al SOHO. Drink di benvenuto. Musica degli anni ’80, ’90 00s.",
+        "en": "Zurich's women-only party! DJs, dancing, a welcome drink, a rooftop terrace, and more at SOHO. Welcome drink. Music from the '80s, '90s, '00s. Come for a girls' dinner or just dance the night away",
+        "de": "Zürich’s women-only party! DJs, dancing, welcome drink, rooftop terrace & more at SOHO. Welcome drink. 80s, 90s, 00s music. Come for girls dinner or just dance the night away",
+        "fr": "Zurich's women-only party! DJs, dancing, a welcome drink, a rooftop terrace, and more at SOHO. Welcome drink. Music from the '80s, '90s, '00s. Come for a girls' dinner or just dance the night away"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "SOHO Club",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/milkshake-women-only-party-zurich-ultimate-girls-night/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "geo": {
+        "lat": 47.3885269,
+        "lng": 8.5207341
+      },
+      "recurring": false
+    },
+    {
       "id": "myswitzerland:37ec2f74b2ad4ac98e700ddcac24d280",
       "title": "Neuchâtel market",
       "titleByLocale": {
@@ -65565,7 +65609,14 @@
       "imageUrl": "/images/events/ge-agenda-florian-luthi-fantomes-meteores.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-27T11:32:02.926Z"
+      "crawledAt": "2026-09-27T11:32:02.926Z",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "florian-luthi-fantomes-meteores-2026-09-26"
+        }
+      ]
     },
     {
       "id": "tio-agenda:61525",
@@ -66457,7 +66508,14 @@
         "en": "Jannis Kounellis: I am a painter",
         "de": "Jannis Kounellis: Ich bin Maler",
         "fr": "Jannis Kounellis : Je suis un peintre"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-27-2"
+        }
+      ]
     },
     {
       "id": "tio-agenda:63581",
@@ -67566,6 +67624,13 @@
         "Curiglia con Monteviasco",
         "Cannobio",
         "Valle Cannobina"
+      ],
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Ascona",
+          "slug": "next-generation-vii-accademia-barocca-di-ascona-2026-09-27-2"
+        }
       ]
     },
     {
@@ -68215,7 +68280,14 @@
       "imageUrl": "/images/events/ge-agenda-programmation-familles-jardins-jonction-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-27T11:32:02.926Z"
+      "crawledAt": "2026-09-27T11:32:02.926Z",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "programmation-familles-aux-jardins-de-la-jonction-2026-09-2"
+        }
+      ]
     },
     {
       "id": "ge-agenda:quadrille",
@@ -72768,7 +72840,14 @@
       "imageUrl": "/images/events/ge-agenda-escape-game-plein-vieille-ville-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-27T11:32:02.926Z"
+      "crawledAt": "2026-09-27T11:32:02.926Z",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-29-2"
+        }
+      ]
     },
     {
       "id": "myswitzerland:3abe6b0f9d6942aab8751938acd805ae",
@@ -75916,7 +75995,14 @@
       "imageUrl": "/images/events/ge-agenda-physiotherapie-formation-sante-publique-regards-croises-avenir-canton-geneve-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-27T11:32:02.926Z"
+      "crawledAt": "2026-09-27T11:32:02.926Z",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "physiotherapie-formation-et-sante-publique-2026-09-30-2"
+        }
+      ]
     },
     {
       "id": "guidle:AZv1upC",
@@ -76567,7 +76653,14 @@
       "imageUrl": "/images/events/ge-agenda-watchmatch-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-27T11:32:02.926Z"
+      "crawledAt": "2026-09-27T11:32:02.926Z",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "watch-match-2026-09-30-2"
+        }
+      ]
     },
     {
       "id": "ge-agenda:watchmatch",
@@ -79525,7 +79618,14 @@
       "imageUrl": "/images/events/ge-agenda-restons-dynamiques-petit-dejeuner-sain-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-27T11:32:02.926Z"
+      "crawledAt": "2026-09-27T11:32:02.926Z",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "restons-dynamiques-avec-un-petit-dejeuner-sain-2026-10-01-2"
+        }
+      ]
     },
     {
       "id": "ge-agenda:restons-dynamiques-petit-dejeuner-sain",
@@ -89255,7 +89355,14 @@
         "lng": 7.6158757
       },
       "recurring": false,
-      "imageUrl": "/images/events/guidle-AyynGTC.webp"
+      "imageUrl": "/images/events/guidle-AyynGTC.webp",
+      "previousRoutes": [
+        {
+          "canton": "BASILEA",
+          "comune": "Münchenstein",
+          "slug": "mythemia-wolkenjager-tour-support-lautenfeyn-2026-10-03-2"
+        }
+      ]
     },
     {
       "id": "ge-agenda:odyssees-rencontre-intergenerationnelle-partager-dialoguer-temoigner",
@@ -93836,7 +93943,14 @@
       "imageUrl": "/images/events/ge-agenda-pionnieres-delaurentis-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-27T11:32:02.926Z"
+      "crawledAt": "2026-09-27T11:32:02.926Z",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "pionnieres-par-delaurentis-2026-10-04-2"
+        }
+      ]
     },
     {
       "id": "guidle:AZytXBY",
@@ -97109,7 +97223,14 @@
         "en": "Moral perfectionism and democracy",
         "de": "Moralischer Perfektionismus und Demokratie",
         "fr": "Perfectionnisme moral et démocratie"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "perfezionismo-morale-e-democrazia-2026-10-06-2"
+        }
+      ]
     },
     {
       "id": "tio-agenda:63754",
@@ -107895,6 +108016,13 @@
         "Valsolda",
         "Alta Valle Intelvi",
         "Lavena Ponte Tresa"
+      ],
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "in-ticino-attraverso-il-san-gottardo-2026-10-10-2"
+        }
       ]
     },
     {
@@ -117699,6 +117827,13 @@
         "Maccagno con Pino e Veddasca",
         "Curiglia con Monteviasco",
         "Cannobio"
+      ],
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "palestinesi-sono-i-tuoi-occhi-2026-10-15-2"
+        }
       ]
     },
     {
@@ -130890,7 +131025,14 @@
         "lng": 6.1468444
       },
       "recurring": false,
-      "imageUrl": "/images/events/myswitzerland-eaca4cfbc787499eb3697b98f834a6c7.webp"
+      "imageUrl": "/images/events/myswitzerland-eaca4cfbc787499eb3697b98f834a6c7.webp",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "les-secrets-du-monde-fongique-a-la-decouverte-des-2026-10-2"
+        }
+      ]
     },
     {
       "id": "guidle:AQ1Jpwp",
@@ -134910,7 +135052,14 @@
         "lng": 9.1271554
       },
       "recurring": false,
-      "imageUrl": "/images/events/myswitzerland-c72f63dc923548b8b6e6ecbadf16e3d7.jpg"
+      "imageUrl": "/images/events/myswitzerland-c72f63dc923548b8b6e6ecbadf16e3d7.jpg",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "kulturbuhne-lihn-und-duo-schneeberger-sieber-2026-10-23-2"
+        }
+      ]
     },
     {
       "id": "myswitzerland:55df63f9846147c8a33d83f529c3bc71",
@@ -148670,7 +148819,14 @@
         "lng": 9.8188161
       },
       "recurring": false,
-      "imageUrl": "/images/events/myswitzerland-99ba32561a4745aa809bbfcb246fe6e4.webp"
+      "imageUrl": "/images/events/myswitzerland-99ba32561a4745aa809bbfcb246fe6e4.webp",
+      "previousRoutes": [
+        {
+          "canton": "GR",
+          "comune": "Davos",
+          "slug": "gemeindenachmittag-60-2026-10-29-2"
+        }
+      ]
     },
     {
       "id": "myswitzerland:9629bbc9c7c246e58ad9ca586c9ce322",
@@ -195383,7 +195539,14 @@
         "lng": 7.2252054
       },
       "recurring": false,
-      "imageUrl": "/images/events/myswitzerland-c339f1a38a5b4549bb4727a89c7110c3.webp"
+      "imageUrl": "/images/events/myswitzerland-c339f1a38a5b4549bb4727a89c7110c3.webp",
+      "previousRoutes": [
+        {
+          "canton": "VS",
+          "comune": "Riddes",
+          "slug": "leila-huissoud-je-suis-venu-te-dire-que-je-men-2026-11-21-2"
+        }
+      ]
     },
     {
       "id": "myswitzerland:851f22642d1c4c4c9f89ce684aa72a36",
@@ -201766,7 +201929,14 @@
         "lng": 9.28488624877931
       },
       "recurring": true,
-      "imageUrl": "/images/events/myswitzerland-8c5f935c9ec1450cadf0b2bcf8866c92.jpg"
+      "imageUrl": "/images/events/myswitzerland-8c5f935c9ec1450cadf0b2bcf8866c92.jpg",
+      "previousRoutes": [
+        {
+          "canton": "GR",
+          "comune": "Flims",
+          "slug": "bibel-genuss-tage-2025-2026-11-26-2"
+        }
+      ]
     },
     {
       "id": "myswitzerland:34b29c64099e405294aa84a483fac728",

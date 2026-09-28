@@ -358,8 +358,8 @@ jobs:
         # commit) has a side effect: it also stops a GE failure from ever
         # making the JOB fail, so "Report failure to GitHub Issues" below
         # (if: failure()) would never fire for it — the pilot source could
-        # regress silently and indefinitely (assemble prunes past events, so
-        # nothing shows expired data, it's just an invisible freshness gap).
+        # regress silently and indefinitely (the event archive is append-only,
+        # so a source failure must not erase old URLs or hide a freshness gap).
         # This step runs after the commit either way (if: always()) and only
         # fails the job — deliberately, on purpose — to re-surface that one
         # step's own outcome, separate from the cascade gate above.

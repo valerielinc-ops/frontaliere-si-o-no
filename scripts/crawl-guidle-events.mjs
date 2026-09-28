@@ -676,7 +676,7 @@ async function main() {
     crawledAt,
   });
   console.log(
-    `[guidle] merged ${events.length} event(s) (${goneIds.length} removed) → ${total} total in ${path.relative(process.cwd(), slicePath)}`,
+    `[guidle] merged ${events.length} event(s) (${goneIds.length} source disappearance(s) retained) → ${total} total in ${path.relative(process.cwd(), slicePath)}`,
   );
 }
 

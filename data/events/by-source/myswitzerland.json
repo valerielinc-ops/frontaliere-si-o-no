@@ -256034,6 +256034,43 @@
         }
       ],
       "imageUrl": "/images/events/myswitzerland-dff6704407914820ac0f3051f71e8cf5.webp"
+    },
+    {
+      "id": "myswitzerland:f6460648604d4fa4a4544b1135469967",
+      "title": "MILKSHAKE - Women only party Zurich - ultimate girls night",
+      "titleByLocale": {
+        "it": "MILKSHAKE - Women only party Zurich - ultimate girls night",
+        "en": "MILKSHAKE - Women only party Zurich - ultimate girls night",
+        "de": "MILKSHAKE - Women only party Zurich - ultimate girls night",
+        "fr": "MILKSHAKE - Women only party Zurich - ultimate girls night"
+      },
+      "description": "La festa solo per donne di Zurigo! drink di benvenuto, terrazza sul tetto e molto altro al SOHO. Drink di benvenuto. Musica degli anni ’80, ’90 00s.",
+      "descriptionByLocale": {
+        "it": "La festa solo per donne di Zurigo! drink di benvenuto, terrazza sul tetto e molto altro al SOHO. Drink di benvenuto. Musica degli anni ’80, ’90 00s.",
+        "en": "Zurich's women-only party! DJs, dancing, a welcome drink, a rooftop terrace, and more at SOHO. Welcome drink. Music from the '80s, '90s, '00s. Come for a girls' dinner or just dance the night away",
+        "de": "Zürich’s women-only party! DJs, dancing, welcome drink, rooftop terrace & more at SOHO. Welcome drink. 80s, 90s, 00s music. Come for girls dinner or just dance the night away",
+        "fr": "Zurich's women-only party! DJs, dancing, a welcome drink, a rooftop terrace, and more at SOHO. Welcome drink. Music from the '80s, '90s, '00s. Come for a girls' dinner or just dance the night away"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "SOHO Club",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/milkshake-women-only-party-zurich-ultimate-girls-night/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "geo": {
+        "lat": 47.3885269,
+        "lng": 8.5207341
+      },
+      "recurring": false
     }
   ]
 }
