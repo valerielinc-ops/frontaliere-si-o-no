@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseLwphrOpenJobs, inferLwphrLocation, buildLwphrLocalizedPayload } from '../scripts/lib/lwphr-job-parser.mjs';
+import { parseLwphrOpenJobs, inferLwphrLocation, buildLwphrLocalizedPayload, isUsableLwphrPdf } from '../scripts/lib/lwphr-job-parser.mjs';
 
 const HTML = `
 <div class="accordion__item">
@@ -44,6 +44,12 @@ describe('lwphr-job-parser', () => {
       'PLANNER',
       'SALES E MARKETING MANAGER',
     ]);
+  });
+
+  it('rejects failed, thin, and empty PDF extractions before merge', () => {
+    expect(isUsableLwphrPdf({ error: 'HTTP 404 while fetching PDF' })).toBe(false);
+    expect(isUsableLwphrPdf({ thin: true, text: '' })).toBe(false);
+    expect(isUsableLwphrPdf({ text: 'Role description and requirements.' })).toBe(true);
   });
 
   it('infers Swiss locations from PDF text without inventing a city', () => {
