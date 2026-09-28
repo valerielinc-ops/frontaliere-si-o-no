@@ -10,7 +10,10 @@ import {
   parseSitemapDocument,
   partitionFor,
 } from '../../scripts/seo/bing-site-explorer-crawl.mjs';
-import { aggregateCrawlReports } from '../../scripts/seo/bing-site-explorer-report.mjs';
+import {
+  aggregateCrawlReports,
+  rescueTransientReports,
+} from '../../scripts/seo/bing-site-explorer-report.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -153,6 +156,75 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(calls).toBe(3);
     expect(report.findings.map((item) => item.code)).toEqual(['http-error']);
     expect(report.statusCounts).toEqual({ 503: 1 });
+  });
+
+  it('rescues transient findings globally after all partitions have drained', async () => {
+    const url = `${BASE}/global-rescue/`;
+    const report = {
+      schemaVersion: 1,
+      baseUrl: BASE,
+      manifestCount: 1,
+      partition: 0,
+      partitions: 1,
+      partitionTotal: 1,
+      checkedCount: 1,
+      codeCounts: { 'http-error': 1 },
+      statusCounts: { 503: 1 },
+      folderStats: { '/global-rescue/': { checked: 1, statuses: { 503: 1 }, findings: { 'http-error': 1 } } },
+      findings: [{ code: 'http-error', url, detail: 'HTTP 503', root: '/global-rescue/', status: 503 }],
+      discoveredOutOfSitemap: [],
+    };
+    let calls = 0;
+    const result = await rescueTransientReports([report], { baseUrl: BASE, urls: [url] }, {
+      fetchImpl: async () => {
+        calls += 1;
+        return new Response('<title>Recovered</title><link rel="canonical" href="https://frontaliereticino.ch/global-rescue/">', {
+          status: 200,
+          headers: { 'content-type': 'text/html' },
+        });
+      },
+      retries: 0,
+      delayMs: 0,
+      concurrency: 1,
+    });
+
+    const summary = aggregateCrawlReports([report], { manifestCount: 1, sitemapCount: 1, baseUrl: BASE });
+    expect(calls).toBe(1);
+    expect(result).toMatchObject({ attempted: 1, rescued: 1, remaining: 0 });
+    expect(summary.actionableCount).toBe(0);
+    expect(summary.statusCounts).toEqual({ 200: 1 });
+  });
+
+  it('accounts for every queued URL left behind by the rescue deadline', async () => {
+    const urls = ['one', 'two', 'three'].map((slug) => `${BASE}/${slug}/`);
+    const reports = urls.map((url, partition) => ({
+      schemaVersion: 1,
+      baseUrl: BASE,
+      manifestCount: urls.length,
+      partition,
+      partitions: urls.length,
+      partitionTotal: 1,
+      checkedCount: 1,
+      codeCounts: { 'http-error': 1 },
+      statusCounts: { 503: 1 },
+      folderStats: { [`/${url.split('/').at(-2)}/`]: { checked: 1, statuses: { 503: 1 }, findings: { 'http-error': 1 } } },
+      findings: [{ code: 'http-error', url, detail: 'HTTP 503', root: `/${url.split('/').at(-2)}/`, status: 503 }],
+      discoveredOutOfSitemap: [],
+    }));
+    let calls = 0;
+    const result = await rescueTransientReports(reports, { baseUrl: BASE, urls }, {
+      fetchImpl: async () => {
+        calls += 1;
+        return new Response('', { status: 503 });
+      },
+      retries: 0,
+      delayMs: 0,
+      deadlineMs: 0,
+      concurrency: 1,
+    });
+
+    expect(calls).toBe(0);
+    expect(result).toMatchObject({ attempted: 0, rescued: 0, remaining: 3, skipped: 0, deadlineSkipped: 3 });
   });
 
   it('fails closed when a sitemap responds successfully with no supported entries', async () => {

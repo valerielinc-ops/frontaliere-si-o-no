@@ -6,12 +6,21 @@ import { readdirSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { CRAWLER_SCHEMA_VERSION } from './bing-site-explorer-crawl.mjs';
+import {
+  CRAWLER_SCHEMA_VERSION,
+  DEFAULT_MAX_BODY_BYTES,
+  folderFor,
+  probeWithRetries,
+} from './bing-site-explorer-crawl.mjs';
 
 const ACTIONABLE_CODES = new Set([
   'fetch-error', 'http-error', 'redirect', 'noindex-in-sitemap',
   'canonical-missing', 'canonical-drift', 'soft-404',
 ]);
+
+// The report job has a 15-minute Actions timeout. Leave room for artifact
+// downloads, summary serialization and issue mutation after the rescue pass.
+export const DEFAULT_RESCUE_DEADLINE_MS = 8 * 60 * 1_000;
 
 function parseArgs(argv) {
   const args = {};
@@ -31,6 +40,21 @@ function arg(args, name, fallback) {
 
 function increment(map, key, amount = 1) { map[key] = (map[key] || 0) + amount; }
 
+function decrement(map, key, amount = 1) {
+  const next = (Number(map[key]) || 0) - amount;
+  if (next > 0) map[key] = next;
+  else delete map[key];
+}
+
+function isTransientStatus(status) {
+  const code = Number(status) || 0;
+  return code === 0 || code === 429 || code >= 500;
+}
+
+function sleep(ms) {
+  return new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
+}
+
 function mergeCounters(target, source) {
   for (const [key, value] of Object.entries(source || {})) increment(target, key, Number(value) || 0);
 }
@@ -47,6 +71,109 @@ function readReports(reportsDir) {
     .filter((name) => /^partition-\d+\.json$/.test(name))
     .sort()
     .map((name) => JSON.parse(readFileSync(resolve(reportsDir, name), 'utf8')));
+}
+
+function applyRescueResult(report, url, result, manifestSet) {
+  const oldFindings = (report.findings || []).filter((item) => item.url === url);
+  if (oldFindings.length === 0) return;
+  const root = oldFindings[0].root || folderFor(url);
+  const stats = report.folderStats[root] || (report.folderStats[root] = { checked: 0, statuses: {}, findings: {} });
+  const oldStatus = String(oldFindings[0].status ?? 0);
+  decrement(report.statusCounts, oldStatus);
+  decrement(stats.statuses, oldStatus);
+  for (const item of oldFindings) {
+    decrement(report.codeCounts, item.code);
+    decrement(stats.findings, item.code);
+  }
+  report.findings = (report.findings || []).filter((item) => item.url !== url);
+
+  const nextStatus = String(result.status);
+  increment(report.statusCounts, nextStatus);
+  increment(stats.statuses, nextStatus);
+  const nextFindings = (result.findings || []).map((item) => ({
+    ...item,
+    root,
+    status: result.status,
+  }));
+  for (const item of nextFindings) {
+    increment(report.codeCounts, item.code);
+    increment(stats.findings, item.code);
+  }
+  report.findings.push(...nextFindings);
+
+  const discovered = new Set(report.discoveredOutOfSitemap || []);
+  for (const link of result.links || []) if (!manifestSet.has(link)) discovered.add(link);
+  report.discoveredOutOfSitemap = [...discovered].sort();
+}
+
+/**
+ * Recheck transient findings only after every partition has drained.
+ *
+ * The partition-local rescue avoids most edge bursts, but 24 matrix jobs can
+ * still rescue at the same time. This final pass is globally serialized and
+ * therefore measures the edge after the full crawl has gone quiet.
+ */
+export async function rescueTransientReports(reports, manifest, {
+  fetchImpl = globalThis.fetch,
+  concurrency = 1,
+  retries = 4,
+  delayMs = 3_000,
+  timeoutMs = 30_000,
+  maxBodyBytes = DEFAULT_MAX_BODY_BYTES,
+  maxUrls = 500,
+  deadlineMs = DEFAULT_RESCUE_DEADLINE_MS,
+} = {}) {
+  const urls = [...new Set(reports.flatMap((report) => (report.findings || [])
+    .filter((item) => isTransientStatus(item.status))
+    .map((item) => item.url)).filter(Boolean))].sort();
+  const limit = Math.max(0, Number(maxUrls) || 0);
+  const queued = limit > 0 ? urls.slice(0, limit) : [];
+  const skipped = Math.max(0, urls.length - queued.length);
+  if (queued.length === 0) return { attempted: 0, rescued: 0, remaining: skipped, skipped, deadlineSkipped: 0 };
+  const numericDeadlineMs = Number(deadlineMs);
+  const deadlineAt = Number.isFinite(numericDeadlineMs)
+    ? Date.now() + Math.max(0, numericDeadlineMs)
+    : Number.POSITIVE_INFINITY;
+  const initialDelayMs = Math.max(0, Number(delayMs) || 0);
+  if (initialDelayMs > 0) {
+    const waitMs = Math.min(initialDelayMs, Math.max(0, deadlineAt - Date.now()));
+    if (waitMs > 0) await sleep(waitMs);
+  }
+
+  const manifestSet = new Set(manifest?.urls || []);
+  const outcomes = [];
+  let cursor = 0;
+  const worker = async () => {
+    while (true) {
+      const index = cursor++;
+      if (index >= queued.length || Date.now() >= deadlineAt) return;
+      const url = queued[index];
+      const result = await probeWithRetries(url, {
+        fetchImpl,
+        retries,
+        timeoutMs,
+        maxBodyBytes,
+        deadlineAt,
+      });
+      outcomes.push({ url, result });
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(Math.max(1, Number(concurrency) || 1), queued.length) }, worker));
+
+  for (const { url, result } of outcomes) {
+    const report = reports.find((item) => (item.findings || []).some((finding) => finding.url === url));
+    if (report) applyRescueResult(report, url, result, manifestSet);
+  }
+  const deadlineSkipped = Math.max(0, queued.length - outcomes.length);
+  const transientRemaining = outcomes.filter(({ result }) => isTransientStatus(result.status)).length;
+  const remaining = transientRemaining + skipped + deadlineSkipped;
+  return {
+    attempted: outcomes.length,
+    rescued: outcomes.length - transientRemaining,
+    remaining,
+    skipped,
+    deadlineSkipped,
+  };
 }
 
 export function aggregateCrawlReports(reports, manifest = null) {
@@ -176,7 +303,19 @@ async function main() {
   const manifestPath = arg(args, 'manifest', '');
   const reports = readReports(reportsDir);
   const manifest = manifestPath ? JSON.parse(readFileSync(resolve(manifestPath), 'utf8')) : null;
+  let transientRescue = null;
+  if (args['rescue-transients'] === true || args['rescue-transients'] === 'true') {
+    transientRescue = await rescueTransientReports(reports, manifest, {
+      concurrency: Number(arg(args, 'rescue-concurrency', '1')),
+      retries: Number(arg(args, 'rescue-retries', '4')),
+      delayMs: Number(arg(args, 'rescue-delay-ms', '3000')),
+      deadlineMs: Number(arg(args, 'rescue-deadline-ms', String(DEFAULT_RESCUE_DEADLINE_MS))),
+      timeoutMs: Number(arg(args, 'timeout-ms', '30000')),
+      maxUrls: Number(arg(args, 'rescue-max-urls', '500')),
+    });
+  }
   const summary = aggregateCrawlReports(reports, manifest);
+  if (transientRescue) summary.transientRescue = transientRescue;
   writeJson(output, summary);
   if (issueBodyPath && (summary.actionableCount > 0 || !summary.coverageOk)) {
     const server = process.env.GITHUB_SERVER_URL || 'https://github.com';
