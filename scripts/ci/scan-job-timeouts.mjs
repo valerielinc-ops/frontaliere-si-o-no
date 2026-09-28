@@ -365,8 +365,9 @@ export function monitorWorkflowFile(env = process.env) {
 
 /**
  * Minutes of `updated_at` this scan must cover so nothing falls between it and
- * the previous successful scan. Without a usable previous start (first run,
- * API failure) it keeps the fixed base window, i.e. the old behaviour.
+ * the previous successful scheduled scan. A readable empty history (first
+ * run) keeps the fixed base window; an unreadable history fails the pass so a
+ * gap cannot be silently mistaken for a complete scan.
  */
 export function scanLookbackMinutes({
   nowMs,
@@ -394,9 +395,23 @@ export function scanLookbackMinutes({
 
 function previousSuccessfulScanStartedMs() {
   const workflow = encodeURIComponent(monitorWorkflowFile());
-  const data = ghJson(repoPath(`actions/workflows/${workflow}/runs?status=success&per_page=1`));
-  const run = Array.isArray(data?.workflow_runs) ? data.workflow_runs[0] : null;
-  return Date.parse(run?.run_started_at || run?.created_at || '');
+  const data = ghJson(
+    repoPath(`actions/workflows/${workflow}/runs?status=success&event=schedule&per_page=1`),
+  );
+  if (!data || !Array.isArray(data.workflow_runs)) {
+    throw new Error('impossibile leggere la history delle scansioni schedule riuscite');
+  }
+  if (data.workflow_runs.length === 0) return Number.NaN;
+
+  const run = data.workflow_runs[0];
+  if (run?.event !== 'schedule') {
+    throw new Error('la history filtrata delle scansioni contiene una run non-schedule');
+  }
+  const startedMs = Date.parse(run.run_started_at || run.created_at || '');
+  if (!Number.isFinite(startedMs)) {
+    throw new Error('la scansione schedule precedente non ha un timestamp leggibile');
+  }
+  return startedMs;
 }
 
 function readPaginatedAnnotations(job) {

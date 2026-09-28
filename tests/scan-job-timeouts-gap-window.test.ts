@@ -33,13 +33,25 @@ const timeoutJob = {
   check_run_url: 'https://api.github.com/repos/o/r/check-runs/7',
 };
 
-function installGh({ previousScanStartedAt }: { previousScanStartedAt: string | null }) {
+function installGh({
+  previousScanStartedAt,
+  previousScanEvent = 'schedule',
+  historyResult = 'readable',
+}: {
+  previousScanStartedAt: string | null;
+  previousScanEvent?: string;
+  historyResult?: 'readable' | 'failure' | 'malformed';
+}) {
   execFileSync.mockImplementation((_cmd: string, args: string[]) => {
     if (args[0] === 'api') {
       const path = String(args[1]);
       if (path.includes('/runs?status=success')) {
+        if (historyResult === 'failure') throw new Error('Actions API unavailable');
+        if (historyResult === 'malformed') return '{not-json';
         return JSON.stringify({
-          workflow_runs: previousScanStartedAt ? [{ id: 1, run_started_at: previousScanStartedAt }] : [],
+          workflow_runs: previousScanStartedAt
+            ? [{ id: 1, event: previousScanEvent, run_started_at: previousScanStartedAt }]
+            : [],
         });
       }
       if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [timedOutRun] });
@@ -142,9 +154,32 @@ describe('main — a timeout between two sparse scans is still reported', () => 
     const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
     await main();
 
-    expect(apiPaths()).toContain('repos/o/r/actions/workflows/job-timeout-monitor.yml/runs?status=success&per_page=1');
+    expect(apiPaths()).toContain(
+      'repos/o/r/actions/workflows/job-timeout-monitor.yml/runs?status=success&event=schedule&per_page=1',
+    );
     expect(creates()).toHaveLength(1);
     expect(creates()[0][1].join(' ')).toContain(timedOutRun.html_url);
+  });
+
+  it('fails closed if a manual dispatch is returned as the previous scheduled scan', async () => {
+    installGh({
+      previousScanStartedAt: iso(30 * MINUTE),
+      previousScanEvent: 'workflow_dispatch',
+    });
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+
+    await expect(main()).rejects.toThrow(/run non-schedule/);
+    expect(creates()).toHaveLength(0);
+  });
+
+  it('fails closed when the scheduled-scan history is unreadable', async () => {
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    installGh({ previousScanStartedAt: null, historyResult: 'failure' });
+    await expect(main()).rejects.toThrow(/impossibile leggere la history/);
+
+    installGh({ previousScanStartedAt: null, historyResult: 'malformed' });
+    await expect(main()).rejects.toThrow(/impossibile leggere la history/);
+    expect(creates()).toHaveLength(0);
   });
 
   it('without a previous scan the fixed window still misses it (the old behaviour)', async () => {
