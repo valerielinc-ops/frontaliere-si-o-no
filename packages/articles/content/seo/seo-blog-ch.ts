@@ -90305,6 +90305,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-pressione-capitali-fusione': {
+    title: 'UBS sotto pressione: capitale al 90% per filiali estere',
+    description: 'Consiglio degli Stati chiede 90% capitale per filiali estere UBS. La banca contesta la misura, riaccendendo ipotesi di fusione con Morgan Stanley e altri',
+    keywords: 'frontalieri, ticino, svizzera, italia, sotto, pressione, capitale, filiali',
+    ogTitle: 'UBS sotto pressione: capitale al 90% per filiali estere',
+    ogDescription: 'UBS contesta la richiesta del Consiglio degli Stati per il 90% di capitale per le filiali estere. La misura riaccende le ipotesi di fusione con Morgan Stanley e altri istituti finanziari globali.',
+    canonicalPath: '/articoli-svizzera/ubs-pressione-capitali-fusione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS sotto pressione: capitale al 90% per filiali estere",
+      "description": "Consiglio degli Stati chiede 90% capitale per filiali estere UBS. La banca contesta la misura, riaccendendo ipotesi di fusione con Morgan Stanley e altri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-pressione-capitali-fusione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio della banca UBS a Zurigo, quartier finanziario svizzero"
+      },
+      "datePublished": "2026-09-28T20:38:46+00:00",
+      "dateModified": "2026-09-28T20:38:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-pressione-capitali-fusione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
