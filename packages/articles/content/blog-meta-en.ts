@@ -12216,6 +12216,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.portinerie-lavoro-locarno.title': 'Job Concierge: free counter in Locarno',
     'blog.article.portinerie-lavoro-locarno.excerpt': 'ECAP Ticino Unia’s mobile service offers free consultations without an appointment. Next meeting in Locarno on 1° ottobre.',
     'blog.article.portinerie-lavoro-locarno.imageAlt': 'Portinerie Lavoro help desk at Spazio ELLE in Locarno',
+    'blog.article.iva-13esima-avs-plr.title': 'VAT for the 13th AVS: the PLR launches the no',
+    'blog.article.iva-13esima-avs-plr.excerpt': 'The Swiss PLR disputes the VAT increase to 8.5% to finance the 13th AVS. The popular vote is scheduled for November 29.',
+    'blog.article.iva-13esima-avs-plr.imageAlt': 'Swiss ballot envelope and calculator on a table in Ticino',
 };
 
 export default blogMetaEn;

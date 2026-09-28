@@ -12215,6 +12215,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.portinerie-lavoro-locarno.title': 'Portinerie Lavoro: kostenlose Anlaufstelle in Locarno',
     'blog.article.portinerie-lavoro-locarno.excerpt': 'Der mobile Dienst von ECAP Ticino Unia bietet kostenlose Beratungen ohne Termin an. Nächstes Treffen in Locarno am 1. Oktober.',
     'blog.article.portinerie-lavoro-locarno.imageAlt': 'Beratungsstelle Portinerie Lavoro im Spazio ELLE in Locarno',
+    'blog.article.iva-13esima-avs-plr.title': 'MwSt. für 13. AHV: FDP lanciert Nein',
+    'blog.article.iva-13esima-avs-plr.excerpt': 'Die FDP Schweiz bestreitet die Mehrwertsteuererhöhung auf 8,5% zur Finanzierung der 13. AHV. Die Volksabstimmung ist für den 29. November vorgesehen.',
+    'blog.article.iva-13esima-avs-plr.imageAlt': 'Schweizer Wahlkuvert und Taschenrechner auf einem Tisch im Tessin',
 };
 
 export default blogMetaDe;

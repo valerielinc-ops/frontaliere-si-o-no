@@ -12218,6 +12218,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.portinerie-lavoro-locarno.title': 'Portinerie Lavoro : guichet gratuit à Locarno',
     'blog.article.portinerie-lavoro-locarno.excerpt': 'Le service itinérant d’ECAP Ticino Unia propose des consultations gratuites sans rendez-vous. Prochaine rencontre à Locarno le 1er octobre.',
     'blog.article.portinerie-lavoro-locarno.imageAlt': 'Permanence Portinerie Lavoro à l’Espace ELLE de Locarno',
+    'blog.article.iva-13esima-avs-plr.title': 'TVA pour la 13e AVS : le PLR lance le non',
+    'blog.article.iva-13esima-avs-plr.excerpt': 'Le PLR suisse conteste l’augmentation de la TVA à 8,5% pour financer la 13e AVS. La votation populaire est prévue le 29 novembre.',
+    'blog.article.iva-13esima-avs-plr.imageAlt': 'Enveloppe de vote suisse et calculatrice sur une table au Tessin',
 };
 
 export default blogMetaFr;

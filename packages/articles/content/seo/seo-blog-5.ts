@@ -96285,6 +96285,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-iva-13esima-avs-plr': {
+    title: 'IVA per la 13esima AVS: il PLR lancia il no | Frontaliere Ticino',
+    description: 'Il PLR svizzero lancia il no all\'aumento dell\'IVA all\'8,5% per la 13esima AVS: potere d\'acquisto, economie domestiche e voto popolare del 29 novembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, 13esima, lancia, svizzero, contesta',
+    ogTitle: 'PLR contro l\'aumento IVA per la 13esima AVS',
+    ogDescription: 'A Berna il PLR presenta la campagna contro l\'incremento di 0,4 punti dell\'aliquota ordinaria, portata all\'8,5%. Il partito contesta l\'impatto su potere d\'acquisto, economie domestiche ed economia, oltre alla sufficienza del finanziamento.',
+    canonicalPath: '/articoli-frontaliere/iva-13esima-avs-plr',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IVA per la 13esima AVS: il PLR lancia il no",
+      "description": "Il PLR svizzero lancia il no all'aumento dell'IVA all'8,5% per la 13esima AVS: potere d'acquisto, economie domestiche e voto popolare del 29 novembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iva-13esima-avs-plr.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Busta elettorale svizzera e calcolatrice su un tavolo in Ticino"
+      },
+      "datePublished": "2026-09-28T12:14:25+00:00",
+      "dateModified": "2026-09-28T12:14:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iva-13esima-avs-plr/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
