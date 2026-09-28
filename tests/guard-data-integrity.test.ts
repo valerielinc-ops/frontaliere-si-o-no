@@ -371,4 +371,73 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
     expect(violations[0].file).toBe(swissReFile);
     writeSpy.mockRestore();
   });
+  describe('housekeeping archive move into the paired expired slice (#9876)', () => {
+    const ACTIVE = 'data/jobs/by-crawler/convit-holding.json';
+    const EXPIRED = 'data/jobs/expired/by-crawler/convit-holding.json';
+    const job = (n: number) => ({
+      url: `https://www.careers-page.com/convit-holding-gmbh/job/${n}`,
+      slug: `consulente-${n}-convit-lugano`,
+      sourceIdentity: `url:https://www.careers-page.com/convit-holding-gmbh/job/${n}`,
+    });
+    const archived = (n: number, extra: Record<string, unknown> = {}) => ({
+      slug: `consulente-${n}-convit-lugano`,
+      expiredAt: '2026-09-28T11:25:24.215Z',
+      ...extra,
+    });
+    const previous = JSON.stringify({ crawlerKey: 'convit-holding', jobs: [job(1), job(2), job(3), job(4)] });
+    const next = JSON.stringify({ crawlerKey: 'convit-holding', jobs: [job(1)] });
+
+    function runGuard(expiredAfter: string | null) {
+      execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+        if (args[0] === 'merge-base') return '';
+        if (args[0] === 'diff') return `${ACTIVE}\n`;
+        if (args[0] === 'cat-file' && args[1] === '-s') {
+          const ref = args[2].split(':')[0];
+          return ref === BEFORE ? '1620353' : '191884';
+        }
+        if (args[0] === 'cat-file' && args[1] === 'blob') {
+          const [ref, file] = args[2].split(':');
+          if (file === EXPIRED) {
+            if (ref !== AFTER || expiredAfter === null) throw new Error('missing blob');
+            return expiredAfter;
+          }
+          return ref === BEFORE ? previous : next;
+        }
+        return '';
+      });
+      const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+      return import('../scripts/ci/guard-data-integrity.mjs').then(({ main }) => {
+        main();
+        const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+        writeSpy.mockRestore();
+        return JSON.parse(written) as Array<{ file: string }>;
+      });
+    }
+
+    it('accepts the shrink when every removed job is archived in the same push', async () => {
+      const expired = JSON.stringify([
+        archived(2),
+        // slug displaced by the 3-way merge: still found through previousSlugs
+        archived(9, { slug: 'other-slug', previousSlugs: ['consulente-3-convit-lugano'] }),
+        // no slug match: found through the source identity
+        archived(8, { slug: 'renamed', sourceIdentity: 'url:https://www.careers-page.com/convit-holding-gmbh/job/4' }),
+      ]);
+      expect(await runGuard(expired)).toEqual([]);
+    });
+
+    it('still flags the shrink when one removed job is missing from the archive', async () => {
+      const violations = await runGuard(JSON.stringify([archived(2), archived(3)]));
+      expect(violations.map((v) => v.file)).toEqual([ACTIVE]);
+    });
+
+    it('does not count archive entries without a valid expiredAt', async () => {
+      const expired = JSON.stringify([archived(2), archived(3), archived(4, { expiredAt: 'not-a-date' })]);
+      expect((await runGuard(expired)).map((v) => v.file)).toEqual([ACTIVE]);
+    });
+
+    it('stays closed when the paired expired slice is absent or not an archive', async () => {
+      expect((await runGuard(null)).map((v) => v.file)).toEqual([ACTIVE]);
+      expect((await runGuard('{"jobs":[]}')).map((v) => v.file)).toEqual([ACTIVE]);
+    });
+  });
 });

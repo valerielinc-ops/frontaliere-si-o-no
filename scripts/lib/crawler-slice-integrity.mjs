@@ -429,6 +429,101 @@ export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, r
   });
 }
 
+/** `data/jobs/by-crawler/<key>.json` -> `data/jobs/expired/by-crawler/<key>.json`, or null. */
+export function pairedExpiredSlicePath(filePath) {
+  const normalized = normalizedPath(filePath);
+  if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalized)) return null;
+  return normalized.replace(/(^|\/)data\/jobs\/by-crawler\//u, '$1data/jobs/expired/by-crawler/');
+}
+
+function nonEmptyStrings(values) {
+  return values
+    .filter((value) => typeof value === 'string')
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
+/** Keys under which an archived (expired) entry can be found again. */
+function archiveEntryKeys(entry) {
+  const slugs = [
+    entry?.slug,
+    ...Object.values(entry?.slugByLocale && typeof entry.slugByLocale === 'object' ? entry.slugByLocale : {}),
+    ...(Array.isArray(entry?.previousSlugs) ? entry.previousSlugs : []),
+    ...Object.values(
+      entry?.previousSlugsByLocale && typeof entry.previousSlugsByLocale === 'object'
+        ? entry.previousSlugsByLocale
+        : {},
+    ).flatMap((values) => (Array.isArray(values) ? values : [])),
+  ];
+  return [
+    ...nonEmptyStrings(slugs).map((slug) => `slug:${slug}`),
+    ...nonEmptyStrings([entry?.sourceIdentity]).map((identity) => `source:${identity}`),
+  ];
+}
+
+/** Keys under which cleanup-jobs archives an active job (its current slug, its source identity). */
+function activeJobArchiveKeys(job) {
+  return [
+    ...nonEmptyStrings([job?.slug]).map((slug) => `slug:${slug}`),
+    ...nonEmptyStrings([job?.sourceIdentity]).map((identity) => `source:${identity}`),
+  ];
+}
+
+/**
+ * Prove, from the committed refs alone, that a catastrophic active-slice
+ * shrink is an archive move rather than a lost accumulator (#9876).
+ *
+ * Housekeeping proves its large prunes with definitive URL evidence
+ * (`isProvenHousekeepingPrune`), but that proof lives in the runner that wrote
+ * the slice. The post-push guard on main only sees two commits, so it used to
+ * revert the proven prune of the active slice while keeping the expired slice
+ * of the same push: 79 jobs then lived in both files, assembly deduplicated
+ * the expired slice by 98.6% and its own shrink guard broke every build.
+ *
+ * The in-repo evidence is closed-world:
+ *   - the next slice is a strict subset of the previous one (no replacement,
+ *     no identity collision), so nothing was rewritten or re-keyed;
+ *   - every removed job has a slug and is present, by slug/previous slug or
+ *     source identity, in the paired expired slice of the same AFTER commit,
+ *     on an archive entry that carries a valid `expiredAt`.
+ * A reader that degraded to an empty fallback archives nothing, so it still
+ * fails this proof and the byte guard stays closed for it.
+ */
+export function isProvenArchiveMovePrune(filePath, previousRaw, nextRaw, expiredAfterRaw) {
+  if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  const previousJobs = parseJobs(previousRaw);
+  const nextJobs = parseJobs(nextRaw);
+  if (!previousJobs || !nextJobs || previousJobs.length <= nextJobs.length) return false;
+
+  let archive;
+  try {
+    archive = JSON.parse(expiredAfterRaw);
+  } catch {
+    return false;
+  }
+  if (!Array.isArray(archive) || archive.length === 0) return false;
+
+  const previousIds = uniqueIdentities(previousJobs);
+  const nextIds = uniqueIdentities(nextJobs);
+  if (!previousIds || !nextIds || [...nextIds].some((identity) => !previousIds.has(identity))) return false;
+
+  const removedJobs = previousJobs.filter((job) => !nextIds.has(jobIdentity(job)));
+  if (
+    removedJobs.length !== previousJobs.length - nextJobs.length
+    || removedJobs.some((job) => !jobIdentity(job) || nonEmptyStrings([job?.slug]).length === 0)
+  ) {
+    return false;
+  }
+
+  const archivedKeys = new Set();
+  for (const entry of archive) {
+    if (!entry || typeof entry !== 'object') continue;
+    if (!Number.isFinite(Date.parse(String(entry.expiredAt ?? '')))) continue;
+    for (const key of archiveEntryKeys(entry)) archivedKeys.add(key);
+  }
+  return removedJobs.every((job) => activeJobArchiveKeys(job).some((key) => archivedKeys.has(key)));
+}
+
 /**
  * Prove a large housekeeping shrink from definitive URL evidence.
  *
