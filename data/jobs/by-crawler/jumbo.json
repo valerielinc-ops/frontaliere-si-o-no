@@ -11505,7 +11505,7 @@
       "previousSlugs": [
         "verkaufer-in-kassen-services-jumbo-baden"
       ],
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "crawlerMissStreak": 1
     },
     {
@@ -17249,7 +17249,6 @@
           "• Teamarbeit bereitet dir Freude."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -17263,7 +17262,16 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-logistik-jumbo-baden"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-logistik-jumbo-baden"
+      ]
     },
     {
       "id": "jumbo-de82f0e6-d9e",
