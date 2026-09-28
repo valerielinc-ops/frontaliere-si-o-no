@@ -12233,6 +12233,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cantiere-a8-castronno-albizzate.title': 'Fermeture nocturne de l’A8 entre Varese et Gallarate',
     'blog.article.cantiere-a8-castronno-albizzate.excerpt': 'Fermeture nocturne de l’A8 entre Varese et Gallarate pour des travaux sur le passage supérieur entre Castronno et Albizzate : risque de bouchons et circulation alternée sur la SP34.',
     'blog.article.cantiere-a8-castronno-albizzate.imageAlt': 'Trafic nocturne sur une autoroute avec travaux et panneaux routiers',
+    'blog.article.gare-ciclismo-varese-ottobre.title': 'Tre Valli Varesine : courses et fermetures de routes',
+    'blog.article.gare-ciclismo-varese-ottobre.excerpt': 'Du 3 au 6 octobre, Varese et sa province accueillent un contre-la-montre, une granfondo et des courses professionnelles avec d’importantes restrictions de circulation.',
+    'blog.article.gare-ciclismo-varese-ottobre.imageAlt': 'Courses de cyclisme à Varese et province',
 };
 
 export default blogMetaFr;

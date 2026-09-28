@@ -96481,6 +96481,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gare-ciclismo-varese-ottobre': {
+    title: 'Tre Valli Varesine: gare e chiusure stradali | Frontaliere Ticino',
+    description: 'Scopri il programma delle gare di ciclismo Tre Valli Varesine dal 3 al 6 ottobre e le relative chiusure stradali a Varese e provincia. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, valli, varesine, gare, chiusure',
+    ogTitle: 'Tre Valli Varesine: gare e chiusure stradali',
+    ogDescription: 'Dal 3 al 6 ottobre, Varese e provincia saranno animate da grandi eventi ciclistici: cronometro, granfondo e granfondo europeo, ఏడాది 105esima Tre Valli Valli Varesine maschile e Women\'s Race. Consulta gli orari di chiusura delle strade.',
+    canonicalPath: '/articoli-frontaliere/gare-ciclismo-varese-ottobre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre Valli Varesine: gare e chiusure stradali",
+      "description": "Scopri il programma delle gare di ciclismo Tre Valli Varesine dal 3 al 6 ottobre e le relative chiusure stradali a Varese e provincia. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gare-ciclismo-varese-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gare di ciclismo a Varese e provincia"
+      },
+      "datePublished": "2026-09-28T21:12:48+00:00",
+      "dateModified": "2026-09-28T21:12:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gare-ciclismo-varese-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

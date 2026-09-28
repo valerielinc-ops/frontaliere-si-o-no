@@ -12230,6 +12230,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cantiere-a8-castronno-albizzate.title': 'Nächtliche Sperrung der A8 zwischen Varese und Gallarate',
     'blog.article.cantiere-a8-castronno-albizzate.excerpt': 'Nächtliche Sperrung der A8 zwischen Varese und Gallarate wegen Arbeiten an der Überführung zwischen Castronno und Albizzate: Staugefahr und wechselnder Einbahnverkehr auf der SP34.',
     'blog.article.cantiere-a8-castronno-albizzate.imageAlt': 'Nachtverkehr auf einer Autobahn mit Baustelle und Verkehrsschildern',
+    'blog.article.gare-ciclismo-varese-ottobre.title': 'Tre Valli Varesine: Rennen und Straßensperrungen',
+    'blog.article.gare-ciclismo-varese-ottobre.excerpt': 'Vom 3. bis 6. Oktober finden in Varese und der Provinz Zeitfahren, Granfondo-Rennen und Profirennen mit erheblichen Verkehrseinschränkungen statt.',
+    'blog.article.gare-ciclismo-varese-ottobre.imageAlt': 'Radrennen in Varese und Provinz',
 };
 
 export default blogMetaDe;
