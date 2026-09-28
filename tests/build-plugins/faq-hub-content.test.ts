@@ -280,3 +280,44 @@ describe('FAQ hub — [fonte:]/[source:]/[Quelle:] citations are hyperlinked (#4
     }
   });
 });
+
+describe('FAQ hub — audited official source URLs remain live', () => {
+  const RETIRED_AUDIT_URLS = [
+    'https://www.bsv.admin.ch/bsv/de/home/sozialversicherungen/bv/reformen-revisionen.html',
+    'https://www.agenziaentrate.gov.it/portale/web/guest/-/risposta-n-471-del-2022',
+    'https://www.agenziaentrate.gov.it/portale/web/guest/schede/dichiarazioni/redditi-pf-2026',
+    'https://www.agenziaentrate.gov.it/portale/documents/20143/5451565/Circolare+n.+4+del+12+febbraio+2024.pdf',
+    'https://www.mef.gov.it/ministero/comunicati/2023/DM_10_10_2023_frontalieri.html',
+    'https://www.estv.admin.ch/dam/estv/it/dokumente/dbst/kreisschreiben/1-022-D-2012-i.pdf',
+    'https://www.adm.gov.it/portale/cittadini/automobili-e-veicoli',
+  ];
+  const EXPECTED_CURRENT_SOURCE_URLS = [
+    'https://www.bsv.admin.ch/it/riforma-lpp-2024',
+    'https://www.agenziaentrate.gov.it/portale/documents/20143/5984217/1_TU_Redditi.pdf',
+    'https://infoprecompilata.agenziaentrate.gov.it/portale/quadro-rc',
+    'https://www.mef.gov.it/',
+    'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1986-12-22;917',
+    'https://www.estv.admin.ch/it/circolari-imposta-federale-diretta',
+    'https://www.adm.gov.it/portale/carta-doganale-viaggiatore',
+  ];
+
+  it('contains only absolute HTTP(S) source links and no URL retired by the live audit', () => {
+    const sources = ALL_FAQ_HUB.flatMap((entry) => entry.sources ?? []);
+
+    expect(sources.length).toBeGreaterThan(0);
+    for (const source of sources) {
+      expect(() => new URL(source), `invalid FAQ source URL: ${source}`).not.toThrow();
+      expect(new URL(source).protocol, `FAQ source must be HTTP(S): ${source}`).toMatch(/^https?:$/);
+    }
+
+    for (const retiredUrl of RETIRED_AUDIT_URLS) {
+      expect(sources, `retired audit URL must not return to FAQ sources: ${retiredUrl}`).not.toContain(
+        retiredUrl,
+      );
+    }
+
+    for (const currentUrl of EXPECTED_CURRENT_SOURCE_URLS) {
+      expect(sources, `expected verified source URL is missing: ${currentUrl}`).toContain(currentUrl);
+    }
+  });
+});
