@@ -66,11 +66,15 @@ if (HELP) {
 //   - constants.ts      : the AdSense loader script + its `ins.adsbygoogle`
 //                         IntersectionObserver selectors + docs (no page <ins>).
 //   - htmlTemplate.ts   : `bodyHtml.includes('adsbygoogle')` static-slot detection.
+//   - shared/adPageDiagInline.ts : the loader's per-page ad diagnosis, which only
+//                         READS `ins.adsbygoogle` / `window.adsbygoogle` to count
+//                         slots (interpolated into constants.ts's loader; no <ins>).
 // Every OTHER build-plugin emitting the literal is hard-coding an ad slot.
 export const ALLOWED = new Set([
   'build-plugins/lib/adSlotHtml.ts',
   'build-plugins/constants.ts',
   'build-plugins/htmlTemplate.ts',
+  'build-plugins/shared/adPageDiagInline.ts',
 ]);
 
 // The distinctive marker of an AdSense unit. adSlotHtml() and the React

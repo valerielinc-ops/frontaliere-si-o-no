@@ -22,6 +22,16 @@ import { useEffect } from 'react';
 import { trackSeoPageView } from '@/services/analytics-seo';
 import { callNativeHistory } from '@/services/nativeHistoryCall';
 
+/**
+ * Synthetic events dispatched by the history patch below, right after the
+ * native call returns and before React re-renders the new route. Exported for
+ * hooks/useAdPageDiag.ts, which must close the previous page view's ad
+ * snapshot while its DOM is still on screen — without patching history a
+ * third time.
+ */
+export const SEO_TRACKING_PUSH_EVENT = 'seo-tracking:pushstate';
+export const SEO_TRACKING_REPLACE_EVENT = 'seo-tracking:replacestate';
+
 export function useSeoPageTracking(): void {
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -48,8 +58,8 @@ export function useSeoPageTracking(): void {
     const originalPushState = window.history.pushState;
     const originalReplaceState = window.history.replaceState;
 
-    const PUSH_EVENT = 'seo-tracking:pushstate';
-    const REPLACE_EVENT = 'seo-tracking:replacestate';
+    const PUSH_EVENT = SEO_TRACKING_PUSH_EVENT;
+    const REPLACE_EVENT = SEO_TRACKING_REPLACE_EVENT;
 
     // Defensive guard (issue #4304, hardened #5606): a live PostHog cluster
     // showed "Cannot read properties of undefined (reading 'apply')" from

@@ -429,6 +429,16 @@ export const MULTIPLEX_DESKTOP_MIN_HEIGHT = 600;
  */
 export const AD_FILL_TIMEOUT_MS = 12_000;
 
+/**
+ * Attribute on the `<AdSenseBanner>` wrapper carrying its lifecycle state
+ * (`idle` | `waiting_width` | `loading` | `filled` | `collapsed`). The SPA twin
+ * of the static `data-ft-static-ad-collapsed` marker: the per-page diagnosis
+ * (services/adPageDiag.ts and its inline twin in the AdSense loader) counts a
+ * manual slot inside a `collapsed` wrapper as collapsed. Read-only telemetry
+ * hook; no CSS keys on it.
+ */
+export const AD_BANNER_STATE_ATTR = 'data-ft-ad-state';
+
 function slotReserveKey(
   adSlot: string | undefined,
   adFormat: string | undefined,

@@ -108,9 +108,11 @@ export function isJobBoardSectionPathname(pathname) {
  * The city list mirrors `build-plugins/professionCityData.ts`. These are the
  * eleven enumerated city hubs from which profession landings are emitted;
  * anchoring the city prevents an editorial `/en/jobs-…/` guide from being
- * swallowed by the job-payload exemption.
+ * swallowed by the job-payload exemption. The city alternation is exported
+ * for services/adPageTemplate.ts, whose `role_landing` bucket (and its inline
+ * twin in the AdSense loader) must follow the same eleven hubs.
  */
-const PROFESSION_CITY_SLUG_SOURCE =
+export const PROFESSION_CITY_SLUG_SOURCE =
   'lugano|mendrisio|bellinzona|locarno|chiasso|zurich|basel|bern|luzern|geneve|lausanne';
 
 export const JOB_BOARD_PROFESSION_CITY_RX = new RegExp(
