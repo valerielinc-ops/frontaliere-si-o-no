@@ -3121,8 +3121,8 @@ function d18AdActivityScore(ad) {
 
 /**
  * Keep the uploaded D18 artifact bounded without changing the in-memory
- * calculation or the company-level totals. The complete by-ad breakdown is
- * still available to the legacy writer; the artifact retains the most active
+ * calculation or the company-level totals. The complete by-ad breakdown stays
+ * in the in-memory D18 payload; the artifact retains the most active
  * deterministic sample and declares the omitted detail explicitly.
  */
 export function boundD18Artifact(payload, {
@@ -3141,12 +3141,14 @@ export function boundD18Artifact(payload, {
   const selection = 'observed_activity_desc_then_job_id';
   const companies = payload.companies.map((company) => {
     const allAds = Array.isArray(company.byAd) ? company.byAd : [];
-    const byAd = [...allAds]
+    const selectedAds = [...allAds]
       .sort((left, right) => (
         d18AdActivityScore(right) - d18AdActivityScore(left)
         || String(left?.jobId || left?.canonicalSlug || '').localeCompare(String(right?.jobId || right?.canonicalSlug || ''))
       ))
       .slice(0, maxAdsPerCompany);
+    const selectedSet = new Set(selectedAds);
+    const byAd = allAds.filter((ad) => selectedSet.has(ad));
     const omitted = allAds.length - byAd.length;
     totalAds += allAds.length;
     includedAds += byAd.length;
