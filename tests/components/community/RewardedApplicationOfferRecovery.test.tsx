@@ -128,12 +128,24 @@ describe('RewardedApplicationOffer — reload that resumes the click', () => {
   it('takes the GPT path when the resume marker cannot be stored', () => {
     mocks.status = 'released';
     consent('granted');
-    const setItem = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
-      throw new Error('QuotaExceededError');
-    });
+    const real = window.sessionStorage;
+    const throwing = {
+      getItem: () => null,
+      setItem: () => {
+        throw new DOMException('quota', 'QuotaExceededError');
+      },
+      removeItem: () => {},
+      clear: () => {},
+      key: () => null,
+      length: 0,
+    } as unknown as Storage;
+    Object.defineProperty(window, 'sessionStorage', { value: throwing, configurable: true });
     const p = props();
-    render(<RewardedApplicationOffer {...p} />);
-    setItem.mockRestore();
+    try {
+      render(<RewardedApplicationOffer {...p} />);
+    } finally {
+      Object.defineProperty(window, 'sessionStorage', { value: real, configurable: true });
+    }
 
     expect(p.onReload).not.toHaveBeenCalled();
     expect(screen.getByTestId('mock-google-rewarded')).toBeInTheDocument();

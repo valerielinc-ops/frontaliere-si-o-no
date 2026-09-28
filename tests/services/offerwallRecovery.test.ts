@@ -146,10 +146,23 @@ describe('resume marker', () => {
   });
 
   it('reports a marker it could not store, so the caller does not reload', () => {
-    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
-      throw new Error('QuotaExceededError');
-    });
-    expect(markOfferwallResume('job-1')).toBe(false);
+    const real = window.sessionStorage;
+    const throwing = {
+      getItem: () => null,
+      setItem: () => {
+        throw new DOMException('quota', 'QuotaExceededError');
+      },
+      removeItem: () => {},
+      clear: () => {},
+      key: () => null,
+      length: 0,
+    } as unknown as Storage;
+    Object.defineProperty(window, 'sessionStorage', { value: throwing, configurable: true });
+    try {
+      expect(markOfferwallResume('job-1')).toBe(false);
+    } finally {
+      Object.defineProperty(window, 'sessionStorage', { value: real, configurable: true });
+    }
   });
 });
 

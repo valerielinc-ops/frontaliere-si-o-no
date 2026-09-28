@@ -2547,8 +2547,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const applicationOfferOpenRef = useRef(false);
  useEffect(() => {
   if (!rewardedApplicationJob && !assistedApplicationJob) applicationOfferOpenRef.current = false;
-  if (!rewardedApplicationJob) setRewardedApplicationResumed(false);
  }, [assistedApplicationJob, rewardedApplicationJob]);
+ useEffect(() => {
+  if (!rewardedApplicationJob) setRewardedApplicationResumed(false);
+ }, [rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
  const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
