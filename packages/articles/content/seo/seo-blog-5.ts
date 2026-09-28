@@ -96364,6 +96364,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassa-malati-tassa-salute': {
+    title: 'Cassa malati o tassa sulla salute? Analisi 2026-2027',
+    description: 'Analisi dell’aumento dei premi di assicurazione malattia in Ticino: +4,4% medio nel 2026, stima 4,5‑5% nel 2027, spesa sanitaria 2024 a 97 miliardi CHF',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, malati, tassa, sulla',
+    ogTitle: 'Cassa malati o tassa sulla salute? Analisi 2026-2027',
+    ogDescription: 'L\'articolo esplora l’impatto dei premi di assicurazione malattia sui bilanci delle famiglie ticinesi, riportando i dati ufficiali del 2026 (+4,4% medio), le stime per il 2027 (tra 4,5% e 5%) e la spesa sanitaria nazionale del 2024 pari a 97 miliardi',
+    canonicalPath: '/articoli-frontaliere/cassa-malati-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa malati o tassa sulla salute? Analisi 2026-2027",
+      "description": "Analisi dell’aumento dei premi di assicurazione malattia in Ticino: +4,4% medio nel 2026, stima 4,5‑5% nel 2027, spesa sanitaria 2024 a 97 miliardi CHF",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassa-malati-tassa-salute.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con montagne sullo sfondo, mattina serena"
+      },
+      "datePublished": "2026-09-28T16:57:04+00:00",
+      "dateModified": "2026-09-28T16:57:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-malati-tassa-salute/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
