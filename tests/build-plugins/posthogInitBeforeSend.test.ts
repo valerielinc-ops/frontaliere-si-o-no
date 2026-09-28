@@ -215,6 +215,50 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     expect(beforeSend(event)).toBe(event);
   });
 
+  it('drops an exception whose entire resolved stack is GPT', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'googletag error' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'googletag error',
+            stacktrace: {
+              frames: [
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 1, colno: 1 },
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 2, colno: 1 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(beforeSend(event)).toBeNull();
+  });
+
+  it('keeps a static GPT exception with a mixed first-party + third-party stack', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'googletag error' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'googletag error',
+            stacktrace: {
+              frames: [
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 1, colno: 1 },
+                { filename: 'https://frontaliereticino.ch/assets/index-entry.js', lineno: 12, colno: 4 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(beforeSend(event)).toBe(event);
+  });
+
   it('fails open (returns the event) if the payload shape is unexpected', () => {
     const event = { event: '$exception', properties: { $exception_values: 'not-an-array' } };
     expect(beforeSend(event)).toBe(event);
