@@ -61,6 +61,7 @@ beforeEach(() => {
   vi.resetModules();
   process.env.GH_REPO = 'o/r';
   process.env.GITHUB_WORKFLOW_REF = 'o/r/.github/workflows/job-timeout-monitor.yml@refs/heads/main';
+  process.env.TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON = 'true';
   delete process.env.TIMEOUT_SCAN_LOOKBACK_MINUTES;
   delete process.env.TIMEOUT_SCAN_MAX_LOOKBACK_MINUTES;
 });
@@ -68,9 +69,26 @@ beforeEach(() => {
 afterEach(() => {
   delete process.env.GH_REPO;
   delete process.env.GITHUB_WORKFLOW_REF;
+  delete process.env.TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON;
 });
 
 describe('scanLookbackMinutes — the window covers the gap since the previous scan', () => {
+  it('fails closed when a bounded created horizon is not explicitly accepted', async () => {
+    const { assertRunAgeHorizon } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    expect(() => assertRunAgeHorizon({
+      maxRunAgeMinutes: 3 * 24 * 60,
+      allowTruncated: false,
+    })).toThrow(/truncates the 35-day run retention/);
+    expect(() => assertRunAgeHorizon({
+      maxRunAgeMinutes: 3 * 24 * 60,
+      allowTruncated: true,
+    })).not.toThrow();
+    expect(() => assertRunAgeHorizon({
+      maxRunAgeMinutes: 35 * 24 * 60,
+      allowTruncated: false,
+    })).not.toThrow();
+  });
+
   it('reaches back to the previous start plus the overlap, never below the base', async () => {
     const { scanLookbackMinutes } = await import('../scripts/ci/scan-job-timeouts.mjs');
     const nowMs = Date.parse('2026-09-28T19:34:00Z');
@@ -135,5 +153,15 @@ describe('main — a timeout between two sparse scans is still reported', () => 
     await main();
 
     expect(creates()).toHaveLength(0);
+  });
+
+  it('skips the previous-scan lookup when the base already exceeds the ceiling', async () => {
+    process.env.TIMEOUT_SCAN_LOOKBACK_MINUTES = String(31 * 60);
+    installGh({ previousScanStartedAt: iso(5 * 60 * MINUTE) });
+    vi.resetModules();
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
+
+    expect(apiPaths().some((apiPath) => apiPath.includes('/runs?status=success'))).toBe(false);
   });
 });

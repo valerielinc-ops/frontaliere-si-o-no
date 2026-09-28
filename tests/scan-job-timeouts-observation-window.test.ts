@@ -41,6 +41,7 @@ beforeEach(() => {
   vi.resetModules();
   process.env.GH_REPO = 'o/r';
   process.env.TIMEOUT_SCAN_LOOKBACK_MINUTES = '40';
+  process.env.TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON = 'true';
   delete process.env.TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES;
   process.env.HOST_KILL_SETTLE_MS = '120000';
 });
@@ -48,6 +49,7 @@ beforeEach(() => {
 afterEach(() => {
   delete process.env.GH_REPO;
   delete process.env.TIMEOUT_SCAN_LOOKBACK_MINUTES;
+  delete process.env.TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON;
   delete process.env.TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES;
   delete process.env.HOST_KILL_SETTLE_MS;
 });

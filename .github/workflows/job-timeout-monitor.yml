@@ -105,6 +105,10 @@ jobs:
       - name: Scan for job timeouts and host-kills
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # La query Actions filtra per created, non updated: 3 giorni sono un
+          # budget realtime esplicito. I deep scan retention-complete usano
+          # l'override 35d senza questo opt-in.
+          TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON: 'true'
         run: node scripts/ci/scan-job-timeouts.mjs
 
       - name: Report unexpected scan failure to GitHub Issues

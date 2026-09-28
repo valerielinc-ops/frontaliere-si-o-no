@@ -145,6 +145,7 @@ const LOOKBACK_MINUTES = intFromEnv('TIMEOUT_SCAN_LOOKBACK_MINUTES', 75);
 // was killed before printing a single line, so no timeout was reported at all.
 // Default to 3 days (still > the 6h hosted-runner job cap plus queueing), keep the
 // full 35-day horizon available via env for a one-off deep scan.
+const WORKFLOW_RUN_RETENTION_MINUTES = 35 * 24 * 60;
 const MAX_WORKFLOW_RUN_AGE_MIN = intFromEnv('TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES', 3 * 24 * 60);
 
 // Ceiling of the gap-covering window (see the header). Widening the window does
@@ -154,6 +155,20 @@ const MAX_WORKFLOW_RUN_AGE_MIN = intFromEnv('TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES', 
 // 2m22s listing, so 12 hours stays well inside the job's 23 minutes.
 const MAX_LOOKBACK_MINUTES = intFromEnv('TIMEOUT_SCAN_MAX_LOOKBACK_MINUTES', 12 * 60);
 const LOOKBACK_OVERLAP_MINUTES = 15;
+
+export function assertRunAgeHorizon({
+  maxRunAgeMinutes = MAX_WORKFLOW_RUN_AGE_MIN,
+  retentionMinutes = WORKFLOW_RUN_RETENTION_MINUTES,
+  allowTruncated = process.env.TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON === 'true',
+} = {}) {
+  if (maxRunAgeMinutes < retentionMinutes && !allowTruncated) {
+    throw new Error(
+      'TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES truncates the 35-day run retention; '
+        + 'set TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON=true only for an explicitly '
+        + 'budgeted realtime scan, or raise the horizon for a retention-complete scan.',
+    );
+  }
+}
 
 // Con qualunque filtro (`status` e `created` qui) GitHub restituisce al massimo
 // 1.000 risultati PER SEARCH. Un cap locale piu' alto sarebbe irraggiungibile:
@@ -611,12 +626,22 @@ function findIssueReportingRun(title, runUrl) {
 }
 
 export async function main() {
+  assertRunAgeHorizon();
   const nowMs = Date.now();
-  const lookback = scanLookbackMinutes({ nowMs, previousScanStartedMs: previousSuccessfulScanStartedMs() });
+  // Once the base already reaches the ceiling, the previous successful start
+  // cannot widen the window. Avoid paying a third Actions API request for a
+  // value that cannot affect the result.
+  const previousScanStartedMs = LOOKBACK_MINUTES >= MAX_LOOKBACK_MINUTES
+    ? Number.NaN
+    : previousSuccessfulScanStartedMs();
+  const lookback = scanLookbackMinutes({ nowMs, previousScanStartedMs });
   if (lookback.truncated) {
+    const cause = lookback.neededMinutes === null
+      ? `il lookback base di ${LOOKBACK_MINUTES}m supera il ceiling`
+      : `l'ultima scansione riuscita risale a ${lookback.neededMinutes - LOOKBACK_OVERLAP_MINUTES}m fa`;
     console.warn(
-      `::warning::[scan-job-timeouts] l'ultima scansione riuscita risale a ${lookback.neededMinutes - LOOKBACK_OVERLAP_MINUTES}m fa: `
-        + `la finestra resta a ${lookback.minutes}m (TIMEOUT_SCAN_MAX_LOOKBACK_MINUTES) e le run chiuse prima non vengono rilette.`,
+      `::warning::[scan-job-timeouts] ${cause}: la finestra resta a ${lookback.minutes}m `
+        + '(TIMEOUT_SCAN_MAX_LOOKBACK_MINUTES) e le run chiuse prima non vengono rilette.',
     );
   }
   const cutoffMs = nowMs - lookback.minutes * 60 * 1000;
