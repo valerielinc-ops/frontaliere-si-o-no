@@ -12201,6 +12201,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.hotel-ristoranti-salari-2027.title': 'Hôtels et restaurants : salaires minimums +0,6% en 2027',
     'blog.article.hotel-ristoranti-salari-2027.excerpt': 'Dans le secteur de l’hôtellerie et de la restauration, les salaires minimaux augmenteront de 0,6% en 2027 : pour la Cat. II, de 4\'070 à 4\'094 francs bruts.',
     'blog.article.hotel-ristoranti-salari-2027.imageAlt': 'Salle de restaurant d’hôtel suisse préparée pour le service',
+    'blog.article.targhe-ricerche-pagamento.title': 'Plaques Tessin : recherches payantes à partir du 1er novembre',
+    'blog.article.targhe-ricerche-pagamento.excerpt': 'À partir du 1° novembre 2026, la liste des plaques tessinoises revient sur eAutoindex : les recherches individuelles seront payantes afin de freiner la collecte automatisée des données.',
+    'blog.article.targhe-ricerche-pagamento.imageAlt': 'Registre des plaques tessinoises et plateforme eAutoindex pour les recherches payantes',
 };
 
 export default blogMetaFr;
