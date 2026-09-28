@@ -228,7 +228,7 @@ const TAXONOMY = [
     'i',
   ), docKeys: ['auto ads', 'adsense'] },
   { key: 'adsense-slot-lifecycle', re: /(?:(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>)[\s\S]{0,180}(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)|(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)[\s\S]{0,180}(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>))/i, docKeys: ['auto ads', 'adsense'] },
-  { key: 'adsense-bot-gate', re: /(?:(?:adsense|auto ?ads|ads?\b|advertis(?:e|ing|ements)|cta)[\s\S]{0,180}(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)|(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)[\s\S]{0,180}(?:adsense|auto ?ads|ads?\b|advertis(?:e|ing|ements)|cta))/i, docKeys: ['auto ads', 'adsense'] },
+  { key: 'adsense-bot-gate', re: /(?:(?:adsense|auto ?ads|\bads?\b|advertis(?:e|ing|ements)|cta)[\s\S]{0,180}(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)|(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)[\s\S]{0,180}(?:adsense|auto ?ads|\bads?\b|advertis(?:e|ing|ements)|cta))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'adsense-loader-contract', re: /(?:(?:adsense|adsbygoogle|auto ?ads)[\s\S]{0,220}(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)|(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)[\s\S]{0,220}(?:adsense|adsbygoogle|auto ?ads))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'] },
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },

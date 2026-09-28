@@ -390,7 +390,9 @@ describe('bucketFinding — adsense-thin-content richiede entrambi i segnali (#1
 
   for (const [pr, line] of NON_ADSENSE_THIN_CONTENT_FINDINGS) {
     it(`${pr}: noindex/indexable o ad mancante non è thin-content AdSense`, () => {
-      expect(bucketFinding(`🔴 Important: ${line}`)).not.toBe('adsense-thin-content');
+      const bucket = bucketFinding(`🔴 Important: ${line}`);
+      expect(bucket).not.toBe('adsense-thin-content');
+      expect(bucket?.startsWith('adsense-') ?? false).toBe(false);
     });
   }
 
