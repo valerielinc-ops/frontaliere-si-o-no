@@ -360,12 +360,21 @@ export function scanLookbackMinutes({
   maxMinutes = MAX_LOOKBACK_MINUTES,
   overlapMinutes = LOOKBACK_OVERLAP_MINUTES,
 }) {
+  const cappedBaseMinutes = Math.min(baseMinutes, maxMinutes);
   if (!Number.isFinite(previousScanStartedMs) || previousScanStartedMs > nowMs) {
-    return { minutes: baseMinutes, neededMinutes: null, truncated: false };
+    return {
+      minutes: cappedBaseMinutes,
+      neededMinutes: null,
+      truncated: baseMinutes > maxMinutes,
+    };
   }
   const neededMinutes = Math.ceil((nowMs - previousScanStartedMs) / 60_000) + overlapMinutes;
-  const minutes = Math.max(baseMinutes, Math.min(maxMinutes, neededMinutes));
-  return { minutes, neededMinutes, truncated: neededMinutes > Math.max(baseMinutes, maxMinutes) };
+  const minutes = Math.max(cappedBaseMinutes, Math.min(maxMinutes, neededMinutes));
+  return {
+    minutes,
+    neededMinutes,
+    truncated: baseMinutes > maxMinutes || neededMinutes > maxMinutes,
+  };
 }
 
 function previousSuccessfulScanStartedMs() {

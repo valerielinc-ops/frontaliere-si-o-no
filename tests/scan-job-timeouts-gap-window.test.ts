@@ -95,6 +95,21 @@ describe('scanLookbackMinutes — the window covers the gap since the previous s
       .toMatchObject({ minutes: 720, truncated: true });
   });
 
+  it('the derived base cannot bypass the 12-hour ceiling', async () => {
+    const { scanLookbackMinutes } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    const nowMs = Date.now();
+    expect(scanLookbackMinutes({
+      nowMs,
+      previousScanStartedMs: nowMs - 30 * MINUTE,
+      baseMinutes: 31 * 60,
+    })).toEqual({ minutes: 720, neededMinutes: 45, truncated: true });
+    expect(scanLookbackMinutes({
+      nowMs,
+      previousScanStartedMs: Number.NaN,
+      baseMinutes: 31 * 60,
+    })).toEqual({ minutes: 720, neededMinutes: null, truncated: true });
+  });
+
   it('reads the workflow file from GITHUB_WORKFLOW_REF', async () => {
     const { monitorWorkflowFile } = await import('../scripts/ci/scan-job-timeouts.mjs');
     expect(monitorWorkflowFile({ GITHUB_WORKFLOW_REF: 'a/b/.github/workflows/job-timeout-monitor.yml@refs/heads/main' }))
