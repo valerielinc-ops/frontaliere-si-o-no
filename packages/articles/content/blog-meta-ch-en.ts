@@ -6890,6 +6890,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bern-istruzione-qualita-respinta.title': 'Bern rejects the initiative on quality education',
     'blog.article.bern-istruzione-qualita-respinta.excerpt': 'With 59.9% voting no and a turnout of 45.3%, the people of Bern reject the right to a quality education in the cantonal constitution.',
     'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'School building in the Swiss canton of Bern',
+    'blog.article.friburgo-successione-donazione-aliquote.title': 'Fribourg: inheritances and gifts, tax rates and exemptions',
+    'blog.article.friburgo-successione-donazione-aliquote.excerpt': 'No single federal tax rate: in the Canton of Fribourg, taxes depend on the degree of kinship and exemptions for spouse and descendants.',
+    'blog.article.friburgo-successione-donazione-aliquote.imageAlt': 'Cantonal administrative building in Fribourg handling inheritance and gift tax affairs',
 };
 
 export default blogMetaChEn;
