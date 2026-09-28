@@ -6899,6 +6899,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-neutralita-alimentazione-respinto.title': 'Abstimmung am 27. September: klares Nein zu Neutralität und Essen',
     'blog.article.voto-neutralita-alimentazione-respinto.excerpt': 'Am 27. September lehnten über 70 Prozent die Neutralitätsinitiative und 72,5 Prozent die Ernährungsinitiative in allen Kantonen ab.',
     'blog.article.voto-neutralita-alimentazione-respinto.imageAlt': 'Schweizer Bürger an einer Wahlurne bei den Abstimmungen vom 27. September, klares Ergebnis zu Neutralität und Ernährung.',
+    'blog.article.friburgo-imposta-eredi-regole.title': 'Erbschafts- und Schenkungssteuer: Steuersätze Freiburg',
+    'blog.article.friburgo-imposta-eredi-regole.excerpt': 'Kanton Freiburg, Steuer auf drei Ebenen: wie man Zuständigkeiten, Verwandtschaftssätze, Befreiungen, Erklärung und zu überprüfende Fristen unterscheidet.',
+    'blog.article.friburgo-imposta-eredi-regole.imageAlt': 'Schweizer Kantonsverwaltung für einen Ratgeber zu Erbschafts- und Schenkungssteuer.',
 };
 
 export default blogMetaChDe;

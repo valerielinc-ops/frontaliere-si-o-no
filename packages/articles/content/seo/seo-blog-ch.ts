@@ -89447,6 +89447,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-friburgo-imposta-eredi-regole': {
+    title: 'Imposta successione e donazione: aliquote Friburgo',
+    description: 'Guida all\'imposta di successione e donazione nel Cantone di Friburgo: livelli fiscali, competenze, parentela, esenzioni, dichiarazione e termini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, aliquote',
+    ogTitle: 'Imposta successione e donazione: aliquote Friburgo',
+    ogDescription: 'Nel fisco svizzero la competenza cambia tra livello federale, cantonale e comunale. Una guida operativa per orientarsi a Friburgo tra aliquote per parentela, esenzioni per coniuge e discendenti, dichiarazione e scadenze.',
+    canonicalPath: '/articoli-svizzera/friburgo-imposta-eredi-regole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta successione e donazione: aliquote Friburgo",
+      "description": "Guida all'imposta di successione e donazione nel Cantone di Friburgo: livelli fiscali, competenze, parentela, esenzioni, dichiarazione e termini.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/friburgo-imposta-eredi-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio di un'amministrazione cantonale svizzera per una guida su successioni e donazioni."
+      },
+      "datePublished": "2026-09-28T04:25:31+00:00",
+      "dateModified": "2026-09-28T04:25:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/friburgo-imposta-eredi-regole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
