@@ -12226,6 +12226,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cassa-malati-tassa-salute.title': 'Cassa malati o tassa sulla salute? Analisi 2026-2027',
     'blog.article.cassa-malati-tassa-salute.excerpt': 'Nel 2026 i premi aumentano +4,4% medio, più alti in Ticino; nel 2027 stima tra 4,5% e 5%. Spesa sanitaria 2024: 97 mld CHF. Progetto Caisse Santé Genève il 23/09/2026.',
     'blog.article.cassa-malati-tassa-salute.imageAlt': 'Vista del lago di Lugano con montagne sullo sfondo, mattina serena',
+    'blog.article.tilo-fermo-busto-biasca.title': 'Treno Tilo fermo a Busto Arsizio per quasi tre ore',
+    'blog.article.tilo-fermo-busto-biasca.excerpt': 'Un Tilo diretto da Malpensa a Biasca è rimasto bloccato a circa 200 metri dalla stazione di Busto Arsizio: a bordo tensione e disagi.',
+    'blog.article.tilo-fermo-busto-biasca.imageAlt': 'Treno regionale in arrivo nel Bellinzonese, immagine d\'archivio',
 };
 
 export default blogMetaIt;

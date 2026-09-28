@@ -36691,6 +36691,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tilo-fermo-busto-biasca',
+ category: 'novita',
+ date: '2026-09-28T18:16:49.607Z',
+ image: '/images/blog/tilo-fermo-busto-biasca.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
