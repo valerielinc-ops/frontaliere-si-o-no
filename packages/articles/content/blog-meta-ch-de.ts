@@ -6878,6 +6878,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-svizzera-esiti-politici.title': 'Schweiz: Ernährung und Neutralität abgelehnt',
     'blog.article.voto-svizzera-esiti-politici.excerpt': '72,5% der Stimmberechtigten lehnen die Ernährungsinitiative ab. Cassis bestätigt die aktuelle Neutralitätspraxis. Wahlbeteiligung 47,03%.',
     'blog.article.voto-svizzera-esiti-politici.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
+    'blog.article.voto-iniziative-neutralita-cibo.title': 'Schweizer Abstimmung: Nein zu Neutralität und Ernährungssicherheit',
+    'blog.article.voto-iniziative-neutralita-cibo.excerpt': '70,1% lehnen die Initiative zur Neutralität ab und 72,5% jene zur Ernährungssicherheit. Alle Kantone haben dagegen gestimmt.',
+    'blog.article.voto-iniziative-neutralita-cibo.imageAlt': 'Schweizer Wahlurne zur Abstimmung über Neutralität und Ernährungssicherheit',
 };
 
 export default blogMetaChDe;

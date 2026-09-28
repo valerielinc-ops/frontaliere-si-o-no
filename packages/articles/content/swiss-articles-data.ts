@@ -20662,6 +20662,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'voto-iniziative-neutralita-cibo',
+    category: 'novita',
+    date: '2026-09-28T01:11:40.971Z',
+    image: '/images/blog/voto-iniziative-neutralita-cibo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
