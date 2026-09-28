@@ -86,7 +86,9 @@ describe('Schweizerhof crawler parser', () => {
     expect(spec.companyHost).toBe('romantikhotels.hcm4all.de');
     expect(spec.seedUrls).toEqual(['https://romantikhotels.hcm4all.de/list/?l=de']);
     expect(spec.detailTemplate).toBe('/list/*');
-    expect(spec.listingCandidateText).toBe('Schweizerhof Flims');
+    expect(spec.listingCandidateText).toBeUndefined();
+    expect(spec.detailCandidateText).toBe('Schweizerhof Flims');
+    expect(spec.rescueOnEmptyListing).toBe(true);
   });
 
   // ── slugify (imported from crawler-template) ──

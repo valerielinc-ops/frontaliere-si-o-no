@@ -280,6 +280,47 @@ describe('prospector public-only polite transport', () => {
     expect(fetchImpl).not.toHaveBeenCalledWith(unrelated, expect.anything());
   });
 
+  it('filters a multi-employer ATS by tenant evidence on enriched detail pages', async () => {
+    const seed = 'https://romantik.example/list/';
+    const wanted = 'https://romantik.example/list/18877';
+    const unrelated = 'https://romantik.example/list/19310';
+    const listing = `<a href="/list/18877">Housekeeping-Mitarbeiter/in (m/w/d)</a>`
+      + `<a href="/list/19310">Chef de Service (m/w)</a>`;
+    const wantedDetail = '<h1>Housekeeping-Mitarbeiter/in (m/w/d)</h1><div class="job-location">Flims</div>'
+      + '<article class="vacancy-description">'
+      + 'Darum sollten Sie zum Schweizerhof Flims kommen. Unterstützen Sie unser Team '
+      + 'mit einer verantwortungsvollen Tätigkeit und geregelten Arbeitszeiten.'
+      + '</article>';
+    const unrelatedDetail = '<h1>Chef de Service (m/w)</h1><div class="job-location">Grindelwald</div>'
+      + '<article class="vacancy-description">'
+      + 'Das Romantik Hotel Schweizerhof Grindelwald sucht Unterstützung im Service. '
+      + 'Wir bieten eine abwechslungsreiche Aufgabe und faire Arbeitszeiten.'
+      + '</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      if (url === wanted) return response(url, 200, null, wantedDetail);
+      if (url === unrelated) return response(url, 200, null, unrelatedDetail);
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Schweizerhof',
+      companyHost: 'romantik.example', mode: 'template', seedUrls: [seed],
+      detailTemplate: '/list/*', detailEnrichment: true,
+      detailCandidateText: 'Schweizerhof Flims',
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Housekeeping-Mitarbeiter/in (m/w/d)', url: wanted, location: 'Flims', canton: 'GR',
+    })]);
+    expect(fetchImpl).toHaveBeenCalledWith(unrelated, expect.objectContaining({ redirect: 'manual' }));
+  });
+
   it('rescues a WAF 403 through Jina while keeping the prospector URL policy in front', async () => {
     const seed = 'https://employer.example/jobs';
     const detail = 'https://employer.example/careers/detail/1';

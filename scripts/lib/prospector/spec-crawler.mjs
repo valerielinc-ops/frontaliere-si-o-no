@@ -139,7 +139,8 @@ async function tryBrowserRescue(url, runtime) {
  * @param {any[]} [rows]
  */
 export function needsDetailEnrichment(spec, rows = []) {
-  if (spec.mode === 'template' || spec.detailEnrichment === true) return true;
+  if (spec.mode === 'template' || spec.detailEnrichment === true
+    || normalizeListingCandidateText(spec.detailCandidateText)) return true;
   // Legacy structured specs may have been promoted before the synthesiser
   // recorded this flag. If their listing carries no usable Swiss geography,
   // runtime must visit the same detail page that validation graded.
@@ -392,7 +393,22 @@ function normalizeListingCandidateText(value) {
  * @returns {boolean}
  */
 function matchesListingCandidateText(spec, candidate) {
-  const needle = normalizeListingCandidateText(spec.listingCandidateText);
+  return candidateContainsText(spec.listingCandidateText, candidate);
+}
+
+/**
+ * Apply a source discriminator to a candidate record. Listing candidates are
+ * allowed to carry only title/link evidence; detail candidates additionally
+ * carry the source-backed workplace labels and enriched description. Keeping
+ * the normalization shared prevents a multi-employer ATS from being filtered
+ * differently before and after detail enrichment.
+ *
+ * @param {unknown} requiredText
+ * @param {any} candidate
+ * @returns {boolean}
+ */
+function candidateContainsText(requiredText, candidate) {
+  const needle = normalizeListingCandidateText(requiredText);
   if (!needle) return true;
   const haystack = normalizeListingCandidateText([
     candidate?.title,
@@ -402,9 +418,24 @@ function matchesListingCandidateText(spec, candidate) {
     candidate?.location,
     candidate?.addressLocality,
     candidate?.addressRegion,
+    candidate?.addressCountry,
+    candidate?.postalCode,
+    candidate?.streetAddress,
     candidate?.description,
+    ...(Array.isArray(candidate?.workplaceLabels)
+      ? candidate.workplaceLabels
+      : [candidate?.workplaceLabels]),
   ].filter(Boolean).join(' '));
   return haystack.includes(needle);
+}
+
+/**
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {any} candidate
+ * @returns {boolean}
+ */
+function matchesDetailCandidateText(spec, candidate) {
+  return candidateContainsText(spec.detailCandidateText, candidate);
 }
 
 /**
@@ -613,6 +644,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const enriched = new Array(rows.length);
     let geographyDrops = 0;
     let descriptionDrops = 0;
+    let detailCandidateDrops = 0;
     let next = 0;
     const worker = async () => {
       while (next < rows.length) {
@@ -639,7 +671,18 @@ export async function runSpecInProduction(spec, runtime = {}) {
           const description = isSufficientVacancyDescription(detail.description)
             ? detail.description
             : row.description;
-          const publishable = { ...row, title: detail.title || row.title, description,
+          const detailCandidate = {
+            ...row,
+            ...detail,
+            title: detail.title || row.title,
+            location: detail.location || row.location,
+            description,
+          };
+          if (!matchesDetailCandidateText(spec, detailCandidate)) {
+            detailCandidateDrops++;
+            continue;
+          }
+          const publishable = { ...row, title: detailCandidate.title, description,
             postedAt: detail.postedDate || row.postedAt,
             employmentType: detail.employmentType || row.employmentType };
           // Free-text NPA variance is measured for diagnostics, but its current
@@ -652,6 +695,10 @@ export async function runSpecInProduction(spec, runtime = {}) {
         } catch (err) {
           // A row without both source-backed fields must not be published with a
           // fabricated employer default. Keep already complete index rows only.
+          if (!matchesDetailCandidateText(spec, row)) {
+            detailCandidateDrops++;
+            continue;
+          }
           const geography = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
           if (!geography) geographyDrops++;
           else if (!isSufficientVacancyDescription(row.description)) descriptionDrops++;
@@ -665,6 +712,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
       'localita svizzera source-backed assente o non verificabile');
     reportDroppedRows(spec, descriptionDrops, rows.length,
       'descrizione source-backed assente o non verificabile');
+    reportDroppedRows(spec, detailCandidateDrops, rows.length,
+      'identità tenant assente nella pagina dettaglio source-backed');
     return enriched.filter(Boolean);
   } finally {
     try {
