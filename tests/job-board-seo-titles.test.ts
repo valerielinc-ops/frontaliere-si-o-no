@@ -12,13 +12,19 @@ import {
   JOB_BOARD_LANDING_PATHS,
   type JobBoardLocale,
 } from '../build-plugins/jobBoardSeo'
-import { buildItalianCantonLandingTitle } from '../services/seo/job-board-titles'
+import { buildCantonLandingTitle } from '../services/seo/job-board-titles'
 
-describe('buildItalianCantonLandingTitle', () => {
-  it('uses job-offer intent and preserves the site brand for canton landings', () => {
-    expect(buildItalianCantonLandingTitle('Zurigo')).toBe(
-      'Offerte di lavoro in Zurigo | Frontaliere Ticino',
-    )
+describe('buildCantonLandingTitle', () => {
+  it('uses live job-offer intent for the Zurich canton landing', () => {
+    const title = buildCantonLandingTitle({
+      locale: 'it',
+      cantonDisplay: 'Zurigo',
+      count: 137,
+      year: 2026,
+    })
+    expect(title).toContain('Offerte di lavoro in Zurigo')
+    expect(title).toContain('137')
+    expect(title).toContain('2026')
   })
 })
 

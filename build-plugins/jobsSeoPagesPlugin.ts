@@ -222,7 +222,7 @@ import type { CantonRealDataSectorRow, CantonRealDataEmployer } from './shared/c
 // services/seo/meta-descriptions.ts for details.
 import {
  buildEmployerHubTitle,
- buildItalianCantonLandingTitle,
+ buildCantonLandingTitle,
  buildRoleHubTitle,
 } from '../services/seo/job-board-titles';
 import {
@@ -2550,6 +2550,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    : { '@type': 'ListItem', position: i + 1, name: jobTitle, url: abs };
  };
  const dateStamp = new Date().toISOString().slice(0, 10);
+ const cantonTitleYear = new Date().getFullYear();
  const searchRoutePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
  it: 'ricerca',
  en: 'search',
@@ -10941,17 +10942,20 @@ ${staticAnalyticsHtml}
    const buildCantonLocaleLabels = (
      locale: CantonLocale,
      display: string,
+     count: number,
+     year: number,
    ): { title: string; lede: string; ctaLabel: string } => {
+     const title = buildCantonLandingTitle({ locale, cantonDisplay: display, count, year });
      switch (locale) {
        case 'it':
          return {
-          title: buildItalianCantonLandingTitle(display),
+          title,
           lede: `Pagina indice del job board per il cantone ${display}.`,
           ctaLabel: `Vedi tutte le offerte`,
         };
        case 'en':
          return {
-          title: buildTitleWithBrand(`Jobs in ${display}`),
+          title,
           lede: `Job board index page for canton ${display}.`,
           ctaLabel: `View all listings`,
         };
@@ -10971,14 +10975,14 @@ ${staticAnalyticsHtml}
          // above). Rewritten to match that intent instead of translating
          // the generic "job board index" framing.
          return {
-          title: buildTitleWithBrand(`Grenzgänger-Jobs ${germanCantonPrep(display)}`),
+          title,
           lede: `Aktuelle Stellenangebote für Grenzgänger ${germanCantonPrep(display)} — täglich aktualisiert.`,
           ctaLabel: `Alle Stellen anzeigen`,
         };
        case 'fr':
        default:
          return {
-          title: buildTitleWithBrand(`Emploi ${frenchCantonPrep(display)}`),
+          title,
           lede: `Index du job board pour le canton ${display}.`,
           ctaLabel: `Voir toutes les offres`,
         };
@@ -11107,7 +11111,7 @@ ${staticAnalyticsHtml}
      if (meetsThreshold) {
        shardUrls.push({ loc: canonicalUrl, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: entry.key });
      }
-     const labels = buildCantonLocaleLabels(entry.locale, display);
+     const labels = buildCantonLocaleLabels(entry.locale, display, cantonCount, cantonTitleYear);
      // The visible `lede` stays short (header tagline); the SEO meta + JSON-LD
      // description use a 140-160 char canton+count-aware snippet so GSC no
      // longer flags "Description too short" (issue #2996). The thin
