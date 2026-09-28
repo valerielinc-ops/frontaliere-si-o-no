@@ -168,6 +168,34 @@ export function normalizeEventPeople(value, baseUrl, fallbackUrl) {
   return inputWasArray ? people : people[0];
 }
 
+/**
+ * Ensure every crawled event has the people fields required by the public
+ * Event JSON-LD contract. Source entities remain authoritative; defaults are
+ * used only when a crawler could not find a named entity. A source homepage is
+ * a stable organizer URL, while the event page is the verified fallback URL
+ * for a named organizer whose source record omitted its own URL.
+ */
+export function fillEventPeopleDefaults(event, source = {}) {
+  const sourceName = sourceText(source?.label) || sourceText(event?.sourceName) || 'Frontaliere Ticino';
+  const baseUrl = absoluteHttpUrl(event?.url, source?.homepage)
+    || absoluteHttpUrl(source?.homepage)
+    || 'https://frontaliereticino.ch';
+  const eventUrl = absoluteHttpUrl(event?.url, baseUrl);
+  const sourceHomepage = absoluteHttpUrl(source?.homepage, baseUrl) || eventUrl;
+  const organizer = normalizeEventPeople(event?.organizer, baseUrl, eventUrl || sourceHomepage)
+    || {
+      '@type': 'Organization',
+      name: sourceName,
+      ...(sourceHomepage ? { url: sourceHomepage } : {}),
+    };
+  const performer = normalizeEventPeople(event?.performer, baseUrl)
+    || {
+      '@type': 'Organization',
+      name: sourceText(event?.venue) || sourceName,
+    };
+  return { ...event, organizer, performer };
+}
+
 /** Return true only when every normalized named entity has a usable URL. */
 export function hasCompleteEventPeopleUrls(value) {
   if (value === undefined || value === null) return false;

@@ -209,11 +209,15 @@ describe('eventLd canonical', () => {
 });
 
 describe('eventLd source attribution (#3125)', () => {
-  it('does not promote the source or venue to organizer/performer without source data', () => {
+  it('fills deterministic organizer/performer defaults without source metadata', () => {
     const guidleEvent = { ...EVENT, id: 'guidle:abc', sourceKey: 'guidle', sourceName: 'Guidle' };
     const ld = eventLd(guidleEvent as never, 'it') as Record<string, any>;
-    expect(ld.organizer).toBeUndefined();
-    expect(ld.performer).toBeUndefined();
+    expect(ld.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Guidle',
+      url: 'https://www.guidle.com/',
+    });
+    expect(ld.performer).toEqual({ '@type': 'Organization', name: EVENT.venue });
   });
 
   it('emits named organizer/performer metadata when the crawler supplies it', () => {
@@ -262,9 +266,16 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.location.address.postalCode).toBe('6900');
   });
 
-  it('omits offers entirely when price is unknown (never a partial offers object)', () => {
+  it('emits a complete fallback offer when price is unknown', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(ld.offers).toBeUndefined();
+    expect(ld.offers).toEqual({
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: EVENT.startDate,
+      url: EVENT.url,
+    });
   });
 
   it('emits verified price fields for a free event', () => {
@@ -275,8 +286,8 @@ describe('eventLd source attribution (#3125)', () => {
       price: '0',
       priceCurrency: 'CHF',
     });
-    expect(ld.offers.validFrom).toBeUndefined();
-    expect(ld.offers.url).toBeUndefined();
+    expect(ld.offers.validFrom).toBe(EVENT.startDate);
+    expect(ld.offers.url).toBe(EVENT.url);
   });
 
   it('emits verified price fields for a paid event', () => {
@@ -307,9 +318,9 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.image.copyrightNotice).toBeTruthy();
   });
 
-  it('omits Event.image when the event has no event-specific image', () => {
+  it('uses the category catalog image when the event has no event-specific image', () => {
     const withoutImage = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(withoutImage.image).toBeUndefined();
+    expect(withoutImage.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/catalog/musica.svg');
   });
 
   it('never hotlinks a raw non-mirrored third-party image URL', () => {
@@ -317,10 +328,10 @@ describe('eventLd source attribution (#3125)', () => {
     // mirrored `/images/events/...` path (or leave imageUrl unset), but a
     // stale pre-mirroring dataset snapshot could still carry a raw URL. That
     // must NEVER be embedded (hotlinked) into production JSON-LD; the
-    // presentation layer may still use its category illustration.
+    // presentation layer and Event.image both use the category illustration.
     const hotlinked = { ...EVENT, imageUrl: 'https://biglietteria.ch/files/flyer.jpg' };
     const ld = eventLd(hotlinked as never, 'it') as Record<string, any>;
-    expect(ld.image).toBeUndefined();
+    expect(ld.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/catalog/musica.svg');
   });
 });
 

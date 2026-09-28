@@ -80,6 +80,12 @@ describe('createAgendaCrawler — crawl()', () => {
     for (const e of result.events) {
       expect(e.sourceKey).toBe(TEST_SOURCE_KEY);
       expect(e.sourceName).toBe('Test Agenda Factory Fixture');
+      expect(e.organizer).toEqual({
+        '@type': 'Organization',
+        name: 'Test Agenda Factory Fixture',
+        url: 'https://example.test/agenda',
+      });
+      expect(e.performer).toEqual({ '@type': 'Organization', name: 'Test Agenda Factory Fixture' });
     }
 
     expect(existsSync(slicePath)).toBe(true);

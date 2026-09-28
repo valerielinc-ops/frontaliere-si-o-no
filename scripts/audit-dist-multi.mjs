@@ -934,9 +934,9 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
     }
   }
-  // image, organizer and performer are optional Schema.org properties. Check
-  // their shape only when a source provides them; the event catalog does not
-  // invent a generic image, source-as-organizer or venue-as-performer.
+  // The event builder supplies deterministic defaults for image, organizer
+  // and performer. Keep this guard conditional for legacy/fixture documents,
+  // while validating every value emitted by the current builder.
   if (schema.image !== undefined && schema.image !== null) {
     const hasImage = Array.isArray(schema.image)
       ? schema.image.some((img) => sdIsNonEmpty(typeof img === 'string' ? img : img?.url))
@@ -950,10 +950,10 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event "${field}" must include a named Person or Organization when present` });
     }
   }
-  // offers — OPTIONAL (recommended, not required by Google). Validate it only
-  // WHEN PRESENT so price-less Event listings (e.g. the Ticino agenda, where
-  // asserting price:"0" would misrepresent paid events) omit it cleanly while
-  // accurate offers retain their verified core fields. Kept in lockstep with the same rule in
+  // offers is recommended rather than required by Google. The current event
+  // builder emits a complete fallback offer when the source has no price; this
+  // conditional also keeps legacy/fixture documents valid while checking every
+  // offer that is present. Kept in lockstep with the same rule in
   // scripts/validate-structured-data-completeness.mjs (shared Event contract).
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
