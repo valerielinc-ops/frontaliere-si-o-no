@@ -413,14 +413,32 @@ async function probeOnce(url, {
   };
 }
 
-async function probeWithRetries(url, options = {}) {
+export async function probeWithRetries(url, options = {}) {
   const retries = Number(options.retries ?? DEFAULT_RETRIES);
+  const configuredTimeoutMs = Number(options.timeoutMs ?? DEFAULT_TIMEOUT_MS);
+  const timeoutBudgetMs = Number.isFinite(configuredTimeoutMs) && configuredTimeoutMs > 0
+    ? configuredTimeoutMs
+    : DEFAULT_TIMEOUT_MS;
+  const configuredDeadlineAt = Number(options.deadlineAt);
+  const deadlineAt = Number.isFinite(configuredDeadlineAt) ? configuredDeadlineAt : Number.POSITIVE_INFINITY;
   let result;
   for (let attempt = 0; attempt <= retries; attempt += 1) {
-    result = await probeOnce(url, options);
+    if (Date.now() >= deadlineAt) {
+      return result || {
+        url,
+        status: 0,
+        finalUrl: url,
+        findings: [finding('fetch-error', url, 'Il budget temporale della verifica è scaduto.')],
+        links: [],
+      };
+    }
+    const remainingBudgetMs = Math.max(1, deadlineAt - Date.now());
+    result = await probeOnce(url, { ...options, timeoutMs: Math.min(timeoutBudgetMs, remainingBudgetMs) });
     const retryable = result.status === 0 || result.status === 429 || result.status >= 500;
     if (!retryable || attempt === retries) return result;
-    await sleep(Math.min(8_000, 500 * (2 ** attempt)));
+    const backoffMs = Math.min(8_000, 500 * (2 ** attempt));
+    if (Date.now() + backoffMs >= deadlineAt) return result;
+    await sleep(backoffMs);
   }
   return result;
 }
