@@ -36709,6 +36709,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gare-ciclismo-varese-ottobre',
+ category: 'pratico',
+ date: '2026-09-28T21:12:48.229Z',
+ image: '/images/blog/gare-ciclismo-varese-ottobre.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

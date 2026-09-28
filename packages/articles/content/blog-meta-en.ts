@@ -12231,6 +12231,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cantiere-a8-castronno-albizzate.title': 'Overnight closure of the A8 between Varese and Gallarate',
     'blog.article.cantiere-a8-castronno-albizzate.excerpt': 'Nighttime closure of the A8 between Varese and Gallarate for work on the overpass between Castronno and Albizzate: risk of traffic queues and alternating one-way traffic on the SP34.',
     'blog.article.cantiere-a8-castronno-albizzate.imageAlt': 'Night traffic on a motorway with roadworks and traffic signs',
+    'blog.article.gare-ciclismo-varese-ottobre.title': 'Tre Valli Varesine: races and road closures',
+    'blog.article.gare-ciclismo-varese-ottobre.excerpt': 'From 3 to 6 October, Varese and the surrounding province host time trial, granfondo and professional races with significant traffic restrictions.',
+    'blog.article.gare-ciclismo-varese-ottobre.imageAlt': 'Cycling races in Varese and province',
 };
 
 export default blogMetaEn;

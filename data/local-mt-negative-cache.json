@@ -18505,6 +18505,26 @@
       "decision": "skip:no-op",
       "createdAt": "2026-09-28T17:34:44.101Z",
       "expiresAt": "2026-10-05T22:10:03.165Z"
+    },
+    "bd90016bb7c0f2bf1efee672e7ffb5ec3c6af19408ba80763d84ca3f72792c97": {
+      "decision": "skip:source-copy",
+      "createdAt": "2026-09-28T21:17:42.515Z",
+      "expiresAt": "2026-10-05T23:45:04.258Z"
+    },
+    "f7767533e05a38b15897fb2803bd7155a460a0f696eff60f0aa9fd5818e96641": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-09-28T21:17:48.518Z",
+      "expiresAt": "2026-10-05T21:56:35.810Z"
+    },
+    "57b4146474e47b5844c10a23fff4e7de7755de536230435269639a99d8c85345": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-09-28T21:17:48.519Z",
+      "expiresAt": "2026-10-05T17:39:54.564Z"
+    },
+    "4c63170607cd202d9df1f9a94a536ce77c465c4206f14394a8318e76e8058cd4": {
+      "decision": "skip:candidate-untranslated",
+      "createdAt": "2026-09-28T21:17:48.519Z",
+      "expiresAt": "2026-10-06T00:24:54.680Z"
     }
   }
 }

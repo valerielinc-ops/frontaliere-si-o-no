@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-09-28T04:54:17.395Z",
+  "assembledAt": "2026-09-28T21:16:12.283Z",
   "jobs": [
     {
       "id": "apple-retail-switzerland-514c0e1f28a1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617889/aiml-apple-foundation-models-senior-ml-research-scientist-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.019Z",
+      "crawledAt": "2026-09-28T21:16:08.417Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -120,7 +120,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.018Z",
+      "crawledAt": "2026-09-28T21:16:08.416Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,7 +203,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.017Z",
+      "crawledAt": "2026-09-28T21:16:08.414Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -248,7 +248,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-ac101ba22f06",
@@ -281,7 +282,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.017Z",
+      "crawledAt": "2026-09-28T21:16:08.415Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -342,7 +343,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-99675b310169",
@@ -375,7 +377,7 @@
       "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.016Z",
+      "crawledAt": "2026-09-28T21:16:08.413Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -407,6 +409,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.772Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -453,7 +456,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664779/aiml-machine-learning-researcher-mlr?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.015Z",
+      "crawledAt": "2026-09-28T21:16:08.412Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -495,7 +498,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "apple-retail-switzerland-4ca89472c6c0",
@@ -528,7 +533,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.014Z",
+      "crawledAt": "2026-09-28T21:16:08.411Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -560,6 +565,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.767Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -606,7 +612,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.013Z",
+      "crawledAt": "2026-09-28T21:16:08.410Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -643,6 +649,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T23:03:17.856Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -689,7 +696,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672941/research-scientist-engineer-special-projects?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.012Z",
+      "crawledAt": "2026-09-28T21:16:08.410Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -767,7 +774,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.011Z",
+      "crawledAt": "2026-09-28T21:16:08.408Z",
       "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -812,7 +819,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-049c1204c6e1",
@@ -845,7 +853,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679630/aiml-foundation-model-post-training-research-scientist?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:12.993Z",
+      "crawledAt": "2026-09-28T21:16:08.389Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -925,7 +933,7 @@
       "url": "https://jobs.apple.com/en-us/details/200683178/aiml-machine-learning-researcher-multimodal-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:12.992Z",
+      "crawledAt": "2026-09-28T21:16:08.389Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1003,7 +1011,7 @@
       "url": "https://jobs.apple.com/en-us/details/200680814/staff-machine-learning-engineer-siri-runtime-systems-and-interaction?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:12.992Z",
+      "crawledAt": "2026-09-28T21:16:08.389Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1075,7 +1083,7 @@
       "url": "https://jobs.apple.com/en-us/details/200684066/channel-communications-manager-switzerland?team=SLDEV",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:12.991Z",
+      "crawledAt": "2026-09-28T21:16:08.388Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1091,6 +1099,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-19T22:52:45.856Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1137,7 +1146,7 @@
       "url": "https://jobs.apple.com/en-us/details/200685035/internship-machine-learning-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:12.989Z",
+      "crawledAt": "2026-09-28T21:16:08.386Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1215,7 +1224,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:12.985Z",
+      "crawledAt": "2026-09-28T21:16:08.382Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1241,6 +1250,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:58:18.914Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1278,7 +1288,7 @@
       "descriptionByLocale": {
         "it": "Apple Retail è dove si riunisce il meglio di Apple. Portiamo la nostra esperienza per aiutare le persone a fare ciò che amano, offrendo un'esperienza unica nel suo genere. Crediamo che l'inclusione sia una responsabilità condivisa e lavoriamo insieme per promuovere una cultura in cui ognuno appartiene e si ispira a fare il suo lavoro migliore.\n\nCome esperto di operazioni, aiuta a guidare le vendite e l'esperienza del cliente, offrendo l'eccellenza nelle operazioni, accuratezza dell'inventario e attività di conservazione. Hai una profonda comprensione delle pratiche operative e tutor il team Operazioni per completare i compiti operativi con precisione e in conformità ai processi di Inventory Retail.",
         "en": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs an Operations Expert, you help drive sales and the customer experience by delivering excellence in operations, inventory accuracy, and preservation activities. You have a deep understanding of operational practices and mentor the Operations team to complete operational tasks accurately and in accordance with Retail Inventory processes.",
-        "de": "Apple Retail ist der Ort, an dem das Beste von Apple zusammenkommt. Wir bringen unser Know-how ein, um Menschen dabei zu helfen, das zu tun, was sie lieben, und bieten ein Only-at-Apple-Erlebnis. Wir glauben, dass Inklusion eine gemeinsame Verantwortung ist und wir arbeiten zusammen, um eine Kultur zu fördern, in der jeder dazugehört und inspiriert wird, seine beste Arbeit zu leisten.\n\nAls Betriebsexperte tragen Sie dazu bei, den Umsatz und die Kundenerfahrung zu steigern, indem Sie hervorragende Betriebsvorgänge, Bestandsgenauigkeit und Erhaltungsaktivitäten liefern. Sie haben ein tiefes Verständnis für operative Praktiken und betreuen das Operations-Team, um operative \n• Aufgaben genau und in Übereinstimmung mit den Retail Inventory-Prozessen abzuschließen.",
+        "de": "Apple Retail ist der Ort, an dem das Beste von Apple zusammenkommt. Wir bringen unser Know-how ein, um Menschen dabei zu helfen, das zu tun, was sie lieben, und bieten ein Only-at-Apple-Erlebnis. Wir glauben, dass Inklusion eine gemeinsame Verantwortung ist und wir arbeiten zusammen, um eine Kultur zu fördern, in der jeder dazugehört und inspiriert wird, seine beste Arbeit zu leisten.\n\nAls Betriebsexperte tragen Sie dazu bei, den Umsatz und die Kundenerfahrung zu steigern, indem Sie hervorragende Betriebsvorgänge, Bestandsgenauigkeit und Erhaltungsaktivitäten liefern. Sie haben ein tiefes Verständnis für operative Praktiken und betreuen das Operations-Team, um operative\n• Aufgaben genau und in Übereinstimmung mit den Retail Inventory-Prozessen abzuschließen.",
         "fr": "Apple Retail est l'endroit où le meilleur d'Apple se réunit. Nous apportons notre expertise pour aider les gens à faire ce qu'ils aiment, en leur offrant une expérience unique. Nous croyons que l'inclusion est une responsabilité partagée et nous travaillons ensemble pour favoriser une culture où tout le monde appartient et est inspiré à faire son meilleur travail.\n\nEn tant qu'expert en opérations, vous aidez à stimuler les ventes et l'expérience client en offrant l'excellence dans les opérations, la précision des stocks et les activités de préservation. Vous avez une connaissance approfondie des pratiques opérationnelles et vous êtes le mentor de l'équipe des Opérations pour accomplir les tâches opérationnelles avec précision et conformément aux processus d'inventaire des détaillants."
       },
       "location": "Switzerland",
@@ -1286,7 +1296,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:12.984Z",
+      "crawledAt": "2026-09-28T21:16:08.381Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1358,7 +1368,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:12.982Z",
+      "crawledAt": "2026-09-28T21:16:08.380Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
