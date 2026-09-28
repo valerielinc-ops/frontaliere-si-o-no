@@ -1,7 +1,137 @@
 {
   "crawlerKey": "stadt-chur",
-  "assembledAt": "2026-09-28T05:15:00.981Z",
+  "assembledAt": "2026-09-28T21:34:55.188Z",
   "jobs": [
+    {
+      "title": "Immobilienbewirtschafter/in 100%",
+      "slug": "immobilienbewirtschafter-in-100-stadt-chur-1720",
+      "url": "https://jobs.chur.ch/Immobilienbewirtschafterin-100-de-j1720.html",
+      "applyUrl": "https://jobs.chur.ch/Immobilienbewirtschafterin-100-de-j1720.html",
+      "company": "Stadt Chur",
+      "companyKey": "stadt-chur",
+      "companyDomain": "chur.ch",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "administration",
+      "sector": "Pubblica Amministrazione",
+      "department": "Immobilien / Facility Management, Kaufm. Berufe / Kundendienst / Verwaltung",
+      "source": "stadt-chur-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-27",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Dienststelle Immobilien und Bewirtschaftung verwaltet das städtische...",
+      "titleByLocale": {
+        "de": "Immobilienbewirtschafter/in 100%",
+        "it": "Immobilienbewirtschafter/in 100%",
+        "en": "Immobilienbewirtschafter/in 100%",
+        "fr": "Immobilienbewirtschafter/in 100%"
+      },
+      "descriptionByLocale": {
+        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Dienststelle Immobilien und Bewirtschaftung verwaltet das städtische...",
+        "it": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Dienststelle Immobilien und Bewirtschaftung verwaltet das städtische...",
+        "en": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Dienststelle Immobilien und Bewirtschaftung verwaltet das städtische...",
+        "fr": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Dienststelle Immobilien und Bewirtschaftung verwaltet das städtische..."
+      },
+      "slugByLocale": {
+        "it": "immobilienbewirtschafter-in-100-stadt-chur-1720",
+        "en": "immobilienbewirtschafter-in-100-stadt-chur-1720",
+        "de": "immobilienbewirtschafter-in-100-stadt-chur-1720",
+        "fr": "immobilienbewirtschafter-in-100-stadt-chur-1720"
+      },
+      "crawledAt": "2026-09-28T21:25:58.835Z",
+      "id": "stadt-chur-5144c69f3455",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:25:58.835Z"
+    },
+    {
+      "title": "Sachbearbeiter/in Immobilienbewirtschaftung 80-100%, befristet",
+      "slug": "sachbearbeiter-in-immobilienbewirtschaftung-80-100-befristet-stadt-chur",
+      "url": "https://jobs.chur.ch/Sachbearbeiterin-Immobilienbewirtschaftung-80-100-befriste-de-j1721.html",
+      "applyUrl": "https://jobs.chur.ch/Sachbearbeiterin-Immobilienbewirtschaftung-80-100-befriste-de-j1721.html",
+      "company": "Stadt Chur",
+      "companyKey": "stadt-chur",
+      "companyDomain": "chur.ch",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "administration",
+      "sector": "Pubblica Amministrazione",
+      "department": "Immobilien / Facility Management, Kaufm. Berufe / Kundendienst / Verwaltung",
+      "source": "stadt-chur-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-27",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Bewirtschaftung ist verantwortlich für die Verwaltung de...",
+      "titleByLocale": {
+        "de": "Sachbearbeiter/in Immobilienbewirtschaftung 80-100%, befristet",
+        "it": "Sachbearbeiter/in Immobilienbewirtschaftung 80-100%, befristet",
+        "en": "Sachbearbeiter/in Immobilienbewirtschaftung 80-100%, befristet",
+        "fr": "Sachbearbeiter/in Immobilienbewirtschaftung 80-100%, befristet"
+      },
+      "descriptionByLocale": {
+        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Bewirtschaftung ist verantwortlich für die Verwaltung de...",
+        "it": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Bewirtschaftung ist verantwortlich für die Verwaltung de...",
+        "en": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Bewirtschaftung ist verantwortlich für die Verwaltung de...",
+        "fr": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Bewirtschaftung ist verantwortlich für die Verwaltung de..."
+      },
+      "slugByLocale": {
+        "it": "sachbearbeiter-in-immobilienbewirtschaftung-80-100-befristet-stadt-chur-chur",
+        "en": "sachbearbeiter-in-immobilienbewirtschaftung-80-100-befristet-stadt-chur-1721",
+        "de": "sachbearbeiter-in-immobilienbewirtschaftung-80-100-befristet-stadt-chur-1721",
+        "fr": "sachbearbeiter-in-immobilienbewirtschaftung-80-100-befristet-stadt-chur-1721"
+      },
+      "crawledAt": "2026-09-28T21:27:05.598Z",
+      "id": "stadt-chur-7aa4a4f1fc50",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-80-100-befristet-stadt-chur-1721"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-immobilienbewirtschaftung-80-100-befristet-stadt-chur-1721"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:27:05.598Z"
+    },
     {
       "title": "Stv. Leiter/in Stadtgärtnerei und Bereichsleiter/-in Friedhöfe/Bestattungen (80-100%)",
       "slug": "stv-responsabile-stadtgartnerei-e-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur",
@@ -44,7 +174,7 @@
         "de": "stv-leiter-in-stadtgartnerei-und-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur-1716",
         "fr": "chef-adjoint-du-jardinage-urbain-et-chef-des-cimetieres-destinations-80-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-28T05:08:18.152Z",
+      "crawledAt": "2026-09-28T21:28:12.359Z",
       "id": "stadt-chur-71a3080b1186",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -118,7 +248,7 @@
         "de": "lehrperson-heilpadagogik-shp-se-haldenstein-stadt-chur-1719",
         "fr": "enseignement-de-guerison-des-enseignants-shp-se-haldenstein-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-28T05:09:24.910Z",
+      "crawledAt": "2026-09-28T21:29:19.122Z",
       "id": "stadt-chur-57f9f7d1bc61",
       "salaryMin": 48500,
       "salaryMax": 89500,
@@ -192,7 +322,7 @@
         "de": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
         "fr": "stage-commercial-hms-3-1-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-28T05:10:31.670Z",
+      "crawledAt": "2026-09-28T21:30:25.885Z",
       "id": "stadt-chur-c0496a08b9e2",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -266,7 +396,7 @@
         "de": "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712",
         "fr": "professeur-adjoint-formation-bilingue-3e-4e-classe-italien-93-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-28T05:11:38.430Z",
+      "crawledAt": "2026-09-28T21:31:32.644Z",
       "id": "stadt-chur-236d71791b5d",
       "salaryMin": 45100,
       "salaryMax": 83200,
@@ -340,7 +470,7 @@
         "de": "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713",
         "fr": "apprentissage-en-tant-que-commercant-administration-publique-marchande-efz-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-28T05:12:45.188Z",
+      "crawledAt": "2026-09-28T21:32:39.404Z",
       "id": "stadt-chur-820b8f6a45d2",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -416,7 +546,7 @@
         "de": "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705",
         "fr": "apprentissage-en-tant-que-specialiste-soins-specialises-efz-garderie-specialisee-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-28T05:13:51.951Z",
+      "crawledAt": "2026-09-28T21:33:46.162Z",
       "id": "stadt-chur-6baf9a5642b8",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -490,7 +620,7 @@
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
         "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-28T05:14:58.711Z",
+      "crawledAt": "2026-09-28T21:34:52.926Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "previousSlugsByLocale": {
         "en": [
