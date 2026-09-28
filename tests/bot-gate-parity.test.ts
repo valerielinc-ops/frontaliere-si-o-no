@@ -13,7 +13,11 @@
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { isLikelyBot, matchesAutomationScreenSignature } from '@/services/botPatterns';
+import {
+  isLikelyBot,
+  matchesAutomationLanguageSignature,
+  matchesAutomationScreenSignature,
+} from '@/services/botPatterns';
 import { BOT_GATE_FN } from '@/build-plugins/constants';
 
 // Eval the inline gate string into a callable. It reads the global `navigator`
@@ -197,7 +201,7 @@ describe('automation screen signature (1280x1200 Windows/Chrome)', () => {
     ['Italian visitor, real 1280x1024 monitor', WIN_CHROME, 1280, 1024, 'it-IT', 'Europe/Rome'],
     ['English visitor, 1280x720 laptop', WIN_CHROME, 1280, 720, 'en-US', 'Europe/Zurich'],
     ['English visitor, 1920x1200 monitor', WIN_CHROME, 1920, 1200, 'en-US', 'Asia/Singapore'],
-    ['1280x1200, Singapore time zone but non-English UI', WIN_CHROME, 1280, 1200, 'zh-CN', 'Asia/Singapore'],
+    ['1280x1200, Singapore time zone but non-English UI', WIN_CHROME, 1280, 1200, 'zh-TW', 'Asia/Singapore'],
     ['1280x1200 but Italian UI in a European time zone', WIN_CHROME, 1280, 1200, 'it-CH', 'Europe/Zurich'],
     ['1280x1200 but German UI in a European time zone', WIN_CHROME, 1280, 1200, 'de-CH', 'Europe/Zurich'],
     ['1280x1200 but macOS Chrome', MAC_CHROME, 1280, 1200, 'en-US', 'Asia/Singapore'],
@@ -244,6 +248,141 @@ describe('automation screen signature (1280x1200 Windows/Chrome)', () => {
       throw new Error('Intl unavailable');
     });
     expect(matchesAutomationScreenSignature(WIN_CHROME.toLowerCase())).toBe(false);
+    expect(verdict()).toBe(false);
+  });
+});
+
+/**
+ * Automation language signature (zh-CN desktop Chrome fleet on an observed
+ * clock, PostHog 2026-09): positive AND negative matrix on BOTH gates.
+ */
+describe('automation language signature (zh-CN desktop Chrome, observed clock)', () => {
+  const WIN_CHROME = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36';
+  const WIN_EDGE = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/128.0.2739.42';
+  const WIN_OPERA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 OPR/113.0.5230.32';
+  const MAC_CHROME = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36';
+  // Ordinary Chrome on the current stable channel of that week (151-153).
+  const WIN_CHROME_CURRENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36';
+  const MAC_CHROME_CURRENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36';
+  const WIN_CHROME_148 = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36';
+  const MAC_CHROME_149 = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36';
+  const WIN_CHROME_144 = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36';
+  const LINUX_CHROME = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36';
+  const MAC_FIREFOX = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:125.0) Gecko/20100101 Firefox/125.0';
+  const ANDROID_CHROME = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Mobile Safari/537.36';
+  const IPHONE_SAFARI = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1';
+
+  const originalLanguage = window.navigator.language;
+  let restoreNav: () => void = () => {};
+  let hadChrome = false;
+
+  function setLanguage(language: string): void {
+    Object.defineProperty(window.navigator, 'language', { configurable: true, get: () => language });
+  }
+
+  function setTimeZone(timeZone: string): void {
+    const real = Intl.DateTimeFormat.prototype.resolvedOptions;
+    vi.spyOn(Intl.DateTimeFormat.prototype, 'resolvedOptions').mockImplementation(function (this: Intl.DateTimeFormat) {
+      return { ...real.call(this), timeZone };
+    });
+  }
+
+  beforeEach(() => {
+    setWebdriver(false);
+    hadChrome = 'chrome' in window;
+    if (!hadChrome) Object.defineProperty(window, 'chrome', { configurable: true, value: {} });
+    restoreNav = setRealBrowserNavigator();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    restoreNav();
+    if (!hadChrome) delete (window as unknown as Record<string, unknown>).chrome;
+    setLanguage(originalLanguage);
+    setUserAgent(ORIGINAL_UA);
+    setWebdriver(ORIGINAL_WEBDRIVER);
+  });
+
+  function verdict(): boolean {
+    const inline = inlineGate();
+    expect(inline).toBe(isLikelyBot());
+    return inline;
+  }
+
+  const positives: ReadonlyArray<readonly [string, string, string]> = [
+    ['Windows Chrome, Asia/Shanghai', WIN_CHROME, 'Asia/Shanghai'],
+    ['macOS Chrome, Asia/Shanghai', MAC_CHROME, 'Asia/Shanghai'],
+    ['Windows Chrome, Asia/Hong_Kong', WIN_CHROME, 'Asia/Hong_Kong'],
+    ['macOS Chrome, Asia/Singapore', MAC_CHROME, 'Asia/Singapore'],
+    ['Windows Chrome, America/Los_Angeles', WIN_CHROME, 'America/Los_Angeles'],
+    ['Windows Chrome 148, Asia/Shanghai', WIN_CHROME_148, 'Asia/Shanghai'],
+    ['macOS Chrome 149, America/Los_Angeles', MAC_CHROME_149, 'America/Los_Angeles'],
+    ['Windows Chrome 144, Asia/Hong_Kong', WIN_CHROME_144, 'Asia/Hong_Kong'],
+  ];
+  for (const [name, ua, timeZone] of positives) {
+    it(`flags the fleet: ${name}`, () => {
+      setUserAgent(ua);
+      setLanguage('zh-CN');
+      setTimeZone(timeZone);
+      expect(matchesAutomationLanguageSignature(ua.toLowerCase())).toBe(true);
+      expect(verdict()).toBe(true);
+    });
+  }
+
+  const negatives: ReadonlyArray<readonly [string, string, string, string]> = [
+    ['zh-CN on current Windows Chrome, Asia/Shanghai', WIN_CHROME_CURRENT, 'zh-CN', 'Asia/Shanghai'],
+    ['zh-CN on current macOS Chrome, Asia/Hong_Kong', MAC_CHROME_CURRENT, 'zh-CN', 'Asia/Hong_Kong'],
+    ['zh-CN on current Windows Chrome, Asia/Singapore', WIN_CHROME_CURRENT, 'zh-CN', 'Asia/Singapore'],
+    ['zh-CN on current macOS Chrome, America/Los_Angeles', MAC_CHROME_CURRENT, 'zh-CN', 'America/Los_Angeles'],
+    ['Chinese-speaking frontaliere in Ticino', WIN_CHROME, 'zh-CN', 'Europe/Zurich'],
+    ['Chinese-speaking reader in Lombardy on macOS', MAC_CHROME, 'zh-CN', 'Europe/Rome'],
+    ['zh-CN Windows Chrome on an unobserved Tokyo clock', WIN_CHROME, 'zh-CN', 'Asia/Tokyo'],
+    ['zh-CN Windows Chrome on an unobserved New York clock', WIN_CHROME, 'zh-CN', 'America/New_York'],
+    ['zh-CN macOS Chrome on an unobserved Tokyo clock', MAC_CHROME, 'zh-CN', 'Asia/Tokyo'],
+    ['zh-CN macOS Chrome on an unobserved New York clock', MAC_CHROME, 'zh-CN', 'America/New_York'],
+    ['Traditional Chinese UI in Asia', WIN_CHROME, 'zh-TW', 'Asia/Taipei'],
+    ['Italian UI on a Shanghai clock', WIN_CHROME, 'it-IT', 'Asia/Shanghai'],
+    ['English UI on a Los Angeles clock', MAC_CHROME, 'en-US', 'America/Los_Angeles'],
+    ['zh-CN Windows Edge with a Chrome token', WIN_EDGE, 'zh-CN', 'Asia/Shanghai'],
+    ['zh-CN Windows Opera with a Chrome token', WIN_OPERA, 'zh-CN', 'Asia/Shanghai'],
+    ['zh-CN but Linux Chrome', LINUX_CHROME, 'zh-CN', 'Asia/Shanghai'],
+    ['zh-CN but macOS Firefox', MAC_FIREFOX, 'zh-CN', 'Asia/Shanghai'],
+    ['zh-CN but mobile Chrome', ANDROID_CHROME, 'zh-CN', 'Asia/Shanghai'],
+    ['zh-CN but iPhone Safari', IPHONE_SAFARI, 'zh-CN', 'Asia/Shanghai'],
+  ];
+  for (const [name, ua, language, timeZone] of negatives) {
+    it(`passes a real visitor: ${name}`, () => {
+      setUserAgent(ua);
+      setLanguage(language);
+      setTimeZone(timeZone);
+      expect(matchesAutomationLanguageSignature(ua.toLowerCase())).toBe(false);
+      expect(verdict()).toBe(false);
+    });
+  }
+
+  it('1280x1200 with a zh-CN UI on a Singapore clock: not the screen fleet, still the language fleet', () => {
+    Object.defineProperty(window.screen, 'width', { configurable: true, get: () => 1280 });
+    Object.defineProperty(window.screen, 'height', { configurable: true, get: () => 1200 });
+    try {
+      setUserAgent(WIN_CHROME);
+      setLanguage('zh-CN');
+      setTimeZone('Asia/Singapore');
+      expect(matchesAutomationScreenSignature(WIN_CHROME.toLowerCase())).toBe(false);
+      expect(matchesAutomationLanguageSignature(WIN_CHROME.toLowerCase())).toBe(true);
+      expect(verdict()).toBe(true);
+    } finally {
+      delete (window.screen as unknown as Record<string, unknown>).width;
+      delete (window.screen as unknown as Record<string, unknown>).height;
+    }
+  });
+
+  it('Intl without a time zone: signal unknown, the rule does not fire', () => {
+    setUserAgent(WIN_CHROME);
+    setLanguage('zh-CN');
+    vi.spyOn(Intl.DateTimeFormat.prototype, 'resolvedOptions').mockImplementation(() => {
+      throw new Error('Intl unavailable');
+    });
+    expect(matchesAutomationLanguageSignature(WIN_CHROME.toLowerCase())).toBe(false);
     expect(verdict()).toBe(false);
   });
 });
