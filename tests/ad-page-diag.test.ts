@@ -242,7 +242,9 @@ describe('collector parity (TS ≡ inline)', () => {
   it('records the first fill and the consent message identically', async () => {
     setPath('/cerca-lavoro-ticino/');
     document.body.innerHTML = '<ins class="adsbygoogle" data-ad-slot="1"></ins>';
-    const now = vi.spyOn(performance, 'now').mockReturnValue(4321);
+    // Both runtimes read `window.performance`; spy on that object, not the
+    // global the fake timers may have swapped.
+    const now = vi.spyOn(window.performance, 'now').mockReturnValue(4321);
     const ts = runTs();
     const tsSnapshot = () => ts.collect(0);
     const inline = runInline();
