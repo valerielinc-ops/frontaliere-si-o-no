@@ -101,6 +101,19 @@ export function classifyEventsPage(localPath) {
 }
 
 /**
+ * Classify a dist-relative HTML path, including its optional locale prefix.
+ * Validators use this to apply the Event-detail contract only to documents
+ * emitted by eventsSeoPagesPlugin; legacy Event objects embedded in editorial
+ * pages (for example the holiday calendar) have a different schema contract.
+ */
+export function classifyEventsDistPath(distRelativePath) {
+  const normalized = String(distRelativePath || '').replace(/\\/g, '/').replace(/^\/+/, '');
+  const withoutIndex = normalized.replace(/(?:^|\/)index\.html$/, '');
+  const withoutLocale = withoutIndex.replace(/^(?:en|de|fr)\//, '');
+  return classifyEventsPage(`/${withoutLocale}`);
+}
+
+/**
  * @param {string} normalisedPath path that already starts with `/` and has had
  *   the `dist/` prefix and trailing `index.html` stripped (the form the audit
  *   classifiers build before bucketing).

@@ -40,6 +40,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
+import { classifyEventsDistPath } from './lib/eventsSections.mjs';
 import { HEALTH_FACILITIES_SECTION_RX } from './lib/healthFacilitiesSections.mjs';
 import { HEALTH_FACILITY_PAGE_BUDGET_BYTES } from './lib/pageWeightBudgets.mjs';
 import {
@@ -934,46 +935,50 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
     }
   }
-  // The current Event builder supplies deterministic defaults for image,
-  // organizer and performer. Keep this conditional for legacy/fixture
-  // documents while validating every value emitted by the current builder.
-  if (schema.image !== undefined && schema.image !== null) {
+  // The Event-detail builder supplies deterministic defaults for image,
+  // organizer, performer and offers. Require all four on its emitted
+  // documents; unrelated legacy Event objects (such as the holiday calendar)
+  // intentionally keep their existing core-only contract.
+  const isEventDetail = classifyEventsDistPath(relative(DIST, filePath)) === 'event_detail';
+  if (!isEventDetail) return errors;
+
+  if (schema.image === undefined || schema.image === null) {
+    errors.push({ file: filePath, type: 'Event', field: 'image', message: 'Event missing "image"' });
+  } else {
     const hasImage = Array.isArray(schema.image)
       ? schema.image.some((img) => sdIsNonEmpty(typeof img === 'string' ? img : img?.url))
       : sdIsNonEmpty(typeof schema.image === 'string' ? schema.image : schema.image?.url);
     if (!hasImage) errors.push({ file: filePath, type: 'Event', field: 'image', message: 'Event "image" is empty' });
   }
   for (const [field, value] of [['organizer', schema.organizer], ['performer', schema.performer]]) {
-    if (value === undefined || value === null) continue;
+    if (value === undefined || value === null) {
+      errors.push({ file: filePath, type: 'Event', field, message: `Event missing "${field}"` });
+      continue;
+    }
     const entities = Array.isArray(value) ? value : [value];
     if (entities.length === 0 || entities.some((entity) => entity === null || typeof entity !== 'object' || !sdIsNonEmpty(entity.name))) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event "${field}" must include a named Person or Organization when present` });
     }
   }
-  // offers is recommended rather than required by Google. The current builder
-  // emits a complete fallback offer when price is unknown; this conditional
-  // also keeps legacy/fixture documents valid while checking every offer.
-  // Kept in lockstep with the same rule in
-  // scripts/validate-structured-data-completeness.mjs (shared Event contract).
-  if (schema.offers !== undefined && schema.offers !== null) {
-    if (typeof schema.offers !== 'object') {
-      errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
-    } else {
-      if (schema.offers.price === undefined || schema.offers.price === null) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
-      }
-      if (!sdIsNonEmpty(schema.offers.priceCurrency)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
-      }
-      if ('availability' in schema.offers && !sdIsNonEmpty(schema.offers.availability)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers has an empty "availability"' });
-      }
-      if ('validFrom' in schema.offers && !sdIsNonEmpty(schema.offers.validFrom)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers has an empty "validFrom"' });
-      }
-      if ('url' in schema.offers && !sdIsNonEmpty(schema.offers.url)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers has an empty "url"' });
-      }
+  if (schema.offers === undefined || schema.offers === null) {
+    errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event missing "offers"' });
+  } else if (typeof schema.offers !== 'object') {
+    errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
+  } else {
+    if (schema.offers.price === undefined || schema.offers.price === null) {
+      errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
+    }
+    if (!sdIsNonEmpty(schema.offers.priceCurrency)) {
+      errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
+    }
+    if ('availability' in schema.offers && !sdIsNonEmpty(schema.offers.availability)) {
+      errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers has an empty "availability"' });
+    }
+    if ('validFrom' in schema.offers && !sdIsNonEmpty(schema.offers.validFrom)) {
+      errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers has an empty "validFrom"' });
+    }
+    if ('url' in schema.offers && !sdIsNonEmpty(schema.offers.url)) {
+      errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers has an empty "url"' });
     }
   }
   return errors;

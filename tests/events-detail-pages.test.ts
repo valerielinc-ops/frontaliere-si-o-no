@@ -266,16 +266,9 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.location.address.postalCode).toBe('6900');
   });
 
-  it('emits a complete fallback offer when price is unknown', () => {
+  it('omits the Offer when price is unknown instead of advertising a free event', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: EVENT.startDate,
-      url: EVENT.url,
-    });
+    expect(ld).not.toHaveProperty('offers');
   });
 
   it('emits verified price fields for a free event', () => {
@@ -346,7 +339,7 @@ describe('renderEventDetailPage', () => {
   const other = { ...EVENT, id: 'tio-agenda:43', title: 'Mostra fotografica', startTime: undefined };
   const page = renderEventDetailPage({
     locale: 'it',
-    event: EVENT as never,
+    event: { ...EVENT, price: { amount: 0, currency: 'CHF', isFree: true } } as never,
     comune: 'Lugano',
     eventSlug: slugifyEvent(EVENT),
     sameComuneEvents: [EVENT, other] as never,
@@ -379,6 +372,7 @@ describe('renderEventDetailPage', () => {
       ...EVENT,
       id: 'myswitzerland:queen',
       title: 'The Music of QUEEN - Live',
+      price: { amount: 0, currency: 'CHF', isFree: true },
       description: '&lt;b&gt;The Music of Queen Live Valentin Findling bringt die Magie von Freddie Mercury auf Europas Bühnen&lt;/b&gt;',
     };
     const markedUpPage = renderEventDetailPage({
@@ -801,6 +795,9 @@ describe('renderEventDetailPage nationwide fields (#3125 Task C)', () => {
     });
     expect(baselinePage.html).not.toContain('Evento ricorrente');
     expect(baselinePage.html).not.toContain('Indirizzo');
+    // No verifiable source price means no Event JSON-LD either: the schema
+    // contract requires an Offer, and a synthetic free offer is forbidden.
+    expect(baselinePage.html).not.toContain('"@context":"https://schema.org","@type":"Event"');
     // No coordinates on the baseline event → no fabricated map embed.
     expect(baselinePage.html).not.toMatch(/<iframe/i);
   });

@@ -17,11 +17,13 @@
  *
  * SEO contract (mirrors borderMunicipalityPagesPlugin + docs/SEO-GATES.md):
  *   - buildSeoPageHtml shell, hubKey 'vita' chrome, seoContentOutsideRoot
- *   - schema.org/Event JSON-LD on indexable event-detail pages
+ *   - schema.org/Event JSON-LD on indexable event-detail pages with a
+ *     verifiable source price; pages without one stay indexable but omit the
+ *     Event block rather than publishing a fabricated Offer
  *     (name/startDate/eventStatus/eventAttendanceMode/location.address.addressLocality/
- *     description≥30) — deploy-blocking; image, organizer, performer and
- *     offers are always emitted with source-backed values or deterministic
- *     defaults.
+ *     description≥30) — deploy-blocking; image, organizer and performer are
+ *     always emitted with source-backed values or deterministic defaults, and
+ *     offers are emitted only when the source price is confident.
  *     Aggregate pages expose an ItemList of event URLs,
  *     not partial nested Event objects.
  *   - BreadcrumbList + FAQPage JSON-LD, full hreflang (it/en/de/fr + x-default)
@@ -118,7 +120,8 @@ interface SiteEvent {
   // Nationwide sources (guidle, myswitzerland — issue #3125) carry richer
   // fields the original tio-agenda MVP never had. Input slices may omit them;
   // eventLd() completes optional fields with deterministic defaults when a
-  // source slice is partial; the visible UI keeps confidence gates for price.
+  // source slice is partial; the visible UI and Event JSON-LD keep confidence
+  // gates for price.
   description?: string;
   price?: EventPrice;
   organizer?: EventEntity | EventEntity[];
@@ -1202,9 +1205,10 @@ export function zurichOffset(isoDate: string): string {
  * schema.org/Event object for one agenda entry.
  *
  * Source values remain authoritative. Older and partial slices are completed
- * at render time with deterministic catalog/venue/image/offer defaults so
- * every Event has a stable structured-data shape. The visible UI still hides
- * the synthetic price when no confident source price exists.
+ * at render time with deterministic catalog/venue/image defaults. A source
+ * price is required before publishing an Offer: an unknown price must never be
+ * represented as a synthetic free/InStock ticket. The visible UI keeps the
+ * same confidence gate.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
   // Real location only (#3508): nationwide sources (guidle, myswitzerland)
@@ -1235,16 +1239,16 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const eventWithDefaults = fillEventPeopleDefaults(event, EVENT_SOURCES[event.sourceKey] || SOURCE) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
-  const offer = {
-    '@type': 'Offer',
-    price: confidentPrice && event.price!.isFree
-      ? '0'
-      : String(confidentPrice ? event.price!.amount : 0),
-    priceCurrency: event.price?.currency || 'CHF',
-    availability: event.price?.availability || 'https://schema.org/InStock',
-    validFrom: event.price?.validFrom || event.startDate,
-    url: event.price?.url || canonicalUrl || event.url,
-  };
+  const offer = confidentPrice
+    ? {
+        '@type': 'Offer',
+        price: event.price!.isFree ? '0' : String(event.price!.amount),
+        priceCurrency: event.price!.currency || 'CHF',
+        availability: event.price!.availability || 'https://schema.org/InStock',
+        validFrom: event.price!.validFrom || event.startDate,
+        url: event.price!.url || canonicalUrl || event.url,
+      }
+    : undefined;
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
@@ -1277,7 +1281,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || event.url,
     ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
-    offers: offer,
+    ...(offer ? { offers: offer } : {}),
   };
 }
 
@@ -3318,7 +3322,12 @@ export function renderEventDetailPage(params: {
   // results for events that already happened) rather than keep it with a
   // stale date, unlike JobPosting which explicitly supports a past
   // `validThrough` — see comment on `isPast` above.
-  const eventLdScript = isPast ? null : inlineScriptJson(eventLd(event, locale, canonicalUrl));
+  // The deploy validators require complete offers on every emitted Event.
+  // Keep the detail page indexable when a source price is absent/ambiguous,
+  // but omit Event JSON-LD rather than advertising a fabricated free offer.
+  const eventLdScript = isPast || !hasConfidentPrice(event.price)
+    ? null
+    : inlineScriptJson(eventLd(event, locale, canonicalUrl));
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

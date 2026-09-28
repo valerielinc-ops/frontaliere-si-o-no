@@ -295,7 +295,7 @@ describe('events-utils helpers', () => {
 });
 
 describe('eventLd — schema.org/Event completeness gate', () => {
-  const REQUIRED = (ld: Record<string, any>) => {
+  const REQUIRED = (ld: Record<string, any>, { offers = true } = {}) => {
     expect(ld['@type']).toBe('Event');
     expect(ld.name).toBeTruthy();
     expect(ld.startDate).toBeTruthy();
@@ -314,14 +314,16 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       url: 'https://www.tio.ch/agenda',
     });
     expect(ld.performer).toMatchObject({ '@type': 'Organization', name: expect.any(String) });
-    expect(ld.offers).toMatchObject({
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: expect.any(String),
-      url: expect.stringMatching(/^https:\/\//),
-    });
+    if (offers) {
+      expect(ld.offers).toMatchObject({
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'CHF',
+        availability: 'https://schema.org/InStock',
+        validFrom: expect.any(String),
+        url: expect.stringMatching(/^https:\/\//),
+      });
+    }
     // endDate must never precede startDate (Google Rich Results validity).
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
   };
@@ -341,6 +343,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
           url: 'https://www.tio.ch/agenda/day/20260704/62101',
           sourceKey: 'tio-agenda',
           sourceName: 'Tio.ch Agenda',
+          price: { amount: 0, currency: 'CHF', isFree: true },
         },
         'it',
       ),
@@ -448,20 +451,20 @@ describe('eventLd — schema.org/Event completeness gate', () => {
   });
 
   it('stays complete for a minimal event (no venue/time/comune)', () => {
-    REQUIRED(
-      eventLd(
-        {
-          id: 'tio-agenda:2',
-          title: 'X',
-          startDate: '2026-07-04',
-          canton: 'TI',
-          url: 'https://www.tio.ch/agenda/day/20260704/62102',
-          sourceKey: 'tio-agenda',
-          sourceName: 'Tio.ch Agenda',
-        },
-        'en',
-      ),
-    );
+    const ld = eventLd(
+      {
+        id: 'tio-agenda:2',
+        title: 'X',
+        startDate: '2026-07-04',
+        canton: 'TI',
+        url: 'https://www.tio.ch/agenda/day/20260704/62102',
+        sourceKey: 'tio-agenda',
+        sourceName: 'Tio.ch Agenda',
+      },
+      'en',
+    ) as Record<string, any>;
+    REQUIRED(ld, { offers: false });
+    expect(ld).not.toHaveProperty('offers');
   });
 
   const baseEvent = {
@@ -520,18 +523,11 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.offers?.url).toBe(baseEvent.url);
   });
 
-  it('uses a complete fallback offer when price is present but not machine-parseable', () => {
+  it('omits the Offer when price is present but not machine-parseable', () => {
     // e.g. tio.ch "Prezzo:" label says "su richiesta" / "CHF" with no digits —
     // parsePriceText returns amount: null, isFree: false for this bucket.
     const ld = eventLd({ ...baseEvent, price: { amount: null, currency: 'CHF', isFree: false } }, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: baseEvent.startDate,
-      url: baseEvent.url,
-    });
+    expect(ld).not.toHaveProperty('offers');
   });
 });
 
