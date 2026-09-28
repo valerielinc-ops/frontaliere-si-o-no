@@ -12201,6 +12201,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.targhe-ricerche-pagamento.title': 'Kennzeichen Tessin: Bezahlte Suche ab 1. November',
     'blog.article.targhe-ricerche-pagamento.excerpt': 'Ab dem 1. November 2026 kehrt die Tessiner Kennzeichenliste auf den eAutoindex zurück: Einzelne Suchanfragen werden bezahlt, um die automatisierte Datenerfassung einzudämmen.',
     'blog.article.targhe-ricerche-pagamento.imageAlt': 'Tessiner Fahrzeugkennzeichen und eAutoindex für kostenpflichtige Abfragen',
+    'blog.article.cantiere-cassarate-bozzoreda.title': 'Nachtarbeiten auf der Brücke über den Cassarate: mögliche Verzögerungen',
+    'blog.article.cantiere-cassarate-bozzoreda.excerpt': 'Vom 5. bis 10. Oktober nächtliche Arbeiten in der Via alla Bozzoreda in Lugano: Lärm und mögliche Verzögerungen auf den verbundenen Straßen.',
+    'blog.article.cantiere-cassarate-bozzoreda.imageAlt': 'Nächtliche Sanierungsarbeiten an der Cassarate-Brücke in Lugano',
 };
 
 export default blogMetaDe;

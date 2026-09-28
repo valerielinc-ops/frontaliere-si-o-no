@@ -12203,6 +12203,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.targhe-ricerche-pagamento.title': 'Targhe Ticino: ricerche a pagamento dal 1° novembre',
     'blog.article.targhe-ricerche-pagamento.excerpt': 'Dal 1° novembre 2026 l’elenco targhe ticinese torna su eAutoindex: le singole ricerche saranno a pagamento per frenare la raccolta automatizzata dei dati.',
     'blog.article.targhe-ricerche-pagamento.imageAlt': 'Elenco targhe ticinese e piattaforma eAutoindex per le ricerche a pagamento',
+    'blog.article.cantiere-cassarate-bozzoreda.title': 'Lavori notturni sul ponte sul Cassarate: possibili ritardi',
+    'blog.article.cantiere-cassarate-bozzoreda.excerpt': 'Dal 5 al 10 ottobre lavori notturni in via alla Bozzoreda a Lugano: rumori e possibili ritardi sulle strade collegate.',
+    'blog.article.cantiere-cassarate-bozzoreda.imageAlt': 'Lavori notturni per il risanamento del ponte sul Cassarate a Lugano',
 };
 
 export default blogMetaIt;

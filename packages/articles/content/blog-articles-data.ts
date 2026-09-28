@@ -36628,6 +36628,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cantiere-cassarate-bozzoreda',
+ category: 'novita',
+ date: '2026-09-28T10:14:23.186Z',
+ image: '/images/blog/cantiere-cassarate-bozzoreda.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
