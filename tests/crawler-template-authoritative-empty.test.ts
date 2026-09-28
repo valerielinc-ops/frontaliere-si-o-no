@@ -545,6 +545,33 @@ describe('standard crawler authoritative-empty policy', () => {
     );
   });
 
+  it('preserves an anti-bot verdict when the spec returns an unproven zero', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'anti-bot-empty-summary-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Anti-Bot Empty Summary Test',
+        root,
+        fetchJobs: async () => ({
+          jobs: [],
+          discoveredCount: 0,
+          fetchOutcome: 'anti_bot_block',
+        }),
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts).toMatchObject({
+      discovered: 0,
+      parsed: 0,
+      lastFetchOutcome: 'anti_bot_block',
+      abortKind: 'no-jobs-parsed',
+    });
+  });
+
   it('keeps the existing slice when missing detail URLs exceed the source-loss quota', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'missing-detail-url-root-'));
     try {

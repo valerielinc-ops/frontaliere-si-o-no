@@ -482,7 +482,10 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
   /** @type {Map<string, any>} */
   const bySlug = new Map();
   const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
-  const emptyOutcome = configuredEmptyListingOutcome(spec);
+  const emptyOutcome = spec.rescueOnEmptyListing === true
+    && runtime.disableWafProxy !== true
+    ? configuredEmptyListingOutcome(spec)
+    : null;
   const emptyDetails = [];
 
   for (const seed of spec.seedUrls || []) {
