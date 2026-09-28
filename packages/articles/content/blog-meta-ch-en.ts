@@ -6875,6 +6875,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neutralita-scelta-caso.title': 'Neutrality, Cassis: we are neutral and will remain so',
     'blog.article.neutralita-scelta-caso.excerpt': 'Ignazio Cassis says he is satisfied after the initiative was rejected: Switzerland can continue with the current practice and assess economic sanctions on a case-by-case basis.',
     'blog.article.neutralita-scelta-caso.imageAlt': 'Ignazio Cassis comments on the vote on the Swiss neutrality initiative',
+    'blog.article.voto-svizzera-esiti-politici.title': 'Switzerland: food and neutrality rejected',
+    'blog.article.voto-svizzera-esiti-politici.excerpt': '72.5% of voters reject the food initiative. Cassis confirms the current practice on neutrality. Turnout at 47.03%.',
+    'blog.article.voto-svizzera-esiti-politici.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
 };
 
 export default blogMetaChEn;

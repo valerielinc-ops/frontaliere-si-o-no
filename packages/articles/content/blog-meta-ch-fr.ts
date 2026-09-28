@@ -6875,6 +6875,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.neutralita-scelta-caso.title': 'Neutralité, Cassis : nous sommes neutres et nous le resterons',
     'blog.article.neutralita-scelta-caso.excerpt': 'Ignazio Cassis se dit satisfait après le rejet de l\'initiative : la Suisse peut continuer avec la pratique actuelle et évaluer au cas par cas les sanctions économiques.',
     'blog.article.neutralita-scelta-caso.imageAlt': 'Ignazio Cassis commente le vote sur l\'initiative suisse sur la neutralité',
+    'blog.article.voto-svizzera-esiti-politici.title': 'Suisse : refus d\'alimentation et neutralité',
+    'blog.article.voto-svizzera-esiti-politici.excerpt': '72,5% des votants rejettent l\'initiative sur l\'alimentation. Cassis confirme la pratique actuelle en matière de neutralité. Taux de participation de 47,03%.',
+    'blog.article.voto-svizzera-esiti-politici.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
 };
 
 export default blogMetaChFr;
