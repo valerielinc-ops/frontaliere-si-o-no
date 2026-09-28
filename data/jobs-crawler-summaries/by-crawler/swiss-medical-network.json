@@ -1,18 +1,50 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-09-28T04:56:54.387Z",
-  "total": 60,
-  "newCount": 1,
-  "updatedCount": 59,
+  "generatedAt": "2026-09-28T21:18:04.014Z",
+  "total": 61,
+  "newCount": 2,
+  "updatedCount": 56,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 41978,
-  "avgDurationMs": 41978,
+  "unchangedCount": 3,
+  "durationMs": 44155,
+  "avgDurationMs": 44155,
   "durationHistory": [
-    41978
+    44155
   ],
   "newJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152145969-tso-ou-instrumentiste-au-bloc-operatoire",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152145969-tso-ou-instrumentiste-au-bloc-operatoire?oga=true",
+      "title": "TSO ou instrumentiste au bloc opératoire",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Neuchâtel",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2000",
+      "slug": "tso-ou-instrumentiste-au-bloc-operatoire-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-09-28",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Neuchâtel"
+      },
+      "sourceLang": "fr",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
@@ -72,11 +104,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-23T23:43:24.352Z",
-      "_qualityScore": 61,
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -740,39 +772,6 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149244159-fachperson-gesundheit-efz",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149244159-fachperson-gesundheit-efz?oga=true",
-      "title": "Fachperson Gesundheit EFZ",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Rapperswil-Jona",
-      "addressLocality": "Rapperswil-Jona",
-      "addressRegion": "SG",
-      "canton": "SG",
-      "country": "CH",
-      "postalCode": "8640",
-      "slug": "fachperson-gesundheit-efz-swiss-medical-network",
-      "category": "technology",
-      "datePosted": "2026-09-26",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "Rapperswil-Jona"
-      },
-      "sourceLang": "de",
-      "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 12
-      }
-    },
-    {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148719079-patissier-e-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148719079-patissier-e-?oga=true",
       "title": "Pâtissier(e)",
@@ -1034,8 +1033,156 @@
         "translation": 21,
         "completeness": 12
       }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärzt/-in für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Solothurn",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "canton": "SO",
+      "country": "CH",
+      "postalCode": "4500",
+      "slug": "facharzt-in-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-09-01",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SO",
+        "location": "Solothurn"
+      },
+      "sourceLang": "de",
+      "firstSeenAt": "2026-09-01T07:21:56.807Z",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 12
+      }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149244159-fachperson-gesundheit-efz",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149244159-fachperson-gesundheit-efz?oga=true",
+      "title": "Fachperson Gesundheit EFZ",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Rapperswil-Jona",
+      "addressLocality": "Rapperswil-Jona",
+      "addressRegion": "SG",
+      "canton": "SG",
+      "country": "CH",
+      "postalCode": "8640",
+      "slug": "fachperson-gesundheit-efz-swiss-medical-network",
+      "category": "technology",
+      "datePosted": "2026-09-26",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "Rapperswil-Jona"
+      },
+      "sourceLang": "de",
+      "firstSeenAt": "2026-09-26T13:56:03.166Z",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139920001-fullstack-developer-ai-digital-health-fr",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139920001-fullstack-developer-ai-digital-health-fr?oga=true",
+      "title": "Fullstack Developer – AI & Digital Health - FR",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Genolier",
+      "addressLocality": "Genolier",
+      "addressRegion": "VD",
+      "canton": "VD",
+      "country": "CH",
+      "postalCode": "1272",
+      "slug": "fullstack-developer-ai-digital-health-fr-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-09-26",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Genolier"
+      },
+      "sourceLang": "fr",
+      "firstSeenAt": "2026-09-26T13:56:03.166Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 17,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135954694-teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135954694-teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-?oga=true",
+      "title": "Teamleitung Gastroenterologie Dipl. Pflegefachperson (HF/FH)/Medizinische Praxisassistenz 60-80%",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "3006",
+      "slug": "teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-swiss-medical-network",
+      "category": "nursing",
+      "datePosted": "2026-09-26",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "sourceLang": "de",
+      "firstSeenAt": "2026-09-26T13:56:03.166Z",
+      "salaryMin": 68000,
+      "salaryMax": 95200,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 17
+      }
+    }
+  ]
 }
