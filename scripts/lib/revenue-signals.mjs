@@ -143,8 +143,12 @@ function checkSignal(hours, currentHour, name, config) {
     .map((w) => sumWindow(hours, windowKeys(currentHour, win, w), signal))
     .filter((b) => b.value !== null && b.pageViews >= minPv);
   const check = { signal: name, label: signal.label, window: [keys[0], keys[keys.length - 1]], current: current.value, pageViews: current.pageViews, baselineWeeks: weeks.length };
-  if (current.pageViews < minPv) return { ...check, status: 'low_volume' };
-  if (weeks.length < config.minBaselineWeeks) return { ...check, status: 'no_baseline' };
+  // Low volume is a property of the SLOT, not of the current window: a night
+  // hour is skipped because its baseline is thin too. A daytime slot that
+  // drops to zero is the outage itself (site down, tag broken), so traffic is
+  // judged anyway; the per-page ratios have no denominator left to judge.
+  if (weeks.length < config.minBaselineWeeks) return { ...check, status: current.pageViews < minPv ? 'low_volume' : 'no_baseline' };
+  if (current.pageViews < minPv && name !== 'traffic') return { ...check, status: 'low_volume' };
   const baseline = median(weeks.map((b) => b.value));
   const ratio = baseline > 0 ? current.value / baseline : null;
   const threshold = config.thresholds[name];
@@ -174,9 +178,10 @@ export function evaluateRevenueSignals({ hours, currentHour, config = DEFAULT_CO
 /**
  * What the hourly run should do with the issue:
  * - `alarm`: open it, or comment on the open one (dedup on ISSUE_TITLE);
- * - `watching`: no alarm now, but one in the last `recoveryRuns` runs: leave it;
- * - `recovered`: no alarm in the last `recoveryRuns` runs and at least one
- *   signal measured with enough volume: close it if open;
+ * - `watching`: no alarm now, but one in the last `recoveryRuns` runs, or a
+ *   signal below threshold for its first run: leave it;
+ * - `recovered`: no alarm in the last `recoveryRuns` runs, nothing below
+ *   threshold now, and at least one signal measured: close it if open;
  * - `quiet`: nothing measurable (night volumes, missing baseline): do nothing.
  * Past runs are re-evaluated on the same data, so a skipped cron is not a gap.
  */
@@ -190,6 +195,8 @@ export function monitorDecision({ hours, currentHour, config = DEFAULT_CONFIG })
     if (past.alarms.length > 0) return { status: 'watching', evaluation, lastAlarmHour: past.currentHour };
     anyMeasured ||= measured(past);
   }
+  // A signal on its way to an alarm is not a recovery.
+  if (evaluation.checks.some((c) => c.status === 'below_once')) return { status: 'watching', evaluation, lastAlarmHour: null };
   return { status: anyMeasured ? 'recovered' : 'quiet', evaluation };
 }
 

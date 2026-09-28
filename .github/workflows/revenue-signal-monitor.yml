@@ -89,9 +89,11 @@ jobs:
         with:
           node-version: '22'
 
-      # The GA4 helper needs only google-auth-library: a full `npm ci` every
-      # hour would cost minutes for one package. Isolated prefix + symlink so
-      # the dynamic import in scripts/lib/ga4-service-account.mjs resolves it.
+      # The GA4 helper needs only google-auth-library (23 packages, 2.4-3.1 s
+      # cold, measured 2026-09-28) where the sibling canaries' `npm ci` installs
+      # 1,384 in 13-26 s with a warm cache (rpm-canary runs 36327878228,
+      # 36461800327). Isolated prefix + symlink so the dynamic import in
+      # scripts/lib/ga4-service-account.mjs resolves it.
       - name: Install GA4 auth client
         run: |
           npm install --prefix "$RUNNER_TEMP/ga4-deps" --no-save --ignore-scripts --no-fund --no-audit google-auth-library@10 >/dev/null

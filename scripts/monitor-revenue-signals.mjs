@@ -30,7 +30,7 @@ import { appendFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
 import { GA4_READONLY_SCOPE, getServiceAccountToken, runGa4Report } from './lib/ga4-service-account.mjs';
-import { DEFAULT_CONFIG, buildIssueBody, dateHourInZone, monitorDecision, shiftDateHour } from './lib/revenue-signals.mjs';
+import { DEFAULT_CONFIG, buildIssueBody, dateHourInZone, formatDateHour, monitorDecision, parseDateHour, shiftDateHour } from './lib/revenue-signals.mjs';
 
 const HUMAN_COUNTRIES = ['Italy', 'Switzerland'];
 const AD_EVENTS = ['ad_filled', 'ad_consent_granted', 'ad_consent_denied'];
@@ -39,7 +39,10 @@ const ROW_LIMIT = 10_000;
 function parseArgs(argv) {
   const value = (name) => argv.find((a) => a.startsWith(`--${name}=`))?.slice(name.length + 3);
   const currentHour = value('current-hour');
-  if (currentHour && !/^\d{10}$/.test(currentHour)) throw new Error(`--current-hour must be YYYYMMDDHH, got ${currentHour}`);
+  // Round-trip through a Date: 2026093214 (no such day) must not reach GA4.
+  if (currentHour && !(/^\d{10}$/.test(currentHour) && formatDateHour(parseDateHour(currentHour)) === currentHour)) {
+    throw new Error(`--current-hour must be a real hour as YYYYMMDDHH, got ${currentHour}`);
+  }
   return { currentHour, out: value('out'), bodyOut: value('body-out') };
 }
 
@@ -85,6 +88,10 @@ export async function fetchHourlyCounts({ token, currentHour, config = DEFAULT_C
   for (const [name, report] of [['metrics', metrics], ['events', events]]) {
     const rows = report.rows?.length ?? 0;
     if ((report.rowCount ?? rows) > rows) throw new Error(`GA4 ${name} report truncated: ${rows} of ${report.rowCount} rows`);
+    // Three weeks of Italy+Switzerland traffic never come back empty: an empty
+    // report is a telemetry or query failure, and read as "nothing measured"
+    // it would let the monitor stay silent or close the issue.
+    if (rows === 0) throw new Error(`GA4 ${name} report returned no rows for ${HUMAN_COUNTRIES.join('+')} since ${dateRanges[0].startDate}`);
   }
   const hours = {};
   for (const row of metrics.rows || []) {
@@ -98,31 +105,41 @@ export async function fetchHourlyCounts({ token, currentHour, config = DEFAULT_C
   return hours;
 }
 
-async function main() {
-  const { currentHour: replayHour, out, bodyOut } = parseArgs(process.argv.slice(2));
-  const currentHour = replayHour || dateHourInZone(new Date());
-  const token = await getServiceAccountToken([GA4_READONLY_SCOPE], { logInfo: () => {}, logError: console.error });
-  if (!token) throw new Error('no GA4 credentials: set GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON');
-  const hours = await fetchHourlyCounts({ token, currentHour });
-  const decision = monitorDecision({ hours, currentHour });
-  const result = {
-    currentHour,
-    status: decision.status,
-    alarms: decision.evaluation.alarms.map((a) => a.signal),
-    lastAlarmHour: decision.lastAlarmHour ?? null,
-    checks: decision.evaluation.checks,
-  };
-  const json = JSON.stringify(result, null, 2);
-  if (out) writeFileSync(out, `${json}\n`);
-  else console.log(json);
-  if (bodyOut && decision.status === 'alarm') writeFileSync(bodyOut, `${buildIssueBody({ decision, runUrl: process.env.RUN_URL || '' })}\n`);
-  if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `status=${result.status}\nalarms=${result.alarms.join(',')}\n`);
-  console.error(`[revenue-signals] ${currentHour} status=${result.status} ${result.checks.map((c) => `${c.signal}:${c.status}${c.ratio != null ? `(${c.ratio.toFixed(2)})` : ''}`).join(' ')}`);
+const defaultGetToken = () => getServiceAccountToken([GA4_READONLY_SCOPE], { logInfo: () => {}, logError: console.error });
+
+/**
+ * One monitor run; resolves to the process exit code. `status=` reaches
+ * GITHUB_OUTPUT only after a real measurement, so the workflow's issue steps
+ * never act on a run that failed.
+ */
+export async function runMonitor({ argv = [], env = process.env, now = new Date(), fetchImpl = fetch, getToken = defaultGetToken, log = console } = {}) {
+  try {
+    const { currentHour: replayHour, out, bodyOut } = parseArgs(argv);
+    const currentHour = replayHour || dateHourInZone(now);
+    const token = await getToken();
+    if (!token) throw new Error('no GA4 credentials: set GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON');
+    const hours = await fetchHourlyCounts({ token, currentHour, fetchImpl });
+    const decision = monitorDecision({ hours, currentHour });
+    const result = {
+      currentHour,
+      status: decision.status,
+      alarms: decision.evaluation.alarms.map((a) => a.signal),
+      lastAlarmHour: decision.lastAlarmHour ?? null,
+      checks: decision.evaluation.checks,
+    };
+    const json = JSON.stringify(result, null, 2);
+    if (out) writeFileSync(out, `${json}\n`);
+    else log.log(json);
+    if (bodyOut && decision.status === 'alarm') writeFileSync(bodyOut, `${buildIssueBody({ decision, runUrl: env.RUN_URL || '' })}\n`);
+    if (env.GITHUB_OUTPUT) appendFileSync(env.GITHUB_OUTPUT, `status=${result.status}\nalarms=${result.alarms.join(',')}\n`);
+    log.error(`[revenue-signals] ${currentHour} status=${result.status} ${result.checks.map((c) => `${c.signal}:${c.status}${c.ratio != null ? `(${c.ratio.toFixed(2)})` : ''}`).join(' ')}`);
+    return 0;
+  } catch (error) {
+    log.error(`::error::[revenue-signals] could not measure: ${error?.stack || error}`);
+    return 1;
+  }
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
-  main().catch((error) => {
-    console.error(`::error::[revenue-signals] could not measure: ${error?.stack || error}`);
-    process.exit(1);
-  });
+  runMonitor({ argv: process.argv.slice(2) }).then((code) => process.exit(code));
 }

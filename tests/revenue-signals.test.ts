@@ -11,7 +11,8 @@
  * - the issue lifecycle: fixed title outside close-recovered-failure-issues,
  *   body in the bl-planner card shape, open/resolve gated on the run status.
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -28,7 +29,7 @@ import {
   shiftDateHour,
   windowKeys,
 } from '../scripts/lib/revenue-signals.mjs';
-import { earliestHourNeeded, fetchHourlyCounts } from '../scripts/monitor-revenue-signals.mjs';
+import { earliestHourNeeded, fetchHourlyCounts, runMonitor } from '../scripts/monitor-revenue-signals.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const workflow = readFileSync(resolve(REPO_ROOT, '.github/workflows/revenue-signal-monitor.yml'), 'utf8');
@@ -110,6 +111,18 @@ describe('evaluateRevenueSignals on synthetic weeks', () => {
     // The last three hours carry no revenue yet (AdSense link lag): no alarm.
     const hours = degrade(syntheticWeeks(), '2026092813', '2026092815', (c) => ({ ...c, revenue: 0, impressions: 0 }));
     expect(statusOf(evaluateRevenueSignals({ hours, currentHour: '2026092816' }), 'revenue')).toBe('ok');
+  });
+
+  it('judges traffic when a daytime slot drops to zero (site or tag down), never as low volume', () => {
+    const zero = { sessions: 0, pageViews: 0, impressions: 0, revenue: 0, ad_filled: 0, ad_consent_granted: 0, ad_consent_denied: 0 };
+    const hours = degrade(syntheticWeeks(), '2026092811', '2026092816', () => ({ ...zero }));
+    const first = evaluateRevenueSignals({ hours, currentHour: '2026092814' });
+    expect(statusOf(first, 'traffic')).toBe('below_once');
+    expect(statusOf(first, 'consent')).toBe('low_volume');
+    expect(monitorDecision({ hours, currentHour: '2026092814' }).status).toBe('watching');
+    const second = evaluateRevenueSignals({ hours, currentHour: '2026092815' });
+    expect(second.alarms.map((a) => a.signal)).toContain('traffic');
+    expect(monitorDecision({ hours, currentHour: '2026092815' }).status).toBe('alarm');
   });
 
   it('skips night volumes and missing baselines instead of guessing', () => {
@@ -197,6 +210,55 @@ describe('fetchHourlyCounts', () => {
   it('refuses a truncated report instead of measuring on partial data', async () => {
     const fetchImpl = async () => report([], 12_000);
     await expect(fetchHourlyCounts({ token: 't', currentHour: '2026092816', fetchImpl: fetchImpl as unknown as typeof fetch })).rejects.toThrow(/truncated/);
+  });
+});
+
+describe('runMonitor (CLI contract)', () => {
+  // Serve hourly counts the way the GA4 Data API returns them.
+  function ga4From(hours: Record<string, Counts>) {
+    const metricRows = Object.entries(hours).map(([k, c]) => ({
+      dimensionValues: [{ value: k }],
+      metricValues: [c.sessions, c.pageViews, c.impressions, c.revenue].map((v) => ({ value: String(v) })),
+    }));
+    const eventRows = Object.entries(hours).flatMap(([k, c]) =>
+      ['ad_filled', 'ad_consent_granted', 'ad_consent_denied'].map((e) => ({ dimensionValues: [{ value: k }, { value: e }], metricValues: [{ value: String(c[e]) }] })),
+    );
+    return (async (_url: string, init: { body: string }) => {
+      const rows = JSON.parse(init.body).dimensions.length === 1 ? metricRows : eventRows;
+      return { ok: true, json: async () => ({ rows, rowCount: rows.length }) };
+    }) as unknown as typeof fetch;
+  }
+  const quietLog = () => {
+    const errors: string[] = [];
+    return { errors, log: { log: () => {}, error: (m: string) => errors.push(m) } };
+  };
+  const tmpOutput = () => resolve(mkdtempSync(resolve(tmpdir(), 'revenue-signals-')), 'github-output');
+
+  it('writes status to GITHUB_OUTPUT and exits 0 after a real measurement', async () => {
+    const out = tmpOutput();
+    const { log } = quietLog();
+    const code = await runMonitor({ argv: ['--current-hour=2026092816'], env: { GITHUB_OUTPUT: out }, fetchImpl: ga4From(syntheticWeeks()), getToken: async () => 't', log });
+    expect(code).toBe(0);
+    expect(readFileSync(out, 'utf8')).toContain('status=recovered');
+  });
+
+  it('fails with ::error:: and no status= when GA4 answers with two empty reports', async () => {
+    const out = tmpOutput();
+    const { errors, log } = quietLog();
+    const empty = (async () => ({ ok: true, json: async () => ({ rows: [], rowCount: 0 }) })) as unknown as typeof fetch;
+    const code = await runMonitor({ argv: ['--current-hour=2026092816'], env: { GITHUB_OUTPUT: out }, fetchImpl: empty, getToken: async () => 't', log });
+    expect(code).toBe(1);
+    expect(errors.join('\n')).toMatch(/::error::.*no rows/);
+    expect(existsSync(out)).toBe(false);
+  });
+
+  it('rejects an hour that does not exist before calling GA4', async () => {
+    const { errors, log } = quietLog();
+    let called = false;
+    const fetchImpl = (async () => { called = true; return { ok: true, json: async () => ({}) }; }) as unknown as typeof fetch;
+    expect(await runMonitor({ argv: ['--current-hour=2026093214'], env: {}, fetchImpl, getToken: async () => 't', log })).toBe(1);
+    expect(called).toBe(false);
+    expect(errors.join('\n')).toContain('::error::');
   });
 });
 
