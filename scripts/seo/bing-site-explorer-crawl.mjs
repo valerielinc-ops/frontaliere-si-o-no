@@ -415,12 +415,31 @@ async function probeOnce(url, {
 
 export async function probeWithRetries(url, options = {}) {
   const retries = Number(options.retries ?? DEFAULT_RETRIES);
+  const now = typeof options.now === 'function' ? options.now : Date.now;
+  const sleepImpl = typeof options.sleepImpl === 'function' ? options.sleepImpl : sleep;
+  const rawDeadlineAt = Number(options.deadlineAt);
+  const deadlineAt = Number.isFinite(rawDeadlineAt) ? rawDeadlineAt : null;
+  const configuredTimeoutMs = Number(options.timeoutMs ?? DEFAULT_TIMEOUT_MS);
+  const timeoutMs = Number.isFinite(configuredTimeoutMs) && configuredTimeoutMs > 0
+    ? configuredTimeoutMs
+    : DEFAULT_TIMEOUT_MS;
   let result;
   for (let attempt = 0; attempt <= retries; attempt += 1) {
-    result = await probeOnce(url, options);
+    if (deadlineAt !== null && now() >= deadlineAt) return result;
+    const remainingMs = deadlineAt === null ? null : Math.max(1, deadlineAt - now());
+    result = await probeOnce(url, {
+      ...options,
+      timeoutMs: remainingMs === null ? timeoutMs : Math.min(timeoutMs, remainingMs),
+    });
     const retryable = result.status === 0 || result.status === 429 || result.status >= 500;
     if (!retryable || attempt === retries) return result;
-    await sleep(Math.min(8_000, 500 * (2 ** attempt)));
+    if (deadlineAt !== null && now() >= deadlineAt) return result;
+    const retryDelayMs = Math.min(8_000, 500 * (2 ** attempt));
+    const waitMs = deadlineAt === null
+      ? retryDelayMs
+      : Math.min(retryDelayMs, Math.max(0, deadlineAt - now()));
+    if (waitMs <= 0) return result;
+    await sleepImpl(waitMs);
   }
   return result;
 }

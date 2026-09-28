@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import {
   CRAWLER_SCHEMA_VERSION,
   DEFAULT_MAX_BODY_BYTES,
+  DEFAULT_TIMEOUT_MS,
   folderFor,
   probeWithRetries,
 } from './bing-site-explorer-crawl.mjs';
@@ -46,6 +47,8 @@ function isTransientStatus(status) {
   const code = Number(status) || 0;
   return code === 0 || code === 429 || code >= 500;
 }
+
+export const DEFAULT_RESCUE_DEADLINE_MS = 10 * 60 * 1000;
 
 function sleep(ms) {
   return new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
@@ -117,6 +120,9 @@ export async function rescueTransientReports(reports, manifest, {
   timeoutMs = 30_000,
   maxBodyBytes = DEFAULT_MAX_BODY_BYTES,
   maxUrls = 500,
+  deadlineMs = DEFAULT_RESCUE_DEADLINE_MS,
+  now = () => Date.now(),
+  sleepImpl = sleep,
 } = {}) {
   const urls = [...new Set(reports.flatMap((report) => (report.findings || [])
     .filter((item) => isTransientStatus(item.status))
@@ -124,23 +130,64 @@ export async function rescueTransientReports(reports, manifest, {
   const limit = Math.max(0, Number(maxUrls) || 0);
   const queued = limit > 0 ? urls.slice(0, limit) : [];
   const skipped = Math.max(0, urls.length - queued.length);
-  if (queued.length === 0) return { attempted: 0, rescued: 0, remaining: 0, skipped };
-  if (Number(delayMs) > 0) await sleep(Number(delayMs));
+  const clock = typeof now === 'function' ? now : () => Date.now();
+  const pause = typeof sleepImpl === 'function' ? sleepImpl : sleep;
+  const configuredDeadlineMs = Number(deadlineMs);
+  const rescueDeadlineMs = Number.isFinite(configuredDeadlineMs)
+    ? Math.max(0, configuredDeadlineMs)
+    : DEFAULT_RESCUE_DEADLINE_MS;
+  const deadlineAt = clock() + rescueDeadlineMs;
+  if (queued.length === 0) {
+    return {
+      attempted: 0,
+      rescued: 0,
+      remaining: skipped,
+      skipped,
+      unattempted: 0,
+      deadlineExceeded: false,
+    };
+  }
+  const configuredDelayMs = Number(delayMs);
+  if (Number.isFinite(configuredDelayMs) && configuredDelayMs > 0) {
+    const waitMs = Math.min(configuredDelayMs, Math.max(0, deadlineAt - clock()));
+    if (waitMs > 0) await pause(waitMs);
+  }
 
   const manifestSet = new Set(manifest?.urls || []);
   const outcomes = [];
   let cursor = 0;
+  let deadlineExceeded = false;
+  const configuredTimeoutMs = Number(timeoutMs);
+  const rescueTimeoutMs = Number.isFinite(configuredTimeoutMs) && configuredTimeoutMs > 0
+    ? configuredTimeoutMs
+    : DEFAULT_TIMEOUT_MS;
   const worker = async () => {
     while (true) {
+      if (clock() >= deadlineAt) {
+        deadlineExceeded = true;
+        return;
+      }
       const index = cursor++;
       if (index >= queued.length) return;
       const url = queued[index];
+      const remainingMs = deadlineAt - clock();
+      if (remainingMs <= 0) {
+        deadlineExceeded = true;
+        return;
+      }
       const result = await probeWithRetries(url, {
         fetchImpl,
         retries,
-        timeoutMs,
+        timeoutMs: Math.min(rescueTimeoutMs, Math.max(1, remainingMs)),
         maxBodyBytes,
+        deadlineAt,
+        now: clock,
+        sleepImpl: pause,
       });
+      if (!result) {
+        deadlineExceeded = true;
+        return;
+      }
       outcomes.push({ url, result });
     }
   };
@@ -150,12 +197,16 @@ export async function rescueTransientReports(reports, manifest, {
     const report = reports.find((item) => (item.findings || []).some((finding) => finding.url === url));
     if (report) applyRescueResult(report, url, result, manifestSet);
   }
-  const remaining = outcomes.filter(({ result }) => isTransientStatus(result.status)).length + skipped;
+  const transientOutcomes = outcomes.filter(({ result }) => isTransientStatus(result.status));
+  const unattempted = Math.max(0, queued.length - outcomes.length);
+  const remaining = transientOutcomes.length + unattempted + skipped;
   return {
-    attempted: queued.length,
-    rescued: outcomes.length - (remaining - skipped),
+    attempted: outcomes.length,
+    rescued: outcomes.length - transientOutcomes.length,
     remaining,
     skipped,
+    unattempted,
+    deadlineExceeded: deadlineExceeded || unattempted > 0,
   };
 }
 
@@ -294,6 +345,7 @@ async function main() {
       delayMs: Number(arg(args, 'rescue-delay-ms', '3000')),
       timeoutMs: Number(arg(args, 'timeout-ms', '30000')),
       maxUrls: Number(arg(args, 'rescue-max-urls', '500')),
+      deadlineMs: Number(arg(args, 'rescue-deadline-ms', String(DEFAULT_RESCUE_DEADLINE_MS))),
     });
   }
   const summary = aggregateCrawlReports(reports, manifest);

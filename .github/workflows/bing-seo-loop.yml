@@ -399,6 +399,7 @@ jobs:
             --rescue-concurrency 1 \
             --rescue-retries 4 \
             --rescue-delay-ms 3000 \
+            --rescue-deadline-ms 600000 \
             --out "$RUNNER_TEMP/bing-site-tree-summary.json" \
             --issue-body "$RUNNER_TEMP/bing-site-tree-issue.md"
 

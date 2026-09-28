@@ -195,6 +195,53 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(summary.statusCounts).toEqual({ 200: 1 });
   });
 
+  it('stops a 500-URL rescue at its wall-clock deadline and accounts for every remainder', async () => {
+    const urls = Array.from({ length: 500 }, (_, index) => `${BASE}/deadline-${index}/`);
+    const report = {
+      schemaVersion: 1,
+      baseUrl: BASE,
+      manifestCount: urls.length,
+      partition: 0,
+      partitions: 1,
+      partitionTotal: urls.length,
+      checkedCount: urls.length,
+      codeCounts: { 'http-error': urls.length },
+      statusCounts: { 503: urls.length },
+      folderStats: { '/': { checked: urls.length, statuses: { 503: urls.length }, findings: { 'http-error': urls.length } } },
+      findings: urls.map((url) => ({ code: 'http-error', url, detail: 'HTTP 503', root: '/', status: 503 })),
+      discoveredOutOfSitemap: [],
+    };
+    let calls = 0;
+    let clock = 0;
+    const result = await rescueTransientReports([report], { baseUrl: BASE, urls }, {
+      fetchImpl: async () => {
+        calls += 1;
+        return new Response('', { status: 503 });
+      },
+      retries: 4,
+      delayMs: 0,
+      timeoutMs: 30_000,
+      concurrency: 1,
+      maxUrls: 500,
+      deadlineMs: 1_000,
+      now: () => clock,
+      sleepImpl: async (ms) => { clock += ms; },
+    });
+
+    const summary = aggregateCrawlReports([report], { manifestCount: urls.length, sitemapCount: 1, baseUrl: BASE });
+    expect(calls).toBe(2);
+    expect(result).toMatchObject({
+      attempted: 1,
+      rescued: 0,
+      remaining: 500,
+      skipped: 0,
+      unattempted: 499,
+      deadlineExceeded: true,
+    });
+    expect(summary.actionableCount).toBe(500);
+    expect(summary.statusCounts).toEqual({ 503: 500 });
+  });
+
   it('fails closed when a sitemap responds successfully with no supported entries', async () => {
     const inventory = await collectSitemapInventory({
       baseUrl: 'https://example.test',
