@@ -6932,6 +6932,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parita-sessuale-consiglio-stati.title': 'Sexual equality: motion on gender identity rejected',
     'blog.article.parita-sessuale-consiglio-stati.excerpt': 'The Council of States rejected, by 25 votes to 19, the motion to extend the Gender Equality Act to cases involving sexual orientation and gender identity.',
     'blog.article.parita-sessuale-consiglio-stati.imageAlt': 'View of Bellinzona, seat of the Council of States',
+    'blog.article.misure-poverta-lavoro-svizzera.title': 'Caritas: more support for the working poor',
+    'blog.article.misure-poverta-lavoro-svizzera.excerpt': 'Nearly 360\'000 workers in Switzerland, 8,8% of the workforce, do not earn enough to meet family needs: Caritas proposes a minimum wage and targeted support.',
+    'blog.article.misure-poverta-lavoro-svizzera.imageAlt': 'Swiss worker reviews a family budget at a kitchen table',
+    'blog.article.swiss-starlink-flotta.title': 'Swiss brings Starlink to its entire fleet by the end of 2029',
+    'blog.article.swiss-starlink-flotta.excerpt': 'Swiss has activated Starlink on the first Airbus A320neo: the Zurich-Thessaloniki flight launches the plan to connect the entire fleet by the end of 2029.',
+    'blog.article.swiss-starlink-flotta.imageAlt': 'Swiss aircraft above the clouds with satellite internet connectivity',
 };
 
 export default blogMetaChEn;

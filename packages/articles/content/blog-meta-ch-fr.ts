@@ -6932,6 +6932,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parita-sessuale-consiglio-stati.title': 'Égalité sexuelle : la motion sur l\'identité de genre rejetée',
     'blog.article.parita-sessuale-consiglio-stati.excerpt': 'Le Conseil des États a rejeté par 25 voix contre 19 la motion visant à étendre la loi sur l’égalité aux cas d’orientation sexuelle et d’identité de genre.',
     'blog.article.parita-sessuale-consiglio-stati.imageAlt': 'Vue de Bellinzona, siège du Conseil des États',
+    'blog.article.misure-poverta-lavoro-svizzera.title': 'Caritas : plus de soutien aux travailleurs pauvres',
+    'blog.article.misure-poverta-lavoro-svizzera.excerpt': 'Près de 360\'000 travailleurs en Suisse, soit 8,8% des actifs, ne gagnent pas assez pour les besoins familiaux : Caritas propose un salaire minimum et des aides ciblées.',
+    'blog.article.misure-poverta-lavoro-svizzera.imageAlt': 'Un travailleur suisse examine le budget familial à la table de cuisine',
+    'blog.article.swiss-starlink-flotta.title': 'Swiss porte Starlink sur toute la flotte d\'ici fin 2029',
+    'blog.article.swiss-starlink-flotta.excerpt': 'Swiss a activé Starlink sur le premier Airbus A320neo : le vol Zurich-Thessalonique ouvre le plan visant à connecter toute la flotte d’ici fin 2029.',
+    'blog.article.swiss-starlink-flotta.imageAlt': 'Avion de Swiss au-dessus des nuages avec connexion Internet satellitaire',
 };
 
 export default blogMetaChFr;
