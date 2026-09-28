@@ -170,7 +170,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -248,7 +247,6 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -333,7 +331,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:57.746Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -416,7 +413,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -497,7 +493,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -664,7 +659,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:20.607Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -774,7 +768,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:33:49.045Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1176,7 +1169,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:24:44.709Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1411,7 +1403,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:59:40.249Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1686,10 +1677,10 @@
       "id": "siegfried-90779ee554f1",
       "slug": "ingegnere-operativo-siegfried-zofingen",
       "slugByLocale": {
-        "it": "ingegnere-operativo-siegfried-zofingen",
+        "it": "betriebsingenieur-in-siegfried-zofingen",
         "en": "betriebsingenieur-in-siegfried-zofingen",
         "de": "betriebsingenieur-in-siegfried-ch",
-        "fr": "ingenieur-operationnel-siegfried-zofingen"
+        "fr": "betriebsingenieur-in-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1733,17 +1724,14 @@
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
         "ingenieur-operationnel-siegfried-zofingen",
-        "ingegnere-operativo-siegfried-zofingen",
-        "betriebsingenieur-in-siegfried-zofingen"
+        "ingegnere-operativo-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsingenieur-in-siegfried-ch",
-          "ingegnere-operativo-siegfried-zofingen",
-          "betriebsingenieur-in-siegfried-zofingen"
+          "ingegnere-operativo-siegfried-zofingen"
         ],
         "fr": [
-          "betriebsingenieur-in-siegfried-zofingen",
           "ingenieur-operationnel-siegfried-zofingen"
         ]
       },
@@ -1763,7 +1751,7 @@
         }
       },
       "addressRegion": "AG",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "siegfried-8039947a8afd",

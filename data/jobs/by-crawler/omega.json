@@ -548,7 +548,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:17:22.823Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94800,
       "salarySource": "estimated",
@@ -561,8 +560,7 @@
           "maxValue": 94800,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "omega-33168",
