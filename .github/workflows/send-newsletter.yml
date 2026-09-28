@@ -327,7 +327,11 @@ jobs:
           NEWSLETTER_EXPERIMENTAL_MODE: false
           NEWSLETTER_ENABLE_SEND: true
           NEWSLETTER_FROM: ${{ secrets.NEWSLETTER_FROM || '' }}
-          MODE: ${{ github.event_name == 'schedule' && 'send' || inputs.mode || 'test' }}
+          # workflow_run reaches this step only with a verified primary handoff
+          # (see the step's `if`), so it sends like the cron fallback. Without
+          # it the handoff fell through to 'test': one email to the admin, and
+          # the whole campaign waited for the late cron.
+          MODE: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_run') && 'send' || inputs.mode || 'test' }}
           TARGET: ${{ inputs.target_email || '' }}
           SUBJECT: ${{ inputs.subject || '' }}
           SECTIONS: ${{ inputs.sections || 'exchange,jobs,articles,fact,tool' }}
