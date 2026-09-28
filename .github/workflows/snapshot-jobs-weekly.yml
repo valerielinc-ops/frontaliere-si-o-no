@@ -123,8 +123,15 @@ jobs:
           # always pass: ai-models.mjs only opens the broker when its gate is
           # enabled.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
-        run: node scripts/enrich-related-search-clusters.mjs --verbose
+          # No global AI_MODELS_PREFER: the backlog is ~22k clusters × up to 2
+          # calls, and the Codex broker runs one request at a time. With Codex
+          # preferred, every call queued behind it first (run 36420178268:
+          # 449 Codex attempts, 0 successes, the whole 30-minute step).
+          # See tests/scripts/codex-prefer-volume-scope.test.ts.
+        # --budget-minutes stops STARTING clusters 6 minutes before the step
+        # timeout, so in-flight calls finish, the cache is saved and stale
+        # entries are pruned; the rest resumes next week from the cache.
+        run: node scripts/enrich-related-search-clusters.mjs --verbose --budget-minutes=24
         continue-on-error: true
         timeout-minutes: 30
 

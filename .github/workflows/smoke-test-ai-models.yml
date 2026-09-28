@@ -91,7 +91,10 @@ jobs:
       - name: Run smoke-test (one ping per model)
         env:
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+          # No AI_MODELS_PREFER: callLLM puts a preferred model in front of
+          # every chain, even `chain: [model]`, so with Codex preferred each
+          # ping was answered by Codex and dead models passed (run
+          # 36433447278: 76/76 pass). Codex gets its own ping from the script.
         run: |
           mkdir -p .tmp
           # Exit code conservato (gate Mistral `-latest`, #892) ma riportato solo

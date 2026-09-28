@@ -38,6 +38,13 @@ console.log = (...args) => console.error(...args);
 // documento di produzione" (issue #6611 / corpus#624).
 setScoreStoreReadOnly();
 
+// Un ping per modello deve raggiungere QUEL modello. applyModelsPrefer mette
+// il preferito in testa anche a `chain: [model]`, quindi con
+// AI_MODELS_PREFER=codex-cli/... rispondeva Codex a ogni ping e i modelli
+// morti risultavano `pass` (run 36433447278: 76/76). La stringa vuota e' la
+// leva di rollback esplicita di _preferFor; Codex ha il suo ping qui sotto.
+process.env.AI_MODELS_PREFER = '';
+
 // Run multi-provider discovery FIRST so dynamically-added models (OpenRouter,
 // Groq, NVIDIA, Cohere) are included in the smoke test — otherwise we'd only
 // validate the static chain and never catch a bad auto-discovered id.

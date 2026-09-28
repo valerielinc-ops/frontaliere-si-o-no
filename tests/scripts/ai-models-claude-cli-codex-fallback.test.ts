@@ -367,16 +367,12 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     });
   });
 
-  it('keeps jsonMode structured output when no caller schema is supplied', async () => {
-    let schemaContents = '';
-    installClaudeThenCodex({
-      claudeResult: 'HTTP 429 usage limit',
-      codexResult: '{"ok":true}',
-      onCodexStart: (args) => {
-        const schemaPath = args[args.indexOf('--output-schema') + 1];
-        schemaContents = fs.readFileSync(schemaPath, 'utf8');
-      },
-    });
+  // Run 36420178268: Codex strict structured outputs answered every
+  // `--output-schema {"type":"object"}` with "'schema.properties' is required
+  // for object schemas" (449/449 calls). A schema-less jsonMode call sends no
+  // schema and relies on the prompt plus the local object check.
+  it('sends no output schema for a schema-less jsonMode call', async () => {
+    installClaudeThenCodex({ claudeResult: 'HTTP 429 usage limit', codexResult: '{"ok":true}' });
 
     await expect(callLLM(messages, {
       model: AI_MODELS.CLAUDE_CLI_HAIKU,
@@ -384,8 +380,19 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
       jsonMode: true,
     })).resolves.toBe('{"ok":true}');
 
-    expect(brokerRequests[0].schema).toEqual({ type: 'object' });
-    expect(JSON.parse(JSON.stringify(brokerRequests[0].schema))).toEqual({ type: 'object' });
+    expect(brokerRequests[0].schema).toBeNull();
+    expect(String(brokerRequests[0].prompt)).toContain('Return exactly one valid JSON object');
+  });
+
+  it('rejects a JSON array from a schema-less jsonMode Codex call', async () => {
+    installClaudeThenCodex({ claudeResult: 'HTTP 429 usage limit', codexResult: '[1,2]' });
+
+    await expect(callLLM(messages, {
+      model: AI_MODELS.CLAUDE_CLI_HAIKU,
+      chain: [AI_MODELS.CLAUDE_CLI_HAIKU],
+      jsonMode: true,
+    })).rejects.toThrow(/All AI models failed/);
+    expect(brokerRequests[0].schema).toBeNull();
   });
 
   it('honors AI_MODELS_SCHEMA_MODE=off while still validating JSON-mode output', async () => {
