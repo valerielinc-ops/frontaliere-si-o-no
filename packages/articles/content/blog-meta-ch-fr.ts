@@ -6908,6 +6908,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilatérales III : le marathon démarre au Conseil des États',
     'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'Le débat de trois jours sur le paquet de stabilisation Suisse-UE commence aujourd’hui. Au moins cinq conseillers fédéraux sont attendus en séance.',
     'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Palais fédéral à Berne, siège des chambres fédérales suisses',
+    'blog.article.esito-campagna-blocher.title': 'Neutralité : 70 % rejettent l\'initiative de Blocher',
+    'blog.article.esito-campagna-blocher.excerpt': '70 % des électeurs ont rejeté l’initiative sur la neutralité ; la campagne de Christoph Blocher a coûté près de 4 millions de francs, renforçant la position du Conseil fédéral.',
+    'blog.article.esito-campagna-blocher.imageAlt': 'Vue du Palais fédéral suisse à Berne avec des citoyens et des journaux sur le référendum sur la neutralità',
 };
 
 export default blogMetaChFr;

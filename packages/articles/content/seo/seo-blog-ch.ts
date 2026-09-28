@@ -89564,6 +89564,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esito-campagna-blocher': {
+    title: 'Neutralita: il 70% boccia l\'iniziativa di Blocher',
+    description: 'Il referendum sulla neutralità in Svizzera ha visto il 70% di voti contrari; la campagna di Christoph Blocher è costata quasi 4 milioni di franchi, rafforzando',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralita, boccia, iniziativa, blocher',
+    ogTitle: 'Neutralita: 70% boccia iniziativa Blocher, costa 4 milioni',
+    ogDescription: 'In Svizzera il 70% degli elettori ha detto no all\'iniziativa sulla neutralità promossa da Christoph Blocher, che ha speso quasi 4 milioni di franchi per la campagna. Il risultato rafforza la posizione del Consiglio federale e conferma la neutralità',
+    canonicalPath: '/articoli-svizzera/esito-campagna-blocher/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralita: il 70% boccia l'iniziativa di Blocher",
+      "description": "Il referendum sulla neutralità in Svizzera ha visto il 70% di voti contrari; la campagna di Christoph Blocher è costata quasi 4 milioni di franchi, rafforzando",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esito-campagna-blocher.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Palazzo federale svizzero a Berna con cittadini e giornali sul referendum sulla neutralità"
+      },
+      "datePublished": "2026-09-28T07:05:29+00:00",
+      "dateModified": "2026-09-28T07:05:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esito-campagna-blocher/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

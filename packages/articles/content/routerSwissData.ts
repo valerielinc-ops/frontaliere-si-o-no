@@ -2325,6 +2325,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'friburgo-imposta-eredi-regole': { it: 'friburgo-imposta-eredi-regole', en: 'fribourg-inheritance-gift-tax', de: 'erbschaft-schenkungsteuer-freiburg', fr: 'droits-succession-donation-fribourg' },
  'massimo-balena-calendario-agricoltori-ticino': { it: 'massimo-balena-calendario-agricoltori-ticino', en: 'massimo-balena-swiss-farmer-calendar', de: 'massimo-balena-schweizer-landbaukalender', fr: 'massimo-balena-calendrier-agriculteurs' },
  'maratona-bilaterali-iii-consiglio': { it: 'maratona-bilaterali-iii-consiglio', en: 'marathon-bilaterals-iii-council', de: 'marathon-bilateralen-iii-rat', fr: 'marathon-bilaterales-iii-conseil' },
+ 'esito-campagna-blocher': { it: 'esito-campagna-blocher', en: 'outcome-campaign-blocher', de: 'ausgang-kampagne-blocher', fr: 'resultat-campagne-blocher' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

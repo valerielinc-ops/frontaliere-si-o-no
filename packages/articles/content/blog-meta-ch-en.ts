@@ -6908,6 +6908,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilateral Agreements III: Marathon begins in the Council of States',
     'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'The three-day debate on the Switzerland-EU stabilization package begins today. At least five Federal Councillors are expected in the chamber.',
     'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Federal Palace in Bern, seat of the Swiss federal chambers',
+    'blog.article.esito-campagna-blocher.title': 'Neutrality: 70% reject Blocher\'s initiative',
+    'blog.article.esito-campagna-blocher.excerpt': '70% of voters rejected the neutrality initiative; Christoph Blocher\'s campaign cost nearly 4 million francs, strengthening the Federal Council\'s position.',
+    'blog.article.esito-campagna-blocher.imageAlt': 'View of the Swiss Federal Palace in Bern with citizens and newspapers about the neutrality referendum',
 };
 
 export default blogMetaChEn;
