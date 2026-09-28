@@ -4,6 +4,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
+import { purgeLegacyCrawlerResidues } from '../scripts/cleanup-legacy-crawler-residues.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
@@ -22,14 +23,18 @@ function initHarness() {
   git(repoDir, 'config', 'user.email', 'test@example.com');
   git(repoDir, 'config', 'user.name', 'Test');
   mkdirSync(dirname(join(repoDir, ARCHIVE_PATH)), { recursive: true });
-  writeFileSync(join(repoDir, ARCHIVE_PATH), '[{"companyKey":"coop-ticino"}]\n');
+  writeFileSync(join(repoDir, ARCHIVE_PATH), `${JSON.stringify([{
+    companyKey: 'coop-ticino',
+    description: 'x'.repeat(1_400_000),
+  }])}\n`);
   git(repoDir, 'add', ARCHIVE_PATH);
   git(repoDir, 'commit', '-q', '-m', 'seed archive');
   git(repoDir, 'push', '-q', 'origin', 'HEAD:main');
-  return { originDir, repoDir };
+  const proofDir = mkdtempSync(join(tmpdir(), 'gcd-delete-proofs-'));
+  return { originDir, proofDir, repoDir };
 }
 
-function runExtraOnly(repoDir: string) {
+function runExtraOnly(repoDir: string, proofDir: string) {
   return spawnSync(
     BASH_BIN,
     [SCRIPT_PATH, '--extra-only', 'purge retired archive', ARCHIVE_PATH],
@@ -43,7 +48,9 @@ function runExtraOnly(repoDir: string) {
         SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
         GH_TOKEN: '',
         GITHUB_TOKEN: '',
-        GITHUB_RUN_ID: '',
+        JOBS_HOUSEKEEPING_PROOF_DIR: proofDir,
+        GITHUB_RUN_ID: 'delete-run',
+        GITHUB_RUN_ATTEMPT: '1',
         GITHUB_REPOSITORY: '',
         GITHUB_OUTPUT: '',
       },
@@ -53,25 +60,53 @@ function runExtraOnly(repoDir: string) {
 
 describe('git-commit-data.sh --extra-only explicit deletions', () => {
   it('publishes an explicitly requested deletion', () => {
-    const { originDir, repoDir } = initHarness();
+    const { originDir, proofDir, repoDir } = initHarness();
     try {
-      rmSync(join(repoDir, ARCHIVE_PATH));
+      purgeLegacyCrawlerResidues({
+        expiredDir: dirname(join(repoDir, ARCHIVE_PATH)),
+        apply: true,
+        proofDir,
+        cwd: repoDir,
+        baseSha: git(repoDir, 'rev-parse', 'HEAD'),
+        env: { GITHUB_RUN_ID: 'delete-run', GITHUB_RUN_ATTEMPT: '1' },
+      });
 
-      const result = runExtraOnly(repoDir);
+      const result = runExtraOnly(repoDir, proofDir);
       const log = `${result.stdout}${result.stderr}`;
 
       expect(result.status, log).toBe(0);
       expect(log).toContain('Pushed successfully');
       expect(spawnSync('git', ['cat-file', '-e', `main:${ARCHIVE_PATH}`], { cwd: originDir }).status)
         .not.toBe(0);
+      expect(git(repoDir, 'status', '--short', '--', ARCHIVE_PATH)).toBe(`D ${ARCHIVE_PATH}`);
     } finally {
       rmSync(originDir, { recursive: true, force: true });
+      rmSync(proofDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects a catastrophic explicit deletion without housekeeping proof', () => {
+    const { originDir, proofDir, repoDir } = initHarness();
+    try {
+      rmSync(join(repoDir, ARCHIVE_PATH));
+
+      const result = runExtraOnly(repoDir, proofDir);
+      const log = `${result.stdout}${result.stderr}`;
+
+      expect(result.status, log).toBe(1);
+      expect(log).toContain('refusing catastrophic crawler slice deletion');
+      expect(spawnSync('git', ['cat-file', '-e', `main:${ARCHIVE_PATH}`], { cwd: originDir }).status)
+        .toBe(0);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(proofDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
     }
   });
 
   it('fails closed when the remote file changed after the checkout', () => {
-    const { originDir, repoDir } = initHarness();
+    const { originDir, proofDir, repoDir } = initHarness();
     const otherDir = mkdtempSync(join(tmpdir(), 'gcd-delete-other-'));
     try {
       execFileSync('git', ['clone', '-q', originDir, otherDir]);
@@ -83,7 +118,7 @@ describe('git-commit-data.sh --extra-only explicit deletions', () => {
       git(otherDir, 'push', '-q', 'origin', 'HEAD:main');
       rmSync(join(repoDir, ARCHIVE_PATH));
 
-      const result = runExtraOnly(repoDir);
+      const result = runExtraOnly(repoDir, proofDir);
       const log = `${result.stdout}${result.stderr}`;
 
       expect(result.status, log).toBe(1);
@@ -91,6 +126,7 @@ describe('git-commit-data.sh --extra-only explicit deletions', () => {
       expect(git(originDir, 'show', `main:${ARCHIVE_PATH}`)).toContain('"new":true');
     } finally {
       rmSync(originDir, { recursive: true, force: true });
+      rmSync(proofDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
       rmSync(otherDir, { recursive: true, force: true });
     }

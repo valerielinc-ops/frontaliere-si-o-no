@@ -1846,6 +1846,46 @@ commit_isolated_from_worktree() {
             echo "❌ grouped-isolated: explicit delete conflicts with a newer remote blob for $f"
             return 1
           fi
+          if is_job_slice_path "$f"; then
+            integrity_dir="$merge_dir/integrity-delete"
+            mkdir -p "$integrity_dir"
+            if ! git cat-file blob "$remote_blob" > "$integrity_dir/previous.json"; then
+              echo "❌ grouped-isolated: could not materialize crawler slice for delete integrity guard: $f"
+              return 1
+            fi
+            printf '[]\n' > "$integrity_dir/next.json"
+            integrity_args=(
+              "$f"
+              "$integrity_dir/previous.json"
+              "$integrity_dir/next.json"
+            )
+            housekeeping_proof_path="$(housekeeping_proof_path_for_file "$f")"
+            if [ -f "$housekeeping_proof_path" ]; then
+              integrity_args+=(
+                "$housekeeping_proof_path"
+                "$integrity_dir/previous.json"
+                "$integrity_dir/next.json"
+              )
+            fi
+            integrity_exit=0
+            HOUSEKEEPING_BASE_SHA="$base_sha" node "$(dirname "$0")/crawler-slice-integrity.mjs" "${integrity_args[@]}" \
+              || integrity_exit=$?
+            case "$integrity_exit" in
+              0) ;;
+              1)
+                echo "❌ grouped-isolated: refusing catastrophic crawler slice deletion: $f"
+                return 1
+                ;;
+              3)
+                echo "❌ grouped-isolated: catastrophic crawler slice deletion with a rejected housekeeping proof: $f"
+                return 1
+                ;;
+              *)
+                echo "❌ grouped-isolated: crawler slice delete integrity check crashed (exit $integrity_exit) for $f"
+                return 1
+                ;;
+            esac
+          fi
           GIT_INDEX_FILE="$tmp_index" git update-index --force-remove -- "$f"
           computed_count=$((computed_count + 1))
           continue
