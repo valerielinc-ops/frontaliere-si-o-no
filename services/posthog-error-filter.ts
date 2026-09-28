@@ -67,6 +67,10 @@ export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   // third-party. Companion to the `standardSelectors` message pattern added
   // to UNIVERSAL_BENIGN_PATTERNS (covers cross-origin, no-frame case).
   /^https:\/\/www\.clarity\.ms\//i,
+  // Google Publisher Tag (pubads_impl.js). IntersectionObserver.observe
+  // TypeError whose only frame is inside GPT, in both Chrome and Firefox
+  // wording; no first-party frame, so nothing on our side to fix.
+  /^https:\/\/securepubads\.g\.doubleclick\.net\//i,
 ];
 
 /**
