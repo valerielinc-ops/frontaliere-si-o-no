@@ -158,7 +158,9 @@ export function matchesAutomationScreenSignature(ua: string): boolean {
  * America/Los_Angeles — ZERO from Italy or Switzerland. It grew from 61% to
  * 78% of daily entrants and alone explains the fall of the three-pageview
  * funnel over that week. Screens are randomised (near-square ~1200-1400 px),
- * so unlike the 1280x1200 fleet above the screen cannot pin it.
+ * so unlike the 1280x1200 fleet above the screen cannot pin it. What does pin
+ * it, beyond geography: the fleet ran only Chrome 144/148/149/150 (99.9% of
+ * it), while ordinary desktop Chrome visitors that week were on 151-153.
  */
 export const AUTOMATION_LANGUAGE = 'zh-cn';
 /** The four time zones observed in the measured zh-CN desktop Chrome fleet. */
@@ -168,6 +170,12 @@ export const AUTOMATION_LANGUAGE_TIME_ZONES: readonly string[] = [
   'Asia/Singapore',
   'America/Los_Angeles',
 ];
+/**
+ * Chrome major versions the fleet pinned. Real Chrome auto-updates past them,
+ * so an ordinary visitor on current stable never matches; if the fleet ever
+ * updates, the rule fails open (stops matching) instead of widening.
+ */
+export const AUTOMATION_LANGUAGE_CHROME_MAJORS: readonly number[] = [144, 148, 149, 150];
 /** Chromium UA tokens that identify a browser other than Google Chrome. */
 export const AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS: readonly string[] = ['edg/', 'opr/'];
 
@@ -175,6 +183,7 @@ export const AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS: readonly string[] = ['edg
  * Conservative match for that fleet. ALL of these must hold:
  *  - a desktop Chrome UA on Windows or macOS (`chrome/`, no `mobile`, `edg/`
  *    or `opr/` token);
+ *  - a Chrome major version the fleet pinned (`AUTOMATION_LANGUAGE_CHROME_MAJORS`);
  *  - `navigator.language` exactly `zh-CN`;
  *  - one of the four time zones observed in that fleet.
  * A Chinese-speaking frontaliere in Ticino or Lombardy has a European clock
@@ -190,6 +199,7 @@ export function matchesAutomationLanguageSignature(ua: string): boolean {
     ua.includes('mobile')
   ) return false;
   if (!ua.includes('windows nt') && !ua.includes('macintosh')) return false;
+  if (!AUTOMATION_LANGUAGE_CHROME_MAJORS.includes(Number.parseInt(ua.split('chrome/')[1] || '', 10))) return false;
   if (String(navigator.language || '').toLowerCase() !== AUTOMATION_LANGUAGE) return false;
   let timeZone = '';
   try {
@@ -212,8 +222,9 @@ export function matchesAutomationLanguageSignature(ua: string): boolean {
  *     contexts is bounded by REQUIRING the UA to claim a "real" browser.
  *  6. Automation screen signature — the 1280x1200 Windows/Chrome fleet
  *     (`matchesAutomationScreenSignature`), which passes every layer above.
- *  7. Automation language signature — the zh-CN desktop Chrome fleet on one
- *     of its four observed clocks (`matchesAutomationLanguageSignature`).
+ *  7. Automation language signature — the zh-CN desktop Chrome fleet on its
+ *     pinned Chrome majors and one of its four observed clocks
+ *     (`matchesAutomationLanguageSignature`).
  *
  * On purpose NOT here: WebGL renderer / canvas fingerprint / TLS JA3.
  * Those add weight but are bypassable by `puppeteer-extra-plugin-stealth`

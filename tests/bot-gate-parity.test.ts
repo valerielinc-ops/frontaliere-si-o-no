@@ -257,13 +257,19 @@ describe('automation screen signature (1280x1200 Windows/Chrome)', () => {
  * clock, PostHog 2026-09): positive AND negative matrix on BOTH gates.
  */
 describe('automation language signature (zh-CN desktop Chrome, observed clock)', () => {
-  const WIN_CHROME = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
-  const WIN_EDGE = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.2739.42';
-  const WIN_OPERA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/113.0.5230.32';
-  const MAC_CHROME = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
-  const LINUX_CHROME = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
+  const WIN_CHROME = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36';
+  const WIN_EDGE = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/128.0.2739.42';
+  const WIN_OPERA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 OPR/113.0.5230.32';
+  const MAC_CHROME = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36';
+  // Ordinary Chrome on the current stable channel of that week (151-153).
+  const WIN_CHROME_CURRENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36';
+  const MAC_CHROME_CURRENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36';
+  const WIN_CHROME_148 = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36';
+  const MAC_CHROME_149 = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36';
+  const WIN_CHROME_144 = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36';
+  const LINUX_CHROME = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36';
   const MAC_FIREFOX = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:125.0) Gecko/20100101 Firefox/125.0';
-  const ANDROID_CHROME = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36';
+  const ANDROID_CHROME = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Mobile Safari/537.36';
   const IPHONE_SAFARI = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1';
 
   const originalLanguage = window.navigator.language;
@@ -309,6 +315,9 @@ describe('automation language signature (zh-CN desktop Chrome, observed clock)',
     ['Windows Chrome, Asia/Hong_Kong', WIN_CHROME, 'Asia/Hong_Kong'],
     ['macOS Chrome, Asia/Singapore', MAC_CHROME, 'Asia/Singapore'],
     ['Windows Chrome, America/Los_Angeles', WIN_CHROME, 'America/Los_Angeles'],
+    ['Windows Chrome 148, Asia/Shanghai', WIN_CHROME_148, 'Asia/Shanghai'],
+    ['macOS Chrome 149, America/Los_Angeles', MAC_CHROME_149, 'America/Los_Angeles'],
+    ['Windows Chrome 144, Asia/Hong_Kong', WIN_CHROME_144, 'Asia/Hong_Kong'],
   ];
   for (const [name, ua, timeZone] of positives) {
     it(`flags the fleet: ${name}`, () => {
@@ -321,6 +330,10 @@ describe('automation language signature (zh-CN desktop Chrome, observed clock)',
   }
 
   const negatives: ReadonlyArray<readonly [string, string, string, string]> = [
+    ['zh-CN on current Windows Chrome, Asia/Shanghai', WIN_CHROME_CURRENT, 'zh-CN', 'Asia/Shanghai'],
+    ['zh-CN on current macOS Chrome, Asia/Hong_Kong', MAC_CHROME_CURRENT, 'zh-CN', 'Asia/Hong_Kong'],
+    ['zh-CN on current Windows Chrome, Asia/Singapore', WIN_CHROME_CURRENT, 'zh-CN', 'Asia/Singapore'],
+    ['zh-CN on current macOS Chrome, America/Los_Angeles', MAC_CHROME_CURRENT, 'zh-CN', 'America/Los_Angeles'],
     ['Chinese-speaking frontaliere in Ticino', WIN_CHROME, 'zh-CN', 'Europe/Zurich'],
     ['Chinese-speaking reader in Lombardy on macOS', MAC_CHROME, 'zh-CN', 'Europe/Rome'],
     ['zh-CN Windows Chrome on an unobserved Tokyo clock', WIN_CHROME, 'zh-CN', 'Asia/Tokyo'],
