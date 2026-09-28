@@ -89876,6 +89876,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-misure-poverta-lavoro-svizzera': {
+    title: 'Caritas: più sostegno ai lavoratori poveri | Frontaliere Ticino',
+    description: 'Caritas segnala quasi 360\'000 lavoratori poveri in Svizzera: sono l\'8,8% degli attivi. Con i familiari coinvolti, le persone superano 820\'000. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, caritas, sostegno, lavoratori, poveri',
+    ogTitle: 'Caritas: più sostegno ai lavoratori poveri',
+    ogDescription: 'Alla vigilia di un nuovo aumento dei premi dell\'assicurazione malattia, Caritas chiede interventi per chi lavora ma non riesce a coprire i bisogni familiari: salario minimo, orari prevedibili e sostegni mirati.',
+    canonicalPath: '/articoli-svizzera/misure-poverta-lavoro-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caritas: più sostegno ai lavoratori poveri",
+      "description": "Caritas segnala quasi 360'000 lavoratori poveri in Svizzera: sono l'8,8% degli attivi. Con i familiari coinvolti, le persone superano 820'000. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/misure-poverta-lavoro-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore svizzero controlla il bilancio familiare al tavolo di cucina"
+      },
+      "datePublished": "2026-09-28T12:32:39+00:00",
+      "dateModified": "2026-09-28T12:32:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/misure-poverta-lavoro-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
