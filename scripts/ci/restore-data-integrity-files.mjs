@@ -51,12 +51,27 @@ export function restorePathsForViolations(violations) {
   return [...paths];
 }
 
+function isMissingAtRef(error, ref, file) {
+  const stderr = Buffer.isBuffer(error?.stderr)
+    ? error.stderr.toString('utf8')
+    : typeof error?.stderr === 'string'
+      ? error.stderr
+      : '';
+  return stderr.includes(`Not a valid object name ${ref}:${file}`);
+}
+
 function existsAt(exec, ref, file) {
   try {
-    exec('git', ['cat-file', '-e', `${ref}:${file}`], { stdio: 'ignore' });
+    exec('git', ['cat-file', '-e', `${ref}:${file}`], {
+      stdio: ['ignore', 'ignore', 'pipe'],
+    });
     return true;
-  } catch {
-    return false;
+  } catch (error) {
+    // A paired slice may legitimately be absent at BEFORE. Every other
+    // cat-file failure (for example a corrupt or unreadable pack) must stop
+    // the restore instead of silently producing a one-sided recovery.
+    if (isMissingAtRef(error, ref, file)) return false;
+    throw error;
   }
 }
 

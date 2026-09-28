@@ -72,7 +72,12 @@ describe('data-integrity conflict recovery', () => {
     const exec = (_command: string, args: string[]) => {
       calls.push(args);
       if (args[0] === 'cat-file' && args[2] === `before-sha:${expired}`) {
-        throw new Error('missing at BEFORE');
+        const error = new Error('missing at BEFORE');
+        Object.assign(error, {
+          status: 128,
+          stderr: Buffer.from(`fatal: Not a valid object name before-sha:${expired}\n`),
+        });
+        throw error;
       }
       return '';
     };
@@ -86,5 +91,28 @@ describe('data-integrity conflict recovery', () => {
     expect(calls.filter(([command]) => command === 'checkout')).toEqual([
       ['checkout', '--ignore-skip-worktree-bits', 'before-sha', '--', active],
     ]);
+  });
+
+  it('propagates non-missing historical read failures', () => {
+    const readError = new Error('pack read failed');
+    const exec = (_command: string, args: string[]) => {
+      if (args[0] === 'cat-file' && args[2] === `before-sha:data/jobs/expired/by-crawler/acme.json`) {
+        throw readError;
+      }
+      return '';
+    };
+
+    let thrown;
+    try {
+      restoreDataIntegrityFiles({
+        before: 'before-sha',
+        violationsText: JSON.stringify([{ file: 'data/jobs/by-crawler/acme.json' }]),
+        exec,
+      });
+    } catch (error) {
+      thrown = error;
+    }
+
+    expect(thrown).toBe(readError);
   });
 });
