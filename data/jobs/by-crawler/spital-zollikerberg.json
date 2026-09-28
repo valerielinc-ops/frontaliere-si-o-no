@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche",
-        "assistente-di-pratica-medica-assistente-di-pratica-medica-spital-zollikerberg-zollikerberg"
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche",
-          "assistente-di-pratica-medica-assistente-di-pratica-medica-spital-zollikerberg-zollikerberg"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche"
         ],
         "en": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche"
@@ -210,13 +208,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-logistikerin-lernender-logistiker-efz-diverses-spital-zollikerberg-zollikerberg",
-        "apprendista-logistikerin-apprendista-logistiker-cfc-diverses-spital-zollikerberg"
+        "lernende-logistikerin-lernender-logistiker-efz-diverses-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-logistikerin-lernender-logistiker-efz-diverses-spital-zollikerberg-zollikerberg",
-          "apprendista-logistikerin-apprendista-logistiker-cfc-diverses-spital-zollikerberg"
+          "lernende-logistikerin-lernender-logistiker-efz-diverses-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "lernende-logistikerin-lernender-logistiker-efz-diverses-spital-zollikerberg-zollikerberg"
@@ -290,13 +286,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
-        "professional-health-private-station-2-spital-zollikerberg-zollikerberg"
+        "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
-          "professional-health-private-station-2-spital-zollikerberg-zollikerberg"
+          "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
@@ -399,12 +393,12 @@
     },
     {
       "id": "spital-zollikerberg-a33e198b06db",
-      "slug": "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital",
+      "slug": "studi-post-laurea-nds-per-al-dipl-esperto-dipl-esperti-di-assistenza-di-emergenza-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital",
-        "it": "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital",
-        "en": "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital",
-        "fr": "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital"
+        "it": "studi-post-laurea-nds-per-al-dipl-esperto-dipl-esperti-di-assistenza-di-emergenza-spital-zollikerberg-zollikerberg",
+        "en": "postgraduate-studies-nds-for-to-the-dipl-expert-dipl-emergency-care-experts-spital-zollikerberg-zollikerberg",
+        "fr": "etudes-superieures-nds-pour-pour-le-dipl-expert-dipl-experts-en-soins-d-urgence-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -460,7 +454,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital"
+        ],
+        "en": [
+          "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital"
+        ],
+        "fr": [
+          "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital"
+        ]
+      },
+      "previousSlugs": [
+        "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital"
+      ]
     },
     {
       "id": "spital-zollikerberg-e1d7ac14f635",

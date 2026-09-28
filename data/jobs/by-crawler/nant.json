@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "nant-466f15d99955",
-      "slug": "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x",
+      "slug": "stewardship-dipendente-contratto-orario-6h-settimana-fondation-de-nant-chateau-d-x",
       "slugByLocale": {
         "fr": "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x",
-        "it": "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x",
-        "en": "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x",
-        "de": "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x"
+        "it": "stewardship-dipendente-contratto-orario-6h-settimana-fondation-de-nant-chateau-d-x",
+        "en": "stewardship-employee-hourly-contract-6h-week-fondation-de-nant-chateau-d-x",
+        "de": "stewardship-mitarbeiter-stundenvertrag-6h-woche-fondation-de-nant-chateau-d-x"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -65,7 +65,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x"
+        ],
+        "en": [
+          "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x"
+        ],
+        "de": [
+          "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x"
+      ]
     },
     {
       "id": "nant-4ee367190fb4",
@@ -125,8 +139,7 @@
         "infirmier-ere-a-90-vaudaire-nant-corsier-sur-vevey",
         "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
         "krankenschwester-bei-80-foehn-fondation-de-nant-corsier-sur-vevey",
-        "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey",
-        "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey"
+        "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -138,8 +151,7 @@
           "infirmier-ere-a-90-vaudaire-nant-corsier-sur-vevey",
           "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
           "krankenschwester-bei-80-foehn-fondation-de-nant-corsier-sur-vevey",
-          "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey",
-          "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey"
+          "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey"
         ],
         "en": [
           "infirmier-ere-en-cdi-a-100-dmpc-nant-corsier-sur-vevey",
@@ -219,13 +231,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugs": [
-        "infirmier-ere-clinicien-ne-specialise-e-a-100-morabia-nant-corsier-sur-vevey",
-        "infermiere-cliniche-100-specializzate-morabia-fondation-de-nant-corsier-sur-vevey"
+        "infirmier-ere-clinicien-ne-specialise-e-a-100-morabia-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-clinicien-ne-specialise-e-a-100-morabia-nant-corsier-sur-vevey",
-          "infermiere-cliniche-100-specializzate-morabia-fondation-de-nant-corsier-sur-vevey"
+          "infirmier-ere-clinicien-ne-specialise-e-a-100-morabia-nant-corsier-sur-vevey"
         ],
         "en": [
           "infirmier-ere-clinicien-ne-specialise-e-a-100-morabia-nant-corsier-sur-vevey"
@@ -300,13 +310,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugs": [
-        "infirmier-ere-clinicien-ne-specialise-e-a-100-empa-nant-corsier-sur-vevey",
-        "infermiere-cliniche-100-specializzate-empa-fondation-de-nant-corsier-sur-vevey"
+        "infirmier-ere-clinicien-ne-specialise-e-a-100-empa-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-clinicien-ne-specialise-e-a-100-empa-nant-corsier-sur-vevey",
-          "infermiere-cliniche-100-specializzate-empa-fondation-de-nant-corsier-sur-vevey"
+          "infirmier-ere-clinicien-ne-specialise-e-a-100-empa-nant-corsier-sur-vevey"
         ],
         "en": [
           "infirmier-ere-clinicien-ne-specialise-e-a-100-empa-nant-corsier-sur-vevey"
@@ -380,13 +388,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugs": [
-        "infirmier-ere-clinicien-ne-specialise-e-a-100-usmi-nant-vevey",
-        "infermiere-cliniche-100-specializzate-usmi-fondation-de-nant-vevey"
+        "infirmier-ere-clinicien-ne-specialise-e-a-100-usmi-nant-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-clinicien-ne-specialise-e-a-100-usmi-nant-vevey",
-          "infermiere-cliniche-100-specializzate-usmi-fondation-de-nant-vevey"
+          "infirmier-ere-clinicien-ne-specialise-e-a-100-usmi-nant-vevey"
         ],
         "en": [
           "infirmier-ere-clinicien-ne-specialise-e-a-100-usmi-nant-vevey"
@@ -461,13 +467,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugs": [
-        "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse",
-        "infermiere-cliniche-100-specializzate-spea-fondation-de-nant-vaud-suisse"
+        "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse",
-          "infermiere-cliniche-100-specializzate-spea-fondation-de-nant-vaud-suisse"
+          "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse"
         ],
         "en": [
           "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse"
@@ -541,13 +545,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugs": [
-        "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey",
-        "aiuto-a-tasso-variabile-fondation-de-nant-corsier-sur-vevey"
+        "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey",
-          "aiuto-a-tasso-variabile-fondation-de-nant-corsier-sur-vevey"
+          "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey"
         ],
         "en": [
           "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey"
@@ -577,7 +579,7 @@
       "slugByLocale": {
         "it": "infermiera-notte-95-fondation-de-nant-corsier-sur-vevey",
         "en": "nurse-night-95-fondation-de-nant-corsier-sur-vevey",
-        "de": "infirmier-ere-nuit-95-fondation-de-nant-corsier-sur-vevey",
+        "de": "krankenschwester-nacht-95-fondation-de-nant-corsier-sur-vevey",
         "fr": "infirmier-ere-nuit-95-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
@@ -622,21 +624,17 @@
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugs": [
         "infirmier-ere-nuit-95-nant-corsier-sur-vevey",
-        "krankenschwester-nacht-95-fondation-de-nant-corsier-sur-vevey",
-        "infermiera-notte-95-fondation-de-nant-corsier-sur-vevey",
         "infirmier-ere-nuit-95-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-nuit-95-nant-corsier-sur-vevey",
-          "infermiera-notte-95-fondation-de-nant-corsier-sur-vevey"
+          "infirmier-ere-nuit-95-nant-corsier-sur-vevey"
         ],
         "en": [
           "infirmier-ere-nuit-95-nant-corsier-sur-vevey"
         ],
         "de": [
           "infirmier-ere-nuit-95-nant-corsier-sur-vevey",
-          "krankenschwester-nacht-95-fondation-de-nant-corsier-sur-vevey",
           "infirmier-ere-nuit-95-fondation-de-nant-corsier-sur-vevey"
         ]
       },
