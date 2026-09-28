@@ -94,7 +94,7 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 // the 6h job timeout cancelled it, nothing sent). Past the deadline callLLM
 // stops walking the chain and the Codex broker drops the queued request; the
 // caller falls back to the static template, which the send then uses.
-const AI_PHASE_BUDGET_MS = 30 * 60_000;
+export const AI_PHASE_BUDGET_MS = 30 * 60_000;
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
@@ -271,14 +271,15 @@ const NEWSLETTER_AI_CHAIN = [
  * The ONE AI briefing a locale's readers share (see buildLocaleBriefingPrompt).
  * One retry: a single short or garbled answer would otherwise put the whole
  * locale on the static template. Both attempts share the caller's deadline.
+ * `llm` defaults to the chain loaded by initAI; the benchmark injects its own.
  */
-async function generateLocaleBriefing(ctx, { deadlineMs } = {}) {
-  if (!callLLM) return null;
+export async function generateLocaleBriefing(ctx, { deadlineMs, llm = callLLM } = {}) {
+  if (!llm) return null;
   const { system, user } = buildLocaleBriefingPrompt(ctx);
   for (let attempt = 1; attempt <= 2; attempt++) {
     if (deadlineMs && Date.now() >= deadlineMs) break;
     try {
-      const result = await callLLM([
+      const result = await llm([
         { role: 'system', content: system },
         { role: 'user', content: user },
       ], { temperature: 0.7, maxTokens: 800, chain: NEWSLETTER_AI_CHAIN, deadlineMs });
@@ -322,6 +323,44 @@ export async function composeCohortBriefings(cohorts, { locales, generate, excha
     briefingMap.set(key, html);
   }
   return { briefingMap, localeBriefings, aiCohorts, fallbackCohorts };
+}
+
+/** Key of the subject for one (locale, A/B variant) pair. */
+export function newsletterSubjectKey(loc, variant) {
+  return `${loc}::${variant}`;
+}
+
+/**
+ * Phase 3 composition: one AI subject per (locale, variant), written from the
+ * locale's largest cohort; `generate(ctx)` → subject or null, null falling
+ * back to the variant's static subject. At most locales × variants calls.
+ */
+export async function composeLocaleSubjects(cohorts, { locales, variantIds, briefingMap, exchangeRate, generate }) {
+  const localeRepresentatives = new Map();
+  for (const [key, cohort] of cohorts) {
+    const loc = cohort.locale;
+    const existing = localeRepresentatives.get(loc);
+    if (!existing || cohort.members.length > existing.members.length) {
+      localeRepresentatives.set(loc, { ...cohort, briefing: briefingMap.get(key) });
+    }
+  }
+
+  const subjectMap = new Map();
+  const localeVariantPairs = [];
+  for (const loc of locales) for (const variant of variantIds) localeVariantPairs.push({ loc, variant });
+  await pMap(localeVariantPairs, async ({ loc, variant }) => {
+    const rep = localeRepresentatives.get(loc);
+    const briefingText = rep?.briefing?.replace(/<[^>]+>/g, '').slice(0, 100) || '';
+    const subject = await generate({
+      subscriber: rep?.subscriber || { locale: loc },
+      exchangeRate,
+      matchedJobs: rep?.matchedJobs || [],
+      briefingSummary: briefingText,
+      variant,
+    });
+    subjectMap.set(newsletterSubjectKey(loc, variant), subject || getVariantFallback(variant, loc));
+  }, Math.min(localeVariantPairs.length, AI_CONCURRENCY)); // bounded parallel AI calls
+  return subjectMap;
 }
 
 /**
@@ -639,11 +678,11 @@ function sanitizeAIBriefingHtml(raw) {
   return html;
 }
 
-async function generateAISubject(ctx, { deadlineMs } = {}) {
-  if (!callLLM) return null;
+export async function generateAISubject(ctx, { deadlineMs, llm = callLLM } = {}) {
+  if (!llm) return null;
   try {
     const { system, user } = buildSubjectPrompt(ctx);
-    const result = await callLLM([
+    const result = await llm([
       { role: 'system', content: system },
       { role: 'user', content: user },
     ], { temperature: 0.8, maxTokens: 80, chain: NEWSLETTER_AI_CHAIN, deadlineMs });
@@ -2466,7 +2505,8 @@ async function main() {
   // meant one serialized Codex call per ~3 recipients: 73 calls and 2h21 for
   // 255 recipients (run 36230809455), ~700 calls for the 2119 cohorts of a
   // fresh Monday campaign (run 35582069095).
-  const locales = [...new Set(subscriberData.map(d => d.locale))];
+  // From the cohorts, so no locale is asked for without a cohort to use it.
+  const locales = [...new Set([...cohorts.values()].map((c) => c.locale))];
   console.log(`🧠 Phase 2: AI briefings (1 per locale: ${locales.join(', ')})...`);
   const briefingDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
   const { briefingMap, localeBriefings, aiCohorts, fallbackCohorts } = await composeCohortBriefings(cohorts, {
@@ -2486,40 +2526,23 @@ async function main() {
   // gets the subject for their deterministically-assigned variant (Phase 5).
   // Still cohort-cheap: at most locales × variants AI calls (≤8), not per-sub.
   const variantIds = listVariantIds();
-  const subjectKey = (loc, variant) => `${loc}::${variant}`;
+  const subjectKey = newsletterSubjectKey;
   console.log(`✏️  Phase 3: AI subjects (${variantIds.length} variants/locale: ${variantIds.join(', ')})...`);
-  const subjectMap = new Map();
+  let subjectMap = new Map();
 
   if (subjectOverride) {
     for (const loc of locales) for (const v of variantIds) subjectMap.set(subjectKey(loc, v), subjectOverride);
   } else if (noAI) {
     for (const loc of locales) for (const v of variantIds) subjectMap.set(subjectKey(loc, v), getVariantFallback(v, loc));
   } else {
-    // Pick a representative cohort per locale (the one with most members)
-    const localeRepresentatives = new Map();
-    for (const [key, cohort] of cohorts) {
-      const loc = cohort.locale;
-      const existing = localeRepresentatives.get(loc);
-      if (!existing || cohort.members.length > existing.members.length) {
-        localeRepresentatives.set(loc, { ...cohort, briefing: briefingMap.get(key) });
-      }
-    }
-
-    const localeVariantPairs = [];
-    for (const loc of locales) for (const variant of variantIds) localeVariantPairs.push({ loc, variant });
     const subjectDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
-    await pMap(localeVariantPairs, async ({ loc, variant }) => {
-      const rep = localeRepresentatives.get(loc);
-      const briefingText = rep?.briefing?.replace(/<[^>]+>/g, '').slice(0, 100) || '';
-      const subject = await generateAISubject({
-        subscriber: rep?.subscriber || { locale: loc },
-        exchangeRate,
-        matchedJobs: rep?.matchedJobs || [],
-        briefingSummary: briefingText,
-        variant,
-      }, { deadlineMs: subjectDeadlineMs });
-      subjectMap.set(subjectKey(loc, variant), subject || getVariantFallback(variant, loc));
-    }, Math.min(localeVariantPairs.length, AI_CONCURRENCY)); // bounded parallel AI calls
+    subjectMap = await composeLocaleSubjects(cohorts, {
+      locales,
+      variantIds,
+      briefingMap,
+      exchangeRate,
+      generate: (subjectCtx) => generateAISubject(subjectCtx, { deadlineMs: subjectDeadlineMs }),
+    });
   }
   console.log(`  ✓ ${subjectMap.size} subjects: ${[...subjectMap.entries()].map(([k, s]) => `${k}="${s}"`).join(', ')}`);
 
