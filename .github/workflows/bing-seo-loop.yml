@@ -395,6 +395,10 @@ jobs:
           node scripts/seo/bing-site-explorer-report.mjs \
             --reports-dir "$RUNNER_TEMP/bing-site-tree-reports" \
             --manifest "$RUNNER_TEMP/bing-site-tree-manifest/bing-site-tree-manifest.json" \
+            --rescue-transients \
+            --rescue-concurrency 1 \
+            --rescue-retries 4 \
+            --rescue-delay-ms 3000 \
             --out "$RUNNER_TEMP/bing-site-tree-summary.json" \
             --issue-body "$RUNNER_TEMP/bing-site-tree-issue.md"
 

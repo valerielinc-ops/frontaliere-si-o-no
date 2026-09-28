@@ -413,7 +413,7 @@ async function probeOnce(url, {
   };
 }
 
-async function probeWithRetries(url, options = {}) {
+export async function probeWithRetries(url, options = {}) {
   const retries = Number(options.retries ?? DEFAULT_RETRIES);
   let result;
   for (let attempt = 0; attempt <= retries; attempt += 1) {
