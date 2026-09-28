@@ -168,10 +168,13 @@ export const AUTOMATION_LANGUAGE_TIME_ZONES: readonly string[] = [
   'Asia/Singapore',
   'America/Los_Angeles',
 ];
+/** Chromium UA tokens that identify a browser other than Google Chrome. */
+export const AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS: readonly string[] = ['edg/', 'opr/'];
 
 /**
  * Conservative match for that fleet. ALL of these must hold:
- *  - a desktop Chrome UA on Windows or macOS (`chrome/`, no `mobile`);
+ *  - a desktop Chrome UA on Windows or macOS (`chrome/`, no `mobile`, `edg/`
+ *    or `opr/` token);
  *  - `navigator.language` exactly `zh-CN`;
  *  - one of the four time zones observed in that fleet.
  * A Chinese-speaking frontaliere in Ticino or Lombardy has a European clock
@@ -181,7 +184,11 @@ export const AUTOMATION_LANGUAGE_TIME_ZONES: readonly string[] = [
  */
 export function matchesAutomationLanguageSignature(ua: string): boolean {
   if (typeof window === 'undefined' || typeof navigator === 'undefined') return false;
-  if (!ua.includes('chrome/') || ua.includes('mobile')) return false;
+  if (
+    !ua.includes('chrome/') ||
+    AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS.some((token) => ua.includes(token)) ||
+    ua.includes('mobile')
+  ) return false;
   if (!ua.includes('windows nt') && !ua.includes('macintosh')) return false;
   if (String(navigator.language || '').toLowerCase() !== AUTOMATION_LANGUAGE) return false;
   let timeZone = '';

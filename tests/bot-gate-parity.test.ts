@@ -258,6 +258,8 @@ describe('automation screen signature (1280x1200 Windows/Chrome)', () => {
  */
 describe('automation language signature (zh-CN desktop Chrome, observed clock)', () => {
   const WIN_CHROME = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
+  const WIN_EDGE = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.2739.42';
+  const WIN_OPERA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/113.0.5230.32';
   const MAC_CHROME = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
   const LINUX_CHROME = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
   const MAC_FIREFOX = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:125.0) Gecko/20100101 Firefox/125.0';
@@ -328,6 +330,8 @@ describe('automation language signature (zh-CN desktop Chrome, observed clock)',
     ['Traditional Chinese UI in Asia', WIN_CHROME, 'zh-TW', 'Asia/Taipei'],
     ['Italian UI on a Shanghai clock', WIN_CHROME, 'it-IT', 'Asia/Shanghai'],
     ['English UI on a Los Angeles clock', MAC_CHROME, 'en-US', 'America/Los_Angeles'],
+    ['zh-CN Windows Edge with a Chrome token', WIN_EDGE, 'zh-CN', 'Asia/Shanghai'],
+    ['zh-CN Windows Opera with a Chrome token', WIN_OPERA, 'zh-CN', 'Asia/Shanghai'],
     ['zh-CN but Linux Chrome', LINUX_CHROME, 'zh-CN', 'Asia/Shanghai'],
     ['zh-CN but macOS Firefox', MAC_FIREFOX, 'zh-CN', 'Asia/Shanghai'],
     ['zh-CN but mobile Chrome', ANDROID_CHROME, 'zh-CN', 'Asia/Shanghai'],

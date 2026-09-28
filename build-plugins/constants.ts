@@ -40,6 +40,7 @@ import {
   AUTOMATION_SCREEN_WIDTH,
   AUTOMATION_TIME_ZONES,
   AUTOMATION_LANGUAGE,
+  AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS,
   AUTOMATION_LANGUAGE_TIME_ZONES,
   BOT_UA_PATTERNS,
 } from '../services/botPatterns';
@@ -591,8 +592,9 @@ export const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
  */
 const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
 const AUTOMATION_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_TIME_ZONES);
+const AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS);
 const AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_TIME_ZONES);
-export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return true;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return true;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return true;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return true;if(navigator.plugins&&navigator.plugins.length===0)return true;if(typeof navigator.permissions==='undefined')return true;}var S=window.screen;if(S&&S.width===${AUTOMATION_SCREEN_WIDTH}&&S.height===${AUTOMATION_SCREEN_HEIGHT}&&ua.indexOf('windows nt')>=0&&ua.indexOf('chrome/')>=0&&ua.indexOf('mobile')<0&&String(navigator.language||'').toLowerCase().indexOf('en')===0){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_TIME_ZONES_LITERAL}.indexOf(tz)>=0)return true;}if(String(navigator.language||'').toLowerCase()===${JSON.stringify(AUTOMATION_LANGUAGE)}&&ua.indexOf('chrome/')>=0&&ua.indexOf('mobile')<0&&(ua.indexOf('windows nt')>=0||ua.indexOf('macintosh')>=0)){var ltz='';try{ltz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL}.indexOf(ltz)>=0)return true;}return false;}`;
+export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return true;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return true;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return true;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return true;if(navigator.plugins&&navigator.plugins.length===0)return true;if(typeof navigator.permissions==='undefined')return true;}var S=window.screen;if(S&&S.width===${AUTOMATION_SCREEN_WIDTH}&&S.height===${AUTOMATION_SCREEN_HEIGHT}&&ua.indexOf('windows nt')>=0&&ua.indexOf('chrome/')>=0&&ua.indexOf('mobile')<0&&String(navigator.language||'').toLowerCase().indexOf('en')===0){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_TIME_ZONES_LITERAL}.indexOf(tz)>=0)return true;}if(String(navigator.language||'').toLowerCase()===${JSON.stringify(AUTOMATION_LANGUAGE)}&&ua.indexOf('chrome/')>=0&&${AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL}.every(function(token){return ua.indexOf(token)<0;})&&ua.indexOf('mobile')<0&&(ua.indexOf('windows nt')>=0||ua.indexOf('macintosh')>=0)){var ltz='';try{ltz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL}.indexOf(ltz)>=0)return true;}return false;}`;
 
 /**
  * Plain JS body for the PostHog snippet — written to dist/assets/posthog-init.js
