@@ -2750,10 +2750,10 @@ jobs:
             # guard del corpus. Identico → il verdetto precedente si riusa:
             # LGTM → carry-forward senza modello, verdetto non approvante →
             # minimal che riporta i 🔴 aperti. Fingerprint diverso o non
-            # calcolabile (NULL, errore) → si prosegue come prima: nel dubbio
+            # calcolabile (UNKNOWN, errore) → si prosegue come prima: nel dubbio
             # si fa la review.
-            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo NULL)
-            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo NULL)
+            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo UNKNOWN)
+            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo UNKNOWN)
             carry=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
               | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
                   --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
