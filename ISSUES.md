@@ -96,7 +96,7 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 
 ### Abort senza PR (no fix forzato)
 
-- **Solo codici `FIX_OUTCOME` dello step 8.** Un codice inventato non è verdetto: il drainer non lo mette in `NON_RETRYABLE` e ri-accoda. `automation-deferred` è label, non esito.
+- **Solo codici `FIX_OUTCOME` dello step 8:** `pr-created`, `blocked-workflows-scope`, `blocked-secrets`, `blocked-admin-settings`, `no-root-cause`, `overlap-skip`, `pr-already-open`, `already-fixed`, `revenue-tracker-manual`. Un codice inventato non è verdetto: il drainer non lo mette in `NON_RETRYABLE` e ri-accoda. `automation-deferred` è label, non esito.
 - Root cause incerta → "Root cause non determinata: <cosa hai trovato>", `<!-- FIX_OUTCOME: no-root-cause -->`, `<!-- AUTOMATION_DEFERRED: technical -->`, label `automation-deferred`, termina senza domande.
 - Già risolto su `main` → `already-fixed` + `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->`. Capability mancante → il `blocked-*` che la nomina.
 - Repo sbagliato → migra al proprietario, collega le schede, chiudi l'errata con evidenza (`DECISIONS.md`). Manca un dato → strumenta, non parcheggiare.
