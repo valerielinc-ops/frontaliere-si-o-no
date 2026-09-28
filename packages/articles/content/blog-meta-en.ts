@@ -12202,6 +12202,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.targhe-ricerche-pagamento.title': 'Ticino license plates: paid searches starting 1° novembre',
     'blog.article.targhe-ricerche-pagamento.excerpt': 'From 1° novembre 2026, the Ticino license plate index returns to eAutoindex: individual searches will be subject to a fee to curb automated data collection.',
     'blog.article.targhe-ricerche-pagamento.imageAlt': 'Ticino license plate index and eAutoindex platform for paid searches',
+    'blog.article.cantiere-cassarate-bozzoreda.title': 'Night work on the bridge over the Cassarate: possible delays',
+    'blog.article.cantiere-cassarate-bozzoreda.excerpt': 'From October 5 to 10, nighttime work will take place on via alla Bozzoreda in Lugano: noise and possible delays on connected roads.',
+    'blog.article.cantiere-cassarate-bozzoreda.imageAlt': 'Night resurfacing works on the Cassarate bridge in Lugano',
 };
 
 export default blogMetaEn;

@@ -96130,6 +96130,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cantiere-cassarate-bozzoreda': {
+    title: 'Lavori notturni sul ponte sul Cassarate: possibili ritardi',
+    description: 'A Lugano lavori notturni in via alla Bozzoreda dal 5 al 10 ottobre per il ponte sul Cassarate: rumori e possibili ritardi di alcuni minuti nelle vie collegate.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, notturni, ponte, cassarate',
+    ogTitle: 'Ponte sul Cassarate, lavori notturni a Lugano',
+    ogDescription: 'Dal 5 al 10 ottobre lavori notturni in via alla Bozzoreda a Lugano per risanare la pavimentazione del ponte sul Cassarate. Dalle 20 possibili rumori, disturbi alla quiete pubblica e ritardi di alcuni minuti sulle strade collegate.',
+    canonicalPath: '/articoli-frontaliere/cantiere-cassarate-bozzoreda',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori notturni sul ponte sul Cassarate: possibili ritardi",
+      "description": "A Lugano lavori notturni in via alla Bozzoreda dal 5 al 10 ottobre per il ponte sul Cassarate: rumori e possibili ritardi di alcuni minuti nelle vie collegate.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cantiere-cassarate-bozzoreda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori notturni per il risanamento del ponte sul Cassarate a Lugano"
+      },
+      "datePublished": "2026-09-28T10:14:23+00:00",
+      "dateModified": "2026-09-28T10:14:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantiere-cassarate-bozzoreda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

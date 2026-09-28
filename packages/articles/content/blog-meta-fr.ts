@@ -12204,6 +12204,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.targhe-ricerche-pagamento.title': 'Plaques Tessin : recherches payantes à partir du 1er novembre',
     'blog.article.targhe-ricerche-pagamento.excerpt': 'À partir du 1° novembre 2026, la liste des plaques tessinoises revient sur eAutoindex : les recherches individuelles seront payantes afin de freiner la collecte automatisée des données.',
     'blog.article.targhe-ricerche-pagamento.imageAlt': 'Registre des plaques tessinoises et plateforme eAutoindex pour les recherches payantes',
+    'blog.article.cantiere-cassarate-bozzoreda.title': 'Travaux nocturnes sur le pont du Cassarate : retards possibles',
+    'blog.article.cantiere-cassarate-bozzoreda.excerpt': 'Du 5 au 10 octobre, travaux nocturnes dans la via alla Bozzoreda à Lugano : nuisances sonores et retards possibles sur les routes adjacentes.',
+    'blog.article.cantiere-cassarate-bozzoreda.imageAlt': 'Travaux nocturnes d\'assainissement sur le pont du Cassarate à Lugano',
 };
 
 export default blogMetaFr;
