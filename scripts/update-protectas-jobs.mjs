@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllProtectasJobs,
   isProtectasJob,
@@ -25,6 +26,12 @@ runStandardCrawlerPipeline({
   root: ROOT,
   fetchJobs: fetchAllProtectasJobs,
   isCompanyJob: isProtectasJob,
+  // Publish a zero only when the career page explicitly reports that it has
+  // no open positions. A page with no recognized links but no empty marker
+  // remains a parser/source failure and stays fail-closed.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(PROTECTAS_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   isTrustedDomain,
   defaultSourceLang: 'it',
 }).catch((err) => {

@@ -175,6 +175,26 @@ describe('Protectas SA crawler parser', () => {
       );
     });
 
+    it('publishes a proven empty snapshot when the official page reports zero openings', async () => {
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+        new Response('<main><h1>Unisciti al nostro team</h1><div data-testid="vacancy-count">0 Posizioni aperte:</div></main>', { status: 200 }),
+      );
+
+      const jobs = await fetchAllProtectasJobs();
+
+      expect(jobs).toEqual([]);
+      expect(jobs.authoritativeEmptyState).toBe('authoritative-source-zero');
+      expect(jobs.authoritativeEmptyEvidence).toContain('0 Posizioni aperte');
+    });
+
+    it('fails closed when a career heading is paired only with unrelated zero-count copy', async () => {
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+        new Response('<main><h2>Open positions</h2><p data-note="archive">0 open positions</p></main>', { status: 200 }),
+      );
+
+      await expect(fetchAllProtectasJobs()).rejects.toThrow('no official vacancy detail links');
+    });
+
     it('imports only a verified physical TI vacancy from the official page', async () => {
       vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
         const url = String(input);
