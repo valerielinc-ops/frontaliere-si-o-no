@@ -77,6 +77,36 @@ describe('observation window — completion time, not start time', () => {
     expect(callsFor('create')[0].join(' ')).toContain(run.html_url);
   });
 
+  it('the retention-complete override observes a run created more than three days ago', async () => {
+    process.env.TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES = String(35 * 24 * 60);
+    delete process.env.TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON;
+    vi.resetModules();
+    const run = runFixture(102, { created_at: iso(4 * 24 * 60 * MINUTE) });
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'api') {
+        if (args[1].includes('actions/workflows/')) return JSON.stringify({ workflow_runs: [] });
+        if (args[1].includes('actions/runs?status=cancelled')) {
+          return JSON.stringify({ total_count: 1, workflow_runs: [run] });
+        }
+        if (args[1].includes('actions/runs?status=failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
+        if (args[1].includes(`/runs/${run.id}/jobs`)) return JSON.stringify({ jobs: [timeoutJob] });
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
+        return '{}';
+      }
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/1';
+      return '';
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
+
+    expect(callsFor('create')).toHaveLength(1);
+    expect(callsFor('create')[0].join(' ')).toContain(run.html_url);
+  });
+
   it('continues beyond 200 runs while the default created window stays inside the 3-day scan budget', async () => {
     const oldRuns = Array.from({ length: 100 }, (_, index) => runFixture(index, {
       created_at: iso(8 * 60 * MINUTE),
