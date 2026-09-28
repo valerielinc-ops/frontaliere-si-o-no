@@ -121,7 +121,7 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(releaseDiskBackedHtmlCache(cache, diskBacked)).toBe(0);
   });
 
-  it('releases verified active paths while retaining unverified fallbacks', () => {
+  it('checks each active path once while retaining unverified fallbacks', () => {
     const cache = new Map([
       ['it:disk', '<html>disk</html>'],
       ['it:fallback', '<html>fallback</html>'],
@@ -131,17 +131,25 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
       ['it:fallback', 'it/cerca-lavoro-ticino/fallback'],
     ]);
 
+    let verificationCalls = 0;
     expect(
       releaseDiskBackedHtmlCacheForPaths(
         cache,
         paths,
-        (relativePath) => relativePath.endsWith('/disk'),
+        (relativePath) => {
+          verificationCalls++;
+          return relativePath.endsWith('/disk');
+        },
       ),
     ).toBe(1);
     expect(cache.has('it:disk')).toBe(false);
     expect(paths.has('it:disk')).toBe(false);
     expect(cache.has('it:fallback')).toBe(true);
-    expect(paths.has('it:fallback')).toBe(true);
+    expect(paths.has('it:fallback')).toBe(false);
+    expect(verificationCalls).toBe(2);
+
+    expect(releaseDiskBackedHtmlCacheForPaths(cache, paths, () => true)).toBe(0);
+    expect(verificationCalls).toBe(2);
   });
 
   it('keeps a stale dist file as a fallback until this collector writes the path', async () => {
@@ -203,7 +211,7 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(source).toContain('activeHtmlSource: \'disk\'');
     expect(source).toContain('const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512');
     expect(source).toContain('flushActiveHtmlCacheChunk');
-    expect(source).toContain('activeHtmlCacheChunks');
+    expect(source).toContain('activeHtmlCacheFlushes');
     expect(source).toContain('const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512');
     expect(source).toContain('expiredCacheEntries: expiredSoftLandingCache.size');
     expect(source).toContain('expiredHtmlCachePeakEntries');

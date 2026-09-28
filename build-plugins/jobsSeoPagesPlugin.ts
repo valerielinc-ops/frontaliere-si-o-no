@@ -2666,10 +2666,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  * bounded chunks after the same bytes are confirmed on disk. */
  const jobHtmlCache = new Map<string, string>();
  jobsSeoMemContext.jobHtmlCache = jobHtmlCache;
+ // This map is a one-shot verification queue, not the fallback store. Paths
+ // that are not confirmed remain in jobHtmlCache but are removed here so a
+ // foreign-writer/collision case cannot turn chunked flushing into O(n²).
  const activeHtmlPaths = new Map<string, string>();
  const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512;
  let activeHtmlJobsSinceFlush = 0;
- let activeHtmlCacheChunks = 0;
+ let activeHtmlCacheFlushes = 0;
 
  // The collector already bounds its pending-write batches, but the active
  // bridge cache kept one full HTML string per emitted job until the whole
@@ -2685,7 +2688,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    activeHtmlPaths,
    hasCollectorWrittenHtmlForPath,
   );
-  activeHtmlCacheChunks++;
+  activeHtmlCacheFlushes++;
   return released;
  };
 
@@ -4376,7 +4379,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  logJobsSeoMem('after-active-pages', {
   activeHtmlSource: 'disk',
   releasedActiveHtmlEntries,
-  activeHtmlCacheChunks,
+  activeHtmlCacheFlushes,
   activeHtmlFallbackEntries: jobHtmlCache.size,
  });
 
