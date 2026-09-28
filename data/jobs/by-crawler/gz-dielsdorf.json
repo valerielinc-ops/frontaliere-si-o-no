@@ -596,7 +596,7 @@
       "slugByLocale": {
         "it": "dipl-professionista-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "en": "dipl-care-professional-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "de": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf-b76p58",
+        "de": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
         "fr": "dipl-soins-professionnels-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
@@ -642,7 +642,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
-        "dipl-pflegefachperson-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+        "dipl-pflegefachperson-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf-b76p58"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -650,7 +651,8 @@
           "dipl-pflegefachperson-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf"
+          "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
+          "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf-b76p58"
         ]
       },
       "firstSeenAt": "2026-08-26T10:13:16.563Z",

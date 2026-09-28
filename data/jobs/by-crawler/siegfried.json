@@ -1679,11 +1679,13 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "ingenieur-operationnel-siegfried-zofingen"
+        "ingenieur-operationnel-siegfried-zofingen",
+        "ingegnere-operativo-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsingenieur-in-siegfried-ch"
+          "betriebsingenieur-in-siegfried-ch",
+          "ingegnere-operativo-siegfried-zofingen"
         ],
         "fr": [
           "ingenieur-operationnel-siegfried-zofingen"
@@ -1704,7 +1706,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "retranslationAttempts": 1
     },
     {
       "id": "siegfried-8039947a8afd",

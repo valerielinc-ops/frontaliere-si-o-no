@@ -2577,7 +2577,6 @@
         "fr": "isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland"
       },
       "id": "hitachi-energy-c5e89f24bd5e",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -2968,7 +2967,8 @@
       },
       "previousSlugs": [
         "secondary-design-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Polymechaniker/in 80 - 100% (w/m/d)",
