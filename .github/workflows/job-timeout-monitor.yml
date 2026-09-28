@@ -20,7 +20,10 @@ name: job-timeout-monitor
 
 on:
   schedule:
-    - cron: '10 * * * *' # hourly; script's 75m lookback covers cron jitter/downtime
+    # Hourly on paper; GitHub skips most slots (5.4 runs/day measured up to
+    # 2026-09-28). The script's window reaches back to the previous successful
+    # scan, so a skipped slot delays a report instead of losing it.
+    - cron: '10 * * * *'
   workflow_dispatch:
 
 concurrency:
