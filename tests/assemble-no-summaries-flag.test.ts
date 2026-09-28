@@ -43,7 +43,11 @@ function assembleRunLines(workflowPath: string): string[] {
 
 describe('assemble-jobs-dataset --no-summaries is opt-in', () => {
   it('defaults to assembling summaries when no flag is passed', () => {
-    expect(parseAssembleCliArgs([])).toEqual({ withStats: false, withSummaries: true });
+    expect(parseAssembleCliArgs([])).toEqual({
+      withStats: false,
+      withSummaries: true,
+      withExpired: true,
+    });
   });
 
   it('turns off summaries only for --no-summaries', () => {
@@ -53,9 +57,15 @@ describe('assemble-jobs-dataset --no-summaries is opt-in', () => {
     expect(parseAssembleCliArgs(['--no-stats']).withSummaries).toBe(true);
   });
 
+  it('turns off expired-archive assembly only for --active-only', () => {
+    expect(parseAssembleCliArgs(['--active-only']).withExpired).toBe(false);
+    expect(parseAssembleCliArgs(['--no-summaries']).withExpired).toBe(true);
+    expect(parseAssembleCliArgs([]).withExpired).toBe(true);
+  });
+
   it('keeps --stats orthogonal to --no-summaries', () => {
     expect(parseAssembleCliArgs(['--stats', '--no-summaries']))
-      .toEqual({ withStats: true, withSummaries: false });
+      .toEqual({ withStats: true, withSummaries: false, withExpired: true });
   });
 
   it('declares the option default as true in assembleJobsDataset()', () => {
@@ -83,6 +93,22 @@ describe('assemble-jobs-dataset --no-summaries is opt-in', () => {
     // computeAssembleCacheKey builds the key; its behaviour per mode is pinned
     // in tests/scripts/assemble-jobs-cache.test.ts ("keys the run mode …").
     expect(SOURCE).toMatch(/cacheKey: `\$\{inputFingerprint\}_.*withSummaries \?/);
+    expect(SOURCE).toMatch(/cacheKey: `[^`]*withExpired \?/);
+  });
+
+  it('guards the expired archive block on the active-only option', () => {
+    const expiredCall = SOURCE.indexOf('const expiredJobs = assembleExpiredJobs()');
+    expect(expiredCall).toBeGreaterThan(-1);
+    const guard = SOURCE.lastIndexOf('if (withExpired) {', expiredCall);
+    expect(guard).toBeGreaterThan(-1);
+    expect(SOURCE.slice(guard, expiredCall)).not.toContain('\n  }\n');
+  });
+});
+
+describe('404-risk audit: active dataset only', () => {
+  it('skips expired archive and summary work before consuming jobs.json', () => {
+    const yaml = fs.readFileSync(path.join(ROOT, '.github/workflows/audit-404-risk.yml'), 'utf8');
+    expect(yaml).toContain('run: node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries');
   });
 });
 

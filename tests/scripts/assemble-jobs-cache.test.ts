@@ -232,10 +232,11 @@ describe('computeAssembleInputFingerprint — non-slice inputs', () => {
     expect(closure).toContain(path.join(root, 'scripts', 'lib', 'parse-job-slices-worker.mjs'));
   });
 
-  it('keys the run mode so a --no-summaries or --stats snapshot is never restored for a default run', () => {
+  it('keys the run mode so a --no-summaries, --active-only, or --stats snapshot is never restored for a default run', () => {
     const fp = computeAssembleInputFingerprint();
     expect(computeAssembleCacheKey().cacheKey).toBe(`${fp}_nostats`);
     expect(computeAssembleCacheKey({ withStats: true }).cacheKey).toBe(`${fp}_stats`);
     expect(computeAssembleCacheKey({ withSummaries: false }).cacheKey).toBe(`${fp}_nostats_nosummaries`);
+    expect(computeAssembleCacheKey({ withExpired: false }).cacheKey).toBe(`${fp}_nostats_activeonly`);
   });
 });
