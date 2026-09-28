@@ -13,6 +13,7 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseAttributes } from '../lib/meta-description-extract.mjs';
 
 export const CRAWLER_SCHEMA_VERSION = 1;
 export const DEFAULT_BASE_URL = 'https://frontaliereticino.ch';
@@ -256,50 +257,8 @@ export async function collectSitemapInventory({
 }
 
 function attr(attributes, name) {
-  const source = String(attributes || '');
-  const wanted = String(name || '').toLowerCase();
-  let cursor = 0;
-
-  while (cursor < source.length) {
-    while (/\s/.test(source[cursor] || '')) cursor += 1;
-    if (cursor >= source.length) break;
-
-    const nameStart = cursor;
-    while (cursor < source.length && !/[\s"'=<>`/]/.test(source[cursor])) cursor += 1;
-    if (cursor === nameStart) {
-      cursor += 1;
-      continue;
-    }
-
-    const attributeName = source.slice(nameStart, cursor).toLowerCase();
-    while (/\s/.test(source[cursor] || '')) cursor += 1;
-
-    let value = '';
-    if (source[cursor] === '=') {
-      cursor += 1;
-      while (/\s/.test(source[cursor] || '')) cursor += 1;
-      const quote = source[cursor];
-      if (quote === '"' || quote === "'") {
-        cursor += 1;
-        const valueStart = cursor;
-        while (cursor < source.length && source[cursor] !== quote) cursor += 1;
-        value = source.slice(valueStart, cursor);
-        if (cursor < source.length) cursor += 1;
-      } else {
-        const valueStart = cursor;
-        while (cursor < source.length && !/[\s"'=<>`]/.test(source[cursor])) cursor += 1;
-        value = source.slice(valueStart, cursor);
-      }
-    }
-
-    if (attributeName === wanted) return decodeXmlEntities(value);
-  }
-
-  // Static output is minified and legitimately mixes quoted and unquoted
-  // attribute values (`rel=canonical`, `href=/path`, `name=robots`). Consume
-  // each attribute before comparing its exact name so `data-name` and values
-  // such as `data="name=robots"` cannot masquerade as SEO attributes.
-  return '';
+  const parsed = parseAttributes(attributes);
+  return decodeXmlEntities(parsed[String(name || '').toLowerCase()] ?? '');
 }
 
 function stripTags(value) {
