@@ -95896,6 +95896,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-busto-saronno-sequestro-giocattoli': {
+    title: 'Sequestro giocattoli e dispositivi non sicuri in Lombardia',
+    description: 'La Guardia di Finanza sequestra 20mila giocattoli e 300 dispositivi elettrici a Busto Arsizio e Saronno. Frode in commercio e sanzioni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sequestro, giocattoli, dispositivi, sicuri',
+    ogTitle: 'Sequestro giocattoli e dispositivi non sicuri in Lombardia',
+    ogDescription: 'Operazione della Guardia di Finanza a Busto Arsizio e Saronno: sequestrati oltre 20mila giocattoli e 300 dispositivi elettrici non conformi. Denunce per frode in commercio e sanzioni amministrative per circa 10mila euro.',
+    canonicalPath: '/articoli-frontaliere/busto-saronno-sequestro-giocattoli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sequestro giocattoli e dispositivi non sicuri in Lombardia",
+      "description": "La Guardia di Finanza sequestra 20mila giocattoli e 300 dispositivi elettrici a Busto Arsizio e Saronno. Frode in commercio e sanzioni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/busto-saronno-sequestro-giocattoli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giocattoli e dispositivi elettrici non conformi sequestrati dalla Guardia di Finanza a Busto Arsizio e Saronno."
+      },
+      "datePublished": "2026-09-28T05:44:00+00:00",
+      "dateModified": "2026-09-28T05:44:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/busto-saronno-sequestro-giocattoli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

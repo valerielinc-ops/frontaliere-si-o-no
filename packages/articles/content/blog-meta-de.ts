@@ -12183,6 +12183,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.canottieri-varese-nagano-patto.title': 'Canottieri Varese unterzeichnet Freundschaftspakt mit Nagano Rowing',
     'blog.article.canottieri-varese-nagano-patto.excerpt': 'Am Freitag, den 25. September, haben die Ruderer-Gesellschaft Varese und die Nagano Rowing Association in einer Videokonferenz zwischen Schiranna und Shimosuwa eine Partnerschaftsvereinbarung für kulturellen Austausch, gemeinsames Training und technische Entwicklung unterzeichnet, mit dem ersten Schaufenster im Jahr 2027.',
     'blog.article.canottieri-varese-nagano-patto.imageAlt': 'Ruderboote auf dem Luganer See mit Blick auf die Tessiner Berge',
+    'blog.article.busto-saronno-sequestro-giocattoli.title': 'Beschlagnahme von Spielzeug und unsicheren Geräten in der Lombardei',
+    'blog.article.busto-saronno-sequestro-giocattoli.excerpt': 'Über 20.000 Spielzeuge und 300 Elektrogeräte beschlagnahmt. Strafen in Höhe von 10.000 Euro und Anzeigen wegen Betrugs im Handel.',
+    'blog.article.busto-saronno-sequestro-giocattoli.imageAlt': 'Nicht-konforme Spielzeuge und elektrische Geräte von der Finanzpolizei in Busto Arsizio und Saronno beschlagnahmt.',
 };
 
 export default blogMetaDe;

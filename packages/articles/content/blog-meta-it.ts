@@ -12185,6 +12185,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.canottieri-varese-nagano-patto.title': 'Canottieri Varese firma patto d’amicizia con Nagano Rowing',
     'blog.article.canottieri-varese-nagano-patto.excerpt': 'Venerdì 25 settembre, in videoconferenza tra Schiranna e Shimosuwa, la Società Canottieri Varese e la Nagano Rowing Association hanno firmato un accordo di gemellaggio per scambi culturali, allenamenti condivisi e sviluppo tecnico, con prima vetrina nel 2027.',
     'blog.article.canottieri-varese-nagano-patto.imageAlt': 'Imbarcazioni da canottaggio sul lago di Lugano con vista sulle montagne ticinesi',
+    'blog.article.busto-saronno-sequestro-giocattoli.title': 'Sequestro giocattoli e dispositivi non sicuri in Lombardia',
+    'blog.article.busto-saronno-sequestro-giocattoli.excerpt': 'Oltre 20mila giocattoli e 300 dispositivi elettrici sequestrati. Sanzioni per 10mila euro e denunce per frode in commercio.',
+    'blog.article.busto-saronno-sequestro-giocattoli.imageAlt': 'Giocattoli e dispositivi elettrici non conformi sequestrati dalla Guardia di Finanza a Busto Arsizio e Saronno.',
 };
 
 export default blogMetaIt;
