@@ -31,6 +31,7 @@ import {
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
+import { CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from '../jina-proxy.mjs';
 import { launchChromium } from '../ensure-chromium.mjs';
 import {
@@ -128,6 +129,44 @@ async function tryBrowserRescue(url, runtime) {
     console.warn(`⚠️ Browser rescue failed for ${url}: ${error?.message || error}.`);
     return null;
   }
+}
+
+const SPEC_FETCH_METADATA_KEYS = ['fetchOutcome', 'discoveredCount', 'fetchDetail'];
+
+/**
+ * Keep a spec fetch verdict attached to the array without making it part of the
+ * job payload. The standard crawler accepts this legacy array shape and reads
+ * the fields before any merge or validation step.
+ *
+ * @param {any[]} target
+ * @param {any[]|Record<string, any>} source
+ * @returns {any[]}
+ */
+export function copySpecFetchMetadata(target, source) {
+  for (const key of SPEC_FETCH_METADATA_KEYS) {
+    if (!Object.prototype.hasOwnProperty.call(source || {}, key)) continue;
+    Object.defineProperty(target, key, {
+      value: source[key],
+      enumerable: false,
+      configurable: true,
+    });
+  }
+  return target;
+}
+
+/**
+ * A spec may opt into an explicit outcome for a zero that remains after its
+ * own rescue path. Unknown values are deliberately ignored: the shared
+ * crawler vocabulary is fail-closed and must not gain a producer-only typo.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {string|null}
+ */
+function configuredEmptyListingOutcome(spec) {
+  const outcome = spec?.emptyListingOutcome;
+  return typeof outcome === 'string' && CRAWLER_FETCH_OUTCOMES.has(outcome)
+    ? outcome
+    : null;
 }
 
 /**
@@ -443,6 +482,8 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
   /** @type {Map<string, any>} */
   const bySlug = new Map();
   const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
+  const emptyOutcome = configuredEmptyListingOutcome(spec);
+  const emptyDetails = [];
 
   for (const seed of spec.seedUrls || []) {
     let page;
@@ -531,6 +572,11 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       // della pagina ricevuta dicono se era la pagina attesa o un interstiziale.
       const pageTitle = (/<title[^>]*>([\s\S]{0,200}?)<\/title>/i.exec(html)?.[1] || '').replace(/\s+/g, ' ').trim();
       console.warn(`[prospector:${spec.companyKey}] nessun annuncio su ${effectiveSeedUrl}: title="${pageTitle}", ${links.length} link, ${html.length} byte`);
+      if (emptyOutcome) {
+        emptyDetails.push(
+          `${effectiveSeedUrl}: title="${pageTitle}", links=${links.length}, bytes=${html.length}`,
+        );
+      }
     }
     for (const v of candidates) {
       if (!v.title || !v.url) continue;
@@ -563,7 +609,19 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       });
     }
   }
-  return [...bySlug.values()];
+  const rows = [...bySlug.values()];
+  // A configured outcome is evidence about an UNVERIFIED zero only. Never
+  // attach it after a seed yielded accepted vacancies: a partial source result
+  // must continue through the normal detail/geography gates instead of being
+  // reinterpreted as a WAF failure.
+  if (rows.length === 0 && emptyOutcome && emptyDetails.length > 0) {
+    copySpecFetchMetadata(rows, {
+      fetchOutcome: emptyOutcome,
+      discoveredCount: 0,
+      fetchDetail: emptyDetails.join('; '),
+    });
+  }
+  return rows;
 }
 
 /**
@@ -603,7 +661,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
       });
       reportDroppedRows(spec, rows.length - safeRows.length, rows.length,
         'localita svizzera source-backed assente o non verificabile');
-      return safeRows;
+      return copySpecFetchMetadata(safeRows, rows);
     }
 
     // Template extraction has no per-row semantics. Visit the detail pages with
@@ -665,7 +723,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
       'localita svizzera source-backed assente o non verificabile');
     reportDroppedRows(spec, descriptionDrops, rows.length,
       'descrizione source-backed assente o non verificabile');
-    return enriched.filter(Boolean);
+    return copySpecFetchMetadata(enriched.filter(Boolean), rows);
   } finally {
     try {
       await validateUrl.dispatcher.close();

@@ -36,6 +36,8 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  * @property {string} [listingCandidateText]         Normalised text required in a listing candidate
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
  * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
+ * @property {'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
+ *   Outcome to attach when the spec has no accepted listing after its configured rescue path
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
  * @property {number} sampleVacancyCount
  * @property {string[]} sampleTitles
