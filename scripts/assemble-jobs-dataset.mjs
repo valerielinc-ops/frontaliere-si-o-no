@@ -25,11 +25,14 @@
  *   node scripts/assemble-jobs-dataset.mjs                 # assemble only
  *   node scripts/assemble-jobs-dataset.mjs --stats         # assemble + regenerate stats
  *   node scripts/assemble-jobs-dataset.mjs --no-summaries  # assemble, skip jobs-crawler-summaries.json
+ *   node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries
+ *                                                            # active jobs only
  *
  * Module API (for crawlers):
  *   writeJobsCrawlerSlice(crawlerKey, jobs)    → write data/jobs/by-crawler/<key>.json
  *   writeSummaryCrawlerSlice(summaryEntry)     → write data/jobs-crawler-summaries/by-crawler/<key>.json
- *   assembleJobsDataset({ withStats?, withSummaries? })  → run full assembly
+ *   assembleJobsDataset({ withStats?, withSummaries?, withExpired? })
+ *                                                            → run assembly
  */
 
 import fs from 'node:fs';
@@ -806,16 +809,18 @@ function hashRepoFile(hasher, abs) {
  * `--print-cache-key`, so a workflow can key `actions/cache` on exactly the
  * value the script checks — no second, weaker `hashFiles()` definition.
  */
-export function computeAssembleCacheKey({ withStats = false, withSummaries = true } = {}) {
+export function computeAssembleCacheKey({ withStats = false, withSummaries = true, withExpired = true } = {}) {
   const inputFingerprint = computeAssembleInputFingerprint();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   // The suffix is part of the key because the snapshot below copies whatever is
   // on disk: a `--no-summaries` run stores the PREVIOUS jobs-crawler-summaries
   // .json, so sharing a key with a full run would let a later full run restore
-  // that stale file from cache instead of regenerating it.
+  // that stale file from cache instead of regenerating it. The active-only
+  // mode likewise gets its own key because its snapshot intentionally omits
+  // the expired archive.
   return {
     inputFingerprint,
-    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${skipReconciliation ? '_noreconcile' : ''}`,
+    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}`,
   };
 }
 
@@ -3596,7 +3601,7 @@ async function persistQualityScoresToFirestore(summaries) {
   }
 }
 
-export async function assembleJobsDataset({ withStats = false, withSummaries = true } = {}) {
+export async function assembleJobsDataset({ withStats = false, withSummaries = true, withExpired = true } = {}) {
   // In slice-only mode crawlers skip assembly — it runs during deploy instead.
   if (String(process.env.CRAWLER_SLICE_ONLY || '0') === '1') {
     console.log('📦 Slice-only mode: skipping assembly (will run at deploy time)');
@@ -3607,7 +3612,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // Skip the 58 s assembly when the slice fingerprint matches a previous run.
   // Inputs change on a few cron hours per day; between those events, ~80 % of
   // deploys feed identical bytes through the same pipeline.
-  const { inputFingerprint, cacheKey } = computeAssembleCacheKey({ withStats, withSummaries });
+  const { inputFingerprint, cacheKey } = computeAssembleCacheKey({ withStats, withSummaries, withExpired });
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   const cacheDir = path.join(CACHE_ROOT, cacheKey);
   const manifestPath = path.join(cacheDir, 'manifest.json');
@@ -3617,11 +3622,15 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     const restorePairs = [
       [path.join(cacheDir, 'jobs.json'), DATA_JOBS],
       [path.join(cacheDir, 'jobs.json'), PUBLIC_JOBS],
-      [path.join(cacheDir, 'expired-jobs.json'), DATA_EXPIRED],
-      [path.join(cacheDir, 'expired-jobs.json'), PUBLIC_EXPIRED],
       [path.join(cacheDir, 'jobs-meta.json'), DATA_META],
-      [path.join(cacheDir, 'jobs-crawler-summaries.json'), DATA_SUMMARIES],
     ];
+    if (withExpired) {
+      restorePairs.push([path.join(cacheDir, 'expired-jobs.json'), DATA_EXPIRED]);
+      restorePairs.push([path.join(cacheDir, 'expired-jobs.json'), PUBLIC_EXPIRED]);
+    }
+    // Preserve the existing --no-summaries contract: a cache hit may restore
+    // the previous summary snapshot, while a cache miss leaves the file as-is.
+    restorePairs.push([path.join(cacheDir, 'jobs-crawler-summaries.json'), DATA_SUMMARIES]);
     if (withStats) {
       restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), DATA_STATS]);
       restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), PUBLIC_STATS]);
@@ -3810,70 +3819,77 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   }
 
   // --- Expired jobs ---
-  const expiredJobs = assembleExpiredJobs();
-  if (expiredJobs !== null) {
-    // --- Ghost reconciliation: remove expired entries that match active jobs ---
-    if (assembled) {
-      const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(assembled, expiredJobs);
-      if (ghostCount > 0) {
-        console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
-        // Write back active jobs with merged previousSlugs
-        writeJson(DATA_JOBS, assembled, { compact: true });
-        writeJson(PUBLIC_JOBS, assembled, { compact: true });
-      }
-      writeJson(DATA_EXPIRED, cleanedExpired);
-      fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-      writeJson(PUBLIC_EXPIRED, cleanedExpired);
-      console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
-
-      // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
-      // Translation runs assemble the same slices several times. The first,
-      // post-mop-up, and true-final passes only need the dataset projection;
-      // the expensive historical-slug sweep belongs to a full assembly pass.
-      // The cache key carries the flag so a no-reconcile snapshot can never
-      // satisfy a later full-reconciliation request.
-      if (skipReconciliation) {
-        console.log('⏭️  Slug reconciliation skipped (JOBS_SKIP_RECONCILIATION=1)');
-      } else try {
-        const { reconcileOrphanSlugs, reconcileExpiredSlugs } = await import('./reconcile-job-slugs.mjs');
-
-        // Reconcile orphan slugs → merge into active jobs' previousSlugs
-        const orphanFile = path.join(ROOT, 'data', 'orphan-indexed-job-slugs.json');
-        if (fs.existsSync(orphanFile)) {
-          const orphanSlugs = JSON.parse(fs.readFileSync(orphanFile, 'utf8'));
-          // Sharded ledger (#4248); returns [] when absent, which is what the
-          // previous `fs.existsSync ? parse : {}` degraded to for a missing file.
-          const enrichedData = readOrphanEnriched(ROOT);
-          // reconcile* mutano `assembled` in place (aggiungono previousSlugs);
-          // NON scrivono slice (l'opzione `writeSlices` non è implementata in
-          // reconcile-job-slugs.mjs — vi si legge solo { dryRun, verbose, max }).
-          // La persistenza canonica è il writeJson sotto, gated su mergedCount.
-          const orphanResult = reconcileOrphanSlugs(assembled, orphanSlugs, enrichedData, { dryRun: false });
-          if (orphanResult.mergedCount > 0) {
-            console.log(`  🔗 Orphan reconciliation: ${orphanResult.mergedCount} slugs merged into active jobs' previousSlugs`);
-            writeJson(DATA_JOBS, assembled, { compact: true });
-            writeJson(PUBLIC_JOBS, assembled, { compact: true });
-          }
-        }
-
-        // Reconcile expired slugs → merge into active jobs' previousSlugs
-        const expResult = reconcileExpiredSlugs(assembled, cleanedExpired, { dryRun: false });
-        if (expResult.mergedCount > 0) {
-          console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
+  // Some consumers (for example the 404-risk audit) only need the active
+  // dataset. Keep the expired archive and its write-time integrity guards out
+  // of that read-only consumer path; the default remains the full assembly.
+  if (withExpired) {
+    const expiredJobs = assembleExpiredJobs();
+    if (expiredJobs !== null) {
+      // --- Ghost reconciliation: remove expired entries that match active jobs ---
+      if (assembled) {
+        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(assembled, expiredJobs);
+        if (ghostCount > 0) {
+          console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
+          // Write back active jobs with merged previousSlugs
           writeJson(DATA_JOBS, assembled, { compact: true });
           writeJson(PUBLIC_JOBS, assembled, { compact: true });
-          writeJson(DATA_EXPIRED, cleanedExpired);
-          writeJson(PUBLIC_EXPIRED, cleanedExpired);
         }
-      } catch (err) {
-        console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
+        writeJson(DATA_EXPIRED, cleanedExpired);
+        fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
+        writeJson(PUBLIC_EXPIRED, cleanedExpired);
+        console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
+
+        // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
+        // Translation runs assemble the same slices several times. The first,
+        // post-mop-up, and true-final passes only need the dataset projection;
+        // the expensive historical-slug sweep belongs to a full assembly pass.
+        // The cache key carries the flag so a no-reconcile snapshot can never
+        // satisfy a later full-reconciliation request.
+        if (skipReconciliation) {
+          console.log('⏭️  Slug reconciliation skipped (JOBS_SKIP_RECONCILIATION=1)');
+        } else try {
+          const { reconcileOrphanSlugs, reconcileExpiredSlugs } = await import('./reconcile-job-slugs.mjs');
+
+          // Reconcile orphan slugs → merge into active jobs' previousSlugs
+          const orphanFile = path.join(ROOT, 'data', 'orphan-indexed-job-slugs.json');
+          if (fs.existsSync(orphanFile)) {
+            const orphanSlugs = JSON.parse(fs.readFileSync(orphanFile, 'utf8'));
+            // Sharded ledger (#4248); returns [] when absent, which is what the
+            // previous `fs.existsSync ? parse : {}` degraded to for a missing file.
+            const enrichedData = readOrphanEnriched(ROOT);
+            // reconcile* mutano `assembled` in place (aggiungono previousSlugs);
+            // NON scrivono slice (l'opzione `writeSlices` non è implementata in
+            // reconcile-job-slugs.mjs — vi si legge solo { dryRun, verbose, max }).
+            // La persistenza canonica è il writeJson sotto, gated su mergedCount.
+            const orphanResult = reconcileOrphanSlugs(assembled, orphanSlugs, enrichedData, { dryRun: false });
+            if (orphanResult.mergedCount > 0) {
+              console.log(`  🔗 Orphan reconciliation: ${orphanResult.mergedCount} slugs merged into active jobs' previousSlugs`);
+              writeJson(DATA_JOBS, assembled, { compact: true });
+              writeJson(PUBLIC_JOBS, assembled, { compact: true });
+            }
+          }
+
+          // Reconcile expired slugs → merge into active jobs' previousSlugs
+          const expResult = reconcileExpiredSlugs(assembled, cleanedExpired, { dryRun: false });
+          if (expResult.mergedCount > 0) {
+            console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
+            writeJson(DATA_JOBS, assembled, { compact: true });
+            writeJson(PUBLIC_JOBS, assembled, { compact: true });
+            writeJson(DATA_EXPIRED, cleanedExpired);
+            writeJson(PUBLIC_EXPIRED, cleanedExpired);
+          }
+        } catch (err) {
+          console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
+        }
+      } else {
+        writeJson(DATA_EXPIRED, expiredJobs);
+        fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
+        writeJson(PUBLIC_EXPIRED, expiredJobs);
+        console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
       }
-    } else {
-      writeJson(DATA_EXPIRED, expiredJobs);
-      fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-      writeJson(PUBLIC_EXPIRED, expiredJobs);
-      console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
     }
+  } else {
+    console.log('⏭️  Expired jobs skipped (--active-only): archive and expired-slug reconciliation left as-is');
   }
 
   // --- Summaries ---
@@ -3913,10 +3929,10 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     fs.mkdirSync(cacheDir, { recursive: true });
     const snapshotPairs = [
       [DATA_JOBS, 'jobs.json'],
-      [DATA_EXPIRED, 'expired-jobs.json'],
       [DATA_META, 'jobs-meta.json'],
-      [DATA_SUMMARIES, 'jobs-crawler-summaries.json'],
     ];
+    if (withExpired) snapshotPairs.push([DATA_EXPIRED, 'expired-jobs.json']);
+    snapshotPairs.push([DATA_SUMMARIES, 'jobs-crawler-summaries.json']);
     if (withStats) {
       snapshotPairs.push([DATA_STATS, 'jobs-stats.json']);
     }
@@ -3935,6 +3951,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     fs.writeFileSync(manifestPath, JSON.stringify({
       inputFingerprint,
       withStats,
+      withSummaries,
+      withExpired,
       snapshotAt: new Date().toISOString(),
       fileCount: snapshotted,
     }, null, 2));
@@ -3971,8 +3989,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
  *
  * Exported so the OPT-IN contract of `--no-summaries` is checkable by a test
  * without running an assembly (which writes into tracked data/ files): the
- * default arm must stay `withSummaries: true` for every caller that does not
- * pass the flag.
+ * default arms must stay `withSummaries: true` and `withExpired: true` for
+ * every caller that does not pass an explicit opt-out.
  *
  * @param {string[]} argv  argv WITHOUT the node/script prefix
  */
@@ -3980,6 +3998,7 @@ export function parseAssembleCliArgs(argv = []) {
   return {
     withStats: argv.includes('--stats'),
     withSummaries: !argv.includes('--no-summaries'),
+    withExpired: !argv.includes('--active-only'),
   };
 }
 
