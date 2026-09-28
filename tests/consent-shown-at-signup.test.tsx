@@ -1878,6 +1878,7 @@ describe('the page the formula points at cannot change without saying so (#5765)
     '2026-09-15.1': '3cf863fce20723b5',
     '2026-09-25.1': '877a7a1ce4337832',
     '2026-09-25.2': '473abb454e6e1791',
+    '2026-09-28.1': 'c2e8edf95491a55f',
   };
 
   it('matches the current page against the fingerprint of the current version', () => {
