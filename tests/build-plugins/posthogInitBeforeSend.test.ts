@@ -64,6 +64,10 @@ function googleIosInjectedStackOverflowEvent(filename = 'https://frontalieretici
 function extractBeforeSend(): (event: unknown) => unknown {
   // Look like a real desktop Chrome so BOT_GATE_FN doesn't skip the init
   // (mirrors tests/bot-gate-parity.test.ts's "real browser" navigator setup).
+  Object.defineProperty(window, 'location', {
+    configurable: true,
+    value: { ...window.location, hostname: 'frontaliereticino.ch' },
+  });
   Object.defineProperty(window.navigator, 'webdriver', { configurable: true, get: () => false });
   Object.defineProperty(window.navigator, 'userAgent', {
     configurable: true,
@@ -106,6 +110,18 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
 
   it('is valid, self-contained JS', () => {
     expect(() => new Function(POSTHOG_INIT_CONTENT)).not.toThrow();
+  });
+
+  it('does not initialize on localhost', () => {
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { ...window.location, hostname: 'localhost' },
+    });
+    delete (window as unknown as { posthog?: unknown }).posthog;
+
+    new Function(POSTHOG_INIT_CONTENT)();
+
+    expect((window as unknown as { posthog?: unknown }).posthog).toBeUndefined();
   });
 
   it('passes through non-exception events unchanged', () => {
