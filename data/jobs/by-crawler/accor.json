@@ -1,6 +1,6 @@
 {
   "crawlerKey": "accor",
-  "assembledAt": "2026-09-28T11:24:33.934Z",
+  "assembledAt": "2026-09-28T21:29:35.848Z",
   "jobs": [
     {
       "id": "accor-3a1579d2eb3c",
@@ -34,7 +34,7 @@
       "url": "https://careers.accor.com/fr/fr/job/chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-in-moevenpick-hotel-and-casino-geneva-geneva-switzerl-jid-103713",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.691Z",
+      "crawledAt": "2026-09-28T21:29:31.408Z",
       "addressLocality": "Mövenpick Hotel And Casino Geneva, Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2"
+        "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2",
+        "chef-banquet-m-f-csd-3-mesi-da-iniziare-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland-3a1579d2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2"
+          "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2",
+          "chef-banquet-m-f-csd-3-mesi-da-iniziare-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland-3a1579d2"
         ],
         "en": [
           "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2"
@@ -111,7 +113,7 @@
       "url": "https://careers.accor.com/fr/fr/job/serveur-se-sur-appel-f-h-x-cdd-automne-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-104711",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.688Z",
+      "crawledAt": "2026-09-28T21:29:31.407Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -130,12 +132,14 @@
       "previousSlugs": [
         "serveur-se-sur-appel-f-h-x-cdd-automne-2026-accor-ch",
         "serveur-se-sur-appel-f-h-x-cdd-automne-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
-        "serveur-se-sur-appel-f-h-x-cdd-automne-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-24fa1b0d"
+        "serveur-se-sur-appel-f-h-x-cdd-automne-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-24fa1b0d",
+        "server-su-call-m-f-x-cdd-autunno-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "serveur-se-sur-appel-f-h-x-cdd-automne-2026-accor-ch",
-          "serveur-se-sur-appel-f-h-x-cdd-automne-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-24fa1b0d"
+          "serveur-se-sur-appel-f-h-x-cdd-automne-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-24fa1b0d",
+          "server-su-call-m-f-x-cdd-autunno-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
         ],
         "en": [
           "serveur-se-sur-appel-f-h-x-cdd-automne-2026-accor-ch"
@@ -149,6 +153,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T23:39:16.799Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -195,7 +200,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistant-manager-operations-banquets-h-f-in-fairmont-le-montreux-palace-montreux-switzerland-jid-105899",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.685Z",
+      "crawledAt": "2026-09-28T21:29:31.405Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -214,12 +219,14 @@
       "previousSlugs": [
         "assistant-manager-operations-banquets-h-f-accor-ch",
         "assistant-manager-operations-banquets-h-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
-        "assistant-manager-operations-banquets-h-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-19207cd7"
+        "assistant-manager-operations-banquets-h-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-19207cd7",
+        "assistente-gestione-operazioni-banquet-m-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-manager-operations-banquets-h-f-accor-ch",
-          "assistant-manager-operations-banquets-h-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-19207cd7"
+          "assistant-manager-operations-banquets-h-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-19207cd7",
+          "assistente-gestione-operazioni-banquet-m-f-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
         ],
         "en": [
           "assistant-manager-operations-banquets-h-f-accor-ch"
@@ -276,7 +283,7 @@
       "url": "https://careers.accor.com/fr/fr/job/instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106298",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.681Z",
+      "crawledAt": "2026-09-28T21:29:31.404Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -295,12 +302,14 @@
       "previousSlugs": [
         "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-accor",
         "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-ibis-budget-fairmont-le-montreux",
-        "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-ibis-budget-fairmont-le-e283ad8b"
+        "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-ibis-budget-fairmont-le-e283ad8b",
+        "istruttore-rice-fitness-fairmont-yoga-instructor-spa-m-f-x-su-cdd-call-ibis-budget-fairmont-le-montreux-palace-montreux"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-accor",
-          "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-ibis-budget-fairmont-le-e283ad8b"
+          "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-ibis-budget-fairmont-le-e283ad8b",
+          "istruttore-rice-fitness-fairmont-yoga-instructor-spa-m-f-x-su-cdd-call-ibis-budget-fairmont-le-montreux-palace-montreux"
         ],
         "en": [
           "instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-accor"
@@ -311,85 +320,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T23:39:15.289Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "accor-2d13f2b5991d",
-      "slug": "en-chef-de-cuisine-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland",
-      "slugByLocale": {
-        "it": "en-chef-de-cuisine-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland",
-        "en": "en-chef-de-cuisine-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland",
-        "de": "fr-chef-de-cuisine-f-h-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland",
-        "fr": "fr-chef-de-cuisine-f-h-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-2d13f2b5"
-      },
-      "slugDisambiguator": "2d13f2b5",
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "FR - Chef de Cuisine (F/H/X)",
-      "titleByLocale": {
-        "it": "EN - Chef de Cuisine (M/F/X)",
-        "en": "EN - Chef de Cuisine (M/F/X)",
-        "de": "EN — Chef de Cuisine (M/W/X)",
-        "fr": "FR - Chef de Cuisine (F/H/X)"
-      },
-      "description": "Description de l'entrepriseRejoignez un hôtel membre du réseau Accor, dont le groupe réunit plus de 45 marques, 5 500 hôtels, 10 000 restaurants et destinations lifestyle. Ici, nous croyons en vous et en ce que vous apportez. Les opportunités de développement et d'évolution sont nombreuses. Chaque geste, chaque sourire, chaque action, contribuent à créer un impact positif et mémorable pour nos clients, nos collègues et aussi pour notre planète. Ensemble, nous incarnons la vision de l’hospitalité responsable. Ayez l’opportunité de devenir un Heartist®, et laissez votre coeur vous guider dans ce monde où la vie bat plus fort.Description du posteLe Rotary Genève Mgallery recherche un(e) Chef(fe) de cuisine passionné(e), créatif(ve) et organisé(e) pour rejoindre son équipe et prendre en charge la cuisine lors de ses événements et réceptions.\n• Votre mission :Élaborer et préparer une cuisine de qualité, adaptée aux différents événementsConcevoir des menus variés et soignés, en tenant compte des saisons et des besoins des convives.Assurer la bonne organisation de la cuisine et le respect des normes d’hygiène et de sécurité.Gérer les approvisionnements, les stocks et les coûts.Encadrer et coordonner l’équipe de cuisine.Garantir une présentation soignée des plats et une expérience gastronomique à la hauteur des événements du Rotary Genève.\n• Votre profil : Nous recherchons une personne autonome, fiable, dynamique et passionnée par la gastronomie, disposant d’une solide expérience en cuisine et idéalement dans l’organisation de banquets, réceptions ou événements.Vous avez le sens du détail, aimez travailler en équipe et savez faire preuve de créativité tout en respectant les exigences d’une cuisine professionnelle.QualificationsParlons de vous :● La cuisine n’a plus de secret pour vous ! Votre expérience en tant que Chef de cuisine vous a permis de développer votre connaissance des tendances culinaires et des meilleures pratiques.● La gestion du temps et des équipes en cuisine, ça vous connait. Vous savez diriger, déléguer et répartir les tâches.● Vous avez toujours un œil sur le suivi des indicateurs de qualité et les ratios de maîtrise des coûts en cuisine.",
-      "descriptionByLocale": {
-        "it": "Descrizione dell'aziendaUn membro dell'hotel Accor il cui gruppo riunisce più di 45 marchi, 5.500 hotel, 10.000 ristoranti e destinazioni di vita. Qui crediamo in te e in quello che porti. Ci sono molte opportunità per lo sviluppo e lo sviluppo. Ogni gesto, ogni sorriso, ogni azione, aiuta a creare un impatto positivo e memorabile per i nostri clienti, i nostri colleghi e anche per il nostro pianeta. Insieme, incarnamo la visione dell'ospitalità responsabile. Avere l'opportunità di diventare un Heartist®, e lasciare che il tuo cuore ti guidi in questo mondo in cui la vita batte più forte. Descrizione del lavoroIl Rotary Genève Mgallery è alla ricerca di uno chef appassionato, creativo e organizzato per unirsi alla sua squadra e prendere il controllo della cucina durante i suoi eventi e ricevimenti.\n• La vostra missione: sviluppare e preparare la cucina di qualità, adattata a diversi eventiDesign menu vario e pulito, tenendo conto delle stagioni e delle esigenze degli ospiti. Assicurare la corretta organizzazione della cucina e il rispetto delle norme di igiene e sicurezza. Gestisci forniture, scorte e costi. Godetevi e coordinate la squadra della cucina. Assicurare una presentazione attenta dei piatti e un'esperienza gastronomica al culmine degli eventi del Rotary Ginevra.\n• Il tuo profilo: Siamo alla ricerca di un'autosufficiente, affidabile, dinamica e appassionata di gastronomia, con una solida esperienza di cucina e idealmente nell'organizzazione di banchetti, ricevimenti o eventi. Hai un senso di dettaglio, come lavorare come squadra e sapere come essere creativo nel rispetto delle esigenze della cucina professionale. La cucina non ha più segreti per voi! La tua esperienza come Chef ti ha permesso di sviluppare la tua conoscenza delle tendenze culinarie e delle migliori pratiche. La gestione del tempo e del team in cucina ti conosce. Sai come dirigere, delegare e assegnare compiti. Hai sempre un occhio su indicatori di qualità di monitoraggio e rapporti di controllo dei costi in cucina.",
-        "en": "Company descriptionJoin an Accor hotel member whose group brings together more than 45 brands, 5,500 hotels, 10,000 restaurants and lifestyle destinations. Here we believe in you and in what you bring. There are many opportunities for development and development. Every gesture, every smile, every action, helps create a positive and memorable impact for our clients, our colleagues and also for our planet. Together, we embody the vision of responsible hospitality. Have the opportunity to become a Heartist®, and let your heart guide you into this world where life beats harder. Job descriptionLe Rotary Genève Mgallery is looking for a passionate, creative and organized chef to join his team and take charge of the kitchen during his events and receptions.\n• Your mission:Develop and prepare quality cuisine, adapted to different eventsDesign varied and neat menus, taking into account the seasons and needs of the guests. Ensure the proper organisation of the kitchen and the respect of the standards of hygiene and safety.Manage supplies, stocks and costs.Enjoy and coordinate the kitchen team.Ensure a careful presentation of the dishes and a gastronomic experience at the height of the events of Rotary Geneva.\n• Your profile: We are looking for a self-sustaining, reliable, dynamic and passionate about gastronomy, with a solid experience in cooking and ideally in the organization of banquets, receptions or events.You have a sense of detail, like working as a team and know how to be creative while respecting the requirements of professional cuisine. The kitchen has no more secrets for you! Your experience as a Chef has allowed you to develop your knowledge of culinary trends and best practices. Time and team management in the kitchen knows you. You know how to direct, delegate and allocate tasks. You always have an eye on monitoring quality indicators and cost control ratios in the kitchen.",
-        "de": "Treten Sie einem Accor-Hotelmitglied bei, dessen Gruppe mehr als 45 Marken, 5.500 Hotels, 10.000 Restaurants und Lifestyle-Destinationen vereint. Hier glauben wir an dich und an das, was du mitbringst. Es gibt viele Möglichkeiten für Entwicklung und Entwicklung. Jede Geste, jedes Lächeln, jede Aktion trägt dazu bei, eine positive und unvergessliche Wirkung für unsere Kunden, unsere Kollegen und auch für unseren Planeten zu erzielen. Gemeinsam verkörpern wir die Vision einer verantwortungsvollen Gastfreundschaft. Haben Sie die Möglichkeit, ein Heartist® zu werden, und lassen Sie sich von Ihrem Herzen in diese Welt führen, in der das Leben härter schlägt. Der Rotary Genève Mgallery sucht einen leidenschaftlichen, kreativen und organisierten Koch, der sich seinem Team anschließt und die Küche während seiner Veranstaltungen und Empfänge übernimmt.\n• Ihre Mission:Entwickeln und zubereiten hochwertige Küche, angepasst an verschiedene VeranstaltungenDesign abwechslungsreiche und gepflegte Menüs, unter Berücksichtigung der Jahreszeiten und Bedürfnisse der Gäste. Gewährleistung der ordnungsgemäßen Organisation der Küche und der Einhaltung der Hygiene- und Sicherheitsstandards. Verwalten Sie Lieferungen, Bestände und Kosten. Genießen und koordinieren Sie das Küchenteam. Sorgen Sie für eine sorgfältige Präsentation der Gerichte und ein gastronomisches Erlebnis auf dem Höhepunkt der Ereignisse von Rotary Genf.\n• Ihr Profil: Wir suchen eine selbsttragende, zuverlässige, dynamische und gastronomische Leidenschaft mit fundierter Erfahrung im Kochen und idealerweise bei der Organisation von Banketts, Empfängen oder Veranstaltungen. Sie haben ein Gefühl für Details, wie die Arbeit als Team und wissen, wie man kreativ ist, während Sie die Anforderungen der professionellen Küche respektieren. Die Küche hat keine Geheimnisse mehr für Sie! Ihre Erfahrung als Koch hat es Ihnen ermöglicht, Ihr Wissen über kulinarische Trends und Best Practices zu entwickeln. Zeit- und Teammanagement in der Küche kennt Sie. Sie wissen, wie man Aufgaben leitet, delegiert und verteilt. Sie haben immer ein Auge auf die Überwachung von Qualitätsindikatoren und Kostenkontrollverhältnissen in der Küche.",
-        "fr": "Description de l'entrepriseRejoignez un hôtel membre du réseau Accor, dont le groupe réunit plus de 45 marques, 5 500 hôtels, 10 000 restaurants et destinations lifestyle. Ici, nous croyons en vous et en ce que vous apportez. Les opportunités de développement et d'évolution sont nombreuses. Chaque geste, chaque sourire, chaque action, contribuent à créer un impact positif et mémorable pour nos clients, nos collègues et aussi pour notre planète. Ensemble, nous incarnons la vision de l’hospitalité responsable. Ayez l’opportunité de devenir un Heartist®, et laissez votre coeur vous guider dans ce monde où la vie bat plus fort.Description du posteLe Rotary Genève Mgallery recherche un(e) Chef(fe) de cuisine passionné(e), créatif(ve) et organisé(e) pour rejoindre son équipe et prendre en charge la cuisine lors de ses événements et réceptions.\n• Votre mission :Élaborer et préparer une cuisine de qualité, adaptée aux différents événementsConcevoir des menus variés et soignés, en tenant compte des saisons et des besoins des convives.Assurer la bonne organisation de la cuisine et le respect des normes d’hygiène et de sécurité.Gérer les approvisionnements, les stocks et les coûts.Encadrer et coordonner l’équipe de cuisine.Garantir une présentation soignée des plats et une expérience gastronomique à la hauteur des événements du Rotary Genève.\n• Votre profil : Nous recherchons une personne autonome, fiable, dynamique et passionnée par la gastronomie, disposant d’une solide expérience en cuisine et idéalement dans l’organisation de banquets, réceptions ou événements.Vous avez le sens du détail, aimez travailler en équipe et savez faire preuve de créativité tout en respectant les exigences d’une cuisine professionnelle.QualificationsParlons de vous :● La cuisine n’a plus de secret pour vous ! Votre expérience en tant que Chef de cuisine vous a permis de développer votre connaissance des tendances culinaires et des meilleures pratiques.● La gestion du temps et des équipes en cuisine, ça vous connait. Vous savez diriger, déléguer et répartir les tâches.● Vous avez toujours un œil sur le suivi des indicateurs de qualité et les ratios de maîtrise des coûts en cuisine."
-      },
-      "location": "Hotel Rotary Geneva - MGallery, Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://careers.accor.com/fr/fr/job/fr-chef-de-cuisine-f-h-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-106838",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.679Z",
-      "addressLocality": "Hotel Rotary Geneva - MGallery, Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/fr-chef-de-cuisine-f-h-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-106838",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fr-chef-de-cuisine-f-h-x-accor-ch",
-        "fr-chef-de-cuisine-f-h-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-2d13f2b5"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fr-chef-de-cuisine-f-h-x-accor-ch",
-          "fr-chef-de-cuisine-f-h-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-2d13f2b5"
-        ],
-        "en": [
-          "fr-chef-de-cuisine-f-h-x-accor-ch"
-        ],
-        "fr": [
-          "fr-chef-de-cuisine-f-h-x-accor-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T23:39:14.685Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -436,7 +367,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.678Z",
+      "crawledAt": "2026-09-28T21:29:31.400Z",
       "addressLocality": "ibis Lausanne Centre, Lausanne, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -453,11 +384,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
+        "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106",
+        "allenamento-operativo-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
+          "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106",
+          "allenamento-operativo-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
         ],
         "en": [
           "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
@@ -477,6 +410,86 @@
           "@type": "QuantitativeValue",
           "minValue": 51000,
           "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "accor-2d13f2b5991d",
+      "slug": "en-chef-de-cuisine-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland",
+      "slugByLocale": {
+        "it": "en-chef-de-cuisine-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland",
+        "en": "en-chef-de-cuisine-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland",
+        "de": "fr-chef-de-cuisine-f-h-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland",
+        "fr": "fr-chef-de-cuisine-f-h-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-2d13f2b5"
+      },
+      "slugDisambiguator": "2d13f2b5",
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "FR - Chef de Cuisine (F/H/X)",
+      "titleByLocale": {
+        "it": "EN - Chef de Cuisine (M/F/X)",
+        "en": "EN - Chef de Cuisine (M/F/X)",
+        "de": "FR - Chef de Cuisine (F/H/X)",
+        "fr": "FR - Chef de Cuisine (F/H/X)"
+      },
+      "description": "Description de l'entrepriseRejoignez un hôtel membre du réseau Accor, dont le groupe réunit plus de 45 marques, 5 500 hôtels, 10 000 restaurants et destinations lifestyle. Ici, nous croyons en vous et en ce que vous apportez. Les opportunités de développement et d'évolution sont nombreuses. Chaque geste, chaque sourire, chaque action, contribuent à créer un impact positif et mémorable pour nos clients, nos collègues et aussi pour notre planète. Ensemble, nous incarnons la vision de l’hospitalité responsable. Ayez l’opportunité de devenir un Heartist®, et laissez votre coeur vous guider dans ce monde où la vie bat plus fort.Description du posteLe Rotary Genève Mgallery recherche un(e) Chef(fe) de cuisine passionné(e), créatif(ve) et organisé(e) pour rejoindre son équipe et prendre en charge la cuisine lors de ses événements et réceptions.\n• Votre mission :Élaborer et préparer une cuisine de qualité, adaptée aux différents événementsConcevoir des menus variés et soignés, en tenant compte des saisons et des besoins des convives.Assurer la bonne organisation de la cuisine et le respect des normes d’hygiène et de sécurité.Gérer les approvisionnements, les stocks et les coûts.Encadrer et coordonner l’équipe de cuisine.Garantir une présentation soignée des plats et une expérience gastronomique à la hauteur des événements du Rotary Genève.\n• Votre profil : Nous recherchons une personne autonome, fiable, dynamique et passionnée par la gastronomie, disposant d’une solide expérience en cuisine et idéalement dans l’organisation de banquets, réceptions ou événements.Vous avez le sens du détail, aimez travailler en équipe et savez faire preuve de créativité tout en respectant les exigences d’une cuisine professionnelle.QualificationsParlons de vous :● La cuisine n’a plus de secret pour vous ! Votre expérience en tant que Chef de cuisine vous a permis de développer votre connaissance des tendances culinaires et des meilleures pratiques.● La gestion du temps et des équipes en cuisine, ça vous connait. Vous savez diriger, déléguer et répartir les tâches.● Vous avez toujours un œil sur le suivi des indicateurs de qualité et les ratios de maîtrise des coûts en cuisine.",
+      "descriptionByLocale": {
+        "it": "Descrizione dell'aziendaUn membro dell'hotel Accor il cui gruppo riunisce più di 45 marchi, 5.500 hotel, 10.000 ristoranti e destinazioni di vita. Qui crediamo in te e in quello che porti. Ci sono molte opportunità per lo sviluppo e lo sviluppo. Ogni gesto, ogni sorriso, ogni azione, aiuta a creare un impatto positivo e memorabile per i nostri clienti, i nostri colleghi e anche per il nostro pianeta. Insieme, incarnamo la visione dell'ospitalità responsabile. Avere l'opportunità di diventare un Heartist®, e lasciare che il tuo cuore ti guidi in questo mondo in cui la vita batte più forte. Descrizione del lavoroIl Rotary Genève Mgallery è alla ricerca di uno chef appassionato, creativo e organizzato per unirsi alla sua squadra e prendere il controllo della cucina durante i suoi eventi e ricevimenti.\n• La vostra missione: sviluppare e preparare la cucina di qualità, adattata a diversi eventiDesign menu vario e pulito, tenendo conto delle stagioni e delle esigenze degli ospiti. Assicurare la corretta organizzazione della cucina e il rispetto delle norme di igiene e sicurezza. Gestisci forniture, scorte e costi. Godetevi e coordinate la squadra della cucina. Assicurare una presentazione attenta dei piatti e un'esperienza gastronomica al culmine degli eventi del Rotary Ginevra.\n• Il tuo profilo: Siamo alla ricerca di un'autosufficiente, affidabile, dinamica e appassionata di gastronomia, con una solida esperienza di cucina e idealmente nell'organizzazione di banchetti, ricevimenti o eventi. Hai un senso di dettaglio, come lavorare come squadra e sapere come essere creativo nel rispetto delle esigenze della cucina professionale. La cucina non ha più segreti per voi! La tua esperienza come Chef ti ha permesso di sviluppare la tua conoscenza delle tendenze culinarie e delle migliori pratiche. La gestione del tempo e del team in cucina ti conosce. Sai come dirigere, delegare e assegnare compiti. Hai sempre un occhio su indicatori di qualità di monitoraggio e rapporti di controllo dei costi in cucina.",
+        "en": "Company descriptionJoin an Accor hotel member whose group brings together more than 45 brands, 5,500 hotels, 10,000 restaurants and lifestyle destinations. Here we believe in you and in what you bring. There are many opportunities for development and development. Every gesture, every smile, every action, helps create a positive and memorable impact for our clients, our colleagues and also for our planet. Together, we embody the vision of responsible hospitality. Have the opportunity to become a Heartist®, and let your heart guide you into this world where life beats harder. Job descriptionLe Rotary Genève Mgallery is looking for a passionate, creative and organized chef to join his team and take charge of the kitchen during his events and receptions.\n• Your mission:Develop and prepare quality cuisine, adapted to different eventsDesign varied and neat menus, taking into account the seasons and needs of the guests. Ensure the proper organisation of the kitchen and the respect of the standards of hygiene and safety.Manage supplies, stocks and costs.Enjoy and coordinate the kitchen team.Ensure a careful presentation of the dishes and a gastronomic experience at the height of the events of Rotary Geneva.\n• Your profile: We are looking for a self-sustaining, reliable, dynamic and passionate about gastronomy, with a solid experience in cooking and ideally in the organization of banquets, receptions or events.You have a sense of detail, like working as a team and know how to be creative while respecting the requirements of professional cuisine. The kitchen has no more secrets for you! Your experience as a Chef has allowed you to develop your knowledge of culinary trends and best practices. Time and team management in the kitchen knows you. You know how to direct, delegate and allocate tasks. You always have an eye on monitoring quality indicators and cost control ratios in the kitchen.",
+        "de": "Treten Sie einem Accor-Hotelmitglied bei, dessen Gruppe mehr als 45 Marken, 5.500 Hotels, 10.000 Restaurants und Lifestyle-Destinationen vereint. Hier glauben wir an dich und an das, was du mitbringst. Es gibt viele Möglichkeiten für Entwicklung und Entwicklung. Jede Geste, jedes Lächeln, jede Aktion trägt dazu bei, eine positive und unvergessliche Wirkung für unsere Kunden, unsere Kollegen und auch für unseren Planeten zu erzielen. Gemeinsam verkörpern wir die Vision einer verantwortungsvollen Gastfreundschaft. Haben Sie die Möglichkeit, ein Heartist® zu werden, und lassen Sie sich von Ihrem Herzen in diese Welt führen, in der das Leben härter schlägt. Der Rotary Genève Mgallery sucht einen leidenschaftlichen, kreativen und organisierten Koch, der sich seinem Team anschließt und die Küche während seiner Veranstaltungen und Empfänge übernimmt.\n• Ihre Mission:Entwickeln und zubereiten hochwertige Küche, angepasst an verschiedene VeranstaltungenDesign abwechslungsreiche und gepflegte Menüs, unter Berücksichtigung der Jahreszeiten und Bedürfnisse der Gäste. Gewährleistung der ordnungsgemäßen Organisation der Küche und der Einhaltung der Hygiene- und Sicherheitsstandards. Verwalten Sie Lieferungen, Bestände und Kosten. Genießen und koordinieren Sie das Küchenteam. Sorgen Sie für eine sorgfältige Präsentation der Gerichte und ein gastronomisches Erlebnis auf dem Höhepunkt der Ereignisse von Rotary Genf.\n• Ihr Profil: Wir suchen eine selbsttragende, zuverlässige, dynamische und gastronomische Leidenschaft mit fundierter Erfahrung im Kochen und idealerweise bei der Organisation von Banketts, Empfängen oder Veranstaltungen. Sie haben ein Gefühl für Details, wie die Arbeit als Team und wissen, wie man kreativ ist, während Sie die Anforderungen der professionellen Küche respektieren. Die Küche hat keine Geheimnisse mehr für Sie! Ihre Erfahrung als Koch hat es Ihnen ermöglicht, Ihr Wissen über kulinarische Trends und Best Practices zu entwickeln. Zeit- und Teammanagement in der Küche kennt Sie. Sie wissen, wie man Aufgaben leitet, delegiert und verteilt. Sie haben immer ein Auge auf die Überwachung von Qualitätsindikatoren und Kostenkontrollverhältnissen in der Küche.",
+        "fr": "Description de l'entrepriseRejoignez un hôtel membre du réseau Accor, dont le groupe réunit plus de 45 marques, 5 500 hôtels, 10 000 restaurants et destinations lifestyle. Ici, nous croyons en vous et en ce que vous apportez. Les opportunités de développement et d'évolution sont nombreuses. Chaque geste, chaque sourire, chaque action, contribuent à créer un impact positif et mémorable pour nos clients, nos collègues et aussi pour notre planète. Ensemble, nous incarnons la vision de l’hospitalité responsable. Ayez l’opportunité de devenir un Heartist®, et laissez votre coeur vous guider dans ce monde où la vie bat plus fort.Description du posteLe Rotary Genève Mgallery recherche un(e) Chef(fe) de cuisine passionné(e), créatif(ve) et organisé(e) pour rejoindre son équipe et prendre en charge la cuisine lors de ses événements et réceptions.\n• Votre mission :Élaborer et préparer une cuisine de qualité, adaptée aux différents événementsConcevoir des menus variés et soignés, en tenant compte des saisons et des besoins des convives.Assurer la bonne organisation de la cuisine et le respect des normes d’hygiène et de sécurité.Gérer les approvisionnements, les stocks et les coûts.Encadrer et coordonner l’équipe de cuisine.Garantir une présentation soignée des plats et une expérience gastronomique à la hauteur des événements du Rotary Genève.\n• Votre profil : Nous recherchons une personne autonome, fiable, dynamique et passionnée par la gastronomie, disposant d’une solide expérience en cuisine et idéalement dans l’organisation de banquets, réceptions ou événements.Vous avez le sens du détail, aimez travailler en équipe et savez faire preuve de créativité tout en respectant les exigences d’une cuisine professionnelle.QualificationsParlons de vous :● La cuisine n’a plus de secret pour vous ! Votre expérience en tant que Chef de cuisine vous a permis de développer votre connaissance des tendances culinaires et des meilleures pratiques.● La gestion du temps et des équipes en cuisine, ça vous connait. Vous savez diriger, déléguer et répartir les tâches.● Vous avez toujours un œil sur le suivi des indicateurs de qualité et les ratios de maîtrise des coûts en cuisine."
+      },
+      "location": "Hotel Rotary Geneva - MGallery, Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://careers.accor.com/fr/fr/job/fr-chef-de-cuisine-f-h-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-106838",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-28T21:29:31.400Z",
+      "addressLocality": "Hotel Rotary Geneva - MGallery, Geneva, Switzerland",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/fr-chef-de-cuisine-f-h-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-106838",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fr-chef-de-cuisine-f-h-x-accor-ch",
+        "fr-chef-de-cuisine-f-h-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-2d13f2b5"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fr-chef-de-cuisine-f-h-x-accor-ch",
+          "fr-chef-de-cuisine-f-h-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-2d13f2b5"
+        ],
+        "en": [
+          "fr-chef-de-cuisine-f-h-x-accor-ch"
+        ],
+        "fr": [
+          "fr-chef-de-cuisine-f-h-x-accor-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-31T23:39:14.685Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       }
@@ -513,7 +526,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistent-front-office-manager-in-ibis-styles-zurich-city-center-zuerich-switzerland-jid-107635",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:10:00.677Z",
+      "crawledAt": "2026-09-28T21:29:31.399Z",
       "addressLocality": "ibis Styles Zurich City Center, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -565,6 +578,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T23:39:13.780Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -611,7 +625,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:10:00.676Z",
+      "crawledAt": "2026-09-28T21:29:31.398Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -630,12 +644,14 @@
       "previousSlugs": [
         "assistant-groups-event-manager-f-m-d-accor-ch",
         "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
-        "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-25bbb5c8"
+        "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-25bbb5c8",
+        "gruppi-assistenti-event-manager-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-groups-event-manager-f-m-d-accor-ch",
-          "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-25bbb5c8"
+          "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-25bbb5c8",
+          "gruppi-assistenti-event-manager-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
         ],
         "en": [
           "assistant-groups-event-manager-f-m-d-accor-ch",
@@ -646,6 +662,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T23:39:13.477Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -675,7 +692,7 @@
       "companyDomain": "careers.accor.com",
       "title": "Service Staff Ribelli (f/m/d)",
       "titleByLocale": {
-        "it": "Personale di servizio Ribelli (m/f/d)",
+        "it": "Service Staff Ribelli (f/m/d)",
         "en": "Service Staff Ribelli (f/m/d)",
         "de": "Servicemitarbeiter Ribelli (m/w/d)",
         "fr": "Personnel des services Ribelli (h/f/d)"
@@ -692,7 +709,7 @@
       "url": "https://careers.accor.com/fr/fr/job/service-staff-ribelli-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-24550",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:10:00.675Z",
+      "crawledAt": "2026-09-28T21:29:31.397Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -708,7 +725,18 @@
       "applyUrl": "https://careers.accor.com/fr/fr/job/service-staff-ribelli-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-24550",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96",
+        "personale-di-servizio-ribelli-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96",
+          "personale-di-servizio-ribelli-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96"
+        ]
+      },
       "firstSeenAt": "2026-09-26T14:20:10.612Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -721,15 +749,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96"
-        ]
-      },
-      "previousSlugs": [
-        "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96"
-      ]
+      }
     },
     {
       "id": "accor-b13908e9d1e7",
@@ -763,7 +783,7 @@
       "url": "https://careers.accor.com/fr/fr/job/groups-and-event-coordinator-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-18387",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:10:00.674Z",
+      "crawledAt": "2026-09-28T21:29:31.396Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -782,12 +802,14 @@
       "previousSlugs": [
         "groups-event-coordinator-f-m-d-accor-ch",
         "groups-event-coordinator-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland",
-        "groups-event-coordinator-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-b13908e9"
+        "groups-event-coordinator-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-b13908e9",
+        "groups-event-coordinatore-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "groups-event-coordinator-f-m-d-accor-ch",
-          "groups-event-coordinator-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-b13908e9"
+          "groups-event-coordinator-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-b13908e9",
+          "groups-event-coordinatore-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
         ],
         "en": [
           "groups-event-coordinator-f-m-d-accor-ch",
@@ -847,7 +869,7 @@
       "url": "https://careers.accor.com/fr/fr/job/junior-sous-chef-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109967",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:10:00.673Z",
+      "crawledAt": "2026-09-28T21:29:31.395Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -910,7 +932,7 @@
       "url": "https://careers.accor.com/fr/fr/job/head-chef-f-wm-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109965",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:10:00.672Z",
+      "crawledAt": "2026-09-28T21:29:31.394Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -926,6 +948,17 @@
       "applyUrl": "https://careers.accor.com/fr/fr/job/head-chef-f-wm-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109965",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "head-chef-f-wm-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-45dd961b"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-chef-f-wm-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-45dd961b"
+        ],
+        "de": [
+          "head-chef-f-wm-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-45dd961b"
+        ]
+      },
       "firstSeenAt": "2026-09-26T14:20:10.610Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -939,18 +972,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "head-chef-f-wm-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-45dd961b"
-        ],
-        "de": [
-          "head-chef-f-wm-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-45dd961b"
-        ]
-      },
-      "previousSlugs": [
-        "head-chef-f-wm-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-45dd961b"
-      ]
+      }
     },
     {
       "id": "accor-6734f14cfc37",
@@ -984,7 +1006,7 @@
       "url": "https://careers.accor.com/fr/fr/job/commis-de-cuisine-f-h-x-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106814",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.671Z",
+      "crawledAt": "2026-09-28T21:29:31.394Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1001,17 +1023,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "commis-de-cuisine-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-6734f14c"
+        "commis-de-cuisine-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-6734f14c",
+        "cooking-clerk-m-f-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-6734f14c"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-cuisine-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-6734f14c"
+          "commis-de-cuisine-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-6734f14c",
+          "cooking-clerk-m-f-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-6734f14c"
         ],
         "de": [
           "commis-de-cuisine-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-6734f14c"
         ]
       },
       "firstSeenAt": "2026-09-19T23:07:10.831Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1022,80 +1047,6 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "accor-711ae44782b7",
-      "slug": "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-      "slugByLocale": {
-        "it": "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-        "en": "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-        "de": "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-        "fr": "agent-du-bureau-principal-zurich-ouest-h-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
-      },
-      "slugDisambiguator": "711ae447",
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Front Office Agent Zürich West (f/m/d)",
-      "titleByLocale": {
-        "it": "Agente di Front Office Zürich West (m/f/d)",
-        "en": "Front Office Agent Zürich West (f/m/d)",
-        "de": "Front Office Agent Zürich West (m/w/d)",
-        "fr": "Agent de la réception Zürich Ouest (h/f/d)"
-      },
-      "description": "Company DescriptionThe 25hours Hotel Zürich West is the first 25hours Hotel in Switzerland and was designed by the renowned designer Alfredo Häberli. It offers 123 rooms, exciting conference facilities and plenty of space for stories and adventures.From \"Grüezi\" to \"Adieu\" : together with the reception team, you’ll ensure our guests are happy from the moment they arrive until the moment they leave.COME AS YOUR ARE & SHOW HOW YOU CARE...... in a 4 day week.Enjoy 3 days off every week and the opportunity to organize your free time more flexibly!Job DescriptionHow does your working day look like...At the reception, you’ll make sure that guests aren’t just contented, but enthusiasticYou’ll always keep your cool – even when all the guests turn up to check in at the same timeYou’ll make sure things run smoothly when guests arrive at the hotel receptionYou’ll get everything ready for the shift, and round it off with the Front Office fully cleaned upQualificationsYour personality counts more than your CV...You've completed hospitality training, gained some professional experience at the front office, and speak fluent German and English. Additional languages are advantageous.You can inspire your fellow staff just as you can inspire your guests. On top of this, you know your way around town and always have tips for partying up your sleeveYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersReconcile your personal situation with work - we are open to parttime employments and other adjustmentsBe part of our hilarous staff parties and much more...",
-      "descriptionByLocale": {
-        "it": "Descrizione dell'aziendaL'Hotel Zürich West, 25 ore, è il primo Hotel a 25 ore in Svizzera ed è stato progettato dal rinomato designer Alfredo Häberli. Offre 123 camere, strutture per conferenze entusiasmanti e un sacco di spazio per storie e avventure.Da \"Grüezi\" a \"Adieu\": insieme al team di accoglienza, si.ll garantire ai nostri ospiti sono felici dal momento in cui arrivano fino al momento in cui partono.COME COME VOSTRA SONO & SHOW COME CI VOI CARE......\n\nGodetevi 3 giorni di riposo ogni settimana e l'opportunità di organizzare il vostro tempo libero in modo più flessibile!Descrizione del lavoroCome si presenta la vostra giornata lavorativa.Alla reception, you.ll assicurarsi che gli ospiti non sono solo contento, ma entusiasmanteYou.ll mantenere sempre il vostro fresco. anche quando tutti gli ospiti si presentano per il check-in allo stesso tempoYou.ll assicurarsi che le cose funzionano senza problemi quando gli ospiti arrivano alla receptionYou.ll ottenere tutto pronto per il turno, e completare con il Front Office completamente pulito QualificazioniLa vostra personalità conta più del vostro CV.Hai completato l'ospitalità\n\nformazione, ha acquisito una certa esperienza professionale presso la sede centrale, e parlare correntemente tedesco e inglese.\n\nUlteriori lingue sono vantaggiose.È possibile ispirare il tuo collega personale proprio come si può ispirare i vostri ospiti.\n\nOltre a questo, si conosce il vostro modo per giro per la città e hanno sempre suggerimenti per festeggiare fino alla manicaYou.re un doer.e anche se si fa male a volte, apertamente ammettere cheYou.re non solo portando le vostre abilità, ma anche il vostro personaggioInformazioni supplementariWhat.s in esso per voi.Impara tutti gli altri 25 ore Hotel e rimanere gratuitamente per un massimo di 10 notti all'anno come dipendente Get un supplemento per viaggiare con i trasporti pubblici e approfittare di fantastiche offerte dai nostri partner cooperativi!Approfitta di essere una parte di Ennismore e ottenere generosi sconti quando si visita\n\ni nostri bar e ristoranti, così come prenotare camere in hotel in tutto il mondo Vantaggi da grandi offerte dai nostri partner di cooperazione tra le nostre agenzieRiconciliare la vostra situazione personale con il lavoro - siamo aperti a lavori a tempo parziale e altri aggiustamentiFare parte dei nostri esilaranti staff feste e molto altro ancora.",
-        "en": "Company DescriptionThe 25hours Hotel Zürich West is the first 25hours Hotel in Switzerland and was designed by the renowned designer Alfredo Häberli. It offers 123 rooms, exciting conference facilities and plenty of space for stories and adventures.From \"Grüezi\" to \"Adieu\" : together with the reception team, you’ll ensure our guests are happy from the moment they arrive until the moment they leave.COME AS YOUR ARE & SHOW HOW YOU CARE...... in a 4 day week.Enjoy 3 days off every week and the opportunity to organize your free time more flexibly!Job DescriptionHow does your working day look like...At the reception, you’ll make sure that guests aren’t just contented, but enthusiasticYou’ll always keep your cool – even when all the guests turn up to check in at the same timeYou’ll make sure things run smoothly when guests arrive at the hotel receptionYou’ll get everything ready for the shift, and round it off with the Front Office fully cleaned upQualificationsYour personality counts more than your CV...You've completed hospitality training, gained some professional experience at the front office, and speak fluent German and English. Additional languages are advantageous.You can inspire your fellow staff just as you can inspire your guests. On top of this, you know your way around town and always have tips for partying up your sleeveYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersReconcile your personal situation with work - we are open to parttime employments and other adjustmentsBe part of our hilarous staff parties and much more...",
-        "de": "FirmenbeschreibungDas 25hours Hotel Zürich West ist das erste 25hours Hotel in der Schweiz und wurde vom renommierten Designer Alfredo Häberli entworfen.Es bietet 123 Zimmer, spannende Tagungseinrichtungen und viel Platz für Geschichten und Abenteuer.Von \"Grüezi\" bis \"Adieu\" : zusammen mit dem Empfangsteam, Sie, werden unsere Gäste von dem Moment an, sie kommen bis zum Moment, sie gehen.COME ALS SIE SIND & SHOW WIE SIE KARRE...\n\nin einer 4 Tage Woche.Genießen Sie 3 Tage pro Woche und die Möglichkeit, Ihre Freizeit flexibler zu organisieren!StellenbeschreibungWie sieht Ihr Arbeitstag aus...An der Rezeption stellen Sie sicher, dass die Gäste nicht nur zufrieden, sondern begeistert sindSie bleiben immer cool – auch wenn alle Gäste gleichzeitig eincheckenSie sorgen dafür, dass die Dinge reibungslos laufen, wenn die Gäste an der Hotelrezeption ankommenSie, werden alles bereit für die Schicht, und runden Sie es mit dem Front Office vollständig aufgeräumtQualifikationenIhre Persönlichkeit zählt mehr als Ihr Lebenslauf...Sie haben die Gastfreundschaft abgeschlossen\n\nAusbildung, einige Berufserfahrung im Front Office, und sprechen fließend Deutsch und Englisch.\n\nZusätzliche Sprachen sind von Vorteil.Sie können Ihre Mitarbeiter so inspirieren, wie Sie Ihre Gäste inspirieren können.\n\nDarüber hinaus kennen Sie sich in der Stadt aus und haben immer Tipps, wie Sie sich in den Ärmeln feiern könnenSie sind ein Macher – und selbst wenn Sie es manchmal falsch machen, geben Sie es offen zuSie bringen nicht nur Ihre Fähigkeiten, sondern auch Ihren Charakter.Weitere InformationenWas ist für Sie dabei...Erfahren Sie alle anderen 25hours Hotels und übernachten Sie als Mitarbeiter maximal 10 Nächte im Jahr gratis.Erhalten Sie einen zusätzlichen Freibetrag für Reisen mit öffentlichen Verkehrsmitteln und nutzen Sie fantastische Angebote unserer Kooperationspartner!Nutzen Sie die Vorteile eines Teils von Ennismore und erhalten Sie bei einem Besuch großzügige Ermäßigungen.\n\nunsere Bars und Restaurants sowie Hotelzimmer buchen auf der ganzen Welt Vorteile aus tollen Angeboten unserer Numeros KooperationspartnerVersöhnen Sie Ihre persönliche Situation mit der Arbeit - wir sind offen für Teilzeitbeschäftigungen und andere AnpassungenTeilen Sie an unseren fröhlichen Personalpartys und vieles mehr...",
-        "fr": "Description de la SociétéLe 25h00 Hotel Zürich West est le premier hôtel 25h00 en Suisse et a été conçu par le célèbre designer Alfredo Häberli. Il offre 123 chambres, salles de conférence passionnantes et beaucoup d'espace pour les histoires et les aventures.De \"Grüezi\" à \"Adieu\" : avec l'équipe de réception, vous, vous assurerez que nos invités sont heureux du moment où ils arrivent jusqu'au moment où ils partent.COMENTREZ AUSSI & SHOW COMMENT VOUS CAISSE......\n\nDans une semaine de 4 jours.Profitez de 3 jours de congé chaque semaine et de la possibilité d'organiser votre temps libre de façon plus flexible!Job DescriptionComment votre journée de travail ressemble-t-elle...A la réception, vous, vous vous assurerez que les invités sont, non seulement contents, mais enthousiastesVous, vous garderez toujours votre calme – même lorsque tous les invités se lèveront pour s'enregistrer en même tempsVous, vous assurerez que les choses se déroulent bien lorsque les invités arrivent à la réception de l'hôtelVous, vous obtiendrez tout prêt pour le quart, et arrondir avec la réception entièrement nettoyéeQualificationsVotre personnalité compte plus que votre CV...Vous avez terminé l'accueil\n\nformation, acquis une certaine expérience professionnelle au front office, et parler couramment allemand et anglais.\n\nD'autres langues sont avantageuses.Vous pouvez inspirer vos collègues tout comme vous pouvez inspirer vos invités.\n\nEn plus de cela, vous connaissez votre chemin autour de la ville et avez toujours des conseils pour faire la fête dans votre mancheVous, êtes un artisan – et même si vous le faites mal parfois, vous l'avouez ouvertementVous, ne vous contentez pas d'apporter vos capacités, mais aussi votre caractèreInformations complémentairesQu'est-ce qui vous attend...Découvrez tous les autres hôtels de 25heures et restez gratuitement pour un maximum de 10 nuits par an en tant qu'employé Obtenez une allocation supplémentaire pour voyager en transports publics et profitez des offres fantastiques de nos partenaires coopératifs!\n\nnos bars et restaurants ainsi que la réservation de chambres d'hôtel dans le monde entier Avantages de nos excellentes offres de nos partenaires de coopérations de numérosReconcile votre situation personnelle avec le travail - nous sommes ouverts aux emplois à temps partiel et autres ajustementsSoyez dans nos hilarantes soirées de personnel et bien plus encore..."
-      },
-      "location": "25hours Hotel Zurich West, Zürich, Switzerland",
-      "canton": "ZH",
-      "url": "https://careers.accor.com/fr/fr/job/front-office-agent-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-110319",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:10:00.669Z",
-      "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/front-office-agent-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-110319",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
-        ],
-        "fr": [
-          "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:07:10.829Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1118,7 +1069,7 @@
         "it": "Restaurant Supervisore 25hours Langstrasse (f/m/d)",
         "en": "Restaurant Supervisor 25hours Langstrasse (f/m/d)",
         "de": "Restaurant Vorgesetzter 25hours Langstrasse (f/m/d)",
-        "fr": "Superviseur du restaurant 25heures Langstrasse (h/f/d)"
+        "fr": "Restaurant Supervisor 25hours Langstrasse (f/m/d)"
       },
       "description": "Company DescriptionThe NENI restaurant with its varied oriental-Mediterranean cuisine invites you to enjoy. Behind NENI is Haya Molcho as a creative mind and kitchen virtuoso. In typical 25hours fashion, the service is casually personal. With us, you can expect an exciting challenge in our service team.COME AS YOU ARE AND SHOW WHAT YOU CAN...... in a 4 day week.Enjoy 3 days off every week and the opportunity to make your free time more flexible.Job DescriptionHow does your working day looks like...You ensure smooth processes, clean tables and workstations in the morning service so that you can work hand in hand as a team - even if all guests arrive at the same timeYou lead the team when your supervisors are not in the house You are responsible for the high standard of our food and ensure the team has an equally special service experienceAs a trained restaurateur, you never run empty and conjure up the wow on the guest's faceQualificationsYour personality counts more than your CV...You have completed vocational training in the catering industry and speak fluent German and English. Additional languages are advantageous.You already have management experience in a similar roleYou can inspire your colleagues just as much as your guestsYou are passionate about good food and enjoy discovering new conceptsYou are a doer - and openly admit when you have done something wrongYou not only bring your skills to the table, but also your characterAdditional InformationWhat`s in it for you...Only work 4 days the week as a full-time team member Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersReconcile your personal situation with work - we are open to parttime employments and other adjustmentsBe part of our hilarous staff parties and much more...",
       "descriptionByLocale": {
@@ -1132,7 +1083,7 @@
       "url": "https://careers.accor.com/fr/fr/job/restaurant-supervisor-25hours-langstrasse-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-5756",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:10:00.668Z",
+      "crawledAt": "2026-09-28T21:29:31.392Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1149,6 +1100,84 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-26T14:20:10.608Z",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "accor-711ae44782b7",
+      "slug": "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+      "slugByLocale": {
+        "it": "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+        "en": "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+        "de": "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+        "fr": "agent-du-bureau-principal-zurich-ouest-h-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
+      },
+      "slugDisambiguator": "711ae447",
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Front Office Agent Zürich West (f/m/d)",
+      "titleByLocale": {
+        "it": "Agente di Front Office Zürich West (m/f/d)",
+        "en": "Front Office Agent Zürich West (f/m/d)",
+        "de": "Front Office Agent Zürich West (f/m/d)",
+        "fr": "Agent de la réception Zürich Ouest (h/f/d)"
+      },
+      "description": "Company DescriptionThe 25hours Hotel Zürich West is the first 25hours Hotel in Switzerland and was designed by the renowned designer Alfredo Häberli. It offers 123 rooms, exciting conference facilities and plenty of space for stories and adventures.From \"Grüezi\" to \"Adieu\" : together with the reception team, you’ll ensure our guests are happy from the moment they arrive until the moment they leave.COME AS YOUR ARE & SHOW HOW YOU CARE...... in a 4 day week.Enjoy 3 days off every week and the opportunity to organize your free time more flexibly!Job DescriptionHow does your working day look like...At the reception, you’ll make sure that guests aren’t just contented, but enthusiasticYou’ll always keep your cool – even when all the guests turn up to check in at the same timeYou’ll make sure things run smoothly when guests arrive at the hotel receptionYou’ll get everything ready for the shift, and round it off with the Front Office fully cleaned upQualificationsYour personality counts more than your CV...You've completed hospitality training, gained some professional experience at the front office, and speak fluent German and English. Additional languages are advantageous.You can inspire your fellow staff just as you can inspire your guests. On top of this, you know your way around town and always have tips for partying up your sleeveYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersReconcile your personal situation with work - we are open to parttime employments and other adjustmentsBe part of our hilarous staff parties and much more...",
+      "descriptionByLocale": {
+        "it": "Descrizione dell'aziendaL'Hotel Zürich West, 25 ore, è il primo Hotel a 25 ore in Svizzera ed è stato progettato dal rinomato designer Alfredo Häberli. Offre 123 camere, strutture per conferenze entusiasmanti e un sacco di spazio per storie e avventure.Da \"Grüezi\" a \"Adieu\": insieme al team di accoglienza, si.ll garantire ai nostri ospiti sono felici dal momento in cui arrivano fino al momento in cui partono.COME COME VOSTRA SONO & SHOW COME CI VOI CARE......\n\nGodetevi 3 giorni di riposo ogni settimana e l'opportunità di organizzare il vostro tempo libero in modo più flessibile!Descrizione del lavoroCome si presenta la vostra giornata lavorativa.Alla reception, you.ll assicurarsi che gli ospiti non sono solo contento, ma entusiasmanteYou.ll mantenere sempre il vostro fresco. anche quando tutti gli ospiti si presentano per il check-in allo stesso tempoYou.ll assicurarsi che le cose funzionano senza problemi quando gli ospiti arrivano alla receptionYou.ll ottenere tutto pronto per il turno, e completare con il Front Office completamente pulito QualificazioniLa vostra personalità conta più del vostro CV.Hai completato l'ospitalità\n\nformazione, ha acquisito una certa esperienza professionale presso la sede centrale, e parlare correntemente tedesco e inglese.\n\nUlteriori lingue sono vantaggiose.È possibile ispirare il tuo collega personale proprio come si può ispirare i vostri ospiti.\n\nOltre a questo, si conosce il vostro modo per giro per la città e hanno sempre suggerimenti per festeggiare fino alla manicaYou.re un doer.e anche se si fa male a volte, apertamente ammettere cheYou.re non solo portando le vostre abilità, ma anche il vostro personaggioInformazioni supplementariWhat.s in esso per voi.Impara tutti gli altri 25 ore Hotel e rimanere gratuitamente per un massimo di 10 notti all'anno come dipendente Get un supplemento per viaggiare con i trasporti pubblici e approfittare di fantastiche offerte dai nostri partner cooperativi!Approfitta di essere una parte di Ennismore e ottenere generosi sconti quando si visita\n\ni nostri bar e ristoranti, così come prenotare camere in hotel in tutto il mondo Vantaggi da grandi offerte dai nostri partner di cooperazione tra le nostre agenzieRiconciliare la vostra situazione personale con il lavoro - siamo aperti a lavori a tempo parziale e altri aggiustamentiFare parte dei nostri esilaranti staff feste e molto altro ancora.",
+        "en": "Company DescriptionThe 25hours Hotel Zürich West is the first 25hours Hotel in Switzerland and was designed by the renowned designer Alfredo Häberli. It offers 123 rooms, exciting conference facilities and plenty of space for stories and adventures.From \"Grüezi\" to \"Adieu\" : together with the reception team, you’ll ensure our guests are happy from the moment they arrive until the moment they leave.COME AS YOUR ARE & SHOW HOW YOU CARE...... in a 4 day week.Enjoy 3 days off every week and the opportunity to organize your free time more flexibly!Job DescriptionHow does your working day look like...At the reception, you’ll make sure that guests aren’t just contented, but enthusiasticYou’ll always keep your cool – even when all the guests turn up to check in at the same timeYou’ll make sure things run smoothly when guests arrive at the hotel receptionYou’ll get everything ready for the shift, and round it off with the Front Office fully cleaned upQualificationsYour personality counts more than your CV...You've completed hospitality training, gained some professional experience at the front office, and speak fluent German and English. Additional languages are advantageous.You can inspire your fellow staff just as you can inspire your guests. On top of this, you know your way around town and always have tips for partying up your sleeveYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersReconcile your personal situation with work - we are open to parttime employments and other adjustmentsBe part of our hilarous staff parties and much more...",
+        "de": "FirmenbeschreibungDas 25hours Hotel Zürich West ist das erste 25hours Hotel in der Schweiz und wurde vom renommierten Designer Alfredo Häberli entworfen.Es bietet 123 Zimmer, spannende Tagungseinrichtungen und viel Platz für Geschichten und Abenteuer.Von \"Grüezi\" bis \"Adieu\" : zusammen mit dem Empfangsteam, Sie, werden unsere Gäste von dem Moment an, sie kommen bis zum Moment, sie gehen.COME ALS SIE SIND & SHOW WIE SIE KARRE...\n\nin einer 4 Tage Woche.Genießen Sie 3 Tage pro Woche und die Möglichkeit, Ihre Freizeit flexibler zu organisieren!StellenbeschreibungWie sieht Ihr Arbeitstag aus...An der Rezeption stellen Sie sicher, dass die Gäste nicht nur zufrieden, sondern begeistert sindSie bleiben immer cool – auch wenn alle Gäste gleichzeitig eincheckenSie sorgen dafür, dass die Dinge reibungslos laufen, wenn die Gäste an der Hotelrezeption ankommenSie, werden alles bereit für die Schicht, und runden Sie es mit dem Front Office vollständig aufgeräumtQualifikationenIhre Persönlichkeit zählt mehr als Ihr Lebenslauf...Sie haben die Gastfreundschaft abgeschlossen\n\nAusbildung, einige Berufserfahrung im Front Office, und sprechen fließend Deutsch und Englisch.\n\nZusätzliche Sprachen sind von Vorteil.Sie können Ihre Mitarbeiter so inspirieren, wie Sie Ihre Gäste inspirieren können.\n\nDarüber hinaus kennen Sie sich in der Stadt aus und haben immer Tipps, wie Sie sich in den Ärmeln feiern könnenSie sind ein Macher – und selbst wenn Sie es manchmal falsch machen, geben Sie es offen zuSie bringen nicht nur Ihre Fähigkeiten, sondern auch Ihren Charakter.Weitere InformationenWas ist für Sie dabei...Erfahren Sie alle anderen 25hours Hotels und übernachten Sie als Mitarbeiter maximal 10 Nächte im Jahr gratis.Erhalten Sie einen zusätzlichen Freibetrag für Reisen mit öffentlichen Verkehrsmitteln und nutzen Sie fantastische Angebote unserer Kooperationspartner!Nutzen Sie die Vorteile eines Teils von Ennismore und erhalten Sie bei einem Besuch großzügige Ermäßigungen.\n\nunsere Bars und Restaurants sowie Hotelzimmer buchen auf der ganzen Welt Vorteile aus tollen Angeboten unserer Numeros KooperationspartnerVersöhnen Sie Ihre persönliche Situation mit der Arbeit - wir sind offen für Teilzeitbeschäftigungen und andere AnpassungenTeilen Sie an unseren fröhlichen Personalpartys und vieles mehr...",
+        "fr": "Description de la SociétéLe 25h00 Hotel Zürich West est le premier hôtel 25h00 en Suisse et a été conçu par le célèbre designer Alfredo Häberli. Il offre 123 chambres, salles de conférence passionnantes et beaucoup d'espace pour les histoires et les aventures.De \"Grüezi\" à \"Adieu\" : avec l'équipe de réception, vous, vous assurerez que nos invités sont heureux du moment où ils arrivent jusqu'au moment où ils partent.COMENTREZ AUSSI & SHOW COMMENT VOUS CAISSE......\n\nDans une semaine de 4 jours.Profitez de 3 jours de congé chaque semaine et de la possibilité d'organiser votre temps libre de façon plus flexible!Job DescriptionComment votre journée de travail ressemble-t-elle...A la réception, vous, vous vous assurerez que les invités sont, non seulement contents, mais enthousiastesVous, vous garderez toujours votre calme – même lorsque tous les invités se lèveront pour s'enregistrer en même tempsVous, vous assurerez que les choses se déroulent bien lorsque les invités arrivent à la réception de l'hôtelVous, vous obtiendrez tout prêt pour le quart, et arrondir avec la réception entièrement nettoyéeQualificationsVotre personnalité compte plus que votre CV...Vous avez terminé l'accueil\n\nformation, acquis une certaine expérience professionnelle au front office, et parler couramment allemand et anglais.\n\nD'autres langues sont avantageuses.Vous pouvez inspirer vos collègues tout comme vous pouvez inspirer vos invités.\n\nEn plus de cela, vous connaissez votre chemin autour de la ville et avez toujours des conseils pour faire la fête dans votre mancheVous, êtes un artisan – et même si vous le faites mal parfois, vous l'avouez ouvertementVous, ne vous contentez pas d'apporter vos capacités, mais aussi votre caractèreInformations complémentairesQu'est-ce qui vous attend...Découvrez tous les autres hôtels de 25heures et restez gratuitement pour un maximum de 10 nuits par an en tant qu'employé Obtenez une allocation supplémentaire pour voyager en transports publics et profitez des offres fantastiques de nos partenaires coopératifs!\n\nnos bars et restaurants ainsi que la réservation de chambres d'hôtel dans le monde entier Avantages de nos excellentes offres de nos partenaires de coopérations de numérosReconcile votre situation personnelle avec le travail - nous sommes ouverts aux emplois à temps partiel et autres ajustementsSoyez dans nos hilarantes soirées de personnel et bien plus encore..."
+      },
+      "location": "25hours Hotel Zurich West, Zürich, Switzerland",
+      "canton": "ZH",
+      "url": "https://careers.accor.com/fr/fr/job/front-office-agent-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-110319",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-28T21:29:31.392Z",
+      "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/front-office-agent-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-110319",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+        "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+          "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
+        ],
+        "fr": [
+          "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:07:10.829Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1195,7 +1224,7 @@
       "url": "https://careers.accor.com/fr/fr/job/therapeute-estheticienne-h-f-x-cdi-sur-appel-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-111289",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.666Z",
+      "crawledAt": "2026-09-28T21:29:31.390Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1212,11 +1241,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "therapeute-estheticienne-h-f-x-cdi-sur-appel-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-3544f094"
+        "therapeute-estheticienne-h-f-x-cdi-sur-appel-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-3544f094",
+        "therapist-esthetician-m-f-x-cdi-su-chiamata-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-3544f094"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "therapeute-estheticienne-h-f-x-cdi-sur-appel-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-3544f094"
+          "therapeute-estheticienne-h-f-x-cdi-sur-appel-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-3544f094",
+          "therapist-esthetician-m-f-x-cdi-su-chiamata-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-3544f094"
         ],
         "en": [
           "therapeute-estheticienne-h-f-x-cdi-sur-appel-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-3544f094"
@@ -1272,7 +1303,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-chef-fe-de-reception-h-f-x-in-hotel-rotary-geneva-mgallery-geneve-switzerland-jid-111374",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.664Z",
+      "crawledAt": "2026-09-28T21:29:31.388Z",
       "addressLocality": "Hotel Rotary Geneva - MGallery, Genève, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1289,11 +1320,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fr-chef-fe-de-reception-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneve-switzerland-6e7a1f4e"
+        "fr-chef-fe-de-reception-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneve-switzerland-6e7a1f4e",
+        "en-capo-della-reception-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneve-switzerland-6e7a1f4e"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fr-chef-fe-de-reception-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneve-switzerland-6e7a1f4e"
+          "fr-chef-fe-de-reception-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneve-switzerland-6e7a1f4e",
+          "en-capo-della-reception-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneve-switzerland-6e7a1f4e"
         ],
         "en": [
           "fr-chef-fe-de-reception-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneve-switzerland-6e7a1f4e"
@@ -1330,7 +1363,7 @@
       "title": "Thérapeute Masseuse (F/H/X) - CDD 2026",
       "titleByLocale": {
         "it": "Terapia Masseuse (M/F/X) - CSD 2026",
-        "en": "Therapist Masseuse (M/F/X) - CSD 2026",
+        "en": "Thérapeute Masseuse (F/H/X) - CDD 2026",
         "de": "Therapeut Masseuse (M/W/X) - CSD 2026",
         "fr": "Thérapeute Masseuse (F/H/X) - CDD 2026"
       },
@@ -1346,7 +1379,7 @@
       "url": "https://careers.accor.com/fr/fr/job/therapeute-masseuse-f-h-x-cdd-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-111291",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.662Z",
+      "crawledAt": "2026-09-28T21:29:31.386Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1363,11 +1396,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "therapeute-masseuse-f-h-x-cdd-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-9b94c098"
+        "therapeute-masseuse-f-h-x-cdd-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-9b94c098",
+        "terapia-masseuse-m-f-x-csd-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-9b94c098"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "therapeute-masseuse-f-h-x-cdd-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-9b94c098"
+          "therapeute-masseuse-f-h-x-cdd-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-9b94c098",
+          "terapia-masseuse-m-f-x-csd-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-9b94c098"
         ],
         "en": [
           "therapeute-masseuse-f-h-x-cdd-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-9b94c098"
@@ -1377,6 +1412,7 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:44:16.106Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1423,7 +1459,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-receptionniste-h-f-x-in-mercure-fribourg-centre-remparts-fribourg-switzerl-jid-88660",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:10:00.659Z",
+      "crawledAt": "2026-09-28T21:29:31.384Z",
       "addressLocality": "Mercure Fribourg Centre Remparts, Fribourg, Switzerland",
       "addressRegion": "FR",
       "addressCountry": "CH",
