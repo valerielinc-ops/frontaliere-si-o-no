@@ -1,7 +1,7 @@
 {
   "key": "im-bethesda-spital",
   "label": "& im Bethesda Spital",
-  "generatedAt": "2026-09-28T04:56:35.076Z",
+  "generatedAt": "2026-09-28T21:14:56.439Z",
   "total": 14,
   "discovered": null,
   "parsed": 14,
@@ -12,10 +12,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4046,
-  "avgDurationMs": 4046,
+  "durationMs": 3634,
+  "avgDurationMs": 3634,
   "durationHistory": [
-    4046
+    3634
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-686f0be949cf",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:27.073Z",
+      "crawledAt": "2026-09-28T21:14:50.635Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -49,11 +49,11 @@
       "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-686f0be949cf",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:01:29.727Z",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 16,
+        "translation": 20,
         "completeness": 20
       }
     }

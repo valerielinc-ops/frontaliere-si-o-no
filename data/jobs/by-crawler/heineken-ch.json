@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-09-28T05:15:04.266Z",
+  "assembledAt": "2026-09-28T21:35:40.663Z",
   "jobs": [
     {
       "id": "heineken-ch-1f9d5c7d8226",
@@ -81,7 +81,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "heineken-ch-8d3488d511c4",
@@ -99,7 +100,7 @@
       "title": "Sales & Market Analyst (w/m/d)",
       "titleByLocale": {
         "it": "Sales & Market Analista (w/m/d)",
-        "en": "Sales & Market Analyst (m/f/d)",
+        "en": "Sales & Market Analyst (w/m/d)",
         "de": "Sales & Market Analyst (w/m/d)",
         "fr": "Sales & Market Analyste (w/m/d)"
       },
@@ -129,7 +130,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:14:52.441Z",
+      "crawledAt": "2026-09-28T21:35:36.011Z",
       "previousSlugs": [
         "sales-market-analyst-w-m-d-heineken-ch-luzern",
         "sales-market-analista-w-m-d-heineken-switzerland-luzern"
@@ -144,6 +145,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:46:55.443Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -205,7 +207,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:14:43.659Z",
+      "crawledAt": "2026-09-28T21:35:28.569Z",
       "previousSlugsByLocale": {
         "de": [
           "specialist-warehouse-m-w-d-heineken-ch-belp",
@@ -229,6 +231,7 @@
         "specialista-warehouse-m-w-d-heineken-switzerland-luzern"
       ],
       "firstSeenAt": "2026-09-07T23:43:35.597Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -290,7 +293,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164842&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:14:35.452Z",
+      "crawledAt": "2026-09-28T21:35:20.253Z",
       "previousSlugs": [
         "truck-driver-m-w-d-heineken-ch-belp",
         "driver-per-il-camion-m-f-d-heineken-switzerland-belp"
@@ -366,7 +369,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164826&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:14:27.937Z",
+      "crawledAt": "2026-09-28T21:35:12.364Z",
       "previousSlugs": [
         "specialist-business-applications-operations-m-w-d-heineken-ch-luzern",
         "specialista-business-applications-operations-m-w-d-heineken-switzerland-luzern"
@@ -381,6 +384,7 @@
         ]
       },
       "firstSeenAt": "2026-09-07T23:43:19.344Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "currency": "CHF",
@@ -442,7 +446,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162606&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:14:19.546Z",
+      "crawledAt": "2026-09-28T21:35:04.872Z",
       "previousSlugs": [
         "chauffeur-c-e-m-w-davos-heineken-ch-davos",
         "chauffeur-c-e-m-f-davos-heineken-switzerland-davos"
@@ -521,7 +525,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162775&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:14:11.714Z",
+      "crawledAt": "2026-09-28T21:34:58.311Z",
       "previousSlugs": [
         "chauffeur-c-e-m-w-chur-heineken-ch-chur",
         "chauffeur-c-e-m-f-chur-heineken-switzerland-chur"
@@ -571,15 +575,15 @@
       "titleByLocale": {
         "it": "Autista C/E Orion",
         "en": "Driver C/E Orion",
-        "de": "Chauffeur C/E Orion",
+        "de": "Fahrer C/E Orion",
         "fr": "Chauffeur C/E Orion"
       },
       "description": "Sie sind verantwortlich für die termingerechte Lieferung aller im Orion-Sortiment enthaltenen Produkte an unsere Kunden, vorwiegend in der Gastronomie und bei Events. Dabei stellen Sie die Verkehrstauglichkeit des Fahrzeugs gemäss den Vorgaben des Strassenverkehrsgesetzes sicher. In dieser lebhaften und vielseitigen Tätigkeit sind Sie für folgende \n• Aufgaben zuständig: Befüllung von Kundentanks mit einem City Liner in der gesamten Schweiz Wartung und Pflege der Aufliegeranlage gemäss festgelegten Standards Fachkundiges Führen und Manövrieren eines City Liners Gewissenhaftes Führen der Qualitätsdokumente Unterstützung in der Transport-Feinverteilung und Lager nach Bedarf Übernachtung im LKW ein- bis zweimal pro Woche bei Bedarf Um diese herausfordernden \n• Aufgaben erfolgreich zu erfüllen, erwarten wir folgende Voraussetzungen: Fahrerbewilligung C und E Berufserfahrung als Chauffeur Erste Ansprechperson mit einwandfreien Umgangsformen, Zuverlässigkeit und Verbindlichkeit Selbstständige und zuverlässige Arbeitsweise zeichnen dich aus Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für früher Arbeitsbeginn (04:30 Uhr) und Wochenendeinsätze bei Bedarf (vorwiegend Samstag) Körperlich fit und belastbar Interessiert? Herr Roger Roggo, HR Business Partner, freut sich auf Ihre vollständigen Bewerbungsunterlagen.",
       "descriptionByLocale": {
-        "it": "Siete responsabili della consegna tempestiva di tutti i prodotti contenuti nella gamma Orion ai nostri clienti, soprattutto nel settore della ristorazione e durante gli eventi. Assicurate l'idoneità del veicolo al traffico secondo le norme della legge sul traffico stradale.\n\nIn questa vivace attività e in quella di Verhale, siete responsabili dei seguenti compiti: Riempire i serbatoi dei clienti con un City Liner in tutta la Svizzera Manutenzione e manutenzione del sistema rimorchio secondo gli standard specificati Guida professionale e manovra di un City Liner Trasporto di documenti di qualità Consciente Supporto nel trasporto di distribuzione e stoccaggio fine come richiesto Pernottamento in un camion una o due volte alla settimana se necessario Per eseguire con successo questi compiti impegnativi, ci aspettiamo i seguenti requisiti: Conducente permesso C ed E esperienza professionale\n\nCome autista Persona di primo contatto con la gestione impeccabile, affidabilità e impegno I metodi di lavoro autonomi e affidabili ti distinguono dalla buona conoscenza tedesca in parola e scrittura pronta per inizio del lavoro precoce (04:30 orologio) e set di fine settimana se richiesto (soprattutto sabato) Fisicamente in forma e resiliente Interessato?\n\nRoger Rogue, socio HR, è impaziente di ricevere i documenti completi della domanda.",
-        "en": "You are responsible for the timely delivery of all products contained in the Orion range to our customers, mainly in the catering industry and at events. You ensure the vehicle's suitability for traffic according to the regulations of the Road Traffic Act.\n\nIn this lively and versatile activity you are responsible for the following\n• tasks: Filling customer tanks with a City Liner throughout Switzerland Maintenance and maintenance of the trailer system according to specified standards Professional driving and maneuvering of a City Liner Conscient carrying of quality documents Support in transport fine distribution and storage as required Overnight stay in a truck once or twice a week if necessary To successfully perform these challenging\n• tasks, we expect the following requirements: Driver permit C and E professional experience\n\nas a chauffeur First contact person with flawless handling, reliability and commitment Self-employed and reliable working methods distinguish you from good German knowledge in word and writing readiness for early work start (04:30 clock) and weekend sets if required (mainly Saturday) Physically fit and resilient Interested?\n\nMr Roger Rogue, HR Business Partner, is looking forward to receiving your complete application documents.",
-        "de": "Sie sind verantwortlich für die termingerechte Lieferung aller im Orion-Sortiment enthaltenen Produkte an unsere Kunden, vorwiegend in der Gastronomie und bei Events. Dabei stellen Sie die Verkehrstauglichkeit des Fahrzeugs gemäss den Vorgaben des Strassenverkehrsgesetzes sicher. In dieser lebhaften und vielseitigen Tätigkeit sind Sie für folgende \n• Aufgaben zuständig: Befüllung von Kundentanks mit einem City Liner in der gesamten Schweiz Wartung und Pflege der Aufliegeranlage gemäss festgelegten Standards Fachkundiges Führen und Manövrieren eines City Liners Gewissenhaftes Führen der Qualitätsdokumente Unterstützung in der Transport-Feinverteilung und Lager nach Bedarf Übernachtung im LKW ein- bis zweimal pro Woche bei Bedarf Um diese herausfordernden \n• Aufgaben erfolgreich zu erfüllen, erwarten wir folgende Voraussetzungen: Fahrerbewilligung C und E Berufserfahrung als Chauffeur Erste Ansprechperson mit einwandfreien Umgangsformen, Zuverlässigkeit und Verbindlichkeit Selbstständige und zuverlässige Arbeitsweise zeichnen dich aus Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für früher Arbeitsbeginn (04:30 Uhr) und Wochenendeinsätze bei Bedarf (vorwiegend Samstag) Körperlich fit und belastbar Interessiert? Herr Roger Roggo, HR Business Partner, freut sich auf Ihre vollständigen Bewerbungsunterlagen.",
-        "fr": "Vous êtes responsable de la livraison en temps opportun de tous les produits contenus dans la gamme Orion à nos clients, principalement dans l'industrie de la restauration et lors d'événements. Vous assurez la qualité du véhicule pour la circulation conformément aux règlements de la Loi sur la circulation routière.\n\nDans cette activité dynamique et polyvalente, vous êtes responsable des tâches suivantes: Remplir les réservoirs clients avec un City Liner en Suisse Entretien et entretien du système de remorque selon des normes spécifiées Conduite et manœuvre professionnelles d'un City Liner-Kenz transportant des documents de qualité Support dans le transport distribution fine et stockage selon les besoins Nuitée dans un camion une ou deux fois par semaine si nécessaire Pour accomplir ces tâches difficiles\n• nous attendons les exigences suivantes: Permis de conduire C et E expérience professionnelle\n\ncomme a7.1 Premier contact avec une manipulation, une fiabilité et un engagement impeccables Les méthodes de travail indépendantes et fiables vous distinguent des bonnes connaissances allemandes en matière de rédaction et de rédaction pour le début du travail (04:30 heures) et les sets de fin de semaine si nécessaire (principalement samedi) Physiquement adapté et résilient Intéressé?\n\nM. Roger Rogue, associé d'affaires RH, attend avec impatience de recevoir vos documents de demande complets."
+        "it": "Siete responsabili della consegna tempestiva di tutti i prodotti contenuti nella gamma Orion ai nostri clienti, soprattutto nel settore della ristorazione e durante gli eventi. Assicurate l'idoneità del veicolo al traffico secondo le norme della legge sul traffico stradale.\n\nIn questa vivace attività e in questa zona Lei è responsabile dei seguenti compiti: Riempimento di serbatoi clienti con un City Liner in tutta la Svizzera Manutenzione e manutenzione del sistema rimorchio secondo gli standard specificati Guida professionale e manovra di un City Liner Trasporto di documenti di qualità Consciente Supporto nel trasporto di distribuzione e stoccaggio fine come richiesto Pernottamento in un camion una o due volte alla settimana se necessario Per eseguire con successo questi compiti impegnativi, ci aspettiamo i seguenti requisiti: Conducente permesso C ed E esperienza professionale\n\nCome autista Persona di primo contatto con la gestione impeccabile, affidabilità e impegno I metodi di lavoro autonomi e affidabili ti distinguono dalla buona conoscenza tedesca in parola e scrittura pronta per inizio del lavoro precoce (04:30 orologio) e set di fine settimana se richiesto (soprattutto sabato) Fisicamente in forma e resiliente Interessato?\n\nRoger Rogue, socio HR, è impaziente di ricevere i documenti completi della domanda.",
+        "en": "You are responsible for the timely delivery of all products contained in the Orion range to our customers, mainly in the catering industry and at events. You ensure the vehicle's suitability for traffic according to the regulations of the Road Traffic Act.\n\nIn this lively and versatile activity you are responsible for the following • tasks: Filling customer tanks with a City Liner throughout Switzerland Maintenance and maintenance of the trailer system according to specified standards Professional driving and maneuvering of a City Liner Conscient carrying of quality documents Support in transport fine distribution and storage as required Overnight stay in a truck once or twice a week if required To successfully perform these challenging • tasks, we expect the following requirements: Driver permit C and E professional experience\n\nas a chauffeur First contact person with flawless handling, reliability and commitment Self-employed and reliable working methods distinguish you from good German knowledge in word and writing readiness for early work start (04:30 clock) and weekend sets if required (mainly Saturday) Physically fit and resilient Interested?\n\nMr Roger Rogue, HR Business Partner, is looking forward to receiving your complete application documents.",
+        "de": "Sie sind verantwortlich für die termingerechte Lieferung aller im Orion-Sortiment enthaltenen Produkte an unsere Kunden, vorwiegend in der Gastronomie und bei Events. Dabei stellen Sie die Verkehrstauglichkeit des Fahrzeugs gemäss den Vorgaben des Strassenverkehrsgesetzes sicher. In dieser lebhaften und vielseitigen Tätigkeit sind Sie für folgende\n• Aufgaben zuständig: Befüllung von Kundentanks mit einem City Liner in der gesamten Schweiz Wartung und Pflege der Aufliegeranlage gemäss festgelegten Standards Fachkundiges Führen und Manövrieren eines City Liners Gewissenhaftes Führen der Qualitätsdokumente Unterstützung in der Transport-Feinverteilung und Lager nach Bedarf Übernachtung im LKW ein- bis zweimal pro Woche bei Bedarf Um diese herausfordernden\n• Aufgaben erfolgreich zu erfüllen, erwarten wir folgende Voraussetzungen: Fahrerbewilligung C und E Berufserfahrung als Chauffeur Erste Ansprechperson mit einwandfreien Umgangsformen, Zuverlässigkeit und Verbindlichkeit Selbstständige und zuverlässige Arbeitsweise zeichnen dich aus Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für früher Arbeitsbeginn (04:30 Uhr) und Wochenendeinsätze bei Bedarf (vorwiegend Samstag) Körperlich fit und belastbar Interessiert? Herr Roger Roggo, HR Business Partner, freut sich auf Ihre vollständigen Bewerbungsunterlagen.",
+        "fr": "Vous êtes responsable de la livraison en temps opportun de tous les produits contenus dans la gamme Orion à nos clients, principalement dans l'industrie de la restauration et lors d'événements. Vous assurez la qualité du véhicule pour la circulation conformément aux règlements de la Loi sur la circulation routière.\n\nDans cette activité dynamique et polyvalente, vous êtes responsable des tâches suivantes: Remplir les réservoirs clients avec un City Liner en Suisse Entretien et entretien du système de remorque selon des normes spécifiées Conduite et manœuvre professionnelles d'un City Liner-Ville transportant des documents de qualité Support dans le transport distribution fine et stockage selon les besoins Nuitée dans un camion une ou deux fois par semaine si nécessaire Pour accomplir ces tâches difficiles • nous attendons les exigences suivantes: Permis de conduire C et E expérience professionnelle\n\ncomme a7.1 Premier contact avec une manipulation, une fiabilité et un engagement impeccables Les méthodes de travail indépendantes et fiables vous distinguent des bonnes connaissances allemandes en matière de rédaction et de rédaction pour le début du travail (04:30 heures) et les sets de fin de semaine si nécessaire (principalement samedi) Physiquement adapté et résilient Intéressant?\n\nM. Roger Rogue, associé d'affaires RH, attend avec impatience de recevoir vos documents de demande complets."
       },
       "location": "Luzern",
       "canton": "LU",
@@ -600,7 +604,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:14:04.128Z",
+      "crawledAt": "2026-09-28T21:34:50.090Z",
       "previousSlugs": [
         "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
         "autista-c-e-heineken-switzerland-luzern",
@@ -679,7 +683,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "heineken-ch-a85de7fe0f2b",
@@ -727,7 +732,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165451&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:13:55.823Z",
+      "crawledAt": "2026-09-28T21:34:40.445Z",
       "previousSlugs": [
         "technician-dbo-m-w-d-heineken-ch-denges",
         "tecnico-dbo-m-f-d-heineken-switzerland-denges"
@@ -739,6 +744,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:10:19.910Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
@@ -800,7 +806,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165660&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:13:48.403Z",
+      "crawledAt": "2026-09-28T21:34:32.685Z",
       "previousSlugs": [
         "chauffeur-cat-c-e-heineken-ch-denges",
         "conducente-cat-c-e-heineken-switzerland-denges"
@@ -818,6 +824,7 @@
         ]
       },
       "firstSeenAt": "2026-09-24T00:08:22.819Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -832,6 +839,70 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "heineken-ch-d7d5efdbb829",
+      "jobReqId": "162220",
+      "slug": "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern",
+      "slugByLocale": {
+        "de": "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern",
+        "it": "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern",
+        "en": "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern",
+        "fr": "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Logistics Key Account Specialist (m/w/d) (80-100%)",
+      "titleByLocale": {
+        "de": "Logistik Key Account Spezialist (m/w/d) (80-100%)",
+        "en": "Logistics Key Account Specialist (m/w/d) (80-100%)",
+        "it": "Logistica Key Account Specialista (m/w/d) (80-100%)",
+        "fr": "Logistique Key Account Spécialiste (m/w/d) (80-100%)"
+      },
+      "description": "Deine Verantwortungen: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Das bringst du mit: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift \n• Das bieten wir dir: Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+      "descriptionByLocale": {
+        "de": "Deine Verantwortungen: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Das bringst du mit: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift \n• Das bieten wir dir: Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+        "it": "Deine Verantwortungen: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Das bringst du mit: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift \n• Das bieten wir dir: Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+        "en": "Deine Verantwortungen: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Das bringst du mit: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift \n• Das bieten wir dir: Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+        "fr": "Deine Verantwortungen: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Das bringst du mit: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift \n• Das bieten wir dir: Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen"
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Luzern, LU",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistics-key-account-specialist-mwd-80-100?jobid=162220",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:34:24.739Z",
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:34:24.739Z"
     }
   ]
 }

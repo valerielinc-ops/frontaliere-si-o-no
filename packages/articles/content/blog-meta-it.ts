@@ -12232,6 +12232,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cantiere-a8-castronno-albizzate.title': 'Chiusura notturna A8 tra Varese e Gallarate',
     'blog.article.cantiere-a8-castronno-albizzate.excerpt': 'Chiusura notturna della A8 tra Varese e Gallarate per lavori al cavalcavia tra Castronno e Albizzate: rischio code e senso unico alternato sulla SP34.',
     'blog.article.cantiere-a8-castronno-albizzate.imageAlt': 'Traffico notturno su un\'autostrada con lavori e segnaletica stradale',
+    'blog.article.gare-ciclismo-varese-ottobre.title': 'Tre Valli Varesine: gare e chiusure stradali',
+    'blog.article.gare-ciclismo-varese-ottobre.excerpt': 'Dal 3 al 6 ottobre, Varese e provincia ospitano cronometro, granfondo e gare professionistiche con importanti limitazioni al traffico.',
+    'blog.article.gare-ciclismo-varese-ottobre.imageAlt': 'Gare di ciclismo a Varese e provincia',
 };
 
 export default blogMetaIt;

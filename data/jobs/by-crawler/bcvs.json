@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-09-28T05:09:55.602Z",
+  "assembledAt": "2026-09-28T21:29:58.831Z",
   "jobs": [
     {
       "id": "bcvs-8ddcea45e662",
@@ -9,7 +9,7 @@
         "it": "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "en": "personnel-credit-back-office-banque-cantonale-du-valais-sion",
         "de": "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-        "fr": "personnel-departement-crediteur-banque-cantonale-du-valais-sion"
+        "fr": "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:49.599Z",
+      "crawledAt": "2026-09-28T21:29:54.460Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -53,18 +53,22 @@
       "previousSlugs": [
         "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
         "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+        "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
+        "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
+          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+          "personale-credito-back-office-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
         ],
         "fr": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+          "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
           "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
         ]
       },
@@ -114,7 +118,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/hr-business-partner-1-2656",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:09:49.090Z",
+      "crawledAt": "2026-09-28T21:29:53.902Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -150,11 +154,13 @@
       },
       "previousSlugs": [
         "hr-business-partner-bcvs-sion",
-        "hr-business-partner-banque-cantonale-du-valais-sion"
+        "hr-business-partner-banque-cantonale-du-valais-sion",
+        "risorse-umane-business-partner-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-business-partner-bcvs-sion"
+          "hr-business-partner-bcvs-sion",
+          "risorse-umane-business-partner-banque-cantonale-du-valais-sion"
         ],
         "de": [
           "hr-business-partner-bcvs-sion"
@@ -213,7 +219,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2665",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:09:48.679Z",
+      "crawledAt": "2026-09-28T21:29:53.467Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -247,11 +253,13 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
-        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-martigny"
+        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-martigny",
+        "consulente-privato-cliente-individuale-banque-cantonale-du-valais-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
+          "consulente-privato-cliente-individuale-banque-cantonale-du-valais-martigny"
         ],
         "en": [
           "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
@@ -264,6 +272,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:34.583Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -309,7 +318,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:09:48.267Z",
+      "crawledAt": "2026-09-28T21:29:53.031Z",
       "addressLocality": "Vex/Nendaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -343,11 +352,13 @@
         ]
       },
       "previousSlugs": [
-        "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
+        "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz",
+        "capo-delle-agenzie-della-rive-gauche-vallese-centrale-banque-cantonale-du-valais-vex-nendaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
+          "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz",
+          "capo-delle-agenzie-della-rive-gauche-vallese-centrale-banque-cantonale-du-valais-vex-nendaz"
         ],
         "en": [
           "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
@@ -356,7 +367,6 @@
           "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:19:00.561Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -371,6 +381,240 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "bcvs-9ee203f89972",
+      "slug": "responsable-data-ia-bcvs-sion",
+      "slugByLocale": {
+        "fr": "responsable-data-ia-bcvs-sion",
+        "it": "responsable-data-ia-bcvs-sion",
+        "en": "responsable-data-ia-bcvs-sion",
+        "de": "responsable-data-ia-bcvs-sion"
+      },
+      "company": "Banque Cantonale du Valais",
+      "companyKey": "bcvs",
+      "companyDomain": "bcvs.ch",
+      "title": "Responsable Data & IA",
+      "titleByLocale": {
+        "fr": "Responsable Data & IA",
+        "it": "Responsable Data & IA",
+        "en": "Responsable Data & IA",
+        "de": "Responsable Data & IA"
+      },
+      "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nResponsable Data & IA\n\n• Sion\n\n• 100%\n\nVous êtes passionné-e par la donnée, l’intelligence artificielle et le management d’équipe ? Rejoignez une équipe qui accompagne la transformation numérique de la BCVS et contribue à créer de la valeur grâce à la bonne utilisation des données. En tant que Responsable Data & IA, vous serez au cœur de projets stratégiques visant à développer les usages de la donnée et de l’IA.\nComme Manager, vous développez les talents de votre équipe. Comme ingénieur informatique expérimenté dans les plateformes Data, vous êtes directement responsable de concevoir et d’implémenter des flux et des rapports/listes sur les systèmes de la banque (ODI, SAP BO, Databricks).\n\nConcrètement ?\n\n• Vous piloterez la stratégie Data & IA de la banque et accompagnerez sa mise en œuvre au travers d’une feuille de route ambitieuse, créatrice de valeur pour les métiers et les clients.\n\n• Vos activités vous amèneront à encadrer et développer l’équipe Data & IA ainsi que les partenaires externes, en assurant la priorisation des activités, l’excellence opérationnelle et l’évolution des compétences.\n\n• Vous garantirez la gouvernance, la qualité et la valorisation des données en faisant évoluer les plateformes data de la banque et en veillant à la fiabilité, la traçabilité et l’exploitabilité des informations.\n\n• Vous assurerez l’accompagnement des métiers dans l’identification, la conception et le déploiement de solutions Data & IA répondant aux enjeux stratégiques et opérationnels de l’organisation.\n\n• Profil hands-on, vous réalisez vous-même la conception, l’implémentation, la documentation et le suivi en production de flux et rapports/listes opérationnelles dans les plateformes legacy (ODI, SAP BO) et Cloud (Databricks).\n\n• Vous contribuerez au développement et à l’industrialisation des cas d’usage IA en collaboration avec les parties prenantes, tout en assurant leur adoption dans un cadre conforme aux exigences de sécurité, de gestion des risques et de réglementation.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le domaine de la donnée, notamment en data engineering, idéalement dans un environnement bancaire.\n\n• Vous maîtrisez les technologies Data telles que ODI, Oracle, SQL, Databricks ou équivalent, et possédez les compétences et l’expérience nécessaires pour contribuer au développement des plateformes IA basées sur les technologies Microsoft et Databricks.\n\n• Vous possédez de bonnes connaissances des enjeux liés à la gouvernance, à la qualité, à la sécurité et à la conformité des données.\n\n• Vous avez de bonnes connaissances de l’allemand et/ou de l’anglais.\n\n• Personne impliquée et proactive, vous savez porter une vision claire, challenger les besoins exprimés et transformer les attentes métiers en solutions concrètes à forte valeur ajoutée alignées sur la stratégie de la banque.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+      "descriptionByLocale": {
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nResponsable Data & IA\n\n• Sion\n\n• 100%\n\nVous êtes passionné-e par la donnée, l’intelligence artificielle et le management d’équipe ? Rejoignez une équipe qui accompagne la transformation numérique de la BCVS et contribue à créer de la valeur grâce à la bonne utilisation des données. En tant que Responsable Data & IA, vous serez au cœur de projets stratégiques visant à développer les usages de la donnée et de l’IA.\nComme Manager, vous développez les talents de votre équipe. Comme ingénieur informatique expérimenté dans les plateformes Data, vous êtes directement responsable de concevoir et d’implémenter des flux et des rapports/listes sur les systèmes de la banque (ODI, SAP BO, Databricks).\n\nConcrètement ?\n\n• Vous piloterez la stratégie Data & IA de la banque et accompagnerez sa mise en œuvre au travers d’une feuille de route ambitieuse, créatrice de valeur pour les métiers et les clients.\n\n• Vos activités vous amèneront à encadrer et développer l’équipe Data & IA ainsi que les partenaires externes, en assurant la priorisation des activités, l’excellence opérationnelle et l’évolution des compétences.\n\n• Vous garantirez la gouvernance, la qualité et la valorisation des données en faisant évoluer les plateformes data de la banque et en veillant à la fiabilité, la traçabilité et l’exploitabilité des informations.\n\n• Vous assurerez l’accompagnement des métiers dans l’identification, la conception et le déploiement de solutions Data & IA répondant aux enjeux stratégiques et opérationnels de l’organisation.\n\n• Profil hands-on, vous réalisez vous-même la conception, l’implémentation, la documentation et le suivi en production de flux et rapports/listes opérationnelles dans les plateformes legacy (ODI, SAP BO) et Cloud (Databricks).\n\n• Vous contribuerez au développement et à l’industrialisation des cas d’usage IA en collaboration avec les parties prenantes, tout en assurant leur adoption dans un cadre conforme aux exigences de sécurité, de gestion des risques et de réglementation.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le domaine de la donnée, notamment en data engineering, idéalement dans un environnement bancaire.\n\n• Vous maîtrisez les technologies Data telles que ODI, Oracle, SQL, Databricks ou équivalent, et possédez les compétences et l’expérience nécessaires pour contribuer au développement des plateformes IA basées sur les technologies Microsoft et Databricks.\n\n• Vous possédez de bonnes connaissances des enjeux liés à la gouvernance, à la qualité, à la sécurité et à la conformité des données.\n\n• Vous avez de bonnes connaissances de l’allemand et/ou de l’anglais.\n\n• Personne impliquée et proactive, vous savez porter une vision claire, challenger les besoins exprimés et transformer les attentes métiers en solutions concrètes à forte valeur ajoutée alignées sur la stratégie de la banque.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nResponsable Data & IA\n\n• Sion\n\n• 100%\n\nVous êtes passionné-e par la donnée, l’intelligence artificielle et le management d’équipe ? Rejoignez une équipe qui accompagne la transformation numérique de la BCVS et contribue à créer de la valeur grâce à la bonne utilisation des données. En tant que Responsable Data & IA, vous serez au cœur de projets stratégiques visant à développer les usages de la donnée et de l’IA.\nComme Manager, vous développez les talents de votre équipe. Comme ingénieur informatique expérimenté dans les plateformes Data, vous êtes directement responsable de concevoir et d’implémenter des flux et des rapports/listes sur les systèmes de la banque (ODI, SAP BO, Databricks).\n\nConcrètement ?\n\n• Vous piloterez la stratégie Data & IA de la banque et accompagnerez sa mise en œuvre au travers d’une feuille de route ambitieuse, créatrice de valeur pour les métiers et les clients.\n\n• Vos activités vous amèneront à encadrer et développer l’équipe Data & IA ainsi que les partenaires externes, en assurant la priorisation des activités, l’excellence opérationnelle et l’évolution des compétences.\n\n• Vous garantirez la gouvernance, la qualité et la valorisation des données en faisant évoluer les plateformes data de la banque et en veillant à la fiabilité, la traçabilité et l’exploitabilité des informations.\n\n• Vous assurerez l’accompagnement des métiers dans l’identification, la conception et le déploiement de solutions Data & IA répondant aux enjeux stratégiques et opérationnels de l’organisation.\n\n• Profil hands-on, vous réalisez vous-même la conception, l’implémentation, la documentation et le suivi en production de flux et rapports/listes opérationnelles dans les plateformes legacy (ODI, SAP BO) et Cloud (Databricks).\n\n• Vous contribuerez au développement et à l’industrialisation des cas d’usage IA en collaboration avec les parties prenantes, tout en assurant leur adoption dans un cadre conforme aux exigences de sécurité, de gestion des risques et de réglementation.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le domaine de la donnée, notamment en data engineering, idéalement dans un environnement bancaire.\n\n• Vous maîtrisez les technologies Data telles que ODI, Oracle, SQL, Databricks ou équivalent, et possédez les compétences et l’expérience nécessaires pour contribuer au développement des plateformes IA basées sur les technologies Microsoft et Databricks.\n\n• Vous possédez de bonnes connaissances des enjeux liés à la gouvernance, à la qualité, à la sécurité et à la conformité des données.\n\n• Vous avez de bonnes connaissances de l’allemand et/ou de l’anglais.\n\n• Personne impliquée et proactive, vous savez porter une vision claire, challenger les besoins exprimés et transformer les attentes métiers en solutions concrètes à forte valeur ajoutée alignées sur la stratégie de la banque.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nResponsable Data & IA\n\n• Sion\n\n• 100%\n\nVous êtes passionné-e par la donnée, l’intelligence artificielle et le management d’équipe ? Rejoignez une équipe qui accompagne la transformation numérique de la BCVS et contribue à créer de la valeur grâce à la bonne utilisation des données. En tant que Responsable Data & IA, vous serez au cœur de projets stratégiques visant à développer les usages de la donnée et de l’IA.\nComme Manager, vous développez les talents de votre équipe. Comme ingénieur informatique expérimenté dans les plateformes Data, vous êtes directement responsable de concevoir et d’implémenter des flux et des rapports/listes sur les systèmes de la banque (ODI, SAP BO, Databricks).\n\nConcrètement ?\n\n• Vous piloterez la stratégie Data & IA de la banque et accompagnerez sa mise en œuvre au travers d’une feuille de route ambitieuse, créatrice de valeur pour les métiers et les clients.\n\n• Vos activités vous amèneront à encadrer et développer l’équipe Data & IA ainsi que les partenaires externes, en assurant la priorisation des activités, l’excellence opérationnelle et l’évolution des compétences.\n\n• Vous garantirez la gouvernance, la qualité et la valorisation des données en faisant évoluer les plateformes data de la banque et en veillant à la fiabilité, la traçabilité et l’exploitabilité des informations.\n\n• Vous assurerez l’accompagnement des métiers dans l’identification, la conception et le déploiement de solutions Data & IA répondant aux enjeux stratégiques et opérationnels de l’organisation.\n\n• Profil hands-on, vous réalisez vous-même la conception, l’implémentation, la documentation et le suivi en production de flux et rapports/listes opérationnelles dans les plateformes legacy (ODI, SAP BO) et Cloud (Databricks).\n\n• Vous contribuerez au développement et à l’industrialisation des cas d’usage IA en collaboration avec les parties prenantes, tout en assurant leur adoption dans un cadre conforme aux exigences de sécurité, de gestion des risques et de réglementation.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le domaine de la donnée, notamment en data engineering, idéalement dans un environnement bancaire.\n\n• Vous maîtrisez les technologies Data telles que ODI, Oracle, SQL, Databricks ou équivalent, et possédez les compétences et l’expérience nécessaires pour contribuer au développement des plateformes IA basées sur les technologies Microsoft et Databricks.\n\n• Vous possédez de bonnes connaissances des enjeux liés à la gouvernance, à la qualité, à la sécurité et à la conformité des données.\n\n• Vous avez de bonnes connaissances de l’allemand et/ou de l’anglais.\n\n• Personne impliquée et proactive, vous savez porter une vision claire, challenger les besoins exprimés et transformer les attentes métiers en solutions concrètes à forte valeur ajoutée alignées sur la stratégie de la banque.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nResponsable Data & IA\n\n• Sion\n\n• 100%\n\nVous êtes passionné-e par la donnée, l’intelligence artificielle et le management d’équipe ? Rejoignez une équipe qui accompagne la transformation numérique de la BCVS et contribue à créer de la valeur grâce à la bonne utilisation des données. En tant que Responsable Data & IA, vous serez au cœur de projets stratégiques visant à développer les usages de la donnée et de l’IA.\nComme Manager, vous développez les talents de votre équipe. Comme ingénieur informatique expérimenté dans les plateformes Data, vous êtes directement responsable de concevoir et d’implémenter des flux et des rapports/listes sur les systèmes de la banque (ODI, SAP BO, Databricks).\n\nConcrètement ?\n\n• Vous piloterez la stratégie Data & IA de la banque et accompagnerez sa mise en œuvre au travers d’une feuille de route ambitieuse, créatrice de valeur pour les métiers et les clients.\n\n• Vos activités vous amèneront à encadrer et développer l’équipe Data & IA ainsi que les partenaires externes, en assurant la priorisation des activités, l’excellence opérationnelle et l’évolution des compétences.\n\n• Vous garantirez la gouvernance, la qualité et la valorisation des données en faisant évoluer les plateformes data de la banque et en veillant à la fiabilité, la traçabilité et l’exploitabilité des informations.\n\n• Vous assurerez l’accompagnement des métiers dans l’identification, la conception et le déploiement de solutions Data & IA répondant aux enjeux stratégiques et opérationnels de l’organisation.\n\n• Profil hands-on, vous réalisez vous-même la conception, l’implémentation, la documentation et le suivi en production de flux et rapports/listes opérationnelles dans les plateformes legacy (ODI, SAP BO) et Cloud (Databricks).\n\n• Vous contribuerez au développement et à l’industrialisation des cas d’usage IA en collaboration avec les parties prenantes, tout en assurant leur adoption dans un cadre conforme aux exigences de sécurité, de gestion des risques et de réglementation.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le domaine de la donnée, notamment en data engineering, idéalement dans un environnement bancaire.\n\n• Vous maîtrisez les technologies Data telles que ODI, Oracle, SQL, Databricks ou équivalent, et possédez les compétences et l’expérience nécessaires pour contribuer au développement des plateformes IA basées sur les technologies Microsoft et Databricks.\n\n• Vous possédez de bonnes connaissances des enjeux liés à la gouvernance, à la qualité, à la sécurité et à la conformité des données.\n\n• Vous avez de bonnes connaissances de l’allemand et/ou de l’anglais.\n\n• Personne impliquée et proactive, vous savez porter une vision claire, challenger les besoins exprimés et transformer les attentes métiers en solutions concrètes à forte valeur ajoutée alignées sur la stratégie de la banque.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
+      "source": "Banque Cantonale du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-28T21:29:52.591Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "pensum": "100%",
+      "sector": "Banca / Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
+      "requirements": [
+        "Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le domaine de la donnée, notamment en data engineering, idéalement dans un environnement bancaire.",
+        "Vous maîtrisez les technologies Data telles que ODI, Oracle, SQL, Databricks ou équivalent, et possédez les compétences et l’expérience nécessaires pour contribuer au développement des plateformes IA basées sur les technologies Microsoft et Databricks.",
+        "Vous possédez de bonnes connaissances des enjeux liés à la gouvernance, à la qualité, à la sécurité et à la conformité des données.",
+        "Vous avez de bonnes connaissances de l’allemand et/ou de l’anglais.",
+        "Personne impliquée et proactive, vous savez porter une vision claire, challenger les besoins exprimés et transformer les attentes métiers en solutions concrètes à forte valeur ajoutée alignées sur la stratégie de la banque."
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le domaine de la donnée, notamment en data engineering, idéalement dans un environnement bancaire.",
+          "Vous maîtrisez les technologies Data telles que ODI, Oracle, SQL, Databricks ou équivalent, et possédez les compétences et l’expérience nécessaires pour contribuer au développement des plateformes IA basées sur les technologies Microsoft et Databricks.",
+          "Vous possédez de bonnes connaissances des enjeux liés à la gouvernance, à la qualité, à la sécurité et à la conformité des données.",
+          "Vous avez de bonnes connaissances de l’allemand et/ou de l’anglais.",
+          "Personne impliquée et proactive, vous savez porter une vision claire, challenger les besoins exprimés et transformer les attentes métiers en solutions concrètes à forte valeur ajoutée alignées sur la stratégie de la banque."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:29:52.591Z"
+    },
+    {
+      "id": "bcvs-06cbb126f58a",
+      "slug": "expert-e-ia-power-platform-bcvs-sion",
+      "slugByLocale": {
+        "fr": "expert-e-ia-power-platform-bcvs-sion",
+        "it": "expert-e-ia-power-platform-bcvs-sion",
+        "en": "expert-e-ia-power-platform-banque-cantonale-du-valais-sion",
+        "de": "expert-e-ia-power-platform-bcvs-sion"
+      },
+      "company": "Banque Cantonale du Valais",
+      "companyKey": "bcvs",
+      "companyDomain": "bcvs.ch",
+      "title": "Expert-e IA & Power Platform",
+      "titleByLocale": {
+        "fr": "Expert-e IA & Power Platform",
+        "en": "Expert-e IA & Power Platform",
+        "it": "Expert-e IA & Power Platform",
+        "de": "Expert-e IA & Power Platform"
+      },
+      "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nExpert-e IA & Power Platform\n\n• Sion\n\n• 80-100%\n\nVous êtes passionné-e par l’intelligence artificielle, l’automatisation et les nouvelles technologies ? Rejoignez une équipe innovante qui accompagne la transformation numérique de la BCVS et contribue à créer de nouveaux usages à forte valeur ajoutée. En tant qu’Expert-e IA & Power Platform, vous serez au cœur de projets transversaux visant à démocratiser l’IA, automatiser les processus et développer des solutions performantes pour les métiers et les clients.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à échanger avec les utilisateurs-trices, à analyser leurs besoins et à les accompagner dans l’identification d’opportunités d’automatisation avec le soutien de l’intelligence artificielle.\n\n• Vous concevrez et développerez les solutions IA et low-code/no-code de la banque. Vous serez notamment responsable de déployer les agents et les assistants avec Copilot Studio ou d’autres solutions, les applications Power Apps, les flux Power Automate ainsi que les solutions collaboratives autour de SharePoint Online et Microsoft 365.\n\n• Vous mettrez en place et ferez évoluer une factory IA et Power Platform sécurisée et gouvernée, de la collecte des besoins jusqu’au déploiement des solutions. Vous définirez les standards de développement, favoriserez la réutilisabilité des composants et veillerez à la qualité, à la sécurité et à la maintenabilité des réalisations.\n\n• Dans le cadre de vos activités, vous collaborerez notamment avec les équipes Data, Infrastructure, Sécurité, Compliance afin de garantir la disponibilité des données, la conformité des solutions et leur intégration harmonieuse dans l’environnement bancaire de la BCVS.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le développement de solutions Microsoft Power Platform et IA, idéalement dans un environnement bancaire.\n\n• Vous maîtrisez les technologies telles que Copilot Studio, Power Platform, Power Apps, Power Automate, Dataverse, SharePoint Online, Teams et Azure, ainsi que les principes de gouvernance et de sécurité associés.\n\n• Vous êtes expert des concepts liés à l’intelligence artificielle générative, notamment les LLM, le prompt design, les agents, le RAG et la gouvernance des usages IA.\n\n• Personne impliquée et proactive, vous aimez transformer les besoins métiers en solutions simples et pragmatiques.\n\n• Votre esprit collaboratif vous permet de travailler avec d’autres expert-e-s de domaines variés, de partager vos connaissances et d’accompagner les utilisateurs dans l’adoption responsable des nouvelles technologies.\n\n• Vos bonnes connaissances de l’allemand sont un atout.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+      "descriptionByLocale": {
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nExpert-e IA & Power Platform\n\n• Sion\n\n• 80-100%\n\nVous êtes passionné-e par l’intelligence artificielle, l’automatisation et les nouvelles technologies ? Rejoignez une équipe innovante qui accompagne la transformation numérique de la BCVS et contribue à créer de nouveaux usages à forte valeur ajoutée. En tant qu’Expert-e IA & Power Platform, vous serez au cœur de projets transversaux visant à démocratiser l’IA, automatiser les processus et développer des solutions performantes pour les métiers et les clients.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à échanger avec les utilisateurs-trices, à analyser leurs besoins et à les accompagner dans l’identification d’opportunités d’automatisation avec le soutien de l’intelligence artificielle.\n\n• Vous concevrez et développerez les solutions IA et low-code/no-code de la banque. Vous serez notamment responsable de déployer les agents et les assistants avec Copilot Studio ou d’autres solutions, les applications Power Apps, les flux Power Automate ainsi que les solutions collaboratives autour de SharePoint Online et Microsoft 365.\n\n• Vous mettrez en place et ferez évoluer une factory IA et Power Platform sécurisée et gouvernée, de la collecte des besoins jusqu’au déploiement des solutions. Vous définirez les standards de développement, favoriserez la réutilisabilité des composants et veillerez à la qualité, à la sécurité et à la maintenabilité des réalisations.\n\n• Dans le cadre de vos activités, vous collaborerez notamment avec les équipes Data, Infrastructure, Sécurité, Compliance afin de garantir la disponibilité des données, la conformité des solutions et leur intégration harmonieuse dans l’environnement bancaire de la BCVS.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le développement de solutions Microsoft Power Platform et IA, idéalement dans un environnement bancaire.\n\n• Vous maîtrisez les technologies telles que Copilot Studio, Power Platform, Power Apps, Power Automate, Dataverse, SharePoint Online, Teams et Azure, ainsi que les principes de gouvernance et de sécurité associés.\n\n• Vous êtes expert des concepts liés à l’intelligence artificielle générative, notamment les LLM, le prompt design, les agents, le RAG et la gouvernance des usages IA.\n\n• Personne impliquée et proactive, vous aimez transformer les besoins métiers en solutions simples et pragmatiques.\n\n• Votre esprit collaboratif vous permet de travailler avec d’autres expert-e-s de domaines variés, de partager vos connaissances et d’accompagner les utilisateurs dans l’adoption responsable des nouvelles technologies.\n\n• Vos bonnes connaissances de l’allemand sont un atout.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nExpert-e IA & Power Platform\n\n• Sion\n\n• 80-100%\n\nVous êtes passionné-e par l’intelligence artificielle, l’automatisation et les nouvelles technologies ? Rejoignez une équipe innovante qui accompagne la transformation numérique de la BCVS et contribue à créer de nouveaux usages à forte valeur ajoutée. En tant qu’Expert-e IA & Power Platform, vous serez au cœur de projets transversaux visant à démocratiser l’IA, automatiser les processus et développer des solutions performantes pour les métiers et les clients.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à échanger avec les utilisateurs-trices, à analyser leurs besoins et à les accompagner dans l’identification d’opportunités d’automatisation avec le soutien de l’intelligence artificielle.\n\n• Vous concevrez et développerez les solutions IA et low-code/no-code de la banque. Vous serez notamment responsable de déployer les agents et les assistants avec Copilot Studio ou d’autres solutions, les applications Power Apps, les flux Power Automate ainsi que les solutions collaboratives autour de SharePoint Online et Microsoft 365.\n\n• Vous mettrez en place et ferez évoluer une factory IA et Power Platform sécurisée et gouvernée, de la collecte des besoins jusqu’au déploiement des solutions. Vous définirez les standards de développement, favoriserez la réutilisabilité des composants et veillerez à la qualité, à la sécurité et à la maintenabilité des réalisations.\n\n• Dans le cadre de vos activités, vous collaborerez notamment avec les équipes Data, Infrastructure, Sécurité, Compliance afin de garantir la disponibilité des données, la conformité des solutions et leur intégration harmonieuse dans l’environnement bancaire de la BCVS.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le développement de solutions Microsoft Power Platform et IA, idéalement dans un environnement bancaire.\n\n• Vous maîtrisez les technologies telles que Copilot Studio, Power Platform, Power Apps, Power Automate, Dataverse, SharePoint Online, Teams et Azure, ainsi que les principes de gouvernance et de sécurité associés.\n\n• Vous êtes expert des concepts liés à l’intelligence artificielle générative, notamment les LLM, le prompt design, les agents, le RAG et la gouvernance des usages IA.\n\n• Personne impliquée et proactive, vous aimez transformer les besoins métiers en solutions simples et pragmatiques.\n\n• Votre esprit collaboratif vous permet de travailler avec d’autres expert-e-s de domaines variés, de partager vos connaissances et d’accompagner les utilisateurs dans l’adoption responsable des nouvelles technologies.\n\n• Vos bonnes connaissances de l’allemand sont un atout.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nExpert-e IA & Power Platform\n\n• Sion\n\n• 80-100%\n\nVous êtes passionné-e par l’intelligence artificielle, l’automatisation et les nouvelles technologies ? Rejoignez une équipe innovante qui accompagne la transformation numérique de la BCVS et contribue à créer de nouveaux usages à forte valeur ajoutée. En tant qu’Expert-e IA & Power Platform, vous serez au cœur de projets transversaux visant à démocratiser l’IA, automatiser les processus et développer des solutions performantes pour les métiers et les clients.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à échanger avec les utilisateurs-trices, à analyser leurs besoins et à les accompagner dans l’identification d’opportunités d’automatisation avec le soutien de l’intelligence artificielle.\n\n• Vous concevrez et développerez les solutions IA et low-code/no-code de la banque. Vous serez notamment responsable de déployer les agents et les assistants avec Copilot Studio ou d’autres solutions, les applications Power Apps, les flux Power Automate ainsi que les solutions collaboratives autour de SharePoint Online et Microsoft 365.\n\n• Vous mettrez en place et ferez évoluer une factory IA et Power Platform sécurisée et gouvernée, de la collecte des besoins jusqu’au déploiement des solutions. Vous définirez les standards de développement, favoriserez la réutilisabilité des composants et veillerez à la qualité, à la sécurité et à la maintenabilité des réalisations.\n\n• Dans le cadre de vos activités, vous collaborerez notamment avec les équipes Data, Infrastructure, Sécurité, Compliance afin de garantir la disponibilité des données, la conformité des solutions et leur intégration harmonieuse dans l’environnement bancaire de la BCVS.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le développement de solutions Microsoft Power Platform et IA, idéalement dans un environnement bancaire.\n\n• Vous maîtrisez les technologies telles que Copilot Studio, Power Platform, Power Apps, Power Automate, Dataverse, SharePoint Online, Teams et Azure, ainsi que les principes de gouvernance et de sécurité associés.\n\n• Vous êtes expert des concepts liés à l’intelligence artificielle générative, notamment les LLM, le prompt design, les agents, le RAG et la gouvernance des usages IA.\n\n• Personne impliquée et proactive, vous aimez transformer les besoins métiers en solutions simples et pragmatiques.\n\n• Votre esprit collaboratif vous permet de travailler avec d’autres expert-e-s de domaines variés, de partager vos connaissances et d’accompagner les utilisateurs dans l’adoption responsable des nouvelles technologies.\n\n• Vos bonnes connaissances de l’allemand sont un atout.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nExpert-e IA & Power Platform\n\n• Sion\n\n• 80-100%\n\nVous êtes passionné-e par l’intelligence artificielle, l’automatisation et les nouvelles technologies ? Rejoignez une équipe innovante qui accompagne la transformation numérique de la BCVS et contribue à créer de nouveaux usages à forte valeur ajoutée. En tant qu’Expert-e IA & Power Platform, vous serez au cœur de projets transversaux visant à démocratiser l’IA, automatiser les processus et développer des solutions performantes pour les métiers et les clients.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à échanger avec les utilisateurs-trices, à analyser leurs besoins et à les accompagner dans l’identification d’opportunités d’automatisation avec le soutien de l’intelligence artificielle.\n\n• Vous concevrez et développerez les solutions IA et low-code/no-code de la banque. Vous serez notamment responsable de déployer les agents et les assistants avec Copilot Studio ou d’autres solutions, les applications Power Apps, les flux Power Automate ainsi que les solutions collaboratives autour de SharePoint Online et Microsoft 365.\n\n• Vous mettrez en place et ferez évoluer une factory IA et Power Platform sécurisée et gouvernée, de la collecte des besoins jusqu’au déploiement des solutions. Vous définirez les standards de développement, favoriserez la réutilisabilité des composants et veillerez à la qualité, à la sécurité et à la maintenabilité des réalisations.\n\n• Dans le cadre de vos activités, vous collaborerez notamment avec les équipes Data, Infrastructure, Sécurité, Compliance afin de garantir la disponibilité des données, la conformité des solutions et leur intégration harmonieuse dans l’environnement bancaire de la BCVS.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le développement de solutions Microsoft Power Platform et IA, idéalement dans un environnement bancaire.\n\n• Vous maîtrisez les technologies telles que Copilot Studio, Power Platform, Power Apps, Power Automate, Dataverse, SharePoint Online, Teams et Azure, ainsi que les principes de gouvernance et de sécurité associés.\n\n• Vous êtes expert des concepts liés à l’intelligence artificielle générative, notamment les LLM, le prompt design, les agents, le RAG et la gouvernance des usages IA.\n\n• Personne impliquée et proactive, vous aimez transformer les besoins métiers en solutions simples et pragmatiques.\n\n• Votre esprit collaboratif vous permet de travailler avec d’autres expert-e-s de domaines variés, de partager vos connaissances et d’accompagner les utilisateurs dans l’adoption responsable des nouvelles technologies.\n\n• Vos bonnes connaissances de l’allemand sont un atout.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-ia-power-platform-2693",
+      "source": "Banque Cantonale du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-28T21:29:52.155Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "pensum": "80-100%",
+      "sector": "Banca / Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-ia-power-platform-2693",
+      "requirements": [
+        "Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le développement de solutions Microsoft Power Platform et IA, idéalement dans un environnement bancaire.",
+        "Vous maîtrisez les technologies telles que Copilot Studio, Power Platform, Power Apps, Power Automate, Dataverse, SharePoint Online, Teams et Azure, ainsi que les principes de gouvernance et de sécurité associés.",
+        "Vous êtes expert des concepts liés à l’intelligence artificielle générative, notamment les LLM, le prompt design, les agents, le RAG et la gouvernance des usages IA.",
+        "Personne impliquée et proactive, vous aimez transformer les besoins métiers en solutions simples et pragmatiques.",
+        "Votre esprit collaboratif vous permet de travailler avec d’autres expert-e-s de domaines variés, de partager vos connaissances et d’accompagner les utilisateurs dans l’adoption responsable des nouvelles technologies.",
+        "Vos bonnes connaissances de l’allemand sont un atout."
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le développement de solutions Microsoft Power Platform et IA, idéalement dans un environnement bancaire.",
+          "Vous maîtrisez les technologies telles que Copilot Studio, Power Platform, Power Apps, Power Automate, Dataverse, SharePoint Online, Teams et Azure, ainsi que les principes de gouvernance et de sécurité associés.",
+          "Vous êtes expert des concepts liés à l’intelligence artificielle générative, notamment les LLM, le prompt design, les agents, le RAG et la gouvernance des usages IA.",
+          "Personne impliquée et proactive, vous aimez transformer les besoins métiers en solutions simples et pragmatiques.",
+          "Votre esprit collaboratif vous permet de travailler avec d’autres expert-e-s de domaines variés, de partager vos connaissances et d’accompagner les utilisateurs dans l’adoption responsable des nouvelles technologies.",
+          "Vos bonnes connaissances de l’allemand sont un atout."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:29:52.155Z"
+    },
+    {
+      "id": "bcvs-a7ac7dab4c55",
+      "slug": "data-analyst-bi-expert-bcvs-sion",
+      "slugByLocale": {
+        "fr": "data-analyst-bi-expert-bcvs-sion",
+        "it": "data-analyst-bi-expert-bcvs-sion",
+        "en": "data-analyst-bi-expert-banque-cantonale-du-valais-sion",
+        "de": "data-analyst-bi-expert-bcvs-sion"
+      },
+      "company": "Banque Cantonale du Valais",
+      "companyKey": "bcvs",
+      "companyDomain": "bcvs.ch",
+      "title": "Data Analyst / BI Expert",
+      "titleByLocale": {
+        "fr": "Data Analyste / BI Expert",
+        "en": "Data Analyst / BI Expert",
+        "it": "Data Analista / BI Expert",
+        "de": "Data Analyst / BI Expert"
+      },
+      "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nData Analyst / BI Expert\n\n• Sion\n\n• 80-100%\n\nVous êtes formé-e aux sciences informatiques et avez un talent pour faire parler les données ? Rejoignez-nous en tant que Data Analyst, vous serez au cœur de projets innovants et transversaux, porteurs de la transformation numérique de la BCVS.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à échanger avec les utilisateurs-trices, à analyser leurs besoins et à les soutenir dans la prise en main de nouveaux outils. Votre savoir-faire et votre pédagogie permettront des prises de décisions optimales par les managers. Dans le développement de solutions, vous collaborerez donc aux ateliers de conception avec le métier.\n\n• Vous participerez activement aux développements technologiques dans la gestion des données ; en particulier la mise en place des rapports, ainsi que les flux et la plateforme d’analyse de données elle-même. Vous analyserez, modéliserez et créerez les datamarts et les flux ETL ; par ce biais, vous serez une force de proposition dans l’apport de solutions innovantes.\n\n• Dans le cadre du cycle de projets, vous assurerez le suivi en production et rédigerez la documentation technique.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et disposez de plusieurs années d'expérience à un poste similaire (la connaissance du secteur bancaire serait un atout).\n\n• Vous maîtrisez les outils informatiques, notamment ODI, SAP BO, Power BI ou Databricks, et possédez de bonnes aptitudes rédactionnelles.\n\n• Personne impliquée et proactive, votre métier vous passionne et vous suivez les dernières tendances du secteur.\n\n• Votre maîtrise de l’allemand constitue un atout.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+      "descriptionByLocale": {
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nData Analyst / BI Expert\n\n• Sion\n\n• 80-100%\n\nVous êtes formé-e aux sciences informatiques et avez un talent pour faire parler les données ? Rejoignez-nous en tant que Data Analyst, vous serez au cœur de projets innovants et transversaux, porteurs de la transformation numérique de la BCVS.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à échanger avec les utilisateurs-trices, à analyser leurs besoins et à les soutenir dans la prise en main de nouveaux outils. Votre savoir-faire et votre pédagogie permettront des prises de décisions optimales par les managers. Dans le développement de solutions, vous collaborerez donc aux ateliers de conception avec le métier.\n\n• Vous participerez activement aux développements technologiques dans la gestion des données ; en particulier la mise en place des rapports, ainsi que les flux et la plateforme d’analyse de données elle-même. Vous analyserez, modéliserez et créerez les datamarts et les flux ETL ; par ce biais, vous serez une force de proposition dans l’apport de solutions innovantes.\n\n• Dans le cadre du cycle de projets, vous assurerez le suivi en production et rédigerez la documentation technique.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et disposez de plusieurs années d'expérience à un poste similaire (la connaissance du secteur bancaire serait un atout).\n\n• Vous maîtrisez les outils informatiques, notamment ODI, SAP BO, Power BI ou Databricks, et possédez de bonnes aptitudes rédactionnelles.\n\n• Personne impliquée et proactive, votre métier vous passionne et vous suivez les dernières tendances du secteur.\n\n• Votre maîtrise de l’allemand constitue un atout.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nData Analyst / BI Expert\n\n• Sion\n\n• 80-100%\n\nVous êtes formé-e aux sciences informatiques et avez un talent pour faire parler les données ? Rejoignez-nous en tant que Data Analyst, vous serez au cœur de projets innovants et transversaux, porteurs de la transformation numérique de la BCVS.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à échanger avec les utilisateurs-trices, à analyser leurs besoins et à les soutenir dans la prise en main de nouveaux outils. Votre savoir-faire et votre pédagogie permettront des prises de décisions optimales par les managers. Dans le développement de solutions, vous collaborerez donc aux ateliers de conception avec le métier.\n\n• Vous participerez activement aux développements technologiques dans la gestion des données ; en particulier la mise en place des rapports, ainsi que les flux et la plateforme d’analyse de données elle-même. Vous analyserez, modéliserez et créerez les datamarts et les flux ETL ; par ce biais, vous serez une force de proposition dans l’apport de solutions innovantes.\n\n• Dans le cadre du cycle de projets, vous assurerez le suivi en production et rédigerez la documentation technique.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et disposez de plusieurs années d'expérience à un poste similaire (la connaissance du secteur bancaire serait un atout).\n\n• Vous maîtrisez les outils informatiques, notamment ODI, SAP BO, Power BI ou Databricks, et possédez de bonnes aptitudes rédactionnelles.\n\n• Personne impliquée et proactive, votre métier vous passionne et vous suivez les dernières tendances du secteur.\n\n• Votre maîtrise de l’allemand constitue un atout.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nData Analyst / BI Expert\n\n• Sion\n\n• 80-100%\n\nVous êtes formé-e aux sciences informatiques et avez un talent pour faire parler les données ? Rejoignez-nous en tant que Data Analyst, vous serez au cœur de projets innovants et transversaux, porteurs de la transformation numérique de la BCVS.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à échanger avec les utilisateurs-trices, à analyser leurs besoins et à les soutenir dans la prise en main de nouveaux outils. Votre savoir-faire et votre pédagogie permettront des prises de décisions optimales par les managers. Dans le développement de solutions, vous collaborerez donc aux ateliers de conception avec le métier.\n\n• Vous participerez activement aux développements technologiques dans la gestion des données ; en particulier la mise en place des rapports, ainsi que les flux et la plateforme d’analyse de données elle-même. Vous analyserez, modéliserez et créerez les datamarts et les flux ETL ; par ce biais, vous serez une force de proposition dans l’apport de solutions innovantes.\n\n• Dans le cadre du cycle de projets, vous assurerez le suivi en production et rédigerez la documentation technique.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et disposez de plusieurs années d'expérience à un poste similaire (la connaissance du secteur bancaire serait un atout).\n\n• Vous maîtrisez les outils informatiques, notamment ODI, SAP BO, Power BI ou Databricks, et possédez de bonnes aptitudes rédactionnelles.\n\n• Personne impliquée et proactive, votre métier vous passionne et vous suivez les dernières tendances du secteur.\n\n• Votre maîtrise de l’allemand constitue un atout.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026.",
+        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nData Analyst / BI Expert\n\n• Sion\n\n• 80-100%\n\nVous êtes formé-e aux sciences informatiques et avez un talent pour faire parler les données ? Rejoignez-nous en tant que Data Analyst, vous serez au cœur de projets innovants et transversaux, porteurs de la transformation numérique de la BCVS.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à échanger avec les utilisateurs-trices, à analyser leurs besoins et à les soutenir dans la prise en main de nouveaux outils. Votre savoir-faire et votre pédagogie permettront des prises de décisions optimales par les managers. Dans le développement de solutions, vous collaborerez donc aux ateliers de conception avec le métier.\n\n• Vous participerez activement aux développements technologiques dans la gestion des données ; en particulier la mise en place des rapports, ainsi que les flux et la plateforme d’analyse de données elle-même. Vous analyserez, modéliserez et créerez les datamarts et les flux ETL ; par ce biais, vous serez une force de proposition dans l’apport de solutions innovantes.\n\n• Dans le cadre du cycle de projets, vous assurerez le suivi en production et rédigerez la documentation technique.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et disposez de plusieurs années d'expérience à un poste similaire (la connaissance du secteur bancaire serait un atout).\n\n• Vous maîtrisez les outils informatiques, notamment ODI, SAP BO, Power BI ou Databricks, et possédez de bonnes aptitudes rédactionnelles.\n\n• Personne impliquée et proactive, votre métier vous passionne et vous suivez les dernières tendances du secteur.\n\n• Votre maîtrise de l’allemand constitue un atout.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à notre HR Business Partner, Marisa Berclaz, à l’adresse : recrutement@bcvs.ch d’ici au 16 octobre 2026."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
+      "source": "Banque Cantonale du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-28T21:29:51.717Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "pensum": "80-100%",
+      "sector": "Banca / Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
+      "requirements": [
+        "Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et disposez de plusieurs années d'expérience à un poste similaire (la connaissance du secteur bancaire serait un atout).",
+        "Vous maîtrisez les outils informatiques, notamment ODI, SAP BO, Power BI ou Databricks, et possédez de bonnes aptitudes rédactionnelles.",
+        "Personne impliquée et proactive, votre métier vous passionne et vous suivez les dernières tendances du secteur.",
+        "Votre maîtrise de l’allemand constitue un atout."
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et disposez de plusieurs années d'expérience à un poste similaire (la connaissance du secteur bancaire serait un atout).",
+          "Vous maîtrisez les outils informatiques, notamment ODI, SAP BO, Power BI ou Databricks, et possédez de bonnes aptitudes rédactionnelles.",
+          "Personne impliquée et proactive, votre métier vous passionne et vous suivez les dernières tendances du secteur.",
+          "Votre maîtrise de l’allemand constitue un atout."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:29:51.717Z"
     }
   ]
 }

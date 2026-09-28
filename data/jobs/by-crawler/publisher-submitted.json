@@ -1,6 +1,6 @@
 {
   "crawlerKey": "publisher-submitted",
-  "assembledAt": "2026-09-28T15:46:06.004Z",
+  "assembledAt": "2026-09-28T21:34:13.831Z",
   "jobs": [
     {
       "title": "Ergoterapista dipl. (m/f) – 60–100%",
@@ -87,6 +87,70 @@
         "m-w-60-100-ergo-ticino-sagl-lugano",
         "h-f-60-100-ergo-ticino-sagl-lugano"
       ]
+    },
+    {
+      "title": "farmacista",
+      "slug": "farmacista-chiasso-farmacia-internazionale-dr-merloni",
+      "url": "https://frontaliereticino.ch/lavoro/farmacista-chiasso-farmacia-internazionale-dr-merloni",
+      "applyUrl": "https://www.internationalpharmacy.swiss/",
+      "company": "Farmacia Internazionale dr Merloni",
+      "companyKey": "farmacia-internazionale-dr-merloni",
+      "companyDomain": null,
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "postalCode": null,
+      "streetAddress": null,
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "health",
+      "sector": null,
+      "source": "publisher-submitted",
+      "sourceLang": "it",
+      "postedDate": "2026-09-28T21:34:12.490Z",
+      "employmentType": "PART_TIME",
+      "contractType": "permanent",
+      "validThrough": "2026-10-28T00:00:00.000Z",
+      "description": "Siamo alla ricerca di una figura professionale di farmacista da inserire nel proprio organico con esperienza pregressa nel ruolo ( vendita al banco, consiglio farmaceutico, gestione farmaci) e orientato in particolar modo alla galenica o  con Master in galenica. Inizio lavoro non appena ottenuti i permessi . .richiesta precisione, serieta' e capacita' di gestione all 'interno di requisiti di qualita' .",
+      "titleByLocale": {
+        "it": "farmacista",
+        "en": "farmacista",
+        "de": "farmacista",
+        "fr": "farmacista"
+      },
+      "slugByLocale": {
+        "it": "farmacista-chiasso-farmacia-internazionale-dr-merloni",
+        "en": "farmacista-chiasso-farmacia-internazionale-dr-merloni",
+        "de": "farmacista-chiasso-farmacia-internazionale-dr-merloni",
+        "fr": "farmacista-chiasso-farmacia-internazionale-dr-merloni"
+      },
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di una figura professionale di farmacista da inserire nel proprio organico con esperienza pregressa nel ruolo ( vendita al banco, consiglio farmaceutico, gestione farmaci) e orientato in particolar modo alla galenica o  con Master in galenica. Inizio lavoro non appena ottenuti i permessi . .richiesta precisione, serieta' e capacita' di gestione all 'interno di requisiti di qualita' ."
+      },
+      "id": "pub-iu5Qo4qyPN7JVgJYb9bZ-chiasso",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-09-28T18:02:00.817Z",
+      "crawledAt": "2026-09-28",
+      "featured": false,
+      "tier": "free",
+      "applyMode": "external_url",
+      "publisherUid": "SxhiePuxksWgEsyiOhKgXVUpF2C3",
+      "publisherJobId": "iu5Qo4qyPN7JVgJYb9bZ",
+      "needsRetranslation": true,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70500,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

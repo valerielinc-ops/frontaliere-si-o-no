@@ -41,12 +41,16 @@ beforeEach(() => {
   vi.resetModules();
   process.env.GH_REPO = 'o/r';
   process.env.TIMEOUT_SCAN_LOOKBACK_MINUTES = '40';
+  process.env.TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON = 'true';
+  delete process.env.TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES;
   process.env.HOST_KILL_SETTLE_MS = '120000';
 });
 
 afterEach(() => {
   delete process.env.GH_REPO;
   delete process.env.TIMEOUT_SCAN_LOOKBACK_MINUTES;
+  delete process.env.TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON;
+  delete process.env.TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES;
   delete process.env.HOST_KILL_SETTLE_MS;
 });
 
@@ -73,7 +77,37 @@ describe('observation window — completion time, not start time', () => {
     expect(callsFor('create')[0].join(' ')).toContain(run.html_url);
   });
 
-  it('continues beyond 200 created-at-ordered runs and bounds created by the full workflow lifetime', async () => {
+  it('the retention-complete override observes a run created more than three days ago', async () => {
+    process.env.TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES = String(35 * 24 * 60);
+    delete process.env.TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON;
+    vi.resetModules();
+    const run = runFixture(102, { created_at: iso(4 * 24 * 60 * MINUTE) });
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'api') {
+        if (args[1].includes('actions/workflows/')) return JSON.stringify({ workflow_runs: [] });
+        if (args[1].includes('actions/runs?status=cancelled')) {
+          return JSON.stringify({ total_count: 1, workflow_runs: [run] });
+        }
+        if (args[1].includes('actions/runs?status=failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
+        if (args[1].includes(`/runs/${run.id}/jobs`)) return JSON.stringify({ jobs: [timeoutJob] });
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
+        return '{}';
+      }
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/1';
+      return '';
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
+
+    expect(callsFor('create')).toHaveLength(1);
+    expect(callsFor('create')[0].join(' ')).toContain(run.html_url);
+  });
+
+  it('continues beyond 200 runs while the default created window stays inside the 3-day scan budget', async () => {
     const oldRuns = Array.from({ length: 100 }, (_, index) => runFixture(index, {
       created_at: iso(8 * 60 * MINUTE),
       updated_at: iso(7 * 60 * MINUTE),
@@ -110,7 +144,11 @@ describe('observation window — completion time, not start time', () => {
     });
     expect(createdRanges.every((range) => range.includes('..'))).toBe(true);
     const [oldest] = createdRanges[0].split('..');
-    expect(Date.now() - Date.parse(oldest)).toBeGreaterThanOrEqual(3 * 24 * 60 * MINUTE);
+    // The created-at range starts before the observation cutoff, so its total
+    // age is the three-day run horizon plus this fixture's 40-minute lookback.
+    const searchHorizonMs = Date.now() - Date.parse(oldest);
+    expect(searchHorizonMs).toBeGreaterThanOrEqual((3 * 24 * 60 + 40) * MINUTE);
+    expect(searchHorizonMs).toBeLessThan((3 * 24 * 60 + 41) * MINUTE);
   });
 
   it('bisects a created range above GitHub\'s 1,000-result search cap and reaches the later slice', async () => {

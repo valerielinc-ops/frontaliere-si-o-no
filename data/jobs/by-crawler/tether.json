@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tether",
-  "assembledAt": "2026-09-28T04:54:22.702Z",
+  "assembledAt": "2026-09-28T21:13:35.079Z",
   "jobs": [
     {
       "id": "tether-f90910adcedb",
@@ -33,7 +33,7 @@
       "url": "https://tether.recruitee.com/o/solutions-partner-manager-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:15.957Z",
+      "crawledAt": "2026-09-28T21:13:27.926Z",
       "addressLocality": "Madrid",
       "addressRegion": "Comunidad de Madrid",
       "addressCountry": "",
@@ -54,14 +54,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solutions-partner-manager-100-remote-tether-ch"
+        "solutions-partner-manager-100-remote-tether-ch",
+        "responsabile-partner-soluzioni-100-remoto-tether-operations-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solutions-partner-manager-100-remote-tether-ch"
+          "solutions-partner-manager-100-remote-tether-ch",
+          "responsabile-partner-soluzioni-100-remoto-tether-operations-madrid"
         ]
       },
       "firstSeenAt": "2026-06-08T13:53:38.703Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -107,7 +110,7 @@
       "url": "https://tether.recruitee.com/o/research-engineer-intern-videomultimodal-llm-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:15.952Z",
+      "crawledAt": "2026-09-28T21:13:27.918Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -131,13 +134,15 @@
         "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma-lazio",
         "research-engineer-intern-multimodal-llm-tether-ch",
         "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma",
-        "forschung-ingenieur-praktikant-multimodal-llm-tether-operations-roma-lazio"
+        "forschung-ingenieur-praktikant-multimodal-llm-tether-operations-roma-lazio",
+        "ricercatore-ingegnere-intern-multimodal-llm-tether-operations-milan"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma-lazio",
           "research-engineer-intern-multimodal-llm-tether-ch",
-          "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma"
+          "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma",
+          "ricercatore-ingegnere-intern-multimodal-llm-tether-operations-milan"
         ],
         "de": [
           "forschung-ingenieur-praktikant-multimodal-llm-tether-operations-roma-lazio"
@@ -189,7 +194,7 @@
       "url": "https://tether.recruitee.com/o/marketing-project-manager-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:14.824Z",
+      "crawledAt": "2026-09-28T21:13:26.793Z",
       "addressLocality": "Lisbon",
       "addressRegion": "Lisboa",
       "addressCountry": "",
@@ -210,14 +215,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "marketing-project-manager-100-remote-tether-ch"
+        "marketing-project-manager-100-remote-tether-ch",
+        "marketing-project-manager-100-remoto-tether-operations-lisbon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-project-manager-100-remote-tether-ch"
+          "marketing-project-manager-100-remote-tether-ch",
+          "marketing-project-manager-100-remoto-tether-operations-lisbon"
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:44.957Z",
+      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
@@ -263,7 +271,7 @@
       "url": "https://tether.recruitee.com/o/blockchain-expansion-manager-100-remote-8",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:14.804Z",
+      "crawledAt": "2026-09-28T21:13:26.766Z",
       "addressLocality": "Milano",
       "addressRegion": "Lombardia",
       "addressCountry": "",
@@ -284,17 +292,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "blockchain-expansion-manager-100-remote-tether-ch"
+        "blockchain-expansion-manager-100-remote-tether-ch",
+        "blockchain-expansion-manager-100-remoto-tether-operations-milano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "blockchain-expansion-manager-100-remote-tether-ch"
+          "blockchain-expansion-manager-100-remote-tether-ch",
+          "blockchain-expansion-manager-100-remoto-tether-operations-milano"
         ],
         "de": [
           "blockchain-expansion-manager-100-remote-tether-ch"
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:42.501Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -316,7 +327,7 @@
         "it": "capo-degli-affari-regolatori-e-del-licensing-medio-oriente-tether-operations-riyadh",
         "en": "head-of-regulatory-affairs-and-licensing-middle-east-tether-ch",
         "de": "leiter-regulatorische-angelegenheiten-und-lizenzierung-mittlerer-osten-tether-operations-riyadh",
-        "fr": "chef-des-affaires-reglementaires-et-des-licences-moyen-orient-tether-operations-riyadh"
+        "fr": "responsable-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -340,7 +351,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-and-licensing-middle-east-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:14.790Z",
+      "crawledAt": "2026-09-28T21:13:26.746Z",
       "addressLocality": "Riyadh",
       "addressRegion": "Mecca Province",
       "addressCountry": "",
@@ -363,14 +374,18 @@
       "previousSlugs": [
         "head-of-regulatory-affairs-and-licensing-middle-east-tether-ch",
         "responsabile-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh",
+        "chef-des-affaires-reglementaires-et-des-licences-moyen-orient-tether-operations-riyadh",
+        "capo-degli-affari-regolatori-e-del-licensing-medio-oriente-tether-operations-riyadh",
         "responsable-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-regulatory-affairs-and-licensing-middle-east-tether-ch",
-          "responsabile-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh"
+          "responsabile-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh",
+          "capo-degli-affari-regolatori-e-del-licensing-medio-oriente-tether-operations-riyadh"
         ],
         "fr": [
+          "chef-des-affaires-reglementaires-et-des-licences-moyen-orient-tether-operations-riyadh",
           "responsable-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh"
         ]
       },
@@ -387,7 +402,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-a83b029c6cc6",
@@ -420,7 +436,7 @@
       "url": "https://tether.recruitee.com/o/head-of-licensing-and-regulatory-authorisations-8",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:14.748Z",
+      "crawledAt": "2026-09-28T21:13:26.700Z",
       "addressLocality": "Abu Dhabi",
       "addressRegion": "Abu Dhabi",
       "addressCountry": "",
@@ -442,12 +458,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-licensing-and-regulatory-authorisations-tether-ch",
-        "responsabile-licensing-and-regulatory-authorisations-tether-operations-abu-dhabi"
+        "responsabile-licensing-and-regulatory-authorisations-tether-operations-abu-dhabi",
+        "responsabile-licenze-e-autorizzazioni-regolamentari-tether-operations-abu-dhabi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-licensing-and-regulatory-authorisations-tether-ch",
-          "responsabile-licensing-and-regulatory-authorisations-tether-operations-abu-dhabi"
+          "responsabile-licensing-and-regulatory-authorisations-tether-operations-abu-dhabi",
+          "responsabile-licenze-e-autorizzazioni-regolamentari-tether-operations-abu-dhabi"
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:44.782Z",
@@ -496,7 +514,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-ai-and-p2p-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:14.730Z",
+      "crawledAt": "2026-09-28T21:13:26.687Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -517,11 +535,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-regulatory-affairs-ai-and-p2p-100-remote-tether-ch"
+        "head-of-regulatory-affairs-ai-and-p2p-100-remote-tether-ch",
+        "capo-degli-affari-regolatori-ai-e-p2p-100-a-distanza-tether-operations-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-regulatory-affairs-ai-and-p2p-100-remote-tether-ch"
+          "head-of-regulatory-affairs-ai-and-p2p-100-remote-tether-ch",
+          "capo-degli-affari-regolatori-ai-e-p2p-100-a-distanza-tether-operations-london"
         ]
       },
       "firstSeenAt": "2026-08-04T11:33:16.786Z",
@@ -570,7 +590,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-lead-argentina",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:14.723Z",
+      "crawledAt": "2026-09-28T21:13:26.681Z",
       "addressLocality": "Buenos Aires",
       "addressRegion": "Buenos Aires",
       "addressCountry": "",
@@ -593,16 +613,19 @@
       "previousSlugs": [
         "responsabile-degli-affari-normativi-e-delle-licenze-argentina-tether-operations-buenos-aires-buenos-aires",
         "regulatory-affairs-and-licensing-lead-argentina-tether-ch",
-        "responsabile-degli-affari-normativi-e-delle-licenze-argentina-tether-operations-buenos-aires"
+        "responsabile-degli-affari-normativi-e-delle-licenze-argentina-tether-operations-buenos-aires",
+        "regolamentazione-e-licensing-lead-argentina-tether-operations-buenos-aires"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-degli-affari-normativi-e-delle-licenze-argentina-tether-operations-buenos-aires-buenos-aires",
           "regulatory-affairs-and-licensing-lead-argentina-tether-ch",
-          "responsabile-degli-affari-normativi-e-delle-licenze-argentina-tether-operations-buenos-aires"
+          "responsabile-degli-affari-normativi-e-delle-licenze-argentina-tether-operations-buenos-aires",
+          "regolamentazione-e-licensing-lead-argentina-tether-operations-buenos-aires"
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:44.766Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -648,7 +671,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-southern-africa-lead-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:14.715Z",
+      "crawledAt": "2026-09-28T21:13:26.674Z",
       "addressLocality": "Johannesburg",
       "addressRegion": "Gauteng",
       "addressCountry": "",
@@ -671,12 +694,14 @@
       "previousSlugs": [
         "regulatory-affairs-and-licensing-southern-africa-lead-100-remote-tether-ch",
         "regulatory-affairs-and-licensing-southern-africa-lead-100-remoto-tether-operations-cape-town",
-        "ai-filmmaker-100-a-distanza-in-tutto-il-mondo-tether-operations-buenos-aires"
+        "ai-filmmaker-100-a-distanza-in-tutto-il-mondo-tether-operations-buenos-aires",
+        "affari-regolatori-e-licenze-responsabile-dell-africa-australe-100-da-remoto-tether-operations-cape-town"
       ],
       "previousSlugsByLocale": {
         "it": [
           "regulatory-affairs-and-licensing-southern-africa-lead-100-remote-tether-ch",
-          "regulatory-affairs-and-licensing-southern-africa-lead-100-remoto-tether-operations-cape-town"
+          "regulatory-affairs-and-licensing-southern-africa-lead-100-remoto-tether-operations-cape-town",
+          "affari-regolatori-e-licenze-responsabile-dell-africa-australe-100-da-remoto-tether-operations-cape-town"
         ]
       },
       "needsRetranslation": true,
@@ -726,7 +751,7 @@
       "url": "https://tether.recruitee.com/o/ai-inference-engineer-qvac-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:14.707Z",
+      "crawledAt": "2026-09-28T21:13:26.667Z",
       "addressLocality": "Bogotá",
       "addressRegion": "Distrito Capital de Bogotá",
       "addressCountry": "",
@@ -749,15 +774,18 @@
       "previousSlugs": [
         "ai-inference-engineer-qvac-100-remote-worldwide-tether-ch",
         "ai-inference-ingegnere-qvac-100-remote-worldwide-tether-operations-bogota",
-        "machine-learning-ingegnere-100-remote-worldwide-tether-operations-roma"
+        "machine-learning-ingegnere-100-remote-worldwide-tether-operations-roma",
+        "ingegnere-di-inferenza-ai-qvac-100-remoto-in-tutto-il-mondo-tether-operations-bogota"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ai-inference-engineer-qvac-100-remote-worldwide-tether-ch",
-          "ai-inference-ingegnere-qvac-100-remote-worldwide-tether-operations-bogota"
+          "ai-inference-ingegnere-qvac-100-remote-worldwide-tether-operations-bogota",
+          "ingegnere-di-inferenza-ai-qvac-100-remoto-in-tutto-il-mondo-tether-operations-bogota"
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:44.560Z",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -779,7 +807,7 @@
         "it": "capo-degli-affari-regolatori-giappone-tether-operations-osaka",
         "en": "head-of-regulatory-affairs-japan-tether-ch",
         "de": "leiter-der-regulierungsangelegenheiten-japan-tether-operations-osaka",
-        "fr": "chef-des-affaires-reglementaires-japon-tether-operations-osaka"
+        "fr": "responsable-regulatory-affairs-japan-tether-operations-osaka"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -803,7 +831,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-japan-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:14.700Z",
+      "crawledAt": "2026-09-28T21:13:26.661Z",
       "addressLocality": "Osaka",
       "addressRegion": "Osaka",
       "addressCountry": "",
@@ -827,14 +855,18 @@
         "head-of-regulatory-affairs-japan-tether-ch",
         "responsabile-regulatory-affairs-japan-tether-operations-osaka",
         "tirocinante-ingegnere-machine-learning-100-da-remoto-tether-operations-london",
+        "chef-des-affaires-reglementaires-japon-tether-operations-osaka",
+        "capo-degli-affari-regolatori-giappone-tether-operations-osaka",
         "responsable-regulatory-affairs-japan-tether-operations-osaka"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-regulatory-affairs-japan-tether-ch",
-          "responsabile-regulatory-affairs-japan-tether-operations-osaka"
+          "responsabile-regulatory-affairs-japan-tether-operations-osaka",
+          "capo-degli-affari-regolatori-giappone-tether-operations-osaka"
         ],
         "fr": [
+          "chef-des-affaires-reglementaires-japon-tether-operations-osaka",
           "responsable-regulatory-affairs-japan-tether-operations-osaka"
         ]
       },
@@ -884,7 +916,7 @@
       "url": "https://tether.recruitee.com/o/backend-engineer-wallets-100-remote-hn",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:14.693Z",
+      "crawledAt": "2026-09-28T21:13:26.655Z",
       "addressLocality": "Dubai",
       "addressRegion": "Dubai",
       "addressCountry": "",
@@ -905,11 +937,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "backend-engineer-wallets-100-remote-worldwide-tether-ch"
+        "backend-engineer-wallets-100-remote-worldwide-tether-ch",
+        "backend-ingegnere-wallets-100-remote-worldwide-tether-operations-dubai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "backend-engineer-wallets-100-remote-worldwide-tether-ch"
+          "backend-engineer-wallets-100-remote-worldwide-tether-ch",
+          "backend-ingegnere-wallets-100-remote-worldwide-tether-operations-dubai"
         ],
         "de": [
           "backend-engineer-wallets-100-remote-worldwide-tether-ch"
@@ -931,7 +965,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-141f62919cf0",
@@ -964,7 +999,7 @@
       "url": "https://tether.recruitee.com/o/backend-engineer-wallets-100-remote-31",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.177Z",
+      "crawledAt": "2026-09-28T21:13:25.054Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -985,11 +1020,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "backend-engineer-wallets-100-remote-tether-ch"
+        "backend-engineer-wallets-100-remote-tether-ch",
+        "backend-ingegnere-wallets-100-remote-tether-operations-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "backend-engineer-wallets-100-remote-tether-ch"
+          "backend-engineer-wallets-100-remote-tether-ch",
+          "backend-ingegnere-wallets-100-remote-tether-operations-london"
         ],
         "de": [
           "backend-engineer-wallets-100-remote-tether-ch"
@@ -1044,7 +1081,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-lead-mexico-and-colombia-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:13.169Z",
+      "crawledAt": "2026-09-28T21:13:25.046Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -1066,11 +1103,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch",
-        "regolamentazione-e-licensing-lead-messico-e-colombia-tether-operations-mexico-city-ciudad-de-mexico"
+        "regolamentazione-e-licensing-lead-messico-e-colombia-tether-operations-mexico-city-ciudad-de-mexico",
+        "responsabile-degli-affari-normativi-e-delle-licenze-messico-e-colombia-tether-operations-mexico-city-ciudad-de-mexico"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
+          "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch",
+          "responsabile-degli-affari-normativi-e-delle-licenze-messico-e-colombia-tether-operations-mexico-city-ciudad-de-mexico"
         ],
         "de": [
           "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
@@ -1080,6 +1119,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:35.548Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -1125,7 +1165,7 @@
       "url": "https://tether.recruitee.com/o/finance-analyst",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:12.031Z",
+      "crawledAt": "2026-09-28T21:13:23.918Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1147,11 +1187,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "finance-analyst-tether-ch",
-        "finance-analyst-tether-operations-london"
+        "finance-analyst-tether-operations-london",
+        "finanza-analista-tether-operations-london-greater-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finance-analyst-tether-ch"
+          "finance-analyst-tether-ch",
+          "finanza-analista-tether-operations-london-greater-london"
         ],
         "en": [
           "finance-analyst-tether-operations-london"
@@ -1164,6 +1206,7 @@
         ]
       },
       "firstSeenAt": "2026-05-25T14:19:17.785Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "salarySource": "estimated",
@@ -1209,7 +1252,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-agentic-post-training-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:12.023Z",
+      "crawledAt": "2026-09-28T21:13:23.911Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1230,11 +1273,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-agentic-post-training-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-agentic-post-training-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-agentic-post-training-100-remote-worldwide-tether-operations-roma"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-agentic-post-training-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-agentic-post-training-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-agentic-post-training-100-remote-worldwide-tether-operations-roma"
         ],
         "de": [
           "ai-research-engineer-agentic-post-training-100-remote-worldwide-tether-ch"
@@ -1256,7 +1301,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-ebed190aa8ce",
@@ -1289,7 +1335,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:10.898Z",
+      "crawledAt": "2026-09-28T21:13:22.793Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1310,11 +1356,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-multi-modal-reinforcement-learning-100-remote-worldwide-tether-operations-roma"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-multi-modal-reinforcement-learning-100-remote-worldwide-tether-operations-roma"
         ],
         "de": [
           "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch"
@@ -1369,7 +1417,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-vision-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:09.776Z",
+      "crawledAt": "2026-09-28T21:13:21.676Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1390,11 +1438,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-multi-modal-vision-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-multi-modal-vision-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-multi-modal-vision-100-remote-worldwide-tether-operations-roma"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-multi-modal-vision-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-multi-modal-vision-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-multi-modal-vision-100-remote-worldwide-tether-operations-roma"
         ],
         "de": [
           "ai-research-engineer-multi-modal-vision-100-remote-worldwide-tether-ch"
@@ -1449,7 +1499,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-16",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:07.372Z",
+      "crawledAt": "2026-09-28T21:13:19.367Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -1470,11 +1520,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-model-compression-quantization-tether-ch"
+        "ai-research-engineer-model-compression-quantization-tether-ch",
+        "ai-ricerca-ingegnere-model-compression-quantization-tether-operations-bangalore-karnataka"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-model-compression-quantization-tether-ch"
+          "ai-research-engineer-model-compression-quantization-tether-ch",
+          "ai-ricerca-ingegnere-model-compression-quantization-tether-operations-bangalore-karnataka"
         ],
         "de": [
           "ai-research-engineer-model-compression-quantization-tether-ch"
@@ -1529,7 +1581,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:07.363Z",
+      "crawledAt": "2026-09-28T21:13:19.353Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1550,11 +1602,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-model-compression-quantization-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-model-compression-quantization-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-model-compression-quantization-100-remote-worldwide-tether-operations-roma"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-model-compression-quantization-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-model-compression-quantization-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-model-compression-quantization-100-remote-worldwide-tether-operations-roma"
         ],
         "de": [
           "ai-research-engineer-model-compression-quantization-100-remote-worldwide-tether-ch"
@@ -1609,7 +1663,7 @@
       "url": "https://tether.recruitee.com/o/trading-operations-associate-hedge-fund-exposure",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:06.241Z",
+      "crawledAt": "2026-09-28T21:13:18.219Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1630,14 +1684,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trading-operations-associate-hedge-fund-exposure-tether-ch"
+        "trading-operations-associate-hedge-fund-exposure-tether-ch",
+        "trading-operazioni-associate-esposizione-hedge-fund-tether-operations-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trading-operations-associate-hedge-fund-exposure-tether-ch"
+          "trading-operations-associate-hedge-fund-exposure-tether-ch",
+          "trading-operazioni-associate-esposizione-hedge-fund-tether-operations-london"
         ]
       },
       "firstSeenAt": "2026-08-20T09:45:17.475Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1669,7 +1726,7 @@
         "it": "Financial Controller (VC or Hedge Fund- Investment Contabile)",
         "en": "Financial Controller (VC or Hedge Fund- Investment Accountant)",
         "de": "Financial Controller (VC or Hedge Fund- Investment Buchhalter)",
-        "fr": "Contrôleur financier (VC ou Hedge Fund- Investment Accountant)"
+        "fr": "Financial Controller (VC or Hedge Fund- Investment Accountant)"
       },
       "description": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance : Our innovative product suite features the world’s most trusted stablecoin, USDT, relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data : Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET, our flagship app that redefines secure and private data sharing.\n Tether Education: Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job:\n The Financial Controller will oversee financial reporting, audit coordination, and accounting operations across a multi-entity investment and treasury platform. The role requires a technically strong finance professional with deep accounting expertise, strong operational discipline, and the ability to operate in a fast-paced, high-growth environment.\n\n• Prepare accurate and timely financial statements, management accounts, and supporting reports in accordance with IFRS and US GAAP.\n\n• Manage day-to-day accounting operations across multiple entities and jurisdictions.\n\n• Oversee month-end, quarter-end, and year-end close processes, including general ledger reconciliations and control reviews.\n\n• Maintain oversight of accounts payable, accounts receivable, accruals, and balance sheet reconciliations.\n\n• Lead coordination with external auditors, ensuring timely delivery of audit requests, supporting documentation, and issue resolution.\n\n• Support preparation of any regulatory, tax, statutory and ad hoc reporting requirements.\n\n• Strengthen and maintain internal controls, accounting policies, and financial governance frameworks.\n\n• Drive continuous improvement across accounting processes, reporting workflows, and operational controls.\n\n• Leverage technology and automation to improve efficiency, scalability, and reporting accuracy.\n\n• Partner closely with operations to ensure integrity of financial data and reporting.\n\n• Assist with implementation and optimisation of financial systems and reporting infrastructure.\n\n• Support ad hoc financial analysis, projects, and strategic initiatives as required.\n\nQualifications & Experience:\n\n• Bachelor’s degree in accounting, finance, or a related field; ACCA, ACA, CPA, CFA, or equivalent certifications.\n\n• 10+ years of experience in financial control, audit, or accounting, preferably at a credit hedge fund. Prior experience in digital assets or blockchain ecosystems is a distinct advantage.\n\n• Proficiency in Xero and Enfusion portfolio management system.\n\n• Proficiency in Excel + VBA / Python is mandatory.\n\n• Exceptional analytical and problem-solving abilities.\n\n• Strong understanding of regulatory and tax requirements.\n\n• Excellent attention to detail and communication skills.",
       "descriptionByLocale": {
@@ -1683,7 +1740,7 @@
       "url": "https://tether.recruitee.com/o/financial-controller-vc-or-hedge-fund-investment-accountant",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:06.235Z",
+      "crawledAt": "2026-09-28T21:13:18.208Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1704,17 +1761,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "financial-controller-vc-or-hedge-fund-investment-accountant-tether-ch"
+        "financial-controller-vc-or-hedge-fund-investment-accountant-tether-ch",
+        "financial-controller-vc-or-hedge-fund-investment-contabile-tether-operations-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-controller-vc-or-hedge-fund-investment-accountant-tether-ch"
+          "financial-controller-vc-or-hedge-fund-investment-accountant-tether-ch",
+          "financial-controller-vc-or-hedge-fund-investment-contabile-tether-operations-london"
         ],
         "de": [
           "financial-controller-vc-or-hedge-fund-investment-accountant-tether-ch"
         ]
       },
       "firstSeenAt": "2026-07-17T10:53:32.418Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1760,7 +1820,7 @@
       "url": "https://tether.recruitee.com/o/program-manager-mining-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:06.185Z",
+      "crawledAt": "2026-09-28T21:13:18.160Z",
       "addressLocality": "Barcelona",
       "addressRegion": "Catalunya [Cataluña]",
       "addressCountry": "",
@@ -1781,11 +1841,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "program-manager-mining-100-remote-worldwide-tether-ch"
+        "program-manager-mining-100-remote-worldwide-tether-ch",
+        "gestione-del-programma-mining-100-remoto-in-tutto-il-mondo-tether-operations-barcelona-catalunya-cataluna"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "program-manager-mining-100-remote-worldwide-tether-ch"
+          "program-manager-mining-100-remote-worldwide-tether-ch",
+          "gestione-del-programma-mining-100-remoto-in-tutto-il-mondo-tether-operations-barcelona-catalunya-cataluna"
         ],
         "de": [
           "program-manager-mining-100-remote-worldwide-tether-ch"
@@ -1795,6 +1857,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:52:18.289Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -1840,7 +1903,7 @@
       "url": "https://tether.recruitee.com/o/brands-event-coordinator-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:06.136Z",
+      "crawledAt": "2026-09-28T21:13:18.112Z",
       "addressLocality": "Dubai",
       "addressRegion": "Dubai",
       "addressCountry": "",
@@ -1861,11 +1924,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "brands-event-coordinator-tether-ch"
+        "brands-event-coordinator-tether-ch",
+        "brands-event-coordinatore-tether-operations-dubai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "brands-event-coordinator-tether-ch"
+          "brands-event-coordinator-tether-ch",
+          "brands-event-coordinatore-tether-operations-dubai"
         ],
         "de": [
           "brands-event-coordinator-tether-ch"
@@ -1920,7 +1985,7 @@
       "url": "https://tether.recruitee.com/o/expansion-event-coordinator-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:54:06.101Z",
+      "crawledAt": "2026-09-28T21:13:18.074Z",
       "addressLocality": "Amsterdam",
       "addressRegion": "Noord-Holland",
       "addressCountry": "",
@@ -1941,11 +2006,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expansion-event-coordinator-tether-ch"
+        "expansion-event-coordinator-tether-ch",
+        "expansion-event-coordinatore-tether-operations-amsterdam"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expansion-event-coordinator-tether-ch"
+          "expansion-event-coordinator-tether-ch",
+          "expansion-event-coordinatore-tether-operations-amsterdam"
         ],
         "de": [
           "expansion-event-coordinator-tether-ch"
@@ -2000,7 +2067,7 @@
       "url": "https://tether.recruitee.com/o/senior-software-architect-100-remote-worldwide-10",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:54.746Z",
+      "crawledAt": "2026-09-28T21:13:06.632Z",
       "addressLocality": "Yamoussoukro",
       "addressRegion": "Lacs",
       "addressCountry": "",
@@ -2021,11 +2088,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-architect-100-remote-worldwide-tether-ch"
+        "senior-software-architect-100-remote-worldwide-tether-ch",
+        "senior-software-architetto-100-remote-worldwide-tether-operations-kyoto"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-architect-100-remote-worldwide-tether-ch"
+          "senior-software-architect-100-remote-worldwide-tether-ch",
+          "senior-software-architetto-100-remote-worldwide-tether-operations-kyoto"
         ],
         "de": [
           "senior-software-architect-100-remote-worldwide-tether-ch"
@@ -2035,6 +2104,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:05:45.485Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -2080,7 +2150,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-llm-multi-modal-8",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:52.459Z",
+      "crawledAt": "2026-09-28T21:13:04.350Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -2101,11 +2171,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-pre-training-llm-multi-modal-tether-ch"
+        "ai-research-engineer-pre-training-llm-multi-modal-tether-ch",
+        "ai-ricerca-ingegnere-pre-training-llm-multi-modal-tether-operations-bangalore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-pre-training-llm-multi-modal-tether-ch"
+          "ai-research-engineer-pre-training-llm-multi-modal-tether-ch",
+          "ai-ricerca-ingegnere-pre-training-llm-multi-modal-tether-operations-bangalore"
         ],
         "de": [
           "ai-research-engineer-pre-training-llm-multi-modal-tether-ch"
@@ -2160,7 +2232,7 @@
       "url": "https://tether.recruitee.com/o/program-manager-mining-100-remote-11",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:52.401Z",
+      "crawledAt": "2026-09-28T21:13:04.305Z",
       "addressLocality": "Brasilia",
       "addressRegion": "Distrito Federal",
       "addressCountry": "",
@@ -2181,11 +2253,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "program-manager-mining-100-remote-tether-ch"
+        "program-manager-mining-100-remote-tether-ch",
+        "gestione-del-programma-mining-100-remoto-tether-operations-brasilia-distrito-federal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "program-manager-mining-100-remote-tether-ch"
+          "program-manager-mining-100-remote-tether-ch",
+          "gestione-del-programma-mining-100-remoto-tether-operations-brasilia-distrito-federal"
         ],
         "de": [
           "program-manager-mining-100-remote-tether-ch"
@@ -2195,6 +2269,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T23:55:59.305Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -2240,7 +2315,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-vision-6",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:51.261Z",
+      "crawledAt": "2026-09-28T21:13:03.166Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -2261,11 +2336,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-multi-modal-vision-tether-ch"
+        "ai-research-engineer-multi-modal-vision-tether-ch",
+        "ai-ricerca-ingegnere-multi-modal-vision-tether-operations-bangalore-karnataka"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-multi-modal-vision-tether-ch"
+          "ai-research-engineer-multi-modal-vision-tether-ch",
+          "ai-ricerca-ingegnere-multi-modal-vision-tether-operations-bangalore-karnataka"
         ],
         "de": [
           "ai-research-engineer-multi-modal-vision-tether-ch"
@@ -2320,7 +2397,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-tokenization-100-remote-17",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:51.235Z",
+      "crawledAt": "2026-09-28T21:13:03.134Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -2341,17 +2418,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expansion-manager-tokenization-100-remote-tether-ch"
+        "expansion-manager-tokenization-100-remote-tether-ch",
+        "expansion-manager-tokenization-100-remoto-tether-operations-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expansion-manager-tokenization-100-remote-tether-ch"
+          "expansion-manager-tokenization-100-remote-tether-ch",
+          "expansion-manager-tokenization-100-remoto-tether-operations-mexico-city"
         ],
         "de": [
           "expansion-manager-tokenization-100-remote-tether-ch"
         ]
       },
       "firstSeenAt": "2026-07-01T13:11:42.981Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -2397,7 +2477,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-francophone-africa-lead",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:51.231Z",
+      "crawledAt": "2026-09-28T21:13:03.122Z",
       "addressLocality": "Yamoussoukro",
       "addressRegion": "Lacs",
       "addressCountry": "",
@@ -2418,11 +2498,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "regulatory-affairs-and-licensing-francophone-africa-lead-tether-ch"
+        "regulatory-affairs-and-licensing-francophone-africa-lead-tether-ch",
+        "affari-regolatori-e-licensing-francofono-africa-piombo-tether-operations-yamoussoukro-lacs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regulatory-affairs-and-licensing-francophone-africa-lead-tether-ch"
+          "regulatory-affairs-and-licensing-francophone-africa-lead-tether-ch",
+          "affari-regolatori-e-licensing-francofono-africa-piombo-tether-operations-yamoussoukro-lacs"
         ],
         "de": [
           "regulatory-affairs-and-licensing-francophone-africa-lead-tether-ch"
@@ -2477,7 +2559,7 @@
       "url": "https://tether.recruitee.com/o/software-engineer-p2p-search-team-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:50.115Z",
+      "crawledAt": "2026-09-28T21:13:02.000Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -2498,11 +2580,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-p2p-search-team-100-remote-worldwide-tether-ch"
+        "software-engineer-p2p-search-team-100-remote-worldwide-tether-ch",
+        "software-ingegnere-p2p-search-team-100-remote-worldwide-tether-operations-zagreb"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-p2p-search-team-100-remote-worldwide-tether-ch"
+          "software-engineer-p2p-search-team-100-remote-worldwide-tether-ch",
+          "software-ingegnere-p2p-search-team-100-remote-worldwide-tether-operations-zagreb"
         ],
         "de": [
           "software-engineer-p2p-search-team-100-remote-worldwide-tether-ch"
@@ -2512,6 +2596,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:49:59.590Z",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -2557,7 +2642,7 @@
       "url": "https://tether.recruitee.com/o/blockchain-investigator-and-law-enforcement-liaison",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:50.110Z",
+      "crawledAt": "2026-09-28T21:13:01.996Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -2578,11 +2663,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "blockchain-investigator-and-law-enforcement-liaison-tether-ch"
+        "blockchain-investigator-and-law-enforcement-liaison-tether-ch",
+        "blockchain-investigator-e-law-enforcement-tether-operations-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "blockchain-investigator-and-law-enforcement-liaison-tether-ch"
+          "blockchain-investigator-and-law-enforcement-liaison-tether-ch",
+          "blockchain-investigator-e-law-enforcement-tether-operations-mexico-city"
         ]
       },
       "firstSeenAt": "2026-07-15T22:00:08.221Z",
@@ -2631,7 +2718,7 @@
       "url": "https://tether.recruitee.com/o/engagement-manager-ai-implementations-19",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:50.064Z",
+      "crawledAt": "2026-09-28T21:13:01.919Z",
       "addressLocality": "Brussels",
       "addressRegion": "Brussels",
       "addressCountry": "",
@@ -2652,17 +2739,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "engagement-manager-ai-implementations-tether-ch"
+        "engagement-manager-ai-implementations-tether-ch",
+        "engagement-manager-attuazioni-ai-tether-operations-brussels"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "engagement-manager-ai-implementations-tether-ch"
+          "engagement-manager-ai-implementations-tether-ch",
+          "engagement-manager-attuazioni-ai-tether-operations-brussels"
         ],
         "de": [
           "engagement-manager-ai-implementations-tether-ch"
         ]
       },
       "firstSeenAt": "2026-07-21T11:14:38.832Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -2708,7 +2798,7 @@
       "url": "https://tether.recruitee.com/o/p2p-nodejs-engineer-holepunch-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:50.055Z",
+      "crawledAt": "2026-09-28T21:13:01.905Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2729,11 +2819,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "p2p-node-js-engineer-holepunch-100-remote-worldwide-tether-ch"
+        "p2p-node-js-engineer-holepunch-100-remote-worldwide-tether-ch",
+        "p2p-node-js-ingegnere-holepunch-100-remote-worldwide-tether-operations-barcelona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "p2p-node-js-engineer-holepunch-100-remote-worldwide-tether-ch"
+          "p2p-node-js-engineer-holepunch-100-remote-worldwide-tether-ch",
+          "p2p-node-js-ingegnere-holepunch-100-remote-worldwide-tether-operations-barcelona"
         ],
         "de": [
           "p2p-node-js-engineer-holepunch-100-remote-worldwide-tether-ch"
@@ -2788,7 +2880,7 @@
       "url": "https://tether.recruitee.com/o/senior-nodejs-software-engineer-holepunch-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:50.054Z",
+      "crawledAt": "2026-09-28T21:13:01.904Z",
       "addressLocality": "Phnom Penh",
       "addressRegion": "Phnom Penh",
       "addressCountry": "",
@@ -2810,11 +2902,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-node-js-software-engineer-holepunch-100-remote-worldwide-tether-ch",
-        "senior-node-js-software-ingenieur-holepunch-100-remote-worldwide-tether-operations-barcelona"
+        "senior-node-js-software-ingenieur-holepunch-100-remote-worldwide-tether-operations-barcelona",
+        "senior-node-js-software-ingegnere-holepunch-100-remote-worldwide-tether-operations-barcelona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-node-js-software-engineer-holepunch-100-remote-worldwide-tether-ch"
+          "senior-node-js-software-engineer-holepunch-100-remote-worldwide-tether-ch",
+          "senior-node-js-software-ingegnere-holepunch-100-remote-worldwide-tether-operations-barcelona"
         ],
         "de": [
           "senior-node-js-software-engineer-holepunch-100-remote-worldwide-tether-ch"
@@ -2870,7 +2964,7 @@
       "url": "https://tether.recruitee.com/o/frontend-software-engineer-100-remote-10",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:48.686Z",
+      "crawledAt": "2026-09-28T21:13:00.612Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2891,14 +2985,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "frontend-software-engineer-100-remote-tether-ch"
+        "frontend-software-engineer-100-remote-tether-ch",
+        "frontend-software-ingegnere-100-remote-tether-operations-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "frontend-software-engineer-100-remote-tether-ch"
+          "frontend-software-engineer-100-remote-tether-ch",
+          "frontend-software-ingegnere-100-remote-tether-operations-lugano"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:33.163Z",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -2944,7 +3041,7 @@
       "url": "https://tether.recruitee.com/o/investment-trading-operations-associate-multi-asset-exposure-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:48.676Z",
+      "crawledAt": "2026-09-28T21:13:00.605Z",
       "addressLocality": "Dublin",
       "addressRegion": "Leinster",
       "addressCountry": "",
@@ -2965,11 +3062,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-trading-operations-associate-multi-asset-exposure-tether-ch"
+        "investment-trading-operations-associate-multi-asset-exposure-tether-ch",
+        "investimenti-trading-operazioni-associate-esposizione-multi-asset-tether-operations-dublin-leinster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-trading-operations-associate-multi-asset-exposure-tether-ch"
+          "investment-trading-operations-associate-multi-asset-exposure-tether-ch",
+          "investimenti-trading-operazioni-associate-esposizione-multi-asset-tether-operations-dublin-leinster"
         ],
         "de": [
           "investment-trading-operations-associate-multi-asset-exposure-tether-ch"
@@ -2979,6 +3078,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:15:33.919Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -3024,7 +3124,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:48.659Z",
+      "crawledAt": "2026-09-28T21:13:00.597Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -3045,11 +3145,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-pre-training-llm-multi-modal-100-remote-worldwide-tether-operations-united-kindom"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-pre-training-llm-multi-modal-100-remote-worldwide-tether-operations-united-kindom"
         ],
         "de": [
           "ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide-tether-ch"
@@ -3104,7 +3206,7 @@
       "url": "https://tether.recruitee.com/o/senior-product-designer-wallets-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:46.407Z",
+      "crawledAt": "2026-09-28T21:12:58.344Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -3125,11 +3227,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-designer-wallets-100-remote-worldwide-tether-ch"
+        "senior-product-designer-wallets-100-remote-worldwide-tether-ch",
+        "senior-product-designer-portafogli-100-remoto-in-tutto-il-mondo-tether-operations-united-kindom-armagh-city-banbridge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-designer-wallets-100-remote-worldwide-tether-ch"
+          "senior-product-designer-wallets-100-remote-worldwide-tether-ch",
+          "senior-product-designer-portafogli-100-remoto-in-tutto-il-mondo-tether-operations-united-kindom-armagh-city-banbridge"
         ],
         "de": [
           "senior-product-designer-wallets-100-remote-worldwide-tether-ch"
@@ -3182,7 +3286,7 @@
       "url": "https://tether.recruitee.com/o/devops-engineer-100-remote-12",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:45.279Z",
+      "crawledAt": "2026-09-28T21:12:57.227Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -3206,14 +3310,16 @@
         "devops-engineer-100-remote-tether-ch",
         "frontend-software-ingegnere-100-remote-tether-operations-lugano",
         "frontend-software-engineer-100-remote-tether-ch",
-        "frontend-software-ingenieur-100-remote-tether-operations-lugano"
+        "frontend-software-ingenieur-100-remote-tether-operations-lugano",
+        "devops-ingegnere-100-remote-tether-operations-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-100-remote-tether-ch",
           "frontend-software-ingegnere-100-remote-tether-operations-lugano",
           "frontend-software-engineer-100-remote-tether-ch",
-          "frontend-software-ingenieur-100-remote-tether-operations-lugano"
+          "frontend-software-ingenieur-100-remote-tether-operations-lugano",
+          "devops-ingegnere-100-remote-tether-operations-lugano"
         ],
         "en": [
           "frontend-software-engineer-100-remote-tether-ch"
@@ -3227,6 +3333,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:48.657Z",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -3272,7 +3379,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-nigeria",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:45.269Z",
+      "crawledAt": "2026-09-28T21:12:57.220Z",
       "addressLocality": "Lagos",
       "addressRegion": "Lagos",
       "addressCountry": "",
@@ -3293,11 +3400,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expansion-manager-nigeria-tether-ch"
+        "expansion-manager-nigeria-tether-ch",
+        "direttore-dell-espansione-nigeria-tether-operations-lagos-lagos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expansion-manager-nigeria-tether-ch"
+          "expansion-manager-nigeria-tether-ch",
+          "direttore-dell-espansione-nigeria-tether-operations-lagos-lagos"
         ],
         "de": [
           "expansion-manager-nigeria-tether-ch"
@@ -3349,7 +3458,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-ivory-coast-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:43.006Z",
+      "crawledAt": "2026-09-28T21:12:54.960Z",
       "addressLocality": "Yamoussoukro",
       "addressRegion": "Lacs",
       "addressCountry": "",
@@ -3370,11 +3479,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expansion-manager-ivory-coast-tether-ch"
+        "expansion-manager-ivory-coast-tether-ch",
+        "expansion-manager-costa-d-avorio-tether-operations-yamoussoukro-lacs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expansion-manager-ivory-coast-tether-ch"
+          "expansion-manager-ivory-coast-tether-ch",
+          "expansion-manager-costa-d-avorio-tether-operations-yamoussoukro-lacs"
         ],
         "de": [
           "expansion-manager-ivory-coast-tether-ch"
@@ -3384,6 +3495,7 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:34:55.151Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -3429,7 +3541,7 @@
       "url": "https://tether.recruitee.com/o/senior-business-analyst-mining-100-remote-11",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:40.178Z",
+      "crawledAt": "2026-09-28T21:12:51.900Z",
       "addressLocality": "Paris",
       "addressRegion": "Île-de-France",
       "addressCountry": "",
@@ -3450,11 +3562,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-business-analyst-mining-100-remote-tether-ch"
+        "senior-business-analyst-mining-100-remote-tether-ch",
+        "senior-business-analista-mining-100-remote-tether-operations-paris"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-business-analyst-mining-100-remote-tether-ch"
+          "senior-business-analyst-mining-100-remote-tether-ch",
+          "senior-business-analista-mining-100-remote-tether-operations-paris"
         ],
         "de": [
           "senior-business-analyst-mining-100-remote-tether-ch"
@@ -3492,7 +3606,7 @@
       "companyDomain": "tether.io",
       "title": "Technical Content Creator - Pear/ Bare/ P2P (Remote / Europe)",
       "titleByLocale": {
-        "it": "Creatore di Contenuti Tecnici - Pear/ Bare/ P2P (Remote / Europe)",
+        "it": "Technical Content Creator - Pear/ Bare/ P2P (Remote / Europe)",
         "en": "Technical Content Creator - Pear/ Bare/ P2P (Remote / Europe)",
         "de": "Technischer Inhaltsstifter - Pear/ Bare/ P2P (Remote / Europa)",
         "fr": "Créateur de contenu technique - Pear/ Bare/ P2P (100% Remote Worldwide)"
@@ -3509,7 +3623,7 @@
       "url": "https://tether.recruitee.com/o/technical-content-creator-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:38.796Z",
+      "crawledAt": "2026-09-28T21:12:50.270Z",
       "addressLocality": "Madrid",
       "addressRegion": "Comunidad de Madrid",
       "addressCountry": "",
@@ -3531,12 +3645,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-content-creator-pear-bare-p2p-remote-europe-tether-ch",
-        "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch"
+        "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch",
+        "creatore-di-contenuti-tecnici-pear-bare-p2p-remote-europe-tether-operations-madrid-comunidad-de-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-content-creator-pear-bare-p2p-remote-europe-tether-ch",
-          "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch"
+          "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch",
+          "creatore-di-contenuti-tecnici-pear-bare-p2p-remote-europe-tether-operations-madrid-comunidad-de-madrid"
         ],
         "en": [
           "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch"
@@ -3546,6 +3662,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T23:18:49.397Z",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -3591,7 +3708,7 @@
       "url": "https://tether.recruitee.com/o/technical-lead-gpu-infrastructure-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:38.790Z",
+      "crawledAt": "2026-09-28T21:12:46.920Z",
       "addressLocality": "Tiranë",
       "addressRegion": "Tiranë",
       "addressCountry": "",
@@ -3612,11 +3729,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch"
+        "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch",
+        "guida-tecnica-infrastruttura-gpu-100-remote-worldwide-tether-operations-tirane-tirane"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch"
+          "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch",
+          "guida-tecnica-infrastruttura-gpu-100-remote-worldwide-tether-operations-tirane-tirane"
         ],
         "de": [
           "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch"
@@ -3626,6 +3745,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T23:06:20.649Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -3718,7 +3838,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "tether-90948e16497b",
@@ -3751,7 +3872,7 @@
       "url": "https://tether.recruitee.com/o/technical-lead-gpu-infrastructure-poland",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:30.861Z",
+      "crawledAt": "2026-09-28T21:12:42.664Z",
       "addressLocality": "Warsaw",
       "addressRegion": "Mazowieckie",
       "addressCountry": "",
@@ -3772,11 +3893,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-lead-gpu-infrastructure-tether-ch"
+        "technical-lead-gpu-infrastructure-tether-ch",
+        "guida-tecnica-gpu-infrastrutture-tether-operations-warsaw-mazowieckie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-lead-gpu-infrastructure-tether-ch"
+          "technical-lead-gpu-infrastructure-tether-ch",
+          "guida-tecnica-gpu-infrastrutture-tether-operations-warsaw-mazowieckie"
         ],
         "de": [
           "technical-lead-gpu-infrastructure-tether-ch"
@@ -3786,6 +3909,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T23:30:34.362Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -3831,7 +3955,7 @@
       "url": "https://tether.recruitee.com/o/ai-harness-engineer-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:29.431Z",
+      "crawledAt": "2026-09-28T21:12:41.164Z",
       "addressLocality": "Copenhagen",
       "addressRegion": "Hovedstaden",
       "addressCountry": "",
@@ -3852,11 +3976,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-harness-engineer-100-remote-worldwide-tether-ch"
+        "ai-harness-engineer-100-remote-worldwide-tether-ch",
+        "ai-harness-ingegnere-100-remote-worldwide-tether-operations-copenhagen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-harness-engineer-100-remote-worldwide-tether-ch"
+          "ai-harness-engineer-100-remote-worldwide-tether-ch",
+          "ai-harness-ingegnere-100-remote-worldwide-tether-operations-copenhagen"
         ],
         "de": [
           "ai-harness-engineer-100-remote-worldwide-tether-ch"
@@ -3911,7 +4037,7 @@
       "url": "https://tether.recruitee.com/o/finance-operations-coordinator-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:29.406Z",
+      "crawledAt": "2026-09-28T21:12:41.089Z",
       "addressLocality": "Rome",
       "addressRegion": "Lazio",
       "addressCountry": "",
@@ -3932,11 +4058,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finance-operations-coordinator-tether-ch"
+        "finance-operations-coordinator-tether-ch",
+        "finanza-operations-coordinatore-tether-operations-rome-lazio"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finance-operations-coordinator-tether-ch"
+          "finance-operations-coordinator-tether-ch",
+          "finanza-operations-coordinatore-tether-operations-rome-lazio"
         ],
         "de": [
           "finance-operations-coordinator-tether-ch"
@@ -3946,6 +4074,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T23:30:32.339Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -3991,7 +4120,7 @@
       "url": "https://tether.recruitee.com/o/blockchain-investigator-and-law-enforcement-liaison-nz",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:27.922Z",
+      "crawledAt": "2026-09-28T21:12:39.581Z",
       "addressLocality": "Auckland",
       "addressRegion": "Auckland",
       "addressCountry": "",
@@ -4012,11 +4141,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch"
+        "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch",
+        "blockchain-investigatore-e-collegamento-con-l-applicazione-della-legge-nz-tether-operations-auckland-auckland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch"
+          "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch",
+          "blockchain-investigatore-e-collegamento-con-l-applicazione-della-legge-nz-tether-operations-auckland-auckland"
         ],
         "de": [
           "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch"
@@ -4068,7 +4199,7 @@
       "url": "https://tether.recruitee.com/o/event-design-coordinator-remote-europe-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:53:26.619Z",
+      "crawledAt": "2026-09-28T21:12:38.166Z",
       "addressLocality": "Brussels",
       "addressRegion": "Brussels",
       "addressCountry": "",
@@ -4089,11 +4220,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "event-design-coordinator-remote-europe-tether-ch"
+        "event-design-coordinator-remote-europe-tether-ch",
+        "event-design-coordinatore-remote-europe-tether-operations-brussels"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "event-design-coordinator-remote-europe-tether-ch"
+          "event-design-coordinator-remote-europe-tether-ch",
+          "event-design-coordinatore-remote-europe-tether-operations-brussels"
         ],
         "de": [
           "event-design-coordinator-remote-europe-tether-ch"
@@ -4102,7 +4235,7 @@
           "event-design-coordinator-remote-europe-tether-ch"
         ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-16T23:43:14.450Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4114,6 +4247,143 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "tether-79a46fccd563",
+      "slug": "usat-institutional-associate-junior-mid-tether-ch",
+      "slugByLocale": {
+        "en": "usat-institutional-associate-junior-mid-tether-ch",
+        "it": "usat-institutional-associate-junior-mid-tether-ch",
+        "de": "usat-institutional-associate-junior-mid-tether-ch",
+        "fr": "usat-institutional-associate-junior-mid-tether-ch"
+      },
+      "company": "Tether Operations",
+      "companyKey": "tether",
+      "companyDomain": "tether.io",
+      "title": "USAT Institutional Associate (Junior-Mid)",
+      "titleByLocale": {
+        "en": "USAT Institutional Associate (Junior-Mid)",
+        "it": "USAT Institutional Associate (Junior-Mid)",
+        "de": "USAT Institutional Associate (Junior-Mid)",
+        "fr": "USAT Institutional Associate (Junior-Mid)"
+      },
+      "description": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking a highly driven, organized, and entrepreneurial USAT Institutional Associate to accelerate market adoption, operational connectivity, and execution across core global corridors. As capacity expands across our pipeline, this role will serve as the execution engine for regional expansion initiatives, cross border pilots, and institutional onboarding.\n Reporting directly to the Head of USAT Institutional, you will take hands on ownership of high priority operational workflows, bridge regional expansion teams, and project manage strategic corridor partnerships from inception to production. The ideal candidate thrives in fast paced environments, possesses a strong baseline in fintech and digital asset execution, and is eager to be directly mentored while driving high impact output.\n\nResponsibilities\n\n• Ramp Connectivity & Corridor Optimization\n\n• Partner closely with regional expansion leadership to identify, establish, and optimize on/off-ramp infrastructures across high value corridors to drive seamless global connectivity.\n\n• Analyze fiat and stablecoin liquidity flows to inform data driven operational decisions and eliminate friction in payment ecosystems.\n\n• Local FX Pilots & Production Execution\n\n• Lead and execute local stablecoin FX pilots.\n\n• Establish clear milestone roadmaps to transition successful pilots into active production environments.\n\n• Geographic Project Management & Sourcing\n\n• Serve as primary project manager for active geographic expansion initiatives\n\n• Conduct market research and track regulatory shifts to source, evaluate, and prioritize new corridor expansion opportunities.\n\n• Institutional Onboarding & Operational Execution\n\n• Manage day-to-day operational execution and compliance requirements as tier-1 US institutions adopt USAT.\n\n• Maintain structured KPI tracking, status reporting, and internal alignment to guarantee execution velocity across active institutional workflows.\n\n• Education & Experience: Bachelor’s degree in Business, Finance, Economics, or a related field. 3–6 years of experience in project management, business development, or operational execution within fintech, cross-border payments, banking, or digital assets.\n\n• Execution & Project Management: Proven track record of managing complex cross-functional initiatives, coordinating technical/regulatory workstreams, and driving projects from concept to close.\n\n• Domain Knowledge: Solid foundational understanding of cross-border settlements, payment rails, stablecoin mechanics, and regional fintech ecosystems.\n\n• Communication & Stakeholder Management: Excellent written and verbal communication skills. Ability to interface seamlessly with internal partners, regional leads, and institutional external clients.\n\n• Mindset: Proactive, organized, and comfortable navigating ambiguity independently in a high-velocity ecosystem.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+      "descriptionByLocale": {
+        "en": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking a highly driven, organized, and entrepreneurial USAT Institutional Associate to accelerate market adoption, operational connectivity, and execution across core global corridors. As capacity expands across our pipeline, this role will serve as the execution engine for regional expansion initiatives, cross border pilots, and institutional onboarding.\n Reporting directly to the Head of USAT Institutional, you will take hands on ownership of high priority operational workflows, bridge regional expansion teams, and project manage strategic corridor partnerships from inception to production. The ideal candidate thrives in fast paced environments, possesses a strong baseline in fintech and digital asset execution, and is eager to be directly mentored while driving high impact output.\n\nResponsibilities\n\n• Ramp Connectivity & Corridor Optimization\n\n• Partner closely with regional expansion leadership to identify, establish, and optimize on/off-ramp infrastructures across high value corridors to drive seamless global connectivity.\n\n• Analyze fiat and stablecoin liquidity flows to inform data driven operational decisions and eliminate friction in payment ecosystems.\n\n• Local FX Pilots & Production Execution\n\n• Lead and execute local stablecoin FX pilots.\n\n• Establish clear milestone roadmaps to transition successful pilots into active production environments.\n\n• Geographic Project Management & Sourcing\n\n• Serve as primary project manager for active geographic expansion initiatives\n\n• Conduct market research and track regulatory shifts to source, evaluate, and prioritize new corridor expansion opportunities.\n\n• Institutional Onboarding & Operational Execution\n\n• Manage day-to-day operational execution and compliance requirements as tier-1 US institutions adopt USAT.\n\n• Maintain structured KPI tracking, status reporting, and internal alignment to guarantee execution velocity across active institutional workflows.\n\n• Education & Experience: Bachelor’s degree in Business, Finance, Economics, or a related field. 3–6 years of experience in project management, business development, or operational execution within fintech, cross-border payments, banking, or digital assets.\n\n• Execution & Project Management: Proven track record of managing complex cross-functional initiatives, coordinating technical/regulatory workstreams, and driving projects from concept to close.\n\n• Domain Knowledge: Solid foundational understanding of cross-border settlements, payment rails, stablecoin mechanics, and regional fintech ecosystems.\n\n• Communication & Stakeholder Management: Excellent written and verbal communication skills. Ability to interface seamlessly with internal partners, regional leads, and institutional external clients.\n\n• Mindset: Proactive, organized, and comfortable navigating ambiguity independently in a high-velocity ecosystem.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "it": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking a highly driven, organized, and entrepreneurial USAT Institutional Associate to accelerate market adoption, operational connectivity, and execution across core global corridors. As capacity expands across our pipeline, this role will serve as the execution engine for regional expansion initiatives, cross border pilots, and institutional onboarding.\n Reporting directly to the Head of USAT Institutional, you will take hands on ownership of high priority operational workflows, bridge regional expansion teams, and project manage strategic corridor partnerships from inception to production. The ideal candidate thrives in fast paced environments, possesses a strong baseline in fintech and digital asset execution, and is eager to be directly mentored while driving high impact output.\n\nResponsibilities\n\n• Ramp Connectivity & Corridor Optimization\n\n• Partner closely with regional expansion leadership to identify, establish, and optimize on/off-ramp infrastructures across high value corridors to drive seamless global connectivity.\n\n• Analyze fiat and stablecoin liquidity flows to inform data driven operational decisions and eliminate friction in payment ecosystems.\n\n• Local FX Pilots & Production Execution\n\n• Lead and execute local stablecoin FX pilots.\n\n• Establish clear milestone roadmaps to transition successful pilots into active production environments.\n\n• Geographic Project Management & Sourcing\n\n• Serve as primary project manager for active geographic expansion initiatives\n\n• Conduct market research and track regulatory shifts to source, evaluate, and prioritize new corridor expansion opportunities.\n\n• Institutional Onboarding & Operational Execution\n\n• Manage day-to-day operational execution and compliance requirements as tier-1 US institutions adopt USAT.\n\n• Maintain structured KPI tracking, status reporting, and internal alignment to guarantee execution velocity across active institutional workflows.\n\n• Education & Experience: Bachelor’s degree in Business, Finance, Economics, or a related field. 3–6 years of experience in project management, business development, or operational execution within fintech, cross-border payments, banking, or digital assets.\n\n• Execution & Project Management: Proven track record of managing complex cross-functional initiatives, coordinating technical/regulatory workstreams, and driving projects from concept to close.\n\n• Domain Knowledge: Solid foundational understanding of cross-border settlements, payment rails, stablecoin mechanics, and regional fintech ecosystems.\n\n• Communication & Stakeholder Management: Excellent written and verbal communication skills. Ability to interface seamlessly with internal partners, regional leads, and institutional external clients.\n\n• Mindset: Proactive, organized, and comfortable navigating ambiguity independently in a high-velocity ecosystem.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "de": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking a highly driven, organized, and entrepreneurial USAT Institutional Associate to accelerate market adoption, operational connectivity, and execution across core global corridors. As capacity expands across our pipeline, this role will serve as the execution engine for regional expansion initiatives, cross border pilots, and institutional onboarding.\n Reporting directly to the Head of USAT Institutional, you will take hands on ownership of high priority operational workflows, bridge regional expansion teams, and project manage strategic corridor partnerships from inception to production. The ideal candidate thrives in fast paced environments, possesses a strong baseline in fintech and digital asset execution, and is eager to be directly mentored while driving high impact output.\n\nResponsibilities\n\n• Ramp Connectivity & Corridor Optimization\n\n• Partner closely with regional expansion leadership to identify, establish, and optimize on/off-ramp infrastructures across high value corridors to drive seamless global connectivity.\n\n• Analyze fiat and stablecoin liquidity flows to inform data driven operational decisions and eliminate friction in payment ecosystems.\n\n• Local FX Pilots & Production Execution\n\n• Lead and execute local stablecoin FX pilots.\n\n• Establish clear milestone roadmaps to transition successful pilots into active production environments.\n\n• Geographic Project Management & Sourcing\n\n• Serve as primary project manager for active geographic expansion initiatives\n\n• Conduct market research and track regulatory shifts to source, evaluate, and prioritize new corridor expansion opportunities.\n\n• Institutional Onboarding & Operational Execution\n\n• Manage day-to-day operational execution and compliance requirements as tier-1 US institutions adopt USAT.\n\n• Maintain structured KPI tracking, status reporting, and internal alignment to guarantee execution velocity across active institutional workflows.\n\n• Education & Experience: Bachelor’s degree in Business, Finance, Economics, or a related field. 3–6 years of experience in project management, business development, or operational execution within fintech, cross-border payments, banking, or digital assets.\n\n• Execution & Project Management: Proven track record of managing complex cross-functional initiatives, coordinating technical/regulatory workstreams, and driving projects from concept to close.\n\n• Domain Knowledge: Solid foundational understanding of cross-border settlements, payment rails, stablecoin mechanics, and regional fintech ecosystems.\n\n• Communication & Stakeholder Management: Excellent written and verbal communication skills. Ability to interface seamlessly with internal partners, regional leads, and institutional external clients.\n\n• Mindset: Proactive, organized, and comfortable navigating ambiguity independently in a high-velocity ecosystem.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "fr": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking a highly driven, organized, and entrepreneurial USAT Institutional Associate to accelerate market adoption, operational connectivity, and execution across core global corridors. As capacity expands across our pipeline, this role will serve as the execution engine for regional expansion initiatives, cross border pilots, and institutional onboarding.\n Reporting directly to the Head of USAT Institutional, you will take hands on ownership of high priority operational workflows, bridge regional expansion teams, and project manage strategic corridor partnerships from inception to production. The ideal candidate thrives in fast paced environments, possesses a strong baseline in fintech and digital asset execution, and is eager to be directly mentored while driving high impact output.\n\nResponsibilities\n\n• Ramp Connectivity & Corridor Optimization\n\n• Partner closely with regional expansion leadership to identify, establish, and optimize on/off-ramp infrastructures across high value corridors to drive seamless global connectivity.\n\n• Analyze fiat and stablecoin liquidity flows to inform data driven operational decisions and eliminate friction in payment ecosystems.\n\n• Local FX Pilots & Production Execution\n\n• Lead and execute local stablecoin FX pilots.\n\n• Establish clear milestone roadmaps to transition successful pilots into active production environments.\n\n• Geographic Project Management & Sourcing\n\n• Serve as primary project manager for active geographic expansion initiatives\n\n• Conduct market research and track regulatory shifts to source, evaluate, and prioritize new corridor expansion opportunities.\n\n• Institutional Onboarding & Operational Execution\n\n• Manage day-to-day operational execution and compliance requirements as tier-1 US institutions adopt USAT.\n\n• Maintain structured KPI tracking, status reporting, and internal alignment to guarantee execution velocity across active institutional workflows.\n\n• Education & Experience: Bachelor’s degree in Business, Finance, Economics, or a related field. 3–6 years of experience in project management, business development, or operational execution within fintech, cross-border payments, banking, or digital assets.\n\n• Execution & Project Management: Proven track record of managing complex cross-functional initiatives, coordinating technical/regulatory workstreams, and driving projects from concept to close.\n\n• Domain Knowledge: Solid foundational understanding of cross-border settlements, payment rails, stablecoin mechanics, and regional fintech ecosystems.\n\n• Communication & Stakeholder Management: Excellent written and verbal communication skills. Ability to interface seamlessly with internal partners, regional leads, and institutional external clients.\n\n• Mindset: Proactive, organized, and comfortable navigating ambiguity independently in a high-velocity ecosystem.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website."
+      },
+      "location": "Salt Lake City, Utah",
+      "canton": "",
+      "url": "https://tether.recruitee.com/o/usat-institutional-associate-junior-mid",
+      "source": "tether-careers-crawler",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-28T21:12:44.151Z",
+      "addressLocality": "Salt Lake City",
+      "addressRegion": "Utah",
+      "addressCountry": "",
+      "postalCode": "",
+      "country": "",
+      "category": "Altro",
+      "contract": "remote",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "workModel": "remote",
+      "sector": "Fintech / Blockchain",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-24",
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://careers.tether.io/o/usat-institutional-associate-junior-mid/c/new",
+      "department": "",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:12:44.151Z"
+    },
+    {
+      "id": "tether-6ae9db180433",
+      "slug": "ai-research-engineer-kernel-inference-optimization-100-remote-worldwide-tether-ch",
+      "slugByLocale": {
+        "en": "ai-research-engineer-kernel-inference-optimization-100-remote-worldwide-tether-ch",
+        "it": "ai-research-engineer-kernel-inference-optimization-100-remote-worldwide-tether-ch",
+        "de": "ai-research-engineer-kernel-inference-optimization-100-remote-worldwide-tether-ch",
+        "fr": "ai-research-engineer-kernel-inference-optimization-100-remote-worldwide-tether-ch"
+      },
+      "company": "Tether Operations",
+      "companyKey": "tether",
+      "companyDomain": "tether.io",
+      "title": "AI Research Engineer (Kernel & Inference Optimization) - 100% Remote Worldwide",
+      "titleByLocale": {
+        "en": "AI Research Engineer (Kernel & Inference Optimization) - 100% Remote Worldwide",
+        "it": "AI Ricerca Ingegnere (Kernel & Inference Optimization) - 100% Remote Worldwide",
+        "de": "AI Forschung Ingenieur (Kernel & Inference Optimization) - 100% Remote Worldwide",
+        "fr": "AI Recherche Ingénieur (Kernel & Inference Optimization) - 100% Remote Worldwide"
+      },
+      "description": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n As a member of our AI model team, you will drive innovation in model serving and inference architectures for advanced AI systems. Your work will focus on optimizing model deployment and inference strategies to deliver highly responsive, efficient, and scalable performance across real-world applications. You will work on a wide spectrum of systems, ranging from resource-efficient models designed for limited hardware environments to complex, multi-modal architectures that integrate data such as text, images, and audio.\n We expect you to have deep expertise in designing and optimizing model serving pipelines and inference frameworks as well as a strong background in advanced model architectures. You will adopt a hands-on, research-driven approach to develop, test, and implement novel serving strategies and inference algorithms. Your responsibilities include engineering robust inference pipelines, establishing comprehensive performance metrics, and identifying and resolving bottlenecks in production environments. The ultimate goal is to enable high-throughput, low-latency, low-memory footprint, and scalable AI performance that delivers tangible value in dynamic, real-world scenarios.\n\nResponsibilities\n\n• Design and deploy state-of-the-art model serving architectures that deliver high throughput and low latency while optimizing memory usage. Ensure these pipelines run efficiently across diverse environments, including resource-constrained devices and edge platforms. Establish clear performance targets such as reduced latency, improved token response, and minimized memory footprint.\n\n• Build, run, and monitor controlled inference tests in both simulated and live production environments. Track key performance indicators such as response latency, throughput, memory consumption, and error rates, with special attention to metrics specific to resource-constrained devices. Document iterative results and compare outcomes against established benchmarks to validate performance across platforms.\n\n• Identify and prepare high-quality test datasets and simulation scenarios tailored to real-world deployment challenges, specifically those encountered on low-resource devices. Set measurable criteria to ensure that these resources effectively evaluate model performance, latency, and memory utilization under various operational conditions.\n\n• Analyze computational efficiency and diagnose bottlenecks in the serving pipeline by monitoring both processing and memory metrics. Address issues such as suboptimal batch processing, network delays, and high memory usage to optimize the serving infrastructure for scalability and reliability on resource-constrained systems.\n\n• Work closely with cross-functional teams to integrate optimized serving and inference frameworks into production pipelines designed for edge and on-device applications. Define clear success metrics such as improved real-world performance, low error rates, robust scalability, optimal memory usage and ensure continuous monitoring and iterative refinements for sustained improvements.\n\n• A degree in Computer Science or related field. Ideally PhD in NLP, Machine Learning, or a related field, complemented by a solid track record in AI R&D (with good publications in A* conferences).\n\n• Must have knowledge of Metal Shading Language (MSL). You should be comfortable writing custom compute shaders from scratch.\n\n• Proven experience in low-level kernel optimizations and inference optimization on mobile devices is essential. Your contributions should have led to measurable improvements in inference latency, throughput, and memory footprint for domain-specific applications, particularly on resource-constrained devices and edge platforms.\n\n• A deep understanding of modern model serving architectures and inference optimization techniques is required. This includes state-of-the-art methods for achieving low-latency, high-throughput performance, and efficient memory management in diverse, resource-constrained deployment scenarios.\n\n• Must have strong expertise in writing GPU kernels for mobile devices (i.e., smartphones) as well as a deep understanding of model serving frameworks and engines. Practical experience in developing and deploying end-to-end inference pipelines, from optimizing models for efficient serving to integrating these solutions on resource-constrained devices is required.\n\n• Demonstrated ability to apply empirical research to overcome challenges in model serving, such as latency optimization, computational bottlenecks, and memory constraints. You should be proficient in designing robust evaluation frameworks and iterating on optimization strategies to continuously push the boundaries of inference performance and system efficiency.\n\n• Distributed Inference Systems: Designing and optimizing high-performance inference engines using techniques like Tensor Parallelism, Pipeline Parallelism, and Expert Parallelism to handle massive models on GPU clusters.\n\n• Deep understanding of the math and structure behind Diffusion Models and Vision Transformers\n\n• Understanding of Pruning, Quantization, Flash attention, KV Cache, Speculative Decoding (Eagle) etc.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+      "descriptionByLocale": {
+        "en": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n As a member of our AI model team, you will drive innovation in model serving and inference architectures for advanced AI systems. Your work will focus on optimizing model deployment and inference strategies to deliver highly responsive, efficient, and scalable performance across real-world applications. You will work on a wide spectrum of systems, ranging from resource-efficient models designed for limited hardware environments to complex, multi-modal architectures that integrate data such as text, images, and audio.\n We expect you to have deep expertise in designing and optimizing model serving pipelines and inference frameworks as well as a strong background in advanced model architectures. You will adopt a hands-on, research-driven approach to develop, test, and implement novel serving strategies and inference algorithms. Your responsibilities include engineering robust inference pipelines, establishing comprehensive performance metrics, and identifying and resolving bottlenecks in production environments. The ultimate goal is to enable high-throughput, low-latency, low-memory footprint, and scalable AI performance that delivers tangible value in dynamic, real-world scenarios.\n\nResponsibilities\n\n• Design and deploy state-of-the-art model serving architectures that deliver high throughput and low latency while optimizing memory usage. Ensure these pipelines run efficiently across diverse environments, including resource-constrained devices and edge platforms. Establish clear performance targets such as reduced latency, improved token response, and minimized memory footprint.\n\n• Build, run, and monitor controlled inference tests in both simulated and live production environments. Track key performance indicators such as response latency, throughput, memory consumption, and error rates, with special attention to metrics specific to resource-constrained devices. Document iterative results and compare outcomes against established benchmarks to validate performance across platforms.\n\n• Identify and prepare high-quality test datasets and simulation scenarios tailored to real-world deployment challenges, specifically those encountered on low-resource devices. Set measurable criteria to ensure that these resources effectively evaluate model performance, latency, and memory utilization under various operational conditions.\n\n• Analyze computational efficiency and diagnose bottlenecks in the serving pipeline by monitoring both processing and memory metrics. Address issues such as suboptimal batch processing, network delays, and high memory usage to optimize the serving infrastructure for scalability and reliability on resource-constrained systems.\n\n• Work closely with cross-functional teams to integrate optimized serving and inference frameworks into production pipelines designed for edge and on-device applications. Define clear success metrics such as improved real-world performance, low error rates, robust scalability, optimal memory usage and ensure continuous monitoring and iterative refinements for sustained improvements.\n\n• A degree in Computer Science or related field. Ideally PhD in NLP, Machine Learning, or a related field, complemented by a solid track record in AI R&D (with good publications in A* conferences).\n\n• Must have knowledge of Metal Shading Language (MSL). You should be comfortable writing custom compute shaders from scratch.\n\n• Proven experience in low-level kernel optimizations and inference optimization on mobile devices is essential. Your contributions should have led to measurable improvements in inference latency, throughput, and memory footprint for domain-specific applications, particularly on resource-constrained devices and edge platforms.\n\n• A deep understanding of modern model serving architectures and inference optimization techniques is required. This includes state-of-the-art methods for achieving low-latency, high-throughput performance, and efficient memory management in diverse, resource-constrained deployment scenarios.\n\n• Must have strong expertise in writing GPU kernels for mobile devices (i.e., smartphones) as well as a deep understanding of model serving frameworks and engines. Practical experience in developing and deploying end-to-end inference pipelines, from optimizing models for efficient serving to integrating these solutions on resource-constrained devices is required.\n\n• Demonstrated ability to apply empirical research to overcome challenges in model serving, such as latency optimization, computational bottlenecks, and memory constraints. You should be proficient in designing robust evaluation frameworks and iterating on optimization strategies to continuously push the boundaries of inference performance and system efficiency.\n\n• Distributed Inference Systems: Designing and optimizing high-performance inference engines using techniques like Tensor Parallelism, Pipeline Parallelism, and Expert Parallelism to handle massive models on GPU clusters.\n\n• Deep understanding of the math and structure behind Diffusion Models and Vision Transformers\n\n• Understanding of Pruning, Quantization, Flash attention, KV Cache, Speculative Decoding (Eagle) etc.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "it": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n As a member of our AI model team, you will drive innovation in model serving and inference architectures for advanced AI systems. Your work will focus on optimizing model deployment and inference strategies to deliver highly responsive, efficient, and scalable performance across real-world applications. You will work on a wide spectrum of systems, ranging from resource-efficient models designed for limited hardware environments to complex, multi-modal architectures that integrate data such as text, images, and audio.\n We expect you to have deep expertise in designing and optimizing model serving pipelines and inference frameworks as well as a strong background in advanced model architectures. You will adopt a hands-on, research-driven approach to develop, test, and implement novel serving strategies and inference algorithms. Your responsibilities include engineering robust inference pipelines, establishing comprehensive performance metrics, and identifying and resolving bottlenecks in production environments. The ultimate goal is to enable high-throughput, low-latency, low-memory footprint, and scalable AI performance that delivers tangible value in dynamic, real-world scenarios.\n\nResponsibilities\n\n• Design and deploy state-of-the-art model serving architectures that deliver high throughput and low latency while optimizing memory usage. Ensure these pipelines run efficiently across diverse environments, including resource-constrained devices and edge platforms. Establish clear performance targets such as reduced latency, improved token response, and minimized memory footprint.\n\n• Build, run, and monitor controlled inference tests in both simulated and live production environments. Track key performance indicators such as response latency, throughput, memory consumption, and error rates, with special attention to metrics specific to resource-constrained devices. Document iterative results and compare outcomes against established benchmarks to validate performance across platforms.\n\n• Identify and prepare high-quality test datasets and simulation scenarios tailored to real-world deployment challenges, specifically those encountered on low-resource devices. Set measurable criteria to ensure that these resources effectively evaluate model performance, latency, and memory utilization under various operational conditions.\n\n• Analyze computational efficiency and diagnose bottlenecks in the serving pipeline by monitoring both processing and memory metrics. Address issues such as suboptimal batch processing, network delays, and high memory usage to optimize the serving infrastructure for scalability and reliability on resource-constrained systems.\n\n• Work closely with cross-functional teams to integrate optimized serving and inference frameworks into production pipelines designed for edge and on-device applications. Define clear success metrics such as improved real-world performance, low error rates, robust scalability, optimal memory usage and ensure continuous monitoring and iterative refinements for sustained improvements.\n\n• A degree in Computer Science or related field. Ideally PhD in NLP, Machine Learning, or a related field, complemented by a solid track record in AI R&D (with good publications in A* conferences).\n\n• Must have knowledge of Metal Shading Language (MSL). You should be comfortable writing custom compute shaders from scratch.\n\n• Proven experience in low-level kernel optimizations and inference optimization on mobile devices is essential. Your contributions should have led to measurable improvements in inference latency, throughput, and memory footprint for domain-specific applications, particularly on resource-constrained devices and edge platforms.\n\n• A deep understanding of modern model serving architectures and inference optimization techniques is required. This includes state-of-the-art methods for achieving low-latency, high-throughput performance, and efficient memory management in diverse, resource-constrained deployment scenarios.\n\n• Must have strong expertise in writing GPU kernels for mobile devices (i.e., smartphones) as well as a deep understanding of model serving frameworks and engines. Practical experience in developing and deploying end-to-end inference pipelines, from optimizing models for efficient serving to integrating these solutions on resource-constrained devices is required.\n\n• Demonstrated ability to apply empirical research to overcome challenges in model serving, such as latency optimization, computational bottlenecks, and memory constraints. You should be proficient in designing robust evaluation frameworks and iterating on optimization strategies to continuously push the boundaries of inference performance and system efficiency.\n\n• Distributed Inference Systems: Designing and optimizing high-performance inference engines using techniques like Tensor Parallelism, Pipeline Parallelism, and Expert Parallelism to handle massive models on GPU clusters.\n\n• Deep understanding of the math and structure behind Diffusion Models and Vision Transformers\n\n• Understanding of Pruning, Quantization, Flash attention, KV Cache, Speculative Decoding (Eagle) etc.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "de": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n As a member of our AI model team, you will drive innovation in model serving and inference architectures for advanced AI systems. Your work will focus on optimizing model deployment and inference strategies to deliver highly responsive, efficient, and scalable performance across real-world applications. You will work on a wide spectrum of systems, ranging from resource-efficient models designed for limited hardware environments to complex, multi-modal architectures that integrate data such as text, images, and audio.\n We expect you to have deep expertise in designing and optimizing model serving pipelines and inference frameworks as well as a strong background in advanced model architectures. You will adopt a hands-on, research-driven approach to develop, test, and implement novel serving strategies and inference algorithms. Your responsibilities include engineering robust inference pipelines, establishing comprehensive performance metrics, and identifying and resolving bottlenecks in production environments. The ultimate goal is to enable high-throughput, low-latency, low-memory footprint, and scalable AI performance that delivers tangible value in dynamic, real-world scenarios.\n\nResponsibilities\n\n• Design and deploy state-of-the-art model serving architectures that deliver high throughput and low latency while optimizing memory usage. Ensure these pipelines run efficiently across diverse environments, including resource-constrained devices and edge platforms. Establish clear performance targets such as reduced latency, improved token response, and minimized memory footprint.\n\n• Build, run, and monitor controlled inference tests in both simulated and live production environments. Track key performance indicators such as response latency, throughput, memory consumption, and error rates, with special attention to metrics specific to resource-constrained devices. Document iterative results and compare outcomes against established benchmarks to validate performance across platforms.\n\n• Identify and prepare high-quality test datasets and simulation scenarios tailored to real-world deployment challenges, specifically those encountered on low-resource devices. Set measurable criteria to ensure that these resources effectively evaluate model performance, latency, and memory utilization under various operational conditions.\n\n• Analyze computational efficiency and diagnose bottlenecks in the serving pipeline by monitoring both processing and memory metrics. Address issues such as suboptimal batch processing, network delays, and high memory usage to optimize the serving infrastructure for scalability and reliability on resource-constrained systems.\n\n• Work closely with cross-functional teams to integrate optimized serving and inference frameworks into production pipelines designed for edge and on-device applications. Define clear success metrics such as improved real-world performance, low error rates, robust scalability, optimal memory usage and ensure continuous monitoring and iterative refinements for sustained improvements.\n\n• A degree in Computer Science or related field. Ideally PhD in NLP, Machine Learning, or a related field, complemented by a solid track record in AI R&D (with good publications in A* conferences).\n\n• Must have knowledge of Metal Shading Language (MSL). You should be comfortable writing custom compute shaders from scratch.\n\n• Proven experience in low-level kernel optimizations and inference optimization on mobile devices is essential. Your contributions should have led to measurable improvements in inference latency, throughput, and memory footprint for domain-specific applications, particularly on resource-constrained devices and edge platforms.\n\n• A deep understanding of modern model serving architectures and inference optimization techniques is required. This includes state-of-the-art methods for achieving low-latency, high-throughput performance, and efficient memory management in diverse, resource-constrained deployment scenarios.\n\n• Must have strong expertise in writing GPU kernels for mobile devices (i.e., smartphones) as well as a deep understanding of model serving frameworks and engines. Practical experience in developing and deploying end-to-end inference pipelines, from optimizing models for efficient serving to integrating these solutions on resource-constrained devices is required.\n\n• Demonstrated ability to apply empirical research to overcome challenges in model serving, such as latency optimization, computational bottlenecks, and memory constraints. You should be proficient in designing robust evaluation frameworks and iterating on optimization strategies to continuously push the boundaries of inference performance and system efficiency.\n\n• Distributed Inference Systems: Designing and optimizing high-performance inference engines using techniques like Tensor Parallelism, Pipeline Parallelism, and Expert Parallelism to handle massive models on GPU clusters.\n\n• Deep understanding of the math and structure behind Diffusion Models and Vision Transformers\n\n• Understanding of Pruning, Quantization, Flash attention, KV Cache, Speculative Decoding (Eagle) etc.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "fr": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n As a member of our AI model team, you will drive innovation in model serving and inference architectures for advanced AI systems. Your work will focus on optimizing model deployment and inference strategies to deliver highly responsive, efficient, and scalable performance across real-world applications. You will work on a wide spectrum of systems, ranging from resource-efficient models designed for limited hardware environments to complex, multi-modal architectures that integrate data such as text, images, and audio.\n We expect you to have deep expertise in designing and optimizing model serving pipelines and inference frameworks as well as a strong background in advanced model architectures. You will adopt a hands-on, research-driven approach to develop, test, and implement novel serving strategies and inference algorithms. Your responsibilities include engineering robust inference pipelines, establishing comprehensive performance metrics, and identifying and resolving bottlenecks in production environments. The ultimate goal is to enable high-throughput, low-latency, low-memory footprint, and scalable AI performance that delivers tangible value in dynamic, real-world scenarios.\n\nResponsibilities\n\n• Design and deploy state-of-the-art model serving architectures that deliver high throughput and low latency while optimizing memory usage. Ensure these pipelines run efficiently across diverse environments, including resource-constrained devices and edge platforms. Establish clear performance targets such as reduced latency, improved token response, and minimized memory footprint.\n\n• Build, run, and monitor controlled inference tests in both simulated and live production environments. Track key performance indicators such as response latency, throughput, memory consumption, and error rates, with special attention to metrics specific to resource-constrained devices. Document iterative results and compare outcomes against established benchmarks to validate performance across platforms.\n\n• Identify and prepare high-quality test datasets and simulation scenarios tailored to real-world deployment challenges, specifically those encountered on low-resource devices. Set measurable criteria to ensure that these resources effectively evaluate model performance, latency, and memory utilization under various operational conditions.\n\n• Analyze computational efficiency and diagnose bottlenecks in the serving pipeline by monitoring both processing and memory metrics. Address issues such as suboptimal batch processing, network delays, and high memory usage to optimize the serving infrastructure for scalability and reliability on resource-constrained systems.\n\n• Work closely with cross-functional teams to integrate optimized serving and inference frameworks into production pipelines designed for edge and on-device applications. Define clear success metrics such as improved real-world performance, low error rates, robust scalability, optimal memory usage and ensure continuous monitoring and iterative refinements for sustained improvements.\n\n• A degree in Computer Science or related field. Ideally PhD in NLP, Machine Learning, or a related field, complemented by a solid track record in AI R&D (with good publications in A* conferences).\n\n• Must have knowledge of Metal Shading Language (MSL). You should be comfortable writing custom compute shaders from scratch.\n\n• Proven experience in low-level kernel optimizations and inference optimization on mobile devices is essential. Your contributions should have led to measurable improvements in inference latency, throughput, and memory footprint for domain-specific applications, particularly on resource-constrained devices and edge platforms.\n\n• A deep understanding of modern model serving architectures and inference optimization techniques is required. This includes state-of-the-art methods for achieving low-latency, high-throughput performance, and efficient memory management in diverse, resource-constrained deployment scenarios.\n\n• Must have strong expertise in writing GPU kernels for mobile devices (i.e., smartphones) as well as a deep understanding of model serving frameworks and engines. Practical experience in developing and deploying end-to-end inference pipelines, from optimizing models for efficient serving to integrating these solutions on resource-constrained devices is required.\n\n• Demonstrated ability to apply empirical research to overcome challenges in model serving, such as latency optimization, computational bottlenecks, and memory constraints. You should be proficient in designing robust evaluation frameworks and iterating on optimization strategies to continuously push the boundaries of inference performance and system efficiency.\n\n• Distributed Inference Systems: Designing and optimizing high-performance inference engines using techniques like Tensor Parallelism, Pipeline Parallelism, and Expert Parallelism to handle massive models on GPU clusters.\n\n• Deep understanding of the math and structure behind Diffusion Models and Vision Transformers\n\n• Understanding of Pruning, Quantization, Flash attention, KV Cache, Speculative Decoding (Eagle) etc.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website."
+      },
+      "location": "Andorra la Vella, Andorra la Vella",
+      "canton": "",
+      "url": "https://tether.recruitee.com/o/ai-research-engineer-kernel-inference-optimization-100-remoteworldwide",
+      "source": "tether-careers-crawler",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-28T21:12:38.152Z",
+      "addressLocality": "Andorra la Vella",
+      "addressRegion": "Andorra la Vella",
+      "addressCountry": "",
+      "postalCode": "",
+      "country": "",
+      "category": "Ingegneria",
+      "contract": "remote",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "workModel": "remote",
+      "sector": "Fintech / Blockchain",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-28",
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://careers.tether.io/o/ai-research-engineer-kernel-inference-optimization-100-remoteworldwide/c/new",
+      "department": "Data",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       }

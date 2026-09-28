@@ -1,24 +1,26 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-09-28T05:07:13.067Z",
-  "total": 41,
+  "generatedAt": "2026-09-28T21:25:47.139Z",
+  "total": 49,
   "discovered": null,
-  "parsed": 31,
+  "parsed": 39,
   "lastFetchOutcome": null,
-  "written": 41,
+  "written": 49,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 20118,
-  "avgDurationMs": 20118,
+  "unchangedCount": 1,
+  "durationMs": 22812,
+  "avgDurationMs": 22812,
   "durationHistory": [
-    20118
+    22812
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5892",
       "slug": "responsabile-delle-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
@@ -51,7 +53,7 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +62,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

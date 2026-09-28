@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-09-28T05:00:38.280Z",
+  "assembledAt": "2026-09-28T21:19:32.621Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:00:33.595Z",
+      "crawledAt": "2026-09-28T21:19:27.505Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,11 +53,13 @@
       "previousSlugs": [
         "operateur-de-production-4-8-siegfried-ch",
         "wechseltechniker-3-8-siegfried-evionnaz",
-        "operateur-de-production-4-8-siegfried-evionnaz"
+        "operateur-de-production-4-8-siegfried-evionnaz",
+        "operatore-di-produzione-4-8-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-de-production-4-8-siegfried-ch"
+          "operateur-de-production-4-8-siegfried-ch",
+          "operatore-di-produzione-4-8-siegfried-evionnaz"
         ],
         "fr": [
           "operateur-de-production-4-8-siegfried-evionnaz"
@@ -110,7 +112,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:00:32.854Z",
+      "crawledAt": "2026-09-28T21:19:26.824Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,11 +154,13 @@
         "technicien-de-laboratoire-ad-siegfried-evionnaz",
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
-        "tecnico-di-cambio-3-8-siegfried-evionnaz"
+        "tecnico-di-cambio-3-8-siegfried-evionnaz",
+        "tecnico-di-laboratorio-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-ad-siegfried-ch"
+          "lab-technician-ad-siegfried-ch",
+          "tecnico-di-laboratorio-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -166,6 +170,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -212,7 +217,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:32.079Z",
+      "crawledAt": "2026-09-28T21:19:26.130Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -230,17 +235,20 @@
       "jobReqId": "R26_104",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "senior-lab-technician-analytics-siegfried-ch"
+        "senior-lab-technician-analytics-siegfried-ch",
+        "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lab-technician-analytics-siegfried-ch"
+          "senior-lab-technician-analytics-siegfried-ch",
+          "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
         ],
         "fr": [
           "senior-lab-technician-analytics-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -287,7 +295,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:31.310Z",
+      "crawledAt": "2026-09-28T21:19:25.421Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -307,13 +315,15 @@
       "previousSlugs": [
         "laborant-in-efz-chemie-siegfried-ch",
         "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-        "laborant-in-cfc-chemie-siegfried-zofingen"
+        "laborant-in-cfc-chemie-siegfried-zofingen",
+        "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-in-efz-chemie-siegfried-ch",
           "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-          "laborant-in-cfc-chemie-siegfried-zofingen"
+          "laborant-in-cfc-chemie-siegfried-zofingen",
+          "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
         ],
         "en": [
           "laborant-in-efz-chemie-siegfried-ch"
@@ -323,6 +333,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:57.746Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -369,7 +380,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:00:30.523Z",
+      "crawledAt": "2026-09-28T21:19:24.676Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -388,12 +399,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-        "technicien-de-maintenance-electricite-siegfried-ch"
+        "technicien-de-maintenance-electricite-siegfried-ch",
+        "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-          "technicien-de-maintenance-electricite-siegfried-ch"
+          "technicien-de-maintenance-electricite-siegfried-ch",
+          "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
         ],
         "en": [
           "technicien-de-maintenance-electricite-siegfried-ch"
@@ -403,6 +416,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -449,7 +463,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:29.873Z",
+      "crawledAt": "2026-09-28T21:19:23.983Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -467,11 +481,13 @@
       "jobReqId": "R26_511",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "intern-commercial-excellence-siegfried-ch"
+        "intern-commercial-excellence-siegfried-ch",
+        "tirocinante-commercial-excellence-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-commercial-excellence-siegfried-ch"
+          "intern-commercial-excellence-siegfried-ch",
+          "tirocinante-commercial-excellence-siegfried-zofingen"
         ],
         "de": [
           "intern-commercial-excellence-siegfried-ch"
@@ -481,6 +497,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -527,7 +544,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:00:29.160Z",
+      "crawledAt": "2026-09-28T21:19:23.275Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -545,11 +562,13 @@
       "jobReqId": "R26_592",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "cad-designer-siegfried-ch"
+        "cad-designer-siegfried-ch",
+        "designer-cad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cad-designer-siegfried-ch"
+          "cad-designer-siegfried-ch",
+          "designer-cad-siegfried-evionnaz"
         ],
         "de": [
           "cad-designer-siegfried-ch"
@@ -603,7 +622,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker-in--a-_R26_620",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:28.501Z",
+      "crawledAt": "2026-09-28T21:19:22.388Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -625,7 +644,8 @@
         "mecanicien-m-f-d-siegfried-zofingen",
         "meccanico-m-f-d-siegfried-zofingen",
         "mechanic-m-f-d-siegfried-zofingen",
-        "mechaniker-m-w-d-siegfried-ch"
+        "mechaniker-m-w-d-siegfried-ch",
+        "meccanico-a-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -633,7 +653,8 @@
           "mecanicien-m-f-d-siegfried-zofingen",
           "meccanico-m-f-d-siegfried-zofingen",
           "mechanic-m-f-d-siegfried-zofingen",
-          "mechaniker-m-w-d-siegfried-ch"
+          "mechaniker-m-w-d-siegfried-ch",
+          "meccanico-a-siegfried-zofingen"
         ],
         "en": [
           "mechaniker-in-a-siegfried-ch"
@@ -643,6 +664,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:20.607Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -689,7 +711,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-technician-QC_R26_657",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:00:27.832Z",
+      "crawledAt": "2026-09-28T21:19:21.688Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -718,7 +740,8 @@
         "laboratorio-tecnico-r-d-siegfried-evionnaz",
         "lab-technician-r-d-siegfried-evionnaz",
         "lab-techniker-r-d-siegfried-evionnaz",
-        "lab-technician-r-d-siegfried-ch"
+        "lab-technician-r-d-siegfried-ch",
+        "tecnico-di-laboratorio-qc-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -733,7 +756,8 @@
           "laboratorio-tecnico-r-d-siegfried-evionnaz",
           "lab-technician-r-d-siegfried-evionnaz",
           "lab-techniker-r-d-siegfried-evionnaz",
-          "lab-technician-r-d-siegfried-ch"
+          "lab-technician-r-d-siegfried-ch",
+          "tecnico-di-laboratorio-qc-siegfried-evionnaz"
         ],
         "en": [
           "quality-control-laboratory-supervisor-siegfried-evionnaz",
@@ -750,6 +774,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:33:49.045Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -796,7 +821,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:00:27.091Z",
+      "crawledAt": "2026-09-28T21:19:21.001Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -814,11 +839,13 @@
       "jobReqId": "R26_661",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch"
+        "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch",
+        "internship-processi-di-digitalizzazione-nell-ambiente-pharma-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch"
+          "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch",
+          "internship-processi-di-digitalizzazione-nell-ambiente-pharma-siegfried-evionnaz"
         ],
         "en": [
           "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch"
@@ -874,7 +901,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Ingnieur-en-chimie---Expertise-QC_R26_679",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:00:26.363Z",
+      "crawledAt": "2026-09-28T21:19:20.299Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -892,11 +919,13 @@
       "jobReqId": "R26_679",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "ingenieur-en-chimie-expertise-qc-siegfried-ch"
+        "ingenieur-en-chimie-expertise-qc-siegfried-ch",
+        "ingegnere-di-chimica-esperto-qc-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-en-chimie-expertise-qc-siegfried-ch"
+          "ingenieur-en-chimie-expertise-qc-siegfried-ch",
+          "ingegnere-di-chimica-esperto-qc-siegfried-evionnaz"
         ],
         "en": [
           "ingenieur-en-chimie-expertise-qc-siegfried-ch"
@@ -952,7 +981,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Payroll-Expert_R26_664",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:25.554Z",
+      "crawledAt": "2026-09-28T21:19:19.506Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -971,11 +1000,13 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "payroll-lead-siegfried-ch",
-        "payroll-lead-siegfried-zofingen"
+        "payroll-lead-siegfried-zofingen",
+        "piombo-payroll-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "payroll-lead-siegfried-ch"
+          "payroll-lead-siegfried-ch",
+          "piombo-payroll-siegfried-zofingen"
         ],
         "fr": [
           "payroll-lead-siegfried-ch",
@@ -1030,7 +1061,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Rohrschlosser-in_R26_675",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:24.788Z",
+      "crawledAt": "2026-09-28T21:19:18.787Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1050,12 +1081,14 @@
       "previousSlugs": [
         "rohrschlosser-in-instandhaltung-chemie-siegfried-ch",
         "fabbri-in-chimica-di-manutenzione-siegfried-zofingen",
-        "tube-locksmiths-in-maintenance-chemistry-siegfried-zofingen"
+        "tube-locksmiths-in-maintenance-chemistry-siegfried-zofingen",
+        "chiusure-per-tubi-chimica-di-manutenzione-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rohrschlosser-in-instandhaltung-chemie-siegfried-ch",
-          "fabbri-in-chimica-di-manutenzione-siegfried-zofingen"
+          "fabbri-in-chimica-di-manutenzione-siegfried-zofingen",
+          "chiusure-per-tubi-chimica-di-manutenzione-siegfried-zofingen"
         ],
         "en": [
           "rohrschlosser-in-instandhaltung-chemie-siegfried-ch",
@@ -1112,7 +1145,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:23.808Z",
+      "crawledAt": "2026-09-28T21:19:18.080Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1130,17 +1163,20 @@
       "jobReqId": "R26_713",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "asset-reliability-engineer-a-siegfried-ch"
+        "asset-reliability-engineer-a-siegfried-ch",
+        "asset-reliability-ingegnere-a-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "asset-reliability-engineer-a-siegfried-ch"
+          "asset-reliability-engineer-a-siegfried-ch",
+          "asset-reliability-ingegnere-a-siegfried-zofingen"
         ],
         "fr": [
           "asset-reliability-engineer-a-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T10:24:44.709Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1170,7 +1206,7 @@
       "companyDomain": "siegfried.ch",
       "title": "Analytical Data Reviewer",
       "titleByLocale": {
-        "it": "Recensione dati analitica",
+        "it": "Analytical Data Reviewer",
         "en": "Analytical Data Reviewer",
         "de": "Analytical Data Reviewer",
         "fr": "Relecteur de données analytiques"
@@ -1187,7 +1223,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:23.072Z",
+      "crawledAt": "2026-09-28T21:19:17.351Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1206,12 +1242,14 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "analytical-data-reviewer-siegfried-ch",
-        "analytical-data-reviewer-siegfried-zofingen"
+        "analytical-data-reviewer-siegfried-zofingen",
+        "recensione-dati-analitica-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "analytical-data-reviewer-siegfried-ch",
-          "analytical-data-reviewer-siegfried-zofingen"
+          "analytical-data-reviewer-siegfried-zofingen",
+          "recensione-dati-analitica-siegfried-zofingen"
         ],
         "fr": [
           "analytical-data-reviewer-siegfried-ch"
@@ -1265,7 +1303,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Analytical-Project-Leader_R26_737",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:00:22.094Z",
+      "crawledAt": "2026-09-28T21:19:16.655Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1284,11 +1322,13 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "analytical-project-leader-siegfried-ch",
-        "analytical-project-leader-siegfried-evionnaz"
+        "analytical-project-leader-siegfried-evionnaz",
+        "leader-del-progetto-analitico-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analytical-project-leader-siegfried-ch"
+          "analytical-project-leader-siegfried-ch",
+          "leader-del-progetto-analitico-siegfried-evionnaz"
         ],
         "de": [
           "analytical-project-leader-siegfried-ch",
@@ -1343,7 +1383,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Expert-Lab-Technician-Drug-Product-R-D_R26_716",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:21.439Z",
+      "crawledAt": "2026-09-28T21:19:15.951Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1361,14 +1401,17 @@
       "jobReqId": "R26_716",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "expert-lab-technician-drug-product-r-d-siegfried-ch"
+        "expert-lab-technician-drug-product-r-d-siegfried-ch",
+        "tecnico-di-laboratorio-esperto-ricerca-e-sviluppo-di-prodotti-farmaceutici-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-lab-technician-drug-product-r-d-siegfried-ch"
+          "expert-lab-technician-drug-product-r-d-siegfried-ch",
+          "tecnico-di-laboratorio-esperto-ricerca-e-sviluppo-di-prodotti-farmaceutici-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-08-27T00:59:40.249Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1391,7 +1434,7 @@
         "it": "manutenzione-testa-siegfried-zofingen",
         "en": "head-maintenance-siegfried-zofingen",
         "de": "head-maintenance-siegfried-ch",
-        "fr": "entretien-de-la-tete-siegfried-zofingen"
+        "fr": "directeur-de-la-maintenance-de-la-production-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1415,7 +1458,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:20.688Z",
+      "crawledAt": "2026-09-28T21:19:15.230Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1434,19 +1477,25 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugsByLocale": {
         "de": [
-          "production-maintenance-manager-siegfried-ch"
+          "production-maintenance-manager-siegfried-ch",
+          "head-maintenance-siegfried-ch"
         ],
         "it": [
-          "production-maintenance-manager-siegfried-ch"
+          "production-maintenance-manager-siegfried-ch",
+          "manutenzione-testa-siegfried-zofingen"
         ],
         "fr": [
           "production-maintenance-manager-siegfried-zofingen",
+          "entretien-de-la-tete-siegfried-zofingen",
           "directeur-de-la-maintenance-de-la-production-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "production-maintenance-manager-siegfried-ch",
         "production-maintenance-manager-siegfried-zofingen",
+        "entretien-de-la-tete-siegfried-zofingen",
+        "head-maintenance-siegfried-ch",
+        "manutenzione-testa-siegfried-zofingen",
         "directeur-de-la-maintenance-de-la-production-siegfried-zofingen"
       ],
       "needsRetranslation": true,
@@ -1497,7 +1546,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Accountant_R26_739",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:00:19.908Z",
+      "crawledAt": "2026-09-28T21:19:14.500Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1516,11 +1565,13 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "accountant-siegfried-ch",
-        "kontoinhaber-siegfried-evionnaz"
+        "kontoinhaber-siegfried-evionnaz",
+        "contabile-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "accountant-siegfried-ch"
+          "accountant-siegfried-ch",
+          "contabile-siegfried-evionnaz"
         ],
         "de": [
           "accountant-siegfried-ch",
@@ -1578,7 +1629,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R26_616",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:19.152Z",
+      "crawledAt": "2026-09-28T21:19:13.746Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1598,12 +1649,14 @@
       "previousSlugs": [
         "betriebselektriker-in-siegfried-ch",
         "betriebselektriker-in-siegfried-zofingen",
-        "business-electrician-siegfried-zofingen"
+        "business-electrician-siegfried-zofingen",
+        "elettricista-aziendale-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-siegfried-ch",
-          "betriebselektriker-in-siegfried-zofingen"
+          "betriebselektriker-in-siegfried-zofingen",
+          "elettricista-aziendale-siegfried-zofingen"
         ],
         "en": [
           "business-electrician-siegfried-zofingen"
@@ -1633,10 +1686,10 @@
       "id": "siegfried-90779ee554f1",
       "slug": "ingegnere-operativo-siegfried-zofingen",
       "slugByLocale": {
-        "it": "betriebsingenieur-in-siegfried-zofingen",
+        "it": "ingegnere-operativo-siegfried-zofingen",
         "en": "betriebsingenieur-in-siegfried-zofingen",
         "de": "betriebsingenieur-in-siegfried-ch",
-        "fr": "betriebsingenieur-in-siegfried-zofingen"
+        "fr": "ingenieur-operationnel-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1660,7 +1713,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_742",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:18.408Z",
+      "crawledAt": "2026-09-28T21:19:13.024Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1679,13 +1732,18 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "ingenieur-operationnel-siegfried-zofingen"
+        "ingenieur-operationnel-siegfried-zofingen",
+        "ingegnere-operativo-siegfried-zofingen",
+        "betriebsingenieur-in-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsingenieur-in-siegfried-ch"
+          "betriebsingenieur-in-siegfried-ch",
+          "ingegnere-operativo-siegfried-zofingen",
+          "betriebsingenieur-in-siegfried-zofingen"
         ],
         "fr": [
+          "betriebsingenieur-in-siegfried-zofingen",
           "ingenieur-operationnel-siegfried-zofingen"
         ]
       },
@@ -1704,7 +1762,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "retranslationAttempts": 1
     },
     {
       "id": "siegfried-8039947a8afd",
@@ -1737,7 +1796,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:17.619Z",
+      "crawledAt": "2026-09-28T21:19:12.309Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1756,12 +1815,14 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "cad-konstrukteur-m-w-d-siegfried-ch",
-        "cad-konstrukteur-in-m-w-d-siegfried-ch"
+        "cad-konstrukteur-in-m-w-d-siegfried-ch",
+        "costruzione-cad-m-f-d-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cad-konstrukteur-m-w-d-siegfried-ch",
-          "cad-konstrukteur-in-m-w-d-siegfried-ch"
+          "cad-konstrukteur-in-m-w-d-siegfried-ch",
+          "costruzione-cad-m-f-d-siegfried-zofingen"
         ],
         "en": [
           "cad-konstrukteur-m-w-d-siegfried-ch"
@@ -1815,7 +1876,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Site-OPEX-Lead_R26_732",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:16.825Z",
+      "crawledAt": "2026-09-28T21:19:11.583Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1833,11 +1894,13 @@
       "jobReqId": "R26_732",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "site-opex-lead-siegfried-ch"
+        "site-opex-lead-siegfried-ch",
+        "guida-opex-del-sito-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "site-opex-lead-siegfried-ch"
+          "site-opex-lead-siegfried-ch",
+          "guida-opex-del-sito-siegfried-zofingen"
         ],
         "de": [
           "site-opex-lead-siegfried-ch"

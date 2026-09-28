@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-fribourg",
-  "assembledAt": "2026-09-28T05:08:54.475Z",
+  "assembledAt": "2026-09-28T21:29:03.275Z",
   "jobs": [
     {
       "id": "etat-de-fribourg-8f0bf43a62de",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Diplomassistentin-Doktorandin-Saan/1370924857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:49.759Z",
+      "crawledAt": "2026-09-28T21:28:55.083Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -56,12 +56,14 @@
       "previousSlugs": [
         "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
         "diplomassista-in-dottorando-etat-de-fribourg-fribourg",
-        "diplomassist-in-doctoral-student-etat-de-fribourg-fribourg"
+        "diplomassist-in-doctoral-student-etat-de-fribourg-fribourg",
+        "diploma-assistant-dottorato-studente-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
-          "diplomassista-in-dottorando-etat-de-fribourg-fribourg"
+          "diplomassista-in-dottorando-etat-de-fribourg-fribourg",
+          "diploma-assistant-dottorato-studente-etat-de-fribourg-fribourg"
         ],
         "en": [
           "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
@@ -72,6 +74,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:26:15.153Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -95,7 +98,7 @@
         "it": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "en": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "de": "polizeiaspirant-in-etat-de-fribourg-ch",
-        "fr": "aspirant-policier-etat-de-fribourg-granges-paccot"
+        "fr": "polizeiaspirant-in-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -105,7 +108,7 @@
         "it": "Polizeiaspirant",
         "en": "Polizeiaspirant",
         "de": "Polizeiaspirant·in",
-        "fr": "Aspirant policier"
+        "fr": "Polizeiaspirant·in"
       },
       "description": "Polizeiaspirant·in -- Etat de Fribourg. Service: Kantonspolizei. Lieu de travail: Granges-Paccot (FR). Taux d'activité: 100%",
       "descriptionByLocale": {
@@ -119,7 +122,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Polizeiaspirant%C2%B7in-Saan/1370891157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:49.066Z",
+      "crawledAt": "2026-09-28T21:28:54.381Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -140,14 +143,21 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "polizeiaspirant-in-etat-de-fribourg-ch"
+        "polizeiaspirant-in-etat-de-fribourg-ch",
+        "aspirant-policier-etat-de-fribourg-granges-paccot",
+        "polizeiaspirant-in-etat-de-fribourg-granges-paccot"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polizeiaspirant-in-etat-de-fribourg-ch"
+          "polizeiaspirant-in-etat-de-fribourg-ch",
+          "polizeiaspirant-in-etat-de-fribourg-granges-paccot"
+        ],
+        "fr": [
+          "aspirant-policier-etat-de-fribourg-granges-paccot"
         ]
       },
       "firstSeenAt": "2026-09-01T07:25:20.010Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -194,7 +204,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Aspirant%C2%B7e-de-police-Sari/1370891057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:48.380Z",
+      "crawledAt": "2026-09-28T21:28:53.690Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -215,11 +225,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "aspirant-e-de-police-etat-de-fribourg-ch"
+        "aspirant-e-de-police-etat-de-fribourg-ch",
+        "aspirante-di-polizia-etat-de-fribourg-granges-paccot"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aspirant-e-de-police-etat-de-fribourg-ch"
+          "aspirant-e-de-police-etat-de-fribourg-ch",
+          "aspirante-di-polizia-etat-de-fribourg-granges-paccot"
         ],
         "de": [
           "aspirant-e-de-police-etat-de-fribourg-ch"
@@ -272,7 +284,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Gerichtschreiberin-erstinstanzliche-Gerichtsbeh%C3%B6rden-Saan/1371091957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:47.694Z",
+      "crawledAt": "2026-09-28T21:28:53.008Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -293,11 +305,13 @@
       "pensumMax": 100,
       "pensum": "50-100%",
       "previousSlugs": [
-        "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch"
+        "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch",
+        "corte-di-giustizia-e-tribunale-di-primo-grado-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch"
+          "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch",
+          "corte-di-giustizia-e-tribunale-di-primo-grado-etat-de-fribourg-fribourg"
         ],
         "en": [
           "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch"
@@ -329,7 +343,7 @@
       "slugByLocale": {
         "it": "registratore-di-prima-istanza-etat-de-fribourg-fribourg",
         "en": "registrar-of-first-instance-etat-de-fribourg-fribourg",
-        "de": "registrar-erster-instanz-etat-de-fribourg-fribourg-e64fb0",
+        "de": "greffier-iere-de-1ere-instance-etat-de-fribourg",
         "fr": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -339,7 +353,7 @@
       "titleByLocale": {
         "it": "Registratore di prima istanza",
         "en": "Registrar of first instance",
-        "de": "Kanzler der ersten Instanz",
+        "de": "Greffier-ière de 1ère instance",
         "fr": "Greffier-ière de 1ère instance"
       },
       "description": "Qui sommes-nous?\n\nLa Justice de paix est l'Autorité de protection de l'enfant et de l'adulte. A ce titre, elle agit sur requête ou d'office. Au terme de l'instruction, il est décidé d'instaurer ou non une mesure de protection. La Justice de paix a également des compétences en matière successorale, de placements à des fins d'assistance et dans le domaine des mises à ban.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Rédaction en français et en allemand des décisions en matière civile, notamment en matière de protection de l’enfant et de l’adulte\n\n• Participation aux séances de l’Autorité de protection de l’enfant et de l’adulte et prise de procès-verbaux d’audition\n\n• Gestion du greffe : prise de contacts avec les personnes concernées et leurs proches, les partenaires de la Justice de paix, notamment par un soutien juridique aux curateurs professionnels et privés et aux autres services\n\n• Informations et conseils aux tiers\n\n• Recherches juridiques\n\n• Suivi des dossiers et élaboration de courriers administratifs\n\nProfil souhaité\n\n• Diplôme universitaire en droit (licence ou Master en droit)\n\n• Plusieurs années d’expérience professionnelle, de préférence dans un greffe\n\n• Aisance rédactionnelle, excellente orthographe, autonomie, résistance au stress et esprit d’équipe\n\n• Sens de la communication, de l’organisation et aisance dans les contacts\n\n• Bonnes connaissances informatiques\n\n• Maîtrise de la langue française ou allemande, d’excellentes connaissances orales et écrites de l'autre langue\n\nCoordonnées des personnes de contact\n\nValentine Ruffieux et Saskia Oldendorf-Pittet, Greffière-cheffes",
@@ -354,7 +368,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Greffier-i%C3%A8re-de-1%C3%A8re-instance-Sari/1371091857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:47.006Z",
+      "crawledAt": "2026-09-28T21:28:52.314Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -377,11 +391,14 @@
       "previousSlugs": [
         "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
         "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg",
+        "registrar-erster-instanz-etat-de-fribourg-fribourg-e64fb0",
+        "registratore-di-prima-istanza-etat-de-fribourg-fribourg",
         "greffier-iere-de-1ere-instance-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+          "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
+          "registratore-di-prima-istanza-etat-de-fribourg-fribourg"
         ],
         "en": [
           "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
@@ -389,10 +406,12 @@
         "de": [
           "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
           "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg",
+          "registrar-erster-instanz-etat-de-fribourg-fribourg-e64fb0",
           "greffier-iere-de-1ere-instance-etat-de-fribourg"
         ]
       },
       "firstSeenAt": "2026-09-03T23:26:10.994Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -440,7 +459,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sekret%C3%A4rin-Saan/1371073457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:46.313Z",
+      "crawledAt": "2026-09-28T21:28:51.617Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -465,7 +484,8 @@
         "direktionsassistent-in-o-sekretar-in-bei-der-staatskanzlei-etat-de-fribourg",
         "directorate-assistant-or-secretary-at-the-state-chancellery-etat-de-fribourg-fribourg",
         "direktionsassistent-in-oder-sekretar-in-bei-der-staatskanzlei-etat-de-fribourg-ch",
-        "assistant-de-direction-ou-secretaire-a-la-chancellerie-d-etat-etat-de-fribourg-fribourg"
+        "assistant-de-direction-ou-secretaire-a-la-chancellerie-d-etat-etat-de-fribourg-fribourg",
+        "segretario-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -473,7 +493,8 @@
           "direktionsassistent-in-o-sekretar-in-bei-der-staatskanzlei-etat-de-fribourg",
           "directorate-assistant-or-secretary-at-the-state-chancellery-etat-de-fribourg-fribourg",
           "direktionsassistent-in-oder-sekretar-in-bei-der-staatskanzlei-etat-de-fribourg-ch",
-          "assistant-de-direction-ou-secretaire-a-la-chancellerie-d-etat-etat-de-fribourg-fribourg"
+          "assistant-de-direction-ou-secretaire-a-la-chancellerie-d-etat-etat-de-fribourg-fribourg",
+          "segretario-etat-de-fribourg-fribourg"
         ],
         "en": [
           "sekretar-in-etat-de-fribourg-ch",
@@ -535,7 +556,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Secr%C3%A9taire-de-Juge-Sari/1371073357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:45.629Z",
+      "crawledAt": "2026-09-28T21:28:50.927Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -556,11 +577,13 @@
       "pensumMax": 80,
       "pensum": "70-80%",
       "previousSlugs": [
-        "secretaire-de-juge-etat-de-fribourg-ch"
+        "secretaire-de-juge-etat-de-fribourg-ch",
+        "segretario-del-giudice-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-de-juge-etat-de-fribourg-ch"
+          "secretaire-de-juge-etat-de-fribourg-ch",
+          "segretario-del-giudice-etat-de-fribourg-fribourg"
         ],
         "en": [
           "secretaire-de-juge-etat-de-fribourg-ch"
@@ -592,7 +615,7 @@
       "slugByLocale": {
         "it": "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg",
         "en": "administrative-case-handler-etat-de-fribourg-fribourg",
-        "de": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-h4hx4q",
+        "de": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
         "fr": "gestionnaire-de-dossiers-administratifs-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
@@ -617,7 +640,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungssachbearbeiterin-Saan/1371094157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:44.929Z",
+      "crawledAt": "2026-09-28T21:28:50.233Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -637,23 +660,27 @@
       "pensumMin": 50,
       "pensumMax": 80,
       "pensum": "50-80%",
-      "previousSlugs": [
-        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
-      ],
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-h4hx4q",
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ],
+        "it": [
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+          "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg"
         ],
         "en": [
-          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
-        ],
-        "de": [
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
         ],
         "fr": [
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
         ]
       },
+      "previousSlugs": [
+        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-h4hx4q",
+        "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg"
+      ],
       "firstSeenAt": "2026-09-03T23:26:08.915Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -685,7 +712,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ive",
       "titleByLocale": {
-        "it": "Contributo amministrativo/attivo",
+        "it": "Collaborateur-trice administratif-ive",
         "en": "Administrative/ive contributor",
         "de": "Administrativer/iver Beitrag",
         "fr": "Collaborateur-trice administratif-ive"
@@ -702,7 +729,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ive-Sari/1371094057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:44.242Z",
+      "crawledAt": "2026-09-28T21:28:49.534Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -725,13 +752,15 @@
       "previousSlugs": [
         "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
         "contributo-amministrativo-attivo-etat-de-fribourg-fribourg",
-        "collaborateur-trice-administratif-ive-etat-de-fribourg"
+        "collaborateur-trice-administratif-ive-etat-de-fribourg",
+        "collaboratore-amministrativo-attivo-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
           "contributo-amministrativo-attivo-etat-de-fribourg-fribourg",
-          "collaborateur-trice-administratif-ive-etat-de-fribourg"
+          "collaborateur-trice-administratif-ive-etat-de-fribourg",
+          "collaboratore-amministrativo-attivo-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
@@ -741,6 +770,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:26:07.530Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -788,7 +818,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lecteur-trice-Sari/1371036057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:43.553Z",
+      "crawledAt": "2026-09-28T21:28:48.839Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -809,11 +839,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "lecteur-trice-etat-de-fribourg-ch"
+        "lecteur-trice-etat-de-fribourg-ch",
+        "reader-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lecteur-trice-etat-de-fribourg-ch"
+          "lecteur-trice-etat-de-fribourg-ch",
+          "reader-etat-de-fribourg-fribourg"
         ],
         "en": [
           "lecteur-trice-etat-de-fribourg-ch"
@@ -870,7 +902,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-employ%C3%A9-e-de-commerce-Sari/1371037857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:42.868Z",
+      "crawledAt": "2026-09-28T21:28:48.148Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -891,11 +923,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch"
+        "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch",
+        "apprendista-commerciale-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch"
+          "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch",
+          "apprendista-commerciale-etat-de-fribourg-fribourg"
         ],
         "en": [
           "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch"
@@ -936,7 +970,7 @@
       "title": "Chef-fe du projet informatique e-Justice - ICT Project Leader",
       "titleByLocale": {
         "it": "Responsabile del progetto e-Justice IT - ICT Project Leader",
-        "en": "Head of e-Justice IT project - ICT Project Leader",
+        "en": "Chef-fe du projet informatique e-Justice - ICT Project Leader",
         "de": "Leiter des E-Justiz-IT-Projekts - ICT Projektleiter",
         "fr": "Chef-fe du projet informatique e-Justice - ICT Project Leader"
       },
@@ -952,7 +986,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Chef-fe-du-projet-informatique-e-Justice-ICT-Project-Leader-Sari/1371187357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:42.182Z",
+      "crawledAt": "2026-09-28T21:28:47.436Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -973,17 +1007,20 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch"
+        "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch",
+        "responsabile-del-progetto-e-justice-it-ict-project-leader-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch"
+          "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch",
+          "responsabile-del-progetto-e-justice-it-ict-project-leader-etat-de-fribourg-givisiez"
         ],
         "de": [
           "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T23:25:57.814Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -1030,7 +1067,7 @@
       "url": "https://jobs.fr.ch/job/Tafers%2C-CH-Verwaltungssachbearbeiterin-Grundbuchamt-Sens/1371240657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:41.479Z",
+      "crawledAt": "2026-09-28T21:28:46.748Z",
       "addressLocality": "Tafers",
       "postalCode": "1712",
       "addressCountry": "CH",
@@ -1051,11 +1088,13 @@
       "pensumMax": 90,
       "pensum": "80-90%",
       "previousSlugs": [
-        "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch"
+        "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch",
+        "responsabile-del-caso-amministrativo-al-registro-di-terra-etat-de-fribourg-tafers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch"
+          "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch",
+          "responsabile-del-caso-amministrativo-al-registro-di-terra-etat-de-fribourg-tafers"
         ],
         "en": [
           "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch"
@@ -1111,7 +1150,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verantwortlicher-Buchhaltung-Saan/1371173257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:40.781Z",
+      "crawledAt": "2026-09-28T21:28:46.000Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1132,11 +1171,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "verantwortliche-r-buchhaltung-etat-de-fribourg-ch"
+        "verantwortliche-r-buchhaltung-etat-de-fribourg-ch",
+        "responsabile-contabilita-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verantwortliche-r-buchhaltung-etat-de-fribourg-ch"
+          "verantwortliche-r-buchhaltung-etat-de-fribourg-ch",
+          "responsabile-contabilita-etat-de-fribourg-fribourg"
         ],
         "en": [
           "verantwortliche-r-buchhaltung-etat-de-fribourg-ch"
@@ -1193,7 +1234,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-comptable-Sari/1371173157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:40.090Z",
+      "crawledAt": "2026-09-28T21:28:45.299Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1221,7 +1262,8 @@
         "employe-e-de-comptabilite-etat-de-fribourg-ch",
         "buchhalter-etat-de-fribourg-fribourg-cd01d7",
         "employe-e-de-comptabilite-etat-de-fribourg",
-        "buchhaltungsangestellte-r-etat-de-fribourg"
+        "buchhaltungsangestellte-r-etat-de-fribourg",
+        "contabilita-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1232,7 +1274,8 @@
           "employe-e-de-comptabilite-etat-de-fribourg-ch",
           "buchhalter-etat-de-fribourg-fribourg-cd01d7",
           "employe-e-de-comptabilite-etat-de-fribourg",
-          "buchhaltungsangestellte-r-etat-de-fribourg"
+          "buchhaltungsangestellte-r-etat-de-fribourg",
+          "contabilita-etat-de-fribourg-fribourg"
         ],
         "en": [
           "responsable-comptable-etat-de-fribourg-ch",
@@ -1247,6 +1290,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:25:57.109Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1294,7 +1338,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Richterin-beim-Zwangsmassnahmengericht-Saan/1371176257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:39.402Z",
+      "crawledAt": "2026-09-28T21:28:44.604Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1318,14 +1362,16 @@
         "judge-at-the-coercive-measures-court-etat-de-fribourg-fribourg",
         "juge-a-la-cour-des-mesures-coercitives-etat-de-fribourg-fribourg",
         "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg",
-        "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
+        "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
+        "giudice-alla-corte-di-giustizia-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "judge-at-the-coercive-measures-court-etat-de-fribourg-fribourg",
           "juge-a-la-cour-des-mesures-coercitives-etat-de-fribourg-fribourg",
           "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg",
-          "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
+          "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
+          "giudice-alla-corte-di-giustizia-etat-de-fribourg-fribourg"
         ],
         "en": [
           "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
@@ -1382,7 +1428,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juge-au-Tribunal-des-mesures-de-contrainte-Sari/1371176157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:38.708Z",
+      "crawledAt": "2026-09-28T21:28:43.920Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1406,14 +1452,16 @@
         "judge-at-the-tribunal-for-coercive-measures-etat-de-fribourg-fribourg",
         "richterin-am-gericht-fur-zwangsma-nahmen-etat-de-fribourg-fribourg",
         "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg-025065",
-        "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+        "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
+        "giudice-al-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "judge-at-the-tribunal-for-coercive-measures-etat-de-fribourg-fribourg",
           "richterin-am-gericht-fur-zwangsma-nahmen-etat-de-fribourg-fribourg",
           "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg-025065",
-          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
+          "giudice-al-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg"
         ],
         "en": [
           "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
@@ -1470,7 +1518,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Zweisprachiger-Administrativer-Mitarbeiterin-Weiterbildung-Saan/1371524557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:37.998Z",
+      "crawledAt": "2026-09-28T21:28:43.232Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1492,12 +1540,14 @@
       "pensum": "70-80%",
       "previousSlugs": [
         "zweisprachige-r-administrative-r-mitarbeiter-in-weiterbildung-etat-de-fribourg-ch",
-        "zweisprachige-r-administrative-r-collaboratore-trice-weiterbildung-etat-de-fribourg"
+        "zweisprachige-r-administrative-r-collaboratore-trice-weiterbildung-etat-de-fribourg",
+        "formazione-del-personale-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zweisprachige-r-administrative-r-mitarbeiter-in-weiterbildung-etat-de-fribourg-ch",
-          "zweisprachige-r-administrative-r-collaboratore-trice-weiterbildung-etat-de-fribourg"
+          "zweisprachige-r-administrative-r-collaboratore-trice-weiterbildung-etat-de-fribourg",
+          "formazione-del-personale-etat-de-fribourg-fribourg"
         ],
         "en": [
           "zweisprachige-r-administrative-r-mitarbeiter-in-weiterbildung-etat-de-fribourg-ch"
@@ -1528,7 +1578,7 @@
       "slug": "collaboratore-amministrativo-bilingue-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "it": "collaboratore-amministrativo-bilingue-etat-de-fribourg-fribourg",
-        "en": "administrative-collaborator-bilingual-etat-de-fribourg-fribourg",
+        "en": "collaborateur-trice-administratif-ve-bilingue-formation-continue-etat-de-fribourg",
         "de": "verwaltungsmitarbeiter-bilingual-etat-de-fribourg-fribourg",
         "fr": "collaborateur-trice-administratif-ve-bilingue-formation-continue-etat-de-fribourg-ch"
       },
@@ -1538,7 +1588,7 @@
       "title": "Collaborateur-trice administratif-ve bilingue Formation continue",
       "titleByLocale": {
         "it": "Collaboratore amministrativo-bilingue",
-        "en": "Administrative Collaborator-Bilingual",
+        "en": "Collaborateur-trice administratif-ve bilingue Formation continue",
         "de": "Verwaltungsmitarbeiter-Bilingual",
         "fr": "Collaborateur-trice administratif-ve bilingue Formation continue"
       },
@@ -1554,7 +1604,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-bilingue-Formation-continue-Sari/1371524457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:37.313Z",
+      "crawledAt": "2026-09-28T21:28:42.549Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1576,14 +1626,18 @@
       "pensum": "70-80%",
       "previousSlugs": [
         "collaborateur-trice-administratif-ve-bilingue-formation-continue-etat-de-fribourg-ch",
+        "administrative-collaborator-bilingual-etat-de-fribourg-fribourg",
+        "collaboratore-amministrativo-bilingue-etat-de-fribourg-fribourg",
         "collaborateur-trice-administratif-ve-bilingue-formation-continue-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-administratif-ve-bilingue-formation-continue-etat-de-fribourg-ch"
+          "collaborateur-trice-administratif-ve-bilingue-formation-continue-etat-de-fribourg-ch",
+          "collaboratore-amministrativo-bilingue-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ve-bilingue-formation-continue-etat-de-fribourg-ch",
+          "administrative-collaborator-bilingual-etat-de-fribourg-fribourg",
           "collaborateur-trice-administratif-ve-bilingue-formation-continue-etat-de-fribourg"
         ],
         "de": [
@@ -1591,6 +1645,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:50:28.088Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1638,7 +1693,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Technischer-Mitarbeiterin-Saan/1371540557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:36.622Z",
+      "crawledAt": "2026-09-28T21:28:41.868Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1659,11 +1714,13 @@
       "pensumMax": 30,
       "pensum": "25-30%",
       "previousSlugs": [
-        "technische-r-mitarbeiter-in-etat-de-fribourg-ch"
+        "technische-r-mitarbeiter-in-etat-de-fribourg-ch",
+        "technische-r-collaboratore-trice-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-mitarbeiter-in-etat-de-fribourg-ch"
+          "technische-r-mitarbeiter-in-etat-de-fribourg-ch",
+          "technische-r-collaboratore-trice-etat-de-fribourg"
         ],
         "en": [
           "technische-r-mitarbeiter-in-etat-de-fribourg-ch"
@@ -1673,6 +1730,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:54.730Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1720,7 +1778,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-technique-Sari/1371540457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:35.928Z",
+      "crawledAt": "2026-09-28T21:28:41.163Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1741,11 +1799,13 @@
       "pensumMax": 30,
       "pensum": "25-30%",
       "previousSlugs": [
-        "collaborateur-trice-technique-etat-de-fribourg-ch"
+        "collaborateur-trice-technique-etat-de-fribourg-ch",
+        "collaboratore-tecnico-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-technique-etat-de-fribourg-ch"
+          "collaborateur-trice-technique-etat-de-fribourg-ch",
+          "collaboratore-tecnico-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-technique-etat-de-fribourg-ch"
@@ -1755,6 +1815,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:54.082Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1802,7 +1863,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Zwei-Professuren-Rechtsinformatik-%2840-50%29-und-Rechtstatsachenforschung-%2840-50%29-Saan/1371713257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:35.246Z",
+      "crawledAt": "2026-09-28T21:28:40.471Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1824,12 +1885,14 @@
       "pensum": "40-50%",
       "previousSlugs": [
         "zwei-professuren-rechtsinformatik-40-50-und-rechtstatsachenforschung-40-50-etat-de",
-        "zwei-professuren-rechtsinformatik-40-50-e-rechtstatsachenforschung-40-50-etat-de-fribourg"
+        "zwei-professuren-rechtsinformatik-40-50-e-rechtstatsachenforschung-40-50-etat-de-fribourg",
+        "due-professori-informatica-legale-40-50-e-ricerca-di-fatti-legali-40-50-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zwei-professuren-rechtsinformatik-40-50-und-rechtstatsachenforschung-40-50-etat-de",
-          "zwei-professuren-rechtsinformatik-40-50-e-rechtstatsachenforschung-40-50-etat-de-fribourg"
+          "zwei-professuren-rechtsinformatik-40-50-e-rechtstatsachenforschung-40-50-etat-de-fribourg",
+          "due-professori-informatica-legale-40-50-e-ricerca-di-fatti-legali-40-50-etat-de-fribourg-fribourg"
         ],
         "en": [
           "zwei-professuren-rechtsinformatik-40-50-und-rechtstatsachenforschung-40-50-etat-de"
@@ -1886,7 +1949,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Deux-professeur-e-s-Informatique-juridique-%2840-50%29-et-Recherche-juridique-empirique-%2840-50%29-Sari/1371713157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:34.564Z",
+      "crawledAt": "2026-09-28T21:28:39.782Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1907,11 +1970,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "deux-professeur-e-s-informatique-juridique-40-50-et-recherche-juridique-empirique-40-50"
+        "deux-professeur-e-s-informatique-juridique-40-50-et-recherche-juridique-empirique-40-50",
+        "due-professori-computer-legale-40-50-e-ricerca-legale-empirical-40-50-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "deux-professeur-e-s-informatique-juridique-40-50-et-recherche-juridique-empirique-40-50"
+          "deux-professeur-e-s-informatique-juridique-40-50-et-recherche-juridique-empirique-40-50",
+          "due-professori-computer-legale-40-50-e-ricerca-legale-empirical-40-50-etat-de-fribourg-fribourg"
         ],
         "en": [
           "deux-professeur-e-s-informatique-juridique-40-50-et-recherche-juridique-empirique-40-50"
@@ -1921,6 +1986,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:47.633Z",
+      "needsRetranslation": true,
       "salaryMin": 29500,
       "salaryMax": 54300,
       "salarySource": "estimated",
@@ -1968,7 +2034,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verantwortlicher-Reinigung-und-Ausbildung-Saan/1371713757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:33.865Z",
+      "crawledAt": "2026-09-28T21:28:39.108Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1990,12 +2056,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "verantwortliche-r-reinigung-und-ausbildung-etat-de-fribourg-ch",
-        "verantwortliche-r-reinigung-e-ausbildung-etat-de-fribourg"
+        "verantwortliche-r-reinigung-e-ausbildung-etat-de-fribourg",
+        "pulizia-e-formazione-responsabile-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verantwortliche-r-reinigung-und-ausbildung-etat-de-fribourg-ch",
-          "verantwortliche-r-reinigung-e-ausbildung-etat-de-fribourg"
+          "verantwortliche-r-reinigung-e-ausbildung-etat-de-fribourg",
+          "pulizia-e-formazione-responsabile-etat-de-fribourg-fribourg"
         ],
         "en": [
           "verantwortliche-r-reinigung-und-ausbildung-etat-de-fribourg-ch"
@@ -2052,7 +2120,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Superviseur-e-nettoyage-et-formation-Sari/1371713657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:33.173Z",
+      "crawledAt": "2026-09-28T21:28:38.418Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2073,11 +2141,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "superviseur-e-nettoyage-et-formation-etat-de-fribourg-ch"
+        "superviseur-e-nettoyage-et-formation-etat-de-fribourg-ch",
+        "controllo-di-pulizia-e-formazione-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "superviseur-e-nettoyage-et-formation-etat-de-fribourg-ch"
+          "superviseur-e-nettoyage-et-formation-etat-de-fribourg-ch",
+          "controllo-di-pulizia-e-formazione-etat-de-fribourg-fribourg"
         ],
         "en": [
           "superviseur-e-nettoyage-et-formation-etat-de-fribourg-ch"
@@ -2134,7 +2204,7 @@
       "url": "https://jobs.fr.ch/job/Romont%2C-CH-Secr%C3%A9taire-de-juge-civil-et-p%C3%A9nal-Gl%C3%A2n/1371698657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:32.472Z",
+      "crawledAt": "2026-09-28T21:28:37.728Z",
       "addressLocality": "Romont",
       "postalCode": "1680",
       "addressCountry": "CH",
@@ -2155,11 +2225,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "secretaire-de-juge-civil-et-penal-etat-de-fribourg-ch"
+        "secretaire-de-juge-civil-et-penal-etat-de-fribourg-ch",
+        "segretario-alla-giustizia-civile-e-penale-etat-de-fribourg-romont"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-de-juge-civil-et-penal-etat-de-fribourg-ch"
+          "secretaire-de-juge-civil-et-penal-etat-de-fribourg-ch",
+          "segretario-alla-giustizia-civile-e-penale-etat-de-fribourg-romont"
         ],
         "en": [
           "secretaire-de-juge-civil-et-penal-etat-de-fribourg-ch"
@@ -2215,7 +2287,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ma%C3%AEtre-assistant-e-en-recherche-sur-l'int%C3%A9gration-et-l'impl%C3%A9mentation-Sari/1371690957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:31.764Z",
+      "crawledAt": "2026-09-28T21:28:36.993Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2264,7 +2336,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-2bf26840e738",
@@ -2297,7 +2370,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Zweispr_-Sekret%C3%A4rin-DEFR-Saan/1371671957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:31.071Z",
+      "crawledAt": "2026-09-28T21:28:36.298Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -2318,11 +2391,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "zweispr-sekretar-in-de-fr-etat-de-fribourg-ch"
+        "zweispr-sekretar-in-de-fr-etat-de-fribourg-ch",
+        "dividend-segretario-de-fr-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zweispr-sekretar-in-de-fr-etat-de-fribourg-ch"
+          "zweispr-sekretar-in-de-fr-etat-de-fribourg-ch",
+          "dividend-segretario-de-fr-etat-de-fribourg-givisiez"
         ],
         "en": [
           "zweispr-sekretar-in-de-fr-etat-de-fribourg-ch"
@@ -2332,6 +2407,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:50.253Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2354,7 +2430,7 @@
         "it": "assistenti-senior-nella-ricerca-di-integrazione-e-attuazione-etat-de-fribourg-fribourg",
         "en": "senior-assistants-in-integration-and-implementation-research-etat-de-fribourg-fribourg",
         "de": "oberassistenten-in-in-integrations-und-implementationsforschung-etat-de-fribourg-ch",
-        "fr": "assistants-principaux-dans-la-recherche-sur-l-integration-et-la-mise-en-uvre-etat-de-fribourg-fribourg"
+        "fr": "oberassistenten-in-integrations-und-implementationsforschung-etat-de-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -2378,7 +2454,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Oberassistentenin-in-Integrations-und-Implementationsforschung-Saan/1371691057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:30.372Z",
+      "crawledAt": "2026-09-28T21:28:35.620Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2401,18 +2477,22 @@
       "previousSlugs": [
         "oberassistenten-in-in-integrations-und-implementationsforschung-etat-de-fribourg-ch",
         "oberassistenten-in-integrations-e-implementationsforschung-etat-de-fribourg",
+        "assistants-principaux-dans-la-recherche-sur-l-integration-et-la-mise-en-uvre-etat-de-fribourg-fribourg",
+        "assistenti-senior-nella-ricerca-di-integrazione-e-attuazione-etat-de-fribourg-fribourg",
         "oberassistenten-in-integrations-und-implementationsforschung-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberassistenten-in-in-integrations-und-implementationsforschung-etat-de-fribourg-ch",
-          "oberassistenten-in-integrations-e-implementationsforschung-etat-de-fribourg"
+          "oberassistenten-in-integrations-e-implementationsforschung-etat-de-fribourg",
+          "assistenti-senior-nella-ricerca-di-integrazione-e-attuazione-etat-de-fribourg-fribourg"
         ],
         "en": [
           "oberassistenten-in-in-integrations-und-implementationsforschung-etat-de-fribourg-ch"
         ],
         "fr": [
           "oberassistenten-in-in-integrations-und-implementationsforschung-etat-de-fribourg-ch",
+          "assistants-principaux-dans-la-recherche-sur-l-integration-et-la-mise-en-uvre-etat-de-fribourg-fribourg",
           "oberassistenten-in-integrations-und-implementationsforschung-etat-de-fribourg"
         ]
       },
@@ -2465,7 +2545,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Secr%C3%A9taire-bilingue-DEFR-Sari/1371671857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:29.685Z",
+      "crawledAt": "2026-09-28T21:28:34.941Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -2486,11 +2566,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "secretaire-bilingue-de-fr-etat-de-fribourg-ch"
+        "secretaire-bilingue-de-fr-etat-de-fribourg-ch",
+        "segreteria-bilingue-de-fr-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-bilingue-de-fr-etat-de-fribourg-ch"
+          "secretaire-bilingue-de-fr-etat-de-fribourg-ch",
+          "segreteria-bilingue-de-fr-etat-de-fribourg-givisiez"
         ],
         "en": [
           "secretaire-bilingue-de-fr-etat-de-fribourg-ch"
@@ -2546,7 +2628,7 @@
       "url": "https://jobs.fr.ch/job/Misery-Courtion%2C-CH-Directeur-trice-d'%C3%A9cole-primaire%2C-cercle-scolaire-Misery-Courtion-Sari/1371847757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:28.993Z",
+      "crawledAt": "2026-09-28T21:28:34.238Z",
       "addressLocality": "Misery-Courtion",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2627,7 +2709,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ansprechperson-f%C3%BCr-Datenschutz-und-Informationssicherheit-Saan/1371871557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:28.290Z",
+      "crawledAt": "2026-09-28T21:28:33.538Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2649,12 +2731,14 @@
       "pensum": "40-50%",
       "previousSlugs": [
         "ansprechperson-fur-datenschutz-und-informationssicherheit-etat-de-fribourg-ch",
-        "ansprechperson-per-datenschutz-e-informationssicherheit-etat-de-fribourg"
+        "ansprechperson-per-datenschutz-e-informationssicherheit-etat-de-fribourg",
+        "protezione-dei-dati-e-sicurezza-delle-informazioni-contatto-persona-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ansprechperson-fur-datenschutz-und-informationssicherheit-etat-de-fribourg-ch",
-          "ansprechperson-per-datenschutz-e-informationssicherheit-etat-de-fribourg"
+          "ansprechperson-per-datenschutz-e-informationssicherheit-etat-de-fribourg",
+          "protezione-dei-dati-e-sicurezza-delle-informazioni-contatto-persona-etat-de-fribourg-fribourg"
         ],
         "en": [
           "ansprechperson-fur-datenschutz-und-informationssicherheit-etat-de-fribourg-ch"
@@ -2711,7 +2795,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Correspondant-e-en-Protection-des-donn%C3%A9es-et-s%C3%A9curit%C3%A9-de-l'information-Sari/1371871457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:27.587Z",
+      "crawledAt": "2026-09-28T21:28:32.855Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2793,7 +2877,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungsassistentin-Finanzen%2C-Qualit%C3%A4t-und-Infrastruktur-Saan/1371855257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:26.898Z",
+      "crawledAt": "2026-09-28T21:28:32.159Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2815,12 +2899,14 @@
       "pensum": "30-40%",
       "previousSlugs": [
         "verwaltungsassistent-in-finanzen-qualitat-und-infrastruktur-etat-de-fribourg-ch",
-        "verwaltungsassistent-in-finanzen-qualitat-e-infrastruktur-etat-de-fribourg"
+        "verwaltungsassistent-in-finanzen-qualitat-e-infrastruktur-etat-de-fribourg",
+        "assistente-amministrativo-finanza-qualita-e-infrastrutture-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungsassistent-in-finanzen-qualitat-und-infrastruktur-etat-de-fribourg-ch",
-          "verwaltungsassistent-in-finanzen-qualitat-e-infrastruktur-etat-de-fribourg"
+          "verwaltungsassistent-in-finanzen-qualitat-e-infrastruktur-etat-de-fribourg",
+          "assistente-amministrativo-finanza-qualita-e-infrastrutture-etat-de-fribourg-fribourg"
         ],
         "en": [
           "verwaltungsassistent-in-finanzen-qualitat-und-infrastruktur-etat-de-fribourg-ch"
@@ -2877,7 +2963,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Leiterin-Grosse-Immobilienprojekte-Saan/1371815157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:26.211Z",
+      "crawledAt": "2026-09-28T21:28:31.465Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2899,12 +2985,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "leiter-in-grosse-immobilienprojekte-etat-de-fribourg-ch",
-        "responsabile-grosse-immobilienprojekte-etat-de-fribourg"
+        "responsabile-grosse-immobilienprojekte-etat-de-fribourg",
+        "capo-dei-grandi-progetti-immobiliari-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-grosse-immobilienprojekte-etat-de-fribourg-ch",
-          "responsabile-grosse-immobilienprojekte-etat-de-fribourg"
+          "responsabile-grosse-immobilienprojekte-etat-de-fribourg",
+          "capo-dei-grandi-progetti-immobiliari-etat-de-fribourg-fribourg"
         ],
         "en": [
           "leiter-in-grosse-immobilienprojekte-etat-de-fribourg-ch"
@@ -2935,7 +3023,7 @@
       "slug": "capo-dei-principali-progetti-immobiliari-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "it": "capo-dei-principali-progetti-immobiliari-etat-de-fribourg-fribourg",
-        "en": "head-of-major-real-estate-projects-etat-de-fribourg-fribourg",
+        "en": "chef-fe-de-grands-projets-immobiliers-etat-de-fribourg",
         "de": "leiter-gro-er-immobilienprojekte-etat-de-fribourg-fribourg",
         "fr": "chef-fe-de-grands-projets-immobiliers-etat-de-fribourg-ch"
       },
@@ -2945,7 +3033,7 @@
       "title": "Chef-fe de grands projets immobiliers",
       "titleByLocale": {
         "it": "Capo dei principali progetti immobiliari",
-        "en": "Head of major real estate projects",
+        "en": "Chef-fe de grands projets immobiliers",
         "de": "Leiter großer Immobilienprojekte",
         "fr": "Chef-fe de grands projets immobiliers"
       },
@@ -2961,7 +3049,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-de-grands-projets-immobiliers-Sari/1371815057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:25.510Z",
+      "crawledAt": "2026-09-28T21:28:30.767Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2983,14 +3071,18 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "chef-fe-de-grands-projets-immobiliers-etat-de-fribourg-ch",
+        "head-of-major-real-estate-projects-etat-de-fribourg-fribourg",
+        "capo-dei-principali-progetti-immobiliari-etat-de-fribourg-fribourg",
         "chef-fe-de-grands-projets-immobiliers-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-grands-projets-immobiliers-etat-de-fribourg-ch"
+          "chef-fe-de-grands-projets-immobiliers-etat-de-fribourg-ch",
+          "capo-dei-principali-progetti-immobiliari-etat-de-fribourg-fribourg"
         ],
         "en": [
           "chef-fe-de-grands-projets-immobiliers-etat-de-fribourg-ch",
+          "head-of-major-real-estate-projects-etat-de-fribourg-fribourg",
           "chef-fe-de-grands-projets-immobiliers-etat-de-fribourg"
         ],
         "de": [
@@ -2998,6 +3090,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:40.269Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3045,7 +3138,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assistant-e-administratif-ve-Finances%2C-Qualit%C3%A9-et-Infrastructures-Sari/1371855157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:24.827Z",
+      "crawledAt": "2026-09-28T21:28:30.083Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3066,11 +3159,13 @@
       "pensumMax": 40,
       "pensum": "30-40%",
       "previousSlugs": [
-        "assistant-e-administratif-ve-finances-qualite-et-infrastructures-etat-de-fribourg-ch"
+        "assistant-e-administratif-ve-finances-qualite-et-infrastructures-etat-de-fribourg-ch",
+        "assistente-amministrativo-finanza-qualita-e-infrastrutture-etat-de-fribourg-fribourg-3183c4"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-administratif-ve-finances-qualite-et-infrastructures-etat-de-fribourg-ch"
+          "assistant-e-administratif-ve-finances-qualite-et-infrastructures-etat-de-fribourg-ch",
+          "assistente-amministrativo-finanza-qualita-e-infrastrutture-etat-de-fribourg-fribourg-3183c4"
         ],
         "en": [
           "assistant-e-administratif-ve-finances-qualite-et-infrastructures-etat-de-fribourg-ch"
@@ -3094,7 +3189,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-ae4d9b23dc44",
@@ -3127,7 +3223,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-Sari/1371962057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:24.141Z",
+      "crawledAt": "2026-09-28T21:28:29.403Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3148,14 +3244,15 @@
       "pensumMax": 70,
       "pensum": "60-70%",
       "previousSlugs": [
-        "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+        "collaboratore-scientifico-etat-de-fribourg-fribourg-a62cc2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+          "collaboratore-scientifico-etat-de-fribourg-fribourg-a62cc2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:21:46.330Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3204,7 +3301,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftl_-Mitarbeiterin-Saan/1371961957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:23.454Z",
+      "crawledAt": "2026-09-28T21:28:28.718Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3226,12 +3323,14 @@
       "pensum": "60-70%",
       "previousSlugs": [
         "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
-        "wissenschaftl-collaboratore-trice-etat-de-fribourg"
+        "wissenschaftl-collaboratore-trice-etat-de-fribourg",
+        "personale-scientifico-etat-de-fribourg-fribourg-ac7ab5"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
-          "wissenschaftl-collaboratore-trice-etat-de-fribourg"
+          "wissenschaftl-collaboratore-trice-etat-de-fribourg",
+          "personale-scientifico-etat-de-fribourg-fribourg-ac7ab5"
         ],
         "en": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch"
@@ -3288,7 +3387,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Surveillant-e-de-mus%C3%A9e-Sari/1372181757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:22.758Z",
+      "crawledAt": "2026-09-28T21:28:26.661Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3309,11 +3408,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "surveillant-e-de-musee-etat-de-fribourg-ch"
+        "surveillant-e-de-musee-etat-de-fribourg-ch",
+        "supervisore-del-museo-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "surveillant-e-de-musee-etat-de-fribourg-ch"
+          "surveillant-e-de-musee-etat-de-fribourg-ch",
+          "supervisore-del-museo-etat-de-fribourg-fribourg"
         ],
         "en": [
           "surveillant-e-de-musee-etat-de-fribourg-ch"
@@ -3370,7 +3471,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Museumsaufseherin-Saan/1372181857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:22.075Z",
+      "crawledAt": "2026-09-28T21:28:25.969Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3391,11 +3492,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "museumsaufseher-in-etat-de-fribourg-ch"
+        "museumsaufseher-in-etat-de-fribourg-ch",
+        "supervisori-dei-musei-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "museumsaufseher-in-etat-de-fribourg-ch"
+          "museumsaufseher-in-etat-de-fribourg-ch",
+          "supervisori-dei-musei-etat-de-fribourg-fribourg"
         ],
         "en": [
           "museumsaufseher-in-etat-de-fribourg-ch"
@@ -3452,7 +3555,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Strassenw%C3%A4rterin%2C-Werkhof-L%C3%B6wenberg-See/1372176957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:21.391Z",
+      "crawledAt": "2026-09-28T21:28:25.273Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -3473,11 +3576,13 @@
       "pensumMax": 100,
       "pensum": "95-100%",
       "previousSlugs": [
-        "strassenwarter-in-werkhof-lowenberg-etat-de-fribourg-ch"
+        "strassenwarter-in-werkhof-lowenberg-etat-de-fribourg-ch",
+        "streetkeeper-laboratorio-leuvenberg-etat-de-fribourg-morat"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strassenwarter-in-werkhof-lowenberg-etat-de-fribourg-ch"
+          "strassenwarter-in-werkhof-lowenberg-etat-de-fribourg-ch",
+          "streetkeeper-laboratorio-leuvenberg-etat-de-fribourg-morat"
         ],
         "en": [
           "strassenwarter-in-werkhof-lowenberg-etat-de-fribourg-ch"
@@ -3533,7 +3638,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Cantonnier-%C3%A8re%2C-d%C3%A9p%C3%B4t-du-L%C3%B6wenberg-Lac/1372176857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:20.697Z",
+      "crawledAt": "2026-09-28T21:28:24.587Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -3554,11 +3659,13 @@
       "pensumMax": 100,
       "pensum": "95-100%",
       "previousSlugs": [
-        "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-ch"
+        "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-ch",
+        "cantoner-ere-deposito-di-lowenberg-etat-de-fribourg-morat"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-ch"
+          "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-ch",
+          "cantoner-ere-deposito-di-lowenberg-etat-de-fribourg-morat"
         ],
         "en": [
           "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-ch"
@@ -3618,7 +3725,7 @@
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Direktorin-an-der-Ecole-professionnelle-artisanale-et-commerciale-EPAC-Bulle-Grey/1372155557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:20.002Z",
+      "crawledAt": "2026-09-28T21:28:27.350Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -3639,11 +3746,13 @@
       "pensumMax": 100,
       "pensum": "95-100%",
       "previousSlugs": [
-        "direktor-in-an-der-ecole-professionnelle-artisanale-et-commerciale-epac-bulle-etat-de"
+        "direktor-in-an-der-ecole-professionnelle-artisanale-et-commerciale-epac-bulle-etat-de",
+        "direttore-dell-ecole-professionnelle-craftale-et-commerciale-epac-bulle-etat-de-fribourg-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "direktor-in-an-der-ecole-professionnelle-artisanale-et-commerciale-epac-bulle-etat-de"
+          "direktor-in-an-der-ecole-professionnelle-artisanale-et-commerciale-epac-bulle-etat-de",
+          "direttore-dell-ecole-professionnelle-craftale-et-commerciale-epac-bulle-etat-de-fribourg-bulle"
         ],
         "en": [
           "direktor-in-an-der-ecole-professionnelle-artisanale-et-commerciale-epac-bulle-etat-de"
@@ -3688,19 +3797,19 @@
         "de": "Direktor der Bulle Vocational Craft and Commercial School",
         "fr": "Directeur-trice de l'Ecole professionnelle artisanale et commerciale Bulle"
       },
-      "description": "Qui sommes-nous?\n\nL'EPAC - Ecole professionnelle artisanale et commerciale de Bulle dispense des cours pour les apprenti-e-s du secteur commercial et artisanal de la région. Elle fonctionne selon un système dual qui permet ainsi aux jeunes de se former dans une entreprise tout en suivant des cours à l'école professionnelle. La section commerciale accueille également des classes de Maturité professionnelle commerciale, type économie intégrée, à plein temps et à temps partiel.\n\nPourquoi nous rejoindre ?\n\nRejoindre le Service de la formation professionnelle (SFP) respectivement l’Ecole professionnelle artisanale et commerciale, c'est bénéficier de la solidité et des moyens d’une grande entreprise qu’est l’Etat de Fribourg, contribuer concrètement à des réalisations utiles pour la formation professionnelle du canton de Fribourg.\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaboratrices et collaborateurs.\n\nPour en savoir plus, suivez ce lien\n\nÊtes-vous motivé-e à participer à la relève professionnelle dans notre canton ? Alors nous nous réjouissons de recevoir votre dossier !\n\nVos missions\n\nVos activités principales consistent à la conduite de l’Ecole professionnelle artisanale et commerciale (EPAC) de Bulle subordonnée au Service de la formation professionnelle (SFP). L’EPAC assure l’enseignement professionnel pour plus de 1000 apprenti-e-s dans les domaines du commerce, du commerce de détail, de la pharmacie et de l’artisanat.\n\n• Vous êtes responsable de la gestion d’environ 110 collaborateurs et collaboratrices\n\n• Vous établissez des budgets et plans financiers\n\n• Vous prenez part avec la direction du SFP et les autres écoles professionnelles du canton aux réflexions et travaux stratégiques et veillez à leur application\n\n• Vous représentez le canton dans des conférences nationales ou inter-cantonales.\n\nProfil souhaité\n\n• Vous êtes titulaire d’un master d’une haute école avec un diplôme d’enseignement pour le degré secondaire II ou avec un DAS en management ou des diplômes et expérience jugés équivalents\n\n• Vous connaissez le système éducatif suisse et particulièrement la formation professionnelle\n\n• Vous disposez d’une expérience de conduite dans laquelle vous avez pu faire preuve de leadership\n\n• Vous fixez les priorités à vos activités et travaillez de manière transversale\n\n• Vous êtes orienté-e vers les objectifs, faites preuve de responsabilité et de respect vis-à-vis de vos collaborateurs et collaboratrices et veillez à ce que vos décisions soient appliquées\n\n• Vous communiquez de manière ouverte, instaurez un climat de travail marqué par la confiance et cherchez des solutions constructives aux conflits\n\n• Vous mettez en place des processus efficaces, des structures appropriées et influencez la culture de l’organisation par une gestion efficiente d’un système qualité\n\n• Vous maîtrisez le française et êtes également à l’aise dans la langue allemande\n\nCoordonnées des personnes de contact\n\nChristophe Nydegger, Chef de service\nT +41 26 305 25 00",
+      "description": "Qui sommes-nous?\n\nL'EPAC - Ecole professionnelle artisanale et commerciale de Bulle dispense des cours pour les apprenti-e-s du secteur commercial et artisanal de la région. Elle fonctionne selon un système dual qui permet ainsi aux jeunes de se former dans une entreprise tout en suivant des cours à l'école professionnelle. La section commerciale accueille également des classes de Maturité professionnelle commerciale, type économie intégrée, à plein temps et à temps partiel.\n\nPourquoi nous rejoindre ?\n\nRejoindre le Service de la formation professionnelle (SFP) respectivement l’Ecole professionnelle artisanale et commerciale, c'est bénéficier de la solidité et des moyens d’une grande entreprise qu’est l’Etat de Fribourg, contribuer concrètement à des réalisations utiles pour la formation professionnelle du canton de Fribourg.\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaboratrices et collaborateurs.\n\nPour en savoir plus, suivez ce lien\n\nÊtes-vous motivé-e à participer à la relève professionnelle dans notre canton ? Alors nous nous réjouissons de recevoir votre dossier !\n\nVos missions\n\nVos activités principales consistent à la conduite de l’Ecole professionnelle artisanale et commerciale (EPAC) de Bulle subordonnée au Service de la formation professionnelle (SFP). L’EPAC assure l’enseignement professionnel pour plus de 1000 apprenti-e-s dans les domaines du commerce, du commerce de détail, de la pharmacie et de l’artisanat.\n\n• Vous êtes responsable de la gestion d’environ 110 collaborateurs et collaboratrices\n\n• Vous établissez des budgets et plans financiers\n\n• Vous prenez part avec la direction du SFP et les autres écoles professionnelles du canton aux réflexions et travaux stratégiques et veillez à leur application\n\n• Vous représentez le canton dans des conférences nationales ou inter-cantonales.\n\nProfil souhaité\n\n• Vous êtes titulaire d’un master d’une haute école avec un diplôme d’enseignement pour le degré secondaire II ou avec un DAS en management ou des diplômes et expérience jugés équivalents\n\n• Vous connaissez le système éducatif suisse et particulièrement la formation professionnelle\n\n• Vous disposez d’une expérience de conduite dans laquelle vous avez pu faire preuve de leadership\n\n• Vous fixez les priorités à vos activités et travaillez de manière transversale\n\n• Vous êtes orienté-e vers les objectifs, faites preuve de responsabilité et de respect vis-à-vis de vos collaborateurs et collaboratrices et veillez à ce que vos décisions soient appliquées\n\n• Vous communiquez de manière ouverte, instaurez un climat de travail marqué par la confiance et cherchez des solutions constructives aux conflits\n\n• Vous mettez en place des processus efficaces, des structures appropriées et influencez la culture de l’organisation par une gestion efficiente d’un système qualité\n\n• Vous maîtrisez la langue française et êtes également à l’aise dans la langue allemande\n\nCoordonnées des personnes de contact\n\nChristophe Nydegger, Chef de service\nT +41 26 305 25 00",
       "descriptionByLocale": {
         "it": "Chi siamo?\n\nEPAC - Scuola di artigianato professionale e commerciale a Bulle fornisce corsi di apprendisti nel settore commerciale e artigianale della regione. Funziona secondo un sistema duale che consente ai giovani di formare in un'azienda durante i corsi di scuola professionale. La sezione commerciale ospita anche classi di maturità professionali commerciali, come l'economia integrata, a tempo pieno e part-time.\n\nPerché unirsi a noi?\n\nUnire il Servizio di Formazione Professionale (SFP) rispettivamente la Scuola Professionale Artigianato e Commerciale è di beneficiare della forza e delle risorse di una grande azienda che è lo stato di Friburgo, contribuendo concretamente a realizzazioni utili per la formazione professionale del Canton Friburgo.\n\nIl datore di lavoro di Stato incoraggia la riconciliazione del lavoro e della vita privata e fornisce un ambiente di lavoro attraente e condizioni per i suoi dipendenti.\n\nPer saperne di più, segui questo link\n\nSei motivato a partecipare alla successione professionale nel nostro cantone? Quindi non vediamo l'ora di ricevere il tuo file!\n\nLe vostre missioni\n\nLe vostre attività principali sono la conduzione della scuola professionale artigianale e commerciale (EPAC) in Bulle subordinato al servizio di formazione professionale (SFP). L'EPAC fornisce una formazione professionale per oltre 1000 apprendisti nei settori del commercio, della vendita al dettaglio, della farmacia e dell'artigianato.\n\n• Sei responsabile della gestione di circa 110 dipendenti\n\n• Preparate i bilanci e i piani finanziari\n\n• Partecipate alla gestione della SFP e delle altre scuole professionali del Cantone in riflessioni e opere strategiche e garantite la loro applicazione\n\n• Tu rappresenti il cantone nelle conferenze nazionali o intercantoneali.\n\nProfilo desiderato\n\n• Hai un master da una scuola superiore con un diploma di insegnamento per livello secondario o con un DAS in gestione o diplomi e esperienza considerata equivalente\n\n• Conosci il sistema educativo svizzero e soprattutto la formazione professionale\n\n• Hai un'esperienza di guida in cui sei stato in grado di dimostrare la leadership\n\n• Hai impostato le priorità per le tue attività e lavorare in modo trasversale\n\n• Siete orientati verso gli obiettivi, mostrare la responsabilità e il rispetto dei vostri dipendenti e garantire che le vostre decisioni siano attuate\n\n• Comunichi in modo aperto, crei un clima di fiducia funzionante e cerchi soluzioni costruttive ai conflitti\n\n• Hai messo in atto processi efficaci, strutture appropriate e influenzare la cultura dell'organizzazione attraverso una gestione efficiente di un sistema di qualità\n\n• Si parla francese e sono anche confortevoli nella lingua tedesca\n\nInformazioni di contatto\n\nChristophe Nydegger, Responsabile del Servizio\nT +41 26 305 25 00",
         "en": "Who are we?\n\nEPAC - Vocational craft and commercial school in Bulle provides courses for apprentices in the commercial and craft sector of the region. It operates according to a dual system which allows young people to train in a company while taking courses at vocational school. The Commercial Section also hosts trade professional maturity classes, such as integrated economy, full-time and part-time.\n\nWhy join us?\n\nJoining the Vocational Training Service (SFP) respectively the Vocational Craft and Commercial School is to benefit from the strength and resources of a large company which is the state of Fribourg, contributing concretely to achievements useful for the vocational training of the canton of Fribourg.\n\nThe State-employer encourages the reconciliation of work and private life and provides an attractive working environment and conditions for its employees.\n\nTo learn more, follow this link\n\nAre you motivated to participate in the professional succession in our canton? So we look forward to receiving your file!\n\nYour missions\n\nYour main activities are the conduct of the Vocational Craft and Commercial School (EPAC) in Bulle subordinated to the Vocational Training Service (SFP). The EPAC provides vocational education for over 1000 apprentices in the areas of commerce, retail, pharmacy and crafts.\n\n• You are responsible for the management of approximately 110 employees\n\n• You prepare budgets and financial plans\n\n• You take part with the management of the SFP and the other vocational schools of the canton in strategic reflections and works and ensure their application\n\n• You represent the canton in national or inter-cantonal conferences.\n\nProfile desired\n\n• You have a master's degree from a high school with a teaching diploma for secondary level II or with a DAS in management or diplomas and experience deemed equivalent\n\n• You know the Swiss education system and especially vocational training\n\n• You have a driving experience in which you have been able to demonstrate leadership\n\n• You set priorities for your activities and work cross-cuttingly\n\n• You are oriented towards the objectives, show responsibility and respect for your employees and ensure that your decisions are implemented\n\n• You communicate in an open manner, create a working climate of trust and seek constructive solutions to conflicts\n\n• You put in place effective processes, appropriate structures and influence the organization's culture through efficient management of a quality system\n\n• You speak French and are also comfortable in the German language\n\nContact details\n\nChristophe Nydegger, Head of Service\nT +41 26 305 25 00",
         "de": "Wer sind wir?\n\nEPAC - Berufliche Handwerks- und Handelsschule in Bulle bietet Kurse für Auszubildende im Handels- und Handwerkssektor der Region an. Sie arbeitet nach einem dualen System, das es jungen Menschen ermöglicht, in einem Unternehmen zu trainieren, während sie Kurse an einer Berufsschule belegen. Die kaufmännische Sektion beherbergt auch professionelle Reifeklassen wie integrierte Wirtschaft, Vollzeit und Teilzeit.\n\nWarum mitmachen?\n\nDie Teilnahme am Berufsbildungsdienst (SFP) bzw. an der Berufsschule soll von der Stärke und den Ressourcen eines großen Unternehmens profitieren, das das Land Freiburg ist und konkret zu den Leistungen beiträgt, die für die berufliche Ausbildung des Kantons Freiburg nützlich sind.\n\nDer staatliche Arbeitgeber fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitern ein attraktives Arbeitsumfeld und attraktive Arbeitsbedingungen.\n\nUm mehr zu erfahren, folgen Sie diesem Link\n\nSind Sie motiviert, an der beruflichen Nachfolge in unserem Kanton teilzunehmen? Wir freuen uns auf Ihre Datei!\n\nIhre Missionen\n\nIhre Hauptaktivitäten sind die Durchführung der Berufsschule (EPAC) in Bulle, die dem Berufsbildungsdienst (SFP) unterstellt ist. Die EPAC bietet über 1000 Auszubildende in den Bereichen Handel, Einzelhandel, Apotheke und Handwerk an.\n\n• Sie sind verantwortlich für das Management von ca. 110 Mitarbeitern\n\n• Sie erstellen Budgets und Finanzpläne\n\n• Sie beteiligen sich mit der Leitung der SFP und den anderen Berufsschulen des Kantons an strategischen Überlegungen und Arbeiten und stellen deren Anwendung sicher\n\n• Sie vertreten den Kanton in nationalen oder interkantonalen Konferenzen.\n\nProfil gewünscht\n\n• Sie haben einen Master-Abschluss von einer High School mit einem Lehrabschluss für die Sekundarstufe II oder mit einem DAS in Management oder Diplomen und Erfahrung als gleichwertig angesehen\n\n• Sie kennen das Schweizer Bildungssystem und insbesondere die Berufsausbildung\n\n• Sie haben eine Fahrerfahrung, in der Sie Führung demonstrieren konnten\n\n• Sie setzen Prioritäten für Ihre Aktivitäten und arbeiten übergreifende\n\n• Sie orientieren sich an den Zielen, zeigen Verantwortung und Respekt für Ihre Mitarbeiter und sorgen dafür, dass Ihre Entscheidungen umgesetzt werden\n\n• Sie kommunizieren offen, schaffen ein Arbeitsklima des Vertrauens und suchen konstruktive Konfliktlösungen\n\n• Sie schaffen effektive Prozesse, angemessene Strukturen und beeinflussen die Unternehmenskultur durch effizientes Management eines Qualitätssystems\n\n• Sie sprechen Französisch und fühlen sich auch in der deutschen Sprache wohl\n\nKontaktdaten\n\nChristophe Nydegger, Leiter Service\nT +41 26 305 25 00",
-        "fr": "Qui sommes-nous?\n\nL'EPAC - Ecole professionnelle artisanale et commerciale de Bulle dispense des cours pour les apprenti-e-s du secteur commercial et artisanal de la région. Elle fonctionne selon un système dual qui permet ainsi aux jeunes de se former dans une entreprise tout en suivant des cours à l'école professionnelle. La section commerciale accueille également des classes de Maturité professionnelle commerciale, type économie intégrée, à plein temps et à temps partiel.\n\nPourquoi nous rejoindre ?\n\nRejoindre le Service de la formation professionnelle (SFP) respectivement l’Ecole professionnelle artisanale et commerciale, c'est bénéficier de la solidité et des moyens d’une grande entreprise qu’est l’Etat de Fribourg, contribuer concrètement à des réalisations utiles pour la formation professionnelle du canton de Fribourg.\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaboratrices et collaborateurs.\n\nPour en savoir plus, suivez ce lien\n\nÊtes-vous motivé-e à participer à la relève professionnelle dans notre canton ? Alors nous nous réjouissons de recevoir votre dossier !\n\nVos missions\n\nVos activités principales consistent à la conduite de l’Ecole professionnelle artisanale et commerciale (EPAC) de Bulle subordonnée au Service de la formation professionnelle (SFP). L’EPAC assure l’enseignement professionnel pour plus de 1000 apprenti-e-s dans les domaines du commerce, du commerce de détail, de la pharmacie et de l’artisanat.\n\n• Vous êtes responsable de la gestion d’environ 110 collaborateurs et collaboratrices\n\n• Vous établissez des budgets et plans financiers\n\n• Vous prenez part avec la direction du SFP et les autres écoles professionnelles du canton aux réflexions et travaux stratégiques et veillez à leur application\n\n• Vous représentez le canton dans des conférences nationales ou inter-cantonales.\n\nProfil souhaité\n\n• Vous êtes titulaire d’un master d’une haute école avec un diplôme d’enseignement pour le degré secondaire II ou avec un DAS en management ou des diplômes et expérience jugés équivalents\n\n• Vous connaissez le système éducatif suisse et particulièrement la formation professionnelle\n\n• Vous disposez d’une expérience de conduite dans laquelle vous avez pu faire preuve de leadership\n\n• Vous fixez les priorités à vos activités et travaillez de manière transversale\n\n• Vous êtes orienté-e vers les objectifs, faites preuve de responsabilité et de respect vis-à-vis de vos collaborateurs et collaboratrices et veillez à ce que vos décisions soient appliquées\n\n• Vous communiquez de manière ouverte, instaurez un climat de travail marqué par la confiance et cherchez des solutions constructives aux conflits\n\n• Vous mettez en place des processus efficaces, des structures appropriées et influencez la culture de l’organisation par une gestion efficiente d’un système qualité\n\n• Vous maîtrisez le française et êtes également à l’aise dans la langue allemande\n\nCoordonnées des personnes de contact\n\nChristophe Nydegger, Chef de service\nT +41 26 305 25 00"
+        "fr": "Qui sommes-nous?\n\nL'EPAC - Ecole professionnelle artisanale et commerciale de Bulle dispense des cours pour les apprenti-e-s du secteur commercial et artisanal de la région. Elle fonctionne selon un système dual qui permet ainsi aux jeunes de se former dans une entreprise tout en suivant des cours à l'école professionnelle. La section commerciale accueille également des classes de Maturité professionnelle commerciale, type économie intégrée, à plein temps et à temps partiel.\n\nPourquoi nous rejoindre ?\n\nRejoindre le Service de la formation professionnelle (SFP) respectivement l’Ecole professionnelle artisanale et commerciale, c'est bénéficier de la solidité et des moyens d’une grande entreprise qu’est l’Etat de Fribourg, contribuer concrètement à des réalisations utiles pour la formation professionnelle du canton de Fribourg.\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaboratrices et collaborateurs.\n\nPour en savoir plus, suivez ce lien\n\nÊtes-vous motivé-e à participer à la relève professionnelle dans notre canton ? Alors nous nous réjouissons de recevoir votre dossier !\n\nVos missions\n\nVos activités principales consistent à la conduite de l’Ecole professionnelle artisanale et commerciale (EPAC) de Bulle subordonnée au Service de la formation professionnelle (SFP). L’EPAC assure l’enseignement professionnel pour plus de 1000 apprenti-e-s dans les domaines du commerce, du commerce de détail, de la pharmacie et de l’artisanat.\n\n• Vous êtes responsable de la gestion d’environ 110 collaborateurs et collaboratrices\n\n• Vous établissez des budgets et plans financiers\n\n• Vous prenez part avec la direction du SFP et les autres écoles professionnelles du canton aux réflexions et travaux stratégiques et veillez à leur application\n\n• Vous représentez le canton dans des conférences nationales ou inter-cantonales.\n\nProfil souhaité\n\n• Vous êtes titulaire d’un master d’une haute école avec un diplôme d’enseignement pour le degré secondaire II ou avec un DAS en management ou des diplômes et expérience jugés équivalents\n\n• Vous connaissez le système éducatif suisse et particulièrement la formation professionnelle\n\n• Vous disposez d’une expérience de conduite dans laquelle vous avez pu faire preuve de leadership\n\n• Vous fixez les priorités à vos activités et travaillez de manière transversale\n\n• Vous êtes orienté-e vers les objectifs, faites preuve de responsabilité et de respect vis-à-vis de vos collaborateurs et collaboratrices et veillez à ce que vos décisions soient appliquées\n\n• Vous communiquez de manière ouverte, instaurez un climat de travail marqué par la confiance et cherchez des solutions constructives aux conflits\n\n• Vous mettez en place des processus efficaces, des structures appropriées et influencez la culture de l’organisation par une gestion efficiente d’un système qualité\n\n• Vous maîtrisez la langue française et êtes également à l’aise dans la langue allemande\n\nCoordonnées des personnes de contact\n\nChristophe Nydegger, Chef de service\nT +41 26 305 25 00"
       },
       "location": "Bulle",
       "canton": "FR",
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Directeur-trice-de-l'Ecole-professionnelle-artisanale-et-commerciale-Bulle-Gruy/1372155457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:19.301Z",
+      "crawledAt": "2026-09-28T21:28:28.030Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -3781,7 +3890,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-enqu%C3%AAteur-trice-Sari/1372202357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:18.617Z",
+      "crawledAt": "2026-09-28T21:28:23.903Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3802,11 +3911,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "collaborateur-trice-enqueteur-trice-etat-de-fribourg-ch"
+        "collaborateur-trice-enqueteur-trice-etat-de-fribourg-ch",
+        "collaboratore-dell-investigatore-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-enqueteur-trice-etat-de-fribourg-ch"
+          "collaborateur-trice-enqueteur-trice-etat-de-fribourg-ch",
+          "collaboratore-dell-investigatore-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-enqueteur-trice-etat-de-fribourg-ch"
@@ -3816,6 +3927,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:10.813Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3863,7 +3975,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sachbearbeiterin-Einb%C3%BCrgerungsermittlerin-Saan/1372202457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:17.926Z",
+      "crawledAt": "2026-09-28T21:28:23.223Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3884,11 +3996,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "sachbearbeiter-in-einburgerungsermittler-in-etat-de-fribourg-ch"
+        "sachbearbeiter-in-einburgerungsermittler-in-etat-de-fribourg-ch",
+        "personale-naturalization-investigator-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-einburgerungsermittler-in-etat-de-fribourg-ch"
+          "sachbearbeiter-in-einburgerungsermittler-in-etat-de-fribourg-ch",
+          "personale-naturalization-investigator-etat-de-fribourg-fribourg"
         ],
         "en": [
           "sachbearbeiter-in-einburgerungsermittler-in-etat-de-fribourg-ch"
@@ -3945,7 +4059,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vizepr%C3%A4sidentin-der-Enteignungskommission-Saan/1372157757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:17.241Z",
+      "crawledAt": "2026-09-28T21:28:22.476Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3963,11 +4077,13 @@
       "requirementsByLocale": {},
       "department": "Justizrat",
       "previousSlugs": [
-        "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
+        "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch",
+        "vicepresidente-della-commissione-per-gli-stanziamenti-etat-de-fribourg-fribourg-019eb0"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
+          "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch",
+          "vicepresidente-della-commissione-per-gli-stanziamenti-etat-de-fribourg-fribourg-019eb0"
         ],
         "en": [
           "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
@@ -4024,7 +4140,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vice-pr%C3%A9sident-e-aupr%C3%A8s-de-la-Commission-d'expropriation-Sari/1372157857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:16.562Z",
+      "crawledAt": "2026-09-28T21:28:21.791Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4104,7 +4220,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assesseur-e-s-%28contr%C3%B4le-des-comptes%29-aupr%C3%A8s-de-la-Justice-de-paix-de-la-Gl%C3%A2ne-Sari/1372157257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:15.885Z",
+      "crawledAt": "2026-09-28T21:28:21.101Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4122,11 +4238,13 @@
       "requirementsByLocale": {},
       "department": "Conseil de la magistrature",
       "previousSlugs": [
-        "assesseur-e-s-controle-des-comptes-aupres-de-la-justice-de-paix-de-la-glane-etat-de"
+        "assesseur-e-s-controle-des-comptes-aupres-de-la-justice-de-paix-de-la-glane-etat-de",
+        "assesseur-es-s-audit-dei-conti-con-la-giustizia-de-paix-de-la-glane-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assesseur-e-s-controle-des-comptes-aupres-de-la-justice-de-paix-de-la-glane-etat-de"
+          "assesseur-e-s-controle-des-comptes-aupres-de-la-justice-de-paix-de-la-glane-etat-de",
+          "assesseur-es-s-audit-dei-conti-con-la-giustizia-de-paix-de-la-glane-etat-de-fribourg-fribourg"
         ],
         "en": [
           "assesseur-e-s-controle-des-comptes-aupres-de-la-justice-de-paix-de-la-glane-etat-de"
@@ -4183,7 +4301,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmannfrau-f%C3%BCr-Justizvollzug-See/1372354957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:15.186Z",
+      "crawledAt": "2026-09-28T21:28:20.420Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4264,7 +4382,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-Centrale-Lac/1372354857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:14.501Z",
+      "crawledAt": "2026-09-28T21:28:19.716Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4285,11 +4403,13 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "agent-e-de-detention-centrale-etat-de-fribourg-ch"
+        "agent-e-de-detention-centrale-etat-de-fribourg-ch",
+        "ufficiale-di-detenzione-central-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-detention-centrale-etat-de-fribourg-ch"
+          "agent-e-de-detention-centrale-etat-de-fribourg-ch",
+          "ufficiale-di-detenzione-central-etat-de-fribourg-mont-vully"
         ],
         "en": [
           "agent-e-de-detention-centrale-etat-de-fribourg-ch"
@@ -4345,7 +4465,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-HES-associ%C3%A9-e-en-ost%C3%A9opathie-Sari/1372324857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:13.812Z",
+      "crawledAt": "2026-09-28T21:28:19.032Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4366,11 +4486,13 @@
       "pensumMax": 60,
       "pensum": "50-60%",
       "previousSlugs": [
-        "professeur-e-hes-associe-e-en-osteopathie-etat-de-fribourg-ch"
+        "professeur-e-hes-associe-e-en-osteopathie-etat-de-fribourg-ch",
+        "professore-associato-hes-in-osteopatia-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professeur-e-hes-associe-e-en-osteopathie-etat-de-fribourg-ch"
+          "professeur-e-hes-associe-e-en-osteopathie-etat-de-fribourg-ch",
+          "professore-associato-hes-in-osteopatia-etat-de-fribourg-fribourg"
         ],
         "en": [
           "professeur-e-hes-associe-e-en-osteopathie-etat-de-fribourg-ch"
@@ -4380,6 +4502,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:07.632Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -4427,7 +4550,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assoziierter-Professorin-FH-f%C3%BCr-Osteopathie-Saan/1372324957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:13.102Z",
+      "crawledAt": "2026-09-28T21:28:18.337Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4509,7 +4632,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-%C3%A9lectronicien-ne-CFC-Sari/1372326157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:12.404Z",
+      "crawledAt": "2026-09-28T21:28:17.656Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4530,11 +4653,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "apprenti-e-electronicien-ne-cfc-etat-de-fribourg-ch"
+        "apprenti-e-electronicien-ne-cfc-etat-de-fribourg-ch",
+        "elettrico-n-cfc-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-electronicien-ne-cfc-etat-de-fribourg-ch"
+          "apprenti-e-electronicien-ne-cfc-etat-de-fribourg-ch",
+          "elettrico-n-cfc-etat-de-fribourg-fribourg"
         ],
         "en": [
           "apprenti-e-electronicien-ne-cfc-etat-de-fribourg-ch"
@@ -4591,7 +4716,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Stagiaire-pour-la-gestion-d'%C3%A9v%C3%A8nements-et-la-r%C3%A9ception-%28HF%29-Sari/1372460357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:11.723Z",
+      "crawledAt": "2026-09-28T21:28:16.971Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4672,7 +4797,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Ergotherapeutin%2C-Heil-oder-Sozialp%C3%A4dagoge-p%C3%A4dagogin%2C-Pflegefachperson%2C-Sozialarbeiterin-Saan/1372397257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:11.018Z",
+      "crawledAt": "2026-09-28T21:28:16.288Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4753,7 +4878,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Ergoth%C3%A9rapeute%2C-%C3%A9ducateur-trice-sp%C3%A9cialis%C3%A9-e-ou-social-e%2C-infimier-%C3%A8re%2C-assistant-e-social-e-Sari/1372397157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:10.333Z",
+      "crawledAt": "2026-09-28T21:28:15.597Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4774,11 +4899,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "ergotherapeute-educateur-trice-specialise-e-ou-social-e-infimier-ere-assistant-e-social-e"
+        "ergotherapeute-educateur-trice-specialise-e-ou-social-e-infimier-ere-assistant-e-social-e",
+        "ergoterapista-educatore-specializzato-o-assistente-sociale-intimidatorio-assistente-sociale-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeute-educateur-trice-specialise-e-ou-social-e-infimier-ere-assistant-e-social-e"
+          "ergotherapeute-educateur-trice-specialise-e-ou-social-e-infimier-ere-assistant-e-social-e",
+          "ergoterapista-educatore-specializzato-o-assistente-sociale-intimidatorio-assistente-sociale-etat-de-fribourg-givisiez"
         ],
         "en": [
           "ergotherapeute-educateur-trice-specialise-e-ou-social-e-infimier-ere-assistant-e-social-e"
@@ -4834,7 +4961,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-AACSB-Akkreditierungsverantwortlicher-Saan/1372446757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:09.641Z",
+      "crawledAt": "2026-09-28T21:28:14.908Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4855,11 +4982,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "aacsb-akkreditierungsverantwortliche-r-etat-de-fribourg-ch"
+        "aacsb-akkreditierungsverantwortliche-r-etat-de-fribourg-ch",
+        "ufficiale-di-accreditamento-aacsb-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aacsb-akkreditierungsverantwortliche-r-etat-de-fribourg-ch"
+          "aacsb-akkreditierungsverantwortliche-r-etat-de-fribourg-ch",
+          "ufficiale-di-accreditamento-aacsb-etat-de-fribourg-fribourg"
         ],
         "en": [
           "aacsb-akkreditierungsverantwortliche-r-etat-de-fribourg-ch"
@@ -4916,7 +5045,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-de-l'accr%C3%A9ditation-AACSB-Sari/1372446657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:08.944Z",
+      "crawledAt": "2026-09-28T21:28:14.213Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4995,7 +5124,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-Garde-de-nuit-Conducteur-trice-de-chiens-Lac/1367386557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:08.255Z",
+      "crawledAt": "2026-09-28T21:28:13.507Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5017,11 +5146,13 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "agent-e-de-detention-garde-de-nuit-conducteur-trice-de-chiens-etat-de-fribourg-ch",
-        "agent-e-de-detention-garde-de-nuit-conducteur-trice-de-chiens-etat-de-fribourg-mont-vully"
+        "agent-e-de-detention-garde-de-nuit-conducteur-trice-de-chiens-etat-de-fribourg-mont-vully",
+        "ufficiale-di-detenzione-guardia-notturna-autista-del-cane-etat-de-fribourg-mont-vully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-detention-garde-de-nuit-conducteur-trice-de-chiens-etat-de-fribourg-ch"
+          "agent-e-de-detention-garde-de-nuit-conducteur-trice-de-chiens-etat-de-fribourg-ch",
+          "ufficiale-di-detenzione-guardia-notturna-autista-del-cane-etat-de-fribourg-mont-vully"
         ],
         "de": [
           "agent-e-de-detention-garde-de-nuit-conducteur-trice-de-chiens-etat-de-fribourg-mont-vully"
@@ -5074,7 +5205,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Nachtwache-Hundef%C3%BChrerin-See/1367386657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:07.559Z",
+      "crawledAt": "2026-09-28T21:28:12.819Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5130,7 +5261,7 @@
       "slug": "lezione-in-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "it": "lezione-in-etat-de-fribourg-fribourg",
-        "en": "lector-in-etat-de-fribourg-fribourg",
+        "en": "lecturer-etat-de-fribourg",
         "de": "lektor-in-etat-de-fribourg-ch",
         "fr": "lecteur-in-etat-de-fribourg-fribourg"
       },
@@ -5156,7 +5287,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lektorin-Saan/1367340257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:06.875Z",
+      "crawledAt": "2026-09-28T21:28:12.126Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5207,6 +5338,8 @@
         "reader-etat-de-fribourg-fribourg",
         "lesegerat-etat-de-fribourg-fribourg",
         "lecteur-trice-etat-de-fribourg-ch",
+        "lector-in-etat-de-fribourg-fribourg",
+        "lezione-in-etat-de-fribourg-fribourg",
         "lecturer-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
@@ -5220,12 +5353,14 @@
           "directeur-de-bureau-etat-de-fribourg-fribourg",
           "reader-etat-de-fribourg-fribourg",
           "lesegerat-etat-de-fribourg-fribourg",
-          "lecteur-trice-etat-de-fribourg-ch"
+          "lecteur-trice-etat-de-fribourg-ch",
+          "lezione-in-etat-de-fribourg-fribourg"
         ],
         "en": [
           "lektor-in-etat-de-fribourg-ch",
           "office-manager-etat-de-fribourg-fribourg",
           "reader-etat-de-fribourg-fribourg",
+          "lector-in-etat-de-fribourg-fribourg",
           "lecturer-etat-de-fribourg"
         ],
         "de": [
@@ -5240,6 +5375,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:36.386Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5287,7 +5423,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Laboratory-Technician-Position-in-Pharmacology-Sari/1362499557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:06.185Z",
+      "crawledAt": "2026-09-28T21:28:11.442Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5310,7 +5446,8 @@
       "previousSlugsByLocale": {
         "fr": [
           "laboratory-technicien-position-in-pharmacology-etat-de-fribourg-fribourg",
-          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
+          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
+          "technicien-de-labor-en-pharmacologie-etat-de-fribourg-fribourg"
         ],
         "it": [
           "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
@@ -5319,7 +5456,8 @@
           "laboratorio-tecnico-posizione-in-farmacologia-etat-de-fribourg-fribourg",
           "technicien-de-laboratoire-en-pharmacologie-etat-de-fribourg-fribourg",
           "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg-29b43c",
-          "laboratory-technician-position-in-pharmacology-etat-de-fribourg"
+          "laboratory-technician-position-in-pharmacology-etat-de-fribourg",
+          "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg"
         ],
         "en": [
           "laboratory-technician-position-in-pharmacology-etat-de-fribourg-fribourg"
@@ -5332,9 +5470,12 @@
         "laboratorio-tecnico-posizione-in-farmacologia-etat-de-fribourg-fribourg",
         "technicien-de-laboratoire-en-pharmacologie-etat-de-fribourg-fribourg",
         "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg-29b43c",
-        "laboratory-technician-position-in-pharmacology-etat-de-fribourg"
+        "laboratory-technician-position-in-pharmacology-etat-de-fribourg",
+        "technicien-de-labor-en-pharmacologie-etat-de-fribourg-fribourg",
+        "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg"
       ],
       "firstSeenAt": "2026-07-04T10:41:33.426Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5382,7 +5523,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Laboratory-Technician-Position-in-Pharmacology-Saan/1362499657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:05.490Z",
+      "crawledAt": "2026-09-28T21:28:10.747Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5404,15 +5545,16 @@
       "pensum": "95-100%",
       "previousSlugs": [
         "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
-        "laboratory-technician-position-in-pharmacology-etat-de-fribourg"
+        "laboratory-technician-position-in-pharmacology-etat-de-fribourg",
+        "laboratorio-tecnico-posizione-in-farmacologia-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
-          "laboratory-technician-position-in-pharmacology-etat-de-fribourg"
+          "laboratory-technician-position-in-pharmacology-etat-de-fribourg",
+          "laboratorio-tecnico-posizione-in-farmacologia-etat-de-fribourg-fribourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:41:33.426Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -5461,7 +5603,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Collaborateur-trice-p%C3%A9dagogique-pour-les-sciences-humaines-et-sociales-%28SHS%29%2C-cycles-1-et-2-Sari/1372852657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:04.766Z",
+      "crawledAt": "2026-09-28T21:28:10.057Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -5482,11 +5624,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "collaborateur-trice-pedagogique-pour-les-sciences-humaines-et-sociales-shs-cycles-1-et-2"
+        "collaborateur-trice-pedagogique-pour-les-sciences-humaines-et-sociales-shs-cycles-1-et-2",
+        "collaboratore-pedagogico-per-le-scienze-sociali-e-umane-shs-cicli-1-e-2-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-pedagogique-pour-les-sciences-humaines-et-sociales-shs-cycles-1-et-2"
+          "collaborateur-trice-pedagogique-pour-les-sciences-humaines-et-sociales-shs-cycles-1-et-2",
+          "collaboratore-pedagogico-per-le-scienze-sociali-e-umane-shs-cicli-1-e-2-etat-de-fribourg-givisiez"
         ],
         "en": [
           "collaborateur-trice-pedagogique-pour-les-sciences-humaines-et-sociales-shs-cycles-1-et-2"
@@ -5542,7 +5686,7 @@
       "url": "https://jobs.fr.ch/job/Ch%C3%A2tel-St-Denis%2C-CH-Employ%C3%A9-e-d'administration-Veve/1372853957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:04.074Z",
+      "crawledAt": "2026-09-28T21:28:07.984Z",
       "addressLocality": "Châtel-St-Denis",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5562,10 +5706,14 @@
       "pensumMin": 30,
       "pensumMax": 40,
       "pensum": "30-40%",
-      "firstSeenAt": "2026-07-23T22:26:37.065Z",
+      "previousSlugs": [
+        "employe-e-d-administration-etat-de-fribourg-ch",
+        "employe-e-d-administration-etat-de-fribourg-ch-2"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "employe-e-d-administration-etat-de-fribourg-ch"
+          "employe-e-d-administration-etat-de-fribourg-ch",
+          "employe-e-d-administration-etat-de-fribourg-ch-2"
         ],
         "en": [
           "employe-e-d-administration-etat-de-fribourg-ch"
@@ -5574,9 +5722,7 @@
           "employe-e-d-administration-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "employe-e-d-administration-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-07-23T22:26:37.065Z",
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -5611,11 +5757,11 @@
         "de": "Verwaltungsangestellte/r",
         "fr": "Personnel administratif"
       },
-      "description": "Beschäftigungsgrad\n\n45-50%\n\nOrt\n\nGranges-Paccot, CH, Saane\n\nBewerbungsfrist\n\n08.10.2026\n\nDatum des Stellenantritts\n\n01.12.2026 oder nach Vereinbarung\n\nVertragsart\n\nUnbefristeter Vertrag\n\nAnstellungsbehörde / Dienststelle / Anstalt\n\nDas Amt für Bevölkerung und Migration (BMA) wendet die Verordnungen der Fremdenpolizei an, um die Einreise, den Aufenthalt und die Erwerbstätigkeit ausländischer Staatsangehöriger zu regeln. Es behandelt die Anfragen der Schweizer Bürgerinnen und Bürger zur Ausstellung eines Passes oder einer Identitätskarte.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender  Seite\n\nIhre Aufgaben\n\nAnwendung der fremdenpolizeilichen Vorschriften in den Bereichen Zulassung, Aufenthalt und Rückkehr.\n\nGewünschtes Profil\n\n• Kauffrau/-mann EFZ oder gleichwertige Ausbildung\n\n• Mehrjährige Berufserfahrung\n\n• Interesse für den Migrationsbereich\n\n• Kontaktfreudigkeit\n\n• Teamfähigkeit sowie selbstständige Arbeitsweise\n\n• Gute Kenntnisse der Computerprogramme (Windows und Office)\n\n• Beherrschen der französischen Sprache mit guten Deutschkenntnissen\n\nAngaben der Kontaktpersonen\n\nAlexandre Stulz, Sektorchef Europa,\nT +41 26 305 50 05",
+      "description": "Beschäftigungsgrad\n\n45-50%\n\nOrt\n\nGranges-Paccot, CH, Saane\n\nBewerbungsfrist\n\n08.10.2026\n\nDatum des Stellenantritts\n\n01.12.2026 oder nach Vereinbarung\n\nVertragsart\n\nUnbefristeter Vertrag\n\nAnstellungsbehörde / Dienststelle / Anstalt\n\nDas Amt für Bevölkerung und Migration (BMA) wendet die Verordnungen der Fremdenpolizei an, um die Einreise, den Aufenthalt und die Erwerbstätigkeit ausländischer Staatsangehöriger zu regeln. Es behandelt die Anfragen der Schweizer Bürgerinnen und Bürger zur Ausstellung eines Passes oder einer Identitätskarte.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender  Seite\n\nIhre Aufgaben\n\nAnwendung der fremdenpolizeilichen Vorschriften in den Bereichen Zulassung, Aufenthalt und Rückkehr.\n\nGewünschtes Profil\n\n• Kauffrau/-mann EFZ oder gleichwertige Ausbildung\n\n• Mehrjährige Berufserfahrung\n\n• Interesse für den Migrationsbereich\n\n• Kontaktfreudigkeit\n\n• Teamfähigkeit sowie selbstständige Arbeitsweise\n\n• Gute Kenntnisse der Computerprogramme (Windows und Office)\n\n• Beherrschen der französischen Sprache mit guten Deutschkenntnissen\n\nAngaben der Kontaktpersonen\n\nAlexandre Stulz, Sektorchef Europa, T +41 26 305 50 05",
       "descriptionByLocale": {
         "it": "Livello di occupazione\n\n45-50%\n\nPosizione\n\nGranges-Paccot, CH, Saane\n\nScadenza per la domanda\n\n8 ottobre 2026\n\nData di inizio della posizione\n\n1 dicembre 2026 o su appuntamento\n\nTipologia contrattuale\n\nContratto a tempo indeterminato\n\nAutorità che ha il potere di nomina/dipartimento/istituzione\n\nL'Ufficio per la popolazione e la migrazione (BMA) applica le norme della polizia dell'immigrazione per regolare l'ingresso, il soggiorno e l'impiego dei cittadini stranieri. Gestisce le richieste dei cittadini svizzeri per il rilascio di passaporti o carte d'identità.\n\nEntra a far parte della nostra squadra!\n\nIl datore di lavoro statale promuove la conciliabilità tra lavoro e vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Puoi scoprire di più a riguardo nella pagina seguente\n\nI tuoi compiti\n\nApplicazione delle norme di polizia dell'immigrazione in materia di ammissione, soggiorno e rimpatrio.\n\nProfilo desiderato\n\n• Imprenditrice/uomo EFZ o formazione equivalente\n\n• Diversi anni di esperienza professionale\n\n• Interesse per l'area migratoria\n\n• Socievolezza\n\n• Capacità di lavorare in gruppo e di lavorare in modo indipendente\n\n• Buona conoscenza dei programmi informatici (Windows e Office)\n\n• Conoscenza della lingua francese con buona conoscenza del tedesco\n\nDettagli delle persone da contattare\n\nAlexandre Stulz, responsabile del settore europeo,\nT+41 26 305 50 05",
         "en": "Level of employment\n\n45-50%\n\nLocation\n\nGranges-Paccot, CH, Saane\n\nApplication deadline\n\nOctober 8, 2026\n\nDate of start of position\n\nDecember 1st, 2026 or by appointment\n\nContract type\n\nPermanent contract\n\nAppointing authority / department / institution\n\nThe Office for Population and Migration (BMA) applies the regulations of the immigration police to regulate the entry, residence and employment of foreign nationals. It handles requests from Swiss citizens to issue a passport or identity card.\n\nBecome part of our team!\n\nThe state employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. You can find out more about this on the following page\n\nYour tasks\n\nApplication of immigration police regulations in the areas of admission, residence and return.\n\nDesired profile\n\n• Businesswoman/-man EFZ or equivalent training\n\n• Several years of professional experience\n\n• Interest in the migration area\n\n• Sociability\n\n• Ability to work in a team and work independently\n\n• Good knowledge of computer programs (Windows and Office)\n\n• Proficiency in the French language with good knowledge of German\n\nDetails of the contact persons\n\nAlexandre Stulz, European sector manager,\nT +41 26 305 50 05",
-        "de": "Beschäftigungsgrad\n\n45-50%\n\nOrt\n\nGranges-Paccot, CH, Saane\n\nBewerbungsfrist\n\n08.10.2026\n\nDatum des Stellenantritts\n\n01.12.2026 oder nach Vereinbarung\n\nVertragsart\n\nUnbefristeter Vertrag\n\nAnstellungsbehörde / Dienststelle / Anstalt\n\nDas Amt für Bevölkerung und Migration (BMA) wendet die Verordnungen der Fremdenpolizei an, um die Einreise, den Aufenthalt und die Erwerbstätigkeit ausländischer Staatsangehöriger zu regeln. Es behandelt die Anfragen der Schweizer Bürgerinnen und Bürger zur Ausstellung eines Passes oder einer Identitätskarte.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite\n\nIhre Aufgaben\n\nAnwendung der fremdenpolizeilichen Vorschriften in den Bereichen Zulassung, Aufenthalt und Rückkehr.\n\nGewünschtes Profil\n\n• Kauffrau/-mann EFZ oder gleichwertige Ausbildung\n\n• Mehrjährige Berufserfahrung\n\n• Interesse für den Migrationsbereich\n\n• Kontaktfreudigkeit\n\n• Teamfähigkeit sowie selbstständige Arbeitsweise\n\n• Gute Kenntnisse der Computerprogramme (Windows und Office)\n\n• Beherrschen der französischen Sprache mit guten Deutschkenntnissen\n\nAngaben der Kontaktpersonen\n\nAlexandre Stulz, Sektorchef Europa,\nT +41 26 305 50 05",
+        "de": "Beschäftigungsgrad\n\n45-50%\n\nOrt\n\nGranges-Paccot, CH, Saane\n\nBewerbungsfrist\n\n08.10.2026\n\nDatum des Stellenantritts\n\n01.12.2026 oder nach Vereinbarung\n\nVertragsart\n\nUnbefristeter Vertrag\n\nAnstellungsbehörde / Dienststelle / Anstalt\n\nDas Amt für Bevölkerung und Migration (BMA) wendet die Verordnungen der Fremdenpolizei an, um die Einreise, den Aufenthalt und die Erwerbstätigkeit ausländischer Staatsangehöriger zu regeln. Es behandelt die Anfragen der Schweizer Bürgerinnen und Bürger zur Ausstellung eines Passes oder einer Identitätskarte.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite\n\nIhre Aufgaben\n\nAnwendung der fremdenpolizeilichen Vorschriften in den Bereichen Zulassung, Aufenthalt und Rückkehr.\n\nGewünschtes Profil\n\n• Kauffrau/-mann EFZ oder gleichwertige Ausbildung\n\n• Mehrjährige Berufserfahrung\n\n• Interesse für den Migrationsbereich\n\n• Kontaktfreudigkeit\n\n• Teamfähigkeit sowie selbstständige Arbeitsweise\n\n• Gute Kenntnisse der Computerprogramme (Windows und Office)\n\n• Beherrschen der französischen Sprache mit guten Deutschkenntnissen\n\nAngaben der Kontaktpersonen\n\nAlexandre Stulz, Sektorchef Europa, T +41 26 305 50 05",
         "fr": "Niveau d'emploi\n\n45-50%\n\nEmplacement\n\nGranges-Paccot, CH, Saâne\n\nDate limite de candidature\n\n8 octobre 2026\n\nDate de début de poste\n\n1er décembre 2026 ou sur rendez-vous\n\nType de contrat\n\nContrat à durée indéterminée\n\nAutorité investie du pouvoir de nomination / service / institution\n\nL'Office de la Population et des Migrations (BMA) applique les règlements de la police de l'immigration pour réglementer l'entrée, le séjour et l'emploi des ressortissants étrangers. Elle traite les demandes des citoyens suisses souhaitant délivrer un passeport ou une carte d'identité.\n\nDevenez membre de notre équipe!\n\nL'employeur public favorise la compatibilité entre vie professionnelle et vie privée et offre à ses salariés un environnement de travail moderne et des conditions de travail attractives. Vous pouvez en savoir plus à ce sujet sur la page suivante\n\nVos tâches\n\nApplication des règlements de police de l'immigration dans les domaines de l'admission, du séjour et du retour.\n\nProfil souhaité\n\n• Femme/homme d'affaires EFZ ou formation équivalente\n\n• Plusieurs années d'expérience professionnelle\n\n• Intérêt pour le domaine de la migration\n\n• Sociabilité\n\n• Capacité à travailler en équipe et à travailler de manière autonome\n\n• Bonne connaissance des programmes informatiques (Windows et Office)\n\n• Maîtrise de la langue française avec une bonne connaissance de l'allemand\n\nCoordonnées des personnes de contact\n\nAlexandre Stulz, responsable secteur Europe,\nT +41 26 305 50 05"
       },
       "location": "Granges-Paccot",
@@ -5623,7 +5769,7 @@
       "url": "https://jobs.fr.ch/job/Granges-Paccot%2C-CH-Verwaltungsangestellter-Saan/1372831757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:03.346Z",
+      "crawledAt": "2026-09-28T21:28:09.368Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -5645,12 +5791,14 @@
       "pensum": "45-50%",
       "previousSlugs": [
         "verwaltungsangestellte-r-etat-de-fribourg-ch",
-        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot"
+        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot",
+        "personale-amministrativo-etat-de-fribourg-granges-paccot"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungsangestellte-r-etat-de-fribourg-ch",
-          "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot"
+          "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot",
+          "personale-amministrativo-etat-de-fribourg-granges-paccot"
         ],
         "en": [
           "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot"
@@ -5659,7 +5807,7 @@
           "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot"
         ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-23T22:26:45.948Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -5707,7 +5855,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Qualifizierter-technischer-Angestellter-Saan/1372853457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:02.652Z",
+      "crawledAt": "2026-09-28T21:28:07.282Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5728,11 +5876,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "qualifizierte-r-technische-r-angestellte-r-etat-de-fribourg-ch"
+        "qualifizierte-r-technische-r-angestellte-r-etat-de-fribourg-ch",
+        "tecnica-qualificato-employee-r-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qualifizierte-r-technische-r-angestellte-r-etat-de-fribourg-ch"
+          "qualifizierte-r-technische-r-angestellte-r-etat-de-fribourg-ch",
+          "tecnica-qualificato-employee-r-etat-de-fribourg-fribourg"
         ],
         "en": [
           "qualifizierte-r-technische-r-angestellte-r-etat-de-fribourg-ch"
@@ -5789,7 +5939,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Employ%C3%A9-e-technique-qualifi%C3%A9-e-Sari/1372853357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:01.969Z",
+      "crawledAt": "2026-09-28T21:28:06.590Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5810,11 +5960,13 @@
       "pensumMax": 50,
       "pensum": "40-50%",
       "previousSlugs": [
-        "employe-e-technique-qualifie-e-etat-de-fribourg-ch"
+        "employe-e-technique-qualifie-e-etat-de-fribourg-ch",
+        "dipendente-tecnico-qualificato-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employe-e-technique-qualifie-e-etat-de-fribourg-ch"
+          "employe-e-technique-qualifie-e-etat-de-fribourg-ch",
+          "dipendente-tecnico-qualificato-etat-de-fribourg-fribourg"
         ],
         "en": [
           "employe-e-technique-qualifie-e-etat-de-fribourg-ch"
@@ -5859,19 +6011,19 @@
         "de": "Verwaltungspersonal",
         "fr": "Employé-e d'administration"
       },
-      "description": "Taux d'activité\n\n45-50%\n\nLieu\n\nGranges-Paccot, CH, Sarine\n\nDélai de postulation\n\n08.10.2026\n\nDate d'entrée en fonction\n\n01.12.2026 ou à convenir\n\nType de contrat\n\nCDI\n\nQui sommes-nous ?\n\nLe Service de la population et des migrants SPoMi met en œuvre les prescriptions de police des étrangers réglant l’entrée, le séjour et l’activité des ressortissants étrangers. Il traite les demandes des citoyens suisses en établissement de passeports et de cartes d’identité.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce  lien\n\nVos missions\n\nApplication des prescriptions de police des étrangers en matière d'admission, de séjour et de retour.\n\nProfil souhaité\n\n• CFC d'employé-e de commerce ou formation jugée équivalente\n\n• Plusieurs années d'expérience\n\n• Intérêt pour le domaine des migrations\n\n• Aisance dans les contacts\n\n• Capacité de travailler de manière autonome tout en s'intégrant dans une équipe\n\n• Bonnes connaissances des outils informatiques\n\n• Maîtrise de la langue française avec de bonnes connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nAlexandre Stulz, Chef de secteur Europe,\nT +41 26 305 50 05",
+      "description": "Taux d'activité\n\n45-50%\n\nLieu\n\nGranges-Paccot, CH, Sarine\n\nDélai de postulation\n\n08.10.2026\n\nDate d'entrée en fonction\n\n01.12.2026 ou à convenir\n\nType de contrat\n\nCDI\n\nQui sommes-nous ?\n\nLe Service de la population et des migrants SPoMi met en œuvre les prescriptions de police des étrangers réglant l’entrée, le séjour et l’activité des ressortissants étrangers. Il traite les demandes des citoyens suisses en établissement de passeports et de cartes d’identité.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce  lien\n\nVos missions\n\nApplication des prescriptions de police des étrangers en matière d'admission, de séjour et de retour.\n\nProfil souhaité\n\n• CFC d'employé-e de commerce ou formation jugée équivalente\n\n• Plusieurs années d'expérience\n\n• Intérêt pour le domaine des migrations\n\n• Aisance dans les contacts\n\n• Capacité de travailler de manière autonome tout en s'intégrant dans une équipe\n\n• Bonnes connaissances des outils informatiques\n\n• Maîtrise de la langue française avec de bonnes connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nAlexandre Stulz, Chef de secteur Europe, T +41 26 305 50 05",
       "descriptionByLocale": {
         "it": "Tasso di attività\n\n45-50%\n\nPosizione\n\nGranges-Paccot, CH, Sarine\n\nScadenza per la domanda\n\n08.10.2026\n\nData di entrata in carica\n\n01.12.2026 o da concordare\n\nTipo di contratto\n\nContratto a tempo indeterminato\n\nChi siamo?\n\nIl Servizio Popolazione e Migranti SPoMi attua la normativa di politica estera che regola l'ingresso, il soggiorno e l'attività dei cittadini stranieri. Elabora le richieste dei cittadini svizzeri per il rilascio di passaporti e carte d'identità.\n\nPerché unirsi a noi?\n\nIl datore di lavoro statale incoraggia l’equilibrio tra lavoro e vita privata e offre ai suoi dipendenti un ambiente e condizioni di lavoro attraenti. Per saperne di più, segui questo link\n\nLe tue missioni\n\nApplicazione delle norme di polizia degli stranieri in materia di ammissione, soggiorno e rientro.\n\nProfilo desiderato\n\n• CFC per impiegato commerciale o formazione ritenuta equivalente\n\n• Diversi anni di esperienza\n\n• Interesse nel campo della migrazione\n\n• Facilità di contatto\n\n• Capacità di lavorare in modo indipendente integrandosi in una squadra\n\n• Buona conoscenza degli strumenti informatici\n\n• Padronanza della lingua francese con buona conoscenza del tedesco\n\nDettagli di contatto\n\nAlexandre Stulz, responsabile del settore Europa,\nT+41 26 305 50 05",
         "en": "Activity rate\n\n45-50%\n\nLocation\n\nGranges-Paccot, CH, Sarine\n\nApplication deadline\n\n08.10.2026\n\nDate of entry into office\n\n01.12.2026 or to be agreed\n\nType of contract\n\nPermanent contract\n\nWho are we?\n\nThe SPoMi Population and Migrants Service implements foreign policy regulations regulating the entry, stay and activity of foreign nationals. It processes requests from Swiss citizens for the issuance of passports and identity cards.\n\nWhy join us?\n\nThe State-employer encourages work-life balance and offers an attractive working environment and conditions to its employees. To find out more, follow this link\n\nYour missions\n\nApplication of foreigners police regulations regarding admission, stay and return.\n\nDesired profile\n\n• CFC for commercial employee or training deemed equivalent\n\n• Several years of experience\n\n• Interest in the field of migration\n\n• Ease of contact\n\n• Ability to work independently while integrating into a team\n\n• Good knowledge of IT tools\n\n• Mastery of the French language with good knowledge of German\n\nContact details\n\nAlexandre Stulz, Europe sector manager,\nT +41 26 305 50 05",
         "de": "Aktivitätsrate\n\n45-50 %\n\nStandort\n\nGranges-Paccot, CH, Sarine\n\nBewerbungsschluss\n\n08.10.2026\n\nDatum des Amtsantritts\n\n01.12.2026 oder nach Vereinbarung\n\nArt des Vertrags\n\nUnbefristeter Vertrag\n\nWer sind wir?\n\nDer SPoMi-Bevölkerungs- und Migrantendienst setzt außenpolitische Vorschriften um, die die Einreise, den Aufenthalt und die Tätigkeit ausländischer Staatsangehöriger regeln. Sie bearbeitet Anträge von Schweizer Bürgern auf Ausstellung von Pässen und Identitätskarten.\n\nWarum bei uns mitmachen?\n\nDer staatliche Arbeitgeber fördert die Work-Life-Balance und bietet seinen Mitarbeitern ein attraktives Arbeitsumfeld und -bedingungen. Um mehr zu erfahren, folgen Sie diesem Link\n\nIhre Missionen\n\nAnwendung der ausländerpolizeilichen Vorschriften bezüglich Zulassung, Aufenthalt und Rückkehr.\n\nGewünschtes Profil\n\n• CFC für kaufmännische Angestellte oder gleichwertige Ausbildung\n\n• Mehrjährige Erfahrung\n\n• Interesse am Bereich Migration\n\n• Einfache Kontaktaufnahme\n\n• Fähigkeit, selbstständig zu arbeiten und sich gleichzeitig in ein Team zu integrieren\n\n• Gute Kenntnisse der IT-Tools\n\n• Beherrschung der französischen Sprache mit guten Deutschkenntnissen\n\nKontaktdaten\n\nAlexandre Stulz, Sektormanager Europa,\nT +41 26 305 50 05",
-        "fr": "Taux d'activité\n\n45-50%\n\nLieu\n\nGranges-Paccot, CH, Sarine\n\nDélai de postulation\n\n08.10.2026\n\nDate d'entrée en fonction\n\n01.12.2026 ou à convenir\n\nType de contrat\n\nCDI\n\nQui sommes-nous ?\n\nLe Service de la population et des migrants SPoMi met en œuvre les prescriptions de police des étrangers réglant l’entrée, le séjour et l’activité des ressortissants étrangers. Il traite les demandes des citoyens suisses en établissement de passeports et de cartes d’identité.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien\n\nVos missions\n\nApplication des prescriptions de police des étrangers en matière d'admission, de séjour et de retour.\n\nProfil souhaité\n\n• CFC d'employé-e de commerce ou formation jugée équivalente\n\n• Plusieurs années d'expérience\n\n• Intérêt pour le domaine des migrations\n\n• Aisance dans les contacts\n\n• Capacité de travailler de manière autonome tout en s'intégrant dans une équipe\n\n• Bonnes connaissances des outils informatiques\n\n• Maîtrise de la langue française avec de bonnes connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nAlexandre Stulz, Chef de secteur Europe,\nT +41 26 305 50 05"
+        "fr": "Taux d'activité\n\n45-50%\n\nLieu\n\nGranges-Paccot, CH, Sarine\n\nDélai de postulation\n\n08.10.2026\n\nDate d'entrée en fonction\n\n01.12.2026 ou à convenir\n\nType de contrat\n\nCDI\n\nQui sommes-nous ?\n\nLe Service de la population et des migrants SPoMi met en œuvre les prescriptions de police des étrangers réglant l’entrée, le séjour et l’activité des ressortissants étrangers. Il traite les demandes des citoyens suisses en établissement de passeports et de cartes d’identité.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien\n\nVos missions\n\nApplication des prescriptions de police des étrangers en matière d'admission, de séjour et de retour.\n\nProfil souhaité\n\n• CFC d'employé-e de commerce ou formation jugée équivalente\n\n• Plusieurs années d'expérience\n\n• Intérêt pour le domaine des migrations\n\n• Aisance dans les contacts\n\n• Capacité de travailler de manière autonome tout en s'intégrant dans une équipe\n\n• Bonnes connaissances des outils informatiques\n\n• Maîtrise de la langue française avec de bonnes connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nAlexandre Stulz, Chef de secteur Europe, T +41 26 305 50 05"
       },
       "location": "Granges-Paccot",
       "canton": "FR",
       "url": "https://jobs.fr.ch/job/Granges-Paccot%2C-CH-Employ%C3%A9-e-d'administration-Sari/1372831657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:01.278Z",
+      "crawledAt": "2026-09-28T21:28:08.671Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -5896,20 +6048,21 @@
         "employe-e-d-administration-etat-de-fribourg-ch-2"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "employe-e-d-administration-etat-de-fribourg-ch"
-        ],
         "it": [
-          "employe-e-d-administration-etat-de-fribourg-ch-2"
+          "employe-e-d-administration-etat-de-fribourg-ch-2",
+          "employe-e-d-administration-etat-de-fribourg-ch"
         ],
         "en": [
           "employe-e-d-administration-etat-de-fribourg-ch-2"
         ],
         "de": [
           "employe-e-d-administration-etat-de-fribourg-ch-2"
+        ],
+        "fr": [
+          "employe-e-d-administration-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-23T22:26:37.065Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -5957,7 +6110,7 @@
       "url": "https://jobs.fr.ch/job/Ch%C3%A2tel-St-Denis%2C-CH-Assesseur-e-suppl%C3%A9ant-e-%28travailleurs%29-au-Tribunal-des-prud'hommes-de-la-Veveyse-Veve/1372830057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:08:00.594Z",
+      "crawledAt": "2026-09-28T21:28:05.875Z",
       "addressLocality": "Châtel-St-Denis",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5974,7 +6127,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Conseil de la magistrature",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T10:42:32.083Z",
       "previousSlugsByLocale": {
         "it": [
@@ -6036,7 +6189,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-en-gestion-comptable-Responsable-de-la-comptabilit%C3%A9-Sari/1372984257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:07:59.886Z",
+      "crawledAt": "2026-09-28T21:28:04.467Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6056,10 +6209,14 @@
       "pensumMin": 60,
       "pensumMax": 75,
       "pensum": "60-75%",
-      "firstSeenAt": "2026-07-04T10:42:09.564Z",
+      "previousSlugs": [
+        "collaborateur-trice-en-gestion-comptable-responsable-de-la-comptabilite-etat-de-fribourg",
+        "collaboratore-in-gestione-contabile-responsabile-contabile-etat-de-fribourg-fribourg"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-en-gestion-comptable-responsable-de-la-comptabilite-etat-de-fribourg"
+          "collaborateur-trice-en-gestion-comptable-responsable-de-la-comptabilite-etat-de-fribourg",
+          "collaboratore-in-gestione-contabile-responsabile-contabile-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-en-gestion-comptable-responsable-de-la-comptabilite-etat-de-fribourg"
@@ -6068,9 +6225,7 @@
           "collaborateur-trice-en-gestion-comptable-responsable-de-la-comptabilite-etat-de-fribourg"
         ]
       },
-      "previousSlugs": [
-        "collaborateur-trice-en-gestion-comptable-responsable-de-la-comptabilite-etat-de-fribourg"
-      ],
+      "firstSeenAt": "2026-07-04T10:42:09.564Z",
       "salaryMin": 122000,
       "salaryMax": 209000,
       "salarySource": "estimated",
@@ -6118,7 +6273,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungssachbearbeiterin-Saan/1372959857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:07:59.196Z",
+      "crawledAt": "2026-09-28T21:28:03.767Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6158,9 +6313,9 @@
     },
     {
       "id": "etat-de-fribourg-8a5c6feccca2",
-      "slug": "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836",
+      "slug": "collaborateur-trice-administratif-ve-etat-de-fribourg",
       "slugByLocale": {
-        "it": "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836",
+        "it": "collaborateur-trice-administratif-ve-etat-de-fribourg",
         "en": "administrative-collaborator-etat-de-fribourg-fribourg",
         "de": "verwaltungsmitarbeiter-etat-de-fribourg-fribourg",
         "fr": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
@@ -6170,7 +6325,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaboratore amministrativo",
+        "it": "Collaborateur-trice administratif-ve",
         "en": "Administrative Collaborator",
         "de": "Verwaltungsmitarbeiter",
         "fr": "Collaborateur-trice administratif-ve"
@@ -6187,7 +6342,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-Sari/1372959757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:07:58.509Z",
+      "crawledAt": "2026-09-28T21:28:03.047Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6242,14 +6397,14 @@
         "administrative-collaborator-ve-in-the-labour-market-section-etat-de-fribourg-fribourg",
         "administrative-collaborator-ve-in-der-sektion-arbeitsmarkt-etat-de-fribourg-fribourg",
         "collaborateur-trice-administratif-ve-a-la-section-marche-du-travail-etat-de-fribourg-ch",
-        "collaborateur-trice-administratif-ve-etat-de-fribourg",
         "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
         "associato-amministrativo-etat-de-fribourg-fribourg-c4b769",
-        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
+        "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836",
+        "collaborateur-trice-administratif-ve-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "scientific-collaborator-etat-de-fribourg-givisiez",
           "wissenschaftlicher-mitarbeiter-etat-de-fribourg-givisiez",
           "collaboratore-amministrativo-etat-de-fribourg-fribourg",
           "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg",
@@ -6265,10 +6420,11 @@
           "administrative-collaborator-ve-in-the-labour-market-section-etat-de-fribourg-fribourg",
           "administrative-collaborator-ve-in-der-sektion-arbeitsmarkt-etat-de-fribourg-fribourg",
           "collaborateur-trice-administratif-ve-a-la-section-marche-du-travail-etat-de-fribourg-ch",
-          "collaborateur-trice-administratif-ve-etat-de-fribourg",
           "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
           "associato-amministrativo-etat-de-fribourg-fribourg-c4b769",
-          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
+          "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836",
+          "collaborateur-trice-administratif-ve-etat-de-fribourg"
         ],
         "en": [
           "administrative-collaborator-ve-etat-de-fribourg-fribourg"
@@ -6277,7 +6433,6 @@
           "verwaltungsmitarbeiter-vereinigung-etat-de-fribourg-fribourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:41:36.656Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -6326,7 +6481,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vice-pr%C3%A9sident-e-de-la-Commission-de-recours-en-mati%C3%A8re-de-premier-relev%C3%A9-et-de-renouvellement-Sari/1372957757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:07:57.826Z",
+      "crawledAt": "2026-09-28T21:28:02.359Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6344,11 +6499,13 @@
       "requirementsByLocale": {},
       "department": "Conseil de la magistrature",
       "previousSlugs": [
-        "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de"
+        "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de",
+        "vice-presidente-della-prima-commissione-d-inchiesta-e-di-ricognizione-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de"
+          "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de",
+          "vice-presidente-della-prima-commissione-d-inchiesta-e-di-ricognizione-etat-de-fribourg-fribourg"
         ],
         "en": [
           "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de"
@@ -6405,7 +6562,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-sup%C3%A9rieur-e-Sari/1372958657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:07:57.137Z",
+      "crawledAt": "2026-09-28T21:28:01.663Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6425,11 +6582,11 @@
       "pensumMin": 35,
       "pensumMax": 40,
       "pensum": "35-40%",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-17T11:09:01.479Z",
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch"
+          "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch",
+          "collaboratore-amministrativo-etat-de-fribourg-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch"
@@ -6439,7 +6596,8 @@
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch"
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch",
+        "collaboratore-amministrativo-etat-de-fribourg-fribourg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6488,7 +6646,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sachbearbeiterin-Buchhaltung-Buchhaltungsleiter-Saan/1372984357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:07:56.433Z",
+      "crawledAt": "2026-09-28T21:28:05.156Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6557,7 +6715,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vizepr%C3%A4sidentin-der-Rekurskommission-f%C3%BCr-die-Ersterhebung-und-Erneuerung-Saan/1372957657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:07:55.698Z",
+      "crawledAt": "2026-09-28T21:28:00.967Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6631,7 +6789,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-H%C3%B6here-VerwaltungssachbearbeiterinH%C3%B6herer-Verwaltungssachbearbeiter-Saan/1372958757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:07:55.006Z",
+      "crawledAt": "2026-09-28T21:28:00.280Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6652,11 +6810,13 @@
       "pensumMax": 40,
       "pensum": "35-40%",
       "previousSlugs": [
-        "hohere-verwaltungssachbearbeiterin-hoherer-verwaltungssachbearbeiter-etat-de-fribourg-ch"
+        "hohere-verwaltungssachbearbeiterin-hoherer-verwaltungssachbearbeiter-etat-de-fribourg-ch",
+        "responsabile-amministrativo-senior-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hohere-verwaltungssachbearbeiterin-hoherer-verwaltungssachbearbeiter-etat-de-fribourg-ch"
+          "hohere-verwaltungssachbearbeiterin-hoherer-verwaltungssachbearbeiter-etat-de-fribourg-ch",
+          "responsabile-amministrativo-senior-etat-de-fribourg-fribourg"
         ],
         "en": [
           "hohere-verwaltungssachbearbeiterin-hoherer-verwaltungssachbearbeiter-etat-de-fribourg-ch"
@@ -6697,7 +6857,7 @@
       "title": "Apprenti-e informaticien-ne CFC - Exploitation et infrastructure",
       "titleByLocale": {
         "it": "Informatico/a CFC - Gestione e infrastrutture",
-        "en": "Information technology learning CFC - Operation and infrastructure",
+        "en": "Apprenti-e informaticien-ne CFC - Exploitation et infrastructure",
         "de": "Informatiker/in CFC - Betrieb und Infrastruktur",
         "fr": "Apprenti-e informaticien-ne CFC - Exploitation et infrastructure"
       },
@@ -6713,7 +6873,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Apprenti-e-informaticien-ne-CFC-Exploitation-et-infrastructure-Sari/1370312057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:07:54.318Z",
+      "crawledAt": "2026-09-28T21:27:59.604Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -6766,12 +6926,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch",
-        "apprenti-e-informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch"
+        "apprenti-e-informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch",
+        "informatico-a-cfc-gestione-e-infrastrutture-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch",
-          "apprenti-e-informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch"
+          "apprenti-e-informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch",
+          "informatico-a-cfc-gestione-e-infrastrutture-etat-de-fribourg-givisiez"
         ],
         "en": [
           "informaticien-ne-cfc-exploitation-et-infrastructure-etat-de-fribourg-ch"
@@ -6781,6 +6943,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:50.973Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -6827,7 +6990,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-employ%C3%A9-e-de-commerce-AFP-CFC-Sari/1370294757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:07:53.627Z",
+      "crawledAt": "2026-09-28T21:27:58.892Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6876,11 +7039,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "apprenti-e-employe-e-de-commerce-afp-cfc-etat-de-fribourg-ch"
+        "apprenti-e-employe-e-de-commerce-afp-cfc-etat-de-fribourg-ch",
+        "apprendista-impiegato-a-di-commercio-afc-cfp-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-employe-e-de-commerce-afp-cfc-etat-de-fribourg-ch"
+          "apprenti-e-employe-e-de-commerce-afp-cfc-etat-de-fribourg-ch",
+          "apprendista-impiegato-a-di-commercio-afc-cfp-etat-de-fribourg-fribourg"
         ],
         "en": [
           "apprenti-e-employe-e-de-commerce-afp-cfc-etat-de-fribourg-ch"
@@ -6890,6 +7055,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:52.923Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -6937,7 +7103,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lernende-KauffrauKaufmann-EBA-EFZ-Saan/1370294857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:07:52.939Z",
+      "crawledAt": "2026-09-28T21:27:58.207Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6963,11 +7129,13 @@
       "pensum": "100%",
       "previousSlugs": [
         "lernende-kauffrau-kaufmann-eba-efz-etat-de-fribourg-ch",
-        "apprenti-e-kauffrau-kaufmann-eba-efz-etat-de-fribourg-fribourg"
+        "apprenti-e-kauffrau-kaufmann-eba-efz-etat-de-fribourg-fribourg",
+        "apprendista-kauffrau-kaufmann-afp-cfc-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-kauffrau-kaufmann-eba-efz-etat-de-fribourg-ch"
+          "lernende-kauffrau-kaufmann-eba-efz-etat-de-fribourg-ch",
+          "apprendista-kauffrau-kaufmann-afp-cfc-etat-de-fribourg-fribourg"
         ],
         "en": [
           "lernende-kauffrau-kaufmann-eba-efz-etat-de-fribourg-ch"
@@ -6978,6 +7146,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:52.274Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7025,7 +7194,7 @@
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Greffier-%C3%A8re-stagiaire-Gruy/1370430757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:07:52.243Z",
+      "crawledAt": "2026-09-28T21:27:57.511Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -7051,7 +7220,8 @@
         "personale-amministrativo-etat-de-fribourg-bulle",
         "administrative-staff-etat-de-fribourg-bulle",
         "verwaltungspersonal-etat-de-fribourg-bulle",
-        "employe-e-d-administration-etat-de-fribourg-ch"
+        "employe-e-d-administration-etat-de-fribourg-ch",
+        "registrazione-etat-de-fribourg-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7060,7 +7230,8 @@
           "personale-amministrativo-etat-de-fribourg-bulle",
           "administrative-staff-etat-de-fribourg-bulle",
           "verwaltungspersonal-etat-de-fribourg-bulle",
-          "employe-e-d-administration-etat-de-fribourg-ch"
+          "employe-e-d-administration-etat-de-fribourg-ch",
+          "registrazione-etat-de-fribourg-bulle"
         ],
         "en": [
           "greffier-ere-stagiaire-etat-de-fribourg-ch",
@@ -7075,6 +7246,7 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:17:13.880Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -7121,7 +7293,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungsassistentin%2C-zweisprachig-Studiensekretariat-Saan/1370531757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:07:51.536Z",
+      "crawledAt": "2026-09-28T21:27:56.818Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7166,11 +7338,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "verwaltungsassistent-in-zweisprachig-studiensekretariat-etat-de-fribourg-ch"
+        "verwaltungsassistent-in-zweisprachig-studiensekretariat-etat-de-fribourg-ch",
+        "assistente-amministrativo-a-bilingue-segreteria-degli-studi-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsassistent-in-zweisprachig-studiensekretariat-etat-de-fribourg-ch"
+          "verwaltungsassistent-in-zweisprachig-studiensekretariat-etat-de-fribourg-ch",
+          "assistente-amministrativo-a-bilingue-segreteria-degli-studi-etat-de-fribourg-fribourg"
         ],
         "en": [
           "verwaltungsassistent-in-zweisprachig-studiensekretariat-etat-de-fribourg-ch"
@@ -7180,6 +7354,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:41.822Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -7227,7 +7402,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-informaticien-ne-CFC-Sari/1370550257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:07:50.835Z",
+      "crawledAt": "2026-09-28T21:27:56.113Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7279,11 +7454,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "apprenti-e-informaticien-ne-cfc-etat-de-fribourg-ch"
+        "apprenti-e-informaticien-ne-cfc-etat-de-fribourg-ch",
+        "apprendista-informatico-a-afc-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-informaticien-ne-cfc-etat-de-fribourg-ch"
+          "apprenti-e-informaticien-ne-cfc-etat-de-fribourg-ch",
+          "apprendista-informatico-a-afc-etat-de-fribourg-fribourg"
         ],
         "en": [
           "apprenti-e-informaticien-ne-cfc-etat-de-fribourg-ch"
@@ -7293,6 +7470,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:35.983Z",
+      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -7340,7 +7518,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assistant-e-administratif-ve-bilingue-Service-acad%C3%A9mique-Sari/1370531657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:07:50.135Z",
+      "crawledAt": "2026-09-28T21:27:55.423Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7393,11 +7571,13 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "assistant-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-ch",
-        "assistent-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-fribourg"
+        "assistent-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-fribourg",
+        "assistente-amministrativo-a-bilingue-servizio-accademico-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-ch"
+          "assistant-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-ch",
+          "assistente-amministrativo-a-bilingue-servizio-accademico-etat-de-fribourg-fribourg"
         ],
         "en": [
           "assistant-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-ch"
@@ -7407,6 +7587,7 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:38.580Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -7519,7 +7700,7 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-4e993686132b",
@@ -7602,7 +7783,8 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-89ba0751eacf",
@@ -7684,7 +7866,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-0e841d73ceb0",
@@ -7796,7 +7978,8 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-887f56e20c5a",
@@ -7907,7 +8090,8 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-7f5c0bf4cb51",
@@ -8020,7 +8204,8 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-818ea43f51f1",
@@ -8133,7 +8318,8 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

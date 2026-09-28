@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fnz",
-  "assembledAt": "2026-09-28T04:56:58.516Z",
+  "assembledAt": "2026-09-28T21:15:06.066Z",
   "jobs": [
     {
       "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Solution-Consultant-CRM_REQ-16005",
@@ -75,7 +75,9 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     }
   ]
 }

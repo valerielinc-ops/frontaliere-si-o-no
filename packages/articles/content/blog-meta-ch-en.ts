@@ -6965,6 +6965,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parlamento-svizzera-cripto-centrali.title': 'Swiss Parliament Approves Central Credit and Crypto Standard',
     'blog.article.parlamento-svizzera-cripto-centrali.excerpt': '131,3 million francs for reserve power plants, 126 votes against 61 on crypto-assets and hotel VAT at 3,8% until 31 dicembre 2031.',
     'blog.article.parlamento-svizzera-cripto-centrali.imageAlt': 'Swiss Federal Parliament building in Bern with flag and energy and crypto symbols',
+    'blog.article.ubs-pressione-capitali-fusione.title': 'UBS under pressure: 90% capital for foreign branches',
+    'blog.article.ubs-pressione-capitali-fusione.excerpt': 'Council of States calls for 90% capital for UBS\'s foreign subsidiaries. The bank contests the measure, rekindling speculation about a merger with Morgan Stanley and other institutions.',
+    'blog.article.ubs-pressione-capitali-fusione.imageAlt': 'UBS bank building in Zurich, Swiss financial district',
+    'blog.article.vaud-riduzione-reddito-sostanza.title': 'Vaud, 12% tax cut on income and wealth',
+    'blog.article.vaud-riduzione-reddito-sostanza.excerpt': 'Vaud approves a 12% reduction in cantonal income and substance taxes. There is talk of 272 million less from next January 1.',
+    'blog.article.vaud-riduzione-reddito-sostanza.imageAlt': 'Swiss public building with flags, symbolizing the Vaud cantonal tax debate.',
 };
 
 export default blogMetaChEn;
