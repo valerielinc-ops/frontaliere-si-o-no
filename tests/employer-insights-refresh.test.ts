@@ -42,6 +42,75 @@ describe('employer insights refresh rollback', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toContain('/tmp/employer-insights-d18.json');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('/tmp/employer-insights-builder.log');
     expect(REFRESH_WORKFLOW_SOURCE).not.toMatch(/^\s+- posthog$/m);
+    expect(BUILDER_SOURCE).toContain('boundD18Artifact');
+    expect(BUILDER_SOURCE).toContain('D18_ARTIFACT_MAX_ADS_PER_COMPANY');
+  });
+
+  it('bounds by-ad detail before serializing while retaining declared coverage', () => {
+    const window = {
+      from: '2026-09-01T00:00:00+02:00',
+      to: '2026-09-12T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const jobs = Array.from({ length: 3 }, (_, index) => ({
+      id: `job-${index}`,
+      companyKey: 'acme',
+      company: 'Acme SA',
+      title: `Role ${index}`,
+      slug: `role-${index}`,
+      slugByLocale: { it: `role-${index}` },
+      status: 'active',
+    }));
+    const catalog = employerInsightsBuilder.buildIdentityCatalog(jobs);
+    const rows = jobs.map((job) => ({
+      event: 'page_view',
+      timestamp: '2026-09-10T00:00:00.000Z',
+      employerKey: job.companyKey,
+      jobSlug: job.slug,
+      pageTemplate: 'job_detail',
+      locale: 'it',
+      observed: 1,
+      emissionId: `emission-${job.id}`,
+    }));
+    const payload = employerInsightsBuilder.buildD18PayloadFromQuerySnapshots({
+      window,
+      generatedAt: '2026-09-12T06:00:00.000Z',
+      catalog,
+      ga4Result: {
+        rows,
+        coverage: {
+          rowsReturned: rows.length,
+          totalRows: rows.length,
+          returnedRows: rows.length,
+          returned: rows.length,
+          sourceObserved: rows.length,
+          identityObserved: rows.length,
+          emissionIdDimensionRequested: true,
+          emissionIdObserved: rows.length,
+          emissionIdMissingObserved: 0,
+          pages: 1,
+          truncated: false,
+          snapshotId: 'ga4-fixture',
+          queryHash: 'ga4-query',
+        },
+      },
+      applicationRecords: [],
+    });
+
+    const bounded = employerInsightsBuilder.boundD18Artifact(payload, { maxAdsPerCompany: 2 });
+    expect(payload.companies[0].byAd).toHaveLength(3);
+    expect(bounded.companies[0].byAd).toHaveLength(2);
+    expect(bounded.companies[0].byAdCoverage).toMatchObject({
+      total: 3,
+      included: 2,
+      omitted: 1,
+      limitPerCompany: 2,
+      truncated: true,
+    });
+    expect(bounded.detailCoverage.byAd).toMatchObject({ total: 3, included: 2, omitted: 1, truncated: true });
+    expect(validateD18Artifact(bounded).ok).toBe(true);
+    expect(JSON.stringify(bounded)).toContain('canonicalSlug');
   });
 
   it('accepts a D18 fixture with both regimes and keeps the period total non-summable', () => {
