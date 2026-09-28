@@ -12221,6 +12221,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.luino-artoni-futuro-nazionale.title': 'Luino, Artoni fördert Treffen zu Grenzgängern und Gesundheitsversorgung',
     'blog.article.luino-artoni-futuro-nazionale.excerpt': 'Am Samstag, den 17. Oktober bringt Furio Artoni in der Bibliothek der Villa Hussy Bürger und nationale Zukunft zu Grenzgängern, Gesundheitswesen und Unternehmen zusammen.',
     'blog.article.luino-artoni-futuro-nazionale.imageAlt': 'Öffentliche Veranstaltung in Luino zu Grenzgängern, Gesundheit und Treibstoffkosten',
+    'blog.article.cassa-malati-tassa-salute.title': 'Krankenkasse oder Gesundheitsabgabe? Analyse 2026-2027',
+    'blog.article.cassa-malati-tassa-salute.excerpt': 'Im Jahr 2026 steigen die Prämien durchschnittlich um 4,4%, im Tessin höher; im Jahr 2027 wird sie auf 4,5% bis 5% geschätzt. Gesundheitsausgaben 2024: 97 Milliarden CHF. Projekt Caisse Santé Genève am 23.09.2026.',
+    'blog.article.cassa-malati-tassa-salute.imageAlt': 'See von Lugano mit Bergen im Hintergrund, ruhiger Morgen',
 };
 
 export default blogMetaDe;
