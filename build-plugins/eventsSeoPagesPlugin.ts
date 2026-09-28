@@ -1229,9 +1229,9 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
       '@type': 'Offer',
       price: event.price!.isFree ? '0' : String(event.price!.amount),
       priceCurrency: event.price!.currency || 'CHF',
-      availability: event.price!.availability || 'https://schema.org/InStock',
-      validFrom: event.price!.validFrom || event.startDate,
-      url: event.price!.url || canonicalUrl || event.url,
+      ...(event.price!.availability ? { availability: event.price!.availability } : {}),
+      ...(event.price!.validFrom ? { validFrom: event.price!.validFrom } : {}),
+      ...(event.price!.url ? { url: event.price!.url } : {}),
     }
     : undefined;
   return {

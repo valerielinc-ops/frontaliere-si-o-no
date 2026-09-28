@@ -470,9 +470,6 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       '@type': 'Offer',
       price: '19',
       priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: '2026-07-04',
-      url: 'https://frontaliereticino.ch/eventi/ticino/melide/',
     });
   });
 
@@ -501,6 +498,9 @@ describe('eventLd — schema.org/Event completeness gate', () => {
   it('emits offers with price "0" when event.price is confidently free', () => {
     const ld = eventLd({ ...baseEvent, price: { amount: 0, currency: 'CHF', isFree: true } }, 'it') as Record<string, any>;
     expect(ld.offers?.price).toBe('0');
+    expect(ld.offers?.availability).toBeUndefined();
+    expect(ld.offers?.validFrom).toBeUndefined();
+    expect(ld.offers?.url).toBeUndefined();
   });
 
   it('omits offers when price is present but not machine-parseable', () => {
