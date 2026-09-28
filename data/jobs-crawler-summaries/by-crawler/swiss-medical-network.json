@@ -1,40 +1,40 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-09-27T14:57:46.323Z",
+  "generatedAt": "2026-09-28T03:26:52.487Z",
   "total": 60,
   "newCount": 1,
   "updatedCount": 59,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 50415,
-  "avgDurationMs": 50415,
+  "durationMs": 40416,
+  "avgDurationMs": 40416,
   "durationHistory": [
-    50415
+    40416
   ],
   "newJobs": [
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin?oga=true",
       "title": "Fachärzt/-in Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Grindelwald",
-      "addressLocality": "Grindelwald",
+      "location": "Wengen",
+      "addressLocality": "Wengen",
       "addressRegion": "BE",
       "canton": "BE",
       "country": "CH",
-      "postalCode": "3818",
+      "postalCode": "3823",
       "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "category": "healthcare",
-      "datePosted": "2026-09-27",
+      "datePosted": "2026-09-28",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
         "canton": "BE",
-        "location": "Grindelwald"
+        "location": "Wengen"
       },
       "sourceLang": "de",
       "_qualityScore": 56,
@@ -1036,45 +1036,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000150953900-secretaire-medical-e-bilingue-fr-all-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000150953900-secretaire-medical-e-bilingue-fr-all-?oga=true",
-      "title": "Secrétaire médical·e bilingue (FR/ALL)",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Biel",
-      "addressLocality": "Biel",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2502",
-      "slug": "segretario-medico-bilingue-fr-all-swiss-medical-network-biel",
-      "category": "healthcare",
-      "datePosted": "2026-09-23",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Biel"
-      },
-      "sourceLang": "fr",
-      "firstSeenAt": "2026-09-23T23:43:24.352Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
