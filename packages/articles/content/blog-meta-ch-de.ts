@@ -6944,6 +6944,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.centri-asilo-ors-subentro-ticino.title': 'Subentro ORS in den Asylzentren: verlangte Garantien',
     'blog.article.centri-asilo-ors-subentro-ticino.excerpt': 'Die Übernahme von ORS in den eidgenössischen Asylzentren ist für den 1. Januar 2027 vorgesehen; die AOZ beschäftigt 120 Personen im Tessin, und wenn Chiasso nicht wieder öffnet, sind bis zu 40 Stellen gefährdet.',
     'blog.article.centri-asilo-ors-subentro-ticino.imageAlt': 'Asylsuchende vor einem Bundesasylzentrum in Tessin mit Personal im Hintergrund',
+    'blog.article.lingotti-oro-export-svizzera.title': 'Goldbarren: italienischer Export in die Schweiz +57%',
+    'blog.article.lingotti-oro-export-svizzera.excerpt': 'Im August wächst Italiens Export außerhalb der EU um 16,1 %: +57 % in die Schweiz, mit den von Istat angegebenen Goldbarren. Detaillierte Daten werden später eintreffen.',
+    'blog.article.lingotti-oro-export-svizzera.imageAlt': 'Goldbarren im Zusammenhang mit Italiens Exporten in die Schweiz',
 };
 
 export default blogMetaChDe;

@@ -6944,6 +6944,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.centri-asilo-ors-subentro-ticino.title': 'Subentro ORS dans les centres d\'asile : garanties demandées',
     'blog.article.centri-asilo-ors-subentro-ticino.excerpt': 'La reprise par ORS dans les centres fédéraux d\'asile est prévue pour le 1er janvier 2027 ; AOZ emploie 120 personnes au Tessin et, si Chiasso ne rouvre pas, jusqu\'à 40 postes sont menacés.',
     'blog.article.centri-asilo-ors-subentro-ticino.imageAlt': 'Demandeurs d\'asile devant un centre fédéral d\'asile au Tessin avec du personnel en arrière-plan',
+    'blog.article.lingotti-oro-export-svizzera.title': 'Lingots d\'or : exportation italienne vers la Suisse +57%',
+    'blog.article.lingotti-oro-export-svizzera.excerpt': 'En août, les exportations italiennes hors UE augmentent de 16,1% : +57% vers la Suisse, avec les lingots d\'or indiqués par Istat. Les données détaillées arriveront plus tard.',
+    'blog.article.lingotti-oro-export-svizzera.imageAlt': 'Lingots d\'or liés aux exportations italiennes vers la Suisse',
 };
 
 export default blogMetaChFr;
