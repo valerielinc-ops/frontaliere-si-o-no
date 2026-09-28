@@ -59,6 +59,7 @@ describe('decideNoCodeDeltaTier', () => {
     ['fingerprint differs', { fpHead: FP, fpPrior: OTHER_FP }],
     ['head fingerprint unknown', { fpHead: 'UNKNOWN', fpPrior: FP }],
     ['prior fingerprint unknown', { fpHead: FP, fpPrior: 'UNKNOWN' }],
+    ['legacy NULL fingerprint', { fpHead: 'NULL', fpPrior: FP }],
   ])('falls back to a full review when the %s', (_label, fps) => {
     expect(decideNoCodeDeltaTier({ reviews: [lgtm], headSha: HEAD, priorCommit: PRIOR, ...fps }).tier).toBe('full');
   });
