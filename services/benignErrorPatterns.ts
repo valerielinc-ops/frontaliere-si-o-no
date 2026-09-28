@@ -271,7 +271,7 @@ export const GOOGLE_IOS_APP_UA_PATTERN = /\bCriOS\/\d|\b(?:iPhone|iPad|iPod)\b.*
  */
 export const FIRST_PARTY_ASSET_FRAME_PATTERN = /\/assets\/[^\s?#:@]+\.js\b/;
 
-const STACK_OVERFLOW_MESSAGE_PATTERN = /Maximum call stack size exceeded/i;
+export const STACK_OVERFLOW_MESSAGE_PATTERN = /Maximum call stack size exceeded/i;
 
 /**
  * True for the stack overflow that Chrome for iOS and the Google app raise
