@@ -1,6 +1,6 @@
 {
   "crawlerKey": "implenia",
-  "assembledAt": "2026-09-28T05:03:04.234Z",
+  "assembledAt": "2026-09-28T21:26:40.120Z",
   "jobs": [
     {
       "id": "implenia-68afcfc176b6",
@@ -72,7 +72,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "implenia-c27d90ab4a16",
@@ -105,7 +107,7 @@
       "url": "https://jobs.implenia.com/job/Gesamtplanungsleiter-%28wmd%29/13518-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:59.029Z",
+      "crawledAt": "2026-09-28T21:26:28.551Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -129,14 +131,16 @@
         "project-manager-planning-and-development-f-m-d-implenia-glattpark-opfikon",
         "gestionnaire-de-projet-planification-et-developpement-f-m-d-implenia-glattpark-opfikon",
         "gesamtplanungsleiter-w-m-d-implenia-ch",
-        "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon"
+        "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon",
+        "direttore-generale-della-pianificazione-w-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-planung-und-entwicklung-w-m-d-implenia-ch",
           "projektleiter-planung-e-entwicklung-m-w-d-implenia-glattpark-opfikon",
           "gesamtplanungsleiter-w-m-d-implenia-ch",
-          "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon"
+          "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon",
+          "direttore-generale-della-pianificazione-w-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "projektleiter-planung-und-entwicklung-w-m-d-implenia-ch",
@@ -198,7 +202,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Umbau-%28wmd%29/10421-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:58.794Z",
+      "crawledAt": "2026-09-28T21:26:27.479Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -218,11 +222,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-umbau-w-m-d-implenia-ch",
-        "projektleiter-umbau-m-w-d-implenia-opfikon"
+        "projektleiter-umbau-m-w-d-implenia-opfikon",
+        "conversione-di-project-manager-f-m-d-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-umbau-w-m-d-implenia-ch"
+          "projektleiter-umbau-w-m-d-implenia-ch",
+          "conversione-di-project-manager-f-m-d-implenia-opfikon"
         ],
         "fr": [
           "projektleiter-umbau-m-w-d-implenia-opfikon"
@@ -319,7 +325,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-576c95b18f16",
@@ -352,7 +359,7 @@
       "url": "https://jobs.implenia.com/job/Akquisiteur-Grundst%C3%BCcke-&-Entwicklungspotenziale-%28wmd%29-50-100/13639-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:58.293Z",
+      "crawledAt": "2026-09-28T21:26:27.297Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -430,7 +437,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-Neubau-GUTU-Gisikon-%28wmd%29/12704-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:57.992Z",
+      "crawledAt": "2026-09-28T21:26:27.029Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -453,7 +460,8 @@
         "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
         "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon",
         "construction-manager-new-gu-tu-gisikon-f-m-d-implenia-gisikon",
-        "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon"
+        "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon",
+        "gestore-di-costruzione-nuovo-edificio-gu-tu-gisikon-m-f-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -461,7 +469,8 @@
           "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
           "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon",
           "construction-manager-new-gu-tu-gisikon-f-m-d-implenia-gisikon",
-          "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon"
+          "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon",
+          "gestore-di-costruzione-nuovo-edificio-gu-tu-gisikon-m-f-d-implenia-gisikon"
         ],
         "en": [
           "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
@@ -518,7 +527,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Angebot-und-Kostenplanung-Modernisation-%28wmd%29/13482-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:57.740Z",
+      "crawledAt": "2026-09-28T21:26:31.064Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -593,7 +602,7 @@
       "url": "https://jobs.implenia.com/job/Bau-Projektleiter%28wmd%29-f%C3%BCr-Hotelbau%2C-Andermatt/13686-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:57.489Z",
+      "crawledAt": "2026-09-28T21:26:26.773Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -613,12 +622,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bau-projektleiter-m-w-d-per-hotelbau-andermatt-implenia-gisikon",
-        "bau-projektleiter-w-m-d-fur-hotelbau-andermatt-implenia-ch"
+        "bau-projektleiter-w-m-d-fur-hotelbau-andermatt-implenia-ch",
+        "construction-project-manager-m-f-d-per-la-costruzione-di-hotel-andermatt-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bau-projektleiter-m-w-d-per-hotelbau-andermatt-implenia-gisikon",
-          "bau-projektleiter-w-m-d-fur-hotelbau-andermatt-implenia-ch"
+          "bau-projektleiter-w-m-d-fur-hotelbau-andermatt-implenia-ch",
+          "construction-project-manager-m-f-d-per-la-costruzione-di-hotel-andermatt-implenia-gisikon"
         ]
       },
       "needsRetranslation": true,
@@ -668,7 +679,7 @@
       "url": "https://jobs.implenia.com/job/Immobilienbuchhalter-%28mwd%29%2C-Olten%2C-60/13663-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:56.924Z",
+      "crawledAt": "2026-09-28T21:26:26.064Z",
       "addressLocality": "Aarauerstrasse 11 Postfach-4601 Olten",
       "postalCode": "",
       "streetAddress": "",
@@ -688,12 +699,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "immobilienbuchhalter-m-w-d-olten-60-implenia-ch",
-        "immobilienbuchhalter-m-w-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten"
+        "immobilienbuchhalter-m-w-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten",
+        "contatori-immobiliari-m-f-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "immobilienbuchhalter-m-w-d-olten-60-implenia-ch",
-          "immobilienbuchhalter-m-w-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten"
+          "immobilienbuchhalter-m-w-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten",
+          "contatori-immobiliari-m-f-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten"
         ],
         "en": [
           "immobilienbuchhalter-m-w-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten"
@@ -748,7 +761,7 @@
       "url": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-%28mwd%29%2C-Zug%2C-80-100/13437-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:56.307Z",
+      "crawledAt": "2026-09-28T21:26:25.407Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "streetAddress": "Feldpark 3",
@@ -767,24 +780,27 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-zug-80-100-implenia-ch"
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-zug-80-100-implenia-ch",
+        "proprietario-m-f-d-treno-80-100-implenia-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-zug-80-100-implenia-ch"
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-zug-80-100-implenia-ch",
+          "proprietario-m-f-d-treno-80-100-implenia-zug"
         ]
       },
       "firstSeenAt": "2026-08-21T10:11:43.798Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "needsRetranslation": true,
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 96000,
+          "maxValue": 146000,
           "unitText": "YEAR"
         }
       }
@@ -820,7 +836,7 @@
       "url": "https://jobs.implenia.com/job/Immobiliencontroller-%28mwd%29%2C-Winterthur-oder-Opfikon%2C-80-100/13687-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:55.651Z",
+      "crawledAt": "2026-09-28T21:26:24.490Z",
       "addressLocality": "Thurgauerstrasse 101A-8152 Opfikon",
       "postalCode": "",
       "streetAddress": "",
@@ -853,6 +869,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T23:44:57.783Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -898,7 +915,7 @@
       "url": "https://jobs.implenia.com/job/Kaufm%C3%A4nnischer-Leiter-Senior-Bewirtschafter-%28mwd%29%2C-Zentrum-Regensdorf%2C-80-100/13557-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:55.018Z",
+      "crawledAt": "2026-09-28T21:26:20.802Z",
       "addressLocality": "Einkaufszentrum Regensdorf Zentrum 1-8105 Zentrum Regensdorf",
       "postalCode": "",
       "streetAddress": "",
@@ -917,14 +934,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-zentrum-regensdorf-80-100-implenia-ch"
+        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-zentrum-regensdorf-80-100-implenia-ch",
+        "responsabile-commerciale-senior-manager-m-f-d-centro-regensdorf-80-100-implenia-einkaufszentrum-regensdorf-zentrum-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-zentrum-regensdorf-80-100-implenia-ch"
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-zentrum-regensdorf-80-100-implenia-ch",
+          "responsabile-commerciale-senior-manager-m-f-d-centro-regensdorf-80-100-implenia-einkaufszentrum-regensdorf-zentrum-1"
         ]
       },
       "firstSeenAt": "2026-09-01T07:28:40.944Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -970,7 +990,7 @@
       "url": "https://jobs.implenia.com/job/Lernender-Fachfrau-mann-Kundendialog/13491-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:54.076Z",
+      "crawledAt": "2026-09-28T21:26:20.036Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -989,11 +1009,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-fachfrau-mann-kundendialog-implenia-ch"
+        "lernende-r-fachfrau-mann-kundendialog-implenia-ch",
+        "apprendista-fachfrau-mann-kundendialog-implenia-winterthur-roter-turm"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-fachfrau-mann-kundendialog-implenia-ch"
+          "lernende-r-fachfrau-mann-kundendialog-implenia-ch",
+          "apprendista-fachfrau-mann-kundendialog-implenia-winterthur-roter-turm"
         ]
       },
       "firstSeenAt": "2026-09-01T07:28:40.281Z",
@@ -1081,7 +1103,8 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-1b9cdac52d2a",
@@ -1098,7 +1121,7 @@
       "title": "Customer Consultant Bewirtschaftung (m/w/d), Winterthur, 60-100%",
       "titleByLocale": {
         "it": "Gestione del consulente clienti (m/f/d), Winterthur, 60-100 %",
-        "en": "Customer Consultant Management (m/f/d), Winterthur, 60-100 %",
+        "en": "Customer Consultant Bewirtschaftung (m/w/d), Winterthur, 60-100%",
         "de": "Customer Berater Bewirtschaftung (m/w/d), Winterthur, 60-100%",
         "fr": "Consultant client Gestion (h/f/d), Winterthur, 60-100 %"
       },
@@ -1114,7 +1137,7 @@
       "url": "https://jobs.implenia.com/job/Customer-Consultant-Bewirtschaftung-%28mwd%29%2C-Winterthur%2C-60-100/12689-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:52.686Z",
+      "crawledAt": "2026-09-28T21:26:19.217Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -1133,14 +1156,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch"
+        "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
+        "customer-consulente-bewirtschaftung-m-w-d-winterthur-60-100-implenia-winterthur-roter-turm"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch"
+          "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
+          "customer-consulente-bewirtschaftung-m-w-d-winterthur-60-100-implenia-winterthur-roter-turm"
         ]
       },
       "firstSeenAt": "2026-09-01T07:28:38.754Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1186,7 +1212,7 @@
       "url": "https://jobs.implenia.com/job/Sachbearbeiter-Prozessbuchhaltung-%28mwd%29%2C-Winterthur-oder-Z%C3%BCrich-%28Opfikon%29%2C-40-100/13675-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:51.680Z",
+      "crawledAt": "2026-09-28T21:26:18.325Z",
       "addressLocality": "Technikumstrasse 61 Postfach-8400 Winterthur",
       "postalCode": "",
       "streetAddress": "",
@@ -1259,7 +1285,7 @@
       "url": "https://jobs.implenia.com/job/Planungsleiter-Datacenter-%28wmd%29/13773-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:50.986Z",
+      "crawledAt": "2026-09-28T21:26:35.138Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1278,11 +1304,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "planungsleiter-datacenter-w-m-d-implenia-ch"
+        "planungsleiter-datacenter-w-m-d-implenia-ch",
+        "gestione-pianificazione-datacenter-m-f-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "planungsleiter-datacenter-w-m-d-implenia-ch"
+          "planungsleiter-datacenter-w-m-d-implenia-ch",
+          "gestione-pianificazione-datacenter-m-f-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "planungsleiter-datacenter-w-m-d-implenia-ch"
@@ -1337,7 +1365,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-%28wmd%29-Rohbau%2C-Ausbau-und-Architektur-Data-Center/13774-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:50.591Z",
+      "crawledAt": "2026-09-28T21:26:34.947Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1357,12 +1385,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-w-m-d-rohbau-ausbau-und-architektur-data-center-implenia-ch",
-        "bauleiter-m-w-d-rohbau-ausbau-e-architektur-data-center-implenia-glattpark-opfikon"
+        "bauleiter-m-w-d-rohbau-ausbau-e-architektur-data-center-implenia-glattpark-opfikon",
+        "construction-manager-m-f-d-struttura-estensione-e-architettura-data-center-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-w-m-d-rohbau-ausbau-und-architektur-data-center-implenia-ch",
-          "bauleiter-m-w-d-rohbau-ausbau-e-architektur-data-center-implenia-glattpark-opfikon"
+          "bauleiter-m-w-d-rohbau-ausbau-e-architektur-data-center-implenia-glattpark-opfikon",
+          "construction-manager-m-f-d-struttura-estensione-e-architettura-data-center-implenia-glattpark-opfikon"
         ],
         "en": [
           "bauleiter-w-m-d-rohbau-ausbau-und-architektur-data-center-implenia-ch"
@@ -1372,6 +1402,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:22:24.175Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1400,7 +1431,7 @@
       "companyDomain": "implenia.com",
       "title": "Projektingenieur (w/m/d) Civil, Structural & Architectural - Data Center",
       "titleByLocale": {
-        "it": "Project Engineer (m/f/d) Civil, Structural & Architectural - Data Center",
+        "it": "Projektingenieur (w/m/d) Civil, Structural & Architectural - Data Center",
         "en": "Project Engineer (m/f/d) Civil, Structural & Architectural - Data Center",
         "de": "Projektingenieur (w/m/d) Civil, Structural & Architectural - Data Center",
         "fr": "Ingénieur de projet (h/f/d) Civil, structural et architectural - Data Center"
@@ -1417,7 +1448,7 @@
       "url": "https://jobs.implenia.com/job/Projektingenieur-%28wmd%29-Civil%2C-Structural-&-Architectural-Data-Center/13775-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:49.761Z",
+      "crawledAt": "2026-09-28T21:26:31.259Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1436,6 +1467,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-19T23:05:12.736Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1481,7 +1513,7 @@
       "url": "https://jobs.implenia.com/job/Health-&-Safety-Supervisor-%28mwd%29/13776-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:49.525Z",
+      "crawledAt": "2026-09-28T21:26:31.448Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1556,7 +1588,7 @@
       "url": "https://jobs.implenia.com/job/%28Junior%29-Immobilienbewirtschafter-%28mwd%29%2C-Wallisellen%2C-80-100/13751-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:48.899Z",
+      "crawledAt": "2026-09-28T21:26:16.828Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 43",
@@ -1575,11 +1607,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch"
+        "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch",
+        "junior-real-estate-manager-m-f-d-wallisellen-80-100-implenia-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch"
+          "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch",
+          "junior-real-estate-manager-m-f-d-wallisellen-80-100-implenia-wallisellen"
         ],
         "en": [
           "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch"
@@ -1589,6 +1623,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T23:21:21.433Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1617,7 +1652,7 @@
       "companyDomain": "implenia.com",
       "title": "Vermietungsspezialist Immobilien (m/w/d), Wallisellen, 80-100%",
       "titleByLocale": {
-        "it": "Azienda immobiliare (m/f/d), Wallisellen, 80-100 %",
+        "it": "Vermietungsspezialist Immobilien (m/w/d), Wallisellen, 80-100%",
         "en": "Rental specialist real estate (m/f/d), Wallisellen, 80-100 %",
         "de": "Vermietungsspezialist Immobilien (m/w/d), Wallisellen, 80-100%",
         "fr": "Location immobilier spécialisé (h/f/d), Wallisellen, 80-100 %"
@@ -1634,7 +1669,7 @@
       "url": "https://jobs.implenia.com/job/Vermietungsspezialist-Immobilien-%28mwd%29%2C-Wallisellen%2C-80-100/13750-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:48.070Z",
+      "crawledAt": "2026-09-28T21:26:15.857Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 43",
@@ -1654,12 +1689,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vermietungsspezialist-m-w-d-wallisellen-80-100-implenia-ch",
-        "vermietungsspezialist-immobilien-m-w-d-wallisellen-80-100-implenia-ch"
+        "vermietungsspezialist-immobilien-m-w-d-wallisellen-80-100-implenia-ch",
+        "specialista-di-noleggio-m-f-d-wallisellen-80-100-implenia-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vermietungsspezialist-m-w-d-wallisellen-80-100-implenia-ch",
-          "vermietungsspezialist-immobilien-m-w-d-wallisellen-80-100-implenia-ch"
+          "vermietungsspezialist-immobilien-m-w-d-wallisellen-80-100-implenia-ch",
+          "specialista-di-noleggio-m-f-d-wallisellen-80-100-implenia-wallisellen"
         ],
         "en": [
           "vermietungsspezialist-m-w-d-wallisellen-80-100-implenia-ch"
@@ -1672,6 +1709,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:22:23.388Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1717,7 +1755,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-HLKS-f%C3%BCr-Datacenter-%28wmd%29/13777-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:47.411Z",
+      "crawledAt": "2026-09-28T21:26:17.605Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1769,7 +1807,7 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "initiativbewerbung-implenia-opfikon",
+        "en": "speculative-application-implenia-opfikon",
         "de": "initiativebewerbung-implenia-opfikon",
         "fr": "initiativbewerbung-implenia-ch"
       },
@@ -1795,7 +1833,7 @@
       "url": "https://jobs.implenia.com/job/Initiativbewerbung/12287-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:02:47.151Z",
+      "crawledAt": "2026-09-28T21:26:23.374Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -1816,13 +1854,16 @@
       "previousSlugs": [
         "initiativbewerbung-implenia-ch",
         "initiativbewerbung-implenia-opfikon",
+        "iniziativbewerbung-implenia-opfikon",
         "speculative-application-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "initiativbewerbung-implenia-ch"
+          "initiativbewerbung-implenia-ch",
+          "iniziativbewerbung-implenia-opfikon"
         ],
         "en": [
+          "initiativbewerbung-implenia-opfikon",
           "speculative-application-implenia-opfikon"
         ],
         "de": [
@@ -1876,7 +1917,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Tunnelbau-%28mwd%29-80-100/9854-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:46.896Z",
+      "crawledAt": "2026-09-28T21:26:23.034Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -1904,7 +1945,8 @@
         "project-manager-conversion-f-m-d-implenia-opfikon",
         "projektleiter-umbau-w-m-d-implenia-ch",
         "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon",
-        "tunnelling-m-f-d-80-100-implenia-opfikon"
+        "tunnelling-m-f-d-80-100-implenia-opfikon",
+        "kalkulator-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1917,10 +1959,12 @@
           "project-manager-conversion-f-m-d-implenia-opfikon",
           "projektleiter-umbau-w-m-d-implenia-ch",
           "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon",
-          "tunnelling-m-f-d-80-100-implenia-opfikon"
+          "tunnelling-m-f-d-80-100-implenia-opfikon",
+          "kalkulator-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
         ]
       },
       "firstSeenAt": "2026-09-07T23:38:32.036Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1966,7 +2010,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Tunnelbau-%28mwd%29-80-100/10973-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:46.597Z",
+      "crawledAt": "2026-09-28T21:26:22.849Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -1985,14 +2029,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch"
+        "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch",
+        "projektleiter-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch"
+          "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch",
+          "projektleiter-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
         ]
       },
       "firstSeenAt": "2026-09-07T23:38:31.899Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2038,7 +2085,7 @@
       "url": "https://jobs.implenia.com/job/Vermarkter-CREM-%28mwd%29%2C-Opfikon%2C-Bern-80-100/13748-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:46.091Z",
+      "crawledAt": "2026-09-28T21:26:22.226Z",
       "addressLocality": "Laupenstrasse 19 Postfach-3001 Bern",
       "postalCode": "",
       "streetAddress": "",
@@ -2061,7 +2108,8 @@
         "operator-crem-m-f-d-opfikon-berne-50-implenia-thurgauerstrasse-101a",
         "bewirtschafter-crem-m-w-d-opfikon-bern-50-implenia-ch",
         "opfikon-berne-50-implenia-thurgauerstrasse-101a",
-        "vermarkter-crem-m-w-d-opfikon-bern-80-100-implenia-ch"
+        "vermarkter-crem-m-w-d-opfikon-bern-80-100-implenia-ch",
+        "marketer-crem-m-f-d-opfikon-berna-80-100-implenia-laupenstrasse-19-postfach-3001-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2069,7 +2117,8 @@
           "operator-crem-m-f-d-opfikon-berne-50-implenia-thurgauerstrasse-101a",
           "bewirtschafter-crem-m-w-d-opfikon-bern-50-implenia-ch",
           "opfikon-berne-50-implenia-thurgauerstrasse-101a",
-          "vermarkter-crem-m-w-d-opfikon-bern-80-100-implenia-ch"
+          "vermarkter-crem-m-w-d-opfikon-bern-80-100-implenia-ch",
+          "marketer-crem-m-f-d-opfikon-berna-80-100-implenia-laupenstrasse-19-postfach-3001-bern"
         ],
         "en": [
           "operator-crem-m-f-d-opfikon-berne-50-implenia-thurgauerstrasse-101a",
@@ -2084,6 +2133,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:52:32.412Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2129,7 +2179,7 @@
       "url": "https://jobs.implenia.com/job/Juniorprojektleiter-Elektro-%28mwd%29%2C-Gisikon%2C-80-100/13043-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:45.101Z",
+      "crawledAt": "2026-09-28T21:26:21.464Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "An der Reuss 5",
@@ -2149,18 +2199,22 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch"
+          "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch",
+          "juniorprojektleiter-in-elektro-gisikon-opfikon-implenia-ch"
         ],
         "it": [
           "juniorprojektleiter-in-elektro-gisikon-opfikon-implenia-ch",
-          "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch"
+          "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch",
+          "junior-project-manager-a-elektro-gisikon-opfikon-implenia-gisikon"
         ]
       },
       "previousSlugs": [
         "juniorprojektleiter-in-elektro-gisikon-opfikon-implenia-ch",
-        "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch"
+        "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch",
+        "junior-project-manager-a-elektro-gisikon-opfikon-implenia-gisikon"
       ],
       "firstSeenAt": "2026-09-19T23:05:11.926Z",
+      "needsRetranslation": true,
       "salaryMin": 54000,
       "salaryMax": 82000,
       "salarySource": "estimated",
@@ -2251,7 +2305,9 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "implenia-39ed5060d7fd",
@@ -2331,7 +2387,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-a17d93c4a5f1",
@@ -2406,7 +2463,8 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-369fb23a9876",
@@ -2497,7 +2555,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "implenia-c31f56701a42",
@@ -2514,7 +2574,7 @@
       "title": "Application Manager SAP SD (m/w/d) 80-100%, Opfikon",
       "titleByLocale": {
         "it": "Gestione applicazioni SAP SD (m/f/d) 80-100%, Opfikon",
-        "en": "Application Manager SAP SD (m/f/d) 80-100%, Opfikon",
+        "en": "Application Manager SAP SD (m/w/d) 80-100%, Opfikon",
         "de": "Application Manager SAP SD (m/w/d) 80-100%, Opfikon",
         "fr": "Gestionnaire d'applications SAP SD (h/f/d) 80-100%, Opfikon"
       },
@@ -2572,7 +2632,9 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "implenia-f9967d992c26",
@@ -2589,15 +2651,15 @@
       "title": "IT Demand Lead (m/w/d), Opfikon, 80-100%",
       "titleByLocale": {
         "it": "Domanda IT Piombo (m/f/d), Opfikon, 80-100 %",
-        "en": "IT Demand Lead (m/f/d), Opfikon, 80-100 %",
+        "en": "IT Demand Lead (m/w/d), Opfikon, 80-100%",
         "de": "IT Demand Lead (m/w/d), Opfikon, 80-100%",
         "fr": "Demande d'information Lead (h/f/d), Opfikon, 80-100 %"
       },
-      "description": "Als führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com Für unsere Group IT suchen wir einen Demand Manager Group IT. In dieser Rolle übernimmst du die End-to-End-Verantwortung für den konzernweiten Demand-Prozess und fungierst als zentrale Schnittstelle zwischen Business und IT. Du stellst sicher, dass neue \n• Anforderungen strukturiert aufgenommen, bewertet, priorisiert und erfolgreich in die Umsetzung überführt werden. Dabei berätst du unsere Fachbereiche bei der Weiterentwicklung ihrer \n• Anforderungen, schaffst fundierte Entscheidungsgrundlagen für Management- und Portfolio-Gremien und sorgst für Transparenz über Nutzen, Risiken, Prioritäten und Fortschritte. Mit deinem Gespür für Stakeholder-Management sowie deiner strukturierten und lösungsorientierten Arbeitsweise trägst du massgeblich zu einer effizienten Zusammenarbeit zwischen Business und IT bei und entwickelst unsere Demand- und Governance-Prozesse kontinuierlich weiter. Der Arbeitsort ist an unserem neuen Standort im Ambassador House in Zürich-Opfikon sowie im Home-Office.",
+      "description": "Als führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com Für unsere Group IT suchen wir einen Demand Manager Group IT. In dieser Rolle übernimmst du die End-to-End-Verantwortung für den konzernweiten Demand-Prozess und fungierst als zentrale Schnittstelle zwischen Business und IT. Du stellst sicher, dass neue\n• Anforderungen strukturiert aufgenommen, bewertet, priorisiert und erfolgreich in die Umsetzung überführt werden. Dabei berätst du unsere Fachbereiche bei der Weiterentwicklung ihrer\n• Anforderungen, schaffst fundierte Entscheidungsgrundlagen für Management- und Portfolio-Gremien und sorgst für Transparenz über Nutzen, Risiken, Prioritäten und Fortschritte. Mit deinem Gespür für Stakeholder-Management sowie deiner strukturierten und lösungsorientierten Arbeitsweise trägst du massgeblich zu einer effizienten Zusammenarbeit zwischen Business und IT bei und entwickelst unsere Demand- und Governance-Prozesse kontinuierlich weiter. Der Arbeitsort ist an unserem neuen Standort im Ambassador House in Zürich-Opfikon sowie im Home-Office.",
       "descriptionByLocale": {
         "it": "In qualità di fornitore leader di servizi edili e immobiliari svizzeri, Implenia sviluppa, realizza e gestisce spazi abitativi, ambienti di lavoro e infrastrutture per le generazioni future in Svizzera e Germania. Implenia offre anche progetti di tunnelling e infrastrutture correlate in altri mercati. L'azienda combina il know-how di unità di consulenza, sviluppo, pianificazione e esecuzione altamente qualificate sotto un tetto in un fornitore di servizi di costruzione e immobiliare integrato e multinazionale. Con sede a Opfikon nei pressi di Zurigo, Implenia impiega oltre 8.000 persone (FTE) in tutta Europa e raggiunge un fatturato di 3,5 miliardi di franchi nel 2025. Per il nostro Gruppo IT siamo alla ricerca di un Gruppo Gestione Richieste IT. In questo ruolo, si assume la responsabilità end-to-end per il processo di domanda a livello di Gruppo e si comporta come l'interfaccia centrale tra business e IT. Si assicuri che il nuovo\n• I requisiti sono registrati in modo strutturato, valutato, prioritizzato e trasferito con successo in implementazione. Si consiglia ai nostri dipartimenti per l'ulteriore sviluppo del loro\n• Requisiti, crea solide basi decisionali per gli organismi di gestione e portafoglio e fornisce trasparenza sui vantaggi, sui rischi, sulle priorità e sui progressi. Con il vostro senso di gestione degli stakeholder così come il vostro metodo di lavoro strutturato e orientato alla soluzione, contribuite in modo significativo ad una cooperazione efficiente tra business e IT e sviluppare continuamente i nostri processi di domanda e governance. Il luogo di lavoro è nella nostra nuova sede nella Ambasciatrice Casa a Zurigo-Opfikon così come nella sede.",
         "en": "As a leading Swiss construction and real estate service provider, Implenia develops, realizes and manages living spaces, working environments and infrastructure for future generations in Switzerland and Germany. Implenia also offers tunnelling and related infrastructure projects in other markets. The company combines the know-how of highly qualified consulting, development, planning and execution units under one roof into an integrated, multinationally leading construction and real estate service provider. Headquartered in Opfikon near Zurich, Implenia employs more than 8,000 people (FTE) across Europe and achieved a turnover of CHF 3.5 billion in 2025. For our Group IT we are looking for a Demand Manager Group IT. In this role, you assume end-to-end responsibility for the Group-wide demand process and act as the central interface between business and IT. You make sure that new\n• Requirements are recorded in a structured manner, evaluated, prioritized and successfully transferred into implementation. You will advise our departments on the further development of their\n• Requirements, creates sound decision-making bases for management and portfolio bodies and provides transparency about benefits, risks, priorities and progress. With your sense of stakeholder management as well as your structured and solution-oriented working method, you contribute significantly to an efficient cooperation between business and IT and continuously develop our demand and governance processes. The place of work is at our new location in the Ambassador House in Zurich-Opfikon as well as in the home office.",
-        "de": "Als führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com Für unsere Group IT suchen wir einen Demand Manager Group IT. In dieser Rolle übernimmst du die End-to-End-Verantwortung für den konzernweiten Demand-Prozess und fungierst als zentrale Schnittstelle zwischen Business und IT. Du stellst sicher, dass neue \n• Anforderungen strukturiert aufgenommen, bewertet, priorisiert und erfolgreich in die Umsetzung überführt werden. Dabei berätst du unsere Fachbereiche bei der Weiterentwicklung ihrer \n• Anforderungen, schaffst fundierte Entscheidungsgrundlagen für Management- und Portfolio-Gremien und sorgst für Transparenz über Nutzen, Risiken, Prioritäten und Fortschritte. Mit deinem Gespür für Stakeholder-Management sowie deiner strukturierten und lösungsorientierten Arbeitsweise trägst du massgeblich zu einer effizienten Zusammenarbeit zwischen Business und IT bei und entwickelst unsere Demand- und Governance-Prozesse kontinuierlich weiter. Der Arbeitsort ist an unserem neuen Standort im Ambassador House in Zürich-Opfikon sowie im Home-Office.",
+        "de": "Als führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com Für unsere Group IT suchen wir einen Demand Manager Group IT. In dieser Rolle übernimmst du die End-to-End-Verantwortung für den konzernweiten Demand-Prozess und fungierst als zentrale Schnittstelle zwischen Business und IT. Du stellst sicher, dass neue\n• Anforderungen strukturiert aufgenommen, bewertet, priorisiert und erfolgreich in die Umsetzung überführt werden. Dabei berätst du unsere Fachbereiche bei der Weiterentwicklung ihrer\n• Anforderungen, schaffst fundierte Entscheidungsgrundlagen für Management- und Portfolio-Gremien und sorgst für Transparenz über Nutzen, Risiken, Prioritäten und Fortschritte. Mit deinem Gespür für Stakeholder-Management sowie deiner strukturierten und lösungsorientierten Arbeitsweise trägst du massgeblich zu einer effizienten Zusammenarbeit zwischen Business und IT bei und entwickelst unsere Demand- und Governance-Prozesse kontinuierlich weiter. Der Arbeitsort ist an unserem neuen Standort im Ambassador House in Zürich-Opfikon sowie im Home-Office.",
         "fr": "En tant que premier fournisseur suisse de services immobiliers et de construction, Implenia développe, réalise et gère des espaces de vie, des environnements de travail et des infrastructures pour les générations futures en Suisse et en Allemagne. Implenia propose également des projets de tunnel et d'infrastructures connexes sur d'autres marchés. La société combine le savoir-faire d'unités hautement qualifiées de conseil, de développement, de planification et d'exécution sous un même toit en un fournisseur intégré de services de construction et d'immobilier de premier plan. Basée à Opfikon près de Zurich, Implenia emploie plus de 8 000 personnes (ETP) en Europe et a réalisé un chiffre d'affaires de 3,5 milliards de CHF en 2025. Pour notre IT de groupe, nous recherchons un IT de groupe Demand Manager. Dans ce rôle, vous assumez la responsabilité de bout en bout du processus de demande à l'échelle du Groupe et agissez comme interface centrale entre les entreprises et les TI. Assurez-vous que ce nouveau\n• Les besoins sont enregistrés de manière structurée, évalués, hiérarchisés et transférés avec succès à la mise en œuvre. Vous conseillerez nos départements sur le développement de leurs\n• Exigences, crée des bases de décision solides pour les organes de gestion et de portefeuille et assure la transparence des avantages, des risques, des priorités et des progrès. Avec votre sens de la gestion des intervenants ainsi que votre méthode de travail structurée et orientée vers la solution, vous contribuez de manière significative à une coopération efficace entre les entreprises et les TI et développez continuellement nos processus de demande et de gouvernance. Le lieu de travail se trouve à notre nouvel emplacement dans la Maison Ambassador à Zurich-Opfikon ainsi que dans le bureau d'attache."
       },
       "location": "Glattpark (Opfikon)",
@@ -2649,7 +2711,9 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "implenia-fca6b62f75ae",
@@ -2724,7 +2788,9 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "implenia-84fab217db27",
@@ -2741,7 +2807,7 @@
       "title": "EPC Proposal Manager (w/m/d)",
       "titleByLocale": {
         "it": "Responsabile della proposta EPC (m/f/d)",
-        "en": "EPC Proposal Manager (m/f/d)",
+        "en": "EPC Proposal Manager (w/m/d)",
         "de": "EPC Proposal Manager (w/m/d)",
         "fr": "Gestionnaire de propositions EPC (h/f/d)"
       },
@@ -2757,7 +2823,7 @@
       "url": "https://jobs.implenia.com/job/EPC-Proposal-Manager-%28wmd%29/13086-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:43.138Z",
+      "crawledAt": "2026-09-28T21:26:14.798Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2777,17 +2843,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "epc-proposal-manager-w-m-d-implenia-ch",
-        "epc-proposal-manager-m-w-d-implenia-glattpark-opfikon"
+        "epc-proposal-manager-m-w-d-implenia-glattpark-opfikon",
+        "responsabile-della-proposta-epc-f-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "epc-proposal-manager-w-m-d-implenia-ch"
+          "epc-proposal-manager-w-m-d-implenia-ch",
+          "responsabile-della-proposta-epc-f-m-d-implenia-glattpark-opfikon"
         ],
         "fr": [
           "epc-proposal-manager-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "firstSeenAt": "2026-08-16T09:50:05.717Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2816,7 +2885,7 @@
       "companyDomain": "implenia.com",
       "title": "Baulogistikplaner (m/w/d), Opfikon, 80-100%",
       "titleByLocale": {
-        "it": "Costruzione logistica planner (m/f/d), Opfikon, 80-100 %",
+        "it": "Baulogistikplaner (m/w/d), Opfikon, 80-100%",
         "en": "Construction logistics planner (m/f/d), Opfikon, 80-100 %",
         "de": "Baulogistikplaner (m/w/d), Opfikon, 80-100%",
         "fr": "Planificateur logistique de construction (h/f/d), Opfikon, 80-100 %"
@@ -2833,7 +2902,7 @@
       "url": "https://jobs.implenia.com/job/Baulogistikplaner-%28mwd%29%2C-Opfikon%2C-80-100/13564-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:42.864Z",
+      "crawledAt": "2026-09-28T21:26:14.515Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2852,11 +2921,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch"
+        "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch",
+        "costruzione-logistica-planner-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch"
+          "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch",
+          "costruzione-logistica-planner-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
         ],
         "en": [
           "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch"
@@ -2866,6 +2937,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T21:57:24.384Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2911,7 +2983,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiterin-Lehrger%C3%BCstbau-und-Br%C3%BCckenbau%2C-80-100/12594-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:42.579Z",
+      "crawledAt": "2026-09-28T21:26:14.236Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2930,11 +3002,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch"
+        "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch",
+        "responsabile-di-progetto-lehrgerustbau-e-bruckenbau-80-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch"
+          "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch",
+          "responsabile-di-progetto-lehrgerustbau-e-bruckenbau-80-100-implenia-glattpark-opfikon"
         ],
         "en": [
           "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch"
@@ -2944,6 +3018,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:29:53.224Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2989,7 +3064,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Sanit%C3%A4r-%28mwd%29%2C-Opfikon%2C-100/13680-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:42.254Z",
+      "crawledAt": "2026-09-28T21:26:32.079Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3009,12 +3084,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-sanitar-m-w-d-opfikon-100-implenia-ch",
-        "projektleiter-sanitar-m-w-d-opfikon-100-implenia-glattpark-opfikon"
+        "projektleiter-sanitar-m-w-d-opfikon-100-implenia-glattpark-opfikon",
+        "project-manager-sanitary-m-f-d-opfikon-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-sanitar-m-w-d-opfikon-100-implenia-ch",
-          "projektleiter-sanitar-m-w-d-opfikon-100-implenia-glattpark-opfikon"
+          "projektleiter-sanitar-m-w-d-opfikon-100-implenia-glattpark-opfikon",
+          "project-manager-sanitary-m-f-d-opfikon-100-implenia-glattpark-opfikon"
         ],
         "en": [
           "projektleiter-sanitar-m-w-d-opfikon-100-implenia-ch"
@@ -3024,6 +3101,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T21:57:24.031Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -3069,7 +3147,7 @@
       "url": "https://jobs.implenia.com/job/Polier-im-Lehrger%C3%BCst-und-Br%C3%BCckenbau-100-%28wm%29/12585-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:41.916Z",
+      "crawledAt": "2026-09-28T21:26:13.919Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3147,7 +3225,7 @@
       "url": "https://jobs.implenia.com/job/Leiterin-Modernisierung-Deutschschweiz/13667-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:41.665Z",
+      "crawledAt": "2026-09-28T21:26:13.735Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3167,12 +3245,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-modernisierung-deutschschweiz-implenia-ch",
-        "responsabile-modernisierung-deutschschweiz-implenia-glattpark-opfikon"
+        "responsabile-modernisierung-deutschschweiz-implenia-glattpark-opfikon",
+        "responsabile-della-modernizzazione-svizzera-tedesca-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-modernisierung-deutschschweiz-implenia-ch",
-          "responsabile-modernisierung-deutschschweiz-implenia-glattpark-opfikon"
+          "responsabile-modernisierung-deutschschweiz-implenia-glattpark-opfikon",
+          "responsabile-della-modernizzazione-svizzera-tedesca-implenia-glattpark-opfikon"
         ],
         "en": [
           "leiter-in-modernisierung-deutschschweiz-implenia-ch"
@@ -3227,7 +3307,7 @@
       "url": "https://jobs.implenia.com/job/Juniorprojektleiter-Sanit%C3%A4r-%28mwd%29/13283-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:41.417Z",
+      "crawledAt": "2026-09-28T21:26:13.458Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3249,14 +3329,16 @@
         "juniorprojektleiter-sanitar-implenia-ch",
         "juniorprojektleiter-sanitar-implenia-glattpark-opfikon",
         "juniorprojektleiter-sanitar-m-w-d-implenia-ch",
-        "juniorprojektleiter-sanitar-m-w-d-implenia-glattpark-opfikon"
+        "juniorprojektleiter-sanitar-m-w-d-implenia-glattpark-opfikon",
+        "junior-project-manager-sanitary-m-f-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "juniorprojektleiter-sanitar-implenia-ch",
           "juniorprojektleiter-sanitar-implenia-glattpark-opfikon",
           "juniorprojektleiter-sanitar-m-w-d-implenia-ch",
-          "juniorprojektleiter-sanitar-m-w-d-implenia-glattpark-opfikon"
+          "juniorprojektleiter-sanitar-m-w-d-implenia-glattpark-opfikon",
+          "junior-project-manager-sanitary-m-f-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "juniorprojektleiter-sanitar-implenia-glattpark-opfikon",
@@ -3272,6 +3354,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:44:11.415Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3317,7 +3400,7 @@
       "url": "https://jobs.implenia.com/job/%28Senior%29-Legal-Counsel-%28mwd%29-80-100/13724-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:41.152Z",
+      "crawledAt": "2026-09-28T21:26:13.270Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3336,11 +3419,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-legal-counsel-m-w-d-80-100-implenia-ch"
+        "senior-legal-counsel-m-w-d-80-100-implenia-ch",
+        "senior-avvocato-legale-m-f-d-80-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-legal-counsel-m-w-d-80-100-implenia-ch"
+          "senior-legal-counsel-m-w-d-80-100-implenia-ch",
+          "senior-avvocato-legale-m-f-d-80-100-implenia-glattpark-opfikon"
         ],
         "fr": [
           "senior-legal-counsel-m-w-d-80-100-implenia-ch"
@@ -3392,7 +3477,7 @@
       "url": "https://jobs.implenia.com/job/Polier-Schadstoffsanierung-%28wmd%29/12756-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:40.883Z",
+      "crawledAt": "2026-09-28T21:26:12.962Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3422,7 +3507,8 @@
         "polacchi-implenia-glattpark-opfikon",
         "polishes-implenia-glattpark-opfikon",
         "polier-implenia-ch",
-        "polonais-implenia-glattpark-opfikon"
+        "polonais-implenia-glattpark-opfikon",
+        "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3436,7 +3522,8 @@
           "polacchi-implenia-glattpark-opfikon",
           "polishes-implenia-glattpark-opfikon",
           "polier-implenia-ch",
-          "polonais-implenia-glattpark-opfikon"
+          "polonais-implenia-glattpark-opfikon",
+          "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
@@ -3500,7 +3587,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Schadstoffsanierung-%28wmd%29/12750-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:40.638Z",
+      "crawledAt": "2026-09-28T21:26:12.691Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3522,14 +3609,16 @@
         "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch",
         "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
         "rimediazione-dell-inquinamento-dell-impresa-w-m-d-implenia-glattpark-opfikon",
-        "capocantiere-bonifica-inquinanti-f-m-d-implenia-glattpark-opfikon"
+        "capocantiere-bonifica-inquinanti-f-m-d-implenia-glattpark-opfikon",
+        "bonifica-degli-inquinanti-foreman-f-m-d-implenia-glattpark-opfikon-13d669"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch",
           "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
           "rimediazione-dell-inquinamento-dell-impresa-w-m-d-implenia-glattpark-opfikon",
-          "capocantiere-bonifica-inquinanti-f-m-d-implenia-glattpark-opfikon"
+          "capocantiere-bonifica-inquinanti-f-m-d-implenia-glattpark-opfikon",
+          "bonifica-degli-inquinanti-foreman-f-m-d-implenia-glattpark-opfikon-13d669"
         ],
         "en": [
           "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
@@ -3584,7 +3673,7 @@
       "url": "https://jobs.implenia.com/job/Zeichner-Baulogistik-%28mwd%29%2C-Opfikon%2C-80-100/13568-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:40.368Z",
+      "crawledAt": "2026-09-28T21:26:12.418Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3604,12 +3693,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-ch",
-        "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-glattpark-opfikon"
+        "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-glattpark-opfikon",
+        "disegno-costruzione-logistica-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-ch",
-          "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-glattpark-opfikon"
+          "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-glattpark-opfikon",
+          "disegno-costruzione-logistica-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
         ],
         "en": [
           "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-ch"
@@ -3664,7 +3755,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Bauphysik-&-Nachhaltigkeit-%28mwd%29/13800-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:40.098Z",
+      "crawledAt": "2026-09-28T21:26:29.518Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3696,6 +3787,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:22:23.951Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -3741,7 +3833,7 @@
       "url": "https://jobs.implenia.com/job/Zimmermann-EFZ%2C-Feinarbeiten-Montage-Service%2C-80-100/12022-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:39.824Z",
+      "crawledAt": "2026-09-28T21:26:12.126Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -3760,17 +3852,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-efz-feinarbeiten-montage-service-80-100-implenia-ch"
+        "zimmermann-efz-feinarbeiten-montage-service-80-100-implenia-ch",
+        "schreiner-zimmermann-cfc-feinarbeiten-montage-service-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-efz-feinarbeiten-montage-service-80-100-implenia-ch"
+          "zimmermann-efz-feinarbeiten-montage-service-80-100-implenia-ch",
+          "schreiner-zimmermann-cfc-feinarbeiten-montage-service-80-100-implenia-rumlang"
         ],
         "de": [
           "zimmermann-efz-feinarbeiten-montage-service-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-04T11:31:09.895Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3863,7 +3958,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-b1477be2b20d",
@@ -3896,7 +3992,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-%28mwd%29%2C-Gisikon%2C-80-100/12487-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:39.291Z",
+      "crawledAt": "2026-09-28T21:26:11.863Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -3915,11 +4011,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baufuhrer-m-w-d-gisikon-80-100-implenia-ch"
+        "baufuhrer-m-w-d-gisikon-80-100-implenia-ch",
+        "direttore-della-costruzione-m-f-d-gisikon-80-100-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-m-w-d-gisikon-80-100-implenia-ch"
+          "baufuhrer-m-w-d-gisikon-80-100-implenia-ch",
+          "direttore-della-costruzione-m-f-d-gisikon-80-100-implenia-gisikon"
         ]
       },
       "firstSeenAt": "2026-08-06T11:45:34.116Z",
@@ -3968,7 +4066,7 @@
       "url": "https://jobs.implenia.com/job/Vorarbeiter-Holzbau-%28mwd%29%2C-80-100/12920-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:39.031Z",
+      "crawledAt": "2026-09-28T21:26:11.589Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -3992,6 +4090,7 @@
         "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
         "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
         "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
+        "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
         "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
@@ -4000,7 +4099,8 @@
           "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
           "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
+          "costruzione-di-legname-m-f-d-80-100-implenia-rumlang"
         ],
         "en": [
           "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
@@ -4056,7 +4156,7 @@
       "url": "https://jobs.implenia.com/job/Polier-Holzbau-%28mwd%29%2C-80-100/12918-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:38.757Z",
+      "crawledAt": "2026-09-28T21:26:11.304Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -4076,12 +4176,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "polier-holzbau-m-w-d-80-100-implenia-ch",
-        "costruzione-di-legno-m-f-d-80-100-implenia-rumlang"
+        "costruzione-di-legno-m-f-d-80-100-implenia-rumlang",
+        "costruzione-in-legno-polacco-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polier-holzbau-m-w-d-80-100-implenia-ch",
-          "costruzione-di-legno-m-f-d-80-100-implenia-rumlang"
+          "costruzione-di-legno-m-f-d-80-100-implenia-rumlang",
+          "costruzione-in-legno-polacco-m-f-d-80-100-implenia-rumlang"
         ],
         "en": [
           "polier-holzbau-m-w-d-80-100-implenia-ch"
@@ -4136,7 +4238,7 @@
       "url": "https://jobs.implenia.com/job/Ingenieur-Holzbau%2C-%28mwd%29-80-100/9584-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:38.419Z",
+      "crawledAt": "2026-09-28T21:26:10.992Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -4156,12 +4258,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-        "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
+        "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch",
+        "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-          "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
+          "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch",
+          "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang"
         ],
         "de": [
           "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
@@ -4213,7 +4317,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Kalkulation-Zentralschweiz-%28wmd%29%2C-80-100/12911-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:38.151Z",
+      "crawledAt": "2026-09-28T21:26:10.681Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4233,12 +4337,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch",
-        "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
+        "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon",
+        "responsabile-del-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch",
-          "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
+          "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon",
+          "responsabile-del-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
         ]
       },
       "firstSeenAt": "2026-08-14T10:36:36.727Z",
@@ -4287,7 +4393,7 @@
       "url": "https://jobs.implenia.com/job/Senior-Kalkulator-Holzbau%2C-%28mwd%29%2C-80-100/12872-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:37.899Z",
+      "crawledAt": "2026-09-28T21:26:10.403Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -4307,12 +4413,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
+        "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
+          "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang"
         ]
       },
       "needsRetranslation": true,
@@ -4365,7 +4473,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Baumeister-Luzern-%28wmd%29/12839-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:37.636Z",
+      "crawledAt": "2026-09-28T21:26:10.141Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4385,12 +4493,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-baumeister-luzern-w-m-d-implenia-ch",
-        "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon"
+        "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon",
+        "capo-progetto-capomastro-lucerna-f-m-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-baumeister-luzern-w-m-d-implenia-ch",
-          "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon"
+          "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon",
+          "capo-progetto-capomastro-lucerna-f-m-d-implenia-gisikon"
         ]
       },
       "firstSeenAt": "2026-06-30T11:48:32.984Z",
@@ -4439,7 +4549,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Ausf%C3%BChrung-Instandsetzung-%28wmd%29/13602-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:37.394Z",
+      "crawledAt": "2026-09-28T21:26:09.854Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4459,11 +4569,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-ausfuhrung-instandsetzung-w-m-d-implenia-ch",
-        "leiter-ausfuhrung-instandsetzung-m-w-d-implenia-gisikon"
+        "leiter-ausfuhrung-instandsetzung-m-w-d-implenia-gisikon",
+        "riparazione-di-esecuzione-della-scala-w-m-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-ausfuhrung-instandsetzung-w-m-d-implenia-ch"
+          "leiter-ausfuhrung-instandsetzung-w-m-d-implenia-ch",
+          "riparazione-di-esecuzione-della-scala-w-m-d-implenia-gisikon"
         ],
         "en": [
           "leiter-ausfuhrung-instandsetzung-m-w-d-implenia-gisikon"
@@ -4518,7 +4630,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Holzbau%2C-%28mwd%29%2C-80-100/10512-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:37.140Z",
+      "crawledAt": "2026-09-28T21:26:09.667Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -4537,14 +4649,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
+        "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
+        "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
+          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
         ]
       },
       "firstSeenAt": "2026-08-11T10:27:41.418Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -4590,7 +4705,7 @@
       "url": "https://jobs.implenia.com/job/Zimmermann-EFZ-%28mwd%29%2C-80-100/13057-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:36.893Z",
+      "crawledAt": "2026-09-28T21:26:09.403Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -4609,14 +4724,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-efz-m-w-d-80-100-implenia-ch"
+        "zimmermann-efz-m-w-d-80-100-implenia-ch",
+        "zimmermann-cfc-m-w-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-efz-m-w-d-80-100-implenia-ch"
+          "zimmermann-efz-m-w-d-80-100-implenia-ch",
+          "zimmermann-cfc-m-w-d-80-100-implenia-rumlang"
         ]
       },
       "firstSeenAt": "2026-08-13T22:17:43.056Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4662,7 +4780,7 @@
       "url": "https://jobs.implenia.com/job/Lernender-Kauffrau-mann-Immobilien-EFZ-%28mwd%29/13501-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:36.258Z",
+      "crawledAt": "2026-09-28T21:26:08.588Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Gäuggelistrasse 7",
@@ -4681,11 +4799,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch"
+        "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch",
+        "apprendista-kauffrau-mann-immobilien-cfc-m-w-d-implenia-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch"
+          "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch",
+          "apprendista-kauffrau-mann-immobilien-cfc-m-w-d-implenia-chur"
         ]
       },
       "needsRetranslation": true,
@@ -4735,7 +4855,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Neubau-Baumeister-Aarau-%28mwd%29/11078-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:35.178Z",
+      "crawledAt": "2026-09-28T21:26:31.800Z",
       "addressLocality": "Aarau",
       "postalCode": "",
       "streetAddress": "",
@@ -4756,16 +4876,19 @@
       "previousSlugs": [
         "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-ch",
         "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-aarau",
-        "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau"
+        "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau",
+        "responsabile-del-progetto-neubau-baumeister-aarau-m-f-d-implenia-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-ch",
           "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-aarau",
-          "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau"
+          "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau",
+          "responsabile-del-progetto-neubau-baumeister-aarau-m-f-d-implenia-aarau"
         ]
       },
       "firstSeenAt": "2026-08-14T10:36:37.005Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -4811,7 +4934,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-GUTU-Z%C3%BCrich-%28wmd%29/13772-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:34:31.130Z",
+      "crawledAt": "2026-09-28T21:26:23.811Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -4831,12 +4954,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
-        "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon"
+        "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
+        "responsabile-costruzione-gu-tu-zurich-m-f-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
-          "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon"
+          "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
+          "responsabile-costruzione-gu-tu-zurich-m-f-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
@@ -4858,8 +4983,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-badef15e1455",
@@ -4945,7 +5069,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-d30a6b60714a",
@@ -4978,7 +5102,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Baumeister-Neu-undoder-Umbau-%28wmd%29/11598-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:34:29.847Z",
+      "crawledAt": "2026-09-28T21:26:29.230Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -4998,12 +5122,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kalkulator-baumeister-neu-und-oder-umbau-w-m-d-implenia-ch",
-        "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon"
+        "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon",
+        "calcolatrice-master-builder-nuova-e-o-conversione-f-m-d-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kalkulator-baumeister-neu-und-oder-umbau-w-m-d-implenia-ch",
-          "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon"
+          "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon",
+          "calcolatrice-master-builder-nuova-e-o-conversione-f-m-d-implenia-opfikon"
         ]
       },
       "firstSeenAt": "2026-08-12T22:06:50.924Z",
@@ -5019,8 +5145,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-1222ea180b6f",
@@ -5053,7 +5178,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Neubau-GUTU-Gisikon-%28wmd%29/12695-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:34:29.555Z",
+      "crawledAt": "2026-09-28T21:26:28.837Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -5073,15 +5198,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-        "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
+        "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
+        "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-          "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
+          "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
+          "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon"
         ]
       },
       "firstSeenAt": "2026-06-30T22:39:49.973Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -5094,8 +5222,7 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-7229d3395662",
@@ -5176,44 +5303,44 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
-      "id": "implenia-b4b058c34eb8",
-      "slug": "direttore-immobiliare-m-f-d-berna-80-100-implenia-bern",
+      "id": "implenia-9e766e4ba792",
+      "slug": "sachbearbeiter-center-e-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia-center-und-mixed-use-site-management-basel-hochbergerstrasse-70-4057-basel-stucki",
       "slugByLocale": {
-        "it": "direttore-immobiliare-m-f-d-berna-80-100-implenia-bern",
-        "en": "real-estate-manager-m-f-d-bern-80-100-implenia-bern",
-        "de": "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch",
-        "fr": "directeur-immobilier-h-f-d-berne-80-100-implenia-bern"
+        "de": "sachbearbeiter-center-und-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia",
+        "it": "sachbearbeiter-center-e-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia-center-und-mixed-use-site-management-basel-hochbergerstrasse-70-4057-basel-stucki",
+        "en": "sachbearbeiter-center-und-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia",
+        "fr": "sachbearbeiter-center-und-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia"
       },
       "company": "Implenia",
       "companyKey": "implenia",
       "companyDomain": "implenia.com",
-      "title": "Immobilienbewirtschafter (m/w/d), Bern, 80-100%",
+      "title": "Sachbearbeiter Center- und Mixed Use Site Management (m/w/d), Basel (Stückipark), 80-100%",
       "titleByLocale": {
-        "it": "Direttore immobiliare (m/f/d), Berna, 80-100 %",
-        "en": "Real estate manager (m/f/d), Bern, 80-100 %",
-        "de": "Immobilienbewirtschafter (m/w/d), Bern, 80-100%",
-        "fr": "Directeur immobilier (h/f/d), Berne, 80-100 %"
+        "de": "Sachbearbeiter Center- und Mixed Use Site Management (m/w/d), Basel (Stückipark), 80-100%",
+        "it": "Sachbearbeiter Center- e Mixed Use Site Management (m/w/d), Basel (Stückipark), 80-100%",
+        "en": "Sachbearbeiter Center- und Mixed Use Site Management (m/w/d), Basel (Stückipark), 80-100%",
+        "fr": "Sachbearbeiter Center- und Mixed Use Site Management (m/w/d), Basel (Stückipark), 80-100%"
       },
-      "description": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Immobilienbewirtschafter (m/w/d) Bern, 80-100% Das bewegst du:\n• Du übernimmst die Verantwortung für die Bewirtschaftung eines Portefeuilles von Wohn- und gemischt genutzten Liegenschaften\n• Dazu gehört die Sicherstellung des ordentlichen und ausserordentlichen Immobilienunterhalts, die Terminierung und Durchführung von Liegenschaftsbesichtigungen sowie Abnahmen\n• Du stehst in Kontakt mit der Eigentümerschaft, Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern\n• Das Verhandeln und Erstellen von Gewerbemietverträgen sowie des Jahresbudgets liegt ebenfalls in deinem Zuständigkeitsbereich\n• Um all diesen Aufgaben gerecht zu werden, kannst du auf die Unterstützung sowohl von Teammitgliedern der technischen Bewirtschaftung und Vermietung zählen als auch der Sachbearbeitung und Hauswartung, welche du betreust\n• Am Standort «Wohnen» kümmerst du dich zudem gemeinsam mit deinem Team um die persönliche Betreuung der Kundschaft vor Ort Deshalb gelingt es dir:\n• Du verfügst über eine kaufmännische Grundausbildung sowie einen Fachausweis Immobilienbewirtschaftung (oder befindest dich in der Ausbildung). Dazu bringst du mehrere Jahre Berufserfahrung in diesem Bereich mit\n• Digitale Affinität und fundierte PC- und Softwarekenntnisse setzt du in der Arbeit mit verschiedenen Systemen gekonnt täglich ein\n• Eine effiziente und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten mit Verhandlungsgeschick qualifizieren dich im Umgang mit unterschiedlichen und anspruchsvollen Zielgruppen\n• Eine hohe Dienstleistungs- und Kundenorientierung sind für dich selbstverständlich\n• Gute Umgangsformen, hohe Belastbarkeit sowie Flexibilität und Ausdauer runden dein Profil ab Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+      "description": "Als führender Immobilien-Dienstleister bieten wir unseren Kunden im Bereich Center- und Mixed-Use Site Management ein umfassendes Dienstleistungspaket für Retail-Liegenschaften und Areale an. Von der kaufmännischen und technischen Bewirtschaftung, über Marketing und Vermarktung, bis hin zur Zwischennutzung und Community Management. Zur Unterstützung unseres Teams in Basel suchen wir nach Vereinbarung eine dynamische und fachkompetente Persönlichkeit als Sachbearbeiter Centermanagement (m/w/d) Basel (Stückipark), 80-100% Das bewegst du:\n• Du unterstützt die kaufmännische Leitung sowie den Real Estate Site Manager bei sämtlichen administrativen Belangen innerhalb des zu betreuenden Portefeuilles sowie bei der Vermietung von unterschiedlichen Nutzungsarten\n• Telefonische und schriftliche Kontakte mit Mietern, Hauswarten, Handwerkern und Ämtern gehören weiter zu deinem Aufgabengebiet\n• Du prüfst Bewerbungen, bist zuständig für das Einholen von Referenzen sowie das Erstellen von Mietverträgen für Nebenobjekte\n• Wohnungsbesichtigungen planst du, führst du durch und übernimmst die Nachbearbeitung\n• Du kontrollierst, kontierst und verarbeitest diverse Zahlungen, dabei verrechnest du Kreditorenrechnungen weiter und erstellst Debitorenrechnungen\n• Reportings, wie Umsatzmeldungen und Parkingeinnahmen werden von dir erstellt und überwacht Deshalb gelingt es dir:\n• Eine kaufmännische Grundausbildung und mind. 3 Jahre kaufmännische Berufserfahrung bringst du mit (Weiterbildung und Erfahrung im Immobilienbereich sind von Vorteil)\n• Du verfügst über stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift (französisch mündlich von Vorteil)\n• Du besitzt gute MS-Office Anwenderkenntnisse\n• Du bist ein Teamplayer und arbeitest selbständig sowie strukturiert\n• Deine flexible, belastbare und kundenorientierte Persönlichkeit mit viel Eigeninitiative zeichnet dich aus Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
       "descriptionByLocale": {
-        "it": "Nella nostra posizione \"Housing\" a Berna, gli inquilini non solo si sentono a casa, ma sono anche gestiti in modo ottimale ed efficiente dalla nostra nuova divisione di compiti nella squadra. Questo non solo ha vantaggi per gli inquilini e la proprietà, ma anche per voi. Attraverso una maggiore specializzazione nella squadra, lavoriamo più strettamente insieme, e tutti possono concentrarsi sui loro punti di forza. Se il tuo cuore batte per il settore immobiliare, sei motivato, orientato all'obiettivo e anche godere di lavorare in una squadra, allora non vediamo l'ora della tua applicazione come un responsabile immobiliare (m/f/d) Bern, 80-100% Questo è ciò che ti muove:\n• Si assume la responsabilità di gestire un portafoglio di proprietà residenziali e miste\n• Questo include garantire la manutenzione ordinaria e straordinaria immobiliare, terminare e effettuare visite di proprietà e le accettazione.\n• Siete in contatto con la proprietà, inquilino, manutenzione della casa, imprese artigianali e uffici\n• Negoziare e redigere contratti di noleggio commerciale e il bilancio annuale è anche vostra responsabilità.\n• Al fine di soddisfare tutte queste attività, è possibile contare sul supporto sia della gestione tecnica che dei membri del team di noleggio, così come la gestione e la manutenzione domestica che si fornisce.\n• Nella posizione \"Vivere\", ti occuperai anche del supporto personale dei clienti locali insieme al tuo team.\n• Hai una formazione commerciale di base e una carta di gestione immobiliare (o sono in formazione). Inoltre, si porta diversi anni di esperienza professionale in questa zona\n• L'affinità digitale e la conoscenza approfondita del PC e del software sono abilmente utilizzate quotidianamente nel lavoro con diversi sistemi\n• Un metodo di lavoro efficiente e orientato agli obiettivi e buone capacità di comunicazione con le competenze di negoziazione si qualificano nel trattare con gruppi target diversi e esigenti\n• Un servizio elevato e l'orientamento del cliente sono una questione naturalmente per voi\n• Buone maniere, elevata resilienza e flessibilità e resistenza arrotondano il tuo profilo Ecco alcuni dei nostri vantaggi:\n• Ore lavorative: Viviamo il lavoro mobile con ore di lavoro individuali (anno) e/o lavoro part-time. Fino al 40% home office è possibile. L'equilibrio della vita lavorativa è una priorità per noi, perché i dipendenti equilibrati e rilassati sono importanti per noi. L'acquisto di vacanze aggiuntive è possibile.\n• Mobilità e cibo: riceverete un contributo per il telefono cellulare. Per il vostro cibo, offriamo anche un contributo.\n• Istruzione e formazione: promuovere i dipendenti è una parte importante della nostra cultura. Approfittate del generoso sostegno all'istruzione e alla formazione interna ed esterna. Offriamo opportunità di carriera nelle funzioni gestionali, specialistiche e di progetto\n• Salär: Con noi, puoi aspettarti una remunerazione basata sul mercato con una retribuzione uguale assoluta per tutti i generi. I benefici pensione sono attraenti e si può scegliere quello giusto per voi da modelli diversi. L'assicurazione contro gli infortuni copre il dipartimento ospedaliero privato. Ulteriori informazioni sui nostri vantaggi possono essere trovate nella nostra pagina di carriera. ♪Wincasa",
-        "en": "At our \"Housing\" location in Bern, tenants not only feel at home, but are also managed optimally and efficiently by our new division of tasks in the team. This not only has advantages for tenants and ownership, but also for you. Through more specialization in the team, we work more closely together, and everyone can focus on their strengths. If your heart beats for real estate, you are motivated, goal-oriented and also enjoy working in a team, then we look forward to your application as a real estate manager (m/f/d) Bern, 80-100% This is what moves you:\n• You take responsibility for managing a portfolio of residential and mixed-use properties\n• This includes ensuring regular and extraordinary real estate maintenance, terminating and carrying out property visits and acceptances.\n• You are in contact with the ownership, tenant, house maintenance, craft businesses and offices\n• Negotiating and drawing up business rental contracts as well as the annual budget is also your responsibility.\n• In order to meet all these tasks, you can count on the support of both technical management and rental team members as well as the handling and home maintenance that you provide.\n• At the \"Living\" location, you will also take care of the personal support of the local customers together with your team.\n• You have a basic commercial education and a real estate management card (or are in training). In addition, you bring several years of professional experience in this area\n• Digital affinity and in-depth PC and software knowledge are skillfully used daily in working with different systems\n• An efficient and goal-oriented working method as well as good communication skills with negotiating skills qualify you in dealing with different and demanding target groups\n• A high service and customer orientation are a matter of course for you\n• Good manners, high resilience as well as flexibility and endurance round off your profile Here are some of our benefits:\n• Working hours: We live mobile work with individual (year) working hours and/or part-time work. Up to 40% home office is possible. Work-life balance is a priority for us, because balanced and relaxed employees are important to us. The purchase of additional holidays is possible.\n• Mobility and food: You will receive a contribution for the mobile phone. For your food, we also make a contribution.\n• Education and training: Promoting employees is an important part of our culture. Benefit from generous support in internal and external education and training. We offer career opportunities in management, specialist and project functions\n• Salär: With us, you can expect market-based remuneration with absolute equal pay for all genders. The pension benefits are attractive and you can choose the right one for you from different models. The accident protection insurance covers the private hospital department. More information about our benefits can be found on our career page. #Wincasa",
-        "de": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Immobilienbewirtschafter (m/w/d) Bern, 80-100% Das bewegst du:\n• Du übernimmst die Verantwortung für die Bewirtschaftung eines Portefeuilles von Wohn- und gemischt genutzten Liegenschaften\n• Dazu gehört die Sicherstellung des ordentlichen und ausserordentlichen Immobilienunterhalts, die Terminierung und Durchführung von Liegenschaftsbesichtigungen sowie Abnahmen\n• Du stehst in Kontakt mit der Eigentümerschaft, Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern\n• Das Verhandeln und Erstellen von Gewerbemietverträgen sowie des Jahresbudgets liegt ebenfalls in deinem Zuständigkeitsbereich\n• Um all diesen Aufgaben gerecht zu werden, kannst du auf die Unterstützung sowohl von Teammitgliedern der technischen Bewirtschaftung und Vermietung zählen als auch der Sachbearbeitung und Hauswartung, welche du betreust\n• Am Standort «Wohnen» kümmerst du dich zudem gemeinsam mit deinem Team um die persönliche Betreuung der Kundschaft vor Ort Deshalb gelingt es dir:\n• Du verfügst über eine kaufmännische Grundausbildung sowie einen Fachausweis Immobilienbewirtschaftung (oder befindest dich in der Ausbildung). Dazu bringst du mehrere Jahre Berufserfahrung in diesem Bereich mit\n• Digitale Affinität und fundierte PC- und Softwarekenntnisse setzt du in der Arbeit mit verschiedenen Systemen gekonnt täglich ein\n• Eine effiziente und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten mit Verhandlungsgeschick qualifizieren dich im Umgang mit unterschiedlichen und anspruchsvollen Zielgruppen\n• Eine hohe Dienstleistungs- und Kundenorientierung sind für dich selbstverständlich\n• Gute Umgangsformen, hohe Belastbarkeit sowie Flexibilität und Ausdauer runden dein Profil ab Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
-        "fr": "Dans notre lieu de résidence à Berne, les locataires se sentent non seulement chez eux, mais sont également gérés de manière optimale et efficace par notre nouvelle division des tâches dans l'équipe. Cela a non seulement des avantages pour les locataires et la propriété, mais aussi pour vous. Grâce à une plus grande spécialisation au sein de l'équipe, nous travaillons plus étroitement ensemble et chacun peut se concentrer sur ses forces. Si votre cœur bat pour l'immobilier, vous êtes motivé, orienté vers le but et aussi profiter de travailler dans une équipe, alors nous attendons avec impatience votre application en tant que gestionnaire immobilier (h/f/d) Bern, 80-100% C'est ce qui vous pousse:\n• Vous êtes responsable de la gestion d'un portefeuille de propriétés résidentielles et mixtes\n• Il s'agit notamment d'assurer l'entretien régulier et extraordinaire des biens immobiliers, de mettre fin aux visites et aux acceptations de biens immobiliers et de les effectuer.\n• Vous êtes en contact avec la propriété, le locataire, l'entretien de la maison, les entreprises artisanales et les bureaux\n• La négociation et l'élaboration de contrats de location d'entreprise ainsi que le budget annuel sont également de votre responsabilité.\n• Pour répondre à toutes ces tâches, vous pouvez compter sur le soutien de la direction technique et de l'équipe de location ainsi que sur la manutention et l'entretien de la maison que vous fournissez.\n• À l'emplacement « Vivre », vous vous occuperez également du soutien personnel des clients locaux avec votre équipe.\n• Vous avez une éducation commerciale de base et une carte de gestion immobilière (ou êtes en formation). En outre, vous apportez plusieurs années d'expérience professionnelle dans ce domaine\n• L'affinité numérique et la connaissance approfondie du PC et du logiciel sont habilement utilisées quotidiennement dans le travail avec différents systèmes\n• Une méthode de travail efficace et orientée vers l'objectif ainsi que de bonnes compétences en communication avec des compétences en négociation vous qualifient pour traiter avec différents groupes cibles exigeants\n• Un service élevé et l'orientation client sont une question bien sûr pour vous\n• Bonnes manières, haute résilience, flexibilité et endurance complètent votre profil Voici quelques-uns de nos avantages:\n• Heures de travail: Nous vivons un travail mobile avec des heures de travail individuelles (année) et/ou à temps partiel. Jusqu'à 40% de bureau à domicile est possible. L'équilibre entre le travail et la vie personnelle est une priorité pour nous, car les employés équilibrés et détendus sont importants pour nous. L'achat de jours fériés supplémentaires est possible.\n• Mobilité et nourriture: Vous recevrez une contribution pour le téléphone mobile. Pour votre nourriture, nous apportons également une contribution.\n• Éducation et formation: La promotion des employés est un élément important de notre culture. Bénéficiez d'un soutien généreux dans l'éducation et la formation internes et externes. Nous offrons des opportunités de carrière en gestion, spécialiste et fonctions de projet\n• Salär: Avec nous, vous pouvez vous attendre à une rémunération basée sur le marché avec un salaire absolu égal pour tous les sexes. Les prestations de retraite sont attrayantes et vous pouvez choisir la bonne pour vous parmi différents modèles. L'assurance contre les accidents couvre le service hospitalier privé. Plus d'informations sur nos avantages se trouvent sur notre page carrière. #Wincasa"
+        "de": "Als führender Immobilien-Dienstleister bieten wir unseren Kunden im Bereich Center- und Mixed-Use Site Management ein umfassendes Dienstleistungspaket für Retail-Liegenschaften und Areale an. Von der kaufmännischen und technischen Bewirtschaftung, über Marketing und Vermarktung, bis hin zur Zwischennutzung und Community Management. Zur Unterstützung unseres Teams in Basel suchen wir nach Vereinbarung eine dynamische und fachkompetente Persönlichkeit als Sachbearbeiter Centermanagement (m/w/d) Basel (Stückipark), 80-100% Das bewegst du:\n• Du unterstützt die kaufmännische Leitung sowie den Real Estate Site Manager bei sämtlichen administrativen Belangen innerhalb des zu betreuenden Portefeuilles sowie bei der Vermietung von unterschiedlichen Nutzungsarten\n• Telefonische und schriftliche Kontakte mit Mietern, Hauswarten, Handwerkern und Ämtern gehören weiter zu deinem Aufgabengebiet\n• Du prüfst Bewerbungen, bist zuständig für das Einholen von Referenzen sowie das Erstellen von Mietverträgen für Nebenobjekte\n• Wohnungsbesichtigungen planst du, führst du durch und übernimmst die Nachbearbeitung\n• Du kontrollierst, kontierst und verarbeitest diverse Zahlungen, dabei verrechnest du Kreditorenrechnungen weiter und erstellst Debitorenrechnungen\n• Reportings, wie Umsatzmeldungen und Parkingeinnahmen werden von dir erstellt und überwacht Deshalb gelingt es dir:\n• Eine kaufmännische Grundausbildung und mind. 3 Jahre kaufmännische Berufserfahrung bringst du mit (Weiterbildung und Erfahrung im Immobilienbereich sind von Vorteil)\n• Du verfügst über stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift (französisch mündlich von Vorteil)\n• Du besitzt gute MS-Office Anwenderkenntnisse\n• Du bist ein Teamplayer und arbeitest selbständig sowie strukturiert\n• Deine flexible, belastbare und kundenorientierte Persönlichkeit mit viel Eigeninitiative zeichnet dich aus Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "it": "Als führender Immobilien-Dienstleister bieten wir unseren Kunden im Bereich Center- und Mixed-Use Site Management ein umfassendes Dienstleistungspaket für Retail-Liegenschaften und Areale an. Von der kaufmännischen und technischen Bewirtschaftung, über Marketing und Vermarktung, bis hin zur Zwischennutzung und Community Management. Zur Unterstützung unseres Teams in Basel suchen wir nach Vereinbarung eine dynamische und fachkompetente Persönlichkeit als Sachbearbeiter Centermanagement (m/w/d) Basel (Stückipark), 80-100% Das bewegst du:\n• Du unterstützt die kaufmännische Leitung sowie den Real Estate Site Manager bei sämtlichen administrativen Belangen innerhalb des zu betreuenden Portefeuilles sowie bei der Vermietung von unterschiedlichen Nutzungsarten\n• Telefonische und schriftliche Kontakte mit Mietern, Hauswarten, Handwerkern und Ämtern gehören weiter zu deinem Aufgabengebiet\n• Du prüfst Bewerbungen, bist zuständig für das Einholen von Referenzen sowie das Erstellen von Mietverträgen für Nebenobjekte\n• Wohnungsbesichtigungen planst du, führst du durch und übernimmst die Nachbearbeitung\n• Du kontrollierst, kontierst und verarbeitest diverse Zahlungen, dabei verrechnest du Kreditorenrechnungen weiter und erstellst Debitorenrechnungen\n• Reportings, wie Umsatzmeldungen und Parkingeinnahmen werden von dir erstellt und überwacht Deshalb gelingt es dir:\n• Eine kaufmännische Grundausbildung und mind. 3 Jahre kaufmännische Berufserfahrung bringst du mit (Weiterbildung und Erfahrung im Immobilienbereich sind von Vorteil)\n• Du verfügst über stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift (französisch mündlich von Vorteil)\n• Du besitzt gute MS-Office Anwenderkenntnisse\n• Du bist ein Teamplayer und arbeitest selbständig sowie strukturiert\n• Deine flexible, belastbare und kundenorientierte Persönlichkeit mit viel Eigeninitiative zeichnet dich aus Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "en": "Als führender Immobilien-Dienstleister bieten wir unseren Kunden im Bereich Center- und Mixed-Use Site Management ein umfassendes Dienstleistungspaket für Retail-Liegenschaften und Areale an. Von der kaufmännischen und technischen Bewirtschaftung, über Marketing und Vermarktung, bis hin zur Zwischennutzung und Community Management. Zur Unterstützung unseres Teams in Basel suchen wir nach Vereinbarung eine dynamische und fachkompetente Persönlichkeit als Sachbearbeiter Centermanagement (m/w/d) Basel (Stückipark), 80-100% Das bewegst du:\n• Du unterstützt die kaufmännische Leitung sowie den Real Estate Site Manager bei sämtlichen administrativen Belangen innerhalb des zu betreuenden Portefeuilles sowie bei der Vermietung von unterschiedlichen Nutzungsarten\n• Telefonische und schriftliche Kontakte mit Mietern, Hauswarten, Handwerkern und Ämtern gehören weiter zu deinem Aufgabengebiet\n• Du prüfst Bewerbungen, bist zuständig für das Einholen von Referenzen sowie das Erstellen von Mietverträgen für Nebenobjekte\n• Wohnungsbesichtigungen planst du, führst du durch und übernimmst die Nachbearbeitung\n• Du kontrollierst, kontierst und verarbeitest diverse Zahlungen, dabei verrechnest du Kreditorenrechnungen weiter und erstellst Debitorenrechnungen\n• Reportings, wie Umsatzmeldungen und Parkingeinnahmen werden von dir erstellt und überwacht Deshalb gelingt es dir:\n• Eine kaufmännische Grundausbildung und mind. 3 Jahre kaufmännische Berufserfahrung bringst du mit (Weiterbildung und Erfahrung im Immobilienbereich sind von Vorteil)\n• Du verfügst über stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift (französisch mündlich von Vorteil)\n• Du besitzt gute MS-Office Anwenderkenntnisse\n• Du bist ein Teamplayer und arbeitest selbständig sowie strukturiert\n• Deine flexible, belastbare und kundenorientierte Persönlichkeit mit viel Eigeninitiative zeichnet dich aus Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "fr": "Als führender Immobilien-Dienstleister bieten wir unseren Kunden im Bereich Center- und Mixed-Use Site Management ein umfassendes Dienstleistungspaket für Retail-Liegenschaften und Areale an. Von der kaufmännischen und technischen Bewirtschaftung, über Marketing und Vermarktung, bis hin zur Zwischennutzung und Community Management. Zur Unterstützung unseres Teams in Basel suchen wir nach Vereinbarung eine dynamische und fachkompetente Persönlichkeit als Sachbearbeiter Centermanagement (m/w/d) Basel (Stückipark), 80-100% Das bewegst du:\n• Du unterstützt die kaufmännische Leitung sowie den Real Estate Site Manager bei sämtlichen administrativen Belangen innerhalb des zu betreuenden Portefeuilles sowie bei der Vermietung von unterschiedlichen Nutzungsarten\n• Telefonische und schriftliche Kontakte mit Mietern, Hauswarten, Handwerkern und Ämtern gehören weiter zu deinem Aufgabengebiet\n• Du prüfst Bewerbungen, bist zuständig für das Einholen von Referenzen sowie das Erstellen von Mietverträgen für Nebenobjekte\n• Wohnungsbesichtigungen planst du, führst du durch und übernimmst die Nachbearbeitung\n• Du kontrollierst, kontierst und verarbeitest diverse Zahlungen, dabei verrechnest du Kreditorenrechnungen weiter und erstellst Debitorenrechnungen\n• Reportings, wie Umsatzmeldungen und Parkingeinnahmen werden von dir erstellt und überwacht Deshalb gelingt es dir:\n• Eine kaufmännische Grundausbildung und mind. 3 Jahre kaufmännische Berufserfahrung bringst du mit (Weiterbildung und Erfahrung im Immobilienbereich sind von Vorteil)\n• Du verfügst über stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift (französisch mündlich von Vorteil)\n• Du besitzt gute MS-Office Anwenderkenntnisse\n• Du bist ein Teamplayer und arbeitest selbständig sowie strukturiert\n• Deine flexible, belastbare und kundenorientierte Persönlichkeit mit viel Eigeninitiative zeichnet dich aus Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa"
       },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.implenia.com/job/Immobilienbewirtschafter-%28mwd%29%2C-Bern%2C-80-100/13769-de_DE",
+      "location": "Basilea Città",
+      "canton": "BS",
+      "url": "https://jobs.implenia.com/job/Sachbearbeiter-Center-und-Mixed-Use-Site-Management-%28mwd%29%2C-Basel-%28St%C3%BCckipark%29%2C-80-100/13854-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:34:11.875Z",
-      "addressLocality": "Bern",
-      "postalCode": "3008",
-      "streetAddress": "Bogenschützenstrasse 9B",
-      "addressRegion": "BE",
+      "crawledAt": "2026-09-28T21:26:34.303Z",
+      "addressLocality": "Basilea Città",
+      "postalCode": "",
+      "streetAddress": "",
+      "addressRegion": "BS",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
@@ -5223,25 +5350,107 @@
       "sector": "Construction & Construction Services (civil engineering, building construction, real estate)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
-      "applyUrl": "https://jobs.implenia.com/job/Immobilienbewirtschafter-%28mwd%29%2C-Bern%2C-80-100/13769-de_DE",
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://jobs.implenia.com/job/Sachbearbeiter-Center-und-Mixed-Use-Site-Management-%28mwd%29%2C-Basel-%28St%C3%BCckipark%29%2C-80-100/13854-de_DE",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-center-und-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia"
+        ]
+      },
       "previousSlugs": [
-        "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch"
+        "sachbearbeiter-center-und-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:26:34.303Z"
+    },
+    {
+      "id": "implenia-65d851a2fb12",
+      "slug": "direttore-immobiliare-m-f-d-berna-80-100-implenia-bern",
+      "slugByLocale": {
+        "de": "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch",
+        "it": "direttore-immobiliare-m-f-d-berna-80-100-implenia-bern",
+        "en": "real-estate-manager-m-f-d-bern-80-100-implenia-bern",
+        "fr": "directeur-immobilier-h-f-d-berne-80-100-implenia-bern"
+      },
+      "company": "Implenia",
+      "companyKey": "implenia",
+      "companyDomain": "implenia.com",
+      "title": "(Senior) Immobilienbewirtschafter (m/w/d), Bern, 50-100%",
+      "titleByLocale": {
+        "de": "(Senior) Immobilienbewirtschafter (m/w/d), Bern, 50-100%",
+        "it": "(Senior) Immobilienbewirtschafter (m/w/d), Bern, 50-100%",
+        "en": "(Senior) Immobilienbewirtschafter (m/w/d), Bern, 50-100%",
+        "fr": "(Senior) Immobilienbewirtschafter (m/w/d), Bern, 50-100%"
+      },
+      "description": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als (Senior) Immobilienbewirtschafter (m/w/d) Bern, 50-100% Das bewegst du:\n• Du übernimmst die Verantwortung für die Bewirtschaftung eines Portefeuilles von Wohn- und gemischt genutzten Liegenschaften\n• Dazu gehört die Sicherstellung des ordentlichen und ausserordentlichen Immobilienunterhalts, die Terminierung und Durchführung von Liegenschaftsbesichtigungen sowie Abnahmen\n• Du stehst in Kontakt mit der Eigentümerschaft, Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern\n• Das Verhandeln und Erstellen von Gewerbemietverträgen sowie des Jahresbudgets liegt ebenfalls in deinem Zuständigkeitsbereich\n• Um all diesen Aufgaben gerecht zu werden, kannst du auf die Unterstützung sowohl von Teammitgliedern der technischen Bewirtschaftung und Vermietung zählen als auch der Sachbearbeitung und Hauswartung, welche du betreust\n• Am Standort «Wohnen» kümmerst du dich zudem gemeinsam mit deinem Team um die persönliche Betreuung der Kundschaft vor Ort Deshalb gelingt es dir:\n• Du verfügst über eine kaufmännische Grundausbildung sowie einen Fachausweis Immobilienbewirtschaftung (oder befindest dich in der Ausbildung). Dazu bringst du mehrere Jahre Berufserfahrung in diesem Bereich mit\n• Digitale Affinität und fundierte PC- und Softwarekenntnisse setzt du in der Arbeit mit verschiedenen Systemen gekonnt täglich ein\n• Eine effiziente und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten mit Verhandlungsgeschick qualifizieren dich im Umgang mit unterschiedlichen und anspruchsvollen Zielgruppen\n• Eine hohe Dienstleistungs- und Kundenorientierung sind für dich selbstverständlich\n• Gute Umgangsformen, hohe Belastbarkeit sowie Flexibilität und Ausdauer runden dein Profil ab Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+      "descriptionByLocale": {
+        "de": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als (Senior) Immobilienbewirtschafter (m/w/d) Bern, 50-100% Das bewegst du:\n• Du übernimmst die Verantwortung für die Bewirtschaftung eines Portefeuilles von Wohn- und gemischt genutzten Liegenschaften\n• Dazu gehört die Sicherstellung des ordentlichen und ausserordentlichen Immobilienunterhalts, die Terminierung und Durchführung von Liegenschaftsbesichtigungen sowie Abnahmen\n• Du stehst in Kontakt mit der Eigentümerschaft, Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern\n• Das Verhandeln und Erstellen von Gewerbemietverträgen sowie des Jahresbudgets liegt ebenfalls in deinem Zuständigkeitsbereich\n• Um all diesen Aufgaben gerecht zu werden, kannst du auf die Unterstützung sowohl von Teammitgliedern der technischen Bewirtschaftung und Vermietung zählen als auch der Sachbearbeitung und Hauswartung, welche du betreust\n• Am Standort «Wohnen» kümmerst du dich zudem gemeinsam mit deinem Team um die persönliche Betreuung der Kundschaft vor Ort Deshalb gelingt es dir:\n• Du verfügst über eine kaufmännische Grundausbildung sowie einen Fachausweis Immobilienbewirtschaftung (oder befindest dich in der Ausbildung). Dazu bringst du mehrere Jahre Berufserfahrung in diesem Bereich mit\n• Digitale Affinität und fundierte PC- und Softwarekenntnisse setzt du in der Arbeit mit verschiedenen Systemen gekonnt täglich ein\n• Eine effiziente und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten mit Verhandlungsgeschick qualifizieren dich im Umgang mit unterschiedlichen und anspruchsvollen Zielgruppen\n• Eine hohe Dienstleistungs- und Kundenorientierung sind für dich selbstverständlich\n• Gute Umgangsformen, hohe Belastbarkeit sowie Flexibilität und Ausdauer runden dein Profil ab Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "it": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als (Senior) Immobilienbewirtschafter (m/w/d) Bern, 50-100% Das bewegst du:\n• Du übernimmst die Verantwortung für die Bewirtschaftung eines Portefeuilles von Wohn- und gemischt genutzten Liegenschaften\n• Dazu gehört die Sicherstellung des ordentlichen und ausserordentlichen Immobilienunterhalts, die Terminierung und Durchführung von Liegenschaftsbesichtigungen sowie Abnahmen\n• Du stehst in Kontakt mit der Eigentümerschaft, Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern\n• Das Verhandeln und Erstellen von Gewerbemietverträgen sowie des Jahresbudgets liegt ebenfalls in deinem Zuständigkeitsbereich\n• Um all diesen Aufgaben gerecht zu werden, kannst du auf die Unterstützung sowohl von Teammitgliedern der technischen Bewirtschaftung und Vermietung zählen als auch der Sachbearbeitung und Hauswartung, welche du betreust\n• Am Standort «Wohnen» kümmerst du dich zudem gemeinsam mit deinem Team um die persönliche Betreuung der Kundschaft vor Ort Deshalb gelingt es dir:\n• Du verfügst über eine kaufmännische Grundausbildung sowie einen Fachausweis Immobilienbewirtschaftung (oder befindest dich in der Ausbildung). Dazu bringst du mehrere Jahre Berufserfahrung in diesem Bereich mit\n• Digitale Affinität und fundierte PC- und Softwarekenntnisse setzt du in der Arbeit mit verschiedenen Systemen gekonnt täglich ein\n• Eine effiziente und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten mit Verhandlungsgeschick qualifizieren dich im Umgang mit unterschiedlichen und anspruchsvollen Zielgruppen\n• Eine hohe Dienstleistungs- und Kundenorientierung sind für dich selbstverständlich\n• Gute Umgangsformen, hohe Belastbarkeit sowie Flexibilität und Ausdauer runden dein Profil ab Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "en": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als (Senior) Immobilienbewirtschafter (m/w/d) Bern, 50-100% Das bewegst du:\n• Du übernimmst die Verantwortung für die Bewirtschaftung eines Portefeuilles von Wohn- und gemischt genutzten Liegenschaften\n• Dazu gehört die Sicherstellung des ordentlichen und ausserordentlichen Immobilienunterhalts, die Terminierung und Durchführung von Liegenschaftsbesichtigungen sowie Abnahmen\n• Du stehst in Kontakt mit der Eigentümerschaft, Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern\n• Das Verhandeln und Erstellen von Gewerbemietverträgen sowie des Jahresbudgets liegt ebenfalls in deinem Zuständigkeitsbereich\n• Um all diesen Aufgaben gerecht zu werden, kannst du auf die Unterstützung sowohl von Teammitgliedern der technischen Bewirtschaftung und Vermietung zählen als auch der Sachbearbeitung und Hauswartung, welche du betreust\n• Am Standort «Wohnen» kümmerst du dich zudem gemeinsam mit deinem Team um die persönliche Betreuung der Kundschaft vor Ort Deshalb gelingt es dir:\n• Du verfügst über eine kaufmännische Grundausbildung sowie einen Fachausweis Immobilienbewirtschaftung (oder befindest dich in der Ausbildung). Dazu bringst du mehrere Jahre Berufserfahrung in diesem Bereich mit\n• Digitale Affinität und fundierte PC- und Softwarekenntnisse setzt du in der Arbeit mit verschiedenen Systemen gekonnt täglich ein\n• Eine effiziente und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten mit Verhandlungsgeschick qualifizieren dich im Umgang mit unterschiedlichen und anspruchsvollen Zielgruppen\n• Eine hohe Dienstleistungs- und Kundenorientierung sind für dich selbstverständlich\n• Gute Umgangsformen, hohe Belastbarkeit sowie Flexibilität und Ausdauer runden dein Profil ab Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "fr": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als (Senior) Immobilienbewirtschafter (m/w/d) Bern, 50-100% Das bewegst du:\n• Du übernimmst die Verantwortung für die Bewirtschaftung eines Portefeuilles von Wohn- und gemischt genutzten Liegenschaften\n• Dazu gehört die Sicherstellung des ordentlichen und ausserordentlichen Immobilienunterhalts, die Terminierung und Durchführung von Liegenschaftsbesichtigungen sowie Abnahmen\n• Du stehst in Kontakt mit der Eigentümerschaft, Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern\n• Das Verhandeln und Erstellen von Gewerbemietverträgen sowie des Jahresbudgets liegt ebenfalls in deinem Zuständigkeitsbereich\n• Um all diesen Aufgaben gerecht zu werden, kannst du auf die Unterstützung sowohl von Teammitgliedern der technischen Bewirtschaftung und Vermietung zählen als auch der Sachbearbeitung und Hauswartung, welche du betreust\n• Am Standort «Wohnen» kümmerst du dich zudem gemeinsam mit deinem Team um die persönliche Betreuung der Kundschaft vor Ort Deshalb gelingt es dir:\n• Du verfügst über eine kaufmännische Grundausbildung sowie einen Fachausweis Immobilienbewirtschaftung (oder befindest dich in der Ausbildung). Dazu bringst du mehrere Jahre Berufserfahrung in diesem Bereich mit\n• Digitale Affinität und fundierte PC- und Softwarekenntnisse setzt du in der Arbeit mit verschiedenen Systemen gekonnt täglich ein\n• Eine effiziente und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten mit Verhandlungsgeschick qualifizieren dich im Umgang mit unterschiedlichen und anspruchsvollen Zielgruppen\n• Eine hohe Dienstleistungs- und Kundenorientierung sind für dich selbstverständlich\n• Gute Umgangsformen, hohe Belastbarkeit sowie Flexibilität und Ausdauer runden dein Profil ab Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.implenia.com/job/%28Senior%29-Immobilienbewirtschafter-%28mwd%29%2C-Bern%2C-50-100/13769-de_DE",
+      "source": "Implenia Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:26:33.478Z",
+      "addressLocality": "Bern",
+      "postalCode": "3008",
+      "streetAddress": "Bogenschützenstrasse 9B",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Construction & Construction Services (civil engineering, building construction, real estate)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-16",
+      "applyUrl": "https://jobs.implenia.com/job/%28Senior%29-Immobilienbewirtschafter-%28mwd%29%2C-Bern%2C-50-100/13769-de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch",
+        "senior-immobilienbewirtschafter-m-w-d-bern-50-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch"
+          "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch",
+          "senior-immobilienbewirtschafter-m-w-d-bern-50-100-implenia-ch"
         ],
         "en": [
           "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch"
         ],
         "fr": [
           "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch"
+        ],
+        "de": [
+          "senior-immobilienbewirtschafter-m-w-d-bern-50-100-implenia-ch"
         ]
       },
-      "firstSeenAt": "2026-09-18T23:22:24.954Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -5255,7 +5464,141 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "firstSeenAt": "2026-09-28T21:26:33.478Z"
+    },
+    {
+      "id": "implenia-2a04ce515909",
+      "slug": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-bern-40-100-implenia-ch",
+      "slugByLocale": {
+        "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-bern-40-100-implenia-ch",
+        "it": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-bern-40-100-implenia-ch",
+        "en": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-bern-40-100-implenia-ch",
+        "fr": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-bern-40-100-implenia-ch"
+      },
+      "company": "Implenia",
+      "companyKey": "implenia",
+      "companyDomain": "implenia.com",
+      "title": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d), Bern, 40-100%",
+      "titleByLocale": {
+        "de": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d), Bern, 40-100%",
+        "it": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d), Bern, 40-100%",
+        "en": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d), Bern, 40-100%",
+        "fr": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d), Bern, 40-100%"
+      },
+      "description": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Sachbearbeiter Immobilienbewirtschaftung (m/w/d) Bern, 40-100% Das bewegst du:\n• Du verantwortest die Unterstützung des Teams bei sämtlichen administrativen Tätigkeiten innerhalb des B2C Standortes, um einen reibungslosen Ablauf zu gewährleisten\n• Als erster Ansprechpartner vor Ort übernimmst du die Kundenbetreuung und bist für den Erstkontakt mit Kunden und Mietern zuständig\n• Kommunikation mit der Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern gehört zu deinen Aufgaben, um einen effektiven Informationsaustausch sicherzustellen\n• Du bist verantwortlich für die Durchführung von Schlussabrechnungen und Depotauflösungen sowie für die Einholung und Beurteilung von Offerten, die Vergabe von Aufträgen an Handwerksbetriebe und die Überwachung der Arbeiten\n• Die Kontierung, Verarbeitung und Weiterbelastung von Kreditorenaufträgen und -rechnungen sowie die Debitorenkontrolle und Bearbeitung des Mahnwesens fallen ebenfalls in deinen Verantwortungsbereich Deshalb gelingt es dir:\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und vorzugsweise über den Sachbearbeiter Immobilienbewirtschaftung oder die Bereitschaft diese Weiterbildung zu absolvieren\n• Erste Berufserfahrung als Sachbearbeiter:in (von Vorteil in der Immobilienbranche o.ä.) konntest du bereits sammeln\n• Du bist teamfähig, belastbar und zeichnest dich durch deine kunden- und dienstleistungsorientierte Persönlichkeit aus\n• Eine eigenständige und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten qualifizieren dich im Umgang mit unterschiedlichen Personengruppen\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+      "descriptionByLocale": {
+        "de": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Sachbearbeiter Immobilienbewirtschaftung (m/w/d) Bern, 40-100% Das bewegst du:\n• Du verantwortest die Unterstützung des Teams bei sämtlichen administrativen Tätigkeiten innerhalb des B2C Standortes, um einen reibungslosen Ablauf zu gewährleisten\n• Als erster Ansprechpartner vor Ort übernimmst du die Kundenbetreuung und bist für den Erstkontakt mit Kunden und Mietern zuständig\n• Kommunikation mit der Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern gehört zu deinen Aufgaben, um einen effektiven Informationsaustausch sicherzustellen\n• Du bist verantwortlich für die Durchführung von Schlussabrechnungen und Depotauflösungen sowie für die Einholung und Beurteilung von Offerten, die Vergabe von Aufträgen an Handwerksbetriebe und die Überwachung der Arbeiten\n• Die Kontierung, Verarbeitung und Weiterbelastung von Kreditorenaufträgen und -rechnungen sowie die Debitorenkontrolle und Bearbeitung des Mahnwesens fallen ebenfalls in deinen Verantwortungsbereich Deshalb gelingt es dir:\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und vorzugsweise über den Sachbearbeiter Immobilienbewirtschaftung oder die Bereitschaft diese Weiterbildung zu absolvieren\n• Erste Berufserfahrung als Sachbearbeiter:in (von Vorteil in der Immobilienbranche o.ä.) konntest du bereits sammeln\n• Du bist teamfähig, belastbar und zeichnest dich durch deine kunden- und dienstleistungsorientierte Persönlichkeit aus\n• Eine eigenständige und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten qualifizieren dich im Umgang mit unterschiedlichen Personengruppen\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "it": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Sachbearbeiter Immobilienbewirtschaftung (m/w/d) Bern, 40-100% Das bewegst du:\n• Du verantwortest die Unterstützung des Teams bei sämtlichen administrativen Tätigkeiten innerhalb des B2C Standortes, um einen reibungslosen Ablauf zu gewährleisten\n• Als erster Ansprechpartner vor Ort übernimmst du die Kundenbetreuung und bist für den Erstkontakt mit Kunden und Mietern zuständig\n• Kommunikation mit der Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern gehört zu deinen Aufgaben, um einen effektiven Informationsaustausch sicherzustellen\n• Du bist verantwortlich für die Durchführung von Schlussabrechnungen und Depotauflösungen sowie für die Einholung und Beurteilung von Offerten, die Vergabe von Aufträgen an Handwerksbetriebe und die Überwachung der Arbeiten\n• Die Kontierung, Verarbeitung und Weiterbelastung von Kreditorenaufträgen und -rechnungen sowie die Debitorenkontrolle und Bearbeitung des Mahnwesens fallen ebenfalls in deinen Verantwortungsbereich Deshalb gelingt es dir:\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und vorzugsweise über den Sachbearbeiter Immobilienbewirtschaftung oder die Bereitschaft diese Weiterbildung zu absolvieren\n• Erste Berufserfahrung als Sachbearbeiter:in (von Vorteil in der Immobilienbranche o.ä.) konntest du bereits sammeln\n• Du bist teamfähig, belastbar und zeichnest dich durch deine kunden- und dienstleistungsorientierte Persönlichkeit aus\n• Eine eigenständige und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten qualifizieren dich im Umgang mit unterschiedlichen Personengruppen\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "en": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Sachbearbeiter Immobilienbewirtschaftung (m/w/d) Bern, 40-100% Das bewegst du:\n• Du verantwortest die Unterstützung des Teams bei sämtlichen administrativen Tätigkeiten innerhalb des B2C Standortes, um einen reibungslosen Ablauf zu gewährleisten\n• Als erster Ansprechpartner vor Ort übernimmst du die Kundenbetreuung und bist für den Erstkontakt mit Kunden und Mietern zuständig\n• Kommunikation mit der Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern gehört zu deinen Aufgaben, um einen effektiven Informationsaustausch sicherzustellen\n• Du bist verantwortlich für die Durchführung von Schlussabrechnungen und Depotauflösungen sowie für die Einholung und Beurteilung von Offerten, die Vergabe von Aufträgen an Handwerksbetriebe und die Überwachung der Arbeiten\n• Die Kontierung, Verarbeitung und Weiterbelastung von Kreditorenaufträgen und -rechnungen sowie die Debitorenkontrolle und Bearbeitung des Mahnwesens fallen ebenfalls in deinen Verantwortungsbereich Deshalb gelingt es dir:\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und vorzugsweise über den Sachbearbeiter Immobilienbewirtschaftung oder die Bereitschaft diese Weiterbildung zu absolvieren\n• Erste Berufserfahrung als Sachbearbeiter:in (von Vorteil in der Immobilienbranche o.ä.) konntest du bereits sammeln\n• Du bist teamfähig, belastbar und zeichnest dich durch deine kunden- und dienstleistungsorientierte Persönlichkeit aus\n• Eine eigenständige und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten qualifizieren dich im Umgang mit unterschiedlichen Personengruppen\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "fr": "An unserem Standort «Wohnen» in Bern fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Sachbearbeiter Immobilienbewirtschaftung (m/w/d) Bern, 40-100% Das bewegst du:\n• Du verantwortest die Unterstützung des Teams bei sämtlichen administrativen Tätigkeiten innerhalb des B2C Standortes, um einen reibungslosen Ablauf zu gewährleisten\n• Als erster Ansprechpartner vor Ort übernimmst du die Kundenbetreuung und bist für den Erstkontakt mit Kunden und Mietern zuständig\n• Kommunikation mit der Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern gehört zu deinen Aufgaben, um einen effektiven Informationsaustausch sicherzustellen\n• Du bist verantwortlich für die Durchführung von Schlussabrechnungen und Depotauflösungen sowie für die Einholung und Beurteilung von Offerten, die Vergabe von Aufträgen an Handwerksbetriebe und die Überwachung der Arbeiten\n• Die Kontierung, Verarbeitung und Weiterbelastung von Kreditorenaufträgen und -rechnungen sowie die Debitorenkontrolle und Bearbeitung des Mahnwesens fallen ebenfalls in deinen Verantwortungsbereich Deshalb gelingt es dir:\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und vorzugsweise über den Sachbearbeiter Immobilienbewirtschaftung oder die Bereitschaft diese Weiterbildung zu absolvieren\n• Erste Berufserfahrung als Sachbearbeiter:in (von Vorteil in der Immobilienbranche o.ä.) konntest du bereits sammeln\n• Du bist teamfähig, belastbar und zeichnest dich durch deine kunden- und dienstleistungsorientierte Persönlichkeit aus\n• Eine eigenständige und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten qualifizieren dich im Umgang mit unterschiedlichen Personengruppen\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-%28mwd%29%2C-Bern%2C-40-100/13831-de_DE",
+      "source": "Implenia Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:26:32.714Z",
+      "addressLocality": "Bern",
+      "postalCode": "3008",
+      "streetAddress": "Bogenschützenstrasse 9B",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Construction & Construction Services (civil engineering, building construction, real estate)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-%28mwd%29%2C-Bern%2C-40-100/13831-de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:26:32.714Z"
+    },
+    {
+      "id": "implenia-ec0ab0787641",
+      "slug": "vermietungsspezialist-immobilien-m-w-d-olten-100-implenia-ch",
+      "slugByLocale": {
+        "de": "vermietungsspezialist-immobilien-m-w-d-olten-100-implenia-ch",
+        "it": "vermietungsspezialist-immobilien-m-w-d-olten-100-implenia-ch",
+        "en": "vermietungsspezialist-immobilien-m-w-d-olten-100-implenia-ch",
+        "fr": "vermietungsspezialist-immobilien-m-w-d-olten-100-implenia-ch"
+      },
+      "company": "Implenia",
+      "companyKey": "implenia",
+      "companyDomain": "implenia.com",
+      "title": "Vermietungsspezialist Immobilien (m/w/d), Olten, 100%",
+      "titleByLocale": {
+        "de": "Vermietungsspezialist Immobilien (m/w/d), Olten, 100%",
+        "it": "Vermietungsspezialist Immobilien (m/w/d), Olten, 100%",
+        "en": "Vermietungsspezialist Immobilien (m/w/d), Olten, 100%",
+        "fr": "Vermietungsspezialist Immobilien (m/w/d), Olten, 100%"
+      },
+      "description": "An unserem Standort «Wohnen» in Olten fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Vermietungsspezialist Immobilien (m/w/d) Olten, 100% Das bewegst du:\n• Du verantwortest die Bearbeitung des digitalen Wiedervermietungsprozesses vom Kündigungseingang bis und mit Abnahme und Übergabe der Objekte, indem du direkt mit Mietern und Interessenten kommunizierst\n• Die Durchführung von selbstständigen Abnahmen und Übergaben sowie Wohnungsbesichtigungen mit Mietinteressenten fallen ebenfalls in deinen Verantwortungsbereich, wobei Aussentermine insbesondere Mitte und Ende des Monats einen wesentlichen Teil deiner Arbeitsverantwortung ausmachen werden\n• Die Erstellung qualitativ hochwertiger und fehlerfreier Online-Inserate sowie die Beauftragung weiterer Vermarktungsmassnahmen wie Fotos und 360°-Rundgänge gehören zu deinen Aufgaben\n• Du prüfst Bewerbungen sorgfältig und wählst geeignete Mietinteressenten aus, um anschliessend Mietverträge für Wohn- und Nebenobjekte zu erstellen\n• Als erste:r Ansprechpartner:in im Büro übernimmst du die Kundenbetreuung vor Ort und initiierst Massnahmen zur Überwachung und Priorisierung von Vermietungen und Leerständen Deshalb gelingt es dir:\n• Du verfügst über eine abgeschlossene Berufsausbildung (z.B. KV, Detailhandel, Handelsschule o.Ä.)\n• Ausserdem verfügst du über mehrjährige Berufserfahrung im Kundenkontakt\n• Erste Immobilienerfahrungen sind von Vorteil, Quereinsteiger:innen sind aber ebenfalls willkommen\n• Du verfügst über einen gültigen Führerausweis\n• Du handelst lösungs- und kundenorientiert und hast Freude am persönlichen Umgang mit Menschen\n• Eine selbstständige und zuverlässige Arbeitsweise sowie gute Kommunikationsfähigkeiten und Verhandlungsgeschick zeichnen dich aus; zusätzlich bist du ein Organisationstalent mit gutem Zeitmanagement und behältst auch in hektischen Zeiten den Überblick\n• Deine Bereitschaft für flexible Einsätze abends und samstags runden dein Profil ab\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch, Englisch von Vorteil Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+      "descriptionByLocale": {
+        "de": "An unserem Standort «Wohnen» in Olten fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Vermietungsspezialist Immobilien (m/w/d) Olten, 100% Das bewegst du:\n• Du verantwortest die Bearbeitung des digitalen Wiedervermietungsprozesses vom Kündigungseingang bis und mit Abnahme und Übergabe der Objekte, indem du direkt mit Mietern und Interessenten kommunizierst\n• Die Durchführung von selbstständigen Abnahmen und Übergaben sowie Wohnungsbesichtigungen mit Mietinteressenten fallen ebenfalls in deinen Verantwortungsbereich, wobei Aussentermine insbesondere Mitte und Ende des Monats einen wesentlichen Teil deiner Arbeitsverantwortung ausmachen werden\n• Die Erstellung qualitativ hochwertiger und fehlerfreier Online-Inserate sowie die Beauftragung weiterer Vermarktungsmassnahmen wie Fotos und 360°-Rundgänge gehören zu deinen Aufgaben\n• Du prüfst Bewerbungen sorgfältig und wählst geeignete Mietinteressenten aus, um anschliessend Mietverträge für Wohn- und Nebenobjekte zu erstellen\n• Als erste:r Ansprechpartner:in im Büro übernimmst du die Kundenbetreuung vor Ort und initiierst Massnahmen zur Überwachung und Priorisierung von Vermietungen und Leerständen Deshalb gelingt es dir:\n• Du verfügst über eine abgeschlossene Berufsausbildung (z.B. KV, Detailhandel, Handelsschule o.Ä.)\n• Ausserdem verfügst du über mehrjährige Berufserfahrung im Kundenkontakt\n• Erste Immobilienerfahrungen sind von Vorteil, Quereinsteiger:innen sind aber ebenfalls willkommen\n• Du verfügst über einen gültigen Führerausweis\n• Du handelst lösungs- und kundenorientiert und hast Freude am persönlichen Umgang mit Menschen\n• Eine selbstständige und zuverlässige Arbeitsweise sowie gute Kommunikationsfähigkeiten und Verhandlungsgeschick zeichnen dich aus; zusätzlich bist du ein Organisationstalent mit gutem Zeitmanagement und behältst auch in hektischen Zeiten den Überblick\n• Deine Bereitschaft für flexible Einsätze abends und samstags runden dein Profil ab\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch, Englisch von Vorteil Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "it": "An unserem Standort «Wohnen» in Olten fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Vermietungsspezialist Immobilien (m/w/d) Olten, 100% Das bewegst du:\n• Du verantwortest die Bearbeitung des digitalen Wiedervermietungsprozesses vom Kündigungseingang bis und mit Abnahme und Übergabe der Objekte, indem du direkt mit Mietern und Interessenten kommunizierst\n• Die Durchführung von selbstständigen Abnahmen und Übergaben sowie Wohnungsbesichtigungen mit Mietinteressenten fallen ebenfalls in deinen Verantwortungsbereich, wobei Aussentermine insbesondere Mitte und Ende des Monats einen wesentlichen Teil deiner Arbeitsverantwortung ausmachen werden\n• Die Erstellung qualitativ hochwertiger und fehlerfreier Online-Inserate sowie die Beauftragung weiterer Vermarktungsmassnahmen wie Fotos und 360°-Rundgänge gehören zu deinen Aufgaben\n• Du prüfst Bewerbungen sorgfältig und wählst geeignete Mietinteressenten aus, um anschliessend Mietverträge für Wohn- und Nebenobjekte zu erstellen\n• Als erste:r Ansprechpartner:in im Büro übernimmst du die Kundenbetreuung vor Ort und initiierst Massnahmen zur Überwachung und Priorisierung von Vermietungen und Leerständen Deshalb gelingt es dir:\n• Du verfügst über eine abgeschlossene Berufsausbildung (z.B. KV, Detailhandel, Handelsschule o.Ä.)\n• Ausserdem verfügst du über mehrjährige Berufserfahrung im Kundenkontakt\n• Erste Immobilienerfahrungen sind von Vorteil, Quereinsteiger:innen sind aber ebenfalls willkommen\n• Du verfügst über einen gültigen Führerausweis\n• Du handelst lösungs- und kundenorientiert und hast Freude am persönlichen Umgang mit Menschen\n• Eine selbstständige und zuverlässige Arbeitsweise sowie gute Kommunikationsfähigkeiten und Verhandlungsgeschick zeichnen dich aus; zusätzlich bist du ein Organisationstalent mit gutem Zeitmanagement und behältst auch in hektischen Zeiten den Überblick\n• Deine Bereitschaft für flexible Einsätze abends und samstags runden dein Profil ab\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch, Englisch von Vorteil Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "en": "An unserem Standort «Wohnen» in Olten fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Vermietungsspezialist Immobilien (m/w/d) Olten, 100% Das bewegst du:\n• Du verantwortest die Bearbeitung des digitalen Wiedervermietungsprozesses vom Kündigungseingang bis und mit Abnahme und Übergabe der Objekte, indem du direkt mit Mietern und Interessenten kommunizierst\n• Die Durchführung von selbstständigen Abnahmen und Übergaben sowie Wohnungsbesichtigungen mit Mietinteressenten fallen ebenfalls in deinen Verantwortungsbereich, wobei Aussentermine insbesondere Mitte und Ende des Monats einen wesentlichen Teil deiner Arbeitsverantwortung ausmachen werden\n• Die Erstellung qualitativ hochwertiger und fehlerfreier Online-Inserate sowie die Beauftragung weiterer Vermarktungsmassnahmen wie Fotos und 360°-Rundgänge gehören zu deinen Aufgaben\n• Du prüfst Bewerbungen sorgfältig und wählst geeignete Mietinteressenten aus, um anschliessend Mietverträge für Wohn- und Nebenobjekte zu erstellen\n• Als erste:r Ansprechpartner:in im Büro übernimmst du die Kundenbetreuung vor Ort und initiierst Massnahmen zur Überwachung und Priorisierung von Vermietungen und Leerständen Deshalb gelingt es dir:\n• Du verfügst über eine abgeschlossene Berufsausbildung (z.B. KV, Detailhandel, Handelsschule o.Ä.)\n• Ausserdem verfügst du über mehrjährige Berufserfahrung im Kundenkontakt\n• Erste Immobilienerfahrungen sind von Vorteil, Quereinsteiger:innen sind aber ebenfalls willkommen\n• Du verfügst über einen gültigen Führerausweis\n• Du handelst lösungs- und kundenorientiert und hast Freude am persönlichen Umgang mit Menschen\n• Eine selbstständige und zuverlässige Arbeitsweise sowie gute Kommunikationsfähigkeiten und Verhandlungsgeschick zeichnen dich aus; zusätzlich bist du ein Organisationstalent mit gutem Zeitmanagement und behältst auch in hektischen Zeiten den Überblick\n• Deine Bereitschaft für flexible Einsätze abends und samstags runden dein Profil ab\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch, Englisch von Vorteil Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
+        "fr": "An unserem Standort «Wohnen» in Olten fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren. Wenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als Vermietungsspezialist Immobilien (m/w/d) Olten, 100% Das bewegst du:\n• Du verantwortest die Bearbeitung des digitalen Wiedervermietungsprozesses vom Kündigungseingang bis und mit Abnahme und Übergabe der Objekte, indem du direkt mit Mietern und Interessenten kommunizierst\n• Die Durchführung von selbstständigen Abnahmen und Übergaben sowie Wohnungsbesichtigungen mit Mietinteressenten fallen ebenfalls in deinen Verantwortungsbereich, wobei Aussentermine insbesondere Mitte und Ende des Monats einen wesentlichen Teil deiner Arbeitsverantwortung ausmachen werden\n• Die Erstellung qualitativ hochwertiger und fehlerfreier Online-Inserate sowie die Beauftragung weiterer Vermarktungsmassnahmen wie Fotos und 360°-Rundgänge gehören zu deinen Aufgaben\n• Du prüfst Bewerbungen sorgfältig und wählst geeignete Mietinteressenten aus, um anschliessend Mietverträge für Wohn- und Nebenobjekte zu erstellen\n• Als erste:r Ansprechpartner:in im Büro übernimmst du die Kundenbetreuung vor Ort und initiierst Massnahmen zur Überwachung und Priorisierung von Vermietungen und Leerständen Deshalb gelingt es dir:\n• Du verfügst über eine abgeschlossene Berufsausbildung (z.B. KV, Detailhandel, Handelsschule o.Ä.)\n• Ausserdem verfügst du über mehrjährige Berufserfahrung im Kundenkontakt\n• Erste Immobilienerfahrungen sind von Vorteil, Quereinsteiger:innen sind aber ebenfalls willkommen\n• Du verfügst über einen gültigen Führerausweis\n• Du handelst lösungs- und kundenorientiert und hast Freude am persönlichen Umgang mit Menschen\n• Eine selbstständige und zuverlässige Arbeitsweise sowie gute Kommunikationsfähigkeiten und Verhandlungsgeschick zeichnen dich aus; zusätzlich bist du ein Organisationstalent mit gutem Zeitmanagement und behältst auch in hektischen Zeiten den Überblick\n• Deine Bereitschaft für flexible Einsätze abends und samstags runden dein Profil ab\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch, Englisch von Vorteil Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa"
+      },
+      "location": "Aarauerstrasse 11 Postfach-4601 Olten",
+      "canton": "SO",
+      "url": "https://jobs.implenia.com/job/Vermietungsspezialist-Immobilien-%28mwd%29%2C-Olten%2C-100/13817-de_DE",
+      "source": "Implenia Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:26:30.289Z",
+      "addressLocality": "Aarauerstrasse 11 Postfach-4601 Olten",
+      "postalCode": "",
+      "streetAddress": "",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Construction & Construction Services (civil engineering, building construction, real estate)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://jobs.implenia.com/job/Vermietungsspezialist-Immobilien-%28mwd%29%2C-Olten%2C-100/13817-de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:26:30.289Z"
     }
   ]
 }
