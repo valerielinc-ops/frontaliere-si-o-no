@@ -1,18 +1,79 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-09-28T04:55:13.369Z",
+  "generatedAt": "2026-09-28T21:13:40.177Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "newCount": 2,
+  "updatedCount": 5,
+  "removedCount": 2,
   "unchangedCount": 1,
-  "durationMs": 21882,
-  "avgDurationMs": 21882,
+  "durationMs": 20859,
+  "avgDurationMs": 20859,
   "durationHistory": [
-    21882
+    20859
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Logisitker (w/m/div.) - REF297188H",
+      "slug": "logisitker-w-m-div-ref297188h-bosch-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF297188H-logisitker-w-m-div-ref297188h",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152195569-logisitker-w-m-div-ref297188h?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-28",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Betriebsmechaniker (w/m/d) REF283480O",
+      "slug": "betriebsmechaniker-w-m-d-ref283480o-bosch-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF283480O-betriebsmechaniker-w-m-d-ref283480o",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152105859-betriebsmechaniker-w-m-d-ref283480o?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-28",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Praktikum in der Prozessoptimierung (w/m/div.) REF297091A",
@@ -79,7 +140,6 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-21T15:54:30.864Z",
       "sourceIdentity": "url:https://jobs.bosch.com/en/job/ref296638w-4-oder-5-tage-woche-servicetechniker-oel-gas-stadt-luzern-agglomeration-w-m-div-ref296638w",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -117,7 +177,6 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-21T15:54:30.864Z",
       "sourceIdentity": "url:https://jobs.bosch.com/en/job/ref293856u-4-oder-5-tage-woche-servicetechniker-waermepumpen-region-zh-ag-w-m-div-ref293856u",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -192,7 +251,6 @@
       "currency": "CHF",
       "salarySource": "reported",
       "firstSeenAt": "2026-09-26T23:31:04.313Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -200,10 +258,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Technischer Instruktor / Support Wärmepumpen (w/m/div.) REF295358S",
-      "slug": "technischer-instruktor-support-warmepumpen-w-m-div-ref295358s-bosch-pratteln",
+      "slug": "istruttore-tecnico-supporti-pompe-di-calore-f-m-div-rec-295358-s-bosch-thermotechnik-ag-pratteln",
       "url": "https://jobs.bosch.com/en/job/REF295358S-technischer-instruktor-support-waermepumpen-w-m-div-ref295358s",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000148685931-technischer-instruktor-support-warmepumpen-w-m-div-ref295358s?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -230,7 +290,6 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-10T23:04:38.705Z",
       "sourceIdentity": "url:https://jobs.bosch.com/en/job/ref295358s-technischer-instruktor-support-waermepumpen-w-m-div-ref295358s",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -241,7 +300,7 @@
     },
     {
       "title": "Projektleiter Maschinenbau",
-      "slug": "projektleiter-maschinenbau-bosch-st-niklaus",
+      "slug": "project-manager-ingegneria-meccanica-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF296011N-projektleiter-maschinenbau",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000148681989-projektleiter-maschinenbau?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -276,7 +335,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Internship – Design Sustainable Packaging REF296423S",
@@ -307,7 +365,6 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-09-16T23:43:27.195Z",
       "sourceIdentity": "url:https://jobs.bosch.com/en/job/ref296423s-internship-design-sustainable-packaging-ref296423s",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
