@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { delimiter, join, resolve } from 'node:path';
+import { delimiter, dirname, join, resolve } from 'node:path';
 
 /**
  * A rejected push used to rebuild the whole isolated commit: ownership guard
@@ -123,6 +123,100 @@ describe('git-commit-data: a rejected push reuses unchanged per-file results', (
       // Both sides of c survive: the other writer's edit and our translation.
       expect(remote('c').jobs[0].titleByLocale).toEqual({ en: 'C1' });
       expect(remote('c').jobs[1].title).toBe('Job c2 (remote edit)');
+    } finally {
+      for (const dir of [originDir, repoDir, otherDir, shimDir]) rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('git-commit-data: a verdict that saw a housekeeping proof is never reused', () => {
+  it('recomputes a slice whose proof appeared after the reuse-key check, even once it is gone', () => {
+    const originDir = mkdtempSync(join(tmpdir(), 'gcd-proof-origin-'));
+    const repoDir = mkdtempSync(join(tmpdir(), 'gcd-proof-repo-'));
+    const otherDir = mkdtempSync(join(tmpdir(), 'gcd-proof-other-'));
+    const shimDir = mkdtempSync(join(tmpdir(), 'gcd-proof-shim-'));
+    const proofDir = join(shimDir, 'proofs');
+    const proofFile = join(proofDir, 'data/jobs/by-crawler/a.json.housekeeping-proof.json');
+    try {
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+      execFileSync('git', ['clone', '-q', originDir, repoDir]);
+      git(repoDir, 'config', 'user.email', 'test@example.com');
+      git(repoDir, 'config', 'user.name', 'Test');
+      const sliceDir = join(repoDir, 'data/jobs/by-crawler');
+      mkdirSync(sliceDir, { recursive: true });
+      for (const key of ['a', 'c']) writeFileSync(join(sliceDir, `${key}.json`), slice(key, [job(key, 1), job(key, 2)]));
+      git(repoDir, 'add', '.');
+      git(repoDir, 'commit', '-q', '-m', 'seed');
+      git(repoDir, 'push', '-q', 'origin', 'HEAD:main');
+      writeFileSync(join(sliceDir, 'a.json'), slice('a', [job('a', 1, { titleByLocale: { en: 'A1' } }), job('a', 2)]));
+
+      const otherClone = join(otherDir, 'clone');
+      execFileSync('git', ['clone', '-q', originDir, otherClone]);
+      git(otherClone, 'config', 'user.email', 'other@example.com');
+      git(otherClone, 'config', 'user.name', 'Other');
+      const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+      const realNode = process.execPath;
+      const counter = join(shimDir, 'pushes');
+      writeFileSync(counter, '0');
+      // node shim: the proof for a appears while the ownership helper runs,
+      // i.e. after the reuse-key check and before the integrity phase.
+      writeFileSync(
+        join(shimDir, 'node'),
+        [
+          '#!/bin/bash',
+          `if [ "$(cat '${counter}')" = "0" ] && [[ "$*" == *crawler-commit-ownership.mjs*a.json* ]]; then`,
+          `  mkdir -p '${dirname(proofFile)}' && echo '{}' > '${proofFile}'`,
+          'fi',
+          `exec '${realNode}' "$@"`,
+          '',
+        ].join('\n'),
+      );
+      // git shim: the first push loses a real race and the proof disappears
+      // before the retry.
+      writeFileSync(
+        join(shimDir, 'git'),
+        [
+          '#!/bin/bash',
+          'if [ "$1" = "push" ]; then',
+          `  n=$(cat '${counter}'); echo $((n + 1)) > '${counter}'`,
+          '  if [ "$n" = "0" ]; then',
+          `    rm -f '${proofFile}'`,
+          `    printf '%s' '${slice('c', [job('c', 1), job('c', 2, { title: 'remote' })])}' > '${otherClone}/data/jobs/by-crawler/c.json'`,
+          `    '${realGit}' -C '${otherClone}' commit -q -am 'other writer: c' >/dev/null`,
+          `    '${realGit}' -C '${otherClone}' push -q origin HEAD:main >/dev/null 2>&1`,
+          '  fi',
+          'fi',
+          `exec '${realGit}' "$@"`,
+          '',
+        ].join('\n'),
+      );
+      writeFileSync(join(shimDir, 'sleep'), '#!/bin/bash\nexit 0\n');
+      for (const bin of ['node', 'git', 'sleep']) chmodSync(join(shimDir, bin), 0o755);
+
+      const result = spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'translate commit', 'data/jobs/by-crawler/'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}`,
+          MAX_PUSH_ATTEMPTS: '3',
+          SKIP_AI_TRANSLATION: '1',
+          SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+          JOBS_HOUSEKEEPING_PROOF_DIR: proofDir,
+          GH_TOKEN: '',
+          GITHUB_TOKEN: '',
+          GITHUB_RUN_ID: '',
+          GITHUB_REPOSITORY: '',
+          GITHUB_OUTPUT: '',
+        },
+      });
+      const log = `${result.stdout}${result.stderr}`;
+      expect(result.status, log).toBe(0);
+      expect(log).toContain('Push rejected (attempt 1/3)');
+      // a: same inputs, but its attempt-1 verdict saw a proof -> computed.
+      // c: remote moved -> computed.
+      expect(log).toContain('grouped-isolated attempt 2: 2 file(s) computed, 0 reused from the previous attempt');
+      expect(log).toContain('Pushed successfully');
     } finally {
       for (const dir of [originDir, repoDir, otherDir, shimDir]) rmSync(dir, { recursive: true, force: true });
     }

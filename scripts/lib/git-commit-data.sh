@@ -2093,6 +2093,9 @@ commit_isolated_from_worktree() {
         )
         housekeeping_proof_path="$(housekeeping_proof_path_for_file "$f")"
         if [ -f "$housekeeping_proof_path" ]; then
+          # A proof that appeared after the reuse-key check still makes this
+          # verdict run-context dependent: never reuse it on a later attempt.
+          result_cacheable=false
           # Consulted only if the staged blob is a catastrophic shrink. Its base
           # is the slice cleanup-jobs read (the crawler's fresh output), which
           # no git blob here reproduces: pass `-` and bind by the candidate
