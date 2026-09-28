@@ -2331,6 +2331,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pronto-consulto-mendrisiotto-basso-ceresio': { it: 'pronto-consulto-mendrisiotto-basso-ceresio', en: 'pronto-consulto-telephone-service-to-provide-guidance-in-the-mendrisiotto', de: 'pronto-consulto-telefonischer-dienst-zur-orientierung-im-mendrisiotto', fr: 'pronto-consulto-service-telephonique-pour-s-orienter-dans-le-mendrisiotto' },
  'navigazione-sostenibile-svizzera': { it: 'navigazione-sostenibile-svizzera', en: 'sustainable-maritime-switzerland', de: 'nachhaltige-schifffahrt-schweiz', fr: 'navigation-maritime-durable-suisse' },
  'formazione-primo-soccorso-pediatrico-ticino': { it: 'formazione-primo-soccorso-pediatrico-ticino', en: 'pediatric-first-aid-training-ticino', de: 'paediatrische-erste-hilfe-schulung-tessin', fr: 'formation-premiers-secours-pediatriques-tessin' },
+ 'eni-prezzo-carburante-italia-svizzera': { it: 'eni-prezzo-carburante-italia-svizzera', en: 'eni-cuts-fuel-domino-effect-uncertain-in-switzerland', de: 'eni-schneidet-kraftstoff-mit-unsicherem-dominoeffekt-in-der-schweiz', fr: 'eni-coupe-carburant-effet-domino-incertain-en-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
