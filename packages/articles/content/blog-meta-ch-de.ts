@@ -6890,6 +6890,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bern-istruzione-qualita-respinta.title': 'Bern lehnt die Initiative für hochwertige Bildung ab',
     'blog.article.bern-istruzione-qualita-respinta.excerpt': 'Mit 59,9% Nein und einer Beteiligung von 45,3% lehnen die Berner das Recht auf eine qualitativ hochwertige Bildung in der Kantonsverfassung ab.',
     'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'Schulgebäude im Schweizer Kanton Bern',
+    'blog.article.friburgo-successione-donazione-aliquote.title': 'Freiburg: Erbschaften und Schenkungen, Steuersätze und Befreiungen',
+    'blog.article.friburgo-successione-donazione-aliquote.excerpt': 'Kein einheitlicher Bundessteuersatz: Im Kanton Freiburg richten sich die Steuern nach dem Verwandtschaftsgrad und den Befreiungen für Ehepartner und Nachkommen.',
+    'blog.article.friburgo-successione-donazione-aliquote.imageAlt': 'Kantonales Verwaltungsgebäude in Freiburg für die Erbschafts- und Schenkungssteuer',
+    'blog.article.popolo-svizzero-boccia-neutralita.title': 'Neutralitätsinitiative vom Schweizer Volk abgelehnt',
+    'blog.article.popolo-svizzero-boccia-neutralita.excerpt': 'Die Initiative zur Neutralität wurde mit rund 70 % Nein-Stimmen abgelehnt; sie erreichte nach der Auszählung in 15 Kantonen nicht die Mehrheit der Kantone, während das Tessin eine leichte Abweichung zeigt.',
+    'blog.article.popolo-svizzero-boccia-neutralita.imageAlt': 'Bundesplatz in Bern mit Wählerinnen und Wählern sowie Kampagnenmaterial zur Neutralitätsinitiative',
+    'blog.article.voto-neutralita-alimentazione-respinto.title': 'Abstimmung am 27. September: klares Nein zu Neutralität und Essen',
+    'blog.article.voto-neutralita-alimentazione-respinto.excerpt': 'Am 27. September lehnten über 70 Prozent die Neutralitätsinitiative und 72,5 Prozent die Ernährungsinitiative in allen Kantonen ab.',
+    'blog.article.voto-neutralita-alimentazione-respinto.imageAlt': 'Schweizer Bürger an einer Wahlurne bei den Abstimmungen vom 27. September, klares Ergebnis zu Neutralität und Ernährung.',
+    'blog.article.friburgo-imposta-eredi-regole.title': 'Erbschafts- und Schenkungssteuer: Steuersätze Freiburg',
+    'blog.article.friburgo-imposta-eredi-regole.excerpt': 'Kanton Freiburg, Steuer auf drei Ebenen: wie man Zuständigkeiten, Verwandtschaftssätze, Befreiungen, Erklärung und zu überprüfende Fristen unterscheidet.',
+    'blog.article.friburgo-imposta-eredi-regole.imageAlt': 'Schweizer Kantonsverwaltung für einen Ratgeber zu Erbschafts- und Schenkungssteuer.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: Tessiner Landwirt im Schweizer Kalender',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'Der 29-Jährige aus Bellinzona erzählt von seiner Lehre auf Deutsch, der Schließung des Betriebs mit 650 Hühnern und der intensiven Arbeit von bis zu 15 Stunden pro Tag.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, 29-jähriger Tessiner Landwirt, Porträt für den Schweizer Bauernkalender',
 };
 
 export default blogMetaChDe;

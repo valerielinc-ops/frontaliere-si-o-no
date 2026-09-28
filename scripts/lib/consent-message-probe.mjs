@@ -120,6 +120,47 @@ export function classifyConsentProbe({ calls = [], fcRequested = false, dialogVi
 }
 
 /**
+ * In-page snapshot of the navigator signals that the ad loaders' bot gate
+ * reads (`BOT_GATE_FN` in build-plugins/constants.ts, twin of
+ * services/botPatterns.ts `isLikelyBot()`). A browser that trips that gate is
+ * skipped by the loaders by design, so Funding Choices never loads for it.
+ */
+export const BROWSER_FINGERPRINT_JS = `(function(){var n=navigator;return{userAgent:String(n.userAgent||''),webdriver:n.webdriver===true,chromeObject:'chrome' in window,languages:n.languages?n.languages.length:-1,plugins:n.plugins?n.plugins.length:-1,permissions:typeof n.permissions!=='undefined'};})()`;
+
+/**
+ * The browser-dependent layers of `BOT_GATE_FN` (webdriver, Chrome without
+ * `window.chrome`, desktop Chrome with no languages, no plugins or no
+ * Permissions API), applied to the probe's own browser. The UA-pattern and
+ * screen-signature layers depend on inputs the probe sets itself.
+ *
+ * chrome-headless-shell, Playwright's default headless browser, has no PDF
+ * plugin and no `window.chrome`: on 2026-09-28 it made the probe fail
+ * `fc_not_requested` on /cerca-lavoro-zurigo/ (#10166), whose only Funding
+ * Choices loader is the gated CDN one, while real Chrome got the consent
+ * message. A probe the site treats as a bot says nothing about visitors.
+ *
+ * @param {{ userAgent?: string, webdriver?: boolean, chromeObject?: boolean, languages?: number, plugins?: number, permissions?: boolean }} fp
+ * @returns {ProbeVerdict | null} null when the probe browser looks like a visitor
+ */
+export function botFingerprintVerdict(fp = {}) {
+  const ua = String(fp.userAgent || '').toLowerCase();
+  const signals = [];
+  if (fp.webdriver) signals.push('navigator.webdriver is true');
+  if (ua.includes('chrome') && !fp.chromeObject) signals.push('no window.chrome');
+  if (ua.includes('chrome') && !ua.includes('mobile')) {
+    if (fp.languages === 0) signals.push('navigator.languages is empty');
+    if (fp.plugins === 0) signals.push('navigator.plugins is empty');
+    if (!fp.permissions) signals.push('navigator.permissions is missing');
+  }
+  if (signals.length === 0) return null;
+  return {
+    verdict: 'fail',
+    reason: 'probe_flagged_as_bot',
+    detail: `The probe browser trips the ad loaders' bot gate (${signals.join(', ')}), so the site rightly never loads Funding Choices for it and no page can be verified: this is the probe's environment, not a site regression. Launch full Chromium (channel 'chromium' or CHROMIUM_EXECUTABLE_PATH), not chrome-headless-shell.`,
+  };
+}
+
+/**
  * A page that could not be loaded or observed was not verified: that is a
  * fail, never a warning, or an unreachable page would pass the gate.
  */

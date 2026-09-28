@@ -1,6 +1,6 @@
 {
   "crawlerKey": "accor",
-  "assembledAt": "2026-09-27T15:19:31.864Z",
+  "assembledAt": "2026-09-28T05:10:05.464Z",
   "jobs": [
     {
       "id": "accor-3a1579d2eb3c",
@@ -34,7 +34,7 @@
       "url": "https://careers.accor.com/fr/fr/job/chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-in-moevenpick-hotel-and-casino-geneva-geneva-switzerl-jid-103713",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.808Z",
+      "crawledAt": "2026-09-28T05:10:00.691Z",
       "addressLocality": "Mövenpick Hotel And Casino Geneva, Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -50,10 +50,14 @@
       "applyUrl": "https://careers.accor.com/fr/fr/job/chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-in-moevenpick-hotel-and-casino-geneva-geneva-switzerl-jid-103713",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T14:20:10.618Z",
+      "previousSlugs": [
+        "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2",
+        "chef-banquet-m-f-csd-3-mesi-da-iniziare-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland-3a1579d2"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2"
+          "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2",
+          "chef-banquet-m-f-csd-3-mesi-da-iniziare-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-switzerland-3a1579d2"
         ],
         "en": [
           "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2"
@@ -62,9 +66,7 @@
           "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2"
         ]
       },
-      "previousSlugs": [
-        "chef-de-cuisine-banquet-h-f-cdd-3-mois-pour-commencer-ibis-budget-movenpick-hotel-and-casino-geneva-geneva-3a1579d2"
-      ],
+      "firstSeenAt": "2026-09-26T14:20:10.618Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -111,7 +113,7 @@
       "url": "https://careers.accor.com/fr/fr/job/serveur-se-sur-appel-f-h-x-cdd-automne-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-104711",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.807Z",
+      "crawledAt": "2026-09-28T05:10:00.688Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -198,7 +200,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistant-manager-operations-banquets-h-f-in-fairmont-le-montreux-palace-montreux-switzerland-jid-105899",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.806Z",
+      "crawledAt": "2026-09-28T05:10:00.685Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -281,7 +283,7 @@
       "url": "https://careers.accor.com/fr/fr/job/cluster-sales-manager-mice-and-groups-25hours-and-mama-shelter-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-51451",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:19:27.804Z",
+      "crawledAt": "2026-09-28T05:10:00.683Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -370,7 +372,7 @@
       "url": "https://careers.accor.com/fr/fr/job/instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106298",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.801Z",
+      "crawledAt": "2026-09-28T05:10:00.681Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -454,7 +456,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-chef-de-cuisine-f-h-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-106838",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.799Z",
+      "crawledAt": "2026-09-28T05:10:00.679Z",
       "addressLocality": "Hotel Rotary Geneva - MGallery, Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -534,7 +536,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.798Z",
+      "crawledAt": "2026-09-28T05:10:00.678Z",
       "addressLocality": "ibis Lausanne Centre, Lausanne, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -550,10 +552,14 @@
       "applyUrl": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T14:20:10.614Z",
+      "previousSlugs": [
+        "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106",
+        "allenamento-operativo-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
+          "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106",
+          "allenamento-operativo-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
         ],
         "en": [
           "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
@@ -562,9 +568,7 @@
           "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
         ]
       },
-      "previousSlugs": [
-        "stagiaire-operationnel-100-ibis-budget-ibis-lausanne-centre-lausanne-switzerland-5bf57106"
-      ],
+      "firstSeenAt": "2026-09-26T14:20:10.614Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -611,7 +615,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistent-front-office-manager-in-ibis-styles-zurich-city-center-zuerich-switzerland-jid-107635",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:19:27.798Z",
+      "crawledAt": "2026-09-28T05:10:00.677Z",
       "addressLocality": "ibis Styles Zurich City Center, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -710,7 +714,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:19:27.796Z",
+      "crawledAt": "2026-09-28T05:10:00.676Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -794,7 +798,7 @@
       "url": "https://careers.accor.com/fr/fr/job/service-staff-ribelli-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-24550",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:19:27.795Z",
+      "crawledAt": "2026-09-28T05:10:00.675Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -810,8 +814,8 @@
       "applyUrl": "https://careers.accor.com/fr/fr/job/service-staff-ribelli-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-24550",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T14:20:10.612Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T14:20:10.612Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -858,7 +862,7 @@
       "url": "https://careers.accor.com/fr/fr/job/groups-and-event-coordinator-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-18387",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:19:27.794Z",
+      "crawledAt": "2026-09-28T05:10:00.674Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -944,7 +948,7 @@
       "url": "https://careers.accor.com/fr/fr/job/junior-sous-chef-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109967",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:19:27.793Z",
+      "crawledAt": "2026-09-28T05:10:00.673Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1007,7 +1011,7 @@
       "url": "https://careers.accor.com/fr/fr/job/head-chef-f-wm-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-109965",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:19:27.792Z",
+      "crawledAt": "2026-09-28T05:10:00.672Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1070,7 +1074,7 @@
       "url": "https://careers.accor.com/fr/fr/job/commis-de-cuisine-f-h-x-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106814",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.791Z",
+      "crawledAt": "2026-09-28T05:10:00.671Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1147,7 +1151,7 @@
       "url": "https://careers.accor.com/fr/fr/job/front-office-agent-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-110319",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:19:27.790Z",
+      "crawledAt": "2026-09-28T05:10:00.669Z",
       "addressLocality": "25hours Hotel Zurich West, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1224,7 +1228,7 @@
       "url": "https://careers.accor.com/fr/fr/job/restaurant-supervisor-25hours-langstrasse-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-5756",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:19:27.789Z",
+      "crawledAt": "2026-09-28T05:10:00.668Z",
       "addressLocality": "25hours Hotel Zurich Langstrasse, Zürich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1240,8 +1244,8 @@
       "applyUrl": "https://careers.accor.com/fr/fr/job/restaurant-supervisor-25hours-langstrasse-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-5756",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T14:20:10.608Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T14:20:10.608Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1288,7 +1292,7 @@
       "url": "https://careers.accor.com/fr/fr/job/therapeute-estheticienne-h-f-x-cdi-sur-appel-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-111289",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.787Z",
+      "crawledAt": "2026-09-28T05:10:00.666Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1367,7 +1371,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-chef-fe-de-reception-h-f-x-in-hotel-rotary-geneva-mgallery-geneve-switzerland-jid-111374",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.785Z",
+      "crawledAt": "2026-09-28T05:10:00.664Z",
       "addressLocality": "Hotel Rotary Geneva - MGallery, Genève, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1443,7 +1447,7 @@
       "url": "https://careers.accor.com/fr/fr/job/therapeute-masseuse-f-h-x-cdd-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-111291",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.783Z",
+      "crawledAt": "2026-09-28T05:10:00.662Z",
       "addressLocality": "Fairmont Le Montreux Palace, Montreux, Switzerland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1523,7 +1527,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-receptionniste-h-f-x-in-mercure-fribourg-centre-remparts-fribourg-switzerl-jid-88660",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-27T15:19:27.781Z",
+      "crawledAt": "2026-09-28T05:10:00.659Z",
       "addressLocality": "Mercure Fribourg Centre Remparts, Fribourg, Switzerland",
       "addressRegion": "FR",
       "addressCountry": "CH",

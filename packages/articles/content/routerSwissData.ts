@@ -2319,6 +2319,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'esito-iniziativa-neutralita-svizzera': { it: 'esito-iniziativa-neutralita-svizzera', en: 'swiss-neutrality-initiative-result', de: 'ergebnis-neutralitaetsinitiative-schweiz', fr: 'resultat-initiative-neutralite-suisse' },
  'lucerna-voto-tifosi-ocse': { it: 'lucerna-voto-tifosi-ocse', en: 'lucerne-vote-fans-oecd-funds', de: 'luzern-abstimmung-fans-oecd-gelder', fr: 'lucerne-vote-supporters-fonds-ocde' },
  'bern-istruzione-qualita-respinta': { it: 'bern-istruzione-qualita-respinta', en: 'bern-quality-education-initiative-rejected', de: 'bern-bildungsqualitaet-initiative-abgelehnt', fr: 'berne-initiative-education-qualite-rejetee' },
+ 'friburgo-successione-donazione-aliquote': { it: 'friburgo-successione-donazione-aliquote', en: 'fribourg-inheritance-gift-tax-rates', de: 'freiburg-erbschaft-schenkung-steuersaetze', fr: 'fribourg-impot-succession-donation-taux' },
+ 'popolo-svizzero-boccia-neutralita': { it: 'popolo-svizzero-boccia-neutralita', en: 'swiss-people-reject-neutrality', de: 'schweizer-volk-lehnt-neutralitaet-ab', fr: 'peuple-suisse-rejette-la-neutralite' },
+ 'voto-neutralita-alimentazione-respinto': { it: 'voto-neutralita-alimentazione-respinto', en: 'neutrality-food-initiative-rejected', de: 'neutralitaet-ernaehrungs-initiative-abgelehnt', fr: 'neutralite-alimentation-initiative-rejectee' },
+ 'friburgo-imposta-eredi-regole': { it: 'friburgo-imposta-eredi-regole', en: 'fribourg-inheritance-gift-tax', de: 'erbschaft-schenkungsteuer-freiburg', fr: 'droits-succession-donation-fribourg' },
+ 'massimo-balena-calendario-agricoltori-ticino': { it: 'massimo-balena-calendario-agricoltori-ticino', en: 'massimo-balena-swiss-farmer-calendar', de: 'massimo-balena-schweizer-landbaukalender', fr: 'massimo-balena-calendrier-agriculteurs' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

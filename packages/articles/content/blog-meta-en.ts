@@ -12178,6 +12178,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.manfrinati-ergastolo-casbeno-varese.title': 'Manfrinati sentenced to life imprisonment for murder',
     'blog.article.manfrinati-ergastolo-casbeno-varese.excerpt': 'Assize Court of Varese: life imprisonment with daytime isolation. Compensation exceeding 2 million. Appeal announced.',
     'blog.article.manfrinati-ergastolo-casbeno-varese.imageAlt': 'View of a residential street in an Italian neighborhood near the Swiss border, grey and silent atmosphere.',
+    'blog.article.varese-lentigione-franco-ossola.title': 'Varese-Lentigione: Sunday 27 September at Franco Ossola',
+    'blog.article.varese-lentigione-franco-ossola.excerpt': 'The Varese seeks confirmation after the success on the Pontedera. The match against Lentigione is played on Sunday 27 September at 3 pm in Masnago.',
+    'blog.article.varese-lentigione-franco-ossola.imageAlt': 'Franco Ossola stadium in Masnago with a view of Monte Generoso before the Varese-Lentigione match',
+    'blog.article.canottieri-varese-nagano-patto.title': 'Canottieri Varese signs friendship pact with Nagano Rowing',
+    'blog.article.canottieri-varese-nagano-patto.excerpt': 'On Friday, September 25, in a videoconference between Schiranna and Shimosuwa, the Canottieri Varese Company and the Nagano Rowing Association signed a twinning agreement for cultural exchanges, shared training and technical development, with the first showcase in 2027.',
+    'blog.article.canottieri-varese-nagano-patto.imageAlt': 'Rowing boats on Lake Lugano with Ticino mountains in the background',
+    'blog.article.busto-saronno-sequestro-giocattoli.title': 'Seizure of toys and unsafe devices in Lombardy',
+    'blog.article.busto-saronno-sequestro-giocattoli.excerpt': 'Over 20 thousand toys and 300 electrical devices seized. Fines of 10 thousand euros and complaints for commercial fraud.',
+    'blog.article.busto-saronno-sequestro-giocattoli.imageAlt': 'Non-compliant toys and electrical devices seized by the Financial Guard in Busto Arsizio and Saronno.',
 };
 
 export default blogMetaEn;

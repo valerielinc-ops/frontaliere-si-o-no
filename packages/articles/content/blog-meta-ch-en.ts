@@ -6890,6 +6890,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bern-istruzione-qualita-respinta.title': 'Bern rejects the initiative on quality education',
     'blog.article.bern-istruzione-qualita-respinta.excerpt': 'With 59.9% voting no and a turnout of 45.3%, the people of Bern reject the right to a quality education in the cantonal constitution.',
     'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'School building in the Swiss canton of Bern',
+    'blog.article.friburgo-successione-donazione-aliquote.title': 'Fribourg: inheritances and gifts, tax rates and exemptions',
+    'blog.article.friburgo-successione-donazione-aliquote.excerpt': 'No single federal tax rate: in the Canton of Fribourg, taxes depend on the degree of kinship and exemptions for spouse and descendants.',
+    'blog.article.friburgo-successione-donazione-aliquote.imageAlt': 'Cantonal administrative building in Fribourg handling inheritance and gift tax affairs',
+    'blog.article.popolo-svizzero-boccia-neutralita.title': 'Initiative on neutrality rejected by the Swiss people',
+    'blog.article.popolo-svizzero-boccia-neutralita.excerpt': 'The neutrality initiative was rejected with approximately 70% voting no; it did not obtain a majority of the cantons after the count in 15 of them, while Ticino shows a slight divergence.',
+    'blog.article.popolo-svizzero-boccia-neutralita.imageAlt': 'Federal Palace square in Bern with voters and neutrality campaign material',
+    'blog.article.voto-neutralita-alimentazione-respinto.title': 'September 27 vote: a resounding no to neutrality and food',
+    'blog.article.voto-neutralita-alimentazione-respinto.excerpt': 'On 27 September, over 70% rejected the neutrality initiative and 72.5% rejected the food initiative in all cantons.',
+    'blog.article.voto-neutralita-alimentazione-respinto.imageAlt': 'Swiss citizens at a polling station during the September 27 votes, clear results on neutrality and food initiatives.',
+    'blog.article.friburgo-imposta-eredi-regole.title': 'Inheritance and gift tax: Fribourg rates',
+    'blog.article.friburgo-imposta-eredi-regole.excerpt': 'Canton of Fribourg, three-tier taxation: how to distinguish responsibilities, rates by relationship, exemptions, tax return and deadlines to verify.',
+    'blog.article.friburgo-imposta-eredi-regole.imageAlt': 'Swiss cantonal administration building for an editorial guide on inheritance and gift tax.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: Ticino farmer in the Swiss calendar',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'The 29-year-old from Bellinzona recounts the apprenticeship in German, the closure of the company with 650 hens, and the intensive work of up to 15 hours a day.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, 29-year-old Ticino farmer, portrait for the Swiss Farmers\' Calendar',
 };
 
 export default blogMetaChEn;

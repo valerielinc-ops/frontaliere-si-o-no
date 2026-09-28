@@ -6890,6 +6890,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bern-istruzione-qualita-respinta.title': 'Berna respinge l\'iniziativa sull\'istruzione di qualità',
     'blog.article.bern-istruzione-qualita-respinta.excerpt': 'Con il 59,9% di no e una partecipazione del 45,3%, i bernesi respingono il diritto a un\'istruzione di qualità nella Costituzione cantonale.',
     'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'Scuola del Cantone di Berna in una scena urbana svizzera',
+    'blog.article.friburgo-successione-donazione-aliquote.title': 'Friburgo: successioni e donazioni, aliquote e esenzioni',
+    'blog.article.friburgo-successione-donazione-aliquote.excerpt': 'Nessuna aliquota federale unica: in Canton Friburgo le tasse seguono il grado di parentela e le esenzioni per coniuge e discendenti.',
+    'blog.article.friburgo-successione-donazione-aliquote.imageAlt': 'Edificio amministrativo cantonale a Friburgo per la gestione delle imposte di successione e donazione',
+    'blog.article.popolo-svizzero-boccia-neutralita.title': 'Iniziativa sulla neutralità bocciata dal popolo svizzero',
+    'blog.article.popolo-svizzero-boccia-neutralita.excerpt': 'L\'iniziativa sulla neutralità è stata bocciata con circa il 70% di no; non ha ottenuto la maggioranza dei cantoni dopo lo spoglio in 15 di essi, mentre il Ticino mostra una leggera divergenza.',
+    'blog.article.popolo-svizzero-boccia-neutralita.imageAlt': 'Piazza del Palazzo federale a Berna con cittadini e materiale della votazione sulla neutralità',
+    'blog.article.voto-neutralita-alimentazione-respinto.title': 'Voto 27 settembre: no secco a neutralità e cibo',
+    'blog.article.voto-neutralita-alimentazione-respinto.excerpt': 'Il 27 settembre, oltre il 70% ha respinto l\'iniziativa sulla neutralità e il 72,5% ha bocciato quella sull\'alimentazione in tutti i Cantoni.',
+    'blog.article.voto-neutralita-alimentazione-respinto.imageAlt': 'Cittadini svizzeri presso un seggio elettorale durante le votazioni del 27 settembre, esito netto sulle iniziative di neutralità e alimentazione.',
+    'blog.article.friburgo-imposta-eredi-regole.title': 'Imposta successione e donazione: aliquote Friburgo',
+    'blog.article.friburgo-imposta-eredi-regole.excerpt': 'Cantone di Friburgo, fisco a tre livelli: come distinguere competenze, aliquote per parentela, esenzioni, dichiarazione e termini da verificare.',
+    'blog.article.friburgo-imposta-eredi-regole.imageAlt': 'Edificio di un\'amministrazione cantonale svizzera per una guida su successioni e donazioni.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: agricoltore ticinese nel calendario svizzero',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'Il 29enne di Bellinzona racconta l\'apprendistato in tedesco, la chiusura dell\'azienda con 650 galline e il lavoro intensivo fino a 15 ore al giorno.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, agricoltore ticinese di 29 anni, ritratto per il Calendario degli agricoltori svizzeri',
 };
 
 export default blogMetaChIt;
