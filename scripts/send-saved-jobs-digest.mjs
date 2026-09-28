@@ -121,12 +121,16 @@ const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canto
 const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
 const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
 
+function legacyJobBoardUrl(locale) {
+  return `${BASE_URL}${localePathPrefix(locale)}/${resolveCantonSection(locale, 'TI')}/`;
+}
+
 function jobPageUrl(job, locale) {
   const cantonCode = resolveJobCanton({ canton: job.canton, location: job.location });
   const jobBoardPath = resolveCantonSection(locale, cantonCode);
   const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
   const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
-  return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : `${BASE_URL}/cerca-lavoro-ticino/`;
+  return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : legacyJobBoardUrl(locale);
 }
 
 function jobTitle(job, locale) {
@@ -711,7 +715,7 @@ function formatPostedDate(raw, locale) {
 // product. postedDate/sector stay saved-digest-only additions (job-alert
 // doesn't carry them) rendered as a small detail line under the badges.
 function renderJobCard(entry, locale, s, { expired, applicationIntent = false }) {
-  const url = expired ? `${BASE_URL}/cerca-lavoro-ticino/` : entry.url;
+  const url = expired ? legacyJobBoardUrl(locale) : entry.url;
   const titleBadges = [];
   if (expired) {
     titleBadges.push(`<span style="display:inline-block;background:rgba(239,68,68,0.2);color:#fca5a5;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px;">${s.expiredBadge}</span>`);
@@ -926,7 +930,7 @@ export function buildEmailText({ locale, s, savedEntries = [], applicationIntent
   const hasApplicationIntents = applicationIntentEntries.length > 0;
   const lines = [hasSaved ? s.heroTitle : s.applicationSectionTitle, ''];
   for (const e of savedEntries) {
-    lines.push(`- ${e.title} (${s.at} ${e.company})${e.expired ? ` [${s.expiredBadge}]` : ''}: ${e.expired ? `${BASE_URL}/cerca-lavoro-ticino/` : e.url}`);
+    lines.push(`- ${e.title} (${s.at} ${e.company})${e.expired ? ` [${s.expiredBadge}]` : ''}: ${e.expired ? legacyJobBoardUrl(locale) : e.url}`);
   }
   if (hasApplicationIntents) {
     lines.push('', s.applicationSectionTitle, s.applicationIntentNotice);
