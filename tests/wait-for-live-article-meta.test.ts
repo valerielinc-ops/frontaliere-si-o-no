@@ -116,6 +116,42 @@ describe('wait-for-live-article-meta', () => {
     expect(result.stdout).toContain('Live article metadata ready');
   });
 
+  it('accepts minified attributes and ignores data attribute lookalikes', async () => {
+    const server = http.createServer((req, res) => {
+      if (getPathname(req.url) === '/articoli-frontaliere/test-article') {
+        const baseUrl = `http://127.0.0.1:${(server.address() as any).port}`;
+        res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
+        res.end(`<!doctype html><html><head>
+          <title>Articolo di test | Frontaliere Ticino</title>
+          <meta data-property=og:title data-content=wrong>
+          <meta property=og:title content="Articolo di test | Frontaliere Ticino">
+          <meta property=og:image content=${baseUrl}/images/blog/test.webp>
+          <meta property=og:url content=${baseUrl}/articoli-frontaliere/test-article/>
+          <link rel=canonical href=${baseUrl}/articoli-frontaliere/test-article/>
+        </head><body></body></html>`);
+        return;
+      }
+
+      res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' });
+      res.end('not found');
+    });
+
+    servers.push(server);
+    server.listen(0, '127.0.0.1');
+    await once(server, 'listening');
+
+    const port = (server.address() as any).port;
+    const baseUrl = `http://127.0.0.1:${port}`;
+    const result = await runWaitScript(
+      `${baseUrl}/articoli-frontaliere/test-article`,
+      'Articolo di test | Frontaliere Ticino',
+      `${baseUrl}/images/blog/test.webp`,
+    );
+
+    expect(result.code, result.stdout || result.stderr).toBe(0);
+    expect(result.stdout).toContain('Live article metadata ready');
+  });
+
   it('falls back to the final response URL when og:url is missing', async () => {
     const server = http.createServer((req, res) => {
       if (getPathname(req.url) === '/articoli-frontaliere/test-article') {
