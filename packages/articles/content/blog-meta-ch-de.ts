@@ -6872,6 +6872,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zurigo-norme-grattacieli-votazione.title': 'Zürich genehmigt strengere Vorschriften für Wolkenkratzer',
     'blog.article.zurigo-norme-grattacieli-votazione.excerpt': 'Zürich genehmigte die strengere Variante des Bebauungsplans mit 62,6% der Stimmen und einer Beteiligung von 45,8%, während die Stadt rund 300 Gebäude über 25 Meter umfasst.',
     'blog.article.zurigo-norme-grattacieli-votazione.imageAlt': 'Blick auf die Skyline von Zürich mit beschränkten Hochhauszonen nahe den Gleisen und Oerlikon',
+    'blog.article.neutralita-scelta-caso.title': 'Neutralität, Cassis: Wir sind neutral und werden es bleiben',
+    'blog.article.neutralita-scelta-caso.excerpt': 'Ignazio Cassis zeigt sich nach der Ablehnung der Initiative zufrieden: Die Schweiz kann mit der bisherigen Praxis fortfahren und die Wirtschaftssanktionen von Fall zu Fall beurteilen.',
+    'blog.article.neutralita-scelta-caso.imageAlt': 'Ignazio Cassis äussert sich zur Abstimmung über die Schweizer Neutralitätsinitiative',
 };
 
 export default blogMetaChDe;

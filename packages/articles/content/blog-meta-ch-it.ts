@@ -6872,6 +6872,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.zurigo-norme-grattacieli-votazione.title': 'Zurigo approva norme più severe per i grattacieli',
     'blog.article.zurigo-norme-grattacieli-votazione.excerpt': 'Zurigo ha approvato la variante più severa del piano regolatore con il 62,6% dei voti e una partecipazione del 45,8%, mentre la città conta circa 300 edifici oltre 25 metri.',
     'blog.article.zurigo-norme-grattacieli-votazione.imageAlt': 'Veduta dello skyline di Zurigo con zone limitate per grattacieli vicino ai binari ferroviari e a Oerlikon',
+    'blog.article.neutralita-scelta-caso.title': 'Neutralità, Cassis: siamo neutrali e lo resteremo',
+    'blog.article.neutralita-scelta-caso.excerpt': 'Ignazio Cassis si dice soddisfatto dopo la bocciatura dell\'iniziativa: la Svizzera può continuare con la prassi attuale e valutare caso per caso le sanzioni economiche.',
+    'blog.article.neutralita-scelta-caso.imageAlt': 'Ignazio Cassis commenta il voto sull\'iniziativa sulla neutralità svizzera',
 };
 
 export default blogMetaChIt;

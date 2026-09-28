@@ -89096,6 +89096,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neutralita-scelta-caso': {
+    title: 'Neutralità, Cassis: siamo neutrali e lo resteremo',
+    description: 'Dopo la bocciatura dell\'iniziativa, Ignazio Cassis difende la neutralità svizzera: definizione non irrigidita e sanzioni valutate caso per caso in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, cassis, siamo, neutrali',
+    ogTitle: 'Cassis dopo il voto: neutralità e sanzioni caso per caso',
+    ogDescription: 'La bocciatura dell\'iniziativa sulla neutralità, secondo Ignazio Cassis, non è un voto contro il principio. Il consigliere federale difende la prassi attuale, l\'adattamento ai periodi e la possibilità di valutare caso per caso le sanzioni economiche.',
+    canonicalPath: '/articoli-svizzera/neutralita-scelta-caso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralità, Cassis: siamo neutrali e lo resteremo",
+      "description": "Dopo la bocciatura dell'iniziativa, Ignazio Cassis difende la neutralità svizzera: definizione non irrigidita e sanzioni valutate caso per caso in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neutralita-scelta-caso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ignazio Cassis commenta il voto sull'iniziativa sulla neutralità svizzera"
+      },
+      "datePublished": "2026-09-28T00:17:56+00:00",
+      "dateModified": "2026-09-28T00:17:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neutralita-scelta-caso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
