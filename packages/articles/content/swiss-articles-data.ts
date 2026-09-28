@@ -20797,6 +20797,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'formazione-primo-soccorso-pediatrico-ticino',
+    category: 'novita',
+    date: '2026-09-28T10:44:52.422Z',
+    image: '/images/blog/formazione-primo-soccorso-pediatrico-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -6923,6 +6923,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.navigazione-sostenibile-svizzera.title': 'Retard réglementaire des navires, fournisseurs suisses sous pression',
     'blog.article.navigazione-sostenibile-svizzera.excerpt': 'Décision de l\'OMI sur les émissions nulles reportée à décembre. Accelleron et Burckhardt Compression réduisent les attentes, ABB maintient des activités normales.',
     'blog.article.navigazione-sostenibile-svizzera.imageAlt': 'Vue aérienne du lac de Lugan avec des navires de marchandise au loin',
+    'blog.article.formazione-primo-soccorso-pediatrico-ticino.title': 'Premiers secours pédiatriques : demande de formation obligatoire',
+    'blog.article.formazione-primo-soccorso-pediatrico-ticino.excerpt': 'En 2025, 296 interventions ont été enregistrées concernant des enfants jusqu’à 6 ans. La motion demande une formation certifiée et biennale.',
+    'blog.article.formazione-primo-soccorso-pediatrico-ticino.imageAlt': 'Formation aux premiers secours pédiatriques au Tessin',
 };
 
 export default blogMetaChFr;

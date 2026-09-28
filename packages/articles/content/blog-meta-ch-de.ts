@@ -6923,6 +6923,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.navigazione-sostenibile-svizzera.title': 'Regelverzögerung Schiffe, Schweizer Lieferanten unter Druck',
     'blog.article.navigazione-sostenibile-svizzera.excerpt': 'IMO-Entscheidung zu Null-Emissionen auf Dezember verschoben. Accelleron und Burckhardt Compression senken Erwartungen, ABB hält den normalen Betrieb aufrecht.',
     'blog.article.navigazione-sostenibile-svizzera.imageAlt': 'Luftbild des Luganersees mit Frachtschiffen in der Ferne',
+    'blog.article.formazione-primo-soccorso-pediatrico-ticino.title': 'Pädiatrische Erste Hilfe: Anfrage nach einer verpflichtenden Schulung',
+    'blog.article.formazione-primo-soccorso-pediatrico-ticino.excerpt': 'Im Jahr 2025 wurden 296 Eingriffe bei Kindern bis 6 Jahre registriert. Die Motion verlangt eine zertifizierte und zweijährige Ausbildung.',
+    'blog.article.formazione-primo-soccorso-pediatrico-ticino.imageAlt': 'Pädiatrische Erste-Hilfe-Schulung im Tessin',
 };
 
 export default blogMetaChDe;
