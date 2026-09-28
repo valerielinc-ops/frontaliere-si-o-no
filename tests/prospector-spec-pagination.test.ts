@@ -188,4 +188,15 @@ describe('helper di paginazione', () => {
     // 1103 annunci a 20 per pagina sono 56 pagine: il limite deve starci largo.
     expect(pagination.maxPages).toBeGreaterThanOrEqual(56);
   });
+
+  it('le spec promosse con una listing paginata dichiarano la paginazione', () => {
+    // Pagine misurate il 2026-09-28: pagina 2 di ciascun seed contiene annunci
+    // assenti da pagina 1, quindi leggere solo il seed archivia offerte vive.
+    const measuredPages: Record<string, number> = { yellowshark: 56, sta: 88, stellenpartner: 41, stellentreff: 57, gmo: 3 };
+    for (const [key, pages] of Object.entries(measuredPages)) {
+      const spec = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), `data/prospector/crawlers/${key}.json`), 'utf8'));
+      expect(spec.pagination, key).toBeTruthy();
+      expect(normalizeSpecPagination(spec).maxPages, key).toBeGreaterThan(pages);
+    }
+  });
 });
