@@ -6962,6 +6962,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.snl-contratto-alternativo-personale.title': 'SNL: «Alternativer Vertrag» für weniger Auswirkungen',
     'blog.article.snl-contratto-alternativo-personale.excerpt': 'SNL erwartet Verluste zwischen 350\'000 und 400\'000 Franken nach kantonalem Entscheid, den Dienst Locarno-Magadino nicht mehr zu beauftragen',
     'blog.article.snl-contratto-alternativo-personale.imageAlt': 'Fähre auf dem Luganersee, SNL Navigationsservice',
+    'blog.article.parlamento-svizzera-cripto-centrali.title': 'Schweizer Parlament genehmigt Zentralkredit und Krypto-Norm',
+    'blog.article.parlamento-svizzera-cripto-centrali.excerpt': '131,3 Millionen Franken für Reservekraftwerke, 126 Stimmen gegen 61 zu Kryptoanlagen und Hotel-Mehrwertsteuer bei 3,8% bis 31 dicembre 2031.',
+    'blog.article.parlamento-svizzera-cripto-centrali.imageAlt': 'Bundesgebäudes der Schweiz in Bern mit Flagge und Symbolen für Energie und Krypto',
 };
 
 export default blogMetaChDe;

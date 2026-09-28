@@ -6962,6 +6962,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.snl-contratto-alternativo-personale.title': 'SNL proposes «alternative contract» to reduce impacts on staff',
     'blog.article.snl-contratto-alternativo-personale.excerpt': 'SNL forecasts losses of between 350\'000 and 400\'000 francs following the cantonal decision to no longer commission the Locarno-Magadino service',
     'blog.article.snl-contratto-alternativo-personale.imageAlt': 'Lake Lugano ferry, SNL navigation service',
+    'blog.article.parlamento-svizzera-cripto-centrali.title': 'Swiss Parliament Approves Central Credit and Crypto Standard',
+    'blog.article.parlamento-svizzera-cripto-centrali.excerpt': '131,3 million francs for reserve power plants, 126 votes against 61 on crypto-assets and hotel VAT at 3,8% until 31 dicembre 2031.',
+    'blog.article.parlamento-svizzera-cripto-centrali.imageAlt': 'Swiss Federal Parliament building in Bern with flag and energy and crypto symbols',
 };
 
 export default blogMetaChEn;
