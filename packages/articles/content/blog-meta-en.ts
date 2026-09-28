@@ -12166,6 +12166,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vitalizio-claudio-zali-quesiti.title': 'Claudio Zali\'s lifetime pension: political doubts',
     'blog.article.vitalizio-claudio-zali-quesiti.excerpt': 'Mps deputies seek clarification on the early withdrawal of 700,000 francs and the pension calculation for the resigning minister',
     'blog.article.vitalizio-claudio-zali-quesiti.imageAlt': 'Government palace in Bellinzona, seat of the Council of State of the Canton of Ticino',
+    'blog.article.como-rapina-gioielleria-arresti.title': 'Como, jewelry store robbery: two more arrests',
+    'blog.article.como-rapina-gioielleria-arresti.excerpt': 'A 32-year-old resident of Switzerland and a 25-year-old from the province of Monza arrested for the 90mila euro robbery at Stroili in Tavernola.',
+    'blog.article.como-rapina-gioielleria-arresti.imageAlt': 'Jewelry store in a shopping center after a robbery in Tavernola',
 };
 
 export default blogMetaEn;

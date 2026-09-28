@@ -12165,6 +12165,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vitalizio-claudio-zali-quesiti.title': 'Vitalizio Claudio Zali: Die Zweifel der Politik',
     'blog.article.vitalizio-claudio-zali-quesiti.excerpt': 'MPS-Abgeordnete bitten um Klärung des Vorbezugs von 700.000 Franken und der Berechnung der Rente des zurückgetretenen Ministers',
     'blog.article.vitalizio-claudio-zali-quesiti.imageAlt': 'Regierungspalast in Bellinzona, Sitz des Staatsrats des Kantons Tessin',
+    'blog.article.como-rapina-gioielleria-arresti.title': 'Como, Raubüberfall auf Juweliergeschäft: zwei weitere Festnahmen',
+    'blog.article.como-rapina-gioielleria-arresti.excerpt': 'Ein 32-Jähriger mit Wohnsitz in der Schweiz und ein 25-Jähriger aus der Provinz Monza wurden wegen des 90mila Euro schweren Raubüberfalls auf Stroili in Tavernola festgenommen.',
+    'blog.article.como-rapina-gioielleria-arresti.imageAlt': 'Juweliergeschäft in einem Einkaufszentrum nach einem Raub in Tavernola',
 };
 
 export default blogMetaDe;

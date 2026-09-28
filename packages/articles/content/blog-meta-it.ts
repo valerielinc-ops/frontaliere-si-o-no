@@ -12167,6 +12167,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vitalizio-claudio-zali-quesiti.title': 'Vitalizio Claudio Zali: i dubbi della politica',
     'blog.article.vitalizio-claudio-zali-quesiti.excerpt': 'Deputati Mps chiedono chiarimenti su prelievo anticipato di 700mila franchi e calcolo della pensione del dimissionario ministro',
     'blog.article.vitalizio-claudio-zali-quesiti.imageAlt': 'Palazzo governativo di Bellinzona, sede del Consiglio di Stato del Canton Ticino',
+    'blog.article.como-rapina-gioielleria-arresti.title': 'Como, rapina alla gioielleria: altri due arresti',
+    'blog.article.como-rapina-gioielleria-arresti.excerpt': 'Arrestati un 32enne residente in Svizzera e un 25enne della provincia di Monza per la rapina da 90mila euro alla Stroili di Tavernola.',
+    'blog.article.como-rapina-gioielleria-arresti.imageAlt': 'Gioielleria in un centro commerciale dopo una rapina a Tavernola',
 };
 
 export default blogMetaIt;
