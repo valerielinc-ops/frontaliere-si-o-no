@@ -114,6 +114,28 @@ describe('git-commit-data.sh legacy staging of standard directories', () => {
     }
   });
 
+  it('publishes an explicit path when a standard directory exists but has nothing to stage', () => {
+    // `git add <dir>/` on an existing directory with no stageable child exits
+    // 0 (nothing matched is not an error for an existing directory), so such a
+    // directory must stay harmless in the same invocation as real changes.
+    const h = initHarness();
+    const extra = 'data/notes/extra.json';
+    try {
+      writeFile(h.repoDir, extra, '[]\n');
+      commitAndPush(h.repoDir, 'seed');
+      pushRemoteOnlyChange(h);
+      mkdirSync(join(h.repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFile(h.repoDir, extra, '["local"]\n');
+
+      runLegacyScript(h, [extra]);
+
+      expect(git(h.originDir, 'show', `main:${extra}`)).toBe('["local"]');
+      expect(originFiles(h)).toEqual([extra, 'remote-only.txt']);
+    } finally {
+      cleanup(h);
+    }
+  });
+
   it('still stages the deletion of a tracked standard directory removed from disk', () => {
     const h = initHarness();
     const extra = 'data/notes/extra.json';
