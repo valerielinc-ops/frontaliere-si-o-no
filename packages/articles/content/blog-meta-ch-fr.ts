@@ -6947,6 +6947,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lingotti-oro-export-svizzera.title': 'Lingots d\'or : exportation italienne vers la Suisse +57%',
     'blog.article.lingotti-oro-export-svizzera.excerpt': 'En août, les exportations italiennes hors UE augmentent de 16,1% : +57% vers la Suisse, avec les lingots d\'or indiqués par Istat. Les données détaillées arriveront plus tard.',
     'blog.article.lingotti-oro-export-svizzera.imageAlt': 'Lingots d\'or liés aux exportations italiennes vers la Suisse',
+    'blog.article.parlamento-rete-elettrica-svizzera.title': 'Réseaux modernes : le Parlement booste l\'électrique',
+    'blog.article.parlamento-rete-elettrica-svizzera.excerpt': 'Plus de 60 % des lignes à très haute tension sont proches de la fin de leur durée de vie ; le seuil pour les lignes aériennes est de 220 kV, tandis que le réseau de distribution concerne des tensions >36 kV et les nouvelles stations ne pourront pas dépasser 20 m2 de superficie et 3 m de hauteur.',
+    'blog.article.parlamento-rete-elettrica-svizzera.imageAlt': 'Ligne électrique à haute tension au-dessus des Alpes suisses sous un ciel clair avec vallée visible',
 };
 
 export default blogMetaChFr;

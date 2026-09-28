@@ -6947,6 +6947,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lingotti-oro-export-svizzera.title': 'Goldbarren: italienischer Export in die Schweiz +57%',
     'blog.article.lingotti-oro-export-svizzera.excerpt': 'Im August wächst Italiens Export außerhalb der EU um 16,1 %: +57 % in die Schweiz, mit den von Istat angegebenen Goldbarren. Detaillierte Daten werden später eintreffen.',
     'blog.article.lingotti-oro-export-svizzera.imageAlt': 'Goldbarren im Zusammenhang mit Italiens Exporten in die Schweiz',
+    'blog.article.parlamento-rete-elettrica-svizzera.title': 'Schnellere und modernere Netze: Das Parlament beschleunigt die elektrische Revolution',
+    'blog.article.parlamento-rete-elettrica-svizzera.excerpt': 'Über 60% der Höchstspannungsleitungen nähern sich dem Ende ihrer Lebensdauer; der Schwellenwert für Freileitungen liegt bei 220 kV, während das Verteilnetz Spannungen >36 kV betrifft und die neuen Stationen eine Fläche von 20 m2 und eine Höhe von 3 m nicht überschreiten dürfen.',
+    'blog.article.parlamento-rete-elettrica-svizzera.imageAlt': 'Hochspannungsleitung über den Schweizer Alpen bei klarem Himmel mit sichtbarem Tal',
 };
 
 export default blogMetaChDe;
