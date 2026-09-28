@@ -52,6 +52,24 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(minified.findings.map((item) => item.code)).not.toContain('canonical-missing');
   });
 
+  it('does not match SEO attributes inside other attribute names or values', () => {
+    const metaInputs = [
+      '<meta data-name=robots data-content=noindex>',
+      '<meta data="name=robots content=noindex">',
+    ];
+
+    for (const meta of metaInputs) {
+      const result = classifyDocument({
+        url: `${BASE}/attribute-guard/`,
+        status: 200,
+        html: `<link rel=canonical href=${BASE}/attribute-guard/>${meta}`,
+      });
+      expect(result.findings.map((item) => item.code)).not.toContain('noindex-in-sitemap');
+    }
+
+    expect(extractInternalLinks(`<a data-href=/fake>fake</a>`, `${BASE}/`, BASE)).toEqual([]);
+  });
+
   it('fails closed when a sitemap responds successfully with no supported entries', async () => {
     const inventory = await collectSitemapInventory({
       baseUrl: 'https://example.test',
