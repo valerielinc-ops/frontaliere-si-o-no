@@ -9,6 +9,7 @@ import { tmpdir } from 'node:os';
 import {
   assertCrawlerSliceWriteSafe,
   isProvenCrossCrawlerDedupPrune,
+  isProvenExpiredGhostPrune,
   isProvenHousekeepingPrune,
   isSafeBuehlerForeignPruneJobs,
   isSafeSourceGeographyPrune,
@@ -61,6 +62,29 @@ function dedupJob(url: string, title: string, description: string) {
 
 function json(value: unknown): string {
   return `${JSON.stringify(value)}\n`;
+}
+
+function expiredEntry(slug: string, title: string, description: string) {
+  return {
+    slug,
+    title,
+    company: 'Convit Holding',
+    location: 'Balerna',
+    slugByLocale: { it: slug, en: `${slug}-en` },
+    descriptionByLocale: { it: description },
+    expiredAt: '2026-09-28T11:25:24.217Z',
+  };
+}
+
+function activeJob(slug: string, title: string) {
+  return {
+    url: `https://convit.example/${slug}`,
+    title,
+    company: 'Convit Holding',
+    location: 'Balerna',
+    slug,
+    slugByLocale: { it: slug, en: `${slug}-en` },
+  };
 }
 
 describe('crawler slice integrity guard', () => {
@@ -806,5 +830,72 @@ describe('crawler slice integrity guard', () => {
       next,
       { dedupReferenceJobs: reference },
     ).reason).toBe('proven-cross-crawler-dedup');
+  });
+
+  it('allows an expired-slice shrink made only of ghosts of active jobs (#9179)', () => {
+    // A housekeeping move whose active half the data guard reverted: the
+    // expired slice keeps entries that are active again, and the assembler's
+    // ghost prune removes almost the whole file.
+    const ghostA = expiredEntry('coach-finanziario-balerna', 'Coach finanziario', 'x'.repeat(700_000));
+    const ghostB = expiredEntry('consulente-assicurativo-balerna', 'Consulente assicurativo', 'y'.repeat(700_000));
+    const expired = expiredEntry('segretaria-balerna', 'Segretaria', 'z'.repeat(100_000));
+    const filePath = 'data/jobs/expired/by-crawler/convit-holding.json';
+    const previous = json([ghostA, ghostB, expired]);
+    const next = json([expired]);
+    const active = [
+      activeJob('coach-finanziario-balerna', 'Coach finanziario'),
+      activeJob('consulente-assicurativo-balerna', 'Consulente assicurativo'),
+    ];
+
+    expect(isProvenExpiredGhostPrune(filePath, previous, next, active)).toBe(true);
+    expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next))
+      .toThrow(/catastrophic truncation avoided/);
+    expect(assertCrawlerSliceWriteSafe(filePath, previous, next, { expiredGhostReferenceJobs: active }).reason)
+      .toBe('proven-expired-ghost-prune');
+
+    const root = mkdtempSync(join(tmpdir(), 'crawler-slice-ghost-'));
+    const rootedPath = join(root, filePath);
+    try {
+      writeJsonAtomic(rootedPath, JSON.parse(previous));
+      expect(() => writeJsonAtomic(rootedPath, JSON.parse(next))).toThrow(/catastrophic truncation avoided/);
+      writeJsonAtomic(rootedPath, JSON.parse(next), { expiredGhostReferenceJobs: active });
+      expect(JSON.parse(readFileSync(rootedPath, 'utf8'))).toHaveLength(1);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a real expiry removal fail-closed even with active jobs as reference', () => {
+    // Same title/company/location as an active job, but no shared slug and a
+    // different IT slug: a distinct posting, not a ghost.
+    const realExpiry = expiredEntry('coach-finanziario-balerna-2025', 'Coach finanziario', 'x'.repeat(1_400_000));
+    const retained = expiredEntry('segretaria-balerna', 'Segretaria', 'z'.repeat(100_000));
+    const previous = json([realExpiry, retained]);
+    const next = json([retained]);
+    const active = [activeJob('coach-finanziario-balerna', 'Coach finanziario')];
+    const filePath = 'data/jobs/expired/by-crawler/convit-holding.json';
+
+    expect(isProvenExpiredGhostPrune(filePath, previous, next, active)).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next, { expiredGhostReferenceJobs: active }))
+      .toThrow(/catastrophic truncation avoided/);
+    // The proof never applies to an active slice.
+    expect(isProvenExpiredGhostPrune('data/jobs/by-crawler/convit-holding.json', previous, next, active)).toBe(false);
+  });
+
+  it('rejects a ghost prune that also adds or rewrites an entry identity', () => {
+    const ghostA = expiredEntry('coach-finanziario-balerna', 'Coach finanziario', 'x'.repeat(700_000));
+    const ghostB = expiredEntry('consulente-assicurativo-balerna', 'Consulente assicurativo', 'y'.repeat(700_000));
+    const retained = expiredEntry('segretaria-balerna', 'Segretaria', 'z'.repeat(100_000));
+    const intruder = expiredEntry('nuova-voce-balerna', 'Nuova voce', 'w');
+    const active = [
+      activeJob('coach-finanziario-balerna', 'Coach finanziario'),
+      activeJob('consulente-assicurativo-balerna', 'Consulente assicurativo'),
+    ];
+    const filePath = 'data/jobs/expired/by-crawler/convit-holding.json';
+    const previous = json([ghostA, ghostB, retained]);
+
+    expect(isProvenExpiredGhostPrune(filePath, previous, json([retained]), active)).toBe(true);
+    expect(isProvenExpiredGhostPrune(filePath, previous, json([retained, intruder]), active)).toBe(false);
+    expect(isProvenExpiredGhostPrune(filePath, previous, json([retained]), [])).toBe(false);
   });
 });

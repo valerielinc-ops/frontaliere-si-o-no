@@ -49,6 +49,7 @@ import {
 import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
 import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
+import { buildActiveGhostIndex, findActiveGhostMatch } from './lib/expired-ghost-match.mjs';
 import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
@@ -3427,37 +3428,18 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     return { cleanedExpired: expiredJobs || [], ghostCount: 0, mergedSlugs: 0 };
   }
 
-  // Build active lookup: title+company+location → first matching job
-  const activeByTCL = Object.create(null);
-  for (const j of activeJobs) {
-    const key = `${(j.title || '').toLowerCase().trim()}||${(j.company || '').toLowerCase().trim()}||${(j.location || '').toLowerCase().trim()}`;
-    if (!activeByTCL[key]) activeByTCL[key] = j;
-  }
-
-  // Build set of all active slugs (current + previous)
-  const activeSlugSet = new Set();
-  for (const j of activeJobs) {
-    if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => activeSlugSet.add(s));
-    if (j.previousSlugs) j.previousSlugs.forEach(s => activeSlugSet.add(s));
-    if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === 'object') {
-      for (const arr of Object.values(j.previousSlugsByLocale)) {
-        if (Array.isArray(arr)) arr.forEach(s => activeSlugSet.add(s));
-      }
-    }
-  }
+  // Active lookup (title+company+location → first matching job) and the set
+  // of all active slugs, current + previous. The rule lives in
+  // lib/expired-ghost-match.mjs because the slice write guard re-checks it.
+  const ghostIndex = buildActiveGhostIndex(activeJobs);
 
   const ghostIds = new Set();
   let mergedSlugs = 0;
 
   for (const ej of expiredJobs) {
-    const expSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
-    const hasSlugOverlap = expSlugs.some(s => activeSlugSet.has(s));
-    const key = `${(ej.title || '').toLowerCase().trim()}||${(ej.company || '').toLowerCase().trim()}||${(ej.location || '').toLowerCase().trim()}`;
-    const match = activeByTCL[key];
-
     // Ghost: slug overlap + title match, or exact same IT slug
-    const sameItSlug = match && (ej.slugByLocale?.it === match.slugByLocale?.it);
-    if (!match || (!hasSlugOverlap && !sameItSlug)) continue;
+    const match = findActiveGhostMatch(ghostIndex, ej);
+    if (!match) continue;
 
     // Mark as ghost
     ghostIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
@@ -3514,7 +3496,11 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
         return !ghostIds.has(id);
       });
       if (cleaned.length < slice.length) {
-        writeJson(fp, cleaned);
+        // A slice whose entries are almost all ghosts shrinks past the
+        // accumulator byte floor (#9179: convit-holding 81 → 2 after a
+        // half-reverted housekeeping). The active jobs are the proof the
+        // write guard re-checks: every removed entry must be a ghost of one.
+        writeJson(fp, cleaned, { expiredGhostReferenceJobs: activeJobs });
       }
     }
   }

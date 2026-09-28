@@ -7,11 +7,14 @@ import {
   isCatastrophicAccumulatorShrink,
 } from './accumulator-byte-floor-guard.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
+import { buildActiveGhostIndex, findActiveGhostMatch } from './expired-ghost-match.mjs';
+import { localeMapKey } from './locale-map-diff.mjs';
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
 const ACTIVE_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/[^/]+\.json$/;
+const EXPIRED_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/expired\/by-crawler\/[^/]+\.json$/;
 const SWISS_RE_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/swiss-re\.json$/;
 const BUEHLER_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/buehler\.json$/;
 const TERMINAL_COUNTRY_RE = /,\s*([A-Za-z]{2})\s*$/;
@@ -429,6 +432,49 @@ export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, r
   });
 }
 
+/** Same identity reconcileGhostExpired filters on: expired entries carry no url/id. */
+function expiredEntryIdentity(entry) {
+  const identity = entry?.slug || entry?.id || (entry?.slugByLocale ? localeMapKey(entry.slugByLocale) : '');
+  return identity ? String(identity) : null;
+}
+
+/**
+ * Prove an expired-slice shrink made only of ghosts.
+ *
+ * The assembler drops an expired entry that still refers to an active job
+ * (lib/expired-ghost-match.mjs). When nearly a whole slice is ghosts — e.g. a
+ * housekeeping move whose active half was reverted by the data guard (#9179)
+ * — the prune crosses the byte floor although no posting leaves the site.
+ * The proof requires the next slice to be a subset of the previous one by
+ * identity, and every removed entry to be a ghost of the supplied active jobs.
+ * Without the reference the generic accumulator guard stays closed.
+ */
+export function isProvenExpiredGhostPrune(filePath, previousRaw, nextRaw, activeReferenceJobs) {
+  if (!EXPIRED_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  const previousEntries = parseJobs(previousRaw);
+  const nextEntries = parseJobs(nextRaw);
+  if (!previousEntries || !nextEntries || previousEntries.length <= nextEntries.length) return false;
+  if (!Array.isArray(activeReferenceJobs) || activeReferenceJobs.length === 0) return false;
+
+  const previousIds = new Set();
+  for (const entry of previousEntries) {
+    const identity = expiredEntryIdentity(entry);
+    if (!identity) return false;
+    previousIds.add(identity);
+  }
+  const nextIds = new Set();
+  for (const entry of nextEntries) {
+    const identity = expiredEntryIdentity(entry);
+    if (!identity || !previousIds.has(identity)) return false;
+    nextIds.add(identity);
+  }
+
+  const removed = previousEntries.filter((entry) => !nextIds.has(expiredEntryIdentity(entry)));
+  if (removed.length === 0) return false;
+  const ghostIndex = buildActiveGhostIndex(activeReferenceJobs);
+  return removed.every((entry) => findActiveGhostMatch(ghostIndex, entry) !== null);
+}
+
 /**
  * Prove a large housekeeping shrink from definitive URL evidence.
  *
@@ -500,7 +546,7 @@ export function assertCrawlerSliceWriteSafe(
   filePath,
   previousRaw,
   nextRaw,
-  { dedupReferenceJobs = null, housekeepingProof = null } = {},
+  { dedupReferenceJobs = null, housekeepingProof = null, expiredGhostReferenceJobs = null } = {},
 ) {
   const previousBytes = Buffer.byteLength(String(previousRaw), 'utf8');
   const nextBytes = Buffer.byteLength(String(nextRaw), 'utf8');
@@ -518,6 +564,9 @@ export function assertCrawlerSliceWriteSafe(
   }
   if (isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-housekeeping-prune' };
+  }
+  if (isProvenExpiredGhostPrune(filePath, previousRaw, nextRaw, expiredGhostReferenceJobs)) {
+    return { previousBytes, nextBytes, reason: 'proven-expired-ghost-prune' };
   }
   assertAccumulatorByteFloor(previousBytes, nextBytes, { label: filePath });
   return { previousBytes, nextBytes, reason: null };
