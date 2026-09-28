@@ -188,6 +188,8 @@ describe('collector parity (TS ≡ inline)', () => {
 
   it('reports the full job-detail snapshot identically', () => {
     jobDetailFixture();
+    // Slot 1 is already filled at start: both runtimes date it to "now".
+    const now = vi.spyOn(window.performance, 'now').mockReturnValue(1500);
     const expected: AdPageDiagParams = {
       page_template: 'job_detail',
       consent_state: 'granted',
@@ -202,13 +204,16 @@ describe('collector parity (TS ≡ inline)', () => {
       anchor_status: 'displayed',
       vignette_ready: 1,
       auto_placed: 2,
-      first_fill_ms: -1,
+      first_fill_ms: 1500,
       cmp_shown: 1,
       ad_blocked: 0,
       diag_hidden: 0,
     };
-    expect(runTs().collect(0)).toEqual(expected);
-    expect(runInline().collect(0)).toEqual(expected);
+    const ts = runTs().collect(0);
+    const inline = runInline().collect(0);
+    now.mockRestore();
+    expect(ts).toEqual(expected);
+    expect(inline).toEqual(expected);
   });
 
   const states: ReadonlyArray<readonly [string, () => void, boolean, Partial<AdPageDiagParams>]> = [
@@ -289,8 +294,12 @@ describe('collector parity (TS ≡ inline)', () => {
 
   it('the pure TS collector matches what the handle reports', () => {
     jobDetailFixture();
+    const now = vi.spyOn(window.performance, 'now').mockReturnValue(1500);
     const handle = runTs();
-    expect(collectAdPageDiag(window as CollectWindow, { path: handle.path, firstFill: -1, cmp: 0 }, 0, () => false)).toEqual(handle.collect(0));
+    now.mockRestore();
+    // The handle dated the already-filled slot at start; the pure collector
+    // receives that state, it does not re-date it.
+    expect(collectAdPageDiag(window as CollectWindow, { path: handle.path, firstFill: 1500, cmp: 0 }, 0, () => false)).toEqual(handle.collect(0));
   });
 });
 
