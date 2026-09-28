@@ -97,17 +97,17 @@ const SEARCH_PAGE_SIZE = 100;
 // finestra non triagiato.
 // Il cap NON è dimensionato dal run 36009410204: 4 PR furono uccise dal
 // watchdog a 1803 s, quindi >=451 s/PR è una misura CENSURATA e non un upper
-// bound. La base è il benchmark production-equivalent COMPLETATO più lento
-// disponibile: corpus 34602892494, 21 PR commentate in 1.792.000 ms
-// (batch_count=36, bootstrap incluso). È un envelope di SESSIONE INTERA:
-// non lo dividiamo per PR, perché una media non è un upper bound per il costo
-// della singola PR. Il cap di 14 è quindi coperto da una sessione completata
-// più grande (21 PR), la cui durata totale resta molto sotto il watchdog Codex
-// da 114 min (6840 s). Anche watchdog + setup/kill grace/coda (300 s) =
-// 7140 s resta sotto lo step da 120 min. La capacità mancante la dà la cadenza: 12 cron/giorno x 62% =
-// ~7,4 run reali x
-// 14 = ~104 PR/giorno, oltre il picco di ~80 candidati/giorno. Il tipico è molto
-// più basso: qui 32-259 s/PR con 4 PR e ~58 s/PR sul batch da 19 di
+// bound. La base è una sessione production-equivalent COMPLETATA della stessa
+// taglia del cap: gemello corpus, run 36352293610 (2026-09-27, primo giro col
+// cap 14), batch_count=14, sessione Codex 1.502.814 ms, triage_complete=true con
+// 14/14 PR verificate, job 29 min. È un envelope di SESSIONE INTERA (bootstrap
+// incluso), non una media per PR: 22% del watchdog Codex da 114 min (6840 s).
+// Supporto, non base: corpus 34602892494 commentò 21 PR in 1.792.000 ms prima
+// del tetto di allora (batch 36, sessione NON completata). Anche watchdog +
+// setup/kill grace/coda (300 s) = 7140 s resta sotto lo step da 120 min.
+// La capacità mancante la dà la cadenza: 12 cron/giorno x 62% = ~7,4 run reali
+// x 14 = ~104 PR/giorno, oltre il picco di ~80 candidati/giorno. Il tipico è
+// molto più basso: qui 32-259 s/PR con 4 PR e ~58 s/PR sul batch da 19 di
 // 34602590662. Il gemello corpus è `adapted`: stesso cap, watchdog e cadenza.
 //
 // Una finestra più larga del cap NON è un errore di raccolta: è un rinvio
@@ -118,8 +118,8 @@ const SEARCH_PAGE_SIZE = 100;
 // deve tenere il watermark indietro, un rinvio pianificato deve lasciarlo
 // avanzare, altrimenti il residuo non si drena mai. Confuse, producevano il
 // ratchet documentato sopra (35 run rosse consecutive, 161,6 h).
-export const FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_DURATION_MS = 1_792_000;
-export const FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_PR_COUNT = 21;
+export const FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_DURATION_MS = 1_502_814;
+export const FOLLOWUP_COMPLETED_BATCH_UPPER_BOUND_PR_COUNT = 14;
 export const FOLLOWUP_SESSION_BATCH_LIMIT = 14;
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 

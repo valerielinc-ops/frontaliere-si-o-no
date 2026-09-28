@@ -1,7 +1,7 @@
 name: Post-merge follow-up triage
 
 # SCHEDULED-BATCH (era pull_request:[closed] per-PR). Una sola sessione Codex Luna Max ogni
-# ~3h triagia TUTTE le PR mergiate dall'owner dalla finestra precedente, invece di
+# ~2h (cron `0 */2`, era ~3h) triagia TUTTE le PR mergiate dall'owner dalla finestra precedente, invece di
 # UNA run per ogni merge. Il ~60-80% delle run per-PR creava zero issue → spreco
 # sulla quota Max OAuth CONDIVISA (AGENTS.md § frugalità — "più batched"). Sicurezza
 # garantita dal marker di idempotenza per-PR, che e' il cursore durevole (vedi
