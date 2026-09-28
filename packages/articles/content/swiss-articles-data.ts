@@ -20779,6 +20779,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pronto-consulto-mendrisiotto-basso-ceresio',
+    category: 'pratico',
+    date: '2026-09-28T09:07:41.681Z',
+    image: '/images/blog/pronto-consulto-mendrisiotto-basso-ceresio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

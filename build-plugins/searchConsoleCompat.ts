@@ -529,11 +529,11 @@ export const SEARCH_COMBO_SEGMENT_PATTERN = /\/(ricerca|search|suche|recherche)-
 // to SEARCH_CLUSTER_301_MAP, then the canton-aware JOB_BOARD_SECTION_COMPAT_PATTERN
 // listing-root fallback) — the bridge itself is additionally always-live
 // (200 OK), so it never reaches this resolver in the first place.
-// Event-detail leaves past the plugin's own noindex grace window (eventsSeoPagesPlugin
-// stops emitting a bridge EVENT_PAST_GRACE_DAYS after the event ends) or dropped
-// pre-emptively (rescheduled/cancelled at source, so never even entered the grace
-// window). Capture group 3 = the canton segment (e.g. "ticino") → canonicalize one
-// level up to that canton's event hub, which always exists once any event does.
+// Event-detail leaves that are not represented by the permanent event archive
+// (for example an old route from before route history was persisted, or a
+// rescheduled/cancelled source record that never reached a crawl). Capture
+// group 3 = the canton segment (e.g. "ticino") → canonicalize one level up to
+// that canton's event hub.
 const EVENTS_SECTION_PATTERN = /^\/(?:(en|de|fr)\/)?(eventi|events|veranstaltungen|evenements)\/([^/]+)\//;
 
 export function resolveSearchConsoleCompatTarget(
@@ -819,8 +819,9 @@ export function resolveSearchConsoleCompatTarget(
  };
  }
 
- // Event-detail leaves (past the noindex grace window, or dropped pre-emptively on
- // reschedule/cancellation — see EVENTS_SECTION_PATTERN comment above). match[0] IS
+ // Event-detail leaves not covered by the permanent archive (or dropped
+ // pre-emptively on reschedule/cancellation — see EVENTS_SECTION_PATTERN comment
+ // above). match[0] IS
  // already the canton hub root (pattern is anchored through the trailing slash after
  // the canton segment), so no further path construction is needed. The canton hub
  // is only emitted when that canton has an upcoming event THIS build (eventsSeoPagesPlugin

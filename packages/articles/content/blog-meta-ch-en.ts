@@ -6917,6 +6917,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cambiare-cassa-malati-risparmio.title': 'Changing health insurance provider can save up to 633 francs',
     'blog.article.cambiare-cassa-malati-risparmio.excerpt': 'According to Axa, the first switch saves an average of 563 francs per year, the next 383 francs; in Ticino, the initial saving reaches 633 francs.',
     'blog.article.cambiare-cassa-malati-risparmio.imageAlt': 'Person comparing health insurance premiums on a laptop with a Swiss lake view',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.title': 'Pronto Consulto: telephone service to provide guidance in the Mendrisiotto',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.excerpt': 'Service available Mon‑Fri 9‑17 at 091 811 30 20, doctor called back within 30 minutes, one-year trial with approximately 800 calls per year.',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.imageAlt': 'Doctor answering a Pronto Consulto phone call in a Swiss clinic',
 };
 
 export default blogMetaChEn;

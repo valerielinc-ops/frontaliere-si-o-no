@@ -8,7 +8,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
+import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, UNRESOLVED_CANTON_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
 import {
   eventLd,
   cleanEventText,
@@ -22,6 +22,7 @@ import {
   DIGESTS,
   assignEventSlugs,
   changedEventSlugMigrations,
+  historicalEventSlugMigrations,
   eventSlugRedirectKey,
   reserveLiveSiblingSlugs,
   renderEventSlugRedirectPage,
@@ -1234,7 +1235,7 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
   it('same title+date collision within the list gets a stable -2 suffix, id order breaks the tie', () => {
     const evA = { ...EVENT, id: 'tio-agenda:100', title: 'Sagra', startDate: '2026-08-01' };
     const evB = { ...EVENT, id: 'tio-agenda:200', title: 'Sagra', startDate: '2026-08-01' };
-    // Feed both orders — callers (upcomingEvents/recentlyEndedEvents) already
+    // Feed both orders — callers (upcomingEvents/allEndedEvents) already
     // sort ties on id, so assignEventSlugs itself must not depend on the
     // caller's insertion order beyond what it's given; here we assert the
     // *given* order determines the suffix (matches how the caller's
@@ -1287,6 +1288,50 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(migrations).toHaveLength(1);
     expect(migrations[0].fromSlug).toBe(slugifyLegacyEvent(event));
     expect(migrations[0].toSlug).toBe(assigned.get(event.id));
+  });
+
+  it('bridges a persisted route after an event date changes', () => {
+    const event = {
+      ...EVENT,
+      id: 'ge-agenda:date-shift',
+      title: 'Florian Luthi. Fantômes Météores',
+      startDate: '2026-09-27',
+      canton: 'GE',
+      comune: 'Genève',
+      previousRoutes: [{ canton: 'GE', comune: 'Genève', slug: 'florian-luthi-fantomes-meteores-2026-09-26' }],
+    };
+    const assigned = assignEventSlugs([event] as never);
+    const migrations = historicalEventSlugMigrations([event] as never, 'GE', 'Genève', assigned);
+    expect(migrations).toEqual([
+      {
+        canton: 'GE',
+        comune: 'Genève',
+        eventId: event.id,
+        fromSlug: 'florian-luthi-fantomes-meteores-2026-09-26',
+        toSlug: 'florian-luthi-fantomes-meteores-2026-09-27',
+        fromCanton: 'GE',
+        fromComune: 'Genève',
+      },
+    ]);
+  });
+
+  it('uses the persisted unresolved/other bucket for a bare historical route', () => {
+    const event = {
+      ...EVENT,
+      id: 'myswitzerland:bucket-shift',
+      title: 'Mostra senza bucket',
+      startDate: '2026-09-27',
+      canton: 'TI',
+      comune: 'Lugano',
+      previousRoutes: [{ slug: 'mostra-senza-bucket-2026-09-26' }],
+    };
+    const assigned = assignEventSlugs([event] as never);
+    const migrations = historicalEventSlugMigrations([event] as never, 'TI', 'Lugano', assigned);
+    expect(migrations[0]).toMatchObject({
+      fromCanton: UNRESOLVED_CANTON_KEY,
+      fromComune: OTHER_EVENTS_COMUNE_KEY,
+      fromSlug: 'mostra-senza-bucket-2026-09-26',
+    });
   });
 
   it('keeps the pre-budget tie-breaker inside the published slug budget', () => {
@@ -1384,7 +1429,7 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
 });
 
 describe('pruneStaleEventSlugRedirects', () => {
-  it('rimuove i bridge non più registrati e conserva quello corrente e una pagina noindex normale', () => {
+  it('non rimuove i bridge storici non più presenti nel crawl corrente', () => {
     const distDir = mkdtempSync(path.join(os.tmpdir(), 'events-redirect-prune-'));
     const staleIndex = path.join(distDir, 'eventi/ticino/lugano/vecchio/index.html');
     const staleFlat = path.join(distDir, 'eventi/ticino/lugano/vecchio.html');
@@ -1402,9 +1447,9 @@ describe('pruneStaleEventSlugRedirects', () => {
     writeFileSync(thinPage, '<meta name="robots" content="noindex,follow">');
 
     const removed = pruneStaleEventSlugRedirects(distDir, [currentIndex, currentFlat]);
-    expect(removed).toHaveLength(2);
-    expect(existsSync(staleIndex)).toBe(false);
-    expect(existsSync(staleFlat)).toBe(false);
+    expect(removed).toHaveLength(0);
+    expect(existsSync(staleIndex)).toBe(true);
+    expect(existsSync(staleFlat)).toBe(true);
     expect(existsSync(currentIndex)).toBe(true);
     expect(existsSync(currentFlat)).toBe(true);
     expect(existsSync(thinPage)).toBe(true);

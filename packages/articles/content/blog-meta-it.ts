@@ -12200,6 +12200,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.hotel-ristoranti-salari-2027.title': 'Hotel e ristoranti: salari minimi +0,6% nel 2027',
     'blog.article.hotel-ristoranti-salari-2027.excerpt': 'Nel settore alberghiero e della ristorazione i salari minimi saliranno dello 0,6% nel 2027: per la Cat. II, da 4\'070 a 4\'094 franchi lordi.',
     'blog.article.hotel-ristoranti-salari-2027.imageAlt': 'Sala di ristorante alberghiero svizzero preparata per il servizio',
+    'blog.article.targhe-ricerche-pagamento.title': 'Targhe Ticino: ricerche a pagamento dal 1° novembre',
+    'blog.article.targhe-ricerche-pagamento.excerpt': 'Dal 1° novembre 2026 l’elenco targhe ticinese torna su eAutoindex: le singole ricerche saranno a pagamento per frenare la raccolta automatizzata dei dati.',
+    'blog.article.targhe-ricerche-pagamento.imageAlt': 'Elenco targhe ticinese e piattaforma eAutoindex per le ricerche a pagamento',
 };
 
 export default blogMetaIt;

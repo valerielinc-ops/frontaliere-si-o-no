@@ -63,10 +63,10 @@
  * `mirrorEventImage` (events-utils.mjs) before the slice is written — the
  * same convention every existing events crawler already follows.
  */
-import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { EVENT_SOURCES, EVENTS_SLICE_DIR, mirrorEventImage } from './events-utils.mjs';
 import { fillEventPeopleDefaults } from './event-metadata.mjs';
+import { mergeEventsIntoSlice } from './crawl-checkpoint.mjs';
 
 const DEFAULT_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const DEFAULT_FETCH_TIMEOUT_MS = 20000;
@@ -241,18 +241,17 @@ export function createAgendaCrawler(config) {
       return { events: sorted, pagesOk, pagesFail, written: false };
     }
 
-    mkdirSync(EVENTS_SLICE_DIR, { recursive: true });
     const slicePath = path.join(EVENTS_SLICE_DIR, `${source.key}.json`);
-    const slice = {
-      schemaVersion: 1,
+    const total = mergeEventsIntoSlice({
+      slicePath,
       sourceKey: source.key,
       sourceName: source.label,
       canton: source.canton,
-      assembledAt: crawledAt,
-      events: sorted,
-    };
-    writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
-    console.log(`[${sourceKey}] wrote ${sorted.length} events → ${path.relative(process.cwd(), slicePath)}`);
+      freshEvents: sorted,
+      goneIds: [],
+      crawledAt,
+    });
+    console.log(`[${sourceKey}] merged ${sorted.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
     return { events: sorted, pagesOk, pagesFail, written: true };
   }
 

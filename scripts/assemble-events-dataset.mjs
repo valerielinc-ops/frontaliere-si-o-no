@@ -38,7 +38,8 @@
  *      only index Swiss-side events; this tags border-zone Swiss events with
  *      the nearby Italian comuni they are relevant to (a frontaliere living
  *      just across the border), it does NOT crawl Italian municipal sites.
- *   5. Prune past events: keep records whose (endDate || startDate) >= today.
+ *   5. Retain past events as an append-only SEO archive. Upcoming/past
+ *      indexability is decided by the page builder, never by data deletion.
  *   6. Sort ascending by startDate, then title.
  *
  * Usage:
@@ -52,11 +53,12 @@ import { fileURLToPath } from 'node:url';
 import {
   EVENTS_SLICE_DIR,
   EVENTS_DATASET_PATH,
-  isoDay,
+  loadEventsDataset,
   normalizeText,
   resolveItalianFrontierComuni,
   haversineKm,
 } from './lib/events-utils.mjs';
+import { preserveEventHistory, publishedEventRoutes } from './lib/events-retention.mjs';
 
 function readSlices() {
   if (!existsSync(EVENTS_SLICE_DIR)) return [];
@@ -130,13 +132,21 @@ function sourcePriorityRank(ev) {
  * lexicographically smaller id, so the result is deterministic run-to-run.
  */
 export function pickRichestEvent(group) {
-  return [...group].sort((a, b) => {
+  const winner = [...group].sort((a, b) => {
     const scoreDiff = eventRichnessScore(b) - eventRichnessScore(a);
     if (scoreDiff !== 0) return scoreDiff;
     const prioDiff = sourcePriorityRank(a) - sourcePriorityRank(b);
     if (prioDiff !== 0) return prioDiff;
     return String(a.id).localeCompare(String(b.id));
   })[0];
+  // Fuzzy duplicates have different stable ids and may not describe the same
+  // URL namespace (one can be comune-less). Carry only explicit history from
+  // those records; the current route of a discarded duplicate is not safe to
+  // reconstruct without a persisted canton/comune route.
+  const historicalOnly = group
+    .filter((event) => event !== winner && Array.isArray(event.previousRoutes))
+    .map((event) => ({ previousRoutes: event.previousRoutes }));
+  return preserveEventHistory(winner, historicalOnly);
 }
 
 // Same-source geo-match tolerance (issue #3744): a single crawler can emit
@@ -279,7 +289,9 @@ export function attachItalianFrontierComuni(events) {
 }
 
 function assemble() {
-  const today = isoDay(new Date());
+  const priorDataset = loadEventsDataset(EVENTS_DATASET_PATH);
+  const priorById = new Map(priorDataset.events.map((event) => [event.id, event]));
+  const priorRoutes = publishedEventRoutes(priorDataset.events, priorDataset.generatedAt?.slice(0, 10));
   const slices = readSlices();
   const byId = new Map();
 
@@ -287,11 +299,10 @@ function assemble() {
     const sliceTs = Date.parse(slice.assembledAt || '') || 0;
     for (const ev of slice.events) {
       if (!ev || !ev.id || !ev.startDate || !ev.title) continue;
-      const end = ev.endDate || ev.startDate;
-      if (end < today) continue; // prune past
       const prev = byId.get(ev.id);
       if (!prev || sliceTs >= (prev.__ts || 0)) {
-        byId.set(ev.id, { ...ev, __ts: sliceTs });
+        const merged = prev ? preserveEventHistory(ev, [prev]) : ev;
+        byId.set(ev.id, { ...merged, __ts: sliceTs });
       }
     }
   }
@@ -299,8 +310,19 @@ function assemble() {
   const merged = [...byId.values()].map(({ __ts, ...ev }) => ev);
   const { events: deduped, mergedAway } = dedupeFuzzy(merged);
   const frontierAttached = attachItalianFrontierComuni(deduped);
+  const withHistory = deduped.map((event) => {
+    const prior = priorById.get(event.id);
+    const priorRoute = priorRoutes.get(event.id);
+    if (!prior || !priorRoute) return event;
+    return preserveEventHistory(event, [{
+      ...prior,
+      __historySlug: priorRoute.slug,
+      __historyCanton: priorRoute.canton,
+      __historyComune: priorRoute.comune,
+    }]);
+  });
 
-  const events = deduped.sort(
+  const events = withHistory.sort(
     (a, b) =>
       (a.startDate || '').localeCompare(b.startDate || '') ||
       (a.title || '').localeCompare(b.title || ''),
@@ -361,6 +383,6 @@ function printStats(events, mergedAway, frontierAttached) {
 const isMainModule = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
 if (isMainModule) {
   const { events, slices, mergedAway, frontierAttached } = assemble();
-  console.log(`[assemble-events] merged ${slices} slice(s) → ${events.length} upcoming events (${mergedAway} cross-source dup(s) collapsed) → ${path.relative(process.cwd(), EVENTS_DATASET_PATH)}`);
+  console.log(`[assemble-events] merged ${slices} slice(s) → ${events.length} retained events (${mergedAway} cross-source dup(s) collapsed) → ${path.relative(process.cwd(), EVENTS_DATASET_PATH)}`);
   if (process.argv.includes('--stats')) printStats(events, mergedAway, frontierAttached);
 }

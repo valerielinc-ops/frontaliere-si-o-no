@@ -6917,6 +6917,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cambiare-cassa-malati-risparmio.title': 'Changer de caisse maladie permet d’économiser jusqu’à 633 francs',
     'blog.article.cambiare-cassa-malati-risparmio.excerpt': 'Selon Axa, le premier changement permet d\'économiser en moyenne 563 francs par an, le suivant 383 francs ; au Tessin, l\'économie initiale atteint 633 francs.',
     'blog.article.cambiare-cassa-malati-risparmio.imageAlt': 'Personne comparant les primes d\'assurance maladie sur un ordinateur portable avec vue sur un lac suisse',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.title': 'Pronto Consulto : service téléphonique pour s’orienter dans le Mendrisiotto',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.excerpt': 'Service actif du lundi 9 au vendredi 17 au 091 811 30 20, médecin rappelé dans les 30 minutes, expérimentation d\'un an avec environ 800 appels annuels.',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.imageAlt': 'Médecin répondant à un appel de Pronto Consulto dans une clinique suisse',
 };
 
 export default blogMetaChFr;
