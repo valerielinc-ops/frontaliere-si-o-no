@@ -74,13 +74,13 @@ import {
   OTHER_EVENTS_SEGMENT,
   OTHER_EVENTS_COMUNE_KEY,
   eventReferralUrl,
-  recentlyEndedEvents,
   resolveCantonUrlKey,
   UNRESOLVED_CANTON_KEY,
   UNRESOLVED_CANTON_LABEL,
   normalizeText,
   cleanEventText,
 } from '../scripts/lib/events-utils.mjs';
+import { allEndedEvents } from '../scripts/lib/events-retention.mjs';
 export { cleanEventText } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -135,6 +135,8 @@ interface SiteEvent {
   // `description` via localizedTitle/localizedDescription below.
   titleByLocale?: Partial<Record<Locale, string>>;
   descriptionByLocale?: Partial<Record<Locale, string>>;
+  /** Routes emitted by an earlier crawl/build for this stable event id. */
+  previousRoutes?: Array<{ canton?: string; comune?: string; slug: string }>;
 }
 
 function localizedTitle(event: SiteEvent, locale: Locale): string {
@@ -204,11 +206,10 @@ const HOME_LABEL: Record<Locale, string> = {
   fr: 'Accueil',
 };
 
-// Notice banner for the short noindex,follow grace-window bridge page kept
-// for events that already ended (see `recentlyEndedEvents` in
-// scripts/lib/events-utils.mjs). Page stays live briefly for anyone who
-// still lands on the URL, but is deliberately unlinked and out of the
-// sitemap/Event JSON-LD — see closeBundle()'s past-events emission pass.
+// Notice banner for the permanent noindex,follow archive page kept for events
+// that already ended (see `allEndedEvents` in scripts/lib/events-retention.mjs).
+// The page remains deliberately unlinked and out of the sitemap/Event JSON-LD
+// — see closeBundle()'s past-events emission pass.
 const PAST_EVENT_NOTICE: Record<Locale, string> = {
   it: 'Questo evento si è già svolto: le informazioni restano visibili solo per consultazione.',
   en: 'This event has already taken place — the details below are kept for reference only.',
@@ -3207,11 +3208,11 @@ export function renderEventDetailPage(params: {
   distDir: string;
   detailHref: DetailHref;
   /**
-   * Set for the short grace-window bridge page emitted for events that
-   * already ended (`recentlyEndedEvents`). Forces `noindex,follow`, shows a
-   * "this already took place" notice, and drops Event JSON-LD — Google
-   * guidance is to avoid rich-result markup for past events (unlike
-   * JobPosting, which explicitly supports a past `validThrough`).
+   * Set for the permanent archive page emitted for events that already ended
+   * (`allEndedEvents`). Forces `noindex,follow`, shows a "this already took
+   * place" notice, and drops Event JSON-LD — Google guidance is to avoid
+   * rich-result markup for past events (unlike JobPosting, which explicitly
+   * supports a past `validThrough`).
    */
   isPast?: boolean;
 }): { urlPath: string; html: string; wordCount: number } {
@@ -3772,7 +3773,7 @@ function patchInboundLink(distDir: string, relIndex: string, locale: Locale): bo
  * (`-2`, `-3`, ...), passed through `reserveLadderShape()` so the tie-breaker
  * cannot land on the reserved `page-N` ladder shape, in list order. `list` must already be
  * deterministically ordered on ties — both `upcomingEvents` and
- * `recentlyEndedEvents` (scripts/lib/events-utils.mjs) sort ties on
+ * `allEndedEvents` (scripts/lib/events-retention.mjs) sort ties on
  * `.title` then `.id`, so two colliding events always land in the same
  * relative order regardless of crawl/dataset insertion order or which of
  * the two functions produced `list`.
@@ -3838,6 +3839,8 @@ interface EventSlugMigration {
   eventId: string;
   fromSlug: string;
   toSlug: string;
+  fromCanton?: string;
+  fromComune?: string;
 }
 
 export function eventSlugRedirectKey(locale: Locale, fromPath: string): string {
@@ -3866,6 +3869,39 @@ export function changedEventSlugMigrations(
     return fromSlug === toSlug ? [] : [{ canton, comune, eventId: ev.id, fromSlug, toSlug }];
   });
 }
+
+/**
+ * Emit bridges for routes persisted by the crawler before an event changed
+ * date, title, canton, or comune. Unlike the legacy-slug migration above,
+ * these routes are real published paths and must survive indefinitely.
+ */
+export function historicalEventSlugMigrations(
+  list: readonly SiteEvent[],
+  canton: string,
+  comune: string,
+  assigned: ReadonlyMap<string, string>,
+): EventSlugMigration[] {
+  return list.flatMap((ev) => {
+    const toSlug = assigned.get(ev.id);
+    if (!toSlug || !Array.isArray(ev.previousRoutes)) return [];
+    return ev.previousRoutes.flatMap((route) => {
+      const fromSlug = typeof route?.slug === 'string' ? route.slug.trim() : '';
+      if (!fromSlug) return [];
+      const fromCanton = route.canton ? resolveCantonUrlKey(route.canton) : canton;
+      const fromComune = route.comune || OTHER_EVENTS_COMUNE_KEY;
+      if (fromCanton === canton && fromComune === comune && fromSlug === toSlug) return [];
+      return [{
+        canton,
+        comune,
+        eventId: ev.id,
+        fromSlug,
+        toSlug,
+        fromCanton,
+        fromComune,
+      }];
+    });
+  });
+}
 const EVENT_SLUG_REDIRECT_COPY: Record<Locale, { title: string; body: string; cta: string }> = {
   it: { title: 'Pagina evento aggiornata | Frontaliere Ticino', body: 'Questa pagina evento ha un indirizzo aggiornato. Ti reindirizziamo automaticamente alla versione canonica.', cta: 'Apri la pagina evento' },
   en: { title: 'Event page updated | Frontaliere Ticino', body: 'This event page has an updated address. You are being redirected automatically to the canonical version.', cta: 'Open the event page' },
@@ -3888,53 +3924,19 @@ export function renderEventSlugRedirectPage(locale: Locale, canonicalPath: strin
   return bridge.replace('</head>', ` <meta http-equiv="refresh" content="0; url=${canonicalUrl}">\n </head>`);
 }
 
-const EVENT_ROUTE_ROOTS: Record<Locale, string> = {
-  it: 'eventi',
-  en: 'en/events',
-  de: 'de/veranstaltungen',
-  fr: 'fr/evenements',
-};
-
 /**
- * Remove only redirect bridges that this build no longer emits. Event detail
- * pages can be renamed or disappear from the grace window while their old
- * files remain in `dist/`; leaving those files behind makes an orphaned
- * legacy URL look live to crawlers. The refresh+noindex pair is specific to
- * `renderEventSlugRedirectPage`, so thin detail pages and other noindex output
- * are left untouched.
+ * Compatibility shim kept for callers/tests from the old short-grace design.
+ * Event redirect bridges are part of the permanent URL archive: deleting a
+ * bridge because the current crawl no longer mentions it would recreate the
+ * SEO loss this pipeline is explicitly designed to prevent.
  */
 export function pruneStaleEventSlugRedirects(
   distDir: string,
   expectedPaths: ReadonlySet<string> | readonly string[],
 ): string[] {
-  const expected = new Set([...expectedPaths].map((p) => path.resolve(p)));
-  const removed: string[] = [];
-  const isRedirectBridge = (filePath: string) => {
-    let html: string;
-    try { html = fs.readFileSync(filePath, 'utf8'); } catch { return false; }
-    return html.includes('<meta name="robots" content="noindex,follow">')
-      && html.includes('<meta http-equiv="refresh" content="0; url=');
-  };
-  const walk = (dir: string) => {
-    let entries: fs.Dirent[];
-    try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
-    for (const entry of entries) {
-      const filePath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        walk(filePath);
-        continue;
-      }
-      if (!entry.isFile() || (!entry.name.endsWith('.html') && entry.name !== 'index.html')) continue;
-      if (expected.has(path.resolve(filePath)) || !isRedirectBridge(filePath)) continue;
-      fs.rmSync(filePath, { force: true });
-      removed.push(filePath);
-    }
-  };
-  for (const locale of LOCALES) {
-    if (!shouldEmitLocale(locale)) continue;
-    walk(path.join(distDir, EVENT_ROUTE_ROOTS[locale]));
-  }
-  return removed;
+  void distDir;
+  void expectedPaths;
+  return [];
 }
 
 /**
@@ -3982,7 +3984,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const distDir = path.resolve(rootDir, 'dist');
       // #5911: BUILD_DATE_STAMP (derived from the deploy-wide BUILD_ID), NOT a
       // fresh `new Date()` — this "today" gates which comuni get event pages
-      // (upcomingEvents/digest/recentlyEndedEvents below), and on the matrix
+      // (upcomingEvents/digest/allEndedEvents below), and on the matrix
       // deploy the it/en/de/fr shards are 4 independent multi-hour processes.
       // A per-shard `new Date()` could cross a UTC-midnight boundary between
       // shards, so the same event flips upcoming/past differently per shard —
@@ -3992,9 +3994,10 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const dateStamp = BUILD_DATE_STAMP;
       const dataset = loadEventsDataset();
       const all = upcomingEvents(dataset.events, dateStamp) as SiteEvent[];
+      const pastEvents = allEndedEvents(dataset.events, dateStamp) as SiteEvent[];
 
-      if (all.length === 0) {
-        console.log('\x1b[36m[events-pages]\x1b[0m no upcoming events in data/events.json — skipped (run scripts/crawl-tio-agenda.mjs)');
+      if (all.length === 0 && pastEvents.length === 0) {
+        console.log('\x1b[36m[events-pages]\x1b[0m no retained events in data/events.json — skipped (run scripts/crawl-tio-agenda.mjs)');
         return;
       }
 
@@ -4046,6 +4049,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         for (const [comune, list] of byComune) {
           const slugs = assignEventSlugs(list);
           liveSlugMigrations.push(...changedEventSlugMigrations(list, canton, comune, slugs));
+          liveSlugMigrations.push(...historicalEventSlugMigrations(list, canton, comune, slugs));
           for (const ev of list) {
             detailSlugs.set(ev.id, { canton, comune, slug: slugs.get(ev.id)! });
           }
@@ -4056,6 +4060,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           otherEventsByCanton.set(canton, otherEvents);
           const slugs = assignEventSlugs(otherEvents);
           liveSlugMigrations.push(...changedEventSlugMigrations(otherEvents, canton, OTHER_EVENTS_COMUNE_KEY, slugs));
+          liveSlugMigrations.push(...historicalEventSlugMigrations(otherEvents, canton, OTHER_EVENTS_COMUNE_KEY, slugs));
           for (const ev of otherEvents) {
             detailSlugs.set(ev.id, { canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: slugs.get(ev.id)! });
           }
@@ -4089,7 +4094,12 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       };
       const emitSlugRedirect = (locale: Locale, migration: EventSlugMigration) => {
         if (!shouldEmitLocale(locale)) return;
-        const fromPath = pathForEventDetail(locale, migration.comune, migration.fromSlug, migration.canton);
+        const fromPath = pathForEventDetail(
+          locale,
+          migration.fromComune || migration.comune,
+          migration.fromSlug,
+          migration.fromCanton || migration.canton,
+        );
         const toPath = pathForEventDetail(locale, migration.comune, migration.toSlug, migration.canton);
         const key = eventSlugRedirectKey(locale, fromPath);
         if (fromPath === toPath || canonicalDetailPaths.has(fromPath) || emittedSlugRedirects.has(key)) return;
@@ -4288,18 +4298,16 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         });
         cantonStats.push({ canton, eventCount: events.length, comuneCount: byComune.size });
       }
-      // Recently-ended events (issue #3646, F4 "indexability": noindex,follow
+      // Historical events (issue #3646, F4 "indexability": noindex,follow
       // on events that already took place). `upcomingEvents` drops a past
-      // event outright — without this pass the URL just 404s on the next
-      // rebuild. Emits a short grace-window bridge page instead (own slug
-      // dedup namespace, own comune grouping — kept fully separate from
-      // `detailSlugs`/`perCantonSitemap`/`cantonStats`/the sitemap on
-      // purpose: these pages are deliberately orphaned, no indexed page
-      // links to them, so they cannot affect BFS crawl depth and never
-      // reappear in Event JSON-LD or the sitemap). Outbound links from the
-      // page itself (to whatever is currently live in the same comune) are
-      // still fine — same idea as the jobs expired-soft-landing pattern.
-      const pastEvents = recentlyEndedEvents(dataset.events, dateStamp) as SiteEvent[];
+      // event from the live listing — without this permanent archive pass the
+      // URL would 404 on a later rebuild. These pages use their own slug
+      // namespace and comune grouping, kept fully separate from
+      // `detailSlugs`/`perCantonSitemap`/`cantonStats`/the sitemap on purpose:
+      // they are deliberately orphaned, no indexed page links to them, so
+      // they cannot affect BFS crawl depth and never reappear in Event
+      // JSON-LD or the sitemap. Outbound links from the page itself (to
+      // whatever is currently live in the same comune) are still fine.
       const pastEventsByCanton = new Map<string, SiteEvent[]>();
       for (const ev of pastEvents) {
         // #3715: same group-key resolution as the live `byCanton` pass above
@@ -4310,14 +4318,18 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         // #3739: an unresolved canton must route to the canton-neutral
         // bucket, not silently mislabel the event as Ticino.
         const canton = ev.canton ? resolveCantonUrlKey(ev.canton) : UNRESOLVED_CANTON_KEY;
-        if (!ev.comune) continue; // comune-less past events: not worth a bridge page (rare, no stable bucket to land on)
         pastEventsByCanton.set(canton, [...(pastEventsByCanton.get(canton) ?? []), ev]);
       }
       for (const [canton, events] of pastEventsByCanton) {
         const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
+        const otherEvents = events.filter((event) => !event.comune);
+        if (otherEvents.length > 0) byComune.set(OTHER_EVENTS_COMUNE_KEY, otherEvents);
         const liveByComune = byCantonComune.get(canton);
         for (const [comune, list] of byComune) {
-          const liveSameComune = liveByComune?.get(comune) ?? [];
+          const liveSameComune =
+            comune === OTHER_EVENTS_COMUNE_KEY
+              ? otherEventsByCanton.get(canton) ?? []
+              : liveByComune?.get(comune) ?? [];
           // #3700/#3715: reserve base slugs already claimed by a still-live
           // sibling in this comune (e.g. a multi-day event sharing the
           // exact same title+startDate as a now-past one, still "upcoming"
@@ -4330,11 +4342,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
           for (const ev of list) for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, comune, pastSlugFor.get(ev.id)!, canton));
           const pastSlugMigrations = changedEventSlugMigrations(list, canton, comune, pastSlugFor, reservedBaseSlugs);
+          const pastHistoricalMigrations = historicalEventSlugMigrations(list, canton, comune, pastSlugFor);
           for (const locale of LOCALES) {
             // Same shard gate as the main render loop above.
             if (!shouldEmitLocale(locale)) { skippedLocaleRenders += 1; continue; }
             const detailHref = detailHrefFor(locale);
             for (const migration of pastSlugMigrations) emitSlugRedirect(locale, migration);
+            for (const migration of pastHistoricalMigrations) emitSlugRedirect(locale, migration);
             for (const ev of list) {
               emit(
                 renderEventDetailPage({

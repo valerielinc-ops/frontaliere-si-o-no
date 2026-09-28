@@ -32,6 +32,8 @@ import {
   groupByComune,
   loadCantonComuni,
 } from '../scripts/lib/events-utils.mjs';
+import { allEndedEvents, mergeEventHistory, preserveEventHistory } from '../scripts/lib/events-retention.mjs';
+import { mergeEventsIntoSlice } from '../scripts/lib/crawl-checkpoint.mjs';
 import { pruneFailedImageRefs } from '../scripts/push-mirrored-event-images-cdn.mjs';
 import { eventLd, zurichOffset } from '../build-plugins/eventsSeoPagesPlugin';
 import { CANTON_CODES } from '../services/cantonList';
@@ -274,6 +276,58 @@ describe('events-utils helpers', () => {
       { id: 'newer', startDate: '2026-06-30', endDate: '2026-06-30', title: 'Newer', comune: 'Lugano' },
     ];
     expect(recentlyEndedEvents(events, '2026-07-01').map((e: { id: string }) => e.id)).toEqual(['newer', 'older']);
+  });
+
+  it('allEndedEvents keeps the permanent archive partition, including old events', () => {
+    const events = [
+      { id: 'old', startDate: '2025-01-01', endDate: '2025-01-01', title: 'Old', comune: 'Lugano' },
+      { id: 'recent', startDate: '2026-06-30', endDate: '2026-06-30', title: 'Recent', comune: 'Lugano' },
+      { id: 'live', startDate: '2026-07-01', endDate: '2026-07-02', title: 'Live', comune: 'Lugano' },
+    ];
+    expect(allEndedEvents(events, '2026-07-01').map((e: { id: string }) => e.id)).toEqual(['recent', 'old']);
+  });
+
+  it('preserves a published route when an event date changes', () => {
+    const previous = {
+      id: 'ge-agenda:event',
+      title: 'Mostra',
+      startDate: '2026-09-26',
+      comune: 'Genève',
+      canton: 'GE',
+    };
+    const current = { ...previous, startDate: '2026-09-27' };
+    const merged = mergeEventHistory(previous, current);
+    expect(merged.previousRoutes).toEqual([
+      { canton: 'GE', comune: 'Genève', slug: 'mostra-2026-09-26' },
+    ]);
+    expect(preserveEventHistory(merged, [previous]).previousRoutes).toHaveLength(1);
+  });
+
+  it('retains expired and gone records in an event slice', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'events-retention-'));
+    const slicePath = path.join(dir, 'source.json');
+    writeFileSync(
+      slicePath,
+      JSON.stringify({
+        schemaVersion: 1,
+        sourceKey: 'fixture',
+        events: [{ id: 'old', title: 'Old', startDate: '2025-01-01', endDate: '2025-01-01', comune: 'Lugano', canton: 'TI' }],
+      }),
+    );
+    try {
+      const total = mergeEventsIntoSlice({
+        slicePath,
+        sourceKey: 'fixture',
+        sourceName: 'Fixture',
+        freshEvents: [{ id: 'new', title: 'New', startDate: '2026-10-01', comune: 'Lugano', canton: 'TI' }],
+        goneIds: ['old'],
+        crawledAt: '2026-09-28T00:00:00.000Z',
+      });
+      expect(total).toBe(2);
+      expect(JSON.parse(readFileSync(slicePath, 'utf8')).events.map((e: { id: string }) => e.id)).toEqual(['old', 'new']);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   it('groupByComune drops events without a comune', () => {

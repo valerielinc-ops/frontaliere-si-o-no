@@ -36,7 +36,6 @@
  * Exit code is always 0 unless an unexpected crash occurs (CI-soft).
  */
 
-import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { JSDOM } from 'jsdom';
@@ -60,6 +59,7 @@ import {
 } from './lib/events-utils.mjs';
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-translate.mjs';
 import { extractEventPeopleFromText, extractEventPeopleFromTitle, normalizeEventPeople } from './lib/event-metadata.mjs';
+import { mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
@@ -545,18 +545,17 @@ async function main() {
   saveGeocodeCache(geocodeCache);
   saveEventTitleTranslationCache(translationCache);
 
-  mkdirSync(EVENTS_SLICE_DIR, { recursive: true });
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
-  const slice = {
-    schemaVersion: 1,
+  const total = mergeEventsIntoSlice({
+    slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
     canton: SOURCE.canton,
-    assembledAt: crawledAt,
-    events: translatedEvents,
-  };
-  writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
-  console.log(`[tio-agenda] wrote ${translatedEvents.length} events → ${path.relative(process.cwd(), slicePath)}`);
+    freshEvents: translatedEvents,
+    goneIds: [],
+    crawledAt,
+  });
+  console.log(`[tio-agenda] merged ${translatedEvents.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-tio-agenda.mjs`), so
