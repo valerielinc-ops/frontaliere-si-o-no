@@ -6935,6 +6935,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.misure-poverta-lavoro-svizzera.title': 'Caritas: more support for the working poor',
     'blog.article.misure-poverta-lavoro-svizzera.excerpt': 'Nearly 360\'000 workers in Switzerland, 8,8% of the workforce, do not earn enough to meet family needs: Caritas proposes a minimum wage and targeted support.',
     'blog.article.misure-poverta-lavoro-svizzera.imageAlt': 'Swiss worker reviews a family budget at a kitchen table',
+    'blog.article.swiss-starlink-flotta.title': 'Swiss brings Starlink to its entire fleet by the end of 2029',
+    'blog.article.swiss-starlink-flotta.excerpt': 'Swiss has activated Starlink on the first Airbus A320neo: the Zurich-Thessaloniki flight launches the plan to connect the entire fleet by the end of 2029.',
+    'blog.article.swiss-starlink-flotta.imageAlt': 'Swiss aircraft above the clouds with satellite internet connectivity',
 };
 
 export default blogMetaChEn;

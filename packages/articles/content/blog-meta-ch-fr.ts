@@ -6935,6 +6935,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.misure-poverta-lavoro-svizzera.title': 'Caritas : plus de soutien aux travailleurs pauvres',
     'blog.article.misure-poverta-lavoro-svizzera.excerpt': 'Près de 360\'000 travailleurs en Suisse, soit 8,8% des actifs, ne gagnent pas assez pour les besoins familiaux : Caritas propose un salaire minimum et des aides ciblées.',
     'blog.article.misure-poverta-lavoro-svizzera.imageAlt': 'Un travailleur suisse examine le budget familial à la table de cuisine',
+    'blog.article.swiss-starlink-flotta.title': 'Swiss porte Starlink sur toute la flotte d\'ici fin 2029',
+    'blog.article.swiss-starlink-flotta.excerpt': 'Swiss a activé Starlink sur le premier Airbus A320neo : le vol Zurich-Thessalonique ouvre le plan visant à connecter toute la flotte d’ici fin 2029.',
+    'blog.article.swiss-starlink-flotta.imageAlt': 'Avion de Swiss au-dessus des nuages avec connexion Internet satellitaire',
 };
 
 export default blogMetaChFr;
