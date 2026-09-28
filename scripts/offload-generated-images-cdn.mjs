@@ -176,8 +176,9 @@ const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
 //      imports, CSS url()). dist/assets is deleted later by the deploy verify step.
 //   3. Data base inject: insert a `<link rel="preconnect">` (+ dns-prefetch) to the
 //      CDN host followed by `<script>window.__CDN_DATA_BASE__="<CDN>"</script>`
-//      after <head>, so the cross-origin connection is warm before cdnDataUrl()/
-//      cdnImageUrl() issue the first runtime /data/ or image fetch to the CDN.
+//      immediately after the charset declaration, so the cross-origin connection
+//      is warm before cdnDataUrl()/cdnImageUrl() issue the first runtime /data/
+//      or image fetch to the CDN while charset remains first in the head.
 //   4. Collect every literal same-origin /data/ ref (sitemap/href) so those files
 //      stay same-origin (kept), while cdn-only data files are deleted.
 // Then the guarded deletes (og dirs if no leak; cdn-only dist/data files).
@@ -388,7 +389,19 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
       } else {
         const m = out.match(/<head[^>]*>/i);
         if (m) {
-          const at = m.index + m[0].length;
+          const headEnd = m.index + m[0].length;
+          const headRemainder = out.slice(headEnd);
+          const headCloseAt = headRemainder.search(/<\/head\s*>/i);
+          const headContent = headCloseAt >= 0
+            ? headRemainder.slice(0, headCloseAt)
+            : headRemainder;
+          const charset = headContent.match(/<meta\s+charset\s*=\s*["'][^"']+["']\s*\/?\s*>/i);
+          // HTML requires the encoding declaration near the start of <head>.
+          // Keep the deploy-time hints after it; fall back to the old insertion
+          // point for unusual documents that do not declare a charset.
+          const at = charset
+            ? headEnd + charset.index + charset[0].length
+            : headEnd;
           // The hint comment above assumes the data CDN is a DISTINCT host
           // from the asset CDN; when config points both at the same origin the
           // build already ships this exact preconnect (asyncCssPlugin /
