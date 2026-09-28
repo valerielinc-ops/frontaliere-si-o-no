@@ -6902,6 +6902,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.friburgo-imposta-eredi-regole.title': 'Erbschafts- und Schenkungssteuer: Steuersätze Freiburg',
     'blog.article.friburgo-imposta-eredi-regole.excerpt': 'Kanton Freiburg, Steuer auf drei Ebenen: wie man Zuständigkeiten, Verwandtschaftssätze, Befreiungen, Erklärung und zu überprüfende Fristen unterscheidet.',
     'blog.article.friburgo-imposta-eredi-regole.imageAlt': 'Schweizer Kantonsverwaltung für einen Ratgeber zu Erbschafts- und Schenkungssteuer.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: Tessiner Landwirt im Schweizer Kalender',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'Der 29-Jährige aus Bellinzona erzählt von seiner Lehre auf Deutsch, der Schließung des Betriebs mit 650 Hühnern und der intensiven Arbeit von bis zu 15 Stunden pro Tag.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, 29-jähriger Tessiner Landwirt, Porträt für den Schweizer Bauernkalender',
 };
 
 export default blogMetaChDe;

@@ -6902,6 +6902,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.friburgo-imposta-eredi-regole.title': 'Impôt succession et donation : taux Fribourg',
     'blog.article.friburgo-imposta-eredi-regole.excerpt': 'Canton de Fribourg, fisc à trois niveaux : comment distinguer les compétences, les taux de parenté, les exonérations, la déclaration et les délais à vérifier.',
     'blog.article.friburgo-imposta-eredi-regole.imageAlt': 'Bâtiment d\'une administration cantonale suisse pour un guide sur les droits de succession et de donation.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena : agriculteur tessinois dans le calendrier suisse',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'Le jeune homme de 29 ans de Bellinzone raconte son apprentissage en allemand, la fermeture de l’entreprise comptant 650 poules et le travail intensif jusqu’à 15 heures par jour.',
+    'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, agriculteur tessinois de 29 ans, portrait pour le Calendrier des agriculteurs suisses',
 };
 
 export default blogMetaChFr;
