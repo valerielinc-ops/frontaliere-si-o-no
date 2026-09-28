@@ -244,8 +244,9 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // Image, organizer and performer are optional unless the source supplied
-  // evidence. Validate every value emitted when one of them is present.
+  // The current Event builder supplies deterministic defaults for image,
+  // organizer and performer. Keep this conditional for legacy/fixture
+  // documents while validating every value emitted by the current builder.
   if (schema.image !== undefined && schema.image !== null) {
     const hasImage = Array.isArray(schema.image)
       ? schema.image.some((img) => isNonEmpty(typeof img === 'string' ? img : img?.url))
@@ -260,9 +261,9 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // offers is recommended rather than required by Google. It is emitted only
-  // for a source-backed confident price; this conditional checks every offer
-  // that is present.
+  // offers is recommended rather than required by Google. The current builder
+  // emits a complete fallback offer when price is unknown; this conditional
+  // also keeps legacy/fixture documents valid while checking every offer.
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
