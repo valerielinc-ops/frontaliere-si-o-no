@@ -467,6 +467,38 @@ describe('crawler slice integrity guard', () => {
     )).toThrow(/catastrophic truncation avoided/);
   });
 
+  it('rejects an ID-only housekeeping proof without URL evidence', () => {
+    const previous = json({ crawlerKey: 'convit-holding', jobs: [{ id: 'a', description: 'x'.repeat(1_400_000) }] });
+    const next = json({ crawlerKey: 'convit-holding', jobs: [] });
+    const proof = [{ job: { id: 'a' }, definitive: true }];
+
+    expect(isProvenHousekeepingPrune(
+      'data/jobs/by-crawler/convit-holding.json',
+      previous,
+      next,
+      proof,
+    )).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe(
+      'data/jobs/by-crawler/convit-holding.json',
+      previous,
+      next,
+      { housekeepingProof: proof },
+    )).toThrow(/catastrophic truncation avoided/);
+  });
+
+  it.each([{}, 404])('rejects non-string housekeeping URL evidence: %j', (url) => {
+    const previous = json({ crawlerKey: 'convit-holding', jobs: [{ id: 'malformed', url, description: 'x'.repeat(1_400_000) }] });
+    const next = json({ crawlerKey: 'convit-holding', jobs: [] });
+    const proof = [{ job: { id: 'malformed', url }, definitive: true }];
+
+    expect(isProvenHousekeepingPrune(
+      'data/jobs/by-crawler/convit-holding.json',
+      previous,
+      next,
+      proof,
+    )).toBe(false);
+  });
+
   it('loads only a path-bound housekeeping proof at the commit-helper CLI boundary', () => {
     const root = mkdtempSync(join(tmpdir(), 'crawler-slice-proof-cli-'));
     const removed = dedupJob('https://convit.example/cli-removed', 'Closed CLI', 'x'.repeat(1_400_000));
@@ -536,7 +568,9 @@ describe('crawler slice integrity guard', () => {
           HOUSEKEEPING_BASE_SHA: 'proof-base-sha',
         },
       });
-      expect(stale.status).toBe(1);
+      // Exit 3 = rejected proof on a catastrophic shrink, distinct from the
+      // plain byte-guard refusal (1) that git-commit-data.sh reports as such.
+      expect(stale.status).toBe(3);
       expect(`${stale.stdout}${stale.stderr}`).toContain('stale housekeeping proof');
       expect(stale.stdout).not.toContain('allowed proven-housekeeping-prune');
 
@@ -570,7 +604,7 @@ describe('crawler slice integrity guard', () => {
           HOUSEKEEPING_BASE_SHA: 'proof-base-sha',
         },
       });
-      expect(missingMetadata.status).toBe(1);
+      expect(missingMetadata.status).toBe(3);
       expect(`${missingMetadata.stdout}${missingMetadata.stderr}`).toContain(
         'missing required run metadata',
       );
@@ -592,6 +626,98 @@ describe('crawler slice integrity guard', () => {
         basePath,
         candidatePath,
       ], { encoding: 'utf8' })).toThrow(/path-mismatched housekeeping proof/);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('ignores a stale housekeeping proof when the write is not a catastrophic shrink', () => {
+    // 2026-09-28, corpus run 36372937321: belimo pruned 1 dead URL (35 -> 34
+    // jobs). The sidecar's base digest is the crawler's fresh slice, not the
+    // checkout blob, so the eager check refused an ordinary prune.
+    const root = mkdtempSync(join(tmpdir(), 'crawler-slice-proof-small-'));
+    const jobs = Array.from({ length: 35 }, (_, index) => dedupJob(`https://belimo.example/${index}`, `Job ${index}`, 'z'.repeat(2_000)));
+    const previous = json({ crawlerKey: 'belimo', jobs });
+    const next = json({ crawlerKey: 'belimo', jobs: jobs.slice(0, 34) });
+    const filePath = 'data/jobs/by-crawler/belimo.json';
+    const cliPath = resolve(import.meta.dirname, '../scripts/lib/crawler-slice-integrity.mjs');
+    try {
+      writeFileSync(join(root, 'previous.json'), previous);
+      writeFileSync(join(root, 'next.json'), next);
+      writeFileSync(join(root, 'base.json'), json({ crawlerKey: 'belimo', jobs: [] }));
+      writeFileSync(join(root, 'candidate.json'), next);
+      writeFileSync(join(root, 'proof.json'), `${JSON.stringify({
+        schemaVersion: 2,
+        path: filePath,
+        baseDigest: sha256('crawler output the commit helper never sees'),
+        candidateDigest: sha256('also different'),
+        baseSha: 'other-sha',
+        runId: 'other-run',
+        runAttempt: '9',
+        entries: [{ job: jobs[34], definitive: true, reason: 'http-404' }],
+      })}\n`);
+      const result = spawnSync(process.execPath, [
+        cliPath,
+        filePath,
+        join(root, 'previous.json'),
+        join(root, 'next.json'),
+        join(root, 'proof.json'),
+        join(root, 'base.json'),
+        join(root, 'candidate.json'),
+      ], {
+        encoding: 'utf8',
+        env: { ...process.env, GITHUB_RUN_ID: 'run', GITHUB_RUN_ATTEMPT: '1', HOUSEKEEPING_BASE_SHA: 'sha' },
+      });
+      expect(result.status, `${result.stdout}${result.stderr}`).toBe(0);
+      expect(`${result.stdout}${result.stderr}`).not.toContain('housekeeping proof');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('binds a catastrophic housekeeping prune by candidate digest when no base snapshot is passed', () => {
+    const root = mkdtempSync(join(tmpdir(), 'crawler-slice-proof-nobase-'));
+    const removed = dedupJob('https://convit.example/nobase-removed', 'Closed', 'x'.repeat(1_400_000));
+    const retained = dedupJob('https://convit.example/nobase-retained', 'Open', 'y'.repeat(100_000));
+    const previous = json({ crawlerKey: 'convit-holding', jobs: [removed, retained] });
+    const next = json({ crawlerKey: 'convit-holding', jobs: [retained] });
+    const filePath = 'data/jobs/by-crawler/convit-holding.json';
+    const cliPath = resolve(import.meta.dirname, '../scripts/lib/crawler-slice-integrity.mjs');
+    const env = { ...process.env, GITHUB_RUN_ID: 'run-1', GITHUB_RUN_ATTEMPT: '1', HOUSEKEEPING_BASE_SHA: 'head-sha' };
+    const writeProof = (candidateDigest: string) => writeFileSync(join(root, 'proof.json'), `${JSON.stringify({
+      schemaVersion: 2,
+      path: filePath,
+      // The crawler rewrote the slice before cleanup: this is NOT `previous`.
+      baseDigest: sha256(json({ crawlerKey: 'convit-holding', jobs: [removed, { ...retained, crawledAt: 'now' }] })),
+      candidateDigest,
+      baseSha: 'head-sha',
+      runId: 'run-1',
+      runAttempt: '1',
+      entries: [{ job: removed, definitive: true, reason: 'http-404' }],
+    })}\n`);
+    const run = () => spawnSync(process.execPath, [
+      cliPath,
+      filePath,
+      join(root, 'previous.json'),
+      join(root, 'next.json'),
+      join(root, 'proof.json'),
+      '-',
+      join(root, 'candidate.json'),
+    ], { encoding: 'utf8', env });
+    try {
+      writeFileSync(join(root, 'previous.json'), previous);
+      writeFileSync(join(root, 'next.json'), next);
+      writeFileSync(join(root, 'candidate.json'), next);
+
+      writeProof(sha256(next));
+      const allowed = run();
+      expect(allowed.status, `${allowed.stdout}${allowed.stderr}`).toBe(0);
+      expect(allowed.stdout).toContain('allowed proven-housekeeping-prune');
+
+      writeProof(sha256('the slice cleanup-jobs wrote was different'));
+      const changed = run();
+      expect(changed.status).toBe(3);
+      expect(changed.stderr).toContain('candidate digest mismatch');
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

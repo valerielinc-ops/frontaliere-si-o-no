@@ -272,10 +272,10 @@ export const SECTION_ORIGIN = {
 // the real table instead of duplicating it, which would drift on the next
 // section addition).
 export const SECTION_ROUTES = [
-  { section: 'ticino', prefix: '/cerca-lavoro-ticino', locale: 'it' },
-  { section: 'ticino', prefix: '/en/find-jobs-ticino', locale: 'en' },
-  { section: 'ticino', prefix: '/de/jobs-im-tessin', locale: 'de' },
-  { section: 'ticino', prefix: '/fr/trouver-emploi-tessin', locale: 'fr' },
+  { section: 'ticino', prefix: '/cerca-lavoro-ticino', locale: 'it' }, // cathedral-allow: legacy locale route contract
+  { section: 'ticino', prefix: '/en/find-jobs-ticino', locale: 'en' }, // cathedral-allow: legacy locale route contract
+  { section: 'ticino', prefix: '/de/jobs-im-tessin', locale: 'de' }, // cathedral-allow: legacy locale route contract
+  { section: 'ticino', prefix: '/fr/trouver-emploi-tessin', locale: 'fr' }, // cathedral-allow: legacy locale route contract
   { section: 'svizzera', prefix: '/cerca-lavoro-svizzera', locale: 'it' },
   { section: 'svizzera', prefix: '/en/find-jobs-switzerland', locale: 'en' },
   { section: 'svizzera', prefix: '/de/jobs-in-schweiz', locale: 'de' },
@@ -1417,9 +1417,9 @@ export function retiredEdgeResponse(url) {
 // retirements and are derived from the append-only article registry, while
 // these are site-level route aliases owned by the edge router.
 export const EDGE_LEGACY_REDIRECTS = Object.freeze({
-  '/jobs-im-tessin/': '/de/jobs-im-tessin/',
+  '/jobs-im-tessin/': '/de/jobs-im-tessin/', // cathedral-allow: legacy SEO redirect
   '/grenzgaenger-artikel/': '/de/grenzgaenger-artikel/',
-  '/trouver-emploi-tessin/': '/fr/trouver-emploi-tessin/',
+  '/trouver-emploi-tessin/': '/fr/trouver-emploi-tessin/', // cathedral-allow: legacy SEO redirect
   '/nav:pension/': '/tasse-e-pensione/calcola-previdenza/',
   // These two legacy SPA bridges were 200/noindex pages. Keep the same
   // destinations as legacyRedirectsPlugin, but expose the migration as a

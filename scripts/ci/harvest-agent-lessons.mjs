@@ -29,6 +29,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
+import { isExplicitNonFunnelDisposition } from './lib/review-findings.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { ACCEPTANCE_CONDITION, hasEnumeratedItems } from './followup-resolution-match.mjs';
 import { isAggregate, isAggregateForAnalytics } from './check-issue-already-resolved.mjs';
@@ -223,7 +224,13 @@ const TAXONOMY = [
   // Precedence is intentional: when a finding mentions both surfaces, the
   // topic bucket wins before the sibling-sweep process bucket below.
   { key: 'canonical-sitemap', re: /\b(?:canonical|sitemaps?|noindex|cross-section)\b/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
-  { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|\bpat\b|credential|secret|branch protection|push.*workflow/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
+  // Keep this bucket about authentication/capability mistakes. The former
+  // `push.*workflow` alternative matched any workflow finding whose prose
+  // mentioned a push and later said "workflow" (#9566/#9326/#9218), merging
+  // trigger/retry correctness with credential scope and repeatedly re-firing
+  // this escalation. Those findings still go through the fingerprint safety
+  // net; they must not inflate the credential bucket.
+  { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|github[_ .-]?token|\bpat\b|app token|credential|secret|branch protection|token\s+(?:scope|permission|capabilit)/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
   // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
   // brand names, canton-aware slug naming, missing/untranslated keys. The old regex
   // `/locale|i18n|translat|canton-?aware|naming|brand/i` was far too loose: the bare
@@ -652,6 +659,14 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
         if (!sev || !COUNTABLE_SEVERITIES.has(sev)) continue;
         const bucket = bucketOf(line);
         if (!bucket) continue;
+        // REVIEW.md makes an explicitly disposed non-funnel Nit advisory and
+        // FOLLOWUP.md drops it. It is therefore not evidence that a documented
+        // stale-comment rule failed; counting it here made that bucket recur
+        // forever even when every example was marked `deferred, non funnel-critical`.
+        // Keep other process buckets (for example pr-body-contract) unchanged:
+        // their deterministic contracts still make a recurring Nit actionable.
+        // Keep 🔴 fail-closed: a red finding cannot self-dispose this way.
+        if (bucket === 'stale-comment' && sev === '🟡' && isExplicitNonFunnelDisposition(line)) continue;
         if (seenBuckets.has(bucket)) continue;
         seenBuckets.add(bucket);
         counts[bucket] = (counts[bucket] || 0) + 1;

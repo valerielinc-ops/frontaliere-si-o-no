@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lis-lugano-istituti-sociali",
-  "assembledAt": "2026-09-27T15:01:28.616Z",
+  "assembledAt": "2026-09-28T05:00:56.275Z",
   "jobs": [
     {
       "title": "Capireparto",
@@ -24,7 +24,7 @@
         "it": "Capireparto",
         "en": "Department Heads",
         "de": "Fachbereichsleiter",
-        "fr": "Chapitre"
+        "fr": "Capireparto"
       },
       "slugByLocale": {
         "it": "capireparto-lis-lugano-istituti-sociali-pregassona",
@@ -97,7 +97,8 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
       "salarySource": "reported",
-      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it"
+      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it",
+      "needsRetranslation": true
     },
     {
       "title": "Infermieri",
@@ -304,7 +305,7 @@
       "titleByLocale": {
         "it": "Assistenti di cura",
         "en": "Care Assistants",
-        "de": "Pflegehelfer",
+        "de": "Assistenti di cura",
         "fr": "Aides soignants"
       },
       "slugByLocale": {
@@ -379,7 +380,8 @@
         "pflegehelfer-lis-lugano-istituti-sociali-pregassona"
       ],
       "salarySource": "reported",
-      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it"
+      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratori sanitari",

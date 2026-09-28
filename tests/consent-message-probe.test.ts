@@ -15,11 +15,13 @@ import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
 
-import { FC_JOBBOARD_OFFERWALL_GATE_JS } from '@/build-plugins/constants';
+import { BOT_GATE_FN, FC_JOBBOARD_OFFERWALL_GATE_JS } from '@/build-plugins/constants';
 import {
+  BROWSER_FINGERPRINT_JS,
   CMF_RECORDER_INIT_JS,
   FC_PREVIEW_QUERY,
   bestVerdict,
+  botFingerprintVerdict,
   classifyConsentProbe,
   navigationErrorVerdict,
 } from '../scripts/lib/consent-message-probe.mjs';
@@ -28,6 +30,7 @@ import { probeUrl } from '../scripts/probe-live-consent-message.mjs';
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const indexHtml = readFileSync(resolve(REPO_ROOT, 'index.html'), 'utf8');
 const validateLive = readFileSync(resolve(REPO_ROOT, '.github/workflows/post-deploy-validate-live.yml'), 'utf8');
+const probeSrc = readFileSync(resolve(REPO_ROOT, 'scripts/probe-live-consent-message.mjs'), 'utf8');
 
 function extractIndexHtmlGate(): string {
   const m = indexHtml.match(/<script>((?:(?!<\/script>)[\s\S])*__ftOfferwallGate[\s\S]*?)<\/script>/);
@@ -181,6 +184,57 @@ describe('classifyConsentProbe', () => {
   });
 });
 
+describe('botFingerprintVerdict', () => {
+  // The user agent the probe presents (Linux desktop Chrome).
+  const PROBE_UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36';
+  const MOBILE_UA = 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Mobile Safari/537.36';
+  type Env = { ua: string; webdriver?: boolean; chromeObject: boolean; languages: string[]; plugins: number; permissions: boolean };
+  // Measured on 2026-09-28 with webdriver already masked by the probe:
+  // chrome-headless-shell {plugins:0, chrome:false, langs:1}, full Chromium {plugins:5, chrome:true, langs:2}.
+  const SCENARIOS: Array<[string, Env, boolean]> = [
+    ['chrome-headless-shell', { ua: PROBE_UA, chromeObject: false, languages: ['it-CH'], plugins: 0, permissions: true }, true],
+    ['full Chromium, new headless', { ua: PROBE_UA, chromeObject: true, languages: ['it-CH', 'it'], plugins: 5, permissions: true }, false],
+    ['webdriver left visible', { ua: PROBE_UA, webdriver: true, chromeObject: true, languages: ['it-CH'], plugins: 5, permissions: true }, true],
+    ['no languages', { ua: PROBE_UA, chromeObject: true, languages: [], plugins: 5, permissions: true }, true],
+    ['no Permissions API', { ua: PROBE_UA, chromeObject: true, languages: ['it-CH'], plugins: 5, permissions: false }, true],
+    ['mobile Chrome with no plugins', { ua: MOBILE_UA, chromeObject: true, languages: ['it-CH'], plugins: 0, permissions: true }, false],
+  ];
+
+  function fakeEnv(env: Env) {
+    const navigator: Record<string, unknown> = {
+      userAgent: env.ua,
+      webdriver: env.webdriver === true,
+      language: env.languages[0] || '',
+      languages: env.languages,
+      plugins: { length: env.plugins },
+    };
+    if (env.permissions) navigator.permissions = {};
+    const window: Record<string, unknown> = { screen: { width: 1280, height: 900 } };
+    if (env.chromeObject) window.chrome = {};
+    return { window, navigator };
+  }
+
+  for (const [name, env, flagged] of SCENARIOS) {
+    it(`${name}: agrees with the loaders' BOT_GATE_FN (${flagged ? 'bot' : 'visitor'})`, () => {
+      const { window, navigator } = fakeEnv(env);
+      // eslint-disable-next-line no-new-func
+      const gate = new Function('window', 'navigator', `return (${BOT_GATE_FN})();`)(window, navigator);
+      // eslint-disable-next-line no-new-func
+      const fp = new Function('window', 'navigator', `return ${BROWSER_FINGERPRINT_JS};`)(window, navigator);
+      expect(gate).toBe(flagged);
+      expect(botFingerprintVerdict(fp) !== null).toBe(flagged);
+    });
+  }
+
+  it('names the probe environment, not the site, when the shell is used', () => {
+    const v = botFingerprintVerdict({ userAgent: PROBE_UA, webdriver: false, chromeObject: false, languages: 1, plugins: 0, permissions: true });
+    expect(v).toMatchObject({ verdict: 'fail', reason: 'probe_flagged_as_bot' });
+    expect(v!.detail).toContain('navigator.plugins is empty');
+    expect(v!.detail).toContain('no window.chrome');
+    expect(v!.detail).toContain('not a site regression');
+  });
+});
+
 describe('probeUrl', () => {
   it('adds the Funding Choices preview query and a cache-busting stamp', () => {
     expect(probeUrl('https://frontaliereticino.ch/', '/cerca-lavoro-ticino/', 42)).toBe(
@@ -200,5 +254,21 @@ describe('post-deploy-validate-live.yml', () => {
     expect(step).not.toMatch(/continue-on-error:\s*true/);
     // Worst case inside the probe: 3 pages x 2 attempts x (60s navigation + 30s wait).
     expect(step).toMatch(/timeout-minutes:\s*\d+/);
+  });
+
+  it('launches full Chromium, which the CI install provides next to the headless shell', () => {
+    expect(probeSrc).toContain("{ headless: true, channel: 'chromium' }");
+    expect(probeSrc).toContain('botFingerprintVerdict(await browserFingerprint(browser, userAgent))');
+    // `install chromium` fetches both builds; --only-shell would drop the one the probe launches.
+    expect(validateLive).toContain('npx playwright install --with-deps chromium');
+    expect(validateLive).not.toMatch(/playwright install[^\n]*--only-shell/);
+  });
+
+  it('does not fail an older deploy_ref when the workflow-only probe is new', () => {
+    expect(step).toContain('if [ ! -f scripts/probe-live-consent-message.mjs ]; then');
+    expect(step).toContain('git fetch --depth=1 origin main');
+    expect(step).toContain('git cat-file -e origin/main:scripts/probe-live-consent-message.mjs');
+    expect(step).toContain('the build predates the live gate');
+    expect(step).toContain('exit 0');
   });
 });

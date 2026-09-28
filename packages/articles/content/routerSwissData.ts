@@ -2310,6 +2310,20 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'valutazione-secondo-sistema-difesa': { it: 'valutazione-secondo-sistema-difesa', en: 'evaluation-second-defense-system', de: 'bewertung-zweites-verteidigungssystem', fr: 'evaluation-second-systeme-defense' },
  'votazioni-ginevra-contraccezione-libera': { it: 'votazioni-ginevra-contraccezione-libera', en: 'geneva-vote-free-contraception', de: 'genfer-abstimmung-kostenlose-verhutung', fr: 'vote-geneve-contraception-gratuite' },
  'zurigo-suicidio-assistito': { it: 'zurigo-suicidio-assistito', en: 'zurich-assisted-suicide-facilities', de: 'zuerich-assistierter-suizid', fr: 'zurich-suicide-assiste' },
+ 'sanita-alta-engadina-samedan': { it: 'sanita-alta-engadina-samedan', en: 'upper-engadine-healthcare-samedan', de: 'oberengadin-gesundheitswesen-samedan', fr: 'sante-haute-engadine-samedan' },
+ 'fisioterapia-ticino-moratoria': { it: 'fisioterapia-ticino-moratoria', en: 'physiotherapy-in-ticino-moratorium-is-not-enough-physioswiss', de: 'physiotherapie-im-tessin-moratorium-reicht-nicht-aus-physioswiss', fr: 'physiotherapie-au-tessin-le-moratoire-ne-suffit-pas-physioswiss' },
+ 'zurigo-norme-grattacieli-votazione': { it: 'zurigo-norme-grattacieli-votazione', en: 'zurich-approves-stricter-regulations-for-skyscrapers', de: 'zurich-genehmigt-strengere-vorschriften-fur-wolkenkratzer', fr: 'zurich-approuve-des-normes-plus-strictes-pour-les-gratte-ciel' },
+ 'neutralita-scelta-caso': { it: 'neutralita-scelta-caso', en: 'swiss-neutrality-case-by-case', de: 'schweizer-neutralitaet-fallweise', fr: 'neutralite-suisse-au-cas-par-cas' },
+ 'voto-svizzera-esiti-politici': { it: 'voto-svizzera-esiti-politici', en: 'switzerland-vote-political-results', de: 'schweiz-abstimmung-politische-ergebnisse', fr: 'vote-suisse-resultats-politiques' },
+ 'voto-iniziative-neutralita-cibo': { it: 'voto-iniziative-neutralita-cibo', en: 'swiss-vote-neutrality-food-security', de: 'schweiz-votum-neutralitaet-lebensmittelsicherheit', fr: 'vote-suisse-neutralite-securite-alimentaire' },
+ 'esito-iniziativa-neutralita-svizzera': { it: 'esito-iniziativa-neutralita-svizzera', en: 'swiss-neutrality-initiative-result', de: 'ergebnis-neutralitaetsinitiative-schweiz', fr: 'resultat-initiative-neutralite-suisse' },
+ 'lucerna-voto-tifosi-ocse': { it: 'lucerna-voto-tifosi-ocse', en: 'lucerne-vote-fans-oecd-funds', de: 'luzern-abstimmung-fans-oecd-gelder', fr: 'lucerne-vote-supporters-fonds-ocde' },
+ 'bern-istruzione-qualita-respinta': { it: 'bern-istruzione-qualita-respinta', en: 'bern-quality-education-initiative-rejected', de: 'bern-bildungsqualitaet-initiative-abgelehnt', fr: 'berne-initiative-education-qualite-rejetee' },
+ 'friburgo-successione-donazione-aliquote': { it: 'friburgo-successione-donazione-aliquote', en: 'fribourg-inheritance-gift-tax-rates', de: 'freiburg-erbschaft-schenkung-steuersaetze', fr: 'fribourg-impot-succession-donation-taux' },
+ 'popolo-svizzero-boccia-neutralita': { it: 'popolo-svizzero-boccia-neutralita', en: 'swiss-people-reject-neutrality', de: 'schweizer-volk-lehnt-neutralitaet-ab', fr: 'peuple-suisse-rejette-la-neutralite' },
+ 'voto-neutralita-alimentazione-respinto': { it: 'voto-neutralita-alimentazione-respinto', en: 'neutrality-food-initiative-rejected', de: 'neutralitaet-ernaehrungs-initiative-abgelehnt', fr: 'neutralite-alimentation-initiative-rejectee' },
+ 'friburgo-imposta-eredi-regole': { it: 'friburgo-imposta-eredi-regole', en: 'fribourg-inheritance-gift-tax', de: 'erbschaft-schenkungsteuer-freiburg', fr: 'droits-succession-donation-fribourg' },
+ 'massimo-balena-calendario-agricoltori-ticino': { it: 'massimo-balena-calendario-agricoltori-ticino', en: 'massimo-balena-swiss-farmer-calendar', de: 'massimo-balena-schweizer-landbaukalender', fr: 'massimo-balena-calendrier-agriculteurs' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

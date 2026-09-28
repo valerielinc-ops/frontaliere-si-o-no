@@ -1075,7 +1075,17 @@ exec ${JSON.stringify(process.execPath)} "$@"
       expect(merged[0]).toMatchObject({ id: 'retained', title: 'remote update' });
 
       // The sidecar is deliberately left in place. A second invocation with
-      // a different local snapshot must not reuse the first run's proof.
+      // a different local snapshot must not reuse the first run's proof when
+      // that proof is actually needed: another writer resurrects the large
+      // record on origin, so dropping it again is a catastrophic shrink.
+      execFileSync('git', ['pull', '-q', 'origin', 'main'], { cwd: otherClone });
+      writeFileSync(
+        join(otherClone, 'data/jobs/by-crawler/a.json'),
+        `${JSON.stringify([removed, remoteRetained])}\n`,
+      );
+      execFileSync('git', ['add', '.'], { cwd: otherClone });
+      execFileSync('git', ['commit', '-q', '-m', 'other writer: resurrect removed job'], { cwd: otherClone });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: otherClone });
       const changedCandidate = `${JSON.stringify([{ ...retained, title: 'different snapshot' }])}\n`;
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), changedCandidate);
       const stale = spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'second update'], {
@@ -1093,11 +1103,95 @@ exec ${JSON.stringify(process.execPath)} "$@"
       });
       expect(stale.status).toBe(1);
       expect(`${stale.stdout}${stale.stderr}`).toContain('stale housekeeping proof');
+      expect(stale.stdout).toContain('catastrophic crawler slice shrink with a rejected housekeeping proof');
       expect(stale.stdout).not.toContain('allowed proven-housekeeping-prune');
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
       rmSync(otherDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('publishes a multi-crawler group whose housekeeping proofs were written after the crawl rewrote the slices', () => {
+    // 2026-09-28 wave (corpus runs 36372937321, 36373092283, 36373161134,
+    // 36373227950, 36373563676): one crawler per group pruned dead URLs, the
+    // proof base digest was the crawler's fresh slice, and the commit helper
+    // compared it with the checkout blob => "snapshot digest mismatch" and the
+    // whole group unpublished, on shrinks as small as 35 -> 34 jobs.
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-proof-group-'));
+    const slice = (crawlerId: string) => join(repoDir, `data/jobs/by-crawler/${crawlerId}.json`);
+    const job = (crawlerId: string, index: number, extra: Record<string, unknown> = {}) => ({
+      id: `${crawlerId}-${index}`,
+      url: `https://${crawlerId}.example/${index}`,
+      description: 'd'.repeat(500),
+      ...extra,
+    });
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      const bigDead = job('big', 0, { description: 'x'.repeat(1_400_000) });
+      const bigKept = job('big', 1, { description: 'y'.repeat(100_000) });
+      const smallJobs = Array.from({ length: 35 }, (_, index) => job('small', index));
+      writeFileSync(slice('big'), `${JSON.stringify([bigDead, bigKept])}\n`);
+      writeFileSync(slice('small'), `${JSON.stringify(smallJobs)}\n`);
+      writeFileSync(slice('plain'), `${JSON.stringify([job('plain', 0)])}\n`);
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      const head = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf8' }).trim();
+
+      const proofDir = join(runnerTemp, 'frontaliere-housekeeping-proofs');
+      const crawlThenCleanup = (crawlerId: string, crawled: unknown[], cleaned: unknown[], dead: unknown[]) => {
+        // The crawler rewrites the slice first (fresh crawledAt), then
+        // cleanup-jobs reads THAT content and prunes the dead URLs.
+        const crawledRaw = `${JSON.stringify(crawled)}\n`;
+        const cleanedRaw = `${JSON.stringify(cleaned)}\n`;
+        writeFileSync(slice(crawlerId), cleanedRaw);
+        mkdirSync(join(proofDir, 'data/jobs/by-crawler'), { recursive: true });
+        writeFileSync(join(proofDir, `data/jobs/by-crawler/${crawlerId}.json.housekeeping-proof.json`), `${JSON.stringify({
+          schemaVersion: 2,
+          path: `data/jobs/by-crawler/${crawlerId}.json`,
+          baseDigest: sha256(crawledRaw),
+          candidateDigest: sha256(cleanedRaw),
+          baseSha: head,
+          runId: 'proof-group-run',
+          runAttempt: '1',
+          entries: dead.map((deadJob) => ({ job: deadJob, definitive: true, reason: 'http-404' })),
+        })}\n`);
+      };
+      const refreshed = (value: Record<string, unknown>) => ({ ...value, crawledAt: '2026-09-28T03:20:00Z' });
+      crawlThenCleanup('big', [refreshed(bigDead), refreshed(bigKept)], [refreshed(bigKept)], [refreshed(bigDead)]);
+      crawlThenCleanup('small', smallJobs.map(refreshed), smallJobs.slice(0, 34).map(refreshed), [refreshed(smallJobs[34])]);
+      writeFileSync(slice('plain'), `${JSON.stringify([refreshed(job('plain', 0))])}\n`);
+
+      const runEnv = { GITHUB_RUN_ID: 'proof-group-run', GITHUB_RUN_ATTEMPT: '1' };
+      for (const crawlerId of ['big', 'small', 'plain']) {
+        const deferred = deferGroupCommit(repoDir, runnerTemp, crawlerId, [], GENERATION_TOKEN, runEnv);
+        expect(deferred.status, `${deferred.stdout}${deferred.stderr}`).toBe(0);
+      }
+      const batch = spawnSync(BASH_BIN, [SCRIPT_PATH, '--group-batch', 'batch update'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+        env: { ...groupEnv(repoDir, runnerTemp), ...runEnv },
+      });
+      const output = `${batch.stdout}${batch.stderr}`;
+      expect(batch.status, output).toBe(0);
+      expect(output).not.toContain('stale housekeeping proof');
+      expect(output).toContain('allowed proven-housekeeping-prune for data/jobs/by-crawler/big.json');
+
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      const pushed = (crawlerId: string) => JSON.parse(execFileSync(
+        'git',
+        ['show', `origin/main:data/jobs/by-crawler/${crawlerId}.json`],
+        { cwd: repoDir, encoding: 'utf8' },
+      ));
+      expect(pushed('big').map((entry: { id: string }) => entry.id)).toEqual(['big-1']);
+      expect(pushed('small')).toHaveLength(34);
+      expect(pushed('plain')[0]).toMatchObject({ id: 'plain-0', crawledAt: '2026-09-28T03:20:00Z' });
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
       rmSync(runnerTemp, { recursive: true, force: true });
     }
   });

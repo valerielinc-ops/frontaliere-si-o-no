@@ -1,6 +1,6 @@
 {
   "crawlerKey": "marriott",
-  "assembledAt": "2026-09-27T15:20:34.683Z",
+  "assembledAt": "2026-09-28T05:12:52.223Z",
   "jobs": [
     {
       "id": "marriott-f02a9415490d",
@@ -33,7 +33,7 @@
       "url": "https://careers.marriott.com/white-elephant-service/job/P1-6828633-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.381Z",
+      "crawledAt": "2026-09-28T05:12:47.773Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -123,7 +123,7 @@
       "url": "https://careers.marriott.com/welcome-agent-intern-w-verbier/job/P1-6838759-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.380Z",
+      "crawledAt": "2026-09-28T05:12:47.772Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -212,7 +212,7 @@
       "url": "https://careers.marriott.com/waitress-hostess-winter-26-27-w-verbier/job/P1-6926728-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.379Z",
+      "crawledAt": "2026-09-28T05:12:47.771Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -284,7 +284,7 @@
       "companyDomain": "marriott.com",
       "title": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
       "titleByLocale": {
-        "it": "Cameriera/tress Brasserie & U-Yama (inverno 26/27) - W VERBIER",
+        "it": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
         "en": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
         "de": "Kellner/Tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
         "fr": "Serveur/tress Brasserie & U-Yama (Hiver 26/27) - W VERBIER"
@@ -301,7 +301,7 @@
       "url": "https://careers.marriott.com/waiter-tress-brasserie-u-yama-winter-26-27-w-verbier/job/P1-5172421-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.378Z",
+      "crawledAt": "2026-09-28T05:12:47.770Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -356,7 +356,82 @@
           "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:20:39.383Z",
+      "salaryMin": 53500,
+      "salaryMax": 67000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 67000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "WALLI"
+    },
+    {
+      "id": "marriott-6b3ffd8150bb",
+      "slug": "supervisor-venues-u-yama-winter-26-27-w-verbier-marriott-verbier",
+      "slugByLocale": {
+        "it": "supervisor-venues-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "en": "supervisor-venues-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "de": "vorgesetzter-venues-u-yama-winter-26-27-w-verbier-marriott-international-verbier",
+        "fr": "superviseur-venues-u-yama-winter-26-27-w-verbier-marriott-international-verbier"
+      },
+      "company": "Marriott International",
+      "companyKey": "marriott",
+      "companyDomain": "marriott.com",
+      "title": "Supervisor Venues U-Yama ( Winter 26/27) - W VERBIER",
+      "titleByLocale": {
+        "it": "Supervisor Venues U-Yama ( Winter 26/27) - W VERBIER",
+        "en": "Supervisor Venues U-Yama ( Winter 26/27) - W VERBIER",
+        "de": "Vorgesetzter Venues U-Yama ( Winter 26/27) - W VERBIER",
+        "fr": "Superviseur Venues U-Yama ( Winter 26/27) - W VERBIER"
+      },
+      "description": "POSITION SUMMARY\n JOB DESCRIPTION\n\nAs \"Talent\", you represent W lifestyle to our guests. You are the soul behind the brand and you bring it to life. W Talents are as unique as the brand itself and are personally engaged from a lifestyle standpoint to the warm, witty, welcoming environment of the brand.\n\nAN EXCITING CHANCE TO JOIN THE W VERBIER TEAM\n\nAs Maitre d'hotel - Venue Supervisor (Morning & Evening) , you’ll support the Assistant Director of B&F in overseeing Breakfast, Banquets, and In-Room Dining during the morning and our Restaurants during the evening— ensuring that every detail reflects the elevated standards and original concept behind the W experience.\n\nThis is a hands-on, guest-facing position where your presence on the floor makes a real difference. From fine-tuning service flow to guiding and inspiring your team, your leadership will help shape a smooth, stylish, and unforgettable guest journey.\n\nYou'll be responsible for:\n • Coordinating daily operations across venues\n • Upholding grooming and service standards with precision\n • Coaching and supporting your team of Talents\n • Maintaining strong guest relationships and encouraging feedback\n • Contributing to the ongoing evolution of service excellence\n\nYOUR PROFILE\n You’re someone who naturally combines refined service with fresh energy. You value structure and creativity in equal measure. People trust your judgment, respect your high standards, and are inspired by your calm leadership.\n You also bring:\n • Experience managing teams in a 5-star hotel or luxury hospitality environment\n • A sharp eye for detail — you don’t overlook the small things\n • A proactive, adaptable approach to change and daily challenges\n • Fluency in French and English\n • A genuine interest in aesthetics, service culture, and guest experience\n\nGOOD TO KNOW\n\nBased in W Verbier, Switzerland\n Please note: due to visa restrictions, we can only consider applications from Switzerland or the European Union\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+      "descriptionByLocale": {
+        "it": "SUMMARIO POSIZIONE\nDESCRIZIONE DELLA JOB\n\nCome \"Talent\", tu rappresenti lo stile di vita W ai nostri ospiti. Sei l'anima dietro il marchio e lo porti alla vita. W Talents sono unici come il marchio stesso e sono personalmente impegnati da un punto di vista lifestyle al caldo, spiritoso, accogliente ambiente del marchio.\n\nUN'ESCITAZIONE PER IL TEAM VERBIER W\n\nCome Maitre d'hotel - Venue Supervisor (Morning & Evening) , sosterrete l'Assistente Direttore di B&F nel supervisionare Colazione, Banquets e In-Room Dining durante la mattina e i nostri Ristoranti durante la serata, assicurando che ogni dettaglio rifletta gli elevati standard e il concetto originale dietro l'esperienza W.\n\nQuesta è una posizione pratica e orientata verso gli ospiti in cui la vostra presenza sul pavimento fa una vera differenza. Dal flusso di servizio raffinato per guidare e ispirare il vostro team, la vostra leadership aiuterà a plasmare un viaggio ospiti liscio, elegante e indimenticabile.\n\nSarai responsabile di:\n• Coordinamento delle operazioni quotidiane in tutti i luoghi\n• Mantenere gli standard di manutenzione e cura con precisione\n• Allenamento e supporto alla tua squadra di Talenti\n• Mantenere forti relazioni con gli ospiti e incoraggiare il feedback\n• Contribuire alla continua evoluzione dell'eccellenza del servizio\n\nIl tuo progetto\nSei qualcuno che combina naturalmente un servizio raffinato con energia fresca. Valori la struttura e la creatività in misura uguale. La gente si fida del tuo giudizio, rispetta i tuoi elevati standard, e si ispira alla tua calma leadership.\nPorti anche:\n• Esperienza di team di gestione in un hotel a 5 stelle o ambiente di ospitalità di lusso\n• Un occhio affilato per i dettagli — non si trascurano le piccole cose\n• Un approccio proattivo e adattabile al cambiamento e alle sfide quotidiane\n• Fluency in francese e inglese\n• Un autentico interesse per l'estetica, la cultura del servizio e l'esperienza degli ospiti\n\nChe Dio sappia\n\nCon sede in W Verbier, Svizzera\nSi prega di notare: a causa delle restrizioni del visto, possiamo solo considerare le domande dalla Svizzera o dall'Unione Europea\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nLa missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
+        "en": "POSITION SUMMARY\nJOB DESCRIPTION\n\nAs \"Talent\", you represent W lifestyle to our guests. You are the soul behind the brand and you bring it to life. W Talents are as unique as the brand itself and are personally engaged from a lifestyle standpoint to the warm, witty, welcoming environment of the brand.\n\nAN EXCITING CHANCE TO JOIN THE W VERBIER TEAM\n\nAs Maitre d'hotel - Venue Supervisor (Morning & Evening) , you’ll support the Assistant Director of B&F in overseeing Breakfast, Banquets, and In-Room Dining during the morning and our Restaurants during the evening— ensuring that every detail reflects the elevated standards and original concept behind the W experience.\n\nThis is a hands-on, guest-facing position where your presence on the floor makes a real difference. From fine-tuning service flow to guiding and inspiring your team, your leadership will help shape a smooth, stylish, and unforgettable guest journey.\n\nYou'll be responsible for:\n• Coordinating daily operations across venues\n• Upholding grooming and service standards with precision\n• Coaching and supporting your team of Talents\n• Maintaining strong guest relationships and encouraging feedback\n• Contributing to the ongoing evolution of service excellence\n\nYOUR PROFILE\nYou’re someone who naturally combines refined service with fresh energy. You value structure and creativity in equal measure. People trust your judgment, respect your high standards, and are inspired by your calm leadership.\nYou also bring:\n• Experience managing teams in a 5-star hotel or luxury hospitality environment\n• A sharp eye for detail — you don’t overlook the small things\n• A proactive, adaptable approach to change and daily challenges\n• Fluency in French and English\n• A genuine interest in aesthetics, service culture, and guest experience\n\nGOOD TO KNOW\n\nBased in W Verbier, Switzerland\nPlease note: due to visa restrictions, we can only consider applications from Switzerland or the European Union\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+        "de": "ZUSAMMENFASSUNG DER POSITION\nBESCHREIBUNG\n\nAls \"Talent\" repräsentieren Sie W Lifestyle für unsere Gäste. Du bist die Seele hinter der Marke und du bringst sie zum Leben. W Talents sind so einzigartig wie die Marke selbst und engagieren sich persönlich vom Lifestyle-Standpunkt bis zur warmen, witzigen, einladenden Umgebung der Marke.\n\nGELTENDE ANGABEN ZUM W-VERBIER-TEAM\n\nAls Maitre d'hotel - Venue Supervisor (Morning & Evening) unterstützen Sie den stellvertretenden Direktor von B&F bei der Überwachung von Frühstück, Banketts und In-Room Dining am Morgen und unseren Restaurants am Abend und stellen sicher, dass jedes Detail die hohen Standards und das originelle Konzept des W-Erlebnisses widerspiegelt.\n\nDies ist eine praktische, gastorientierte Position, in der Ihre Anwesenheit auf dem Boden einen echten Unterschied macht. Von der Feinabstimmung des Serviceflusses bis hin zur Führung und Inspiration Ihres Teams wird Ihre Führung dazu beitragen, eine reibungslose, stilvolle und unvergessliche Gästereise zu gestalten.\n\nSie sind verantwortlich für:\n• Koordinierung des täglichen Betriebs an verschiedenen Orten\n• Einhaltung von Pflege- und Servicestandards mit Präzision\n• Coaching und Unterstützung Ihres Talentteams\n• Pflege starker Gästebeziehungen und ermutigendes Feedback\n• Beitrag zur Weiterentwicklung der Service Excellence\n\nIHR PROFIL\nSie sind jemand, der auf natürliche Weise raffinierten Service mit frischer Energie kombiniert. Sie schätzen Struktur und Kreativität gleichermaßen. Die Menschen vertrauen Ihrem Urteilsvermögen, respektieren Ihre hohen Standards und werden von Ihrer ruhigen Führung inspiriert.\nSie bringen auch:\n• Erleben Sie das Management von Teams in einem 5-Sterne-Hotel oder einer luxuriösen Hospitality-Umgebung\n• Ein scharfes Auge für Details - Sie übersehen die kleinen Dinge nicht\n• Ein proaktiver, anpassungsfähiger Ansatz für Veränderungen und tägliche Herausforderungen\n• Fließend in Französisch und Englisch\n• Ein echtes Interesse an Ästhetik, Servicekultur und Gästeerlebnis\n\nGut zu wissen\n\nSitz in W Verbier, Schweiz\nBitte beachten Sie: Aufgrund von Visabeschränkungen können wir nur Anträge aus der Schweiz oder der Europäischen Union berücksichtigen\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nDie Mission von W Hotels ist es, Curiosity zu entzünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen und offene Köpfe zu öffnen. Wir werden ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-anything-geist ist in unserem kern und hat uns dafür bekannt gemacht, die normen des luxus auf der ganzen welt neu zu erfinden. Was auch immer unsere Kultur und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben erweckt. Wenn Sie originell, innovativ und immer auf die Zukunft des Möglichen ausgerichtet sind, willkommen in W Hotels. Wenn Sie W Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
+        "fr": "RÉSUMÉ DE LA POSITION\nDESCRIPTION DE L'EMPLOI\n\nEn tant que \"Talent\", vous représentez le mode de vie W à nos invités. Tu es l'âme derrière la marque et tu la fais vivre. W Talents sont aussi uniques que la marque elle-même et sont personnellement engagés du point de vue du style de vie à l'environnement chaleureux, spirituel et accueillant de la marque.\n\nUNE CHANCE EXCITIVE DE JOUER DANS L'ÉQUIPE W VERBIER\n\nEn tant que Maître d'hôtel - Superviseur de salle (Morning & Evening) , vous aiderez le directeur adjoint de B&F à superviser le petit déjeuner, les banquets et les repas en chambre le matin et nos restaurants le soir, en veillant à ce que chaque détail reflète les normes élevées et le concept original derrière l'expérience W.\n\nC'est une position pratique, face aux invités où votre présence sur le sol fait une vraie différence. De la mise au point du service à la direction et à l'inspiration de votre équipe, votre leadership vous aidera à façonner un voyage en douceur, élégant et inoubliable.\n\nVous serez responsable de :\n• Coordination des opérations quotidiennes entre lieux\n• Maintien des normes de toilettage et de service avec précision\n• Entraîner et soutenir votre équipe de Talents\n• Maintenir de solides relations avec les clients et encourager la rétroaction\n• Contribuer à l'évolution continue de l'excellence des services\n\nVOTRE PROFIL\nVous êtes quelqu'un qui combine naturellement un service raffiné avec de l'énergie fraîche. Vous valorisez la structure et la créativité dans une mesure égale. Les gens font confiance à votre jugement, respectent vos normes élevées et sont inspirés par votre direction calme.\nVous apportez également:\n• Expérience de gestion d'équipes dans un hôtel 5 étoiles ou un environnement hôtelier de luxe\n• Un œil aiguisé pour le détail — vous n'oubliez pas les petites choses\n• Une approche proactive et adaptable au changement et aux défis quotidiens\n• Connaissance du français et de l'anglais\n• Un véritable intérêt pour l'esthétique, la culture de service et l'expérience des invités\n\nBon à savoir\n\nBasé à W Verbier, Suisse\nVeuillez noter: en raison des restrictions de visa, nous ne pouvons examiner que les demandes de Suisse ou de l'Union européenne\n\nChez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nW Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
+      },
+      "location": "Verbier",
+      "canton": "Walli",
+      "url": "https://careers.marriott.com/supervisor-venues-u-yama-winter-26-27-w-verbier/job/P1-6884326-0",
+      "source": "Marriott International Dedicated Parser (Paradox API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-28T05:12:47.769Z",
+      "addressLocality": "Verbier",
+      "streetAddress": "Rue de Medran 70",
+      "postalCode": "1936",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "hospitality-food-beverage",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Hôtellerie / Hospitality",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://careers.marriott.com/supervisor-venues-u-yama-winter-26-27-w-verbier/job/P1-6884326-0",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_marriottMeta": {
+        "requisitionID": "26121068",
+        "uniqueID": "PDX_MI_43E7266E-1B7D-45E1-AEA3-C3E2BC4A2DA9_22322638",
+        "brandName": "W Hotels",
+        "locationName": "W Verbier",
+        "jobField": "Food and Beverage Services",
+        "accountName": "",
+        "publishEndDate": "2026-11-02T14:51:00.000Z"
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:20:39.381Z",
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
@@ -403,7 +478,7 @@
       "url": "https://careers.marriott.com/university-intern-europe/job/P1-4723585-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.377Z",
+      "crawledAt": "2026-09-28T05:12:47.769Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -462,166 +537,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "marriott-6b3ffd8150bb",
-      "slug": "supervisor-venues-u-yama-winter-26-27-w-verbier-marriott-verbier",
-      "slugByLocale": {
-        "it": "supervisor-venues-u-yama-winter-26-27-w-verbier-marriott-verbier",
-        "en": "supervisor-venues-u-yama-winter-26-27-w-verbier-marriott-verbier",
-        "de": "vorgesetzter-venues-u-yama-winter-26-27-w-verbier-marriott-international-verbier",
-        "fr": "superviseur-venues-u-yama-winter-26-27-w-verbier-marriott-international-verbier"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Supervisor Venues U-Yama ( Winter 26/27) - W VERBIER",
-      "titleByLocale": {
-        "it": "Supervisor Venues U-Yama ( Winter 26/27) - W VERBIER",
-        "en": "Supervisor Venues U-Yama ( Winter 26/27) - W VERBIER",
-        "de": "Vorgesetzter Venues U-Yama ( Winter 26/27) - W VERBIER",
-        "fr": "Superviseur Venues U-Yama ( Winter 26/27) - W VERBIER"
-      },
-      "description": "POSITION SUMMARY\n JOB DESCRIPTION\n\nAs \"Talent\", you represent W lifestyle to our guests. You are the soul behind the brand and you bring it to life. W Talents are as unique as the brand itself and are personally engaged from a lifestyle standpoint to the warm, witty, welcoming environment of the brand.\n\nAN EXCITING CHANCE TO JOIN THE W VERBIER TEAM\n\nAs Maitre d'hotel - Venue Supervisor (Morning & Evening) , you’ll support the Assistant Director of B&F in overseeing Breakfast, Banquets, and In-Room Dining during the morning and our Restaurants during the evening— ensuring that every detail reflects the elevated standards and original concept behind the W experience.\n\nThis is a hands-on, guest-facing position where your presence on the floor makes a real difference. From fine-tuning service flow to guiding and inspiring your team, your leadership will help shape a smooth, stylish, and unforgettable guest journey.\n\nYou'll be responsible for:\n • Coordinating daily operations across venues\n • Upholding grooming and service standards with precision\n • Coaching and supporting your team of Talents\n • Maintaining strong guest relationships and encouraging feedback\n • Contributing to the ongoing evolution of service excellence\n\nYOUR PROFILE\n You’re someone who naturally combines refined service with fresh energy. You value structure and creativity in equal measure. People trust your judgment, respect your high standards, and are inspired by your calm leadership.\n You also bring:\n • Experience managing teams in a 5-star hotel or luxury hospitality environment\n • A sharp eye for detail — you don’t overlook the small things\n • A proactive, adaptable approach to change and daily challenges\n • Fluency in French and English\n • A genuine interest in aesthetics, service culture, and guest experience\n\nGOOD TO KNOW\n\nBased in W Verbier, Switzerland\n Please note: due to visa restrictions, we can only consider applications from Switzerland or the European Union\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "SUMMARIO POSIZIONE\nDESCRIZIONE DELLA JOB\n\nCome \"Talent\", tu rappresenti lo stile di vita W ai nostri ospiti. Sei l'anima dietro il marchio e lo porti alla vita. W Talents sono unici come il marchio stesso e sono personalmente impegnati da un punto di vista lifestyle al caldo, spiritoso, accogliente ambiente del marchio.\n\nUN'ESCITAZIONE PER IL TEAM VERBIER W\n\nCome Maitre d'hotel - Venue Supervisor (Morning & Evening) , sosterrete l'Assistente Direttore di B&F nel supervisionare Colazione, Banquets e In-Room Dining durante la mattina e i nostri Ristoranti durante la serata, assicurando che ogni dettaglio rifletta gli elevati standard e il concetto originale dietro l'esperienza W.\n\nQuesta è una posizione pratica e orientata verso gli ospiti in cui la vostra presenza sul pavimento fa una vera differenza. Dal flusso di servizio raffinato per guidare e ispirare il vostro team, la vostra leadership aiuterà a plasmare un viaggio ospiti liscio, elegante e indimenticabile.\n\nSarai responsabile di:\n• Coordinamento delle operazioni quotidiane in tutti i luoghi\n• Mantenere gli standard di manutenzione e cura con precisione\n• Allenamento e supporto alla tua squadra di Talenti\n• Mantenere forti relazioni con gli ospiti e incoraggiare il feedback\n• Contribuire alla continua evoluzione dell'eccellenza del servizio\n\nIl tuo progetto\nSei qualcuno che combina naturalmente un servizio raffinato con energia fresca. Valori la struttura e la creatività in misura uguale. La gente si fida del tuo giudizio, rispetta i tuoi elevati standard, e si ispira alla tua calma leadership.\nPorti anche:\n• Esperienza di team di gestione in un hotel a 5 stelle o ambiente di ospitalità di lusso\n• Un occhio affilato per i dettagli — non si trascurano le piccole cose\n• Un approccio proattivo e adattabile al cambiamento e alle sfide quotidiane\n• Fluency in francese e inglese\n• Un autentico interesse per l'estetica, la cultura del servizio e l'esperienza degli ospiti\n\nChe Dio sappia\n\nCon sede in W Verbier, Svizzera\nSi prega di notare: a causa delle restrizioni del visto, possiamo solo considerare le domande dalla Svizzera o dall'Unione Europea\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nLa missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "POSITION SUMMARY\nJOB DESCRIPTION\n\nAs \"Talent\", you represent W lifestyle to our guests. You are the soul behind the brand and you bring it to life. W Talents are as unique as the brand itself and are personally engaged from a lifestyle standpoint to the warm, witty, welcoming environment of the brand.\n\nAN EXCITING CHANCE TO JOIN THE W VERBIER TEAM\n\nAs Maitre d'hotel - Venue Supervisor (Morning & Evening) , you’ll support the Assistant Director of B&F in overseeing Breakfast, Banquets, and In-Room Dining during the morning and our Restaurants during the evening— ensuring that every detail reflects the elevated standards and original concept behind the W experience.\n\nThis is a hands-on, guest-facing position where your presence on the floor makes a real difference. From fine-tuning service flow to guiding and inspiring your team, your leadership will help shape a smooth, stylish, and unforgettable guest journey.\n\nYou'll be responsible for:\n• Coordinating daily operations across venues\n• Upholding grooming and service standards with precision\n• Coaching and supporting your team of Talents\n• Maintaining strong guest relationships and encouraging feedback\n• Contributing to the ongoing evolution of service excellence\n\nYOUR PROFILE\nYou’re someone who naturally combines refined service with fresh energy. You value structure and creativity in equal measure. People trust your judgment, respect your high standards, and are inspired by your calm leadership.\nYou also bring:\n• Experience managing teams in a 5-star hotel or luxury hospitality environment\n• A sharp eye for detail — you don’t overlook the small things\n• A proactive, adaptable approach to change and daily challenges\n• Fluency in French and English\n• A genuine interest in aesthetics, service culture, and guest experience\n\nGOOD TO KNOW\n\nBased in W Verbier, Switzerland\nPlease note: due to visa restrictions, we can only consider applications from Switzerland or the European Union\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "ZUSAMMENFASSUNG DER POSITION\nBESCHREIBUNG\n\nAls \"Talent\" repräsentieren Sie W Lifestyle für unsere Gäste. Du bist die Seele hinter der Marke und du bringst sie zum Leben. W Talents sind so einzigartig wie die Marke selbst und engagieren sich persönlich vom Lifestyle-Standpunkt bis zur warmen, witzigen, einladenden Umgebung der Marke.\n\nGELTENDE ANGABEN ZUM W-VERBIER-TEAM\n\nAls Maitre d'hotel - Venue Supervisor (Morning & Evening) unterstützen Sie den stellvertretenden Direktor von B&F bei der Überwachung von Frühstück, Banketts und In-Room Dining am Morgen und unseren Restaurants am Abend und stellen sicher, dass jedes Detail die hohen Standards und das originelle Konzept des W-Erlebnisses widerspiegelt.\n\nDies ist eine praktische, gastorientierte Position, in der Ihre Anwesenheit auf dem Boden einen echten Unterschied macht. Von der Feinabstimmung des Serviceflusses bis hin zur Führung und Inspiration Ihres Teams wird Ihre Führung dazu beitragen, eine reibungslose, stilvolle und unvergessliche Gästereise zu gestalten.\n\nSie sind verantwortlich für:\n• Koordinierung des täglichen Betriebs an verschiedenen Orten\n• Einhaltung von Pflege- und Servicestandards mit Präzision\n• Coaching und Unterstützung Ihres Talentteams\n• Pflege starker Gästebeziehungen und ermutigendes Feedback\n• Beitrag zur Weiterentwicklung der Service Excellence\n\nIHR PROFIL\nSie sind jemand, der auf natürliche Weise raffinierten Service mit frischer Energie kombiniert. Sie schätzen Struktur und Kreativität gleichermaßen. Die Menschen vertrauen Ihrem Urteilsvermögen, respektieren Ihre hohen Standards und werden von Ihrer ruhigen Führung inspiriert.\nSie bringen auch:\n• Erleben Sie das Management von Teams in einem 5-Sterne-Hotel oder einer luxuriösen Hospitality-Umgebung\n• Ein scharfes Auge für Details - Sie übersehen die kleinen Dinge nicht\n• Ein proaktiver, anpassungsfähiger Ansatz für Veränderungen und tägliche Herausforderungen\n• Fließend in Französisch und Englisch\n• Ein echtes Interesse an Ästhetik, Servicekultur und Gästeerlebnis\n\nGut zu wissen\n\nSitz in W Verbier, Schweiz\nBitte beachten Sie: Aufgrund von Visabeschränkungen können wir nur Anträge aus der Schweiz oder der Europäischen Union berücksichtigen\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nDie Mission von W Hotels ist es, Curiosity zu entzünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen und offene Köpfe zu öffnen. Wir werden ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-anything-geist ist in unserem kern und hat uns dafür bekannt gemacht, die normen des luxus auf der ganzen welt neu zu erfinden. Was auch immer unsere Kultur und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben erweckt. Wenn Sie originell, innovativ und immer auf die Zukunft des Möglichen ausgerichtet sind, willkommen in W Hotels. Wenn Sie W Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
-        "fr": "RÉSUMÉ DE LA POSITION\nDESCRIPTION DE L'EMPLOI\n\nEn tant que \"Talent\", vous représentez le mode de vie W à nos invités. Tu es l'âme derrière la marque et tu la fais vivre. W Talents sont aussi uniques que la marque elle-même et sont personnellement engagés du point de vue du style de vie à l'environnement chaleureux, spirituel et accueillant de la marque.\n\nUNE CHANCE EXCITIVE DE JOUER DANS L'ÉQUIPE W VERBIER\n\nEn tant que Maître d'hôtel - Superviseur de salle (Morning & Evening) , vous aiderez le directeur adjoint de B&F à superviser le petit déjeuner, les banquets et les repas en chambre le matin et nos restaurants le soir, en veillant à ce que chaque détail reflète les normes élevées et le concept original derrière l'expérience W.\n\nC'est une position pratique, face aux invités où votre présence sur le sol fait une vraie différence. De la mise au point du service à la direction et à l'inspiration de votre équipe, votre leadership vous aidera à façonner un voyage en douceur, élégant et inoubliable.\n\nVous serez responsable de :\n• Coordination des opérations quotidiennes entre lieux\n• Maintien des normes de toilettage et de service avec précision\n• Entraîner et soutenir votre équipe de Talents\n• Maintenir de solides relations avec les clients et encourager la rétroaction\n• Contribuer à l'évolution continue de l'excellence des services\n\nVOTRE PROFIL\nVous êtes quelqu'un qui combine naturellement un service raffiné avec de l'énergie fraîche. Vous valorisez la structure et la créativité dans une mesure égale. Les gens font confiance à votre jugement, respectent vos normes élevées et sont inspirés par votre direction calme.\nVous apportez également:\n• Expérience de gestion d'équipes dans un hôtel 5 étoiles ou un environnement hôtelier de luxe\n• Un œil aiguisé pour le détail — vous n'oubliez pas les petites choses\n• Une approche proactive et adaptable au changement et aux défis quotidiens\n• Connaissance du français et de l'anglais\n• Un véritable intérêt pour l'esthétique, la culture de service et l'expérience des invités\n\nBon à savoir\n\nBasé à W Verbier, Suisse\nVeuillez noter: en raison des restrictions de visa, nous ne pouvons examiner que les demandes de Suisse ou de l'Union européenne\n\nChez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nW Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Verbier",
-      "canton": "Walli",
-      "url": "https://careers.marriott.com/supervisor-venues-u-yama-winter-26-27-w-verbier/job/P1-6884326-0",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.376Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-food-beverage",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://careers.marriott.com/supervisor-venues-u-yama-winter-26-27-w-verbier/job/P1-6884326-0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26121068",
-        "uniqueID": "PDX_MI_43E7266E-1B7D-45E1-AEA3-C3E2BC4A2DA9_22322638",
-        "brandName": "W Hotels",
-        "locationName": "W Verbier",
-        "jobField": "Food and Beverage Services",
-        "accountName": "",
-        "publishEndDate": "2026-11-02T14:51:00.000Z"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:20:39.381Z",
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 67000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "WALLI"
-    },
-    {
-      "id": "marriott-c226a5696886",
-      "slug": "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
-      "slugByLocale": {
-        "it": "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
-        "en": "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-        "de": "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "spa-therapeute-et-agent-de-bienvenue-spa-hiver-26-27-w-verbier-marriott-international-verbier"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Spa therapist & Welcome Agent Spa (Winter 26/27) - W VERBIER",
-      "titleByLocale": {
-        "it": "Spa terapeuta & Welcome Agent Spa (inverno 26/27) - W VERBIER",
-        "en": "Spa therapist & Welcome Agent Spa (Winter 26/27) - W VERBIER",
-        "de": "Spa Therapeut & Welcome Agent Spa (Winter 26/27) - W VERBIER",
-        "fr": "Spa thérapeute et agent de bienvenue Spa (hiver 26/27) - W VERBIER"
-      },
-      "description": "JOB DESCRIPTION\n\nVisit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nThe Welcome Agent & Spa therapist administers professional massage and body treatments to the guests. Must have thorough knowledge of numerous massage modalities, possess a general understanding of body treatments and be willing to train in a specific massage and body treatment offerings. Excellent communication skills. Ensure a high level of customer care to the guests.\n\nA true chameleon of the spa and wellness world, you will carry out treatments booked by clients in a professional manner and according to the standards and protocols of the different brands, Dr Burgener & Esse : massages, facials & body treatments. You will attract customers' attention to the Spa and its facilities (Wet, Jacuzzi, hammam, sauna, FITness) thanks to your audacious welcome. You will encourage clients' curiosity about the Spa's treatments and a la carte products and position yourself as a salesperson. You will be responsible for greeting clients and making appointments in accordance with W Verbier standards; preparing the treatment room and keeping the Spa and rooms clean.\n\nPROFILE\n • Outgoing, cheerful, sociable, good listener, helpful and available\n • Fluent in French and English\n • Enjoy working in an international and adventurous team\n • Excellent presentation and representative of the W brand image\n • BTS// CFC Esthetics/ cosmetics or equivalent\n • You have a prior experience in a 5* hotel\n • You are highly motivated\n • Be detail oriented and have a passion for giving guests an exceptional experience.\n • Real interest in the worlds of taste, sound, body, scene and stance\n\nPosition to be filled for the Winter season : December 2026 to March 2027\n\nDue to visa restrictions only applicants from Switzerland and European Union can be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "DESCRIZIONE DELLA JOB\n\nVisita in diretta qui: W VERBIER Home\n\nDiventa un talento W e incarna l'arte W di vivere!\n\nCome ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione.\n\nUN'ESCEPTIONAL OPPORTUNITÀ PER IL TEAM VERBIER W!\n\nIl terapista Welcome Agent & Spa gestisce massaggi professionali e trattamenti per il corpo agli ospiti. Deve avere una conoscenza approfondita di numerose modalità di massaggio, possedere una comprensione generale dei trattamenti del corpo e essere disposti a formare in una specifica offerta di massaggio e trattamento del corpo. Eccellente capacità di comunicazione. Assicurare un alto livello di assistenza clienti agli ospiti.\n\nUn vero e proprio camaleonte del mondo termale e del benessere, effettuerete trattamenti prenotati dai clienti in modo professionale e secondo gli standard e i protocolli delle diverse marche, Dr Burgener & Esse: massaggi, trattamenti viso e corpo. Attirerete l'attenzione dei clienti alla Spa e alle sue strutture (Wet, Jacuzzi, hammam, sauna, FITness) grazie all'audace benvenuto. Incoraggiate la curiosità dei clienti sui trattamenti della Spa e sui prodotti a la carte e mettetevi come venditore. Sarete responsabili per i clienti di saluto e prendere appuntamenti in conformità con gli standard W Verbier; preparare la sala di trattamento e mantenere la Spa e le camere pulite.\n\nPROFESSIONALE\n• In uscita, allegro, socievole, buon ascoltatore, disponibile e disponibile\n• Fluente in francese e inglese\n• Godetevi il lavoro in un team internazionale e avventuroso\n• Ottima presentazione e rappresentazione dell'immagine del marchio W\n• BTS// CFC Estetica/ cosmetici o equivalenti\n• Hai una esperienza precedente in un hotel 5*\n• Sei molto motivato.\n• Essere orientati al dettaglio e avere una passione per dare agli ospiti un'esperienza eccezionale.\n• Interesse reale nei mondi del gusto, del suono, del corpo, della scena e della posizione\n\nPosizione da riempire per la stagione invernale: dicembre 2026 a marzo 2027\n\nA causa delle restrizioni di visto solo i candidati provenienti dalla Svizzera e dall'Unione Europea possono essere considerati.\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nLa missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "JOB DESCRIPTION\n\nVisit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nThe Welcome Agent & Spa therapist administers professional massage and body treatments to the guests. Must have thorough knowledge of numerous massage modalities, possess a general understanding of body treatments and be willing to train in a specific massage and body treatment offerings. Excellent communication skills. Ensure a high level of customer care to the guests.\n\nA true chameleon of the spa and wellness world, you will carry out treatments booked by clients in a professional manner and according to the standards and protocols of the different brands, Dr Burgener & Esse : massages, facials & body treatments. You will attract customers' attention to the Spa and its facilities (Wet, Jacuzzi, hammam, sauna, FITness) thanks to your audacious welcome. You will encourage clients' curiosity about the Spa's treatments and a la carte products and position yourself as a salesperson. You will be responsible for greeting clients and making appointments in accordance with W Verbier standards; preparing the treatment room and keeping the Spa and rooms clean.\n\nPROFILE\n• Outgoing, cheerful, sociable, good listener, helpful and available\n• Fluent in French and English\n• Enjoy working in an international and adventurous team\n• Excellent presentation and representative of the W brand image\n• BTS// CFC Esthetics/ cosmetics or equivalent\n• You have a prior experience in a 5* hotel\n• You are highly motivated\n• Be detail oriented and have a passion for giving guests an exceptional experience.\n• Real interest in the worlds of taste, sound, body, scene and stance\n\nPosition to be filled for the Winter season : December 2026 to March 2027\n\nDue to visa restrictions only applicants from Switzerland and European Union can be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "BESCHREIBUNG\n\nBesuchen Sie hier live : W VERBIER Home\n\nWerde ein W-Talent und verkörpere die W Art of Living!\n\nAls „Talent sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Du bist einzigartig, leidenschaftlich und deine Persönlichkeit scheint in jeder Interaktion durch.\n\nEINE AUSSERGEWÖHNLICHE Gelegenheit, am W VERBIER-TEAM teilzunehmen!\n\nDer Welcome Agent & Spa Therapeut verwaltet den Gästen professionelle Massagen und Körperbehandlungen. Müssen gründliche Kenntnisse der zahlreichen Massage-Modalitäten, besitzen ein allgemeines Verständnis der Körperbehandlungen und bereit sein, in einer bestimmten Massage und Körperbehandlung Angebote zu trainieren. Hervorragende Kommunikationsfähigkeiten. Stellen Sie ein hohes Maß an Kundenbetreuung für die Gäste sicher.\n\nAls echtes Chamäleon der Spa- und Wellnesswelt führen Sie die von den Kunden gebuchten Behandlungen professionell und nach den Standards und Protokollen der verschiedenen Marken, Dr. Burgener & Esse, durch: Massagen, Gesichtsbehandlungen und Körperbehandlungen. Sie werden die Aufmerksamkeit der Kunden auf das Spa und seine Einrichtungen (Wet, Jacuzzi, Hammam, Sauna, FITness) dank Ihrer kühnen Begrüßung lenken. Sie werden die Neugier der Kunden auf die Behandlungen des Spa und à la carte-Produkte wecken und sich als Verkäufer positionieren. Sie sind dafür verantwortlich, Kunden zu begrüßen und Termine gemäß den W Verbier-Standards zu vereinbaren; den Behandlungsraum vorzubereiten und das Spa und die Zimmer sauber zu halten.\n\nPROFIL\n• Aufgeschlossen, fröhlich, gesellig, guter Zuhörer, hilfsbereit und verfügbar\n• Fließend in Französisch und Englisch\n• Genießen Sie die Arbeit in einem internationalen und abenteuerlichen Team\n• Ausgezeichnete Präsentation und repräsentativ für das W-Markenimage\n• BTS// CFC Esthetics/Cosmetics oder gleichwertiges Mittel\n• Sie haben eine vorherige Erfahrung in einem 5 * Hotel\n• Du bist hoch motiviert\n• Seien Sie detailorientiert und haben Sie eine Leidenschaft dafür, Ihren Gästen ein außergewöhnliches Erlebnis zu bieten.\n• Echtes Interesse an den Welten von Geschmack, Klang, Körper, Szene und Haltung\n\nPosition für die Wintersaison: Dezember 2026 bis März 2027\n\nAufgrund von Visabeschränkungen können nur Bewerber aus der Schweiz und der Europäischen Union berücksichtigt werden.\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nDie Mission von W Hotels ist es, Curiosity zu entzünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen und offene Köpfe zu öffnen. Wir werden ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-anything Geist ist in unserem Kern und hat uns dafür bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer unsere Kultur und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben erweckt. Wenn Sie originell, innovativ und immer auf die Zukunft des Möglichen ausgerichtet sind, heißen Sie W Hotels willkommen. Wenn Sie W Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
-        "fr": "DESCRIPTION DE L'EMPLOI\n\nVisite en direct ici : W VERBIER Accueil\n\nDevenez un W Talent et imaginez l'art de vivre!\n\nEn tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction.\n\nUNE OPPORTUNITÉ EXCEPTIONNELLE DE PARTICIPER À L'ÉQUIPE W VERBIER !\n\nLe thérapeute Welcome Agent & Spa administre des massages professionnels et des soins corporels aux clients. Doit avoir une connaissance approfondie de nombreuses modalités de massage, posséder une compréhension générale des traitements corporels et être prêt à s'entraîner dans un massage spécifique et des soins corporels. Excellentes compétences en communication. Assurer un niveau élevé de soins à la clientèle pour les invités.\n\nVéritable caméléon du monde du spa et du bien-être, vous réaliserez des traitements réservés par les clients de manière professionnelle et selon les standards et les protocoles des différentes marques, Dr Burgener & Esse : massages, soins du visage et du corps. Vous attirerez l'attention des clients sur le Spa et ses installations (Wet, Jacuzzi, hammam, sauna, FITness) grâce à votre accueil audacieux. Vous encouragerez la curiosité des clients au sujet des traitements du Spa et des produits à la carte et vous vous positionnerez comme un vendeur. Vous serez responsable de l'accueil des clients et de la prise de rendez-vous conformément aux normes de W Verbier; de la préparation de la salle de traitement et de la propreté du Spa et des chambres.\n\nPROFIL\n• Sortie, gaie, sociable, bonne écoute, serviable et disponible\n• Fluent en français et anglais\n• Profitez de travailler dans une équipe internationale et aventureuse\n• Excellente présentation et représentant de l'image de marque W\n• BTS// CFC Esthétique/ cosmétique ou équivalent\n• Vous avez une expérience antérieure dans un hôtel 5*\n• Vous êtes très motivé\n• Être orienté vers le détail et avoir une passion pour donner aux invités une expérience exceptionnelle.\n• Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position\n\nPoste à pourvoir pour la saison d'hiver : décembre 2026 à mars 2027\n\nEn raison des restrictions de visa, seuls les demandeurs de la Suisse et de l'Union européenne peuvent être pris en considération.\n\nÀ Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nW Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit branché et haut de gamme est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe dans le monde entier. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant, et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre but, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Verbier",
-      "canton": "Walli",
-      "url": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-winter-26-27-w-verbier/job/P1-5046299-0",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.375Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-front-office",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-winter-26-27-w-verbier/job/P1-5046299-0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26039863",
-        "uniqueID": "PDX_MI_EFE44617-A8F8-46B2-8BB7-CD7CAE722AC6_22322638",
-        "brandName": "W Hotels",
-        "locationName": "W Verbier",
-        "jobField": "Spa/Salon",
-        "accountName": "",
-        "publishEndDate": "2026-10-22T14:56:00.000Z"
-      },
-      "previousSlugs": [
-        "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-        "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-          "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
-        ],
-        "fr": [
-          "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:20:39.380Z",
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 67000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "WALLI"
-    },
-    {
       "id": "marriott-a2cfe8c852ba",
       "slug": "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
@@ -652,7 +567,7 @@
       "url": "https://careers.marriott.com/spa-attendant-50-winter-26-27-w-verbier/job/P1-6269922-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.374Z",
+      "crawledAt": "2026-09-28T05:12:47.768Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -694,8 +609,8 @@
           "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
-      "firstSeenAt": "2026-09-26T14:25:45.833Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T14:25:45.833Z",
       "salaryMin": 26800,
       "salaryMax": 33500,
       "salarySource": "estimated",
@@ -706,6 +621,93 @@
           "@type": "QuantitativeValue",
           "minValue": 26800,
           "maxValue": 33500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "WALLI"
+    },
+    {
+      "id": "marriott-c226a5696886",
+      "slug": "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
+      "slugByLocale": {
+        "it": "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier",
+        "en": "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
+        "de": "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
+        "fr": "spa-therapeute-et-agent-de-bienvenue-spa-hiver-26-27-w-verbier-marriott-international-verbier"
+      },
+      "company": "Marriott International",
+      "companyKey": "marriott",
+      "companyDomain": "marriott.com",
+      "title": "Spa therapist & Welcome Agent Spa (Winter 26/27) - W VERBIER",
+      "titleByLocale": {
+        "it": "Spa terapeuta & Welcome Agent Spa (inverno 26/27) - W VERBIER",
+        "en": "Spa therapist & Welcome Agent Spa (Winter 26/27) - W VERBIER",
+        "de": "Spa therapist & Welcome Agent Spa (Winter 26/27) - W VERBIER",
+        "fr": "Spa thérapeute et agent de bienvenue Spa (hiver 26/27) - W VERBIER"
+      },
+      "description": "JOB DESCRIPTION\n\nVisit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nThe Welcome Agent & Spa therapist administers professional massage and body treatments to the guests. Must have thorough knowledge of numerous massage modalities, possess a general understanding of body treatments and be willing to train in a specific massage and body treatment offerings. Excellent communication skills. Ensure a high level of customer care to the guests.\n\nA true chameleon of the spa and wellness world, you will carry out treatments booked by clients in a professional manner and according to the standards and protocols of the different brands, Dr Burgener & Esse : massages, facials & body treatments. You will attract customers' attention to the Spa and its facilities (Wet, Jacuzzi, hammam, sauna, FITness) thanks to your audacious welcome. You will encourage clients' curiosity about the Spa's treatments and a la carte products and position yourself as a salesperson. You will be responsible for greeting clients and making appointments in accordance with W Verbier standards; preparing the treatment room and keeping the Spa and rooms clean.\n\nPROFILE\n • Outgoing, cheerful, sociable, good listener, helpful and available\n • Fluent in French and English\n • Enjoy working in an international and adventurous team\n • Excellent presentation and representative of the W brand image\n • BTS// CFC Esthetics/ cosmetics or equivalent\n • You have a prior experience in a 5* hotel\n • You are highly motivated\n • Be detail oriented and have a passion for giving guests an exceptional experience.\n • Real interest in the worlds of taste, sound, body, scene and stance\n\nPosition to be filled for the Winter season : December 2026 to March 2027\n\nDue to visa restrictions only applicants from Switzerland and European Union can be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+      "descriptionByLocale": {
+        "it": "DESCRIZIONE DELLA JOB\n\nVisita in diretta qui: W VERBIER Home\n\nDiventa un talento W e incarna l'arte W di vivere!\n\nCome ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione.\n\nUN'ESCEPTIONAL OPPORTUNITÀ PER IL TEAM VERBIER W!\n\nIl terapista Welcome Agent & Spa gestisce massaggi professionali e trattamenti per il corpo agli ospiti. Deve avere una conoscenza approfondita di numerose modalità di massaggio, possedere una comprensione generale dei trattamenti del corpo e essere disposti a formare in una specifica offerta di massaggio e trattamento del corpo. Eccellente capacità di comunicazione. Assicurare un alto livello di assistenza clienti agli ospiti.\n\nUn vero e proprio camaleonte del mondo termale e del benessere, effettuerete trattamenti prenotati dai clienti in modo professionale e secondo gli standard e i protocolli delle diverse marche, Dr Burgener & Esse: massaggi, trattamenti viso e corpo. Attirerete l'attenzione dei clienti alla Spa e alle sue strutture (Wet, Jacuzzi, hammam, sauna, FITness) grazie all'audace benvenuto. Incoraggiate la curiosità dei clienti sui trattamenti della Spa e sui prodotti a la carte e mettetevi come venditore. Sarete responsabili per i clienti di saluto e prendere appuntamenti in conformità con gli standard W Verbier; preparare la sala di trattamento e mantenere la Spa e le camere pulite.\n\nPROFESSIONALE\n• In uscita, allegro, socievole, buon ascoltatore, disponibile e disponibile\n• Fluente in francese e inglese\n• Godetevi il lavoro in un team internazionale e avventuroso\n• Ottima presentazione e rappresentazione dell'immagine del marchio W\n• BTS// CFC Estetica/ cosmetici o equivalenti\n• Hai una esperienza precedente in un hotel 5*\n• Sei molto motivato.\n• Essere orientati al dettaglio e avere una passione per dare agli ospiti un'esperienza eccezionale.\n• Interesse reale nei mondi del gusto, del suono, del corpo, della scena e della posizione\n\nPosizione da riempire per la stagione invernale: dicembre 2026 a marzo 2027\n\nA causa delle restrizioni di visto solo i candidati provenienti dalla Svizzera e dall'Unione Europea possono essere considerati.\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nLa missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
+        "en": "JOB DESCRIPTION\n\nVisit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nThe Welcome Agent & Spa therapist administers professional massage and body treatments to the guests. Must have thorough knowledge of numerous massage modalities, possess a general understanding of body treatments and be willing to train in a specific massage and body treatment offerings. Excellent communication skills. Ensure a high level of customer care to the guests.\n\nA true chameleon of the spa and wellness world, you will carry out treatments booked by clients in a professional manner and according to the standards and protocols of the different brands, Dr Burgener & Esse : massages, facials & body treatments. You will attract customers' attention to the Spa and its facilities (Wet, Jacuzzi, hammam, sauna, FITness) thanks to your audacious welcome. You will encourage clients' curiosity about the Spa's treatments and a la carte products and position yourself as a salesperson. You will be responsible for greeting clients and making appointments in accordance with W Verbier standards; preparing the treatment room and keeping the Spa and rooms clean.\n\nPROFILE\n• Outgoing, cheerful, sociable, good listener, helpful and available\n• Fluent in French and English\n• Enjoy working in an international and adventurous team\n• Excellent presentation and representative of the W brand image\n• BTS// CFC Esthetics/ cosmetics or equivalent\n• You have a prior experience in a 5* hotel\n• You are highly motivated\n• Be detail oriented and have a passion for giving guests an exceptional experience.\n• Real interest in the worlds of taste, sound, body, scene and stance\n\nPosition to be filled for the Winter season : December 2026 to March 2027\n\nDue to visa restrictions only applicants from Switzerland and European Union can be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+        "de": "BESCHREIBUNG\n\nBesuchen Sie hier live : W VERBIER Home\n\nWerde ein W-Talent und verkörpere die W Art of Living!\n\nAls „Talent sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Du bist einzigartig, leidenschaftlich und deine Persönlichkeit scheint in jeder Interaktion durch.\n\nEINE AUSSERGEWÖHNLICHE Gelegenheit, am W VERBIER-TEAM teilzunehmen!\n\nDer Welcome Agent & Spa Therapeut verwaltet den Gästen professionelle Massagen und Körperbehandlungen. Müssen gründliche Kenntnisse der zahlreichen Massage-Modalitäten, besitzen ein allgemeines Verständnis der Körperbehandlungen und bereit sein, in einer bestimmten Massage und Körperbehandlung Angebote zu trainieren. Hervorragende Kommunikationsfähigkeiten. Stellen Sie ein hohes Maß an Kundenbetreuung für die Gäste sicher.\n\nAls echtes Chamäleon der Spa- und Wellnesswelt führen Sie die von den Kunden gebuchten Behandlungen professionell und nach den Standards und Protokollen der verschiedenen Marken, Dr. Burgener & Esse, durch: Massagen, Gesichtsbehandlungen und Körperbehandlungen. Sie werden die Aufmerksamkeit der Kunden auf das Spa und seine Einrichtungen (Wet, Jacuzzi, Hammam, Sauna, FITness) dank Ihrer kühnen Begrüßung lenken. Sie werden die Neugier der Kunden auf die Behandlungen des Spa und à la carte-Produkte wecken und sich als Verkäufer positionieren. Sie sind dafür verantwortlich, Kunden zu begrüßen und Termine gemäß den W Verbier-Standards zu vereinbaren; den Behandlungsraum vorzubereiten und das Spa und die Zimmer sauber zu halten.\n\nPROFIL\n• Aufgeschlossen, fröhlich, gesellig, guter Zuhörer, hilfsbereit und verfügbar\n• Fließend in Französisch und Englisch\n• Genießen Sie die Arbeit in einem internationalen und abenteuerlichen Team\n• Ausgezeichnete Präsentation und repräsentativ für das W-Markenimage\n• BTS// CFC Esthetics/Cosmetics oder gleichwertiges Mittel\n• Sie haben eine vorherige Erfahrung in einem 5 * Hotel\n• Du bist hoch motiviert\n• Seien Sie detailorientiert und haben Sie eine Leidenschaft dafür, Ihren Gästen ein außergewöhnliches Erlebnis zu bieten.\n• Echtes Interesse an den Welten von Geschmack, Klang, Körper, Szene und Haltung\n\nPosition für die Wintersaison: Dezember 2026 bis März 2027\n\nAufgrund von Visabeschränkungen können nur Bewerber aus der Schweiz und der Europäischen Union berücksichtigt werden.\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nDie Mission von W Hotels ist es, Curiosity zu entzünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen und offene Köpfe zu öffnen. Wir werden ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-anything Geist ist in unserem Kern und hat uns dafür bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer unsere Kultur und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben erweckt. Wenn Sie originell, innovativ und immer auf die Zukunft des Möglichen ausgerichtet sind, heißen Sie W Hotels willkommen. Wenn Sie W Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
+        "fr": "DESCRIPTION DE L'EMPLOI\n\nVisite en direct ici : W VERBIER Accueil\n\nDevenez un W Talent et imaginez l'art de vivre!\n\nEn tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction.\n\nUNE OPPORTUNITÉ EXCEPTIONNELLE DE PARTICIPER À L'ÉQUIPE W VERBIER !\n\nLe thérapeute Welcome Agent & Spa administre des massages professionnels et des soins corporels aux clients. Doit avoir une connaissance approfondie de nombreuses modalités de massage, posséder une compréhension générale des traitements corporels et être prêt à s'entraîner dans un massage spécifique et des soins corporels. Excellentes compétences en communication. Assurer un niveau élevé de soins à la clientèle pour les invités.\n\nVéritable caméléon du monde du spa et du bien-être, vous réaliserez des traitements réservés par les clients de manière professionnelle et selon les standards et les protocoles des différentes marques, Dr Burgener & Esse : massages, soins du visage et du corps. Vous attirerez l'attention des clients sur le Spa et ses installations (Wet, Jacuzzi, hammam, sauna, FITness) grâce à votre accueil audacieux. Vous encouragerez la curiosité des clients au sujet des traitements du Spa et des produits à la carte et vous vous positionnerez comme un vendeur. Vous serez responsable de l'accueil des clients et de la prise de rendez-vous conformément aux normes de W Verbier; de la préparation de la salle de traitement et de la propreté du Spa et des chambres.\n\nPROFIL\n• Sortie, gaie, sociable, bonne écoute, serviable et disponible\n• Fluent en français et anglais\n• Profitez de travailler dans une équipe internationale et aventureuse\n• Excellente présentation et représentant de l'image de marque W\n• BTS// CFC Esthétique/ cosmétique ou équivalent\n• Vous avez une expérience antérieure dans un hôtel 5*\n• Vous êtes très motivé\n• Être orienté vers le détail et avoir une passion pour donner aux invités une expérience exceptionnelle.\n• Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position\n\nPoste à pourvoir pour la saison d'hiver : décembre 2026 à mars 2027\n\nEn raison des restrictions de visa, seuls les demandeurs de la Suisse et de l'Union européenne peuvent être pris en considération.\n\nÀ Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nW Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit branché et haut de gamme est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe dans le monde entier. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant, et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre but, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
+      },
+      "location": "Verbier",
+      "canton": "Walli",
+      "url": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-winter-26-27-w-verbier/job/P1-5046299-0",
+      "source": "Marriott International Dedicated Parser (Paradox API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-28T05:12:47.768Z",
+      "addressLocality": "Verbier",
+      "streetAddress": "Rue de Medran 70",
+      "postalCode": "1936",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "hospitality-front-office",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Hôtellerie / Hospitality",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-winter-26-27-w-verbier/job/P1-5046299-0",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_marriottMeta": {
+        "requisitionID": "26039863",
+        "uniqueID": "PDX_MI_EFE44617-A8F8-46B2-8BB7-CD7CAE722AC6_22322638",
+        "brandName": "W Hotels",
+        "locationName": "W Verbier",
+        "jobField": "Spa/Salon",
+        "accountName": "",
+        "publishEndDate": "2026-10-22T14:56:00.000Z"
+      },
+      "previousSlugs": [
+        "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
+        "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
+          "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
+        ],
+        "fr": [
+          "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:20:39.380Z",
+      "salaryMin": 53500,
+      "salaryMax": 67000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 67000,
           "unitText": "YEAR"
         }
       },
@@ -742,7 +744,7 @@
       "url": "https://careers.marriott.com/spa-supervisor-head-therapist-long-term-w-verbier/job/P1-6555013-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.372Z",
+      "crawledAt": "2026-09-28T05:12:47.766Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -816,7 +818,7 @@
       "url": "https://careers.marriott.com/pastry-cook-long-term-w-verbier/job/P1-6921407-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.370Z",
+      "crawledAt": "2026-09-28T05:12:47.765Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -913,7 +915,7 @@
       "url": "https://careers.marriott.com/night-auditor/job/P1-6901660-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.369Z",
+      "crawledAt": "2026-09-28T05:12:47.764Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -1002,7 +1004,7 @@
       "url": "https://careers.marriott.com/night-audit-clerk/job/P1-6914789-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.360Z",
+      "crawledAt": "2026-09-28T05:12:47.755Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1092,7 +1094,7 @@
       "url": "https://careers.marriott.com/m-club-lounge-support-steward/job/P1-6921468-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.359Z",
+      "crawledAt": "2026-09-28T05:12:47.753Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1179,7 +1181,7 @@
       "url": "https://careers.marriott.com/kitchen-intern-w-verbier/job/P1-6564986-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.358Z",
+      "crawledAt": "2026-09-28T05:12:47.751Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1267,7 +1269,7 @@
       "url": "https://careers.marriott.com/global-managing-director-lefay/job/P1-6020255-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.356Z",
+      "crawledAt": "2026-09-28T05:12:47.750Z",
       "addressLocality": "Root D4",
       "streetAddress": "Platz 3 Root D4",
       "postalCode": "6039",
@@ -1355,7 +1357,7 @@
       "url": "https://careers.marriott.com/f-b-service-shiftleader/job/P1-6700535-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.354Z",
+      "crawledAt": "2026-09-28T05:12:47.747Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1449,7 +1451,7 @@
       "url": "https://careers.marriott.com/event-service-shiftleader/job/P1-6303698-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.352Z",
+      "crawledAt": "2026-09-28T05:12:47.746Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1547,7 +1549,7 @@
       "url": "https://careers.marriott.com/event-manager/job/P1-6716124-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.351Z",
+      "crawledAt": "2026-09-28T05:12:47.745Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1663,7 +1665,7 @@
       "url": "https://careers.marriott.com/commis-de-cuisine-winter-26-27-w-verbier/job/P1-6272647-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.350Z",
+      "crawledAt": "2026-09-28T05:12:47.744Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1705,8 +1707,8 @@
           "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:20:39.358Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:20:39.358Z",
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
@@ -1753,7 +1755,7 @@
       "url": "https://careers.marriott.com/commis-de-cuisine-a-la-carte-echo/job/P1-6548290-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.349Z",
+      "crawledAt": "2026-09-28T05:12:47.743Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1836,7 +1838,7 @@
       "url": "https://careers.marriott.com/commis-de-cuisine-banquets/job/P1-6622302-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.348Z",
+      "crawledAt": "2026-09-28T05:12:47.742Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1919,7 +1921,7 @@
       "companyDomain": "marriott.com",
       "title": "Chef de rang Brasserie 1519 (Winter 26/27) - W VERBIER",
       "titleByLocale": {
-        "it": "Chef de rang Brasserie 1519 (inverno 26/27) - W VERBIER",
+        "it": "Chef de rang Brasserie 1519 (Winter 26/27) - W VERBIER",
         "en": "Chef de rang Brasserie 1519 (Winter 26/27) - W VERBIER",
         "de": "Chef de Rang Brasserie 1519 (Winter 26/27) - W VERBIER",
         "fr": "Chef de rang Brasserie 1519 (Hiver 26/27) - W VERBIER"
@@ -1936,7 +1938,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-brasserie-1519-winter-26-27-w-verbier/job/P1-5172417-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.347Z",
+      "crawledAt": "2026-09-28T05:12:47.741Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1995,7 +1997,7 @@
       "titleByLocale": {
         "it": "Chef de rang Brasserie 1519 ( Lungo Termine) - W Verbier",
         "en": "Chef de rang Brasserie 1519 ( Long Term) - W Verbier",
-        "de": "Chef de rang Brasserie 1519 (Langfristig) - W Verbier",
+        "de": "Chef de rang Brasserie 1519 ( Long Term) - W Verbier",
         "fr": "Chef de rang Brasserie 1519 ( Long terme) - W Verbier"
       },
       "description": "JOB DESCRIPTION\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nAt our Brasserie 1519 restaurant, you will take orders and serve our guests with enthusiasm, professionalism, and creativity, while using appropriate sales techniques.\n\nAs a true ambassador of the W experience, as a Chef de rang you help to achieve service objectives and ensure tables are impeccably clean and presented.\n\nYou will handle bills and facilitate payments accurately and efficiently.\n\nPassionate about hospitality, you create memorable and personalized experiences for our guests, following our standards and responding to the guidance of your Talent Coach.\n\nPROFILE\n\n• Outgoing, dynamic, attentive, and empathetic.\n\n• Fluent in French and English. Knowledge of additional languages is a plus.\n\n• Enjoys working in an international, innovative, and bold team.\n\n• Impeccable presentation, reflecting the image and values of the W brand.\n\n• BAC PRO / CFC / BTS in Hospitality or at least 2 years of experience in a similar role.\n\n• Motivated, detail-oriented, and committed to delivering an exceptional guest experience.\n\n• Interest in the brand’s values: taste, sound, body, stage, and expression.\n\nPosition to be filled for the Summer and Winter season : July 2026 to March 2027\n\nDue to visa restrictions, only applications from Switzerland and the European Union will be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
@@ -2010,7 +2012,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-brasserie-1519-long-term-w-verbier/job/P1-6047634-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.346Z",
+      "crawledAt": "2026-09-28T05:12:47.740Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2046,6 +2048,7 @@
           "chef-de-rang-brasserie-1519-lungo-termine-w-verbier-marriott-international-verbier"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:20:39.352Z",
       "salaryMin": 53500,
       "salaryMax": 67000,
@@ -2093,7 +2096,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-sommelier-long-term-w-verbier/job/P1-6560178-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-27T15:20:30.345Z",
+      "crawledAt": "2026-09-28T05:12:47.738Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",

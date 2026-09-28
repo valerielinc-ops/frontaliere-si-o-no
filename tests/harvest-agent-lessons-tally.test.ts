@@ -132,6 +132,27 @@ describe('tallyFindings — recap LGTM "Nessun/Zero 🔴" non gonfia sibling-cla
   });
 });
 
+describe('tallyFindings — Nits non-funnel esplicitamente differiti non sono recidiva (#10116)', () => {
+  it('non conta i stale-comment Nits che il contratto dispone come deferred', () => {
+    const prs: PR[] = [
+      { number: 9789, reviews: [claudeReview('scripts/crawl-myswitzerland-events.mjs:L42: 🟡 Nit: update both stale comments — deferred, non funnel-critical.')] },
+      { number: 9736, reviews: [claudeReview('PR body:L5: 🟡 Nit: il body descrive ancora i valori precedenti — deferred, non funnel-critical.')] },
+      { number: 9493, reviews: [claudeReview('.github/workflows/post-merge-followup.yml:L37: 🟡 Nit: il commento descrive ancora il mutex dedicato — deferred, non funnel-critical.')] },
+    ];
+    const { counts } = tallyFindings(prs);
+    expect(counts['stale-comment']).toBeUndefined();
+  });
+
+  it('conserva un stale-comment senza disposizione e un 🔴 auto-disposto', () => {
+    const prs: PR[] = [
+      { number: 1, reviews: [claudeReview('scripts/foo.mjs:L1: 🟡 Nit: commento stale da allineare')] },
+      { number: 2, reviews: [claudeReview('scripts/bar.mjs:L2: 🔴 Important: commento stale che descrive un comportamento errato — deferred, non funnel-critical.')] },
+    ];
+    const { counts } = tallyFindings(prs);
+    expect(counts['stale-comment']).toBe(2);
+  });
+});
+
 describe('bucketFinding — AdsSense findings keep their failure mode (#10115)', () => {
   it('mantiene il finding generico adsense nel fallback auto-ads', () => {
     expect(bucketFinding('🟡 adsense non viene inizializzato sulla pagina')).toBe('auto-ads');

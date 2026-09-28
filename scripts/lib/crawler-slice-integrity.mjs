@@ -89,6 +89,10 @@ function jobIdentity(job) {
   return id ? `id:${id}` : null;
 }
 
+function hasNonEmptyJobUrl(job) {
+  return typeof job?.url === 'string' && job.url.trim().length > 0;
+}
+
 function uniqueIdentities(jobs) {
   const identities = new Set();
   for (const job of jobs) {
@@ -380,13 +384,16 @@ export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofE
   }
 
   const removedJobs = previousJobs.filter((job) => !nextIds.has(jobIdentity(job)));
-  if (removedJobs.length !== previousJobs.length - nextJobs.length || removedJobs.some((job) => !jobIdentity(job))) {
+  if (
+    removedJobs.length !== previousJobs.length - nextJobs.length
+    || removedJobs.some((job) => !jobIdentity(job) || !hasNonEmptyJobUrl(job))
+  ) {
     return false;
   }
 
   const provenIds = new Set();
   for (const entry of entries) {
-    if (entry?.definitive !== true) return false;
+    if (entry?.definitive !== true || !hasNonEmptyJobUrl(entry.job)) return false;
     const identity = jobIdentity(entry.job);
     if (!identity || provenIds.has(identity)) return false;
     provenIds.add(identity);
@@ -428,62 +435,135 @@ export function assertCrawlerSliceWriteSafe(
   return { previousBytes, nextBytes, reason: null };
 }
 
-function runCli() {
-  const [filePath, previousPath, nextPath, housekeepingProofPath, basePath, candidatePath] = process.argv.slice(2);
+// Exit codes of the CLI, read by scripts/lib/git-commit-data.sh to print an
+// honest reason instead of labelling every non-zero exit a "catastrophic shrink".
+export const CRAWLER_SLICE_INTEGRITY_EXIT = Object.freeze({
+  ok: 0,
+  catastrophicShrink: 1,
+  usage: 2,
+  invalidHousekeepingProof: 3,
+  unreadableInput: 4,
+});
+
+export class HousekeepingProofError extends Error {}
+
+/**
+ * Load the cleanup-jobs sidecar for a slice whose staged blob is a
+ * catastrophic shrink.
+ *
+ * The proof binds to the run (id, attempt, checked-out commit) and to the
+ * slice cleanup-jobs wrote (`candidateDigest`). Its `baseDigest` is the slice
+ * cleanup-jobs READ, which in a crawler run is the crawler's fresh output, not
+ * any git blob: the commit helper cannot reconstruct it, so it is verified only
+ * when the caller passes that exact snapshot (`basePath` other than `-`).
+ * Comparing it with the checkout's git blob (#10105) failed on every crawler
+ * that pruned a dead URL, catastrophic shrink or not (2026-09-28 wave:
+ * belimo 35 → 34 jobs refused in group 02, one crawler per group in 02, 04,
+ * 05, 06 and 11).
+ */
+export function loadHousekeepingProof(filePath, { proofPath, basePath = '-', candidatePath, env = process.env } = {}) {
+  let proof;
+  try {
+    proof = JSON.parse(fs.readFileSync(proofPath, 'utf8'));
+  } catch (error) {
+    throw new HousekeepingProofError(`unreadable housekeeping proof for ${filePath}: ${error?.message ?? error}`);
+  }
+  if (
+    !proof
+    || proof.schemaVersion !== 2
+    || normalizedPath(proof.path) !== normalizedPath(filePath)
+    || !Array.isArray(proof.entries)
+  ) {
+    throw new HousekeepingProofError(`invalid or path-mismatched housekeeping proof for ${filePath}`);
+  }
+  if (!candidatePath) {
+    throw new HousekeepingProofError(`housekeeping proof for ${filePath} needs the committed candidate snapshot`);
+  }
+  const candidateRaw = fs.readFileSync(candidatePath, 'utf8');
+  const hasBase = Boolean(basePath) && basePath !== '-';
+  const baseRaw = hasBase ? fs.readFileSync(basePath, 'utf8') : null;
+  if (proof.candidateDigest !== sha256(candidateRaw)) {
+    throw new HousekeepingProofError(
+      `stale housekeeping proof: the slice changed after cleanup-jobs wrote it (candidate digest mismatch) for ${filePath}`,
+    );
+  }
+  if (hasBase && proof.baseDigest !== sha256(baseRaw)) {
+    throw new HousekeepingProofError(`stale housekeeping proof: base digest mismatch for ${filePath}`);
+  }
+  const proofBaseSha = String(proof.baseSha ?? '').trim();
+  const proofRunId = String(proof.runId ?? '').trim();
+  const proofRunAttempt = String(proof.runAttempt ?? '').trim();
+  const currentRunId = String(env.GITHUB_RUN_ID || '').trim();
+  const currentRunAttempt = String(env.GITHUB_RUN_ATTEMPT || '').trim();
+  const expectedBaseSha = String(env.HOUSEKEEPING_BASE_SHA || '').trim();
+  if (!proofBaseSha || !proofRunId || !proofRunAttempt
+    || !currentRunId || !currentRunAttempt || !expectedBaseSha) {
+    throw new HousekeepingProofError(`invalid housekeeping proof: missing required run metadata for ${filePath}`);
+  }
+  if (proofRunId !== currentRunId) {
+    throw new HousekeepingProofError(`stale housekeeping proof: run mismatch for ${filePath}`);
+  }
+  if (proofRunAttempt !== currentRunAttempt) {
+    throw new HousekeepingProofError(`stale housekeeping proof: run attempt mismatch for ${filePath}`);
+  }
+  if (proofBaseSha !== expectedBaseSha) {
+    throw new HousekeepingProofError(`stale housekeeping proof: base snapshot mismatch for ${filePath}`);
+  }
+  if (hasBase) return { ...proof, baseRaw, candidateRaw };
+  const { baseDigest: _unverifiableBase, ...boundProof } = proof;
+  return { ...boundProof, candidateRaw };
+}
+
+/**
+ * CLI body, exported for tests. The housekeeping proof is consulted only when
+ * the staged blob is a catastrophic shrink: an ordinary prune needs no proof,
+ * so a stale sidecar must not turn it into a failure.
+ */
+export function runCrawlerSliceIntegrityCli(argv, { env = process.env, stdout = console.log, stderr = console.error } = {}) {
+  const [filePath, previousPath, nextPath, housekeepingProofPath, basePath, candidatePath] = argv;
   if (!filePath || !previousPath || !nextPath) {
-    console.error('usage: crawler-slice-integrity.mjs <file> <previous> <next> [housekeeping-proof] [base] [candidate]');
-    process.exitCode = 2;
-    return;
+    stderr('usage: crawler-slice-integrity.mjs <file> <previous> <next> [housekeeping-proof] [base|-] [candidate]');
+    return CRAWLER_SLICE_INTEGRITY_EXIT.usage;
+  }
+  let previousRaw;
+  let nextRaw;
+  try {
+    previousRaw = fs.readFileSync(previousPath, 'utf8');
+    nextRaw = fs.readFileSync(nextPath, 'utf8');
+  } catch (error) {
+    stderr(`crawler slice integrity: cannot read inputs for ${filePath}: ${error?.message ?? error}`);
+    return CRAWLER_SLICE_INTEGRITY_EXIT.unreadableInput;
+  }
+  const previousBytes = Buffer.byteLength(previousRaw, 'utf8');
+  const nextBytes = Buffer.byteLength(nextRaw, 'utf8');
+  let housekeepingProof = null;
+  if (housekeepingProofPath && isCatastrophicAccumulatorShrink(previousBytes, nextBytes)) {
+    try {
+      housekeepingProof = loadHousekeepingProof(filePath, {
+        proofPath: housekeepingProofPath,
+        basePath,
+        candidatePath,
+        env,
+      });
+    } catch (error) {
+      stderr(error instanceof Error ? error.message : String(error));
+      return error instanceof HousekeepingProofError
+        ? CRAWLER_SLICE_INTEGRITY_EXIT.invalidHousekeepingProof
+        : CRAWLER_SLICE_INTEGRITY_EXIT.unreadableInput;
+    }
   }
   try {
-    let housekeepingProof = null;
-    if (housekeepingProofPath) {
-      const proof = JSON.parse(fs.readFileSync(housekeepingProofPath, 'utf8'));
-      if (
-        !proof
-        || proof.schemaVersion !== 2
-        || normalizedPath(proof.path) !== normalizedPath(filePath)
-        || !Array.isArray(proof.entries)
-      ) {
-        throw new Error(`invalid or path-mismatched housekeeping proof for ${filePath}`);
-      }
-      const baseRaw = basePath ? fs.readFileSync(basePath, 'utf8') : '';
-      const candidateRaw = candidatePath ? fs.readFileSync(candidatePath, 'utf8') : '';
-      const proofBaseSha = String(proof.baseSha ?? '').trim();
-      const proofRunId = String(proof.runId ?? '').trim();
-      const proofRunAttempt = String(proof.runAttempt ?? '').trim();
-      const currentRunId = String(process.env.GITHUB_RUN_ID || '').trim();
-      const currentRunAttempt = String(process.env.GITHUB_RUN_ATTEMPT || '').trim();
-      const expectedBaseSha = String(process.env.HOUSEKEEPING_BASE_SHA || '').trim();
-      if (proof.baseDigest !== sha256(baseRaw) || proof.candidateDigest !== sha256(candidateRaw)) {
-        throw new Error(`stale housekeeping proof: snapshot digest mismatch for ${filePath}`);
-      }
-      if (!proofBaseSha || !proofRunId || !proofRunAttempt
-        || !currentRunId || !currentRunAttempt || !expectedBaseSha) {
-        throw new Error(`invalid housekeeping proof: missing required run metadata for ${filePath}`);
-      }
-      if (proofRunId !== currentRunId) {
-        throw new Error(`stale housekeeping proof: run mismatch for ${filePath}`);
-      }
-      if (proofRunAttempt !== currentRunAttempt) {
-        throw new Error(`stale housekeeping proof: run attempt mismatch for ${filePath}`);
-      }
-      if (proofBaseSha !== expectedBaseSha) {
-        throw new Error(`stale housekeeping proof: base snapshot mismatch for ${filePath}`);
-      }
-      housekeepingProof = { ...proof, baseRaw, candidateRaw };
-    }
-    const result = assertCrawlerSliceWriteSafe(
-      filePath,
-      fs.readFileSync(previousPath, 'utf8'),
-      fs.readFileSync(nextPath, 'utf8'),
-      { housekeepingProof },
-    );
-    if (result.reason) console.log(`crawler slice integrity: allowed ${result.reason} for ${filePath}`);
+    const result = assertCrawlerSliceWriteSafe(filePath, previousRaw, nextRaw, { housekeepingProof });
+    if (result.reason) stdout(`crawler slice integrity: allowed ${result.reason} for ${filePath}`);
+    return CRAWLER_SLICE_INTEGRITY_EXIT.ok;
   } catch (error) {
-    console.error(error instanceof Error ? error.message : String(error));
-    process.exitCode = 1;
+    stderr(error instanceof Error ? error.message : String(error));
+    return CRAWLER_SLICE_INTEGRITY_EXIT.catastrophicShrink;
   }
+}
+
+function runCli() {
+  process.exitCode = runCrawlerSliceIntegrityCli(process.argv.slice(2));
 }
 
 if (process.argv[1]?.endsWith('crawler-slice-integrity.mjs')) runCli();

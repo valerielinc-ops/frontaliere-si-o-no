@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-09-27T15:01:07.255Z",
-  "total": 65,
+  "generatedAt": "2026-09-28T04:59:12.714Z",
+  "total": 66,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 65,
-  "durationMs": 219014,
-  "avgDurationMs": 219014,
+  "unchangedCount": 66,
+  "durationMs": 76522,
+  "avgDurationMs": 76522,
   "durationHistory": [
-    219014
+    76522
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -229,6 +229,7 @@
       "postalCode": "3600",
       "firstSeenAt": "2026-07-02T22:37:51.768Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,

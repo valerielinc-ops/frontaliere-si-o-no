@@ -22,7 +22,7 @@ import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_RE
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { GPT_BOOTSTRAP_TAG } from './jobBoardGpt';
+import { GPT_BOOTSTRAP_TAG, isJobBoardPageUrl } from './jobBoardGpt';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
@@ -3231,7 +3231,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
- const jobBoardOfferwallTag = locale === 'it' && sectionForJob === 'cerca-lavoro-ticino' // cathedral-allow: the legacy IT job-board route owns this rewarded offerwall entrypoint
+ const jobBoardOfferwallTag = isJobBoardPageUrl(canonicalUrl)
   ? `\n ${OFFERWALL_FC_SNIPPET}`
   : '';
  // Cannibalization fix: <link rel="canonical"> and og:url may point to a
