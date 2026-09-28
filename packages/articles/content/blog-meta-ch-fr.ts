@@ -6956,6 +6956,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.norme-biosicurezza-peste-suina.title': 'Nouvelles règles contre la peste porcine africaine',
     'blog.article.norme-biosicurezza-peste-suina.excerpt': 'La FSVO fixe les exigences de biosécurité pour les élevages porcins : la conformité aux ASF facilite le trafic d\'animaux en cas d\'épidémie.',
     'blog.article.norme-biosicurezza-peste-suina.imageAlt': 'Élevage porcin suisse avec mesures de biosécurité contre la peste porcine africaine',
+    'blog.article.migros-tegut-24-acquirenti.title': 'Migros cherche des acquéreurs pour 24 magasins Tegut',
+    'blog.article.migros-tegut-24-acquirenti.excerpt': 'L\'antitrust allemand a autorisé Edeka à reprendre 178 des 202 points de vente Tegut ; il reste 24 magasins à céder, ainsi que 41 points Teo, la boulangerie Herzberger et un centre logistique.',
+    'blog.article.migros-tegut-24-acquirenti.imageAlt': 'Intérieur d\'un supermarché Migros en Suisse avec rayons et caisses',
 };
 
 export default blogMetaChFr;

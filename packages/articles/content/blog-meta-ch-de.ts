@@ -6956,6 +6956,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.norme-biosicurezza-peste-suina.title': 'Neue Vorschriften gegen die Afrikanische Schweinepest',
     'blog.article.norme-biosicurezza-peste-suina.excerpt': 'Das USAV legt Biosicherheitsanforderungen für Schweinehaltungen fest: Die Einhaltung der ASP-Vorgaben bietet im Seuchenfall Erleichterungen beim Tierverkehr.',
     'blog.article.norme-biosicurezza-peste-suina.imageAlt': 'Schweizer Schweinezucht mit Biosicherheitsmassnahmen gegen die Afrikanische Schweinepest',
+    'blog.article.migros-tegut-24-acquirenti.title': 'Migros sucht Käufer für 24 Tegut-Filialen',
+    'blog.article.migros-tegut-24-acquirenti.excerpt': 'Das deutsche Kartellamt hat Edeka die Übernahme von 178 der 202 Tegut-Filialen genehmigt; 24 Geschäfte müssen noch veräußert werden, ebenso 41 Teo-Standorte, die Bäckerei Herzberger und ein Logistikzentrum.',
+    'blog.article.migros-tegut-24-acquirenti.imageAlt': 'Innenansicht eines Migros-Supermarkts in der Schweiz mit Regalen und Kassen',
 };
 
 export default blogMetaChDe;

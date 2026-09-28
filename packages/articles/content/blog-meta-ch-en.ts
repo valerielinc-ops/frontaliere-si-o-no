@@ -6956,6 +6956,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.norme-biosicurezza-peste-suina.title': 'New regulations against African swine fever',
     'blog.article.norme-biosicurezza-peste-suina.excerpt': 'The FSVO sets biosecurity requirements for pig farms: ASF compliance facilitates animal movements in the event of an outbreak.',
     'blog.article.norme-biosicurezza-peste-suina.imageAlt': 'Swiss pig farm with biosecurity measures against African swine fever',
+    'blog.article.migros-tegut-24-acquirenti.title': 'Migros is looking for buyers for 24 Tegut stores',
+    'blog.article.migros-tegut-24-acquirenti.excerpt': 'The German antitrust authority has authorized Edeka to acquire 178 of Tegut’s 202 stores; 24 stores remain to be divested, along with 41 Teo locations, the Herzberger bakery, and a logistics center.',
+    'blog.article.migros-tegut-24-acquirenti.imageAlt': 'Interior of a Migros supermarket in Switzerland with shelves and checkout lanes',
 };
 
 export default blogMetaChEn;
