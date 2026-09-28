@@ -1409,8 +1409,8 @@ function renderWebcamSection(
   const figures = webcams
     .map((w) => {
       const refreshMs = w.refreshIntervalMs ?? 60000;
-      const licenseHtml = w.license
-        ? `<div class="s-DEr6hT">${esc(w.license)}</div>`
+      const licenseHtml = w.licenseNote
+        ? `<div class="s-DEr6hT">${esc(w.licenseNote)}</div>`
         : '';
       return `<figure class="s-WFzTLc">
     <img
@@ -2069,6 +2069,7 @@ function renderLeafPage(inp: LeafInputs): string {
         caption: `${copy.webcamLabel} — ${crossingDisplay}`,
         creditText: webcams[0].sourceName,
         license: webcams[0].license,
+        acquireLicensePage: webcams[0].license,
         creator: webcams[0].sourceName
           ? { '@type': 'Organization', name: webcams[0].sourceName }
           : undefined,

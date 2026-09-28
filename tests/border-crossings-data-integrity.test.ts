@@ -44,6 +44,7 @@ const KNOWN_WEBCAM_KEYS = new Set([
   'sourceUrl',
   'refreshIntervalMs',
   'license',
+  'licenseNote',
   'minBytes',
 ]);
 
@@ -130,7 +131,12 @@ describe('borderCrossings — structural integrity', () => {
           expect(cam.sourceUrl.length).toBeGreaterThan(0);
 
           if (cam.refreshIntervalMs !== undefined) expect(typeof cam.refreshIntervalMs).toBe('number');
-          if (cam.license !== undefined) expect(typeof cam.license).toBe('string');
+          if (cam.license !== undefined) {
+            expect(typeof cam.license).toBe('string');
+            const licenseUrl = new URL(cam.license);
+            expect(['http:', 'https:']).toContain(licenseUrl.protocol);
+          }
+          if (cam.licenseNote !== undefined) expect(typeof cam.licenseNote).toBe('string');
           if (cam.minBytes !== undefined) expect(typeof cam.minBytes).toBe('number');
         }
       }

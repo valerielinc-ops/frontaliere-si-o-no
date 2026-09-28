@@ -89681,6 +89681,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pronto-consulto-mendrisiotto-basso-ceresio': {
+    title: 'Pronto Consulto: servizio telefonico per orientare nel Mendrisiotto',
+    description: 'Scopri come funziona Pronto Consulto nel Mendrisiotto e Basso Ceresio: numero 091 811 30 20, richiamo medico entro 30 minuti, servizio attivo lun‑ven 9‑17',
+    keywords: 'frontalieri, ticino, svizzera, italia, pronto, consulto, servizio, telefonico',
+    ogTitle: 'Pronto Consulto: orientamento telefonico nel Mendrisiotto',
+    ogDescription: 'Pronto Consulto è il nuovo servizio telefonico attivo nel Mendrisiotto e Basso Ceresio che offre un primo orientamento medico entro 30 minuti dalla chiamata. Accessibile al numero 091 811 30 20 dal lunedì al venerdì, dalle 9 alle 17, punta a ridurre',
+    canonicalPath: '/articoli-svizzera/pronto-consulto-mendrisiotto-basso-ceresio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pronto Consulto: servizio telefonico per orientare nel Mendrisiotto",
+      "description": "Scopri come funziona Pronto Consulto nel Mendrisiotto e Basso Ceresio: numero 091 811 30 20, richiamo medico entro 30 minuti, servizio attivo lun‑ven 9‑17",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pronto-consulto-mendrisiotto-basso-ceresio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Medico che risponde a una telefonata di Pronto Consulto in ambulatorio svizzero"
+      },
+      "datePublished": "2026-09-28T09:07:41+00:00",
+      "dateModified": "2026-09-28T09:07:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pronto-consulto-mendrisiotto-basso-ceresio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

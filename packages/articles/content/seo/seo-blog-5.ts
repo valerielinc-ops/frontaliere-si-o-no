@@ -96052,6 +96052,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hotel-ristoranti-salari-2027': {
+    title: 'Hotel e ristoranti: salari minimi +0,6% nel 2027',
+    description: 'Hotel e ristoranti: salari minimi +0,6% nel 2027. La Cat. II passerà da 4\'070 a 4\'094 franchi lordi; per gli stagionali, aumento dal 1 maggio 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, hotel, ristoranti, salari, minimi',
+    ogTitle: 'Hotel e ristoranti: salari minimi +0,6% nel 2027',
+    ogDescription: 'Le parti sociali di hotel e ristoranti hanno fissato un aumento dello 0,6% dei salari minimi nel 2027. Per la Cat. II il lordo mensile passerà da 4\'070 a 4\'094 franchi; per i contratti stagionali l’aumento scatterà il 1 maggio 2027.',
+    canonicalPath: '/articoli-frontaliere/hotel-ristoranti-salari-2027',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hotel e ristoranti: salari minimi +0,6% nel 2027",
+      "description": "Hotel e ristoranti: salari minimi +0,6% nel 2027. La Cat. II passerà da 4'070 a 4'094 franchi lordi; per gli stagionali, aumento dal 1 maggio 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/hotel-ristoranti-salari-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala di ristorante alberghiero svizzero preparata per il servizio"
+      },
+      "datePublished": "2026-09-28T08:42:44+00:00",
+      "dateModified": "2026-09-28T08:42:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hotel-ristoranti-salari-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

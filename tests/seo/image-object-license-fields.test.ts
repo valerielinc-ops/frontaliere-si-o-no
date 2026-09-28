@@ -41,10 +41,13 @@ const REQUIRED_FIELDS = [
 ] as const;
 
 type RequiredField = (typeof REQUIRED_FIELDS)[number];
+const URL_FIELDS = ['acquireLicensePage', 'license'] as const;
+type UrlField = (typeof URL_FIELDS)[number];
 
 interface Offender {
   file: string;
   missing: RequiredField[];
+  invalidUrls: UrlField[];
   keys: string[];
 }
 
@@ -65,6 +68,16 @@ function extractLdJsonBlocks(html: string): string[] {
   let m: RegExpExecArray | null;
   while ((m = re.exec(html)) !== null) blocks.push(m[1]);
   return blocks;
+}
+
+function isHttpUrl(value: unknown): boolean {
+  if (typeof value !== 'string') return false;
+  try {
+    const protocol = new URL(value).protocol;
+    return protocol === 'http:' || protocol === 'https:';
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -99,10 +112,12 @@ function findOffenders(html: string, file: string): Offender[] {
     }
     walkImageObjects(parsed, (img) => {
       const missing = REQUIRED_FIELDS.filter((f) => !(f in img));
-      if (missing.length > 0) {
+      const invalidUrls = URL_FIELDS.filter((f) => f in img && !isHttpUrl(img[f]));
+      if (missing.length > 0 || invalidUrls.length > 0) {
         offenders.push({
           file: file.replace(DIST_DIR, ''),
           missing,
+          invalidUrls,
           keys: Object.keys(img),
         });
       }
@@ -118,7 +133,7 @@ describe('dist HTML — ImageObject license-fields gate (GSC licensable-image)',
   }
 
   it(
-    'every ImageObject in dist JSON-LD has acquireLicensePage, copyrightNotice, license, creator, creditText',
+    'every ImageObject in dist JSON-LD has the required fields and valid license URLs',
     { timeout: SCAN_TEST_TIMEOUT_MS },
     () => {
       const files = walkHtml(DIST_DIR);
@@ -156,12 +171,12 @@ describe('dist HTML — ImageObject license-fields gate (GSC licensable-image)',
         .slice(0, 10)
         .map(
           (o) =>
-            `  - ${o.file}\n      missing: ${o.missing.join(', ')}\n      keys: ${o.keys.join(', ')}`,
+            `  - ${o.file}\n      missing: ${o.missing.join(', ') || 'none'}\n      invalid URL: ${o.invalidUrls.join(', ') || 'none'}\n      keys: ${o.keys.join(', ')}`,
         )
         .join('\n');
 
       throw new Error(
-        `Found ${allOffenders.length} ImageObject(s) across ${fileSet.size} page(s) missing one or more of: ${REQUIRED_FIELDS.join(', ')}.\n\n` +
+        `Found ${allOffenders.length} ImageObject(s) across ${fileSet.size} page(s) with missing or invalid fields. Required fields: ${REQUIRED_FIELDS.join(', ')}; URL fields: ${URL_FIELDS.join(', ')}.\n\n` +
           `By bucket:\n${bucketReport}\n\n` +
           `First 10 examples:\n${exampleReport}\n\n` +
           `Fix: route the emission through services/seo/imageObjectLd.ts (or, for auto-generated files, through scripts/create-article.mjs which already injects the 4 fields). All ImageObject literals must include the GSC licensable-image quartet.`,

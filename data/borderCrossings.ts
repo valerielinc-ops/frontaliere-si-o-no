@@ -15,8 +15,10 @@ export interface WebcamRef {
  sourceUrl: string;
  /** Refresh interval in ms — used by the inline JS cache-buster. Default 60_000. */
  refreshIntervalMs?: number;
- /** Optional explicit license note shown in <figcaption>. */
+ /** Absolute URL of the license or terms page emitted as ImageObject.license. */
  license?: string;
+ /** Optional human-readable license note shown in <figcaption>. */
+ licenseNote?: string;
  /**
   * Per-webcam override for the watchdog's MIN_WEBCAM_BYTES floor
   * (scripts/check-border-data-health.mjs). Some vendors legitimately serve a
@@ -74,6 +76,7 @@ const TI_POLCA_SOURCE_NAME = 'Dipartimento del territorio – Canton Ticino';
 const TI_POLCA_SOURCE_URL = 'https://www.ti.ch/webcam';
 const SITG_CAMERA_SOURCE_NAME = 'SITG / Canton Genève – INFOMOB_CAMERA';
 const SITG_CAMERA_SOURCE_URL = 'https://sitg.ge.ch/donnees/infomob-camera';
+const SITG_CAMERA_LICENSE_URL = 'https://sitg.ge.ch/ressources/conditions-utilisation-donnees';
 // SITG publishes compact official 400x225 JPEG frames. The generic watchdog
 // floor is tuned for the much larger Ticino GIFs; use the same low-res-safe
 // floor for every SITG feed so a valid compressed frame is not paged as broken.
@@ -2177,7 +2180,8 @@ export const borderCrossings: BorderCrossing[] = [
    sourceUrl: SITG_CAMERA_SOURCE_URL,
    refreshIntervalMs: 60000,
    minBytes: SITG_CAMERA_MIN_BYTES,
-   license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
+   license: SITG_CAMERA_LICENSE_URL,
+   licenseNote: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
   },
  ],
  },
@@ -2202,7 +2206,8 @@ export const borderCrossings: BorderCrossing[] = [
    sourceUrl: SITG_CAMERA_SOURCE_URL,
    refreshIntervalMs: 60000,
    minBytes: SITG_CAMERA_MIN_BYTES,
-   license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
+   license: SITG_CAMERA_LICENSE_URL,
+   licenseNote: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
   },
  ],
  },
@@ -2227,7 +2232,8 @@ export const borderCrossings: BorderCrossing[] = [
    sourceUrl: SITG_CAMERA_SOURCE_URL,
    refreshIntervalMs: 60000,
    minBytes: SITG_CAMERA_MIN_BYTES,
-   license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
+   license: SITG_CAMERA_LICENSE_URL,
+   licenseNote: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
   },
  ],
  },
@@ -2280,7 +2286,8 @@ export const borderCrossings: BorderCrossing[] = [
    sourceUrl: SITG_CAMERA_SOURCE_URL,
    refreshIntervalMs: 60000,
    minBytes: SITG_CAMERA_MIN_BYTES,
-   license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
+   license: SITG_CAMERA_LICENSE_URL,
+   licenseNote: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
   },
  ],
  },
