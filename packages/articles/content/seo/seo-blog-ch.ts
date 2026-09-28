@@ -90032,6 +90032,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lingotti-oro-export-svizzera': {
+    title: 'Lingotti d\'oro: export italiano in Svizzera +57%',
+    description: 'In agosto l\'export italiano extra-UE cresce del 16,1%: +57% verso la Svizzera, con i lingotti d\'oro indicati da Istat. I dati di dettaglio arriveranno dopo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lingotti, export, italiano, agosto',
+    ogTitle: 'Lingotti d\'oro: export italiano in Svizzera +57%',
+    ogDescription: 'L\'Istat segnala una crescita del 16,1% per l\'export italiano verso i Paesi extra-UE. La Svizzera registra +57%, associato in particolare ai lingotti d\'oro; gli Stati Uniti +31,1%, con un\'accelerazione dei farmaci. I dettagli arriveranno in seguito.',
+    canonicalPath: '/articoli-svizzera/lingotti-oro-export-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lingotti d'oro: export italiano in Svizzera +57%",
+      "description": "In agosto l'export italiano extra-UE cresce del 16,1%: +57% verso la Svizzera, con i lingotti d'oro indicati da Istat. I dati di dettaglio arriveranno dopo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lingotti-oro-export-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lingotti d'oro associati alle esportazioni italiane verso la Svizzera"
+      },
+      "datePublished": "2026-09-28T13:53:53+00:00",
+      "dateModified": "2026-09-28T13:53:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lingotti-oro-export-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -6944,6 +6944,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.centri-asilo-ors-subentro-ticino.title': 'ORS takeover at asylum centers: guarantees requested',
     'blog.article.centri-asilo-ors-subentro-ticino.excerpt': 'ORS’s takeover of the federal asylum centers is scheduled for January 1, 2027; AOZ employs 120 people in Ticino and, if Chiasso does not reopen, up to 40 positions are at risk.',
     'blog.article.centri-asilo-ors-subentro-ticino.imageAlt': 'Asylum seekers in front of a federal reception centre in Ticino with staff in the background',
+    'blog.article.lingotti-oro-export-svizzera.title': 'Gold bars: Italian exports to Switzerland +57%',
+    'blog.article.lingotti-oro-export-svizzera.excerpt': 'In August, Italian exports outside the EU grew by 16.1%: +57% to Switzerland, with gold bars indicated by ISTAT. Detailed data will come later.',
+    'blog.article.lingotti-oro-export-svizzera.imageAlt': 'Gold bars linked to Italian exports to Switzerland',
 };
 
 export default blogMetaChEn;
