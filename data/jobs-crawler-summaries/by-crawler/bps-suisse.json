@@ -1,19 +1,21 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-09-28T03:37:56.215Z",
+  "generatedAt": "2026-09-28T05:09:51.919Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5069,
-  "avgDurationMs": 5069,
+  "unchangedCount": 4,
+  "durationMs": 5431,
+  "avgDurationMs": 5431,
   "durationHistory": [
-    5069
+    5431
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bps-suisse-7e40eb648fab",
       "title": "Consulente Alla Clientela Individuale",
@@ -37,7 +39,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-28",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T03:37:48.748Z",
+      "crawledAt": "2026-09-28T05:09:42.965Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -79,7 +81,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-28",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T03:37:49.577Z",
+      "crawledAt": "2026-09-28T05:09:43.987Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -90,6 +92,7 @@
       "firstSeenAt": "2026-07-29T22:14:16.881Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-compliance_officer.php",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -121,7 +124,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-28",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T03:37:49.899Z",
+      "crawledAt": "2026-09-28T05:09:44.410Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -163,7 +166,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-28",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T03:37:50.272Z",
+      "crawledAt": "2026-09-28T05:09:44.785Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -183,7 +186,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
