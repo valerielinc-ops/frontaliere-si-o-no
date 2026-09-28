@@ -12210,6 +12210,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuova-strada-carlazzo-frontalieri.title': 'Nouvelle route à Carlazzo : 1,2 million pour relier SP10 et Via San Pietro',
     'blog.article.nuova-strada-carlazzo-frontalieri.excerpt': 'L’accord de programme entre la Province de Como et la Commune de Carlazzo finance une route d’un montant de 1.242.383,84 euros, avec 1.042.383,84 euros de la Commune et 200.000 euros de la Province, à réaliser d’ici 2026.',
     'blog.article.nuova-strada-carlazzo-frontalieri.imageAlt': 'Route rurale récemment goudronnée près de la frontière suisse-italienne, avec des collines verdoyantes et un ciel dégagé.',
+    'blog.article.bollettino-frontaliere-2026-09-28.title': 'Bulletin du frontalier – 28 septembre 2026 : 270 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-09-28.excerpt': 'Les chiffres du jour, 28 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-28.imageAlt': 'Les chiffres du jour pour les frontaliers – 28 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-28.seoDescription': 'Bulletin du frontalier du 28 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-28.ogDescription': 'Les chiffres du 28 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
