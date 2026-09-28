@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-neubau-und-sanierungen-lenzburg-aargau-sta-ch",
         "it": "installatore-trice-elettrico-a-in-per-neubau-e-sanierungen-sta-personal-ag-lenzburg",
-        "en": "elektroinstallateur-in-fur-neubau-und-sanierungen-sta-personal-ag-lenzburg",
-        "fr": "elektroinstallateur-in-fur-neubau-und-sanierungen-sta-personal-ag-lenzburg"
+        "en": "electrical-installer-fur-neubau-und-sanierungen-sta-personal-ag-lenzburg-aargau",
+        "fr": "installateur-trice-electricien-ne-fur-neubau-und-sanierungen-sta-personal-ag-lenzburg-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -55,10 +55,17 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-neubau-und-sanierungen-lenzburg-aargau-sta-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-neubau-und-sanierungen-sta-personal-ag-lenzburg"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-neubau-und-sanierungen-sta-personal-ag-lenzburg"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-neubau-und-sanierungen-lenzburg-aargau-sta-ch"
+        "elektroinstallateur-in-fur-neubau-und-sanierungen-lenzburg-aargau-sta-ch",
+        "elektroinstallateur-in-fur-neubau-und-sanierungen-sta-personal-ag-lenzburg"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -268,13 +275,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch",
-        "installazione-e-apparati-per-costruzione-di-tubazioni-e-console-sta-personal-ag-muri-ag-aargau"
+        "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch",
-          "installazione-e-apparati-per-costruzione-di-tubazioni-e-console-sta-personal-ag-muri-ag-aargau"
+          "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1428,13 +1433,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "metallbauer-in-hilfsarbeiter-in-mit-schwerpunkt-demontage-luzern-luzern-sta-ch",
-        "lavoratori-di-metalli-lavoratori-ausiliari-con-particolare-attenzione-allo-smantellamento-sta-personal-ag-luzern"
+        "metallbauer-in-hilfsarbeiter-in-mit-schwerpunkt-demontage-luzern-luzern-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-hilfsarbeiter-in-mit-schwerpunkt-demontage-luzern-luzern-sta-ch",
-          "lavoratori-di-metalli-lavoratori-ausiliari-con-particolare-attenzione-allo-smantellamento-sta-personal-ag-luzern"
+          "metallbauer-in-hilfsarbeiter-in-mit-schwerpunkt-demontage-luzern-luzern-sta-ch"
         ],
         "en": [
           "metallbauer-in-hilfsarbeiter-in-mit-schwerpunkt-demontage-luzern-luzern-sta-ch"
@@ -1538,7 +1541,7 @@
         "it": "installatore-trice-elettrico-a-in-cfc-per-try-hire-sta-personal-ag-willisau",
         "en": "elektroinstallateur-in-efz-fur-try-hire-sta-personal-ag-willisau",
         "de": "elektroinstallateur-in-efz-fur-try-amp-hire-willisau-luzern-sta-ch",
-        "fr": "elektroinstallateur-in-efz-fur-try-hire-sta-personal-ag-willisau"
+        "fr": "installateur-trice-electricien-ne-efz-fur-try-hire-sta-personal-ag-willisau-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -1580,12 +1583,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektroinstallateur-in-efz-fur-try-amp-hire-willisau-luzern-sta-ch",
-        "installatore-trice-elettrico-a-in-cfc-per-try-hire-sta-personal-ag-willisau"
+        "elektroinstallateur-in-efz-fur-try-hire-sta-personal-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-efz-fur-try-amp-hire-willisau-luzern-sta-ch",
-          "installatore-trice-elettrico-a-in-cfc-per-try-hire-sta-personal-ag-willisau"
+          "elektroinstallateur-in-efz-fur-try-amp-hire-willisau-luzern-sta-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-in-efz-fur-try-hire-sta-personal-ag-willisau"
         ]
       },
       "needsRetranslation": true,
@@ -1745,7 +1750,7 @@
       "slug": "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
       "slugByLocale": {
         "it": "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
-        "en": "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen",
+        "en": "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen",
         "de": "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
         "fr": "operateur-automatique-pour-le-cablage-de-l-armoire-de-montage-et-de-commande-sta-personal-ag-schaffhausen-schaffhausen"
       },
@@ -1789,17 +1794,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
-        "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen",
-        "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
         "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
-          "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen"
+          "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch"
         ],
         "en": [
-          "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen",
           "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen"
         ]
       },
@@ -1868,13 +1869,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-zofingen-aargau-sta-ch",
-        "automatiker-in-per-montage-von-mittel-e-niederspannungsanlagen-sta-personal-ag-zofingen"
+        "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-zofingen-aargau-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-zofingen-aargau-sta-ch",
-          "automatiker-in-per-montage-von-mittel-e-niederspannungsanlagen-sta-personal-ag-zofingen"
+          "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-zofingen-aargau-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1942,13 +1941,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch",
-        "automatiker-in-per-elektrische-installazioni-sta-personal-ag-zofingen"
+        "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch",
-          "automatiker-in-per-elektrische-installazioni-sta-personal-ag-zofingen"
+          "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2016,13 +2013,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-in-fur-elektromobilitat-und-fahrzeugdiagnose-grenchen-solothurn-sta-ch",
-        "automatici-per-elettromobilita-e-diagnosi-del-veicolo-sta-personal-ag-grenchen-solothurn"
+        "automatiker-in-fur-elektromobilitat-und-fahrzeugdiagnose-grenchen-solothurn-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-elektromobilitat-und-fahrzeugdiagnose-grenchen-solothurn-sta-ch",
-          "automatici-per-elettromobilita-e-diagnosi-del-veicolo-sta-personal-ag-grenchen-solothurn"
+          "automatiker-in-fur-elektromobilitat-und-fahrzeugdiagnose-grenchen-solothurn-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2162,13 +2157,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-zofingen-aargau-sta-ch",
-        "anlagen-e-apparatebauer-in-con-mag-schweissprufung-sta-personal-ag-zofingen"
+        "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-zofingen-aargau-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-zofingen-aargau-sta-ch",
-          "anlagen-e-apparatebauer-in-con-mag-schweissprufung-sta-personal-ag-zofingen"
+          "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-zofingen-aargau-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2236,13 +2229,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
-        "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten"
+        "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
-          "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten"
+          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
         ],
         "en": [
           "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
@@ -2316,13 +2307,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch",
-        "installazione-e-costruttori-di-apparecchi-per-i-corpi-dei-veicoli-sta-personal-ag-langenthal-bern"
+        "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch",
-          "installazione-e-costruttori-di-apparecchi-per-i-corpi-dei-veicoli-sta-personal-ag-langenthal-bern"
+          "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2391,13 +2380,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
-        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
-        "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
+        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
-          "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
+          "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch"
         ],
         "en": [
           "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
@@ -2471,13 +2458,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch",
-        "produttore-di-impianti-e-apparecchi-come-operatore-laser-sta-personal-ag-lenzburg-aargau"
+        "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch",
-          "produttore-di-impianti-e-apparecchi-come-operatore-laser-sta-personal-ag-lenzburg-aargau"
+          "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2547,14 +2532,12 @@
       "previousSlugs": [
         "produktionsmitarbeiter-in-fur-prazise-armaturenteile-lenzburg-aargau-sta-ch",
         "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg",
-        "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg",
-        "staff-di-produzione-per-parti-di-valvole-precise-sta-personal-ag-lenzburg-aargau"
+        "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsmitarbeiter-in-fur-prazise-armaturenteile-lenzburg-aargau-sta-ch",
-          "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg",
-          "staff-di-produzione-per-parti-di-valvole-precise-sta-personal-ag-lenzburg-aargau"
+          "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg"
         ],
         "en": [
           "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg"
@@ -2629,14 +2612,12 @@
       "previousSlugs": [
         "maler-in-fur-neubauten-und-renovationsprojekte-olten-solothurn-sta-ch",
         "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten",
-        "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten",
-        "pittore-per-nuovi-edifici-e-progetti-di-ristrutturazione-sta-personal-ag-olten-solothurn"
+        "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-neubauten-und-renovationsprojekte-olten-solothurn-sta-ch",
-          "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten",
-          "pittore-per-nuovi-edifici-e-progetti-di-ristrutturazione-sta-personal-ag-olten-solothurn"
+          "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten"
         ],
         "en": [
           "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten"
@@ -2710,14 +2691,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch",
-        "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten",
-        "pittore-per-uso-temporaneo-a-lungo-termine-sta-personal-ag-olten-solothurn"
+        "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch",
-          "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten",
-          "pittore-per-uso-temporaneo-a-lungo-termine-sta-personal-ag-olten-solothurn"
+          "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten"
         ],
         "en": [
           "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch"
@@ -2791,14 +2770,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch",
-        "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau",
-        "giardino-e-giardinieri-paesaggistici-sta-personal-ag-aarau-aargau"
+        "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch",
-          "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau",
-          "giardino-e-giardinieri-paesaggistici-sta-personal-ag-aarau-aargau"
+          "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau"
         ],
         "en": [
           "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch"
@@ -2871,13 +2848,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch",
-        "produttori-di-impianti-e-apparati-per-bordi-cnc-e-saldatura-sta-personal-ag-hochdorf-luzern"
+        "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch",
-          "produttori-di-impianti-e-apparati-per-bordi-cnc-e-saldatura-sta-personal-ag-hochdorf-luzern"
+          "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch"
         ]
       },
       "needsRetranslation": true,

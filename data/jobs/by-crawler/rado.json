@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-apprendistato-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2",
-        "en": "logistician-apprenticeship-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz",
+        "en": "logistician-apprenticeship-2027-rado-watch-co-ltd-lengnau-be",
         "de": "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2",
-        "fr": "apprentissage-de-logisticien-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz"
+        "fr": "apprentissage-de-logisticien-2027-rado-watch-co-ltd-lengnau-be"
       },
       "requirementsByLocale": {
         "it": [],
@@ -58,16 +58,20 @@
           "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be"
         ],
         "en": [
-          "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2"
+          "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2",
+          "logistician-apprenticeship-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz"
         ],
         "fr": [
-          "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2"
+          "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2",
+          "apprentissage-de-logisticien-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz"
         ]
       },
       "previousSlugs": [
         "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz",
         "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2",
-        "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be"
+        "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be",
+        "logistician-apprenticeship-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz",
+        "apprentissage-de-logisticien-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -86,8 +90,7 @@
       "addressLocality": "Bielstrasse 45 2543 Lengnau (Bern) Schweiz",
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
-      "postalCode": "2543",
-      "needsRetranslation": true
+      "postalCode": "2543"
     }
   ]
 }
