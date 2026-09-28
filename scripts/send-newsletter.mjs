@@ -90,10 +90,10 @@ const SEND_ENABLED = process.env.NEWSLETTER_ENABLE_SEND === 'true';
 const AI_CONCURRENCY = 5; // Max parallel AI calls
 // Wall-clock budget for each AI phase (briefings, then subjects). The send
 // happens only after both phases, so an unbounded AI phase can take the whole
-// campaign down with it (run 36407582573: still composing 4h30 into its 6h
-// job timeout, nothing sent yet). Past the deadline callLLM stops walking the
-// chain and the Codex broker drops the queued request; the caller falls back
-// to the static template, which the send then uses.
+// campaign down with it (run 36407582573: 2016 cohorts, still in Phase 2 when
+// the 6h job timeout cancelled it, nothing sent). Past the deadline callLLM
+// stops walking the chain and the Codex broker drops the queued request; the
+// caller falls back to the static template, which the send then uses.
 const AI_PHASE_BUDGET_MS = 30 * 60_000;
 
 // ── Email provider selection ──
