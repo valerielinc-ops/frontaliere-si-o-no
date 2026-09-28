@@ -13,7 +13,10 @@
   "pagination": {
     "maxPages": 120,
     "declaredTotalPattern": "class=\"jobs_number\"[^>]*>\\s*([\\d'’.,]+)\\s*<",
-    "minCoverage": 0.95
+    "minCoverage": 0.95,
+    "pageStateParams": [
+      "sf_paged"
+    ]
   },
   "sampleVacancyCount": 20,
   "sampleTitles": [

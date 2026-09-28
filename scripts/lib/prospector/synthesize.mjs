@@ -37,9 +37,10 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
  * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
- * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string }} [pagination]
+ * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, pageStateParams?: string[] }} [pagination]
  *   Follow the seed's `rel="next"` pages; with `declaredTotalPattern` the walk must
- *   collect `minCoverage` of the count the source declares, or the run fails closed
+ *   collect `minCoverage` of the count the source declares, or the run fails closed;
+ *   `pageStateParams` are stripped from detail URLs found on later pages
  * @property {number} sampleVacancyCount
  * @property {string[]} sampleTitles
  * @property {string} [canton]

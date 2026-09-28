@@ -81,6 +81,7 @@ const PAGINATION = {
   maxPages: 10,
   declaredTotalPattern: 'class="jobs_number"[^>]*>\\s*([\\d\'’.,]+)\\s*<',
   minCoverage: 0.95,
+  pageStateParams: ['sf_paged'],
 };
 
 describe('spec.pagination', () => {
@@ -119,6 +120,24 @@ describe('spec.pagination', () => {
     };
     await expect(collect(specWith({ pagination: PAGINATION }), pages))
       .rejects.toThrow(/listing incompleta: 2\/40/);
+  });
+
+  it('fallisce chiuso anche quando il totale arrotondato per difetto basterebbe', async () => {
+    // 2/3 = 66,7%: con Math.floor(3 * 0.95) = 2 la guardia passava.
+    const pages = {
+      [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 3 }),
+    };
+    await expect(collect(specWith({ pagination: PAGINATION }), pages))
+      .rejects.toThrow(/listing incompleta: 2\/3/);
+  });
+
+  it('fallisce chiuso quando rel=next torna a una pagina gia letta', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: listingPage({ ids: ['sa1'], page: 1, next: `${ORIGIN}/?sf_paged=2` }),
+      [`${ORIGIN}/?sf_paged=2`]: listingPage({ ids: ['sa2'], page: 2, next: `${ORIGIN}/?sf_paged=2` }),
+    };
+    await expect(collect(specWith({ pagination: { maxPages: 10, pageStateParams: ['sf_paged'] } }), pages))
+      .rejects.toThrow(/torna a una pagina gia letta/);
   });
 
   it('fallisce chiuso quando maxPages si esaurisce con un next ancora presente', async () => {
@@ -167,16 +186,23 @@ describe('helper di paginazione', () => {
     expect(findNextListingPageUrl('<a rel="prev" href="/list?page=1">«</a>', `${ORIGIN}/list`)).toBeNull();
   });
 
-  it('toglie dall\'URL di dettaglio solo lo stato della pagina di listing', () => {
-    expect(stripListingPageState(`${ORIGIN}/job/sa3/?sf_paged=2`, `${ORIGIN}/?sf_paged=2`)).toBe(`${ORIGIN}/job/sa3/`);
-    expect(stripListingPageState(`${ORIGIN}/job/?id=7&sf_paged=2`, `${ORIGIN}/?sf_paged=2`)).toBe(`${ORIGIN}/job/?id=7`);
-    expect(stripListingPageState(`${ORIGIN}/job/?id=7`, `${ORIGIN}/?sf_paged=2`)).toBe(`${ORIGIN}/job/?id=7`);
+  it('toglie dall\'URL di dettaglio solo i parametri di paginazione dichiarati', () => {
+    const state = ['sf_paged'];
+    expect(stripListingPageState(`${ORIGIN}/job/sa3/?sf_paged=2`, `${ORIGIN}/?sf_paged=2`, state)).toBe(`${ORIGIN}/job/sa3/`);
+    expect(stripListingPageState(`${ORIGIN}/job/?id=7&sf_paged=2`, `${ORIGIN}/?sf_paged=2`, state)).toBe(`${ORIGIN}/job/?id=7`);
+    expect(stripListingPageState(`${ORIGIN}/job/?id=7`, `${ORIGIN}/?sf_paged=2`, state)).toBe(`${ORIGIN}/job/?id=7`);
+    // Un parametro reale del dettaglio condiviso con la listing resta.
+    expect(stripListingPageState('https://x.test/job/7?lang=de&sf_paged=2', 'https://x.test/jobs?lang=de&sf_paged=2', state))
+      .toBe('https://x.test/job/7?lang=de');
+    // Senza parametri dichiarati l'URL non cambia.
+    expect(stripListingPageState(`${ORIGIN}/job/sa3/?sf_paged=2`, `${ORIGIN}/?sf_paged=2`)).toBe(`${ORIGIN}/job/sa3/?sf_paged=2`);
   });
 
   it('legge il totale con separatori delle migliaia e usa default prudenti', () => {
     const pagination = normalizeSpecPagination(specWith({ pagination: PAGINATION }));
     expect(readDeclaredListingTotal('<span class="jobs_number">1’103</span>', pagination, specWith())).toBe(1103);
-    expect(normalizeSpecPagination(specWith({ pagination: {} }))).toMatchObject({ maxPages: 50, minCoverage: 0.95, declaredTotalRx: null });
+    expect(normalizeSpecPagination(specWith({ pagination: {} })))
+      .toMatchObject({ maxPages: 50, minCoverage: 0.95, declaredTotalRx: null, pageStateParams: [] });
   });
 
   it('la spec yellowshark dichiara la paginazione e il contatore reale della fonte', () => {
@@ -187,6 +213,7 @@ describe('helper di paginazione', () => {
     expect(readDeclaredListingTotal(seed, pagination, spec)).toBe(1103);
     // 1103 annunci a 20 per pagina sono 56 pagine: il limite deve starci largo.
     expect(pagination.maxPages).toBeGreaterThanOrEqual(56);
+    expect(pagination.pageStateParams).toEqual(['sf_paged']);
   });
 
   it('le spec promosse con una listing paginata dichiarano la paginazione', () => {

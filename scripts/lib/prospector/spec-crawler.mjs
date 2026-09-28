@@ -435,10 +435,12 @@ const DEFAULT_PAGINATION_MIN_COVERAGE = 0.95;
  * with one capture group that reads the source's own vacancy count from the
  * seed page; the walk must then collect at least `minCoverage` of it. The
  * tolerance absorbs a vacancy closed while the pages are being read, which
- * shifts the next page up by one row.
+ * shifts the next page up by one row. `pageStateParams` names the query
+ * parameters the listing echoes into its detail links (`sf_paged`); only those
+ * are stripped, so a real detail parameter (`lang`, a tenant id) survives.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null }}
+ * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, pageStateParams: string[] }}
  */
 export function normalizeSpecPagination(spec) {
   const raw = spec?.pagination && typeof spec.pagination === 'object' ? spec.pagination : {};
@@ -449,7 +451,10 @@ export function normalizeSpecPagination(spec) {
     ? raw.minCoverage
     : DEFAULT_PAGINATION_MIN_COVERAGE;
   const declaredTotalRx = raw.declaredTotalPattern ? new RegExp(String(raw.declaredTotalPattern), 'i') : null;
-  return { maxPages, minCoverage, declaredTotalRx };
+  const pageStateParams = Array.isArray(raw.pageStateParams)
+    ? raw.pageStateParams.map((name) => String(name || '').trim()).filter(Boolean)
+    : [];
+  return { maxPages, minCoverage, declaredTotalRx, pageStateParams };
 }
 
 /**
@@ -478,14 +483,16 @@ export function readDeclaredListingTotal(html, pagination, spec) {
 }
 
 /**
- * Remove from a detail URL the query parameters it shares, name and value,
- * with the listing page it was found on.
+ * Remove from a detail URL the declared pagination parameters it shares, name
+ * and value, with the listing page it was found on.
  *
  * @param {string} url
  * @param {string} pageUrl
+ * @param {string[]} [stateParams] Parameter names declared as listing state
  * @returns {string}
  */
-export function stripListingPageState(url, pageUrl) {
+export function stripListingPageState(url, pageUrl, stateParams = []) {
+  if (!stateParams.length) return url;
   let detail;
   let page;
   try {
@@ -494,7 +501,9 @@ export function stripListingPageState(url, pageUrl) {
   } catch {
     return url;
   }
-  const pageState = new Set([...page.searchParams].map(([name, value]) => `${name}=${value}`));
+  const pageState = new Set([...page.searchParams]
+    .filter(([name]) => stateParams.includes(name))
+    .map(([name, value]) => `${name}=${value}`));
   const kept = [...detail.searchParams].filter(([name, value]) => !pageState.has(`${name}=${value}`));
   if (kept.length === [...detail.searchParams].length) return url;
   detail.search = new URLSearchParams(kept).toString();
@@ -562,15 +571,16 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
    * @param {any[]} candidates
    * @param {Map<string, any>} umantisListingEvidence
    * @param {string} [pageUrl]
+   * @param {string[]} [stateParams]
    */
-  const addListingCandidates = async (candidates, umantisListingEvidence, pageUrl = '') => {
+  const addListingCandidates = async (candidates, umantisListingEvidence, pageUrl = '', stateParams = []) => {
     for (const candidate of candidates) {
       if (!candidate.title || !candidate.url) continue;
       const v = pageUrl
         ? {
           ...candidate,
-          url: stripListingPageState(candidate.url, pageUrl),
-          ...(candidate.sourceUrl ? { sourceUrl: stripListingPageState(candidate.sourceUrl, pageUrl) } : {}),
+          url: stripListingPageState(candidate.url, pageUrl, stateParams),
+          ...(candidate.sourceUrl ? { sourceUrl: stripListingPageState(candidate.sourceUrl, pageUrl, stateParams) } : {}),
         }
         : candidate;
       const vacancy = /** @type {any} */ (v);
@@ -708,7 +718,16 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       let pageUrl = effectiveSeedUrl;
       let nextUrl = findNextListingPageUrl(html, pageUrl);
       let pages = 1;
-      while (nextUrl && !visited.has(nextUrl)) {
+      while (nextUrl) {
+        if (visited.has(nextUrl)) {
+          // A next link back to a page already read is a loop or an alias,
+          // not the end of the listing: stopping here would publish a partial
+          // set as if it were complete.
+          throw new Error(
+            `[prospector:${spec.companyKey}] listing troncata: il link rel=next dopo ${pages} pagine `
+            + `torna a una pagina gia letta (${nextUrl})`,
+          );
+        }
         if (pages >= pagination.maxPages) {
           throw new Error(
             `[prospector:${spec.companyKey}] listing troncata: ${pages} pagine lette, `
@@ -724,7 +743,12 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           ? extractUmantisListingEvidence(body, pageUrl)
           : new Map();
         const extracted = extractListingCandidates(body, pageUrl, templateRx);
-        await addListingCandidates(filterListingCandidates(spec, extracted.candidates), nextEvidence, pageUrl);
+        await addListingCandidates(
+          filterListingCandidates(spec, extracted.candidates),
+          nextEvidence,
+          pageUrl,
+          pagination.pageStateParams,
+        );
         nextUrl = findNextListingPageUrl(body, pageUrl);
       }
       const seedRows = bySlug.size - seedRowsBefore;
@@ -732,7 +756,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         `[prospector:${spec.companyKey}] listing paginata: ${pages} pagine, ${seedRows} annunci`
         + (declaredTotal == null ? '' : ` (totale dichiarato dalla fonte: ${declaredTotal})`),
       );
-      if (declaredTotal != null && seedRows < Math.floor(declaredTotal * pagination.minCoverage)) {
+      if (declaredTotal != null && seedRows < Math.ceil(declaredTotal * pagination.minCoverage)) {
         throw new Error(
           `[prospector:${spec.companyKey}] listing incompleta: ${seedRows}/${declaredTotal} annunci `
           + `dichiarati dalla fonte su ${pages} pagine (copertura minima ${pagination.minCoverage})`,
