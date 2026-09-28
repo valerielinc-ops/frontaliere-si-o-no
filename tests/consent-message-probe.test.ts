@@ -201,4 +201,12 @@ describe('post-deploy-validate-live.yml', () => {
     // Worst case inside the probe: 3 pages x 2 attempts x (60s navigation + 30s wait).
     expect(step).toMatch(/timeout-minutes:\s*\d+/);
   });
+
+  it('does not fail an older deploy_ref when the workflow-only probe is new', () => {
+    expect(step).toContain('if [ ! -f scripts/probe-live-consent-message.mjs ]; then');
+    expect(step).toContain('git fetch --depth=1 origin main');
+    expect(step).toContain('git cat-file -e origin/main:scripts/probe-live-consent-message.mjs');
+    expect(step).toContain('the build predates the live gate');
+    expect(step).toContain('exit 0');
+  });
 });
