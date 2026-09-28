@@ -29,7 +29,7 @@ import { DATA_CONTROLLER_NAME, DATA_CONTROLLER_EMAIL } from '../functions/src/li
 // Node ESM.
 import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
-import { routePreloadChunksFor } from './staticPagePreloadMap';
+import { routeAwarePreloadChunksFor } from './staticPagePreloadMap';
 import { normalizeArticleStructuredData, normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
@@ -2087,10 +2087,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'statistics': ['StatsView'],
  'statistiken': ['StatsView'],
  'statistiques': ['StatsView'],
- 'vivere-in-ticino': ['CostOfLiving'],
- 'living-in-ticino': ['CostOfLiving'],
- 'leben-im-tessin': ['CostOfLiving'],
- 'vivre-au-tessin': ['CostOfLiving'],
+ 'vivere-in-ticino': ['FrontierGuide'],
+ 'living-in-ticino': ['FrontierGuide'],
+ 'leben-im-tessin': ['FrontierGuide'],
+ 'vivre-au-tessin': ['FrontierGuide'],
  'articoli-frontaliere': ['BlogArticles'],
  'cross-border-articles': ['BlogArticles'],
  'frontier-articles': ['BlogArticles'],
@@ -2317,7 +2317,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (!firstSeg) return '';
 
  const tags: string[] = [];
- const componentPrefixes = routePreloadChunksFor(urlPath) ?? sectionChunks[firstSeg];
+ const componentPrefixes = routeAwarePreloadChunksFor(urlPath, sectionChunks[firstSeg]);
  if (componentPrefixes) {
  for (const prefix of componentPrefixes) {
  const chunk = resolveChunk(prefix);
