@@ -4201,6 +4201,11 @@ Règles :
   'jobBoard.rewardedOffer.close': 'Fermer',
   'jobBoard.rewardedOffer.retryText': 'La vidéo a été fermée avant la fin : regardez-la jusqu’au bout pour ouvrir l’offre.',
   'jobBoard.rewardedOffer.retry': 'Réessayer',
+  'jobBoard.rewardedOffer.consentTitle': 'Pour ouvrir l’offre avec la vidéo, il manque votre choix de consentement',
+  'jobBoard.rewardedOffer.consentTitleJob': 'Pour postuler à « {jobTitle} » avec la vidéo, il manque votre choix de consentement',
+  'jobBoard.rewardedOffer.consentText': 'La courte vidéo qui ouvre la candidature est une annonce Google, qui ne peut s’afficher qu’après votre choix de consentement, quel qu’il soit. Vous pouvez le faire maintenant, ou accéder à l’offre sans la vidéo.',
+  'jobBoard.rewardedOffer.consentReview': 'Choisir mes paramètres de consentement',
+  'jobBoard.rewardedOffer.consentContinue': 'Accéder à l’offre sans la vidéo',
   'whatsNew.v3966.rewardedApply.title': 'Une vidéo débloque les redirections directes pendant 1 heure',
   'whatsNew.v3966.rewardedApply.desc': 'Pour certains clics vers des offres externes, vous pouvez regarder une courte vidéo une seule fois, puis ouvrir directement le site de l’entreprise pendant l’heure suivante, sans revoir l’Offerwall.',
 };

@@ -84,6 +84,21 @@ export function isAdsConsentGranted(): boolean {
   return getAdsConsent() === ADS_CONSENT_GRANTED;
 }
 
+/**
+ * Whether AdSense may request ads: the visitor answered the Funding Choices
+ * message, either way. The TC string then tells Google what to serve: normal
+ * ads with Purpose 1 consent, Limited Ads without it (no personalisation and
+ * no advertising cookies; Google keeps cookies and local storage only for
+ * invalid-traffic detection), which the AdSense account allows. Before an
+ * answer nothing loads. Live probe on a job page with consent refused
+ * (28-09): no AdSense request with the granted-only gate; with this one 4 of 5
+ * slots filled and the held Offerwall rendered in 0.7 s. Google Ad Manager,
+ * header bidding and the GPT rewarded ad stay behind `isAdsConsentGranted()`.
+ */
+export function isAdSenseAllowed(): boolean {
+  return getAdsConsent() !== null;
+}
+
 /** Whether the banner still has to be shown (no decision recorded yet). */
 export function needsAdsConsentDecision(): boolean {
   return getAdsConsent() === null;
@@ -111,6 +126,43 @@ export function grantAdsConsent(): void {
 
 export function denyAdsConsent(): void {
   setAdsConsent(ADS_CONSENT_DENIED);
+}
+
+/**
+ * Reopen the Google Funding Choices consent message, so a new answer lands in
+ * its TC string and, through the CMP bridge, in our key.
+ *
+ * `window.googlefc` always exists (the bridge creates it), but
+ * `showRevocationMessage` arrives only with Funding Choices, which is
+ * idle-deferred. Once it is there, call it directly: a callback pushed on
+ * `callbackQueue` for CONSENT_DATA_READY after that event has fired never runs
+ * (live probe, 28-09: nothing shown in 6 s; the direct call showed the message
+ * in 0.2 s). Before that, queue it for CONSENT_DATA_READY. When Funding
+ * Choices never loads (ad blocker) the queued call stays inert.
+ */
+export function reopenAdsConsentMessage(): void {
+  if (typeof window === 'undefined') return;
+  try {
+    const w = window as unknown as {
+      googlefc?: { callbackQueue?: unknown[]; showRevocationMessage?: () => void };
+    };
+    const gfc = (w.googlefc = w.googlefc ?? {});
+    if (typeof gfc.showRevocationMessage === 'function') {
+      gfc.showRevocationMessage();
+      return;
+    }
+    (gfc.callbackQueue = gfc.callbackQueue ?? []).push({
+      CONSENT_DATA_READY: () => {
+        try {
+          w.googlefc?.showRevocationMessage?.();
+        } catch {
+          /* fail-soft: the stored decision stays as it is */
+        }
+      },
+    });
+  } catch {
+    /* Funding Choices threw or the queue is unavailable: nothing to reopen. */
+  }
 }
 
 /**
