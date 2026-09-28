@@ -27,7 +27,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { classifyFeature as classifyFeatureTitle } from '../../scripts/audit-title-length.mjs';
-import { isEventsSectionPath, EVENTS_SECTION_RX } from '../../scripts/lib/eventsSections.mjs';
+import { isEventsSectionPath, EVENTS_SECTION_RX, classifyEventsDistPath } from '../../scripts/lib/eventsSections.mjs';
 
 // classifyFeature takes a dist-relative path (with `dist/` prefix + index.html).
 const rel = (p: string) => `dist${p}index.html`;
@@ -96,5 +96,12 @@ describe('events section matcher', () => {
     expect(EVENTS_SECTION_RX.test('/en/events/')).toBe(true);
     expect(EVENTS_SECTION_RX.test('/de/veranstaltungen/')).toBe(true);
     expect(EVENTS_SECTION_RX.test('/fr/evenements/')).toBe(true);
+  });
+
+  it('classifies locale-prefixed dist detail paths for the Event schema contract', () => {
+    expect(classifyEventsDistPath('eventi/ticino/lugano/sample-event/index.html')).toBe('event_detail');
+    expect(classifyEventsDistPath('en/events/zurich/zurich/sample-event/index.html')).toBe('event_detail');
+    expect(classifyEventsDistPath('de/veranstaltungen/tessin/index.html')).toBe('events_hub');
+    expect(classifyEventsDistPath('tasse-e-pensione/festivita-ticino/index.html')).toBeNull();
   });
 });
