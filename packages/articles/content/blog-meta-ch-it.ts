@@ -6884,6 +6884,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esito-iniziativa-neutralita-svizzera.title': 'Iniziativa neutralità: bocciata dal 70,2% degli elettori',
     'blog.article.esito-iniziativa-neutralita-svizzera.excerpt': 'Il 70,2% dei votanti ha respinto l\'iniziativa sulla neutralità. Il no è arrivato da tutti i Cantoni con una partecipazione alle urne del 47,1%.',
     'blog.article.esito-iniziativa-neutralita-svizzera.imageAlt': 'Bandiera svizzera davanti a Palazzo federale a Berna',
+    'blog.article.lucerna-voto-tifosi-ocse.title': 'Lucerna: voto su tifosi, negozi e fondi OCSE',
+    'blog.article.lucerna-voto-tifosi-ocse.excerpt': 'A Lucerna passano iniziativa e controprogetto sulla violenza dei tifosi. Il 58,8% sceglie la controproposta; via libera anche a negozi, scuola e promozione economica.',
+    'blog.article.lucerna-voto-tifosi-ocse.imageAlt': 'Votazione a Lucerna con urna e atmosfera legata al calcio',
 };
 
 export default blogMetaChIt;

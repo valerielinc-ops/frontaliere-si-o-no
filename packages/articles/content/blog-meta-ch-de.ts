@@ -6884,6 +6884,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esito-iniziativa-neutralita-svizzera.title': 'Neutralitätsinitiative: von 70,2% der Wähler abgelehnt',
     'blog.article.esito-iniziativa-neutralita-svizzera.excerpt': '70,2% der Stimmberechtigten lehnten die Neutralitätsinitiative ab. Das Nein kam aus allen Kantonen mit einer Wahlbeteiligung von 47,1%.',
     'blog.article.esito-iniziativa-neutralita-svizzera.imageAlt': 'Schweizer Flagge vor dem Bundeshaus in Bern',
+    'blog.article.lucerna-voto-tifosi-ocse.title': 'Luzern: Abstimmung über Fans, Geschäfte und OECD-Fonds',
+    'blog.article.lucerna-voto-tifosi-ocse.excerpt': 'In Luzern werden Initiative und Gegenvorschlag zur Gewalt von Fans angenommen. 58,8% wählen den Gegenvorschlag; grünes Licht auch für Geschäfte, Schule und Wirtschaftsförderung.',
+    'blog.article.lucerna-voto-tifosi-ocse.imageAlt': 'Abstimmung in Luzern mit Wahlurne und Fussballatmosphäre',
 };
 
 export default blogMetaChDe;
