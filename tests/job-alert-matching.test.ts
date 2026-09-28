@@ -63,6 +63,35 @@ describe('jobAlertMatching — explicit keyword contract (legacy preserved)', ()
     expect(score(unrelatedJob, { keywords: [label] })).toBe(0);
   });
 
+  it('matches a raw board sector label against structured taxonomy without text broadening', () => {
+    const alert = { keywords: ['Banking / Wealth Management'], cantonFilter: ['TI'] };
+    const profile = buildAlertProfile(alert);
+    const matchingJob = job({
+      title: 'Project Manager',
+      description: 'Coordinate client operations and reporting.',
+      sector: 'Banking / Wealth Management',
+      category: 'Corporate Services',
+    });
+    const unrelatedJob = job({
+      title: 'Project Manager',
+      description: 'Coordinate client operations and reporting.',
+      sector: 'Retail',
+      category: 'Consumer Services',
+    });
+    const matchingJobOutsideCanton = job({
+      ...matchingJob,
+      location: 'Geneva',
+      addressLocality: 'Geneva',
+      addressRegion: 'GE',
+      canton: 'GE',
+    });
+
+    expect(profile.hardTaxonomyValues).toContain('banking wealth management');
+    expect(scoreJobForAlert(matchingJob, profile)).toBeGreaterThan(0);
+    expect(scoreJobForAlert(unrelatedJob, profile)).toBe(0);
+    expect(scoreJobForAlert(matchingJobOutsideCanton, profile)).toBe(0);
+  });
+
   it('matches a profession keyword across the shared cross-locale taxonomy', () => {
     const italianNurse = job({
       title: 'Infermiere',
