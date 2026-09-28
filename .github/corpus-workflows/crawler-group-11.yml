@@ -12,6 +12,7 @@
 # - scripts/lib/crawler-generation-receipt.mjs
 # - scripts/lib/crawler-generation-token.mjs
 # - scripts/lib/crawler-grace-policy.mjs
+# - scripts/lib/crawler-location-config.mjs
 # - scripts/lib/crawler-slice-integrity.mjs
 # - scripts/lib/global-data-pipeline-lease.mjs
 # - scripts/lib/job-match-key.mjs
@@ -20,6 +21,7 @@
 # - scripts/lib/prospector/country-inventory.mjs
 # - scripts/lib/slug-history-journal.mjs
 # - scripts/lib/slug-preservation-guard.mjs
+# - scripts/lib/target-swiss-locations.mjs
 
 name: Crawler Group 11 (sparse cross-repo execution)
 run-name: crawler-generation-${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}-group-11

@@ -1582,14 +1582,29 @@ describe('cross-repo crawler execution artifacts', () => {
 
   it('hash-binda la closure import reale del finalizer in ogni artifact di gruppo', () => {
     const { contract, outDir } = generateArtifacts();
+    const importClosure = collectRelativeImportClosure(repoRoot, 'scripts/crawler-group-generation-finalizer.mjs');
+    // Only code is hash-bound. A data file reached by a static JSON import
+    // (data/canton-municipalities.json through target-swiss-locations, since
+    // #10145) is materialized by the `/*` bucket checkout instead: it must not
+    // fall in an excluded bucket, or the finalizer dies with ERR_MODULE_NOT_FOUND.
+    const isHashBoundRuntimePath = (runtimePath: string) =>
+      runtimePath.startsWith('scripts/') || runtimePath === 'functions/src/githubApiHeaders.js';
     const expectedClosure = [
-      ...collectRelativeImportClosure(repoRoot, 'scripts/crawler-group-generation-finalizer.mjs'),
+      ...importClosure.filter(isHashBoundRuntimePath),
       // The generated workflow also executes git-commit-data.sh, whose
       // cross-repository serialization helper is a deliberate runtime path
       // even though it is not imported by the finalizer.
       'scripts/lib/global-data-pipeline-lease.mjs',
     ].sort();
     expect(expectedClosure).not.toContain('scripts/ci/crawler-generation-roster.json');
+    const excludedFromCheckout = crossRepoCrawlerSparsePatterns()
+      .filter((pattern) => pattern.startsWith('!/'))
+      .map((pattern) => pattern.slice(2));
+    for (const dataPath of importClosure.filter((runtimePath) => !isHashBoundRuntimePath(runtimePath))) {
+      const excluded = excludedFromCheckout.some((prefix) =>
+        dataPath === prefix || (prefix.endsWith('/') && dataPath.startsWith(prefix)));
+      expect(excluded, `${dataPath} is imported by the finalizer but excluded from the crawler checkout`).toBe(false);
+    }
 
     for (const artifact of contract.artifacts.filter((entry: any) => /^crawler-group-/.test(entry.file))) {
       const content = fs.readFileSync(path.join(outDir, artifact.file), 'utf8');
