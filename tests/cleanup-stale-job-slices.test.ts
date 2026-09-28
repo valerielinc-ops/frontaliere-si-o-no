@@ -51,6 +51,10 @@ function fixture(sliceCount: number) {
     join(root, 'scripts/lib/bounded-parallel.sh'),
     join(fixtureRoot, 'scripts/lib/bounded-parallel.sh'),
   );
+  copyFileSync(
+    join(root, 'scripts/cleanup-stale-job-slices.sh'),
+    join(fixtureRoot, 'scripts/cleanup-stale-job-slices.sh'),
+  );
   writeFileSync(join(stateDir, 'active'), '0');
   writeFileSync(join(stateDir, 'max'), '0');
   for (let index = 0; index < sliceCount; index += 1) {
