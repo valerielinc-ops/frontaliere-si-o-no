@@ -12177,6 +12177,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.kastritis-varese-bologna-assenze.title': 'Kastrite : les absences ne sont pas des alibis, travailler tout de suite',
     'blog.article.kastritis-varese-bologna-assenze.excerpt': 'Après la défaite à Masnago contre la Virtus Bologna, le coach indique que le travail et le déplacement à Scafati sont prioritaires.',
     'blog.article.kastritis-varese-bologna-assenze.imageAlt': 'Palais de Masnago pendant le match entre Pallacanestro Varese et Virtus Bologna',
+    'blog.article.manfrinati-ergastolo-casbeno-varese.title': 'Manfrinati condamné à la réclusion à perpétuité pour meurtre',
+    'blog.article.manfrinati-ergastolo-casbeno-varese.excerpt': 'Cour d’assises de Varese : réclusion à perpétuité avec isolement diurne. Indemnités de plus de 2 millions. Appel annoncé.',
+    'blog.article.manfrinati-ergastolo-casbeno-varese.imageAlt': 'Vue d\'une rue résidentielle dans un quartier italien près de la frontière suisse, atmosphère grise et silencieuse.',
 };
 
 export default blogMetaFr;

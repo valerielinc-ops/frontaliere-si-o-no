@@ -6878,6 +6878,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-svizzera-esiti-politici.title': 'Suisse : refus d\'alimentation et neutralité',
     'blog.article.voto-svizzera-esiti-politici.excerpt': '72,5% des votants rejettent l\'initiative sur l\'alimentation. Cassis confirme la pratique actuelle en matière de neutralité. Taux de participation de 47,03%.',
     'blog.article.voto-svizzera-esiti-politici.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
+    'blog.article.voto-iniziative-neutralita-cibo.title': 'Vote suisse : non à la neutralité et à la sécurité alimentaire',
+    'blog.article.voto-iniziative-neutralita-cibo.excerpt': '70,1 % rejettent l’initiative sur la neutralité et 72,5 % celle sur la sécurité alimentaire. Tous les cantons ont voté contre.',
+    'blog.article.voto-iniziative-neutralita-cibo.imageAlt': 'Urne électorale suisse pour les initiatives sur la neutralité et la sécurité alimentaire',
+    'blog.article.esito-iniziativa-neutralita-svizzera.title': 'Initiative neutralité : rejetée par 70,2% des électeurs',
+    'blog.article.esito-iniziativa-neutralita-svizzera.excerpt': '70,2% des votants ont rejeté l\'initiative sur la neutralité. Le non est arrivé de tous les cantons avec une participation aux urnes de 47,1%.',
+    'blog.article.esito-iniziativa-neutralita-svizzera.imageAlt': 'Drapeau suisse devant le Palais fédéral à Berne',
+    'blog.article.lucerna-voto-tifosi-ocse.title': 'Lucerne : vote sur les supporters, les magasins et les fonds de l\'OCDE',
+    'blog.article.lucerna-voto-tifosi-ocse.excerpt': 'À Lucerne, l’initiative et le contre-projet sur la violence des supporters sont acceptés. 58,8% choisissent la contre-proposition ; feu vert également aux commerces, à l’école et à la promotion économique.',
+    'blog.article.lucerna-voto-tifosi-ocse.imageAlt': 'Vote à Lucerne avec urne et ambiance liée au football',
+    'blog.article.bern-istruzione-qualita-respinta.title': 'Berne rejette l\'initiative pour une éducation de qualité',
+    'blog.article.bern-istruzione-qualita-respinta.excerpt': 'Avec 59,9% de non et une participation de 45,3%, les Bernois refusent le droit à une éducation de qualité dans la Constitution cantonale.',
+    'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'Bâtiment scolaire dans le canton suisse de Berne',
 };
 
 export default blogMetaChFr;

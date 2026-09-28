@@ -6878,6 +6878,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-svizzera-esiti-politici.title': 'Schweiz: Ernährung und Neutralität abgelehnt',
     'blog.article.voto-svizzera-esiti-politici.excerpt': '72,5% der Stimmberechtigten lehnen die Ernährungsinitiative ab. Cassis bestätigt die aktuelle Neutralitätspraxis. Wahlbeteiligung 47,03%.',
     'blog.article.voto-svizzera-esiti-politici.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
+    'blog.article.voto-iniziative-neutralita-cibo.title': 'Schweizer Abstimmung: Nein zu Neutralität und Ernährungssicherheit',
+    'blog.article.voto-iniziative-neutralita-cibo.excerpt': '70,1% lehnen die Initiative zur Neutralität ab und 72,5% jene zur Ernährungssicherheit. Alle Kantone haben dagegen gestimmt.',
+    'blog.article.voto-iniziative-neutralita-cibo.imageAlt': 'Schweizer Wahlurne zur Abstimmung über Neutralität und Ernährungssicherheit',
+    'blog.article.esito-iniziativa-neutralita-svizzera.title': 'Neutralitätsinitiative: von 70,2% der Wähler abgelehnt',
+    'blog.article.esito-iniziativa-neutralita-svizzera.excerpt': '70,2% der Stimmberechtigten lehnten die Neutralitätsinitiative ab. Das Nein kam aus allen Kantonen mit einer Wahlbeteiligung von 47,1%.',
+    'blog.article.esito-iniziativa-neutralita-svizzera.imageAlt': 'Schweizer Flagge vor dem Bundeshaus in Bern',
+    'blog.article.lucerna-voto-tifosi-ocse.title': 'Luzern: Abstimmung über Fans, Geschäfte und OECD-Fonds',
+    'blog.article.lucerna-voto-tifosi-ocse.excerpt': 'In Luzern werden Initiative und Gegenvorschlag zur Gewalt von Fans angenommen. 58,8% wählen den Gegenvorschlag; grünes Licht auch für Geschäfte, Schule und Wirtschaftsförderung.',
+    'blog.article.lucerna-voto-tifosi-ocse.imageAlt': 'Abstimmung in Luzern mit Wahlurne und Fussballatmosphäre',
+    'blog.article.bern-istruzione-qualita-respinta.title': 'Bern lehnt die Initiative für hochwertige Bildung ab',
+    'blog.article.bern-istruzione-qualita-respinta.excerpt': 'Mit 59,9% Nein und einer Beteiligung von 45,3% lehnen die Berner das Recht auf eine qualitativ hochwertige Bildung in der Kantonsverfassung ab.',
+    'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'Schulgebäude im Schweizer Kanton Bern',
 };
 
 export default blogMetaChDe;

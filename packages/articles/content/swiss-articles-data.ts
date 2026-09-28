@@ -20662,6 +20662,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'voto-iniziative-neutralita-cibo',
+    category: 'novita',
+    date: '2026-09-28T01:11:40.971Z',
+    image: '/images/blog/voto-iniziative-neutralita-cibo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'esito-iniziativa-neutralita-svizzera',
+    category: 'novita',
+    date: '2026-09-28T01:52:17.305Z',
+    image: '/images/blog/esito-iniziativa-neutralita-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'lucerna-voto-tifosi-ocse',
+    category: 'novita',
+    date: '2026-09-28T02:11:47.961Z',
+    image: '/images/blog/lucerna-voto-tifosi-ocse.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'bern-istruzione-qualita-respinta',
+    category: 'novita',
+    date: '2026-09-28T02:29:03.244Z',
+    image: '/images/blog/bern-istruzione-qualita-respinta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

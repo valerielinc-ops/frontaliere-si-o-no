@@ -6878,6 +6878,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-svizzera-esiti-politici.title': 'Switzerland: food and neutrality rejected',
     'blog.article.voto-svizzera-esiti-politici.excerpt': '72.5% of voters reject the food initiative. Cassis confirms the current practice on neutrality. Turnout at 47.03%.',
     'blog.article.voto-svizzera-esiti-politici.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
+    'blog.article.voto-iniziative-neutralita-cibo.title': 'Swiss vote: no to neutrality and food security',
+    'blog.article.voto-iniziative-neutralita-cibo.excerpt': '70,1% reject the initiative on neutrality and 72,5% the one on food security. All cantons voted against it.',
+    'blog.article.voto-iniziative-neutralita-cibo.imageAlt': 'Swiss ballot box for votes on neutrality and food security initiatives',
+    'blog.article.esito-iniziativa-neutralita-svizzera.title': 'Neutrality initiative: rejected by 70,2% of voters',
+    'blog.article.esito-iniziativa-neutralita-svizzera.excerpt': '70,2% of voters rejected the initiative on neutrality. The no vote came from all Cantons, with voter turnout at 47,1%.',
+    'blog.article.esito-iniziativa-neutralita-svizzera.imageAlt': 'Swiss flag in front of the Federal Palace in Bern',
+    'blog.article.lucerna-voto-tifosi-ocse.title': 'Lucerne: vote on fans, shops and OECD funds',
+    'blog.article.lucerna-voto-tifosi-ocse.excerpt': 'In Lucerne, both the initiative and the counterproposal on fan violence pass. 58.8% choose the counterproposal; the go-ahead is also given to shops, schools and economic promotion.',
+    'blog.article.lucerna-voto-tifosi-ocse.imageAlt': 'Lucerne vote with ballot box and football atmosphere',
+    'blog.article.bern-istruzione-qualita-respinta.title': 'Bern rejects the initiative on quality education',
+    'blog.article.bern-istruzione-qualita-respinta.excerpt': 'With 59.9% voting no and a turnout of 45.3%, the people of Bern reject the right to a quality education in the cantonal constitution.',
+    'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'School building in the Swiss canton of Bern',
 };
 
 export default blogMetaChEn;
