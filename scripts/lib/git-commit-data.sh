@@ -311,6 +311,11 @@ declare -A _BATCH_SNAPSHOT_STATE=()
 declare -A _BATCH_SNAPSHOT_MODE=()
 declare -A _BATCH_SNAPSHOT_BASE_BLOB=()
 declare -A _BATCH_SNAPSHOT_BLOB=()
+# Per-file result of the isolated-commit loop, reused by the NEXT push attempt
+# when the inputs of that file are unchanged (see commit_isolated_from_worktree).
+declare -A _ISOLATED_RESULT_KEY=()
+declare -A _ISOLATED_RESULT_BLOB=()
+declare -A _ISOLATED_RESULT_OWNED_BLOB=()
 
 # Remote absence is not proof that a primary slice was retired. The generated
 # roster is the positive registry: only paths absent from primarySlices may use
@@ -1714,6 +1719,7 @@ commit_isolated_from_worktree() {
   local snapshot_operation snapshot_state registry_status
   local ownership_root ownership_base_path ownership_output_path ownership_result crawler_key ownership_helper
   local has_primary_slice=false delay
+  local result_key result_cacheable ownership_verdict proof_digest owned_blob reused_count computed_count
 
   base_sha="$(git rev-parse HEAD)"
   tmp_index="$(mktemp /tmp/crawler-commit-index.XXXXXX)"
@@ -1760,6 +1766,8 @@ commit_isolated_from_worktree() {
     # Private index seeded from the CURRENT remote head — never the shared
     # .git/index (GIT_INDEX_FILE scopes every index operation below).
     GIT_INDEX_FILE="$tmp_index" git read-tree "$remote_sha"
+    reused_count=0
+    computed_count=0
 
     # A crawler group can be the second writer to main even when its checkout
     # started from the same base as the first writer. The write-time guard has
@@ -1931,6 +1939,42 @@ commit_isolated_from_worktree() {
         fi
       fi
 
+      # Retry reuse. Everything below (ownership filter, 3-way merge, archive
+      # canonicalization, integrity guard) is a pure function of the remote,
+      # local and base blobs of THIS file plus its housekeeping proof — except
+      # the ownership filter when the slice brings new claims, which reads
+      # every remote slice and is therefore never reused. A rejected push used
+      # to redo all of it for every file: ~2.4 s x ~560 slices = ~20 min per
+      # attempt for translate-pending, long enough for main to move again, so
+      # corpus runs 36280478724/36298797251 spent 6+ attempts (140+ min) here
+      # until the 350-minute job cap killed them with nothing published.
+      # Now only the files whose remote blob changed are recomputed.
+      proof_digest="-"
+      if [[ "$f" == data/jobs/by-crawler/*.json || "$f" == data/jobs/expired/by-crawler/*.json ]]; then
+        housekeeping_proof_path="$(housekeeping_proof_path_for_file "$f")"
+        if [ -f "$housekeeping_proof_path" ]; then
+          proof_digest="$(git hash-object -- "$housekeeping_proof_path")"
+        fi
+      fi
+      result_key="${remote_blob:--}|${local_blob:--}|${base_blob:--}|${mode_to_stage}|${proof_digest}"
+      if [ -n "${_ISOLATED_RESULT_KEY[$f]:-}" ] && [ "${_ISOLATED_RESULT_KEY[$f]}" = "$result_key" ]; then
+        if [[ "$f" == data/jobs/by-crawler/*.json ]]; then
+          # Keep the ownership view in step for the later slices of this
+          # attempt, exactly as the computed path does.
+          mkdir -p "$ownership_root/data/jobs/by-crawler"
+          git cat-file blob "${_ISOLATED_RESULT_OWNED_BLOB[$f]}" > "$ownership_root/$f"
+        fi
+        GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "${mode_to_stage},${_ISOLATED_RESULT_BLOB[$f]},${f}"
+        reused_count=$((reused_count + 1))
+        continue
+      fi
+      unset "_ISOLATED_RESULT_KEY[$f]"
+      result_cacheable=true
+      # A housekeeping proof is judged against run-time context by the
+      # integrity guard: never reuse a verdict that consulted one.
+      [ "$proof_digest" = "-" ] || result_cacheable=false
+      computed_count=$((computed_count + 1))
+
       # The housekeeping proof binds to the slice cleanup-jobs wrote, i.e. this
       # crawler's own snapshot BEFORE the ownership filter and any 3-way merge.
       proof_candidate_source="$local_merge_path"
@@ -1949,15 +1993,21 @@ commit_isolated_from_worktree() {
         fi
         ownership_output_path="$merge_dir/ownership-filtered/$f"
         mkdir -p "$(dirname "$ownership_output_path")"
+        rm -f "$merge_dir/ownership-verdict"
         if ! ownership_result="$(node "$ownership_helper" \
           "$crawler_key" \
           "$ownership_base_path" \
           "$local_merge_path" \
           "$ownership_root" \
-          "$ownership_output_path")"; then
+          "$ownership_output_path" \
+          "$merge_dir/ownership-verdict")"; then
           echo "❌ grouped-isolated: crawler ownership guard failed for $f"
           return 1
         fi
+        ownership_verdict="$(cat "$merge_dir/ownership-verdict" 2>/dev/null || true)"
+        # Only a result that did not read the remote ownership view may be
+        # reused on the next attempt (fail closed on a missing verdict).
+        [ "$ownership_verdict" = "skipped" ] || result_cacheable=false
         local_blob="$(git hash-object -w -- "$ownership_output_path")"
         local_merge_path="$ownership_output_path"
         mkdir -p "$ownership_root/data/jobs/by-crawler"
@@ -2075,7 +2125,13 @@ commit_isolated_from_worktree() {
       fi
 
       GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "${mode_to_stage},${blob_to_stage},${f}"
+      if [ "$result_cacheable" = true ]; then
+        _ISOLATED_RESULT_KEY[$f]="$result_key"
+        _ISOLATED_RESULT_BLOB[$f]="$blob_to_stage"
+        _ISOLATED_RESULT_OWNED_BLOB[$f]="$local_blob"
+      fi
     done
+    echo "ℹ️ grouped-isolated attempt ${push_attempt}: ${computed_count} file(s) computed, ${reused_count} reused from the previous attempt"
 
     new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
     if [ "${TRANSLATION_STATS_AFTER_TREE:-0}" = "1" ]; then
