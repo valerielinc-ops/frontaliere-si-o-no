@@ -12179,6 +12179,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.manfrinati-ergastolo-casbeno-varese.title': 'Manfrinati condannato all’ergastolo per omicidio',
     'blog.article.manfrinati-ergastolo-casbeno-varese.excerpt': 'Corte d’Assise di Varese: ergastolo con isolamento diurno. Risarcimenti oltre 2 milioni. Appello annunciato.',
     'blog.article.manfrinati-ergastolo-casbeno-varese.imageAlt': 'Vista di una strada residenziale in un quartiere italiano vicino al confine svizzero, atmosfera grigia e silenziosa.',
+    'blog.article.varese-lentigione-franco-ossola.title': 'Varese-Lentigione: domenica 27 settembre al Franco Ossola',
+    'blog.article.varese-lentigione-franco-ossola.excerpt': 'Il Varese cerca conferme dopo il successo sul Pontedera. Il match contro il Lentigione si gioca domenica 27 settembre alle 15 a Masnago.',
+    'blog.article.varese-lentigione-franco-ossola.imageAlt': 'Stadio Franco Ossola di Masnago con vista sul Monte Generoso prima della partita Varese-Lentigione',
 };
 
 export default blogMetaIt;

@@ -12178,6 +12178,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.manfrinati-ergastolo-casbeno-varese.title': 'Manfrinati sentenced to life imprisonment for murder',
     'blog.article.manfrinati-ergastolo-casbeno-varese.excerpt': 'Assize Court of Varese: life imprisonment with daytime isolation. Compensation exceeding 2 million. Appeal announced.',
     'blog.article.manfrinati-ergastolo-casbeno-varese.imageAlt': 'View of a residential street in an Italian neighborhood near the Swiss border, grey and silent atmosphere.',
+    'blog.article.varese-lentigione-franco-ossola.title': 'Varese-Lentigione: Sunday 27 September at Franco Ossola',
+    'blog.article.varese-lentigione-franco-ossola.excerpt': 'The Varese seeks confirmation after the success on the Pontedera. The match against Lentigione is played on Sunday 27 September at 3 pm in Masnago.',
+    'blog.article.varese-lentigione-franco-ossola.imageAlt': 'Franco Ossola stadium in Masnago with a view of Monte Generoso before the Varese-Lentigione match',
 };
 
 export default blogMetaEn;

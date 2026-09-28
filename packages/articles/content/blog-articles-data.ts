@@ -36556,6 +36556,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-lentigione-franco-ossola',
+ category: 'novita',
+ date: '2026-09-28T04:07:34.969Z',
+ image: '/images/blog/varese-lentigione-franco-ossola.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
