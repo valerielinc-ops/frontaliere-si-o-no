@@ -714,6 +714,52 @@ describe('Albergo Gardenia authoritative crawler', () => {
     });
   });
 
+  it('uses the Cloudflare API token without requiring a GitHub identity lookup', async () => {
+    const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
+    const snapshot = {
+      homepageUrl: ALBERGO_GARDENIA_HOME_URL,
+      sitemap: {
+        status: 200,
+        url: ALBERGO_GARDENIA_SITEMAP_URL,
+        body: representativeSitemap(),
+      },
+      pages: [{
+        requestedUrl: sourceUrl,
+        status: 200,
+        url: sourceUrl,
+        body: gardeniaPage(),
+      }],
+    };
+    const escaped = JSON.stringify(snapshot)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({
+      success: true,
+      result: `<pre id="gardenia-clean-egress-source">${escaped}</pre>`,
+    }), { status: 200 }));
+    const transport = createAlbergoGardeniaCleanEgressTransport({
+      fetchImpl,
+      gardeniaCfAccount: 'account-123',
+      gardeniaCfToken: 'api-token',
+      gardeniaCfKey: 'global-key',
+      gardeniaGithubToken: 'github-token',
+    });
+
+    await expect(transport.fetchPage(sourceUrl)).resolves.toMatchObject({
+      ok: true,
+      status: 200,
+      url: sourceUrl,
+    });
+    expect(fetchImpl).toHaveBeenCalledOnce();
+    const [, options] = fetchImpl.mock.calls[0];
+    expect(options.headers).toMatchObject({
+      Authorization: 'Bearer api-token',
+    });
+    expect(options.headers).not.toHaveProperty('X-Auth-Email');
+    expect(options.headers).not.toHaveProperty('X-Auth-Key');
+  });
+
   it('does not memoize a failed loadInventory() across fetchPage() calls', async () => {
     const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
     const snapshot = {

@@ -358,11 +358,12 @@ function gardeniaCloudflareInventoryScript() {
  * session and the usual host delay. The returned URLs and every page body are
  * still validated by the source-specific identity and zero-vacancy contract.
  *
- * @param {{ fetchImpl?: typeof fetch, gardeniaCfAccount?: string, gardeniaCfKey?: string, gardeniaGithubToken?: string, gardeniaCfEmail?: string }} [runtime]
+ * @param {{ fetchImpl?: typeof fetch, gardeniaCfAccount?: string, gardeniaCfToken?: string, gardeniaCfKey?: string, gardeniaGithubToken?: string, gardeniaCfEmail?: string }} [runtime]
  */
 export function createAlbergoGardeniaCleanEgressTransport({
   fetchImpl = fetch,
   gardeniaCfAccount = process.env.CF_ACCOUNT_ID,
+  gardeniaCfToken = process.env.CF_API_TOKEN,
   gardeniaCfKey = process.env.CF_GLOBAL_API_KEY,
   gardeniaGithubToken = process.env.GITHUB_PAT,
   gardeniaCfEmail,
@@ -393,10 +394,15 @@ export function createAlbergoGardeniaCleanEgressTransport({
   }
 
   async function loadInventory() {
-    if (!gardeniaCfAccount || !gardeniaCfKey) {
+    if (!gardeniaCfAccount || (!gardeniaCfToken && !gardeniaCfKey)) {
       throw Object.assign(new Error('Cloudflare clean-egress credentials are missing'), { status: 401 });
     }
-    const email = await loadAuthEmail();
+    const authHeaders = gardeniaCfToken
+      ? { Authorization: `Bearer ${gardeniaCfToken}` }
+      : {
+          'X-Auth-Email': await loadAuthEmail(),
+          'X-Auth-Key': gardeniaCfKey,
+        };
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS);
     try {
@@ -405,8 +411,7 @@ export function createAlbergoGardeniaCleanEgressTransport({
         {
           method: 'POST',
           headers: {
-            'X-Auth-Email': email,
-            'X-Auth-Key': gardeniaCfKey,
+            ...authHeaders,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
