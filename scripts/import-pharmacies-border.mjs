@@ -22,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { PHARMACY_TIME_ZONE } from '../services/pharmacies/time.mjs';
 import { validatePharmacyReleaseContract } from '../services/pharmacies/release-contract-validator.mjs';
 import { canonicalJson } from './lib/canonical-json-digest.mjs';
+import { httpFetchWithRetry, transportErrorKind } from './lib/transient-fetch.mjs';
 
 import {
   ITALY_BORDER_PROVINCES,
@@ -318,36 +319,42 @@ function recordsFromPayload(payload) {
   return [];
 }
 
-async function fetchText(url, { timeoutMs = 60_000, accept = '*/*' } = {}) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+export async function fetchText(url, { timeoutMs = 60_000, accept = '*/*' } = {}) {
+  let response;
   try {
-    const response = await fetch(url, {
+    response = await httpFetchWithRetry(url, {
       headers: { 'User-Agent': USER_AGENT, Accept: accept, 'Accept-Language': 'it,en;q=0.8' },
       redirect: 'follow',
-      signal: controller.signal,
+    }, {
+      timeout: timeoutMs,
+      label: 'pharmacy official source',
     });
-    if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
-    return await response.text();
-  } finally {
-    clearTimeout(timer);
+  } catch (error) {
+    const kind = transportErrorKind(error);
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`Failed to fetch ${url} (${kind}): ${message}`, { cause: error });
   }
+  if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
+  return response.text();
 }
 
 async function fetchBuffer(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 60_000);
+  let response;
   try {
-    const response = await fetch(url, {
+    response = await httpFetchWithRetry(url, {
       headers: { 'User-Agent': USER_AGENT, Accept: 'application/pdf,*/*' },
       redirect: 'follow',
-      signal: controller.signal,
+    }, {
+      timeout: 60_000,
+      label: 'pharmacy official source',
     });
-    if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
-    return Buffer.from(await response.arrayBuffer());
-  } finally {
-    clearTimeout(timer);
+  } catch (error) {
+    const kind = transportErrorKind(error);
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`Failed to fetch ${url} (${kind}): ${message}`, { cause: error });
   }
+  if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
+  return Buffer.from(await response.arrayBuffer());
 }
 
 async function discoverItalyDownloadUrl() {
