@@ -119,7 +119,7 @@ import {
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
   firstEventImageUrl,
-  fillEventPeopleDefaults,
+  normalizeEventPeopleFields,
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 
@@ -406,8 +406,8 @@ export function mapDetailPageToLocaleData(html, locale, baseUrl) {
  * address) come from the FIRST locale (in it→en→de→fr order) that has data —
  * they don't vary by locale, only the text does. Optional source metadata
  * (image, organizer, performer) can fall back to a later locale variant when
- * the primary variant omitted it; the mapper then fills deterministic people
- * defaults for the public event contract.
+ * the primary variant omitted it; absent entities remain absent instead of
+ * being inferred from the catalog or venue.
  * `titleByLocale`/`descriptionByLocale` collect the REAL text of every locale
  * that resolved, which is honestly identical to the source language for
  * events an organizer never translated (not a bug — see file header).
@@ -434,7 +434,7 @@ export function mapGuidleEvent(code, localeResults) {
   }
 
   return {
-    event: fillEventPeopleDefaults({
+    event: normalizeEventPeopleFields({
       id: eventStableId(SOURCE.key, code),
       title: primary.title,
       titleByLocale: Object.keys(titleByLocale).length ? titleByLocale : undefined,
@@ -456,7 +456,7 @@ export function mapGuidleEvent(code, localeResults) {
       recurring: primary.recurring,
       ...(organizer ? { organizer } : {}),
       ...(performer ? { performer } : {}),
-    }, SOURCE),
+    }),
     imageSourceUrl,
     addressLocality: primary.addressLocality,
     cantonHint: primary.canton,

@@ -209,15 +209,11 @@ describe('eventLd canonical', () => {
 });
 
 describe('eventLd source attribution (#3125)', () => {
-  it('fills deterministic organizer/performer defaults without source metadata', () => {
+  it('omits organizer/performer when the source supplies no named entities', () => {
     const guidleEvent = { ...EVENT, id: 'guidle:abc', sourceKey: 'guidle', sourceName: 'Guidle' };
     const ld = eventLd(guidleEvent as never, 'it') as Record<string, any>;
-    expect(ld.organizer).toEqual({
-      '@type': 'Organization',
-      name: 'Guidle',
-      url: 'https://www.guidle.com/',
-    });
-    expect(ld.performer).toEqual({ '@type': 'Organization', name: EVENT.venue });
+    expect(ld.organizer).toBeUndefined();
+    expect(ld.performer).toBeUndefined();
   });
 
   it('emits named organizer/performer metadata when the crawler supplies it', () => {
@@ -266,16 +262,9 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.location.address.postalCode).toBe('6900');
   });
 
-  it('emits a complete fallback offer when price is unknown', () => {
+  it('omits offers when price is unknown', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: EVENT.startDate,
-      url: EVENT.url,
-    });
+    expect(ld.offers).toBeUndefined();
   });
 
   it('emits verified price fields for a free event', () => {
@@ -318,20 +307,19 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.image.copyrightNotice).toBeTruthy();
   });
 
-  it('uses the category catalog image when the event has no event-specific image', () => {
+  it('omits Event.image when the event has no event-specific image', () => {
     const withoutImage = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(withoutImage.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/catalog/musica.svg');
+    expect(withoutImage.image).toBeUndefined();
   });
 
   it('never hotlinks a raw non-mirrored third-party image URL', () => {
     // Defense-in-depth: every crawler is contracted to only ever store a
     // mirrored `/images/events/...` path (or leave imageUrl unset), but a
     // stale pre-mirroring dataset snapshot could still carry a raw URL. That
-    // must NEVER be embedded (hotlinked) into production JSON-LD; the
-    // presentation layer and Event.image both use the category illustration.
+    // must NEVER be embedded (hotlinked) into production JSON-LD.
     const hotlinked = { ...EVENT, imageUrl: 'https://biglietteria.ch/files/flyer.jpg' };
     const ld = eventLd(hotlinked as never, 'it') as Record<string, any>;
-    expect(ld.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/catalog/musica.svg');
+    expect(ld.image).toBeUndefined();
   });
 });
 

@@ -62,7 +62,7 @@ import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-
 import {
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
-  fillEventPeopleDefaults,
+  normalizeEventPeopleFields,
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 
@@ -313,7 +313,7 @@ export function extractTioDetailMetadata(html) {
  * card this crawler otherwise parses never carries one — see file header).
  * Populating `price` here lets `eventLd()` preserve a real source price and
  * its ticket metadata; when the detail page has no parseable price,
- * eventLd() still emits the deterministic structured-data fallback.
+ * eventLd() omits the unverified `offers` object.
  *
  * Not idempotent/cached like `mirrorEventImages` — every event is re-fetched
  * every run since price can change. A fetch failure (network/timeout) just
@@ -341,7 +341,7 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
       ...(metadata.performer ? { performer: metadata.performer } : {}),
       ...(detailComune ? { comune: detailComune, comuneMatch: 'exact' } : {}),
     };
-    out.push(fillEventPeopleDefaults(next, SOURCE));
+    out.push(normalizeEventPeopleFields(next));
     if (fetchFn === fetchHtml) await sleep(PRICE_FETCH_DELAY_MS);
   }
   return out;

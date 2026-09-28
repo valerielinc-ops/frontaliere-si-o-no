@@ -169,31 +169,27 @@ export function normalizeEventPeople(value, baseUrl, fallbackUrl) {
 }
 
 /**
- * Ensure every crawled event has the people fields required by the public
- * Event JSON-LD contract. Source entities remain authoritative; defaults are
- * used only when a crawler could not find a named entity. A source homepage is
- * a stable organizer URL, while the event page is the verified fallback URL
- * for a named organizer whose source record omitted its own URL.
+ * Normalize source-provided people without inventing an organizer or
+ * performer when the source did not publish one. Optional schema.org entities
+ * are facts about the event, not fields that can safely use catalog/venue
+ * defaults. A named organizer may still receive the verified event-page URL
+ * when the source omitted its own entity URL.
  */
-export function fillEventPeopleDefaults(event, source = {}) {
-  const sourceName = sourceText(source?.label) || sourceText(event?.sourceName) || 'Frontaliere Ticino';
-  const baseUrl = absoluteHttpUrl(event?.url, source?.homepage)
-    || absoluteHttpUrl(source?.homepage)
-    || 'https://frontaliereticino.ch';
-  const eventUrl = absoluteHttpUrl(event?.url, baseUrl);
-  const sourceHomepage = absoluteHttpUrl(source?.homepage, baseUrl) || eventUrl;
-  const organizer = normalizeEventPeople(event?.organizer, baseUrl, eventUrl || sourceHomepage)
-    || {
-      '@type': 'Organization',
-      name: sourceName,
-      ...(sourceHomepage ? { url: sourceHomepage } : {}),
-    };
-  const performer = normalizeEventPeople(event?.performer, baseUrl)
-    || {
-      '@type': 'Organization',
-      name: sourceText(event?.venue) || sourceName,
-    };
-  return { ...event, organizer, performer };
+export function normalizeEventPeopleFields(event) {
+  const normalized = { ...event };
+  const baseUrl = absoluteHttpUrl(event?.url) || 'https://frontaliereticino.ch';
+  const organizer = event?.organizer === undefined
+    ? undefined
+    : normalizeEventPeople(event.organizer, baseUrl, event.url);
+  const performer = event?.performer === undefined
+    ? undefined
+    : normalizeEventPeople(event.performer, baseUrl);
+
+  if (organizer) normalized.organizer = organizer;
+  else delete normalized.organizer;
+  if (performer) normalized.performer = performer;
+  else delete normalized.performer;
+  return normalized;
 }
 
 /** Return true only when every normalized named entity has a usable URL. */
