@@ -17,6 +17,7 @@ describe('legacy Firebase app proxy', () => {
     else process.env.FIREBASE_API_KEY = originalFirebaseApiKey;
     if (originalViteFirebaseApiKey === undefined) delete process.env.VITE_FIREBASE_API_KEY;
     else process.env.VITE_FIREBASE_API_KEY = originalViteFirebaseApiKey;
+    vi.unstubAllGlobals();
     vi.clearAllMocks();
     vi.resetModules();
   });
@@ -24,6 +25,7 @@ describe('legacy Firebase app proxy', () => {
   it('reports a rejected lazy initialization instead of leaving it unhandled', async () => {
     delete process.env.FIREBASE_API_KEY;
     delete process.env.VITE_FIREBASE_API_KEY;
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('public config unavailable')));
     const { app } = await import('@/services/firebase');
 
     void app.name;
