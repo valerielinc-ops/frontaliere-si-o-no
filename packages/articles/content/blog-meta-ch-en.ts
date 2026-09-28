@@ -6893,6 +6893,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.friburgo-successione-donazione-aliquote.title': 'Fribourg: inheritances and gifts, tax rates and exemptions',
     'blog.article.friburgo-successione-donazione-aliquote.excerpt': 'No single federal tax rate: in the Canton of Fribourg, taxes depend on the degree of kinship and exemptions for spouse and descendants.',
     'blog.article.friburgo-successione-donazione-aliquote.imageAlt': 'Cantonal administrative building in Fribourg handling inheritance and gift tax affairs',
+    'blog.article.popolo-svizzero-boccia-neutralita.title': 'Initiative on neutrality rejected by the Swiss people',
+    'blog.article.popolo-svizzero-boccia-neutralita.excerpt': 'The neutrality initiative was rejected with approximately 70% voting no; it did not obtain a majority of the cantons after the count in 15 of them, while Ticino shows a slight divergence.',
+    'blog.article.popolo-svizzero-boccia-neutralita.imageAlt': 'Federal Palace square in Bern with voters and neutrality campaign material',
 };
 
 export default blogMetaChEn;

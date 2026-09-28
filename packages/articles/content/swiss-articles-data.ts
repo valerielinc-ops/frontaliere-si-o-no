@@ -20707,6 +20707,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'popolo-svizzero-boccia-neutralita',
+    category: 'novita',
+    date: '2026-09-28T03:12:15.666Z',
+    image: '/images/blog/popolo-svizzero-boccia-neutralita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
