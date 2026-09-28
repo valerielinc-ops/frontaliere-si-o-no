@@ -15,6 +15,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
+  copySpecFetchMetadata,
   fetchHtmlViaBrowser,
   loadSpec,
   runSpecInProduction,
@@ -30,6 +31,7 @@ export const VEREINAKLOSTERS_COMPANY_DOMAIN = 'hotelcareer.ch';
 const CAREER_URL = 'https://www.hotelcareer.ch/jobs/hotel-vereina-52746';
 const VEREINAKLOSTERS_PATH = '/jobs/hotel-vereina-52746';
 const MIN_DESCRIPTION_WORDS = 50;
+const VEREINAKLOSTERS_EMPTY_FETCH_OUTCOME = 'anti_bot_block';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -133,7 +135,16 @@ async function fetchJobListings() {
   // runtime for its clean-IP empty-listing rescue; it still accepts the page
   // only when the normal vacancy extraction finds real detail links.
   return runSpecInProduction(
-    { ...spec, rescueOnEmptyListing: true },
+    {
+      ...spec,
+      rescueOnEmptyListing: true,
+      // A zero after direct + clean-IP + browser rescue is not evidence that
+      // Vereina has no vacancies: Hotelcareer has previously served two
+      // source-backed detail links to a clean egress. Keep the prior slice and
+      // make the WAF/interstitial verdict visible to crawler-health instead of
+      // collapsing it to the generic no-jobs-parsed symptom.
+      emptyListingOutcome: VEREINAKLOSTERS_EMPTY_FETCH_OUTCOME,
+    },
     { browserFetchImpl: fetchHtmlViaBrowser },
   );
 }
@@ -152,7 +163,7 @@ export async function fetchAllVereinaklostersJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -228,5 +239,5 @@ export async function fetchAllVereinaklostersJobs() {
   }
 
   console.log(`\n📋 Total Vereina jobs discovered: ${jobs.length}`);
-  return jobs;
+  return copySpecFetchMetadata(jobs, listings);
 }
