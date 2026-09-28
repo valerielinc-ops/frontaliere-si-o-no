@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-09-28T03:33:10.339Z",
+  "generatedAt": "2026-09-28T04:58:19.099Z",
   "total": 153,
   "newCount": 0,
   "updatedCount": 105,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3740,
-  "avgDurationMs": 3740,
+  "durationMs": 3902,
+  "avgDurationMs": 3902,
   "durationHistory": [
-    3740
+    3902
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -984,6 +984,7 @@
       "firstSeenAt": "2026-09-09T13:51:57.507Z",
       "postalCode": "8050",
       "streetAddress": "",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
