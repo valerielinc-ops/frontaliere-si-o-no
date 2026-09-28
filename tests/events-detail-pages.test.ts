@@ -275,8 +275,9 @@ describe('eventLd source attribution (#3125)', () => {
       price: '0',
       priceCurrency: 'CHF',
     });
-    expect(ld.offers.validFrom).toBe(EVENT.startDate);
-    expect(ld.offers.url).toBe(EVENT.url);
+    expect(ld.offers.availability).toBeUndefined();
+    expect(ld.offers.validFrom).toBeUndefined();
+    expect(ld.offers.url).toBeUndefined();
   });
 
   it('emits verified price fields for a paid event', () => {
@@ -284,6 +285,9 @@ describe('eventLd source attribution (#3125)', () => {
     const ld = eventLd(paidEvent as never, 'it') as Record<string, any>;
     expect(ld.offers.price).toBe('25');
     expect(ld.offers.priceCurrency).toBe('CHF');
+    expect(ld.offers.availability).toBeUndefined();
+    expect(ld.offers.validFrom).toBeUndefined();
+    expect(ld.offers.url).toBeUndefined();
   });
 
   it('emits an ImageObject (GSC licensable-image quintet) with the mirrored image path, absolute-ized', () => {
