@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-basel-basel-stadt-im",
-        "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-im-bethesda-spital-basel"
+        "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-basel-basel-stadt-im"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-basel-basel-stadt-im",
-          "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-im-bethesda-spital-basel"
+          "technische-r-sterilisationsassistent-in-aemp-im-wunschpensum-80-100-basel-basel-stadt-im"
         ]
       },
       "needsRetranslation": true,
@@ -79,12 +77,12 @@
     },
     {
       "id": "im-bethesda-spital-d07140d0cd1d",
-      "slug": "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch",
+      "slug": "medico-senior-medico-senior-medicina-di-emergenza-60-80-im-bethesda-spital-basel-basel-stadt",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch",
-        "en": "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch",
+        "it": "medico-senior-medico-senior-medicina-di-emergenza-60-80-im-bethesda-spital-basel-basel-stadt",
+        "en": "senior-physician-senior-physician-emergency-medicine-60-80-im-bethesda-spital-basel-basel-stadt",
         "de": "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch",
-        "fr": "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
+        "fr": "medecin-superieur-medecin-superieur-medecine-d-urgence-60-80-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -137,7 +135,21 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-notfallmedizin-60-80-basel-basel-stadt-im-bethesda-spital-ch"
+      ]
     },
     {
       "id": "im-bethesda-spital-a7720e2052eb",
@@ -206,9 +218,9 @@
       "slug": "oberarztin-oberarzt-klinik-per-frauenmedizin-60-100-im-bethesda-spital-basel",
       "slugByLocale": {
         "it": "oberarztin-oberarzt-klinik-per-frauenmedizin-60-100-im-bethesda-spital-basel",
-        "en": "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-basel-basel-stadt-im-bethesda-spital",
+        "en": "senior-physician-senior-physician-clinic-for-women-s-medicine-60-100-im-bethesda-spital-basel-basel-stadt",
         "de": "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-basel-basel-stadt-im-bethesda-spital",
-        "fr": "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-basel-basel-stadt-im-bethesda-spital"
+        "fr": "medecin-principal-clinique-de-medecin-principal-pour-la-medecine-des-femmes-60-100-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -256,6 +268,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-basel-basel-stadt-im-bethesda-spital"
+        ],
+        "en": [
+          "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-basel-basel-stadt-im-bethesda-spital"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-basel-basel-stadt-im-bethesda-spital"
         ]
       },
       "needsRetranslation": true,
@@ -276,12 +294,12 @@
     },
     {
       "id": "im-bethesda-spital-5d4dfdd30dda",
-      "slug": "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+      "slug": "observice-observice-radiology-80-100-im-bethesda-spital-basel-basel-stadt",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "it": "observice-observice-radiology-80-100-im-bethesda-spital-basel-basel-stadt",
         "en": "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
         "de": "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
-        "fr": "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
+        "fr": "radiologie-observice-observice-80-100-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -336,7 +354,18 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
+      ]
     },
     {
       "id": "im-bethesda-spital-277b93b896cb",
@@ -388,13 +417,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-basel-basel-stadt-im",
-        "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-im-bethesda-spital-basel"
+        "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-basel-basel-stadt-im"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-basel-basel-stadt-im",
-          "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-im-bethesda-spital-basel"
+          "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-basel-basel-stadt-im"
         ]
       },
       "needsRetranslation": true,
@@ -418,9 +445,9 @@
       "slug": "medizinische-praxisassistentin-cfc-o-diplomierte-pflegefachperson-hf-fh-80-100-im-bethesda-spital-basel",
       "slugByLocale": {
         "it": "medizinische-praxisassistentin-cfc-o-diplomierte-pflegefachperson-hf-fh-80-100-im-bethesda-spital-basel",
-        "en": "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel",
+        "en": "medical-practice-assistant-efz-or-qualified-nurse-hf-fh-80-100-im-bethesda-spital-basel-basel-stadt",
         "de": "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel",
-        "fr": "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel"
+        "fr": "assistant-a-la-pratique-medicale-efz-ou-infirmiere-qualifiee-hf-fh-80-100-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -463,13 +490,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel",
-        "medizinische-praxisassistentin-cfc-o-diplomierte-pflegefachperson-hf-fh-80-100-im-bethesda-spital-basel"
+        "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel",
-          "medizinische-praxisassistentin-cfc-o-diplomierte-pflegefachperson-hf-fh-80-100-im-bethesda-spital-basel"
+          "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel"
         ]
       },
       "needsRetranslation": true,
@@ -490,12 +521,12 @@
     },
     {
       "id": "im-bethesda-spital-4d8ff5f4b916",
-      "slug": "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel",
+      "slug": "diploma-esperto-esperto-anestesia-cura-hf-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt",
       "slugByLocale": {
-        "it": "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel",
-        "en": "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel",
+        "it": "diploma-esperto-esperto-anestesia-cura-hf-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt",
+        "en": "diploma-expert-expert-anesthesia-care-hf-in-the-desired-range-40-100-im-bethesda-spital-basel-basel-stadt",
         "de": "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-basel-basel-stadt-im",
-        "fr": "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
+        "fr": "diplome-expert-expert-soins-d-anesthesie-hf-dans-la-gamme-souhaitee-40-100-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -545,6 +576,12 @@
         "it": [
           "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-basel-basel-stadt-im",
           "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
+        ],
+        "en": [
+          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
+        ],
+        "fr": [
+          "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
         ]
       },
       "firstSeenAt": "2026-09-21T16:01:29.727Z",
@@ -564,12 +601,12 @@
     },
     {
       "id": "im-bethesda-spital-f131803aaa40",
-      "slug": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
+      "slug": "dipl-specialista-in-radiologia-nella-gamma-desiderata-da-70-a-100-im-bethesda-spital-basel-basel-stadt",
       "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
-        "en": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
+        "it": "dipl-specialista-in-radiologia-nella-gamma-desiderata-da-70-a-100-im-bethesda-spital-basel-basel-stadt",
+        "en": "dipl-radiology-specialist-in-the-desired-range-70-to-100-im-bethesda-spital-basel-basel-stadt",
         "de": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-basel-basel-stadt-im-bethesda",
-        "fr": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
+        "fr": "dipl-specialiste-de-radiologie-dans-la-gamme-desiree-70-a-100-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -619,6 +656,12 @@
         "it": [
           "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-basel-basel-stadt-im-bethesda",
           "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
+        ],
+        "fr": [
+          "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
         ]
       },
       "needsRetranslation": true,
@@ -639,12 +682,12 @@
     },
     {
       "id": "im-bethesda-spital-fc1f7d421c30",
-      "slug": "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch",
+      "slug": "infermiera-hf-fh-100-im-bethesda-spital-basel-basel-stadt",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "it": "infermiera-hf-fh-100-im-bethesda-spital-basel-basel-stadt",
         "en": "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch",
         "de": "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch"
+        "fr": "infirmiere-diplomee-hf-fh-100-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -699,16 +742,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-100-basel-basel-stadt-im-bethesda-spital-ch"
+      ]
     },
     {
       "id": "im-bethesda-spital-da8662dc880f",
-      "slug": "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel",
+      "slug": "dipl-tecnica-chirurgica-specialistica-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt",
       "slugByLocale": {
-        "it": "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel",
-        "en": "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel",
+        "it": "dipl-tecnica-chirurgica-specialistica-nella-gamma-desiderata-40-100-im-bethesda-spital-basel-basel-stadt",
+        "en": "dipl-specialist-surgical-technique-in-the-desired-range-40-100-im-bethesda-spital-basel-basel-stadt",
         "de": "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-basel-basel-stadt-im-bethesda",
-        "fr": "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel"
+        "fr": "dipl-technique-chirurgicale-specialisee-dans-la-gamme-souhaitee-40-100-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -754,6 +808,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-basel-basel-stadt-im-bethesda",
+          "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel"
+        ],
+        "en": [
+          "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel"
+        ],
+        "fr": [
           "dipl-fachperson-operationstechnik-im-wunschpensum-40-100-im-bethesda-spital-basel"
         ]
       },
@@ -823,13 +883,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda",
-        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel"
+        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda",
-          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel"
+          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda"
         ]
       },
       "needsRetranslation": true,
@@ -850,12 +908,12 @@
     },
     {
       "id": "im-bethesda-spital-8779e8706128",
-      "slug": "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch",
+      "slug": "infermiere-professionale-hf-fh-80-im-bethesda-spital-basel-basel-stadt",
       "slugByLocale": {
-        "it": "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch",
-        "en": "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch",
+        "it": "infermiere-professionale-hf-fh-80-im-bethesda-spital-basel-basel-stadt",
+        "en": "vocational-nurse-hf-fh-80-im-bethesda-spital-basel-basel-stadt",
         "de": "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch",
-        "fr": "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
+        "fr": "infirmiere-professionnelle-hf-fh-80-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -910,16 +968,30 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
+        ],
+        "en": [
+          "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
+        ],
+        "fr": [
+          "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildende-pflegefachperson-hf-fh-80-basel-basel-stadt-im-bethesda-spital-ch"
+      ]
     },
     {
       "id": "im-bethesda-spital-05fab5ad5d48",
       "slug": "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel",
       "slugByLocale": {
         "it": "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel",
-        "en": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
+        "en": "assistant-physician-clinic-rheumatology-and-pain-medicine-100-im-bethesda-spital-basel-basel-stadt",
         "de": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
-        "fr": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
+        "fr": "medecin-adjoint-clinique-rheumatologie-et-medecine-de-la-douleur-100-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -966,6 +1038,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
         ]
       },

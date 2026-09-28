@@ -1360,12 +1360,12 @@
     },
     {
       "id": "dormakaba-12354",
-      "slug": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
+      "slug": "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
       "slugByLocale": {
-        "it": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
-        "en": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
+        "it": "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
+        "en": "technical-services-80-100-m-f-d-dormakaba-st-gallen",
         "de": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
-        "fr": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
+        "fr": "services-techniques-80-100-h-f-d-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1408,19 +1408,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
-        "technical-services-80-100-m-f-d-dormakaba-st-gallen",
-        "services-techniques-80-100-h-f-d-dormakaba-st-gallen"
+        "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen"
+          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
         ],
         "en": [
-          "technical-services-80-100-m-f-d-dormakaba-st-gallen"
+          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
         ],
         "fr": [
-          "services-techniques-80-100-h-f-d-dormakaba-st-gallen"
+          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1523,12 +1521,12 @@
     },
     {
       "id": "dormakaba-12356",
-      "slug": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
+      "slug": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
       "slugByLocale": {
-        "it": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "en": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
+        "it": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
+        "en": "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
         "de": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "fr": "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
+        "fr": "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1571,19 +1569,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-        "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
-        "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen"
+        "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
+        "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen"
+          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
         ],
         "en": [
-          "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen"
+          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
         ],
         "fr": [
-          "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen"
+          "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
+          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
         ]
       },
       "needsRetranslation": true,

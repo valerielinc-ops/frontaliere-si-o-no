@@ -662,9 +662,9 @@
     },
     {
       "id": "accor-0b1dcb96cad3",
-      "slug": "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96",
+      "slug": "personale-di-servizio-ribelli-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96",
       "slugByLocale": {
-        "it": "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96",
+        "it": "personale-di-servizio-ribelli-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96",
         "en": "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96",
         "de": "servicemitarbeiter-ribelli-m-w-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96",
         "fr": "personnel-des-services-ribelli-h-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96"
@@ -721,7 +721,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96"
+        ]
+      },
+      "previousSlugs": [
+        "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-0b1dcb96"
+      ]
     },
     {
       "id": "accor-b13908e9d1e7",
@@ -1099,7 +1107,7 @@
         "it": "restaurant-supervisor-25hours-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-44dd3dbc",
         "en": "restaurant-supervisor-25hours-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-44dd3dbc",
         "de": "restaurant-supervisor-25hours-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-44dd3dbc",
-        "fr": "restaurant-supervisor-25hours-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-44dd3dbc"
+        "fr": "superviseur-du-restaurant-25heures-langstrasse-h-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-44dd3dbc"
       },
       "slugDisambiguator": "44dd3dbc",
       "company": "Ibis Budget",

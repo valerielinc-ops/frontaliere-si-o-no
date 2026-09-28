@@ -2920,7 +2920,7 @@
       "slug": "business-analista-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach",
       "slugByLocale": {
         "it": "business-analista-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach",
-        "en": "business-analyst-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "business-analyst-telephony-management-a-80-100-helsana-dubendorf-stettbach",
         "de": "business-analyst-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach",
         "fr": "business-analyste-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach"
       },
@@ -2976,6 +2976,9 @@
           "business-analyst-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "fr": [
+          "business-analyst-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
           "business-analyst-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ]
       },
@@ -3983,12 +3986,12 @@
     },
     {
       "id": "helsana-44db64611759",
-      "slug": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
+      "slug": "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-st-gallen",
       "slugByLocale": {
-        "it": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
-        "en": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
+        "it": "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-st-gallen",
+        "en": "case-manager-services-corporate-business-canton-of-graubunden-a-80-100-helsana-st-gallen",
         "de": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
-        "fr": "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        "fr": "case-manager-services-entreprise-canton-des-grisons-a-80-100-helsana-st-gallen"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4042,7 +4045,21 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        ],
+        "en": [
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        ],
+        "fr": [
+          "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
+      ]
     },
     {
       "id": "helsana-fdfa4dcabef4",

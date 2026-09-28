@@ -2935,9 +2935,9 @@
     },
     {
       "id": "yellowshark-b7647121c1bd",
-      "slug": "it-support-techniker-m-w-100-sempach-lu-yellowshark-ch",
+      "slug": "supporto-tecnico-m-f-100-yellowshark-ag-sempach-lu",
       "slugByLocale": {
-        "it": "it-support-techniker-m-w-100-sempach-lu-yellowshark-ch",
+        "it": "supporto-tecnico-m-f-100-yellowshark-ag-sempach-lu",
         "en": "it-support-technician-m-f-100-yellowshark-ag-sempach",
         "de": "it-support-techniker-m-w-100-sempach-lu-yellowshark-ch",
         "fr": "technicien-de-soutien-informatique-h-f-100-yellowshark-ag-sempach"
@@ -2996,7 +2996,15 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "it-support-techniker-m-w-100-sempach-lu-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-support-techniker-m-w-100-sempach-lu-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-7ccc2d91f976",

@@ -6402,7 +6402,6 @@
       },
       "previousSlugs": [
         "controleur-qualite-h-f-rolex-ch",
-        "qualitatskontrolleur-m-w-rolex-geneve",
         "controleur-qualite-h-f-rolex-geneve",
         "qualitatskontroller-m-w-d-rolex-geneve",
         "controleur-qualite-m-w-d-rolex-geneve"
@@ -12249,10 +12248,10 @@
     },
     {
       "id": "rolex-2907f1b5bd75",
-      "slug": "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-bienne",
+      "slug": "imparare-l-operatore-del-computer-cfc-rolex-bienne",
       "slugByLocale": {
-        "it": "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-bienne",
-        "en": "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch",
+        "it": "imparare-l-operatore-del-computer-cfc-rolex-bienne",
+        "en": "computer-operator-learning-cfc-rolex-bienne",
         "de": "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch",
         "fr": "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch"
       },
@@ -12294,10 +12293,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch"
+        "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch",
+        "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch",
+          "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-bienne"
+        ],
+        "en": [
           "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch"
         ]
       },

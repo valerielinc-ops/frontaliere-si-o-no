@@ -17048,10 +17048,10 @@
     },
     {
       "id": "jumbo-de82f0e6-d9e",
-      "slug": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-marin-epagnier",
+      "slug": "consulente-vendite-deco-m-f-d-jumbo-marin-epagnier",
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-marin-epagnier",
-        "it": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-marin-epagnier",
+        "it": "consulente-vendite-deco-m-f-d-jumbo-marin-epagnier",
         "en": "deco-sales-advisor-m-f-d-jumbo-marin-epagnier",
         "de": "deco-verkaufsberater-m-w-d-jumbo-marin-epagnier"
       },
@@ -17116,7 +17116,15 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-marin-epagnier"
+      ]
     },
     {
       "id": "jumbo-4a14c9f8-c23",

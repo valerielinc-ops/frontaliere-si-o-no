@@ -4488,12 +4488,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-22ce5f2279d8",
-      "slug": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur",
+      "slug": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-chur-graubunden",
       "slugByLocale": {
-        "it": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur",
-        "en": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur",
+        "it": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-chur-graubunden",
+        "en": "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-chur-graubunden",
         "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "fr": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
+        "fr": "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-chur-graubunden"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4545,11 +4545,19 @@
         ]
       },
       "previousSlugs": [
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
+        ],
+        "en": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
+        ],
+        "fr": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
         ]
       },
       "firstSeenAt": "2026-09-21T16:01:55.267Z",

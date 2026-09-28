@@ -9649,11 +9649,11 @@
     },
     {
       "id": "ubs-fe49559275de",
-      "slug": "specialiste-credits-80-100-ubs-plateau-suisse",
+      "slug": "stanziamenti-specializzati-80-100-ubs-plateau-suisse",
       "slugByLocale": {
-        "it": "specialiste-credits-80-100-ubs-plateau-suisse",
-        "en": "specialiste-credits-80-100-ubs-plateau-suisse",
-        "de": "specialiste-credits-80-100-ubs-plateau-suisse",
+        "it": "stanziamenti-specializzati-80-100-ubs-plateau-suisse",
+        "en": "specialist-appropriations-80-100-ubs-plateau-suisse",
+        "de": "spezialisierte-mittel-80-100-ubs-plateau-suisse",
         "fr": "specialiste-credits-80-100-ubs-plateau-suisse"
       },
       "company": "UBS",
@@ -9715,7 +9715,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-credits-80-100-ubs-plateau-suisse"
+        ],
+        "en": [
+          "specialiste-credits-80-100-ubs-plateau-suisse"
+        ],
+        "de": [
+          "specialiste-credits-80-100-ubs-plateau-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-credits-80-100-ubs-plateau-suisse"
+      ]
     }
   ]
 }

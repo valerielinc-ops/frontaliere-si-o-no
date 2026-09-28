@@ -25,10 +25,11 @@
         "it": "Segretario medico (FR/ALL)",
         "de": "Medizinische Sekretärin (FR/ALL)"
       },
-      "slug": "secretaire-medical-e-bilingue-fr-all-swiss-medical-network",
+      "slug": "segretario-medico-fr-all-swiss-medical-network-biel",
       "slugByLocale": {
-        "it": "secretaire-medical-e-bilingue-fr-all-swiss-medical-network",
-        "en": "secretaire-medical-e-bilingue-fr-all-swiss-medical-network"
+        "it": "segretario-medico-fr-all-swiss-medical-network-biel",
+        "en": "medical-secretary-fr-all-swiss-medical-network-biel",
+        "de": "medizinische-sekretarin-fr-all-swiss-medical-network-biel"
       },
       "category": "healthcare",
       "datePosted": "2026-09-26",
@@ -55,7 +56,18 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-bilingue-fr-all-swiss-medical-network"
+        ],
+        "en": [
+          "secretaire-medical-e-bilingue-fr-all-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-bilingue-fr-all-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151830119-praxismitarbeiter-in-in-einem-familiaren-umfeld-30-40-per-sofort-oder-nach-vereinbarung",
