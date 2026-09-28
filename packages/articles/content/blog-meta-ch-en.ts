@@ -6911,6 +6911,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esito-campagna-blocher.title': 'Neutrality: 70% reject Blocher\'s initiative',
     'blog.article.esito-campagna-blocher.excerpt': '70% of voters rejected the neutrality initiative; Christoph Blocher\'s campaign cost nearly 4 million francs, strengthening the Federal Council\'s position.',
     'blog.article.esito-campagna-blocher.imageAlt': 'View of the Swiss Federal Palace in Bern with citizens and newspapers about the neutrality referendum',
+    'blog.article.svizzera-digitale-cyber-preparazione.title': 'Switzerland a digital leader but lagging behind in cyber defense',
+    'blog.article.svizzera-digitale-cyber-preparazione.excerpt': 'Switzerland leads digital competitiveness with 100/100, but is only 31st out of 66 for cyber preparedness (5,32/10); attacks have increased by 35% and 7 incidents have been recorded in the past year.',
+    'blog.article.svizzera-digitale-cyber-preparazione.imageAlt': 'Swiss data center with Swiss flag, representing digital competitiveness',
 };
 
 export default blogMetaChEn;

@@ -89603,6 +89603,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-digitale-cyber-preparazione': {
+    title: 'Svizzera leader digitale ma indietro nella cyber difesa',
+    description: 'La Svizzera primeggia nella competitività digitale (100/100) ma è solo 31ª su 66 per preparazione cyber (5,32/10). Gli attacchi sono cresciuti del 35% e si',
+    keywords: 'frontalieri, ticino, svizzera, italia, leader, digitale, indietro, nella',
+    ogTitle: 'Svizzera leader digitale ma indietro nella cyber difesa',
+    ogDescription: 'Nonostante il punteggio massimo di competitività digitale (100/100), la Svizzera si trova al 31esimo posto su 66 per preparazione alle cyberminacce con 5,32/10. Gli attacchi contro le organizzazioni sono aumentati del 35% nell’ultimo anno, con sette',
+    canonicalPath: '/articoli-svizzera/svizzera-digitale-cyber-preparazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera leader digitale ma indietro nella cyber difesa",
+      "description": "La Svizzera primeggia nella competitività digitale (100/100) ma è solo 31ª su 66 per preparazione cyber (5,32/10). Gli attacchi sono cresciuti del 35% e si",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-digitale-cyber-preparazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Data center svizzero con bandiera svizzera, rappresentante competitività digitale"
+      },
+      "datePublished": "2026-09-28T07:42:43+00:00",
+      "dateModified": "2026-09-28T07:42:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-digitale-cyber-preparazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

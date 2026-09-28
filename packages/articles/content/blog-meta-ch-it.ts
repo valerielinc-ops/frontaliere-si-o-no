@@ -6911,6 +6911,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esito-campagna-blocher.title': 'Neutralita: il 70% boccia l\'iniziativa di Blocher',
     'blog.article.esito-campagna-blocher.excerpt': 'Il 70% degli elettori ha respinto l\'iniziativa sulla neutralità; la campagna di Christoph Blocher è costata quasi 4 milioni di franchi, rafforzando la posizione del Consiglio federale.',
     'blog.article.esito-campagna-blocher.imageAlt': 'Vista del Palazzo federale svizzero a Berna con cittadini e giornali sul referendum sulla neutralità',
+    'blog.article.svizzera-digitale-cyber-preparazione.title': 'Svizzera leader digitale ma indietro nella cyber difesa',
+    'blog.article.svizzera-digitale-cyber-preparazione.excerpt': 'La Svizzera guida la competitività digitale con 100/100, ma è soltanto 31ª su 66 per preparazione cyber (5,32/10); gli attacchi sono aumentati del 35% e si contano 7 incidenti nell’ultimo anno.',
+    'blog.article.svizzera-digitale-cyber-preparazione.imageAlt': 'Data center svizzero con bandiera svizzera, rappresentante competitività digitale',
 };
 
 export default blogMetaChIt;
