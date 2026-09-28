@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-09-28T03:40:59.916Z",
+  "assembledAt": "2026-09-28T05:16:17.934Z",
   "jobs": [
     {
       "id": "company-vbyxhl",
@@ -26,7 +26,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-25T15:15:07.777Z",
       "titleByLocale": {
         "it": "Responsabile dell'infrastruttura del servizio sanitario",
@@ -113,7 +113,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-25T15:15:07.777Z",
       "titleByLocale": {
         "it": "Responsabile del supporto alla gestione dell'infrastruttura",
@@ -205,7 +205,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-25T15:15:07.777Z",
       "titleByLocale": {
         "it": "2 Loadmaster / Meccanici di aeromobili",
@@ -295,7 +295,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-25T15:15:07.777Z",
       "titleByLocale": {
         "it": "Senior Release Train Engineer (Servizi di infrastruttura e piattaforma)",
@@ -379,7 +379,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-25T15:15:07.777Z",
       "titleByLocale": {
         "it": "Responsabile di oggetti medi e piccoli Glarona",
@@ -443,6 +443,96 @@
       "salaryMax": 87000
     },
     {
+      "id": "company-qtu91m",
+      "slug": "ingegnere-a-senior-di-sistemi-ict-servizi-backend-di-comunicazione-swiss-armed-forces-vtg-bern",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "ICT-System Ingenieur/-in Senior (Backend Services Communication Services)",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "Diesen Beitrag kannst du leisten\n\n- Aufbau, Integration und Weiterentwicklung der Backendservices für taktische und zivile Kommunikationslösungen auf der OpenShift-Plattform NDP gestalten und deren sicheren Betrieb verantworten sowie Deployment, Konfiguration und Testing automatisieren\n\n- Zentrale Security Services wie Key Management (COMSEC/TRANSEC), PKI, IAM und PAM konzipieren, integrieren und über ihren gesamten Lifecycle verantworten sowie durchgängig in die Systemlandschaft NDP – Communication Services einbetten\n\n- Komponenten für Security Services und Testing entwickeln und integrieren sowie Monitoring, Logging, Alarming und die kontinuierliche Optimierung von Betriebs- und End-to-End-Prozessen sicherstellen\n\n- Störungen im Zusammenspiel zwischen Plattformen und Umsystemen analysieren und beheben, technische Koordination und Eskalation gegenüber Lieferanten übernehmen sowie Changes, Releases, Upgrades und Lifecycle-Aktivitäten planen und umsetzen\n\n- Externe DevSecOps Engineers fachlich führen, Aufgaben strukturieren, technische Lösungsansätze reviewen und challengen sowie verbindliche Qualitätsstandards etablieren\n\n- In SAFe auf Team- und ART-Ebene mitarbeiten, eng mit Product Owner, Scrum Master und Architect zusammenarbeiten, technische Anforderungen in umsetzbare Lösungen überführen und dokumentieren sowie Scripting und Automatisierung mit Tools wie Python und Ansible einsetzen\n\nDas macht dich einzigartig\n\n- Ausbildung als Informatiker/in (EFZ/FA/FH), Techniker/in HF oder Ingenieur/in (UNI/ETH/FH) in der Fachrichtung Informatik oder Telekommunikation mit jeweils guten Kenntnissen im anderen Bereich sowie mehrjährige Erfahrung als Senior DevSecOps-, Platform- oder System Engineer in komplexen, sicherheitskritischen Umgebungen\n\n- Sehr gute Kenntnisse von Kubernetes/OpenShift, Linux, Container-Technologien, Git, CI/CD sowie Infrastructure/Configuration as Code und Automatisierung, z. B. mit Ansible, Helm und Python/Shell\n\n- Breites Security-Know-how über Key Management/Kryptodienste, PKI, IAM/PAM, Secrets Management, Hardening und Vulnerability Management sowie Fähigkeit, Spezialist/innen fachlich zu challengen\n\n- Fundierte Erfahrung im Plattformbetrieb sowie mit Monitoring, Logging und Alarming und gängigen OSS-Ökosystemen wie ELK, Zabbix, Grafana oder OpenTelemetry sowie ausgeprägte Kompetenz im End-to-End-Troubleshooting\n\n- Erfahrung mit IT-Service-Management und ServiceNow sowie Incident-, Problem-, Change-, Configuration- und Lifecycle-Prozessen; sicher im Umgang mit Lieferanten und der Integration herstellerspezifischer Application Services\n\n- Ausgeprägte technische Leadership- und Kommunikationsfähigkeiten sowie Erfahrung in agilen/SAFe-Organisationen; Fähigkeit, Architektur-, Security- und Betriebsanforderungen in robuste und automatisierbare Lösungen zu überführen\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDas Kommando Cyber (Kdo Cy) steht für Kompetenz in den Bereichen Cyber und Digitalisierung. Wir vereinen die Begeisterung für unsere Aufgabe mit Know-how, Innovation, modernsten Technologien und agilen Arbeitsweisen. Wir erbringen sichere, robuste und resiliente Informatikleistungen für die Schweizer Armee und unsere Partner im Sicherheitsverbund Schweiz. Damit ermöglicht das Kdo Cy der Schweizer Armee den notwendigen Wissens- und Entscheidvorsprung – für eine sichere Schweiz.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "url": "https://jobs.admin.ch/offene-stellen/ict-system-ingenieur-in-senior-backend-services-communication-services/05e1d041-cd48-43f0-bf22-87670490836e",
+      "applyUrl": "https://jobs.admin.ch/offene-stellen/ict-system-ingenieur-in-senior-backend-services-communication-services/05e1d041-cd48-43f0-bf22-87670490836e",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Bern",
+        "canton": "BE"
+      },
+      "companyKey": "swiss-armed-forces-vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
+      "firstSeenAt": "2026-09-25T15:15:07.777Z",
+      "titleByLocale": {
+        "it": "Ingegnere/a Senior di Sistemi ICT (Servizi Backend di Comunicazione)",
+        "en": "ICT-System Ingenieur/-in Senior (Backend Services Communication Services)",
+        "de": "ICT-Systemingenieur/-in Senior (Backend Services Communication Services)",
+        "fr": "Ingénieur(e) Système ICT Senior (Services Backend de Communication)"
+      },
+      "descriptionByLocale": {
+        "it": "Puoi dare questo contributo\n\n- Strutturare, integrare e sviluppare ulteriormente i servizi di back-end per soluzioni di comunicazione tattiche e civili sulla piattaforma OpenShift NDP e garantirne il funzionamento sicuro e automatizzare la distribuzione, la configurazione e il testing\n\n- Progetta, integra e gestisci l'intero ciclo di vita dei servizi di sicurezza centrali come Key Management (COMSEC/TRANSEC), PKI, IAM e PAM e incorpora costantemente nell'ambiente di sistema NDP – Communication Services\n\n- Sviluppare e integrare componenti per servizi di sicurezza e test, nonché garantire il monitoraggio, la registrazione, l'allarme e l'ottimizzazione continua dei processi operativi e end-to-end\n\n- Analizzare e risolvere i guasti nell'interazione tra piattaforme e sistemi periferici, assumere il coordinamento tecnico e l'escalation nei confronti dei fornitori e pianificare e implementare modifiche, rilasci, aggiornamenti e attività del ciclo di vita\n\n- Guidare professionalmente gli ingegneri DevSecOps esterni, strutturare i compiti, rivedere e sfidare le soluzioni tecniche e stabilire standard di qualità vincolanti\n\n- Lavorare in SAFe a livello di team e Art, lavorare a stretto contatto con Product Owner, Scrum Master e Architect, tradurre e documentare i requisiti tecnici in soluzioni implementabili e utilizzare script e automazione con strumenti come Python e Ansible\n\nQuesto ti rende unico\n\n- Formazione come informatico/a",
+        "en": "You can make this contribution\n\n- Design and manage the development, integration and development of backend services for tactical and civilian communication solutions on the OpenShift platform NDP and automate their safe operation as well as deployment, configuration and 10th edition\n\n- Design, integrate and manage central security services such as Key Management (COMSEC/TRANSEC), PKI, IAM and PAM throughout their lifecycle and integrate them into the NDP – Communication Services system landscape\n\n- Develop and integrate security services and components for the development of and integration with monitoring, logging, alarming and continuous optimization of operating and end-to-end processes\n\n- Analysis and repair of interferences in the interaction between platforms and re-systems, technical coordination and escalation to suppliers, and planning and implementing the relevant development activities of the new technologies, including:\n\n- External DevSecOps Engineers conduct technical tasks, structure tasks, establish technical solutions, review and on-the-job training as well as binding quality standards\n\n- Work in SAFe at team and ART level, work closely with Product Owner, Scrum Master and Architect, transfer and document technical requirements into feasible solutions, and use scripting and automation with tools such as Python and Ansible\n\nThis makes you unique\n\n- Training as a computer scientist (EFZ/FA/FH), technician (HF) or engineer (UNI/ETH/FH) in the field of computer science or telecommunications with good knowledge in the other field and several years of experience as a Senior DevSecOps, Platform or System Engineer in complex, safety-critical environments\n\n- Very good knowledge of kubernetes/openshift, Linux, container technologies, Git, CI/CD and infrastructure/configuration as code and automation, e.g. with Ansible, Helm and Python/Shell\n\n- Wide security know-how about key management/krypto services, PKI, IAM/PAM, Secrets Management, Hardening and Vulnerability Management as well as the ability to provide specialist technical information on the challenges\n\n- Well-founded experience in platform operation, monitoring, logging and alarming and common OSS ecosystems such as ELK, Zabbix, Grafana or OpenTelemetry as well as strong competence in the end-to-end tro ROM CODE AGA\n\n- Experience with IT service management and service-now as well as incident, problem, change, configuration and life-cycle processes; safe handling of suppliers and integration of vendor-specific application services\n\n- High-level technical leadership and communication skills as well as experience in the organisation of the AAFE; ability to transform architectural, security and operational requirements into robust and automated solutions\n\nWe offer this\n\n- Working for Switzerland We are committed to the success model of Switzerland and work for the benefit of the population.\n\n- Lived diversity Thanks to equal opportunities, we develop our competences and bring different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom The Cyber Command (Kdo Cy) stands for expertise in the areas of cyber and digitalization. We combine our enthusiasm for our task with know-how, innovation, the latest technologies and the latest working methods in the area of ailburg. We provide secure, robust and eige computer science services for the Swiss army and our partners in the Swiss security network.\n\nThe Swiss Army employs over 9,000 people in four military and around 200 civilian professions – and this is done at 110 locations throughout Switzerland. Young people are also provided for: The Swiss Army trains students in over 30 professions.",
+        "de": "Diesen Beitrag kannst du leisten\n\n- Aufbau, Integration und Weiterentwicklung der Backendservices für taktische und zivile Kommunikationslösungen auf der OpenShift-Plattform NDP gestalten und deren sicheren Betrieb verantworten sowie Deployment, Konfiguration und Testing automatisieren\n\n- Zentrale Security Services wie Key Management (COMSEC/TRANSEC), PKI, IAM und PAM konzipieren, integrieren und über ihren gesamten Lifecycle verantworten sowie durchgängig in die Systemlandschaft NDP – Communication Services einbetten\n\n- Komponenten für Security Services und Testing entwickeln und integrieren sowie Monitoring, Logging, Alarming und die kontinuierliche Optimierung von Betriebs- und End-to-End-Prozessen sicherstellen\n\n- Störungen im Zusammenspiel zwischen Plattformen und Umsystemen analysieren und beheben, technische Koordination und Eskalation gegenüber Lieferanten übernehmen sowie Changes, Releases, Upgrades und Lifecycle-Aktivitäten planen und umsetzen\n\n- Externe DevSecOps Engineers fachlich führen, Aufgaben strukturieren, technische Lösungsansätze reviewen und challengen sowie verbindliche Qualitätsstandards etablieren\n\n- In SAFe auf Team- und ART-Ebene mitarbeiten, eng mit Product Owner, Scrum Master und Architect zusammenarbeiten, technische Anforderungen in umsetzbare Lösungen überführen und dokumentieren sowie Scripting und Automatisierung mit Tools wie Python und Ansible einsetzen\n\nDas macht dich einzigartig\n\n- Ausbildung als Informatiker/in (EFZ/FA/FH), Techniker/in HF oder Ingenieur/in (UNI/ETH/FH) in der Fachrichtung Informatik oder Telekommunikation mit jeweils guten Kenntnissen im anderen Bereich sowie mehrjährige Erfahrung als Senior DevSecOps-, Platform- oder System Engineer in komplexen, sicherheitskritischen Umgebungen\n\n- Sehr gute Kenntnisse von Kubernetes/OpenShift, Linux, Container-Technologien, Git, CI/CD sowie Infrastructure/Configuration as Code und Automatisierung, z. B. mit Ansible, Helm und Python/Shell\n\n- Breites Security-Know-how über Key Management/Kryptodienste, PKI, IAM/PAM, Secrets Management, Hardening und Vulnerability Management sowie Fähigkeit, Spezialist/innen fachlich zu challengen\n\n- Fundierte Erfahrung im Plattformbetrieb sowie mit Monitoring, Logging und Alarming und gängigen OSS-Ökosystemen wie ELK, Zabbix, Grafana oder OpenTelemetry sowie ausgeprägte Kompetenz im End-to-End-Troubleshooting\n\n- Erfahrung mit IT-Service-Management und ServiceNow sowie Incident-, Problem-, Change-, Configuration- und Lifecycle-Prozessen; sicher im Umgang mit Lieferanten und der Integration herstellerspezifischer Application Services\n\n- Ausgeprägte technische Leadership- und Kommunikationsfähigkeiten sowie Erfahrung in agilen/SAFe-Organisationen; Fähigkeit, Architektur-, Security- und Betriebsanforderungen in robuste und automatisierbare Lösungen zu überführen\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDas Kommando Cyber (Kdo Cy) steht für Kompetenz in den Bereichen Cyber und Digitalisierung. Wir vereinen die Begeisterung für unsere Aufgabe mit Know-how, Innovation, modernsten Technologien und agilen Arbeitsweisen. Wir erbringen sichere, robuste und resiliente Informatikleistungen für die Schweizer Armee und unsere Partner im Sicherheitsverbund Schweiz. Damit ermöglicht das Kdo Cy der Schweizer Armee den notwendigen Wissens- und Entscheidvorsprung – für eine sichere Schweiz.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
+        "fr": "Vous pouvez faire cette contribution\n\n- Concevoir et gérer le développement, l'intégration et le développement de services de relais pour les solutions de communication tactique et civile sur la plateforme OpenShift NDP et automatiser leur fonctionnement sûr ainsi que le déploiement, la configuration et la 10e édition\n\n- Concevoir, intégrer et gérer les services centraux de sécurité tels que Key Management (COMSEC/TRANSEC), PKI, IAM et PAM tout au long de leur cycle de vie et les intégrer dans le paysage des services de communication NDP\n\n- Développer et intégrer des services et des composantes de sécurité pour le développement et l'intégration avec le suivi, l'exploitation forestière, l'optimisation alarmante et continue des processus opérationnels et de bout en bout\n\n- Analyse et réparation des interférences dans l'interaction entre les plates-formes et les systèmes, coordination technique et escalade des fournisseurs, planification et mise en œuvre des activités de développement pertinentes des nouvelles technologies, y compris:\n\n- Les ingénieurs externes DevSecOps effectuent des tâches techniques, structurent les tâches, établissent des solutions techniques, examinent et suivent une formation en cours d'emploi, ainsi que des normes de qualité contraignantes\n\n- Travailler en Safe au niveau de l'équipe et de l'ART, travailler en étroite collaboration avec le propriétaire de produit, Scrum Master et Architect, transférer et documenter les exigences techniques dans des solutions réalisables, et utiliser scripting et automatisation avec des outils tels que Python et Ansible\n\nCela vous rend unique\n\n- Formation en informatique (EFZ/FA/FH), en technicien (HF) ou en ingénieur (UNI/ETH/FH) dans le domaine de l'informatique ou des télécommunications avec de bonnes connaissances dans l'autre domaine et plusieurs années d'expérience en tant que Senior DevSecops, Platform or System Engineer dans des environnements complexes et critiques pour la sécurité\n\n- Très bonne connaissance des kubernetes/openshift, Linux, des technologies de conteneur, Git, CI/CD et infrastructure/configuration comme code et automatisation, par exemple avec Ansible, Helm et Python/Shell\n\n- Large savoir-faire en matière de sécurité sur les services de gestion de clés/krytop, ICP, IAM/PAM, Gestion des secrets, Durcissement et Vulnérabilité ainsi que la capacité de fournir des informations techniques spécialisées sur les défis\n\n- Expérience bien fondée dans le fonctionnement de la plate-forme, la surveillance, l'exploitation forestière et les écosystèmes OSS alarmants et communs tels que ELK, Zabbix, Grafana ou OpenTelemetry ainsi que la compétence dans le tro ROM CODE AGA de bout en bout\n\n- Expérience de la gestion des services informatiques et des processus actuels, ainsi que des incidents, des problèmes, des changements, de la configuration et du cycle de vie; gestion sécuritaire des fournisseurs et intégration de services d'application spécifiques aux fournisseurs\n\n- Compétences techniques de haut niveau en leadership et en communication, ainsi que expérience dans l'organisation de l'AAFE; capacité de transformer les exigences architecturales, de sécurité et opérationnelles en solutions robustes et automatisées\n\nNous offrons ceci\n\n- Travailler pour la Suisse Nous sommes attachés au modèle de réussite de la Suisse et travaillons au profit de la population.\n\n- Diversité vécue Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre engagement en matière de sécurité et de liberté Le Cyber Command (Kdo Cy) est synonyme d'expertise dans les domaines de la cyber et de la numérisation. Nous combinons notre enthousiasme pour notre tâche avec le savoir-faire, l'innovation, les dernières technologies et les dernières méthodes de travail dans le domaine de l'ailburg.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 professions civiles, et ce, dans 110 localités à travers la Suisse. Les jeunes sont également pris en charge : L'armée suisse forme des étudiants dans plus de 30 professions."
+      },
+      "requirementsByLocale": {},
+      "slugByLocale": {
+        "it": "ingegnere-a-senior-di-sistemi-ict-servizi-backend-di-comunicazione-swiss-armed-forces-vtg-bern",
+        "en": "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m",
+        "de": "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m",
+        "fr": "ingenieur-e-systeme-ict-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m"
+      },
+      "sourceLang": "de",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern",
+          "ict-system-ingenieur-in-senior-backend-services-communication-services-confederazione-bern",
+          "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m",
+          "ingegnere-di-sistemi-ict-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern"
+        ],
+        "en": [
+          "ict-system-ingenieur-in-senior-backend-services-communication-services-confederazione-bern"
+        ],
+        "de": [
+          "ict-system-ingenieur-in-senior-backend-services-communication-services-confederazione-bern",
+          "ict-systemingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m"
+        ],
+        "fr": [
+          "ict-system-ingenieur-in-senior-backend-services-communication-services-confederazione-bern",
+          "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m"
+        ]
+      },
+      "previousSlugs": [
+        "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern",
+        "ict-system-ingenieur-in-senior-backend-services-communication-services-confederazione-bern",
+        "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m",
+        "ict-systemingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m",
+        "ingegnere-di-sistemi-ict-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern"
+      ],
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      },
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "needsRetranslation": true
+    },
+    {
       "id": "company-7wwgwc",
       "slug": "specialista-del-sistema-ict-junior-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
@@ -466,7 +556,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T14:55:06.779Z",
       "titleByLocale": {
         "it": "Specialista del sistema ICT Junior",
@@ -542,7 +632,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T14:55:06.779Z",
       "titleByLocale": {
         "it": "Assistente Tanker",
@@ -621,7 +711,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Impiegato/a in logistica",
@@ -708,7 +798,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Capo tiro e attività extra-servizio (SAT)",
@@ -788,7 +878,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "ICT Controller e Financial Partner",
@@ -866,7 +956,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Employes Building Company Bronschhofen",
@@ -946,7 +1036,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "DevSecOps ICT Engineer Junior",
@@ -1019,7 +1109,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Employee Building Company Dübendorf",
@@ -1111,7 +1201,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "DevSecOps ICT Engineer Professional",
@@ -1184,7 +1274,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Automeccanica veicoli commerciali",
@@ -1292,7 +1382,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "assunzione di medici presso il centro di reclutamento Rüti",
@@ -1371,7 +1461,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Motore meccanico Hinwil",
@@ -1466,7 +1556,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Imparante/r Mediamatista",
@@ -1560,7 +1650,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Stage universitario in simulazione assistita da AI",
@@ -1652,7 +1742,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Ingegnere DevOps III (Piattaforma Dati)",
@@ -1727,7 +1817,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Valutazione del Commissario DPSA",
@@ -1817,7 +1907,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Controllo personale specializzato",
@@ -1907,7 +1997,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Meccatronica automobilistica",
@@ -2002,7 +2092,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Responsabile Risikomanagement",
@@ -2093,7 +2183,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "titleByLocale": {
         "it": "Requisiti specialistici",
@@ -2187,7 +2277,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-24T00:07:07.109Z",
       "slugByLocale": {
         "it": "automeccanica-veicoli-commerciali-swiss-armed-forces-vtg-bern-d696ef",
@@ -2266,7 +2356,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Data Scientist / Analista II",
@@ -2337,7 +2427,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Sergente temporaneo: distacco operativo della donna del campo dell'unità",
@@ -2416,7 +2506,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Pianificazione dei prospetti principali",
@@ -2495,7 +2585,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Ingegneria dello Sviluppo presso la Scuola di Personale Generale",
@@ -2574,7 +2664,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Responsabile Administration/Kanzlei",
@@ -2652,7 +2742,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Personale Forza Contabilità Centro Competenza Sport",
@@ -2731,7 +2821,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Sistemi di informazione Leadership Engineer di sistema",
@@ -2810,7 +2900,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Serbatoio elettrico",
@@ -2910,7 +3000,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Specialista responsabile /-r Protezione antincendio / Gestione del veicolo operativo",
@@ -2989,7 +3079,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Specialista di processo/a nella gestione del magazzino",
@@ -3071,7 +3161,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Tirocinante universitario/a Trasformazione e Innovazione Difesa",
@@ -3149,7 +3239,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Servizio di formazione dei comandi di controllo specializzato della Forza (FDT)",
@@ -3228,7 +3318,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Operazioni di costruzione Kloten",
@@ -3306,7 +3396,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Apprentice/specialist Manutenzione operativa EFZ, specializzazione in servizio domestico",
@@ -3397,7 +3487,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Meccanica",
@@ -3480,7 +3570,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Operazioni di personale",
@@ -3569,7 +3659,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Chef/-in Aktionen CESA",
@@ -3648,7 +3738,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Elektriker/-in / Spezialist/-in Elektrotechnik",
@@ -3734,7 +3824,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Serbatoio meccatronica veicoli pesanti",
@@ -3813,7 +3903,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Tecnici automobilistici meccatronici",
@@ -3892,7 +3982,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Responsabile entreprise architecture",
@@ -3963,7 +4053,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Consulente ICT Professionista",
@@ -4044,7 +4134,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "ICT system engineer IAM (Identity & Access Management)",
@@ -4123,7 +4213,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-11T13:51:25.247Z",
       "titleByLocale": {
         "it": "Meccatronica automobilistica veicoli pesanti 1",
@@ -4205,7 +4295,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Personale scientifico per l'analisi militare e dell'intelligenza",
@@ -4277,7 +4367,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-11T13:51:25.247Z",
       "titleByLocale": {
         "it": "Meccanica delle apparecchiature di trasmissione",
@@ -4366,7 +4456,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Coordinatore/Coordinatrice degli Ordini – Comando Operazioni",
@@ -4448,7 +4538,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Specialista in ordnance smaltimento",
@@ -4527,7 +4617,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Ingegnere di sistema ICT (DevSecOps / Platform Automation)",
@@ -4603,7 +4693,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Ristabilimento delle attrezzature personali del personale",
@@ -4681,7 +4771,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-09T14:03:37.629Z",
       "titleByLocale": {
         "it": "Qualità, Ambiente, Sicurezza (QUS) Supporto",
@@ -4760,7 +4850,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-09T23:24:24.211Z",
       "titleByLocale": {
         "it": "Specialista di sistema (informatics engineer) sistema del drone di ricognizione",
@@ -4841,7 +4931,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-10T23:24:10.000Z",
       "titleByLocale": {
         "it": "Impiegato/a in logistica Vorortlager",
@@ -4942,7 +5032,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Narrow nasle magazzino logistica",
@@ -5020,7 +5110,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "elettricisti-confederazione-svizzera-othmarsingen-ag",
@@ -5083,7 +5173,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "trasmissione-telematica-confederazione-svizzera-othmarsingen-ag",
@@ -5146,7 +5236,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "operazione-dei-dipendenti-mels-confederazione-svizzera-mels",
@@ -5209,7 +5299,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "chef-in-uem-komm-elo-systeme-allg-we-swiss-armed-forces-vtg-bern-9cbroy",
@@ -5284,7 +5374,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "operazioni-di-personale-swiss-armed-forces-vtg-bern",
@@ -5363,7 +5453,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "gestore-di-manutenzione-confederazione-svizzera-bern",
@@ -5426,7 +5516,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "chef-in-fuhrungsanlagen-raum-bern-stv-chef-swiss-armed-forces-vtg-bern-r2mifn",
@@ -5501,7 +5591,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "responsabile-op-infra-dlp-planer-in-confederazione-svizzera-bern",
@@ -5564,7 +5654,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "personale-scientifico-in-j23-operazioni-confederazione-svizzera-bern",
@@ -5627,7 +5717,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "specialista-in-diritto-dell-educazione-confederazione-svizzera-bern",
@@ -5690,7 +5780,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "meccanica-delle-armi-aereo-confederazione-svizzera-payerne",
@@ -5753,7 +5843,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "meccanico-dell-aviazione-confederazione-svizzera-payerne",
@@ -5816,7 +5906,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "meccanica-confederazione-svizzera-payerne",
@@ -5879,7 +5969,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "specialist-in-management-gestione-dei-modelli-confederazione-svizzera-bern",
@@ -5942,7 +6032,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Centro di reclutamento per esperti sportivi Rüti (15%)",
@@ -6021,7 +6111,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Ingegnere di sistema per operazioni elettroniche (progetti)",
@@ -6103,7 +6193,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Consulenti HR",
@@ -6191,7 +6281,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "professionista-in-sviluppo-delle-forze-armate-confederazione-svizzera-bern",
@@ -6277,7 +6367,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "invio-principale-in-techn-personale-equipe-confederazione-svizzera-dubendorf",
@@ -6340,7 +6430,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "commissario-con-funzione-di-collegamento-confederazione-svizzera-bern",
@@ -6402,7 +6492,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-01T14:25:39.484Z",
       "titleByLocale": {
         "it": "Dottor Recruitment presso Mels Recruitment Center",
@@ -6505,7 +6595,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-01T23:27:26.191Z",
       "titleByLocale": {
         "it": "Tecnologia di trasporto specializzata",
@@ -6606,7 +6696,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Domotics/Digitalization/Building Automation",
@@ -6685,7 +6775,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-gebaudebetrieb-confederazione-svizzera-payerne",
@@ -6748,7 +6838,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-08-28T05:33:19.805Z",
       "titleByLocale": {
         "it": "Ingegnere Reconnaissance Drone System (ADS)",
@@ -6837,7 +6927,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "gestione-del-processo-core-in-stock-confederazione-svizzera-ittigen",
@@ -6900,7 +6990,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "air-force-engineer-c2air-system-florako-confederazione-svizzera-dubendorf",
@@ -6950,8 +7040,7 @@
       "addressLocality": "Bern",
       "addressRegion": "ZH",
       "salaryMin": 83000,
-      "salaryMax": 126000,
-      "needsRetranslation": true
+      "salaryMax": 126000
     },
     {
       "id": "company-olf081",
@@ -6977,7 +7066,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Jet meccanico / Automatic Air Force",
@@ -7056,7 +7145,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "serbatoio-meccatronici-tecnici-veicoli-tracciati-leggeri-confederazione-svizzera-hinwil",
@@ -7119,7 +7208,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "portfolio-manager-in-cer-ict-confederazione-svizzera-bern",
@@ -7182,7 +7271,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Personale del progetto di ricerca per la didattica Studi Strategici (MILAK)",
@@ -7260,7 +7349,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "case-handler-in-negozi-assistenza-dcos-support-confederazione-svizzera-bern",
@@ -7323,7 +7412,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "serbatoio-meccatronici-ingegneri-in-veicoli-pesanti-confederazione-svizzera-hinwil",
@@ -7386,7 +7475,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-08-26T10:13:55.322Z",
       "titleByLocale": {
         "it": "Supporto per la formazione",
@@ -7466,7 +7555,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-in-logistica-cfc-berufsfeld-magazzino-confederazione-svizzera-brenzikofen",
@@ -7529,7 +7618,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Apprentice specialista di meccatronica automobilistica EFZ, specializzato in veicoli commerciali",
@@ -7610,7 +7699,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-confederazione-svizzera-bern",
@@ -7681,7 +7770,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprentice-specialista-automobilistico-efz-specializzato-in-autovetture-swiss-armed-forces-vtg-bern",
@@ -7754,7 +7843,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-informatiker-in-specializzazione-plattformentwicklung-confederazione-svizzera-bern",
@@ -7817,7 +7906,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-in-logistica-cfc-berufsfeld-magazzino-sgl-confederazione-svizzera-hinwil",
@@ -7880,7 +7969,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne-261711",
@@ -7943,7 +8032,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "3 Apprendimento meccanico meccatronica specialista EFZ, specializzata in autovetture",
@@ -8014,7 +8103,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Apprendista commerciante AFC (insegnamento sportivo / insegnamento musicale)",
@@ -8089,7 +8178,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Apprendista Specialista in trasporti stradali CFC",
@@ -8168,7 +8257,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "3 Apprendimento meccanico meccatronica specialista EFZ, campo di veicoli commerciali",
@@ -8239,7 +8328,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "2 Apprendista Logistiker/-innen CFC, specializzazione magazzino",
@@ -8312,7 +8401,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-koch-kochin-cfc-confederazione-svizzera-payerne-vd",
@@ -8375,7 +8464,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "3 Apprendista Logistiker/-innen CFC, specializzazione magazzino",
@@ -8448,7 +8537,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Apprendista EFZ Mediamatori",
@@ -8519,7 +8608,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-in-logistica-cfc-berufsfeld-magazzino-erla-confederazione-svizzera-hinwil",
@@ -8582,7 +8671,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Apparecchio polimeccanico EFZ",
@@ -8663,7 +8752,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Apprendista/Merchant EFZ",
@@ -8746,7 +8835,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-confederazione-svizzera-ittigen",
@@ -8809,7 +8898,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-confederazione-svizzera-thun",
@@ -8872,7 +8961,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-nutzfahrzeuge-confederazione-svizzera-bern",
@@ -8935,7 +9024,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-in-logistica-cfc-berufsfeld-magazzino-confederazione-svizzera-thun",
@@ -8998,7 +9087,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-specialista-in-trasporti-stradali-cfc-confederazione-svizzera-thun",
@@ -9061,7 +9150,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-polymechaniker-in-cfc-confederazione-svizzera-meiringen",
@@ -9124,7 +9213,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
@@ -9195,7 +9284,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-koch-kochin-cfc-confederazione-svizzera-wangen-an-der-aare",
@@ -9258,7 +9347,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-koch-kochin-cfc-confederazione-svizzera-bremgarten",
@@ -9321,7 +9410,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
@@ -9384,7 +9473,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-confederazione-svizzera-othmarsingen",
@@ -9447,7 +9536,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
@@ -9518,7 +9607,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-specialista-in-trasporti-stradali-cfc-confederazione-svizzera-othmarsingen",
@@ -9581,7 +9670,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-polymechaniker-in-cfc-confederazione-svizzera-payerne",
@@ -9644,7 +9733,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-specialista-in-trasporti-stradali-cfc-confederazione-svizzera-hinwil",
@@ -9707,7 +9796,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "3-apprendista-automobil-mechatroniker-innen-cfc-specializzazione-nutzfahrzeuge-swiss-armed-forces-vtg-bern-950shs",
@@ -9770,7 +9859,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-bern-9yfl64",
@@ -9833,7 +9922,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "slugByLocale": {
         "it": "apparecchio-merchant-efz-swiss-armed-forces-vtg-bern",
         "en": "apprentice-merchant-efz-swiss-armed-forces-vtg-bern-44680f",
@@ -9895,7 +9984,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-mediamatiker-in-cfc-confederazione-svizzera-bern-03f757",
@@ -9958,7 +10047,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
@@ -10029,7 +10118,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-in-logistica-cfc-berufsfeld-magazzino-swiss-armed-forces-vtg-bern-563xqi",
@@ -10092,7 +10181,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
@@ -10163,7 +10252,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-in-logistica-cfc-berufsfeld-magazzino-swiss-armed-forces-vtg-bern-b1yojb",
@@ -10226,7 +10315,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-26T14:23:07.478Z",
       "slugByLocale": {
         "it": "apprendista-koch-kochin-cfc-swiss-armed-forces-vtg-bern-pi3gq2",
@@ -10289,7 +10378,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "2 Imparare i commercianti EFZ, Servizio e Amministrazione",
@@ -10354,7 +10443,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
@@ -10445,7 +10534,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-sergente-professionista-swiss-armed-forces-vtg-bern",
@@ -10547,7 +10636,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne",
@@ -10605,7 +10694,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Chief Medical Officer",
@@ -10681,7 +10770,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Meccatronica automobilistica specializzata in veicoli commerciali",
@@ -10754,7 +10843,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Dottore",
@@ -10828,7 +10917,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Auto con conducente / camion",
@@ -10907,7 +10996,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
         "it": "apprendista-elektroniker-in-cfc-confederazione-svizzera-lehrbeginn-august-2024-payerne",
@@ -10977,7 +11066,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Demining umanitario nel campo della logistica",
@@ -11051,7 +11140,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Missioni promotrici di pace all'estero",
@@ -11124,7 +11213,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Esperto militare delle Nazioni Unite in missione",
@@ -11196,7 +11285,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "ISR Battalion Staff Officers",
@@ -11265,7 +11354,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Ufficio dei visitatori congiunti",
@@ -11339,7 +11428,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Ufficiale di Stato Maggiore Operativo Attuale",
@@ -11410,7 +11499,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Valutazione dell'ufficiale del personale (valutazione dell'SO)",
@@ -11488,7 +11577,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Gruppo di supporto logistico congiunto (LNO JLSG)",
@@ -11554,7 +11643,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Polizia Militare Multinazionale (MNMP)",
@@ -11625,7 +11714,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "titleByLocale": {
         "it": "Chef/in Tactical Effects Center (Chief TEC)",
@@ -11698,7 +11787,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
@@ -11805,7 +11894,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "driver-assistente-di-trasporto-swiss-armed-forces-vtg-bern",
@@ -11900,7 +11989,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
@@ -11996,7 +12085,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "agenti-del-personale-hq-kfor-swiss-armed-forces-vtg-bern",
@@ -12036,7 +12125,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "logistics-department-swiss-armed-forces-vtg-bellinzona",
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern",
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur",
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9",
@@ -12055,7 +12143,8 @@
           "scientific-industry-staff-swiss-armed-forces-vtg-bern",
           "personnel-scientifique-industriel-swiss-armed-forces-vtg-bern",
           "wissenschaftliche-r-collaboratore-trice-in-swiss-armed-forces-vtg-bern-gt0ems",
-          "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur"
+          "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur",
+          "logistics-department-swiss-armed-forces-vtg-bellinzona"
         ],
         "en": [
           "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
@@ -12126,7 +12215,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "camion-automobile-meccatronica-tecnico-swiss-armed-forces-vtg-bern",
@@ -12228,7 +12317,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-09T22:31:05.681Z",
       "slugByLocale": {
         "it": "pioneer-maurer-m-f-swiss-armed-forces-vtg-bern",
@@ -12300,7 +12389,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-aller-stufen-im-bereich-hoch-genio-civile-swiss-armed-forces-vtg-bern-6iaf9o",
@@ -12393,7 +12482,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern",
@@ -12512,7 +12601,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
@@ -12622,7 +12711,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "trasmissione-specialista-informatica-swiss-armed-forces-vtg-bern",
@@ -12716,7 +12805,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "offiziere-per-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
@@ -12811,7 +12900,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "personale-militare-m-f-swiss-armed-forces-vtg-bern",
@@ -12912,7 +13001,7 @@
       },
       "companyKey": "swiss-armed-forces-vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-28T03:40:42.281Z",
+      "crawledAt": "2026-09-28T05:14:42.013Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "osservatore-lmt-lot-m-w-swiss-armed-forces-vtg-bern",
@@ -12999,301 +13088,6 @@
       "applyUrl": "https://jobs.admin.ch/offene-stellen/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783",
       "salaryMin": 68500,
       "salaryMax": 104000
-    },
-    {
-      "id": "company-qtu91m",
-      "slug": "ingegnere-a-senior-di-sistemi-ict-servizi-backend-di-comunicazione-swiss-armed-forces-vtg-bern",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "ICT-System Ingenieur/-in Senior (Backend Services Communication Services)",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag kannst du leisten\n\n- Aufbau, Integration und Weiterentwicklung der Backendservices für taktische und zivile Kommunikationslösungen auf der OpenShift-Plattform NDP gestalten und deren sicheren Betrieb verantworten sowie Deployment, Konfiguration und Testing automatisieren\n\n- Zentrale Security Services wie Key Management (COMSEC/TRANSEC), PKI, IAM und PAM konzipieren, integrieren und über ihren gesamten Lifecycle verantworten sowie durchgängig in die Systemlandschaft NDP – Communication Services einbetten\n\n- Komponenten für Security Services und Testing entwickeln und integrieren sowie Monitoring, Logging, Alarming und die kontinuierliche Optimierung von Betriebs- und End-to-End-Prozessen sicherstellen\n\n- Störungen im Zusammenspiel zwischen Plattformen und Umsystemen analysieren und beheben, technische Koordination und Eskalation gegenüber Lieferanten übernehmen sowie Changes, Releases, Upgrades und Lifecycle-Aktivitäten planen und umsetzen\n\n- Externe DevSecOps Engineers fachlich führen, Aufgaben strukturieren, technische Lösungsansätze reviewen und challengen sowie verbindliche Qualitätsstandards etablieren\n\n- In SAFe auf Team- und ART-Ebene mitarbeiten, eng mit Product Owner, Scrum Master und Architect zusammenarbeiten, technische Anforderungen in umsetzbare Lösungen überführen und dokumentieren sowie Scripting und Automatisierung mit Tools wie Python und Ansible einsetzen\n\nDas macht dich einzigartig\n\n- Ausbildung als Informatiker/in (EFZ/FA/FH), Techniker/in HF oder Ingenieur/in (UNI/ETH/FH) in der Fachrichtung Informatik oder Telekommunikation mit jeweils guten Kenntnissen im anderen Bereich sowie mehrjährige Erfahrung als Senior DevSecOps-, Platform- oder System Engineer in komplexen, sicherheitskritischen Umgebungen\n\n- Sehr gute Kenntnisse von Kubernetes/OpenShift, Linux, Container-Technologien, Git, CI/CD sowie Infrastructure/Configuration as Code und Automatisierung, z. B. mit Ansible, Helm und Python/Shell\n\n- Breites Security-Know-how über Key Management/Kryptodienste, PKI, IAM/PAM, Secrets Management, Hardening und Vulnerability Management sowie Fähigkeit, Spezialist/innen fachlich zu challengen\n\n- Fundierte Erfahrung im Plattformbetrieb sowie mit Monitoring, Logging und Alarming und gängigen OSS-Ökosystemen wie ELK, Zabbix, Grafana oder OpenTelemetry sowie ausgeprägte Kompetenz im End-to-End-Troubleshooting\n\n- Erfahrung mit IT-Service-Management und ServiceNow sowie Incident-, Problem-, Change-, Configuration- und Lifecycle-Prozessen; sicher im Umgang mit Lieferanten und der Integration herstellerspezifischer Application Services\n\n- Ausgeprägte technische Leadership- und Kommunikationsfähigkeiten sowie Erfahrung in agilen/SAFe-Organisationen; Fähigkeit, Architektur-, Security- und Betriebsanforderungen in robuste und automatisierbare Lösungen zu überführen\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDas Kommando Cyber (Kdo Cy) steht für Kompetenz in den Bereichen Cyber und Digitalisierung. Wir vereinen die Begeisterung für unsere Aufgabe mit Know-how, Innovation, modernsten Technologien und agilen Arbeitsweisen. Wir erbringen sichere, robuste und resiliente Informatikleistungen für die Schweizer Armee und unsere Partner im Sicherheitsverbund Schweiz. Damit ermöglicht das Kdo Cy der Schweizer Armee den notwendigen Wissens- und Entscheidvorsprung – für eine sichere Schweiz.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "url": "https://jobs.admin.ch/offene-stellen/ict-system-ingenieur-in-senior-backend-services-communication-services/05e1d041-cd48-43f0-bf22-87670490836e",
-      "applyUrl": "https://jobs.admin.ch/offene-stellen/ict-system-ingenieur-in-senior-backend-services-communication-services/05e1d041-cd48-43f0-bf22-87670490836e",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Bern",
-        "canton": "BE"
-      },
-      "companyKey": "swiss-armed-forces-vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-27T15:22:19.960Z",
-      "firstSeenAt": "2026-09-25T15:15:07.777Z",
-      "titleByLocale": {
-        "it": "Ingegnere/a Senior di Sistemi ICT (Servizi Backend di Comunicazione)",
-        "en": "ICT-System Ingenieur/-in Senior (Backend Services Communication Services)",
-        "de": "ICT-Systemingenieur/-in Senior (Backend Services Communication Services)",
-        "fr": "Ingénieur(e) Système ICT Senior (Services Backend de Communication)"
-      },
-      "descriptionByLocale": {
-        "it": "Puoi dare questo contributo\n\n- Strutturare, integrare e sviluppare ulteriormente i servizi di back-end per soluzioni di comunicazione tattiche e civili sulla piattaforma OpenShift NDP e garantirne il funzionamento sicuro e automatizzare la distribuzione, la configurazione e il testing\n\n- Progetta, integra e gestisci l'intero ciclo di vita dei servizi di sicurezza centrali come Key Management (COMSEC/TRANSEC), PKI, IAM e PAM e incorpora costantemente nell'ambiente di sistema NDP – Communication Services\n\n- Sviluppare e integrare componenti per servizi di sicurezza e test, nonché garantire il monitoraggio, la registrazione, l'allarme e l'ottimizzazione continua dei processi operativi e end-to-end\n\n- Analizzare e risolvere i guasti nell'interazione tra piattaforme e sistemi periferici, assumere il coordinamento tecnico e l'escalation nei confronti dei fornitori e pianificare e implementare modifiche, rilasci, aggiornamenti e attività del ciclo di vita\n\n- Guidare professionalmente gli ingegneri DevSecOps esterni, strutturare i compiti, rivedere e sfidare le soluzioni tecniche e stabilire standard di qualità vincolanti\n\n- Lavorare in SAFe a livello di team e Art, lavorare a stretto contatto con Product Owner, Scrum Master e Architect, tradurre e documentare i requisiti tecnici in soluzioni implementabili e utilizzare script e automazione con strumenti come Python e Ansible\n\nQuesto ti rende unico\n\n- Formazione come informatico/a",
-        "en": "You can make this contribution\n\n- Design and manage the development, integration and development of backend services for tactical and civilian communication solutions on the OpenShift platform NDP and automate their safe operation as well as deployment, configuration and 10th edition\n\n- Design, integrate and manage central security services such as Key Management (COMSEC/TRANSEC), PKI, IAM and PAM throughout their lifecycle and integrate them into the NDP – Communication Services system landscape\n\n- Develop and integrate security services and components for the development of and integration with monitoring, logging, alarming and continuous optimization of operating and end-to-end processes\n\n- Analysis and repair of interferences in the interaction between platforms and re-systems, technical coordination and escalation to suppliers, and planning and implementing the relevant development activities of the new technologies, including:\n\n- External DevSecOps Engineers conduct technical tasks, structure tasks, establish technical solutions, review and on-the-job training as well as binding quality standards\n\n- Work in SAFe at team and ART level, work closely with Product Owner, Scrum Master and Architect, transfer and document technical requirements into feasible solutions, and use scripting and automation with tools such as Python and Ansible\n\nThis makes you unique\n\n- Training as a computer scientist (EFZ/FA/FH), technician (HF) or engineer (UNI/ETH/FH) in the field of computer science or telecommunications with good knowledge in the other field and several years of experience as a Senior DevSecOps, Platform or System Engineer in complex, safety-critical environments\n\n- Very good knowledge of kubernetes/openshift, Linux, container technologies, Git, CI/CD and infrastructure/configuration as code and automation, e.g. with Ansible, Helm and Python/Shell\n\n- Wide security know-how about key management/krypto services, PKI, IAM/PAM, Secrets Management, Hardening and Vulnerability Management as well as the ability to provide specialist technical information on the challenges\n\n- Well-founded experience in platform operation, monitoring, logging and alarming and common OSS ecosystems such as ELK, Zabbix, Grafana or OpenTelemetry as well as strong competence in the end-to-end tro ROM CODE AGA\n\n- Experience with IT service management and service-now as well as incident, problem, change, configuration and life-cycle processes; safe handling of suppliers and integration of vendor-specific application services\n\n- High-level technical leadership and communication skills as well as experience in the organisation of the AAFE; ability to transform architectural, security and operational requirements into robust and automated solutions\n\nWe offer this\n\n- Working for Switzerland We are committed to the success model of Switzerland and work for the benefit of the population.\n\n- Lived diversity Thanks to equal opportunities, we develop our competences and bring different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom The Cyber Command (Kdo Cy) stands for expertise in the areas of cyber and digitalization. We combine our enthusiasm for our task with know-how, innovation, the latest technologies and the latest working methods in the area of ailburg. We provide secure, robust and eige computer science services for the Swiss army and our partners in the Swiss security network.\n\nThe Swiss Army employs over 9,000 people in four military and around 200 civilian professions – and this is done at 110 locations throughout Switzerland. Young people are also provided for: The Swiss Army trains students in over 30 professions.",
-        "de": "Diesen Beitrag kannst du leisten\n\n- Aufbau, Integration und Weiterentwicklung der Backendservices für taktische und zivile Kommunikationslösungen auf der OpenShift-Plattform NDP gestalten und deren sicheren Betrieb verantworten sowie Deployment, Konfiguration und Testing automatisieren\n\n- Zentrale Security Services wie Key Management (COMSEC/TRANSEC), PKI, IAM und PAM konzipieren, integrieren und über ihren gesamten Lifecycle verantworten sowie durchgängig in die Systemlandschaft NDP – Communication Services einbetten\n\n- Komponenten für Security Services und Testing entwickeln und integrieren sowie Monitoring, Logging, Alarming und die kontinuierliche Optimierung von Betriebs- und End-to-End-Prozessen sicherstellen\n\n- Störungen im Zusammenspiel zwischen Plattformen und Umsystemen analysieren und beheben, technische Koordination und Eskalation gegenüber Lieferanten übernehmen sowie Changes, Releases, Upgrades und Lifecycle-Aktivitäten planen und umsetzen\n\n- Externe DevSecOps Engineers fachlich führen, Aufgaben strukturieren, technische Lösungsansätze reviewen und challengen sowie verbindliche Qualitätsstandards etablieren\n\n- In SAFe auf Team- und ART-Ebene mitarbeiten, eng mit Product Owner, Scrum Master und Architect zusammenarbeiten, technische Anforderungen in umsetzbare Lösungen überführen und dokumentieren sowie Scripting und Automatisierung mit Tools wie Python und Ansible einsetzen\n\nDas macht dich einzigartig\n\n- Ausbildung als Informatiker/in (EFZ/FA/FH), Techniker/in HF oder Ingenieur/in (UNI/ETH/FH) in der Fachrichtung Informatik oder Telekommunikation mit jeweils guten Kenntnissen im anderen Bereich sowie mehrjährige Erfahrung als Senior DevSecOps-, Platform- oder System Engineer in komplexen, sicherheitskritischen Umgebungen\n\n- Sehr gute Kenntnisse von Kubernetes/OpenShift, Linux, Container-Technologien, Git, CI/CD sowie Infrastructure/Configuration as Code und Automatisierung, z. B. mit Ansible, Helm und Python/Shell\n\n- Breites Security-Know-how über Key Management/Kryptodienste, PKI, IAM/PAM, Secrets Management, Hardening und Vulnerability Management sowie Fähigkeit, Spezialist/innen fachlich zu challengen\n\n- Fundierte Erfahrung im Plattformbetrieb sowie mit Monitoring, Logging und Alarming und gängigen OSS-Ökosystemen wie ELK, Zabbix, Grafana oder OpenTelemetry sowie ausgeprägte Kompetenz im End-to-End-Troubleshooting\n\n- Erfahrung mit IT-Service-Management und ServiceNow sowie Incident-, Problem-, Change-, Configuration- und Lifecycle-Prozessen; sicher im Umgang mit Lieferanten und der Integration herstellerspezifischer Application Services\n\n- Ausgeprägte technische Leadership- und Kommunikationsfähigkeiten sowie Erfahrung in agilen/SAFe-Organisationen; Fähigkeit, Architektur-, Security- und Betriebsanforderungen in robuste und automatisierbare Lösungen zu überführen\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDas Kommando Cyber (Kdo Cy) steht für Kompetenz in den Bereichen Cyber und Digitalisierung. Wir vereinen die Begeisterung für unsere Aufgabe mit Know-how, Innovation, modernsten Technologien und agilen Arbeitsweisen. Wir erbringen sichere, robuste und resiliente Informatikleistungen für die Schweizer Armee und unsere Partner im Sicherheitsverbund Schweiz. Damit ermöglicht das Kdo Cy der Schweizer Armee den notwendigen Wissens- und Entscheidvorsprung – für eine sichere Schweiz.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "fr": "Vous pouvez faire cette contribution\n\n- Concevoir et gérer le développement, l'intégration et le développement de services de relais pour les solutions de communication tactique et civile sur la plateforme OpenShift NDP et automatiser leur fonctionnement sûr ainsi que le déploiement, la configuration et la 10e édition\n\n- Concevoir, intégrer et gérer les services centraux de sécurité tels que Key Management (COMSEC/TRANSEC), PKI, IAM et PAM tout au long de leur cycle de vie et les intégrer dans le paysage des services de communication NDP\n\n- Développer et intégrer des services et des composantes de sécurité pour le développement et l'intégration avec le suivi, l'exploitation forestière, l'optimisation alarmante et continue des processus opérationnels et de bout en bout\n\n- Analyse et réparation des interférences dans l'interaction entre les plates-formes et les systèmes, coordination technique et escalade des fournisseurs, planification et mise en œuvre des activités de développement pertinentes des nouvelles technologies, y compris:\n\n- Les ingénieurs externes DevSecOps effectuent des tâches techniques, structurent les tâches, établissent des solutions techniques, examinent et suivent une formation en cours d'emploi, ainsi que des normes de qualité contraignantes\n\n- Travailler en Safe au niveau de l'équipe et de l'ART, travailler en étroite collaboration avec le propriétaire de produit, Scrum Master et Architect, transférer et documenter les exigences techniques dans des solutions réalisables, et utiliser scripting et automatisation avec des outils tels que Python et Ansible\n\nCela vous rend unique\n\n- Formation en informatique (EFZ/FA/FH), en technicien (HF) ou en ingénieur (UNI/ETH/FH) dans le domaine de l'informatique ou des télécommunications avec de bonnes connaissances dans l'autre domaine et plusieurs années d'expérience en tant que Senior DevSecops, Platform or System Engineer dans des environnements complexes et critiques pour la sécurité\n\n- Très bonne connaissance des kubernetes/openshift, Linux, des technologies de conteneur, Git, CI/CD et infrastructure/configuration comme code et automatisation, par exemple avec Ansible, Helm et Python/Shell\n\n- Large savoir-faire en matière de sécurité sur les services de gestion de clés/krytop, ICP, IAM/PAM, Gestion des secrets, Durcissement et Vulnérabilité ainsi que la capacité de fournir des informations techniques spécialisées sur les défis\n\n- Expérience bien fondée dans le fonctionnement de la plate-forme, la surveillance, l'exploitation forestière et les écosystèmes OSS alarmants et communs tels que ELK, Zabbix, Grafana ou OpenTelemetry ainsi que la compétence dans le tro ROM CODE AGA de bout en bout\n\n- Expérience de la gestion des services informatiques et des processus actuels, ainsi que des incidents, des problèmes, des changements, de la configuration et du cycle de vie; gestion sécuritaire des fournisseurs et intégration de services d'application spécifiques aux fournisseurs\n\n- Compétences techniques de haut niveau en leadership et en communication, ainsi que expérience dans l'organisation de l'AAFE; capacité de transformer les exigences architecturales, de sécurité et opérationnelles en solutions robustes et automatisées\n\nNous offrons ceci\n\n- Travailler pour la Suisse Nous sommes attachés au modèle de réussite de la Suisse et travaillons au profit de la population.\n\n- Diversité vécue Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre engagement en matière de sécurité et de liberté Le Cyber Command (Kdo Cy) est synonyme d'expertise dans les domaines de la cyber et de la numérisation. Nous combinons notre enthousiasme pour notre tâche avec le savoir-faire, l'innovation, les dernières technologies et les dernières méthodes de travail dans le domaine de l'ailburg.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 professions civiles, et ce, dans 110 localités à travers la Suisse. Les jeunes sont également pris en charge : L'armée suisse forme des étudiants dans plus de 30 professions."
-      },
-      "requirementsByLocale": {},
-      "slugByLocale": {
-        "it": "ingegnere-a-senior-di-sistemi-ict-servizi-backend-di-comunicazione-swiss-armed-forces-vtg-bern",
-        "en": "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m",
-        "de": "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m",
-        "fr": "ingenieur-e-systeme-ict-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m"
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern",
-          "ict-system-ingenieur-in-senior-backend-services-communication-services-confederazione-bern",
-          "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m",
-          "ingegnere-di-sistemi-ict-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern"
-        ],
-        "en": [
-          "ict-system-ingenieur-in-senior-backend-services-communication-services-confederazione-bern"
-        ],
-        "de": [
-          "ict-system-ingenieur-in-senior-backend-services-communication-services-confederazione-bern",
-          "ict-systemingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m"
-        ],
-        "fr": [
-          "ict-system-ingenieur-in-senior-backend-services-communication-services-confederazione-bern",
-          "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m"
-        ]
-      },
-      "previousSlugs": [
-        "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern",
-        "ict-system-ingenieur-in-senior-backend-services-communication-services-confederazione-bern",
-        "ict-system-ingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m",
-        "ict-systemingenieur-in-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern-qtu91m",
-        "ingegnere-di-sistemi-ict-senior-backend-services-communication-services-swiss-armed-forces-vtg-bern"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 192000,
-          "unitText": "YEAR"
-        }
-      },
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "salaryMin": 113000,
-      "salaryMax": 192000
-    },
-    {
-      "id": "company-bfr5kr",
-      "slug": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Übermittlungsgerätemechaniker/-in",
-      "location": "Bern",
-      "canton": "SG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag kannst du leisten\n\n- Instandhaltungs- und Wartungsarbeiten an sämtlichen Kommunikationssystemen und Systemfahrzeugen selbständig bearbeiten\n\n- Einsätze als Fachspezialist/-in bei der Materialübernahme und -rücknahme der Truppe an verschiedenen Standorten durchführen\n\n- Elektrokontrollen an Kommunikationssystemen durchführen\n\n- Logistische Arbeiten im Bereich der Materialwirtschaft durchführen\n\n- Fachtechnische Unterstützung für die Truppe gewährleisten\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufslehre als Multimediaelektroniker/-in, Elektroniker/-in, Telematiker-/in, Elektriker/-in, Elektromonteur/-in oder verwandte Berufe\n\n- Führerausweis der Kat B\n\n- Strukturierte und lösungsorientierte Arbeitsweise\n\n- MS Office und SAP-Kenntnisse\n\n- Ausgeprägte Kundenorientierung im technischen Umfeld und im Umgang mit Dritten\n\n- Zuverlässige Arbeitsweise und bewusster Umgang mit den verfügbaren Ressourcen\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "url": "https://jobs.admin.ch/offene-stellen/uebermittlungsgeraetemechaniker-in/46c6de84-36d0-45a4-8411-ac67d099c6d5",
-      "applyUrl": "https://jobs.admin.ch/offene-stellen/uebermittlungsgeraetemechaniker-in/46c6de84-36d0-45a4-8411-ac67d099c6d5",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Mels",
-        "canton": "SG"
-      },
-      "companyKey": "swiss-armed-forces-vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-27T15:22:19.960Z",
-      "firstSeenAt": "2026-09-11T13:51:25.247Z",
-      "slugByLocale": {
-        "it": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern",
-        "en": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern",
-        "de": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-bfr5kr",
-        "fr": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern"
-      },
-      "titleByLocale": {
-        "it": "Übermittlungsgerätemechaniker/-in",
-        "en": "Übermittlungsgerätemechaniker/-in",
-        "de": "Übermittlungsgerätemechaniker/-in",
-        "fr": "Übermittlungsgerätemechaniker/-in"
-      },
-      "descriptionByLocale": {
-        "it": "Diesen Beitrag kannst du leisten\n\n- Instandhaltungs- und Wartungsarbeiten an sämtlichen Kommunikationssystemen und Systemfahrzeugen selbständig bearbeiten\n\n- Einsätze als Fachspezialist/-in bei der Materialübernahme und -rücknahme der Truppe an verschiedenen Standorten durchführen\n\n- Elektrokontrollen an Kommunikationssystemen durchführen\n\n- Logistische Arbeiten im Bereich der Materialwirtschaft durchführen\n\n- Fachtechnische Unterstützung für die Truppe gewährleisten\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufslehre als Multimediaelektroniker/-in, Elektroniker/-in, Telematiker-/in, Elektriker/-in, Elektromonteur/-in oder verwandte Berufe\n\n- Führerausweis der Kat B\n\n- Strukturierte und lösungsorientierte Arbeitsweise\n\n- MS Office und SAP-Kenntnisse\n\n- Ausgeprägte Kundenorientierung im technischen Umfeld und im Umgang mit Dritten\n\n- Zuverlässige Arbeitsweise und bewusster Umgang mit den verfügbaren Ressourcen\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "en": "Diesen Beitrag kannst du leisten\n\n- Instandhaltungs- und Wartungsarbeiten an sämtlichen Kommunikationssystemen und Systemfahrzeugen selbständig bearbeiten\n\n- Einsätze als Fachspezialist/-in bei der Materialübernahme und -rücknahme der Truppe an verschiedenen Standorten durchführen\n\n- Elektrokontrollen an Kommunikationssystemen durchführen\n\n- Logistische Arbeiten im Bereich der Materialwirtschaft durchführen\n\n- Fachtechnische Unterstützung für die Truppe gewährleisten\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufslehre als Multimediaelektroniker/-in, Elektroniker/-in, Telematiker-/in, Elektriker/-in, Elektromonteur/-in oder verwandte Berufe\n\n- Führerausweis der Kat B\n\n- Strukturierte und lösungsorientierte Arbeitsweise\n\n- MS Office und SAP-Kenntnisse\n\n- Ausgeprägte Kundenorientierung im technischen Umfeld und im Umgang mit Dritten\n\n- Zuverlässige Arbeitsweise und bewusster Umgang mit den verfügbaren Ressourcen\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "de": "Diesen Beitrag kannst du leisten\n\n- Instandhaltungs- und Wartungsarbeiten an sämtlichen Kommunikationssystemen und Systemfahrzeugen selbständig bearbeiten\n\n- Einsätze als Fachspezialist/-in bei der Materialübernahme und -rücknahme der Truppe an verschiedenen Standorten durchführen\n\n- Elektrokontrollen an Kommunikationssystemen durchführen\n\n- Logistische Arbeiten im Bereich der Materialwirtschaft durchführen\n\n- Fachtechnische Unterstützung für die Truppe gewährleisten\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufslehre als Multimediaelektroniker/-in, Elektroniker/-in, Telematiker-/in, Elektriker/-in, Elektromonteur/-in oder verwandte Berufe\n\n- Führerausweis der Kat B\n\n- Strukturierte und lösungsorientierte Arbeitsweise\n\n- MS Office und SAP-Kenntnisse\n\n- Ausgeprägte Kundenorientierung im technischen Umfeld und im Umgang mit Dritten\n\n- Zuverlässige Arbeitsweise und bewusster Umgang mit den verfügbaren Ressourcen\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "fr": "Diesen Beitrag kannst du leisten\n\n- Instandhaltungs- und Wartungsarbeiten an sämtlichen Kommunikationssystemen und Systemfahrzeugen selbständig bearbeiten\n\n- Einsätze als Fachspezialist/-in bei der Materialübernahme und -rücknahme der Truppe an verschiedenen Standorten durchführen\n\n- Elektrokontrollen an Kommunikationssystemen durchführen\n\n- Logistische Arbeiten im Bereich der Materialwirtschaft durchführen\n\n- Fachtechnische Unterstützung für die Truppe gewährleisten\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufslehre als Multimediaelektroniker/-in, Elektroniker/-in, Telematiker-/in, Elektriker/-in, Elektromonteur/-in oder verwandte Berufe\n\n- Führerausweis der Kat B\n\n- Strukturierte und lösungsorientierte Arbeitsweise\n\n- MS Office und SAP-Kenntnisse\n\n- Ausgeprägte Kundenorientierung im technischen Umfeld und im Umgang mit Dritten\n\n- Zuverlässige Arbeitsweise und bewusster Umgang mit den verfügbaren Ressourcen\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus."
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Bern",
-      "addressRegion": "SG",
-      "previousSlugs": [
-        "apparecchiature-di-trasmissione-meccanica-swiss-armed-forces-vtg-bern",
-        "transmission-equipment-mechanic-swiss-armed-forces-vtg-bern",
-        "mecanicien-du-materiel-de-transmission-swiss-armed-forces-vtg-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apparecchiature-di-trasmissione-meccanica-swiss-armed-forces-vtg-bern"
-        ],
-        "en": [
-          "transmission-equipment-mechanic-swiss-armed-forces-vtg-bern"
-        ],
-        "fr": [
-          "mecanicien-du-materiel-de-transmission-swiss-armed-forces-vtg-bern"
-        ]
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000
-    },
-    {
-      "id": "company-qydrba",
-      "slug": "responsabile-san-ops-stv-jmed-confederazione-svizzera-bern",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Leiter/-in San Ops / Stv JMed",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag können Sie leisten\n\n- Den sanitätsdienstlichen Führungsprozess auf operativer Stufe gestalten, die sanitätsdienstliche Machbarkeit von Operationen beurteilen und den JMed fachlich sowie organisatorisch vertreten\n\n- Die sanitätsdienstliche Bereitschaft der Armee überwachen, das Risikomanagement weiterentwickeln und das integrale sanitätsdienstliche Lagebild erstellen\n\n- Sanitätsdienstliche Vorgaben, Konzepte und Entscheidungsgrundlagen für Operationen erarbeiten sowie die Umsetzung gemeinsam mit internen und externen Partnern koordinieren\n\n- Einsätze analysieren, Indikatoren definieren und daraus Massnahmen für die Weiterentwicklung des Fachbereichs sowie Beiträge zur Armeebefehlsgebung ableiten\n\n- Den Fachbereich Sanität in Projekten, Arbeitsgruppen und Fachgremien vertreten, Milizangehörige führen und die Vorgaben der integralen Sicherheit umsetzen\n\nDas macht Sie einzigartig\n\n- Hochschul- oder Fachhochschulabschluss (Bachelor) oder höhere technische beziehungsweise betriebswirtschaftliche Ausbildung mit mehrjähriger Berufserfahrung\n\n- Ausbildung und praktische Erfahrung im Projekt- und Prozessmanagement sowie fundierte Kenntnisse der militärischen Führungs- und Sanitätsprozesse auf operativer Stufe\n\n- Mehrjährige Erfahrung als Stabsoffizier/-in sowie ausgeprägte analytische, konzeptionelle und organisatorische Fähigkeiten\n\n- Kenntnisse und praktische Erfahrung der Sanität im internationalen Kontext und Bereitschaft sich diesbezüglich weiterzubilden\n\n- Hohe Sozial- und Führungskompetenz, selbstständige und verantwortungsbewusste Arbeitsweise sowie sicheres Auftreten gegenüber internen und externen Partnern\n\n- Sehr gute Kenntnisse zweier Amtssprachen sowie gute Englischkenntnisse (mindestens B2)\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nIhr Einsatz für Sicherheit und Freiheit\nDas Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "url": "https://jobs.admin.ch/offene-stellen/leiter-in-san-ops-stv-jmed/a241f169-d28d-4e46-9422-1a4ee0b2544b",
-      "applyUrl": "https://jobs.admin.ch/offene-stellen/leiter-in-san-ops-stv-jmed/a241f169-d28d-4e46-9422-1a4ee0b2544b",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Bern",
-        "canton": "BE"
-      },
-      "companyKey": "swiss-armed-forces-vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-27T15:22:19.960Z",
-      "firstSeenAt": "2026-09-19T23:13:49.649Z",
-      "slugByLocale": {
-        "it": "responsabile-san-ops-stv-jmed-confederazione-svizzera-bern",
-        "en": "head-of-san-ops-stv-jmed-confederazione-svizzera-bern",
-        "de": "leiter-in-san-ops-stv-jmed-confederazione-bern",
-        "fr": "chef-de-san-ops-stv-jmed-confederazione-svizzera-bern"
-      },
-      "titleByLocale": {
-        "it": "Responsabile San Ops / Vice JMed",
-        "en": "Director of San Ops / Deputy JMed",
-        "de": "Leiter/-in San Ops / Stv JMed",
-        "fr": "Responsable des opérations sanitaires / Adjoint au médecin-chef"
-      },
-      "descriptionByLocale": {
-        "it": "Potete dare questo contributo\n\n- Progettare il processo di gestione a livello operativo, valutare la fattibilità delle operazioni a livello medico e rappresentare professionalmente e organizzativamente JMed\n\n- Monitorare la disponibilità dell'esercito a servire nel servizio medico, sviluppare la gestione dei rischi e creare il quadro della situazione paramedica\n\n- Sviluppare linee guida, concetti e basi decisionali per le operazioni e coordinare l'attuazione con partner interni ed esterni\n\n- Analizzare le missioni, definire gli indicatori e ricavare misure per l'ulteriore sviluppo del dipartimento e contributi al comando dell'esercito\n\n- Rappresentanza del dipartimento medico in progetti, gruppi di lavoro e comitati specializzati, leadership dei membri della milizia e attuazione dei requisiti di sicurezza delle armi da fuoco\n\nQuesto ti rende unico\n\n- Laurea universitaria o Fachhochschul (Bachelor) o formazione tecnica superiore o aziendale con diversi anni di esperienza professionale\n\n- Formazione ed esperienza pratica nella gestione dei progetti e dei processi, nonché buona conoscenza della gestione militare e dei processi medici a livello operativo\n\n- Diversi anni di esperienza come funzionario del personale e forti capacità analitiche, concettuali e organizzative\n\n- conoscenza ed esperienza pratica della professione medica nel contesto internazionale e disponibilità a formarsi in questo campo\n\n- Alte competenze sociali e di leadership, metodi di lavoro indipendenti e responsabili e un atteggiamento sicuro nei confronti dei partner interni ed esterni\n\n- Conoscenza molto buona di due lingue ufficiali e buon inglese (almeno B2)\n\nOffriamo questo\n\n- Lavorare per la Svizzera Ci impegniamo per il modello di successo della Svizzera e lavoriamo a beneficio della popolazione.\n\n- Diversità vissuta Grazie alle pari opportunità, sviluppiamo le nostre competenze e portiamo prospettive diverse.\n\n- Sano sul lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nLa loro missione per la sicurezza e la libertà Le operazioni di comando (Kdo Op) sono responsabili di tutte le operazioni militari e le operazioni dell'esercito svizzero. La Kdo Op comprende l'aviazione, l'esercito, le quattro divisioni Terri-torial, il centro di competenza SWISSINT, le forze speciali di comando e la polizia militare. Circa il 40% dei circa 2.500 dipendenti sono lavoratori civili. dagli ingegneri alla meccanica aeronautica agli analisti.\n\nL'esercito svizzero impiega oltre 9.000 persone in quattro militari e circa 200 professioni civili. Lo stesso avviene in 110 località in tutta la Svizzera. I giovani sono inoltre previsti: l'esercito svizzero addestra studenti in oltre 30 professioni.",
-        "en": "You can make this contribution\n\n- Design the management process at the operational level, assess the feasibility of operations at the medical level and represent JMed professionally and organizationally\n\n- Monitor the army's readiness to serve in the medical service, develop risk management and create the paramedic situation picture\n\n- Develop medical guidelines, concepts and decision-making bases for operations and coordinate implementation with internal and external partners\n\n- Analyze missions, define indicators and derive measures for the further development of the department and contributions to the army command\n\n- Representation of the medical department in projects, working groups and specialised committees, leadership of militia members and implementation of the safety requirements of the firearms\n\nThis makes you unique\n\n- University or Fachhochschul degree (Bachelor) or higher technical or business training with several years of professional experience\n\n- Training and practical experience in project and process management as well as sound knowledge of military management and medical processes at operational level\n\n- Several years of experience as a staff officer and strong analytical, conceptual and organizational skills\n\n- knowledge and practical experience of the medical profession in the international context and willingness to train in this field\n\n- High social and leadership skills, independent and responsible working methods and a secure attitude towards internal and external partners\n\n- Very good knowledge of two official languages and good English (at least B2)\n\nWe offer this\n\n- Working for Switzerland We are committed to the success model of Switzerland and work for the benefit of the population.\n\n- Lived diversity Thanks to equal opportunities, we develop our competences and bring different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nTheir mission for security and freedom The Command Operations (Kdo Op) is responsible for all military operations and operations of the Swiss army. The Kdo Op includes the Air Force, the Army, the four Terri-torial divisions, the SWISSINT Competence Centre, the Command Special Forces and the Military Police. Around 40% of the approximately 2,500 employees are civilian workers – from engineers to aircraft mechanics to analysts.\n\nThe Swiss Army employs over 9,000 people in four military and around 200 civilian professions – and this is done at 110 locations throughout Switzerland. Young people are also provided for: The Swiss Army trains students in over 30 professions.",
-        "de": "Diesen Beitrag können Sie leisten\n\n- Den sanitätsdienstlichen Führungsprozess auf operativer Stufe gestalten, die sanitätsdienstliche Machbarkeit von Operationen beurteilen und den JMed fachlich sowie organisatorisch vertreten\n\n- Die sanitätsdienstliche Bereitschaft der Armee überwachen, das Risikomanagement weiterentwickeln und das integrale sanitätsdienstliche Lagebild erstellen\n\n- Sanitätsdienstliche Vorgaben, Konzepte und Entscheidungsgrundlagen für Operationen erarbeiten sowie die Umsetzung gemeinsam mit internen und externen Partnern koordinieren\n\n- Einsätze analysieren, Indikatoren definieren und daraus Massnahmen für die Weiterentwicklung des Fachbereichs sowie Beiträge zur Armeebefehlsgebung ableiten\n\n- Den Fachbereich Sanität in Projekten, Arbeitsgruppen und Fachgremien vertreten, Milizangehörige führen und die Vorgaben der integralen Sicherheit umsetzen\n\nDas macht Sie einzigartig\n\n- Hochschul- oder Fachhochschulabschluss (Bachelor) oder höhere technische beziehungsweise betriebswirtschaftliche Ausbildung mit mehrjähriger Berufserfahrung\n\n- Ausbildung und praktische Erfahrung im Projekt- und Prozessmanagement sowie fundierte Kenntnisse der militärischen Führungs- und Sanitätsprozesse auf operativer Stufe\n\n- Mehrjährige Erfahrung als Stabsoffizier/-in sowie ausgeprägte analytische, konzeptionelle und organisatorische Fähigkeiten\n\n- Kenntnisse und praktische Erfahrung der Sanität im internationalen Kontext und Bereitschaft sich diesbezüglich weiterzubilden\n\n- Hohe Sozial- und Führungskompetenz, selbstständige und verantwortungsbewusste Arbeitsweise sowie sicheres Auftreten gegenüber internen und externen Partnern\n\n- Sehr gute Kenntnisse zweier Amtssprachen sowie gute Englischkenntnisse (mindestens B2)\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nIhr Einsatz für Sicherheit und Freiheit\nDas Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "fr": "Vous pouvez faire cette contribution\n\n- Concevoir le processus de gestion au niveau opérationnel, évaluer la faisabilité des opérations au niveau médical et représenter JMed professionnellement et organisationnellement\n\n- Surveiller la disponibilité de l'armée à servir dans le service médical, développer la gestion des risques et créer la situation paramedic\n\n- Élaborer des directives médicales, des concepts et des bases de décision pour les opérations et coordonner la mise en œuvre avec les partenaires internes et externes\n\n- Analyser les missions, définir les indicateurs et définir les mesures à prendre pour développer le département et contribuer au commandement de l'armée\n\n- Représentation du service médical dans les projets, groupes de travail et comités spécialisés, direction des membres des milices et mise en œuvre des exigences de sécurité des armes à feu\n\nCela vous rend unique\n\n- Diplôme universitaire ou Fachhochschul (Bachelor) ou formation supérieure technique ou commerciale avec plusieurs années d'expérience professionnelle\n\n- Formation et expérience pratique en gestion de projets et de processus, ainsi que bonne connaissance de la gestion militaire et des processus médicaux au niveau opérationnel\n\n- Plusieurs années d'expérience en tant qu'agent d'état-major et de solides compétences analytiques, conceptuelles et organisationnelles\n\n- connaissance et expérience pratique de la profession médicale dans le contexte international et volonté de formation dans ce domaine\n\n- Hautes compétences sociales et de leadership, méthodes de travail indépendantes et responsables et une attitude sûre envers les partenaires internes et externes\n\n- Très bonne connaissance de deux langues officielles et bonne anglais (au moins B2)\n\nNous offrons ceci\n\n- Travailler pour la Suisse Nous sommes attachés au modèle de réussite de la Suisse et travaillons au profit de la population.\n\n- Diversité vécue Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nLeur mission pour la sécurité et la liberté Les opérations de commandement (Kdo Op) sont responsables de toutes les opérations militaires de l'armée suisse. L'opération Kdo comprend l'armée de l'air, l'armée, les quatre divisions Terri-torial, le Centre de compétence SWISSINT, les forces spéciales de commandement et la police militaire.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 professions civiles, et ce, dans 110 localités à travers la Suisse. Les jeunes sont également pris en charge : L'armée suisse forme des étudiants dans plus de 30 professions."
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "salaryMin": 94500,
-      "salaryMax": 143000
-    },
-    {
-      "id": "company-i0y71o",
-      "slug": "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Lehrgang als ICT-Systemspezialist/-in Junior an der ICT Warrior Academy (Start im März 2027)",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag kannst du leisten\n\n- Den Umgang mit modernen Datacenter-Technologien (u.a. Docker, Kubernetes, Openshift, Ansible) lernen und sich mit komplexen Netzwerk-, Server- und Speicherlösungen und Automatisierungen vertraut machen\n\n- Das Automatisieren von Windows- und Linux-Plattformen und den Einsatz von Systemmanagement- und Monitoring-Tools kennenlernen\n\n- Störungen und Performance-Probleme im Bereich der Hardware und Software lokalisieren und beheben\n\n- Eine Reihe von deutschsprachigen Basisausbildungen in Netzwerk und Servertechnik durchlaufen (werden teilweise mit anerkannten Industriezertifikaten abgeschlossen)\n\n- Die Grundprinzipien der Cyber Security kennenlernen und verstehen, wie sich die Schweiz gegen Cyberangriffe schützt\n\n- Bei Praxiseinsätzen Lösungen mitentwickeln und betreiben (DevSecOps), um das Gelernte direkt anzuwenden\n\nDas macht dich einzigartig\n\n- Abgeschlossene Ausbildung als Informatiker/-in EFZ im Bereich Plattformentwicklung/Applikationsentwicklung/Betriebsinformatik mit 2-3 Jahren funktionsrelevanter Arbeitserfahrung, alternativ Maturität oder vergleichbare Ausbildung resp. Praxiserfahrungen\n\n- Begeisterung für komplexe Systeme aus moderner Hard- und Software sowie Grundkenntnisse in den Bereichen Netzwerk, Server, Storage, Betriebssysteme (Windows/Unix/Linux), Virtualisierung, Scripting und Softwareentwicklung\n\n- Erste Berufserfahrungen im Bereich Betrieb (Operations) von grossen komplexen IT-Umgebungen sowie im Einsatz von Systemmanagement- und Monitoring-Tools sind von Vorteil\n\n- Lernbereitschaft, Begeisterungsfähigkeit, gute Auffassungsgabe, \"Out-of-the-Box\"-Denken und Spass an Teamarbeit\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDas Kommando Cyber (Kdo Cy) steht für Kompetenz in den Bereichen Cyber und Digitalisierung. Wir vereinen die Begeisterung für unsere Aufgabe mit Know-how, Innovation, modernsten Technologien und agilen Arbeitsweisen. Wir erbringen sichere, robuste und resiliente Informatikleistungen für die Schweizer Armee und unsere Partner im Sicherheitsverbund Schweiz. Damit ermöglicht das Kdo Cy der Schweizer Armee den notwendigen Wissens- und Entscheidvorsprung – für eine sichere Schweiz.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "url": "https://jobs.admin.ch/offene-stellen/lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-maerz-2027/3ca76392-4a89-4ede-9360-9811c3427b92",
-      "applyUrl": "https://jobs.admin.ch/offene-stellen/lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-maerz-2027/3ca76392-4a89-4ede-9360-9811c3427b92",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Bern",
-        "canton": "BE"
-      },
-      "companyKey": "swiss-armed-forces-vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-27T15:22:19.960Z",
-      "firstSeenAt": "2026-09-19T23:13:49.649Z",
-      "slugByLocale": {
-        "it": "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern",
-        "en": "course-as-ict-systems-specialist-junior-at-the-ict-warrior-academy-started-in-march-2027-confederazione-svizzera-bern",
-        "de": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
-        "fr": "cours-en-tant-que-specialiste-des-systemes-tic-junior-a-l-academie-de-guerre-des-tic-commence-en-mars-2027"
-      },
-      "titleByLocale": {
-        "it": "Corso come specialista di sistemi ICT Junior presso l'ICT Warrior Academy (a partire dal marzo 2027)",
-        "en": "Course as ICT systems specialist Junior at the ICT Warrior Academy (started in March 2027)",
-        "de": "Lehrgang als ICT-Systemspezialist/-in Junior an der ICT Warrior Academy (Start im März 2027)",
-        "fr": "Cours en tant que spécialiste des systèmes TIC Junior à l'Académie de guerre des TIC (commencé en mars 2027)"
-      },
-      "descriptionByLocale": {
-        "it": "Puoi dare questo contributo\n\n- Scopri come utilizzare le moderne tecnologie del data center (tra cui Docker, Kubernetes, Openshift, Ansible) e conoscere soluzioni complesse di rete, server e storage e automazione\n\n- Scopri l'automazione delle piattaforme Windows e Linux e l'uso di strumenti di gestione e monitoraggio del sistema\n\n- Localizzare e correggere guasti hardware e software e problemi di prestazioni\n\n- Vengono completati numerosi corsi di formazione di base in lingua tedesca nella tecnologia di rete e server (in parte con certificati di settore riconosciuti)\n\n- Conoscere i principi fondamentali della sicurezza informatica e capire come la Svizzera si protegge dai cyberattacchi\n\n- Sviluppare e utilizzare soluzioni per applicazioni pratiche (DevSecOps) al fine di applicare ciò che è stato imparato direttamente\n\nQuesto ti rende unico\n\n- Formazione completata come informatico/in EFZ nel settore dello sviluppo delle piattaforme/sviluppo delle applicazioni/informatica aziendale con 2-3 anni di esperienza di lavoro funzionale, maturità alternativa o formazione comparabile resp. Esperienza pratica\n\n- Enthusiasm per sistemi complessi da hardware e software moderni e conoscenze di base nelle aree di rete, server, storage, sistemi operativi (Windows/Unix/Linux), virtualizzazione, scripting e sviluppo software\n\n- Esperienza professionale iniziale nel settore delle operazioni di grandi ambienti IT complessi e nell'uso di strumenti di gestione e monitoraggio del sistema sono vantaggiosi\n\n- Volontà di imparare, entusiasmo, buona comprensione, pensiero e divertimento \"out-of-the-box\" nel lavoro di squadra\n\nOffriamo questo\n\n- Siamo impegnati nel modello di successo svizzero e lavoriamo a beneficio della popolazione.\n\n- Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n\n- Salute al lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl vostro impegno per la sicurezza e la libertà\nIl Cyber Command (Kdo Cy) sta per competenza nei settori della cyber e della digitalizzazione. Uniamo l'entusiasmo per il nostro compito con il know-how, l'innovazione, le ultime tecnologie e i metodi di lavoro agili. Forniamo servizi IT sicuri, robusti e resilienti per l'esercito svizzero e i nostri partner nell'Associazione svizzera di sicurezza. Il Kdo Cy dà così all'esercito svizzero la necessaria conoscenza e il vantaggio decisionale – per una Svizzera sicura.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.",
-        "en": "You can make this contribution\n\n- Learn how to use modern data center technologies (including Docker, Kubernetes, Openshift, Ansible) and become familiar with complex network, server and storage solutions and automation\n\n- Get to know the automation of Windows and Linux platforms and the use of system management and monitoring tools\n\n- Localize and fix hardware and software malfunctions and performance issues\n\n- A number of basic German-language training courses in network and server technology are completed (partly with recognized industry certificates)\n\n- Get to know the basic principles of cyber security and understand how Switzerland protects itself against cyberattacks\n\n- Develop and operate solutions for practical applications (DevSecOps) in order to apply what has been learned directly\n\nThis makes you unique\n\n- Completed training as a computer scientist/in EFZ in the area of platform development/application development/business informatics with 2-3 years of functionally relevant work experience, alternatively maturity or comparable training resp. Practical experience\n\n- Enthusiasm for complex systems from modern hardware and software as well as basic knowledge in the areas of network, server, storage, operating systems (Windows/Unix/Linux), virtualization, scripting and software development\n\n- Initial professional experience in the area of operations of large complex IT environments as well as in the use of system management and monitoring tools are advantageous\n\n- Willingness to learn, enthusiasm, good comprehension, \"out-of-the-box\" thinking and fun in teamwork\n\nWe offer this\n\n- We are committed to the Swiss success model and work for the benefit of the population.\n\n- Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom\nThe Cyber Command (Kdo Cy) stands for competence in the areas of cyber and digitalization. We combine the enthusiasm for our task with know-how, innovation, the latest technologies and agile working methods. We provide secure, robust and resilient IT services for the Swiss Army and our partners in the Swiss Security Association. The Kdo Cy thus gives the Swiss army the necessary knowledge and decision-making advantage – for a safe Switzerland.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.",
-        "de": "Diesen Beitrag kannst du leisten\n\n- Den Umgang mit modernen Datacenter-Technologien (u.a. Docker, Kubernetes, Openshift, Ansible) lernen und sich mit komplexen Netzwerk-, Server- und Speicherlösungen und Automatisierungen vertraut machen\n\n- Das Automatisieren von Windows- und Linux-Plattformen und den Einsatz von Systemmanagement- und Monitoring-Tools kennenlernen\n\n- Störungen und Performance-Probleme im Bereich der Hardware und Software lokalisieren und beheben\n\n- Eine Reihe von deutschsprachigen Basisausbildungen in Netzwerk und Servertechnik durchlaufen (werden teilweise mit anerkannten Industriezertifikaten abgeschlossen)\n\n- Die Grundprinzipien der Cyber Security kennenlernen und verstehen, wie sich die Schweiz gegen Cyberangriffe schützt\n\n- Bei Praxiseinsätzen Lösungen mitentwickeln und betreiben (DevSecOps), um das Gelernte direkt anzuwenden\n\nDas macht dich einzigartig\n\n- Abgeschlossene Ausbildung als Informatiker/-in EFZ im Bereich Plattformentwicklung/Applikationsentwicklung/Betriebsinformatik mit 2-3 Jahren funktionsrelevanter Arbeitserfahrung, alternativ Maturität oder vergleichbare Ausbildung resp. Praxiserfahrungen\n\n- Begeisterung für komplexe Systeme aus moderner Hard- und Software sowie Grundkenntnisse in den Bereichen Netzwerk, Server, Storage, Betriebssysteme (Windows/Unix/Linux), Virtualisierung, Scripting und Softwareentwicklung\n\n- Erste Berufserfahrungen im Bereich Betrieb (Operations) von grossen komplexen IT-Umgebungen sowie im Einsatz von Systemmanagement- und Monitoring-Tools sind von Vorteil\n\n- Lernbereitschaft, Begeisterungsfähigkeit, gute Auffassungsgabe, \"Out-of-the-Box\"-Denken und Spass an Teamarbeit\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDas Kommando Cyber (Kdo Cy) steht für Kompetenz in den Bereichen Cyber und Digitalisierung. Wir vereinen die Begeisterung für unsere Aufgabe mit Know-how, Innovation, modernsten Technologien und agilen Arbeitsweisen. Wir erbringen sichere, robuste und resiliente Informatikleistungen für die Schweizer Armee und unsere Partner im Sicherheitsverbund Schweiz. Damit ermöglicht das Kdo Cy der Schweizer Armee den notwendigen Wissens- und Entscheidvorsprung – für eine sichere Schweiz.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "fr": "Vous pouvez faire cette contribution\n\n- Découvrez comment utiliser les technologies modernes de datacenter (dont Docker, Kubernetes, Openshift, Ansible) et familiarisez-vous avec les solutions complexes de réseau, de serveur et de stockage et l'automatisation\n\n- Apprenez à connaître l'automatisation des plateformes Windows et Linux et l'utilisation des outils de gestion et de surveillance du système\n\n- Localiser et corriger les dysfonctionnements matériels et logiciels et les problèmes de performance\n\n- Un certain nombre de cours de formation de base en langue allemande sur la technologie des réseaux et des serveurs sont complétés (en partie avec des certificats industriels reconnus).\n\n- Apprenez à connaître les principes fondamentaux de la cybersécurité et à comprendre comment la Suisse se protège contre les cyberattaques\n\n- Développer et exploiter des solutions pour des applications pratiques (DevSecOps) afin d'appliquer ce qui a été appris directement\n\nCela vous rend unique\n\n- Formation complète en tant qu'informaticien/in EFZ dans le domaine du développement de plate-formes, du développement d'applications, de l'informatique commerciale avec 2-3 ans d'expérience de travail fonctionnellement pertinente, alternativement maturité ou formation comparable resp. Expérience pratique\n\n- Enthousiasme pour les systèmes complexes du matériel et des logiciels modernes ainsi que les connaissances de base dans les domaines du réseau, serveur, stockage, systèmes d'exploitation (Windows/Unix/Linux), virtualisation, scripting et développement logiciel\n\n- L'expérience professionnelle initiale dans le domaine des opérations de grands environnements informatiques complexes ainsi que dans l'utilisation d'outils de gestion et de surveillance des systèmes est avantageuse\n\n- Volonté d'apprendre, d'enthousiasme, de bonne compréhension, de pensée « hors-la-boîte » et de plaisir dans le travail d'équipe\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle suisse de réussite et travaillons au profit de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLe Cyber Command (Kdo Cy) représente une compétence dans les domaines de la cyber et de la numérisation. Nous combinons l'enthousiasme pour notre tâche avec le savoir-faire, l'innovation, les dernières technologies et les méthodes de travail agiles. Nous fournissons des services informatiques sûrs, robustes et résistants à l'Armée suisse et à nos partenaires de l'Association suisse de sécurité. Le Kdo Cy donne ainsi à l'armée suisse les connaissances nécessaires et l'avantage de prendre des décisions – pour une Suisse sûre.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge : L'Armée suisse forme les apprenants dans plus de 30 professions."
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 66000,
-          "maxValue": 112000,
-          "unitText": "YEAR"
-        }
-      },
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "salaryMin": 66000,
-      "salaryMax": 112000
     },
     {
       "id": "company-74l3aw",
