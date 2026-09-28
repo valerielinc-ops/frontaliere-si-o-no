@@ -8,7 +8,7 @@
  * Auto Ads keep serving untouched. Created programmatically by
  * scripts/gam-create-ad-units.mjs.
  *
- * Lives inside the rail's existing `sticky top-6` stack, so the half-page ad
+ * Lives inside the rail's existing `sticky top-24` stack, so the half-page ad
  * rides down the gutter as the reader scrolls. Runtime kill-switch: Firebase
  * Remote Config `KILL_ARTICLE_RAIL_ADS` (kills both rails, ~1 min, no redeploy;
  * default-safe = shown). Static reading rails are visible from 1200px, using

@@ -111,13 +111,21 @@ import { deriveSeoStaticFirstPaintReserve } from './seoStaticFirstPaintReserve';
  * rails (JobBoard.tsx) keep their own xl/xlw markup and are NOT hooked here:
  * job-detail content is always taller than the 600px rail, so the row never
  * grows when the ad lands, and the live CLS breakdown put it under ~0.01.
+ *
+ * This block is UNLAYERED, so it outranks `index.css`'s `@layer utilities`
+ * permanently, not just until the async sheet lands. A rule here must carry the
+ * FINAL value for its whole media range: the old `.xlc\:max-w-6xl{max-width:72rem}`
+ * at ≥1200px beat the article wrapper's `xlw:max-w-[1440px]` forever, pinning
+ * the 3-column article at 1152px on every desktop (centre column ~520px beside
+ * two 300px rails, ~190px blank margins at 1540px). The article wrapper now
+ * fills its parent from 1200px, so the mirror is `max-width:none`.
  */
 export const RAIL_RESERVE_CSS =
   '.ft-rail-aside{display:none}' +
   '.ft-rail-aside-x{display:none}' +
   '.ft-rail-grid-spa{display:contents}' +
   '@media(min-width:1200px){' +
-  '.xlc\\:max-w-6xl{max-width:72rem}' +
+  '.xlc\\:max-w-none{max-width:none}' +
   '}' +
   '@media(min-width:1200px) and (max-width:1279.98px){' +
   '.ft-blog-rail-grid-x{display:grid;grid-template-columns:var(--ft-rail-w-c-l,160px) minmax(0,1fr) var(--ft-rail-w-c-r,160px);gap:1rem}' +

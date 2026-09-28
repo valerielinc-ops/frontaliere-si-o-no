@@ -10,8 +10,10 @@
  *
  * How it works:
  *  - The outer `flex-1` div claims the full gutter height (so the cluster has
- *    room to travel and layout/CLS is reserved); the inner `sticky top-6` div
- *    holds the panels and pins to the viewport top as the column scrolls.
+ *    room to travel and layout/CLS is reserved); the inner `sticky top-24` div
+ *    holds the panels and pins just below the sticky site nav (`md:h-20` + 1px
+ *    border = 81px) as the column scrolls. A smaller offset slid the top of the
+ *    half-page creative under the nav (z-50) for the whole scroll.
  *  - Trade-off: on short pages (gutter height < ~2 × PANEL_PX) the cluster is
  *    shorter than the outer div, leaving a blank band below the sticky cluster.
  *    This is an accepted design constraint: shrinking the outer div to cluster
@@ -55,9 +57,10 @@ export interface ArticleRailAdStackProps {
    * panel reports empty (no creative, no AdSense backfill); fires `false` as
    * soon as any panel fills. Lets the SPA grid drop the reserved gutter
    * (160px on App.tsx's narrow rail; 300px `xlw` tier via
-   * `useRailGridCollapse` on JobBoard / JobOrphanView / JobExpiredView /
-   * BlogArticles, issue 4830) to zero on an all-empty rail instead of leaving
-   * a tall blank column. The static/blog SSG portals collapse their
+   * `useRailGridCollapse` on JobBoard / JobOrphanView / JobExpiredView,
+   * issue 4830) to zero on an all-empty rail instead of leaving a tall blank
+   * column. BlogArticles doesn't wire it: its gutters also carry the TOC and
+   * partner cards, so they keep their width. The static/blog SSG portals collapse their
    * build-time `.ft-rail-grid` gutter separately (App.tsx `useEffect` +
    * direct DOM mutation, PR #4829) and don't wire this callback.
    */
@@ -208,7 +211,7 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
     <div ref={ref} className={visibilityClass}>
       {/* Inner cluster pins to the viewport top and rides the whole scroll, so a
           tall article's gutter never goes blank below the physical ads. */}
-      <div className="sticky top-6 flex flex-col gap-2">
+      <div className="sticky top-24 flex flex-col gap-2">
         {Array.from({ length: panels }, (_, i) => (
           <ArticleRailAd
             key={i}

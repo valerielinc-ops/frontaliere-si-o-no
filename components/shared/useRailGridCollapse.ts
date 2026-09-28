@@ -2,12 +2,15 @@ import { useCallback, useMemo, useState, type CSSProperties } from 'react';
 
 /**
  * Collapses the reserved side-rail gutter shared by JobBoard / JobOrphanView /
- * JobExpiredView / BlogArticles down to 0 when `ArticleRailAdStack` resolves
- * an all-empty verdict (adblock / no AdSense fill) on a side — same intent as
- * the two earlier rail-collapse fixes:
+ * JobExpiredView down to 0 when `ArticleRailAdStack` resolves an all-empty
+ * verdict (adblock / no AdSense fill) on a side — same intent as the two
+ * earlier rail-collapse fixes:
  * the SPA narrow rail (App.tsx `ft-rail-grid-spa`, #2830) and the
  * staticOverlay build-time gutter (App.tsx `.ft-rail-grid`, PR #4829).
- * Issue 4830 tracked the remaining gap on these 4 "reading page" surfaces.
+ * Issue 4830 tracked the remaining gap on the "reading page" surfaces.
+ * BlogArticles shares the grid class but NOT this hook: its gutters also hold
+ * the partner cards, TOC and resources, so a 0px track would push that content
+ * underneath the article — its rails keep their width whatever the fill.
  *
  * The shared class has two parallel grid tiers: `xl:max-xlw` (180px,
  * 1280–1399px) and `xlw` (300px, >=1400px); BlogArticles adds a local 160px
@@ -61,7 +64,9 @@ export function useRailGridCollapse(): RailGridCollapse {
 /**
  * Shared 3-tier rail grid wrapper class for JobBoard / JobOrphanView /
  * JobExpiredView / BlogArticles. Pair with `useRailGridCollapse`'s `style`
- * output on the same element. Single source of truth so the 7 call sites
+ * output on the same element where the gutters hold only ads (the job pages);
+ * without it the CSS custom properties fall back to the reserved widths, which
+ * is what BlogArticles relies on. Single source of truth so the call sites
  * across the 4 files can't drift (issue 4830, AGENTS.md sibling-pattern
  * rule).
  */

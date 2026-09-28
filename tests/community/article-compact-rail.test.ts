@@ -6,6 +6,7 @@ const root = resolve(__dirname, '../..');
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 
 const BLOG = read('components/community/BlogArticles.tsx');
+const APP = read('App.tsx');
 const RAIL_AD = read('components/shared/ArticleRailAd.tsx');
 const RAIL_STACK = read('components/shared/ArticleRailAdStack.tsx');
 const INDEX_CSS = read('index.css');
@@ -16,11 +17,34 @@ describe('article compact ad rail contract', () => {
   it('reserves a 160px rail tier from the content-driven 1200px breakpoint', () => {
     expect(INDEX_CSS).toMatch(/--breakpoint-xlc:\s*1200px/);
     expect(BLOG).toContain('xlc:grid-cols-[var(--ft-rail-w-c-l,160px)_minmax(0,1fr)_var(--ft-rail-w-c-r,160px)]');
-    expect(BLOG).toContain('xlc:max-w-6xl');
+    expect(BLOG).toContain('<div className="max-w-3xl xlc:max-w-none mx-auto">');
     expect(INDEX_HTML).toContain('.ft-blog-rail-grid-x { display: grid;');
-    expect(INDEX_HTML).toContain('@media (min-width: 1200px) {\n        .xlc\\:max-w-6xl { max-width: 72rem; }\n      }');
+    expect(INDEX_HTML).toContain('@media (min-width: 1200px) {\n        .xlc\\:max-w-none { max-width: none; }\n      }');
     expect(CRITICAL_CSS).toContain("'.ft-blog-rail-grid-x{display:grid;");
-    expect(CRITICAL_CSS).toContain("'.xlc\\\\:max-w-6xl{max-width:72rem}' +");
+    expect(CRITICAL_CSS).toContain("'.xlc\\\\:max-w-none{max-width:none}' +");
+  });
+
+  it('never pins the article grid below its parent with an unlayered first-paint cap', () => {
+    // The first-paint reserve is unlayered, so it outranks Tailwind's
+    // `@layer utilities` forever: a 72rem cap there held the 3-column article
+    // at 1152px on every desktop (centre column ~520px at 1540px).
+    expect(CRITICAL_CSS).not.toContain("'.xlc\\\\:max-w-6xl");
+    expect(INDEX_HTML).not.toContain('.xlc\\:max-w-6xl');
+    expect(BLOG).not.toContain('xlc:max-w-6xl');
+    expect(APP).toContain('<div className="max-xlw:max-w-7xl xlw:max-w-[1600px] mx-auto">');
+  });
+
+  it('keeps the article gutters at their reserved width when a rail does not fill', () => {
+    // The gutters also hold the partner cards, TOC and resources: collapsing a
+    // track to 0px pushed them under the article and reflowed the text.
+    expect(BLOG).not.toContain('useRailGridCollapse()');
+    expect(BLOG).not.toMatch(/ArticleRailAdStack side="(left|right)"[^>]*onEmptyResolved/);
+    expect(BLOG).toContain('<div className={BLOG_ARTICLE_RAIL_GRID_CLASS_X}>');
+  });
+
+  it('pins the sticky ad cluster below the 81px sticky nav', () => {
+    expect(RAIL_STACK).toContain('<div className="sticky top-24 flex flex-col gap-2">');
+    expect(RAIL_STACK).not.toContain('sticky top-6');
   });
 
   it('mounts compact rails only on article surfaces and on both sides', () => {
