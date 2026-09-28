@@ -308,6 +308,20 @@ describe('convit-job-parser / parseConvitListingPage', () => {
     expect(isConvitListingPage('<title>Just a moment...</title><p>Checking your browser</p>')).toBe(false);
   });
 
+  it('recognizes the live Manatal listing head, which has no canonical or og:url', () => {
+    // Shape of https://www.careers-page.com/convit-holding-gmbh on 2026-09-28.
+    const liveHead = `<html><head><title> Convit Holding GmbH | Career Page</title>
+      <meta property="og:site_name" content="Manatal" />
+      <meta property="og:title" content="Convit Holding GmbH | Career Page" /></head><body></body></html>`;
+    expect(isConvitListingPage(liveHead)).toBe(true);
+    // The generic Manatal 404 is titled just "Manatal".
+    expect(isConvitListingPage(
+      '<html><head><title>Manatal</title><meta property="og:site_name" content="Manatal" /></head></html>',
+    )).toBe(false);
+    // Employer title without the Manatal site name is not enough.
+    expect(isConvitListingPage('<html><head><title>Convit Holding GmbH | Career Page</title></head></html>')).toBe(false);
+  });
+
   it('keeps canonical vacancy codes even when a listing title is missing', async () => {
     const html = `<!DOCTYPE html><html><head>
       <link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">
@@ -339,12 +353,16 @@ describe('convit-job-parser / parseConvitListingPage', () => {
     const listingPage = (codes: string[]) => `<!DOCTYPE html><html><head>
       <link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">
     </head><body>${codes.map((code) => `<a href="/convit-holding-gmbh/job/${code}"><span class="job-title">Role ${code}</span></a>`).join('')}</body></html>`;
-    const pages = [listingPage(['A']), listingPage(['A']), listingPage(['B'])];
+    const pages = [listingPage(['A', 'B']), listingPage(['A']), listingPage(['C'])];
     let calls = 0;
+    const noCount = async () => {
+      throw new Error('the official count must not be consulted for a non-repeating page');
+    };
 
     await expect(fetchAllListings({
       fetchPage: async () => pages[calls++],
       sleepFn: async () => {},
+      fetchListingCount: noCount,
     })).rejects.toThrow(/non-empty but added no new vacancy codes/);
     expect(calls).toBe(2);
 
@@ -352,9 +370,35 @@ describe('convit-job-parser / parseConvitListingPage', () => {
     const completeSnapshot = await fetchAllListings({
       fetchPage: async () => [listingPage(['A']), listingPage([])][calls++],
       sleepFn: async () => {},
+      fetchListingCount: noCount,
     });
     expect(completeSnapshot).toMatchObject({ complete: true });
     expect(completeSnapshot.items.map(({ code }) => code)).toEqual(['A']);
+  });
+
+  it('ends the walk when Manatal ignores ?page, only if the official count agrees', async () => {
+    const listingPage = (codes: string[]) => `<!DOCTYPE html><html><head>
+      <link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">
+    </head><body>${codes.map((code) => `<a href="/convit-holding-gmbh/job/${code}"><span class="job-title">Role ${code}</span></a>`).join('')}</body></html>`;
+    const repeated = listingPage(['A', 'B']);
+
+    let calls = 0;
+    const snapshot = await fetchAllListings({
+      fetchPage: async () => { calls += 1; return repeated; },
+      sleepFn: async () => {},
+      fetchListingCount: async () => 2,
+    });
+    expect(calls).toBe(2);
+    expect(snapshot).toMatchObject({ complete: true, listedCodes: ['A', 'B'] });
+    expect(snapshot.items.map(({ code }) => code)).toEqual(['A', 'B']);
+
+    // A truncated server render (Manatal says 3, the page lists 2) is never a
+    // complete snapshot.
+    await expect(fetchAllListings({
+      fetchPage: async () => repeated,
+      sleepFn: async () => {},
+      fetchListingCount: async () => 3,
+    })).rejects.toThrow(/official Manatal count \(3\) does not match the 2 listed vacancy codes/);
   });
 
   it('uses a complete listing snapshot to distinguish stale detail URLs from live listings', async () => {

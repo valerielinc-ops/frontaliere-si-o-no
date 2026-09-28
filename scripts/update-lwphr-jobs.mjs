@@ -69,6 +69,19 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
+// `extractPdfJobContentFromUrl` reports a non-2xx answer as
+// `HTTP <status> while fetching PDF`. Only a definitive "not found"/"gone"
+// counts as a missing document: a timeout, a 5xx or a text layer that cannot
+// be extracted still says nothing about the posting, so it keeps aborting the
+// snapshot (tests/lwphr-crawler-merge-guard.test.ts). Measured 2026-09-28: the
+// official page linked `direttore_dell&rsquo;ufficio_tecnico_.pdf`, which
+// answers 404 under every encoding of the apostrophe.
+const MISSING_PDF_ERROR_RE = /^HTTP (?:404|410) while fetching PDF$/;
+
+export function isMissingLwphrPdf(pdf = {}) {
+  return MISSING_PDF_ERROR_RE.test(String(pdf?.error || '').trim());
+}
+
 async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
   return fetchHtml(url, {
     timeoutMs,
@@ -288,9 +301,18 @@ export async function main() {
 
   const discoveredJobs = [];
   let skippedPdfCount = 0;
+  let missingPdfCount = 0;
   for (const listing of listings) {
     console.log(`  📄 Extracting PDF: ${listing.title}`);
     const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl);
+    if (isMissingLwphrPdf(pdf)) {
+      // The official page links a document the official server says does not
+      // exist. There is nothing to publish, and a job pointing at it would be
+      // a dead link: not an incomplete snapshot.
+      missingPdfCount += 1;
+      console.warn(`  ⚠️ Skipping ${listing.title}: the official PDF is gone (${pdf.error})`);
+      continue;
+    }
     if (!isUsableLwphrPdf(pdf)) {
       skippedPdfCount += 1;
       const reason = pdf?.error || pdf?.warning || 'empty extracted text';
@@ -304,6 +326,9 @@ export async function main() {
     }));
   }
 
+  if (missingPdfCount > 0) {
+    console.warn(`  ⚠️ LWP skipped ${missingPdfCount} posting(s) whose official PDF answers 404/410.`);
+  }
   if (skippedPdfCount > 0) {
     console.warn(`  ⚠️ LWP skipped ${skippedPdfCount} posting(s) with unusable PDF content.`);
     throw new Error(

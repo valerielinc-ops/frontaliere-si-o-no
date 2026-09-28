@@ -27,6 +27,7 @@ import {
   CRAWLER_STEP_RE,
   CRAWLER_MEMBER_FAILURE_ANNOTATION_RE,
   CRAWLER_MEMBER_WARNING_ANNOTATION_RE,
+  CRAWLER_MEMBER_QUARANTINE_ANNOTATION_RE,
   crawlerRunToken,
   crawlerWorkflowReference,
   checkRunApiPath,
@@ -299,6 +300,29 @@ describe('decideCrawlerMemberConclusion — the Run <slug> step conclusion is no
     })).toBe('success');
   });
 
+  it('keeps a known quarantine failure non-green even when the quarantine job is green', () => {
+    const greenQuarantineJob = {
+      stepStatus: 'completed',
+      stepConclusion: 'success',
+      jobConclusion: 'success',
+    };
+    const pages = [[
+      {
+        annotation_level: 'warning',
+        message: 'protectas: fallimento noto in quarantena (exit 1), tracciato da #10084 fino al 2026-10-03; escluso dal verdetto del gruppo',
+      },
+      { annotation_level: 'notice', message: '{"schemaVersion":1}' },
+    ]];
+    expect(decideCrawlerMemberConclusion({ ...greenQuarantineJob, slug: 'protectas', annotationPages: pages })).toBe('failure');
+    expect(decideCrawlerMemberConclusion({ ...greenQuarantineJob, slug: 'anicura', annotationPages: pages })).toBe('success');
+    // A fully green group can have no annotations at all.
+    expect(decideCrawlerMemberConclusion({ ...greenQuarantineJob, slug: 'anicura', annotationPages: [] })).toBe('success');
+    // Unreadable annotations are missing evidence, not a green.
+    expect(decideCrawlerMemberConclusion({ ...greenQuarantineJob, slug: 'protectas', annotationPages: null })).toBeNull();
+    // On a red job the same warning counts as the member's own non-green outcome.
+    expect(decideCrawlerMemberConclusion({ ...greenQuarantineJob, jobConclusion: 'failure', slug: 'protectas', annotationPages: pages })).toBe('failure');
+  });
+
   it('returns the step conclusion when the step itself did not succeed', () => {
     expect(decideCrawlerMemberConclusion({
       slug: 'confederazione',
@@ -399,7 +423,17 @@ describe('crawler member annotations stay aligned with the generated group workf
 
       const failureLine = `echo "::error::${slug}: crawler exited with status $status"`;
       const missingLine = `echo "::warning::${slug}: no terminal status was published"`;
-      expect(content).toContain(failureLine);
+      // A known failure in the quarantine group reports itself with the
+      // quarantine warning until its deadline and with an error after it.
+      const toleratedLine = `echo "::warning::${slug}: fallimento noto in quarantena`;
+      const expiredLine = `echo "::error::${slug}: quarantena scaduta il `;
+      if (content.includes(toleratedLine)) {
+        expect(content).toContain(expiredLine);
+        expect(CRAWLER_MEMBER_QUARANTINE_ANNOTATION_RE.test(`${slug}: fallimento noto in quarantena (exit 1)`)).toBe(true);
+        expect(CRAWLER_MEMBER_WARNING_ANNOTATION_RE.test(`${slug}: fallimento noto in quarantena (exit 1)`)).toBe(true);
+      } else {
+        expect(content).toContain(failureLine);
+      }
       expect(content).toContain(missingLine);
       expect(CRAWLER_MEMBER_FAILURE_ANNOTATION_RE.test(`${slug}: crawler exited with status 1`)).toBe(true);
       expect(CRAWLER_MEMBER_WARNING_ANNOTATION_RE.test(`${slug}: no terminal status was published`)).toBe(true);

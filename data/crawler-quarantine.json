@@ -1,0 +1,128 @@
+{
+  "_comment": "Crawler quarantine registry (scripts/lib/crawler-quarantine.mjs). Every member of the quarantine group has an entry; failingSince + issue mark a KNOWN failure, excluded from the group verdict until failingSince + 7 days. scripts/crawler-quarantine-review.mjs moves a crawler back after 4 green waves and retires it after 10 red waves or 7 days. Edit together with data/crawler-group-assignments.json and re-run the generator.",
+  "schemaVersion": 1,
+  "group": 24,
+  "members": {
+    "mcdonald-s-switzerland": {
+      "homeGroup": 23,
+      "enteredAt": "2026-09-23T12:54:46Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "pole-sante-pays-enhaut": {
+      "homeGroup": 4,
+      "enteredAt": "2026-09-24T05:24:21Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "fondation-domus": {
+      "homeGroup": 10,
+      "enteredAt": "2026-09-24T05:24:21Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "cnp": {
+      "homeGroup": 11,
+      "enteredAt": "2026-09-24T05:24:21Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "fachkraft": {
+      "homeGroup": 23,
+      "enteredAt": "2026-09-24T05:24:21Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "postfinance": {
+      "homeGroup": 23,
+      "enteredAt": "2026-09-24T05:24:21Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "tsmg": {
+      "homeGroup": 23,
+      "enteredAt": "2026-09-24T05:24:21Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "anicura": {
+      "homeGroup": null,
+      "enteredAt": "2026-09-25T13:05:00Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "fisba": {
+      "homeGroup": null,
+      "enteredAt": "2026-09-25T13:05:00Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "tpl-lugano": {
+      "homeGroup": 11,
+      "enteredAt": "2026-09-25T06:03:58Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "capri-holdings": {
+      "homeGroup": 23,
+      "enteredAt": "2026-09-25T06:03:58Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "confederazione": {
+      "homeGroup": 23,
+      "enteredAt": "2026-09-25T06:03:58Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "protectas": {
+      "homeGroup": null,
+      "enteredAt": "2026-09-25T17:37:13Z",
+      "failingSince": "2026-09-26T14:06:21Z",
+      "issue": 10084
+    },
+    "lwphr": {
+      "homeGroup": 9,
+      "enteredAt": "2026-09-26T19:26:01Z",
+      "failingSince": "2026-09-26T23:46:18Z",
+      "issue": 10085
+    },
+    "sunrise": {
+      "homeGroup": 9,
+      "enteredAt": "2026-09-26T19:26:01Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "knowledge-lab": {
+      "homeGroup": 15,
+      "enteredAt": "2026-09-26T19:26:01Z",
+      "failingSince": "2026-09-26T23:46:18Z",
+      "issue": 10083
+    },
+    "convit": {
+      "homeGroup": 19,
+      "enteredAt": "2026-09-27T07:00:46Z",
+      "failingSince": "2026-09-27T15:05:00Z",
+      "issue": 10087
+    },
+    "afry": {
+      "homeGroup": 13,
+      "enteredAt": "2026-09-27T17:30:51Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "buehler": {
+      "homeGroup": 13,
+      "enteredAt": "2026-09-27T17:30:51Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "postauto": {
+      "homeGroup": 23,
+      "enteredAt": "2026-09-27T17:30:51Z",
+      "failingSince": null,
+      "issue": null
+    }
+  },
+  "retired": {}
+}

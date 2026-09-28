@@ -1213,7 +1213,12 @@ export function crawlerWorkflowReference(group, issueRepo = REPO, runRepo = CRAW
 export const CRAWLER_MEMBER_FAILURE_ANNOTATION_RE =
   /^[^\s:]+: (?:crawler exited with status|invalid terminal status)/;
 export const CRAWLER_MEMBER_WARNING_ANNOTATION_RE =
-  /^[^\s:]+: (?:no terminal status was published|runner shutdown recorded as systemic outcome)/;
+  /^[^\s:]+: (?:no terminal status was published|runner shutdown recorded as systemic outcome|fallimento noto in quarantena)/;
+// Il gruppo di quarantena (data/crawler-quarantine.json) esclude dal verdetto il
+// fallimento NOTO di un membro fino alla sua scadenza: il job chiude verde con quel
+// crawler rosso, e l'aggregato lo dice con questo warning. Una expiry torna a
+// essere un `::error::<slug>: quarantena scaduta …`, gia' coperto dal livello failure.
+export const CRAWLER_MEMBER_QUARANTINE_ANNOTATION_RE = /^[^\s:]+: fallimento noto in quarantena/;
 // Limiti documentati di GitHub Actions: oltre, le annotation vengono scartate in
 // silenzio. Raggiunto il tetto, l'assenza di una riga non prova piu' nulla.
 export const GITHUB_ANNOTATIONS_PER_STEP_LIMIT = 10;
@@ -1235,7 +1240,9 @@ export const GITHUB_ANNOTATIONS_PER_JOB_LIMIT = 50;
  * Fonte usata qui, in ordine:
  *   1. step non concluso o conclusion diversa da `success` → quella conclusion;
  *   2. job `success` → verde: lo step finale del gruppo esce 1 con qualunque failure,
- *      missing o systemic, quindi un job verde prova che ogni membro e' riuscito;
+ *      missing o systemic, quindi un job verde prova che ogni membro e' riuscito —
+ *      salvo il gruppo di quarantena, che chiude verde con i fallimenti NOTI entro la
+ *      scadenza: un warning `<slug>: fallimento noto in quarantena` li rende non verdi;
  *   3. job non `failure` (cancelled, timed_out, …) → non verde;
  *   4. job `failure` → le annotation del job: una riga `<slug>: …` di livello failure, o
  *      un warning dell'aggregato (missing, exit 143) per quello slug, prova che il membro
@@ -1258,7 +1265,21 @@ export function decideCrawlerMemberConclusion({
   if (!slug) return null;
   if (stepStatus !== 'completed') return null;
   if (stepConclusion !== 'success') return stepConclusion || null;
-  if (jobConclusion === 'success') return 'success';
+  if (jobConclusion === 'success') {
+    // Un job verde prova ogni membro verde, tranne i fallimenti noti che il gruppo
+    // di quarantena esclude dal verdetto: il loro warning e' l'unica traccia.
+    // Senza annotation passate (chiamanti che non le leggono) resta la regola storica;
+    // annotation illeggibili = prova mancante.
+    if (annotationPages === undefined) return 'success';
+    if (!Array.isArray(annotationPages) || !annotationPages.every(Array.isArray)) return null;
+    const prefix = `${slug}: `;
+    const tolerated = annotationPages.flat().some((annotation) => (
+      typeof annotation?.message === 'string'
+      && annotation.message.startsWith(prefix)
+      && CRAWLER_MEMBER_QUARANTINE_ANNOTATION_RE.test(annotation.message)
+    ));
+    return tolerated ? 'failure' : 'success';
+  }
   if (jobConclusion !== 'failure') return jobConclusion || null;
   if (!hasReadableAnnotations(annotationPages)) return null;
 
@@ -1340,9 +1361,11 @@ function latestCompletedCrawlerStepRun(slug) {
   for (const job of jobsData.jobs || []) {
     const step = (job.steps || []).find((s) => s.name === stepName);
     if (step) {
+      // Anche un job verde: il gruppo di quarantena chiude verde con i fallimenti
+      // noti, e solo le annotation dicono quale membro lo era.
       const needsAnnotations = step.status === 'completed'
         && step.conclusion === 'success'
-        && job.conclusion === 'failure';
+        && (job.conclusion === 'failure' || job.conclusion === 'success');
       const conclusion = decideCrawlerMemberConclusion({
         slug,
         stepStatus: step.status,
