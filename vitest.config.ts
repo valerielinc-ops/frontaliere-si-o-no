@@ -137,6 +137,7 @@ class BalancedSequencer extends BaseSequencer {
 // files that already opt in keep working unchanged.
 const JSDOM_TS_FILES = [
   'tests/ad-analytics.test.ts',
+  'tests/ad-page-diag.test.ts',
   'tests/adblock-abtest.test.ts',
   'tests/adblock-detection.test.ts',
   'tests/analytics-instrumentation.test.ts',
