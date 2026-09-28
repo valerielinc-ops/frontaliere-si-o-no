@@ -12238,6 +12238,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.job-day-pa-como.title': 'Job Day Pubblica Amministrazione a Como: date e dettagli',
     'blog.article.job-day-pa-como.excerpt': 'Il 1° ottobre a Villa Gallia e Villa Saporiti: 28 realtà pubbliche presentano profili ricercati, concorsi e opportunità professionali.',
     'blog.article.job-day-pa-como.imageAlt': 'Villa Gallia e Villa Saporiti a Como per il Job Day della Pubblica Amministrazione',
+    'blog.article.varese-ponti-gallerie-controllo-2026.title': 'Lombardia: 230.640 euro per ponti e gallerie nel Varesotto',
+    'blog.article.varese-ponti-gallerie-controllo-2026.excerpt': 'Regione Lombardia destina 230.640 euro alla Provincia di Varese per controlli su ponti, viadotti e gallerie, da completare entro il 30 novembre 2028 con rendicontazione finale entro il 15 dicembre 2028.',
+    'blog.article.varese-ponti-gallerie-controllo-2026.imageAlt': 'Vista del lago di Lugano con le montagne sullo sfondo e un segnale di confine stradale in primo piano',
 };
 
 export default blogMetaIt;

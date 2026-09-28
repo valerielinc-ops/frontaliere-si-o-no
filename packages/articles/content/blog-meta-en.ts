@@ -12237,6 +12237,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.job-day-pa-como.title': 'Public Administration Job Day in Como: dates and details',
     'blog.article.job-day-pa-como.excerpt': 'On October 1 at Villa Gallia and Villa Saporiti: 28 public entities present sought-after profiles, competitions and professional opportunities.',
     'blog.article.job-day-pa-como.imageAlt': 'Villa Gallia and Villa Saporiti in Como for the Public Administration Job Day',
+    'blog.article.varese-ponti-gallerie-controllo-2026.title': 'Lombardy: 230.640 euro for bridges and tunnels in the Varese area',
+    'blog.article.varese-ponti-gallerie-controllo-2026.excerpt': 'Lombardy Region allocates 230,640 euros to the Province of Varese for checks on bridges, viaducts and tunnels, to be completed by 30 November 2028 with final reporting by 15 December 2028.',
+    'blog.article.varese-ponti-gallerie-controllo-2026.imageAlt': 'View of Lake Lugano with mountains in the background and a border road sign in the foreground',
 };
 
 export default blogMetaEn;
