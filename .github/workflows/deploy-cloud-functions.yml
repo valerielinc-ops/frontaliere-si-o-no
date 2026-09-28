@@ -76,7 +76,10 @@ jobs:
         run: cd functions && npm ci
 
       - name: Deploy Cloud Functions
-        run: firebase deploy --only functions --project frontaliere-ticino --force
+        # Firebase CLI can receive a transient HTML error page from the Google
+        # API while one update is in flight. The wrapper retries only that
+        # observed signature once; all other deploy failures remain fatal.
+        run: node scripts/ci/deploy-cloud-functions-with-retry.mjs
 
       - name: Deploy Firestore indexes
         run: firebase deploy --only firestore:indexes --project frontaliere-ticino
