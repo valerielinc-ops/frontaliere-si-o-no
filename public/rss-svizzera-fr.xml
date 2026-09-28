@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 28 Sep 2026 02:29:03 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 02:58:34 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,89 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Fribourg : successions et donations, taux et exonérations</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/fribourg-impot-succession-donation-taux/</link>
+      <description><![CDATA[Aucun taux fédéral unique : dans le canton de Fribourg, les taxes suivent le degré de parenté et les exonérations pour conjoint et descendants.]]></description>
+      <content:encoded><![CDATA[## En bref
+- La matière est cantonale et communale.
+- Les taux suivent le degré de parenté.
+- Des exonérations sont prévues pour le conjoint et les descendants.
+- AFC/ESTV ne gère pas les successions et les donations.
+
+## Faits clés
+- Compétence → cantonale et communale
+- Taux → degré de parenté
+- Exonérations → conjoint et descendants
+- IFD → revenu
+- AFC/ESTV → IFD et TVA
+
+Dans le canton de Fribourg, l'impôt sur les successions et les donations doit être examiné en partant du degré de parenté, des exonérations prévues et du niveau institutionnel compétent. Le taux ne doit donc pas être recherché dans un tableau fédéral unique : la référence est la réglementation cantonale et communale applicable.
+
+La distinction la plus importante concerne le niveau fédéral. En Suisse, il n'existe pas d'impôt fédéral sur les successions et les donations. Cette imposition relève de la compétence cantonale et communale, tandis que l'impôt fédéral direct, c'est-à-dire l'IFD, frappe le revenu. La TVA relève également d'un autre domaine.
+
+### La frontière avec le niveau fédéral
+
+Dans le système fiscal ordinaire, les niveaux sont au nombre de trois : fédéral, cantonal et communal. Ce schéma ne doit toutefois pas être transposé automatiquement aux successions et aux donations. Chaque canton dispose de sa propre loi et de son propre multiplicateur ; les communes appliquent un multiplicateur à l'impôt cantonal. Pour le canton de Fribourg, l'interprétation correcte reste donc cantonale et communale.
+
+| Élément | Interprétation correcte |
+|---|---|
+| Successions et donations | Compétence cantonale et communale |
+| IFD | Impôt sur le revenu, au niveau fédéral |
+| TVA | Domaine de l'AFC/ESTV |
+| Taux | À lire en fonction du degré de parenté |
+
+La compétence administrative suit cette séparation. AFC/ESTV concerne l'IFD et la TVA, et non l'impôt sur les successions et les donations. Les administrations cantonales gèrent en revanche la fiscalité cantonale et communale. UFAS/BSV et UST/BFS ont également des fonctions différentes : le premier concerne la prévoyance sociale, y compris l'AVS/AHV et la LPP/BVG, tandis que le second produit des statistiques et ne fixe pas les taux.
+
+Pour toute personne qui doit paramétrer une dichiarazione delle imposte, l'étape décisive consiste donc à séparer le revenu soumis à l'IFD du transfert soumis aux règles cantonales et communales.
+## Comment lire les taux sans confondre les niveaux
+
+La première conséquence pratique est qu'il ne faut pas chercher un pourcentage national unique pour chaque succession ou donation. Dans le canton de Fribourg, l'analyse se fait selon le degré de parenté, avec une vérification distincte des exonérations concernant le conjoint et les descendants. Le lien familial est donc la donnée à fixer avant de regarder le taux.
+
+### Trois voies de vérification
+
+| Situation | Contrôle à effectuer |
+|---|---|
+| Conjoint | Vérifier l'exonération prévue |
+| Descendant | Vérifier l'exonération prévue |
+| Autre degré de parenté | Identifier le taux lié au degré |
+| Opération à classer | Distinguer succession et donation |
+
+Si le bénéficiaire est le conjoint, la vérification commence par l'exonération et non par l'application automatique d'un pourcentage. Le même critère s'applique à un descendant. Lorsque le lien familial relève d'un autre degré, la donnée centrale devient le taux lié à ce degré dans la réglementation fribourgeoise. Sans cette classification, même un calcul formellement précis risque d'utiliser la mauvaise colonne.
+
+La distinction entre succession et donation doit être faite avant de remplir la déclaration. Elles sont toutes deux comprises dans le thème fiscal du canton de Fribourg, mais le contribuable doit identifier quelle opération il déclare. En parallèle, le niveau communal ne doit pas être écarté du contrôle : la structure fiscale suisse prévoit une composante communale liée à la composante cantonale par le multiplicateur.
+
+Une autre erreur consiste à prendre une règle d'un canton et à l'utiliser dans un autre. La source du calcul doit rester fribourgeoise, car chaque canton possède sa propre loi et son propre multiplicateur. L'IFD et la TVA ne peuvent pas être utilisés comme substituts de la réglementation successorale : l'IFD concerne le revenu et la TVA relève du domaine de l'AFC/ESTV.
+
+Cette approche est également utile lorsque la même personne gère d'autres obligations fiscales. La dichiarazione delle imposte peut concerner le revenu et l'IFD, mais elle ne transforme pas une succession ou une donation en impôt fédéral. La comparaison correcte part toujours de l'opération, de la parenté, de l'exonération et de la compétence cantonale ou communale.
+
+## Outils utiles pour la planification
+Pour estimer votre stratégie retraite, utilisez le planificateur retraite et le simulateur 3e pilier.
+## Procédure opérationnelle dans le canton de Fribourg
+
+Pour configurer correctement la vérification, il convient de suivre une séquence fixe. L'objectif est d'arriver à la déclaration avec le type d'opération, le degré de parenté et le niveau fiscal déjà séparés.
+
+### Les cinq étapes
+
+1. **Classe l'opération.** Indique s'il s'agit d'une succession ou d'une donation. Ne commence pas par le pourcentage : il faut d'abord la bonne catégorie.
+
+2. Définis le degré de parenté. Enregistre le lien avec le bénéficiaire. Les taux sont liés à cet élément et non à une règle nationale unique.
+
+3. Vérifie les exonérations. Vérifie tout d'abord si le bénéficiaire est le conjoint ou un descendant, car des exonérations sont prévues pour ces catégories. Ce n'est qu'ensuite qu'il faut évaluer l'éventuel taux applicable.
+
+4. Identifie la compétence. Maintiens le calcul dans le périmètre cantonal et communal du canton de Fribourg. N'attribue pas le dossier à l'AFC/ESTV : cette entité concerne l'IFD et la TVA, tandis que les administrations cantonales suivent la fiscalité cantonale et communale.
+
+5. Complète la déclaration et les délais. Inscris l'opération dans la procédure prévue et enregistre le délai à respecter. L'échéance doit être vérifiée dans la réglementation cantonale applicable, sans la remplacer par une date ou une règle de l'IFD.
+
+Une fiche de travail essentielle peut contenir cinq champs : type de transfert, degré de parenté, éventuelle exonération, taux fribourgeois et composante cantonale ou communale. Cette structure évite de mélanger le revenu soumis à l'IFD avec la succession ou la donation. Évite également d'utiliser des données provenant d'un autre canton, car la loi et le multiplicateur ne sont pas automatiquement transférables.
+
+Lorsqu'il faut vérifier le cadre fiscal ordinaire, la dichiarazione delle imposte reste l'outil de référence pour la partie relative au revenu. Pour organiser enfin la comparaison des postes fiscaux globaux, utilise le calcolatore stipendio/imposte.]]></content:encoded>
+      <pubDate>Mon, 28 Sep 2026 02:58:34 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/friburgo-successione-donazione-aliquote</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/friburgo-successione-donazione-aliquote.webp" medium="image"/>
+    </item>
     <item>
       <title>Berne rejette l&apos;initiative pour une éducation de qualité</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/berne-initiative-education-qualite-rejetee/</link>
@@ -3727,72 +3810,6 @@ Offre d'emploi au Tessin? Simulez votre fiche de paie nette : salaire brut, éta
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/carburante-sgravio-berna</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/carburante-sgravio-berna.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Droite unie au Tessin : élections cantonales 2027</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/tessin-droite-elections-avril/</link>
-      <description><![CDATA[Au Tessin, les deux factions de droite se présenteront ensemble aux élections cantonales prévues pour avril 2027, après une rupture qui dure depuis des mois.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Deux factions de droite se présenteront ensemble au Tessin
-- Élections cantonales prévues pour aprile 2027
-- Une rupture qui durait depuis des mois a été réparée
-- Objectif : davantage de stabilité en Suisse italienne
-
-## Faits clés
-- Publication → 17 settembre 2026
-- Lieu → Tessin
-- Protagonistes → deux factions de droite
-- Échéance → élections cantonales d'aprile 2027
-- Objectif → une plus grande stabilité future en Suisse italienne
-
-### La réparation de la rupture
-
-Le 17 settembre 2026, la nouvelle concerne un choix précis de la politique tessinoise : les deux factions de droite se présenteront ensemble aux élections cantonales prévues pour aprile 2027. Le fait central n'est donc pas l'issue du scrutin, mais la décision de se présenter unies à une échéance déjà inscrite dans le calendrier cantonal.
-
-Le texte décrit cette décision comme la réparation d'une rupture qui durait depuis des mois. La nouveauté est donc liée à la volonté de dépasser une fracture qui avait marqué la droite au Tessin. La perspective indiquée est celle d'une plus grande stabilité future en Suisse italienne.
-
-La chronologie est claire. La publication remonte au 17 settembre 2026 ; la fracture appartient aux mois précédents ; le moment vers lequel les deux factions se tournent est aprile 2027, date à laquelle les élections cantonales sont prévues. Cette reconstitution permet de séparer ce qui est déjà décrit par la source de ce qui reste lié à l'avenir : se présenter ensemble est le choix indiqué, tandis que la stabilité est l'objectif recherché.
-
-Pour ceux qui suivent la politique cantonale, l'élément important est la recomposition interne de la droite tessinoise. La nouvelle ne présente pas un résultat électoral et ne mesure pas les effets du choix ; elle rend compte en revanche du changement d'orientation avant le scrutin. La référence à la Suisse italienne élargit la lecture au-delà du seul territoire tessinois, tout en maintenant le centre de gravité sur les élections cantonales.
-
-Lue de cette manière, l'affaire a un périmètre précis : elle concerne deux factions de droite, une relation marquée par une rupture qui durait depuis des mois et une échéance électorale prévue pour aprile 2027. Le sens déclaré est la recherche d'une plus grande stabilité future, et non la description d'un résultat déjà acquis. C'est le point à garder à l'esprit pour ne pas confondre la réparation politique avec le résultat des élections.
-### Ce qui change dans la lecture du scrutin
-
-La portée pratique de la nouvelle apparaît en comparant l'avant et l'après décrits par la source. Avant, il y a une rupture en cours depuis des mois ; dans la perspective d'avril 2027, les deux factions feront campagne ensemble. Cette étape ne produit pas encore de résultat, mais elle modifie le point de départ à partir duquel la droite tessinoise aborde les élections cantonales.
-
-| Élément | Situation décrite | Perspective indiquée |
-| Factions de droite | Rupture en cours depuis des mois | Course commune |
-| Échéance | Rapprochement avant le scrutin | Élections cantonales en avril 2027 |
-| Objectif | Surmonter la fracture | Une plus grande stabilité future en Suisse italienne |
-
-Le tableau aide à distinguer trois niveaux qui sont souvent confondus. Le premier est la relation entre les deux factions, que la nouvelle décrit comme rétablie. Le deuxième est le calendrier, avec le mois d'avril 2027 comme référence. Le troisième est la finalité politique : la plus grande stabilité est recherchée, et non présentée comme un effet déjà obtenu.
-
-Pour un lecteur résidant au Tessin, la conséquence concrète indiquée par le texte concerne donc la manière dont la droite se présente à la prochaine compétition cantonale. Pour ceux qui vivent dans le reste de la Suisse italienne, le lien est la stabilité future de la droite dans la région. Le contenu disponible ne fait apparaître ni chiffres, ni mesures fiscales, ni changements concernant le coût de la vie : introduire ces éléments reviendrait à attribuer à la source des informations qu'elle ne contient pas. Les guides sur le costo della vita in Svizzera relèvent d'un autre registre et ne remplacent pas l'actualité politique.
-
-La lecture la plus prudente est aussi la plus utile : considérer la course commune comme un changement dans la configuration politique avant le scrutin, sans en faire une prévision du résultat. La source indique la direction recherchée, à savoir davantage de stabilité à l'avenir, mais ne décrit pas comment celle-ci sera mesurée. Pour l'instant, le fait concret reste la course commune indiquée pour les élections cantonales d'avril 2027.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le change CHF-EUR et les banques pour frontaliers.
-### Une fiche de lecture en cinq étapes
-
-Qui veut suivre l'affaire peut fixer les repères essentiels sans ajouter d'éléments absents de la source. La première étape est géographique : situer la nouvelle au Tessin. La deuxième est temporelle : noter la publication du 17 septembre 2026 et le rendez-vous des élections cantonales prévu pour avril 2027.
-
-La troisième étape consiste à identifier les protagonistes : il s'agit de deux factions de droite. La quatrième est de lire le verbe politique de la nouvelle, c'est-à-dire « courront ensemble », comme une réparation de la rupture en cours depuis des mois. La cinquième est de séparer l'objectif du résultat : une plus grande stabilité future en Suisse italienne est ce que ce choix cherche à apporter, et non un résultat électoral déjà décrit.
-
-Cette séquence suffit pour mettre à jour une fiche personnelle de l'affaire. On peut noter, dans l'ordre, le lieu, la date de publication, le mois du scrutin, les protagonistes concernés et l'objectif indiqué. Chaque nouvel élément devrait être tenu distinct du noyau déjà connu, afin de ne pas confondre la course commune avec le résultat des élections ou avec des détails que le texte ne fournit pas.
-
-L'utilité de cette méthode est surtout éditoriale : elle maintient séparés le fait, le calendrier et la finalité politique. Elle aide en outre à vérifier si une mise à jour reste liée à la réparation entre les deux factions et à l'objectif de stabilité future, sans étendre la nouvelle au-delà de son périmètre cantonal.
-
-Pour les besoins qui concernent en revanche la dichiarazione delle imposte, consulte le guide dédié. Si tu veux passer de la lecture des nouvelles à une vérification de tes revenus, utilise le calcolatore stipendio e imposte.
-
-Comparez le taux CHF/EUR en temps réel : économisez jusqu'à 1,5% sur les frais de virement mensuel.
-
-*Source: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/svizzera-istruzioni-per-luso/)*]]></content:encoded>
-      <pubDate>Sat, 26 Sep 2026 02:53:36 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/destra-ticino-elezioni-aprile</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/destra-ticino-elezioni-aprile.webp" medium="image"/>
     </item>
   </channel>
 </rss>

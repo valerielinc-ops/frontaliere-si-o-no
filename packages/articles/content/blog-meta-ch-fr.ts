@@ -6890,6 +6890,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bern-istruzione-qualita-respinta.title': 'Berne rejette l\'initiative pour une éducation de qualité',
     'blog.article.bern-istruzione-qualita-respinta.excerpt': 'Avec 59,9% de non et une participation de 45,3%, les Bernois refusent le droit à une éducation de qualité dans la Constitution cantonale.',
     'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'Bâtiment scolaire dans le canton suisse de Berne',
+    'blog.article.friburgo-successione-donazione-aliquote.title': 'Fribourg : successions et donations, taux et exonérations',
+    'blog.article.friburgo-successione-donazione-aliquote.excerpt': 'Aucun taux fédéral unique : dans le canton de Fribourg, les taxes suivent le degré de parenté et les exonérations pour conjoint et descendants.',
+    'blog.article.friburgo-successione-donazione-aliquote.imageAlt': 'Bâtiment administratif cantonal à Fribourg pour la gestion des impôts de succession',
 };
 
 export default blogMetaChFr;

@@ -6890,6 +6890,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bern-istruzione-qualita-respinta.title': 'Bern lehnt die Initiative für hochwertige Bildung ab',
     'blog.article.bern-istruzione-qualita-respinta.excerpt': 'Mit 59,9% Nein und einer Beteiligung von 45,3% lehnen die Berner das Recht auf eine qualitativ hochwertige Bildung in der Kantonsverfassung ab.',
     'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'Schulgebäude im Schweizer Kanton Bern',
+    'blog.article.friburgo-successione-donazione-aliquote.title': 'Freiburg: Erbschaften und Schenkungen, Steuersätze und Befreiungen',
+    'blog.article.friburgo-successione-donazione-aliquote.excerpt': 'Kein einheitlicher Bundessteuersatz: Im Kanton Freiburg richten sich die Steuern nach dem Verwandtschaftsgrad und den Befreiungen für Ehepartner und Nachkommen.',
+    'blog.article.friburgo-successione-donazione-aliquote.imageAlt': 'Kantonales Verwaltungsgebäude in Freiburg für die Erbschafts- und Schenkungssteuer',
 };
 
 export default blogMetaChDe;
