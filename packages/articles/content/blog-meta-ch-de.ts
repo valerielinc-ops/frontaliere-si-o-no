@@ -6908,6 +6908,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilaterale III: Start der Marathonberatungen im Ständerat',
     'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'Heute beginnt die dreitägige Debatte über das Stabilisierungspaket Schweiz-EU. Im Plenum werden mindestens fünf Bundesräte erwartet.',
     'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Bundeskammern',
+    'blog.article.esito-campagna-blocher.title': 'Neutralität: 70% lehnen Blochers Initiative ab',
+    'blog.article.esito-campagna-blocher.excerpt': '70% der Wähler haben die Initiative zur Neutralität abgelehnt; die Kampagne von Christoph Blocher kostete fast 4 Millionen Franken und stärkte damit die Position des Bundesrates.',
+    'blog.article.esito-campagna-blocher.imageAlt': 'Blick auf das Schweizer Bundeshaus in Bern mit Bürgern und Zeitungen zur Neutralitätsabstimmung',
 };
 
 export default blogMetaChDe;

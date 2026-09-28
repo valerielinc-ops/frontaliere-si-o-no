@@ -6908,6 +6908,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilaterali III: al via la maratona al Consiglio degli Stati',
     'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'Inizia oggi il dibattito di tre giorni sul pacchetto di stabilizzazione Svizzera-Ue. In aula attesi almeno cinque consiglieri federali.',
     'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Palazzo Federale a Berna, sede delle Camere federali svizzere',
+    'blog.article.esito-campagna-blocher.title': 'Neutralita: il 70% boccia l\'iniziativa di Blocher',
+    'blog.article.esito-campagna-blocher.excerpt': 'Il 70% degli elettori ha respinto l\'iniziativa sulla neutralità; la campagna di Christoph Blocher è costata quasi 4 milioni di franchi, rafforzando la posizione del Consiglio federale.',
+    'blog.article.esito-campagna-blocher.imageAlt': 'Vista del Palazzo federale svizzero a Berna con cittadini e giornali sul referendum sulla neutralità',
 };
 
 export default blogMetaChIt;
