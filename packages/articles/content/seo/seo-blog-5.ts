@@ -96520,6 +96520,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-job-day-pa-como': {
+    title: 'Job Day Pubblica Amministrazione a Como: date e dettagli',
+    description: 'Scopri i dettagli del Job Day della Pubblica Amministrazione a Como: 1° ottobre a Villa Gallia e Villa Saporiti. Iscrizione gratuita su Eventbrite.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pubblica, amministrazione, como, date',
+    ogTitle: 'Job Day Pubblica Amministrazione a Como',
+    ogDescription: 'Cerchi lavoro nel settore pubblico? Il 1° ottobre a Como, 28 realtà pubbliche presentano profili ricercati e concorsi aperti. Iscrizione gratuita su Eventbrite.',
+    canonicalPath: '/articoli-frontaliere/job-day-pa-como',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Job Day Pubblica Amministrazione a Como: date e dettagli",
+      "description": "Scopri i dettagli del Job Day della Pubblica Amministrazione a Como: 1° ottobre a Villa Gallia e Villa Saporiti. Iscrizione gratuita su Eventbrite.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/job-day-pa-como.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa Gallia e Villa Saporiti a Como per il Job Day della Pubblica Amministrazione"
+      },
+      "datePublished": "2026-09-28T22:12:47+00:00",
+      "dateModified": "2026-09-28T22:12:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/job-day-pa-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

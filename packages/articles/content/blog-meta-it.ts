@@ -12235,6 +12235,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gare-ciclismo-varese-ottobre.title': 'Tre Valli Varesine: gare e chiusure stradali',
     'blog.article.gare-ciclismo-varese-ottobre.excerpt': 'Dal 3 al 6 ottobre, Varese e provincia ospitano cronometro, granfondo e gare professionistiche con importanti limitazioni al traffico.',
     'blog.article.gare-ciclismo-varese-ottobre.imageAlt': 'Gare di ciclismo a Varese e provincia',
+    'blog.article.job-day-pa-como.title': 'Job Day Pubblica Amministrazione a Como: date e dettagli',
+    'blog.article.job-day-pa-como.excerpt': 'Il 1° ottobre a Villa Gallia e Villa Saporiti: 28 realtà pubbliche presentano profili ricercati, concorsi e opportunità professionali.',
+    'blog.article.job-day-pa-como.imageAlt': 'Villa Gallia e Villa Saporiti a Como per il Job Day della Pubblica Amministrazione',
 };
 
 export default blogMetaIt;

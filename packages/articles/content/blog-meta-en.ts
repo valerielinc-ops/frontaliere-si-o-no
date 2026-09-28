@@ -12234,6 +12234,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gare-ciclismo-varese-ottobre.title': 'Tre Valli Varesine: races and road closures',
     'blog.article.gare-ciclismo-varese-ottobre.excerpt': 'From 3 to 6 October, Varese and the surrounding province host time trial, granfondo and professional races with significant traffic restrictions.',
     'blog.article.gare-ciclismo-varese-ottobre.imageAlt': 'Cycling races in Varese and province',
+    'blog.article.job-day-pa-como.title': 'Public Administration Job Day in Como: dates and details',
+    'blog.article.job-day-pa-como.excerpt': 'On October 1 at Villa Gallia and Villa Saporiti: 28 public entities present sought-after profiles, competitions and professional opportunities.',
+    'blog.article.job-day-pa-como.imageAlt': 'Villa Gallia and Villa Saporiti in Como for the Public Administration Job Day',
 };
 
 export default blogMetaEn;
