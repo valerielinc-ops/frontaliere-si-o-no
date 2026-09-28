@@ -36520,6 +36520,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'como-rapina-gioielleria-arresti',
+ category: 'novita',
+ date: '2026-09-28T00:02:10.265Z',
+ image: '/images/blog/como-rapina-gioielleria-arresti.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
