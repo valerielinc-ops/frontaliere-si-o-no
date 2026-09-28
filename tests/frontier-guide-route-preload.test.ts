@@ -24,8 +24,17 @@ describe('FrontierGuide route preload (#8904)', () => {
   });
 
   it('maps the Vita subtab to the component that VitaTabContent actually renders', () => {
-    expect(PREFETCH_SOURCE).toContain("() => import('@/components/tabs/VitaTabContent')");
+    expect(PREFETCH_SOURCE).toMatch(
+      /vita:\s*\[\s*\(\) => import\('@\/components\/tabs\/VitaTabContent'\),\s*\(\) => import\('@\/components\/guide\/FrontierGuide'\),?\s*\]/,
+    );
     expect(PREFETCH_SOURCE).toContain("municipalities: [() => import('@/components/guide/FrontierGuide')]");
     expect(PREFETCH_SOURCE).not.toContain("components/comparators/CostOfLiving");
+  });
+
+  it('maps every localized Vita section to FrontierGuide instead of CostOfLiving', () => {
+    for (const section of ['vivere-in-ticino', 'living-in-ticino', 'leben-im-tessin', 'vivre-au-tessin']) {
+      expect(STATIC_PLUGIN_SOURCE).toContain(`'${section}': ['FrontierGuide']`);
+      expect(STATIC_PLUGIN_SOURCE).not.toContain(`'${section}': ['CostOfLiving']`);
+    }
   });
 });
