@@ -2338,6 +2338,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'joseph-deiss-neutralita-attiva': { it: 'joseph-deiss-neutralita-attiva', en: 'joseph-deiss-active-neutrality', de: 'joseph-deiss-aktive-neutralitat', fr: 'joseph-deiss-neutralite-active' },
  'centri-asilo-ors-subentro-ticino': { it: 'centri-asilo-ors-subentro-ticino', en: 'ors-takeover-at-asylum-centers-guarantees-requested', de: 'subentro-ors-in-den-asylzentren-verlangte-garantien', fr: 'subentro-ors-dans-les-centres-d-asile-garanties-demandees' },
  'lingotti-oro-export-svizzera': { it: 'lingotti-oro-export-svizzera', en: 'gold-bars-italian-exports-switzerland', de: 'goldbarren-italiens-exporte-schweiz', fr: 'lingots-or-exportations-italiennes-suisse' },
+ 'parlamento-rete-elettrica-svizzera': { it: 'parlamento-rete-elettrica-svizzera', en: 'parliament-electricity-grid-switzerland', de: 'parlament-stromnetz-schweiz', fr: 'parlement-reseau-electricite-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -6947,6 +6947,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lingotti-oro-export-svizzera.title': 'Lingotti d\'oro: export italiano in Svizzera +57%',
     'blog.article.lingotti-oro-export-svizzera.excerpt': 'In agosto l\'export italiano extra-UE cresce del 16,1%: +57% verso la Svizzera, con i lingotti d\'oro indicati da Istat. I dati di dettaglio arriveranno dopo.',
     'blog.article.lingotti-oro-export-svizzera.imageAlt': 'Lingotti d\'oro associati alle esportazioni italiane verso la Svizzera',
+    'blog.article.parlamento-rete-elettrica-svizzera.title': 'Reti più rapide e moderne: il Parlamento accelera la rivoluzione elettrica',
+    'blog.article.parlamento-rete-elettrica-svizzera.excerpt': 'Oltre il 60% delle linee ad altissima tensione è vicino a fine vita; la soglia per le linee aeree è 220 kV, mentre la rete di distribuzione interessa tensioni >36 kV e le nuove stazioni non potranno superare 20 m2 di superficie e 3 m di altezza.',
+    'blog.article.parlamento-rete-elettrica-svizzera.imageAlt': 'Linea elettrica ad alta tensione tra le montagne svizzere con cielo sereno e vallata visibile',
 };
 
 export default blogMetaChIt;

@@ -20869,6 +20869,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'parlamento-rete-elettrica-svizzera',
+    category: 'novita',
+    date: '2026-09-28T16:28:09.042Z',
+    image: '/images/blog/parlamento-rete-elettrica-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
