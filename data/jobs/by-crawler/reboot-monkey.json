@@ -2059,7 +2059,6 @@
           "data-center-technician-switzerland-gland-on-site-reboot-monkey-gland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.814Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -2282,7 +2281,6 @@
           "data-center-technician-switzerland-hunenberg-on-site-reboot-monkey-hunenberg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.813Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -2490,7 +2488,6 @@
           "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.812Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -2692,7 +2689,6 @@
           "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.811Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -2788,7 +2784,6 @@
           "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -3184,7 +3179,6 @@
           "data-center-technician-switzerland-manno-on-site-reboot-monkey-manno"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.805Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -3525,7 +3519,7 @@
       "slug": "data-center-technician-svizzera-olten-in-loco-reboot-monkey-olten",
       "slugByLocale": {
         "it": "data-center-technician-svizzera-olten-in-loco-reboot-monkey-olten",
-        "en": "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten-1a308m",
+        "en": "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten",
         "de": "data-center-techniker-switzerland-olten-on-site-reboot-monkey-olten",
         "fr": "technicien-en-informatique-suisse-olten-sur-place-reboot-monkey-olten"
       },
@@ -3592,17 +3586,18 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten"
+        "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten",
+        "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten-1a308m"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten"
         ],
         "en": [
-          "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten"
+          "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten",
+          "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten-1a308m"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.802Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -3997,7 +3992,6 @@
           "data-center-technician-switzerland-rotkreuz-on-site-reboot-monkey-rotkreuz"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -4092,7 +4086,6 @@
           "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-21T22:33:21.886Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -4297,7 +4290,6 @@
           "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.796Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -4500,7 +4492,6 @@
           "data-center-technician-switzerland-schaffhausen-on-site-reboot-monkey-schaffhausen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.795Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -4802,7 +4793,6 @@
           "data-center-technician-switzerland-schlieren-on-site-reboot-monkey-schlieren"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.793Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -5080,7 +5070,6 @@
           "data-center-technician-switzerland-rumlang-on-site-reboot-monkey-rumlang"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.824Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -5175,7 +5164,6 @@
           "data-center-technician-switzerland-lupfig-on-site-reboot-monkey-lupfig"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.823Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -5270,7 +5258,6 @@
           "data-center-technician-switzerland-meyrin-on-site-reboot-monkey-meyrin"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.822Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -5516,7 +5503,7 @@
       "slug": "data-center-technician-ch-st-gallen-in-loco-reboot-monkey-st-gallen",
       "slugByLocale": {
         "it": "data-center-technician-ch-st-gallen-in-loco-reboot-monkey-st-gallen",
-        "en": "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen-ow4rnp",
+        "en": "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen",
         "de": "data-center-techniker-ch-st-gallen-on-site-reboot-monkey-st-gallen",
         "fr": "data-center-technicien-ch-st-gallen-on-site-reboot-monkey-st-gallen"
       },
@@ -5586,7 +5573,8 @@
         "technicien-data-center-ch-saint-gall-sur-site-reboot-monkey-st-gallen",
         "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen-2",
         "data-center-techniker-ch-st-gallen-vor-ort-reboot-monkey-st-gallen",
-        "data-center-techniker-sankt-gallen-on-site-reboot-monkey-sankt-gallen"
+        "data-center-techniker-sankt-gallen-on-site-reboot-monkey-sankt-gallen",
+        "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen-ow4rnp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5596,7 +5584,8 @@
           "data-center-techniker-sankt-gallen-on-site-reboot-monkey-sankt-gallen"
         ],
         "en": [
-          "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen"
+          "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen",
+          "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen-ow4rnp"
         ]
       },
       "firstSeenAt": "2026-05-17T10:55:52.824Z",
@@ -5685,7 +5674,6 @@
         ]
       },
       "remote": false,
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:55:52.824Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -5913,7 +5901,7 @@
       "slug": "data-center-technician-ch-urswil-in-loco-reboot-monkey-urswil",
       "slugByLocale": {
         "it": "data-center-technician-ch-urswil-in-loco-reboot-monkey-urswil",
-        "en": "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-3ey3qg",
+        "en": "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil",
         "de": "data-center-technician-ch-urswil-vor-ort-reboot-monkey-urswil",
         "fr": "technicien-en-centre-de-donnees-ch-urswil-sur-place-reboot-monkey-urswil"
       },
@@ -5982,7 +5970,8 @@
         "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil",
         "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2",
         "data-center-technician-ch-steinhausen-vor-ort-reboot-monkey-steinhausen",
-        "data-center-techniker-ch-urswil-vor-ort-reboot-monkey-urswil"
+        "data-center-techniker-ch-urswil-vor-ort-reboot-monkey-urswil",
+        "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-3ey3qg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5992,7 +5981,8 @@
           "data-center-techniker-ch-urswil-vor-ort-reboot-monkey-urswil"
         ],
         "en": [
-          "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil"
+          "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil",
+          "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-3ey3qg"
         ],
         "de": [
           "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2"
@@ -6084,7 +6074,6 @@
         ]
       },
       "remote": false,
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.785Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -6106,7 +6095,7 @@
       "slug": "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
       "slugByLocale": {
         "it": "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
-        "en": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-fp191o",
+        "en": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
         "de": "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix",
         "fr": "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix"
       },
@@ -6174,7 +6163,8 @@
       "previousSlugs": [
         "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
         "technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix",
-        "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2"
+        "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2",
+        "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-fp191o"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6182,7 +6172,8 @@
           "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2"
         ],
         "en": [
-          "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix"
+          "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
+          "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-fp191o"
         ],
         "de": [
           "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2"
@@ -6277,7 +6268,6 @@
         ]
       },
       "remote": false,
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.783Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -6499,7 +6489,7 @@
       "slug": "data-center-technician-ch-winterthur-in-loco-reboot-monkey-winterthur",
       "slugByLocale": {
         "it": "data-center-technician-ch-winterthur-in-loco-reboot-monkey-winterthur",
-        "en": "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur-1kj5fi",
+        "en": "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur",
         "de": "data-center-technician-ch-winterthur-vor-ort-reboot-monkey-winterthur",
         "fr": "technicien-en-centre-de-donnees-ch-winterthur-sur-place-reboot-monkey-winterthur-eed39a"
       },
@@ -6565,17 +6555,18 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur"
+        "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur",
+        "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur-1kj5fi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur"
         ],
         "en": [
-          "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur"
+          "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur",
+          "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur-1kj5fi"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.780Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -6597,7 +6588,7 @@
       "slug": "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
       "slugByLocale": {
         "it": "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
-        "en": "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-74bgk4",
+        "en": "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
         "de": "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains",
         "fr": "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains"
       },
@@ -6665,7 +6656,8 @@
       "previousSlugs": [
         "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
         "tecnico-data-center-ch-widnau-presenza-in-sede-reboot-monkey-widnau",
-        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2"
+        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2",
+        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-74bgk4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6673,7 +6665,8 @@
           "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2"
         ],
         "en": [
-          "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains"
+          "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
+          "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-74bgk4"
         ],
         "de": [
           "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2"
@@ -6768,7 +6761,6 @@
         ]
       },
       "remote": false,
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.779Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -6971,7 +6963,7 @@
       "slug": "data-center-technician-ch-zug-in-sede-reboot-monkey-zug",
       "slugByLocale": {
         "it": "data-center-technician-ch-zug-in-sede-reboot-monkey-zug",
-        "en": "data-center-technician-ch-zug-on-site-reboot-monkey-zug-lvh8vw",
+        "en": "data-center-technician-ch-zug-on-site-reboot-monkey-zug",
         "de": "data-center-technician-ch-zug-vor-ort-reboot-monkey-zug",
         "fr": "technicien-en-centre-de-donnees-ch-zug-sur-place-reboot-monkey-zug-7a3a17"
       },
@@ -7037,14 +7029,15 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-ch-zug-on-site-reboot-monkey-zug"
+        "data-center-technician-ch-zug-on-site-reboot-monkey-zug",
+        "data-center-technician-ch-zug-on-site-reboot-monkey-zug-lvh8vw"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-ch-zug-on-site-reboot-monkey-zug"
         ],
         "en": [
-          "data-center-technician-ch-zug-on-site-reboot-monkey-zug"
+          "data-center-technician-ch-zug-on-site-reboot-monkey-zug-lvh8vw"
         ]
       },
       "needsRetranslation": true,
@@ -7143,7 +7136,6 @@
           "data-center-technician-switzerland-chiasso-on-site-reboot-monkey-chiasso"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.819Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -7239,7 +7231,6 @@
           "data-center-technician-switzerland-crissier-on-site-reboot-monkey-crissier"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.819Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -7335,7 +7326,6 @@
           "data-center-technician-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.818Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -7431,7 +7421,6 @@
           "data-center-technician-switzerland-dietlikon-on-site-reboot-monkey-dietlikon"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.817Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -7453,7 +7442,7 @@
       "slug": "data-center-technician-svizzera-emmen-in-loco-reboot-monkey-emmen",
       "slugByLocale": {
         "it": "data-center-technician-svizzera-emmen-in-loco-reboot-monkey-emmen",
-        "en": "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen-9ccv3w",
+        "en": "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen",
         "de": "data-center-technician-schweiz-emmen-vor-ort-reboot-monkey-emmen",
         "fr": "technicien-de-centre-de-donnees-suisse-emmen-sur-place-reboot-monkey-emmen"
       },
@@ -7520,17 +7509,18 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen"
+        "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen",
+        "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen-9ccv3w"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen"
         ],
         "en": [
-          "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen"
+          "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen",
+          "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen-9ccv3w"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.816Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -7726,14 +7716,17 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva"
+        "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva",
+        "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva-cyd1tp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva"
+        ],
+        "en": [
+          "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva-cyd1tp"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.792Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -7829,7 +7822,6 @@
           "data-center-technician-switzerland-glattbrugg-on-site-reboot-monkey-glattbrugg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.792Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -9922,7 +9914,7 @@
       "slug": "data-center-technician-svizzera-berna-in-loco-reboot-monkey-bern",
       "slugByLocale": {
         "it": "data-center-technician-svizzera-berna-in-loco-reboot-monkey-bern",
-        "en": "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern-xo0fwd",
+        "en": "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern",
         "de": "data-center-technician-schweiz-bern-vor-ort-reboot-monkey-bern",
         "fr": "technicien-de-centre-de-donnees-suisse-berne-sur-place-reboot-monkey-bern"
       },
@@ -9979,17 +9971,18 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern"
+        "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern",
+        "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern-xo0fwd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern"
         ],
         "en": [
-          "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern"
+          "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern",
+          "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern-xo0fwd"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.766Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -10698,7 +10691,7 @@
       "slug": "tecnico-del-data-center-sion-in-loco-reboot-monkey-sion",
       "slugByLocale": {
         "it": "tecnico-del-data-center-sion-in-loco-reboot-monkey-sion",
-        "en": "data-center-technician-sion-on-site-reboot-monkey-sion-eo3ss0",
+        "en": "data-center-technician-sion-on-site-reboot-monkey-sion",
         "de": "data-center-technician-sion-vor-ort-reboot-monkey-sion",
         "fr": "technicien-en-centre-de-donnees-sion-sur-place-reboot-monkey-sion-4d5099"
       },
@@ -10755,14 +10748,15 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-sion-on-site-reboot-monkey-sion"
+        "data-center-technician-sion-on-site-reboot-monkey-sion",
+        "data-center-technician-sion-on-site-reboot-monkey-sion-eo3ss0"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-sion-on-site-reboot-monkey-sion"
         ],
         "en": [
-          "data-center-technician-sion-on-site-reboot-monkey-sion"
+          "data-center-technician-sion-on-site-reboot-monkey-sion-eo3ss0"
         ]
       },
       "needsRetranslation": true,
@@ -10851,7 +10845,6 @@
           "data-center-technician-switzerland-basel-on-site-reboot-monkey-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.822Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -10937,7 +10930,6 @@
           "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.823Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -11023,7 +11015,6 @@
           "data-center-technician-switzerland-solothurn-on-site-reboot-monkey-solothurn"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:09:46.788Z",
       "salaryMin": 77000,
       "salaryMax": 116500,

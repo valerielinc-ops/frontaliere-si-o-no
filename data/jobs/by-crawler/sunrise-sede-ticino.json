@@ -1321,7 +1321,16 @@
       },
       "firstSeenAt": "2026-06-11T13:38:57.481Z",
       "salarySource": "reported",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "studio-tecnico-audio-e-mcr-mysports-40-sunrise-communications-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studio-tecnico-audio-e-mcr-mysports-40-sunrise-communications-ag-zurich"
+      ]
     },
     {
       "title": "1st Level Engineer Specialist 80-100%",

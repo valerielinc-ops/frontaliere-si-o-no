@@ -250,7 +250,6 @@
         "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
       ],
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -263,7 +262,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b17df214a77f",
@@ -1218,13 +1218,13 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugsByLocale": {
-        "de": [
-          "teamleitung-pflege-ksa-ch",
-          "teamleitung-onkologie-hamatologie-ksa-ch"
-        ],
         "it": [
           "teamleitung-pflege-ksa-ch",
           "teamleitung-pflege-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "teamleitung-pflege-ksa-ch",
+          "teamleitung-onkologie-hamatologie-ksa-ch"
         ]
       },
       "previousSlugs": [
@@ -1392,7 +1392,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1405,7 +1404,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-dfb6babcadae",
