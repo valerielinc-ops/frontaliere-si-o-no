@@ -6959,6 +6959,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.migros-tegut-24-acquirenti.title': 'Migros sucht Käufer für 24 Tegut-Filialen',
     'blog.article.migros-tegut-24-acquirenti.excerpt': 'Das deutsche Kartellamt hat Edeka die Übernahme von 178 der 202 Tegut-Filialen genehmigt; 24 Geschäfte müssen noch veräußert werden, ebenso 41 Teo-Standorte, die Bäckerei Herzberger und ein Logistikzentrum.',
     'blog.article.migros-tegut-24-acquirenti.imageAlt': 'Innenansicht eines Migros-Supermarkts in der Schweiz mit Regalen und Kassen',
+    'blog.article.snl-contratto-alternativo-personale.title': 'SNL: «Alternativer Vertrag» für weniger Auswirkungen',
+    'blog.article.snl-contratto-alternativo-personale.excerpt': 'SNL erwartet Verluste zwischen 350\'000 und 400\'000 Franken nach kantonalem Entscheid, den Dienst Locarno-Magadino nicht mehr zu beauftragen',
+    'blog.article.snl-contratto-alternativo-personale.imageAlt': 'Fähre auf dem Luganersee, SNL Navigationsservice',
 };
 
 export default blogMetaChDe;

@@ -90227,6 +90227,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-snl-contratto-alternativo-personale': {
+    title: 'SNL propone «contratto alternativo» per ridurre impatti su personale',
+    description: 'SNL propone contratto alternativo dopo decisione cantonale. Perdite tra 350\'000 e 400\'000 franchi. Misure per ridurre licenziamenti e mantenere servizio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, propone, contratto, alternativo, ridurre',
+    ogTitle: 'SNL propone contratto alternativo dopo decisione cantonale',
+    ogDescription: 'La Società Navigazione del Lago di Lugano avvia riorganizzazione con perdite previste tra 350\'000 e 400\'000 franchi. Proposto contratto alternativo al personale per ridurre licenziamenti.',
+    canonicalPath: '/articoli-svizzera/snl-contratto-alternativo-personale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SNL propone «contratto alternativo» per ridurre impatti su personale",
+      "description": "SNL propone contratto alternativo dopo decisione cantonale. Perdite tra 350'000 e 400'000 franchi. Misure per ridurre licenziamenti e mantenere servizio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/snl-contratto-alternativo-personale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traghetto sul Lago di Lugano, servizio di navigazione SNL"
+      },
+      "datePublished": "2026-09-28T18:40:39+00:00",
+      "dateModified": "2026-09-28T18:40:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/snl-contratto-alternativo-personale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

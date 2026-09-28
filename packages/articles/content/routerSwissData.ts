@@ -2342,6 +2342,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'riserva-elettrica-nazionale-monthey': { it: 'riserva-elettrica-nazionale-monthey', en: 'national-electricity-reserve-monthey', de: 'nationale-stromreserve-monthey', fr: 'reserve-electrique-nationale-monthey' },
  'norme-biosicurezza-peste-suina': { it: 'norme-biosicurezza-peste-suina', en: 'swiss-african-swine-fever-rules', de: 'schweiz-regeln-afrikanische-schweinepest', fr: 'nouvelles-regles-peste-porcine-suisse' },
  'migros-tegut-24-acquirenti': { it: 'migros-tegut-24-acquirenti', en: 'migros-is-looking-for-buyers-for-24-tegut-stores', de: 'migros-sucht-kaufer-fur-24-tegut-filialen', fr: 'migros-cherche-des-acquereurs-pour-24-magasins-tegut' },
+ 'snl-contratto-alternativo-personale': { it: 'snl-contratto-alternativo-personale', en: 'snl-alternative-contract-staff', de: 'snl-alternativvertrag-mitarbeiter', fr: 'snl-contrat-alternatif-personnel' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

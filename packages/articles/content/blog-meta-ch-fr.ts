@@ -6959,6 +6959,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.migros-tegut-24-acquirenti.title': 'Migros cherche des acquéreurs pour 24 magasins Tegut',
     'blog.article.migros-tegut-24-acquirenti.excerpt': 'L\'antitrust allemand a autorisé Edeka à reprendre 178 des 202 points de vente Tegut ; il reste 24 magasins à céder, ainsi que 41 points Teo, la boulangerie Herzberger et un centre logistique.',
     'blog.article.migros-tegut-24-acquirenti.imageAlt': 'Intérieur d\'un supermarché Migros en Suisse avec rayons et caisses',
+    'blog.article.snl-contratto-alternativo-personale.title': 'SNL propose un « contrat alternatif » pour réduire les impacts sur le personnel',
+    'blog.article.snl-contratto-alternativo-personale.excerpt': 'SNL prévoit des pertes entre 350\'000 et 400\'000 francs après la décision cantonale de ne plus mandater le service Locarno-Magadino',
+    'blog.article.snl-contratto-alternativo-personale.imageAlt': 'Bac du lac de Lugan, service de navigation SNL',
 };
 
 export default blogMetaChFr;
