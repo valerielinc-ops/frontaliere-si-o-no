@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitex-ch",
-  "assembledAt": "2026-09-28T04:59:53.850Z",
+  "assembledAt": "2026-09-28T21:18:30.846Z",
   "jobs": [
     {
       "id": "spitex-ch-7a9edb374634",
@@ -34,7 +34,7 @@
       "url": "https://www.spitexjobs.ch/job/teamleitung-pflege-hf-fh-80100-prozent/J992933",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:48.248Z",
+      "crawledAt": "2026-09-28T21:18:22.677Z",
       "addressLocality": "Weiningen ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh"
+        "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh",
+        "gestione-del-team-hf-fh-80-100-spitex-rechtes-limmattal-weiningen-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh"
+          "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh",
+          "gestione-del-team-hf-fh-80-100-spitex-rechtes-limmattal-weiningen-zh"
         ],
         "en": [
           "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh"
@@ -144,7 +146,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitex-ch-915aab0c4afb",
@@ -238,7 +241,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitex-ch-32a0bc4aca1d",
@@ -266,12 +270,13 @@
         "de": "Individuelle und ganzheitliche Betreuung - darauf legen wir Wert\nWir sind eine moderne Spitex Organisation in Burgdorf, welche sich den Entwicklungen in der spitalexternen Pflege und Betreuung stellt. Für unser sympathisches und dynamisches Team suchen wir nach Vereinbarung eine\nDiplomierte Pflegefachperson HF/FH (m/w/d), 60-90%\nDein Wirkungsfeld\n\n• Du bist zuständig für eine optimale Betreuung und Beratung unserer Klientinnen und Klienten mit Schwerpunkt somatischer Pflege\n\n• Mit der Abklärung und der Fallführung übernimmst du die Verantwortung für sämtliche Schritte im Pflegeprozess deiner Klientinnen und Klienten\n\n• Du übernimmst Koordinationsaufgaben mit weiteren beteiligten Diensten und beteiligst dich aktiv in der Zusammenarbeit mit unserem interprofessionellen Team\nDamit überzeugst du uns\n\n• Abgeschlossene Ausbildung als dipl. Pflegefachperson (DNII / HF / FH)\n\n• Du bist eine empathische, innovative, flexible und fröhliche Persönlichkeit mit ausgeprägten Sozial-, Kommunikations- und Selbstkompetenzen\n\n• Du besitzt einen Führerausweis Kat. B\nDamit überzeugen wir dich\n\n• Wir bieten dir eine spannende Herausforderung mit viel Gestaltungsspielraum in einem engagierten und kompetenten Team\n\n• Bei uns findest du regelmässige Arbeitszeiten (fixe Arbeitstage , mehrheitlich Tagdienste, 2-3x/Monat Spätdienst mit Bereitschaftspikett - je nach Pensum)\n\n• Bezahlte Wegzeiten, ein umfassendes Weiterbildungsprogramm, ein gratis Fitnessangebot und weitere Benefits runden unsere attraktiven Arbeitsbedingungen ab.",
         "fr": "Soutien individuel et global - nous attachons de l'importance à cette\nNous sommes une organisation Spitex moderne à Burgdorf, qui fait face aux développements dans les soins et soins externes hospitaliers. Pour notre équipe sympathique et dynamique, nous cherchons un accord\nInfirmière agréée HF/FH (h/f/d), 60-90 %\nVotre domaine d'activité\n\n• Vous êtes responsable du soutien et des conseils optimaux de nos clients en mettant l'accent sur les soins somatiques\n\n• Avec la clarification et la gestion de cas, vous assumez la responsabilité de toutes les étapes du processus de soins de vos clients\n\n• Vous assumez des tâches de coordination avec d'autres services impliqués et participez activement à la coopération avec notre équipe interprofessionnelle\nCela nous convaincra\n\n• Achevé la formation comme dipl. infirmière (DNII/HF/FH)\n\n• Vous êtes une personnalité empathique, innovante, flexible et gaie avec de solides compétences sociales, de communication et de soi-même\n\n• Vous avez un permis de conduire Cat. B\nCela vous convaincra\n\n• Nous vous offrons un défi passionnant avec beaucoup de latitude créative dans une équipe engagée et compétente\n\n• Avec nous, vous trouverez des heures de travail régulières (jours de travail fixes, surtout des services de jour, 2-3x / mois de service en retard avec des spats d'appel - selon la quantité de travail nécessaire)\n\n• Temps de déplacement payant, un programme d'entraînement complet, une offre de fitness gratuite et d'autres avantages complètent nos conditions de travail attrayantes."
       },
+      "needsRetranslation": true,
       "location": "Burgdorf",
       "canton": "BE",
       "url": "https://www.spitexjobs.ch/job/diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-prozent/J990528",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:46.143Z",
+      "crawledAt": "2026-09-28T21:18:08.336Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -294,7 +299,8 @@
         "infermiere-certificata-hf-fh-m-f-d-60-90-nel-team-di-demenza-spitex-burgdorf-oberburg-burgdorf",
         "certified-nurse-hf-fh-m-f-d-60-90-in-the-dementia-team-spitex-burgdorf-oberburg-burgdorf",
         "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf",
-        "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf"
+        "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf",
+        "infermiere-certificato-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -302,7 +308,8 @@
           "infermiere-certificata-hf-fh-m-f-d-60-90-nel-team-di-demenza-spitex-burgdorf-oberburg-burgdorf",
           "certified-nurse-hf-fh-m-f-d-60-90-in-the-dementia-team-spitex-burgdorf-oberburg-burgdorf",
           "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf",
-          "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf"
+          "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf",
+          "infermiere-certificato-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf"
         ],
         "en": [
           "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf",
@@ -357,12 +364,13 @@
         "de": "SPITEX Grauholz ist für die qualitativ hochstehende, zuverlässige und bedarfsgerechte Versorgung von 11 Gemeinden im Bereich der ambulanten Pflege- und der Hauswirtschaftsleistungen zuständig. Als fortschrittliche Organisation entwickeln wir uns kontinuierlich weiter und zählen dabei auf unsere 170 kompetenten, aufgeschlossenen und motivierten Mitarbeitenden. Diese arbeiten in einem der drei Stützpunkte Jegenstorf, Münchenbuchsee, Urtenen-Schönbühl oder im Hauswirtschafts-, Psychiatrie- und Abklärungsteam.\nZur Verstärkung unseres Psych. Teams suchen wir per sofort oder nach Vereinbarung eine:\nDipl. Pflegefachperson HF/FH Psychiatrie 60-100%\nDu willst\n\n• eine neue Herausforderung oder suchst den Wiedereinstieg in das vielseitige Arbeitsfeld der ambulanten Pflege von Menschen ab der Volljährigkeit bis ins hohe Alter.\n\n• selbstständig in verschiedenen Aufgabengebieten und unterschiedlichsten Settings unterwegs sein – und dabei ein starkes, wertschätzendes Team an deiner Seite haben.\n\n• in herausfordernden, abwechslungsreichen psychiatrischen Pflege- und Betreuungssituationen tätig sein.\n\n• die Lebensqualität der Kundinnen und Kunden verbessern und sie in ihrer Alltagsbewältigung befähigen.\n\n• die Kundinnen und Kunden nach ihren Bedürfnissen zielgerichtet beraten und betreuen, unter Einbezug ihrer Ressourcen und ihres Netzwerks.\nDu bringst\n\n• eine Qualifikation als Pflegefachperson (HF/FH) mit und hast idealerweise Berufserfahrung im Bereich der Spitex.\n\n• als diplomierte Pflegefachperson das Wissen, die Erfahrung und die Eignung mit, Pflegeprozesse zu gestalten und zu verantworten.\n\n• als Wiedereinsteiger:in die Bereitschaft mit, einen Auffrischungskurs zu besuchen, um dein Fachwissen zu aktualisieren.\n\n• die Fähigkeit mit, administrative Aufgaben effizient und gewissenhaft zu erledigen und verfügst über einen Führerausweis Kategorie B.\nWir bieten dir\n\n• ein spannendes Arbeitsfeld in einer dynamischen Organisation und eine umsichtige Einarbeitung.\n\n• die Unterstützung eines starken, motivierten und stabilen Teams, das sich bereits heute auf dich freut.\n\n• fortschrittliche Anstellungsbedingungen: fairer Lohn, überdurchschnittliche Sozialleistungen, freiwillige Betreuungszulagen als Ergänzung zur obligatorischen Familienzulage, mind. 5 Wochen Ferien und die Möglichkeit auf unbezahlten Urlaub.\n\n• die Gelegenheit, dich fachlich und persönlich weiterzuentwickeln. Dabei unterstützen wir dich durch diverse finanzierte Weiterbildungsangebote.\n\n• diverse Extras wie vergünstigte Mobile-Abos bei Salt, Flottenrabatt beim Kauf eines Neuwagens sowie Rabatte bei verschiedenen Anbietern.\nDie Spitex Grauholz ist eine effizient geführte und gut strukturierte Organisation, die grossen Wert auf gegenseitige Wertschätzung, Hilfsbereitschaft, einen positiven Teamgeist und eine Zusammenarbeit auf Augenhöhe legt.\nUnsere attraktiven Arbeitsbedingungen , sowie Informationen zum breiten Angebot der Spitex Grauholz findest du auf unserer Homepage.\nHaben wir dein Interesse an dieser spannenden und herausfordernden Stelle geweckt, in der dir sowohl seitens unserer Kunden als auch des Arbeitsgebers viel Wertschätzung zukommt?\nBewirb dich unkompliziert mit Lebenslauf und Zeugnissen via Mail an hr@spitex-grauholz.ch .\nBei Fragen stehen wir dir unter 031 850 20 85 gerne zur Verfügung.",
         "fr": "SPITEX Grauholz est responsable des soins de qualité, fiables et axés sur les besoins de 11 municipalités dans le domaine des soins ambulatoires et des services de ménage. En tant qu'organisation progressiste, nous continuons de développer et de compter sur nos 170 employés compétents, ouverts d'esprit et motivés. Ils travaillent dans l'une des trois bases Jegenstorf, Münchenbuchsee, Urtenen-Schönbühl ou dans l'équipe d'entretien ménager, de psychiatrie et d'enquête.\nPour renforcer notre psyché. Nous recherchons des équipes immédiatement ou par accord :\nDipl. Infirmière HF/FH Psychiatrie 60-100 %\nTu veux\n\n• un nouveau défi ou cherche à revenir dans le domaine polyvalent des soins ambulatoires des personnes de l'âge de la majorité à la vieillesse.\n\n• Soyez sur la route indépendamment dans des tâches et des réglages différents – et avez une équipe forte et reconnaissante à vos côtés.\n\n• travailler dans des situations difficiles et variées en soins infirmiers et en soins psychiatriques.\n\n• améliorer la qualité de vie des clients et les responsabiliser dans leur vie quotidienne.\n\n• conseiller et soutenir les clients en fonction de leurs besoins, en tenant compte de leurs ressources et de leur réseau.\nVous apportez\n\n• avoir une qualification d'infirmière (HF/FH) et idéalement avoir une expérience professionnelle dans le domaine de Spitex.\n\n• en tant qu'infirmière qualifiée, vous avez les connaissances, l'expérience et l'aptitude à concevoir et à assumer la responsabilité des processus de soins infirmiers.\n\n• comme une rentrée: une volonté de suivre un cours de recyclage pour mettre à jour votre expertise.\n\n• avoir la capacité d'exécuter les tâches administratives de manière efficace et consciencieuse et avoir un permis de conduire de catégorie B.\nNous vous offrons\n\n• un champ de travail passionnant dans une organisation dynamique et une familiarisation prudente.\n\n• Soutenir une équipe forte, motivée et stable qui vous attend déjà aujourd'hui.\n\n• conditions d'emploi progressives: salaire équitable, prestations sociales supérieures à la moyenne, allocations de soins volontaires en complément de l'allocation familiale obligatoire, vacances de moins de 5 semaines et possibilité de vacances non rémunérées.\n\n• l'occasion de se développer professionnellement et personnellement. Nous vous accompagnons grâce à diverses offres de formation financées.\n\n• divers suppléments tels que les abonnements mobiles réduits à Salt, rabais de flotte lors de l'achat d'une voiture neuve ainsi que des rabais auprès de divers fournisseurs.\nSpitex Grauholz est une organisation gérée efficacement et bien structurée qui attache une grande importance à l'appréciation mutuelle, à l'utilité, à un esprit d'équipe positif et à la coopération sur un pied d'égalité.\nNos conditions de travail attrayantes, ainsi que des informations sur la large gamme de Spitex Grauholz se trouvent sur notre page d'accueil.\nAvons-nous suscité votre intérêt pour cette position passionnante et stimulante, où vous êtes très apprécié à la fois par nos clients et par l'employeur?\nAppliquer facilement avec CV et certificats par courrier à hr@spitex-grouholz.ch .\nSi vous avez des questions, nous sommes à votre disposition sous 031 850 20 85."
       },
+      "needsRetranslation": true,
       "location": "Urtenen-Schönbühl",
       "canton": "BE",
       "url": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-fh-psychiatrie-60-100-prozent/J984540",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:45.690Z",
+      "crawledAt": "2026-09-28T21:18:25.324Z",
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -388,7 +396,8 @@
         "infermiera-hf-fh-psichiatria-80-100-lunedi-venerdi-spitex-regio-liestal-liestal",
         "dipl-nurse-hf-fh-psychiatry-80-100-monday-friday-spitex-regio-liestal-liestal",
         "dipl-pflegefachperson-hf-fh-psychiatrie-80-100-montag-freitag-spitex-ch-liestal",
-        "dipl-infirmiere-hf-fh-psychiatrie-80-100-lundi-au-vendredi-spitex-regio-liestal-liestal"
+        "dipl-infirmiere-hf-fh-psychiatrie-80-100-lundi-au-vendredi-spitex-regio-liestal-liestal",
+        "dipl-cura-professionale-hf-psichiatria-60-80-spitex-grauholz-urtenen-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -399,7 +408,8 @@
           "infermiera-hf-fh-psichiatria-80-100-lunedi-venerdi-spitex-regio-liestal-liestal",
           "dipl-nurse-hf-fh-psychiatry-80-100-monday-friday-spitex-regio-liestal-liestal",
           "dipl-pflegefachperson-hf-fh-psychiatrie-80-100-montag-freitag-spitex-ch-liestal",
-          "dipl-infirmiere-hf-fh-psychiatrie-80-100-lundi-au-vendredi-spitex-regio-liestal-liestal"
+          "dipl-infirmiere-hf-fh-psychiatrie-80-100-lundi-au-vendredi-spitex-regio-liestal-liestal",
+          "dipl-cura-professionale-hf-psichiatria-60-80-spitex-grauholz-urtenen-schonbuhl"
         ],
         "en": [
           "dipl-nurse-hf-fh-psychiatry-80-100-monday-friday-spitex-regio-liestal-liestal"
@@ -504,7 +514,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitex-ch-dcf36c04415c",
@@ -575,7 +586,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitex-ch-a769558b573b",
@@ -647,7 +659,8 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitex-ch-bfa282d23d44",
@@ -726,7 +739,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "spitex-ch-122c0a3a9b1f",
@@ -754,12 +769,13 @@
         "de": "Du willst mit Menschen arbeiten und etwas bewirken? Dann Starte deine Ausbildung bei uns!\nBei uns wirst du zum Pflegeprofi: Mit deiner Pflege und Betreuung ermöglichst du Menschen dort betreut zu werden, wo sie sich am wohlsten fühlen – zu Hause\nLehrstelle FaGe EFZ in Spiez\nHier lernst du:\n\n• Menschen im Alltag zu begleiten und persönlich zu betreuen\n\n• Pflegerische Aufgaben Schritt für Schritt zu übernehmen\n\n• Teamwork – und dabei auch selbständig Arbeiten zu erledigen\nDas bringst du mit:\n\n• Interesse an Gesundheit, Pflege und Medizin\n\n• Freude am Kontakt mit Menschen\n\n• Spass daran, unterwegs zu sein – mit E-Bike, Roller oder später dem Auto\nDein Vorteil:\n\n• 🤝 Ein starkes Team unterstützt dich von Anfang an\n\n• 🎓 Regelmässige Lernbegleitungen und Lerntreffs fördern dich fachlich und menschlich\n\n• 📅 Ein Teil der Lernzeit, ist bei uns Arbeitszeit\n\n• 🌴 33 Tage Ferien\n\n• 🚆 Gratis Halbtax-Abo\n\n• 🚘 Beteiligung an deiner Fahrzeugprüfung (VKU-Kurs)\n\n• 📱 Firmeneigenes Arbeitshandy\n\n• 👕 Arbeitskleidung wie T-Shirt, Hose, Hoodie und Softshelljacke bekommst du von uns\nKlingt spannend?\n👉 Dann bewirb dich jetzt – wir freuen uns auf dich!\n📞033 226 50 50 - Corinne Homberger, Berufsbildungsverantwortliche",
         "fr": "Vous voulez travailler avec les gens et faire une différence? Commencez votre éducation avec nous!\nAvec nous, vous devenez un professionnel de soins : Avec vos soins et vos soins, vous permettrez aux gens d'être soignés là où ils se sentent les plus à l'aise – à la maison\nApprentissage FaGe EFZ à Spiez\nVoici où vous apprenez :\n\n• Accompagner et prendre personnellement soin des personnes dans la vie quotidienne\n\n• Prendre soin des tâches infirmières étape par étape\n\n• Travail d'équipe – et travail indépendant\nC'est ce que vous apportez avec vous :\n\n• Intérêt pour la santé, les soins et la médecine\n\n• Joy du contact avec les gens\n\n• Profitez d'être sur la route – avec e-bike, scooter ou plus tard la voiture\nVotre avantage :\n\n• Une équipe forte vous soutient dès le début\n\n• Les accompagnements et les réunions d'apprentissage réguliers vous encouragent professionnellement et humainement\n\n• Une partie de notre temps d'apprentissage est le temps de travail.\n\n• 33 jours de vacances\n\n• Abonnement gratuit à la demi-taxe\n\n• Participation à votre test de véhicule (cours VKU)\n\n• Table des matières L'entreprise propre téléphone de travail\n\n• Vêtements de travail tels que T-shirt, pantalon, sweat à capuche et veste softshell que vous obtenez de nous\nÇa semble excitant ?\nNous vous attendons avec impatience !\n- Corinne Homberger, responsable de la formation professionnelle"
       },
+      "needsRetranslation": true,
       "location": "Spiez",
       "canton": "BE",
       "url": "https://www.spitexjobs.ch/job/lehrstelle-fage-efz-in-spiez/J991541",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:41.651Z",
+      "crawledAt": "2026-09-28T21:18:21.907Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -778,11 +794,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fage-efz-in-spiez-spitex-ch-spiez"
+        "lehrstelle-fage-efz-in-spiez-spitex-ch-spiez",
+        "apprendistato-fage-cfc-in-spiez-spitex-region-thun-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fage-efz-in-spiez-spitex-ch-spiez"
+          "lehrstelle-fage-efz-in-spiez-spitex-ch-spiez",
+          "apprendistato-fage-cfc-in-spiez-spitex-region-thun-ag-spiez"
         ],
         "en": [
           "lehrstelle-fage-efz-in-spiez-spitex-ch-spiez"
@@ -837,7 +855,7 @@
       "url": "https://www.spitexjobs.ch/job/lehrstelle-fage-efz-erwachsenenbildung-in-thun/J991540",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:40.824Z",
+      "crawledAt": "2026-09-28T21:18:21.208Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -856,11 +874,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fage-efz-erwachsenenbildung-in-thun-spitex-ch-thun"
+        "lehrstelle-fage-efz-erwachsenenbildung-in-thun-spitex-ch-thun",
+        "apprendistato-fage-cfc-erwachsenenbildung-in-thun-spitex-region-thun-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fage-efz-erwachsenenbildung-in-thun-spitex-ch-thun"
+          "lehrstelle-fage-efz-erwachsenenbildung-in-thun-spitex-ch-thun",
+          "apprendistato-fage-cfc-erwachsenenbildung-in-thun-spitex-region-thun-ag-thun"
         ],
         "en": [
           "lehrstelle-fage-efz-erwachsenenbildung-in-thun-spitex-ch-thun"
@@ -888,9 +908,9 @@
       "slug": "apprendistato-fage-cfc-in-thun-spitex-region-thun-ag-thun",
       "slugByLocale": {
         "it": "apprendistato-fage-cfc-in-thun-spitex-region-thun-ag-thun",
-        "en": "lehrstelle-fage-efz-in-thun-spitex-ch-thun",
+        "en": "fage-efz-apprenticeship-in-thun-spitex-region-thun-ag-thun",
         "de": "lehrstelle-fage-efz-in-thun-spitex-ch-thun",
-        "fr": "lehrstelle-fage-efz-in-thun-spitex-ch-thun"
+        "fr": "apprentissage-fage-efz-a-thun-spitex-region-thun-ag-thun"
       },
       "company": "SPITEX Region Thun AG",
       "companyKey": "spitex-ch",
@@ -914,7 +934,7 @@
       "url": "https://www.spitexjobs.ch/job/lehrstelle-fage-efz-in-thun/J991536",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:39.896Z",
+      "crawledAt": "2026-09-28T21:18:20.689Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -933,10 +953,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fage-efz-in-thun-spitex-ch-thun"
+        "lehrstelle-fage-efz-in-thun-spitex-ch-thun",
+        "apprendistato-fage-cfc-in-thun-spitex-region-thun-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fage-efz-in-thun-spitex-ch-thun",
+          "apprendistato-fage-cfc-in-thun-spitex-region-thun-ag-thun"
+        ],
+        "en": [
+          "lehrstelle-fage-efz-in-thun-spitex-ch-thun"
+        ],
+        "fr": [
           "lehrstelle-fage-efz-in-thun-spitex-ch-thun"
         ]
       },
@@ -980,12 +1008,13 @@
         "de": "Du willst mit Menschen arbeiten und etwas bewirken? Dann Starte deine Ausbildung bei uns!\n\nLehrstelle FaGe EFZ Erwachsenenbildung in Wattenwil\nDeine Ausbildung\n\n• Zuhause ist es am schönsten – Du lernst Menschen in ihrer gewohnten Umgebung respektvoll zu pflegen und zu unterstützen\n\n• Zeit für das Wesentliche – Medizinalteschnische Verrichtungen sowie administrative und logistische Dienstleistungen kompetent auszuführen.\n\n• Abwechslung statt Routine – Du bist lieber unterwegs als immer am selben Arbeitsort\nDas bringst du mit\n\n• Du verfügst über eine Ausbildung mit EFZ-Abschluss und mind. 2 Jahre Berufstätigkeit zu 60% in der Pflege oder\n\n• Abschluss als Pflegehelfer:in SRK mit ABU (Allgemein Bildender Unterricht) und mind. 2 Jahre Berufstätigkeit zu 60% in der Pflege\n\n• Du bist empathisch und neugierig – gehst auf Menschen zu und bist mit Herz dabei\n\n• Du bist mobil – mit eigenem Auto, dem Spitex E-Bike oder E-Roller\nDeine Vorteile\n\n• Eine fundierte zweijährige Ausbildung mit hohem Praxisbezug, begleitet von engagierten Berufsbildnerinnen sowie Theorie in Berufsfachschule und überbetrieblichen Kursen\n\n• Anstellung von 60% (überbetrieblich Kurse sind Arbeitstage)\n\n• Entschädigung von CHF 400.- für die Schultage\n\n• Weitere Vorteile findest du hier ( Arbeitgeber - SPITEX Region Thun AG )\nBereit für den nächsten Schritt?\n👉 Bewirb dich unkompliziert online – wir freuen uns auf dich!\n📞033 226 50 50 - Corinne Homberger, Berufsbildungsverantwortliche",
         "fr": "Vous voulez travailler avec les gens et faire une différence? Commencez votre éducation avec nous!\n\nApprentissage FaGe EFZ Éducation des adultes à Wattenwil\nVotre éducation\n\n• La maison est la plus belle – Vous apprenez à prendre soin et à soutenir les gens dans leur environnement habituel\n\n• Il est temps pour l'essentiel – d'effectuer avec compétence des services médicaux ainsi que des services administratifs et logistiques.\n\n• Changement au lieu de routine – Vous préférez être sur la route que toujours au même lieu de travail\nApporte ça avec toi.\n\n• Vous avez une formation avec un diplôme EFZ et min. 2 ans d'activité professionnelle 60% en soins ou\n\n• Diplôme d'assistant infirmier : en SRK avec ABU (Général Education) et au moins. 2 ans d'activité professionnelle 60% en soins\n\n• Vous êtes empathique et curieux – approchez les gens et soyez là avec le cœur\n\n• Vous êtes mobile – avec votre propre voiture, l'e-bike Spitex ou e-scooter\nVos avantages\n\n• Un enseignement bien fondé de deux ans avec une grande pertinence pratique, accompagné de formateurs professionnels engagés ainsi que de la théorie dans les cours d'école professionnelle et interentreprises\n\n• Emploi de 60% (les cours interentreprises sont des jours ouvrables)\n\n• Rémunération de CHF 400.- pour les journées scolaires\n\n• D'autres avantages peuvent être trouvés ici (Employeur - SPITEX Region Thun AG )\nPrêt pour la prochaine étape ?\nAppliquez facilement en ligne – nous nous réjouissons de vous!\n- Corinne Homberger, responsable de la formation professionnelle"
       },
+      "needsRetranslation": true,
       "location": "Wattenwil",
       "canton": "BE",
       "url": "https://www.spitexjobs.ch/job/lehrstelle-fage-efz-erwachsenenbildung-in-wattenwil/J991535",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:39.068Z",
+      "crawledAt": "2026-09-28T21:18:19.966Z",
       "addressLocality": "Wattenwil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1005,12 +1034,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-fage-efz-erwachsenenbildung-in-wattenwil-spitex-ch-wattenwil",
-        "apprendistato-fage-cfc-erwachsenenbildung-in-wattenwil-spitex-region-thun-ag-wattenwil"
+        "apprendistato-fage-cfc-erwachsenenbildung-in-wattenwil-spitex-region-thun-ag-wattenwil",
+        "apprendistato-fage-efz-formazione-per-adulti-a-wattenwil-spitex-region-thun-ag-wattenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fage-efz-erwachsenenbildung-in-wattenwil-spitex-ch-wattenwil",
-          "apprendistato-fage-cfc-erwachsenenbildung-in-wattenwil-spitex-region-thun-ag-wattenwil"
+          "apprendistato-fage-cfc-erwachsenenbildung-in-wattenwil-spitex-region-thun-ag-wattenwil",
+          "apprendistato-fage-efz-formazione-per-adulti-a-wattenwil-spitex-region-thun-ag-wattenwil"
         ],
         "en": [
           "lehrstelle-fage-efz-erwachsenenbildung-in-wattenwil-spitex-ch-wattenwil"
@@ -1038,9 +1069,9 @@
       "slug": "apprendistato-fage-cfc-in-wattenwil-spitex-region-thun-ag-wattenwil",
       "slugByLocale": {
         "it": "apprendistato-fage-cfc-in-wattenwil-spitex-region-thun-ag-wattenwil",
-        "en": "lehrstelle-fage-efz-in-wattenwil-spitex-ch-wattenwil",
+        "en": "fage-efz-apprenticeship-in-wattenwil-spitex-region-thun-ag-wattenwil",
         "de": "lehrstelle-fage-efz-in-wattenwil-spitex-ch-wattenwil",
-        "fr": "lehrstelle-fage-efz-in-wattenwil-spitex-ch-wattenwil"
+        "fr": "apprentissage-fage-efz-a-wattenwil-spitex-region-thun-ag-wattenwil"
       },
       "company": "SPITEX Region Thun AG",
       "companyKey": "spitex-ch",
@@ -1064,7 +1095,7 @@
       "url": "https://www.spitexjobs.ch/job/lehrstelle-fage-efz-in-wattenwil/J991534",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:38.375Z",
+      "crawledAt": "2026-09-28T21:18:19.180Z",
       "addressLocality": "Wattenwil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1083,10 +1114,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fage-efz-in-wattenwil-spitex-ch-wattenwil"
+        "lehrstelle-fage-efz-in-wattenwil-spitex-ch-wattenwil",
+        "apprendistato-fage-cfc-in-wattenwil-spitex-region-thun-ag-wattenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fage-efz-in-wattenwil-spitex-ch-wattenwil",
+          "apprendistato-fage-cfc-in-wattenwil-spitex-region-thun-ag-wattenwil"
+        ],
+        "en": [
+          "lehrstelle-fage-efz-in-wattenwil-spitex-ch-wattenwil"
+        ],
+        "fr": [
           "lehrstelle-fage-efz-in-wattenwil-spitex-ch-wattenwil"
         ]
       },
@@ -1136,7 +1175,7 @@
       "url": "https://www.spitexjobs.ch/job/ausbildung-fuer-hf-studium-ab-januar-2027/J966640",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:37.471Z",
+      "crawledAt": "2026-09-28T21:18:17.831Z",
       "addressLocality": "Goldau",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1213,7 +1252,7 @@
       "url": "https://www.spitexjobs.ch/job/lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-fuer-2027/J991482",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:36.950Z",
+      "crawledAt": "2026-09-28T21:18:17.311Z",
       "addressLocality": "Goldau",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1233,12 +1272,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-fur-2027-spitex-ch-goldau",
-        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-fage-per-2027-spitex-regio-arth-goldau"
+        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-fage-per-2027-spitex-regio-arth-goldau",
+        "apprendistato-come-specialista-salute-efz-fage-per-2027-spitex-regio-arth-goldau-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-fur-2027-spitex-ch-goldau",
-          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-fage-per-2027-spitex-regio-arth-goldau"
+          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-fage-per-2027-spitex-regio-arth-goldau",
+          "apprendistato-come-specialista-salute-efz-fage-per-2027-spitex-regio-arth-goldau-goldau"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-fur-2027-spitex-ch-goldau"
@@ -1288,12 +1329,13 @@
         "de": "Spitex Region Aarau: Gesundheit in besten Händen!\nGemeinsam für eine bessere Lebensqualität\nDie Spitex Region Aarau ist eine der grössten Anbieterinnen in der ambulanten Pflegeversorgung in der Region. Sie erbringt ihre Leistungen im Auftrag der Gemeinden.\nUnsere engagierten und qualifizierten Mitarbeitende sind das Herzstück unserer Organisation. Sie leisten täglich einen wertvollen Beitrag zur Gesundheit und Lebensqualität der Menschen. Wir unterstützen Menschen in allen Lebensphasen.\nGesucht per sofort oder nach Vereinbarung\nDipl. Pflegefachperson HF (40 – 100 %)\nMenschen zu Hause kompetent begleiten, Verantwortung übernehmen und dabei auf ein engagiertes Team zählen können – klingt das nach Ihrem nächsten Schritt?\nDann werden Sie Teil der Spitex Region Aarau. Wir suchen eine motivierte und herzliche Persönlichkeit, die mit Fachkompetenz, Engagement und Freude unsere Klientinnen und Klienten unterstützt\nIhre Aufgaben\n\n• Selbstständige und ressourcenorientierte Pflege sowie Beratung unserer Klientinnen und Klienten\n\n• Durchführung von Bedarfsabklärungen mit interRAI-HC\n\n• Übernahme von Fallführungen und Koordination der Pflege\nDas bringen Sie mit\n\n• Abschluss als dipl. Pflegefachfrau / Pflegefachmann HF\n\n• Von Vorteil: Spitex-Erfahrung und Kenntnisse in interRAI-HC\n\n• Freude an eigenverantwortlichem Arbeiten und am Kontakt mit Menschen\n\n• Teamgeist, Flexibilität und eine positive Grundhaltung\nWerden Sie Teil unseres Teams und gestalten Sie mit uns eine Pflege, die professionell, menschlich und nah an den Bedürfnissen unserer Klientinnen und Klienten ist. Wir freuen uns auf Ihre Bewerbung!\nFür Fragen steht Ihnen Karin Fehlmann, Co-Kerndienstleitung, unter 062 838 09 50 gerne zur Verfügung. Bitte senden Sie die vollständigen Bewerbungsunterlagen an: bewerbungen@spitexregionaarau.ch",
         "fr": "Spitex Region Aarau: La santé dans les meilleures mains!\nTravailler ensemble pour une meilleure qualité de vie\nLa région de Spitex Aarau est l'un des plus grands fournisseurs de soins ambulatoires de la région. Il fournit ses services au nom des municipalités.\nNos employés dévoués et qualifiés sont au cœur de notre organisation. Chaque jour, ils apportent une contribution précieuse à la santé et à la qualité de vie des gens. Nous soutenons les gens à toutes les étapes de la vie.\nRecherché immédiatement ou par accord\nInfirmière diplômée HF (40 – 100 %)\nAccompagner de manière compétente les personnes à la maison, assumer leurs responsabilités et compter sur une équipe dévouée – cela ressemble-t-il à votre prochaine étape?\nEnsuite, vous faites partie de la région Spitex Aarau. Nous recherchons une personnalité motivée et chaleureuse qui accompagne nos clients avec expertise, engagement et joie.\nLeurs tâches\n\n• Soins et conseils indépendants et axés sur les ressources pour nos clients\n\n• Mise en œuvre d ' évaluations des besoins avec l ' interRAI-HC\n\n• Prise en charge des cas et coordination des soins\nC'est ce qu'ils apportent.\n\n• Achèvement en tant que dipl. Infirmière / Infirmière spécialiste HF\n\n• Avantage: Expérience et connaissances de Spitex dans l'interRAI-HC\n\n• Joy de travail auto-responsable et contact avec les gens\n\n• Esprit d'équipe, flexibilité et attitude positive\nFaites partie de notre équipe et créez avec nous un soin professionnel, humain et proche des besoins de nos clients. Nous nous réjouissons de votre candidature!\nPour toute question Karin Fehlmann, co-fournisseur de services de base, est à votre disposition au 062 838 09 50. Veuillez envoyer le dossier de candidature complet à: bewerbungen@spitexregionaarau.ch"
       },
+      "needsRetranslation": true,
       "location": "Aarau",
       "canton": "AG",
       "url": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-40-100-prozent/J992217",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:36.336Z",
+      "crawledAt": "2026-09-28T21:18:16.614Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1312,11 +1354,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-40-100-spitex-ch-aarau"
+        "dipl-pflegefachperson-hf-40-100-spitex-ch-aarau",
+        "infermiera-hf-40-100-spitex-region-aarau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-40-100-spitex-ch-aarau"
+          "dipl-pflegefachperson-hf-40-100-spitex-ch-aarau",
+          "infermiera-hf-40-100-spitex-region-aarau-aarau"
         ],
         "en": [
           "dipl-pflegefachperson-hf-40-100-spitex-ch-aarau"
@@ -1372,7 +1416,7 @@
       "url": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-fachrichtung-psychiatrie-80-100-prozent/J988516",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:35.891Z",
+      "crawledAt": "2026-09-28T21:18:16.103Z",
       "addressLocality": "Reinach BL",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1391,11 +1435,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-80-100-spitex-ch-reinach-bl"
+        "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-80-100-spitex-ch-reinach-bl",
+        "dipl-pflegefachperson-hf-specializzazione-psychiatrie-80-100-spitex-region-birs-gmbh-reinach-bl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-80-100-spitex-ch-reinach-bl"
+          "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-80-100-spitex-ch-reinach-bl",
+          "dipl-pflegefachperson-hf-specializzazione-psychiatrie-80-100-spitex-region-birs-gmbh-reinach-bl"
         ]
       },
       "firstSeenAt": "2026-09-19T22:52:29.672Z",
@@ -1417,34 +1463,35 @@
       "id": "spitex-ch-bd345fdeb20b",
       "slug": "fage-housekeeper-40-90-spitex-region-emmental-langnau-im-emmental",
       "slugByLocale": {
-        "de": "fage-hauspflegerin-40-90-spitex-ch-langnau-im-emmental",
         "it": "fage-housekeeper-40-90-spitex-region-emmental-langnau-im-emmental",
-        "fr": "fage-menageur-40-90-spitex-region-emmental-langnau-im-emmental",
-        "en": "fage-housekeeper-40-90-spitex-region-emmental-langnau-im-emmental"
+        "en": "fage-housekeeper-40-90-spitex-region-emmental-langnau-im-emmental",
+        "de": "fage-hauspflegerin-40-90-spitex-ch-langnau-im-emmental",
+        "fr": "fage-menageur-40-90-spitex-region-emmental-langnau-im-emmental"
       },
       "company": "Spitex Region Emmental",
       "companyKey": "spitex-ch",
       "companyDomain": "spitexjobs.ch",
       "title": "FaGe / HauspflegerIn 40 – 90%",
       "titleByLocale": {
-        "de": "FaGe / HauspflegerIn 40 – 90%",
-        "it": "FaGe / Housekeeper 40 – 90%",
+        "it": "FaGe / HauspflegerIn 40 – 90%",
         "en": "FaGe / Housekeeper 40 – 90 %",
+        "de": "FaGe / HauspflegerIn 40 – 90%",
         "fr": "FaGe / Ménageur 40 – 90 %"
       },
       "description": "Mit Freude unterwegs\n Arbeiten Sie gerne selbständig in einem professionellen Team? Sind Ihnen eine individuelle Pflege und hohe Pflegequalität wichtig?\n Dann suchen wir Sie!\n FaGe / HauspflegerIn 40 – 90%\n Sie pflegen Menschen in ihrem zu Hause und helfen mit, deren Alltag zu gestalten.\n Sie verfügen über den entsprechenden Berufsabschluss und haben eventuell bereits erste Erfahrungen gesammelt, so dass Sie \n• Ihre Aufgaben nach gründlicher Einführung selbständig und verantwortungsbewusst übernehmen können.\n \n• Wir bieten eine abwechslungsreiche und selbstständige Position in einem dynamischen Dienstleistungsbetrieb. Sie profitieren von fortschrittlichen Anstellungsbedingungen sowie einem umfangreichen Fort- und Weiterbildungsangebot. Beim Wiedereinstieg in den Beruf oder individueller Entwicklung unterstützen wir Sie gerne.",
       "descriptionByLocale": {
-        "de": "Mit Freude unterwegs\n Arbeiten Sie gerne selbständig in einem professionellen Team? Sind Ihnen eine individuelle Pflege und hohe Pflegequalität wichtig?\n Dann suchen wir Sie!\n FaGe / HauspflegerIn 40 – 90%\n Sie pflegen Menschen in ihrem zu Hause und helfen mit, deren Alltag zu gestalten.\n Sie verfügen über den entsprechenden Berufsabschluss und haben eventuell bereits erste Erfahrungen gesammelt, so dass Sie \n• Ihre Aufgaben nach gründlicher Einführung selbständig und verantwortungsbewusst übernehmen können.\n \n• Wir bieten eine abwechslungsreiche und selbstständige Position in einem dynamischen Dienstleistungsbetrieb. Sie profitieren von fortschrittlichen Anstellungsbedingungen sowie einem umfangreichen Fort- und Weiterbildungsangebot. Beim Wiedereinstieg in den Beruf oder individueller Entwicklung unterstützen wir Sie gerne.",
-        "it": "Con gioia sulla strada\n Ti piace lavorare in modo indipendente in una squadra professionale? La cura individuale e la cura di alta qualità sono importanti per voi?\n Allora ti cerchiamo!\n FaGe / Housekeeper 40 – 90%\n Si preoccupano per le persone nella loro casa e aiutano a plasmare la loro vita quotidiana.\n Hai la qualifica professionale appropriata e può avere già acquisito esperienza iniziale, in modo che tu abbia\n• Dopo un'introduzione approfondita, puoi assumere i tuoi compiti in modo indipendente e responsabile.\n\n• Offriamo una posizione varia e indipendente in un servizio dinamico. Essi beneficiano di condizioni di lavoro avanzate e di una vasta gamma di ulteriori istruzione e formazione. Quando rientriamo nella professione o nello sviluppo individuale, siamo lieti di sostenervi.",
-        "en": "With joy on the way\n Do you like working independently in a professional team? Are individual care and high quality care important to you?\n Then we look for you!\n FaGe / Housekeeper 40 – 90 %\n They care for people in their home and help to shape their everyday life.\n You have the appropriate professional qualification and may have already gained initial experience, so that you\n• After a thorough introduction, you can assume your tasks independently and responsibly.\n\n• We offer a varied and independent position in a dynamic service operation. They benefit from advanced employment conditions as well as an extensive range of further education and training. When re-entering the profession or individual development, we are happy to support you.",
-        "fr": "Avec joie en route\n Vous aimez travailler indépendamment dans une équipe professionnelle ? Les soins individuels et les soins de haute qualité sont-ils importants pour vous?\n Alors on te cherche !\n FaGe / Ménageur 40 – 90 %\n Ils s'occupent des gens dans leur maison et aident à façonner leur vie quotidienne.\n Vous avez la qualification professionnelle appropriée et avez peut-être déjà acquis une expérience initiale, de sorte que vous\n• Après une introduction approfondie, vous pouvez assumer vos tâches de manière indépendante et responsable.\n\n• Nous offrons une position variée et indépendante dans une exploitation de service dynamique. Ils bénéficient de conditions d'emploi avancées ainsi que d'un large éventail d'enseignement et de formation complémentaires. En réintégrant la profession ou le développement individuel, nous sommes heureux de vous soutenir."
+        "it": "Con gioia sulla strada\nTi piace lavorare in modo indipendente in una squadra professionale? La cura individuale e la cura di alta qualità sono importanti per voi?\nAllora ti cerchiamo!\nFaGe / Housekeeper 40 – 90%\nSi preoccupano per le persone nella loro casa e aiutano a plasmare la loro vita quotidiana.\nHai la qualifica professionale appropriata e può avere già acquisito esperienza iniziale, in modo che tu abbia\n• Dopo un'introduzione approfondita, puoi assumere i tuoi compiti in modo indipendente e responsabile.\n\n• Offriamo una posizione varia e indipendente in un servizio dinamico. Essi beneficiano di condizioni di lavoro avanzate e di una vasta gamma di ulteriori istruzione e formazione. Quando rientriamo nella professione o nello sviluppo individuale, siamo lieti di sostenervi.",
+        "en": "With joy on the way\nDo you like working independently in a professional team? Are individual care and high quality care important to you?\nThen we look for you!\nFaGe / Housekeeper 40 – 90 %\nThey care for people in their home and help to shape their everyday life.\nYou have the appropriate professional qualification and may have already gained initial experience, so that you\n• After a thorough introduction, you can assume your tasks independently and responsibly.\n\n• We offer a varied and independent position in a dynamic service operation. They benefit from advanced employment conditions as well as an extensive range of further education and training. When re-entering the profession or individual development, we are happy to support you.",
+        "de": "Mit Freude unterwegs\nArbeiten Sie gerne selbständig in einem professionellen Team? Sind Ihnen eine individuelle Pflege und hohe Pflegequalität wichtig?\nDann suchen wir Sie!\nFaGe / HauspflegerIn 40 – 90%\nSie pflegen Menschen in ihrem zu Hause und helfen mit, deren Alltag zu gestalten.\nSie verfügen über den entsprechenden Berufsabschluss und haben eventuell bereits erste Erfahrungen gesammelt, so dass Sie \n• Ihre Aufgaben nach gründlicher Einführung selbständig und verantwortungsbewusst übernehmen können.\nWir bieten eine abwechslungsreiche und selbstständige Position in einem dynamischen Dienstleistungsbetrieb. Sie profitieren von fortschrittlichen Anstellungsbedingungen sowie einem umfangreichen Fort- und Weiterbildungsangebot. Beim Wiedereinstieg in den Beruf oder individueller Entwicklung unterstützen wir Sie gerne.",
+        "fr": "Avec joie en route\nVous aimez travailler indépendamment dans une équipe professionnelle ? Les soins individuels et les soins de haute qualité sont-ils importants pour vous?\nAlors on te cherche !\nFaGe / Ménageur 40 – 90 %\nIls s'occupent des gens dans leur maison et aident à façonner leur vie quotidienne.\nVous avez la qualification professionnelle appropriée et avez peut-être déjà acquis une expérience initiale, de sorte que vous\n• Après une introduction approfondie, vous pouvez assumer vos tâches de manière indépendante et responsable.\n\n• Nous offrons une position variée et indépendante dans une exploitation de service dynamique. Ils bénéficient de conditions d'emploi avancées ainsi que d'un large éventail d'enseignement et de formation complémentaires. En réintégrant la profession ou le développement individuel, nous sommes heureux de vous soutenir."
       },
+      "needsRetranslation": true,
       "location": "Langnau im Emmental",
       "canton": "BE",
       "url": "https://www.spitexjobs.ch/job/fage-hauspflegerin-40-90-prozent/J982962",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:35.356Z",
+      "crawledAt": "2026-09-28T21:18:15.577Z",
       "addressLocality": "Langnau im Emmental",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1461,17 +1508,17 @@
       "validThrough": "2026-10-28",
       "applyUrl": "https://www.spitexjobs.ch/job/fage-hauspflegerin-40-90-prozent/J982962",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fage-hauspflegerin-40-90-spitex-ch-langnau-im-emmental",
+        "fage-housekeeper-40-90-spitex-region-emmental-langnau-im-emmental"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fage-hauspflegerin-40-90-spitex-ch-langnau-im-emmental"
+          "fage-hauspflegerin-40-90-spitex-ch-langnau-im-emmental",
+          "fage-housekeeper-40-90-spitex-region-emmental-langnau-im-emmental"
         ]
       },
-      "previousSlugs": [
-        "fage-hauspflegerin-40-90-spitex-ch-langnau-im-emmental"
-      ],
       "salaryMin": 76500,
       "salaryMax": 107100,
       "salarySource": "estimated",
@@ -1490,9 +1537,9 @@
       "id": "spitex-ch-6ed2ea4a768c",
       "slug": "dipl-professionisti-hf-40-100-spitex-region-emmental-langnau-im-emmental",
       "slugByLocale": {
-        "de": "dipl-pflegefachpersonen-hf-40-100-spitex-ch-langnau-im-emmental",
         "it": "dipl-professionisti-hf-40-100-spitex-region-emmental-langnau-im-emmental",
         "en": "dipl-care-professionals-hf-40-100-spitex-region-emmental-langnau-im-emmental",
+        "de": "dipl-pflegefachpersonen-hf-40-100-spitex-ch-langnau-im-emmental",
         "fr": "oui-professionnels-de-la-sante-hf-40-100-spitex-region-emmental-langnau-im-emmental"
       },
       "company": "Spitex Region Emmental",
@@ -1500,24 +1547,25 @@
       "companyDomain": "spitexjobs.ch",
       "title": "dipl. Pflegefachpersonen HF 40 - 100%",
       "titleByLocale": {
-        "de": "dipl. Pflegefachpersonen HF 40 - 100%",
         "it": "Dipl. Professionisti HF 40 - 100%",
         "en": "dipl. Care professionals HF 40 - 100%",
+        "de": "dipl. Pflegefachpersonen HF 40 - 100%",
         "fr": "- Oui. Professionnels de soins HF 40 - 100%"
       },
       "description": "Sie arbeiten gerne selbständig in einem professionellen Team und individuelle Pflege auf hohem Niveau ist Ihnen wichtig? Dann suchen wir Sie als\n dipl. Pflegefachpersonen HF 40 - 100%\n Als Pflegekoordinatorin (=Fallführung) begleiten, beraten und pflegen Sie Menschen zu Hause und sind für den Pflegeprozess und die Organisation einer ganzheitlichen Betreuung verantwortlich.\n Sie verfügen über den entsprechenden Berufsabschluss und haben evtl. bereits erste Erfahrungen gesammelt, so dass Sie \n• Ihre Aufgaben nach gründlicher Einführung selbständig und verantwortungsbewusst übernehmen können.\n \n• Wir bieten eine abwechslungsreiche und sehr selbstständige Position in einem dynamischen Dienstleistungsbetrieb. \n• Ihre Aufgaben entsprechen dem heutigen Ausbildungsinhalt auf Tertiärstufe. Sie profitieren von fortschrittlichen Anstellungsbedingungen sowie einem umfangreichen Fort- und Weiterbildungsangebot. Beim Wiedereinstieg in den Beruf oder individueller Entwicklung unterstützen wir Sie gerne.",
       "descriptionByLocale": {
-        "de": "Sie arbeiten gerne selbständig in einem professionellen Team und individuelle Pflege auf hohem Niveau ist Ihnen wichtig? Dann suchen wir Sie als\n dipl. Pflegefachpersonen HF 40 - 100%\n Als Pflegekoordinatorin (=Fallführung) begleiten, beraten und pflegen Sie Menschen zu Hause und sind für den Pflegeprozess und die Organisation einer ganzheitlichen Betreuung verantwortlich.\n Sie verfügen über den entsprechenden Berufsabschluss und haben evtl. bereits erste Erfahrungen gesammelt, so dass Sie \n• Ihre Aufgaben nach gründlicher Einführung selbständig und verantwortungsbewusst übernehmen können.\n \n• Wir bieten eine abwechslungsreiche und sehr selbstständige Position in einem dynamischen Dienstleistungsbetrieb. \n• Ihre Aufgaben entsprechen dem heutigen Ausbildungsinhalt auf Tertiärstufe. Sie profitieren von fortschrittlichen Anstellungsbedingungen sowie einem umfangreichen Fort- und Weiterbildungsangebot. Beim Wiedereinstieg in den Beruf oder individueller Entwicklung unterstützen wir Sie gerne.",
-        "it": "Ti piace lavorare in modo indipendente in un team professionale e la cura individuale ad un livello elevato è importante per te? Poi li cerchiamo come\n Dipl. Professionisti HF 40 - 100%\n In qualità di coordinatore della cura (=case management) accompagni, consiglia e cura per le persone a casa e sono responsabili del processo di cura e dell'organizzazione di una cura olistica.\n Hai la qualifica professionale appropriata e hai già acquisito esperienza iniziale, in modo che tu\n• Dopo un'introduzione approfondita, puoi assumere i tuoi compiti in modo indipendente e responsabile.\n\n• Offriamo una posizione varia e molto indipendente in un servizio dinamico.\n• I loro compiti corrispondono al contenuto attuale di formazione a livello terziario. Essi beneficiano di condizioni di lavoro avanzate e di una vasta gamma di ulteriori istruzione e formazione. Quando rientriamo nella professione o nello sviluppo individuale, siamo lieti di sostenervi.",
-        "en": "You like to work independently in a professional team and individual care at a high level is important to you? Then we look for them as\n dipl. Care professionals HF 40 - 100%\n As a care coordinator (=case management) you accompany, advise and care for people at home and are responsible for the care process and the organization of a holistic care.\n You have the appropriate professional qualification and have already gained initial experience, so that you\n• After a thorough introduction, you can assume your tasks independently and responsibly.\n\n• We offer a varied and very independent position in a dynamic service operation.\n• Their tasks correspond to the current training content at tertiary level. They benefit from advanced employment conditions as well as an extensive range of further education and training. When re-entering the profession or individual development, we are happy to support you.",
-        "fr": "Vous aimez travailler indépendamment dans une équipe professionnelle et des soins individuels à un haut niveau est important pour vous? Alors nous les cherchons comme\n - Oui. Professionnels de soins HF 40 - 100%\n En tant que coordonnateur des soins (=gestion de cas), vous accompagnez, conseillez et soignez les personnes à domicile et êtes responsable du processus de soins et de l'organisation d'un traitement holistique.\n Vous avez la qualification professionnelle appropriée et avez déjà acquis une expérience initiale, de sorte que vous\n• Après une introduction approfondie, vous pouvez assumer vos tâches de manière indépendante et responsable.\n\n• Nous offrons une position variée et très indépendante dans une exploitation de service dynamique.\n• Leurs tâches correspondent au contenu actuel de la formation au niveau tertiaire. Ils bénéficient de conditions d'emploi avancées ainsi que d'un large éventail d'enseignement et de formation complémentaires. En réintégrant la profession ou le développement individuel, nous sommes heureux de vous soutenir."
+        "it": "Ti piace lavorare in modo indipendente in un team professionale e la cura individuale ad un livello elevato è importante per te? Poi li cerchiamo come\nDipl. Professionisti HF 40 - 100%\nIn qualità di coordinatore della cura (=case management) accompagni, consiglia e cura per le persone a casa e sono responsabili del processo di cura e dell'organizzazione di una cura olistica.\nHai la qualifica professionale appropriata e hai già acquisito esperienza iniziale, in modo che tu\n• Dopo un'introduzione approfondita, puoi assumere i tuoi compiti in modo indipendente e responsabile.\n\n• Offriamo una posizione varia e molto indipendente in un servizio dinamico.\n• I loro compiti corrispondono al contenuto attuale di formazione a livello terziario. Essi beneficiano di condizioni di lavoro avanzate e di una vasta gamma di ulteriori istruzione e formazione. Quando rientriamo nella professione o nello sviluppo individuale, siamo lieti di sostenervi.",
+        "en": "You like to work independently in a professional team and individual care at a high level is important to you? Then we look for them as\ndipl. Care professionals HF 40 - 100%\nAs a care coordinator (=case management) you accompany, advise and care for people at home and are responsible for the care process and the organization of a holistic care.\nYou have the appropriate professional qualification and have already gained initial experience, so that you\n• After a thorough introduction, you can assume your tasks independently and responsibly.\n\n• We offer a varied and very independent position in a dynamic service operation.\n• Their tasks correspond to the current training content at tertiary level. They benefit from advanced employment conditions as well as an extensive range of further education and training. When re-entering the profession or individual development, we are happy to support you.",
+        "de": "Sie arbeiten gerne selbständig in einem professionellen Team und individuelle Pflege auf hohem Niveau ist Ihnen wichtig? Dann suchen wir Sie als\ndipl. Pflegefachpersonen HF 40 - 100%\nAls Pflegekoordinatorin (=Fallführung) begleiten, beraten und pflegen Sie Menschen zu Hause und sind für den Pflegeprozess und die Organisation einer ganzheitlichen Betreuung verantwortlich.\nSie verfügen über den entsprechenden Berufsabschluss und haben evtl. bereits erste Erfahrungen gesammelt, so dass Sie \n• Ihre Aufgaben nach gründlicher Einführung selbständig und verantwortungsbewusst übernehmen können.\nWir bieten eine abwechslungsreiche und sehr selbstständige Position in einem dynamischen Dienstleistungsbetrieb. \n• Ihre Aufgaben entsprechen dem heutigen Ausbildungsinhalt auf Tertiärstufe. Sie profitieren von fortschrittlichen Anstellungsbedingungen sowie einem umfangreichen Fort- und Weiterbildungsangebot. Beim Wiedereinstieg in den Beruf oder individueller Entwicklung unterstützen wir Sie gerne.",
+        "fr": "Vous aimez travailler indépendamment dans une équipe professionnelle et des soins individuels à un haut niveau est important pour vous? Alors nous les cherchons comme\n- Oui. Professionnels de soins HF 40 - 100%\nEn tant que coordonnateur des soins (=gestion de cas), vous accompagnez, conseillez et soignez les personnes à domicile et êtes responsable du processus de soins et de l'organisation d'un traitement holistique.\nVous avez la qualification professionnelle appropriée et avez déjà acquis une expérience initiale, de sorte que vous\n• Après une introduction approfondie, vous pouvez assumer vos tâches de manière indépendante et responsable.\n\n• Nous offrons une position variée et très indépendante dans une exploitation de service dynamique.\n• Leurs tâches correspondent au contenu actuel de la formation au niveau tertiaire. Ils bénéficient de conditions d'emploi avancées ainsi que d'un large éventail d'enseignement et de formation complémentaires. En réintégrant la profession ou le développement individuel, nous sommes heureux de vous soutenir."
       },
+      "needsRetranslation": false,
       "location": "Langnau im Emmental",
       "canton": "BE",
       "url": "https://www.spitexjobs.ch/job/dipl-pflegefachpersonen-hf-40-100-prozent/J982960",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:34.535Z",
+      "crawledAt": "2026-09-28T21:18:14.727Z",
       "addressLocality": "Langnau im Emmental",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1534,17 +1582,17 @@
       "validThrough": "2026-10-28",
       "applyUrl": "https://www.spitexjobs.ch/job/dipl-pflegefachpersonen-hf-40-100-prozent/J982960",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachpersonen-hf-40-100-spitex-ch-langnau-im-emmental",
+        "dipl-professionisti-hf-40-100-spitex-region-emmental-langnau-im-emmental"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachpersonen-hf-40-100-spitex-ch-langnau-im-emmental"
+          "dipl-pflegefachpersonen-hf-40-100-spitex-ch-langnau-im-emmental",
+          "dipl-professionisti-hf-40-100-spitex-region-emmental-langnau-im-emmental"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachpersonen-hf-40-100-spitex-ch-langnau-im-emmental"
-      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1563,27 +1611,27 @@
       "id": "spitex-ch-f6b08c684105",
       "slug": "sei-una-professionista-sanitaria-diplomata-e-vuoi-dedicare-piu-tempo-alle-persone-spitex-knonaueramt-affoltern-am-albis",
       "slugByLocale": {
-        "de": "du-mochtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fur-menschen-haben-spitex-ch",
+        "it": "sei-una-professionista-sanitaria-diplomata-e-vuoi-dedicare-piu-tempo-alle-persone-spitex-knonaueramt-affoltern-am-albis",
         "en": "are-you-a-qualified-healthcare-professional-looking-to-reconnect-with-people-spitex-knonaueramt-affoltern-am-albis",
-        "fr": "etes-vous-une-professionnelle-de-sante-diplomee-souhaitant-consacrer-plus-de-temps-aux-personnes-spitex-knonaueramt",
-        "it": "sei-una-professionista-sanitaria-diplomata-e-vuoi-dedicare-piu-tempo-alle-persone-spitex-knonaueramt-affoltern-am-albis"
+        "de": "du-mochtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fur-menschen-haben-spitex-ch",
+        "fr": "etes-vous-une-professionnelle-de-sante-diplomee-souhaitant-consacrer-plus-de-temps-aux-personnes-spitex-knonaueramt"
       },
       "company": "Spitex Knonaueramt",
       "companyKey": "spitex-ch",
       "companyDomain": "spitexjobs.ch",
       "title": "«Du möchtest als Dipl. Pflegefachperson einfach wieder Zeit für Menschen haben?»",
       "titleByLocale": {
-        "de": "«Du möchtest als Dipl. Pflegefachperson einfach wieder Zeit für Menschen haben?»",
         "it": "«Du möchtest come Dipl. Pflegefachperson einfach wieder Zeit per Menschen haben?»",
         "en": "“You want to be a dipl.” Do nurses just have time for people again?",
+        "de": "«Du möchtest als Dipl. Pflegefachperson einfach wieder Zeit für Menschen haben?»",
         "fr": "Vous voulez être un dipl. Les infirmières ont-elles encore du temps pour les gens ?"
       },
       "description": "«Du möchtest als Dipl. Pflegefachperson einfach wieder Zeit für Menschen haben?»\n ☀️Es ist 07:15 Uhr. Die Sonne geht gerade über den Dächern auf, als unsere Anna, Dipl. HF, ihr Auto startet. Ihr erster Besuch führt sie zu Frau Keller, 82, die nach einem Sturz Unterstützung braucht. Anna klingelt, wird mit einem Lächeln empfangen – und mit einem: «Ich habe mich schon auf Sie gefreut.»\n\n«Diese Momente sind es», sagt Anna. «Hier bin ich nicht einfach ‘die Pflege’, ich bin Anna.»\n\nGemeinsam andere dabei unterstützen , ein selbstbestimmtes Leben in ihrer vertrauten Umgebung zu führen – dafür arbeiten wir im Team bei der Spitex Knonaueramt und mit gegenseitiger Wertschätzung.\n\n⌚️Anna nimmt sich Zeit. Für die Wundversorgung , ja – aber auch für das Gespräch über die Enkel, über Sorgen, über kleine Fortschritte. Kein hektisches Klingeln, kein ständiger Wechsel im Minutentakt. Dafür Eigenverantwortung, Vertrauen und echte Beziehungen .\n\n• «Ich habe das Gefühl, wirksam zu sein», sagt Anna. „Bei der Spitex Knonaueramt sehe ich täglich, was ich bewirke».\n • 🍀Was Anna im Weiteren schätzt:\n • 👉 Selbstständiges Arbeiten mit Rückhalt im Team\n • 👉 Flexible Einsatzplanung , die zum Leben passt\n • 👉 Nähe zu den Menschen – und zu ihrem Alltag\n • 👉 Abwechslung statt Stationsroutine\n\n«Ich fahre am Abend nach Hause und habe das Gefühl: Das war ein guter Tag.»\n\n• 🙋 Und du?\n • Bist du Pflegefachperson HF/FH und suchst nicht einfach einen Job, sondern Sinn, Nähe\n • und Eigenverantwortung?\n\nDann könnte dein Weg – wie bei Anna – zur Spitex Knonaueramt führen.\n 💚 Werde Teil unseres Teams 💙\n\n• 🌞Wir freuen uns auf Menschen, die Pflege nicht nur ausüben, sondern leben wollen.\n • Bewirb dich jetzt:\n • 📩 personal@spitexka.ch",
       "descriptionByLocale": {
-        "de": "«Du möchtest als Dipl. Pflegefachperson einfach wieder Zeit für Menschen haben?»\n ☀️Es ist 07:15 Uhr. Die Sonne geht gerade über den Dächern auf, als unsere Anna, Dipl. HF, ihr Auto startet. Ihr erster Besuch führt sie zu Frau Keller, 82, die nach einem Sturz Unterstützung braucht. Anna klingelt, wird mit einem Lächeln empfangen – und mit einem: «Ich habe mich schon auf Sie gefreut.»\n\n«Diese Momente sind es», sagt Anna. «Hier bin ich nicht einfach ‘die Pflege’, ich bin Anna.»\n\nGemeinsam andere dabei unterstützen , ein selbstbestimmtes Leben in ihrer vertrauten Umgebung zu führen – dafür arbeiten wir im Team bei der Spitex Knonaueramt und mit gegenseitiger Wertschätzung.\n\n⌚️Anna nimmt sich Zeit. Für die Wundversorgung , ja – aber auch für das Gespräch über die Enkel, über Sorgen, über kleine Fortschritte. Kein hektisches Klingeln, kein ständiger Wechsel im Minutentakt. Dafür Eigenverantwortung, Vertrauen und echte Beziehungen .\n\n• «Ich habe das Gefühl, wirksam zu sein», sagt Anna. „Bei der Spitex Knonaueramt sehe ich täglich, was ich bewirke».\n • 🍀Was Anna im Weiteren schätzt:\n • 👉 Selbstständiges Arbeiten mit Rückhalt im Team\n • 👉 Flexible Einsatzplanung , die zum Leben passt\n • 👉 Nähe zu den Menschen – und zu ihrem Alltag\n • 👉 Abwechslung statt Stationsroutine\n\n«Ich fahre am Abend nach Hause und habe das Gefühl: Das war ein guter Tag.»\n\n• 🙋 Und du?\n • Bist du Pflegefachperson HF/FH und suchst nicht einfach einen Job, sondern Sinn, Nähe\n • und Eigenverantwortung?\n\nDann könnte dein Weg – wie bei Anna – zur Spitex Knonaueramt führen.\n 💚 Werde Teil unseres Teams 💙\n\n• 🌞Wir freuen uns auf Menschen, die Pflege nicht nur ausüben, sondern leben wollen.\n • Bewirb dich jetzt:\n • 📩 personal@spitexka.ch",
-        "it": "“Voi volete essere un dipl.” Le infermiere hanno ancora tempo per le persone?\n Sono le 7:15. Il sole sorge appena sopra i tetti come la nostra Anna, Dipl. HF, la tua auto inizia. La sua prima visita la porta alla signora Keller, 82 anni, che ha bisogno di supporto dopo una caduta. Anna anelli, viene accolta con un sorriso – e con uno: “Ti ho già aspettato.”\n\n“Questi momenti sono” dice Anna. \"Qui non sono solo 'care', sono Anna.\"\n\nInsieme, aiutiamo gli altri a condurre una vita autodeterminata nel loro ambiente familiare – per questo lavoriamo nel team di Spitex Knonaueramt e con reciproco apprezzamento.\n\nAnna prende il suo tempo. Per la cura delle ferite, sì – ma anche per la conversazione sui nipoti, sulle preoccupazioni, sui piccoli progressi. Niente squillo frenetico, nessun cambiamento costante ogni minuto. Per questa auto-responsabilità, fiducia e relazioni reali.\n\n• “Mi sento efficace”, dice Anna. \"A Spitex Knonaueramt vedo ogni giorno quello che faccio.\n • Ciò che Anna apprezza ulteriormente:\n • 👉 Lavorare indipendentemente con il supporto nel team\n • 👉 Pianificazione operativa flessibile che si adatta alla vita\n • Prossimità alle persone – e alla loro vita quotidiana\n • 👉 Varietà invece della routine della stazione\n\n“Vado a casa la sera e ho la sensazione: È stata una buona giornata”.\n\n• E tu?\n • Sei un'infermiera HF/FH e non stai solo cercando un lavoro, ma senso, vicinanza\n • E responsabilità personale?\n\nPoi il vostro percorso – come con Anna – potrebbe portare a Spitex Knonaueramt.\n ♥ Diventa parte della nostra squadra.\n\n• Non vediamo l'ora di persone che non solo praticano la cura, ma vogliono vivere.\n • Applicare ora:\n • Personal@spitexka.ch",
-        "en": "“You want to be a dipl.” Do nurses just have time for people again?\n ☀ It's 7:15 a.m. The sun rises just above the roofs as our Anna, Dipl. HF, your car starts. Her first visit takes her to Ms. Keller, 82, who needs support after a fall. Anna rings, is received with a smile – and with one: “I have already looked forward to you.”\n\n“These moments are it,” says Anna. \"Here I'm not just 'care', I'm Anna.\"\n\nTogether, we help others to lead a self-determined life in their familiar environment – for this we work in the team at Spitex Knonaueramt and with mutual appreciation.\n\n⌚ Anna takes her time. For wound care, yes – but also for the conversation about the grandchildren, about worries, about small progress. No hectic ringing, no constant change every minute. For this self-responsibility, trust and real relationships.\n\n• “I feel like I am effective,” says Anna. „At Spitex Knonaueramt I see every day what I do.\n • What Anna appreciates further:\n • 👉 Working independently with support in the team\n • 👉 Flexible operational planning that fits life\n • 👉 Proximity to people – and to their everyday life\n • 👉 Variety instead of station routine\n\n“I go home in the evening and have the feeling: That was a good day.”\n\n• 🙋 And you?\n • Are you a nurse HF/FH and are not just looking for a job, but sense, closeness\n • And personal responsibility?\n\nThen your path – as with Anna – could lead to Spitex Knonaueramt.\n ♥ Become part of our team.\n\n• 🌞We look forward to people who not only practice care, but want to live.\n • Apply now:\n • Personal@spitexka.ch",
-        "fr": "Vous voulez être un dipl. Les infirmières ont-elles encore du temps pour les gens ?\n Il est 7 h 15. Le soleil se lève juste au-dessus des toits comme notre Anna, Dipl. HF, ta voiture commence. Sa première visite l'amène à Mme Keller, 82 ans, qui a besoin de soutien après une chute. Anna sonne, est reçue avec un sourire – et avec un : J'ai déjà attendu avec impatience.\n\nCes moments sont là, dit Anna. \"Je ne suis pas juste \"attention\", je suis Anna.\"\n\nEnsemble, nous aidons les autres à mener une vie autodéterminée dans leur environnement familier – pour cela nous travaillons dans l'équipe de Spitex Knonaueramt et avec reconnaissance mutuelle.\n\nAnna prend son temps. Pour le soin des plaies, oui – mais aussi pour la conversation sur les petits-enfants, les soucis, les petits progrès. Pas d'agitation, pas de changement constant à chaque minute. Pour cette responsabilité, confiance et relations réelles.\n\n• Je me sens efficace, dit Anna. „A Spitex Knonaueramt je vois chaque jour ce que je fais.\n • Ce qu'Anna apprécie encore:\n • • Travailler indépendamment avec le soutien de l'équipe\n • La planification opérationnelle flexible qui convient à la vie\n • La proximité avec les gens – et leur vie quotidienne\n • Variété au lieu de routine de station\n\nJe rentre chez moi le soir et j'ai le sentiment : C'était une bonne journée.\n\n• Et toi ?\n • Êtes-vous infirmière HF/FH et ne sont pas seulement à la recherche d'un emploi, mais le sens, la proximité\n • Et la responsabilité personnelle ?\n\nPuis votre chemin – comme avec Anna – pourrait conduire à Spitex Knonaueramt.\n ♥ Devenez membre de notre équipe.\n\n• Nous attendons avec impatience les personnes qui non seulement pratiquent les soins, mais veulent vivre.\n • Appliquer maintenant:\n • Personal@spitexka.ch"
+        "it": "“Voi volete essere un dipl.” Le infermiere hanno ancora tempo per le persone?\nSono le 7:15. Il sole sorge appena sopra i tetti come la nostra Anna, Dipl. HF, la tua auto inizia. La sua prima visita la porta alla signora Keller, 82 anni, che ha bisogno di supporto dopo una caduta. Anna anelli, viene accolta con un sorriso – e con uno: “Ti ho già aspettato.”\n\n“Questi momenti sono” dice Anna. \"Qui non sono solo 'care', sono Anna.\"\n\nInsieme, aiutiamo gli altri a condurre una vita autodeterminata nel loro ambiente familiare – per questo lavoriamo nel team di Spitex Knonaueramt e con reciproco apprezzamento.\n\nAnna prende il suo tempo. Per la cura delle ferite, sì – ma anche per la conversazione sui nipoti, sulle preoccupazioni, sui piccoli progressi. Niente squillo frenetico, nessun cambiamento costante ogni minuto. Per questa auto-responsabilità, fiducia e relazioni reali.\n\n• “Mi sento efficace”, dice Anna. \"A Spitex Knonaueramt vedo ogni giorno quello che faccio.\n• Ciò che Anna apprezza ulteriormente:\n• 👉 Lavorare indipendentemente con il supporto nel team\n• 👉 Pianificazione operativa flessibile che si adatta alla vita\n• Prossimità alle persone – e alla loro vita quotidiana\n• 👉 Varietà invece della routine della stazione\n\n“Vado a casa la sera e ho la sensazione: È stata una buona giornata”.\n\n• E tu?\n• Sei un'infermiera HF/FH e non stai solo cercando un lavoro, ma senso, vicinanza\n• E responsabilità personale?\n\nPoi il vostro percorso – come con Anna – potrebbe portare a Spitex Knonaueramt.\n♥ Diventa parte della nostra squadra.\n\n• Non vediamo l'ora di persone che non solo praticano la cura, ma vogliono vivere.\n• Applicare ora:\n• Personal@spitexka.ch",
+        "en": "“You want to be a dipl.” Do nurses just have time for people again?\n☀ It's 7:15 a.m. The sun rises just above the roofs as our Anna, Dipl. HF, your car starts. Her first visit takes her to Ms. Keller, 82, who needs support after a fall. Anna rings, is received with a smile – and with one: “I have already looked forward to you.”\n\n“These moments are it,” says Anna. \"Here I'm not just 'care', I'm Anna.\"\n\nTogether, we help others to lead a self-determined life in their familiar environment – for this we work in the team at Spitex Knonaueramt and with mutual appreciation.\n\n⌚ Anna takes her time. For wound care, yes – but also for the conversation about the grandchildren, about worries, about small progress. No hectic ringing, no constant change every minute. For this self-responsibility, trust and real relationships.\n\n• “I feel like I am effective,” says Anna. „At Spitex Knonaueramt I see every day what I do.\n• What Anna appreciates further:\n• 👉 Working independently with support in the team\n• 👉 Flexible operational planning that fits life\n• 👉 Proximity to people – and to their everyday life\n• 👉 Variety instead of station routine\n\n“I go home in the evening and have the feeling: That was a good day.”\n\n• 🙋 And you?\n• Are you a nurse HF/FH and are not just looking for a job, but sense, closeness\n• And personal responsibility?\n\nThen your path – as with Anna – could lead to Spitex Knonaueramt.\n♥ Become part of our team.\n\n• 🌞We look forward to people who not only practice care, but want to live.\n• Apply now:\n• Personal@spitexka.ch",
+        "de": "«Du möchtest als Dipl. Pflegefachperson einfach wieder Zeit für Menschen haben?»\n☀️Es ist 07:15 Uhr. Die Sonne geht gerade über den Dächern auf, als unsere Anna, Dipl. HF, ihr Auto startet. Ihr erster Besuch führt sie zu Frau Keller, 82, die nach einem Sturz Unterstützung braucht. Anna klingelt, wird mit einem Lächeln empfangen – und mit einem: «Ich habe mich schon auf Sie gefreut.»\n\n«Diese Momente sind es», sagt Anna. «Hier bin ich nicht einfach ‘die Pflege’, ich bin Anna.»\n\nGemeinsam andere dabei unterstützen , ein selbstbestimmtes Leben in ihrer vertrauten Umgebung zu führen – dafür arbeiten wir im Team bei der Spitex Knonaueramt und mit gegenseitiger Wertschätzung.\n\n⌚️Anna nimmt sich Zeit. Für die Wundversorgung , ja – aber auch für das Gespräch über die Enkel, über Sorgen, über kleine Fortschritte. Kein hektisches Klingeln, kein ständiger Wechsel im Minutentakt. Dafür Eigenverantwortung, Vertrauen und echte Beziehungen .\n\n• «Ich habe das Gefühl, wirksam zu sein», sagt Anna. „Bei der Spitex Knonaueramt sehe ich täglich, was ich bewirke».\n• 🍀Was Anna im Weiteren schätzt:\n• 👉 Selbstständiges Arbeiten mit Rückhalt im Team\n• 👉 Flexible Einsatzplanung , die zum Leben passt\n• 👉 Nähe zu den Menschen – und zu ihrem Alltag\n• 👉 Abwechslung statt Stationsroutine\n\n«Ich fahre am Abend nach Hause und habe das Gefühl: Das war ein guter Tag.»\n\n• 🙋 Und du?\n• Bist du Pflegefachperson HF/FH und suchst nicht einfach einen Job, sondern Sinn, Nähe\n• und Eigenverantwortung?\n\nDann könnte dein Weg – wie bei Anna – zur Spitex Knonaueramt führen.\n💚 Werde Teil unseres Teams 💙\n\n• 🌞Wir freuen uns auf Menschen, die Pflege nicht nur ausüben, sondern leben wollen.\n• Bewirb dich jetzt:\n• 📩 personal@spitexka.ch",
+        "fr": "Vous voulez être un dipl. Les infirmières ont-elles encore du temps pour les gens ?\nIl est 7 h 15. Le soleil se lève juste au-dessus des toits comme notre Anna, Dipl. HF, ta voiture commence. Sa première visite l'amène à Mme Keller, 82 ans, qui a besoin de soutien après une chute. Anna sonne, est reçue avec un sourire – et avec un : J'ai déjà attendu avec impatience.\n\nCes moments sont là, dit Anna. \"Je ne suis pas juste \"attention\", je suis Anna.\"\n\nEnsemble, nous aidons les autres à mener une vie autodéterminée dans leur environnement familier – pour cela nous travaillons dans l'équipe de Spitex Knonaueramt et avec reconnaissance mutuelle.\n\nAnna prend son temps. Pour le soin des plaies, oui – mais aussi pour la conversation sur les petits-enfants, les soucis, les petits progrès. Pas d'agitation, pas de changement constant à chaque minute. Pour cette responsabilité, confiance et relations réelles.\n\n• Je me sens efficace, dit Anna. „A Spitex Knonaueramt je vois chaque jour ce que je fais.\n• Ce qu'Anna apprécie encore:\n•\n• Travailler indépendamment avec le soutien de l'équipe\n• La planification opérationnelle flexible qui convient à la vie\n• La proximité avec les gens – et leur vie quotidienne\n• Variété au lieu de routine de station\n\nJe rentre chez moi le soir et j'ai le sentiment : C'était une bonne journée.\n\n• Et toi ?\n• Êtes-vous infirmière HF/FH et ne sont pas seulement à la recherche d'un emploi, mais le sens, la proximité\n• Et la responsabilité personnelle ?\n\nPuis votre chemin – comme avec Anna – pourrait conduire à Spitex Knonaueramt.\n♥ Devenez membre de notre équipe.\n\n• Nous attendons avec impatience les personnes qui non seulement pratiquent les soins, mais veulent vivre.\n• Appliquer maintenant:\n• Personal@spitexka.ch"
       },
       "needsRetranslation": true,
       "location": "Affoltern am Albis",
@@ -1591,7 +1639,7 @@
       "url": "https://www.spitexjobs.ch/job/du-moechtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fuer-menschen-haben/J977488",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:34.061Z",
+      "crawledAt": "2026-09-28T21:18:13.974Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1608,12 +1656,16 @@
       "validThrough": "2026-10-28",
       "applyUrl": "https://www.spitexjobs.ch/job/du-moechtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fuer-menschen-haben/J977488",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "du-mochtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fur-menschen-haben-spitex-ch",
+        "du-mochtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fur-menschen-haben-spitex-knonaueramt-affoltern-am-albis",
+        "sei-una-professionista-sanitaria-diplomata-e-vuoi-dedicare-piu-tempo-alle-persone-spitex-knonaueramt-affoltern-am-albis"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "du-mochtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fur-menschen-haben-spitex-ch"
+          "du-mochtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fur-menschen-haben-spitex-ch",
+          "sei-una-professionista-sanitaria-diplomata-e-vuoi-dedicare-piu-tempo-alle-persone-spitex-knonaueramt-affoltern-am-albis"
         ],
         "en": [
           "du-mochtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fur-menschen-haben-spitex-knonaueramt-affoltern-am-albis"
@@ -1622,10 +1674,6 @@
           "du-mochtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fur-menschen-haben-spitex-knonaueramt-affoltern-am-albis"
         ]
       },
-      "previousSlugs": [
-        "du-mochtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fur-menschen-haben-spitex-ch",
-        "du-mochtest-als-dipl-pflegefachperson-einfach-wieder-zeit-fur-menschen-haben-spitex-knonaueramt-affoltern-am-albis"
-      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1644,9 +1692,9 @@
       "id": "spitex-ch-aa70a4493f8a",
       "slug": "dipl-psichiatria-dell-infermiera-hf-50-80-spitex-tharad-derendingen",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-psychiatrie-hf-50-80-spitex-ch-derendingen",
         "it": "dipl-psichiatria-dell-infermiera-hf-50-80-spitex-tharad-derendingen",
         "en": "dipl-nurse-psychiatry-hf-50-80-spitex-tharad-derendingen",
+        "de": "dipl-pflegefachperson-psychiatrie-hf-50-80-spitex-ch-derendingen",
         "fr": "dipl-infirmiere-psychiatrie-hf-50-80-spitex-tharad-derendingen"
       },
       "company": "Spitex THARAD",
@@ -1654,24 +1702,25 @@
       "companyDomain": "spitexjobs.ch",
       "title": "Dipl. Pflegefachperson Psychiatrie HF 50%-80%",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachperson Psychiatrie HF 50%-80%",
         "it": "Dipl. Psichiatria dell'infermiera HF 50%-80 %",
         "en": "Dipl. Nurse psychiatry HF 50%-80 %",
+        "de": "Dipl. Pflegefachperson Psychiatrie HF 50%-80%",
         "fr": "Dipl. Infirmière psychiatrie HF 50%-80 %"
       },
       "description": "Wir suchen dich! Verstärke unser Psychiatrieteam\n Dipl. Pflegefachperson Psychiatrie HF 50%-80%\n Du liebst die Abwechslung, arbeitest gerne selbstständig und möchtest Menschen in ihrem vertrauten Zuhause nicht nur pflegen, sondern wirklich begleiten? Unser ambulantes Team wächst! Wir setzen auf eine ganzheitliche, moderne Pflege auf Augenhöhe – für Körper und Seele.\n Um unsere Klientinnen und Klienten bestmöglich zu unterstützen, suchen wir engagierte Persönlichkeiten, die ihren Beruf als Berufung sehen.\n\n• Dein Fokus: Fachkompetente psychiatrische Pflege, ressourcenorientierte Begleitung, Krisenintervention und Fallführung im ambulanten Setting.\n Darauf kannst du dich freuen:\n\n• Sinn und Selbstständigkeit: Ein hohes Mass an Eigenverantwortung in einem extrem sinnstiftenden und abwechslungswechslungsreichen Arbeitsumfeld.\n\n• Moderne Rahmenbedingungen zeitgemässe digitale Arbeitsmittel und eine faire, vorausschauende Dienstplanung.\n\n• Starker Zusammenhalt: Ein kollegiales Team, das eine offene Kommunikationskultur pflegt.\n\n• Entwicklung: Wir fördern dein Potenzial durch gezielte interne und externe Weiterbildungsmöglichkeiten.\n\n• Mobil im Einsatz: Mit unseren Dienstfahrzeugen oder E-Bikes geniesst du die frische Luft und die Landschaft zwischen deinen Einsätzen.\n Das bringst du mit:\n\n• anerkannt Abschluss in der Psychiatrie Pflege auf Tertiär Stufe.\n\n• Eine selbstständige, lösungsorientierte Arbeitsweise und Teamgeist.\n\n• erfahrung in der Psychiatrie\n\n• Führerausweis Kat. B (als Vorteil).\n Bereit für deinen neuen Wirkungsort? Wir machen es dir leicht: Sende uns einfach deinen Lebenslauf per E-Mail zu. Ein Motivationsschreiben ist kein Muss – uns ist wichtiger, wer du als Mensch bist!\n Hast du vorab Fragen? Ruf mich gerne direkt an für ein unkompliziertes erstes Kennenlernen.\n Kontakt: Flavia Fuggetti Leiterin Pflege Ambulant  Tel. 032 681 30 99  f.fuggetti@tharad.ch   www.tharad.ch",
       "descriptionByLocale": {
-        "de": "Wir suchen dich! Verstärke unser Psychiatrieteam\n Dipl. Pflegefachperson Psychiatrie HF 50%-80%\n Du liebst die Abwechslung, arbeitest gerne selbstständig und möchtest Menschen in ihrem vertrauten Zuhause nicht nur pflegen, sondern wirklich begleiten? Unser ambulantes Team wächst! Wir setzen auf eine ganzheitliche, moderne Pflege auf Augenhöhe – für Körper und Seele.\n Um unsere Klientinnen und Klienten bestmöglich zu unterstützen, suchen wir engagierte Persönlichkeiten, die ihren Beruf als Berufung sehen.\n\n• Dein Fokus: Fachkompetente psychiatrische Pflege, ressourcenorientierte Begleitung, Krisenintervention und Fallführung im ambulanten Setting.\n Darauf kannst du dich freuen:\n\n• Sinn und Selbstständigkeit: Ein hohes Mass an Eigenverantwortung in einem extrem sinnstiftenden und abwechslungswechslungsreichen Arbeitsumfeld.\n\n• Moderne Rahmenbedingungen zeitgemässe digitale Arbeitsmittel und eine faire, vorausschauende Dienstplanung.\n\n• Starker Zusammenhalt: Ein kollegiales Team, das eine offene Kommunikationskultur pflegt.\n\n• Entwicklung: Wir fördern dein Potenzial durch gezielte interne und externe Weiterbildungsmöglichkeiten.\n\n• Mobil im Einsatz: Mit unseren Dienstfahrzeugen oder E-Bikes geniesst du die frische Luft und die Landschaft zwischen deinen Einsätzen.\n Das bringst du mit:\n\n• anerkannt Abschluss in der Psychiatrie Pflege auf Tertiär Stufe.\n\n• Eine selbstständige, lösungsorientierte Arbeitsweise und Teamgeist.\n\n• erfahrung in der Psychiatrie\n\n• Führerausweis Kat. B (als Vorteil).\n Bereit für deinen neuen Wirkungsort? Wir machen es dir leicht: Sende uns einfach deinen Lebenslauf per E-Mail zu. Ein Motivationsschreiben ist kein Muss – uns ist wichtiger, wer du als Mensch bist!\n Hast du vorab Fragen? Ruf mich gerne direkt an für ein unkompliziertes erstes Kennenlernen.\n Kontakt: Flavia Fuggetti Leiterin Pflege Ambulant  Tel. 032 681 30 99  f.fuggetti@tharad.ch   www.tharad.ch",
-        "it": "Ti stiamo cercando! Rafforzare il nostro team di psichiatria\n Dipl. Psichiatria dell'infermiera HF 50%-80 %\n Ami la varietà, come lavorare in modo indipendente e vuole non solo prendersi cura delle persone nella loro casa familiare, ma davvero accompagnarle? La nostra squadra ambulatoria sta crescendo! Ci concentriamo sulla cura olistica e moderna a livello degli occhi – per il corpo e l'anima.\n Al fine di sostenere i nostri clienti nel modo migliore possibile, stiamo cercando personalità impegnate che vedono la loro professione come vocazione.\n\n• La vostra attenzione: assistenza psichiatrica professionale, supporto orientato alle risorse, intervento di crisi e gestione dei casi nell'ambiente ambulatorio.\n Si può guardare avanti a questo:\n\n• Significato e indipendenza: Un alto grado di responsabilità personale in un ambiente di lavoro estremamente significativo e vario.\n\n• Moderne condizioni quadro apparecchiature di lavoro digitali contemporanee e pianificazione del servizio equo e previsionale.\n\n• Forte coesione: un team collegiale che coltiva una cultura della comunicazione aperta.\n\n• Sviluppo: Promuoviamo il vostro potenziale attraverso mirate opportunità di formazione interna ed esterna.\n\n• Mobile in azione: Con i nostri veicoli aziendali o e-bike si gode l'aria fresca e il paesaggio tra le vostre missioni.\n Questo è ciò che portate con voi:\n\n• Grado riconosciuto in psichiatria cura a livello terziario.\n\n• Un metodo di lavoro indipendente e orientato alla soluzione e spirito di squadra.\n\n• Esperienza nella psichiatria\n\n• Cat. B (come vantaggio).\n Pronto per il tuo nuovo posto di lavoro? Ti rendiamo facile: inviaci il tuo CV via e-mail. Una lettera di motivazione non è un must – è più importante per noi chi siete come persona!\n Hai delle domande in anticipo? Chiamami direttamente per un primo incontro semplice.\n Contatto: Flavia Fuggetti Capo dell'Ambulant Tel. 032 681 30 99 f.fuggetti@tharad.ch www.tharad.ch",
-        "en": "We are looking for you! Strengthen our psychiatry team\n Dipl. Nurse psychiatry HF 50%-80 %\n You love variety, like working independently and want to not only care for people in their familiar home, but really accompany them? Our ambulatory team is growing! We focus on holistic, modern care at eye level – for body and soul.\n In order to support our clients in the best possible way, we are looking for committed personalities who see their profession as a vocation.\n\n• Your focus: Professional psychiatric care, resource-oriented support, crisis intervention and case management in the outpatient setting.\n You can look forward to this:\n\n• Meaning and independence: A high degree of personal responsibility in an extremely meaningful and varied working environment.\n\n• Modern framework conditions contemporary digital work equipment and fair, forward-looking service planning.\n\n• Strong cohesion: A collegial team that cultivates an open communication culture.\n\n• Development: We promote your potential through targeted internal and external training opportunities.\n\n• Mobile in action: With our company vehicles or e-bikes you enjoy the fresh air and the landscape between your missions.\n This is what you bring with you:\n\n• Recognized degree in psychiatry care at tertiary level.\n\n• An independent, solution-oriented working method and team spirit.\n\n• Experience in psychiatry\n\n• Cat. B (as an advantage).\n Ready for your new place of work? We make it easy for you: Just send us your CV by email. A motivation letter is not a must – it is more important to us who you are as a person!\n Do you have questions in advance? Call me directly for an uncomplicated first meeting.\n Contact: Flavia Fuggetti Head of Care Ambulant Tel. 032 681 30 99 f.fuggetti@tharad.ch www.tharad.ch",
-        "fr": "Nous vous cherchons ! Renforcer notre équipe de psychiatrie\n Dipl. Infirmière psychiatrie HF 50%-80 %\n Vous aimez la variété, comme travailler indépendamment et voulez non seulement prendre soin des gens dans leur maison familière, mais vraiment les accompagner? Notre équipe ambulatoire se développe ! Nous nous concentrons sur les soins holistiques et modernes au niveau des yeux – pour le corps et l'âme.\n Afin de soutenir au mieux nos clients, nous recherchons des personnalités engagées qui voient leur profession comme une vocation.\n\n• Votre objectif : Soins psychiatriques professionnels, soutien axé sur les ressources, intervention en cas de crise et gestion de cas dans le cadre de consultations externes.\n Vous pouvez attendre avec impatience ceci:\n\n• Signification et indépendance: Un haut degré de responsabilité personnelle dans un environnement de travail extrêmement significatif et varié.\n\n• Cadre moderne conditionne les équipements de travail numériques contemporains et une planification de service juste et tournée vers l'avenir.\n\n• Une cohésion forte : une équipe collégiale qui cultive une culture de communication ouverte.\n\n• Développement : Nous favorisons votre potentiel grâce à des possibilités de formation internes et externes ciblées.\n\n• Mobile en action: Avec nos véhicules d'entreprise ou des vélos électriques, vous profitez de l'air frais et du paysage entre vos missions.\n C'est ce que vous apportez avec vous :\n\n• Diplôme reconnu en psychiatrie au niveau tertiaire.\n\n• Une méthode de travail indépendante et axée sur la solution et l'esprit d'équipe.\n\n• Expérience en psychiatrie\n\n• Cat. B (comme avantage).\n Prêt pour votre nouveau lieu de travail ? Nous vous aidons : envoyez-nous votre CV par courriel. Une lettre de motivation n'est pas un must – il est plus important pour nous qui vous êtes en tant que personne!\n Avez-vous des questions à l'avance? Appelez-moi directement pour une première réunion.\n Tél. 032 681 30 99 f.fuggetti@tharad.ch www.tharad.ch"
+        "it": "Ti stiamo cercando! Rafforzare il nostro team di psichiatria\nDipl. Psichiatria dell'infermiera HF 50%-80 %\nAmi la varietà, come lavorare in modo indipendente e vuole non solo prendersi cura delle persone nella loro casa familiare, ma davvero accompagnarle? La nostra squadra ambulatoria sta crescendo! Ci concentriamo sulla cura olistica e moderna a livello degli occhi – per il corpo e l'anima.\nAl fine di sostenere i nostri clienti nel modo migliore possibile, stiamo cercando personalità impegnate che vedono la loro professione come vocazione.\n\n• La vostra attenzione: assistenza psichiatrica professionale, supporto orientato alle risorse, intervento di crisi e gestione dei casi nell'ambiente ambulatorio.\nSi può guardare avanti a questo:\n\n• Significato e indipendenza: Un alto grado di responsabilità personale in un ambiente di lavoro estremamente significativo e vario.\n\n• Moderne condizioni quadro apparecchiature di lavoro digitali contemporanee e pianificazione del servizio equo e previsionale.\n\n• Forte coesione: un team collegiale che coltiva una cultura della comunicazione aperta.\n\n• Sviluppo: Promuoviamo il vostro potenziale attraverso mirate opportunità di formazione interna ed esterna.\n\n• Mobile in azione: Con i nostri veicoli aziendali o e-bike si gode l'aria fresca e il paesaggio tra le vostre missioni.\nQuesto è ciò che portate con voi:\n\n• Grado riconosciuto in psichiatria cura a livello terziario.\n\n• Un metodo di lavoro indipendente e orientato alla soluzione e spirito di squadra.\n\n• Esperienza nella psichiatria\n\n• Cat. B (come vantaggio).\nPronto per il tuo nuovo posto di lavoro? Ti rendiamo facile: inviaci il tuo CV via e-mail. Una lettera di motivazione non è un must – è più importante per noi chi siete come persona!\nHai delle domande in anticipo? Chiamami direttamente per un primo incontro semplice.\nContatto: Flavia Fuggetti Capo dell'Ambulant Tel. 032 681 30 99 f.fuggetti@tharad.ch www.tharad.ch",
+        "en": "We are looking for you! Strengthen our psychiatry team\nDipl. Nurse psychiatry HF 50%-80 %\nYou love variety, like working independently and want to not only care for people in their familiar home, but really accompany them? Our ambulatory team is growing! We focus on holistic, modern care at eye level – for body and soul.\nIn order to support our clients in the best possible way, we are looking for committed personalities who see their profession as a vocation.\n\n• Your focus: Professional psychiatric care, resource-oriented support, crisis intervention and case management in the outpatient setting.\nYou can look forward to this:\n\n• Meaning and independence: A high degree of personal responsibility in an extremely meaningful and varied working environment.\n\n• Modern framework conditions contemporary digital work equipment and fair, forward-looking service planning.\n\n• Strong cohesion: A collegial team that cultivates an open communication culture.\n\n• Development: We promote your potential through targeted internal and external training opportunities.\n\n• Mobile in action: With our company vehicles or e-bikes you enjoy the fresh air and the landscape between your missions.\nThis is what you bring with you:\n\n• Recognized degree in psychiatry care at tertiary level.\n\n• An independent, solution-oriented working method and team spirit.\n\n• Experience in psychiatry\n\n• Cat. B (as an advantage).\nReady for your new place of work? We make it easy for you: Just send us your CV by email. A motivation letter is not a must – it is more important to us who you are as a person!\nDo you have questions in advance? Call me directly for an uncomplicated first meeting.\nContact: Flavia Fuggetti Head of Care Ambulant Tel. 032 681 30 99 f.fuggetti@tharad.ch www.tharad.ch",
+        "de": "Wir suchen dich! Verstärke unser Psychiatrieteam\nDipl. Pflegefachperson Psychiatrie HF 50%-80%\nDu liebst die Abwechslung, arbeitest gerne selbstständig und möchtest Menschen in ihrem vertrauten Zuhause nicht nur pflegen, sondern wirklich begleiten? Unser ambulantes Team wächst! Wir setzen auf eine ganzheitliche, moderne Pflege auf Augenhöhe – für Körper und Seele.\nUm unsere Klientinnen und Klienten bestmöglich zu unterstützen, suchen wir engagierte Persönlichkeiten, die ihren Beruf als Berufung sehen.\n\n• Dein Fokus: Fachkompetente psychiatrische Pflege, ressourcenorientierte Begleitung, Krisenintervention und Fallführung im ambulanten Setting.\nDarauf kannst du dich freuen:\n\n• Sinn und Selbstständigkeit: Ein hohes Mass an Eigenverantwortung in einem extrem sinnstiftenden und abwechslungswechslungsreichen Arbeitsumfeld.\n\n• Moderne Rahmenbedingungen zeitgemässe digitale Arbeitsmittel und eine faire, vorausschauende Dienstplanung.\n\n• Starker Zusammenhalt: Ein kollegiales Team, das eine offene Kommunikationskultur pflegt.\n\n• Entwicklung: Wir fördern dein Potenzial durch gezielte interne und externe Weiterbildungsmöglichkeiten.\n\n• Mobil im Einsatz: Mit unseren Dienstfahrzeugen oder E-Bikes geniesst du die frische Luft und die Landschaft zwischen deinen Einsätzen.\nDas bringst du mit:\n\n• anerkannt Abschluss in der Psychiatrie Pflege auf Tertiär Stufe.\n\n• Eine selbstständige, lösungsorientierte Arbeitsweise und Teamgeist.\n\n• erfahrung in der Psychiatrie\n\n• Führerausweis Kat. B (als Vorteil).\nBereit für deinen neuen Wirkungsort? Wir machen es dir leicht: Sende uns einfach deinen Lebenslauf per E-Mail zu. Ein Motivationsschreiben ist kein Muss – uns ist wichtiger, wer du als Mensch bist!\nHast du vorab Fragen? Ruf mich gerne direkt an für ein unkompliziertes erstes Kennenlernen.\nKontakt: Flavia Fuggetti Leiterin Pflege Ambulant Tel. 032 681 30 99 f.fuggetti@tharad.ch www.tharad.ch",
+        "fr": "Nous vous cherchons ! Renforcer notre équipe de psychiatrie\nDipl. Infirmière psychiatrie HF 50%-80 %\nVous aimez la variété, comme travailler indépendamment et voulez non seulement prendre soin des gens dans leur maison familière, mais vraiment les accompagner? Notre équipe ambulatoire se développe ! Nous nous concentrons sur les soins holistiques et modernes au niveau des yeux – pour le corps et l'âme.\nAfin de soutenir au mieux nos clients, nous recherchons des personnalités engagées qui voient leur profession comme une vocation.\n\n• Votre objectif : Soins psychiatriques professionnels, soutien axé sur les ressources, intervention en cas de crise et gestion de cas dans le cadre de consultations externes.\nVous pouvez attendre avec impatience ceci:\n\n• Signification et indépendance: Un haut degré de responsabilité personnelle dans un environnement de travail extrêmement significatif et varié.\n\n• Cadre moderne conditionne les équipements de travail numériques contemporains et une planification de service juste et tournée vers l'avenir.\n\n• Une cohésion forte : une équipe collégiale qui cultive une culture de communication ouverte.\n\n• Développement : Nous favorisons votre potentiel grâce à des possibilités de formation internes et externes ciblées.\n\n• Mobile en action: Avec nos véhicules d'entreprise ou des vélos électriques, vous profitez de l'air frais et du paysage entre vos missions.\nC'est ce que vous apportez avec vous :\n\n• Diplôme reconnu en psychiatrie au niveau tertiaire.\n\n• Une méthode de travail indépendante et axée sur la solution et l'esprit d'équipe.\n\n• Expérience en psychiatrie\n\n• Cat. B (comme avantage).\nPrêt pour votre nouveau lieu de travail ? Nous vous aidons : envoyez-nous votre CV par courriel. Une lettre de motivation n'est pas un must – il est plus important pour nous qui vous êtes en tant que personne!\nAvez-vous des questions à l'avance? Appelez-moi directement pour une première réunion.\nTél. 032 681 30 99 f.fuggetti@tharad.ch www.tharad.ch"
       },
+      "needsRetranslation": false,
       "location": "Derendingen",
       "canton": "SO",
       "url": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-psychiatrie-hf-50-prozent-80-prozent/J985504",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:32.616Z",
+      "crawledAt": "2026-09-28T21:18:12.560Z",
       "addressLocality": "Derendingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1688,17 +1737,18 @@
       "validThrough": "2026-10-18",
       "applyUrl": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-psychiatrie-hf-50-prozent-80-prozent/J985504",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-psychiatrie-hf-50-80-spitex-ch-derendingen",
+        "dipl-psichiatria-dell-infermiera-hf-50-80-spitex-tharad-derendingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-psychiatrie-hf-50-80-spitex-ch-derendingen"
+          "dipl-pflegefachperson-psychiatrie-hf-50-80-spitex-ch-derendingen",
+          "dipl-psichiatria-dell-infermiera-hf-50-80-spitex-tharad-derendingen"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-psychiatrie-hf-50-80-spitex-ch-derendingen"
-      ],
+      "firstSeenAt": "2026-09-19T22:52:27.032Z",
       "salaryMin": 68000,
       "salaryMax": 95200,
       "salarySource": "estimated",
@@ -1711,8 +1761,7 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:52:27.032Z"
+      }
     },
     {
       "id": "spitex-ch-c66b026afacd",
@@ -1746,7 +1795,7 @@
       "url": "https://www.spitexjobs.ch/job/pflegefachfrau-mann-hf-fuer-den-zentrum-wetzikon/J963334",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:31.855Z",
+      "crawledAt": "2026-09-28T21:18:23.998Z",
       "addressLocality": "Wetzikon ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1766,10 +1815,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "pflegefachfrau-mann-hf-fur-den-zentrum-wetzikon-spitex-ch-wetzikon-zh"
+          "pflegefachfrau-mann-hf-fur-den-zentrum-wetzikon-spitex-ch-wetzikon-zh",
+          "pflegefachfrau-mann-hf-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
         ],
         "it": [
-          "pflegefachfrau-mann-hf-fur-den-zentrum-wetzikon-spitex-ch-wetzikon-zh"
+          "pflegefachfrau-mann-hf-fur-den-zentrum-wetzikon-spitex-ch-wetzikon-zh",
+          "pflegefachfrau-mann-hf-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh"
         ],
         "en": [
           "pflegefachfrau-mann-hf-fur-den-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh"
@@ -1780,7 +1831,9 @@
       },
       "previousSlugs": [
         "pflegefachfrau-mann-hf-fur-den-zentrum-wetzikon-spitex-ch-wetzikon-zh",
-        "pflegefachfrau-mann-hf-fur-den-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh"
+        "pflegefachfrau-mann-hf-fur-den-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+        "pflegefachfrau-mann-hf-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
+        "pflegefachfrau-mann-hf-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh"
       ],
       "firstSeenAt": "2026-09-19T22:52:21.573Z",
       "salaryMin": 91500,
@@ -1823,12 +1876,13 @@
         "de": "Mehr Verantwortung. Mehr Nähe. Mehr Du.\nDie Spitex rechtes Limmattal bietet mit ihrer stadtnahen und ländlichen Umgebung ein einzigartiges Umfeld für spannende Begegnungen und abwechslungsreiche Einsätze. Wir sind ein modern denkendes Non-Profit-Unternehmen mit über 90 Mitarbeitenden und leben eine verlässliche, wertschätzende und kollegiale Teamkultur.\nUns vertrauen die Gemeinden Oberengstringen, Unterengstringen, Weiningen, Geroldswil, Oetwil a.d.L. und Fahrweid mit insgesamt über 22'500 Einwohnerinnen und Einwohnern.\nIm Zentrum unseres Handelns stehen Menschen – sowohl unsere Klientinnen und Klienten als auch unsere Mitarbeitenden. Damit wir unsere professionelle und individuelle Pflegequalität weiterhin sicherstellen können, suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit mit Herz, Verantwortungsbewusstsein und Freude an selbstständigem Arbeiten.\nFachfrau / Fachmann Gesundheit EFZ (FaGe) 50–90% | Spitex\nAls Fachperson Gesundheit übernimmst du bei uns eine vielseitige und verantwortungsvolle Aufgabe im ambulanten Bereich. Du begleitest unsere Klientinnen und Klienten in ihrem gewohnten Umfeld und leistest mit deiner Arbeit einen wichtigen Beitrag zu ihrer Lebensqualität und Selbstständigkeit.\nZu deinen Hauptaufgaben gehören:\n\n• Pflege und Betreuung unserer Klientinnen und Klienten in ihrem häuslichen Umfeld\n\n• Unterstützung bei der Grund- und Behandlungspflege gemäss Pflegeplanung\n\n• Beobachtung und Weiterleitung relevanter Veränderungen an die fallführenden Pflegefachpersonen\n\n• Elektronische Dokumentation der erbrachten Leistungen\n\n• Mitgestaltung einer professionellen, wertschätzenden und klientenorientierten Pflege\n\n• Interdisziplinäre Zusammenarbeit mit Angehörigen, Ärzten sowie internen und externen Fachpersonen\nDas bringst du mit:\n\n• Abgeschlossen Ausbildung als FaGe EFZ oder FaBe EFZ mit Behandlungskurs\n\n• Idealerweise bringst du bereits Erfahrung in der Spitex mit\n\n• Selbstständige, verantwortungsbewusste und zuverlässige Arbeitsweise\n\n• Freude am Kontakt mit Menschen sowie ausgeprägte Sozialkompetenz\n\n• Flexibilität, Teamgeist und Belastbarkeit\n\n• Sicherer Umgang mit digitalen Arbeitsmitteln\n\n• Führerausweis Kat. B oder Bereitschaft, Einsätze mit dem E-Bike wahrzunehmen\nUnsere erfolgreiche Zusammenarbeit:\n\n• Abwechslungsreiche und sinnstiftende Tätigkeit mit viel Eigenverantwortung\n\n• Moderne Arbeitsmittel und eine zeitgemässe Infrastruktur\n\n• Wertschätzende Teamkultur und unterstützende Zusammenarbeit\n\n• Strukturierte Einführung und sorgfältige Begleitung im Arbeitsalltag\n\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n\n• Spannende Einsätze in einer vielseitigen Region\nAuch wenn du nicht alle Kriterien erfüllst oder dir ein anderes Pensum wünschst – bewirb dich trotzdem gerne online bei uns.\nMotivierte Kolleginnen und Kollegen freuen sich bereits darauf, dich kennenzulernen und dich im Arbeitsalltag zu unterstützen.\nSende uns einfach deinen Lebenslauf, dein EFZ-Diplom sowie dein letztes Arbeitszeugnis im ersten Schritt.\nBei Fragen oder Unklarheiten steht dir Pascal Jost, Leiter Pflegedienst, 043 455 10 10 gerne zur Verfügung.\nEs werden keine Bewerbungen von Stellenvermittlungsfirmen berücksichtigt.",
         "fr": "Plus de responsabilité. Plus près. Plus toi.\nLe Spitex droit Limmattal avec son environnement urbain et rural offre un environnement unique pour des rencontres passionnantes et des missions variées. Nous sommes une société sans but lucratif moderne avec plus de 90 employés et vivons une culture d'équipe fiable, reconnaissante et collégiale.\nNous sommes en confiance par les communes d'Oberengstringen, Unterengstringen, Weiningen, Geroldswil, Oetwil a.d.L. et Fahrweid avec un total de plus de 22 500 habitants.\nLes gens sont au cœur de nos actions – tant nos clients que nos employés. Afin que nous puissions continuer à assurer notre qualité professionnelle et individuelle des soins, nous recherchons une personnalité engagée avec cœur, sens des responsabilités et plaisir dans le travail indépendant.\nProfessionnels de la santé EFZ (FaGe) 50–90%\nEn tant que spécialiste de la santé, vous assumez une tâche polyvalente et responsable dans le secteur ambulatoire. Vous accompagnez nos clients dans leur environnement habituel et contribuez grandement à leur qualité de vie et à leur indépendance dans votre travail.\nVos principales tâches comprennent:\n\n• Soins et soutien de nos clients à domicile\n\n• Soutien aux soins de base et aux traitements selon la planification des soins infirmiers\n\n• Suivi et communication des changements pertinents aux professionnels des soins de santé qui dirigent les cas\n\n• Documentation électronique des services fournis\n\n• Co-création de soins professionnels, appréciés et axés sur le client\n\n• Coopération interdisciplinaire avec les parents, les médecins et les spécialistes internes et externes\nC'est ce que vous apportez avec vous :\n\n• Formation terminée comme FaGe EFZ ou FaBe EFZ avec cours de traitement\n\n• Idéalement, vous avez déjà de l'expérience dans le Spitex\n\n• Travailleurs indépendants, méthodes de travail responsables et fiables\n\n• Appréciation du contact avec les gens et compétences sociales fortes\n\n• Flexibilité, esprit d'équipe et résilience\n\n• Gestion sûre des équipements de travail numériques\n\n• Permis de conduire Cat. B ou volonté de participer à l'e-bike\nNotre collaboration fructueuse :\n\n• Activité variée et significative avec beaucoup de responsabilité personnelle\n\n• Équipement de travail moderne et infrastructure contemporaine\n\n• Culture d'équipe reconnaissante et collaboration de soutien\n\n• Introduction structurée et soutien attentif dans le travail quotidien\n\n• Conditions d'emploi et possibilités de formation attrayantes\n\n• Missions passionnantes dans une région diversifiée\nMême si vous ne répondez pas à tous les critères ou que vous souhaitez un travail différent – veuillez postuler en ligne avec nous.\nDes collègues motivés sont déjà impatients de vous connaître et de vous soutenir dans le travail quotidien.\nEnvoyez-nous simplement votre CV, votre diplôme EFZ et votre dernier rapport sur l'emploi dans la première étape.\nSi vous avez des questions ou des ambiguïtés, Pascal Jost, Chef du Service de soins, 043 455 10 10 est à votre disposition.\nLes demandes émanant d'entreprises de recrutement ne sont pas prises en considération."
       },
+      "needsRetranslation": true,
       "location": "Weiningen ZH",
       "canton": "ZH",
       "url": "https://www.spitexjobs.ch/job/fachfrau-fachmann-gesundheit-efz-fage-5090-prozent-spitex/J982243",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:31.013Z",
+      "crawledAt": "2026-09-28T21:18:24.647Z",
       "addressLocality": "Weiningen ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1861,7 +1915,8 @@
         "fachfrau-fachmann-gesundheit-efz-spitex-40-80-spitex-ch-affoltern-am-albis",
         "sante-professionnelle-efz-spitex-40-80-seewadel-zentrum-fur-gesundheit-und-alter-affoltern-am-albis",
         "fachfrau-fachmann-gesundheit-cfc-spitex-dienste-bellach-bellach",
-        "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach"
+        "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
+        "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1879,7 +1934,8 @@
           "fachfrau-fachmann-gesundheit-efz-spitex-40-80-spitex-ch-affoltern-am-albis",
           "sante-professionnelle-efz-spitex-40-80-seewadel-zentrum-fur-gesundheit-und-alter-affoltern-am-albis",
           "fachfrau-fachmann-gesundheit-cfc-spitex-dienste-bellach-bellach",
-          "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach"
+          "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
+          "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
         ],
         "en": [
           "specialist-health-efz-as-vocational-trainer-spitex-60-100-spitex-baretswil-baretswil"
@@ -1938,7 +1994,7 @@
       "url": "https://www.spitexjobs.ch/job/fachfrau-fachmann-gesundheit-60-prozent-80-prozent/J990291",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:30.203Z",
+      "crawledAt": "2026-09-28T21:18:25.833Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1963,7 +2019,8 @@
         "health-professional-health-professional-with-assignment-planning-70-100-alterszentrum-gibeleich-glattbrugg",
         "fachmann-fachfrau-gesundheit-mit-einsatzplanung-70-100-spitex-ch-glattbrugg",
         "professionnels-de-la-sante-professionnels-de-la-sante-ayant-une-planification-d-affectation-70-100-alterszentrum",
-        "fachfrau-fachmann-gesundheit-60-80-spitex-riehen-bettingen-riehen"
+        "fachfrau-fachmann-gesundheit-60-80-spitex-riehen-bettingen-riehen",
+        "salute-professionale-60-80-spitex-riehen-bettingen-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1973,7 +2030,8 @@
           "health-professional-health-professional-with-assignment-planning-70-100-alterszentrum-gibeleich-glattbrugg",
           "fachmann-fachfrau-gesundheit-mit-einsatzplanung-70-100-spitex-ch-glattbrugg",
           "professionnels-de-la-sante-professionnels-de-la-sante-ayant-une-planification-d-affectation-70-100-alterszentrum",
-          "fachfrau-fachmann-gesundheit-60-80-spitex-riehen-bettingen-riehen"
+          "fachfrau-fachmann-gesundheit-60-80-spitex-riehen-bettingen-riehen",
+          "salute-professionale-60-80-spitex-riehen-bettingen-riehen"
         ],
         "en": [
           "health-professional-health-professional-with-assignment-planning-70-100-alterszentrum-gibeleich-glattbrugg"
@@ -2032,7 +2090,7 @@
       "url": "https://www.spitexjobs.ch/job/fachperson-gesundheit-50-100-prozent/J954774",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:29.771Z",
+      "crawledAt": "2026-09-28T21:18:06.788Z",
       "addressLocality": "Dornach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2052,12 +2110,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "professional-health-50-100-spitex-region-birs-gmbh-dornach"
+        "professional-health-50-100-spitex-region-birs-gmbh-dornach",
+        "professionista-della-salute-50-100-spitex-region-birs-gmbh-dornach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-50-100-spitex-ch-dornach",
-          "professional-health-50-100-spitex-region-birs-gmbh-dornach"
+          "professional-health-50-100-spitex-region-birs-gmbh-dornach",
+          "professionista-della-salute-50-100-spitex-region-birs-gmbh-dornach"
         ]
       },
       "firstSeenAt": "2026-09-10T23:09:27.036Z",
@@ -2139,7 +2199,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-ch-1a3ded2b25e1",
@@ -2213,7 +2273,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-ch-f5f9dbbb7ef9",
@@ -2293,7 +2353,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-ch-70f4c1e9ad79",
@@ -2321,12 +2381,13 @@
         "de": "Mehr Verantwortung. Mehr Wirkung. Mehr Du.\nDu möchtest Pflege nicht einfach ausführen, sondern Verantwortung übernehmen, selbstständig arbeiten und Menschen dort begleiten, wo sie sich am wohlsten fühlen – zu Hause?\nDann sollten wir uns kennenlernen.\nDie Spitex rechtes Limmattal ist eine moderne Non-Profit-Organisation mit rund 90 Mitarbeitenden. Im Auftrag der Gemeinden Oberengstringen, Unterengstringen, Weiningen, Geroldswil, Oetwil a. d. Limmat und Fahrweid stellen wir die professionelle Pflege und Betreuung von über 22'500 Einwohnerinnen und Einwohnern sicher.\nBei uns erwarten dich kurze Entscheidungswege, moderne Arbeitsmittel, viel Eigenverantwortung und ein kollegiales Umfeld, in dem wir uns gegenseitig unterstützen. Du erhältst den nötigen Gestaltungsspielraum, um deine Fachkompetenz einzubringen und Pflege aktiv mitzugestalten.\nGesucht ist ein:e Dipl. Pflegefachperson, welche:r die Komplexität liebt, Qualität lebt und den Menschen im Fokus behält.\nDipl. Pflegefachperson HF/FH (60-100%)\nAls diplomierte Pflegefachperson übernimmst du bei uns eine zentrale Rolle. Du arbeitest eigenverantwortlich, bringst dein Fachwissen ein und sorgst gemeinsam mit deinem Team für eine professionelle und qualitativ hochstehende Pflege unserer Klientinnen und Klienten in ihrem vertrauten Zuhause.\nZu deinen Hauptaufgaben gehören:\n\n• Umsetzung des Pflegeprozesses in Zusammenarbeit mit den fallführenden Pflegefachpersonen\n\n• Sicherstellung einer professionellen, individuellen und klientenorientierten Pflege im häuslichen Umfeld\n\n• Interprofessionelle Zusammenarbeit mit Hausärzt:innen, Angehörigen sowie weiteren an der Behandlung beteiligten Fachpersonen\n\n• Fachliche Unterstützung und Begleitung deiner Teamkolleg:innen im Arbeitsalltag\n\n• Professionelle Pflegedokumentation sowie aktive Mitwirkung an der Qualitätssicherung und -entwicklung\nDas bringst du mit:\n\n• Diplom als Pflegefachperson HF/FH oder eine gleichwertige, in der Schweiz anerkannte Ausbildung\n\n• Freude an selbstständigem und verantwortungsvollem Arbeiten\n\n• Eine klientenorientierte Haltung und Freude am direkten Kontakt mit Menschen\n\n• Organisationsgeschick, Kommunikationsstärke und Freude an der Zusammenarbeit im Team – gerne auch mit einer Portion Humor\n\n• Gute IT-Anwenderkenntnisse und Offenheit für digitale Arbeitsmittel\n\n• Führerausweis Kat. B oder Bereitschaft, unsere Klient:innen bei jedem Wetter mit dem E-Bike zu besuchen\nDarauf kannst du dich freuen:\n\n• Viel Eigenständigkeit und Vertrauen in dein Können\n\n• Keine Nachtdienste\n\n• Mindestens 5 Wochen Ferien – ab 50 Jahren 6 Wochen, ab 60 Jahren 7 Wochen\n\n• Balance Plus – Möglichkeit, bis zu 2 zusätzliche Ferienwochen einzukaufen\n\n• Attraktives Dienstaltersgeschenk bereits ab 5 Jahren – ½ Monatslohn nach 5 Jahren; danach alle 5 Jahre grundsätzlich 1 Monatslohn, bei 40 Jahren sind es zwei Monatslöhne\n\n• Überdurchschnittliche Pensionskasse – wir übernehmen bis zu 60 % der Beiträge\n\n• Unfallversicherung mit Heilungskosten in der privaten Abteilung\n\n• Jahresarbeitszeit für mehr Flexibilität\n\n• Gratis Parkplatz am Standort\n\n• Spitexautos und E-Bikes für dienstliche Einsätze\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• etc.\nBereit für den nächsten Schritt?\nDann möchten wir dich gerne kennenlernen.\nWir machen dir den Einstieg bewusst unkompliziert: Für deine Bewerbung über unser Online-Tool benötigen wir in einem ersten Schritt lediglich deinen Lebenslauf, dein Diplom HF/FH und dein letztes Arbeitszeugnis.\nWir freuen uns darauf, dich kennenzulernen und dir persönlich zu zeigen, was das Arbeiten bei der Spitex rechtes Limmattal besonders macht.\nDu erfüllst nicht alle Anforderungen zu 100 %?\nKein Problem. Wenn du dich in der Stelle wiederfindest und glaubst, dass du gut zu uns passt, freuen wir uns trotzdem auf deine Bewerbung. Gemeinsam schauen wir, welche Möglichkeiten sich bei uns für dich ergeben können.\nDu hast noch Fragen?\nPascal Jost, Leiter Pflege, gibt dir unter 043 455 10 10 gerne Auskunft.\nFür diese Stelle berücksichtigen wir keine Bewerbungen über Stellenvermittlungen.",
         "fr": "Plus de responsabilité. Plus d'impact. Plus toi.\nVous ne voulez pas simplement prendre soin, mais prendre des responsabilités, travailler indépendamment et accompagner les gens où ils se sentent le plus à l'aise – à la maison?\nAlors on devrait se connaître.\nSpitex rechtss Limmattal est une organisation à but non lucratif moderne avec environ 90 employés. Au nom des communes d'Oberengstringen, Unterengstringen, Weiningen, Geroldswil, Oetwil a. d. Limmat et Fahrweid, nous assurons la prise en charge professionnelle de plus de 22 500 habitants.\nAvec nous, de courts chemins de décision, des équipements de travail modernes, beaucoup de responsabilité personnelle et un environnement collégial dans lequel nous nous soutenons. Vous recevrez la marge de manœuvre nécessaire pour apporter votre expertise et façonner activement les soins.\nNous cherchons un e Dipl. Professionnel de soins qui aime la complexité, la qualité de vie et maintient les gens en contact.\nInfirmière diplômée HF/FH (60-100%)\nEn tant qu'infirmière qualifiée, vous assumez un rôle central avec nous. Vous travaillez de manière indépendante, apportez votre expertise et, en collaboration avec votre équipe, vous assurez un soin professionnel et de haute qualité de nos clients dans leur foyer familier.\nVos principales tâches comprennent:\n\n• Mise en œuvre du processus de prise en charge en coopération avec les professionnels de la santé chefs de file\n\n• Assurer des soins professionnels, individuels et axés sur le client dans le milieu familial\n\n• Coopération interprofessionnelle avec les médecins de famille: membres de la famille et autres spécialistes impliqués dans le traitement\n\n• Soutien professionnel et soutien de votre coéquipier : les femmes au quotidien\n\n• Documentation de maintenance professionnelle et participation active à l'assurance et au développement de la qualité\nC'est ce que vous apportez avec vous :\n\n• Diplôme d'infirmière HF/FH ou équivalent reconnu en Suisse\n\n• Profitez d'un travail indépendant et responsable\n\n• Une attitude axée sur le client et la jouissance d'un contact direct avec les gens\n\n• Compétences organisationnelles, compétences en communication et plaisir de travailler en équipe – aussi avec une dose d'humour\n\n• Bonne connaissance des utilisateurs de TI et ouverture aux outils numériques\n\n• Permis de conduire Cat. B ou volonté de visiter nos clients: à l'intérieur par n'importe quel temps avec l'e-bike\nVous pouvez attendre avec impatience ceci:\n\n• Beaucoup d'indépendance et de confiance dans vos capacités\n\n• Pas de services de nuit\n\n• Au moins 5 semaines de vacances – à partir de 50 ans 6 semaines, à partir de 60 ans 7 semaines\n\n• Balance Plus – possibilité d'acheter jusqu'à 2 semaines de vacances supplémentaires\n\n• Cadeau d'âge de service attrayant de 5 ans – 1⁄2 mois de salaire après 5 ans; puis tous les 5 ans en principe 1 salaire mensuel, pendant 40 ans il est deux salaires mensuels\n\n• Fonds de pension supérieur à la moyenne – nous prenons jusqu'à 60% des cotisations\n\n• Assurance accidents avec coûts de guérison dans le département privé\n\n• Heures de travail annuelles pour plus de flexibilité\n\n• Parking gratuit à l'emplacement\n\n• Voitures Spitex et vélos électroniques pour missions officielles\n\n• Possibilités de formation internes et externes\n\n• etc.\nPrêt pour la prochaine étape ?\nAlors nous aimerions vous rencontrer.\nNous rendons consciemment facile pour vous de commencer: Pour votre candidature via notre outil en ligne, nous n'avons besoin que de votre CV, de votre diplôme HF/FH et de votre dernier certificat d'emploi dans un premier temps.\nNous sommes impatients de vous rencontrer et de vous montrer personnellement ce qui rend le travail à Spitex Right Limmat Valley spécial.\nNe répondez-vous pas à toutes les exigences 100%?\nPas de problème. Si vous vous retrouvez dans le travail et que vous croyez que vous êtes un bon pour nous, nous attendons toujours votre candidature. Ensemble, nous examinons les possibilités qui peuvent se présenter pour vous avec nous.\nVous avez encore des questions ?\nPascal Jost, Chef des Soins, est heureux de vous fournir des informations sur 043 455 10 10.\nPour ce poste, nous n'étudions pas les demandes de placement."
       },
+      "needsRetranslation": true,
       "location": "Weiningen ZH",
       "canton": "ZH",
       "url": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-fh-60-100-prozent/J994251",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:55:07.479Z",
+      "crawledAt": "2026-09-28T21:18:06.101Z",
       "addressLocality": "Weiningen ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2345,11 +2406,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-60-100-spitex-ch-weiningen-zh"
+        "dipl-pflegefachperson-hf-fh-60-100-spitex-ch-weiningen-zh",
+        "infermiera-hf-fh-60-100-spitex-rechtes-limmattal-weiningen-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-60-100-spitex-ch-weiningen-zh"
+          "dipl-pflegefachperson-hf-fh-60-100-spitex-ch-weiningen-zh",
+          "infermiera-hf-fh-60-100-spitex-rechtes-limmattal-weiningen-zh"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-60-100-spitex-ch-weiningen-zh"
@@ -2371,8 +2434,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "spitex-ch-f7b64db24c9b",
@@ -2406,7 +2468,7 @@
       "url": "https://www.spitexjobs.ch/job/herzlich-willkommen-bei-rebeno/J988181",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T14:55:05.589Z",
+      "crawledAt": "2026-09-28T21:18:07.427Z",
       "addressLocality": "Zollikofen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2425,11 +2487,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen"
+        "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen",
+        "benvenuti-a-rebeno-spitex-rebeno-ag-zollikofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen"
+          "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen",
+          "benvenuti-a-rebeno-spitex-rebeno-ag-zollikofen"
         ],
         "en": [
           "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen"
@@ -2451,8 +2515,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "spitex-ch-76dfec98c9b7",
@@ -2480,12 +2543,13 @@
         "de": "SPITEX Grauholz ist für die qualitativ hochstehende, zuverlässige und bedarfsgerechte Versorgung von 11 Gemeinden im Bereich der ambulanten Pflege- und der Hauswirtschaftsleistungen zuständig. Als fortschrittliche Organisation entwickeln wir uns kontinuierlich weiter und zählen dabei auf unsere 170 kompetenten, aufgeschlossenen und motivierten Mitarbeitenden. Diese arbeiten in einem der drei Stützpunkte Jegenstorf, Münchenbuchsee, Urtenen-Schönbühl oder im Hauswirtschafts-, Psychiatrie- und Abklärungsteam.\nZur Verstärkung unserer Teams suchen wir per sofort oder nach Vereinbarung eine:\nDipl. Pflegefachperson HF/FH, AKP, DNII 60-100%\nDu willst\n\n• eine neue Herausforderung oder den Wiedereinstieg in das vielseitige Arbeitsfeld der ambulanten Pflege von Menschen ab der Volljährigkeit bis ins hohe Alter.\n\n• selbstständig in verschiedenen Aufgabengebieten und unterschiedlichsten Settings unterwegs sein – und dabei ein starkes, wertschätzendes Team an deiner Seite haben.\n\n• eine herausfordernde Pflege- und Betreuungssituation und schätzt die abwechslungsreiche Arbeit.\n\n• in einem Arbeitsfeld tätig sein, in dem du Kundinnen und Kunden nach ihren Bedürfnissen und unter Einbezug deren Ressourcen pflegen und ihre Lebensqualität sowie die von deren Angehörigen sichtbar verbessern kannst.\nDu bringst\n\n• eine Qualifikation als Pflegefachperson (HF/FH) mit und hast idealerweise Berufserfahrung im Bereich der Spitex.\n\n• ein Herz für eine gute Zusammenarbeit im Team mit und trägst aktiv zur Erreichung unserer betrieblichen Ziele bei.\n\n• Freude am Pflegeprozess mit und übernimmst entsprechend deiner Qualifikation Verantwortung oder Unterstützung.\n\n• als Wiedereinsteiger:in die Bereitschaft mit, einen Auffrischungskurs zu besuchen, um dein Fachwissen zu aktualisieren.\n\n• das Wissen, die Erfahrung und die Eignung mit, Pflegeprozesse zu gestalten und zu verantworten, Mitarbeitende zu unterstützen sowie die Tagesverantwortung und den Pikettdienst zu übernehmen.\n\n• die Fähigkeit mit, administrative Aufgaben effizient und gewissenhaft zu erledigen und verfügst über einen Führerausweis Kategorie B.\nWir bieten dir\n\n• ein spannendes Arbeitsfeld in einer dynamischen Organisation und eine umsichtige Einarbeitung.\n\n• die Unterstützung eines starken, motivierten und stabilen Teams, das sich bereits heute auf dich freut.\n\n• fortschrittliche Anstellungsbedingungen: fairer Lohn, überdurchschnittliche Sozialleistungen, freiwillige Betreuungszulagen als Ergänzung zur obligatorischen Familienzulage, mind. 5 Wochen Ferien und die Möglichkeit auf unbezahlten Urlaub.\n\n• die Gelegenheit, dich fachlich und persönlich weiterzuentwickeln. Dabei unterstützen wir dich durch diverse finanzierte Weiterbildungsangebote (z.B als Wundexperte/in oder im Bereich der Palliativ-, Demenzpflege).\n\n• diverse Extras wie vergünstigte Mobile-Abos bei Salt, Flottenrabatt beim Kauf eines Neuwagens sowie Rabatte bei verschiedenen Anbietern.\n\n• alternativ die Möglichkeit, nur im Spätdienst ab 17.00 bis 23.00 Uhr zu arbeiten.\nDie Spitex Grauholz ist eine effizient geführte und gut strukturierte Organisation, die grossen Wert auf gegenseitige Wertschätzung, Hilfsbereitschaft, einen positiven Teamgeist und eine Zusammenarbeit auf Augenhöhe legt.\nUnsere attraktiven Arbeitsbedingungen , sowie Informationen zum breiten Angebot der Spitex Grauholz findest du auf unserer Homepage.\nHaben wir dein Interesse an dieser spannenden und herausfordernden Stelle geweckt, in der dir sowohl seitens unserer Kunden als auch des Arbeitsgebers viel Wertschätzung zukommt?\nBewirb dich unkompliziert mit Lebenslauf und Zeugnissen via Mail an hr@spitex-grauholz.ch .\nBei Fragen stehen wir dir unter 031 850 20 85 gerne zur Verfügung.",
         "fr": "SPITEX Grauholz est chargé de fournir à 11 communes des soins de haute qualité, fiables et adaptés aux besoins dans le domaine des soins ambulatoires et des services d'entretien ménager. En tant qu'organisation progressiste, nous nous développons continuellement et comptons sur nos 170 collaborateurs compétents, ouverts d'esprit et motivés. Ils travaillent dans l'une des trois bases de Jegenstorf, Münchenbuchsee, Urtenen-Schönbühl ou dans les équipes d'entretien ménager, psychiatrique et d'évaluation.\nPour renforcer notre équipe, nous recherchons quelqu'un de suite ou sur rendez-vous :\nDipl. Infirmière spécialisée HF/FH, AKP, DNII 60-100 %\nTu veux\n\n• un nouveau défi ou un retour au domaine diversifié des soins ambulatoires pour les personnes de la majorité jusqu'à la vieillesse.\n\n• être capable de travailler de manière indépendante dans différents domaines de responsabilité et dans des contextes très variés – et avoir à vos côtés une équipe solide et reconnaissante.\n\n• une situation de soins et d'accompagnement difficile et apprécie le travail varié.\n\n• travailler dans un domaine dans lequel vous pouvez prendre soin des clients selon leurs besoins et en tenant compte de leurs ressources et améliorer visiblement leur qualité de vie et celle de leurs proches.\nVous apportez\n\n• Avoir un diplôme d'infirmière spécialisée (HF/FH) et idéalement une expérience professionnelle dans le domaine du Spitex.\n\n• Un cœur pour le bon travail d'équipe et contribue activement à l'atteinte de nos objectifs opérationnels.\n\n• Profitez du processus de soins infirmiers et assumez des responsabilités ou du soutien selon vos qualifications.\n\n• en tant que retour : soyez prêt à suivre un cours de remise à niveau pour mettre à jour vos connaissances spécialisées.\n\n• les connaissances, l'expérience et la capacité de concevoir et d'assumer la responsabilité des processus de soins, de soutenir les employés et d'assumer les responsabilités quotidiennes et les tâches de garde.\n\n• la capacité d'effectuer des tâches administratives de manière efficace et consciencieuse et possède un permis de conduire de catégorie B.\nNous vous proposons\n\n• un domaine de travail passionnant dans une organisation dynamique et une formation soignée.\n\n• le soutien d'une équipe solide, motivée et stable qui a déjà hâte de vous retrouver aujourd'hui.\n\n• des conditions d'emploi progressives : salaires équitables, prestations sociales supérieures à la moyenne, allocations volontaires de soins en complément des allocations familiales obligatoires, au moins 5 semaines de vacances et possibilité de congés sans solde.\n\n• la possibilité de se développer professionnellement et personnellement. Nous vous soutenons avec diverses possibilités de formation financées (par exemple en tant qu'expert en plaies ou dans le domaine des soins palliatifs et de la démence).\n\n• Divers extras tels que des abonnements mobiles à prix réduits chez Salt, des réductions de flotte lors de l'achat d'une nouvelle voiture et des réductions auprès de différents fournisseurs.\n\n• Alternativement, la possibilité de travailler uniquement tard à partir de 17 heures. à 23 heures\nSpitex Grauholz est une organisation gérée de manière efficace et bien structurée, qui accorde une grande valeur à l'appréciation mutuelle, à la volonté d'aider, à un esprit d'équipe positif et à une coopération sur un pied d'égalité.\nVous trouverez nos conditions de travail attractives ainsi que des informations sur la large gamme de produits de Spitex Grauholz sur notre page d'accueil.\nAvons-nous éveillé votre intérêt pour ce poste passionnant et stimulant, où vous serez très apprécié tant par nos clients que par votre employeur ?\nPostulez facilement avec votre CV et vos certificats par email à hr@spitex-grauholz.ch.\nSi vous avez des questions, n'hésitez pas à nous contacter au 031 850 20 85."
       },
+      "needsRetranslation": true,
       "location": "Urtenen-Schönbühl",
       "canton": "BE",
       "url": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-fh-akp-dnii-60-100-prozent/J985151",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T11:31:11.954Z",
+      "crawledAt": "2026-09-28T21:18:23.359Z",
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2506,13 +2570,15 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
         "dipl-pflegefachperson-hf-fh-akp-dnii-60-100-spitex-ch-urtenen-schonbuhl",
-        "dipl-infirmiere-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl"
+        "dipl-infirmiere-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl",
+        "infermiera-certificata-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
           "dipl-pflegefachperson-hf-fh-akp-dnii-60-100-spitex-ch-urtenen-schonbuhl",
-          "dipl-infirmiere-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl"
+          "dipl-infirmiere-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl",
+          "infermiera-certificata-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-akp-dnii-60-100-spitex-ch-urtenen-schonbuhl"
@@ -2531,8 +2597,215 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "spitex-ch-4d70f6ec1552",
+      "slug": "dipl-pflegefachperson-hf-fh-psychiatrie-60-100-montag-freitag-spitex-ch-liestal",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-fh-psychiatrie-60-100-montag-freitag-spitex-ch-liestal",
+        "it": "dipl-pflegefachperson-hf-fh-psychiatrie-60-100-montag-freitag-spitex-ch-liestal",
+        "en": "dipl-pflegefachperson-hf-fh-psychiatrie-60-100-montag-freitag-spitex-ch-liestal",
+        "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-60-100-montag-freitag-spitex-ch-liestal"
       },
-      "crawlerMissStreak": 2
+      "company": "Spitex Regio Liestal",
+      "companyKey": "spitex-ch",
+      "companyDomain": "spitexjobs.ch",
+      "title": "Dipl. Pflegefachperson HF/FH Psychiatrie (60-100%) - Montag-Freitag",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson HF/FH Psychiatrie (60-100%) - Montag-Freitag",
+        "it": "Dipl. Pflegefachperson HF/FH Psychiatrie (60-100%) - Montag-Freitag",
+        "en": "Dipl. Pflegefachperson HF/FH Psychiatrie (60-100%) - Montag-Freitag",
+        "fr": "Dipl. Pflegefachperson HF/FH Psychiatrie (60-100%) - Montag-Freitag"
+      },
+      "description": "Selbstständig arbeiten. Im Team getragen. Nah am Menschen.\n Bei der Spitex Regio Liestal begleiten wir Menschen dort, wo sie sich zuhause fühlen. In unserem Psychiatrie-Team arbeiten Sie eigenverantwortlich, gestalten komplexe Pflegesituationen aktiv mit und können Ihre psychiatrische Fachkompetenz dort einsetzen, wo sie unmittelbar Wirkung entfaltet: im Alltag unserer Kundinnen und Kunden.\n Unser Einzugsgebiet umfasst 16 Gemeinden mit rund 49'000 Einwohnerinnen und Einwohnern. Jährlich pflegen und betreuen wir rund 1'100 Kundinnen und Kunden.\n Zur Verstärkung unseres Psychiatrie-Teams suchen wir per sofort oder nach Vereinbarung eine\n Dipl. Pflegefachperson HF/FH Psychiatrie (60-100%) - Montag-Freitag\n Ihre Aufgabe\n Sie begleiten Menschen jeden Alters in komplexen psychiatrischen und psychosozialen Situationen in ihrem gewohnten Lebensumfeld. Dabei fördern Sie ihre psychische Stabilität und Selbstständigkeit und beziehen Angehörige sowie das soziale Umfeld bedarfsgerecht mit ein. Sie übernehmen Verantwortung für den gesamten Pflegeprozess und gestalten die psychiatrische Pflege selbstständig und individuell.\n Zu Ihren Aufgaben gehören insbesondere:\n\n• Fallführung und Verantwortung für den gesamten Pflegeprozess – von der Bedarfsermittlung und Planung bis zur Evaluation\n\n• Begleitung und Beratung von Menschen in komplexen psychiatrischen Situationen sowie in Krisen und schwierigen Lebensphasen\n\n• Anwendung psychiatrischer Pflegemethoden und -interventionen sowie Durchführung der Behandlungspflege nach ärztlicher Verordnung\n\n• Beratung, Anleitung und Psychoedukation von Kundinnen und Kunden, Angehörigen und ihrem sozialen Umfeld\n\n• Koordination der Pflege und Behandlung sowie enge Zusammenarbeit mit Ärzteschaft, Spitälern und weiteren internen und externen Fachstellen\n\n• Vorbereitung und Moderation von Fallbesprechungen\n\n• Fachliche Beratung und Unterstützung von Mitarbeitenden aus den interdisziplinären Teams in Fragen der psychiatrischen Pflege\n\n• Mitwirkung bei Bedarfsabklärungen und der Anwendung von Assessmentinstrumenten\n\n• Mitwirkung bei der Weiterentwicklung der Pflegequalität sowie bei Bedarf in der praktischen Ausbildung von Lernenden\n Das bringen Sie mit\n\n• Diplom als Pflegefachperson HF/FH sowie Berufserfahrung in der psychiatrischen Pflege\n\n• Freude an selbstständigem Arbeiten und an der Übernahme fachlicher Verantwortung\n\n• Eine wertschätzende und ressourcenorientierte Haltung gegenüber Menschen in unterschiedlichen Lebenssituationen\n\n• Fähigkeit, komplexe pflegerische, medizinische und soziale Zusammenhänge zu erfassen und situationsgerecht zu handeln\n\n• Kommunikationsstärke, Organisationsgeschick und Freude an interprofessioneller Zusammenarbeit\n\n• Offenheit für fachliche und persönliche Weiterentwicklung\n\n• Führerausweis Kategorie B\n Darauf können Sie sich freuen\n\n• Planbare Arbeitszeiten von Montag bis Freitag – ohne Wochenenddienste\n\n• Viel Selbstständigkeit und Gestaltungsspielraum in der psychiatrischen Pflege\n\n• Rückhalt und fachlicher Austausch in einem engagierten Psychiatrie-Team\n\n• Regelmässige Fallbesprechungen und fachliche Begleitung\n\n• Eine sinnstiftende Tätigkeit mit direkter Wirkung im Lebensumfeld unserer Kundinnen und Kunden\n\n• Sorgfältige Einarbeitung und persönliche Begleitung\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Wertschätzende Zusammenarbeit, kurze Wege und nahbare Führung\n\n• Flexible und familienfreundliche Anstellungsbedingungen\n\n• Moderne Arbeitsinstrumente für Ihren Arbeitsalltag\n Bei uns übernehmen Sie Verantwortung – und können gleichzeitig auf ein Team zählen, das fachlichen Austausch und gegenseitige Unterstützung lebt.\n Haben wir Ihr Interesse geweckt?\n Für Fragen steht Ihnen Ronald Nemetz, Bereichsleitung , gerne zur Verfügung:\n ronald.nemetz@spitexrl.ch | 061 926 91 77\n Wir freuen uns auf Ihre Bewerbung über unser Jobportal .\n Lernen Sie uns als Arbeitgeberin kennen und besuchen Sie unsere Website sowie unsere Kanäle auf Instagram und Facebook .\n Wir bitten um Verständnis, dass Bewerbungen und Kontaktaufnahmen von Personaldienstleistenden nicht berücksichtigt werden können.",
+      "descriptionByLocale": {
+        "de": "Selbstständig arbeiten. Im Team getragen. Nah am Menschen.\n Bei der Spitex Regio Liestal begleiten wir Menschen dort, wo sie sich zuhause fühlen. In unserem Psychiatrie-Team arbeiten Sie eigenverantwortlich, gestalten komplexe Pflegesituationen aktiv mit und können Ihre psychiatrische Fachkompetenz dort einsetzen, wo sie unmittelbar Wirkung entfaltet: im Alltag unserer Kundinnen und Kunden.\n Unser Einzugsgebiet umfasst 16 Gemeinden mit rund 49'000 Einwohnerinnen und Einwohnern. Jährlich pflegen und betreuen wir rund 1'100 Kundinnen und Kunden.\n Zur Verstärkung unseres Psychiatrie-Teams suchen wir per sofort oder nach Vereinbarung eine\n Dipl. Pflegefachperson HF/FH Psychiatrie (60-100%) - Montag-Freitag\n Ihre Aufgabe\n Sie begleiten Menschen jeden Alters in komplexen psychiatrischen und psychosozialen Situationen in ihrem gewohnten Lebensumfeld. Dabei fördern Sie ihre psychische Stabilität und Selbstständigkeit und beziehen Angehörige sowie das soziale Umfeld bedarfsgerecht mit ein. Sie übernehmen Verantwortung für den gesamten Pflegeprozess und gestalten die psychiatrische Pflege selbstständig und individuell.\n Zu Ihren Aufgaben gehören insbesondere:\n\n• Fallführung und Verantwortung für den gesamten Pflegeprozess – von der Bedarfsermittlung und Planung bis zur Evaluation\n\n• Begleitung und Beratung von Menschen in komplexen psychiatrischen Situationen sowie in Krisen und schwierigen Lebensphasen\n\n• Anwendung psychiatrischer Pflegemethoden und -interventionen sowie Durchführung der Behandlungspflege nach ärztlicher Verordnung\n\n• Beratung, Anleitung und Psychoedukation von Kundinnen und Kunden, Angehörigen und ihrem sozialen Umfeld\n\n• Koordination der Pflege und Behandlung sowie enge Zusammenarbeit mit Ärzteschaft, Spitälern und weiteren internen und externen Fachstellen\n\n• Vorbereitung und Moderation von Fallbesprechungen\n\n• Fachliche Beratung und Unterstützung von Mitarbeitenden aus den interdisziplinären Teams in Fragen der psychiatrischen Pflege\n\n• Mitwirkung bei Bedarfsabklärungen und der Anwendung von Assessmentinstrumenten\n\n• Mitwirkung bei der Weiterentwicklung der Pflegequalität sowie bei Bedarf in der praktischen Ausbildung von Lernenden\n Das bringen Sie mit\n\n• Diplom als Pflegefachperson HF/FH sowie Berufserfahrung in der psychiatrischen Pflege\n\n• Freude an selbstständigem Arbeiten und an der Übernahme fachlicher Verantwortung\n\n• Eine wertschätzende und ressourcenorientierte Haltung gegenüber Menschen in unterschiedlichen Lebenssituationen\n\n• Fähigkeit, komplexe pflegerische, medizinische und soziale Zusammenhänge zu erfassen und situationsgerecht zu handeln\n\n• Kommunikationsstärke, Organisationsgeschick und Freude an interprofessioneller Zusammenarbeit\n\n• Offenheit für fachliche und persönliche Weiterentwicklung\n\n• Führerausweis Kategorie B\n Darauf können Sie sich freuen\n\n• Planbare Arbeitszeiten von Montag bis Freitag – ohne Wochenenddienste\n\n• Viel Selbstständigkeit und Gestaltungsspielraum in der psychiatrischen Pflege\n\n• Rückhalt und fachlicher Austausch in einem engagierten Psychiatrie-Team\n\n• Regelmässige Fallbesprechungen und fachliche Begleitung\n\n• Eine sinnstiftende Tätigkeit mit direkter Wirkung im Lebensumfeld unserer Kundinnen und Kunden\n\n• Sorgfältige Einarbeitung und persönliche Begleitung\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Wertschätzende Zusammenarbeit, kurze Wege und nahbare Führung\n\n• Flexible und familienfreundliche Anstellungsbedingungen\n\n• Moderne Arbeitsinstrumente für Ihren Arbeitsalltag\n Bei uns übernehmen Sie Verantwortung – und können gleichzeitig auf ein Team zählen, das fachlichen Austausch und gegenseitige Unterstützung lebt.\n Haben wir Ihr Interesse geweckt?\n Für Fragen steht Ihnen Ronald Nemetz, Bereichsleitung , gerne zur Verfügung:\n ronald.nemetz@spitexrl.ch | 061 926 91 77\n Wir freuen uns auf Ihre Bewerbung über unser Jobportal .\n Lernen Sie uns als Arbeitgeberin kennen und besuchen Sie unsere Website sowie unsere Kanäle auf Instagram und Facebook .\n Wir bitten um Verständnis, dass Bewerbungen und Kontaktaufnahmen von Personaldienstleistenden nicht berücksichtigt werden können.",
+        "it": "Selbstständig arbeiten. Im Team getragen. Nah am Menschen.\n Bei der Spitex Regio Liestal begleiten wir Menschen dort, wo sie sich zuhause fühlen. In unserem Psychiatrie-Team arbeiten Sie eigenverantwortlich, gestalten komplexe Pflegesituationen aktiv mit und können Ihre psychiatrische Fachkompetenz dort einsetzen, wo sie unmittelbar Wirkung entfaltet: im Alltag unserer Kundinnen und Kunden.\n Unser Einzugsgebiet umfasst 16 Gemeinden mit rund 49'000 Einwohnerinnen und Einwohnern. Jährlich pflegen und betreuen wir rund 1'100 Kundinnen und Kunden.\n Zur Verstärkung unseres Psychiatrie-Teams suchen wir per sofort oder nach Vereinbarung eine\n Dipl. Pflegefachperson HF/FH Psychiatrie (60-100%) - Montag-Freitag\n Ihre Aufgabe\n Sie begleiten Menschen jeden Alters in komplexen psychiatrischen und psychosozialen Situationen in ihrem gewohnten Lebensumfeld. Dabei fördern Sie ihre psychische Stabilität und Selbstständigkeit und beziehen Angehörige sowie das soziale Umfeld bedarfsgerecht mit ein. Sie übernehmen Verantwortung für den gesamten Pflegeprozess und gestalten die psychiatrische Pflege selbstständig und individuell.\n Zu Ihren Aufgaben gehören insbesondere:\n\n• Fallführung und Verantwortung für den gesamten Pflegeprozess – von der Bedarfsermittlung und Planung bis zur Evaluation\n\n• Begleitung und Beratung von Menschen in komplexen psychiatrischen Situationen sowie in Krisen und schwierigen Lebensphasen\n\n• Anwendung psychiatrischer Pflegemethoden und -interventionen sowie Durchführung der Behandlungspflege nach ärztlicher Verordnung\n\n• Beratung, Anleitung und Psychoedukation von Kundinnen und Kunden, Angehörigen und ihrem sozialen Umfeld\n\n• Koordination der Pflege und Behandlung sowie enge Zusammenarbeit mit Ärzteschaft, Spitälern und weiteren internen und externen Fachstellen\n\n• Vorbereitung und Moderation von Fallbesprechungen\n\n• Fachliche Beratung und Unterstützung von Mitarbeitenden aus den interdisziplinären Teams in Fragen der psychiatrischen Pflege\n\n• Mitwirkung bei Bedarfsabklärungen und der Anwendung von Assessmentinstrumenten\n\n• Mitwirkung bei der Weiterentwicklung der Pflegequalität sowie bei Bedarf in der praktischen Ausbildung von Lernenden\n Das bringen Sie mit\n\n• Diplom als Pflegefachperson HF/FH sowie Berufserfahrung in der psychiatrischen Pflege\n\n• Freude an selbstständigem Arbeiten und an der Übernahme fachlicher Verantwortung\n\n• Eine wertschätzende und ressourcenorientierte Haltung gegenüber Menschen in unterschiedlichen Lebenssituationen\n\n• Fähigkeit, komplexe pflegerische, medizinische und soziale Zusammenhänge zu erfassen und situationsgerecht zu handeln\n\n• Kommunikationsstärke, Organisationsgeschick und Freude an interprofessioneller Zusammenarbeit\n\n• Offenheit für fachliche und persönliche Weiterentwicklung\n\n• Führerausweis Kategorie B\n Darauf können Sie sich freuen\n\n• Planbare Arbeitszeiten von Montag bis Freitag – ohne Wochenenddienste\n\n• Viel Selbstständigkeit und Gestaltungsspielraum in der psychiatrischen Pflege\n\n• Rückhalt und fachlicher Austausch in einem engagierten Psychiatrie-Team\n\n• Regelmässige Fallbesprechungen und fachliche Begleitung\n\n• Eine sinnstiftende Tätigkeit mit direkter Wirkung im Lebensumfeld unserer Kundinnen und Kunden\n\n• Sorgfältige Einarbeitung und persönliche Begleitung\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Wertschätzende Zusammenarbeit, kurze Wege und nahbare Führung\n\n• Flexible und familienfreundliche Anstellungsbedingungen\n\n• Moderne Arbeitsinstrumente für Ihren Arbeitsalltag\n Bei uns übernehmen Sie Verantwortung – und können gleichzeitig auf ein Team zählen, das fachlichen Austausch und gegenseitige Unterstützung lebt.\n Haben wir Ihr Interesse geweckt?\n Für Fragen steht Ihnen Ronald Nemetz, Bereichsleitung , gerne zur Verfügung:\n ronald.nemetz@spitexrl.ch | 061 926 91 77\n Wir freuen uns auf Ihre Bewerbung über unser Jobportal .\n Lernen Sie uns als Arbeitgeberin kennen und besuchen Sie unsere Website sowie unsere Kanäle auf Instagram und Facebook .\n Wir bitten um Verständnis, dass Bewerbungen und Kontaktaufnahmen von Personaldienstleistenden nicht berücksichtigt werden können.",
+        "en": "Selbstständig arbeiten. Im Team getragen. Nah am Menschen.\n Bei der Spitex Regio Liestal begleiten wir Menschen dort, wo sie sich zuhause fühlen. In unserem Psychiatrie-Team arbeiten Sie eigenverantwortlich, gestalten komplexe Pflegesituationen aktiv mit und können Ihre psychiatrische Fachkompetenz dort einsetzen, wo sie unmittelbar Wirkung entfaltet: im Alltag unserer Kundinnen und Kunden.\n Unser Einzugsgebiet umfasst 16 Gemeinden mit rund 49'000 Einwohnerinnen und Einwohnern. Jährlich pflegen und betreuen wir rund 1'100 Kundinnen und Kunden.\n Zur Verstärkung unseres Psychiatrie-Teams suchen wir per sofort oder nach Vereinbarung eine\n Dipl. Pflegefachperson HF/FH Psychiatrie (60-100%) - Montag-Freitag\n Ihre Aufgabe\n Sie begleiten Menschen jeden Alters in komplexen psychiatrischen und psychosozialen Situationen in ihrem gewohnten Lebensumfeld. Dabei fördern Sie ihre psychische Stabilität und Selbstständigkeit und beziehen Angehörige sowie das soziale Umfeld bedarfsgerecht mit ein. Sie übernehmen Verantwortung für den gesamten Pflegeprozess und gestalten die psychiatrische Pflege selbstständig und individuell.\n Zu Ihren Aufgaben gehören insbesondere:\n\n• Fallführung und Verantwortung für den gesamten Pflegeprozess – von der Bedarfsermittlung und Planung bis zur Evaluation\n\n• Begleitung und Beratung von Menschen in komplexen psychiatrischen Situationen sowie in Krisen und schwierigen Lebensphasen\n\n• Anwendung psychiatrischer Pflegemethoden und -interventionen sowie Durchführung der Behandlungspflege nach ärztlicher Verordnung\n\n• Beratung, Anleitung und Psychoedukation von Kundinnen und Kunden, Angehörigen und ihrem sozialen Umfeld\n\n• Koordination der Pflege und Behandlung sowie enge Zusammenarbeit mit Ärzteschaft, Spitälern und weiteren internen und externen Fachstellen\n\n• Vorbereitung und Moderation von Fallbesprechungen\n\n• Fachliche Beratung und Unterstützung von Mitarbeitenden aus den interdisziplinären Teams in Fragen der psychiatrischen Pflege\n\n• Mitwirkung bei Bedarfsabklärungen und der Anwendung von Assessmentinstrumenten\n\n• Mitwirkung bei der Weiterentwicklung der Pflegequalität sowie bei Bedarf in der praktischen Ausbildung von Lernenden\n Das bringen Sie mit\n\n• Diplom als Pflegefachperson HF/FH sowie Berufserfahrung in der psychiatrischen Pflege\n\n• Freude an selbstständigem Arbeiten und an der Übernahme fachlicher Verantwortung\n\n• Eine wertschätzende und ressourcenorientierte Haltung gegenüber Menschen in unterschiedlichen Lebenssituationen\n\n• Fähigkeit, komplexe pflegerische, medizinische und soziale Zusammenhänge zu erfassen und situationsgerecht zu handeln\n\n• Kommunikationsstärke, Organisationsgeschick und Freude an interprofessioneller Zusammenarbeit\n\n• Offenheit für fachliche und persönliche Weiterentwicklung\n\n• Führerausweis Kategorie B\n Darauf können Sie sich freuen\n\n• Planbare Arbeitszeiten von Montag bis Freitag – ohne Wochenenddienste\n\n• Viel Selbstständigkeit und Gestaltungsspielraum in der psychiatrischen Pflege\n\n• Rückhalt und fachlicher Austausch in einem engagierten Psychiatrie-Team\n\n• Regelmässige Fallbesprechungen und fachliche Begleitung\n\n• Eine sinnstiftende Tätigkeit mit direkter Wirkung im Lebensumfeld unserer Kundinnen und Kunden\n\n• Sorgfältige Einarbeitung und persönliche Begleitung\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Wertschätzende Zusammenarbeit, kurze Wege und nahbare Führung\n\n• Flexible und familienfreundliche Anstellungsbedingungen\n\n• Moderne Arbeitsinstrumente für Ihren Arbeitsalltag\n Bei uns übernehmen Sie Verantwortung – und können gleichzeitig auf ein Team zählen, das fachlichen Austausch und gegenseitige Unterstützung lebt.\n Haben wir Ihr Interesse geweckt?\n Für Fragen steht Ihnen Ronald Nemetz, Bereichsleitung , gerne zur Verfügung:\n ronald.nemetz@spitexrl.ch | 061 926 91 77\n Wir freuen uns auf Ihre Bewerbung über unser Jobportal .\n Lernen Sie uns als Arbeitgeberin kennen und besuchen Sie unsere Website sowie unsere Kanäle auf Instagram und Facebook .\n Wir bitten um Verständnis, dass Bewerbungen und Kontaktaufnahmen von Personaldienstleistenden nicht berücksichtigt werden können.",
+        "fr": "Selbstständig arbeiten. Im Team getragen. Nah am Menschen.\n Bei der Spitex Regio Liestal begleiten wir Menschen dort, wo sie sich zuhause fühlen. In unserem Psychiatrie-Team arbeiten Sie eigenverantwortlich, gestalten komplexe Pflegesituationen aktiv mit und können Ihre psychiatrische Fachkompetenz dort einsetzen, wo sie unmittelbar Wirkung entfaltet: im Alltag unserer Kundinnen und Kunden.\n Unser Einzugsgebiet umfasst 16 Gemeinden mit rund 49'000 Einwohnerinnen und Einwohnern. Jährlich pflegen und betreuen wir rund 1'100 Kundinnen und Kunden.\n Zur Verstärkung unseres Psychiatrie-Teams suchen wir per sofort oder nach Vereinbarung eine\n Dipl. Pflegefachperson HF/FH Psychiatrie (60-100%) - Montag-Freitag\n Ihre Aufgabe\n Sie begleiten Menschen jeden Alters in komplexen psychiatrischen und psychosozialen Situationen in ihrem gewohnten Lebensumfeld. Dabei fördern Sie ihre psychische Stabilität und Selbstständigkeit und beziehen Angehörige sowie das soziale Umfeld bedarfsgerecht mit ein. Sie übernehmen Verantwortung für den gesamten Pflegeprozess und gestalten die psychiatrische Pflege selbstständig und individuell.\n Zu Ihren Aufgaben gehören insbesondere:\n\n• Fallführung und Verantwortung für den gesamten Pflegeprozess – von der Bedarfsermittlung und Planung bis zur Evaluation\n\n• Begleitung und Beratung von Menschen in komplexen psychiatrischen Situationen sowie in Krisen und schwierigen Lebensphasen\n\n• Anwendung psychiatrischer Pflegemethoden und -interventionen sowie Durchführung der Behandlungspflege nach ärztlicher Verordnung\n\n• Beratung, Anleitung und Psychoedukation von Kundinnen und Kunden, Angehörigen und ihrem sozialen Umfeld\n\n• Koordination der Pflege und Behandlung sowie enge Zusammenarbeit mit Ärzteschaft, Spitälern und weiteren internen und externen Fachstellen\n\n• Vorbereitung und Moderation von Fallbesprechungen\n\n• Fachliche Beratung und Unterstützung von Mitarbeitenden aus den interdisziplinären Teams in Fragen der psychiatrischen Pflege\n\n• Mitwirkung bei Bedarfsabklärungen und der Anwendung von Assessmentinstrumenten\n\n• Mitwirkung bei der Weiterentwicklung der Pflegequalität sowie bei Bedarf in der praktischen Ausbildung von Lernenden\n Das bringen Sie mit\n\n• Diplom als Pflegefachperson HF/FH sowie Berufserfahrung in der psychiatrischen Pflege\n\n• Freude an selbstständigem Arbeiten und an der Übernahme fachlicher Verantwortung\n\n• Eine wertschätzende und ressourcenorientierte Haltung gegenüber Menschen in unterschiedlichen Lebenssituationen\n\n• Fähigkeit, komplexe pflegerische, medizinische und soziale Zusammenhänge zu erfassen und situationsgerecht zu handeln\n\n• Kommunikationsstärke, Organisationsgeschick und Freude an interprofessioneller Zusammenarbeit\n\n• Offenheit für fachliche und persönliche Weiterentwicklung\n\n• Führerausweis Kategorie B\n Darauf können Sie sich freuen\n\n• Planbare Arbeitszeiten von Montag bis Freitag – ohne Wochenenddienste\n\n• Viel Selbstständigkeit und Gestaltungsspielraum in der psychiatrischen Pflege\n\n• Rückhalt und fachlicher Austausch in einem engagierten Psychiatrie-Team\n\n• Regelmässige Fallbesprechungen und fachliche Begleitung\n\n• Eine sinnstiftende Tätigkeit mit direkter Wirkung im Lebensumfeld unserer Kundinnen und Kunden\n\n• Sorgfältige Einarbeitung und persönliche Begleitung\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Wertschätzende Zusammenarbeit, kurze Wege und nahbare Führung\n\n• Flexible und familienfreundliche Anstellungsbedingungen\n\n• Moderne Arbeitsinstrumente für Ihren Arbeitsalltag\n Bei uns übernehmen Sie Verantwortung – und können gleichzeitig auf ein Team zählen, das fachlichen Austausch und gegenseitige Unterstützung lebt.\n Haben wir Ihr Interesse geweckt?\n Für Fragen steht Ihnen Ronald Nemetz, Bereichsleitung , gerne zur Verfügung:\n ronald.nemetz@spitexrl.ch | 061 926 91 77\n Wir freuen uns auf Ihre Bewerbung über unser Jobportal .\n Lernen Sie uns als Arbeitgeberin kennen und besuchen Sie unsere Website sowie unsere Kanäle auf Instagram und Facebook .\n Wir bitten um Verständnis, dass Bewerbungen und Kontaktaufnahmen von Personaldienstleistenden nicht berücksichtigt werden können."
+      },
+      "needsRetranslation": true,
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-fh-psychiatrie-60-100-prozent-montag-freitag/J994373",
+      "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:18:10.691Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4410",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "validThrough": "2026-10-28",
+      "applyUrl": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-fh-psychiatrie-60-100-prozent-montag-freitag/J994373",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:18:10.691Z"
+    },
+    {
+      "id": "spitex-ch-879eacb705ad",
+      "slug": "fachperson-gesundheit-fage-efz-psychiatrie-50-60-montag-freitag-spitex-ch-liestal",
+      "slugByLocale": {
+        "de": "fachperson-gesundheit-fage-efz-psychiatrie-50-60-montag-freitag-spitex-ch-liestal",
+        "it": "fachperson-gesundheit-fage-efz-psychiatrie-50-60-montag-freitag-spitex-ch-liestal",
+        "en": "fachperson-gesundheit-fage-efz-psychiatrie-50-60-montag-freitag-spitex-ch-liestal",
+        "fr": "fachperson-gesundheit-fage-efz-psychiatrie-50-60-montag-freitag-spitex-ch-liestal"
+      },
+      "company": "Spitex Regio Liestal",
+      "companyKey": "spitex-ch",
+      "companyDomain": "spitexjobs.ch",
+      "title": "Fachperson Gesundheit (FaGe) EFZ Psychiatrie (50-60%; Montag-Freitag)",
+      "titleByLocale": {
+        "de": "Fachperson Gesundheit (FaGe) EFZ Psychiatrie (50-60%; Montag-Freitag)",
+        "it": "Fachperson Gesundheit (FaGe) CFC Psychiatrie (50-60%; Montag-Freitag)",
+        "en": "Fachperson Gesundheit (FaGe) EFZ Psychiatrie (50-60%; Montag-Freitag)",
+        "fr": "Fachperson Gesundheit (FaGe) EFZ Psychiatrie (50-60%; Montag-Freitag)"
+      },
+      "description": "Menschen in herausfordernden Lebenssituationen begleiten – selbstständig, mit Teamrückhalt und echter Wirkung.\n Bei der Spitex Regio Liestal begleiten wir Menschen dort, wo sie sich zuhause fühlen. Wir verbinden selbstständiges Arbeiten mit einem engagierten Team, individueller Unterstützung und einer wertschätzenden Zusammenarbeit. Gemeinsam schaffen wir Perspektiven – für unsere Kundinnen und Kunden ebenso wie für unsere Mitarbeitenden.\n Unser Einzugsgebiet umfasst 16 Gemeinden mit rund 49'000 Einwohner. Jährlich pflegen und betreuen wir rund 1'100 Klient:innen.\n Wir suchen per sofort oder nach Vereinbarung eine/n\n Fachperson Gesundheit (FaGe) EFZ Psychiatrie (50-60%; Montag-Freitag)\n Ihre Aufgabe\n Sie begleiten Menschen mit psychiatrischen Erkrankungen und in herausfordernden psychosozialen Lebenssituationen in ihrem gewohnten Umfeld. Gemeinsam mit den Klientinnen und Klienten fördern Sie vorhandene Ressourcen, stärken die Selbstständigkeit und unterstützen sie dabei, ihren Alltag möglichst eigenständig zu gestalten.\n Zu Ihren Aufgaben gehören insbesondere:\n\n• Pflege und Betreuung von Menschen mit psychiatrischen Erkrankungen\n\n• Unterstützung beim Einüben von Bewältigungsstrategien\n\n• Begleitung in den Bereichen Tagesstruktur, Wohnen, Haushaltsführung und administrative Aufgaben\n\n• Umsetzung der gemeinsam mit den fallführenden Pflegefachpersonen vereinbarten Massnahmen\n\n• Sorgfältige Pflegedokumentation\n\n• Enge Zusammenarbeit mit internen und externen Fachpersonen zur Sicherstellung einer hohen Betreuungsqualität\n Das bringen Sie mit\n\n• Ausbildung als Fachperson Gesundheit EFZ\n\n• Berufserfahrung in der Psychiatrie\n\n• Hohe Sozial- und Fachkompetenz\n\n• Freude an selbstständigem Arbeiten und abwechslungsreichen Situationen\n\n• Empathie, Kommunikationsstärke und eine sicheres Auftreten\n\n• Führerausweis der Kategorie B\n Darauf können Sie sich freuen\n\n• Selbstständiges Arbeiten mit dem Rückhalt eines engagierten und erfahrenen Psychiatrie-Teams\n\n• Eine vielseitige und sinnstiftende Tätigkeit mit direkter Wirkung für Menschen in unserer Region\n\n• Regelmässige Arbeitszeiten von Montag bis Freitag – ohne Wochenenddienste\n\n• Sorgfältige Einarbeitung und fachliche Begleitung\n\n• Aus- und Weiterbildungsmöglichkeiten\n\n• Moderne Arbeitsmittel (eigenes Tablet)\n\n• Wertschätzende Zusammenarbeit mit kurzen Entscheidungswegen und nahbare Führung\n\n• Flexible und familienfreundliche Anstellungsbedingungen\n \"Wir freuen uns auf eine neue Teamkollegin oder einen neuen Teamkollegen, der Menschen mit Empathie begleitet und gemeinsam mit uns individuelle Lösungen findet.\n Haben wir Ihr Interesse geweckt?\n Für Fragen steht Ihnen Ronald Nemetz, Bereichsleitung , gerne zur Verfügung:\n ronald.nemetz@spitexrl.ch | 061 926 91 77\n Wir freuen uns auf Ihre Bewerbung über unser Jobportal .\n Lernen Sie uns als Arbeitgeberin kennen und besuchen Sie unsere Website sowie unsere Kanäle auf Instagram und Facebook .\n Wir bitten um Verständnis, dass Bewerbungen und Kontaktaufnahmen von Personaldienstleistenden nicht berücksichtigt werden können.",
+      "descriptionByLocale": {
+        "de": "Menschen in herausfordernden Lebenssituationen begleiten – selbstständig, mit Teamrückhalt und echter Wirkung.\n Bei der Spitex Regio Liestal begleiten wir Menschen dort, wo sie sich zuhause fühlen. Wir verbinden selbstständiges Arbeiten mit einem engagierten Team, individueller Unterstützung und einer wertschätzenden Zusammenarbeit. Gemeinsam schaffen wir Perspektiven – für unsere Kundinnen und Kunden ebenso wie für unsere Mitarbeitenden.\n Unser Einzugsgebiet umfasst 16 Gemeinden mit rund 49'000 Einwohner. Jährlich pflegen und betreuen wir rund 1'100 Klient:innen.\n Wir suchen per sofort oder nach Vereinbarung eine/n\n Fachperson Gesundheit (FaGe) EFZ Psychiatrie (50-60%; Montag-Freitag)\n Ihre Aufgabe\n Sie begleiten Menschen mit psychiatrischen Erkrankungen und in herausfordernden psychosozialen Lebenssituationen in ihrem gewohnten Umfeld. Gemeinsam mit den Klientinnen und Klienten fördern Sie vorhandene Ressourcen, stärken die Selbstständigkeit und unterstützen sie dabei, ihren Alltag möglichst eigenständig zu gestalten.\n Zu Ihren Aufgaben gehören insbesondere:\n\n• Pflege und Betreuung von Menschen mit psychiatrischen Erkrankungen\n\n• Unterstützung beim Einüben von Bewältigungsstrategien\n\n• Begleitung in den Bereichen Tagesstruktur, Wohnen, Haushaltsführung und administrative Aufgaben\n\n• Umsetzung der gemeinsam mit den fallführenden Pflegefachpersonen vereinbarten Massnahmen\n\n• Sorgfältige Pflegedokumentation\n\n• Enge Zusammenarbeit mit internen und externen Fachpersonen zur Sicherstellung einer hohen Betreuungsqualität\n Das bringen Sie mit\n\n• Ausbildung als Fachperson Gesundheit EFZ\n\n• Berufserfahrung in der Psychiatrie\n\n• Hohe Sozial- und Fachkompetenz\n\n• Freude an selbstständigem Arbeiten und abwechslungsreichen Situationen\n\n• Empathie, Kommunikationsstärke und eine sicheres Auftreten\n\n• Führerausweis der Kategorie B\n Darauf können Sie sich freuen\n\n• Selbstständiges Arbeiten mit dem Rückhalt eines engagierten und erfahrenen Psychiatrie-Teams\n\n• Eine vielseitige und sinnstiftende Tätigkeit mit direkter Wirkung für Menschen in unserer Region\n\n• Regelmässige Arbeitszeiten von Montag bis Freitag – ohne Wochenenddienste\n\n• Sorgfältige Einarbeitung und fachliche Begleitung\n\n• Aus- und Weiterbildungsmöglichkeiten\n\n• Moderne Arbeitsmittel (eigenes Tablet)\n\n• Wertschätzende Zusammenarbeit mit kurzen Entscheidungswegen und nahbare Führung\n\n• Flexible und familienfreundliche Anstellungsbedingungen\n \"Wir freuen uns auf eine neue Teamkollegin oder einen neuen Teamkollegen, der Menschen mit Empathie begleitet und gemeinsam mit uns individuelle Lösungen findet.\n Haben wir Ihr Interesse geweckt?\n Für Fragen steht Ihnen Ronald Nemetz, Bereichsleitung , gerne zur Verfügung:\n ronald.nemetz@spitexrl.ch | 061 926 91 77\n Wir freuen uns auf Ihre Bewerbung über unser Jobportal .\n Lernen Sie uns als Arbeitgeberin kennen und besuchen Sie unsere Website sowie unsere Kanäle auf Instagram und Facebook .\n Wir bitten um Verständnis, dass Bewerbungen und Kontaktaufnahmen von Personaldienstleistenden nicht berücksichtigt werden können.",
+        "it": "Menschen in herausfordernden Lebenssituationen begleiten – selbstständig, mit Teamrückhalt und echter Wirkung.\n Bei der Spitex Regio Liestal begleiten wir Menschen dort, wo sie sich zuhause fühlen. Wir verbinden selbstständiges Arbeiten mit einem engagierten Team, individueller Unterstützung und einer wertschätzenden Zusammenarbeit. Gemeinsam schaffen wir Perspektiven – für unsere Kundinnen und Kunden ebenso wie für unsere Mitarbeitenden.\n Unser Einzugsgebiet umfasst 16 Gemeinden mit rund 49'000 Einwohner. Jährlich pflegen und betreuen wir rund 1'100 Klient:innen.\n Wir suchen per sofort oder nach Vereinbarung eine/n\n Fachperson Gesundheit (FaGe) EFZ Psychiatrie (50-60%; Montag-Freitag)\n Ihre Aufgabe\n Sie begleiten Menschen mit psychiatrischen Erkrankungen und in herausfordernden psychosozialen Lebenssituationen in ihrem gewohnten Umfeld. Gemeinsam mit den Klientinnen und Klienten fördern Sie vorhandene Ressourcen, stärken die Selbstständigkeit und unterstützen sie dabei, ihren Alltag möglichst eigenständig zu gestalten.\n Zu Ihren Aufgaben gehören insbesondere:\n\n• Pflege und Betreuung von Menschen mit psychiatrischen Erkrankungen\n\n• Unterstützung beim Einüben von Bewältigungsstrategien\n\n• Begleitung in den Bereichen Tagesstruktur, Wohnen, Haushaltsführung und administrative Aufgaben\n\n• Umsetzung der gemeinsam mit den fallführenden Pflegefachpersonen vereinbarten Massnahmen\n\n• Sorgfältige Pflegedokumentation\n\n• Enge Zusammenarbeit mit internen und externen Fachpersonen zur Sicherstellung einer hohen Betreuungsqualität\n Das bringen Sie mit\n\n• Ausbildung als Fachperson Gesundheit EFZ\n\n• Berufserfahrung in der Psychiatrie\n\n• Hohe Sozial- und Fachkompetenz\n\n• Freude an selbstständigem Arbeiten und abwechslungsreichen Situationen\n\n• Empathie, Kommunikationsstärke und eine sicheres Auftreten\n\n• Führerausweis der Kategorie B\n Darauf können Sie sich freuen\n\n• Selbstständiges Arbeiten mit dem Rückhalt eines engagierten und erfahrenen Psychiatrie-Teams\n\n• Eine vielseitige und sinnstiftende Tätigkeit mit direkter Wirkung für Menschen in unserer Region\n\n• Regelmässige Arbeitszeiten von Montag bis Freitag – ohne Wochenenddienste\n\n• Sorgfältige Einarbeitung und fachliche Begleitung\n\n• Aus- und Weiterbildungsmöglichkeiten\n\n• Moderne Arbeitsmittel (eigenes Tablet)\n\n• Wertschätzende Zusammenarbeit mit kurzen Entscheidungswegen und nahbare Führung\n\n• Flexible und familienfreundliche Anstellungsbedingungen\n \"Wir freuen uns auf eine neue Teamkollegin oder einen neuen Teamkollegen, der Menschen mit Empathie begleitet und gemeinsam mit uns individuelle Lösungen findet.\n Haben wir Ihr Interesse geweckt?\n Für Fragen steht Ihnen Ronald Nemetz, Bereichsleitung , gerne zur Verfügung:\n ronald.nemetz@spitexrl.ch | 061 926 91 77\n Wir freuen uns auf Ihre Bewerbung über unser Jobportal .\n Lernen Sie uns als Arbeitgeberin kennen und besuchen Sie unsere Website sowie unsere Kanäle auf Instagram und Facebook .\n Wir bitten um Verständnis, dass Bewerbungen und Kontaktaufnahmen von Personaldienstleistenden nicht berücksichtigt werden können.",
+        "en": "Menschen in herausfordernden Lebenssituationen begleiten – selbstständig, mit Teamrückhalt und echter Wirkung.\n Bei der Spitex Regio Liestal begleiten wir Menschen dort, wo sie sich zuhause fühlen. Wir verbinden selbstständiges Arbeiten mit einem engagierten Team, individueller Unterstützung und einer wertschätzenden Zusammenarbeit. Gemeinsam schaffen wir Perspektiven – für unsere Kundinnen und Kunden ebenso wie für unsere Mitarbeitenden.\n Unser Einzugsgebiet umfasst 16 Gemeinden mit rund 49'000 Einwohner. Jährlich pflegen und betreuen wir rund 1'100 Klient:innen.\n Wir suchen per sofort oder nach Vereinbarung eine/n\n Fachperson Gesundheit (FaGe) EFZ Psychiatrie (50-60%; Montag-Freitag)\n Ihre Aufgabe\n Sie begleiten Menschen mit psychiatrischen Erkrankungen und in herausfordernden psychosozialen Lebenssituationen in ihrem gewohnten Umfeld. Gemeinsam mit den Klientinnen und Klienten fördern Sie vorhandene Ressourcen, stärken die Selbstständigkeit und unterstützen sie dabei, ihren Alltag möglichst eigenständig zu gestalten.\n Zu Ihren Aufgaben gehören insbesondere:\n\n• Pflege und Betreuung von Menschen mit psychiatrischen Erkrankungen\n\n• Unterstützung beim Einüben von Bewältigungsstrategien\n\n• Begleitung in den Bereichen Tagesstruktur, Wohnen, Haushaltsführung und administrative Aufgaben\n\n• Umsetzung der gemeinsam mit den fallführenden Pflegefachpersonen vereinbarten Massnahmen\n\n• Sorgfältige Pflegedokumentation\n\n• Enge Zusammenarbeit mit internen und externen Fachpersonen zur Sicherstellung einer hohen Betreuungsqualität\n Das bringen Sie mit\n\n• Ausbildung als Fachperson Gesundheit EFZ\n\n• Berufserfahrung in der Psychiatrie\n\n• Hohe Sozial- und Fachkompetenz\n\n• Freude an selbstständigem Arbeiten und abwechslungsreichen Situationen\n\n• Empathie, Kommunikationsstärke und eine sicheres Auftreten\n\n• Führerausweis der Kategorie B\n Darauf können Sie sich freuen\n\n• Selbstständiges Arbeiten mit dem Rückhalt eines engagierten und erfahrenen Psychiatrie-Teams\n\n• Eine vielseitige und sinnstiftende Tätigkeit mit direkter Wirkung für Menschen in unserer Region\n\n• Regelmässige Arbeitszeiten von Montag bis Freitag – ohne Wochenenddienste\n\n• Sorgfältige Einarbeitung und fachliche Begleitung\n\n• Aus- und Weiterbildungsmöglichkeiten\n\n• Moderne Arbeitsmittel (eigenes Tablet)\n\n• Wertschätzende Zusammenarbeit mit kurzen Entscheidungswegen und nahbare Führung\n\n• Flexible und familienfreundliche Anstellungsbedingungen\n \"Wir freuen uns auf eine neue Teamkollegin oder einen neuen Teamkollegen, der Menschen mit Empathie begleitet und gemeinsam mit uns individuelle Lösungen findet.\n Haben wir Ihr Interesse geweckt?\n Für Fragen steht Ihnen Ronald Nemetz, Bereichsleitung , gerne zur Verfügung:\n ronald.nemetz@spitexrl.ch | 061 926 91 77\n Wir freuen uns auf Ihre Bewerbung über unser Jobportal .\n Lernen Sie uns als Arbeitgeberin kennen und besuchen Sie unsere Website sowie unsere Kanäle auf Instagram und Facebook .\n Wir bitten um Verständnis, dass Bewerbungen und Kontaktaufnahmen von Personaldienstleistenden nicht berücksichtigt werden können.",
+        "fr": "Menschen in herausfordernden Lebenssituationen begleiten – selbstständig, mit Teamrückhalt und echter Wirkung.\n Bei der Spitex Regio Liestal begleiten wir Menschen dort, wo sie sich zuhause fühlen. Wir verbinden selbstständiges Arbeiten mit einem engagierten Team, individueller Unterstützung und einer wertschätzenden Zusammenarbeit. Gemeinsam schaffen wir Perspektiven – für unsere Kundinnen und Kunden ebenso wie für unsere Mitarbeitenden.\n Unser Einzugsgebiet umfasst 16 Gemeinden mit rund 49'000 Einwohner. Jährlich pflegen und betreuen wir rund 1'100 Klient:innen.\n Wir suchen per sofort oder nach Vereinbarung eine/n\n Fachperson Gesundheit (FaGe) EFZ Psychiatrie (50-60%; Montag-Freitag)\n Ihre Aufgabe\n Sie begleiten Menschen mit psychiatrischen Erkrankungen und in herausfordernden psychosozialen Lebenssituationen in ihrem gewohnten Umfeld. Gemeinsam mit den Klientinnen und Klienten fördern Sie vorhandene Ressourcen, stärken die Selbstständigkeit und unterstützen sie dabei, ihren Alltag möglichst eigenständig zu gestalten.\n Zu Ihren Aufgaben gehören insbesondere:\n\n• Pflege und Betreuung von Menschen mit psychiatrischen Erkrankungen\n\n• Unterstützung beim Einüben von Bewältigungsstrategien\n\n• Begleitung in den Bereichen Tagesstruktur, Wohnen, Haushaltsführung und administrative Aufgaben\n\n• Umsetzung der gemeinsam mit den fallführenden Pflegefachpersonen vereinbarten Massnahmen\n\n• Sorgfältige Pflegedokumentation\n\n• Enge Zusammenarbeit mit internen und externen Fachpersonen zur Sicherstellung einer hohen Betreuungsqualität\n Das bringen Sie mit\n\n• Ausbildung als Fachperson Gesundheit EFZ\n\n• Berufserfahrung in der Psychiatrie\n\n• Hohe Sozial- und Fachkompetenz\n\n• Freude an selbstständigem Arbeiten und abwechslungsreichen Situationen\n\n• Empathie, Kommunikationsstärke und eine sicheres Auftreten\n\n• Führerausweis der Kategorie B\n Darauf können Sie sich freuen\n\n• Selbstständiges Arbeiten mit dem Rückhalt eines engagierten und erfahrenen Psychiatrie-Teams\n\n• Eine vielseitige und sinnstiftende Tätigkeit mit direkter Wirkung für Menschen in unserer Region\n\n• Regelmässige Arbeitszeiten von Montag bis Freitag – ohne Wochenenddienste\n\n• Sorgfältige Einarbeitung und fachliche Begleitung\n\n• Aus- und Weiterbildungsmöglichkeiten\n\n• Moderne Arbeitsmittel (eigenes Tablet)\n\n• Wertschätzende Zusammenarbeit mit kurzen Entscheidungswegen und nahbare Führung\n\n• Flexible und familienfreundliche Anstellungsbedingungen\n \"Wir freuen uns auf eine neue Teamkollegin oder einen neuen Teamkollegen, der Menschen mit Empathie begleitet und gemeinsam mit uns individuelle Lösungen findet.\n Haben wir Ihr Interesse geweckt?\n Für Fragen steht Ihnen Ronald Nemetz, Bereichsleitung , gerne zur Verfügung:\n ronald.nemetz@spitexrl.ch | 061 926 91 77\n Wir freuen uns auf Ihre Bewerbung über unser Jobportal .\n Lernen Sie uns als Arbeitgeberin kennen und besuchen Sie unsere Website sowie unsere Kanäle auf Instagram und Facebook .\n Wir bitten um Verständnis, dass Bewerbungen und Kontaktaufnahmen von Personaldienstleistenden nicht berücksichtigt werden können."
+      },
+      "needsRetranslation": true,
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://www.spitexjobs.ch/job/fachperson-gesundheit-fage-efz-psychiatrie-50-60-prozent-montag-freitag/J994375",
+      "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:18:09.911Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4410",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "validThrough": "2026-10-28",
+      "applyUrl": "https://www.spitexjobs.ch/job/fachperson-gesundheit-fage-efz-psychiatrie-50-60-prozent-montag-freitag/J994375",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 52800,
+      "salaryMax": 73800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 52800,
+          "maxValue": 73800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spitex-ch-80f18ac8e78a",
+      "slug": "pflegehelferin-pflegehelfer-srk-ca-50-politische-gemeinde-au-au-sg",
+      "slugByLocale": {
+        "de": "pflegehelferin-pflegehelfer-srk-ca-50-spitex-ch-au-sg",
+        "it": "pflegehelferin-pflegehelfer-srk-ca-50-politische-gemeinde-au-au-sg",
+        "en": "pflegehelferin-pflegehelfer-srk-ca-50-spitex-ch-au-sg",
+        "fr": "pflegehelferin-pflegehelfer-srk-ca-50-spitex-ch-au-sg"
+      },
+      "company": "Politische Gemeinde Au",
+      "companyKey": "spitex-ch",
+      "companyDomain": "spitexjobs.ch",
+      "title": "Pflegehelferin / Pflegehelfer SRK ca. 50%",
+      "titleByLocale": {
+        "de": "Pflegehelferin / Pflegehelfer SRK ca. 50%",
+        "it": "Pflegehelferin / Pflegehelfer SRK ca. 50%",
+        "en": "Pflegehelferin / Pflegehelfer SRK ca. 50%",
+        "fr": "Pflegehelferin / Pflegehelfer SRK ca. 50%"
+      },
+      "description": "Mach den Unterschied – bei Menschen zu Hause.\n Die Spitex Au-Heerbrugg ermöglicht es Menschen mit persönlichen Einschränkungen, trotz Unterstützungsbedarf in ihrer gewohnten Umgebung zu bleiben oder nach einem stationären Aufenthalt früher nach Hause zurückzukehren. Unser professionelles Team betreut rund 120 Klientinnen und Klienten pro Jahr und bietet ein umfassendes Pflegeangebot.\n Unsere Dienstleistungen orientieren sich an den individuellen Bedürfnissen der Menschen und basieren auf einer ganzheitlichen Betreuung und Pflege.\n Bist du bereit, das Highlight des Tages zu werden?\n Dann komm zu uns und bring dein Engagement dort ein, wo es einen echten Unterschied macht: bei den Menschen, die deine Unterstützung benötigen.\n Wir suchen dich als\n Pflegehelferin / Pflegehelfer SRK ca. 50%\n Das bringst du mit\n\n• Abgeschlossene Ausbildung als Pflegehelfer/in SRK.\n\n• Freude am Kontakt mit Menschen und an der persönlichen Betreuung.\n\n• Erfahrung und Sicherheit in der Körperpflege und bei Haushaltsarbeiten.\n\n• Führerschein Kategorie B.\n\n• Selbständige, zuverlässige und engagierte Arbeitsweise.\n Das erwartet dich bei uns\n\n• Ein herzliches Team, das sich auf Augenhöhe begegnet.\n\n• Einen abwechslungsreichen und spannenden Arbeitsalltag.\n\n• Regelmässigen Austausch zur persönlichen und fachlichen Weiterentwicklung.\n\n• Fortschrittliche Arbeitsbedingungen und einen fairen Lohn.\n\n• Flexible, familienfreundliche Arbeitszeiten.\n Sagt dir das zu? Dann müssen wir uns unbedingt kennenlernen!\n Wir freuen uns auf deine Bewerbung und darauf, dich bald persönlich kennenzulernen.\n Möchtest du mehr zum Job wissen? Gabriella Biser, Teamleiterin Spitex Au-Heerbrugg, Tel. 071 744 22 36 gibt dir gerne Auskunft oder sende uns als erstes unkompliziert, bis 10. November 2025, deinen Lebenslauf mit Foto an: Monika Bärtsch, Personaldienst, bewerbungen@au.ch",
+      "descriptionByLocale": {
+        "de": "Mach den Unterschied – bei Menschen zu Hause.\n Die Spitex Au-Heerbrugg ermöglicht es Menschen mit persönlichen Einschränkungen, trotz Unterstützungsbedarf in ihrer gewohnten Umgebung zu bleiben oder nach einem stationären Aufenthalt früher nach Hause zurückzukehren. Unser professionelles Team betreut rund 120 Klientinnen und Klienten pro Jahr und bietet ein umfassendes Pflegeangebot.\n Unsere Dienstleistungen orientieren sich an den individuellen Bedürfnissen der Menschen und basieren auf einer ganzheitlichen Betreuung und Pflege.\n Bist du bereit, das Highlight des Tages zu werden?\n Dann komm zu uns und bring dein Engagement dort ein, wo es einen echten Unterschied macht: bei den Menschen, die deine Unterstützung benötigen.\n Wir suchen dich als\n Pflegehelferin / Pflegehelfer SRK ca. 50%\n Das bringst du mit\n\n• Abgeschlossene Ausbildung als Pflegehelfer/in SRK.\n\n• Freude am Kontakt mit Menschen und an der persönlichen Betreuung.\n\n• Erfahrung und Sicherheit in der Körperpflege und bei Haushaltsarbeiten.\n\n• Führerschein Kategorie B.\n\n• Selbständige, zuverlässige und engagierte Arbeitsweise.\n Das erwartet dich bei uns\n\n• Ein herzliches Team, das sich auf Augenhöhe begegnet.\n\n• Einen abwechslungsreichen und spannenden Arbeitsalltag.\n\n• Regelmässigen Austausch zur persönlichen und fachlichen Weiterentwicklung.\n\n• Fortschrittliche Arbeitsbedingungen und einen fairen Lohn.\n\n• Flexible, familienfreundliche Arbeitszeiten.\n Sagt dir das zu? Dann müssen wir uns unbedingt kennenlernen!\n Wir freuen uns auf deine Bewerbung und darauf, dich bald persönlich kennenzulernen.\n Möchtest du mehr zum Job wissen? Gabriella Biser, Teamleiterin Spitex Au-Heerbrugg, Tel. 071 744 22 36 gibt dir gerne Auskunft oder sende uns als erstes unkompliziert, bis 10. November 2025, deinen Lebenslauf mit Foto an: Monika Bärtsch, Personaldienst, bewerbungen@au.ch",
+        "it": "Mach den Unterschied – bei Menschen zu Hause.\n Die Spitex Au-Heerbrugg ermöglicht es Menschen mit persönlichen Einschränkungen, trotz Unterstützungsbedarf in ihrer gewohnten Umgebung zu bleiben oder nach einem stationären Aufenthalt früher nach Hause zurückzukehren. Unser professionelles Team betreut rund 120 Klientinnen und Klienten pro Jahr und bietet ein umfassendes Pflegeangebot.\n Unsere Dienstleistungen orientieren sich an den individuellen Bedürfnissen der Menschen und basieren auf einer ganzheitlichen Betreuung und Pflege.\n Bist du bereit, das Highlight des Tages zu werden?\n Dann komm zu uns und bring dein Engagement dort ein, wo es einen echten Unterschied macht: bei den Menschen, die deine Unterstützung benötigen.\n Wir suchen dich als\n Pflegehelferin / Pflegehelfer SRK ca. 50%\n Das bringst du mit\n\n• Abgeschlossene Ausbildung als Pflegehelfer/in SRK.\n\n• Freude am Kontakt mit Menschen und an der persönlichen Betreuung.\n\n• Erfahrung und Sicherheit in der Körperpflege und bei Haushaltsarbeiten.\n\n• Führerschein Kategorie B.\n\n• Selbständige, zuverlässige und engagierte Arbeitsweise.\n Das erwartet dich bei uns\n\n• Ein herzliches Team, das sich auf Augenhöhe begegnet.\n\n• Einen abwechslungsreichen und spannenden Arbeitsalltag.\n\n• Regelmässigen Austausch zur persönlichen und fachlichen Weiterentwicklung.\n\n• Fortschrittliche Arbeitsbedingungen und einen fairen Lohn.\n\n• Flexible, familienfreundliche Arbeitszeiten.\n Sagt dir das zu? Dann müssen wir uns unbedingt kennenlernen!\n Wir freuen uns auf deine Bewerbung und darauf, dich bald persönlich kennenzulernen.\n Möchtest du mehr zum Job wissen? Gabriella Biser, Teamleiterin Spitex Au-Heerbrugg, Tel. 071 744 22 36 gibt dir gerne Auskunft oder sende uns als erstes unkompliziert, bis 10. November 2025, deinen Lebenslauf mit Foto an: Monika Bärtsch, Personaldienst, bewerbungen@au.ch",
+        "en": "Mach den Unterschied – bei Menschen zu Hause.\n Die Spitex Au-Heerbrugg ermöglicht es Menschen mit persönlichen Einschränkungen, trotz Unterstützungsbedarf in ihrer gewohnten Umgebung zu bleiben oder nach einem stationären Aufenthalt früher nach Hause zurückzukehren. Unser professionelles Team betreut rund 120 Klientinnen und Klienten pro Jahr und bietet ein umfassendes Pflegeangebot.\n Unsere Dienstleistungen orientieren sich an den individuellen Bedürfnissen der Menschen und basieren auf einer ganzheitlichen Betreuung und Pflege.\n Bist du bereit, das Highlight des Tages zu werden?\n Dann komm zu uns und bring dein Engagement dort ein, wo es einen echten Unterschied macht: bei den Menschen, die deine Unterstützung benötigen.\n Wir suchen dich als\n Pflegehelferin / Pflegehelfer SRK ca. 50%\n Das bringst du mit\n\n• Abgeschlossene Ausbildung als Pflegehelfer/in SRK.\n\n• Freude am Kontakt mit Menschen und an der persönlichen Betreuung.\n\n• Erfahrung und Sicherheit in der Körperpflege und bei Haushaltsarbeiten.\n\n• Führerschein Kategorie B.\n\n• Selbständige, zuverlässige und engagierte Arbeitsweise.\n Das erwartet dich bei uns\n\n• Ein herzliches Team, das sich auf Augenhöhe begegnet.\n\n• Einen abwechslungsreichen und spannenden Arbeitsalltag.\n\n• Regelmässigen Austausch zur persönlichen und fachlichen Weiterentwicklung.\n\n• Fortschrittliche Arbeitsbedingungen und einen fairen Lohn.\n\n• Flexible, familienfreundliche Arbeitszeiten.\n Sagt dir das zu? Dann müssen wir uns unbedingt kennenlernen!\n Wir freuen uns auf deine Bewerbung und darauf, dich bald persönlich kennenzulernen.\n Möchtest du mehr zum Job wissen? Gabriella Biser, Teamleiterin Spitex Au-Heerbrugg, Tel. 071 744 22 36 gibt dir gerne Auskunft oder sende uns als erstes unkompliziert, bis 10. November 2025, deinen Lebenslauf mit Foto an: Monika Bärtsch, Personaldienst, bewerbungen@au.ch",
+        "fr": "Mach den Unterschied – bei Menschen zu Hause.\n Die Spitex Au-Heerbrugg ermöglicht es Menschen mit persönlichen Einschränkungen, trotz Unterstützungsbedarf in ihrer gewohnten Umgebung zu bleiben oder nach einem stationären Aufenthalt früher nach Hause zurückzukehren. Unser professionelles Team betreut rund 120 Klientinnen und Klienten pro Jahr und bietet ein umfassendes Pflegeangebot.\n Unsere Dienstleistungen orientieren sich an den individuellen Bedürfnissen der Menschen und basieren auf einer ganzheitlichen Betreuung und Pflege.\n Bist du bereit, das Highlight des Tages zu werden?\n Dann komm zu uns und bring dein Engagement dort ein, wo es einen echten Unterschied macht: bei den Menschen, die deine Unterstützung benötigen.\n Wir suchen dich als\n Pflegehelferin / Pflegehelfer SRK ca. 50%\n Das bringst du mit\n\n• Abgeschlossene Ausbildung als Pflegehelfer/in SRK.\n\n• Freude am Kontakt mit Menschen und an der persönlichen Betreuung.\n\n• Erfahrung und Sicherheit in der Körperpflege und bei Haushaltsarbeiten.\n\n• Führerschein Kategorie B.\n\n• Selbständige, zuverlässige und engagierte Arbeitsweise.\n Das erwartet dich bei uns\n\n• Ein herzliches Team, das sich auf Augenhöhe begegnet.\n\n• Einen abwechslungsreichen und spannenden Arbeitsalltag.\n\n• Regelmässigen Austausch zur persönlichen und fachlichen Weiterentwicklung.\n\n• Fortschrittliche Arbeitsbedingungen und einen fairen Lohn.\n\n• Flexible, familienfreundliche Arbeitszeiten.\n Sagt dir das zu? Dann müssen wir uns unbedingt kennenlernen!\n Wir freuen uns auf deine Bewerbung und darauf, dich bald persönlich kennenzulernen.\n Möchtest du mehr zum Job wissen? Gabriella Biser, Teamleiterin Spitex Au-Heerbrugg, Tel. 071 744 22 36 gibt dir gerne Auskunft oder sende uns als erstes unkompliziert, bis 10. November 2025, deinen Lebenslauf mit Foto an: Monika Bärtsch, Personaldienst, bewerbungen@au.ch"
+      },
+      "needsRetranslation": true,
+      "location": "Au SG",
+      "canton": "SG",
+      "url": "https://www.spitexjobs.ch/job/pflegehelferin-pflegehelfer-srk-ca-50-prozent/J994381",
+      "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:18:09.046Z",
+      "addressLocality": "Au SG",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9434",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "validThrough": "2026-10-28",
+      "applyUrl": "https://www.spitexjobs.ch/job/pflegehelferin-pflegehelfer-srk-ca-50-prozent/J994381",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelferin-pflegehelfer-srk-ca-50-spitex-ch-au-sg"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelferin-pflegehelfer-srk-ca-50-spitex-ch-au-sg"
+      ],
+      "salaryMin": 40800,
+      "salaryMax": 57000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 40800,
+          "maxValue": 57000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:18:09.046Z"
     }
   ]
 }
