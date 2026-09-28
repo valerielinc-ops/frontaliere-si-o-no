@@ -12192,6 +12192,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mastini-fassa-hockey-2026.title': 'Mastini Varese vers Fassa : à la recherche de ses premiers points en championnat',
     'blog.article.mastini-fassa-hockey-2026.excerpt': 'Samedi 26 septembre à 18:30, les Mastini Varese affrontent le Fassa après avoir perdu leur match d\'ouverture 2-4 contre les Pirati di Appiano ; l\'équipe cherche à débloquer son compteur au classement.',
     'blog.article.mastini-fassa-hockey-2026.imageAlt': 'Match de hockey sur glace des Mastini Varese sur la patinoire de Fassa, Trentin-Haut-Adige',
+    'blog.article.cambi-ripetuti-cassa-malati.title': 'Assurance maladie au Tessin : changer plusieurs fois est avantageux',
+    'blog.article.cambi-ripetuti-cassa-malati.excerpt': 'L\'analyse Axa relève 563 francs d\'économies lors du premier changement de caisse-maladie et 633 au Tessin : comparaison entre changements successifs, âge et cantons suisses.',
+    'blog.article.cambi-ripetuti-cassa-malati.imageAlt': 'Mendrisio et le Tessin sur le thème des primes d\'assurance maladie',
 };
 
 export default blogMetaFr;

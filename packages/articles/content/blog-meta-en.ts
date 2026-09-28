@@ -12190,6 +12190,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mastini-fassa-hockey-2026.title': 'Mastini Varese towards Fassa: look for first points in the championship',
     'blog.article.mastini-fassa-hockey-2026.excerpt': 'On Saturday 26 September at 18:30, Mastini Varese face Fassa after losing their opening game 2-4 to Pirati di Appiano; the team is looking to get off the mark in the standings.',
     'blog.article.mastini-fassa-hockey-2026.imageAlt': 'Mastini Varese ice hockey game on the Fassa rink, Trentino-Alto Adige',
+    'blog.article.cambi-ripetuti-cassa-malati.title': 'Health insurers in Ticino: changing several times pays off',
+    'blog.article.cambi-ripetuti-cassa-malati.excerpt': 'The Axa analysis reveals 563 francs of savings at the first exchange rate of the health insurance fund and 633 in Ticino: comparison between subsequent exchange rates, age and Swiss cantons.',
+    'blog.article.cambi-ripetuti-cassa-malati.imageAlt': 'Mendrisio and Ticino in an article about health insurance premiums',
 };
 
 export default blogMetaEn;
