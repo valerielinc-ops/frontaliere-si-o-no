@@ -91,16 +91,28 @@ jobs:
           JOBS_SKIP_URL_VALIDATION: '1'
         run: |
           set -euo pipefail
-          # Iterate over all per-crawler slice files. A malformed slice is a
-          # hard failure: do not commit a partial cleanup as if it succeeded.
-          slices=0
-          for slice in data/jobs/by-crawler/*.json; do
-            [ -f "$slice" ] || continue
+          shopt -s nullglob
+          slices=(data/jobs/by-crawler/*.json)
+          readonly max_parallel=8
+
+          cleanup_slice() {
+            local slice="$1"
             echo "──── Cleaning: $slice ────"
             JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
-            slices=$((slices + 1))
-          done
-          echo "✅ Bounded per-slice cleanup complete: $slices slice(s), URL validation delegated to housekeeping"
+          }
+
+          # Each worker owns one slice, temp file and expired archive. Reuse
+          # the repository-wide sliding-window driver so a fast worker refills
+          # its slot immediately while failures remain a hard pre-commit gate.
+          export BP_FAILED_FILE="${RUNNER_TEMP}/cleanup-stale-failed.txt"
+          source scripts/lib/bounded-parallel.sh
+          if ! bp_run_bounded "$max_parallel" cleanup_slice "${slices[@]}"; then
+            echo "::error::Per-slice cleanup failed; refusing to commit a partial result."
+            sed 's/^/  - /' "$BP_FAILED_FILE"
+            exit 1
+          fi
+
+          echo "✅ Bounded parallel per-slice cleanup complete: ${#slices[@]} slice(s), max $max_parallel workers, URL validation delegated to housekeeping"
 
       - name: Commit Phase 1 (per-slice expired jobs)
         id: phase1_commit
