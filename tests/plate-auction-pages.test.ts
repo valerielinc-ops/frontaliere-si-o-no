@@ -463,6 +463,29 @@ describe('plate-auction static pages', () => {
     expect(readFileSync(join(rootDir, 'dist', 'sitemap-plate-auctions.xml'), 'utf8')).not.toContain('gl25900');
   });
 
+  it('removes stale artefacts even when page generation is skipped', async () => {
+    const rootDir = fixtureRoot({ auctionCount: 41, withDist: true });
+    const stalePage = join(rootDir, 'dist', 'de', 'schweizer-nummernschildauktionen', 'glarus-gl', 'gl25900', 'index.html');
+    const staleSitemap = join(rootDir, 'dist', 'sitemap-plate-auctions-002.xml');
+    mkdirSync(dirname(stalePage), { recursive: true });
+    writeFileSync(stalePage, '<html>stale GL page</html>', 'utf8');
+    writeFileSync(staleSitemap, '<urlset><url><loc>https://frontaliereticino.ch/de/schweizer-nummernschildauktionen/glarus-gl/gl25900/</loc></url></urlset>', 'utf8');
+
+    const previousSkip = process.env.SKIP_PLATE_AUCTION_PAGES;
+    process.env.SKIP_PLATE_AUCTION_PAGES = '1';
+    try {
+      const closeBundle = plateAuctionsPagesPlugin(rootDir).closeBundle;
+      if (typeof closeBundle !== 'function') throw new Error('plate-auction plugin has no closeBundle hook');
+      await closeBundle();
+    } finally {
+      if (previousSkip === undefined) delete process.env.SKIP_PLATE_AUCTION_PAGES;
+      else process.env.SKIP_PLATE_AUCTION_PAGES = previousSkip;
+    }
+
+    expect(existsSync(stalePage)).toBe(false);
+    expect(existsSync(staleSitemap)).toBe(false);
+  });
+
   it('renders from a precomputed context instead of re-reading the snapshot per page', () => {
     // Regressione #8753: ogni pagina di dettaglio rileggeva lo snapshot da
     // disco (227 min di closeBundle in CI). Con un contesto passato dal

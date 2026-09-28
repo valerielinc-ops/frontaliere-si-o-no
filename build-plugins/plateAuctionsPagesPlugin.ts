@@ -437,7 +437,6 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
 
 export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
   return { name: 'plate-auction-pages', apply: 'build', enforce: 'post', async closeBundle() {
-    if (process.env.SKIP_PLATE_AUCTION_PAGES === '1') return;
     const distDir = np.join(rootDir, 'dist');
     if (!fs.existsSync(distDir)) return;
 
@@ -455,6 +454,10 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
         console.warn(`[plate-auction-pages] failed to remove stale ${file}`, err);
       }
     }
+
+    // A skipped generation still has to remove artefacts from a previous
+    // incremental build. Otherwise blocked or deleted rows remain published.
+    if (process.env.SKIP_PLATE_AUCTION_PAGES === '1') return;
 
     const context = loadPlateAuctionContext(rootDir);
     const { detailRows, publishedDetailRowsByLocaleAndCanton } = context;
