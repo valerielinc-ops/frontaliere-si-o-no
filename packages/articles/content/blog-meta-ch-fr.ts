@@ -6968,6 +6968,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ubs-pressione-capitali-fusione.title': 'UBS sous pression : capital à 90 % pour les filiales étrangères',
     'blog.article.ubs-pressione-capitali-fusione.excerpt': 'Le Conseil des États demande des fonds propres à hauteur de 90 % pour les filiales étrangères d’UBS. La banque conteste la mesure, ravivant les hypothèses d’une fusion avec Morgan Stanley et d’autres établissements.',
     'blog.article.ubs-pressione-capitali-fusione.imageAlt': 'Immeuble de banque UBS à Zurich, quartier financier suisse',
+    'blog.article.vaud-riduzione-reddito-sostanza.title': 'Vaud, réduction d\'impôt de 12 % sur le revenu et la fortune',
+    'blog.article.vaud-riduzione-reddito-sostanza.excerpt': 'Le Vaud approuve une réduction de 12% des impôts cantonaux sur le revenu et la fortune. On parle de 272 millions de moins à partir du 1er janvier prochain.',
+    'blog.article.vaud-riduzione-reddito-sostanza.imageAlt': 'Bâtiment public suisse avec des drapeaux, symbole du débat fiscal vaudois.',
 };
 
 export default blogMetaChFr;

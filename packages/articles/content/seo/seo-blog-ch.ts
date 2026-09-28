@@ -90344,6 +90344,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vaud-riduzione-reddito-sostanza': {
+    title: 'Vaud, taglio fiscale del 12% sul reddito e sulla sostanza',
+    description: 'Vaud: taglio del 12% alle imposte cantonali su reddito e sostanza. Si parla di 272 milioni in meno dal prossimo 1° gennaio: bilancio 2027 da definire.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vaud, taglio, fiscale, reddito',
+    ogTitle: 'Vaud: taglio fiscale del 12% e bilancio 2027',
+    ogDescription: 'Nel Canton Vaud passa l\'iniziativa per ridurre del 12% le imposte cantonali su reddito e sostanza. Si parla di 272 milioni in meno: il Governo prepara il bilancio 2027, i Comuni temono il deficit e i sindacati si dicono pronti alla mobilitazione.',
+    canonicalPath: '/articoli-svizzera/vaud-riduzione-reddito-sostanza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vaud, taglio fiscale del 12% sul reddito e sulla sostanza",
+      "description": "Vaud: taglio del 12% alle imposte cantonali su reddito e sostanza. Si parla di 272 milioni in meno dal prossimo 1° gennaio: bilancio 2027 da definire.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vaud-riduzione-reddito-sostanza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio pubblico svizzero con bandiere, immagine simbolica del dibattito fiscale vodese."
+      },
+      "datePublished": "2026-09-28T21:32:07+00:00",
+      "dateModified": "2026-09-28T21:32:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vaud-riduzione-reddito-sostanza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
