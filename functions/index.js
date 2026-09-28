@@ -2310,7 +2310,10 @@ export const dispatchTrafficCollection = onSchedule(
 // runs of orchestrate-crawlers.yml hours late (non-round minutes were just as
 // late, see orchestratorCronDispatch.js). Cloud Scheduler owns the two slots;
 // the workflow keeps workflow_dispatch as its only entrypoint. Two retries
-// cover a transient GitHub 5xx: a failed slot otherwise waits 12 h.
+// cover a transient GitHub 5xx (a failed slot otherwise waits 12 h); they
+// cannot start a second wave, because each slot owns a Firestore claim and a
+// retry first looks up the slot's marked run (see orchestratorCronDispatch.js).
+// minBackoffSeconds (60) must stay above CLAIM_LEASE_MS (45 s).
 export const dispatchCrawlerOrchestrator = onSchedule(
  {
   region: 'europe-west6',

@@ -1,4 +1,8 @@
 name: Orchestrate Job Crawlers
+# The Cloud Scheduler wave carries a marker the heartbeat verifies
+# (scripts/ci/orchestrator-heartbeat.mjs) and the dispatcher looks up before a
+# retry (functions/src/orchestratorCronDispatch.js). A dry run never gets it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.trigger_source == 'cloud-scheduler' && inputs.dry_run != 'true' && format('Orchestrate Job Crawlers [cloud-scheduler {0}]', inputs.scheduled_slot) || 'Orchestrate Job Crawlers' }}
 
 on:
   # Twice daily at 09:00 and 21:00 UTC, dispatched by Cloud Scheduler through
@@ -31,6 +35,16 @@ on:
         options:
           - 'false'
           - 'true'
+      trigger_source:
+        description: 'Who dispatched the wave (Cloud Scheduler sends cloud-scheduler; leave manual)'
+        required: false
+        default: 'manual'
+        type: string
+      scheduled_slot:
+        description: 'Nominal UTC slot (ISO) of a Cloud Scheduler wave; empty for a manual one'
+        required: false
+        default: ''
+        type: string
 
 concurrency:
   group: orchestrate-crawlers

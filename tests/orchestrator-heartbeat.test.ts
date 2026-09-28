@@ -76,11 +76,19 @@ describe('orchestrator heartbeat', () => {
       now,
       runs: [run('2026-09-14T10:15:00Z', { path: '.github/workflows/other.yml' })],
     }).state).toBe('missing');
-    // Cloud Scheduler dispatches the slot as workflow_dispatch.
+    // Cloud Scheduler dispatches the slot as a MARKED workflow_dispatch; an
+    // unmarked manual or dry-run dispatch does not prove the wave ran.
     expect(classifyHeartbeat({
       now,
-      runs: [run('2026-09-14T09:00:04Z', { event: 'workflow_dispatch' })],
+      runs: [run('2026-09-14T09:00:04Z', {
+        event: 'workflow_dispatch',
+        display_title: 'Orchestrate Job Crawlers [cloud-scheduler 2026-09-14T09:00:00.000Z]',
+      })],
     }).state).toBe('observed');
+    expect(classifyHeartbeat({
+      now,
+      runs: [run('2026-09-14T09:00:04Z', { event: 'workflow_dispatch', display_title: 'Orchestrate Job Crawlers' })],
+    }).state).toBe('missing');
     expect(classifyHeartbeat({
       now,
       runs: [run('2026-09-14T10:15:00Z', { event: 'push' })],
