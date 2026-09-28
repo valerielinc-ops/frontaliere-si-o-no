@@ -26,7 +26,7 @@ describe('legacy Firebase app proxy', () => {
     delete process.env.FIREBASE_API_KEY;
     delete process.env.VITE_FIREBASE_API_KEY;
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('public config unavailable')));
-    const { app } = await import('@/services/firebase');
+    const { app } = await vi.importActual<typeof import('@/services/firebase')>('@/services/firebase');
 
     void app.name;
 
