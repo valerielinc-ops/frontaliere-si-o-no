@@ -20671,6 +20671,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'esito-iniziativa-neutralita-svizzera',
+    category: 'novita',
+    date: '2026-09-28T01:52:17.305Z',
+    image: '/images/blog/esito-iniziativa-neutralita-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

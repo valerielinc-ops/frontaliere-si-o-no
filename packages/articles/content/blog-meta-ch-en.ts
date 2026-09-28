@@ -6881,6 +6881,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-iniziative-neutralita-cibo.title': 'Swiss vote: no to neutrality and food security',
     'blog.article.voto-iniziative-neutralita-cibo.excerpt': '70,1% reject the initiative on neutrality and 72,5% the one on food security. All cantons voted against it.',
     'blog.article.voto-iniziative-neutralita-cibo.imageAlt': 'Swiss ballot box for votes on neutrality and food security initiatives',
+    'blog.article.esito-iniziativa-neutralita-svizzera.title': 'Neutrality initiative: rejected by 70,2% of voters',
+    'blog.article.esito-iniziativa-neutralita-svizzera.excerpt': '70,2% of voters rejected the initiative on neutrality. The no vote came from all Cantons, with voter turnout at 47,1%.',
+    'blog.article.esito-iniziativa-neutralita-svizzera.imageAlt': 'Swiss flag in front of the Federal Palace in Bern',
 };
 
 export default blogMetaChEn;
