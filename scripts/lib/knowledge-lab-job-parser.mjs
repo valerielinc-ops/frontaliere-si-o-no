@@ -226,8 +226,9 @@ export function parseKnowledgeLabPublicListingHtml(html = '', baseUrl = KNOWLEDG
     }
   });
   const text = normalizeSpace(document.body?.textContent || '');
-  const recognized = canonical || /\b(?:careers?|open\s+positions?|no\s+jobs\s+found)\b/i.test(text);
-  const hasOpenPositionSignals = items.length > 0 || /\b(?:open\s+positions?|open\s+roles?|no\s+jobs\s+found)\b/i.test(text);
+  const hasExplicitListingSignal = /\b(?:open\s+positions?|open\s+roles?|no\s+jobs\s+found)\b/i.test(text);
+  const recognized = canonical || items.length > 0 || hasExplicitListingSignal;
+  const hasOpenPositionSignals = items.length > 0 || hasExplicitListingSignal;
 
   return { items, recognized, hasOpenPositionSignals };
 }

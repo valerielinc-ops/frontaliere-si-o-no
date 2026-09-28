@@ -52,6 +52,14 @@ describe('Knowledge Lab public Freshteam portal parsing', () => {
     }]);
   });
 
+  it('rejects a generic Careers placeholder without a listing contract', () => {
+    expect(parseKnowledgeLabPublicListingHtml('<body>Careers</body>')).toEqual({
+      items: [],
+      recognized: false,
+      hasOpenPositionSignals: false,
+    });
+  });
+
   it('reads rich JobPosting metadata and rejects thin open details', () => {
     const description = [
       'Knowledge Lab builds digital solutions for banks, insurers, and the public sector.',
