@@ -1043,7 +1043,8 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     if (!job || neverMatches) return 0;
     const cached = featureCache ? featureCache.entry(job, locale) : null;
     const {
-      titleText, fullText, jobTokens, jobCategoryKeys: jobCategories, jobTaxonomyValues: jobTaxonomy,
+      titleText, fullText, jobTokens, jobCategoryKeys: jobCategories,
+      jobTaxonomyValues: jobTaxonomy = new Set(),
       jobCompany, jobLoc, jobCanton, jobSector, jobContract,
     } = cached ? cached.features : jobMatchFeatures(job, locale);
     let locHaystack = '';

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildAlertProfile,
+  createJobFeatureCache,
   scoreJobForAlert,
   partitionByGeoPreference,
   freshnessBoost,
@@ -88,6 +89,7 @@ describe('jobAlertMatching — explicit keyword contract (legacy preserved)', ()
 
     expect(profile.hardTaxonomyValues).toContain('banking wealth management');
     expect(scoreJobForAlert(matchingJob, profile)).toBeGreaterThan(0);
+    expect(scoreJobForAlert(matchingJob, profile, undefined, createJobFeatureCache())).toBeGreaterThan(0);
     expect(scoreJobForAlert(unrelatedJob, profile)).toBe(0);
     expect(scoreJobForAlert(matchingJobOutsideCanton, profile)).toBe(0);
   });
