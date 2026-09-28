@@ -12228,6 +12228,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tilo-fermo-busto-biasca.title': 'Tilo train stopped in Busto Arsizio for almost three hours',
     'blog.article.tilo-fermo-busto-biasca.excerpt': 'A Tilo train from Malpensa to Biasca remained stuck about 200 meters from Busto Arsizio station: tension and disruptions on board.',
     'blog.article.tilo-fermo-busto-biasca.imageAlt': 'Regional train arriving near Bellinzona, archive image',
+    'blog.article.cantiere-a8-castronno-albizzate.title': 'Overnight closure of the A8 between Varese and Gallarate',
+    'blog.article.cantiere-a8-castronno-albizzate.excerpt': 'Nighttime closure of the A8 between Varese and Gallarate for work on the overpass between Castronno and Albizzate: risk of traffic queues and alternating one-way traffic on the SP34.',
+    'blog.article.cantiere-a8-castronno-albizzate.imageAlt': 'Night traffic on a motorway with roadworks and traffic signs',
 };
 
 export default blogMetaEn;

@@ -36700,6 +36700,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cantiere-a8-castronno-albizzate',
+ category: 'pratico',
+ date: '2026-09-28T19:01:06.489Z',
+ image: '/images/blog/cantiere-a8-castronno-albizzate.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

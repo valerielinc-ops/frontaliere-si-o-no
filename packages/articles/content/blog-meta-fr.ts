@@ -12230,6 +12230,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tilo-fermo-busto-biasca.title': 'Train Tilo immobilisé à Busto Arsizio pendant près de trois heures',
     'blog.article.tilo-fermo-busto-biasca.excerpt': 'Un Tilo reliant directement Malpensa à Biasca est resté bloqué à environ 200 mètres de la gare de Busto Arsizio : tension et désagréments à bord.',
     'blog.article.tilo-fermo-busto-biasca.imageAlt': 'Train régional près de Bellinzone, image d\'archive',
+    'blog.article.cantiere-a8-castronno-albizzate.title': 'Fermeture nocturne de l’A8 entre Varese et Gallarate',
+    'blog.article.cantiere-a8-castronno-albizzate.excerpt': 'Fermeture nocturne de l’A8 entre Varese et Gallarate pour des travaux sur le passage supérieur entre Castronno et Albizzate : risque de bouchons et circulation alternée sur la SP34.',
+    'blog.article.cantiere-a8-castronno-albizzate.imageAlt': 'Trafic nocturne sur une autoroute avec travaux et panneaux routiers',
 };
 
 export default blogMetaFr;

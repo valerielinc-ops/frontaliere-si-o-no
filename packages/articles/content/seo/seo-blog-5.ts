@@ -96442,6 +96442,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cantiere-a8-castronno-albizzate': {
+    title: 'Chiusura notturna A8 tra Varese e Gallarate | Frontaliere Ticino',
+    description: 'Chiusura notturna della A8 tra Varese e Gallarate per lavori al cavalcavia tra Castronno e Albizzate: rischio code e senso unico alternato sulla SP34.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusura, notturna, varese, gallarate',
+    ogTitle: 'Chiusura notturna A8 tra Varese e Gallarate',
+    ogDescription: 'Il cantiere al cavalcavia tra Castronno e Albizzate riguarda la A8 tra Varese e Gallarate e la parallela SP34: chiusura in alcuni momenti, senso unico alternato sul ponte e rischio code nella fascia notturna.',
+    canonicalPath: '/articoli-frontaliere/cantiere-a8-castronno-albizzate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusura notturna A8 tra Varese e Gallarate",
+      "description": "Chiusura notturna della A8 tra Varese e Gallarate per lavori al cavalcavia tra Castronno e Albizzate: rischio code e senso unico alternato sulla SP34.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cantiere-a8-castronno-albizzate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico notturno su un'autostrada con lavori e segnaletica stradale"
+      },
+      "datePublished": "2026-09-28T19:01:06+00:00",
+      "dateModified": "2026-09-28T19:01:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantiere-a8-castronno-albizzate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
