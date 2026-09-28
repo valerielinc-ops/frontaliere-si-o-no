@@ -112,7 +112,7 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 
 `scripts/ci/followup-drainer.mjs` (**zero-agente**): non-`crawler` in coda, max **7 issue**, `fu-prio:high`, `isQueueManaged()` (`classifyIssue().route === 'queue'`). `crawlerFixDecision`: no verdetto → `fu-attempt:N` → `fu-parked`+`automation-deferred`; `max-turns`/fermo → defer; `rate-limited` → hold/re-queue, zero tentativi.
 
-**Rescue + park:** `agent:fix` orfano (run morta, no PR `fix/issue-N`, `updatedAt` > 30min) → `fu-attempt:N`++; a 3 `fu-parked` (**non chiuso**, ri-tentabile), via `agent:fix-queued` a slot libero.
+**Rescue + park:** `agent:fix` queue-managed orfano (run morta, no PR `fix/issue-N`, `updatedAt` > 30min) → `fu-attempt:N`++; a 3 `fu-parked` (**non chiuso**, ri-tentabile), via `agent:fix-queued` a slot libero.
 
 **ZERO-WORK: `rate-limited` NON consuma tentativi.** HTTP 429 (`num_turns: 1`, `total_cost_usd: 0`) = issue non letta. `ZERO_WORK` in `followup-drainer.mjs`: finestra aperta → **HOLD** (`agent:fix`); chiusa → **re-queue, `fu-attempt` invariato**.
 
