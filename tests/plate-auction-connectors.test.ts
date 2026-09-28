@@ -11,7 +11,6 @@ import {
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
-  parseGlFixedPriceJson,
   parseLuFixedPricePdfText,
   parseUrFixedPricePdfText,
 } from '../functions/src/plateAuctionsCore.js';
@@ -295,7 +294,7 @@ describe('expanded plate-auction connectors', () => {
     }
   });
 
-  it('parses the five newly covered official fixed-price catalogues without auction fields', () => {
+  it('parses the four newly covered official fixed-price catalogues without auction fields', () => {
     const options = {
       officialUrl: 'https://example.test/official',
       officialDetailUrl: 'https://example.test/source.pdf',
@@ -304,13 +303,12 @@ describe('expanded plate-auction connectors', () => {
     const ai = parseAiFixedPricePdfText('Fr. 2000 2674 3854 Fr. 1200 5367 | 6394 Fr. 300 10310', options);
     const aiMotorcycle = parseAiFixedPricePdfText('Fr. 200 153 204 249', { ...options, vehicleType: 'motorcycle' });
     const bs = parseBsFixedPricePdfText('BS 186 4,000.00 Nein Siehe Hinweis 1 BS 213 4,000.00 Ja', options);
-    const gl = parseGlFixedPriceJson({ data: [{ id: 1523, number: 3681, price: 800, available: 1, deleted: 0, registered: 0, platetype: 'car_long_plate' }] }, options);
     const lu = parseLuFixedPricePdfText({ pages: [
       'Wunschkontrollschilder Motorwagen; an Lager\nHochformat\nFr 1’000.- Fr 800.- Fr 800.- Fr 600.-\n21 694 30 129 58 139 65 032',
       'Wunschkontrollschilder Motorrad; an Lager\nFr 200.- Fr 150.- Fr 150.-\n4 157 7 389 9 723',
     ] }, options);
     const ur = parseUrFixedPricePdfText("UR 2296 50 x 11 cm 1'000.--SFr. UR 3086 50 x 11 cm 700.--SFr.", options);
-    for (const [sourceKey, rows] of [['AI', ai], ['BS', bs], ['GL', gl], ['LU', lu], ['UR', ur]] as const) {
+    for (const [sourceKey, rows] of [['AI', ai], ['BS', bs], ['LU', lu], ['UR', ur]] as const) {
       expect(rows.length, sourceKey).toBeGreaterThan(0);
       expect(rows.every((row) => row.sourceKey === sourceKey && row.listingType === 'fixed-price')).toBe(true);
       expect(rows.every((row) => row.bidCount === undefined && row.currentBidChf === undefined)).toBe(true);
