@@ -1,7 +1,7 @@
 {
   "key": "holmes-place",
   "label": "Holmes Place",
-  "generatedAt": "2026-09-28T03:34:37.101Z",
+  "generatedAt": "2026-09-28T05:04:05.204Z",
   "total": 1,
   "discovered": null,
   "parsed": 2,
@@ -12,10 +12,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5174,
-  "avgDurationMs": 5174,
+  "durationMs": 4042,
+  "avgDurationMs": 4042,
   "durationHistory": [
-    5174
+    4042
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://www.holmesplace.ch/de/karriere",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:34:28.578Z",
+      "crawledAt": "2026-09-28T05:03:58.027Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
