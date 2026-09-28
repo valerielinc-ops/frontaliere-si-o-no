@@ -473,14 +473,14 @@ describe('crawler slice integrity guard', () => {
     const root = mkdtempSync(join(tmpdir(), 'crawler-slice-source-proof-'));
     const filePath = join(root, 'data/jobs/by-crawler/convit-holding.json');
     const proofDir = join(root, 'proofs');
-    const removed = dedupJob('https://convit.example/source-removed', 'Closed source job', 'x'.repeat(100));
+    const removed = dedupJob('https://convit.example/source-removed', 'Closed source job', 'x'.repeat(1_400_000));
     const retained = dedupJob('https://convit.example/source-retained', 'Open source job', 'y'.repeat(100));
     const previous = json({ crawlerKey: 'convit-holding', jobs: [removed, retained] });
     const next = json({ crawlerKey: 'convit-holding', jobs: [retained] });
     const fileLabel = 'data/jobs/by-crawler/convit-holding.json';
     const env = {
-      GITHUB_RUN_ID: 'source-proof-run',
-      GITHUB_RUN_ATTEMPT: '1',
+      GITHUB_RUN_ID: process.env.GITHUB_RUN_ID || 'source-proof-run',
+      GITHUB_RUN_ATTEMPT: process.env.GITHUB_RUN_ATTEMPT || '1',
     };
     const proofPath = join(proofDir, `${fileLabel}.housekeeping-proof.json`);
 
@@ -508,7 +508,9 @@ describe('crawler slice integrity guard', () => {
         },
       });
       expect(loaded.candidateRaw).toBe(next);
-      expect(isProvenHousekeepingPrune(fileLabel, previous, next, loaded)).toBe(true);
+      expect(assertCrawlerSliceWriteSafe(fileLabel, previous, next, {
+        housekeepingProof: loaded,
+      }).reason).toBe('proven-housekeeping-prune');
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
