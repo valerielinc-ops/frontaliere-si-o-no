@@ -6905,6 +6905,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: agricoltore ticinese nel calendario svizzero',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'Il 29enne di Bellinzona racconta l\'apprendistato in tedesco, la chiusura dell\'azienda con 650 galline e il lavoro intensivo fino a 15 ore al giorno.',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, agricoltore ticinese di 29 anni, ritratto per il Calendario degli agricoltori svizzeri',
+    'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilaterali III: al via la maratona al Consiglio degli Stati',
+    'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'Inizia oggi il dibattito di tre giorni sul pacchetto di stabilizzazione Svizzera-Ue. In aula attesi almeno cinque consiglieri federali.',
+    'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Palazzo Federale a Berna, sede delle Camere federali svizzere',
 };
 
 export default blogMetaChIt;

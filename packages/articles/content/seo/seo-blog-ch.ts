@@ -89525,6 +89525,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maratona-bilaterali-iii-consiglio': {
+    title: 'Bilaterali III: al via la maratona al Consiglio degli Stati',
+    description: 'Al via il dibattito di tre giorni sui Bilaterali III tra Svizzera e UE. Focus su salari, libera circolazione e nuovi accordi su sanità e trasporti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, maratona, consiglio, stati',
+    ogTitle: 'Bilaterali III: al via la maratona al Consiglio degli Stati',
+    ogDescription: 'Tre giorni di dibattiti intensi sul pacchetto di stabilizzazione Svizzera-Ue. In aula almeno cinque consiglieri federali per discutere salari, immigrazione e nuovi accordi.',
+    canonicalPath: '/articoli-svizzera/maratona-bilaterali-iii-consiglio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III: al via la maratona al Consiglio degli Stati",
+      "description": "Al via il dibattito di tre giorni sui Bilaterali III tra Svizzera e UE. Focus su salari, libera circolazione e nuovi accordi su sanità e trasporti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/maratona-bilaterali-iii-consiglio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo Federale a Berna, sede delle Camere federali svizzere"
+      },
+      "datePublished": "2026-09-28T06:09:19+00:00",
+      "dateModified": "2026-09-28T06:09:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/maratona-bilaterali-iii-consiglio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
