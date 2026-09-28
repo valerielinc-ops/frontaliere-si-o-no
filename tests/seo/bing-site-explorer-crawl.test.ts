@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   classifyDocument,
   collectSitemapInventory,
+  crawlPartition,
   extractInternalLinks,
   folderFor,
   normalizeUrl,
@@ -50,6 +51,22 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(minified.canonical).toBe(`${BASE}/minified/`);
     expect(minified.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
     expect(minified.findings.map((item) => item.code)).not.toContain('canonical-missing');
+
+    const pdf = classifyDocument({
+      url: `${BASE}/guide.pdf`,
+      status: 200,
+      contentType: 'application/pdf',
+      html: '%PDF-1.3',
+    });
+    expect(pdf.findings).toEqual([]);
+
+    const nonHtmlNoindex = classifyDocument({
+      url: `${BASE}/private.pdf`,
+      status: 200,
+      contentType: 'application/pdf',
+      headers: new Headers({ 'x-robots-tag': 'noindex' }),
+    });
+    expect(nonHtmlNoindex.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
   });
 
   it('does not match SEO attributes inside other attribute names or values', () => {
@@ -68,6 +85,26 @@ describe('Bing-compatible full-tree crawler', () => {
     }
 
     expect(extractInternalLinks(`<a data-href=/fake>fake</a>`, `${BASE}/`, BASE)).toEqual([]);
+  });
+
+  it('retries transient 5xx responses and does not apply HTML findings to PDFs', async () => {
+    let calls = 0;
+    const report = await crawlPartition({
+      manifest: { baseUrl: BASE, urls: [`${BASE}/guide.pdf`] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 1,
+      fetchImpl: async () => {
+        calls += 1;
+        if (calls === 1) return new Response('', { status: 503 });
+        return new Response('%PDF-1.3', { status: 200, headers: { 'content-type': 'application/pdf' } });
+      },
+    });
+
+    expect(calls).toBe(2);
+    expect(report.findings).toEqual([]);
+    expect(report.statusCounts).toEqual({ 200: 1 });
   });
 
   it('fails closed when a sitemap responds successfully with no supported entries', async () => {
