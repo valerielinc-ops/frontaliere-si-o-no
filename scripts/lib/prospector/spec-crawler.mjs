@@ -463,6 +463,123 @@ function filterListingCandidates(spec, candidates) {
   return filtered;
 }
 
+const DEFAULT_PAGINATION_MAX_PAGES = 50;
+const DEFAULT_PAGINATION_MIN_COVERAGE = 0.95;
+
+/**
+ * Resolve the optional `spec.pagination` block.
+ *
+ * `maxPages` bounds the walk; reaching it with a next link still present is a
+ * truncated listing and fails the run. `declaredTotalPattern` is a regex source
+ * with one capture group that reads the source's own vacancy count from the
+ * seed page; the walk must then collect at least `minCoverage` of it. The
+ * tolerance absorbs a vacancy closed while the pages are being read, which
+ * shifts the next page up by one row. `pageStateParams` names the query
+ * parameters the listing echoes into its detail links (`sf_paged`); only those
+ * are stripped, so a real detail parameter (`lang`, a tenant id) survives.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, pageStateParams: string[] }}
+ */
+export function normalizeSpecPagination(spec) {
+  const raw = spec?.pagination && typeof spec.pagination === 'object' ? spec.pagination : {};
+  const maxPages = Number.isInteger(raw.maxPages) && raw.maxPages > 0
+    ? raw.maxPages
+    : DEFAULT_PAGINATION_MAX_PAGES;
+  const minCoverage = Number.isFinite(raw.minCoverage) && raw.minCoverage > 0 && raw.minCoverage <= 1
+    ? raw.minCoverage
+    : DEFAULT_PAGINATION_MIN_COVERAGE;
+  const declaredTotalRx = raw.declaredTotalPattern ? new RegExp(String(raw.declaredTotalPattern), 'i') : null;
+  const pageStateParams = Array.isArray(raw.pageStateParams)
+    ? raw.pageStateParams.map((name) => String(name || '').trim()).filter(Boolean)
+    : [];
+  return { maxPages, minCoverage, declaredTotalRx, pageStateParams };
+}
+
+/**
+ * Read the vacancy count the source declares on its own listing page.
+ *
+ * A spec that declares the pattern and does not find it fails closed: without
+ * the count the walk cannot prove it read the whole listing, and a markup
+ * change is exactly when it would silently stop at page one again.
+ *
+ * @param {string} html
+ * @param {{ declaredTotalRx: RegExp|null }} pagination
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {number|null}
+ */
+export function readDeclaredListingTotal(html, pagination, spec) {
+  if (!pagination.declaredTotalRx) return null;
+  const match = pagination.declaredTotalRx.exec(String(html || ''));
+  const total = match ? Number(String(match[1] || '').replace(/[^\d]/g, '')) : NaN;
+  if (!Number.isInteger(total) || total < 0 || !match?.[1]) {
+    throw new Error(
+      `[prospector:${spec.companyKey}] totale dichiarato dalla fonte non trovato `
+      + `(declaredTotalPattern ${pagination.declaredTotalRx.source}): impossibile provare la listing completa`,
+    );
+  }
+  return total;
+}
+
+/**
+ * Remove from a detail URL the declared pagination parameters it shares, name
+ * and value, with the listing page it was found on.
+ *
+ * @param {string} url
+ * @param {string} pageUrl
+ * @param {string[]} [stateParams] Parameter names declared as listing state
+ * @returns {string}
+ */
+export function stripListingPageState(url, pageUrl, stateParams = []) {
+  if (!stateParams.length) return url;
+  let detail;
+  let page;
+  try {
+    detail = new URL(url);
+    page = new URL(pageUrl);
+  } catch {
+    return url;
+  }
+  const pageState = new Set([...page.searchParams]
+    .filter(([name]) => stateParams.includes(name))
+    .map(([name, value]) => `${name}=${value}`));
+  const kept = [...detail.searchParams].filter(([name, value]) => !pageState.has(`${name}=${value}`));
+  if (kept.length === [...detail.searchParams].length) return url;
+  detail.search = new URLSearchParams(kept).toString();
+  return detail.href;
+}
+
+/**
+ * The listing's next page, from an `<a>` or `<link>` carrying `rel="next"`.
+ *
+ * Only a same-origin target counts: a next link to another host is not the
+ * continuation of this listing.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @returns {string|null}
+ */
+export function findNextListingPageUrl(html, pageUrl) {
+  let origin = '';
+  try { origin = new URL(pageUrl).origin; } catch { return null; }
+  const tagRx = /<(?:a|link)\b[^>]*>/gi;
+  let tag;
+  while ((tag = tagRx.exec(String(html || '')))) {
+    const rel = /\brel\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const relValue = rel ? (rel[1] ?? rel[2] ?? rel[3] ?? '') : '';
+    if (!relValue.toLowerCase().split(/\s+/).includes('next')) continue;
+    const href = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const hrefValue = href ? (href[1] ?? href[2] ?? href[3] ?? '') : '';
+    if (!hrefValue) continue;
+    let next;
+    try { next = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
+    if (next.origin !== origin) continue;
+    next.hash = '';
+    return next.href;
+  }
+  return null;
+}
+
 /**
  * Listing rows a spec yields, before any detail-page enrichment.
  *
@@ -487,6 +604,58 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     ? configuredEmptyListingOutcome(spec)
     : null;
   const emptyDetails = [];
+
+  /**
+   * Add one page of listing candidates to the de-duplicated row set.
+   *
+   * A page reached by pagination may echo its own state into the detail links
+   * (`/job/sa036315/?sf_paged=2`); `pageUrl` strips it so the vacancy keeps one
+   * URL, and therefore one id, whichever page it is listed on.
+   *
+   * @param {any[]} candidates
+   * @param {Map<string, any>} umantisListingEvidence
+   * @param {string} [pageUrl]
+   * @param {string[]} [stateParams]
+   */
+  const addListingCandidates = async (candidates, umantisListingEvidence, pageUrl = '', stateParams = []) => {
+    for (const candidate of candidates) {
+      if (!candidate.title || !candidate.url) continue;
+      const v = pageUrl
+        ? {
+          ...candidate,
+          url: stripListingPageState(candidate.url, pageUrl, stateParams),
+          ...(candidate.sourceUrl ? { sourceUrl: stripListingPageState(candidate.sourceUrl, pageUrl, stateParams) } : {}),
+        }
+        : candidate;
+      const vacancy = /** @type {any} */ (v);
+      const sourceUrl = vacancy.sourceUrl || v.url;
+      try { await validateUrl(sourceUrl); } catch { continue; }
+      if (templateRx) {
+        let pathname = '';
+        try { pathname = new URL(sourceUrl).pathname; } catch { continue; }
+        if (!templateRx.test(pathname)) continue;
+      }
+      if (bySlug.has(v.url)) continue;
+      const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
+      bySlug.set(v.url, {
+        title: v.title,
+        url: v.url,
+        ...(vacancy.sourceUrl ? { sourceUrl: vacancy.sourceUrl } : {}),
+        location: vacancy.location || '',
+        addressLocality: vacancy.addressLocality || '',
+        addressRegion: vacancy.addressRegion || '',
+        addressCountry: vacancy.addressCountry || '',
+        postalCode: vacancy.postalCode || '',
+        streetAddress: vacancy.streetAddress || '',
+        locationCandidates: [...(vacancy.locationCandidates || [])],
+        // Stessa piega dell'evidenza di listing che applica il sintetizzatore.
+        ...listingEvidenceFields(vacancy, listingEvidence),
+        description: vacancy.description || '',
+        postedAt: vacancy.postedDate || null,
+        company: vacancy.company || spec.companyName,
+      });
+    }
+  };
 
   for (const seed of spec.seedUrls || []) {
     let page;
@@ -581,35 +750,78 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         );
       }
     }
-    for (const v of candidates) {
-      if (!v.title || !v.url) continue;
-      const vacancy = /** @type {any} */ (v);
-      const sourceUrl = vacancy.sourceUrl || v.url;
-      try { await validateUrl(sourceUrl); } catch { continue; }
-      if (templateRx) {
-        let pathname = '';
-        try { pathname = new URL(sourceUrl).pathname; } catch { continue; }
-        if (!templateRx.test(pathname)) continue;
+    const seedRowsBefore = bySlug.size;
+    await addListingCandidates(candidates, umantisListingEvidence);
+
+    // Opt-in pagination (`spec.pagination`). A listing that shows only its
+    // first page to a single-seed crawler makes every vacancy that scrolls
+    // onto page 2 look closed: the miss grace then archives live jobs and the
+    // anti-shrink guard aborts the slice (yellowshark, 1103 vacancies on 56
+    // pages read as 20, run corpus 36380344842). Every page is read on the
+    // same polite transport, and any failure propagates: publishing a partial
+    // listing is exactly the failure this exists to prevent.
+    if (spec.pagination) {
+      const pagination = normalizeSpecPagination(spec);
+      const declaredTotal = readDeclaredListingTotal(html, pagination, spec);
+      const visited = new Set([effectiveSeedUrl]);
+      let pageUrl = effectiveSeedUrl;
+      let nextUrl = findNextListingPageUrl(html, pageUrl);
+      let pages = 1;
+      while (nextUrl) {
+        if (visited.has(nextUrl)) {
+          // A next link back to a page already read is a loop or an alias,
+          // not the end of the listing: stopping here would publish a partial
+          // set as if it were complete.
+          throw new Error(
+            `[prospector:${spec.companyKey}] listing troncata: il link rel=next dopo ${pages} pagine `
+            + `torna a una pagina gia letta (${nextUrl})`,
+          );
+        }
+        if (pages >= pagination.maxPages) {
+          throw new Error(
+            `[prospector:${spec.companyKey}] listing troncata: ${pages} pagine lette, `
+            + `maxPages=${pagination.maxPages} e un link rel=next ancora presente (${nextUrl})`,
+          );
+        }
+        visited.add(nextUrl);
+        const next = await fetchRuntimePage(nextUrl, validateUrl, runtime);
+        pages += 1;
+        pageUrl = next.url || nextUrl;
+        const body = next.body || '';
+        const nextEvidence = spec.platform === 'umantis.com'
+          ? extractUmantisListingEvidence(body, pageUrl)
+          : new Map();
+        const extracted = extractListingCandidates(body, pageUrl, templateRx);
+        await addListingCandidates(
+          filterListingCandidates(spec, extracted.candidates),
+          nextEvidence,
+          pageUrl,
+          pagination.pageStateParams,
+        );
+        nextUrl = findNextListingPageUrl(body, pageUrl);
       }
-      if (bySlug.has(v.url)) continue;
-      const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
-      bySlug.set(v.url, {
-        title: v.title,
-        url: v.url,
-        ...(vacancy.sourceUrl ? { sourceUrl: vacancy.sourceUrl } : {}),
-        location: vacancy.location || '',
-        addressLocality: vacancy.addressLocality || '',
-        addressRegion: vacancy.addressRegion || '',
-        addressCountry: vacancy.addressCountry || '',
-        postalCode: vacancy.postalCode || '',
-        streetAddress: vacancy.streetAddress || '',
-        locationCandidates: [...(vacancy.locationCandidates || [])],
-        // Stessa piega dell'evidenza di listing che applica il sintetizzatore.
-        ...listingEvidenceFields(vacancy, listingEvidence),
-        description: vacancy.description || '',
-        postedAt: vacancy.postedDate || null,
-        company: vacancy.company || spec.companyName,
-      });
+      const seedRows = bySlug.size - seedRowsBefore;
+      console.log(
+        `[prospector:${spec.companyKey}] listing paginata: ${pages} pagine, ${seedRows} annunci`
+        + (declaredTotal == null ? '' : ` (totale dichiarato dalla fonte: ${declaredTotal})`),
+      );
+      if (declaredTotal != null && seedRows < Math.ceil(declaredTotal * pagination.minCoverage)) {
+        throw new Error(
+          `[prospector:${spec.companyKey}] listing incompleta: ${seedRows}/${declaredTotal} annunci `
+          + `dichiarati dalla fonte su ${pages} pagine (copertura minima ${pagination.minCoverage})`,
+        );
+      }
+    } else if (candidates.length) {
+      // Sibling observer: a seed that advertises a next page to a spec without
+      // pagination is read as a truncated listing, one page wide.
+      const unfollowed = findNextListingPageUrl(html, effectiveSeedUrl);
+      if (unfollowed) {
+        console.warn(
+          `[prospector:${spec.companyKey}] la pagina seed espone un link rel=next non seguito `
+          + `(${unfollowed}): la listing letta potrebbe essere solo la prima pagina `
+          + `(${candidates.length} candidati). Dichiarare spec.pagination.`,
+        );
+      }
     }
   }
   const rows = [...bySlug.values()];

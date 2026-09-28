@@ -6938,6 +6938,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.swiss-starlink-flotta.title': 'Swiss porta Starlink su tutta la flotta entro fine 2029',
     'blog.article.swiss-starlink-flotta.excerpt': 'Swiss ha attivato Starlink sul primo Airbus A320neo: il volo Zurigo-Salonicco apre il piano per connettere tutta la flotta entro fine 2029.',
     'blog.article.swiss-starlink-flotta.imageAlt': 'Aereo Swiss sopra le nuvole con connessione Internet satellitare',
+    'blog.article.joseph-deiss-neutralita-attiva.title': 'Joseph Deiss: vogliamo una neutralità attiva e evolutiva',
+    'blog.article.joseph-deiss-neutralita-attiva.excerpt': 'Oltre sette votanti su dieci hanno respinto l\'iniziativa per una neutralità più rigida; Deiss, a La Matinale RTS, sottolinea la necessità di una neutralità attiva e evolutiva.',
+    'blog.article.joseph-deiss-neutralita-attiva.imageAlt': 'Vista del lago di Lugano con le Alpi sullo sfondo, simbolo di neutralità attiva della Svizzera.',
+    'blog.article.centri-asilo-ors-subentro-ticino.title': 'Subentro ORS nei centri d\'asilo: garanzie chieste',
+    'blog.article.centri-asilo-ors-subentro-ticino.excerpt': 'Il subentro di ORS nei centri federali d\'asilo è previsto per il 1 gennaio 2027; AOZ impiega 120 persone in Ticino e, se Chiasso non riapre, fino a 40 posti sono a rischio.',
+    'blog.article.centri-asilo-ors-subentro-ticino.imageAlt': 'Richiedenti asilo davanti a un centro federale d\'asilo in Ticino con operatori sullo sfondo',
+    'blog.article.lingotti-oro-export-svizzera.title': 'Lingotti d\'oro: export italiano in Svizzera +57%',
+    'blog.article.lingotti-oro-export-svizzera.excerpt': 'In agosto l\'export italiano extra-UE cresce del 16,1%: +57% verso la Svizzera, con i lingotti d\'oro indicati da Istat. I dati di dettaglio arriveranno dopo.',
+    'blog.article.lingotti-oro-export-svizzera.imageAlt': 'Lingotti d\'oro associati alle esportazioni italiane verso la Svizzera',
 };
 
 export default blogMetaChIt;

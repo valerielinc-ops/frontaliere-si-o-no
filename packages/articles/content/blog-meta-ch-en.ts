@@ -6938,6 +6938,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swiss-starlink-flotta.title': 'Swiss brings Starlink to its entire fleet by the end of 2029',
     'blog.article.swiss-starlink-flotta.excerpt': 'Swiss has activated Starlink on the first Airbus A320neo: the Zurich-Thessaloniki flight launches the plan to connect the entire fleet by the end of 2029.',
     'blog.article.swiss-starlink-flotta.imageAlt': 'Swiss aircraft above the clouds with satellite internet connectivity',
+    'blog.article.joseph-deiss-neutralita-attiva.title': 'Joseph Deiss: we want an active and evolutionary neutrality',
+    'blog.article.joseph-deiss-neutralita-attiva.excerpt': 'Over seven out of ten voters rejected the initiative for stricter neutrality; Deiss, at La Matinale RTS, stresses the need for active and evolutionary neutrality.',
+    'blog.article.joseph-deiss-neutralita-attiva.imageAlt': 'View of Lake Lugano with the Alps in the background, symbol of Switzerland\'s active neutrality.',
+    'blog.article.centri-asilo-ors-subentro-ticino.title': 'ORS takeover at asylum centers: guarantees requested',
+    'blog.article.centri-asilo-ors-subentro-ticino.excerpt': 'ORS’s takeover of the federal asylum centers is scheduled for January 1, 2027; AOZ employs 120 people in Ticino and, if Chiasso does not reopen, up to 40 positions are at risk.',
+    'blog.article.centri-asilo-ors-subentro-ticino.imageAlt': 'Asylum seekers in front of a federal reception centre in Ticino with staff in the background',
+    'blog.article.lingotti-oro-export-svizzera.title': 'Gold bars: Italian exports to Switzerland +57%',
+    'blog.article.lingotti-oro-export-svizzera.excerpt': 'In August, Italian exports outside the EU grew by 16.1%: +57% to Switzerland, with gold bars indicated by ISTAT. Detailed data will come later.',
+    'blog.article.lingotti-oro-export-svizzera.imageAlt': 'Gold bars linked to Italian exports to Switzerland',
 };
 
 export default blogMetaChEn;
