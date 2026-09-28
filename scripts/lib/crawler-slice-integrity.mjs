@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
+import path from 'node:path';
 import {
   assertAccumulatorByteFloor,
   isCatastrophicAccumulatorShrink,
@@ -70,6 +72,92 @@ function normalizedPath(filePath) {
 
 function sha256(raw) {
   return createHash('sha256').update(String(raw), 'utf8').digest('hex');
+}
+
+function housekeepingProofTarget(slicePath, { proofDir, cwd = process.cwd() } = {}) {
+  const absoluteSlicePath = path.resolve(cwd, slicePath);
+  const relativePath = path.relative(cwd, absoluteSlicePath);
+  if (
+    !relativePath
+    || path.isAbsolute(relativePath)
+    || relativePath === '..'
+    || relativePath.startsWith(`..${path.sep}`)
+  ) {
+    return null;
+  }
+  const resolvedProofDir = path.resolve(
+    proofDir
+      || process.env.JOBS_HOUSEKEEPING_PROOF_DIR
+      || path.join(
+        process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp',
+        'frontaliere-housekeeping-proofs',
+      ),
+  );
+  return {
+    relativePath: relativePath.split(path.sep).join('/'),
+    proofPath: path.join(resolvedProofDir, `${relativePath}.housekeeping-proof.json`),
+  };
+}
+
+function checkoutHeadSha(cwd) {
+  try {
+    return execFileSync('git', ['rev-parse', 'HEAD'], {
+      cwd,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Persist definitive URL evidence for the isolated commit helper.
+ *
+ * The proof is deliberately kept outside the checkout: the writer and the
+ * later commit step may both rewrite the slice, so the commit helper binds the
+ * sidecar to the final candidate digest plus the current run metadata. This is
+ * shared by cleanup-jobs and source-verified crawler shrinks so the two write
+ * paths cannot drift apart.
+ */
+export function writeHousekeepingProofFile(
+  slicePath,
+  entries,
+  { baseRaw, candidateRaw, proofDir, env = process.env, cwd = process.cwd(), baseSha = '' } = {},
+) {
+  if (!Array.isArray(entries) || entries.length === 0) return false;
+  if (typeof baseRaw !== 'string' || typeof candidateRaw !== 'string') return false;
+  const target = housekeepingProofTarget(slicePath, { proofDir, cwd });
+  if (!target) return false;
+
+  const resolvedBaseSha = String(baseSha || checkoutHeadSha(cwd) || env.GITHUB_SHA || '').trim();
+  const runId = String(env.GITHUB_RUN_ID || '').trim();
+  const runAttempt = String(env.GITHUB_RUN_ATTEMPT || '').trim();
+  if (!resolvedBaseSha || !runId || !runAttempt) {
+    throw new Error(
+      'cannot write housekeeping proof without a checkout HEAD (or GITHUB_SHA), GITHUB_RUN_ID, and GITHUB_RUN_ATTEMPT',
+    );
+  }
+
+  fs.mkdirSync(path.dirname(target.proofPath), { recursive: true });
+  const temporaryPath = `${target.proofPath}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(temporaryPath, `${JSON.stringify({
+      schemaVersion: 2,
+      path: target.relativePath,
+      baseDigest: sha256(baseRaw),
+      candidateDigest: sha256(candidateRaw),
+      baseSha: resolvedBaseSha,
+      runId,
+      runAttempt,
+      entries,
+    }, null, 2)}\n`, 'utf8');
+    fs.renameSync(temporaryPath, target.proofPath);
+  } catch (error) {
+    try { fs.unlinkSync(temporaryPath); } catch { /* best-effort cleanup */ }
+    throw error;
+  }
+  return true;
 }
 
 function parseJobs(raw) {

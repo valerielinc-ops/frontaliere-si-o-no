@@ -12,8 +12,6 @@
  */
 
 import fs from 'node:fs';
-import { execFileSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -36,6 +34,7 @@ import {
 } from './lib/expired-jobs-archive.mjs';
 import { isSliceFile } from './lib/crawler-slice-files.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { writeHousekeepingProofFile } from './lib/crawler-slice-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -63,15 +62,6 @@ const SKIP_URL_VALIDATION = String(process.env.JOBS_SKIP_URL_VALIDATION || '0') 
  *  in the deploy pipeline instead of per-crawler. */
 const SLICE_FILE = String(process.env.JOBS_SLICE_FILE || '').trim();
 
-// A slice can be rewritten once more by git-commit-data.sh after this process
-// exits (for example when origin/main moved and the isolated commit path does
-// a 3-way merge). Keep the definitive URL evidence outside the checkout so it
-// cannot be staged accidentally, but in a deterministic per-slice location
-// that the commit helper can consume in the same runner job.
-const HOUSEKEEPING_PROOF_DIR = process.env.JOBS_HOUSEKEEPING_PROOF_DIR
-  ? path.resolve(process.env.JOBS_HOUSEKEEPING_PROOF_DIR)
-  : path.resolve(process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp', 'frontaliere-housekeeping-proofs');
-
 /** Maximum age in days before a job is considered stale regardless of URL status.
  *  Override via JOBS_STALE_DAYS env var. Default: 60 days. */
 const STALE_DAYS = Math.max(7, Math.min(180, intFromEnv('JOBS_STALE_DAYS', 60)));
@@ -80,77 +70,6 @@ const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 function readJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(raw);
-}
-
-function sha256(raw) {
-  return createHash('sha256').update(String(raw), 'utf8').digest('hex');
-}
-
-function housekeepingProofPath(slicePath) {
-  const relativePath = path.relative(process.cwd(), slicePath);
-  if (
-    !relativePath
-    || path.isAbsolute(relativePath)
-    || relativePath === '..'
-    || relativePath.startsWith(`..${path.sep}`)
-  ) {
-    return null;
-  }
-  return {
-    relativePath: relativePath.split(path.sep).join('/'),
-    proofPath: path.join(HOUSEKEEPING_PROOF_DIR, `${relativePath}.housekeeping-proof.json`),
-  };
-}
-
-function checkoutHeadSha() {
-  try {
-    return execFileSync('git', ['rev-parse', 'HEAD'], {
-      cwd: process.cwd(),
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-    }).trim();
-  } catch {
-    return '';
-  }
-}
-
-function writeHousekeepingProof(slicePath, entries, { baseRaw, candidateRaw } = {}) {
-  if (!Array.isArray(entries) || entries.length === 0) return;
-  if (typeof baseRaw !== 'string' || typeof candidateRaw !== 'string') return;
-  const target = housekeepingProofPath(slicePath);
-  if (!target) return;
-
-  // Bind to the commit the checkout is on: git-commit-data.sh compares with
-  // `git rev-parse HEAD`. GITHUB_SHA is the WORKFLOW repository's commit, which
-  // in the corpus-hosted crawler groups is a corpus sha, never the site
-  // checkout the slice lives in.
-  const baseSha = checkoutHeadSha() || String(process.env.GITHUB_SHA || '').trim();
-  const runId = String(process.env.GITHUB_RUN_ID || '').trim();
-  const runAttempt = String(process.env.GITHUB_RUN_ATTEMPT || '').trim();
-  if (!baseSha || !runId || !runAttempt) {
-    throw new Error(
-      'cannot write housekeeping proof without a checkout HEAD (or GITHUB_SHA), GITHUB_RUN_ID, and GITHUB_RUN_ATTEMPT',
-    );
-  }
-
-  fs.mkdirSync(path.dirname(target.proofPath), { recursive: true });
-  const temporaryPath = `${target.proofPath}.${process.pid}.tmp`;
-  try {
-    fs.writeFileSync(temporaryPath, `${JSON.stringify({
-      schemaVersion: 2,
-      path: target.relativePath,
-      baseDigest: sha256(baseRaw),
-      candidateDigest: sha256(candidateRaw),
-      baseSha,
-      runId,
-      runAttempt,
-      entries,
-    }, null, 2)}\n`, 'utf8');
-    fs.renameSync(temporaryPath, target.proofPath);
-  } catch (error) {
-    try { fs.unlinkSync(temporaryPath); } catch { /* best-effort cleanup */ }
-    throw error;
-  }
 }
 
 function normalizeScopeValue(value) {
@@ -643,7 +562,7 @@ async function main() {
           ? { ...sliceData, jobs: kept, assembledAt: new Date().toISOString() }
           : kept;
         writeJson(slicePath, envelope, { housekeepingProof: urlRemoved });
-        writeHousekeepingProof(slicePath, urlRemoved, {
+        writeHousekeepingProofFile(slicePath, urlRemoved, {
           baseRaw: sliceRaw,
           candidateRaw: fs.readFileSync(slicePath, 'utf8'),
         });
