@@ -96169,6 +96169,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuova-strada-carlazzo-frontalieri': {
+    title: 'Nuova strada a Carlazzo: 1,2 milioni per collegare SP10 e Via San Pietro',
+    description: 'Scopri i dettagli della nuova strada a Carlazzo: costo 1,2 milioni di euro, finanziamento Comune e Provincia, collegamento SP10-Via San Pietro',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, strada, carlazzo, milioni',
+    ogTitle: 'Nuova strada a Carlazzo: 1,2 milioni per collegare SP10 e Via San Pietro',
+    ogDescription: 'La Provincia di Como e il Comune di Carlazzo hanno firmato l\'Accordo di Programma per la realizzazione di una nuova strada da 1.242.383,84 euro che collegherà la SP 10 della Val Cavargna con la Via per San Pietro, evitando il centro storico',
+    canonicalPath: '/articoli-frontaliere/nuova-strada-carlazzo-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova strada a Carlazzo: 1,2 milioni per collegare SP10 e Via San Pietro",
+      "description": "Scopri i dettagli della nuova strada a Carlazzo: costo 1,2 milioni di euro, finanziamento Comune e Provincia, collegamento SP10-Via San Pietro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuova-strada-carlazzo-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada rurale appena asfaltata vicino al confine svizzero-italiano, con colline verdi e cielo sereno."
+      },
+      "datePublished": "2026-09-28T11:04:20+00:00",
+      "dateModified": "2026-09-28T11:04:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuova-strada-carlazzo-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

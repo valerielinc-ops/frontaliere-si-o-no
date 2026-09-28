@@ -12206,6 +12206,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cantiere-cassarate-bozzoreda.title': 'Lavori notturni sul ponte sul Cassarate: possibili ritardi',
     'blog.article.cantiere-cassarate-bozzoreda.excerpt': 'Dal 5 al 10 ottobre lavori notturni in via alla Bozzoreda a Lugano: rumori e possibili ritardi sulle strade collegate.',
     'blog.article.cantiere-cassarate-bozzoreda.imageAlt': 'Lavori notturni per il risanamento del ponte sul Cassarate a Lugano',
+    'blog.article.nuova-strada-carlazzo-frontalieri.title': 'Nuova strada a Carlazzo: 1,2 milioni per collegare SP10 e Via San Pietro',
+    'blog.article.nuova-strada-carlazzo-frontalieri.excerpt': 'L\'Accordo di Programma tra Provincia di Como e Comune di Carlazzo finanzia una strada da 1.242.383,84 euro, con 1.042.383,84 euro del Comune e 200.000 euro della Provincia, da realizzare entro il 2026.',
+    'blog.article.nuova-strada-carlazzo-frontalieri.imageAlt': 'Strada rurale appena asfaltata vicino al confine svizzero-italiano, con colline verdi e cielo sereno.',
 };
 
 export default blogMetaIt;
