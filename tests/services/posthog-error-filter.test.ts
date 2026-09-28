@@ -178,6 +178,57 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBeNull();
   });
 
+  it('drops Google Publisher Tag IntersectionObserver error when entire stack is from GPT', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'TypeError', value: 'IntersectionObserver.observe: Argument 1 is not an object.' }],
+        $exception_list: [
+          {
+            type: 'TypeError',
+            value: 'IntersectionObserver.observe: Argument 1 is not an object.',
+            stacktrace: {
+              frames: [
+                {
+                  filename: 'https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202609170101/pubads_impl.js?cb=122881142',
+                  lineno: 19,
+                  colno: 175827,
+                },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBeNull();
+  });
+
+  it('keeps GPT exceptions whose stack also has a first-party frame', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'TypeError', value: "Failed to execute 'observe' on 'IntersectionObserver': parameter 1 is not of type 'Element'." }],
+        $exception_list: [
+          {
+            type: 'TypeError',
+            value: "Failed to execute 'observe' on 'IntersectionObserver': parameter 1 is not of type 'Element'.",
+            stacktrace: {
+              frames: [
+                {
+                  filename: 'https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202609210101/pubads_impl.js?cb=122881167',
+                  lineno: 19,
+                  colno: 175827,
+                },
+                { filename: 'https://frontaliereticino.ch/assets/GptAdSlot-abc123.js', lineno: 1, colno: 2048 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBe(event);
+  });
+
   it('supports junk_drawer.raw_frame.filename fallback for unresolved frames', () => {
     const event = {
       event: '$exception',
