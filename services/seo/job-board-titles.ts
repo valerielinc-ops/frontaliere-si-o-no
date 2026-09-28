@@ -86,9 +86,9 @@ function safeCount(n: unknown): number {
  */
 function padToMin(title: string, padWord: string): string {
   let out = title;
-  if (visibleLength(out) >= TITLE_MIN_CHARS) return out;
-  const candidate = `${out} ${padWord}`;
-  if (visibleLength(candidate) <= TITLE_MAX_CHARS) {
+  while (visibleLength(out) < TITLE_MIN_CHARS) {
+    const candidate = `${out} ${padWord}`;
+    if (visibleLength(candidate) > TITLE_MAX_CHARS) break;
     out = candidate;
   }
   return out;

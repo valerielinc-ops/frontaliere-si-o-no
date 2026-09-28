@@ -165,6 +165,18 @@ describe('buildCantonLandingTitle — per-canton job-board hub', () => {
       expect(title).toContain(locale === 'it' ? 'Appenzello Esterno' : 'Appenzell Rhodes-Extérieures');
     }
   });
+
+  it('pads short English canton titles to the floor before the brand budget', () => {
+    const title = buildCantonLandingTitle({
+      locale: 'en',
+      cantonDisplay: 'Uri',
+      count: 10,
+      year: YEAR,
+    });
+
+    expect(visibleLength(title)).toBeGreaterThanOrEqual(TITLE_MIN_CHARS);
+    expect(visibleLength(title)).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+  });
 });
 
 describe('buildCityHubTitle — per-city hub', () => {
