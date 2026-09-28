@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const WORKFLOWS = resolve(import.meta.dirname, '../.github/workflows');
+const BORDER_IMPORTER = resolve(import.meta.dirname, '../scripts/import-pharmacies-border.mjs');
 
 function shellQuote(value: string) {
   const escaped = value.split("'").join("'\"'\"'");
@@ -11,6 +12,14 @@ function shellQuote(value: string) {
 }
 
 describe('pharmacy atomic refresh workflow', () => {
+  it('retries transient official-source failures without weakening the importer gates', () => {
+    const source = readFileSync(BORDER_IMPORTER, 'utf8');
+    expect(source).toContain("import { httpFetchWithRetry, transportErrorKind } from './lib/transient-fetch.mjs';");
+    expect(source).toContain('response = await httpFetchWithRetry(url,');
+    expect(source).toContain("throw new Error(`Failed to fetch ${url} (${kind}): ${message}`, { cause: error });");
+    expect(source).toContain('if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);');
+  });
+
   it('keeps the duty alias free of a release-less main writer', () => {
     const source = readFileSync(resolve(WORKFLOWS, 'sync-pharmacy-duties.yml'), 'utf8');
     expect(source).toContain('workflow_dispatch: {}');
