@@ -209,7 +209,7 @@ describe('eventLd canonical', () => {
 });
 
 describe('eventLd source attribution (#3125)', () => {
-  it('does not promote the source or venue to organizer/performer without source data', () => {
+  it('omits organizer/performer when the source supplies no named entities', () => {
     const guidleEvent = { ...EVENT, id: 'guidle:abc', sourceKey: 'guidle', sourceName: 'Guidle' };
     const ld = eventLd(guidleEvent as never, 'it') as Record<string, any>;
     expect(ld.organizer).toBeUndefined();
@@ -262,7 +262,7 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.location.address.postalCode).toBe('6900');
   });
 
-  it('omits offers entirely when price is unknown (never a partial offers object)', () => {
+  it('omits offers when price is unknown', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
     expect(ld.offers).toBeUndefined();
   });
@@ -275,6 +275,7 @@ describe('eventLd source attribution (#3125)', () => {
       price: '0',
       priceCurrency: 'CHF',
     });
+    expect(ld.offers.availability).toBeUndefined();
     expect(ld.offers.validFrom).toBeUndefined();
     expect(ld.offers.url).toBeUndefined();
   });
@@ -284,6 +285,9 @@ describe('eventLd source attribution (#3125)', () => {
     const ld = eventLd(paidEvent as never, 'it') as Record<string, any>;
     expect(ld.offers.price).toBe('25');
     expect(ld.offers.priceCurrency).toBe('CHF');
+    expect(ld.offers.availability).toBeUndefined();
+    expect(ld.offers.validFrom).toBeUndefined();
+    expect(ld.offers.url).toBeUndefined();
   });
 
   it('emits an ImageObject (GSC licensable-image quintet) with the mirrored image path, absolute-ized', () => {
@@ -316,8 +320,7 @@ describe('eventLd source attribution (#3125)', () => {
     // Defense-in-depth: every crawler is contracted to only ever store a
     // mirrored `/images/events/...` path (or leave imageUrl unset), but a
     // stale pre-mirroring dataset snapshot could still carry a raw URL. That
-    // must NEVER be embedded (hotlinked) into production JSON-LD; the
-    // presentation layer may still use its category illustration.
+    // must NEVER be embedded (hotlinked) into production JSON-LD.
     const hotlinked = { ...EVENT, imageUrl: 'https://biglietteria.ch/files/flyer.jpg' };
     const ld = eventLd(hotlinked as never, 'it') as Record<string, any>;
     expect(ld.image).toBeUndefined();

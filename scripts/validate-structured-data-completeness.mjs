@@ -244,9 +244,8 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // image, organizer and performer are optional Schema.org properties. Check
-  // their shape only when a source provides them; the event catalog does not
-  // invent a generic image, source-as-organizer or venue-as-performer.
+  // Image, organizer and performer are optional unless the source supplied
+  // evidence. Validate every value emitted when one of them is present.
   if (schema.image !== undefined && schema.image !== null) {
     const hasImage = Array.isArray(schema.image)
       ? schema.image.some((img) => isNonEmpty(typeof img === 'string' ? img : img?.url))
@@ -261,12 +260,9 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // offers — OPTIONAL (Google lists it as recommended, not required). Many
-  // Event sources (e.g. the Ticino agenda) never expose a price, and asserting
-  // price:"0" (free) on a paid concert/theatre would misrepresent an indexed
-  // page (structured-data policy risk). So we require the verified core fields
-  // only WHEN PRESENT — accurate offers (e.g. free public holidays) still get
-  // validated; price-less Event listings omit them cleanly.
+  // offers is recommended rather than required by Google. It is emitted only
+  // for a source-backed confident price; this conditional checks every offer
+  // that is present.
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
