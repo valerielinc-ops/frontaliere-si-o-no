@@ -4,10 +4,15 @@ set -uo pipefail
 # shellcheck source=scripts/lib/rehydrate-trunk-guard.sh
 . "$(dirname "${BASH_SOURCE[0]}")/rehydrate-trunk-guard.sh"
 
-# Mirrors post-deploy-validate-dist.yml's rehydrate_section(): all sections
-# run concurrently (each writes a disjoint dist/ subtree, no cross-section
-# race), each tracked via its own PID and gated on its own SHARD_LIVE env
-# var. Shared by seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml,
+# Mirrors post-deploy-validate-dist.yml's rehydrate_section(): sections write
+# disjoint dist/ subtrees, but their workers are deliberately bounded. Each
+# worker still walks all four locales and can hold a shard download, tar
+# extraction, clone, and copy at the same time; launching all 27 sections
+# together exhausted the runner before the step could report an exit code
+# (issue #7421, run 36479391795). The cap uses the shared sliding-window
+# driver already proven for the section-shard push fan-outs, so a finished
+# worker immediately admits the next section without an unbounded resource
+# spike. Shared by seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml,
 # seed-text-html-ratio-baseline.yml, seed-title-baselines.yml — previously
 # 4x byte-identical copy-paste of a sequential loop (AGENTS.md #6).
 # Requires GH_TOKEN, DEPLOY_RUN_ID, and one <SECTION>_SHARD_LIVE env var per
@@ -244,17 +249,47 @@ rehydrate_section() {
 
 trunk_guard_init section
 
-SECTION_PIDS=()
-for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+# Keep the resource ceiling in one shared implementation. Four is the cap
+# already proven for the same runner's section-shard push fan-outs; unlike the
+# old PID list this bounds simultaneous clone/copy streams while preserving
+# the fail-soft worker contract below.
+# shellcheck source=scripts/lib/bounded-parallel.sh
+. "$(dirname "${BASH_SOURCE[0]}")/bounded-parallel.sh"
+
+SECTION_NAMES=()
+while IFS= read -r section; do
+  [ -n "$section" ] || continue
   live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
   if [ "${!live_var:-}" = "true" ]; then
-    rehydrate_section "$section" &
-    SECTION_PIDS+=("$!")
+    SECTION_NAMES+=("$section")
   fi
-done
-for pid in "${SECTION_PIDS[@]}"; do
-  wait "$pid" || true
-done
+done < <(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json)
+
+if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
+  rehydrate_max_parallel="${REHYDRATE_MAX_PARALLEL:-4}"
+  case "$rehydrate_max_parallel" in
+    ''|*[!0-9]*|0)
+      echo "::error::REHYDRATE_MAX_PARALLEL must be a positive integer (got '$rehydrate_max_parallel')"
+      exit 1
+      ;;
+  esac
+  if [ "$rehydrate_max_parallel" -gt 4 ]; then
+    echo "::warning::REHYDRATE_MAX_PARALLEL=$rehydrate_max_parallel exceeds the rehydrate safety cap; using 4"
+    rehydrate_max_parallel=4
+  fi
+
+  # `bp_run_bounded` records worker failures but does not abort the fan-out;
+  # that preserves this script's existing fail-soft posture. The independent
+  # trunk_guard_verdict below remains the only new correctness failure.
+  export BP_FAILED_FILE="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures.txt"
+  section_rc=0
+  bp_run_bounded "$rehydrate_max_parallel" rehydrate_section "${SECTION_NAMES[@]}" || section_rc=$?
+  if [ "$section_rc" -ne 0 ]; then
+    echo "::warning::one or more section rehydrate workers failed — continuing with the existing fail-soft contract: $(paste -sd, "$BP_FAILED_FILE" 2>/dev/null || true)"
+  fi
+else
+  echo "no live section shards to rehydrate"
+fi
 df -h / | tail -1
 
 # The ONE new fatal condition in this deliberately fail-soft script, and it is
