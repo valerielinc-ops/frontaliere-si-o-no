@@ -10,6 +10,7 @@ import {
   assertCrawlerSliceWriteSafe,
   isProvenCrossCrawlerDedupPrune,
   isProvenHousekeepingPrune,
+  isProvenRetiredScratchArchiveDelete,
   isSafeBuehlerForeignPruneJobs,
   isSafeSourceGeographyPrune,
   isSafeSwissReForeignPrune,
@@ -467,6 +468,46 @@ describe('crawler slice integrity guard', () => {
       next,
       { housekeepingProof: [{ job: removed, definitive: false }] },
     )).toThrow(/catastrophic truncation avoided/);
+  });
+
+  it('allows only the digest-bound Coop scratch archive retirement proof', () => {
+    const filePath = 'data/jobs/expired/by-crawler/coop-ticino-locale-cache.json';
+    const previous = json([
+      { companyKey: 'coop-ticino', slug: 'legacy-a', description: 'x'.repeat(1_400_000) },
+      { companyKey: 'coop-ticino', slug: 'legacy-b' },
+    ]);
+    const next = '[]\n';
+    const proof = {
+      baseRaw: previous,
+      candidateRaw: next,
+      baseDigest: sha256(previous),
+      candidateDigest: sha256(next),
+      entries: [{
+        operation: 'retired-scratch-archive-delete',
+        companyKey: 'coop-ticino',
+        entryCount: 2,
+      }],
+    };
+
+    expect(isProvenRetiredScratchArchiveDelete(filePath, previous, next, proof)).toBe(true);
+    expect(assertCrawlerSliceWriteSafe(filePath, previous, next, {
+      housekeepingProof: proof,
+    }).reason).toBe('proven-retired-scratch-archive-delete');
+    expect(isProvenRetiredScratchArchiveDelete(
+      'data/jobs/expired/by-crawler/other.json', previous, next, proof,
+    )).toBe(false);
+    expect(isProvenRetiredScratchArchiveDelete(
+      filePath,
+      previous.replace('coop-ticino', 'other-company'),
+      next,
+      proof,
+    )).toBe(false);
+    expect(isProvenRetiredScratchArchiveDelete(
+      filePath,
+      previous,
+      next,
+      { ...proof, candidateDigest: sha256('[{}]\n') },
+    )).toBe(false);
   });
 
   it('writes source-verified shrink evidence in the sidecar format used by the commit guard', () => {

@@ -1833,12 +1833,67 @@ commit_isolated_from_worktree() {
       else
         # The legacy isolated path still reads its caller's current worktree.
         # Only --group-batch is snapshot-bound by the deferred descriptors.
-        [ -f "$f" ] || continue
+        base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+        if [ ! -f "$f" ]; then
+          # --extra-only names its complete ownership surface explicitly. A
+          # missing named file is therefore a requested deletion, not an
+          # unrelated absent path to skip. Delete only the blob this checkout
+          # actually observed; a newer remote value belongs to another writer
+          # and must fail closed instead of being erased.
+          [ "$EXTRA_ONLY" = true ] || continue
+          [ -n "$remote_blob" ] || continue
+          if [ -z "$base_blob" ] || [ "$remote_blob" != "$base_blob" ]; then
+            echo "❌ grouped-isolated: explicit delete conflicts with a newer remote blob for $f"
+            return 1
+          fi
+          if is_job_slice_path "$f"; then
+            integrity_dir="$merge_dir/integrity-delete"
+            mkdir -p "$integrity_dir"
+            if ! git cat-file blob "$remote_blob" > "$integrity_dir/previous.json"; then
+              echo "❌ grouped-isolated: could not materialize crawler slice for delete integrity guard: $f"
+              return 1
+            fi
+            printf '[]\n' > "$integrity_dir/next.json"
+            integrity_args=(
+              "$f"
+              "$integrity_dir/previous.json"
+              "$integrity_dir/next.json"
+            )
+            housekeeping_proof_path="$(housekeeping_proof_path_for_file "$f")"
+            if [ -f "$housekeeping_proof_path" ]; then
+              integrity_args+=(
+                "$housekeeping_proof_path"
+                "$integrity_dir/previous.json"
+                "$integrity_dir/next.json"
+              )
+            fi
+            integrity_exit=0
+            HOUSEKEEPING_BASE_SHA="$base_sha" node "$(dirname "$0")/crawler-slice-integrity.mjs" "${integrity_args[@]}" \
+              || integrity_exit=$?
+            case "$integrity_exit" in
+              0) ;;
+              1)
+                echo "❌ grouped-isolated: refusing catastrophic crawler slice deletion: $f"
+                return 1
+                ;;
+              3)
+                echo "❌ grouped-isolated: catastrophic crawler slice deletion with a rejected housekeeping proof: $f"
+                return 1
+                ;;
+              *)
+                echo "❌ grouped-isolated: crawler slice delete integrity check crashed (exit $integrity_exit) for $f"
+                return 1
+                ;;
+            esac
+          fi
+          GIT_INDEX_FILE="$tmp_index" git update-index --force-remove -- "$f"
+          computed_count=$((computed_count + 1))
+          continue
+        fi
         if git check-ignore -q "$f" 2>/dev/null; then
           continue
         fi
         local_blob="$(git hash-object -w -- "$f")"
-        base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
       fi
 
       if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then

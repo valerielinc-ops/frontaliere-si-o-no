@@ -12,6 +12,7 @@ import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
 const ACTIVE_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/[^/]+\.json$/;
+const RETIRED_COOP_SCRATCH_ARCHIVE = 'data/jobs/expired/by-crawler/coop-ticino-locale-cache.json';
 const SWISS_RE_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/swiss-re\.json$/;
 const BUEHLER_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/buehler\.json$/;
 const TERMINAL_COUNTRY_RE = /,\s*([A-Za-z]{2})\s*$/;
@@ -119,6 +120,10 @@ function checkoutHeadSha(cwd) {
  * sidecar to the final candidate digest plus the current run metadata. This is
  * shared by cleanup-jobs and source-verified crawler shrinks so the two write
  * paths cannot drift apart.
+ *
+ * @param {string} slicePath
+ * @param {unknown[]} entries
+ * @param {{baseRaw?: string, candidateRaw?: string, proofDir?: string, env?: NodeJS.ProcessEnv, cwd?: string, baseSha?: string}} [options]
  */
 export function writeHousekeepingProofFile(
   slicePath,
@@ -587,6 +592,48 @@ export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofE
 }
 
 /**
+ * Prove the one allowlisted deletion of the retired Coop translation cache.
+ *
+ * Unlike URL housekeeping, this is not a collection of dead-job verdicts:
+ * the entire path was a crawler scratch artifact. Keep the exception bound to
+ * that exact path, company key, entry count, run sidecar and byte-for-byte
+ * base/candidate snapshots so it cannot authorize another archive deletion.
+ */
+export function isProvenRetiredScratchArchiveDelete(filePath, previousRaw, nextRaw, proof) {
+  if (normalizedPath(filePath) !== RETIRED_COOP_SCRATCH_ARCHIVE) return false;
+  if (!proof || typeof proof !== 'object' || Array.isArray(proof)) return false;
+  if (
+    typeof proof.baseRaw !== 'string'
+    || typeof proof.candidateRaw !== 'string'
+    || proof.baseRaw !== previousRaw
+    || proof.candidateRaw !== nextRaw
+    || proof.baseDigest !== sha256(previousRaw)
+    || proof.candidateDigest !== sha256(nextRaw)
+  ) return false;
+
+  let previousEntries;
+  let nextEntries;
+  try {
+    previousEntries = JSON.parse(previousRaw);
+    nextEntries = JSON.parse(nextRaw);
+  } catch {
+    return false;
+  }
+  if (
+    !Array.isArray(previousEntries)
+    || previousEntries.length === 0
+    || previousEntries.some((entry) => entry?.companyKey !== 'coop-ticino')
+    || !Array.isArray(nextEntries)
+    || nextEntries.length !== 0
+  ) return false;
+
+  return proof.entries?.length === 1
+    && proof.entries[0]?.operation === 'retired-scratch-archive-delete'
+    && proof.entries[0]?.companyKey === 'coop-ticino'
+    && proof.entries[0]?.entryCount === previousEntries.length;
+}
+
+/**
  * Guard the final bytes written for a crawler slice. The semantic exception
  * is deliberately narrower than the byte guard and is shared by all writers
  * so a later merge/ownership step cannot reintroduce the false positive.
@@ -613,6 +660,9 @@ export function assertCrawlerSliceWriteSafe(
   }
   if (isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-housekeeping-prune' };
+  }
+  if (isProvenRetiredScratchArchiveDelete(filePath, previousRaw, nextRaw, housekeepingProof)) {
+    return { previousBytes, nextBytes, reason: 'proven-retired-scratch-archive-delete' };
   }
   assertAccumulatorByteFloor(previousBytes, nextBytes, { label: filePath });
   return { previousBytes, nextBytes, reason: null };
@@ -643,6 +693,9 @@ export class HousekeepingProofError extends Error {}
  * that pruned a dead URL, catastrophic shrink or not (2026-09-28 wave:
  * belimo 35 → 34 jobs refused in group 02, one crawler per group in 02, 04,
  * 05, 06 and 11).
+ *
+ * @param {string} filePath
+ * @param {{proofPath?: string, basePath?: string, candidatePath?: string, env?: NodeJS.ProcessEnv}} [options]
  */
 export function loadHousekeepingProof(filePath, { proofPath, basePath = '-', candidatePath, env = process.env } = {}) {
   let proof;
