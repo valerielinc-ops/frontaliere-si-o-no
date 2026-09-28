@@ -64,6 +64,10 @@ function googleIosInjectedStackOverflowEvent(filename = 'https://frontalieretici
 function extractBeforeSend(): (event: unknown) => unknown {
   // Look like a real desktop Chrome so BOT_GATE_FN doesn't skip the init
   // (mirrors tests/bot-gate-parity.test.ts's "real browser" navigator setup).
+  Object.defineProperty(window, 'location', {
+    configurable: true,
+    value: { ...window.location, hostname: 'frontaliereticino.ch' },
+  });
   Object.defineProperty(window.navigator, 'webdriver', { configurable: true, get: () => false });
   Object.defineProperty(window.navigator, 'userAgent', {
     configurable: true,
@@ -106,6 +110,18 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
 
   it('is valid, self-contained JS', () => {
     expect(() => new Function(POSTHOG_INIT_CONTENT)).not.toThrow();
+  });
+
+  it('does not initialize on localhost', () => {
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { ...window.location, hostname: 'localhost' },
+    });
+    delete (window as unknown as { posthog?: unknown }).posthog;
+
+    new Function(POSTHOG_INIT_CONTENT)();
+
+    expect((window as unknown as { posthog?: unknown }).posthog).toBeUndefined();
   });
 
   it('passes through non-exception events unchanged', () => {
@@ -205,6 +221,50 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
             stacktrace: {
               frames: [
                 { filename: 'https://accounts.google.com/gsi/client', lineno: 193, colno: 71 },
+                { filename: 'https://frontaliereticino.ch/assets/index-entry.js', lineno: 12, colno: 4 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(beforeSend(event)).toBe(event);
+  });
+
+  it('drops an exception whose entire resolved stack is GPT', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'googletag error' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'googletag error',
+            stacktrace: {
+              frames: [
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 1, colno: 1 },
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 2, colno: 1 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(beforeSend(event)).toBeNull();
+  });
+
+  it('keeps a static GPT exception with a mixed first-party + third-party stack', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'googletag error' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'googletag error',
+            stacktrace: {
+              frames: [
+                { filename: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', lineno: 1, colno: 1 },
                 { filename: 'https://frontaliereticino.ch/assets/index-entry.js', lineno: 12, colno: 4 },
               ],
             },

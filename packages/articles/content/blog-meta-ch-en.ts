@@ -6911,6 +6911,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esito-campagna-blocher.title': 'Neutrality: 70% reject Blocher\'s initiative',
     'blog.article.esito-campagna-blocher.excerpt': '70% of voters rejected the neutrality initiative; Christoph Blocher\'s campaign cost nearly 4 million francs, strengthening the Federal Council\'s position.',
     'blog.article.esito-campagna-blocher.imageAlt': 'View of the Swiss Federal Palace in Bern with citizens and newspapers about the neutrality referendum',
+    'blog.article.svizzera-digitale-cyber-preparazione.title': 'Switzerland a digital leader but lagging behind in cyber defense',
+    'blog.article.svizzera-digitale-cyber-preparazione.excerpt': 'Switzerland leads digital competitiveness with 100/100, but is only 31st out of 66 for cyber preparedness (5,32/10); attacks have increased by 35% and 7 incidents have been recorded in the past year.',
+    'blog.article.svizzera-digitale-cyber-preparazione.imageAlt': 'Swiss data center with Swiss flag, representing digital competitiveness',
+    'blog.article.cambiare-cassa-malati-risparmio.title': 'Changing health insurance provider can save up to 633 francs',
+    'blog.article.cambiare-cassa-malati-risparmio.excerpt': 'According to Axa, the first switch saves an average of 563 francs per year, the next 383 francs; in Ticino, the initial saving reaches 633 francs.',
+    'blog.article.cambiare-cassa-malati-risparmio.imageAlt': 'Person comparing health insurance premiums on a laptop with a Swiss lake view',
 };
 
 export default blogMetaChEn;

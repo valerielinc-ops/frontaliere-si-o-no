@@ -12193,6 +12193,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambi-ripetuti-cassa-malati.title': 'Health insurers in Ticino: changing several times pays off',
     'blog.article.cambi-ripetuti-cassa-malati.excerpt': 'The Axa analysis reveals 563 francs of savings at the first exchange rate of the health insurance fund and 633 in Ticino: comparison between subsequent exchange rates, age and Swiss cantons.',
     'blog.article.cambi-ripetuti-cassa-malati.imageAlt': 'Mendrisio and Ticino in an article about health insurance premiums',
+    'blog.article.credito-imposta-spesa-ticino.title': 'Tax credit for Ticino expenses: idea Giovani Centro',
+    'blog.article.credito-imposta-spesa-ticino.excerpt': 'Up to 5% of salary, capped at 5.000 francs, 25% credit on spending; simulation of 170.000 workers leads to 850 million in additional spending and 212,5 million in public costs.',
+    'blog.article.credito-imposta-spesa-ticino.imageAlt': 'Lugano market with people shopping at local stores under an Alpine sky',
+    'blog.article.hotel-ristoranti-salari-2027.title': 'Hotels and restaurants: minimum wages +0.6% in 2027',
+    'blog.article.hotel-ristoranti-salari-2027.excerpt': 'In the hotel and restaurant industry, minimum wages will rise by 0,6% in 2027: for Category II, from 4\'070 to 4\'094 gross francs.',
+    'blog.article.hotel-ristoranti-salari-2027.imageAlt': 'Swiss hotel restaurant dining room prepared for service',
 };
 
 export default blogMetaEn;

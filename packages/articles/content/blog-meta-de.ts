@@ -12192,6 +12192,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambi-ripetuti-cassa-malati.title': 'Krankenkasse im Tessin: Mehrmaliger Wechsel lohnt sich',
     'blog.article.cambi-ripetuti-cassa-malati.excerpt': 'Die AXA-Analyse zeigt 563 Franken Ersparnis beim ersten Krankenkassenwechsel und 633 Franken im Tessin: Vergleich von aufeinanderfolgenden Wechselkursen, Alter und Schweizer Kantonen.',
     'blog.article.cambi-ripetuti-cassa-malati.imageAlt': 'Mendrisio und das Tessin zum Thema Krankenkassenprämien',
+    'blog.article.credito-imposta-spesa-ticino.title': 'Steuergutschrift für Tessiner Ausgaben: idea Giovani Centro',
+    'blog.article.credito-imposta-spesa-ticino.excerpt': 'Bis zu 5 % des Gehalts, Obergrenze von 5.000 Franken, Gutschrift von 25 % auf die Ausgaben; eine Simulation mit 170.000 Arbeitnehmern führt zu 850 Millionen zusätzlichen Ausgaben und 212,5 Millionen öffentlichen Kosten.',
+    'blog.article.credito-imposta-spesa-ticino.imageAlt': 'Lugano Markt mit Menschen, die in lokalen Geschäften einkaufen unter einem alpinen Himmel',
+    'blog.article.hotel-ristoranti-salari-2027.title': 'Hotels und Restaurants: Mindestlöhne +0,6% im Jahr 2027',
+    'blog.article.hotel-ristoranti-salari-2027.excerpt': 'Im Hotel- und Gastgewerbe werden die Mindestlöhne 2027 um 0,6 % steigen: für Kat. II von 4\'070 auf 4\'094 Bruttofranken.',
+    'blog.article.hotel-ristoranti-salari-2027.imageAlt': 'Vorbereiteter Speisesaal eines Schweizer Hotelrestaurants',
 };
 
 export default blogMetaDe;

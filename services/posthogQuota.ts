@@ -13,6 +13,21 @@
  */
 export const POSTHOG_EVENT_SAMPLE_RATE = 0;
 
+/** Hosts used by local development where analytics must never initialize. */
+export const POSTHOG_LOCAL_DEV_HOSTS = [
+  'localhost',
+  '127.0.0.1',
+  '::1',
+  '[::1]',
+] as const;
+
+/** Return true for loopback/local development hostnames only. */
+export function isLocalDevHost(
+  hostname: string = typeof window === 'undefined' ? '' : window.location.hostname,
+): boolean {
+  return POSTHOG_LOCAL_DEV_HOSTS.includes(hostname.trim().toLowerCase() as (typeof POSTHOG_LOCAL_DEV_HOSTS)[number]);
+}
+
 /** Keep one in twenty sessions for Session Replay. */
 export const POSTHOG_SESSION_REPLAY_SAMPLE_RATE = 0.05;
 

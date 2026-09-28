@@ -12194,6 +12194,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambi-ripetuti-cassa-malati.title': 'Cassa malati in Ticino: cambiare più volte conviene',
     'blog.article.cambi-ripetuti-cassa-malati.excerpt': 'L\'analisi Axa rileva 563 franchi di risparmio al primo cambio della cassa malati e 633 in Ticino: confronto tra cambi successivi, età e cantoni svizzeri.',
     'blog.article.cambi-ripetuti-cassa-malati.imageAlt': 'Mendrisio e il Canton Ticino sul tema dei premi della cassa malati',
+    'blog.article.credito-imposta-spesa-ticino.title': 'Credito d’imposta per spese ticinesi: idea Giovani Centro',
+    'blog.article.credito-imposta-spesa-ticino.excerpt': 'Fino al 5% dello stipendio, tetto 5.000 franchi, credito del 25% sulla spesa; simulazione 170.000 lavoratori porta a 850 milioni di spesa aggiuntiva e 212,5 milioni di costo pubblico.',
+    'blog.article.credito-imposta-spesa-ticino.imageAlt': 'Mercato di Lugano con gente che fa acquisti in negozi locali sotto cielo alpino',
+    'blog.article.hotel-ristoranti-salari-2027.title': 'Hotel e ristoranti: salari minimi +0,6% nel 2027',
+    'blog.article.hotel-ristoranti-salari-2027.excerpt': 'Nel settore alberghiero e della ristorazione i salari minimi saliranno dello 0,6% nel 2027: per la Cat. II, da 4\'070 a 4\'094 franchi lordi.',
+    'blog.article.hotel-ristoranti-salari-2027.imageAlt': 'Sala di ristorante alberghiero svizzero preparata per il servizio',
 };
 
 export default blogMetaIt;

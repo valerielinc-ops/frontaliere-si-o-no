@@ -12195,6 +12195,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cambi-ripetuti-cassa-malati.title': 'Assurance maladie au Tessin : changer plusieurs fois est avantageux',
     'blog.article.cambi-ripetuti-cassa-malati.excerpt': 'L\'analyse Axa relève 563 francs d\'économies lors du premier changement de caisse-maladie et 633 au Tessin : comparaison entre changements successifs, âge et cantons suisses.',
     'blog.article.cambi-ripetuti-cassa-malati.imageAlt': 'Mendrisio et le Tessin sur le thème des primes d\'assurance maladie',
+    'blog.article.credito-imposta-spesa-ticino.title': 'Crédit d’impôt pour frais tessinois : IDEA Jeunes Centre',
+    'blog.article.credito-imposta-spesa-ticino.excerpt': 'Jusqu’à 5% du salaire, plafond de 5.000 francs, crédit de 25% sur les dépenses ; une simulation portant sur 170.000 travailleurs porte à 850 millions de dépenses supplémentaires et à 212,5 millions de coût public.',
+    'blog.article.credito-imposta-spesa-ticino.imageAlt': 'Marché de Lugano avec des personnes faisant des achats dans des magasins locaux sous un ciel alpin',
+    'blog.article.hotel-ristoranti-salari-2027.title': 'Hôtels et restaurants : salaires minimums +0,6% en 2027',
+    'blog.article.hotel-ristoranti-salari-2027.excerpt': 'Dans le secteur de l’hôtellerie et de la restauration, les salaires minimaux augmenteront de 0,6% en 2027 : pour la Cat. II, de 4\'070 à 4\'094 francs bruts.',
+    'blog.article.hotel-ristoranti-salari-2027.imageAlt': 'Salle de restaurant d’hôtel suisse préparée pour le service',
 };
 
 export default blogMetaFr;

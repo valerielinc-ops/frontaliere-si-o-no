@@ -3732,11 +3732,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let cancelled = false;
  (async () => {
  try {
- const [{ getFirestore, doc, getDoc }, { app }] = await Promise.all([
+ const [{ getFirestore, doc, getDoc }, { getApp }] = await Promise.all([
  import('firebase/firestore'),
  import('@/services/firebase'),
  ]);
- const snap = await getDoc(doc(getFirestore(app), 'newsletter_subscribers', userEmail.toLowerCase()));
+ const snap = await getDoc(doc(getFirestore(await getApp()), 'newsletter_subscribers', userEmail.toLowerCase()));
  if (cancelled || !snap.exists()) return;
  const data = snap.data() as Record<string, unknown>;
  const newsletterSignals = {

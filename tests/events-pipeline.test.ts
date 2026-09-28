@@ -395,13 +395,9 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
     expect(ld.location?.address?.addressLocality).toBeTruthy();
     expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
-    // Event.image, organizer and performer are optional: this normalized
-    // fixture has no event-specific image or participant data, so the builder
-    // must omit them rather than inventing values.
     expect(ld.image).toBeUndefined();
     expect(ld.organizer).toBeUndefined();
     expect(ld.performer).toBeUndefined();
-    // offers is intentionally OMITTED (price unknown → no false "free" claim).
     expect(ld.offers).toBeUndefined();
     // endDate must never precede startDate (Google Rich Results validity).
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
@@ -593,9 +589,12 @@ describe('eventLd — schema.org/Event completeness gate', () => {
   it('emits offers with price "0" when event.price is confidently free', () => {
     const ld = eventLd({ ...baseEvent, price: { amount: 0, currency: 'CHF', isFree: true } }, 'it') as Record<string, any>;
     expect(ld.offers?.price).toBe('0');
+    expect(ld.offers?.availability).toBeUndefined();
+    expect(ld.offers?.validFrom).toBeUndefined();
+    expect(ld.offers?.url).toBeUndefined();
   });
 
-  it('omits offers (never fabricates "0") when price is present but not machine-parseable', () => {
+  it('omits offers when price is present but not machine-parseable', () => {
     // e.g. tio.ch "Prezzo:" label says "su richiesta" / "CHF" with no digits —
     // parsePriceText returns amount: null, isFree: false for this bucket.
     const ld = eventLd({ ...baseEvent, price: { amount: null, currency: 'CHF', isFree: false } }, 'it') as Record<string, any>;
@@ -659,7 +658,10 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
       url.endsWith('63071') ? '<strong>Prezzo:</strong> 19 CHF' : '<span class="d-none"><strong>Prezzo:</strong></span>';
     const out = await enrichEventsWithPrice(events, fakeFetch);
     expect(out[0].price).toEqual({ amount: 19, currency: 'CHF', isFree: false });
+    expect(out[0].organizer).toBeUndefined();
+    expect(out[0].performer).toBeUndefined();
     expect(out[1].price).toBeUndefined();
+    expect(out[1].organizer).toBeUndefined();
     expect(events[0].price).toBeUndefined(); // non-mutating
   });
 

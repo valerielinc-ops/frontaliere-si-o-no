@@ -6911,6 +6911,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.esito-campagna-blocher.title': 'Neutralité : 70 % rejettent l\'initiative de Blocher',
     'blog.article.esito-campagna-blocher.excerpt': '70 % des électeurs ont rejeté l’initiative sur la neutralité ; la campagne de Christoph Blocher a coûté près de 4 millions de francs, renforçant la position du Conseil fédéral.',
     'blog.article.esito-campagna-blocher.imageAlt': 'Vue du Palais fédéral suisse à Berne avec des citoyens et des journaux sur le référendum sur la neutralità',
+    'blog.article.svizzera-digitale-cyber-preparazione.title': 'La Suisse, leader du numérique, mais à la traîne en matière de cyberdéfense',
+    'blog.article.svizzera-digitale-cyber-preparazione.excerpt': 'La Suisse est en tête de la compétitivité numérique avec 100/100, mais elle n’est que 31e sur 66 en matière de préparation cyber (5,32/10) ; les attaques ont augmenté de 35% et 7 incidents ont été recensés au cours de l’année écoulée.',
+    'blog.article.svizzera-digitale-cyber-preparazione.imageAlt': 'Centre de données suisse avec drapeau suisse, représentant la compétitivité numérique',
+    'blog.article.cambiare-cassa-malati-risparmio.title': 'Changer de caisse maladie permet d’économiser jusqu’à 633 francs',
+    'blog.article.cambiare-cassa-malati-risparmio.excerpt': 'Selon Axa, le premier changement permet d\'économiser en moyenne 563 francs par an, le suivant 383 francs ; au Tessin, l\'économie initiale atteint 633 francs.',
+    'blog.article.cambiare-cassa-malati-risparmio.imageAlt': 'Personne comparant les primes d\'assurance maladie sur un ordinateur portable avec vue sur un lac suisse',
 };
 
 export default blogMetaChFr;

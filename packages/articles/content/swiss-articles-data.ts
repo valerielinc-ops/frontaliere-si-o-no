@@ -20761,6 +20761,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzera-digitale-cyber-preparazione',
+    category: 'pratico',
+    date: '2026-09-28T07:42:43.454Z',
+    image: '/images/blog/svizzera-digitale-cyber-preparazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'cambiare-cassa-malati-risparmio',
+    category: 'pratico',
+    date: '2026-09-28T08:28:01.930Z',
+    image: '/images/blog/cambiare-cassa-malati-risparmio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
