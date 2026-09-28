@@ -6917,6 +6917,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cambiare-cassa-malati-risparmio.title': 'Cambiare cassa malati fa risparmiare fino a 633 franchi',
     'blog.article.cambiare-cassa-malati-risparmio.excerpt': 'Secondo Axa, il primo cambio fa risparmiare in media 563 franchi annui, il successivo 383 franchi; in Ticino il risparmio iniziale raggiunge 633 franchi.',
     'blog.article.cambiare-cassa-malati-risparmio.imageAlt': 'Persona che confronta premi di assicurazione sanitaria su un laptop davanti a un lago svizzero',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.title': 'Pronto Consulto: servizio telefonico per orientare nel Mendrisiotto',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.excerpt': 'Servizio attivo lun‑ven 9‑17 al 091 811 30 20, medico richiamato entro 30 minuti, sperimentazione di un anno con circa 800 chiamate annue.',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.imageAlt': 'Medico che risponde a una telefonata di Pronto Consulto in ambulatorio svizzero',
 };
 
 export default blogMetaChIt;

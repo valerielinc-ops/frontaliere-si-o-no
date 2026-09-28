@@ -6917,6 +6917,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cambiare-cassa-malati-risparmio.title': 'Ein Wechsel der Krankenkasse spart bis zu 633 Franken',
     'blog.article.cambiare-cassa-malati-risparmio.excerpt': 'Gemäss AXA spart der erste Wechsel durchschnittlich 563 Franken pro Jahr, der nächste 383 Franken; im Tessin beträgt die anfängliche Ersparnis 633 Franken.',
     'blog.article.cambiare-cassa-malati-risparmio.imageAlt': 'Person, die Krankenversicherungsprämien auf einem Laptop mit Blick auf einen Schweizer See vergleicht',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.title': 'Pronto Consulto: telefonischer Dienst zur Orientierung im Mendrisiotto',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.excerpt': 'Service Mo–Fr 9–17 Uhr unter 091 811 30 20 erreichbar, ein Arzt ruft innerhalb von 30 Minuten zurück, einjährige Testphase mit etwa 800 Anrufen pro Jahr.',
+    'blog.article.pronto-consulto-mendrisiotto-basso-ceresio.imageAlt': 'Arzt, der einen Pronto Consulto-Anruf in einer Schweizer Klinik beantwortet',
 };
 
 export default blogMetaChDe;
