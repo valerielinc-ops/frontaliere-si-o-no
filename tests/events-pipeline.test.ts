@@ -340,6 +340,39 @@ describe('events-utils helpers', () => {
     });
   });
 
+  it('preserves the collision-resolved slug at the source checkpoint boundary', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'events-retention-collision-'));
+    const slicePath = path.join(dir, 'source.json');
+    const first = { id: 'guidle:first', title: 'Titolo uguale', startDate: '2026-09-26', canton: 'TI', comune: 'Lugano' };
+    const second = { id: 'guidle:second', title: 'Titolo uguale', startDate: '2026-09-26', canton: 'TI', comune: 'Lugano' };
+    try {
+      mergeEventsIntoSlice({
+        slicePath,
+        sourceKey: 'guidle',
+        sourceName: 'Guidle',
+        freshEvents: [first, second],
+        goneIds: [],
+        crawledAt: '2026-09-28T00:00:00.000Z',
+      });
+      mergeEventsIntoSlice({
+        slicePath,
+        sourceKey: 'guidle',
+        sourceName: 'Guidle',
+        freshEvents: [{ ...second, startDate: '2026-09-27' }],
+        goneIds: [],
+        crawledAt: '2026-09-28T00:00:00.000Z',
+      });
+      const changed = JSON.parse(readFileSync(slicePath, 'utf8')).events.find((event: { id: string }) => event.id === second.id);
+      expect(changed.previousRoutes?.[0]).toMatchObject({
+        canton: 'TI',
+        comune: 'Lugano',
+        slug: 'titolo-uguale-2026-09-26-2',
+      });
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('retains expired and gone records in an event slice', () => {
     const dir = mkdtempSync(path.join(tmpdir(), 'events-retention-'));
     const slicePath = path.join(dir, 'source.json');

@@ -14,7 +14,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { EVENTS_SLICE_DIR } from './events-utils.mjs';
-import { mergeEventHistory } from './events-retention.mjs';
+import { mergeEventHistory, publishedEventRoutes } from './events-retention.mjs';
 
 export const CHECKPOINT_DIR = path.join(EVENTS_SLICE_DIR, '..', 'checkpoints');
 
@@ -84,12 +84,19 @@ export function mergeEventsIntoSlice({ slicePath, sourceKey, sourceName, canton,
   }
 
   const byId = new Map(existing.map((event) => [event.id, event]));
+  const previousRoutes = publishedEventRoutes(
+    existing,
+    typeof crawledAt === 'string' ? crawledAt.slice(0, 10) : undefined,
+  );
   // Deliberately retain goneIds: source disappearance is a crawl observation,
   // not authorization to erase a public event URL.
   for (const event of freshEvents || []) {
     if (!event?.id) continue;
     const previous = byId.get(event.id);
-    byId.set(event.id, previous ? mergeEventHistory(previous, event) : event);
+    byId.set(
+      event.id,
+      previous ? mergeEventHistory(previous, event, previousRoutes.get(event.id)) : event,
+    );
   }
 
   // Keep the parameter part of the explicit contract even though it is now

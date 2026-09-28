@@ -98,9 +98,21 @@ export function preserveEventHistory(event, priorEvents = []) {
   return { ...event, previousRoutes };
 }
 
-/** Merge a fresh crawl record without losing the old URL(s) for its id. */
-export function mergeEventHistory(existing, incoming) {
-  return preserveEventHistory(incoming, existing ? [existing] : []);
+/**
+ * Merge a fresh crawl record without losing the old URL(s) for its id.
+ * `publishedRoute` is the slug actually assigned by the previous build when
+ * the record was one of several same-title/date siblings.
+ */
+export function mergeEventHistory(existing, incoming, publishedRoute = null) {
+  const prior = existing && publishedRoute
+    ? {
+        ...existing,
+        __historySlug: publishedRoute.slug,
+        __historyCanton: publishedRoute.canton,
+        __historyComune: publishedRoute.comune,
+      }
+    : existing;
+  return preserveEventHistory(incoming, prior ? [prior] : []);
 }
 
 /**
