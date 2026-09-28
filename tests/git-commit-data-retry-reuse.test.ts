@@ -213,9 +213,12 @@ describe('git-commit-data: a verdict that saw a housekeeping proof is never reus
       const log = `${result.stdout}${result.stderr}`;
       expect(result.status, log).toBe(0);
       expect(log).toContain('Push rejected (attempt 1/3)');
-      // a: same inputs, but its attempt-1 verdict saw a proof -> computed.
-      // c: remote moved -> computed.
-      expect(log).toContain('grouped-isolated attempt 2: 2 file(s) computed, 0 reused from the previous attempt');
+      // Only a is in the commit (c is unchanged locally; the other writer's
+      // push to c exists just to make the first push lose a real race).
+      // a keeps the same inputs, but its attempt-1 verdict saw a proof, so it
+      // is computed again and never reused.
+      expect(log).toContain('grouped-isolated attempt 1: 1 file(s) computed, 0 reused from the previous attempt');
+      expect(log).toContain('grouped-isolated attempt 2: 1 file(s) computed, 0 reused from the previous attempt');
       expect(log).toContain('Pushed successfully');
     } finally {
       for (const dir of [originDir, repoDir, otherDir, shimDir]) rmSync(dir, { recursive: true, force: true });
