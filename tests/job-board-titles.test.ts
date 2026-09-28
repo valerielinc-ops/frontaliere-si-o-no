@@ -72,15 +72,22 @@ describe('buildListingHubTitle — listing hub (home)', () => {
       .toContain('Offerte di lavoro Ticino');
   });
 
-  it('stays within 50-60 visible chars across all locales and counts', () => {
+  it('stays within the 50-60 visible-character SERP target across all locales and counts', () => {
     for (const locale of LOCALES) {
       for (const count of SAMPLE_COUNTS) {
         const title = buildListingHubTitle({ locale, count, year: YEAR });
         expect(
-          isValidTitleLength(title),
+          visibleLength(title) >= TITLE_MIN_CHARS && visibleLength(title) <= 60,
           `${locale} count=${count}: "${title}" length=${visibleLength(title)}`,
         ).toBe(true);
       }
+    }
+  });
+
+  it('keeps the current high live-count title within 60 visible chars', () => {
+    for (const locale of LOCALES) {
+      const title = buildListingHubTitle({ locale, count: 12582, year: YEAR });
+      expect(visibleLength(title), `${locale}: "${title}"`).toBeLessThanOrEqual(60);
     }
   });
 
