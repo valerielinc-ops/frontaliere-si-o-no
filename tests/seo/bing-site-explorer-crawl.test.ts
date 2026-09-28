@@ -42,6 +42,32 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(classifyDocument({ url: `${BASE}/missing/`, status: 404 }).findings[0].code).toBe('http-error');
     const emptyCanonical = classifyDocument({ url: `${BASE}/empty-canonical/`, status: 200, html: '<title>Page</title><link rel="canonical">' });
     expect(emptyCanonical.findings.map((item) => item.code)).toContain('canonical-missing');
+    const minified = classifyDocument({
+      url: `${BASE}/minified/`,
+      status: 200,
+      html: '<title>Minified</title><link rel=canonical href="https://frontaliereticino.ch/minified/"><meta name=robots content=noindex>',
+    });
+    expect(minified.canonical).toBe(`${BASE}/minified/`);
+    expect(minified.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
+    expect(minified.findings.map((item) => item.code)).not.toContain('canonical-missing');
+  });
+
+  it('does not match SEO attributes inside other attribute names or values', () => {
+    const metaInputs = [
+      '<meta data-name=robots data-content=noindex>',
+      '<meta data="name=robots content=noindex">',
+    ];
+
+    for (const meta of metaInputs) {
+      const result = classifyDocument({
+        url: `${BASE}/attribute-guard/`,
+        status: 200,
+        html: `<link rel=canonical href=${BASE}/attribute-guard/>${meta}`,
+      });
+      expect(result.findings.map((item) => item.code)).not.toContain('noindex-in-sitemap');
+    }
+
+    expect(extractInternalLinks(`<a data-href=/fake>fake</a>`, `${BASE}/`, BASE)).toEqual([]);
   });
 
   it('fails closed when a sitemap responds successfully with no supported entries', async () => {
@@ -57,8 +83,8 @@ describe('Bing-compatible full-tree crawler', () => {
   });
 
   it('extracts same-site HTML links without assets, externals or router actions', () => {
-    const links = extractInternalLinks('<a href="/contattaci">Contatti</a><a href="/assets/app.js">asset</a><a href="https://example.com/">external</a><a href="nav:pension">bad</a>', `${BASE}/`, BASE);
-    expect(links).toEqual(['https://frontaliereticino.ch/contattaci/']);
+    const links = extractInternalLinks('<a href="/contattaci">Contatti</a><a href=/cerca-lavoro-ticino>Job board</a><a href="/assets/app.js">asset</a><a href="https://example.com/">external</a><a href="nav:pension">bad</a>', `${BASE}/`, BASE);
+    expect(links).toEqual(['https://frontaliereticino.ch/cerca-lavoro-ticino/', 'https://frontaliereticino.ch/contattaci/']);
   });
 
   it('fails closed when a partition is missing or duplicated', () => {

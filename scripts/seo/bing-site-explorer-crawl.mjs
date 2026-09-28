@@ -13,6 +13,7 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseAttributes } from '../lib/meta-description-extract.mjs';
 
 export const CRAWLER_SCHEMA_VERSION = 1;
 export const DEFAULT_BASE_URL = 'https://frontaliereticino.ch';
@@ -256,10 +257,8 @@ export async function collectSitemapInventory({
 }
 
 function attr(attributes, name) {
-  const match = String(attributes || '').match(
-    new RegExp(`\\b${name}\\s*=\\s*(["'])((?:(?!\\1)[\\s\\S])*)\\1`, 'i'),
-  );
-  return decodeXmlEntities(match?.[2] || '');
+  const parsed = parseAttributes(attributes);
+  return decodeXmlEntities(parsed[String(name || '').toLowerCase()] ?? '');
 }
 
 function stripTags(value) {
