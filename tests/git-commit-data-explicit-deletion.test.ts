@@ -6,8 +6,8 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { purgeLegacyCrawlerResidues } from '../scripts/cleanup-legacy-crawler-residues.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
-const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
+const WORKTREE_ROOT = resolve(import.meta.dirname, '..');
+const SCRIPT_PATH = resolve(WORKTREE_ROOT, 'scripts/lib/git-commit-data.sh');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
 const ARCHIVE_PATH = 'data/jobs/expired/by-crawler/coop-ticino-locale-cache.json';
 
