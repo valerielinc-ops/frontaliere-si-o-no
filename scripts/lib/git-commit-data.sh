@@ -2357,19 +2357,22 @@ fi  # end SLICE_ONLY=false validation block
 # `git add` fails its ENTIRE invocation on any single unmatched pathspec, which
 # would otherwise abort staging of files that DO exist alongside it.
 #
-# A missing directory path is kept only while the index still tracks files
-# under it: `git add <dir>/` then stages their deletion. A directory that is
-# neither on disk nor in the index (e.g. data/jobs/by-crawler/ in a checkout
-# that has only ever had expired slices) would make `git add` abort the whole
-# invocation with "pathspec did not match any files", exactly like a missing
-# file path.
+# A directory path (trailing slash) is kept only when it has at least one
+# child git can act on: a tracked file (a missing directory whose files are
+# still in the index then gets their deletion staged) or an untracked,
+# non-ignored file. A directory that is neither on disk nor in the index (e.g.
+# data/jobs/by-crawler/ in a checkout that has only ever had expired slices)
+# would make `git add` abort the whole invocation with "pathspec did not match
+# any files", exactly like a missing file path; an existing directory with no
+# such child has nothing to stage either, so it is dropped the same way.
 collect_stageable_files() {
   STAGEABLE_FILES=()
   local _sf
   for _sf in "${ALL_FILES[@]}"; do
-    if [[ ! -e "$_sf" ]]; then
-      [[ "$_sf" == */ ]] || continue
-      [ -n "$(git ls-files -- "$_sf" | head -n 1)" ] || continue
+    if [[ "$_sf" == */ ]]; then
+      [ -n "$(git ls-files --cached --others --exclude-standard -- "$_sf" | head -n 1)" ] || continue
+    elif [[ ! -e "$_sf" ]]; then
+      continue
     fi
     if git check-ignore -q "$_sf" 2>/dev/null; then
       echo "ℹ️ Skipping gitignored path: $_sf"
