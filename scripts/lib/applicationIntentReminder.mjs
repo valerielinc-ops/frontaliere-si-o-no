@@ -91,7 +91,10 @@ export function timestampMillis(value) {
 
 export function snapshotData(snapshot) {
   const raw = snapshot?.data;
-  return typeof raw === 'function' ? raw() || {} : raw || snapshot || {};
+  // Firestore's DocumentSnapshot.data() reads internal state through `this`.
+  // Keep the receiver when normalizing a real snapshot; arrow-function test
+  // doubles do not expose this failure mode.
+  return typeof raw === 'function' ? raw.call(snapshot) || {} : raw || snapshot || {};
 }
 
 export function applicationIntentTimestamp(data) {

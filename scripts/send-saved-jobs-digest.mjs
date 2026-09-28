@@ -62,7 +62,7 @@ import {
 // the implementation is the canonical shared helper (also used by
 // send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
 import { localePathPrefix } from './lib/articleContent.mjs';
-import { rankSimilarApplicationJobs } from './lib/applicationIntentReminder.mjs';
+import { rankSimilarApplicationJobs, snapshotData } from './lib/applicationIntentReminder.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -398,10 +398,7 @@ export function resolveApplicationIntentJob(data, documentId, jobsById) {
 
 /** Convert one consented, recent Firestore intent into a live digest card. */
 export function buildApplicationIntentEntry(documentSnapshot, jobsById, locale, nowMs = Date.now()) {
-  const rawData = documentSnapshot?.data;
-  const data = typeof rawData === 'function'
-    ? rawData()
-    : rawData || documentSnapshot || {};
+  const data = snapshotData(documentSnapshot);
   if (!isApplicationIntentEligible(data, nowMs)) return null;
   const job = resolveApplicationIntentJob(data, documentSnapshot?.id, jobsById);
   if (!job) return null;
@@ -434,10 +431,7 @@ export function buildApplicationIntentEntry(documentSnapshot, jobsById, locale, 
 export function applicationIntentUid(documentSnapshot) {
   const collection = documentSnapshot?.ref?.parent;
   const parentDocument = collection?.parent;
-  const rawData = documentSnapshot?.data;
-  const data = typeof rawData === 'function'
-    ? rawData()
-    : rawData || documentSnapshot || {};
+  const data = snapshotData(documentSnapshot);
 
   if (collection?.id === APPLICATION_INTENT_COLLECTION && parentDocument?.parent?.id === 'users') {
     const pathUid = String(parentDocument.id || '').trim();
