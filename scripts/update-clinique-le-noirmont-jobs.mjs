@@ -287,6 +287,7 @@ async function main() {
   }
 
   const discoveredJobs = [];
+  let skippedPdfCount = 0;
   for (const listing of listings) {
     const title = resolveCliniqueLeNoirmontTitle(listing);
     console.log(`  📄 Extracting PDF for "${title}"`);
@@ -294,6 +295,7 @@ async function main() {
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
     const pdfText = pdf.text || '';
     if (!pdfText) {
+      skippedPdfCount += 1;
       console.warn(`     ⚠️ Empty PDF text — skipping ${listing.identifier}`);
       continue;
     }
@@ -307,6 +309,11 @@ async function main() {
     );
   }
 
+  if (skippedPdfCount > 0) {
+    throw new Error(
+      `Clinique Le Noirmont discovery was incomplete: ${skippedPdfCount} open posting(s) had unusable PDF content; refusing to update adapter seeds or merge jobs.`,
+    );
+  }
   if (discoveredJobs.length === 0) {
     throw new Error('Clinique Le Noirmont discovered 0 jobs with extractable PDF text.');
   }

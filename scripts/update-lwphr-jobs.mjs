@@ -27,6 +27,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -270,7 +271,7 @@ function clearUnresolvedLocationFields(discoveredJobs) {
   }
 }
 
-async function main() {
+export async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'LWP Ledermann Wieting & Partners');
   console.log('═══════════════════════════════════════════════');
@@ -305,6 +306,9 @@ async function main() {
 
   if (skippedPdfCount > 0) {
     console.warn(`  ⚠️ LWP skipped ${skippedPdfCount} posting(s) with unusable PDF content.`);
+    throw new Error(
+      `LWPHR discovery was incomplete: ${skippedPdfCount} open posting(s) had unusable PDF content; refusing to update adapter seeds or merge jobs.`,
+    );
   }
   const publishableJobs = discoveredJobs.filter(hasPublishableLocation);
   const unresolvedCount = discoveredJobs.length - publishableJobs.length;
@@ -355,4 +359,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'LWPHR'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'LWPHR'));
+}
