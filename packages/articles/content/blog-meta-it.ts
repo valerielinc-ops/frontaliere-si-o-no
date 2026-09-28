@@ -12229,6 +12229,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tilo-fermo-busto-biasca.title': 'Treno Tilo fermo a Busto Arsizio per quasi tre ore',
     'blog.article.tilo-fermo-busto-biasca.excerpt': 'Un Tilo diretto da Malpensa a Biasca è rimasto bloccato a circa 200 metri dalla stazione di Busto Arsizio: a bordo tensione e disagi.',
     'blog.article.tilo-fermo-busto-biasca.imageAlt': 'Treno regionale in arrivo nel Bellinzonese, immagine d\'archivio',
+    'blog.article.cantiere-a8-castronno-albizzate.title': 'Chiusura notturna A8 tra Varese e Gallarate',
+    'blog.article.cantiere-a8-castronno-albizzate.excerpt': 'Chiusura notturna della A8 tra Varese e Gallarate per lavori al cavalcavia tra Castronno e Albizzate: rischio code e senso unico alternato sulla SP34.',
+    'blog.article.cantiere-a8-castronno-albizzate.imageAlt': 'Traffico notturno su un\'autostrada con lavori e segnaletica stradale',
 };
 
 export default blogMetaIt;

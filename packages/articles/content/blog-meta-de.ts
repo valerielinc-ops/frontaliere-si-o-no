@@ -12227,6 +12227,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tilo-fermo-busto-biasca.title': 'Tilo-Zug steht in Busto Arsizio fast drei Stunden lang still',
     'blog.article.tilo-fermo-busto-biasca.excerpt': 'Ein Tilo-Zug von Malpensa nach Biasca ist etwa 200 Meter vom Bahnhof Busto Arsizio entfernt stecken geblieben: An Bord herrschen Anspannung und Unannehmlichkeiten.',
     'blog.article.tilo-fermo-busto-biasca.imageAlt': 'Regionalzug bei Bellinzona, Archivbild',
+    'blog.article.cantiere-a8-castronno-albizzate.title': 'Nächtliche Sperrung der A8 zwischen Varese und Gallarate',
+    'blog.article.cantiere-a8-castronno-albizzate.excerpt': 'Nächtliche Sperrung der A8 zwischen Varese und Gallarate wegen Arbeiten an der Überführung zwischen Castronno und Albizzate: Staugefahr und wechselnder Einbahnverkehr auf der SP34.',
+    'blog.article.cantiere-a8-castronno-albizzate.imageAlt': 'Nachtverkehr auf einer Autobahn mit Baustelle und Verkehrsschildern',
 };
 
 export default blogMetaDe;
