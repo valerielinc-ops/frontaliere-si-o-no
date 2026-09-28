@@ -321,6 +321,43 @@ describe('prospector public-only polite transport', () => {
     expect(fetchImpl).toHaveBeenCalledWith(unrelated, expect.objectContaining({ redirect: 'manual' }));
   });
 
+  it.each([
+    ['a detail page without tenant evidence', false],
+    ['a detail fetch error', true],
+  ])('fails closed when index-only tenant text is available but %s', async (_caseName, detailFetchFails) => {
+    const seed = 'https://romantik.example/list/';
+    const job = 'https://romantik.example/list/18877';
+    const listing = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Housekeeping-Mitarbeiter/in (m/w/d)',
+      url: job,
+      description: 'Schweizerhof listing teaser with enough indexed text to look complete even when the detail response lacks tenant evidence.',
+      jobLocation: { address: { addressLocality: 'Flims', addressCountry: 'CH' } },
+    })}</script>`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      if (url === job && detailFetchFails) throw new Error('detail unavailable');
+      if (url === job) return response(url, 200, null,
+        '<h1>Housekeeping-Mitarbeiter/in (m/w/d)</h1><div class="job-location">Flims</div>');
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Example',
+      companyHost: 'romantik.example', mode: 'jsonld', seedUrls: [seed],
+      detailEnrichment: true, detailCandidateText: 'schweizerhof',
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+      jinaRetries: 0,
+    });
+
+    expect(rows).toEqual([]);
+  });
+
   it('rescues a WAF 403 through Jina while keeping the prospector URL policy in front', async () => {
     const seed = 'https://employer.example/jobs';
     const detail = 'https://employer.example/careers/detail/1';

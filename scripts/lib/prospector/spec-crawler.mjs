@@ -671,18 +671,15 @@ export async function runSpecInProduction(spec, runtime = {}) {
           const description = isSufficientVacancyDescription(detail.description)
             ? detail.description
             : row.description;
-          const detailCandidate = {
-            ...row,
-            ...detail,
-            title: detail.title || row.title,
-            location: detail.location || row.location,
-            description,
-          };
+          // Tenant identity is a detail-page contract. Listing fields remain
+          // valid enrichment fallbacks below, but they must never satisfy the
+          // detail discriminator when the detail response omits that evidence.
+          const detailCandidate = { ...detail };
           if (!matchesDetailCandidateText(spec, detailCandidate)) {
             detailCandidateDrops++;
             continue;
           }
-          const publishable = { ...row, title: detailCandidate.title, description,
+          const publishable = { ...row, title: detail.title || row.title, description,
             postedAt: detail.postedDate || row.postedAt,
             employmentType: detail.employmentType || row.employmentType };
           // Free-text NPA variance is measured for diagnostics, but its current
@@ -692,17 +689,10 @@ export async function runSpecInProduction(spec, runtime = {}) {
           if (!geography) { geographyDrops++; continue; }
           if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
           enriched[index] = { ...publishable, ...geography };
-        } catch (err) {
-          // A row without both source-backed fields must not be published with a
-          // fabricated employer default. Keep already complete index rows only.
-          if (!matchesDetailCandidateText(spec, row)) {
-            detailCandidateDrops++;
-            continue;
-          }
-          const geography = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
-          if (!geography) geographyDrops++;
-          else if (!isSufficientVacancyDescription(row.description)) descriptionDrops++;
-          else enriched[index] = { ...row, ...geography };
+        } catch {
+          // A failed detail fetch/extraction carries no source-backed tenant
+          // evidence. Never let index-only fields satisfy the detail gate.
+          detailCandidateDrops++;
         }
       }
     };
