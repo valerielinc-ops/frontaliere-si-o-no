@@ -20878,6 +20878,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'riserva-elettrica-nazionale-monthey',
+    category: 'novita',
+    date: '2026-09-28T17:18:35.229Z',
+    image: '/images/blog/riserva-elettrica-nazionale-monthey.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

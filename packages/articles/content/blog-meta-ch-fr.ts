@@ -6950,6 +6950,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parlamento-rete-elettrica-svizzera.title': 'Réseaux modernes : le Parlement booste l\'électrique',
     'blog.article.parlamento-rete-elettrica-svizzera.excerpt': 'Plus de 60 % des lignes à très haute tension sont proches de la fin de leur durée de vie ; le seuil pour les lignes aériennes est de 220 kV, tandis que le réseau de distribution concerne des tensions >36 kV et les nouvelles stations ne pourront pas dépasser 20 m2 de superficie et 3 m de hauteur.',
     'blog.article.parlamento-rete-elettrica-svizzera.imageAlt': 'Ligne électrique à haute tension au-dessus des Alpes suisses sous un ciel clair avec vallée visible',
+    'blog.article.riserva-elettrica-nazionale-monthey.title': 'Centrales de réserve : le National approuve 131,3 millions',
+    'blog.article.riserva-elettrica-nazionale-monthey.excerpt': 'Le Conseil national a alloué 131,3 millions de francs à la planification et à la solution transitoire de Monthey jusqu’en 2030.',
+    'blog.article.riserva-elettrica-nazionale-monthey.imageAlt': 'Pylône électrique haute tension en Suisse, symbole de la sécurité énergétique',
 };
 
 export default blogMetaChFr;
