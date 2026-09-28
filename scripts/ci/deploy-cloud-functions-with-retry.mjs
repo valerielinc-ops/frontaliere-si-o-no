@@ -19,7 +19,7 @@ export const FIREBASE_DEPLOY_ARGS = Object.freeze([
 ]);
 
 export const MAX_ATTEMPTS = 2;
-export const RETRY_DELAY_MS = 30_000;
+export const FIREBASE_RETRY_DELAY_MS = 30_000;
 
 /**
  * Match only the observed transient signature.  Other Firebase failures must
@@ -47,7 +47,7 @@ function delay(ms) {
  * @param {string[]} args
  * @returns {Promise<{exitCode: number, output: string}>}
  */
-export function runCommand(command, args) {
+export function runFirebaseCli(command, args) {
   return new Promise((resolveRun) => {
     const child = spawn(command, args, {
       env: process.env,
@@ -96,10 +96,10 @@ export function runCommand(command, args) {
  * @returns {Promise<{exitCode: number, output: string, attempts: number}>}
  */
 export async function deployFunctions({
-  run = (args) => runCommand('firebase', args),
+  run = (args) => runFirebaseCli('firebase', args),
   sleep = delay,
   maxAttempts = MAX_ATTEMPTS,
-  retryDelayMs = RETRY_DELAY_MS,
+  retryDelayMs = FIREBASE_RETRY_DELAY_MS,
 } = {}) {
   let lastResult = { exitCode: 1, output: '' };
 
