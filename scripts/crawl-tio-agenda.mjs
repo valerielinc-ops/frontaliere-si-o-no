@@ -23,10 +23,9 @@
  * only the compact event summary; the per-event detail page exposes the
  * source description, address and a "Prezzo:" label (empty/hidden when tio.ch
  * has no price on file). `enrichEventsWithPrice` below fetches each event's
- * detail page once and parses that source metadata with the shared helpers, so `eventLd()`
- * (build-plugins/eventsSeoPagesPlugin.ts) can publish the fields Tio actually
- * supplies — never fabricated: an event with no source signal still omits
- * that field, by design.
+ * detail page once and parses that source metadata with the shared helpers, so
+ * `eventLd()` (build-plugins/eventsSeoPagesPlugin.ts) can publish the fields
+ * Tio supplies and fill the remaining structured-data fields deterministically.
  *
  * Usage:
  *   node scripts/crawl-tio-agenda.mjs                 # next 21 days
@@ -62,7 +61,7 @@ import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-
 import {
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
-  normalizeEventPeopleFields,
+  fillEventPeopleDefaults,
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 
@@ -313,7 +312,8 @@ export function extractTioDetailMetadata(html) {
  * card this crawler otherwise parses never carries one — see file header).
  * Populating `price` here lets `eventLd()` preserve a real source price and
  * its ticket metadata; when the detail page has no parseable price,
- * eventLd() omits the unverified `offers` object.
+ * eventLd() supplies the deterministic structured-data fallback while the
+ * visible price line remains hidden by its confidence gate.
  *
  * Not idempotent/cached like `mirrorEventImages` — every event is re-fetched
  * every run since price can change. A fetch failure (network/timeout) just
@@ -341,7 +341,7 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
       ...(metadata.performer ? { performer: metadata.performer } : {}),
       ...(detailComune ? { comune: detailComune, comuneMatch: 'exact' } : {}),
     };
-    out.push(normalizeEventPeopleFields(next));
+    out.push(fillEventPeopleDefaults(next, SOURCE));
     if (fetchFn === fetchHtml) await sleep(PRICE_FETCH_DELAY_MS);
   }
   return out;

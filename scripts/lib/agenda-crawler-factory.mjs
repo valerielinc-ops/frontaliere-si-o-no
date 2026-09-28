@@ -66,7 +66,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { EVENT_SOURCES, EVENTS_SLICE_DIR, mirrorEventImage } from './events-utils.mjs';
-import { normalizeEventPeopleFields } from './event-metadata.mjs';
+import { fillEventPeopleDefaults } from './event-metadata.mjs';
 
 const DEFAULT_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const DEFAULT_FETCH_TIMEOUT_MS = 20000;
@@ -232,7 +232,7 @@ export function createAgendaCrawler(config) {
       return { events: [], pagesOk, pagesFail, written: false };
     }
 
-    const normalizedEvents = events.map(normalizeEventPeopleFields);
+    const normalizedEvents = events.map((event) => fillEventPeopleDefaults(event, source));
     const mirroredEvents = await mirrorImagesForEvents(normalizedEvents);
     const sorted = [...mirroredEvents].sort((a, b) => (a.startDate || '').localeCompare(b.startDate || ''));
 
