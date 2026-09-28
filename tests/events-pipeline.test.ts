@@ -304,24 +304,10 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
     expect(ld.location?.address?.addressLocality).toBeTruthy();
     expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
-    expect(ld.image).toMatchObject({
-      '@type': 'ImageObject',
-      contentUrl: expect.stringContaining('/images/events/catalog/'),
-    });
-    expect(ld.organizer).toEqual({
-      '@type': 'Organization',
-      name: 'Tio.ch Agenda',
-      url: 'https://www.tio.ch/agenda',
-    });
-    expect(ld.performer).toMatchObject({ '@type': 'Organization', name: expect.any(String) });
-    expect(ld.offers).toMatchObject({
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: expect.any(String),
-      url: expect.stringMatching(/^https:\/\//),
-    });
+    expect(ld.image).toBeUndefined();
+    expect(ld.organizer).toBeUndefined();
+    expect(ld.performer).toBeUndefined();
+    expect(ld.offers).toBeUndefined();
     // endDate must never precede startDate (Google Rich Results validity).
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
   };
@@ -517,18 +503,11 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.offers?.price).toBe('0');
   });
 
-  it('uses a complete fallback offer when price is present but not machine-parseable', () => {
+  it('omits offers when price is present but not machine-parseable', () => {
     // e.g. tio.ch "Prezzo:" label says "su richiesta" / "CHF" with no digits —
     // parsePriceText returns amount: null, isFree: false for this bucket.
     const ld = eventLd({ ...baseEvent, price: { amount: null, currency: 'CHF', isFree: false } }, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: '2026-07-04',
-      url: baseEvent.url,
-    });
+    expect(ld.offers).toBeUndefined();
   });
 });
 
@@ -588,18 +567,10 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
       url.endsWith('63071') ? '<strong>Prezzo:</strong> 19 CHF' : '<span class="d-none"><strong>Prezzo:</strong></span>';
     const out = await enrichEventsWithPrice(events, fakeFetch);
     expect(out[0].price).toEqual({ amount: 19, currency: 'CHF', isFree: false });
-    expect(out[0].organizer).toEqual({
-      '@type': 'Organization',
-      name: 'Tio.ch Agenda',
-      url: 'https://www.tio.ch/agenda',
-    });
-    expect(out[0].performer).toEqual({ '@type': 'Organization', name: 'Tio.ch Agenda' });
+    expect(out[0].organizer).toBeUndefined();
+    expect(out[0].performer).toBeUndefined();
     expect(out[1].price).toBeUndefined();
-    expect(out[1].organizer).toEqual({
-      '@type': 'Organization',
-      name: 'Tio.ch Agenda',
-      url: 'https://www.tio.ch/agenda',
-    });
+    expect(out[1].organizer).toBeUndefined();
     expect(events[0].price).toBeUndefined(); // non-mutating
   });
 
