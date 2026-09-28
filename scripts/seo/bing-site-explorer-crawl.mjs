@@ -257,9 +257,13 @@ export async function collectSitemapInventory({
 
 function attr(attributes, name) {
   const match = String(attributes || '').match(
-    new RegExp(`\\b${name}\\s*=\\s*(["'])((?:(?!\\1)[\\s\\S])*)\\1`, 'i'),
+    new RegExp(`\\b${name}\\s*=\\s*(?:(['"])([\\s\\S]*?)\\1|([^\\s"'=<>\\x60]+))`, 'i'),
   );
-  return decodeXmlEntities(match?.[2] || '');
+  // Static output is minified and legitimately mixes quoted and unquoted
+  // attribute values (`rel=canonical`, `href=/path`, `name=robots`). The old
+  // quoted-only parser classified those real SEO tags as missing and turned
+  // one full-tree run into 165k false canonical findings.
+  return decodeXmlEntities(match?.[2] ?? match?.[3] ?? '');
 }
 
 function stripTags(value) {
