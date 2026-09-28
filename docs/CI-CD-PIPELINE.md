@@ -90,7 +90,7 @@ Combined with the existing crawlers, orchestration delays kept peak concurrency 
 
 ### Stage 2 — Orchestration (`orchestrate-crawlers.yml`)
 
-**Trigger**: Cron `0 9 * * *` + `0 21 * * *` (twice daily) + manual dispatch
+**Trigger**: 09:00 and 21:00 UTC via Cloud Scheduler (`dispatchCrawlerOrchestrator` in `functions/index.js`, which calls `workflow_dispatch`) + manual dispatch. The GitHub `schedule:` was removed on 2026-09-28: it created these runs a median of 306 min (09:00) and 148 min (21:00) late, and crons on non-round minutes were just as late.
 
 **What it does** (consolidation, 2026-07 — see Stage 3 below):
 1. Discovers all `crawler-group-*.yml` workflows (23 of them — one dispatch
