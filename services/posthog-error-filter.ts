@@ -36,6 +36,7 @@ import {
   UNIVERSAL_BENIGN_PATTERNS,
   BROWSER_EXTENSION_ORIGIN_PATTERN,
   isOriginRedactedThirdPartyStack,
+  isGoogleIosAppInjectedStackOverflow,
 } from './benignErrorPatterns';
 
 /** Patterns that match benign / unactionable exception messages. */
@@ -128,6 +129,16 @@ function extractStackFrameOrigins(event: PostHogExceptionEvent): string[] {
     }
   }
   return origins;
+}
+
+/**
+ * The capturing browser's user agent: posthog-js stamps `$raw_user_agent` on
+ * every event; fall back to `navigator` when it is absent.
+ */
+function eventUserAgent(event: PostHogExceptionEvent): string {
+  const raw = event.properties?.$raw_user_agent;
+  if (typeof raw === 'string' && raw) return raw;
+  return typeof navigator !== 'undefined' ? navigator.userAgent || '' : '';
 }
 
 /**
@@ -224,6 +235,15 @@ export function createExceptionFilter() {
       for (const pattern of BENIGN_MESSAGES) {
         if (pattern.test(blob)) return null;
       }
+    }
+    // Chrome-iOS / Google-app injected recursion (#8773): WebKit attributes the
+    // frames to the document URL, so neither check around this one sees it.
+    if (isGoogleIosAppInjectedStackOverflow(
+      blob,
+      extractStackFrameOrigins(event).join('\n'),
+      eventUserAgent(event),
+    )) {
+      return null;
     }
     if (isThirdPartyStackOnly(event)) return null;
     // Zero resolved frames → fall back to the raw stack we recorded ahead of

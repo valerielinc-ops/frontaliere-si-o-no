@@ -271,7 +271,7 @@ export const GOOGLE_IOS_APP_UA_PATTERN = /\bCriOS\/\d|\b(?:iPhone|iPad|iPod)\b.*
  */
 export const FIRST_PARTY_ASSET_FRAME_PATTERN = /\/assets\/[^\s?#:@]+\.js\b/;
 
-const STACK_OVERFLOW_MESSAGE_PATTERN = /Maximum call stack size exceeded/i;
+export const STACK_OVERFLOW_MESSAGE_PATTERN = /Maximum call stack size exceeded/i;
 
 /**
  * True for the stack overflow that Chrome for iOS and the Google app raise
@@ -296,6 +296,12 @@ const STACK_OVERFLOW_MESSAGE_PATTERN = /Maximum call stack size exceeded/i;
  * Deliberately narrow: only this message, only these two apps, and never when
  * a frame runs through one of our own chunks — a first-party recursion there
  * still reports, and in any other browser the signature is still reported.
+ *
+ * Callers: the `app_error` global handlers in `services/analytics.ts`, the SPA
+ * PostHog `before_send` (`createExceptionFilter` in
+ * `services/posthog-error-filter.ts`) and its static-page ES5 twin
+ * (`POSTHOG_BEFORE_SEND_FN` in `build-plugins/constants.ts`, which inlines the
+ * three pattern sources above).
  */
 export function isGoogleIosAppInjectedStackOverflow(message: string, stack: string, userAgent: string): boolean {
   if (!GOOGLE_IOS_APP_UA_PATTERN.test(userAgent || '')) return false;
