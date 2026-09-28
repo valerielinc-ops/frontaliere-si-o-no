@@ -36655,6 +36655,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'portinerie-lavoro-locarno',
+ category: 'pratico',
+ date: '2026-09-28T11:38:28.745Z',
+ image: '/images/blog/portinerie-lavoro-locarno.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

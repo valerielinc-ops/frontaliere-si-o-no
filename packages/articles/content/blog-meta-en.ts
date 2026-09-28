@@ -12213,6 +12213,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-28.imageAlt': 'The day\'s numbers for cross-border commuters – September 28, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-28.seoDescription': 'Cross-border brief, September 28, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-28.ogDescription': 'The numbers for September 28, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.portinerie-lavoro-locarno.title': 'Job Concierge: free counter in Locarno',
+    'blog.article.portinerie-lavoro-locarno.excerpt': 'ECAP Ticino Unia’s mobile service offers free consultations without an appointment. Next meeting in Locarno on 1° ottobre.',
+    'blog.article.portinerie-lavoro-locarno.imageAlt': 'Portinerie Lavoro help desk at Spazio ELLE in Locarno',
 };
 
 export default blogMetaEn;

@@ -12212,6 +12212,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-28.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 28. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-28.seoDescription': 'Grenzgänger-Bulletin vom 28. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-28.ogDescription': 'Die Zahlen vom 28. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.portinerie-lavoro-locarno.title': 'Portinerie Lavoro: kostenlose Anlaufstelle in Locarno',
+    'blog.article.portinerie-lavoro-locarno.excerpt': 'Der mobile Dienst von ECAP Ticino Unia bietet kostenlose Beratungen ohne Termin an. Nächstes Treffen in Locarno am 1. Oktober.',
+    'blog.article.portinerie-lavoro-locarno.imageAlt': 'Beratungsstelle Portinerie Lavoro im Spazio ELLE in Locarno',
 };
 
 export default blogMetaDe;
