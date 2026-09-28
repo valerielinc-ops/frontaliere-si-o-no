@@ -6905,6 +6905,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: agricoltore ticinese nel calendario svizzero',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'Il 29enne di Bellinzona racconta l\'apprendistato in tedesco, la chiusura dell\'azienda con 650 galline e il lavoro intensivo fino a 15 ore al giorno.',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, agricoltore ticinese di 29 anni, ritratto per il Calendario degli agricoltori svizzeri',
+    'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilaterali III: al via la maratona al Consiglio degli Stati',
+    'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'Inizia oggi il dibattito di tre giorni sul pacchetto di stabilizzazione Svizzera-Ue. In aula attesi almeno cinque consiglieri federali.',
+    'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Palazzo Federale a Berna, sede delle Camere federali svizzere',
+    'blog.article.esito-campagna-blocher.title': 'Neutralita: il 70% boccia l\'iniziativa di Blocher',
+    'blog.article.esito-campagna-blocher.excerpt': 'Il 70% degli elettori ha respinto l\'iniziativa sulla neutralità; la campagna di Christoph Blocher è costata quasi 4 milioni di franchi, rafforzando la posizione del Consiglio federale.',
+    'blog.article.esito-campagna-blocher.imageAlt': 'Vista del Palazzo federale svizzero a Berna con cittadini e giornali sul referendum sulla neutralità',
+    'blog.article.svizzera-digitale-cyber-preparazione.title': 'Svizzera leader digitale ma indietro nella cyber difesa',
+    'blog.article.svizzera-digitale-cyber-preparazione.excerpt': 'La Svizzera guida la competitività digitale con 100/100, ma è soltanto 31ª su 66 per preparazione cyber (5,32/10); gli attacchi sono aumentati del 35% e si contano 7 incidenti nell’ultimo anno.',
+    'blog.article.svizzera-digitale-cyber-preparazione.imageAlt': 'Data center svizzero con bandiera svizzera, rappresentante competitività digitale',
 };
 
 export default blogMetaChIt;

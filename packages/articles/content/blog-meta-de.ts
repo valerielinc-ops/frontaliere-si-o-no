@@ -12186,6 +12186,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.busto-saronno-sequestro-giocattoli.title': 'Beschlagnahme von Spielzeug und unsicheren Geräten in der Lombardei',
     'blog.article.busto-saronno-sequestro-giocattoli.excerpt': 'Über 20.000 Spielzeuge und 300 Elektrogeräte beschlagnahmt. Strafen in Höhe von 10.000 Euro und Anzeigen wegen Betrugs im Handel.',
     'blog.article.busto-saronno-sequestro-giocattoli.imageAlt': 'Nicht-konforme Spielzeuge und elektrische Geräte von der Finanzpolizei in Busto Arsizio und Saronno beschlagnahmt.',
+    'blog.article.mastini-fassa-hockey-2026.title': 'Mastini Varese gegen Fassa: Jagd nach ersten Punkten',
+    'blog.article.mastini-fassa-hockey-2026.excerpt': 'Am Samstag, dem 26. September, um 18:30 Uhr treten die Mastini Varese nach dem mit 2-4 verlorenen Auftaktspiel gegen die Pirati di Appiano gegen Fassa an; die Mannschaft will in der Tabelle den Bann brechen.',
+    'blog.article.mastini-fassa-hockey-2026.imageAlt': 'Eishockey-Spiel der Mastini Varese auf dem Fassa-Eisfeld, Trentino-Südtirol',
+    'blog.article.cambi-ripetuti-cassa-malati.title': 'Krankenkasse im Tessin: Mehrmaliger Wechsel lohnt sich',
+    'blog.article.cambi-ripetuti-cassa-malati.excerpt': 'Die AXA-Analyse zeigt 563 Franken Ersparnis beim ersten Krankenkassenwechsel und 633 Franken im Tessin: Vergleich von aufeinanderfolgenden Wechselkursen, Alter und Schweizer Kantonen.',
+    'blog.article.cambi-ripetuti-cassa-malati.imageAlt': 'Mendrisio und das Tessin zum Thema Krankenkassenprämien',
 };
 
 export default blogMetaDe;

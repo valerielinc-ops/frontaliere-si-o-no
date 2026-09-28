@@ -6905,6 +6905,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: Ticino farmer in the Swiss calendar',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'The 29-year-old from Bellinzona recounts the apprenticeship in German, the closure of the company with 650 hens, and the intensive work of up to 15 hours a day.',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, 29-year-old Ticino farmer, portrait for the Swiss Farmers\' Calendar',
+    'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilateral Agreements III: Marathon begins in the Council of States',
+    'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'The three-day debate on the Switzerland-EU stabilization package begins today. At least five Federal Councillors are expected in the chamber.',
+    'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Federal Palace in Bern, seat of the Swiss federal chambers',
+    'blog.article.esito-campagna-blocher.title': 'Neutrality: 70% reject Blocher\'s initiative',
+    'blog.article.esito-campagna-blocher.excerpt': '70% of voters rejected the neutrality initiative; Christoph Blocher\'s campaign cost nearly 4 million francs, strengthening the Federal Council\'s position.',
+    'blog.article.esito-campagna-blocher.imageAlt': 'View of the Swiss Federal Palace in Bern with citizens and newspapers about the neutrality referendum',
+    'blog.article.svizzera-digitale-cyber-preparazione.title': 'Switzerland a digital leader but lagging behind in cyber defense',
+    'blog.article.svizzera-digitale-cyber-preparazione.excerpt': 'Switzerland leads digital competitiveness with 100/100, but is only 31st out of 66 for cyber preparedness (5,32/10); attacks have increased by 35% and 7 incidents have been recorded in the past year.',
+    'blog.article.svizzera-digitale-cyber-preparazione.imageAlt': 'Swiss data center with Swiss flag, representing digital competitiveness',
 };
 
 export default blogMetaChEn;

@@ -10,8 +10,9 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
-import { readAttr, scanStartTags } from './html-attr.mjs';
+import { readAttr, scanHtmlTags, scanStartTags } from './html-attr.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -30,6 +31,16 @@ const SWISS_COUNTRIES = new Set(['ch', 'switzerland', 'schweiz', 'suisse', 'sviz
 const PHYSICAL_SECURITY_TITLE_RE = /\b(?:agente(?:\s+di)?\s+sicurezza|guardia(?:\s+giurata)?|security\s+(?:guard|officer)|security\s+agent|sicherheitsdienst|sicherheitsmitarbeiter|wachmann|agent(?:e)?\s+de\s+s[ée]curit(?:e|é)|surveill(?:ance|ant)|vigilanz|ronde|gardien)\b/i;
 const CYBER_OR_TECH_SECURITY_RE = /\b(?:cyber|cybers[eé]curit|sicurezza\s+informatica|s[ée]curit[ée]\s+informatique|information\s+security|it[-\s]?security|it[-\s]?sicherheitsmitarbeiter|infosec|security\s+(?:engineer|architect|analyst|specialist|consultant)|soc\s+analyst|penetration\s+test|application\s+security|cloud\s+security|network\s+security|gouvernance\s+(?:de\s+la\s+)?s[eé]curit)\b/i;
 const MAX_LISTING_PAGES = 12;
+const PROTECTAS_EMPTY_COUNT_RE = /^(0\s+(?:posizion[ei]\s+aperte?|open\s+positions?|offene\s+(?:stellen|positionen)|postes?\s+ouvert(?:es?|s?)))(?:\s*[:.!])?$/i;
+const PROTECTAS_COUNTER_ATTRIBUTE_NAMES = [
+  'id', 'class', 'data-testid', 'data-test', 'data-cy', 'data-qa',
+  'data-state', 'role', 'aria-label',
+];
+const PROTECTAS_COUNTER_HINT_RE = /(?:career|count|empty|job|listing|offer|offert|opening|position|post|result|stelle|vacan)/i;
+const PROTECTAS_NON_EVIDENCE_CONTAINER_TAGS = new Set([
+  'article', 'body', 'footer', 'head', 'header', 'html', 'main', 'nav',
+  'noscript', 'script', 'section', 'style', 'template',
+]);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -111,6 +122,55 @@ function extractMainHtml(html = '') {
   return String(html).match(/<(?:main|article)\b[^>]*>[\s\S]*?<\/(?:main|article)>/i)?.[0]
     || String(html).match(/<body\b[^>]*>[\s\S]*?<\/body>/i)?.[0]
     || '';
+}
+
+function extractElementInnerHtml(source, tags, startIndex) {
+  const opening = tags[startIndex];
+  if (!opening || opening.closing || opening.selfClosing) return '';
+
+  let depth = 1;
+  for (let index = startIndex + 1; index < tags.length; index += 1) {
+    const tag = tags[index];
+    if (tag.name !== opening.name) continue;
+    if (tag.closing) {
+      depth -= 1;
+      if (depth === 0) return source.slice(opening.end, tag.index);
+    } else if (!tag.selfClosing) {
+      depth += 1;
+    }
+  }
+  return '';
+}
+
+function hasProtectasCounterHint(rawTag) {
+  return PROTECTAS_COUNTER_ATTRIBUTE_NAMES
+    .map((name) => readAttr(rawTag, name))
+    .some((value) => PROTECTAS_COUNTER_HINT_RE.test(value));
+}
+
+function extractAuthoritativeEmptyEvidence(html = '') {
+  const content = extractMainHtml(html) || String(html);
+  const tags = scanHtmlTags(content);
+
+  for (let index = 0; index < tags.length; index += 1) {
+    const tag = tags[index];
+    if (tag.closing || PROTECTAS_NON_EVIDENCE_CONTAINER_TAGS.has(tag.name)) continue;
+
+    const innerHtml = extractElementInnerHtml(content, tags, index);
+    if (!innerHtml) continue;
+    const text = normalizeSpace(stripHtml(innerHtml));
+    const match = text.match(PROTECTAS_EMPTY_COUNT_RE);
+    if (!match) continue;
+
+    // A count-like element is source evidence only when its own text is the
+    // complete current vacancy-count label and its attributes identify a
+    // counter/empty-state element. A heading elsewhere in the page (or a
+    // sentence such as an archive note) must never authorize deleting jobs.
+    if (!hasProtectasCounterHint(tag.raw)) continue;
+    return `Protectas career listing reports "${match[0]}"`;
+  }
+
+  return '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -237,6 +297,7 @@ async function fetchJobListings() {
   const queue = [PROTECTAS_CAREER_URL];
   const visited = new Set();
   const vacancyUrls = new Set();
+  let authoritativeEmptyEvidence = '';
   let primaryPageFetched = false;
 
   while (queue.length > 0) {
@@ -258,6 +319,9 @@ async function fetchJobListings() {
         },
       });
       if (pageUrl === PROTECTAS_CAREER_URL) primaryPageFetched = true;
+      if (pageUrl === PROTECTAS_CAREER_URL) {
+        authoritativeEmptyEvidence = extractAuthoritativeEmptyEvidence(html);
+      }
     } catch (error) {
       throw new Error(
         `Protectas pagination page failed: ${pageUrl} — ${error?.message || error}`,
@@ -273,10 +337,16 @@ async function fetchJobListings() {
 
   if (!primaryPageFetched) throw new Error('Protectas primary career page was not fetched');
   if (vacancyUrls.size === 0) {
+    if (authoritativeEmptyEvidence) {
+      return { listings: [], authoritativeEmptyEvidence };
+    }
     throw new Error('Protectas career page exposed no official vacancy detail links');
   }
 
-  return [...vacancyUrls].map((url) => ({ url }));
+  return {
+    listings: [...vacancyUrls].map((url) => ({ url })),
+    authoritativeEmptyEvidence: '',
+  };
 }
 
 /* ── Detail JSON-LD parsing ────────────────────────────────── */
@@ -484,8 +554,13 @@ export async function fetchAllProtectasJobs() {
   console.log('🔍 Fetching Protectas SA physical-security jobs');
   console.log(`   Source: ${PROTECTAS_CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const { listings, authoritativeEmptyEvidence } = await fetchJobListings();
   console.log(`  📋 Official vacancy links found: ${listings.length}`);
+
+  if (listings.length === 0 && authoritativeEmptyEvidence) {
+    console.log(`  🧩 Source-proven zero: ${authoritativeEmptyEvidence}`);
+    return markAuthoritativeEmptySnapshot([], authoritativeEmptyEvidence);
+  }
 
   const jobs = [];
   for (const listing of listings) {

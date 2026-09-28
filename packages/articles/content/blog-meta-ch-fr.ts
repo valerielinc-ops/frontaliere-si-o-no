@@ -6905,6 +6905,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena : agriculteur tessinois dans le calendrier suisse',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'Le jeune homme de 29 ans de Bellinzone raconte son apprentissage en allemand, la fermeture de l’entreprise comptant 650 poules et le travail intensif jusqu’à 15 heures par jour.',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, agriculteur tessinois de 29 ans, portrait pour le Calendrier des agriculteurs suisses',
+    'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilatérales III : le marathon démarre au Conseil des États',
+    'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'Le débat de trois jours sur le paquet de stabilisation Suisse-UE commence aujourd’hui. Au moins cinq conseillers fédéraux sont attendus en séance.',
+    'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Palais fédéral à Berne, siège des chambres fédérales suisses',
+    'blog.article.esito-campagna-blocher.title': 'Neutralité : 70 % rejettent l\'initiative de Blocher',
+    'blog.article.esito-campagna-blocher.excerpt': '70 % des électeurs ont rejeté l’initiative sur la neutralité ; la campagne de Christoph Blocher a coûté près de 4 millions de francs, renforçant la position du Conseil fédéral.',
+    'blog.article.esito-campagna-blocher.imageAlt': 'Vue du Palais fédéral suisse à Berne avec des citoyens et des journaux sur le référendum sur la neutralità',
+    'blog.article.svizzera-digitale-cyber-preparazione.title': 'La Suisse, leader du numérique, mais à la traîne en matière de cyberdéfense',
+    'blog.article.svizzera-digitale-cyber-preparazione.excerpt': 'La Suisse est en tête de la compétitivité numérique avec 100/100, mais elle n’est que 31e sur 66 en matière de préparation cyber (5,32/10) ; les attaques ont augmenté de 35% et 7 incidents ont été recensés au cours de l’année écoulée.',
+    'blog.article.svizzera-digitale-cyber-preparazione.imageAlt': 'Centre de données suisse avec drapeau suisse, représentant la compétitivité numérique',
 };
 
 export default blogMetaChFr;

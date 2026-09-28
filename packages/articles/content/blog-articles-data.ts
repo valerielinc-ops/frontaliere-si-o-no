@@ -36583,6 +36583,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mastini-fassa-hockey-2026',
+ category: 'novita',
+ date: '2026-09-28T06:39:03.483Z',
+ image: '/images/blog/mastini-fassa-hockey-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'cambi-ripetuti-cassa-malati',
+ category: 'pratico',
+ date: '2026-09-28T07:23:51.621Z',
+ image: '/images/blog/cambi-ripetuti-cassa-malati.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

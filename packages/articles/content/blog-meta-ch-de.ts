@@ -6905,6 +6905,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: Tessiner Landwirt im Schweizer Kalender',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'Der 29-Jährige aus Bellinzona erzählt von seiner Lehre auf Deutsch, der Schließung des Betriebs mit 650 Hühnern und der intensiven Arbeit von bis zu 15 Stunden pro Tag.',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, 29-jähriger Tessiner Landwirt, Porträt für den Schweizer Bauernkalender',
+    'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilaterale III: Start der Marathonberatungen im Ständerat',
+    'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'Heute beginnt die dreitägige Debatte über das Stabilisierungspaket Schweiz-EU. Im Plenum werden mindestens fünf Bundesräte erwartet.',
+    'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Bundeskammern',
+    'blog.article.esito-campagna-blocher.title': 'Neutralität: 70% lehnen Blochers Initiative ab',
+    'blog.article.esito-campagna-blocher.excerpt': '70% der Wähler haben die Initiative zur Neutralität abgelehnt; die Kampagne von Christoph Blocher kostete fast 4 Millionen Franken und stärkte damit die Position des Bundesrates.',
+    'blog.article.esito-campagna-blocher.imageAlt': 'Blick auf das Schweizer Bundeshaus in Bern mit Bürgern und Zeitungen zur Neutralitätsabstimmung',
+    'blog.article.svizzera-digitale-cyber-preparazione.title': 'Schweiz digital führend, aber bei der Cyberabwehr im Rückstand',
+    'blog.article.svizzera-digitale-cyber-preparazione.excerpt': 'Die Schweiz führt die digitale Wettbewerbsfähigkeit mit 100/100 an, belegt bei der Cyber-Bereitschaft jedoch nur Platz 31 von 66 (5,32/10); die Angriffe haben um 35% zugenommen, und im letzten Jahr wurden 7 Vorfälle gezählt.',
+    'blog.article.svizzera-digitale-cyber-preparazione.imageAlt': 'Schweizer Rechenzentrum mit Schweizer Flagge, Symbol für digitale Wettbewerbsfähigkeit',
 };
 
 export default blogMetaChDe;
