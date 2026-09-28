@@ -15,6 +15,7 @@ import { differentiateH1FromTitle, esc, H1_STYLE, H2_STYLE, LEDE_STYLE, LINK_ACC
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { buildSitemapIndexXml, discoverSitemapFiles } from './sitemapAliasPlugin';
+import { cleanNamespaces } from './shared/distNamespaceCleanup';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { buildPlateAuctionPath, allPlateAuctionCantonCodes, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
 import { validatePlateAuctionSourcesRegistry } from '../services/plateAuctions/types';
@@ -439,6 +440,22 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     if (process.env.SKIP_PLATE_AUCTION_PAGES === '1') return;
     const distDir = np.join(rootDir, 'dist');
     if (!fs.existsSync(distDir)) return;
+
+    // Incremental Vite builds preserve dist/ between runs. A source can move
+    // from active to blocked (or a large catalogue can shrink), so rewriting
+    // only the current rows leaves old detail HTML and old numbered sitemap
+    // shards published. That was the source of stale GL plate URLs returning
+    // 404 while still advertised by sitemap-plate-auctions-002.xml.
+    cleanNamespaces(distDir, LOCALES.map((locale) => pathFor(locale, 'hub').replace(/^\/+|\/+$/g, '')));
+    for (const file of fs.readdirSync(distDir)) {
+      if (!/^sitemap-plate-auctions(?:-\d+)?\.xml$/.test(file)) continue;
+      try {
+        fs.rmSync(np.join(distDir, file), { force: true });
+      } catch (err) {
+        console.warn(`[plate-auction-pages] failed to remove stale ${file}`, err);
+      }
+    }
+
     const context = loadPlateAuctionContext(rootDir);
     const { detailRows, publishedDetailRowsByLocaleAndCanton } = context;
     const directoryCantons = new Set(detailRows.map((row) => String(row.sourceKey || row.platePrefix).toUpperCase()));

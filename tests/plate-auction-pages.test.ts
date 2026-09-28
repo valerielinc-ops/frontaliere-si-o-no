@@ -1,4 +1,4 @@
-import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -444,6 +444,23 @@ describe('plate-auction static pages', () => {
       expect(historyHtml).toContain('ft-plate-auction-top-ad');
     }
     expect(expectedDetailUrls.size).toBe(164);
+  });
+
+  it('removes stale detail namespaces and numbered sitemaps before regenerating', async () => {
+    const rootDir = fixtureRoot({ auctionCount: 41, withDist: true });
+    const stalePage = join(rootDir, 'dist', 'de', 'schweizer-nummernschildauktionen', 'glarus-gl', 'gl25900', 'index.html');
+    const staleSitemap = join(rootDir, 'dist', 'sitemap-plate-auctions-002.xml');
+    mkdirSync(dirname(stalePage), { recursive: true });
+    writeFileSync(stalePage, '<html>stale GL page</html>', 'utf8');
+    writeFileSync(staleSitemap, '<urlset><url><loc>https://frontaliereticino.ch/de/schweizer-nummernschildauktionen/glarus-gl/gl25900/</loc></url></urlset>', 'utf8');
+
+    const closeBundle = plateAuctionsPagesPlugin(rootDir).closeBundle;
+    if (typeof closeBundle !== 'function') throw new Error('plate-auction plugin has no closeBundle hook');
+    await closeBundle();
+
+    expect(existsSync(stalePage)).toBe(false);
+    expect(existsSync(staleSitemap)).toBe(false);
+    expect(readFileSync(join(rootDir, 'dist', 'sitemap-plate-auctions.xml'), 'utf8')).not.toContain('gl25900');
   });
 
   it('renders from a precomputed context instead of re-reading the snapshot per page', () => {
