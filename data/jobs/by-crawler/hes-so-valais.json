@@ -1,7 +1,74 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-09-28T04:56:42.623Z",
+  "assembledAt": "2026-09-28T21:22:38.959Z",
   "jobs": [
+    {
+      "url": "https://www.hevs.ch/fr/recruitee/mediamaticien-cfc-ou-mediamaticienne-cfc-***-mediamatiker-efz--mediamatikerin-efz-215387",
+      "applyUrl": "https://www.hevs.ch/fr/recruitee/mediamaticien-cfc-ou-mediamaticienne-cfc-***-mediamatiker-efz--mediamatikerin-efz-215387",
+      "title": "Médiamaticien CFC ou Médiamaticienne CFC *** Mediamatiker EFZ",
+      "company": "HES-SO Valais-Wallis",
+      "companyKey": "hes-so-valais",
+      "location": "Sion",
+      "postalCode": "1950",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Tu as terminé ta scolarité obligatoire ? Le domaine de la communication, du multimédia et du digital t’intéresse ? Tu fais preuve de créativité, de\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
+      "descriptionByLocale": {
+        "fr": "Tu as terminé ta scolarité obligatoire ? Le domaine de la communication, du multimédia et du digital t’intéresse ? Tu fais preuve de créativité, de\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
+        "de": "Offene Stelle an der HES-SO Wallis in Sion.\nPosition: Médiamaticien CFC ou Médiamaticienne CFC * Mediamatiker EFZ.\n\nDie HES-SO Wallis ist eine zweisprachige (Französisch-Deutsch) Fachhochschule im Kanton Wallis mit Standorten in Sitten, Siders, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in den Bereichen Ingenieurwesen, Management, Gesundheit, Soziale Arbeit und Kunst aus.",
+        "en": "Open position at HES-SO Valais-Wallis in Sion.\nPosition: Médiamaticien CFC ou Médiamaticienne CFC * Mediamatiker EFZ.\n\nHES-SO Valais-Wallis is a bilingual (French-German) university of applied sciences in Canton Valais, Switzerland, with campuses in Sion, Sierre, Visp and Saint-Maurice. It trains over 2,800 students in engineering, management, health, social work and the arts.",
+        "it": "Tu as terminé ta scolarité obligatoire ? Le domaine de la communication, du multimédia et du digital t’intéresse ? Tu fais preuve de créativité, de\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
+      },
+      "titleByLocale": {
+        "fr": "Médiamaticien CFC ou Médiamaticienne CFC *** Mediamatiker EFZ",
+        "de": "Médiamaticien CFC ou Médiamaticienne CFC *** Mediamatiker EFZ",
+        "it": "Médiamaticien CFC ou Médiamaticienne CFC *** Mediamatiker CFC",
+        "en": "Médiamaticien CFC ou Médiamaticienne CFC *** Mediamatiker EFZ"
+      },
+      "slug": "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais",
+      "slugByLocale": {
+        "fr": "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais",
+        "it": "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais",
+        "en": "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais",
+        "de": "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais"
+      },
+      "category": "general",
+      "datePosted": "2026-09-28",
+      "source": "hes-so-valais-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione / Ricerca",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "urlByLocale": {
+        "fr": "https://www.hevs.ch/fr/recruitee/mediamaticien-cfc-ou-mediamaticienne-cfc-***-mediamatiker-efz--mediamatikerin-efz-215387",
+        "de": "https://www.hevs.ch/de/recruitee/mediamaticien-cfc-ou-mediamaticienne-cfc-***-mediamatiker-efz--mediamatikerin-efz-215387",
+        "en": "https://www.hevs.ch/en/recruitee/mediamaticien-cfc-ou-mediamaticienne-cfc-***-mediamatiker-efz--mediamatikerin-efz-215387"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "hes-so-valais-c4969ea7e334",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-09-28T21:22:36.996Z"
+    },
     {
       "url": "https://www.hevs.ch/fr/recruitee/specialiste-en-gestion-de-la-sante-en-entreprise-gse-et-case-management-6080-***-fachperson-betriebliches-gesundheitsmanagement-und-case-management-6080--215284",
       "applyUrl": "https://www.hevs.ch/fr/recruitee/specialiste-en-gestion-de-la-sante-en-entreprise-gse-et-case-management-6080-***-fachperson-betriebliches-gesundheitsmanagement-und-case-management-6080--215284",
@@ -67,6 +134,7 @@
       },
       "firstSeenAt": "2026-09-19T22:50:46.398Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -144,6 +212,7 @@
       },
       "firstSeenAt": "2026-09-10T23:06:17.023Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",

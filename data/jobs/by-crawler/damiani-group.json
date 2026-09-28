@@ -1,6 +1,6 @@
 {
   "crawlerKey": "damiani-group",
-  "assembledAt": "2026-09-28T04:59:20.476Z",
+  "assembledAt": "2026-09-28T21:19:23.771Z",
   "jobs": [
     {
       "title": "Consolidation & Reporting Specialist",
@@ -101,7 +101,7 @@
       "slugByLocale": {
         "it": "specialista-servizio-clienti-lingua-araba-o-russa-damiani-group-mendrisio",
         "en": "specialista-customer-service-lingua-araba-o-russa-damiani-group-mendrisio",
-        "de": "customer-service-specialist-arabisch-oder-russisch-damiani-group-mendrisio",
+        "de": "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio",
         "fr": "specialiste-service-client-arabe-ou-russe-damiani-group-mendrisio"
       },
       "previousSlugs": [
@@ -110,6 +110,7 @@
         "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio-fstjwv",
         "servizio-clienti-specialista-lingua-araba-o-russa-damiani-group-mendrisio",
         "specialista-customer-service-lingua-araba-o-russa-damiani-group-mendrisio",
+        "customer-service-specialist-arabisch-oder-russisch-damiani-group-mendrisio",
         "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio"
       ],
       "salaryMin": 54000,
@@ -138,6 +139,7 @@
           "specialista-customer-service-lingua-araba-o-russa-damiani-group-mendrisio"
         ],
         "de": [
+          "customer-service-specialist-arabisch-oder-russisch-damiani-group-mendrisio",
           "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio"
         ]
       },
@@ -460,7 +462,8 @@
         }
       },
       "firstSeenAt": "2026-09-08T23:23:15.400Z",
-      "sourceIdentity": "url:https://careers.damianigroup.com/job/lugano-sales-advisor-salvini-gioielli-manor/1367607755"
+      "sourceIdentity": "url:https://careers.damianigroup.com/job/lugano-sales-advisor-salvini-gioielli-manor/1367607755",
+      "needsRetranslation": true
     },
     {
       "title": "Graphic Designer - Freelance",
