@@ -1,3 +1,5 @@
+// @vitest-environment jsdom
+// @vitest-environment-options { "url": "https://frontaliereticino.ch/" }
 /**
  * Smoke tests for services/posthog.ts
  *
@@ -16,7 +18,7 @@
  * module level to capture init/capture calls without touching the network.
  */
 
-import { vi, describe, it, expect, beforeEach, beforeAll } from 'vitest';
+import { vi, describe, it, expect, beforeEach, beforeAll, afterEach } from 'vitest';
 
 // Per-test-file mock of posthog-js so we can observe init/capture.
 // ISOLATION NOTE: Use vi.importActual() instead of vi.unmock() to avoid
@@ -124,6 +126,30 @@ describe('PostHog smoke tests', () => {
     expect(match).toBeDefined();
     expect(match?.[1]).toMatchObject({ surface: 'inline_cta' });
   });
+});
+
+describe('Local dev host gate', () => {
+  const realLocation = window.location;
+
+  afterEach(() => {
+    Object.defineProperty(window, 'location', { configurable: true, value: realLocation });
+  });
+
+  it.each(['http://localhost:3000/', 'http://127.0.0.1:4173/', 'http://[::1]:3000/'])(
+    'never initializes PostHog on %s',
+    async (url) => {
+      Object.defineProperty(window, 'location', { configurable: true, value: new URL(url) });
+      vi.resetModules();
+      const localModule = await vi.importActual<typeof import('@/services/posthog')>('@/services/posthog');
+
+      localModule.initPostHog();
+      localModule.captureEvent('job_alert_created');
+      await new Promise((resolve) => setTimeout(resolve, 50));
+
+      expect(posthogMock.init).not.toHaveBeenCalled();
+      expect(posthogMock.capture).not.toHaveBeenCalled();
+    },
+  );
 });
 
 describe('Silent consent guarantee', () => {

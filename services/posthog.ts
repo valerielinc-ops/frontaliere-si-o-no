@@ -15,6 +15,7 @@ import { isLikelyBot } from './botPatterns';
 import {
  POSTHOG_SESSION_REPLAY_SAMPLE_RATE,
  createPostHogQuotaFilter,
+ isLocalDevHost,
 } from './posthogQuota';
 
 const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
@@ -32,6 +33,9 @@ async function ensurePostHog(): Promise<any> {
  // _posthog instance is cached (after which the early `if (_posthog)` returns).
  // captureEvent / capturePageView call through here, so they become no-ops too.
  if (isLikelyBot()) return null;
+ // Local dev gate: `vite` / `vite preview` on localhost would otherwise send
+ // developer sessions and local-only errors to the production project.
+ if (isLocalDevHost()) return null;
  if (_loading) {
  await _loading;
  return _posthog;

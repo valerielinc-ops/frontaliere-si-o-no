@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   createPostHogQuotaFilter,
+  isLocalDevHost,
   POSTHOG_EVENT_SAMPLE_RATE,
   shouldCapturePostHogEvent,
 } from '@/services/posthogQuota';
@@ -49,5 +50,25 @@ describe('PostHog quota sampling', () => {
 
     expect(filter(null)).toBeNull();
     expect(filter(payload)).toBe(payload);
+  });
+});
+
+describe('isLocalDevHost', () => {
+  it('matches the hostnames of the Vite dev server and vite preview', () => {
+    expect(isLocalDevHost('localhost')).toBe(true);
+    expect(isLocalDevHost('127.0.0.1')).toBe(true);
+    expect(isLocalDevHost('[::1]')).toBe(true);
+  });
+
+  it('keeps production and look-alike hostnames enabled', () => {
+    expect(isLocalDevHost('frontaliereticino.ch')).toBe(false);
+    expect(isLocalDevHost('www.frontaliereticino.ch')).toBe(false);
+    expect(isLocalDevHost('localhost.frontaliereticino.ch')).toBe(false);
+    expect(isLocalDevHost('127.0.0.1.nip.io')).toBe(false);
+    expect(isLocalDevHost('')).toBe(false);
+  });
+
+  it('is false outside the browser', () => {
+    expect(isLocalDevHost()).toBe(false);
   });
 });

@@ -1,4 +1,6 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+// @vitest-environment jsdom
+// @vitest-environment-options { "url": "https://frontaliereticino.ch/" }
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import {
   POSTHOG_INIT_CONTENT,
 } from '../../build-plugins/constants.ts';
@@ -61,7 +63,7 @@ function googleIosInjectedStackOverflowEvent(filename = 'https://frontalieretici
  * an isolated `vm` sandbox. This mirrors tests/build-plugins/earlyBootSelfHeal.test.ts's
  * `new Function(SELF_HEAL_SCRIPT_CONTENT)()` pattern.
  */
-function extractBeforeSend(): (event: unknown) => unknown {
+function lookLikeRealChrome(): void {
   // Look like a real desktop Chrome so BOT_GATE_FN doesn't skip the init
   // (mirrors tests/bot-gate-parity.test.ts's "real browser" navigator setup).
   Object.defineProperty(window.navigator, 'webdriver', { configurable: true, get: () => false });
@@ -76,6 +78,10 @@ function extractBeforeSend(): (event: unknown) => unknown {
     get: () => ({ query: () => Promise.resolve({ state: 'prompt' }) }),
   });
   if (!('chrome' in window)) Object.defineProperty(window, 'chrome', { configurable: true, value: {} });
+}
+
+function extractBeforeSend(): (event: unknown) => unknown {
+  lookLikeRealChrome();
   delete (window as unknown as { posthog?: unknown }).posthog;
 
   // The snippet's stub-loader inserts its <script> tag via
@@ -96,6 +102,27 @@ function extractBeforeSend(): (event: unknown) => unknown {
   }
   return opts.before_send as (event: unknown) => unknown;
 }
+
+describe('POSTHOG_INIT_CONTENT local dev gate', () => {
+  const realLocation = window.location;
+
+  afterEach(() => {
+    Object.defineProperty(window, 'location', { configurable: true, value: realLocation });
+  });
+
+  it.each(['http://localhost:3000/', 'http://127.0.0.1:4173/', 'http://[::1]:4173/'])(
+    'never installs PostHog on %s',
+    (url) => {
+      lookLikeRealChrome();
+      delete (window as unknown as { posthog?: unknown }).posthog;
+      Object.defineProperty(window, 'location', { configurable: true, value: new URL(url) });
+
+      new Function(POSTHOG_INIT_CONTENT)();
+
+      expect((window as unknown as { posthog?: unknown }).posthog).toBeUndefined();
+    },
+  );
+});
 
 describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
   let beforeSend: (event: unknown) => unknown;
