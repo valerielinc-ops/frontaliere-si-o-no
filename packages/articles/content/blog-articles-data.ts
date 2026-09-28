@@ -36637,6 +36637,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuova-strada-carlazzo-frontalieri',
+ category: 'novita',
+ date: '2026-09-28T11:04:20.894Z',
+ image: '/images/blog/nuova-strada-carlazzo-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

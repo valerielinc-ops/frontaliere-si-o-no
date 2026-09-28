@@ -12205,6 +12205,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cantiere-cassarate-bozzoreda.title': 'Night work on the bridge over the Cassarate: possible delays',
     'blog.article.cantiere-cassarate-bozzoreda.excerpt': 'From October 5 to 10, nighttime work will take place on via alla Bozzoreda in Lugano: noise and possible delays on connected roads.',
     'blog.article.cantiere-cassarate-bozzoreda.imageAlt': 'Night resurfacing works on the Cassarate bridge in Lugano',
+    'blog.article.nuova-strada-carlazzo-frontalieri.title': 'New road to Carlazzo: 1.2 million to connect SP10 and Via San Pietro',
+    'blog.article.nuova-strada-carlazzo-frontalieri.excerpt': 'The Program Agreement between the Province of Como and the Municipality of Carlazzo finances a road of 1,242,383.84 euros, with 1,042,383.84 euros from the Municipality and 200,000 euros from the Province, to be built by 2026.',
+    'blog.article.nuova-strada-carlazzo-frontalieri.imageAlt': 'Recently paved rural road near the Swiss-Italian border, with green hills and clear sky.',
 };
 
 export default blogMetaEn;
