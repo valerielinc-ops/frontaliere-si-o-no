@@ -38,9 +38,9 @@ describe('orchestrator heartbeat', () => {
     });
   });
 
-  it('does not page inside the measured cron grace window', () => {
+  it('does not page inside the grace window', () => {
     const report = classifyHeartbeat({
-      now: new Date('2026-09-14T15:30:00Z'),
+      now: new Date('2026-09-14T10:30:00Z'),
       runs: [],
     });
     expect(report.state).toBe('within_grace');
@@ -48,13 +48,12 @@ describe('orchestrator heartbeat', () => {
     expect(report.graceMinutes).toBe(DEFAULT_GRACE_MINUTES);
   });
 
-  it('absorbs the delayed 09:00 dispatch that raised issue 9541', () => {
-    const report = classifyHeartbeat({
-      now: new Date('2026-09-22T13:39:59Z'),
-      runs: [],
-    });
-    expect(report.state).toBe('within_grace');
-    expect(report.alert).toBe(false);
+  it('pages two hours after the slot now that Cloud Scheduler owns the clock', () => {
+    // 600 minutes absorbed the ~4 h GitHub cron delay (issue 9541); the cron
+    // is gone, so a slot still empty at 11:00 is a real hole.
+    expect(DEFAULT_GRACE_MINUTES).toBe(120);
+    expect(classifyHeartbeat({ now: new Date('2026-09-22T10:59:59Z'), runs: [] }).state).toBe('within_grace');
+    expect(classifyHeartbeat({ now: new Date('2026-09-22T11:00:01Z'), runs: [] }).state).toBe('missing');
   });
 
   it('pages only after a due slot has no scheduled run', () => {
@@ -68,7 +67,7 @@ describe('orchestrator heartbeat', () => {
     expect(report.expectedSlot.label).toBe('09:00');
   });
 
-  it('accepts a running or completed run but never a wrong workflow/event', () => {
+  it('accepts a running or completed run of the slot, never a wrong workflow/event', () => {
     const now = new Date('2026-09-14T19:01:00Z');
     expect(classifyHeartbeat({ now, runs: [run('2026-09-14T10:15:00Z', { status: 'in_progress' })] }).state)
       .toBe('running');
@@ -77,9 +76,22 @@ describe('orchestrator heartbeat', () => {
       now,
       runs: [run('2026-09-14T10:15:00Z', { path: '.github/workflows/other.yml' })],
     }).state).toBe('missing');
+    // Cloud Scheduler dispatches the slot as a MARKED workflow_dispatch; an
+    // unmarked manual or dry-run dispatch does not prove the wave ran.
     expect(classifyHeartbeat({
       now,
-      runs: [run('2026-09-14T10:15:00Z', { event: 'workflow_dispatch' })],
+      runs: [run('2026-09-14T09:00:04Z', {
+        event: 'workflow_dispatch',
+        display_title: 'Orchestrate Job Crawlers [cloud-scheduler 2026-09-14T09:00:00.000Z]',
+      })],
+    }).state).toBe('observed');
+    expect(classifyHeartbeat({
+      now,
+      runs: [run('2026-09-14T09:00:04Z', { event: 'workflow_dispatch', display_title: 'Orchestrate Job Crawlers' })],
+    }).state).toBe('missing');
+    expect(classifyHeartbeat({
+      now,
+      runs: [run('2026-09-14T10:15:00Z', { event: 'push' })],
     }).state).toBe('missing');
   });
 

@@ -10,6 +10,7 @@ import {
   hasCollectorWrittenHtml,
   readCachedOrEmittedHtml,
   releaseDiskBackedHtmlCache,
+  releaseFlushedHtmlCacheChunk,
 } from '../build-plugins/shared/jobsSeoHtmlCache';
 import {
   buildSoftLandingThinHtml,
@@ -170,6 +171,52 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     ).toBe(minifyHtml(fullBridgeHtml(cacheHtml, 'canonical-job')));
   });
 
+  it('releases an active chunk after flushing it and keeps unwritten paths as fallback', async () => {
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobs-seo-memory-streaming-'));
+    tempDirs.push(distDir);
+    const collector = new WriteCollector({ pluginName: 'jobsSeoPagesPlugin' });
+    const written = ['cerca-lavoro-ticino/job-a', 'cerca-lavoro-ticino/job-b'];
+    const cache = new Map<string, string>();
+    const pendingPaths = new Map<string, string>();
+    for (const relativePath of written) {
+      const html = ACTIVE_PAGE.replace('canonical-job', relativePath.split('/')[1]);
+      collector.add(path.join(distDir, relativePath, 'index.html'), minifyHtml(html));
+      cache.set(`it:/${relativePath}/`, html);
+      pendingPaths.set(`it:/${relativePath}/`, relativePath);
+    }
+    // A path the collector never wrote (collision loser, filtered locale).
+    cache.set('it:/cerca-lavoro-ticino/job-collision/', ACTIVE_PAGE);
+    pendingPaths.set('it:/cerca-lavoro-ticino/job-collision/', 'cerca-lavoro-ticino/job-collision');
+    const isWritten = (relativePath: string) =>
+      hasCollectorWrittenHtml(distDir, relativePath, (filePath) => collector.hasWritten(filePath));
+
+    // Nothing is on disk before the chunk boundary flushes the collector.
+    expect(written.some(isWritten)).toBe(false);
+
+    const released = await releaseFlushedHtmlCacheChunk(
+      cache,
+      pendingPaths,
+      () => collector.flush(),
+      isWritten,
+    );
+
+    expect(released).toBe(2);
+    expect(pendingPaths.size).toBe(0);
+    expect([...cache.keys()]).toEqual(['it:/cerca-lavoro-ticino/job-collision/']);
+    for (const relativePath of written) {
+      const key = `it:/${relativePath}/`;
+      expect(readCachedOrEmittedHtml(cache, key, distDir, relativePath)).toBe(
+        minifyHtml(ACTIVE_PAGE.replace('canonical-job', relativePath.split('/')[1])),
+      );
+    }
+    // An empty chunk still flushes: the loop's final boundary drains the
+    // bridges queued after the last cached page.
+    const tail = path.join(distDir, 'cerca-lavoro-ticino/job-a.html');
+    collector.add(tail, '<html>flat</html>');
+    expect(await releaseFlushedHtmlCacheChunk(cache, pendingPaths, () => collector.flush(), isWritten)).toBe(0);
+    expect(fs.readFileSync(tail, 'utf8')).toBe('<html>flat</html>');
+  });
+
   it('pins the retained-set markers and bounded expired cache cardinalities', () => {
     const source = fs.readFileSync(
       path.resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
@@ -178,6 +225,11 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(source).toContain("logJobsSeoMem('after-active-pages'");
     expect(source).toContain('activeHtmlSource: \'disk\'');
     expect(source).toContain('const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512');
+    expect(source).toContain('const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512');
+    expect(source).toContain(
+      'if (activeHtmlPaths.size >= ACTIVE_HTML_CACHE_CHUNK_SIZE) await releaseActiveHtmlCacheChunk();',
+    );
+    expect(source).toContain('activeHtmlCachePeakEntries,');
     expect(source).toContain('expiredCacheEntries: expiredSoftLandingCache.size');
     expect(source).toContain('expiredHtmlCachePeakEntries');
   });

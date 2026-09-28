@@ -39,6 +39,7 @@ import {
  hasCollectorWrittenHtml,
  readCachedOrEmittedHtml,
  releaseDiskBackedHtmlCache,
+ releaseFlushedHtmlCacheChunk,
  jobsSeoHtmlCacheKey,
 } from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
@@ -3120,8 +3121,31 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  `\x1b[36m[jobs-seo-pages]\x1b[0m employer hubs available for internal linking: ${emittedEmployerHubs.size}`,
  );
 
+ // #9179: the loop used to keep every page it emitted in `jobHtmlCache` until
+ // the flush after the loop: ~24k two-byte HTML strings plus a collector
+ // backlog of up to 7 × 5000 entries, on a heap already at ~8.4 GB. A full
+ // re-render (any emitter change invalidates reuse) pushed the old generation
+ // past 80 % of the 14 GB ceiling and V8 aborted with "Ineffective
+ // mark-compacts" (runs 36391603234 and 36408996336, legs it/fr/en). Same
+ // chunk boundary as the expired soft-landing loop: flush, then drop the
+ // entries this collector wrote, so the cache holds one chunk at a time.
+ const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512;
+ let releasedActiveHtmlEntries = 0;
+ let activeHtmlCachePeakEntries = 0;
+ let activeHtmlCacheChunks = 0;
+ const releaseActiveHtmlCacheChunk = async (): Promise<void> => {
+  releasedActiveHtmlEntries += await releaseFlushedHtmlCacheChunk(
+   jobHtmlCache,
+   activeHtmlPaths,
+   () => collector.flush(),
+   hasCollectorWrittenHtmlForPath,
+  );
+  activeHtmlCacheChunks++;
+ };
+
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
+  if (activeHtmlPaths.size >= ACTIVE_HTML_CACHE_CHUNK_SIZE) await releaseActiveHtmlCacheChunk();
  const perLocaleSlug = {
  it: localizedSlug(job, 'it'),
  en: localizedSlug(job, 'en'),
@@ -4193,6 +4217,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  const activeCacheKey = jobsSeoHtmlCacheKey(locale, canonicalPath);
  jobHtmlCache.set(activeCacheKey, html);
  activeHtmlPaths.set(activeCacheKey, canonicalPath);
+ activeHtmlCachePeakEntries = Math.max(activeHtmlCachePeakEntries, jobHtmlCache.size);
  // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
  // Uses a canonical bridge page instead of a noindex/meta-refresh alias
  const flatPath = canonicalPath.replace(/\/+$/, '');
@@ -4340,21 +4365,18 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  }
  }
 
- // The active pages are all queued by this point. Flush them before releasing
- // their source strings so every bridge can use the exact emitted artifact.
- // Missing files are kept as a tiny fallback for collision/foreign-writer
- // edge cases; the normal path drops the full HTML cache before the marker.
- await collector.flush();
- const activeHtmlDiskBackedKeys = new Set<string>();
- for (const [key, relativePath] of activeHtmlPaths) {
-  if (hasCollectorWrittenHtmlForPath(relativePath)) activeHtmlDiskBackedKeys.add(key);
- }
- const releasedActiveHtmlEntries = releaseDiskBackedHtmlCache(jobHtmlCache, activeHtmlDiskBackedKeys);
- activeHtmlPaths.clear();
+ // The active pages are all queued by this point. Flush the last chunk before
+ // releasing its source strings so every bridge can use the exact emitted
+ // artifact. Missing files are kept as a tiny fallback for
+ // collision/foreign-writer edge cases; the normal path drops the full HTML
+ // cache before the marker.
+ await releaseActiveHtmlCacheChunk();
  logJobsSeoMem('after-active-pages', {
   activeHtmlSource: 'disk',
   releasedActiveHtmlEntries,
   activeHtmlFallbackEntries: jobHtmlCache.size,
+  activeHtmlCachePeakEntries,
+  activeHtmlCacheChunks,
  });
 
  /* ── Company landing pages ────────────────────────────────── */

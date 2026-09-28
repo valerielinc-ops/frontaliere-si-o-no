@@ -1,12 +1,18 @@
 name: Orchestrate Job Crawlers
+# The Cloud Scheduler wave carries a marker the heartbeat verifies
+# (scripts/ci/orchestrator-heartbeat.mjs) and the dispatcher looks up before a
+# retry (functions/src/orchestratorCronDispatch.js). A dry run never gets it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.trigger_source == 'cloud-scheduler' && inputs.dry_run != 'true' && format('Orchestrate Job Crawlers [cloud-scheduler {0}]', inputs.scheduled_slot) || 'Orchestrate Job Crawlers' }}
 
 on:
-  schedule:
-    # Run twice daily: morning + afternoon (UTC). Shifted +1h (2026-07-05) vs
-    # original 08:00/20:00 — actual runs were landing 08:00 late anyway.
-    # All crawlers (including Coop) are dispatched here; no standalone crons.
-    - cron: '0 9 * * *'
-    - cron: '0 21 * * *'
+  # Twice daily at 09:00 and 21:00 UTC, dispatched by Cloud Scheduler through
+  # dispatchCrawlerOrchestrator in functions/index.js
+  # (functions/src/orchestratorCronDispatch.js). GitHub's native `schedule:`
+  # was removed after it created these runs 306 min (09:00) and 148 min
+  # (21:00) late in median (2026-09-28 measurement; non-round minutes were
+  # just as late, so staggering the minute is no fix). Do not re-add a cron
+  # here: it would dispatch every crawler wave twice. All crawlers (including
+  # Coop) are dispatched here; no standalone crons.
   workflow_dispatch:
     inputs:
       group:
@@ -29,6 +35,16 @@ on:
         options:
           - 'false'
           - 'true'
+      trigger_source:
+        description: 'Who dispatched the wave (Cloud Scheduler sends cloud-scheduler; leave manual)'
+        required: false
+        default: 'manual'
+        type: string
+      scheduled_slot:
+        description: 'Nominal UTC slot (ISO) of a Cloud Scheduler wave; empty for a manual one'
+        required: false
+        default: ''
+        type: string
 
 concurrency:
   group: orchestrate-crawlers
