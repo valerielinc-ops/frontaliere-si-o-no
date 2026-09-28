@@ -534,6 +534,20 @@ describe('workflow wiring without the human approval gate', () => {
     expect(source).not.toContain('human-side-effect-gate.mjs')
   })
 
+  it('sends the campaign from a verified newsletter workflow_run handoff', () => {
+    // Before, MODE fell through to inputs.mode || 'test' on workflow_run: the
+    // primary handoff sent one test email to the admin every day and the
+    // campaign waited for the late cron fallback.
+    const document = YAML.parse(workflow('send-newsletter.yml')) as {
+      jobs: Record<string, { steps: Array<{ name?: string; if?: string; env?: Record<string, string> }> }>
+    }
+    const run = document.jobs.newsletter.steps.find((candidate) => candidate.name === 'Run newsletter job')!
+    expect(run.if).toContain("steps.newsletter_trigger.outputs.allow_workflow_run == 'true'")
+    expect(run.env?.MODE).toBe(
+      "$" + "{{ (github.event_name == 'schedule' || github.event_name == 'workflow_run') && 'send' || inputs.mode || 'test' }}",
+    )
+  })
+
   it('allows only successful upstream workflow_run events for GSC orphan sync', () => {
     const source = workflow('sync-gsc-orphans.yml')
     expect(source).toContain("github.event.workflow_run.conclusion == 'success'")
