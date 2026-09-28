@@ -6959,6 +6959,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.migros-tegut-24-acquirenti.title': 'Migros is looking for buyers for 24 Tegut stores',
     'blog.article.migros-tegut-24-acquirenti.excerpt': 'The German antitrust authority has authorized Edeka to acquire 178 of Tegut’s 202 stores; 24 stores remain to be divested, along with 41 Teo locations, the Herzberger bakery, and a logistics center.',
     'blog.article.migros-tegut-24-acquirenti.imageAlt': 'Interior of a Migros supermarket in Switzerland with shelves and checkout lanes',
+    'blog.article.snl-contratto-alternativo-personale.title': 'SNL proposes «alternative contract» to reduce impacts on staff',
+    'blog.article.snl-contratto-alternativo-personale.excerpt': 'SNL forecasts losses of between 350\'000 and 400\'000 francs following the cantonal decision to no longer commission the Locarno-Magadino service',
+    'blog.article.snl-contratto-alternativo-personale.imageAlt': 'Lake Lugano ferry, SNL navigation service',
 };
 
 export default blogMetaChEn;

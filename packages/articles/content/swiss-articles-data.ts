@@ -20905,6 +20905,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'snl-contratto-alternativo-personale',
+    category: 'pratico',
+    date: '2026-09-28T18:40:39.503Z',
+    image: '/images/blog/snl-contratto-alternativo-personale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
