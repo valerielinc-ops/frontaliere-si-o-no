@@ -2356,16 +2356,29 @@ fi  # end SLICE_ONLY=false validation block
 # don't exist for every crawler (e.g. one that has never had an expired job) —
 # `git add` fails its ENTIRE invocation on any single unmatched pathspec, which
 # would otherwise abort staging of files that DO exist alongside it.
-STAGEABLE_FILES=()
-for _sf in "${ALL_FILES[@]}"; do
-  if [[ ! -e "$_sf" && "$_sf" != */ ]]; then
-    continue
-  elif git check-ignore -q "$_sf" 2>/dev/null; then
-    echo "ℹ️ Skipping gitignored path: $_sf"
-  else
-    STAGEABLE_FILES+=("$_sf")
-  fi
-done
+#
+# A missing directory path is kept only while the index still tracks files
+# under it: `git add <dir>/` then stages their deletion. A directory that is
+# neither on disk nor in the index (e.g. data/jobs/by-crawler/ in a checkout
+# that has only ever had expired slices) would make `git add` abort the whole
+# invocation with "pathspec did not match any files", exactly like a missing
+# file path.
+collect_stageable_files() {
+  STAGEABLE_FILES=()
+  local _sf
+  for _sf in "${ALL_FILES[@]}"; do
+    if [[ ! -e "$_sf" ]]; then
+      [[ "$_sf" == */ ]] || continue
+      [ -n "$(git ls-files -- "$_sf" | head -n 1)" ] || continue
+    fi
+    if git check-ignore -q "$_sf" 2>/dev/null; then
+      echo "ℹ️ Skipping gitignored path: $_sf"
+    else
+      STAGEABLE_FILES+=("$_sf")
+    fi
+  done
+}
+collect_stageable_files
 if [ "${#STAGEABLE_FILES[@]}" -gt 0 ]; then
   git add "${STAGEABLE_FILES[@]}"
 fi
@@ -2399,16 +2412,7 @@ if ! git rebase origin/main 2>/dev/null; then
     "  🔀 Resolving stash-pop conflict after last-moment rebase..."
   cleanup_rebase_snapshot "$LAST_MOMENT_SNAPSHOT_DIR"
 
-  STAGEABLE_FILES=()
-  for _sf in "${ALL_FILES[@]}"; do
-    if [[ ! -e "$_sf" && "$_sf" != */ ]]; then
-      continue
-    elif git check-ignore -q "$_sf" 2>/dev/null; then
-      echo "ℹ️ Skipping gitignored path: $_sf"
-    else
-      STAGEABLE_FILES+=("$_sf")
-    fi
-  done
+  collect_stageable_files
   if [ "${#STAGEABLE_FILES[@]}" -gt 0 ]; then
     git add "${STAGEABLE_FILES[@]}"
   fi
