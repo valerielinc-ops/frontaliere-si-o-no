@@ -10,6 +10,11 @@
   "detailTemplate": "/job/*/",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
+  "pagination": {
+    "maxPages": 120,
+    "declaredTotalPattern": "class=\"jobs_number\"[^>]*>\\s*([\\d'’.,]+)\\s*<",
+    "minCoverage": 0.95
+  },
   "sampleVacancyCount": 20,
   "sampleTitles": [
     "Betriebsmechaniker 80–100 % (m/w)",
