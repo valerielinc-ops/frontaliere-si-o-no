@@ -404,6 +404,20 @@ jobs:
           ARTICLE_FABRICATION_GUARD_BLOCKING: ${{ vars.ARTICLE_FABRICATION_GUARD_BLOCKING }}
         run: node scripts/ci/report-synced-article-fabrication.mjs
 
+      # This writer commits packages/articles/content directly to main, so the
+      # PR test workflow never sees its diff. Keep parser failures out of deploy:
+      # the syntax test covers every generated module, not only the changed file.
+      - name: Validate changed article modules before commit
+        if: steps.gate.outputs.skipped != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain --untracked-files=all -- packages/articles/content)" ]; then
+            echo "Article source unchanged; parser validation skipped."
+            exit 0
+          fi
+          npm ci --no-audit --no-fund
+          npm test -- tests/generated-content-parses.test.ts
+
       - name: Commit if changed
         id: commit
         # Keep the dry-run guard on the actual writer as well as in `gate`, so
@@ -526,7 +540,7 @@ jobs:
           # targets the same corpus commit the original attempt did, and skips
           # (writing nothing, committing nothing) if the API has moved since.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/pull-articles-corpus.mjs && node scripts/pull-articles-api.mjs && git add -- ${FILES[*]}"
+            --regenerate-cmd "node scripts/pull-articles-corpus.mjs && node scripts/pull-articles-api.mjs && if [ ! -x node_modules/.bin/vitest ]; then npm ci --no-audit --no-fund; fi && npm test -- tests/generated-content-parses.test.ts && git add -- ${FILES[*]}"
 
       # ── The invariant this job is the only actor able to maintain ───────────
       #
