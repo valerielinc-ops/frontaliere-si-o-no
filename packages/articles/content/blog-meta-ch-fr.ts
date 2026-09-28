@@ -6974,6 +6974,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ia-lavoro-donne-uomini-2030.title': 'IA et travail : impact différent sur les femmes et les hommes d’ici 2030',
     'blog.article.ia-lavoro-donne-uomini-2030.excerpt': 'D\'ici 2030, environ 25 % des activités féminines et 28 % des activités masculines pourraient être automatisées ; dans les secteurs des soins, de la santé et de l\'éducation, le potentiel tombe à 19 %.',
     'blog.article.ia-lavoro-donne-uomini-2030.imageAlt': 'Professionnels suisses dans un bureau à Zurich utilisant des outils d\'intelligence artificielle',
+    'blog.article.bilaterali-iii-svizzera-ue.title': 'Bilatérales III : Le Conseil des Etats entre en matière',
+    'blog.article.bilaterali-iii-svizzera-ue.excerpt': 'L\'entrée en matière a été approuvée par 29 voix contre 15. Une nouvelle autorité sur les aides d\'État est prévue et la TVA hôtelière est portée à 3,8 %.',
+    'blog.article.bilaterali-iii-svizzera-ue.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
 };
 
 export default blogMetaChFr;

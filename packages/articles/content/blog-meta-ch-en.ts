@@ -6974,6 +6974,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ia-lavoro-donne-uomini-2030.title': 'AI and work: different impact on women and men by 2030',
     'blog.article.ia-lavoro-donne-uomini-2030.excerpt': 'By 2030, approximately 25% of activities performed by women and 28% of those performed by men could be automated; in the care, healthcare, and education sectors, the potential drops to 19%.',
     'blog.article.ia-lavoro-donne-uomini-2030.imageAlt': 'Swiss professionals in a Zurich office using artificial intelligence tools',
+    'blog.article.bilaterali-iii-svizzera-ue.title': 'Bilateral Agreements III: Council of States enters into deliberations',
+    'blog.article.bilaterali-iii-svizzera-ue.excerpt': 'The proposal to consider the bill was approved by 29 votes to 15. A new authority for state aid is planned, along with an extension of the hotel VAT rate to 3,8%.',
+    'blog.article.bilaterali-iii-svizzera-ue.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
 };
 
 export default blogMetaChEn;

@@ -6974,6 +6974,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ia-lavoro-donne-uomini-2030.title': 'KI und Arbeit: unterschiedliche Auswirkungen auf Frauen und Männer bis 2030',
     'blog.article.ia-lavoro-donne-uomini-2030.excerpt': 'Bis 2030 könnten etwa 25% der weiblichen und 28% der männlichen Aktivitäten automatisiert werden; in den Bereichen Pflege, Gesundheit und Bildung sinkt das Potenzial auf 19%.',
     'blog.article.ia-lavoro-donne-uomini-2030.imageAlt': 'Schweizer Fachkräfte in einem Zürcher Büro, die KI-Tools nutzen',
+    'blog.article.bilaterali-iii-svizzera-ue.title': 'Bilaterale III: Ständerat greift das Thema auf',
+    'blog.article.bilaterali-iii-svizzera-ue.excerpt': 'Das Eintreten wurde mit 29 gegen 15 Stimmen angenommen. Vorgesehen sind eine neue Behörde für staatliche Beihilfen und eine Verlängerung der Hotel-Mehrwertsteuer auf 3,8%.',
+    'blog.article.bilaterali-iii-svizzera-ue.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
 };
 
 export default blogMetaChDe;
