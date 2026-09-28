@@ -22,7 +22,10 @@ export const CRAWLER_USER_AGENT = 'frontaliere-bing-tree-crawler/1.0 (+https://f
 export const DEFAULT_PARTITIONS = 24;
 export const DEFAULT_CONCURRENCY = 8;
 export const DEFAULT_TIMEOUT_MS = 30_000;
-export const DEFAULT_RETRIES = 2;
+// Pages sits behind an edge that can answer a small fraction of concurrent
+// requests with a transient 5xx. Five total attempts keep the full-tree report
+// focused on persistent failures without changing deterministic URL ownership.
+export const DEFAULT_RETRIES = 4;
 export const DEFAULT_MAX_BODY_BYTES = 256 * 1024;
 export const DEFAULT_MAX_SITEMAP_BYTES = 64 * 1024 * 1024;
 
@@ -323,7 +326,7 @@ function finding(code, url, detail, extra = {}) {
 }
 
 /** Pure classification used by the crawler and its unit tests. */
-export function classifyDocument({ url, status, finalUrl = url, headers = {}, html = '' }) {
+export function classifyDocument({ url, status, finalUrl = url, headers = {}, contentType = '', html = '' }) {
   const findings = [];
   const statusNumber = Number(status) || 0;
   const xRobots = typeof headers.get === 'function' ? headers.get('x-robots-tag') || '' : headers['x-robots-tag'] || '';
@@ -338,6 +341,12 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, ht
   if (statusNumber < 200 || statusNumber >= 400) {
     findings.push(finding('http-error', url, `HTTP ${statusNumber}.`, { status: statusNumber }));
     return { findings, title: '', canonical: '', noindex: false, soft404: false };
+  }
+  const normalizedContentType = String(contentType || '').toLowerCase();
+  const headerNoindex = /\bnoindex\b/i.test(xRobots);
+  if (normalizedContentType && !/(?:text\/html|application\/xhtml\+xml)\b/i.test(normalizedContentType)) {
+    if (headerNoindex) findings.push(finding('noindex-in-sitemap', url, 'La risorsa pubblicata in sitemap dichiara noindex.'));
+    return { findings, title: '', canonical: '', noindex: headerNoindex, soft404: false };
   }
   const title = findTitle(html);
   const canonical = findCanonical(html, url);
@@ -375,7 +384,14 @@ async function probeOnce(url, {
   const body = response.status >= 200 && response.status < 400 && (contentType.includes('html') || !contentType)
     ? await readLimitedBody(response, maxBodyBytes)
     : { text: '', truncated: false };
-  const classified = classifyDocument({ url, status: response.status, finalUrl, headers: response.headers, html: body.text });
+  const classified = classifyDocument({
+    url,
+    status: response.status,
+    finalUrl,
+    headers: response.headers,
+    contentType,
+    html: body.text,
+  });
   return {
     url,
     status: response.status,
@@ -397,7 +413,7 @@ async function probeWithRetries(url, options = {}) {
     result = await probeOnce(url, options);
     const retryable = result.status === 0 || result.status === 429 || result.status >= 500;
     if (!retryable || attempt === retries) return result;
-    await sleep(Math.min(2_000, 250 * (2 ** attempt)));
+    await sleep(Math.min(8_000, 500 * (2 ** attempt)));
   }
   return result;
 }
