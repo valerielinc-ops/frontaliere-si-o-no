@@ -12187,6 +12187,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.busto-saronno-sequestro-giocattoli.title': 'Seizure of toys and unsafe devices in Lombardy',
     'blog.article.busto-saronno-sequestro-giocattoli.excerpt': 'Over 20 thousand toys and 300 electrical devices seized. Fines of 10 thousand euros and complaints for commercial fraud.',
     'blog.article.busto-saronno-sequestro-giocattoli.imageAlt': 'Non-compliant toys and electrical devices seized by the Financial Guard in Busto Arsizio and Saronno.',
+    'blog.article.mastini-fassa-hockey-2026.title': 'Mastini Varese towards Fassa: look for first points in the championship',
+    'blog.article.mastini-fassa-hockey-2026.excerpt': 'On Saturday 26 September at 18:30, Mastini Varese face Fassa after losing their opening game 2-4 to Pirati di Appiano; the team is looking to get off the mark in the standings.',
+    'blog.article.mastini-fassa-hockey-2026.imageAlt': 'Mastini Varese ice hockey game on the Fassa rink, Trentino-Alto Adige',
 };
 
 export default blogMetaEn;
