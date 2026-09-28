@@ -25,6 +25,7 @@ const FRESHTEAM_ORIGIN = 'https://klab.freshteam.com';
 const FRESHTEAM_JOB_PATH_RE = /^\/jobs\/([^/]+)(?:\/[^/]+)?\/?$/i;
 const CLOSED_DETAIL_RE = /currently\s+not\s+accepting\s+applications|no\s+longer\s+accepting\s+applications|position\s+has\s+been\s+filled/i;
 const MIN_DESCRIPTION_WORDS = 50;
+const DEFAULT_POSTED_DATE = '2000-01-01';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -69,13 +70,28 @@ function toTextLines(html = '') {
     .filter(Boolean);
 }
 
-function normalizeDate(value = '') {
+function parseDate(value = '') {
   const candidate = String(value || '').trim();
-  if (!candidate) return new Date().toISOString().slice(0, 10);
+  if (!candidate) return '';
   const date = new Date(candidate);
-  return Number.isNaN(date.getTime())
-    ? new Date().toISOString().slice(0, 10)
-    : date.toISOString().slice(0, 10);
+  return Number.isNaN(date.getTime()) ? '' : date.toISOString().slice(0, 10);
+}
+
+function normalizeDate(value = '') {
+  return parseDate(value) || DEFAULT_POSTED_DATE;
+}
+
+function isExpiredValidThrough(value = '') {
+  const candidate = String(value || '').trim();
+  const normalized = parseDate(candidate);
+  if (!normalized) return false;
+
+  // A date-only validThrough covers the whole calendar day. Date-times are
+  // compared at their actual instant instead of being truncated to a date.
+  if (/^\d{4}-\d{2}-\d{2}$/.test(candidate)) {
+    return normalized < new Date().toISOString().slice(0, 10);
+  }
+  return new Date(candidate).getTime() < Date.now();
 }
 
 function extractFreshteamJobId(rawUrl = '') {
@@ -145,12 +161,16 @@ function extractEmploymentType(document, html = '') {
 }
 
 function extractPostedDate(document, html = '') {
-  const raw = document.querySelector('[itemprop="datePosted"]')?.getAttribute('content')
-    || document.querySelector('[itemprop="datePosted"]')?.textContent
-    || document.querySelector('meta[property="article:published_time"]')?.getAttribute('content')
-    || document.querySelector('time[datetime]')?.getAttribute('datetime')
-    || extractJobPostingField(html, 'datePosted')
-    || '';
+  const candidates = [
+    // JobPosting.datePosted is authoritative; generic page timestamps may be
+    // application deadlines or publication times for unrelated page content.
+    extractJobPostingField(html, 'datePosted'),
+    document.querySelector('[itemprop="datePosted"]')?.getAttribute('content'),
+    document.querySelector('[itemprop="datePosted"]')?.textContent,
+    document.querySelector('meta[property="article:published_time"]')?.getAttribute('content'),
+    document.querySelector('time[datetime]')?.getAttribute('datetime'),
+  ];
+  const raw = candidates.find((candidate) => parseDate(candidate));
   return normalizeDate(raw);
 }
 
@@ -221,7 +241,10 @@ export function parseKnowledgeLabPublicListingHtml(html = '', baseUrl = KNOWLEDG
 export function parseKnowledgeLabPublicDetailHtml(html = '', detailUrl = '', fallbackTitle = '') {
   const document = new JSDOM(String(html || '')).window.document;
   const bodyText = normalizeSpace(document.body?.textContent || '');
-  if (CLOSED_DETAIL_RE.test(bodyText)) return { closed: true, detailUrl };
+  const validThrough = extractJobPostingField(html, 'validThrough');
+  if (CLOSED_DETAIL_RE.test(bodyText) || isExpiredValidThrough(validThrough)) {
+    return { closed: true, detailUrl };
+  }
 
   const title = normalizeSpace(document.querySelector('h1')?.textContent || fallbackTitle);
   const address = extractJobPostingAddress(html);

@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import {
   inferKnowledgeLabCanton,
@@ -93,6 +93,66 @@ describe('Knowledge Lab public Freshteam portal parsing', () => {
       'https://klab.freshteam.com/jobs/short/short-role',
     );
     expect(thin.incomplete).toBe(true);
+  });
+
+  it('prefers JobPosting datePosted over generic page timestamps', () => {
+    const detail = parseKnowledgeLabPublicDetailHtml(`
+      <html>
+        <head>
+          <meta property="article:published_time" content="2030-01-01" />
+          <script type="application/ld+json">${JSON.stringify({
+            '@type': 'JobPosting',
+            datePosted: '2026-01-02',
+          })}</script>
+        </head>
+        <body><time datetime="2030-01-01">Application deadline</time></body>
+      </html>
+    `, 'https://klab.freshteam.com/jobs/date-priority/date-priority');
+
+    expect(detail.postedDate).toBe('2026-01-02');
+  });
+
+  it('uses the same stable posted-date fallback across crawl days', () => {
+    const invalidDateDetail = `
+      <html>
+        <head><script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          datePosted: 'not-a-date',
+        })}</script></head>
+        <body><h1>Role without a source date</h1></body>
+      </html>
+    `;
+
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2026-01-02T12:00:00Z'));
+      const first = parseKnowledgeLabPublicDetailHtml(invalidDateDetail).postedDate;
+      vi.setSystemTime(new Date('2030-07-15T12:00:00Z'));
+      const second = parseKnowledgeLabPublicDetailHtml(invalidDateDetail).postedDate;
+
+      expect(first).toBe('2000-01-01');
+      expect(second).toBe(first);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('treats an expired JobPosting validThrough as closed', () => {
+    const detail = parseKnowledgeLabPublicDetailHtml(`
+      <html>
+        <head><script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          datePosted: '2026-01-02',
+          validThrough: '2000-01-01',
+        })}</script></head>
+        <body><h1>Expired role</h1><p>This page has no closed banner.</p></body>
+      </html>
+    `, 'https://klab.freshteam.com/jobs/expired-role/expired-role');
+
+    expect(detail).toEqual({
+      closed: true,
+      detailUrl: 'https://klab.freshteam.com/jobs/expired-role/expired-role',
+    });
   });
 
   it('treats a closed detail page as terminal instead of a parser failure', () => {
