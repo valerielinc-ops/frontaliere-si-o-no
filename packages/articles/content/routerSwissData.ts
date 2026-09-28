@@ -2329,6 +2329,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-digitale-cyber-preparazione': { it: 'svizzera-digitale-cyber-preparazione', en: 'switzerland-digital-cyber-preparation', de: 'schweiz-digital-cyber-vorbereitung', fr: 'suisse-numerique-cyber-preparation' },
  'cambiare-cassa-malati-risparmio': { it: 'cambiare-cassa-malati-risparmio', en: 'switching-health-insurance-savings', de: 'krankenkasse-wechsel-einsparungen', fr: 'changer-assurance-maladie-economies' },
  'pronto-consulto-mendrisiotto-basso-ceresio': { it: 'pronto-consulto-mendrisiotto-basso-ceresio', en: 'pronto-consulto-telephone-service-to-provide-guidance-in-the-mendrisiotto', de: 'pronto-consulto-telefonischer-dienst-zur-orientierung-im-mendrisiotto', fr: 'pronto-consulto-service-telephonique-pour-s-orienter-dans-le-mendrisiotto' },
+ 'navigazione-sostenibile-svizzera': { it: 'navigazione-sostenibile-svizzera', en: 'sustainable-maritime-switzerland', de: 'nachhaltige-schifffahrt-schweiz', fr: 'navigation-maritime-durable-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
