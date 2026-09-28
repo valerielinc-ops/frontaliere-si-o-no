@@ -1,7 +1,7 @@
 {
   "key": "premiumpflege24",
   "label": "PremiumPflege24 GmbH",
-  "generatedAt": "2026-09-28T05:18:18.691Z",
+  "generatedAt": "2026-09-28T21:40:52.686Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,10 +12,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7491,
-  "avgDurationMs": 7491,
+  "durationMs": 5411,
+  "avgDurationMs": 5411,
   "durationHistory": [
-    7491
+    5411
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://premiumpflege24.ch/job-registrierung/",
       "source": "PremiumPflege24 GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:11.516Z",
+      "crawledAt": "2026-09-28T21:40:45.737Z",
       "addressLocality": "Subingen",
       "addressRegion": "SO",
       "addressCountry": "Schweiz",
@@ -52,11 +52,11 @@
       "salarySource": "estimated",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:26:12.841Z",
-      "_qualityScore": 76,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     }
