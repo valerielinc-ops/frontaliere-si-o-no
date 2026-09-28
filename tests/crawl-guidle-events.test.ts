@@ -357,6 +357,8 @@ describe('mapGuidleEvent', () => {
     expect(event.sourceName).toBe('Guidle');
     expect(event.url).toBe('https://www.guidle.com/de/veranstaltungen/zug/stadtfuehrung_AZ3RYEB');
     expect(event.canton).toBe('');
+    expect(event.organizer).toBeUndefined();
+    expect(event.performer).toBeUndefined();
     expect(imageSourceUrl).toBe('https://www.guidle.com/imagekit/abc.jpg');
     expect(addressLocality).toBe('Zug');
     expect(cantonHint).toBe('ZG');

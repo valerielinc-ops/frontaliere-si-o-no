@@ -168,6 +168,30 @@ export function normalizeEventPeople(value, baseUrl, fallbackUrl) {
   return inputWasArray ? people : people[0];
 }
 
+/**
+ * Normalize source-provided people without inventing an organizer or
+ * performer when the source did not publish one. Optional schema.org entities
+ * are facts about the event, not fields that can safely use catalog/venue
+ * defaults. A named organizer may still receive the verified event-page URL
+ * when the source omitted its own entity URL.
+ */
+export function normalizeEventPeopleFields(event) {
+  const normalized = { ...event };
+  const baseUrl = absoluteHttpUrl(event?.url) || 'https://frontaliereticino.ch';
+  const organizer = event?.organizer === undefined
+    ? undefined
+    : normalizeEventPeople(event.organizer, baseUrl, event.url);
+  const performer = event?.performer === undefined
+    ? undefined
+    : normalizeEventPeople(event.performer, baseUrl);
+
+  if (organizer) normalized.organizer = organizer;
+  else delete normalized.organizer;
+  if (performer) normalized.performer = performer;
+  else delete normalized.performer;
+  return normalized;
+}
+
 /** Return true only when every normalized named entity has a usable URL. */
 export function hasCompleteEventPeopleUrls(value) {
   if (value === undefined || value === null) return false;
