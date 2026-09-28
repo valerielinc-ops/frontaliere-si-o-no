@@ -233,6 +233,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /scripts/lib/meta-description-extract.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -277,6 +278,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /scripts/lib/meta-description-extract.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -323,6 +325,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /scripts/lib/meta-description-extract.mjs
             /scripts/lib/github-issue-creator.mjs
             /scripts/load-rc-env.mjs
             /package.json
