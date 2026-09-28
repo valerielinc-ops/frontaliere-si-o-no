@@ -6953,6 +6953,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.riserva-elettrica-nazionale-monthey.title': 'Centrali di riserva: il Nazionale approva 131,3 milioni',
     'blog.article.riserva-elettrica-nazionale-monthey.excerpt': 'Il Consiglio nazionale ha stanziato 131,3 milioni di franchi per la pianificazione e la soluzione transitoria di Monthey fino al 2030.',
     'blog.article.riserva-elettrica-nazionale-monthey.imageAlt': 'Traliccio elettrico ad alta tensione in Svizzera, simbolo della sicurezza energetica',
+    'blog.article.norme-biosicurezza-peste-suina.title': 'Nuove norme contro la peste suina africana',
+    'blog.article.norme-biosicurezza-peste-suina.excerpt': 'L\'USAV fissa requisiti di biosicurezza per gli allevamenti suini: la conformità PSA offre agevolazioni nel traffico di animali in caso di epidemia.',
+    'blog.article.norme-biosicurezza-peste-suina.imageAlt': 'Allevamento suino svizzero con misure di biosicurezza contro la peste suina africana',
 };
 
 export default blogMetaChIt;

@@ -6953,6 +6953,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.riserva-elettrica-nazionale-monthey.title': 'Centrales de réserve : le National approuve 131,3 millions',
     'blog.article.riserva-elettrica-nazionale-monthey.excerpt': 'Le Conseil national a alloué 131,3 millions de francs à la planification et à la solution transitoire de Monthey jusqu’en 2030.',
     'blog.article.riserva-elettrica-nazionale-monthey.imageAlt': 'Pylône électrique haute tension en Suisse, symbole de la sécurité énergétique',
+    'blog.article.norme-biosicurezza-peste-suina.title': 'Nouvelles règles contre la peste porcine africaine',
+    'blog.article.norme-biosicurezza-peste-suina.excerpt': 'La FSVO fixe les exigences de biosécurité pour les élevages porcins : la conformité aux ASF facilite le trafic d\'animaux en cas d\'épidémie.',
+    'blog.article.norme-biosicurezza-peste-suina.imageAlt': 'Élevage porcin suisse avec mesures de biosécurité contre la peste porcine africaine',
 };
 
 export default blogMetaChFr;

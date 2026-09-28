@@ -6953,6 +6953,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.riserva-elettrica-nazionale-monthey.title': 'Reserve power plants: the National Council approves 131,3 million',
     'blog.article.riserva-elettrica-nazionale-monthey.excerpt': 'The National Council has allocated 131,3 million francs for the planning and transitional solution of Monthey until 2030.',
     'blog.article.riserva-elettrica-nazionale-monthey.imageAlt': 'High-voltage electricity pylon in Switzerland, symbol of energy security',
+    'blog.article.norme-biosicurezza-peste-suina.title': 'New regulations against African swine fever',
+    'blog.article.norme-biosicurezza-peste-suina.excerpt': 'The FSVO sets biosecurity requirements for pig farms: ASF compliance facilitates animal movements in the event of an outbreak.',
+    'blog.article.norme-biosicurezza-peste-suina.imageAlt': 'Swiss pig farm with biosecurity measures against African swine fever',
 };
 
 export default blogMetaChEn;
