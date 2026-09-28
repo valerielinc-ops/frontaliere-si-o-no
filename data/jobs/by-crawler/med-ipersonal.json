@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "med-ipersonal-54218fe87d04",
-      "slug": "schreiner-bankschreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft",
+      "slug": "schreiner-bank-schreiner-regione-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft"
+        "it": "schreiner-bank-schreiner-regione-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft",
+        "en": "schreiner-bank-schreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft",
+        "fr": "schreiner-bank-schreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -62,16 +62,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T05:13:08.769Z"
+      "firstSeenAt": "2026-09-28T05:13:08.769Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-frenkendorf-ipersonal-ag-frenkendorf-basel-landschaft"
+      ]
     },
     {
       "id": "med-ipersonal-bf81f9f498b7",
-      "slug": "installatore-trice-elettrico-a-region-thal-ipersonal-ag-thal",
+      "slug": "installatore-trice-elettrico-a-region-thal-ipersonal-ag-thal-st-gallen",
       "slugByLocale": {
         "de": "elektroinstallateur-region-thal-ipersonal-ag-thal-st-gallen",
-        "it": "installatore-trice-elettrico-a-region-thal-ipersonal-ag-thal",
-        "en": "elektroinstallateur-region-thal-ipersonal-ag-thal-st-gallen",
-        "fr": "elektroinstallateur-region-thal-ipersonal-ag-thal-st-gallen"
+        "it": "installatore-trice-elettrico-a-region-thal-ipersonal-ag-thal-st-gallen",
+        "en": "electrical-installer-thal-region-ipersonal-ag-thal-st-gallen",
+        "fr": "installation-electrique-region-thal-ipersonal-ag-thal-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -112,11 +126,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-thal-stellenangebot/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-region-thal-ipersonal-ag-thal-st-gallen",
+          "installatore-trice-elettrico-a-region-thal-ipersonal-ag-thal"
+        ],
+        "en": [
+          "elektroinstallateur-region-thal-ipersonal-ag-thal-st-gallen"
+        ],
+        "fr": [
           "elektroinstallateur-region-thal-ipersonal-ag-thal-st-gallen"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-region-thal-ipersonal-ag-thal-st-gallen"
+        "elektroinstallateur-region-thal-ipersonal-ag-thal-st-gallen",
+        "installatore-trice-elettrico-a-region-thal-ipersonal-ag-thal"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -135,12 +157,12 @@
     },
     {
       "id": "med-ipersonal-05c31b1232f0",
-      "slug": "installatore-trice-elettrico-a-region-bern-ipersonal-ag-bern",
+      "slug": "installatore-trice-elettrico-a-region-bern-ipersonal-ag-bern-bern",
       "slugByLocale": {
         "de": "elektroinstallateur-region-bern-ipersonal-ag-bern-bern",
-        "it": "installatore-trice-elettrico-a-region-bern-ipersonal-ag-bern",
-        "en": "elektroinstallateur-region-bern-ipersonal-ag-bern-bern",
-        "fr": "elektroinstallateur-region-bern-ipersonal-ag-bern-bern"
+        "it": "installatore-trice-elettrico-a-region-bern-ipersonal-ag-bern-bern",
+        "en": "electrical-installer-region-of-bern-ipersonal-ag-bern-bern",
+        "fr": "installation-electrique-region-de-berne-ipersonal-ag-bern-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -181,11 +203,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-in-der-region-bern-freie-stelle/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-region-bern-ipersonal-ag-bern-bern",
+          "installatore-trice-elettrico-a-region-bern-ipersonal-ag-bern"
+        ],
+        "en": [
+          "elektroinstallateur-region-bern-ipersonal-ag-bern-bern"
+        ],
+        "fr": [
           "elektroinstallateur-region-bern-ipersonal-ag-bern-bern"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-region-bern-ipersonal-ag-bern-bern"
+        "elektroinstallateur-region-bern-ipersonal-ag-bern-bern",
+        "installatore-trice-elettrico-a-region-bern-ipersonal-ag-bern"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -204,12 +234,12 @@
     },
     {
       "id": "med-ipersonal-dc8c49a48383",
-      "slug": "schreiner-bankschreiner-region-diegten-ipersonal-ag-diegten-basel-landschaft",
+      "slug": "schreiner-bank-schreiner-regione-di-diegten-ipersonal-ag-diegten-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-diegten-ipersonal-ag-diegten-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-diegten-ipersonal-ag-diegten-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-diegten-ipersonal-ag-diegten-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-diegten-ipersonal-ag-diegten-basel-landschaft"
+        "it": "schreiner-bank-schreiner-regione-di-diegten-ipersonal-ag-diegten-basel-landschaft",
+        "en": "schreiner-bank-schreiner-diegten-region-ipersonal-ag-diegten-basel-landschaft",
+        "fr": "schreiner-bank-schreiner-region-de-diegten-ipersonal-ag-diegten-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -262,16 +292,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T05:13:07.865Z"
+      "firstSeenAt": "2026-09-28T05:13:07.865Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-diegten-ipersonal-ag-diegten-basel-landschaft"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-diegten-ipersonal-ag-diegten-basel-landschaft"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-diegten-ipersonal-ag-diegten-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-diegten-ipersonal-ag-diegten-basel-landschaft"
+      ]
     },
     {
       "id": "med-ipersonal-13aa7116c50d",
-      "slug": "installatore-trice-elettrico-a-region-wettingen-ipersonal-ag-wettingen",
+      "slug": "installatore-trice-elettrico-a-region-wettingen-ipersonal-ag-wettingen-aargau",
       "slugByLocale": {
         "de": "elektroinstallateur-region-wettingen-ipersonal-ag-wettingen-aargau",
-        "it": "installatore-trice-elettrico-a-region-wettingen-ipersonal-ag-wettingen",
-        "en": "elektroinstallateur-region-wettingen-ipersonal-ag-wettingen-aargau",
-        "fr": "elektroinstallateur-region-wettingen-ipersonal-ag-wettingen-aargau"
+        "it": "installatore-trice-elettrico-a-region-wettingen-ipersonal-ag-wettingen-aargau",
+        "en": "electrical-installer-wettingen-region-ipersonal-ag-wettingen-aargau",
+        "fr": "installation-electrique-region-de-wettingen-ipersonal-ag-wettingen-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -312,11 +356,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-wettingen-temporaer-dauerstelle/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-region-wettingen-ipersonal-ag-wettingen-aargau",
+          "installatore-trice-elettrico-a-region-wettingen-ipersonal-ag-wettingen"
+        ],
+        "en": [
+          "elektroinstallateur-region-wettingen-ipersonal-ag-wettingen-aargau"
+        ],
+        "fr": [
           "elektroinstallateur-region-wettingen-ipersonal-ag-wettingen-aargau"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-region-wettingen-ipersonal-ag-wettingen-aargau"
+        "elektroinstallateur-region-wettingen-ipersonal-ag-wettingen-aargau",
+        "installatore-trice-elettrico-a-region-wettingen-ipersonal-ag-wettingen"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -335,12 +387,12 @@
     },
     {
       "id": "med-ipersonal-824e63adca59",
-      "slug": "schreiner-bankschreiner-region-oftringen-ipersonal-ag-oftringen-aargau",
+      "slug": "schreiner-bank-schreiner-regione-di-oftringen-ipersonal-ag-oftringen-aargau",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-oftringen-ipersonal-ag-oftringen-aargau",
-        "it": "schreiner-bankschreiner-region-oftringen-ipersonal-ag-oftringen-aargau",
-        "en": "schreiner-bankschreiner-region-oftringen-ipersonal-ag-oftringen-aargau",
-        "fr": "schreiner-bankschreiner-region-oftringen-ipersonal-ag-oftringen-aargau"
+        "it": "schreiner-bank-schreiner-regione-di-oftringen-ipersonal-ag-oftringen-aargau",
+        "en": "schreiner-bank-schreiner-oftringen-region-ipersonal-ag-oftringen-aargau",
+        "fr": "schreiner-bank-schreiner-region-d-ostringen-ipersonal-ag-oftringen-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -393,16 +445,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T05:13:06.962Z"
+      "firstSeenAt": "2026-09-28T05:13:06.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-oftringen-ipersonal-ag-oftringen-aargau"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-oftringen-ipersonal-ag-oftringen-aargau"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-oftringen-ipersonal-ag-oftringen-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-oftringen-ipersonal-ag-oftringen-aargau"
+      ]
     },
     {
       "id": "med-ipersonal-5db07939c93e",
-      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-adliswil-ipersonal-ag-adliswil",
+      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-adliswil-ipersonal-ag-adliswil-zurich",
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-adliswil-ipersonal-ag-adliswil-zurich",
-        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-adliswil-ipersonal-ag-adliswil",
-        "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-adliswil-ipersonal-ag-adliswil-zurich",
-        "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-adliswil-ipersonal-ag-adliswil-zurich"
+        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-adliswil-ipersonal-ag-adliswil-zurich",
+        "en": "electrical-installer-electrical-installer-new-and-renovation-adliswil-region-ipersonal-ag-adliswil-zurich",
+        "fr": "installation-electrique-installation-electrique-nouveau-et-renovation-adliswil-region-ipersonal-ag-adliswil-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -443,11 +509,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-elektrinstallateur-neu-und-umbau-100-fuer-die-region-adliswil-offene-stelle/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-adliswil-ipersonal-ag-adliswil-zurich",
+          "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-adliswil-ipersonal-ag-adliswil"
+        ],
+        "en": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-adliswil-ipersonal-ag-adliswil-zurich"
+        ],
+        "fr": [
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-adliswil-ipersonal-ag-adliswil-zurich"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-adliswil-ipersonal-ag-adliswil-zurich"
+        "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-adliswil-ipersonal-ag-adliswil-zurich",
+        "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-adliswil-ipersonal-ag-adliswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -466,12 +540,12 @@
     },
     {
       "id": "med-ipersonal-71a1bfc908f6",
-      "slug": "montageleiter-kuchenbau-region-neuheim-ipersonal-ag-neuheim-zug",
+      "slug": "installation-manager-edilizia-della-cucina-regione-di-neuheim-ipersonal-ag-neuheim-zug",
       "slugByLocale": {
         "de": "montageleiter-kuchenbau-region-neuheim-ipersonal-ag-neuheim-zug",
-        "it": "montageleiter-kuchenbau-region-neuheim-ipersonal-ag-neuheim-zug",
-        "en": "montageleiter-kuchenbau-region-neuheim-ipersonal-ag-neuheim-zug",
-        "fr": "montageleiter-kuchenbau-region-neuheim-ipersonal-ag-neuheim-zug"
+        "it": "installation-manager-edilizia-della-cucina-regione-di-neuheim-ipersonal-ag-neuheim-zug",
+        "en": "installation-manager-kitchen-construction-neuheim-region-ipersonal-ag-neuheim-zug",
+        "fr": "gestionnaire-d-installation-construction-de-cuisine-region-de-neuheim-ipersonal-ag-neuheim-zug"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -523,16 +597,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T05:13:06.359Z"
+      "firstSeenAt": "2026-09-28T05:13:06.359Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montageleiter-kuchenbau-region-neuheim-ipersonal-ag-neuheim-zug"
+        ],
+        "en": [
+          "montageleiter-kuchenbau-region-neuheim-ipersonal-ag-neuheim-zug"
+        ],
+        "fr": [
+          "montageleiter-kuchenbau-region-neuheim-ipersonal-ag-neuheim-zug"
+        ]
+      },
+      "previousSlugs": [
+        "montageleiter-kuchenbau-region-neuheim-ipersonal-ag-neuheim-zug"
+      ]
     },
     {
       "id": "med-ipersonal-7569702a49b5",
-      "slug": "schreiner-bankschreiner-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn",
+      "slug": "schreiner-bank-schreiner-regione-buren-a-aare-ipersonal-ag-buren-an-der-aare-solothurn",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn",
-        "it": "schreiner-bankschreiner-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn",
-        "en": "schreiner-bankschreiner-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn",
-        "fr": "schreiner-bankschreiner-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn"
+        "it": "schreiner-bank-schreiner-regione-buren-a-aare-ipersonal-ag-buren-an-der-aare-solothurn",
+        "en": "schreiner-bank-schreiner-region-buren-an-aare-ipersonal-ag-buren-an-der-aare-solothurn",
+        "fr": "schreiner-bank-schreiner-region-buren-an-aare-ipersonal-ag-buren-an-der-aare-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -584,16 +672,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T05:13:06.056Z"
+      "firstSeenAt": "2026-09-28T05:13:06.056Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-buren-an-der-aare-ipersonal-ag-buren-an-der-aare-solothurn"
+      ]
     },
     {
       "id": "med-ipersonal-e3fecab17cce",
-      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-goldach-ipersonal-ag-goldach",
+      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-goldach-ipersonal-ag-goldach-st-gallen",
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-goldach-ipersonal-ag-goldach-st-gallen",
-        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-goldach-ipersonal-ag-goldach",
-        "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-goldach-ipersonal-ag-goldach-st-gallen",
-        "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-goldach-ipersonal-ag-goldach-st-gallen"
+        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-goldach-ipersonal-ag-goldach-st-gallen",
+        "en": "electrical-installer-new-and-renovation-goldach-region-ipersonal-ag-goldach-st-gallen",
+        "fr": "installation-electrique-et-renovation-goldach-region-ipersonal-ag-goldach-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -634,11 +736,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-goldach-direkte-festanstellung/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-goldach-ipersonal-ag-goldach-st-gallen",
+          "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-goldach-ipersonal-ag-goldach"
+        ],
+        "en": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-goldach-ipersonal-ag-goldach-st-gallen"
+        ],
+        "fr": [
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-goldach-ipersonal-ag-goldach-st-gallen"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-goldach-ipersonal-ag-goldach-st-gallen"
+        "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-goldach-ipersonal-ag-goldach-st-gallen",
+        "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-goldach-ipersonal-ag-goldach"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -657,12 +767,12 @@
     },
     {
       "id": "med-ipersonal-4110b5a11a95",
-      "slug": "schreiner-bankschreiner-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
+      "slug": "schreiner-bank-schreiner-regione-di-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft"
+        "it": "schreiner-bank-schreiner-regione-di-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
+        "en": "schreiner-bank-schreiner-gelterkinden-region-ipersonal-ag-gelterkinden-basel-landschaft",
+        "fr": "schreiner-bank-schreiner-region-de-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -715,7 +825,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T05:13:05.452Z"
+      "firstSeenAt": "2026-09-28T05:13:05.452Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft"
+      ]
     }
   ]
 }

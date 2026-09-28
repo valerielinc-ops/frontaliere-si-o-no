@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ipersonal-98d0d84e426c",
-      "slug": "dipl-expertin-experte-nds-notfallpflege-medipersonal-hinterfultigen-bern",
+      "slug": "dipl-expert-expert-nds-emergency-care-medipersonal-hinterfultigen-bern",
       "slugByLocale": {
         "de": "dipl-expertin-experte-nds-notfallpflege-medipersonal-hinterfultigen-bern",
-        "it": "dipl-expertin-experte-nds-notfallpflege-medipersonal-hinterfultigen-bern",
-        "en": "dipl-expertin-experte-nds-notfallpflege-medipersonal-hinterfultigen-bern",
-        "fr": "dipl-expertin-experte-nds-notfallpflege-medipersonal-hinterfultigen-bern"
+        "it": "dipl-expert-expert-nds-emergency-care-medipersonal-hinterfultigen-bern",
+        "en": "dipl-expert-expert-nds-emergency-care-medipersonal-hinterfultigen-bern",
+        "fr": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-hinterfultigen-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -60,16 +60,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:44.690Z"
+      "firstSeenAt": "2026-09-28T04:51:44.690Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-hinterfultigen-bern"
+        ],
+        "en": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-hinterfultigen-bern"
+        ],
+        "fr": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-hinterfultigen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-nds-notfallpflege-medipersonal-hinterfultigen-bern"
+      ]
     },
     {
       "id": "ipersonal-b88c85fafee7",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-medipersonal-schwarzenbach-huttwil-bern",
+      "slug": "dipl-expert-expert-intensive-care-nds-medipersonal-schwarzenbach-huttwil-bern",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-medipersonal-schwarzenbach-huttwil-bern",
-        "it": "dipl-expertin-experte-intensivpflege-nds-medipersonal-schwarzenbach-huttwil-bern",
-        "en": "dipl-expertin-experte-intensivpflege-nds-medipersonal-schwarzenbach-huttwil-bern",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-medipersonal-schwarzenbach-huttwil-bern"
+        "it": "dipl-expert-expert-intensive-care-nds-medipersonal-schwarzenbach-huttwil-bern",
+        "en": "dipl-expert-expert-intensive-care-nds-medipersonal-schwarzenbach-huttwil-bern",
+        "fr": "dipl-expert-expert-soins-intensifs-nds-medipersonal-schwarzenbach-huttwil-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -120,16 +134,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:44.389Z"
+      "firstSeenAt": "2026-09-28T04:51:44.389Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-schwarzenbach-huttwil-bern"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-schwarzenbach-huttwil-bern"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-schwarzenbach-huttwil-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-medipersonal-schwarzenbach-huttwil-bern"
+      ]
     },
     {
       "id": "ipersonal-8f50c7a46b45",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-medipersonal-recherswil-solothurn",
+      "slug": "dipl-expert-expert-intensive-care-nds-medipersonal-recherswil-solothurn",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-medipersonal-recherswil-solothurn",
-        "it": "dipl-expertin-experte-intensivpflege-nds-medipersonal-recherswil-solothurn",
-        "en": "dipl-expertin-experte-intensivpflege-nds-medipersonal-recherswil-solothurn",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-medipersonal-recherswil-solothurn"
+        "it": "dipl-expert-expert-intensive-care-nds-medipersonal-recherswil-solothurn",
+        "en": "dipl-expert-expert-intensive-care-nds-medipersonal-recherswil-solothurn",
+        "fr": "dipl-expert-expert-soins-intensifs-nds-medipersonal-recherswil-solothurn"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -181,16 +209,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:44.088Z"
+      "firstSeenAt": "2026-09-28T04:51:44.088Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-recherswil-solothurn"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-recherswil-solothurn"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-recherswil-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-medipersonal-recherswil-solothurn"
+      ]
     },
     {
       "id": "ipersonal-a1dca77b6773",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau",
+      "slug": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-erlen-thurgau",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau"
+        "it": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-erlen-thurgau",
+        "en": "dipl-expert-expert-anesthesia-care-nds-medipersonal-erlen-thurgau",
+        "fr": "dipl-soins-d-anesthesie-expert-expert-nds-medipersonal-erlen-thurgau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -242,16 +284,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:43.787Z"
+      "firstSeenAt": "2026-09-28T04:51:43.787Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-erlen-thurgau"
+      ]
     },
     {
       "id": "ipersonal-7969aa01c501",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saas-grund-wallis-valais",
+      "slug": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-saas-grund-wallis-valais",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saas-grund-wallis-valais",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saas-grund-wallis-valais",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saas-grund-wallis-valais",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saas-grund-wallis-valais"
+        "it": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-saas-grund-wallis-valais",
+        "en": "dipl-expert-expert-anesthesia-care-nds-medipersonal-saas-grund-wallis-valais",
+        "fr": "dipl-soins-d-anesthesie-expert-expert-nds-medipersonal-saas-grund-wallis-valais"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -302,16 +358,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:43.485Z"
+      "firstSeenAt": "2026-09-28T04:51:43.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saas-grund-wallis-valais"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saas-grund-wallis-valais"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saas-grund-wallis-valais"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saas-grund-wallis-valais"
+      ]
     },
     {
       "id": "ipersonal-b6f0963b2f8b",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-medipersonal-plaffeien-fribourg-freiburg",
+      "slug": "dipl-expert-expert-intensive-care-nds-medipersonal-plaffeien-fribourg-freiburg",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-medipersonal-plaffeien-fribourg-freiburg",
-        "it": "dipl-expertin-experte-intensivpflege-nds-medipersonal-plaffeien-fribourg-freiburg",
-        "en": "dipl-expertin-experte-intensivpflege-nds-medipersonal-plaffeien-fribourg-freiburg",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-medipersonal-plaffeien-fribourg-freiburg"
+        "it": "dipl-expert-expert-intensive-care-nds-medipersonal-plaffeien-fribourg-freiburg",
+        "en": "dipl-expert-expert-intensive-care-nds-medipersonal-plaffeien-fribourg-freiburg",
+        "fr": "dipl-expert-expert-soins-intensifs-nds-medipersonal-plaffeien-fribourg-freiburg"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -362,16 +432,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:43.184Z"
+      "firstSeenAt": "2026-09-28T04:51:43.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-plaffeien-fribourg-freiburg"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-plaffeien-fribourg-freiburg"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-plaffeien-fribourg-freiburg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-medipersonal-plaffeien-fribourg-freiburg"
+      ]
     },
     {
       "id": "ipersonal-294f5ce5554f",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-nunningen-solothurn",
+      "slug": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-nunningen-solothurn",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-nunningen-solothurn",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-nunningen-solothurn",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-nunningen-solothurn",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-nunningen-solothurn"
+        "it": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-nunningen-solothurn",
+        "en": "dipl-expert-expert-anesthesia-care-nds-medipersonal-nunningen-solothurn",
+        "fr": "dipl-soins-d-anesthesie-expert-expert-nds-medipersonal-nunningen-solothurn"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -423,16 +507,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:42.883Z"
+      "firstSeenAt": "2026-09-28T04:51:42.883Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-nunningen-solothurn"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-nunningen-solothurn"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-nunningen-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-nunningen-solothurn"
+      ]
     },
     {
       "id": "ipersonal-bc4872097c43",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-steckborn-thurgau",
+      "slug": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-steckborn-thurgau",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-steckborn-thurgau",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-steckborn-thurgau",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-steckborn-thurgau",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-steckborn-thurgau"
+        "it": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-steckborn-thurgau",
+        "en": "dipl-expert-expert-anesthesia-care-nds-medipersonal-steckborn-thurgau",
+        "fr": "dipl-soins-d-anesthesie-expert-expert-nds-medipersonal-steckborn-thurgau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -484,16 +582,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:42.581Z"
+      "firstSeenAt": "2026-09-28T04:51:42.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-steckborn-thurgau"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-steckborn-thurgau"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-steckborn-thurgau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-steckborn-thurgau"
+      ]
     },
     {
       "id": "ipersonal-71467d98b6c6",
-      "slug": "dipl-expertin-experte-nds-notfallpflege-medipersonal-schwellbrunn-appenzell-ausserrhoden",
+      "slug": "dipl-expert-expert-nds-emergency-care-medipersonal-schwellbrunn-appenzell-ausserrhoden",
       "slugByLocale": {
         "de": "dipl-expertin-experte-nds-notfallpflege-medipersonal-schwellbrunn-appenzell-ausserrhoden",
-        "it": "dipl-expertin-experte-nds-notfallpflege-medipersonal-schwellbrunn-appenzell-ausserrhoden",
-        "en": "dipl-expertin-experte-nds-notfallpflege-medipersonal-schwellbrunn-appenzell-ausserrhoden",
-        "fr": "dipl-expertin-experte-nds-notfallpflege-medipersonal-schwellbrunn-appenzell-ausserrhoden"
+        "it": "dipl-expert-expert-nds-emergency-care-medipersonal-schwellbrunn-appenzell-ausserrhoden",
+        "en": "dipl-expert-expert-nds-emergency-care-medipersonal-schwellbrunn-appenzell-ausserrhoden",
+        "fr": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-schwellbrunn-appenzell-ausserrhoden"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -545,16 +657,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:42.280Z"
+      "firstSeenAt": "2026-09-28T04:51:42.280Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-schwellbrunn-appenzell-ausserrhoden"
+        ],
+        "en": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-schwellbrunn-appenzell-ausserrhoden"
+        ],
+        "fr": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-schwellbrunn-appenzell-ausserrhoden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-nds-notfallpflege-medipersonal-schwellbrunn-appenzell-ausserrhoden"
+      ]
     },
     {
       "id": "ipersonal-4c4a5937c334",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-medipersonal-merligen-bern",
+      "slug": "dipl-expert-expert-intensive-care-nds-medipersonal-merligen-bern",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-medipersonal-merligen-bern",
-        "it": "dipl-expertin-experte-intensivpflege-nds-medipersonal-merligen-bern",
-        "en": "dipl-expertin-experte-intensivpflege-nds-medipersonal-merligen-bern",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-medipersonal-merligen-bern"
+        "it": "dipl-expert-expert-intensive-care-nds-medipersonal-merligen-bern",
+        "en": "dipl-expert-expert-intensive-care-nds-medipersonal-merligen-bern",
+        "fr": "dipl-expert-expert-soins-intensifs-nds-medipersonal-merligen-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -605,16 +731,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:41.979Z"
+      "firstSeenAt": "2026-09-28T04:51:41.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-merligen-bern"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-merligen-bern"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-merligen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-medipersonal-merligen-bern"
+      ]
     },
     {
       "id": "ipersonal-54729f00dee2",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-medipersonal-jeuss-fribourg-freiburg",
+      "slug": "dipl-expert-expert-intensive-care-nds-medipersonal-jeuss-fribourg-freiburg",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-medipersonal-jeuss-fribourg-freiburg",
-        "it": "dipl-expertin-experte-intensivpflege-nds-medipersonal-jeuss-fribourg-freiburg",
-        "en": "dipl-expertin-experte-intensivpflege-nds-medipersonal-jeuss-fribourg-freiburg",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-medipersonal-jeuss-fribourg-freiburg"
+        "it": "dipl-expert-expert-intensive-care-nds-medipersonal-jeuss-fribourg-freiburg",
+        "en": "dipl-expert-expert-intensive-care-nds-medipersonal-jeuss-fribourg-freiburg",
+        "fr": "dipl-expert-expert-soins-intensifs-nds-medipersonal-jeuss-fribourg-freiburg"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -665,16 +805,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:41.677Z"
+      "firstSeenAt": "2026-09-28T04:51:41.677Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-jeuss-fribourg-freiburg"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-jeuss-fribourg-freiburg"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-jeuss-fribourg-freiburg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-medipersonal-jeuss-fribourg-freiburg"
+      ]
     },
     {
       "id": "ipersonal-1482d017af4c",
-      "slug": "dipl-expertin-experte-nds-notfallpflege-medipersonal-schotz-luzern",
+      "slug": "dipl-expert-expert-nds-emergency-care-medipersonal-schotz-luzern",
       "slugByLocale": {
         "de": "dipl-expertin-experte-nds-notfallpflege-medipersonal-schotz-luzern",
-        "it": "dipl-expertin-experte-nds-notfallpflege-medipersonal-schotz-luzern",
-        "en": "dipl-expertin-experte-nds-notfallpflege-medipersonal-schotz-luzern",
-        "fr": "dipl-expertin-experte-nds-notfallpflege-medipersonal-schotz-luzern"
+        "it": "dipl-expert-expert-nds-emergency-care-medipersonal-schotz-luzern",
+        "en": "dipl-expert-expert-nds-emergency-care-medipersonal-schotz-luzern",
+        "fr": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-schotz-luzern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -726,16 +880,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:41.375Z"
+      "firstSeenAt": "2026-09-28T04:51:41.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-schotz-luzern"
+        ],
+        "en": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-schotz-luzern"
+        ],
+        "fr": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-schotz-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-nds-notfallpflege-medipersonal-schotz-luzern"
+      ]
     },
     {
       "id": "ipersonal-1f463bded593",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-laupen-bern",
+      "slug": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-laupen-bern",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-laupen-bern",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-laupen-bern",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-laupen-bern",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-laupen-bern"
+        "it": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-laupen-bern",
+        "en": "dipl-expert-expert-anesthesia-care-nds-medipersonal-laupen-bern",
+        "fr": "dipl-soins-d-anesthesie-expert-expert-nds-medipersonal-laupen-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -787,16 +955,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:41.074Z"
+      "firstSeenAt": "2026-09-28T04:51:41.074Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-laupen-bern"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-laupen-bern"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-laupen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-laupen-bern"
+      ]
     },
     {
       "id": "ipersonal-f3bcf7407f81",
-      "slug": "dipl-expertin-experte-nds-notfallpflege-medipersonal-horw-luzern",
+      "slug": "dipl-expert-expert-nds-emergency-care-medipersonal-horw-luzern",
       "slugByLocale": {
         "de": "dipl-expertin-experte-nds-notfallpflege-medipersonal-horw-luzern",
-        "it": "dipl-expertin-experte-nds-notfallpflege-medipersonal-horw-luzern",
-        "en": "dipl-expertin-experte-nds-notfallpflege-medipersonal-horw-luzern",
-        "fr": "dipl-expertin-experte-nds-notfallpflege-medipersonal-horw-luzern"
+        "it": "dipl-expert-expert-nds-emergency-care-medipersonal-horw-luzern",
+        "en": "dipl-expert-expert-nds-emergency-care-medipersonal-horw-luzern",
+        "fr": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-horw-luzern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -848,16 +1030,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:40.771Z"
+      "firstSeenAt": "2026-09-28T04:51:40.771Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-horw-luzern"
+        ],
+        "en": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-horw-luzern"
+        ],
+        "fr": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-horw-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-nds-notfallpflege-medipersonal-horw-luzern"
+      ]
     },
     {
       "id": "ipersonal-1b4475d3905a",
-      "slug": "dipl-expertin-experte-nds-notfallpflege-medipersonal-bischofszell-thurgau",
+      "slug": "dipl-expert-expert-nds-emergency-care-medipersonal-bischofszell-thurgau",
       "slugByLocale": {
         "de": "dipl-expertin-experte-nds-notfallpflege-medipersonal-bischofszell-thurgau",
-        "it": "dipl-expertin-experte-nds-notfallpflege-medipersonal-bischofszell-thurgau",
-        "en": "dipl-expertin-experte-nds-notfallpflege-medipersonal-bischofszell-thurgau",
-        "fr": "dipl-expertin-experte-nds-notfallpflege-medipersonal-bischofszell-thurgau"
+        "it": "dipl-expert-expert-nds-emergency-care-medipersonal-bischofszell-thurgau",
+        "en": "dipl-expert-expert-nds-emergency-care-medipersonal-bischofszell-thurgau",
+        "fr": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-bischofszell-thurgau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -909,7 +1105,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T04:51:40.469Z"
+      "firstSeenAt": "2026-09-28T04:51:40.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-bischofszell-thurgau"
+        ],
+        "en": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-bischofszell-thurgau"
+        ],
+        "fr": [
+          "dipl-expertin-experte-nds-notfallpflege-medipersonal-bischofszell-thurgau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-nds-notfallpflege-medipersonal-bischofszell-thurgau"
+      ]
     }
   ]
 }
