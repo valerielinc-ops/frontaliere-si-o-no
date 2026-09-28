@@ -163,7 +163,7 @@ export async function fetchAllVereinaklostersJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return copyFetchMetadata([], listings || []);
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -239,5 +239,5 @@ export async function fetchAllVereinaklostersJobs() {
   }
 
   console.log(`\n📋 Total Vereina jobs discovered: ${jobs.length}`);
-  return copyFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings);
 }
