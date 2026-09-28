@@ -39,6 +39,7 @@ import {
  hasCollectorWrittenHtml,
  readCachedOrEmittedHtml,
  releaseDiskBackedHtmlCache,
+ releaseDiskBackedHtmlCacheForPaths,
  jobsSeoHtmlCacheKey,
 } from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
@@ -2661,11 +2662,32 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  /** Caches active job page HTML by `${locale}:${canonicalPath}` so bridge pages
  * (previousSlugs) can serve identical full-content pages with only the
- * canonical URL pointing to the current slug. Entries are released after
- * the active emit once the same bytes are confirmed on disk. */
+ * canonical URL pointing to the current slug. Entries are released in
+ * bounded chunks after the same bytes are confirmed on disk. */
  const jobHtmlCache = new Map<string, string>();
  jobsSeoMemContext.jobHtmlCache = jobHtmlCache;
  const activeHtmlPaths = new Map<string, string>();
+ const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512;
+ let activeHtmlJobsSinceFlush = 0;
+ let activeHtmlCacheChunks = 0;
+
+ // The collector already bounds its pending-write batches, but the active
+ // bridge cache kept one full HTML string per emitted job until the whole
+ // active loop ended. With ~24k jobs on each locale shard that retained set
+ // alone can push a 16 GiB runner over the V8 ceiling. Once a collector flush
+ // has confirmed the index file, later bridge phases can reread it from disk
+ // via readCachedOrEmittedHtml; only paths not confirmed by THIS build remain
+ // in the in-memory fallback map.
+ const flushActiveHtmlCacheChunk = async (): Promise<number> => {
+  await collector.flush();
+  const released = releaseDiskBackedHtmlCacheForPaths(
+   jobHtmlCache,
+   activeHtmlPaths,
+   hasCollectorWrittenHtmlForPath,
+  );
+  activeHtmlCacheChunks++;
+  return released;
+ };
 
  const PROFILE_RELATED_COMPARE = process.env.JOBS_SEO_PROFILE_COMPARE_RELATED === '1';
  let relatedCompareMismatches = 0;
@@ -3119,6 +3141,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  console.log(
  `\x1b[36m[jobs-seo-pages]\x1b[0m employer hubs available for internal linking: ${emittedEmployerHubs.size}`,
  );
+ let releasedActiveHtmlEntries = 0;
 
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
@@ -4338,22 +4361,22 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  recordEmit('active-job-cross-canton-legacy', __tCrossCantonLegacy);
  }
  }
+ activeHtmlJobsSinceFlush++;
+ if (activeHtmlJobsSinceFlush >= ACTIVE_HTML_CACHE_CHUNK_SIZE) {
+  releasedActiveHtmlEntries += await flushActiveHtmlCacheChunk();
+  activeHtmlJobsSinceFlush = 0;
+ }
  }
 
- // The active pages are all queued by this point. Flush them before releasing
- // their source strings so every bridge can use the exact emitted artifact.
- // Missing files are kept as a tiny fallback for collision/foreign-writer
- // edge cases; the normal path drops the full HTML cache before the marker.
- await collector.flush();
- const activeHtmlDiskBackedKeys = new Set<string>();
- for (const [key, relativePath] of activeHtmlPaths) {
-  if (hasCollectorWrittenHtmlForPath(relativePath)) activeHtmlDiskBackedKeys.add(key);
- }
- const releasedActiveHtmlEntries = releaseDiskBackedHtmlCache(jobHtmlCache, activeHtmlDiskBackedKeys);
+ // Flush the tail before releasing the remaining source strings so every
+ // bridge can use the exact emitted artifact. Missing files are kept as a
+ // tiny fallback for collision/foreign-writer edge cases.
+ releasedActiveHtmlEntries += await flushActiveHtmlCacheChunk();
  activeHtmlPaths.clear();
  logJobsSeoMem('after-active-pages', {
   activeHtmlSource: 'disk',
   releasedActiveHtmlEntries,
+  activeHtmlCacheChunks,
   activeHtmlFallbackEntries: jobHtmlCache.size,
  });
 

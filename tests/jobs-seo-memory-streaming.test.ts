@@ -10,6 +10,7 @@ import {
   hasCollectorWrittenHtml,
   readCachedOrEmittedHtml,
   releaseDiskBackedHtmlCache,
+  releaseDiskBackedHtmlCacheForPaths,
 } from '../build-plugins/shared/jobsSeoHtmlCache';
 import {
   buildSoftLandingThinHtml,
@@ -120,6 +121,29 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(releaseDiskBackedHtmlCache(cache, diskBacked)).toBe(0);
   });
 
+  it('releases verified active paths while retaining unverified fallbacks', () => {
+    const cache = new Map([
+      ['it:disk', '<html>disk</html>'],
+      ['it:fallback', '<html>fallback</html>'],
+    ]);
+    const paths = new Map([
+      ['it:disk', 'it/cerca-lavoro-ticino/disk'],
+      ['it:fallback', 'it/cerca-lavoro-ticino/fallback'],
+    ]);
+
+    expect(
+      releaseDiskBackedHtmlCacheForPaths(
+        cache,
+        paths,
+        (relativePath) => relativePath.endsWith('/disk'),
+      ),
+    ).toBe(1);
+    expect(cache.has('it:disk')).toBe(false);
+    expect(paths.has('it:disk')).toBe(false);
+    expect(cache.has('it:fallback')).toBe(true);
+    expect(paths.has('it:fallback')).toBe(true);
+  });
+
   it('keeps a stale dist file as a fallback until this collector writes the path', async () => {
     const fixture = writeCanonicalPage(STALE_ACTIVE_PAGE);
     tempDirs.push(fixture.distDir);
@@ -177,6 +201,9 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     );
     expect(source).toContain("logJobsSeoMem('after-active-pages'");
     expect(source).toContain('activeHtmlSource: \'disk\'');
+    expect(source).toContain('const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512');
+    expect(source).toContain('flushActiveHtmlCacheChunk');
+    expect(source).toContain('activeHtmlCacheChunks');
     expect(source).toContain('const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512');
     expect(source).toContain('expiredCacheEntries: expiredSoftLandingCache.size');
     expect(source).toContain('expiredHtmlCachePeakEntries');

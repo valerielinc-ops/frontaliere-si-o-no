@@ -80,3 +80,24 @@ export function releaseDiskBackedHtmlCache(
   diskBackedKeys.clear();
   return released;
 }
+
+/**
+ * Release the cache entries whose corresponding paths this build has
+ * confirmed on disk, and remove those paths from the pending-path map too.
+ * The path map intentionally retains unconfirmed entries as an in-memory
+ * fallback for collision or foreign-writer edge cases.
+ */
+export function releaseDiskBackedHtmlCacheForPaths(
+  cache: Map<string, string>,
+  paths: Map<string, string>,
+  isDiskBacked: (relativePath: string) => boolean,
+): number {
+  const diskBackedKeys = new Set<string>();
+  for (const [key, relativePath] of paths) {
+    if (isDiskBacked(relativePath)) diskBackedKeys.add(key);
+  }
+  const releasedKeys = [...diskBackedKeys];
+  const released = releaseDiskBackedHtmlCache(cache, diskBackedKeys);
+  for (const key of releasedKeys) paths.delete(key);
+  return released;
+}
