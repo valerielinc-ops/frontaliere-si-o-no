@@ -20932,6 +20932,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'vaud-riduzione-reddito-sostanza',
+    category: 'fiscale',
+    date: '2026-09-28T21:32:07.062Z',
+    image: '/images/blog/vaud-riduzione-reddito-sostanza.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

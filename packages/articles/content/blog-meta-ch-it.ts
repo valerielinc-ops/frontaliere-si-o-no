@@ -6968,6 +6968,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ubs-pressione-capitali-fusione.title': 'UBS sotto pressione: capitale al 90% per filiali estere',
     'blog.article.ubs-pressione-capitali-fusione.excerpt': 'Consiglio degli Stati chiede capitale del 90% per filiali estere di UBS. La banca contesta la misura, riaccendendo ipotesi di fusione con Morgan Stanley e altri istituti.',
     'blog.article.ubs-pressione-capitali-fusione.imageAlt': 'Edificio della banca UBS a Zurigo, quartier finanziario svizzero',
+    'blog.article.vaud-riduzione-reddito-sostanza.title': 'Vaud, taglio fiscale del 12% sul reddito e sulla sostanza',
+    'blog.article.vaud-riduzione-reddito-sostanza.excerpt': 'Il Vaud approva una riduzione del 12% delle imposte cantonali su reddito e sostanza. Si parla di 272 milioni in meno dal prossimo 1° gennaio.',
+    'blog.article.vaud-riduzione-reddito-sostanza.imageAlt': 'Edificio pubblico svizzero con bandiere, immagine simbolica del dibattito fiscale vodese.',
 };
 
 export default blogMetaChIt;
