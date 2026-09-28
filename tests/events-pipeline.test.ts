@@ -460,6 +460,14 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     sourceName: 'Tio.ch Agenda',
   };
 
+  it('omits source-dependent Event properties when the source has no evidence', () => {
+    const serialized = JSON.stringify(eventLd({ ...baseEvent, price: undefined }, 'it'));
+    expect(serialized).not.toContain('"offers"');
+    expect(serialized).not.toContain('"organizer"');
+    expect(serialized).not.toContain('"performer"');
+    expect(serialized).not.toContain('"image"');
+  });
+
   it('emits offers with a real price when event.price has a confident amount', () => {
     const ld = eventLd(
       { ...baseEvent, price: { amount: 19, currency: 'CHF', isFree: false } },

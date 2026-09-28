@@ -1301,7 +1301,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
  */
 function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
   const raw = event.imageUrl;
-  if (!raw || !raw.startsWith('/')) return null;
+  if (!raw || !raw.startsWith('/') || raw.startsWith('/images/events/catalog/')) return null;
   return imageObjectLd({
     contentUrl: `${BASE_URL}${raw}`,
     caption: cleanEventText(event.title),

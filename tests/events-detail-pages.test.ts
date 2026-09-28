@@ -325,6 +325,12 @@ describe('eventLd source attribution (#3125)', () => {
     const ld = eventLd(hotlinked as never, 'it') as Record<string, any>;
     expect(ld.image).toBeUndefined();
   });
+
+  it('does not expose a presentation catalog asset as Event.image', () => {
+    const catalogAsset = { ...EVENT, imageUrl: '/images/events/catalog/musica.svg' };
+    const ld = eventLd(catalogAsset as never, 'it') as Record<string, any>;
+    expect(ld.image).toBeUndefined();
+  });
 });
 
 describe('renderEventDetailPage', () => {
