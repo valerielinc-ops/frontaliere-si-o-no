@@ -96325,6 +96325,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luino-artoni-futuro-nazionale': {
+    title: 'Luino, Artoni promuove incontro su frontalieri e sanità',
+    description: 'Sabato 17 ottobre a Villa Hussy Furio Artoni riunisce cittadini e Futuro Nazionale per parlare di frontalieri, sanità, scuola e caro carburante. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, luino, artoni, promuove, incontro',
+    ogTitle: 'Luino, Artoni: confronto su frontalieri e carburante',
+    ogDescription: 'Alla biblioteca di Villa Hussy un incontro pubblico promosso da Furio Artoni con i dirigenti di Futuro Nazionale. In agenda frontalieri, ristorni, rapporti con la Svizzera, sanità, scuola, imprese e caro carburante.',
+    canonicalPath: '/articoli-frontaliere/luino-artoni-futuro-nazionale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luino, Artoni promuove incontro su frontalieri e sanità",
+      "description": "Sabato 17 ottobre a Villa Hussy Furio Artoni riunisce cittadini e Futuro Nazionale per parlare di frontalieri, sanità, scuola e caro carburante. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/luino-artoni-futuro-nazionale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro pubblico a Luino su frontalieri, sanità e caro carburante"
+      },
+      "datePublished": "2026-09-28T15:26:03+00:00",
+      "dateModified": "2026-09-28T15:26:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luino-artoni-futuro-nazionale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

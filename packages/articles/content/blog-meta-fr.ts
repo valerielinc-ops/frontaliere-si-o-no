@@ -12221,6 +12221,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.iva-13esima-avs-plr.title': 'TVA pour la 13e AVS : le PLR lance le non',
     'blog.article.iva-13esima-avs-plr.excerpt': 'Le PLR suisse conteste l’augmentation de la TVA à 8,5% pour financer la 13e AVS. La votation populaire est prévue le 29 novembre.',
     'blog.article.iva-13esima-avs-plr.imageAlt': 'Enveloppe de vote suisse et calculatrice sur une table au Tessin',
+    'blog.article.luino-artoni-futuro-nazionale.title': 'Luino, Artoni promeut la rencontre sur les frontaliers et la santé',
+    'blog.article.luino-artoni-futuro-nazionale.excerpt': 'Samedi 17 octobre à la bibliothèque de la Villa Hussy Furio Artoni réunit les citoyens et l\'avenir national sur les frontaliers, la santé et les entreprises.',
+    'blog.article.luino-artoni-futuro-nazionale.imageAlt': 'Réunion publique à Luino sur les frontaliers, la santé et le coût du carburant',
 };
 
 export default blogMetaFr;

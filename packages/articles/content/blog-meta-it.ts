@@ -12220,6 +12220,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iva-13esima-avs-plr.title': 'IVA per la 13esima AVS: il PLR lancia il no',
     'blog.article.iva-13esima-avs-plr.excerpt': 'Il PLR svizzero contesta l\'aumento dell\'IVA all\'8,5% per finanziare la 13esima AVS. Il voto popolare è previsto il 29 novembre.',
     'blog.article.iva-13esima-avs-plr.imageAlt': 'Busta elettorale svizzera e calcolatrice su un tavolo in Ticino',
+    'blog.article.luino-artoni-futuro-nazionale.title': 'Luino, Artoni promuove incontro su frontalieri e sanità',
+    'blog.article.luino-artoni-futuro-nazionale.excerpt': 'Sabato 17 ottobre alla biblioteca di Villa Hussy Furio Artoni riunisce cittadini e Futuro Nazionale su frontalieri, sanità e imprese.',
+    'blog.article.luino-artoni-futuro-nazionale.imageAlt': 'Incontro pubblico a Luino su frontalieri, sanità e caro carburante',
 };
 
 export default blogMetaIt;

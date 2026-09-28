@@ -12219,6 +12219,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iva-13esima-avs-plr.title': 'VAT for the 13th AVS: the PLR launches the no',
     'blog.article.iva-13esima-avs-plr.excerpt': 'The Swiss PLR disputes the VAT increase to 8.5% to finance the 13th AVS. The popular vote is scheduled for November 29.',
     'blog.article.iva-13esima-avs-plr.imageAlt': 'Swiss ballot envelope and calculator on a table in Ticino',
+    'blog.article.luino-artoni-futuro-nazionale.title': 'Luino, Artoni promotes meeting on border workers and health',
+    'blog.article.luino-artoni-futuro-nazionale.excerpt': 'Saturday 17 ottobre at the Villa Hussy library, Furio Artoni brings together citizens and Futuro Nazionale on cross-border workers, healthcare and businesses.',
+    'blog.article.luino-artoni-futuro-nazionale.imageAlt': 'Public meeting in Luino about cross-border workers, healthcare and fuel costs',
 };
 
 export default blogMetaEn;

@@ -12218,6 +12218,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iva-13esima-avs-plr.title': 'MwSt. für 13. AHV: FDP lanciert Nein',
     'blog.article.iva-13esima-avs-plr.excerpt': 'Die FDP Schweiz bestreitet die Mehrwertsteuererhöhung auf 8,5% zur Finanzierung der 13. AHV. Die Volksabstimmung ist für den 29. November vorgesehen.',
     'blog.article.iva-13esima-avs-plr.imageAlt': 'Schweizer Wahlkuvert und Taschenrechner auf einem Tisch im Tessin',
+    'blog.article.luino-artoni-futuro-nazionale.title': 'Luino, Artoni fördert Treffen zu Grenzgängern und Gesundheitsversorgung',
+    'blog.article.luino-artoni-futuro-nazionale.excerpt': 'Am Samstag, den 17. Oktober bringt Furio Artoni in der Bibliothek der Villa Hussy Bürger und nationale Zukunft zu Grenzgängern, Gesundheitswesen und Unternehmen zusammen.',
+    'blog.article.luino-artoni-futuro-nazionale.imageAlt': 'Öffentliche Veranstaltung in Luino zu Grenzgängern, Gesundheit und Treibstoffkosten',
 };
 
 export default blogMetaDe;

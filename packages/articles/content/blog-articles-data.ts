@@ -36673,6 +36673,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'luino-artoni-futuro-nazionale',
+ category: 'novita',
+ date: '2026-09-28T15:26:03.201Z',
+ image: '/images/blog/luino-artoni-futuro-nazionale.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
