@@ -74,8 +74,7 @@
       },
       "previousSlugs": [
         "service-coordinator-and-technical-support-engineer-agie-charmilles-langnau-im-emmental"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Techniker Lieferantenqualität (m/w/d)",
@@ -744,8 +743,7 @@
       },
       "previousSlugs": [
         "service-coordinator-and-technical-support-engineer-100-agie-charmilles-langnau-i-e"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Mechanical Designer",
@@ -1220,9 +1218,9 @@
       },
       "slugByLocale": {
         "it": "automatiker-cfc-agie-charmilles-sa-bienne",
-        "en": "automatiker-efz-agie-charmilles-bienne",
+        "en": "automatic-efz-agie-charmilles-sa-bienne",
         "de": "automatiker-efz-agie-charmilles-bienne",
-        "fr": "automatiker-efz-agie-charmilles-bienne"
+        "fr": "efz-automatique-agie-charmilles-sa-bienne"
       },
       "id": "agie-charmilles-9dc89a54b496",
       "salaryMin": 77000,
@@ -1242,6 +1240,12 @@
       "firstSeenAt": "2026-05-25T11:45:26.634Z",
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-efz-agie-charmilles-bienne"
+        ],
+        "en": [
+          "automatiker-efz-agie-charmilles-bienne"
+        ],
+        "fr": [
           "automatiker-efz-agie-charmilles-bienne"
         ]
       },

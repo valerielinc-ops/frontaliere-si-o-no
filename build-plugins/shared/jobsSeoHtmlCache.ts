@@ -80,3 +80,26 @@ export function releaseDiskBackedHtmlCache(
   diskBackedKeys.clear();
   return released;
 }
+
+/**
+ * Chunk boundary for a long emit loop: flush the collector, then drop the
+ * tracked entries whose page this collector has now written. The cache holds
+ * one chunk of pages instead of the whole corpus. A tracked path the collector
+ * did not write (collision, locale filter, preserved derived output) keeps its
+ * entry as the fallback; either way the key leaves `pendingPaths`, and a later
+ * write of the same key registers it again.
+ */
+export async function releaseFlushedHtmlCacheChunk(
+  cache: Map<string, string>,
+  pendingPaths: Map<string, string>,
+  flush: () => Promise<unknown>,
+  isWritten: (relativePath: string) => boolean,
+): Promise<number> {
+  await flush();
+  const diskBackedKeys = new Set<string>();
+  for (const [key, relativePath] of pendingPaths) {
+    if (isWritten(relativePath)) diskBackedKeys.add(key);
+  }
+  pendingPaths.clear();
+  return releaseDiskBackedHtmlCache(cache, diskBackedKeys);
+}

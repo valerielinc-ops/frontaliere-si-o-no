@@ -15,7 +15,11 @@ import {
   unpackTranslationObservabilityState,
 } from '../scripts/lib/translation-observability.mjs';
 import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from '../scripts/lib/translation-observability-limits.mjs';
-import { rollupTranslationObservability } from '../scripts/rollup-translation-observability.mjs';
+import {
+  classifyTranslationCostObservation,
+  rollupTranslationObservability,
+  TRANSLATION_COST_COMPARISON_POLICY,
+} from '../scripts/rollup-translation-observability.mjs';
 import { buildAssembledJobIdentity, buildStableJobIdentity } from '../scripts/lib/job-identity.mjs';
 
 const NOW = Date.parse('2026-08-31T00:00:00Z');
@@ -65,6 +69,43 @@ function redigest<T extends Record<string, any>>(value: T): T {
   delete copy.digest;
   copy.digest = digestDocument(copy);
   return copy;
+}
+
+function costReport({
+  runId = 'cost-0',
+  finishedAt = '2026-09-22T00:00:00Z',
+  windowMs = 4_800_000,
+  starved = false,
+  schemaVersion = 2,
+  jobTiming = { count: 4, p50Ms: 100, p90Ms: 200, maxMs: 300 },
+  outcome = 'success',
+}: Record<string, unknown> = {}) {
+  const base = report(generation(null, [job()]), [], [job()]);
+  return redigest({
+    ...base,
+    schemaVersion,
+    runId,
+    finishedAt,
+    outcome,
+    runPhases: {
+      phases: [],
+      cascade: {
+        windowMs,
+        starved,
+        jobsCleared: 1,
+        jobsPerWindowMinute: typeof windowMs === 'number' && windowMs > 0 ? 1 : null,
+        jobTiming,
+      },
+    },
+    rungAttribution: [{ rung: 'deepl', count: 1, durationMs: 100 }],
+    companyConcentration: [{
+      companyFingerprint: `sha256:${'a'.repeat(64)}`,
+      queued: 1,
+      served: 1,
+      cleared: 1,
+      durationMs: 100,
+    }],
+  });
 }
 
 describe('translation observability', () => {
@@ -496,5 +537,68 @@ describe('translation observability', () => {
     expect(history.weeks[0].runs).toBe(2);
     expect(history.months[0].runs).toBe(2);
     expect(history.seenReports).toHaveLength(2);
+  });
+
+  it('requires five current-schema, non-starved windows with a comparable granted budget', () => {
+    let history: any = null;
+    for (let index = 0; index < TRANSLATION_COST_COMPARISON_POLICY.requiredWindows; index += 1) {
+      history = rollupTranslationObservability(history, costReport({
+        runId: `cost-${index}`,
+        finishedAt: `2026-09-22T00:0${index}:00Z`,
+        windowMs: 4_763_761 + (index * 50_000),
+      }));
+    }
+
+    expect(history.costComparisonStatus).toEqual({
+      requiredWindows: 5,
+      maxBudgetRatio: 1.2,
+      observedReports: 5,
+      comparableReports: 5,
+      consecutiveComparableWindows: 5,
+      windowMsRange: { minMs: 4_763_761, maxMs: 4_963_761, ratio: 1.042 },
+      ready: true,
+      reason: null,
+      lastRunId: 'cost-4',
+      lastFinishedAt: '2026-09-22T00:04:00Z',
+    });
+    expect(history.costComparisonReports).toHaveLength(5);
+  });
+
+  it('breaks the streak for legacy, starved, incomplete, and out-of-budget reports', () => {
+    const valid = costReport();
+    expect(classifyTranslationCostObservation(valid)).toMatchObject({ comparable: true, windowMs: 4_800_000 });
+    expect(classifyTranslationCostObservation(costReport({ schemaVersion: 1 }))).toMatchObject({ comparable: false, reason: 'legacy_report_schema' });
+    expect(classifyTranslationCostObservation(costReport({ starved: true }))).toMatchObject({ comparable: false, reason: 'cascade_starved_or_unknown' });
+    expect(classifyTranslationCostObservation(costReport({ jobTiming: { count: 0, p50Ms: null, p90Ms: null, maxMs: null } }))).toMatchObject({ comparable: false, reason: 'job_timing_incomplete' });
+
+    let history: any = null;
+    for (let index = 0; index < 4; index += 1) {
+      history = rollupTranslationObservability(history, costReport({
+        runId: `before-break-${index}`,
+        finishedAt: `2026-09-23T00:0${index}:00Z`,
+      }));
+    }
+    history = rollupTranslationObservability(history, costReport({
+      runId: 'budget-break',
+      finishedAt: '2026-09-23T00:04:00Z',
+      windowMs: 5_800_000,
+    }));
+    expect(history.costComparisonStatus).toMatchObject({
+      observedReports: 5,
+      comparableReports: 5,
+      consecutiveComparableWindows: 1,
+      ready: false,
+    });
+
+    history = rollupTranslationObservability(history, costReport({
+      runId: 'starved-break',
+      finishedAt: '2026-09-23T00:05:00Z',
+      starved: true,
+    }));
+    expect(history.costComparisonStatus).toMatchObject({
+      consecutiveComparableWindows: 0,
+      ready: false,
+      lastRunId: null,
+    });
   });
 });

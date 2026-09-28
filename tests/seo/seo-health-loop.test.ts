@@ -59,7 +59,10 @@ describe('SEO health contract', () => {
     ]);
     expect(isJobDetailPath('/cerca-lavoro-ticino/software-engineer-acme/')).toBe(true);
     expect(isJobDetailPath('/en/find-jobs-zurich/software-engineer-acme/')).toBe(true);
+    expect(isJobDetailPath('/de/jobs-im-tessin/software-engineer-acme/')).toBe(true);
     expect(isJobDetailPath('/cerca-lavoro-ticino/')).toBe(false);
+    expect(isJobDetailPath('/de/jobs-im-tessin/alle/')).toBe(false);
+    expect(isJobDetailPath('/de/jobs-im-tessin/alle/page-1022/')).toBe(false);
     expect(isJobDetailPath('/cerca-lavoro-ticino/azienda-acme/')).toBe(false);
     expect(isJobDetailPath('/cerca-lavoro-ticino/infermieri-in-ticino/')).toBe(false);
   });
@@ -109,6 +112,25 @@ describe('SEO health contract', () => {
       'sitemap-noindex',
       'jobposting-missing',
     ]);
+  });
+
+  it('reports missing JobPosting for German details, not the all-jobs archive', () => {
+    const archiveUrl = `${ORIGIN}/de/jobs-im-tessin/alle/`;
+    const detailUrl = `${ORIGIN}/de/jobs-im-tessin/software-engineer-acme/`;
+    const canonicalOnly = (url: string) => `<link rel="canonical" href="${url}">`;
+
+    expect(findingsForProbe({
+      url: archiveUrl,
+      status: 200,
+      finalUrl: archiveUrl,
+      body: canonicalOnly(archiveUrl),
+    }).map(({ code }) => code)).toEqual([]);
+    expect(findingsForProbe({
+      url: detailUrl,
+      status: 200,
+      finalUrl: detailUrl,
+      body: canonicalOnly(detailUrl),
+    }).map(({ code }) => code)).toEqual(['jobposting-missing']);
   });
 
   it('does not turn an unavailable source into a healthy empty source', () => {

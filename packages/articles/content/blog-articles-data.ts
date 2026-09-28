@@ -36664,6 +36664,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'iva-13esima-avs-plr',
+ category: 'pensione',
+ date: '2026-09-28T12:14:24.965Z',
+ image: '/images/blog/iva-13esima-avs-plr.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
