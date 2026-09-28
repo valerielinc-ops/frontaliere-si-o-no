@@ -8,10 +8,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
+  OFFERWALL_GATE_SCHEDULED_WAIT_MS,
+  OFFERWALL_GATE_WAIT_MS,
   OFFERWALL_RESUME_MAX_AGE_MS,
-  isFundingChoicesOnPage,
   markOfferwallResume,
   offerwallConsentState,
+  offerwallGateWaitMs,
   planOfferwallClick,
   takeOfferwallResume,
   waitForOfferwallGate,
@@ -32,6 +34,7 @@ afterEach(() => {
   vi.restoreAllMocks();
   document.head.querySelectorAll('script[data-test-fc]').forEach((el) => el.remove());
   delete (window as unknown as { googlefc?: unknown }).googlefc;
+  delete (window as unknown as { __ftFcConsentBridge?: unknown }).__ftFcConsentBridge;
 });
 
 describe('offerwallConsentState', () => {
@@ -103,14 +106,26 @@ describe('waitForOfferwallGate', () => {
   });
 });
 
-describe('isFundingChoicesOnPage', () => {
-  it('sees the Funding Choices script', () => {
-    expect(isFundingChoicesOnPage()).toBe(false);
+describe('offerwallGateWaitMs', () => {
+  it('does not wait when Funding Choices is not coming on this page', () => {
+    expect(offerwallGateWaitMs(false)).toBe(0);
+  });
+
+  it('waits for a Funding Choices script already in the page', () => {
     const script = document.createElement('script');
     script.setAttribute('data-test-fc', '');
     script.src = 'https://fundingchoicesmessages.google.com/i/pub-8628054934855353?ers=1';
     document.head.appendChild(script);
-    expect(isFundingChoicesOnPage()).toBe(true);
+    expect(offerwallGateWaitMs(false)).toBe(OFFERWALL_GATE_WAIT_MS);
+  });
+
+  it('waits longer while the loader has only scheduled Funding Choices (bridge, no script yet)', () => {
+    (window as unknown as { __ftFcConsentBridge?: number }).__ftFcConsentBridge = 1;
+    expect(offerwallGateWaitMs(false)).toBe(OFFERWALL_GATE_SCHEDULED_WAIT_MS);
+  });
+
+  it('waits longer for the click resumed after the reload', () => {
+    expect(offerwallGateWaitMs(true)).toBe(OFFERWALL_GATE_SCHEDULED_WAIT_MS);
   });
 });
 
@@ -180,6 +195,17 @@ describe('reopenAdsConsentMessage', () => {
   });
 
   it('queues the call until Funding Choices is loaded', () => {
+    reopenAdsConsentMessage();
+    const queued = gfc()?.callbackQueue ?? [];
+    expect(queued).toHaveLength(1);
+    const showRevocationMessage = vi.fn();
+    gfc()!.showRevocationMessage = showRevocationMessage;
+    queued[0].CONSENT_DATA_READY();
+    expect(showRevocationMessage).toHaveBeenCalledTimes(1);
+  });
+
+  it('queues one call however often it is asked before Funding Choices loads', () => {
+    reopenAdsConsentMessage();
     reopenAdsConsentMessage();
     const queued = gfc()?.callbackQueue ?? [];
     expect(queued).toHaveLength(1);

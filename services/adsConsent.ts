@@ -137,9 +137,12 @@ export function denyAdsConsent(): void {
  * idle-deferred. Once it is there, call it directly: a callback pushed on
  * `callbackQueue` for CONSENT_DATA_READY after that event has fired never runs
  * (live probe, 28-09: nothing shown in 6 s; the direct call showed the message
- * in 0.2 s). Before that, queue it for CONSENT_DATA_READY. When Funding
- * Choices never loads (ad blocker) the queued call stays inert.
+ * in 0.2 s). Before that, queue it for CONSENT_DATA_READY, once: a second
+ * click before Funding Choices loads must not open the message twice. When
+ * Funding Choices never loads (ad blocker) the queued call stays inert.
  */
+let revocationQueued = false;
+
 export function reopenAdsConsentMessage(): void {
   if (typeof window === 'undefined') return;
   try {
@@ -151,8 +154,11 @@ export function reopenAdsConsentMessage(): void {
       gfc.showRevocationMessage();
       return;
     }
+    if (revocationQueued) return;
+    revocationQueued = true;
     (gfc.callbackQueue = gfc.callbackQueue ?? []).push({
       CONSENT_DATA_READY: () => {
+        revocationQueued = false;
         try {
           w.googlefc?.showRevocationMessage?.();
         } catch {

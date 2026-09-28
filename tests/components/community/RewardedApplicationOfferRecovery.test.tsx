@@ -87,6 +87,7 @@ afterEach(() => {
   document.body.style.overflow = '';
   document.head.querySelectorAll('script[data-test-fc]').forEach((el) => el.remove());
   delete (window as unknown as { googlefc?: Gfc }).googlefc;
+  delete (window as unknown as { __ftFcConsentBridge?: unknown }).__ftFcConsentBridge;
 });
 
 describe('RewardedApplicationOffer — reload that resumes the click', () => {
@@ -302,6 +303,26 @@ describe('RewardedApplicationOffer — Funding Choices still loading', () => {
 
     expect(mocks.releaseHeldOfferwall).toHaveBeenCalledTimes(1);
     expect(tracked('rewarded_offerwall_not_shown')).toEqual([]);
+  });
+
+  it('waits for a Funding Choices loader that is only scheduled, then asks for the consent choice', async () => {
+    // A first click before the idle loader injects Funding Choices: the CMP
+    // bridge is there, the script is not yet (review of #10230).
+    vi.useFakeTimers();
+    (window as unknown as { __ftFcConsentBridge?: number }).__ftFcConsentBridge = 1;
+    consent(null);
+    render(<RewardedApplicationOffer {...props()} />);
+
+    expect(screen.getByTestId('rewarded-application-loading')).toBeInTheDocument();
+    expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
+
+    mocks.status = 'suppressed';
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(4500);
+    });
+
+    expect(screen.getByTestId('rewarded-application-consent')).toBeInTheDocument();
+    expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
   });
 
   it('takes the GPT path when the gate is still not reached after the wait', async () => {

@@ -64,18 +64,34 @@ export function planOfferwallClick(
 }
 
 /**
- * How long a click waits for a gate that Funding Choices has not reached yet.
- * With a stored decision Funding Choices loads with the page and calls the
- * gate 0.5-1.3 s after the load (live, desktop).
+ * How long a click waits for a gate that Funding Choices has not reached yet,
+ * once its script is in the page. With a stored decision Funding Choices
+ * loads with the page and calls the gate 0.5-1.3 s after the load (live,
+ * desktop).
  */
 export const OFFERWALL_GATE_WAIT_MS = 3000;
-/** The same wait for the click resumed right after the reload. */
-export const OFFERWALL_RESUME_GATE_WAIT_MS = 6000;
+/**
+ * The wait while Funding Choices is only scheduled (without a decision the
+ * loaders inject it on idle, up to 4 s after the load) and for the click
+ * resumed right after the reload.
+ */
+export const OFFERWALL_GATE_SCHEDULED_WAIT_MS = 6000;
 const GATE_POLL_MS = 100;
+const FUNDING_CHOICES_SCRIPT = 'script[src*="fundingchoicesmessages.google.com"]';
 
-/** Whether the page is loading Funding Choices (its script is in the document). */
-export function isFundingChoicesOnPage(doc: Document = document): boolean {
-  return doc.querySelector('script[src*="fundingchoicesmessages.google.com"]') !== null;
+/**
+ * How long this click should wait for the gate: 0 when Funding Choices is not
+ * coming on this page. It is coming when its script is in the document, or
+ * when the CMP bridge that schedules it has run: index.html and the static
+ * loader register the bridge, then inject Funding Choices at once with a
+ * stored decision and on idle without one, so a first click can come before
+ * the script exists (review of #10230).
+ */
+export function offerwallGateWaitMs(resumed: boolean, win: Window = window): number {
+  if (resumed) return OFFERWALL_GATE_SCHEDULED_WAIT_MS;
+  if (win.document.querySelector(FUNDING_CHOICES_SCRIPT) !== null) return OFFERWALL_GATE_WAIT_MS;
+  const scheduled = Boolean((win as Window & { __ftFcConsentBridge?: unknown }).__ftFcConsentBridge);
+  return scheduled ? OFFERWALL_GATE_SCHEDULED_WAIT_MS : 0;
 }
 
 /** Resolve with the gate status as soon as it is no longer `absent`, or at the timeout. */

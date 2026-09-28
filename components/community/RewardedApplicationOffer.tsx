@@ -21,11 +21,9 @@ import {
   type OfferwallReleaseResult,
 } from '@/services/offerwallClickGate';
 import {
-  OFFERWALL_GATE_WAIT_MS,
-  OFFERWALL_RESUME_GATE_WAIT_MS,
-  isFundingChoicesOnPage,
   markOfferwallResume,
   offerwallConsentState,
+  offerwallGateWaitMs,
   planOfferwallClick,
   waitForOfferwallGate,
   type OfferwallClickPlan,
@@ -74,8 +72,8 @@ export function shortenRewardedOfferJobTitle(title: string | null | undefined): 
 }
 
 /**
- * `checking`: Funding Choices is still loading and has not reached the gate;
- * the click waits for it (OFFERWALL_GATE_WAIT_MS).
+ * `checking`: Funding Choices is still loading, or only scheduled, and has not
+ * reached the gate; the click waits for it (offerwallGateWaitMs).
  * `reloading`: only a fresh page load can hold the Offerwall; the page reloads
  * and JobBoard resumes this click.
  * `consent`: the visitor has not answered the consent message, and no ad can
@@ -211,7 +209,7 @@ export default function RewardedApplicationOffer({
   // decided at once, so a held Offerwall is still released in the click's render.
   const [initialDecision] = useState<GateDecision | null>(() => {
     const status = offerwallGateStatus();
-    if (status === 'absent' && (resumed || isFundingChoicesOnPage())) return null;
+    if (status === 'absent' && offerwallGateWaitMs(resumed) > 0) return null;
     return decideFor(status);
   });
   const [phase, setPhase] = useState<OfferPhase>(() => (initialDecision ? PHASE_FOR_PLAN[initialDecision.plan] : 'checking'));
@@ -432,7 +430,7 @@ export default function RewardedApplicationOffer({
     }
     const watch = typeof AbortController !== 'undefined' ? new AbortController() : null;
     void waitForOfferwallGate(
-      resumed ? OFFERWALL_RESUME_GATE_WAIT_MS : OFFERWALL_GATE_WAIT_MS,
+      offerwallGateWaitMs(resumed),
       watch ? { signal: watch.signal } : {},
     ).then((status) => {
       if (!mountedRef.current || watch?.signal.aborted) return;
