@@ -21,18 +21,14 @@
 
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
+// Same scheduledAt validation as the traffic relay (one copy, no drift).
+import { toValidDate } from './lib/trafficCollectionCalendar.js';
 
 export const ORCHESTRATOR_WORKFLOW = 'orchestrate-crawlers.yml';
 /** Nominal UTC slots, `HH:MM`. Kept in parity with the heartbeat by a test. */
 export const ORCHESTRATOR_SLOTS_UTC = Object.freeze(['09:00', '21:00']);
 /** Cloud Scheduler expression derived from the slots above (UTC). */
 export const ORCHESTRATOR_CLOUD_SCHEDULE = '0 9,21 * * *';
-
-function toValidDate(value) {
-  const date = value instanceof Date ? new Date(value.getTime()) : new Date(value);
-  if (!Number.isFinite(date.getTime())) throw new TypeError('scheduledAt must be a valid date');
-  return date;
-}
 
 /**
  * True only for a nominal slot. A Cloud Console "force run" carries the current
