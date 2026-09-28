@@ -2313,6 +2313,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sanita-alta-engadina-samedan': { it: 'sanita-alta-engadina-samedan', en: 'upper-engadine-healthcare-samedan', de: 'oberengadin-gesundheitswesen-samedan', fr: 'sante-haute-engadine-samedan' },
  'fisioterapia-ticino-moratoria': { it: 'fisioterapia-ticino-moratoria', en: 'physiotherapy-in-ticino-moratorium-is-not-enough-physioswiss', de: 'physiotherapie-im-tessin-moratorium-reicht-nicht-aus-physioswiss', fr: 'physiotherapie-au-tessin-le-moratoire-ne-suffit-pas-physioswiss' },
  'zurigo-norme-grattacieli-votazione': { it: 'zurigo-norme-grattacieli-votazione', en: 'zurich-approves-stricter-regulations-for-skyscrapers', de: 'zurich-genehmigt-strengere-vorschriften-fur-wolkenkratzer', fr: 'zurich-approuve-des-normes-plus-strictes-pour-les-gratte-ciel' },
+ 'neutralita-scelta-caso': { it: 'neutralita-scelta-caso', en: 'swiss-neutrality-case-by-case', de: 'schweizer-neutralitaet-fallweise', fr: 'neutralite-suisse-au-cas-par-cas' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

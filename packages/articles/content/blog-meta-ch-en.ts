@@ -6872,6 +6872,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.zurigo-norme-grattacieli-votazione.title': 'Zurich approves stricter regulations for skyscrapers',
     'blog.article.zurigo-norme-grattacieli-votazione.excerpt': 'Zurich approved the stricter variant of the zoning plan with 62,6% of the vote and a turnout of 45,8%, while the city has around 300 buildings taller than 25 meters.',
     'blog.article.zurigo-norme-grattacieli-votazione.imageAlt': 'View of Zurich skyline with limited high‑rise zones near railway tracks and Oerlikon',
+    'blog.article.neutralita-scelta-caso.title': 'Neutrality, Cassis: we are neutral and will remain so',
+    'blog.article.neutralita-scelta-caso.excerpt': 'Ignazio Cassis says he is satisfied after the initiative was rejected: Switzerland can continue with the current practice and assess economic sanctions on a case-by-case basis.',
+    'blog.article.neutralita-scelta-caso.imageAlt': 'Ignazio Cassis comments on the vote on the Swiss neutrality initiative',
 };
 
 export default blogMetaChEn;
