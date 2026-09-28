@@ -1406,9 +1406,9 @@
       "slug": "fachperson-gesundheit-cfc-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "slugByLocale": {
         "it": "fachperson-gesundheit-cfc-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "en": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
+        "en": "health-professional-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "de": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
-        "fr": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
+        "fr": "professionnels-de-la-sante-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1457,6 +1457,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-18T14:20:10.585Z",
@@ -1479,9 +1485,9 @@
       "slug": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
-        "en": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
+        "en": "dipl-care-professional-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-52657c",
         "de": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
-        "fr": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf"
+        "fr": "dipl-soins-professionnels-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-52657c"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",

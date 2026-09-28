@@ -3022,8 +3022,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix",
-        "en": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye",
-        "de": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye",
+        "en": "seller-m-f-d-20-40-lidl-svizzera-bevaix",
+        "de": "verkaufer-m-w-d-20-40-lidl-svizzera-bevaix",
         "fr": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye"
       },
       "requirementsByLocale": {},
@@ -3031,6 +3031,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye"
+        ],
+        "en": [
+          "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye"
+        ],
+        "de": [
           "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-bevaix-mg3uye"
         ]
       },
@@ -3755,9 +3761,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-staad-lidl-svizzera-staad",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd"
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-staad-lidl-svizzera-staad"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -3765,10 +3771,17 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qqdpzd"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -4205,9 +4218,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-emmenbrucke-lidl-svizzera-emmenbrucke",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6"
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-emmenbrucke-lidl-svizzera-emmenbrucke"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -4215,10 +4228,17 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-emmenbrucke-mq7zg6"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -6653,8 +6673,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne",
-        "en": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz",
-        "de": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz",
+        "en": "salesperson-responsible-for-team-m-f-d-80-lausanne-region-lidl-svizzera-mont-sur-lausanne",
+        "de": "verkaufer-verantwortlich-fur-team-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne",
         "fr": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
       },
       "requirementsByLocale": {},
@@ -6662,6 +6682,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
+        ],
+        "en": [
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
+        ],
+        "de": [
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
         ]
       },

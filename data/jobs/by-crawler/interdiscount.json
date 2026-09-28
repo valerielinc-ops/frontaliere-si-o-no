@@ -4341,12 +4341,12 @@
     },
     {
       "id": "interdiscount-8124dda9-cb2",
-      "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39",
+      "slug": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-acquisto-interdiscount-bulle-le-caro",
       "slugByLocale": {
         "fr": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39",
-        "it": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-bulle-le-caro",
-        "en": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39",
-        "de": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39"
+        "it": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-acquisto-interdiscount-bulle-le-caro",
+        "en": "swc-retail-manager-designation-and-realization-of-purchasing-experiences-interdiscount-bulle-le-caro",
+        "de": "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserlebnissen-interdiscount-bulle-le-caro"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -4420,7 +4420,23 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-bulle-le-caro",
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39"
+        ],
+        "en": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39"
+        ],
+        "de": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-bulle-le-caro",
+        "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-39-experiences-d-39"
+      ]
     },
     {
       "id": "interdiscount-45661fc4-073",

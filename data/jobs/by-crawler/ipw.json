@@ -579,7 +579,6 @@
           "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
           "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
           "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
-          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "assistente-medico-curante-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -607,7 +606,6 @@
         "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
         "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
         "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
-        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "assistente-medico-curante-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -709,12 +707,12 @@
     },
     {
       "id": "ipw-653d179bc2d3",
-      "slug": "psychologin-psychologe-ipw-winterthur",
+      "slug": "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "psychologin-psychologe-ipw-winterthur",
-        "en": "psychologin-psychologe-ipw-winterthur",
+        "it": "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "psychologist-psychologist-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "psychologin-psychologe-ipw-winterthur",
-        "fr": "psychologin-psychologe-ipw-winterthur"
+        "fr": "psychologue-psychologue-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -775,7 +773,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "psychologist-psychologist-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "psychologue-psychologue-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "psicologa-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -783,17 +780,17 @@
           "employee-employee-peer-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "mitarbeiterin-mitarbeiter-peer-ipw-winterthur",
           "employe-employe-pair-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "mitarbeiterin-collaboratore-trice-peer-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "mitarbeiterin-collaboratore-trice-peer-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "psychologin-psychologe-ipw-winterthur"
         ],
         "en": [
-          "psychologist-psychologist-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "psychologin-psychologe-ipw-winterthur"
         ],
         "fr": [
-          "psychologue-psychologue-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "psychologin-psychologe-ipw-winterthur"
         ]
       },
       "previousSlugs": [
-        "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "psychologist-psychologist-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "psychologue-psychologue-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "psicologa-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -801,7 +798,8 @@
         "employee-employee-peer-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "mitarbeiterin-mitarbeiter-peer-ipw-winterthur",
         "employe-employe-pair-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "mitarbeiterin-collaboratore-trice-peer-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "mitarbeiterin-collaboratore-trice-peer-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "psychologin-psychologe-ipw-winterthur"
       ]
     },
     {
@@ -1512,9 +1510,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-o-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-o-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur",
+        "en": "dipl-nursing-professional-hf-or-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur"
+        "fr": "dipl-soins-infirmiers-professionnels-hf-ou-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1565,6 +1563,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-ipw-winterthur"
         ]
       },

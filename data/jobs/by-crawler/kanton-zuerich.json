@@ -1896,12 +1896,12 @@
     },
     {
       "id": "kanton-zuerich-16378c13397c",
-      "slug": "sozialarbeiter-sozialarbeiterin-kantonale-verwaltung-zurich-hinwil",
+      "slug": "lavoratore-sociale-lavoratore-sociale-kantonale-verwaltung-zurich-hinwil",
       "slugByLocale": {
-        "it": "sozialarbeiter-sozialarbeiterin-kantonale-verwaltung-zurich-hinwil",
-        "en": "sozialarbeiter-sozialarbeiterin-kantonale-verwaltung-zurich-hinwil",
+        "it": "lavoratore-sociale-lavoratore-sociale-kantonale-verwaltung-zurich-hinwil",
+        "en": "social-worker-social-worker-kantonale-verwaltung-zurich-hinwil",
         "de": "sozialarbeiter-sozialarbeiterin-kanton-zuerich-hinwil",
-        "fr": "sozialarbeiter-sozialarbeiterin-kantonale-verwaltung-zurich-hinwil"
+        "fr": "travailleurs-sociaux-kantonale-verwaltung-zurich-hinwil"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1952,7 +1952,6 @@
         "assistente-sociale-kantonale-verwaltung-zurich-hinwil",
         "social-worker-kantonale-verwaltung-zurich-hinwil",
         "travailleur-social-travailleuse-sociale-kantonale-verwaltung-zurich-hinwil",
-        "lavoratore-sociale-lavoratore-sociale-kantonale-verwaltung-zurich-hinwil",
         "social-worker-social-worker-kantonale-verwaltung-zurich-hinwil",
         "travailleurs-sociaux-kantonale-verwaltung-zurich-hinwil"
       ],
@@ -1963,15 +1962,16 @@
           "assistente-sociale-kantonale-verwaltung-zurich-hinwil",
           "social-worker-kantonale-verwaltung-zurich-hinwil",
           "travailleur-social-travailleuse-sociale-kantonale-verwaltung-zurich-hinwil",
-          "lavoratore-sociale-lavoratore-sociale-kantonale-verwaltung-zurich-hinwil",
           "social-worker-social-worker-kantonale-verwaltung-zurich-hinwil",
           "travailleurs-sociaux-kantonale-verwaltung-zurich-hinwil"
         ],
         "en": [
-          "social-worker-kantonale-verwaltung-zurich-hinwil"
+          "social-worker-kantonale-verwaltung-zurich-hinwil",
+          "sozialarbeiter-sozialarbeiterin-kantonale-verwaltung-zurich-hinwil"
         ],
         "fr": [
-          "travailleur-social-travailleuse-sociale-kantonale-verwaltung-zurich-hinwil"
+          "travailleur-social-travailleuse-sociale-kantonale-verwaltung-zurich-hinwil",
+          "sozialarbeiter-sozialarbeiterin-kantonale-verwaltung-zurich-hinwil"
         ]
       },
       "firstSeenAt": "2026-08-28T05:31:00.401Z",
@@ -3081,12 +3081,12 @@
     },
     {
       "id": "kanton-zuerich-1f488c6cfe7c",
-      "slug": "praktikum-im-sozialdienst-kantonale-verwaltung-zurich-vollzugszentrum-bachtel",
+      "slug": "stage-in-servizio-sociale-kantonale-verwaltung-zurich-vollzugszentrum-bachtel",
       "slugByLocale": {
-        "it": "praktikum-im-sozialdienst-kantonale-verwaltung-zurich-vollzugszentrum-bachtel",
-        "en": "praktikum-im-sozialdienst-kantonale-verwaltung-zurich-vollzugszentrum-bachtel",
+        "it": "stage-in-servizio-sociale-kantonale-verwaltung-zurich-vollzugszentrum-bachtel",
+        "en": "internship-in-social-service-kantonale-verwaltung-zurich-vollzugszentrum-bachtel",
         "de": "praktikum-im-sozialdienst-kanton-zuerich-vollzugszentrum-bachtel",
-        "fr": "praktikum-im-sozialdienst-kantonale-verwaltung-zurich-vollzugszentrum-bachtel"
+        "fr": "stages-dans-le-service-social-kantonale-verwaltung-zurich-vollzugszentrum-bachtel"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3132,11 +3132,19 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "praktikum-im-sozialdienst-kanton-zuerich-vollzugszentrum-bachtel"
+        "praktikum-im-sozialdienst-kanton-zuerich-vollzugszentrum-bachtel",
+        "praktikum-im-sozialdienst-kantonale-verwaltung-zurich-vollzugszentrum-bachtel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-im-sozialdienst-kanton-zuerich-vollzugszentrum-bachtel"
+          "praktikum-im-sozialdienst-kanton-zuerich-vollzugszentrum-bachtel",
+          "praktikum-im-sozialdienst-kantonale-verwaltung-zurich-vollzugszentrum-bachtel"
+        ],
+        "en": [
+          "praktikum-im-sozialdienst-kantonale-verwaltung-zurich-vollzugszentrum-bachtel"
+        ],
+        "fr": [
+          "praktikum-im-sozialdienst-kantonale-verwaltung-zurich-vollzugszentrum-bachtel"
         ]
       },
       "firstSeenAt": "2026-08-27T00:53:40.895Z",
@@ -4285,7 +4293,6 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "milieutherapeut-in-fpa-kanton-zuerich-regensdorf",
-        "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf",
         "terapista-del-milieu-fpa-kantonale-verwaltung-zurich-regensdorf",
         "milieu-therapist-fpa-kantonale-verwaltung-zurich-regensdorf",
         "milieu-therapeute-fpa-kantonale-verwaltung-zurich-regensdorf",
@@ -4296,7 +4303,6 @@
       "previousSlugsByLocale": {
         "it": [
           "milieutherapeut-in-fpa-kanton-zuerich-regensdorf",
-          "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf",
           "terapista-del-milieu-fpa-kantonale-verwaltung-zurich-regensdorf",
           "milieu-therapist-fpa-kantonale-verwaltung-zurich-regensdorf",
           "milieu-therapeute-fpa-kantonale-verwaltung-zurich-regensdorf",
