@@ -771,14 +771,49 @@ describe('enrichEventsWithTranslations — partial cache re-validation (#3427)',
   const events = [{ title: 'Concerto sinfonico', id: 'tio-agenda:1' }];
   const fakeTranslate = async ({ targetLang }: { targetLang: string }) => `Translated-${targetLang}`;
 
-  it('re-translates a partial cache entry that is missing locales (the #3427 bug)', async () => {
+  it('fills the locales a partial cache entry is missing (the #3427 bug), keeping the cached one', async () => {
     // Pre-existing entry has only 'en' — 'de' and 'fr' are absent (partial).
     const cache: Record<string, Record<string, string>> = { 'concerto sinfonico': { en: 'Old-en' } };
-    const out = await enrichEventsWithTranslations(events, cache, fakeTranslate);
-    // Must contain all three locales after re-translation.
-    expect(out[0].titleByLocale).toMatchObject({ it: 'Concerto sinfonico', en: 'Translated-en', de: 'Translated-de', fr: 'Translated-fr' });
+    const translateFn = vi.fn(fakeTranslate);
+    const out = await enrichEventsWithTranslations(events, cache, translateFn);
+    // Must contain all three locales; the cached `en` is usable text, so it is not asked again.
+    expect(out[0].titleByLocale).toMatchObject({ it: 'Concerto sinfonico', en: 'Old-en', de: 'Translated-de', fr: 'Translated-fr' });
+    expect(translateFn.mock.calls.map(([args]) => args.targetLang)).toEqual(['de', 'fr']);
     // Cache entry must be updated with the full set.
     expect(Object.keys(cache['concerto sinfonico'])).toHaveLength(3);
+  });
+
+  // 2026-09-28: 17 of 237 titles had one or two locales translated and one
+  // failing; the entry was never cached, so every run re-paid all three.
+  it('caches a partial entry so the next run asks only the locale that failed', async () => {
+    const cache: Record<string, Record<string, string | null>> = {};
+    const failingEn = vi.fn(async ({ targetLang }: { targetLang: string }) =>
+      targetLang === 'en' ? '' : `Translated-${targetLang}`,
+    );
+    const first = await enrichEventsWithTranslations(events, cache, failingEn);
+    expect(first[0].titleByLocale).toEqual({ it: 'Concerto sinfonico', de: 'Translated-de', fr: 'Translated-fr' });
+    expect(cache['concerto sinfonico']).toEqual({ de: 'Translated-de', fr: 'Translated-fr' });
+
+    const secondRun = vi.fn(fakeTranslate);
+    const second = await enrichEventsWithTranslations(events, cache, secondRun);
+    expect(secondRun.mock.calls.map(([args]) => args.targetLang)).toEqual(['en']);
+    expect(second[0].titleByLocale).toMatchObject({ en: 'Translated-en', de: 'Translated-de', fr: 'Translated-fr' });
+  });
+
+  it('past the deadline keeps the Italian title for uncached locales and still uses the cache', async () => {
+    const cache: Record<string, Record<string, string>> = {
+      'concerto sinfonico': { en: 'Good-en', de: 'Good-de', fr: 'Good-fr' },
+    };
+    const mixed = [
+      { title: 'Concerto sinfonico', id: 'tio-agenda:1' },
+      { title: 'Mercatino di Natale', id: 'tio-agenda:3' },
+    ];
+    const translateFn = vi.fn(fakeTranslate);
+    const out = await enrichEventsWithTranslations(mixed, cache, translateFn, { deadline: Date.now() - 1 });
+    expect(translateFn).not.toHaveBeenCalled();
+    expect(out[0].titleByLocale?.en).toBe('Good-en');
+    expect(out[1].titleByLocale).toBeUndefined();
+    expect(cache['mercatino di natale']).toBeUndefined();
   });
 
   // #7771: un titolo gia' identico in una lingua (un festival, un toponimo)

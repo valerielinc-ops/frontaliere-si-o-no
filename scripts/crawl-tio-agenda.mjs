@@ -383,6 +383,20 @@ export async function enrichEventsWithGeo(events, cache, geocodeFn = geocodeVenu
 
 const TRANSLATE_DELAY_MS = 200;
 const TRANSLATE_LOCALES = ['en', 'de', 'fr'];
+// Wall-clock cap of the title-translation pass, same shape as guidle's
+// GUIDLE_TRANSLATE_BUDGET_MS. One title is up to three sequential cascade
+// calls, and with DeepL out of quota and Azure answering 401 each call walks
+// the whole cascade: the pass took 22.4 min on 2026-09-24 (run 36029589003,
+// then cancelled at the 60-minute timeout) and 32.8 min on 2026-09-25 (run
+// 36124423043, 89.7 of 90 minutes). Titles past the deadline keep their
+// Italian text and are retried on the next run.
+const TRANSLATE_BUDGET_MS = Number(process.env.TIO_TRANSLATE_BUDGET_MS) || 6 * 60_000;
+
+// A cached slot is settled when it holds usable text or the `null`
+// passthrough marker; anything else (absent, empty) is asked again.
+function isSettledTranslation(value) {
+  return value === null || (typeof value === 'string' && value.trim() !== '');
+}
 
 /**
  * Attach `titleByLocale` to every event — tio-agenda cards carry only a
@@ -394,21 +408,40 @@ const TRANSLATE_LOCALES = ['en', 'de', 'fr'];
  * slice from scratch every run (see `main` below), so without this cache the
  * same recurring titles would be re-translated every single day.
  *
+ * Only the locales a cached entry does not settle yet are asked, and a
+ * partial entry is cached too: before, an entry was stored only once all
+ * three locales came back, so a title whose `en` kept failing re-paid its
+ * `de` and `fr` as well on every run. After the 2026-09-28 run 17 of the 237
+ * distinct titles were in that state, each with one or two locales already
+ * translated and thrown away.
+ *
+ * `deadline` (epoch ms, opt-in) caps the pass: past it, titles that still
+ * need the network keep their Italian text (cached locales are still used).
+ *
  * Returns a NEW array (does not mutate `events`). `translateFn`/`cache` are
  * injectable so tests can verify the enrichment without a live network call.
  */
-export async function enrichEventsWithTranslations(events, cache, translateFn = freeTranslateWithRetryDetailed) {
+export async function enrichEventsWithTranslations(
+  events,
+  cache,
+  translateFn = freeTranslateWithRetryDetailed,
+  { deadline = null } = {},
+) {
   const out = [];
+  let deferred = 0;
   for (const ev of events) {
     const key = normalizeText(ev.title);
     if (!key) {
       out.push({ ...ev });
       continue;
     }
-    let entry = cache[key];
-    if (!entry || Object.keys(entry).length < TRANSLATE_LOCALES.length) {
-      entry = {};
-      for (const locale of TRANSLATE_LOCALES) {
+    let entry = cache[key] || {};
+    const missing = TRANSLATE_LOCALES.filter((locale) => !isSettledTranslation(entry[locale]));
+    if (missing.length > 0 && deadline !== null && Date.now() >= deadline) {
+      deferred += 1;
+    } else if (missing.length > 0) {
+      entry = { ...entry };
+      for (const locale of missing) {
         const { text: translated, passthrough } = asTranslationResult(
           await translateFn({
             text: ev.title,
@@ -421,14 +454,13 @@ export async function enrichEventsWithTranslations(events, cache, translateFn = 
         if (translated) entry[locale] = translated;
         // Passthrough = la cascata ha stabilito che il titolo e' gia' identico
         // in quella lingua (un festival, un toponimo): esito deterministico,
-        // memoizzato come `null`. Senza questo slot l'entry non arriva MAI a
-        // tre locale, non viene mai scritta in cache, e questo crawler — che
-        // riscrive la sua slice da zero ogni giorno — ripaga l'intera cascata
-        // sullo stesso titolo ogni singolo run.
+        // memoizzato come `null`. Senza questo slot il locale resterebbe
+        // scoperto, e questo crawler — che riscrive la sua slice da zero ogni
+        // giorno — ripagherebbe la cascata su quel titolo a ogni run.
         else if (passthrough) entry[locale] = null;
         if (translateFn === freeTranslateWithRetryDetailed) await sleep(TRANSLATE_DELAY_MS);
       }
-      if (Object.keys(entry).length === TRANSLATE_LOCALES.length) cache[key] = entry;
+      if (TRANSLATE_LOCALES.some((locale) => isSettledTranslation(entry[locale]))) cache[key] = entry;
     }
     // I marker `null` non sono traduzioni: il locale resta scoperto e legge
     // l'italiano come prima, esattamente come quando la traduzione mancava.
@@ -440,6 +472,12 @@ export async function enrichEventsWithTranslations(events, cache, translateFn = 
       continue;
     }
     out.push({ ...ev, titleByLocale: { it: ev.title, ...usable } });
+  }
+  if (deferred) {
+    console.log(
+      `[tio-agenda] title translation: budget reached — ${deferred}/${events.length} event(s) keep the Italian title `
+        + 'for the missing locales, retried next run',
+    );
   }
   return out;
 }
@@ -535,7 +573,9 @@ async function main() {
   console.log(`[tio-agenda] geo resolved ${withGeo}/${geoEvents.length}`);
 
   const translationCache = loadEventTitleTranslationCache();
-  const translatedEvents = await enrichEventsWithTranslations(geoEvents, translationCache);
+  const translatedEvents = await enrichEventsWithTranslations(geoEvents, translationCache, undefined, {
+    deadline: Date.now() + TRANSLATE_BUDGET_MS,
+  });
   const withTranslation = translatedEvents.filter((e) => e.titleByLocale).length;
   console.log(`[tio-agenda] title translated ${withTranslation}/${translatedEvents.length}`);
 
