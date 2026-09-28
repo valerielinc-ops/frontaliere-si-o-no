@@ -90110,6 +90110,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riserva-elettrica-nazionale-monthey': {
+    title: 'Centrali di riserva: il Nazionale approva 131,3 milioni',
+    description: 'Il Consiglio nazionale approva 131,3 milioni di franchi per le centrali elettriche di riserva e la soluzione transitoria di Monthey fino al 2030.',
+    keywords: 'frontalieri, ticino, svizzera, italia, centrali, riserva, nazionale, approva',
+    ogTitle: 'Centrali di riserva: il Nazionale approva 131,3 milioni',
+    ogDescription: 'Il Consiglio nazionale ha stanziato 131,3 milioni di franchi per la pianificazione e la centrale di Monthey (VS). La decisione per i 2,18 miliardi per quattro nuove centrali è rinviata al prossimo anno.',
+    canonicalPath: '/articoli-svizzera/riserva-elettrica-nazionale-monthey/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Centrali di riserva: il Nazionale approva 131,3 milioni",
+      "description": "Il Consiglio nazionale approva 131,3 milioni di franchi per le centrali elettriche di riserva e la soluzione transitoria di Monthey fino al 2030.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riserva-elettrica-nazionale-monthey.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traliccio elettrico ad alta tensione in Svizzera, simbolo della sicurezza energetica"
+      },
+      "datePublished": "2026-09-28T17:18:35+00:00",
+      "dateModified": "2026-09-28T17:18:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/riserva-elettrica-nazionale-monthey/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

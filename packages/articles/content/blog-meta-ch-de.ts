@@ -6950,6 +6950,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parlamento-rete-elettrica-svizzera.title': 'Schnellere und modernere Netze: Das Parlament beschleunigt die elektrische Revolution',
     'blog.article.parlamento-rete-elettrica-svizzera.excerpt': 'Über 60% der Höchstspannungsleitungen nähern sich dem Ende ihrer Lebensdauer; der Schwellenwert für Freileitungen liegt bei 220 kV, während das Verteilnetz Spannungen >36 kV betrifft und die neuen Stationen eine Fläche von 20 m2 und eine Höhe von 3 m nicht überschreiten dürfen.',
     'blog.article.parlamento-rete-elettrica-svizzera.imageAlt': 'Hochspannungsleitung über den Schweizer Alpen bei klarem Himmel mit sichtbarem Tal',
+    'blog.article.riserva-elettrica-nazionale-monthey.title': 'Reservekraftwerke: Nationalstaat genehmigt 131,3 Millionen',
+    'blog.article.riserva-elettrica-nazionale-monthey.excerpt': 'Der Nationalrat hat 131,3 Millionen Franken für die Planung und die Übergangslösung von Monthey bis 2030 bereitgestellt.',
+    'blog.article.riserva-elettrica-nazionale-monthey.imageAlt': 'Hochspannungsleitung in der Schweiz, Symbol für Energiesicherheit',
 };
 
 export default blogMetaChDe;
