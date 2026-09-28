@@ -36682,6 +36682,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'cassa-malati-tassa-salute',
+ category: 'pratico',
+ date: '2026-09-28T16:57:04.432Z',
+ image: '/images/blog/cassa-malati-tassa-salute.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -12222,6 +12222,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.luino-artoni-futuro-nazionale.title': 'Luino, Artoni promotes meeting on border workers and health',
     'blog.article.luino-artoni-futuro-nazionale.excerpt': 'Saturday 17 ottobre at the Villa Hussy library, Furio Artoni brings together citizens and Futuro Nazionale on cross-border workers, healthcare and businesses.',
     'blog.article.luino-artoni-futuro-nazionale.imageAlt': 'Public meeting in Luino about cross-border workers, healthcare and fuel costs',
+    'blog.article.cassa-malati-tassa-salute.title': 'Sick pay or health tax? Analysis 2026-2027',
+    'blog.article.cassa-malati-tassa-salute.excerpt': 'In 2026 premiums increase +4,4% on average, higher in Ticino; in 2027 estimate between 4,5% and 5%. Healthcare expenditure 2024: 97 mld CHF. Caisse Santé Genève project on 23/09/2026.',
+    'blog.article.cassa-malati-tassa-salute.imageAlt': 'Lugano lake view with mountains in the background, serene morning',
 };
 
 export default blogMetaEn;

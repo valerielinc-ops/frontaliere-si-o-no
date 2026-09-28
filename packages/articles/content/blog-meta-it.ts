@@ -12223,6 +12223,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.luino-artoni-futuro-nazionale.title': 'Luino, Artoni promuove incontro su frontalieri e sanità',
     'blog.article.luino-artoni-futuro-nazionale.excerpt': 'Sabato 17 ottobre alla biblioteca di Villa Hussy Furio Artoni riunisce cittadini e Futuro Nazionale su frontalieri, sanità e imprese.',
     'blog.article.luino-artoni-futuro-nazionale.imageAlt': 'Incontro pubblico a Luino su frontalieri, sanità e caro carburante',
+    'blog.article.cassa-malati-tassa-salute.title': 'Cassa malati o tassa sulla salute? Analisi 2026-2027',
+    'blog.article.cassa-malati-tassa-salute.excerpt': 'Nel 2026 i premi aumentano +4,4% medio, più alti in Ticino; nel 2027 stima tra 4,5% e 5%. Spesa sanitaria 2024: 97 mld CHF. Progetto Caisse Santé Genève il 23/09/2026.',
+    'blog.article.cassa-malati-tassa-salute.imageAlt': 'Vista del lago di Lugano con montagne sullo sfondo, mattina serena',
 };
 
 export default blogMetaIt;
