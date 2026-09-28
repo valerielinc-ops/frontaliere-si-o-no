@@ -2344,6 +2344,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'migros-tegut-24-acquirenti': { it: 'migros-tegut-24-acquirenti', en: 'migros-is-looking-for-buyers-for-24-tegut-stores', de: 'migros-sucht-kaufer-fur-24-tegut-filialen', fr: 'migros-cherche-des-acquereurs-pour-24-magasins-tegut' },
  'snl-contratto-alternativo-personale': { it: 'snl-contratto-alternativo-personale', en: 'snl-alternative-contract-staff', de: 'snl-alternativvertrag-mitarbeiter', fr: 'snl-contrat-alternatif-personnel' },
  'parlamento-svizzera-cripto-centrali': { it: 'parlamento-svizzera-cripto-centrali', en: 'swiss-parliament-approves-central-credit-and-crypto-standard', de: 'schweizer-parlament-genehmigt-zentralkredit-und-krypto-norm', fr: 'le-parlement-suisse-approuve-le-credit-central-et-la-norme-crypto' },
+ 'ubs-pressione-capitali-fusione': { it: 'ubs-pressione-capitali-fusione', en: 'ubs-pressure-capital-fusion', de: 'ubs-druck-kapital-fusion', fr: 'ubs-pression-capital-fusion' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

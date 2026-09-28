@@ -6965,6 +6965,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parlamento-svizzera-cripto-centrali.title': 'Schweizer Parlament genehmigt Zentralkredit und Krypto-Norm',
     'blog.article.parlamento-svizzera-cripto-centrali.excerpt': '131,3 Millionen Franken für Reservekraftwerke, 126 Stimmen gegen 61 zu Kryptoanlagen und Hotel-Mehrwertsteuer bei 3,8% bis 31 dicembre 2031.',
     'blog.article.parlamento-svizzera-cripto-centrali.imageAlt': 'Bundesgebäudes der Schweiz in Bern mit Flagge und Symbolen für Energie und Krypto',
+    'blog.article.ubs-pressione-capitali-fusione.title': 'UBS unter Druck: Kapital zu 90 % für ausländische Filialen',
+    'blog.article.ubs-pressione-capitali-fusione.excerpt': 'Der Ständerat fordert eine Kapitalausstattung von 90% für ausländische UBS-Filialen. Die Bank stellt die Massnahme infrage und lässt damit Fusionsspekulationen mit Morgan Stanley und anderen Instituten wieder aufflammen.',
+    'blog.article.ubs-pressione-capitali-fusione.imageAlt': 'UBS Bankgebäude in Zürich, Schweizer Finanzviertel',
 };
 
 export default blogMetaChDe;
