@@ -12,6 +12,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import { readAttr, scanStartTags } from './html-attr.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -111,6 +112,13 @@ function extractMainHtml(html = '') {
   return String(html).match(/<(?:main|article)\b[^>]*>[\s\S]*?<\/(?:main|article)>/i)?.[0]
     || String(html).match(/<body\b[^>]*>[\s\S]*?<\/body>/i)?.[0]
     || '';
+}
+
+function extractAuthoritativeEmptyEvidence(html = '') {
+  const content = extractMainHtml(html) || String(html);
+  const text = normalizeSpace(stripHtml(content));
+  const match = text.match(/\b0\s+(?:posizion[ei]\s+aperte?|open\s+positions?|offene\s+(?:stellen|positionen)|postes?\s+ouvert(?:es?|s?))\b/i);
+  return match ? `Protectas career listing reports "${match[0]}"` : '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -237,6 +245,7 @@ async function fetchJobListings() {
   const queue = [PROTECTAS_CAREER_URL];
   const visited = new Set();
   const vacancyUrls = new Set();
+  let authoritativeEmptyEvidence = '';
   let primaryPageFetched = false;
 
   while (queue.length > 0) {
@@ -258,6 +267,9 @@ async function fetchJobListings() {
         },
       });
       if (pageUrl === PROTECTAS_CAREER_URL) primaryPageFetched = true;
+      if (pageUrl === PROTECTAS_CAREER_URL) {
+        authoritativeEmptyEvidence = extractAuthoritativeEmptyEvidence(html);
+      }
     } catch (error) {
       throw new Error(
         `Protectas pagination page failed: ${pageUrl} — ${error?.message || error}`,
@@ -273,10 +285,16 @@ async function fetchJobListings() {
 
   if (!primaryPageFetched) throw new Error('Protectas primary career page was not fetched');
   if (vacancyUrls.size === 0) {
+    if (authoritativeEmptyEvidence) {
+      return { listings: [], authoritativeEmptyEvidence };
+    }
     throw new Error('Protectas career page exposed no official vacancy detail links');
   }
 
-  return [...vacancyUrls].map((url) => ({ url }));
+  return {
+    listings: [...vacancyUrls].map((url) => ({ url })),
+    authoritativeEmptyEvidence: '',
+  };
 }
 
 /* ── Detail JSON-LD parsing ────────────────────────────────── */
@@ -484,8 +502,13 @@ export async function fetchAllProtectasJobs() {
   console.log('🔍 Fetching Protectas SA physical-security jobs');
   console.log(`   Source: ${PROTECTAS_CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const { listings, authoritativeEmptyEvidence } = await fetchJobListings();
   console.log(`  📋 Official vacancy links found: ${listings.length}`);
+
+  if (listings.length === 0 && authoritativeEmptyEvidence) {
+    console.log(`  🧩 Source-proven zero: ${authoritativeEmptyEvidence}`);
+    return markAuthoritativeEmptySnapshot([], authoritativeEmptyEvidence);
+  }
 
   const jobs = [];
   for (const listing of listings) {
