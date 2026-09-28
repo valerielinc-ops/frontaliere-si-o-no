@@ -14,7 +14,15 @@ vi.mock('../scripts/lib/github-issue-creator.mjs', () => ({
 }));
 
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSyncMock(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) => {
+      if (cmd === 'gh' && args[0] === 'api'
+        && String(args[1]).includes('/runs?status=success&event=schedule')) {
+        return JSON.stringify({ workflow_runs: [] });
+      }
+      return execFileSyncMock(cmd, args, ...rest);
+    },
+  };
   return { ...mock, default: mock };
 });
 
