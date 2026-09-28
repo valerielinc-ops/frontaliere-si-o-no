@@ -22,7 +22,7 @@ import {
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
-import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCanton, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle } from './lib/lwphr-job-parser.mjs';
+import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCanton, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle, isUsableLwphrPdf } from './lib/lwphr-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -157,9 +157,9 @@ async function mergeJobs(discoveredJobs) {
   const existingTarget = existing.filter(isTargetJob);
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
-  // Preserve existing AI translations and slugs
-  // Keep every fetched source row in the crawler slice so the shrink guard sees
-  // the complete PDF snapshot. Rows without an explicit work location remain
+  // Preserve existing AI translations and slugs. Every successfully extracted
+  // source row stays in the crawler slice so the shrink guard sees the complete
+  // usable PDF snapshot. Rows without an explicit work location remain
   // location-less and are removed by assembleJobsDataset before any page or
   // JobPosting schema is emitted; they must not inherit an HQ locality here.
   const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);
@@ -286,16 +286,26 @@ async function main() {
   }
 
   const discoveredJobs = [];
+  let skippedPdfCount = 0;
   for (const listing of listings) {
     console.log(`  📄 Extracting PDF: ${listing.title}`);
     const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl);
+    if (!isUsableLwphrPdf(pdf)) {
+      skippedPdfCount += 1;
+      const reason = pdf?.error || pdf?.warning || 'empty extracted text';
+      console.warn(`  ⚠️ Skipping ${listing.title}: ${reason}`);
+      continue;
+    }
     discoveredJobs.push(buildJob({
       title: listing.title,
       pdfUrl: listing.pdfUrl,
-      pdfText: pdf.text || '',
+      pdfText: pdf.text,
     }));
   }
 
+  if (skippedPdfCount > 0) {
+    console.warn(`  ⚠️ LWP skipped ${skippedPdfCount} posting(s) with unusable PDF content.`);
+  }
   const publishableJobs = discoveredJobs.filter(hasPublishableLocation);
   const unresolvedCount = discoveredJobs.length - publishableJobs.length;
   if (unresolvedCount > 0) {
@@ -305,8 +315,8 @@ async function main() {
     throw new Error('LWPHR discovery returned no postings with an explicit work location.');
   }
 
-  // Keep the adapter's source seeds complete; the publication guard below is
-  // applied by the dataset assembler, not by the source adapter inventory.
+  // Keep the adapter's usable source seeds complete; the publication guard
+  // below is applied by the dataset assembler, not by the source inventory.
   updateAdapterConfig(discoveredJobs);
   const { diff } = await mergeJobs(discoveredJobs);
 

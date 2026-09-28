@@ -58,6 +58,23 @@ export function reconcilePdfTitle(pageTitle = '', pdfTitle = '') {
   return pdfTitle;
 }
 
+/**
+ * A listing is mergeable only when its PDF produced real text. Failed,
+ * image-only, and empty extractions must not become boilerplate jobs whose
+ * source URL is validated only after the merge.
+ *
+ * @param {{ error?: string, thin?: boolean, text?: string }|null} pdf
+ * @returns {boolean}
+ */
+export function isUsableLwphrPdf(pdf = {}) {
+  return Boolean(
+    pdf
+      && !String(pdf.error || '').trim()
+      && !pdf.thin
+      && String(pdf.text || '').trim(),
+  );
+}
+
 function decodeHtml(value = '') {
   return String(value || '')
     .replace(/&nbsp;/gi, ' ')
