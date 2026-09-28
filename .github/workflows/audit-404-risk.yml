@@ -46,9 +46,11 @@ jobs:
       # data/jobs.json is gitignored (build artifact). Assemble it from the
       # committed per-crawler slices so check (B) samples REAL companies, not
       # just the EOC self-test fallback. Same step send-job-alerts/newsletter-qa
-      # run before consuming jobs.
+      # run before consuming jobs. This audit only consumes active jobs; avoid
+      # rebuilding the unrelated expired archive, whose write-time integrity
+      # guard belongs to the publishing/translation assembly path.
       - name: Assemble jobs dataset (company sample for check B)
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries
 
       - name: Run 404-risk audit (report all would-be-404s)
         id: audit
