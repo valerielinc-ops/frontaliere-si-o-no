@@ -12224,6 +12224,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cassa-malati-tassa-salute.title': 'Krankenkasse oder Gesundheitsabgabe? Analyse 2026-2027',
     'blog.article.cassa-malati-tassa-salute.excerpt': 'Im Jahr 2026 steigen die Prämien durchschnittlich um 4,4%, im Tessin höher; im Jahr 2027 wird sie auf 4,5% bis 5% geschätzt. Gesundheitsausgaben 2024: 97 Milliarden CHF. Projekt Caisse Santé Genève am 23.09.2026.',
     'blog.article.cassa-malati-tassa-salute.imageAlt': 'See von Lugano mit Bergen im Hintergrund, ruhiger Morgen',
+    'blog.article.tilo-fermo-busto-biasca.title': 'Tilo-Zug steht in Busto Arsizio fast drei Stunden lang still',
+    'blog.article.tilo-fermo-busto-biasca.excerpt': 'Ein Tilo-Zug von Malpensa nach Biasca ist etwa 200 Meter vom Bahnhof Busto Arsizio entfernt stecken geblieben: An Bord herrschen Anspannung und Unannehmlichkeiten.',
+    'blog.article.tilo-fermo-busto-biasca.imageAlt': 'Regionalzug bei Bellinzona, Archivbild',
 };
 
 export default blogMetaDe;

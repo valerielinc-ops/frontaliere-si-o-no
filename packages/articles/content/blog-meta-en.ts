@@ -12225,6 +12225,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cassa-malati-tassa-salute.title': 'Sick pay or health tax? Analysis 2026-2027',
     'blog.article.cassa-malati-tassa-salute.excerpt': 'In 2026 premiums increase +4,4% on average, higher in Ticino; in 2027 estimate between 4,5% and 5%. Healthcare expenditure 2024: 97 mld CHF. Caisse Santé Genève project on 23/09/2026.',
     'blog.article.cassa-malati-tassa-salute.imageAlt': 'Lugano lake view with mountains in the background, serene morning',
+    'blog.article.tilo-fermo-busto-biasca.title': 'Tilo train stopped in Busto Arsizio for almost three hours',
+    'blog.article.tilo-fermo-busto-biasca.excerpt': 'A Tilo train from Malpensa to Biasca remained stuck about 200 meters from Busto Arsizio station: tension and disruptions on board.',
+    'blog.article.tilo-fermo-busto-biasca.imageAlt': 'Regional train arriving near Bellinzona, archive image',
 };
 
 export default blogMetaEn;

@@ -12227,6 +12227,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cassa-malati-tassa-salute.title': 'Caisse maladie ou taxe santé ? Analyse 2026-2027',
     'blog.article.cassa-malati-tassa-salute.excerpt': 'En 2026, les primes augmentent de +4,4 % en moyenne, plus élevées au Tessin ; en 2027, estimation entre 4,5 % et 5 %. Dépenses de santé 2024 : 97 mld CHF. Projet Caisse Santé Genève le 23/09/2026.',
     'blog.article.cassa-malati-tassa-salute.imageAlt': 'Vue du lac de Lugano avec montagnes en arrière-plan, matin calme',
+    'blog.article.tilo-fermo-busto-biasca.title': 'Train Tilo immobilisé à Busto Arsizio pendant près de trois heures',
+    'blog.article.tilo-fermo-busto-biasca.excerpt': 'Un Tilo reliant directement Malpensa à Biasca est resté bloqué à environ 200 mètres de la gare de Busto Arsizio : tension et désagréments à bord.',
+    'blog.article.tilo-fermo-busto-biasca.imageAlt': 'Train régional près de Bellinzone, image d\'archive',
 };
 
 export default blogMetaFr;
