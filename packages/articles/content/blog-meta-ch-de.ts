@@ -6953,6 +6953,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.riserva-elettrica-nazionale-monthey.title': 'Reservekraftwerke: Nationalstaat genehmigt 131,3 Millionen',
     'blog.article.riserva-elettrica-nazionale-monthey.excerpt': 'Der Nationalrat hat 131,3 Millionen Franken für die Planung und die Übergangslösung von Monthey bis 2030 bereitgestellt.',
     'blog.article.riserva-elettrica-nazionale-monthey.imageAlt': 'Hochspannungsleitung in der Schweiz, Symbol für Energiesicherheit',
+    'blog.article.norme-biosicurezza-peste-suina.title': 'Neue Vorschriften gegen die Afrikanische Schweinepest',
+    'blog.article.norme-biosicurezza-peste-suina.excerpt': 'Das USAV legt Biosicherheitsanforderungen für Schweinehaltungen fest: Die Einhaltung der ASP-Vorgaben bietet im Seuchenfall Erleichterungen beim Tierverkehr.',
+    'blog.article.norme-biosicurezza-peste-suina.imageAlt': 'Schweizer Schweinezucht mit Biosicherheitsmassnahmen gegen die Afrikanische Schweinepest',
 };
 
 export default blogMetaChDe;
