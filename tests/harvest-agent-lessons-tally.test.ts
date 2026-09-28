@@ -9,7 +9,7 @@
  * Il segnale legittimo (🔴/🟡 ricorrente su PR distinte) resta intatto.
  */
 import { describe, it, expect } from 'vitest';
-import { tallyFindings, detectSeverity, bucketFinding } from '../scripts/ci/harvest-agent-lessons.mjs';
+import { tallyFindings, detectSeverity, bucketFinding, reviewBodyLines } from '../scripts/ci/harvest-agent-lessons.mjs';
 
 type Review = { author: { login: string }; body: string };
 type PR = { number: number; reviews: Review[] };
@@ -211,5 +211,40 @@ describe('tallyFindings — esempio porta `at` = PR mergedAt (post-fix guard, #5
     const prs = [{ number: 1, reviews: [claudeReview('🔴 adsense disabilitato')] }];
     const { examples } = tallyFindings(prs);
     expect(examples['auto-ads'][0].at).toBeUndefined();
+  });
+});
+
+describe('tallyFindings — body di review malformato con `\\n` letterali', () => {
+  // Forma reale delle review del 13-19/09 (difetto del reviewer spento da #9781):
+  // l'intero body su UNA riga, con la sequenza `\n` al posto degli a-capo.
+  const malformed = [
+    '<!-- CODEX_FALLBACK_REVIEW -->', '', '## Scope',
+    'Static SSG changes for plate auctions (tier: high)', '',
+    '## Findings (Important: 1, Nit: 0)',
+    '- `scripts/foo.mjs:L12`: 🔴 Important: il parser tratta ogni riga vuota come fine sezione e perde gli annunci successivi',
+    '', '## Adversarial check', '- ❓ q: coperto il caso senza titolo?',
+  ].join('\\n');
+  const bot = (body: string) => ({ author: { login: 'frontaliere-automation' }, body });
+
+  it('letto come una riga sola genererebbe il cluster fantasma', () => {
+    // E' il difetto: la riga unica prende il glifo del finding e il nome
+    // dalle prime parole del body.
+    expect(bucketFinding(malformed)).toBe('fp:codex-fallback-review-scope');
+  });
+
+  it('normalizza i `\\n` letterali prima di dividere: niente fp:codex-fallback-review-scope', () => {
+    expect(reviewBodyLines(malformed)).toHaveLength(10);
+    const { counts } = tallyFindings([{ number: 9326, reviews: [bot(malformed)] }]);
+    expect(counts['fp:codex-fallback-review-scope']).toBeUndefined();
+    // Il finding vero resta contato, nel suo bucket.
+    expect(counts).toEqual({ 'fp:parser-tratta-ogni-riga': 1 });
+  });
+
+  it('un body sano che cita `\\n` in prosa non viene spezzato', () => {
+    const healthy = 'La regex `\\n` qui e\' prosa\n🟡 nit: adsense loader iniettato due volte';
+    expect(reviewBodyLines(healthy)).toEqual([
+      'La regex `\\n` qui e\' prosa',
+      '🟡 nit: adsense loader iniettato due volte',
+    ]);
   });
 });
