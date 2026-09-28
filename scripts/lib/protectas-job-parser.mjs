@@ -10,7 +10,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
-import { readAttr, scanStartTags } from './html-attr.mjs';
+import { readAttr, scanHtmlTags, scanStartTags } from './html-attr.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
@@ -31,6 +31,17 @@ const SWISS_COUNTRIES = new Set(['ch', 'switzerland', 'schweiz', 'suisse', 'sviz
 const PHYSICAL_SECURITY_TITLE_RE = /\b(?:agente(?:\s+di)?\s+sicurezza|guardia(?:\s+giurata)?|security\s+(?:guard|officer)|security\s+agent|sicherheitsdienst|sicherheitsmitarbeiter|wachmann|agent(?:e)?\s+de\s+s[ée]curit(?:e|é)|surveill(?:ance|ant)|vigilanz|ronde|gardien)\b/i;
 const CYBER_OR_TECH_SECURITY_RE = /\b(?:cyber|cybers[eé]curit|sicurezza\s+informatica|s[ée]curit[ée]\s+informatique|information\s+security|it[-\s]?security|it[-\s]?sicherheitsmitarbeiter|infosec|security\s+(?:engineer|architect|analyst|specialist|consultant)|soc\s+analyst|penetration\s+test|application\s+security|cloud\s+security|network\s+security|gouvernance\s+(?:de\s+la\s+)?s[eé]curit)\b/i;
 const MAX_LISTING_PAGES = 12;
+const PROTECTAS_EMPTY_COUNT_RE = /^(0\s+(?:posizion[ei]\s+aperte?|open\s+positions?|offene\s+(?:stellen|positionen)|postes?\s+ouvert(?:es?|s?)))(?:\s*[:.!])?$/i;
+const PROTECTAS_COUNTER_ATTRIBUTE_NAMES = [
+  'id', 'class', 'data-testid', 'data-test', 'data-cy', 'data-qa',
+  'data-state', 'role', 'aria-label',
+];
+const PROTECTAS_COUNTER_HINT_RE = /(?:career|count|empty|job|listing|offer|offert|opening|position|post|result|stelle|vacan)/i;
+const PROTECTAS_CAREER_HEADING_RE = /(?:unisciti\s+al\s+nostro\s+team|join\s+(?:our|the)\s+team|open\s+positions|posizioni\s+aperte|offene\s+positionen|offres?\s+d['’]emploi|tritt\s+unserem\s+team\s+bei|rejoignez(?:-nous|\s+notre\s+equipe|\s+notre\s+équipe))/i;
+const PROTECTAS_NON_EVIDENCE_CONTAINER_TAGS = new Set([
+  'article', 'body', 'footer', 'head', 'header', 'html', 'main', 'nav',
+  'noscript', 'script', 'section', 'style', 'template',
+]);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -114,11 +125,53 @@ function extractMainHtml(html = '') {
     || '';
 }
 
+function extractElementInnerHtml(source, tags, startIndex) {
+  const opening = tags[startIndex];
+  if (!opening || opening.closing || opening.selfClosing) return '';
+
+  let depth = 1;
+  for (let index = startIndex + 1; index < tags.length; index += 1) {
+    const tag = tags[index];
+    if (tag.name !== opening.name) continue;
+    if (tag.closing) {
+      depth -= 1;
+      if (depth === 0) return source.slice(opening.end, tag.index);
+    } else if (!tag.selfClosing) {
+      depth += 1;
+    }
+  }
+  return '';
+}
+
+function hasProtectasCounterHint(rawTag) {
+  return PROTECTAS_COUNTER_ATTRIBUTE_NAMES
+    .map((name) => readAttr(rawTag, name))
+    .some((value) => PROTECTAS_COUNTER_HINT_RE.test(value));
+}
+
 function extractAuthoritativeEmptyEvidence(html = '') {
   const content = extractMainHtml(html) || String(html);
-  const text = normalizeSpace(stripHtml(content));
-  const match = text.match(/\b0\s+(?:posizion[ei]\s+aperte?|open\s+positions?|offene\s+(?:stellen|positionen)|postes?\s+ouvert(?:es?|s?))\b/i);
-  return match ? `Protectas career listing reports "${match[0]}"` : '';
+  const hasCareerHeading = PROTECTAS_CAREER_HEADING_RE.test(stripHtml(content));
+  const tags = scanHtmlTags(content);
+
+  for (let index = 0; index < tags.length; index += 1) {
+    const tag = tags[index];
+    if (tag.closing || PROTECTAS_NON_EVIDENCE_CONTAINER_TAGS.has(tag.name)) continue;
+
+    const innerHtml = extractElementInnerHtml(content, tags, index);
+    if (!innerHtml) continue;
+    const text = normalizeSpace(stripHtml(innerHtml));
+    const match = text.match(PROTECTAS_EMPTY_COUNT_RE);
+    if (!match) continue;
+
+    // A count-like element is source evidence only when its own text is the
+    // complete current vacancy-count label. A sentence elsewhere in the
+    // page (for example an archive note) must never authorize deleting jobs.
+    if (!hasProtectasCounterHint(tag.raw) && !hasCareerHeading) continue;
+    return `Protectas career listing reports "${match[0]}"`;
+  }
+
+  return '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */

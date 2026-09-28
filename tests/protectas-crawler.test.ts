@@ -177,7 +177,7 @@ describe('Protectas SA crawler parser', () => {
 
     it('publishes a proven empty snapshot when the official page reports zero openings', async () => {
       vi.spyOn(globalThis, 'fetch').mockResolvedValue(
-        new Response('<main><h1>Unisciti al nostro team</h1><div>0 Posizioni aperte:</div></main>', { status: 200 }),
+        new Response('<main><h1>Unisciti al nostro team</h1><div data-testid="vacancy-count">0 Posizioni aperte:</div></main>', { status: 200 }),
       );
 
       const jobs = await fetchAllProtectasJobs();
@@ -185,6 +185,14 @@ describe('Protectas SA crawler parser', () => {
       expect(jobs).toEqual([]);
       expect(jobs.authoritativeEmptyState).toBe('authoritative-source-zero');
       expect(jobs.authoritativeEmptyEvidence).toContain('0 Posizioni aperte');
+    });
+
+    it('fails closed when unrelated page copy mentions zero open positions', async () => {
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+        new Response('<main><p>Archive note: 0 open positions.</p></main>', { status: 200 }),
+      );
+
+      await expect(fetchAllProtectasJobs()).rejects.toThrow('no official vacancy detail links');
     });
 
     it('imports only a verified physical TI vacancy from the official page', async () => {
