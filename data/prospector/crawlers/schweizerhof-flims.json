@@ -8,8 +8,9 @@
     "https://romantikhotels.hcm4all.de/list/?l=de"
   ],
   "detailTemplate": "/list/*",
-  "listingCandidateText": "Schweizerhof Flims",
+  "detailCandidateText": "Schweizerhof Flims",
   "detailEnrichment": true,
+  "rescueOnEmptyListing": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [

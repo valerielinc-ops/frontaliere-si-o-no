@@ -14,7 +14,11 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  fetchHtmlViaBrowser,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -139,7 +143,10 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(SCHWEIZERHOF_FLIMS_KEY);
-  return runSpecInProduction(spec);
+  // HCM4all can return the listing shell without rendered vacancy links to the
+  // CI egress. Keep the shared direct/Jina path first, then let the browser
+  // rescue render the same public index before the detail tenant filter runs.
+  return runSpecInProduction(spec, { browserFetchImpl: fetchHtmlViaBrowser });
 }
 
 /**
