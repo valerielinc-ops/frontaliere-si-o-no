@@ -4191,8 +4191,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "salaryMin": 77000,
-      "salaryMax": 116500,
-      "needsRetranslation": true
+      "salaryMax": 116500
     },
     {
       "id": "company-e2fmuy",
@@ -4398,20 +4397,31 @@
           "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern",
           "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-rwlemy",
           "dispositivo-di-trasmissione-meccanico-swiss-armed-forces-vtg-bern",
-          "meccanica-in-meccanica-swiss-armed-forces-vtg-bern"
+          "meccanica-in-meccanica-swiss-armed-forces-vtg-bern",
+          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-bfr5kr",
+          "apparecchiature-di-trasmissione-meccanica-swiss-armed-forces-vtg-bern",
+          "transmission-equipment-mechanic-swiss-armed-forces-vtg-bern",
+          "mecanicien-du-materiel-de-transmission-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-rwlemy"
         ],
         "fr": [
           "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-rwlemy"
+        ],
+        "de": [
+          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-bfr5kr"
         ]
       },
       "previousSlugs": [
         "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern",
         "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-rwlemy",
         "dispositivo-di-trasmissione-meccanico-swiss-armed-forces-vtg-bern",
-        "meccanica-in-meccanica-swiss-armed-forces-vtg-bern"
+        "meccanica-in-meccanica-swiss-armed-forces-vtg-bern",
+        "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-bfr5kr",
+        "apparecchiature-di-trasmissione-meccanica-swiss-armed-forces-vtg-bern",
+        "transmission-equipment-mechanic-swiss-armed-forces-vtg-bern",
+        "mecanicien-du-materiel-de-transmission-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -4670,8 +4680,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "salaryMin": 73000,
-      "salaryMax": 124500,
-      "needsRetranslation": true
+      "salaryMax": 124500
     },
     {
       "id": "company-v1b670",
@@ -9451,7 +9460,8 @@
       "addressLocality": "Bern",
       "addressRegion": "LU",
       "salaryMin": 58500,
-      "salaryMax": 89000
+      "salaryMax": 89000,
+      "needsRetranslation": true
     },
     {
       "id": "company-h6b4r1",
@@ -9585,7 +9595,8 @@
       },
       "previousSlugs": [
         "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-5ikj4z",
@@ -10230,7 +10241,8 @@
       },
       "previousSlugs": [
         "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-b1yojb",
@@ -10677,7 +10689,8 @@
       "addressLocality": "Bern",
       "addressRegion": "VD",
       "salaryMin": 57000,
-      "salaryMax": 97000
+      "salaryMax": 97000,
+      "needsRetranslation": true
     },
     {
       "id": "company-r2ylxp",
