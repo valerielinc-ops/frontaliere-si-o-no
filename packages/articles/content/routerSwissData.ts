@@ -2346,6 +2346,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'parlamento-svizzera-cripto-centrali': { it: 'parlamento-svizzera-cripto-centrali', en: 'swiss-parliament-approves-central-credit-and-crypto-standard', de: 'schweizer-parlament-genehmigt-zentralkredit-und-krypto-norm', fr: 'le-parlement-suisse-approuve-le-credit-central-et-la-norme-crypto' },
  'ubs-pressione-capitali-fusione': { it: 'ubs-pressione-capitali-fusione', en: 'ubs-pressure-capital-fusion', de: 'ubs-druck-kapital-fusion', fr: 'ubs-pression-capital-fusion' },
  'vaud-riduzione-reddito-sostanza': { it: 'vaud-riduzione-reddito-sostanza', en: 'vaud-tax-cut-income-wealth', de: 'vaud-steuersenkung-einkommen-vermoegen', fr: 'vaud-baisse-impots-revenu-fortune' },
+ 'ia-lavoro-donne-uomini-2030': { it: 'ia-lavoro-donne-uomini-2030', en: 'ia-work-women-men-2030', de: 'ia-arbeit-frauen-manner-2030', fr: 'ia-travail-femmes-hommes-2030' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

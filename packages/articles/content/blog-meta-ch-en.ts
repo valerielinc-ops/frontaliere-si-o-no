@@ -6971,6 +6971,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vaud-riduzione-reddito-sostanza.title': 'Vaud, 12% tax cut on income and wealth',
     'blog.article.vaud-riduzione-reddito-sostanza.excerpt': 'Vaud approves a 12% reduction in cantonal income and substance taxes. There is talk of 272 million less from next January 1.',
     'blog.article.vaud-riduzione-reddito-sostanza.imageAlt': 'Swiss public building with flags, symbolizing the Vaud cantonal tax debate.',
+    'blog.article.ia-lavoro-donne-uomini-2030.title': 'AI and work: different impact on women and men by 2030',
+    'blog.article.ia-lavoro-donne-uomini-2030.excerpt': 'By 2030, approximately 25% of activities performed by women and 28% of those performed by men could be automated; in the care, healthcare, and education sectors, the potential drops to 19%.',
+    'blog.article.ia-lavoro-donne-uomini-2030.imageAlt': 'Swiss professionals in a Zurich office using artificial intelligence tools',
 };
 
 export default blogMetaChEn;

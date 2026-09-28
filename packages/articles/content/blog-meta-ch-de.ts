@@ -6971,6 +6971,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vaud-riduzione-reddito-sostanza.title': 'Waadt, Steuersenkung von 12% auf Einkommen und Vermögen',
     'blog.article.vaud-riduzione-reddito-sostanza.excerpt': 'Das Waadtland genehmigt eine Senkung der kantonalen Einkommens- und Vermögenssteuern um 12%. Man spricht von 272 Millionen weniger ab dem 1. Januar.',
     'blog.article.vaud-riduzione-reddito-sostanza.imageAlt': 'Schweizer Verwaltungsgebäude mit Fahnen als Symbol für die Steuerdebatte im Waadtland.',
+    'blog.article.ia-lavoro-donne-uomini-2030.title': 'KI und Arbeit: unterschiedliche Auswirkungen auf Frauen und Männer bis 2030',
+    'blog.article.ia-lavoro-donne-uomini-2030.excerpt': 'Bis 2030 könnten etwa 25% der weiblichen und 28% der männlichen Aktivitäten automatisiert werden; in den Bereichen Pflege, Gesundheit und Bildung sinkt das Potenzial auf 19%.',
+    'blog.article.ia-lavoro-donne-uomini-2030.imageAlt': 'Schweizer Fachkräfte in einem Zürcher Büro, die KI-Tools nutzen',
 };
 
 export default blogMetaChDe;

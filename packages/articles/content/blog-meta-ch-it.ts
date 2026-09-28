@@ -6971,6 +6971,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.vaud-riduzione-reddito-sostanza.title': 'Vaud, taglio fiscale del 12% sul reddito e sulla sostanza',
     'blog.article.vaud-riduzione-reddito-sostanza.excerpt': 'Il Vaud approva una riduzione del 12% delle imposte cantonali su reddito e sostanza. Si parla di 272 milioni in meno dal prossimo 1° gennaio.',
     'blog.article.vaud-riduzione-reddito-sostanza.imageAlt': 'Edificio pubblico svizzero con bandiere, immagine simbolica del dibattito fiscale vodese.',
+    'blog.article.ia-lavoro-donne-uomini-2030.title': 'IA e lavoro: impatto diverso su donne e uomini entro il 2030',
+    'blog.article.ia-lavoro-donne-uomini-2030.excerpt': 'Entro il 2030, circa il 25% delle attività femminili e il 28% di quelle maschili potrebbero essere automatizzate; nei settori di assistenza, sanità ed educazione il potenziale scende al 19%.',
+    'blog.article.ia-lavoro-donne-uomini-2030.imageAlt': 'Professionisti svizzeri in ufficio a Zurigo che utilizzano strumenti di intelligenza artificiale',
 };
 
 export default blogMetaChIt;
