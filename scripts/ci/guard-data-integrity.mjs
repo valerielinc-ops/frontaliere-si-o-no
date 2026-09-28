@@ -34,7 +34,11 @@ import {
   isJobStatsHistoryDailyShardPath,
   isSafeJobStatsHistoryShardRewrite,
 } from '../lib/job-stats-history-store.mjs';
-import { isSafeSourceGeographyPrune } from '../lib/crawler-slice-integrity.mjs';
+import {
+  isProvenArchiveMovePrune,
+  isSafeSourceGeographyPrune,
+  pairedExpiredSlicePath,
+} from '../lib/crawler-slice-integrity.mjs';
 
 // Path-glob dei file-dati protetti. I file che cambiano size legittimamente
 // (snapshot rigenerati, cache volatili) restano coperti: la soglia size+pct li
@@ -85,12 +89,22 @@ function isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDa
 }
 
 function isSafeCrawlerSliceRewriteAtRefs(beforeSha, afterSha, file) {
-  if (!/^data\/jobs\/by-crawler\/(?:swiss-re|buehler)\.json$/u.test(file)) return false;
+  const expiredFile = pairedExpiredSlicePath(file);
+  if (!expiredFile) return false;
   const previousRaw = blobAt(beforeSha, file);
   const nextRaw = blobAt(afterSha, file);
-  return previousRaw !== null
-    && nextRaw !== null
-    && isSafeSourceGeographyPrune(file, previousRaw, nextRaw);
+  if (previousRaw === null || nextRaw === null) return false;
+  if (
+    /^data\/jobs\/by-crawler\/(?:swiss-re|buehler)\.json$/u.test(file)
+    && isSafeSourceGeographyPrune(file, previousRaw, nextRaw)
+  ) return true;
+  // Housekeeping archives removed jobs into the paired expired slice of the
+  // same push. Its URL proof stays in the writer's runner, but the move itself
+  // is visible here: reverting only the active half re-creates duplicates
+  // that break assembly (#9876). Anything not archived stays a violation.
+  const expiredAfterRaw = blobAt(afterSha, expiredFile);
+  return expiredAfterRaw !== null
+    && isProvenArchiveMovePrune(file, previousRaw, nextRaw, expiredAfterRaw);
 }
 
 export function main() {
@@ -148,8 +162,9 @@ export function main() {
       // Keep the generic byte guard fail-closed for every other data path.
       if (isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate)) continue;
       // A source-geography migration can legitimately remove legacy foreign
-      // jobs after the filter is applied. The proof is deliberately exact and
-      // shared with the writer; all other slice shrinks remain errors.
+      // jobs after the filter is applied, and housekeeping can archive dead
+      // listings into the paired expired slice. Both proofs are exact and
+      // closed-world; all other slice shrinks remain errors.
       if (isSafeCrawlerSliceRewriteAtRefs(beforeSha, afterSha, file)) continue;
       const shrinkPct = accumulatorShrinkPct(prevBytes, newBytes);
       violations.push({
