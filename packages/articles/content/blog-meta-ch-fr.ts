@@ -6878,6 +6878,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-svizzera-esiti-politici.title': 'Suisse : refus d\'alimentation et neutralité',
     'blog.article.voto-svizzera-esiti-politici.excerpt': '72,5% des votants rejettent l\'initiative sur l\'alimentation. Cassis confirme la pratique actuelle en matière de neutralité. Taux de participation de 47,03%.',
     'blog.article.voto-svizzera-esiti-politici.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
+    'blog.article.voto-iniziative-neutralita-cibo.title': 'Vote suisse : non à la neutralité et à la sécurité alimentaire',
+    'blog.article.voto-iniziative-neutralita-cibo.excerpt': '70,1 % rejettent l’initiative sur la neutralité et 72,5 % celle sur la sécurité alimentaire. Tous les cantons ont voté contre.',
+    'blog.article.voto-iniziative-neutralita-cibo.imageAlt': 'Urne électorale suisse pour les initiatives sur la neutralité et la sécurité alimentaire',
 };
 
 export default blogMetaChFr;

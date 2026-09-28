@@ -6878,6 +6878,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.voto-svizzera-esiti-politici.title': 'Svizzera: bocciate alimentazione e neutralità',
     'blog.article.voto-svizzera-esiti-politici.excerpt': 'Il 72,5% dei votanti respinge l\'iniziativa sull\'alimentazione. Cassis conferma la prassi attuale sulla neutralità. Affluenza al 47,03%.',
     'blog.article.voto-svizzera-esiti-politici.imageAlt': 'Palazzo federale a Berna, sede del governo svizzero',
+    'blog.article.voto-iniziative-neutralita-cibo.title': 'Voto svizzero: no a neutralità e sicurezza alimentare',
+    'blog.article.voto-iniziative-neutralita-cibo.excerpt': 'Il 70,1% respinge l\'iniziativa sulla neutralità e il 72,5% quella sulla sicurezza alimentare. Tutti i Cantoni hanno votato contro.',
+    'blog.article.voto-iniziative-neutralita-cibo.imageAlt': 'Urna elettorale svizzera per il voto sulle iniziative su neutralità e sicurezza alimentare',
 };
 
 export default blogMetaChIt;
