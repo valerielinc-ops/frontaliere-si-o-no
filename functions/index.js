@@ -99,6 +99,7 @@ import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
 import { handlePetitionSign } from './src/petitionSign.js';
 import { getPublicPlateAuctionSnapshot, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
 import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
+import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
 
 ensureAdminApp();
 
@@ -2302,5 +2303,24 @@ export const dispatchTrafficCollection = onSchedule(
  async (event) => {
   const result = await dispatchTrafficScheduler({ scheduledAt: event.scheduleTime });
   console.log('[dispatchTrafficCollection]', JSON.stringify(result));
+ },
+);
+
+// Same move for the crawler wave: GitHub created the `0 9`/`0 21` scheduled
+// runs of orchestrate-crawlers.yml hours late (non-round minutes were just as
+// late, see orchestratorCronDispatch.js). Cloud Scheduler owns the two slots;
+// the workflow keeps workflow_dispatch as its only entrypoint. Two retries
+// cover a transient GitHub 5xx: a failed slot otherwise waits 12 h.
+export const dispatchCrawlerOrchestrator = onSchedule(
+ {
+  region: 'europe-west6',
+  schedule: ORCHESTRATOR_CLOUD_SCHEDULE,
+  timeZone: 'UTC',
+  retryCount: 2,
+  minBackoffSeconds: 60,
+ },
+ async (event) => {
+  const result = await dispatchOrchestrator({ scheduledAt: event.scheduleTime });
+  console.log('[dispatchCrawlerOrchestrator]', JSON.stringify(result));
  },
 );

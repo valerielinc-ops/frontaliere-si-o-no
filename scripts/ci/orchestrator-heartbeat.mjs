@@ -1,20 +1,24 @@
 #!/usr/bin/env node
 
 /**
- * Guardiano del cron di orchestrate-crawlers.
+ * Guardiano delle slot di orchestrate-crawlers.
  *
  * Il workflow principale invia la wave e possiede gia' il proprio report di
- * errore. Questo controllo risponde a una domanda diversa: GitHub ha creato
- * almeno una run scheduled per l'ultima slot dovuta? Un cron saltato non ha una
- * run che possa fallire, quindi senza questo heartbeat resta invisibile.
+ * errore. Questo controllo risponde a una domanda diversa: esiste almeno una
+ * run per l'ultima slot dovuta? Una slot saltata non ha una run che possa
+ * fallire, quindi senza questo heartbeat resta invisibile.
+ *
+ * Dal 2026-09-28 l'orologio e' Cloud Scheduler (dispatchCrawlerOrchestrator in
+ * functions/index.js), che crea la run come `workflow_dispatch` pochi secondi
+ * dopo la slot; il cron GitHub, che la creava con ~4 h di ritardo mediano, e'
+ * stato tolto. Contano quindi sia `workflow_dispatch` sia le vecchie run
+ * `schedule`. Il grace period di default scende da 600 a 120 minuti: il
+ * margine copriva il ritardo del cron GitHub, che non c'e' piu'; due ore
+ * assorbono i retry di Cloud Scheduler e un deploy delle functions in corso.
  *
  * L'API viene letta con una pagina limitata e la risposta viene validata prima
- * di essere considerata vuota. Il grace period di default e' 600 minuti: il
- * campione live delle ultime 94 run scheduled ha un p95 di 471 minuti e il
- * margine residuo di due ore prima della slot successiva conserva una finestra
- * utile per l'allarme. Un ritardo normale non diventa un falso allarme, mentre
- * una slot completamente assente viene pagata con un issue stabile e
- * deduplicato.
+ * di essere considerata vuota. Una slot completamente assente viene pagata con
+ * un issue stabile e deduplicato.
  *
  * Read-only verso l'API Actions. L'unica scrittura ammessa e' l'issue stabile
  * di allarme/resolution, gestita dal workflow chiamante.
@@ -29,7 +33,7 @@ import { readBoundedResponseBytes } from '../lib/bounded-response-body.mjs';
 export const ORCHESTRATOR_WORKFLOW_FILE = 'orchestrate-crawlers.yml';
 export const ORCHESTRATOR_WORKFLOW_PATH = `.github/workflows/${ORCHESTRATOR_WORKFLOW_FILE}`;
 export const DEFAULT_SCHEDULE_SLOTS = Object.freeze(['09:00', '21:00']);
-export const DEFAULT_GRACE_MINUTES = 600;
+export const DEFAULT_GRACE_MINUTES = 120;
 export const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 
 export const MISSING_ISSUE_TITLE = 'Orchestrator heartbeat: scheduled run missing';
@@ -101,8 +105,12 @@ function parseRunCreatedAt(run) {
   return Number.isFinite(createdAt.getTime()) ? createdAt : null;
 }
 
+// `workflow_dispatch`: Cloud Scheduler (and a manual wave). `schedule`: the
+// runs created before the GitHub cron was removed.
+const TARGET_EVENTS = new Set(['workflow_dispatch', 'schedule']);
+
 function isTargetRun(run) {
-  return run?.path === ORCHESTRATOR_WORKFLOW_PATH && run?.event === 'schedule';
+  return run?.path === ORCHESTRATOR_WORKFLOW_PATH && TARGET_EVENTS.has(String(run?.event ?? ''));
 }
 
 function compareRuns(left, right) {
@@ -208,7 +216,7 @@ export async function fetchScheduledRuns({
   const base = apiBaseUrl(apiUrl);
   const repo = repositoryPath(repository);
   if (typeof token !== 'string' || token.length === 0) throw new TypeError('GH_TOKEN is required');
-  const endpoint = `${base}/repos/${repo}/actions/workflows/${encodeURIComponent(ORCHESTRATOR_WORKFLOW_FILE)}/runs?event=schedule&per_page=100`;
+  const endpoint = `${base}/repos/${repo}/actions/workflows/${encodeURIComponent(ORCHESTRATOR_WORKFLOW_FILE)}/runs?per_page=100`;
   const response = await fetchImpl(endpoint, {
     method: 'GET',
     redirect: 'error',
@@ -260,7 +268,7 @@ function descriptionFor(report) {
   ];
   if (report.latestRun?.url) lines.push(`**Run osservata:** ${report.latestRun.url}`);
   if (report.error) lines.push(`**Errore API:** \`${report.error}\``);
-  lines.push('', 'Il heartbeat controlla solo la presenza della dispatch scheduled; gli errori interni della run restano responsabilita\u0300 del workflow orchestratore.');
+  lines.push('', 'Il heartbeat controlla solo la presenza di una run per la slot (Cloud Scheduler \u2192 workflow_dispatch); gli errori interni della run restano responsabilita\u0300 del workflow orchestratore.');
   return lines.join('\n');
 }
 
