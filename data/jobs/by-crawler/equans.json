@@ -10217,12 +10217,12 @@
     },
     {
       "id": "equans-a4b9549f93ac",
-      "slug": "technische-r-hauswart-in-equans-zurich",
+      "slug": "tecnica-r-housekeeper-in-equans-switzerland-zurich",
       "slugByLocale": {
-        "it": "technische-r-hauswart-in-equans-zurich",
-        "en": "technische-r-hauswart-in-equans-zurich",
+        "it": "tecnica-r-housekeeper-in-equans-switzerland-zurich",
+        "en": "technical-r-housekeeper-in-equans-switzerland-zurich",
         "de": "technische-r-hauswart-in-equans-zurich",
-        "fr": "technische-r-hauswart-in-equans-zurich"
+        "fr": "technique-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10278,7 +10278,21 @@
           "maxValue": 75500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-hauswart-in-equans-zurich"
+        ],
+        "en": [
+          "technische-r-hauswart-in-equans-zurich"
+        ],
+        "fr": [
+          "technische-r-hauswart-in-equans-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-hauswart-in-equans-zurich"
+      ]
     },
     {
       "id": "equans-82b65db3a2d8",
