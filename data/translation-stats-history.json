@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-08T22:05:26.515Z",
-    "label": "before",
-    "total": 32154,
-    "needsRetranslation": 17734,
-    "suppressed": 149,
-    "incomplete": 11156,
-    "complete": 20998,
-    "slotsPresent": 20998,
-    "flaggedAmongSlotsPresent": 7116,
-    "verifiedTranslated": 13882,
-    "sourceCopyExcused": 723,
-    "slotsPresentByLength": 32017,
-    "languageVerified": 21908,
-    "missingByLocale": {
-      "it": 3749,
-      "en": 3503,
-      "de": 132,
-      "fr": 3532
-    },
-    "queueAge": {
-      "count": 17734,
-      "withTimestamp": 17734,
-      "oldestAgeDays": 148.5,
-      "p50AgeDays": 20.5,
-      "p90AgeDays": 98,
-      "buckets": {
-        "0-1d": 3521,
-        "1-2d": 478,
-        "2-7d": 1292,
-        "0-7d": 5291,
-        "7-30d": 5034,
-        "30-90d": 5088,
-        "90-180d": 2321,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1720
-      },
-      {
-        "company": "Stellentreff AG",
-        "pending": 877
-      },
-      {
-        "company": "Stellenpartner AG",
-        "pending": 738
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 585
-      },
-      {
-        "company": "Roche",
-        "pending": 545
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 531
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 291
-      },
-      {
-        "company": "Sulzer",
-        "pending": 195
-      },
-      {
-        "company": "PEMSA",
-        "pending": 180
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 179
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-08T22:09:27.111Z",
     "label": "after",
     "total": 32154,
@@ -19578,6 +19495,100 @@
       {
         "company": "Confederazione Svizzera",
         "pending": 87
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 73
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-28T15:02:42.984Z",
+    "label": "after",
+    "total": 26608,
+    "needsRetranslation": 6531,
+    "suppressed": 218,
+    "incomplete": 7036,
+    "complete": 19572,
+    "slotsPresent": 19572,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 19572,
+    "sourceCopyExcused": 662,
+    "slotsPresentByLength": 26477,
+    "languageVerified": 20097,
+    "missingByLocale": {
+      "it": 255,
+      "en": 189,
+      "de": 115,
+      "fr": 220
+    },
+    "queueAge": {
+      "count": 6531,
+      "withTimestamp": 6531,
+      "oldestAgeDays": 503.6,
+      "p50AgeDays": 17.6,
+      "p90AgeDays": 58.6,
+      "buckets": {
+        "0-1d": 387,
+        "1-2d": 804,
+        "2-7d": 1485,
+        "0-7d": 2676,
+        "7-30d": 1944,
+        "30-90d": 1573,
+        "90-180d": 333,
+        "180d+": 5
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "not-measured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": null,
+      "sampled": 0,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 2787
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 412
+      },
+      {
+        "company": "PEMSA",
+        "pending": 259
+      },
+      {
+        "company": "Elsa Group",
+        "pending": 147
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 131
+      },
+      {
+        "company": "Manor AG",
+        "pending": 118
+      },
+      {
+        "company": "Richemont",
+        "pending": 117
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 91
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 83
       },
       {
         "company": "Interdiscount",
