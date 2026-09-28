@@ -1094,8 +1094,15 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
       expect(text).toContain('**Causa:** timeout del target dopo 60 minuti (exit 124).');
     }
 
+    // The groups that own a bounded crawler come from the pins: fachkraft sits in
+    // the quarantine group today and returns to group 23 when the quarantine
+    // review (scripts/crawler-quarantine-review.mjs) moves it back.
+    const pins = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
+    const ownerGroups = new Set(bounded.map((crawler: any) =>
+      String(pins.groups.findIndex((group: string[]) => group.includes(crawler.slug)) + 1).padStart(2, '0')));
     const otherGroups = fs.readdirSync(path.join(ROOT, '.github/workflows'))
-      .filter((file) => /^crawler-group-(?!(?:18|24)(?:-logic)?\.yml$)\d+(?:-logic)?\.yml$/.test(file));
+      .filter((file) => /^crawler-group-\d+(?:-logic)?\.yml$/.test(file))
+      .filter((file) => !ownerGroups.has(/^crawler-group-(\d+)/.exec(file)![1]));
     for (const file of otherGroups) {
       expect(fs.readFileSync(path.join(ROOT, '.github/workflows', file), 'utf8')).not.toContain('target wall timeout');
     }
@@ -1105,15 +1112,18 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
   // watchdog cadeva sulla mediana del corpus ×3 = 74 min, mentre il crawl di
   // ~3000 annunci finisce dopo ~75 min e l'housekeeping lo seguiva. Il
   // 2026-09-23 il worker è stato ucciso con exit 124 a crawl completato.
-  it('gives fachkraft an explicit 150 minute target and a 160 minute worker watchdog in group 24', () => {
+  it('gives fachkraft an explicit 150 minute target and a 160 minute worker watchdog in its group', () => {
     const { manifest } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-manifest.json'), 'utf8'));
     const fachkraft = manifest.find((crawler: any) => crawler.slug === 'fachkraft');
     expect(crawlerWorkerWatchdogMinutes(fachkraft)).toBe(160);
+    const pins = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
+    const nn = String(pins.groups.findIndex((group: string[]) => group.includes('fachkraft')) + 1).padStart(2, '0');
+    expect(nn).not.toBe('00');
 
     for (const relativePath of [
-      '.github/workflows/crawler-group-24.yml',
-      '.github/workflows/crawler-group-24-logic.yml',
-      '.github/corpus-workflows/crawler-group-24.yml',
+      `.github/workflows/crawler-group-${nn}.yml`,
+      `.github/workflows/crawler-group-${nn}-logic.yml`,
+      `.github/corpus-workflows/crawler-group-${nn}.yml`,
     ]) {
       const text = fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
       expect(text.match(/timeout --signal=TERM --kill-after=30s 150m bash -c/g)).toHaveLength(1);
@@ -1200,6 +1210,7 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
   const MANIFEST_PATH = path.join(REPO_ROOT, 'data/crawler-manifest.json');
   const BASELINE_PATH = path.join(REPO_ROOT, 'data/crawler-workflow-duration-baseline.json');
   const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
+  const QUARANTINE_PATH = path.join(REPO_ROOT, 'data/crawler-quarantine.json');
 
   const groupFiles = () =>
     fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f)).sort();
@@ -1237,7 +1248,9 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     fs.writeFileSync(manifestPath, JSON.stringify(doc));
     fs.copyFileSync(ASSIGNMENTS_PATH, assignmentsPath);
 
-    generate({ manifestPath, baselinePath: BASELINE_PATH, assignmentsPath, outDir, write: true });
+    // The manifest is a scratch copy, so the committed quarantine registry has
+    // to be named: it belongs to the committed manifest by default.
+    generate({ manifestPath, baselinePath: BASELINE_PATH, assignmentsPath, outDir, quarantinePath: QUARANTINE_PATH, write: true });
     return { outDir, assignmentsPath };
   }
 
@@ -1306,7 +1319,10 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     expect(dupes, `pinned to more than one group: ${dupes.join(', ')}`).toEqual([]);
 
     const pinnedSet = new Set(pinned);
-    const unpinned = manifest.map((c: any) => c.slug).filter((s: string) => !pinnedSet.has(s));
+    // A retired crawler (data/crawler-quarantine.json) stays in the manifest but
+    // is deliberately unscheduled.
+    const retired = new Set(Object.keys(JSON.parse(fs.readFileSync(QUARANTINE_PATH, 'utf8')).retired ?? {}));
+    const unpinned = manifest.map((c: any) => c.slug).filter((s: string) => !pinnedSet.has(s) && !retired.has(s));
     expect(
       unpinned,
       `in data/crawler-manifest.json but not pinned in data/crawler-group-assignments.json: ${unpinned.join(', ')}. ` +
@@ -1325,40 +1341,24 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     expect(extractAssignmentsFromWorkflows(WORKFLOWS_DIR)).toEqual(expected);
   });
 
-  it('keeps unstable crawlers together in the new group 24', () => {
+  it('keeps the quarantine group equal to its registry, and new crawlers out of it', () => {
     const pins = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+    const registry = JSON.parse(fs.readFileSync(QUARANTINE_PATH, 'utf8'));
     const generated = generate({
       outDir: WORKFLOWS_DIR,
       assignmentsPath: ASSIGNMENTS_PATH,
       write: false,
     });
-    const previousGroup = pins.groups[GROUP_COUNT - 2];
-    const newGroup = pins.groups[GROUP_COUNT - 1];
+    const quarantineGroup = pins.groups[registry.group - 1];
 
-    expect(newGroup).toEqual([
-      'mcdonald-s-switzerland',
-      'pole-sante-pays-enhaut',
-      'fondation-domus',
-      'cnp',
-      'fachkraft',
-      'postfinance',
-      'tsmg',
-      'anicura',
-      'fisba',
-      'tpl-lugano',
-      'capri-holdings',
-      'confederazione',
-      'protectas',
-      'lwphr',
-      'sunrise',
-      'knowledge-lab',
-      'convit',
-      'afry',
-      'buehler',
-      'postauto',
-    ]);
-    expect(previousGroup).not.toContain('mcdonald-s-switzerland');
-    expect(generated[GROUP_COUNT - 1].members).toEqual(newGroup);
+    // Every member has an entry and every entry is pinned there: which crawler
+    // sits in the quarantine group is data/crawler-quarantine.json, and the
+    // review (scripts/crawler-quarantine-review.mjs) moves both together.
+    expect([...quarantineGroup].sort()).toEqual(Object.keys(registry.members).sort());
+    expect(generated[registry.group - 1].members).toEqual(quarantineGroup);
+    for (const slug of Object.keys(registry.retired ?? {})) {
+      expect(pins.groups.flat()).not.toContain(slug);
+    }
   });
 
   it('removing ONE crawler from the manifest rewrites ONE group file, not all 24', () => {

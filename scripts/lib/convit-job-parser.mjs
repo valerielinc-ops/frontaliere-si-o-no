@@ -91,9 +91,21 @@ function slugify(value = '') {
     .replace(/-{2,}/g, '-'), 180);
 }
 
+// The live Manatal career page (measured 2026-09-28) carries neither
+// `<link rel="canonical">` nor `og:url`: only `<title>`/`og:title`
+// "Convit Holding GmbH | Career Page" and `og:site_name` "Manatal". A generic
+// Manatal 404 is titled just "Manatal", a challenge page has neither.
+const CONVIT_LISTING_TITLE = 'convit holding gmbh | career page';
+const MANATAL_SITE_NAME = 'manatal';
+
 /**
  * Recognize the employer's listing document before treating an empty page as
  * the terminal pagination page. This rejects generic challenge/error pages.
+ *
+ * A canonical/og:url pointing at the listing path is sufficient. Without one,
+ * the document must carry BOTH the employer's own career-page title (in
+ * `<title>` or `og:title`) and the Manatal `og:site_name`: the title alone is
+ * what an error page could echo back, the site name alone is every tenant.
  */
 export function isConvitListingPage(html = '') {
   const document = new JSDOM(html).window.document;
@@ -102,7 +114,7 @@ export function isConvitListingPage(html = '') {
     document.querySelector('meta[property="og:url"]')?.getAttribute('content'),
   ].filter(Boolean);
 
-  return canonicalUrls.some((rawUrl) => {
+  const canonicalListing = canonicalUrls.some((rawUrl) => {
     try {
       const url = new URL(rawUrl, BASE_URL);
       return url.origin === BASE_ORIGIN && LISTING_PATH_RE.test(url.pathname);
@@ -110,6 +122,16 @@ export function isConvitListingPage(html = '') {
       return false;
     }
   });
+  if (canonicalListing) return true;
+
+  const titles = [
+    document.querySelector('title')?.textContent,
+    document.querySelector('meta[property="og:title"]')?.getAttribute('content'),
+  ].map((value) => normalizeSpace(value).toLowerCase());
+  const siteName = normalizeSpace(
+    document.querySelector('meta[property="og:site_name"]')?.getAttribute('content'),
+  ).toLowerCase();
+  return siteName === MANATAL_SITE_NAME && titles.includes(CONVIT_LISTING_TITLE);
 }
 
 /**
