@@ -10,6 +10,7 @@ import {
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { performance } from 'node:perf_hooks';
 import { afterEach, describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
@@ -23,6 +24,16 @@ const cleanupScript = workflow.jobs['cleanup-stale-jobs'].steps.find(
   (step) => step.name === 'Cleanup each per-crawler slice',
 )?.run;
 const tempRoots: string[] = [];
+const serialCleanupScript = `
+set -euo pipefail
+slices=0
+for slice in data/jobs/by-crawler/*.json; do
+  [ -f "$slice" ] || continue
+  JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
+  slices=$((slices + 1))
+done
+echo "serial cleanup complete: $slices slice(s)"
+`;
 
 function fixture(sliceCount: number) {
   const fixtureRoot = mkdtempSync(join(tmpdir(), 'cleanup-stale-slices-'));
@@ -45,6 +56,7 @@ function fixture(sliceCount: number) {
   for (let index = 0; index < sliceCount; index += 1) {
     writeFileSync(join(sliceDir, `crawler-${index}.json`), '{}\n');
   }
+  mkdirSync(join(sliceDir, 'ignored-directory.json'));
 
   const nodeStub = join(binDir, 'node');
   writeFileSync(nodeStub, `#!/bin/bash
@@ -87,6 +99,19 @@ function runCleanup(
   });
 }
 
+function runSerialCleanup(fixtureData: ReturnType<typeof fixture>) {
+  return spawnSync('/bin/bash', ['-c', serialCleanupScript], {
+    cwd: fixtureData.fixtureRoot,
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      CLEANUP_TEST_STATE: fixtureData.stateDir,
+      PATH: `${fixtureData.binDir}:${process.env.PATH ?? ''}`,
+      RUNNER_TEMP: fixtureData.runnerTemp,
+    },
+  });
+}
+
 afterEach(() => {
   for (const fixtureRoot of tempRoots.splice(0)) {
     rmSync(fixtureRoot, { recursive: true, force: true });
@@ -95,20 +120,31 @@ afterEach(() => {
 
 describe('cleanup stale job slice fan-out', () => {
   it('runs every slice with real concurrency capped at eight workers', () => {
-    const fixtureData = fixture(12);
+    const serialFixture = fixture(12);
+    const parallelFixture = fixture(12);
 
-    const result = runCleanup(fixtureData);
+    const serialStart = performance.now();
+    const serialResult = runSerialCleanup(serialFixture);
+    const serialMs = performance.now() - serialStart;
+    const parallelStart = performance.now();
+    const result = runCleanup(parallelFixture);
+    const parallelMs = performance.now() - parallelStart;
 
-    const max = Number(readFileSync(join(fixtureData.stateDir, 'max'), 'utf8'));
-    const processed = readFileSync(join(fixtureData.stateDir, 'processed'), 'utf8')
+    const max = Number(readFileSync(join(parallelFixture.stateDir, 'max'), 'utf8'));
+    const processed = readFileSync(join(parallelFixture.stateDir, 'processed'), 'utf8')
       .trim()
       .split('\n');
+    expect(serialResult.status).toBe(0);
     expect(result.stderr).toBe('');
     expect(result.status).toBe(0);
     expect(max).toBeGreaterThan(1);
     expect(max).toBeLessThanOrEqual(8);
     expect(new Set(processed).size).toBe(12);
+    expect(parallelMs).toBeLessThan(serialMs * 0.75);
     expect(result.stdout).toContain('Bounded parallel per-slice cleanup complete: 12 slice(s)');
+    console.info(
+      `[cleanup-stale-benchmark] slices=12 serial=${Math.round(serialMs)}ms parallel=${Math.round(parallelMs)}ms speedup=${(serialMs / parallelMs).toFixed(2)}x cap=8`,
+    );
   });
 
   it('runs all slices but fails before commit when any worker exits non-zero', () => {

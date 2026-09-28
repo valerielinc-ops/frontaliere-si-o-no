@@ -91,15 +91,20 @@ jobs:
           JOBS_SKIP_URL_VALIDATION: '1'
         run: |
           set -euo pipefail
-          shopt -s nullglob
-          slices=(data/jobs/by-crawler/*.json)
-          readonly max_parallel=8
-
           cleanup_slice() {
             local slice="$1"
             echo "──── Cleaning: $slice ────"
             JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
           }
+
+          # Preserve the old regular-file guard without doing cleanup work in
+          # this enumeration pass; only bp_run_bounded below invokes workers.
+          shopt -s nullglob
+          slices=()
+          for slice in data/jobs/by-crawler/*.json; do
+            [ -f "$slice" ] && slices+=("$slice")
+          done
+          readonly max_parallel=8
 
           # Each worker owns one slice, temp file and expired archive. Reuse
           # the repository-wide sliding-window driver so a fast worker refills
