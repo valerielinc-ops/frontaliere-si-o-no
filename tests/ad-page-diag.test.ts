@@ -258,6 +258,24 @@ describe('collector parity (TS ≡ inline)', () => {
     expect(inline.collect(0)).toEqual(tsSnapshot());
   });
 
+  it('an Auto ads fill during the page view does not set first_fill_ms', async () => {
+    setPath('/cerca-lavoro-ticino/');
+    document.body.innerHTML =
+      '<ins class="adsbygoogle" data-ad-slot="1"></ins>' +
+      '<ins class="adsbygoogle adsbygoogle-noablate" data-anchor-status="displayed"></ins>' +
+      '<ins class="adsbygoogle adsbygoogle-noablate" data-vignette-loaded="true"></ins>' +
+      '<div class="google-auto-placed"><ins class="adsbygoogle" data-ad-slot="9"></ins></div>';
+    const ts = runTs();
+    const inline = runInline();
+    document
+      .querySelectorAll('ins[data-anchor-status], ins[data-vignette-loaded], .google-auto-placed ins')
+      .forEach((el) => el.setAttribute('data-ad-status', 'filled'));
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(ts.collect(0)).toMatchObject({ first_fill_ms: -1, slots_filled: 0, anchor_status: 'displayed', vignette_ready: 1 });
+    expect(inline.collect(0)).toEqual(ts.collect(0));
+  });
+
   it('marks cmp_shown when the consent decision changes during the page view', () => {
     setPath('/');
     const ts = runTs();
@@ -324,6 +342,34 @@ describe.each([
     const handle = start();
     expect(() => handle.flush(0)).not.toThrow();
     expect(handle.done).toBe(true);
+  });
+
+  it('dates a slot already filled at start instead of reporting -1', () => {
+    setPath('/cerca-lavoro-ticino/');
+    document.body.innerHTML =
+      '<ins class="adsbygoogle" data-ad-slot="1" data-ad-status="filled"></ins>' +
+      '<div class="google-auto-placed"><ins class="adsbygoogle" data-ad-status="filled"></ins></div>';
+    const now = vi.spyOn(window.performance, 'now').mockReturnValue(1800);
+    const handle = start();
+    now.mockRestore();
+    handle.flush(0);
+    expect(diagCalls()).toHaveLength(1);
+    expect(diagCalls()[0]).toMatchObject({ slots_filled: 1, first_fill_ms: 1800 });
+  });
+
+  it('an Auto ads fill alone does not date the manual first fill at start', () => {
+    setPath('/cerca-lavoro-ticino/');
+    document.body.innerHTML = '<ins class="adsbygoogle" data-anchor-status="displayed" data-ad-status="filled"></ins>';
+    start().flush(0);
+    expect(diagCalls()[0]).toMatchObject({ slots_filled: 0, first_fill_ms: -1 });
+  });
+
+  it('pins page_location to the page view path, without the query', () => {
+    setPath('/cerca-lavoro-ticino/?autologin=abc');
+    const handle = start();
+    setPath('/aziende/migros/');
+    handle.flush(1);
+    expect(diagCalls()[0]).toMatchObject({ page_location: `${window.location.origin}/cerca-lavoro-ticino/` });
   });
 
   it('queues on dataLayer when gtag is not there yet', () => {

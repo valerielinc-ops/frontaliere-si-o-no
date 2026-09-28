@@ -2,7 +2,7 @@
  * `ad_page_diag` — one GA4 event per page view that says why the ads on that
  * page earned what they earned: which ad path ran, whether adsbygoogle.js and
  * Funding Choices loaded, how many manual slots filled, what the Auto Ads
- * anchor and vignette did, and when the first creative arrived.
+ * anchor and vignette did, and when the first manual slot filled.
  *
  * Why: the AdSense reports give revenue and CPM per page, not the reason. On a
  * day the mobile job-board value drops, "fewer anchors per page" and "lower
@@ -114,6 +114,15 @@ function isManualSlot(el: Element): boolean {
   );
 }
 
+/** True when a manual slot already carries a creative (`data-ad-status=filled`). */
+function hasFilledManualSlot(doc: Document): boolean {
+  const filled = doc.querySelectorAll('ins.adsbygoogle[data-ad-status="filled"]');
+  for (let i = 0; i < filled.length; i++) {
+    if (isManualSlot(filled[i])) return true;
+  }
+  return false;
+}
+
 /** Snapshot of the page's ad state. Pure read; the inline twin must return the same. */
 export function collectAdPageDiag(
   win: DiagWindow,
@@ -193,9 +202,15 @@ export function collectAdPageDiag(
   };
 }
 
-/** Same channel as trackAdEvent (services/adAnalytics.ts): the page's gtag. */
-function sendToGa4(win: DiagWindow, params: AdPageDiagParams): void {
-  const payload = { ...params, transport_type: 'beacon' };
+/**
+ * Same channel as trackAdEvent (services/adAnalytics.ts): the page's gtag.
+ * `page_location` pins the event to the page view it describes: a snapshot
+ * flushed by an SPA navigation is sent after `pushState`, when gtag's default
+ * location is already the next page. Origin + pathname only, never the query
+ * (it can carry a one-shot autologin token the app strips later).
+ */
+function sendToGa4(win: DiagWindow, path: string, params: AdPageDiagParams): void {
+  const payload = { ...params, page_location: `${win.location.origin}${path}`, transport_type: 'beacon' };
   if (typeof win.gtag === 'function') {
     win.gtag('event', AD_PAGE_DIAG_EVENT, payload);
     return;
@@ -252,20 +267,30 @@ export function startAdPageDiag(pathname?: string, options: StartAdPageDiagOptio
       if (doc.querySelector(FC_CONSENT_ROOT_SELECTOR)) state.cmp = 1;
     };
     noteCmp();
+    // A slot already filled when this page view starts (the SPA taking over a
+    // static page, a loader that ran late) has no mutation left to observe:
+    // date it to now, the closest time available.
+    if (hasFilledManualSlot(doc)) state.firstFill = Math.max(0, Math.round(now(win) - t0));
 
     if (typeof MutationObserver !== 'undefined') {
-      const fillObserver = new MutationObserver((records) => {
-        for (const record of records) {
-          const target = record.target as Element;
-          if (target.tagName === 'INS' && target.getAttribute('data-ad-status') === 'filled') {
-            state.firstFill = Math.max(0, Math.round(now(win) - t0));
-            fillObserver.disconnect();
-            return;
+      if (state.firstFill < 0) {
+        const fillObserver = new MutationObserver((records) => {
+          for (const record of records) {
+            const target = record.target as Element;
+            // Manual slots only, like slots_filled: an Auto ads anchor or
+            // vignette filling first must not date the manual first fill.
+            if (target.tagName === 'INS' && target.getAttribute('data-ad-status') === 'filled' && isManualSlot(target)) {
+              state.firstFill = Math.max(0, Math.round(now(win) - t0));
+              fillObserver.disconnect();
+              return;
+            }
           }
-        }
-      });
-      fillObserver.observe(doc.documentElement, { subtree: true, attributes: true, attributeFilter: ['data-ad-status'] });
-      cleanups.push(() => fillObserver.disconnect());
+        });
+        fillObserver.observe(doc.documentElement, { subtree: true, attributes: true, attributeFilter: ['data-ad-status'] });
+        cleanups.push(() => fillObserver.disconnect());
+      }
+      // Funding Choices appends its consent root directly to <body>; a root
+      // that is still there at snapshot time is caught by collect() too.
       if (doc.body) {
         const cmpObserver = new MutationObserver(() => {
           noteCmp();
@@ -294,7 +319,7 @@ export function startAdPageDiag(pathname?: string, options: StartAdPageDiagOptio
           }
         }
         try {
-          sendToGa4(win, handle.collect(hidden));
+          sendToGa4(win, path, handle.collect(hidden));
         } catch {
           /* telemetry never breaks the page */
         }

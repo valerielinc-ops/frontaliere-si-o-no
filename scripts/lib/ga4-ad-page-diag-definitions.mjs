@@ -45,7 +45,7 @@ export const AD_PAGE_DIAG_GA4_CUSTOM_METRICS = Object.freeze([
   metric('slots_collapsed', 'Ad Diag Slots Collapsed', 'manual slots whose reserve was given back'),
   metric('auto_placed', 'Ad Diag Auto Placed', 'Auto ads .google-auto-placed containers'),
   metric('vignette_ready', 'Ad Diag Vignette Ready', '1 when an Auto ads vignette was loaded'),
-  metric('first_fill_ms', 'Ad Diag First Fill ms', 'ms from page-view start to the first filled ad (-1 = none)', 'MILLISECONDS'),
+  metric('first_fill_ms', 'Ad Diag First Fill ms', 'ms from page-view start to the first filled manual slot (-1 = none)', 'MILLISECONDS'),
   metric('cmp_shown', 'Ad Diag CMP Shown', '1 when the consent message appeared or the decision changed'),
   metric('ad_blocked', 'Ad Diag Ad Blocked', '1 when Funding Choices detected an ad blocker'),
   metric('diag_hidden', 'Ad Diag Sent On Hide', '1 when sent early on hide, pagehide or SPA navigation'),
