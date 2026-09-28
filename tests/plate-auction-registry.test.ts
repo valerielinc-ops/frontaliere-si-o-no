@@ -68,7 +68,7 @@ describe('plate-auction sources registry schema', () => {
     expect(Object.entries(registry.sources)
       .filter(([, entry]) => entry.status === 'active')
       .map(([key]) => key)
-      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
+      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
   });
 
   it('never activates a source that has no fetcher, and never leaves a fetcher unbacked', async () => {
