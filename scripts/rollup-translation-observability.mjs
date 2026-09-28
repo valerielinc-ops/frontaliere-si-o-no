@@ -106,10 +106,13 @@ function costObservationKey(observation) {
 }
 
 function validCostComparisonObservation(observation) {
+  const validWindow = observation?.comparable
+    ? positiveFinite(observation.windowMs)
+    : observation?.windowMs === null;
   return observation
     && typeof observation === 'object'
     && typeof observation.comparable === 'boolean'
-    && (observation.windowMs === null || positiveFinite(observation.windowMs))
+    && validWindow
     && (observation.runId === null || typeof observation.runId === 'string')
     && (observation.finishedAt === null || typeof observation.finishedAt === 'string')
     && (observation.digest === null || typeof observation.digest === 'string');
@@ -136,7 +139,7 @@ function budgetRange(observations) {
 function buildCostComparisonStatus(observations) {
   let streak = [];
   for (const observation of observations) {
-    if (!observation.comparable) {
+    if (!observation.comparable || !positiveFinite(observation.windowMs)) {
       streak = [];
       continue;
     }
