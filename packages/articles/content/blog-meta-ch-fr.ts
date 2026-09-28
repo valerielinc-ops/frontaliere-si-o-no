@@ -6887,6 +6887,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lucerna-voto-tifosi-ocse.title': 'Lucerne : vote sur les supporters, les magasins et les fonds de l\'OCDE',
     'blog.article.lucerna-voto-tifosi-ocse.excerpt': 'À Lucerne, l’initiative et le contre-projet sur la violence des supporters sont acceptés. 58,8% choisissent la contre-proposition ; feu vert également aux commerces, à l’école et à la promotion économique.',
     'blog.article.lucerna-voto-tifosi-ocse.imageAlt': 'Vote à Lucerne avec urne et ambiance liée au football',
+    'blog.article.bern-istruzione-qualita-respinta.title': 'Berne rejette l\'initiative pour une éducation de qualité',
+    'blog.article.bern-istruzione-qualita-respinta.excerpt': 'Avec 59,9% de non et une participation de 45,3%, les Bernois refusent le droit à une éducation de qualité dans la Constitution cantonale.',
+    'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'Bâtiment scolaire dans le canton suisse de Berne',
 };
 
 export default blogMetaChFr;

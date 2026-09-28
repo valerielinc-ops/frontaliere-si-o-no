@@ -6887,6 +6887,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lucerna-voto-tifosi-ocse.title': 'Lucerne: vote on fans, shops and OECD funds',
     'blog.article.lucerna-voto-tifosi-ocse.excerpt': 'In Lucerne, both the initiative and the counterproposal on fan violence pass. 58.8% choose the counterproposal; the go-ahead is also given to shops, schools and economic promotion.',
     'blog.article.lucerna-voto-tifosi-ocse.imageAlt': 'Lucerne vote with ballot box and football atmosphere',
+    'blog.article.bern-istruzione-qualita-respinta.title': 'Bern rejects the initiative on quality education',
+    'blog.article.bern-istruzione-qualita-respinta.excerpt': 'With 59.9% voting no and a turnout of 45.3%, the people of Bern reject the right to a quality education in the cantonal constitution.',
+    'blog.article.bern-istruzione-qualita-respinta.imageAlt': 'School building in the Swiss canton of Bern',
 };
 
 export default blogMetaChEn;
