@@ -17,7 +17,8 @@
  *
  * SEO contract (mirrors borderMunicipalityPagesPlugin + docs/SEO-GATES.md):
  *   - buildSeoPageHtml shell, hubKey 'vita' chrome, seoContentOutsideRoot
- *   - schema.org/Event JSON-LD on indexable event-detail pages
+ *   - schema.org/Event JSON-LD on indexable live event-detail pages; historical
+ *     archive pages remain indexable but omit stale Event rich-result markup
  *     (name/startDate/eventStatus/eventAttendanceMode/location.address.addressLocality/
  *     description≥30) — deploy-blocking; image, organizer, performer and
  *     offers are always emitted with source-backed values or deterministic
@@ -211,10 +212,10 @@ const HOME_LABEL: Record<Locale, string> = {
   fr: 'Accueil',
 };
 
-// Notice banner for the permanent noindex,follow archive page kept for events
-// that already ended (see `allEndedEvents` in scripts/lib/events-retention.mjs).
-// The page remains deliberately unlinked and out of the sitemap/Event JSON-LD
-// — see closeBundle()'s past-events emission pass.
+// Notice banner for the permanent archive page kept for events that already
+// ended (see `allEndedEvents` in scripts/lib/events-retention.mjs). Historical
+// pages stay indexable and are included in the sitemap, but omit stale Event
+// rich-result markup — see closeBundle()'s past-events emission pass.
 const PAST_EVENT_NOTICE: Record<Locale, string> = {
   it: 'Questo evento si è già svolto: le informazioni restano visibili solo per consultazione.',
   en: 'This event has already taken place — the details below are kept for reference only.',
@@ -3204,8 +3205,8 @@ export function renderEventDetailPage(params: {
   detailHref: DetailHref;
   /**
    * Set for the permanent archive page emitted for events that already ended
-   * (`allEndedEvents`). Forces `noindex,follow`, shows a "this already took
-   * place" notice, and drops Event JSON-LD — Google guidance is to avoid
+   * (`allEndedEvents`). Keeps the page indexable, shows a "this already took
+   * place" notice, and drops Event JSON-LD — Google guidance is to avoid stale
    * rich-result markup for past events (unlike JobPosting, which explicitly
    * supports a past `validThrough`).
    */
@@ -3324,10 +3325,9 @@ export function renderEventDetailPage(params: {
     )}
   </div>`;
 
-  // Past events: drop Event JSON-LD entirely (Google recommends against rich
-  // results for events that already happened) rather than keep it with a
-  // stale date, unlike JobPosting which explicitly supports a past
-  // `validThrough` — see comment on `isPast` above.
+  // Past events: keep the page indexable, but drop Event JSON-LD entirely
+  // rather than keep a stale rich-result entity, unlike JobPosting which
+  // explicitly supports a past `validThrough` — see comment on `isPast` above.
   const eventLdScript = isPast
     ? null
     : inlineScriptJson(eventLd({ ...event, structuredDataDefaultsApplied: true }, locale, canonicalUrl));
@@ -3352,7 +3352,7 @@ export function renderEventDetailPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const indexable = !isPast && wordCount >= MIN_INDEXABLE_WORDS;
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
   const inlineAd = indexable
     ? `<section class="ev-ad" aria-label="${esc(dc.adLabel)}" data-ad-placement="event-detail-inline">
       <p class="ev-ad-label">${esc(dc.adLabel)}</p>
@@ -3675,7 +3675,7 @@ export function buildSitemap(
       for (const page of pages) entries.push(ladderSitemapUrl(canton, comune, page, dateStamp));
     }
   }
-  // Per-event detail pages
+  // Per-event detail pages, including the indexable historical archive.
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp));
   // #3516: half-canton merges (BS/BL → /eventi/basilea/) can push the same
   // hub <loc> twice within this one file — dedupe keep-first at assembly.
@@ -4279,16 +4279,15 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         });
         cantonStats.push({ canton, eventCount: events.length, comuneCount: byComune.size });
       }
-      // Historical events (issue #3646, F4 "indexability": noindex,follow
-      // on events that already took place). `upcomingEvents` drops a past
-      // event from the live listing — without this permanent archive pass the
-      // URL would 404 on a later rebuild. These pages use their own slug
-      // namespace and comune grouping, kept fully separate from
-      // `detailSlugs`/`perCantonSitemap`/`cantonStats`/the sitemap on purpose:
-      // they are deliberately orphaned, no indexed page links to them, so
-      // they cannot affect BFS crawl depth and never reappear in Event
-      // JSON-LD or the sitemap. Outbound links from the page itself (to
-      // whatever is currently live in the same comune) are still fine.
+      // Historical events (issue #3646, retained indexable archive). The
+      // `upcomingEvents` pass drops a past event from the live listing — without
+      // this permanent archive pass the URL would 404 on a later rebuild.
+      // These pages use their own slug namespace and comune grouping, kept
+      // separate from `detailSlugs`/`cantonStats`; their routes are added to the
+      // sitemap below, while their stale Event JSON-LD remains omitted. Outbound
+      // links from the page itself (to whatever is currently live in the same
+      // comune) are still fine.
+      const historicalDetailEntries: Array<{ canton: string; comune: string; slug: string }> = [];
       const pastEventsByCanton = new Map<string, SiteEvent[]>();
       for (const ev of pastEvents) {
         // #3715: same group-key resolution as the live `byCanton` pass above
@@ -4321,7 +4320,11 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           // must use the actual assigned slug, not the raw base.
           const reservedBaseSlugs = reserveLiveSiblingSlugs(liveSameComune, detailSlugs);
           const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
-          for (const ev of list) for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, comune, pastSlugFor.get(ev.id)!, canton));
+          for (const ev of list) {
+            const slug = pastSlugFor.get(ev.id)!;
+            historicalDetailEntries.push({ canton, comune, slug });
+            for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, comune, slug, canton));
+          }
           const pastSlugMigrations = changedEventSlugMigrations(list, canton, comune, pastSlugFor, reservedBaseSlugs);
           const pastHistoricalMigrations = historicalEventSlugMigrations(list, canton, comune, pastSlugFor);
           for (const locale of LOCALES) {
@@ -4361,7 +4364,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         emit(renderEventsIndexPage({ locale, cantonStats, events: all, dateStamp, weekendDays, distDir, detailHref }));
       }
 
-      const detailEntries = [...detailSlugs.values()];
+      const detailEntries = [...detailSlugs.values(), ...historicalDetailEntries];
       const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
