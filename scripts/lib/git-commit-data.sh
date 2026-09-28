@@ -1931,6 +1931,10 @@ commit_isolated_from_worktree() {
         fi
       fi
 
+      # The housekeeping proof binds to the slice cleanup-jobs wrote, i.e. this
+      # crawler's own snapshot BEFORE the ownership filter and any 3-way merge.
+      proof_candidate_source="$local_merge_path"
+
       if [[ "$f" == data/jobs/by-crawler/*.json ]]; then
         crawler_key="${f##*/}"
         crawler_key="${crawler_key%.json}"
@@ -2039,28 +2043,35 @@ commit_isolated_from_worktree() {
         )
         housekeeping_proof_path="$(housekeeping_proof_path_for_file "$f")"
         if [ -f "$housekeeping_proof_path" ]; then
-          echo "🔎 grouped-isolated: applying housekeeping proof for $f"
-          proof_base_path="$integrity_dir/base.json"
+          # Consulted only if the staged blob is a catastrophic shrink. Its base
+          # is the slice cleanup-jobs read (the crawler's fresh output), which
+          # no git blob here reproduces: pass `-` and bind by the candidate
+          # digest plus run id, attempt and checkout HEAD instead.
           proof_candidate_path="$integrity_dir/candidate.json"
-          if [ -n "$base_blob" ]; then
-            if ! git cat-file blob "$base_blob" > "$proof_base_path"; then
-              echo "❌ grouped-isolated: could not materialize housekeeping proof base for $f"
-              return 1
-            fi
-          else
-            : > "$proof_base_path"
-          fi
-          if ! cp "$local_merge_path" "$proof_candidate_path"; then
+          if ! cp "$proof_candidate_source" "$proof_candidate_path"; then
             echo "❌ grouped-isolated: could not materialize housekeeping proof candidate for $f"
             return 1
           fi
-          integrity_args+=("$housekeeping_proof_path")
-          integrity_args+=("$proof_base_path" "$proof_candidate_path")
+          integrity_args+=("$housekeeping_proof_path" "-" "$proof_candidate_path")
         fi
-        if ! HOUSEKEEPING_BASE_SHA="$base_sha" node "$(dirname "$0")/crawler-slice-integrity.mjs" "${integrity_args[@]}"; then
-          echo "❌ grouped-isolated: refusing catastrophic crawler slice shrink: $f"
-          return 1
-        fi
+        integrity_exit=0
+        HOUSEKEEPING_BASE_SHA="$base_sha" node "$(dirname "$0")/crawler-slice-integrity.mjs" "${integrity_args[@]}" \
+          || integrity_exit=$?
+        case "$integrity_exit" in
+          0) ;;
+          1)
+            echo "❌ grouped-isolated: refusing catastrophic crawler slice shrink: $f"
+            return 1
+            ;;
+          3)
+            echo "❌ grouped-isolated: catastrophic crawler slice shrink with a rejected housekeeping proof: $f"
+            return 1
+            ;;
+          *)
+            echo "❌ grouped-isolated: crawler slice integrity check crashed (exit $integrity_exit) for $f — not a shrink verdict"
+            return 1
+            ;;
+        esac
       fi
 
       GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "${mode_to_stage},${blob_to_stage},${f}"
