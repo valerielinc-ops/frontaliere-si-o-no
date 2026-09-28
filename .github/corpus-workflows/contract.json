@@ -4,11 +4,11 @@
   "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "631cc2b17366dc9e3b5233285130e57aa7605caa",
+  "sourceCommit": "227750166bf7adb031afd78bdeedb20901d9f76d",
   "artifactObservation": {
     "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
     "sourceRef": "main",
-    "sourceCommit": "631cc2b17366dc9e3b5233285130e57aa7605caa"
+    "sourceCommit": "227750166bf7adb031afd78bdeedb20901d9f76d"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -17,7 +17,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:e0115611f9d7eac81d4e2a7ce2ecb1fc9f981c6d9cfe07c95e9661511f9e32fa",
+    "rosterDigest": "sha256:de72bda8c0b65f8c964a24d971576560909183441031b93675ba51e51f22977d",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -733,8 +733,8 @@
     {
       "file": "crawler-group-04.yml",
       "sourceLogic": "crawler-group-04-logic.yml",
-      "sourceSha256": "ae303263329200e2282f7f7d94e700d5e7f2f3a85abb6154a13e267a4ac03b20",
-      "artifactSha256": "a8f9ee26aae710f88d2c3d57990869192250d845df971428297157096edc4ab5",
+      "sourceSha256": "cc068c52240021805a9d4ff7dd356886352b95f906a1d8cddfa80a674fd8cc78",
+      "artifactSha256": "4130e1ed1de007ca61f6c538033f5e47649f402700deb78e8673e59f520c4465",
       "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
       "members": [
         "spital-limmattal",
@@ -764,7 +764,8 @@
         "aarreha-schinznach",
         "parmag",
         "spitex-basel",
-        "hospice-general"
+        "hospice-general",
+        "pole-sante-pays-enhaut"
       ]
     },
     {
@@ -958,8 +959,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "4f805bdd409d605055cff1b7d1ba79f031c2f73b9ec861359327243007630d8e",
-      "artifactSha256": "e39d8f57890897aadec87df1cfab8dfc989ceb72e60550990d27450238303f1f",
+      "sourceSha256": "d738dc6205fdfbeec7daf9645316780f4edd8d591e8abdc92f4590d85892e056",
+      "artifactSha256": "9944dce2e99087e80087fc8cd8aecd1760491184a8a0ed2b2714a8993689132d",
       "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
       "members": [
         "jumbo",
@@ -989,14 +990,15 @@
         "berit-klinik",
         "stellentreff",
         "atec-personal",
-        "debiopharm"
+        "debiopharm",
+        "fondation-domus"
       ]
     },
     {
       "file": "crawler-group-11.yml",
       "sourceLogic": "crawler-group-11-logic.yml",
-      "sourceSha256": "5c7dc225193cea3baad92852d0ff099154b8a6e403ef6d5c7b2b2c0b3edf4302",
-      "artifactSha256": "209e896180747800f79375e584241cd80add85cb5a7df5484b3f442bca671bf9",
+      "sourceSha256": "bb59e830e93d275f74d5d31a6ff930f05b1ac45e3069add42253ecb84581916d",
+      "artifactSha256": "d2ebe46287c38002018a9a23fa750d723a484fcb5aee9274ce972c28af3c59d2",
       "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
       "members": [
         "rehab-basel",
@@ -1025,7 +1027,9 @@
         "stellenpartner",
         "apply",
         "see-spital",
-        "bls"
+        "bls",
+        "cnp",
+        "tpl-lugano"
       ]
     },
     {
@@ -1438,8 +1442,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "8f861e742718c6bda7996bd8bbd31f6ed7558d24ee9e51ec336f33fbbcc44507",
-      "artifactSha256": "6f5f96ca866dc79ca2f810d01e15cde29cf8fdba88e05624ec80bd50f29cba12",
+      "sourceSha256": "501da88465e3a0d32263232db021eaa3e27e6a42c6381144f16111b5923a7681",
+      "artifactSha256": "6b55e197d51cd218210aa9229b6b562d3d6564c693c005bafebafe2c91b51e2e",
       "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
       "members": [
         "albergo-gardenia",
@@ -1454,27 +1458,23 @@
         "brefispersonal",
         "ecam",
         "christinavassalli",
-        "premiumpflege24"
+        "premiumpflege24",
+        "mcdonald-s-switzerland",
+        "fachkraft",
+        "postfinance",
+        "tsmg",
+        "capri-holdings",
+        "anicura",
+        "fisba"
       ]
     },
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "8d7b43661c5a14c1183ac80a76d90c00ecb3bf845726b85bed7498815de508ac",
-      "artifactSha256": "9a608f8c2b14707f02f3e0544efb49ca731f7cf097631813b50662ec073b0982",
+      "sourceSha256": "d2b3f450e65cbc66029e2d1e475e9efae71d984b524bfde11cd1952a24079fd9",
+      "artifactSha256": "c6f1d883172970344802d0ca8bfead312dc07741eb9f144b390aebdd35aecebe",
       "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
       "members": [
-        "mcdonald-s-switzerland",
-        "pole-sante-pays-enhaut",
-        "fondation-domus",
-        "cnp",
-        "fachkraft",
-        "postfinance",
-        "tsmg",
-        "anicura",
-        "fisba",
-        "tpl-lugano",
-        "capri-holdings",
         "confederazione",
         "protectas",
         "lwphr",
