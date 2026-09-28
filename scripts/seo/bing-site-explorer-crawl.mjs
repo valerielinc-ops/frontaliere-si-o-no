@@ -26,6 +26,13 @@ export const DEFAULT_TIMEOUT_MS = 30_000;
 // requests with a transient 5xx. Five total attempts keep the full-tree report
 // focused on persistent failures without changing deterministic URL ownership.
 export const DEFAULT_RETRIES = 4;
+// A partition can still finish with a handful of transient 5xx responses when
+// its normal workers hit the edge at the same time. Recheck only those URLs
+// after the partition drains, at low concurrency, so a burst is not promoted
+// to a backlog finding. Persistent failures remain findings after this rescue.
+export const DEFAULT_RESCUE_CONCURRENCY = 2;
+export const DEFAULT_RESCUE_RETRIES = 2;
+export const DEFAULT_RESCUE_DELAY_MS = 1_000;
 export const DEFAULT_MAX_BODY_BYTES = 256 * 1024;
 export const DEFAULT_MAX_SITEMAP_BYTES = 64 * 1024 * 1024;
 
@@ -418,6 +425,11 @@ async function probeWithRetries(url, options = {}) {
   return result;
 }
 
+function isTransientResult(result) {
+  const status = Number(result?.status) || 0;
+  return status === 0 || status === 429 || status >= 500;
+}
+
 function increment(map, key, amount = 1) {
   map[key] = (map[key] || 0) + amount;
 }
@@ -429,6 +441,9 @@ export async function crawlPartition({
   concurrency = DEFAULT_CONCURRENCY,
   timeoutMs = DEFAULT_TIMEOUT_MS,
   retries = DEFAULT_RETRIES,
+  rescueConcurrency = DEFAULT_RESCUE_CONCURRENCY,
+  rescueRetries = DEFAULT_RESCUE_RETRIES,
+  rescueDelayMs = DEFAULT_RESCUE_DELAY_MS,
   maxBodyBytes = DEFAULT_MAX_BODY_BYTES,
   fetchImpl = globalThis.fetch,
 } = {}) {
@@ -438,32 +453,70 @@ export async function crawlPartition({
   if (!Number.isInteger(part) || part < 0 || part >= totalPartitions) throw new Error(`partition non valida: ${partition}/${partitions}`);
   const selected = manifest.urls.filter((url) => partitionFor(url, totalPartitions) === part);
   const manifestSet = new Set(manifest.urls);
+  const entries = selected.map((url, index) => ({ url, index }));
+  const results = new Array(selected.length);
+
+  const probeEntries = async (items, poolConcurrency, attemptRetries) => {
+    let cursor = 0;
+    const worker = async () => {
+      while (true) {
+        const index = cursor++;
+        if (index >= items.length) return;
+        const entry = items[index];
+        results[entry.index] = await probeWithRetries(entry.url, {
+          fetchImpl,
+          timeoutMs,
+          retries: attemptRetries,
+          maxBodyBytes,
+        });
+      }
+    };
+    await Promise.all(
+      Array.from(
+        { length: Math.min(Math.max(1, Number(poolConcurrency) || 1), items.length) },
+        () => worker(),
+      ),
+    );
+  };
+
+  await probeEntries(entries, concurrency, retries);
+
+  // Recheck only edge/transient failures after all normal workers have drained.
+  // Keeping this pool separate from the main pass is important: lowering the
+  // global concurrency would make the full crawl unnecessarily slow, while
+  // rescuing every URL would hide real persistent failures behind extra load.
+  const transientEntries = entries.filter((entry) => isTransientResult(results[entry.index]));
+  if (transientEntries.length > 0) {
+    const delay = Math.max(0, Number(rescueDelayMs) || 0);
+    if (delay > 0) await sleep(delay);
+    await probeEntries(transientEntries, rescueConcurrency, rescueRetries);
+  }
+
   const findings = [];
   const discovered = new Set();
   const statusCounts = {};
   const codeCounts = {};
   const folderStats = {};
-  let cursor = 0;
-  const worker = async () => {
-    while (true) {
-      const index = cursor++;
-      if (index >= selected.length) return;
-      const url = selected[index];
-      const result = await probeWithRetries(url, { fetchImpl, timeoutMs, retries, maxBodyBytes });
-      const folder = folderFor(url);
-      const stats = folderStats[folder] || (folderStats[folder] = { checked: 0, statuses: {}, findings: {} });
-      stats.checked += 1;
-      increment(statusCounts, String(result.status));
-      increment(stats.statuses, String(result.status));
-      for (const item of result.findings) {
-        findings.push({ ...item, root: folder, status: result.status });
-        increment(codeCounts, item.code);
-        increment(stats.findings, item.code);
-      }
-      for (const link of result.links || []) if (!manifestSet.has(link)) discovered.add(link);
+  for (let index = 0; index < selected.length; index += 1) {
+    const url = selected[index];
+    const result = results[index] || {
+      url,
+      status: 0,
+      findings: [finding('fetch-error', url, 'La richiesta non ha prodotto una risposta HTTP.')],
+      links: [],
+    };
+    const folder = folderFor(url);
+    const stats = folderStats[folder] || (folderStats[folder] = { checked: 0, statuses: {}, findings: {} });
+    stats.checked += 1;
+    increment(statusCounts, String(result.status));
+    increment(stats.statuses, String(result.status));
+    for (const item of result.findings || []) {
+      findings.push({ ...item, root: folder, status: result.status });
+      increment(codeCounts, item.code);
+      increment(stats.findings, item.code);
     }
-  };
-  await Promise.all(Array.from({ length: Math.max(1, Number(concurrency)) }, () => worker()));
+    for (const link of result.links || []) if (!manifestSet.has(link)) discovered.add(link);
+  }
   return {
     schemaVersion: CRAWLER_SCHEMA_VERSION,
     checkedAt: new Date().toISOString(),
@@ -531,6 +584,9 @@ async function main() {
     concurrency: intArg(args, 'concurrency', DEFAULT_CONCURRENCY),
     timeoutMs: intArg(args, 'timeout-ms', DEFAULT_TIMEOUT_MS),
     retries: intArg(args, 'retries', DEFAULT_RETRIES),
+    rescueConcurrency: intArg(args, 'rescue-concurrency', DEFAULT_RESCUE_CONCURRENCY),
+    rescueRetries: intArg(args, 'rescue-retries', DEFAULT_RESCUE_RETRIES),
+    rescueDelayMs: intArg(args, 'rescue-delay-ms', DEFAULT_RESCUE_DELAY_MS),
     maxBodyBytes: intArg(args, 'max-body-bytes', DEFAULT_MAX_BODY_BYTES),
   });
   writeJson(out, report);
