@@ -4534,12 +4534,12 @@
     },
     {
       "id": "interdiscount-3b47f7f9-e0d",
-      "slug": "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39",
+      "slug": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-interdiscount-geneve-charmilles",
       "slugByLocale": {
         "fr": "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39",
-        "it": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-geneve-charmilles",
-        "en": "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39",
-        "de": "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39"
+        "it": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-approvvigionamento-interdiscount-geneve-charmilles",
+        "en": "swc-retail-manager-designation-and-realization-of-procurement-experiences-interdiscount-geneve-charmilles",
+        "de": "swc-retail-manager-bezeichnung-und-realisierung-von-einkaufserfahrungen-interdiscount-geneve-charmilles"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -4610,7 +4610,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T03:23:25.167Z"
+      "firstSeenAt": "2026-09-28T03:23:25.167Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-geneve-charmilles",
+          "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39"
+        ],
+        "en": [
+          "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39"
+        ],
+        "de": [
+          "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-geneve-charmilles",
+        "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39"
+      ]
     },
     {
       "id": "interdiscount-da397531-73e",
@@ -15117,12 +15133,12 @@
     },
     {
       "id": "interdiscount-9f03efda-ffd",
-      "slug": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal",
+      "slug": "responsabile-del-commercio-al-dettaglio-interdiscount-martigny-cristal",
       "slugByLocale": {
         "fr": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal",
-        "it": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal",
-        "en": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal",
-        "de": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal"
+        "it": "responsabile-del-commercio-al-dettaglio-interdiscount-martigny-cristal",
+        "en": "retail-trade-manager-interdiscount-martigny-cristal",
+        "de": "einzelhandelsmanager-interdiscount-martigny-cristal"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -15188,7 +15204,21 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal"
+        ],
+        "en": [
+          "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal"
+        ],
+        "de": [
+          "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal"
+      ]
     },
     {
       "id": "interdiscount-527ed23c-b93",

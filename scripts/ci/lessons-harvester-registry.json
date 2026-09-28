@@ -1,0 +1,48 @@
+{
+  "_doc": [
+    "Registro delle decisioni del lessons-harvester su ogni cluster proposto.",
+    "Letto da scripts/ci/harvest-agent-lessons.mjs (parseLessonsRegistry): un cluster registrato",
+    "torna NOVEL solo se dopo `decidedAt` raccoglie di nuovo almeno THRESHOLD esempi; `added`",
+    "vale come regola documentata (puo' ancora escalare), `declined` e' uno scarto per scelta.",
+    "La proposta Codex di lessons-harvester.yml aggiunge o aggiorna una voce per OGNI cluster",
+    "novel che decide, nella stessa PR. key = campo `registryKey` di harvest-clusters.json.",
+    "decidedAt = istante ISO UTC della decisione; ref = PR/issue; reason = perche'."
+  ],
+  "entries": [
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-treats-every",
+      "outcome": "added",
+      "decidedAt": "2026-09-27T19:33:23Z",
+      "ref": "#10153",
+      "reason": "Regola in AGENTS.md #6: parser e guard funnel-critical validano dominio, contesto e casi non-target invece di classificare shape sintattiche generiche."
+    },
+    {
+      "key": "reviewer-finding/fp:body-technical-blocker-not",
+      "outcome": "declined",
+      "decidedAt": "2026-09-27T19:33:23Z",
+      "ref": "#10153",
+      "reason": "Gia' coperto dal contratto di completezza del body PR e dalla distinzione fra `blocked: <causa tecnica>` e stati chiudenti."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:no-pr-no-root-cause",
+      "outcome": "added",
+      "decidedAt": "2026-09-27T19:33:23Z",
+      "ref": "#10153",
+      "reason": "`no-pr-no-root-cause` non e' un codice di issue-fix.yml. ISSUES.md > Abort senza PR ammette solo i codici dell'elenco di issue-fix.yml: causa non determinabile = `no-root-cause` + `AUTOMATION_DEFERRED: technical` + label `automation-deferred`."
+    },
+    {
+      "key": "reviewer-finding/fp:body-not-closing-state",
+      "outcome": "added",
+      "decidedAt": "2026-09-28T12:05:13Z",
+      "ref": "#10212",
+      "reason": "REVIEW.md: `per scelta` e `by construction` sono stati autonomi, non varianti di `blocked:`; `deferred, non funnel-critical` vale solo per 🟡/❓ di review."
+    },
+    {
+      "key": "reviewer-finding/fp:codex-fallback-review-scope",
+      "outcome": "declined",
+      "decidedAt": "2026-09-28T12:05:13Z",
+      "ref": "#10153, #10212",
+      "reason": "Cluster fantasma: review con body su una riga e `\\n` letterali, lette come una sola riga. tallyFindings ora normalizza i body malformati (reviewBodyLines), quindi il fingerprint non si forma piu'."
+    }
+  ]
+}

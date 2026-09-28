@@ -1,106 +1,5 @@
 [
   {
-    "timestamp": "2026-09-08T16:56:35.824Z",
-    "label": "after",
-    "total": 28614,
-    "needsRetranslation": 4961,
-    "suppressed": 151,
-    "incomplete": 5471,
-    "complete": 23143,
-    "slotsPresent": 23143,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 23143,
-    "sourceCopyExcused": 714,
-    "slotsPresentByLength": 28456,
-    "languageVerified": 24099,
-    "missingByLocale": {
-      "it": 70,
-      "en": 63,
-      "de": 90,
-      "fr": 104
-    },
-    "queueAge": {
-      "count": 4961,
-      "withTimestamp": 4961,
-      "oldestAgeDays": 148.3,
-      "p50AgeDays": 14.3,
-      "p90AgeDays": 76.2,
-      "buckets": {
-        "0-1d": 35,
-        "1-2d": 159,
-        "2-7d": 610,
-        "0-7d": 804,
-        "7-30d": 2353,
-        "30-90d": 1433,
-        "90-180d": 371,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 41,
-      "withTimestamp": 41,
-      "oldestAgeDays": 95.2,
-      "p50AgeDays": 8,
-      "p90AgeDays": 12.7,
-      "buckets": {
-        "0-1d": 9,
-        "1-2d": 0,
-        "2-7d": 5,
-        "0-7d": 14,
-        "7-30d": 24,
-        "30-90d": 2,
-        "90-180d": 1,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 586
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 510
-      },
-      {
-        "company": "Roche",
-        "pending": 465
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 287
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 176
-      },
-      {
-        "company": "PEMSA",
-        "pending": 170
-      },
-      {
-        "company": "Sulzer",
-        "pending": 161
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 137
-      },
-      {
-        "company": "Manor AG",
-        "pending": 101
-      },
-      {
-        "company": "Anker Swiss Ticino AG",
-        "pending": 68
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-08T22:05:26.515Z",
     "label": "before",
     "total": 32154,
@@ -19571,6 +19470,118 @@
       {
         "company": "Hirslanden Klinik",
         "pending": 102
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-28T12:07:01.180Z",
+    "label": "after",
+    "total": 26689,
+    "needsRetranslation": 6845,
+    "suppressed": 218,
+    "incomplete": 7354,
+    "complete": 19335,
+    "slotsPresent": 19335,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 19335,
+    "sourceCopyExcused": 665,
+    "slotsPresentByLength": 26453,
+    "languageVerified": 19864,
+    "missingByLocale": {
+      "it": 1032,
+      "en": 945,
+      "de": 128,
+      "fr": 972
+    },
+    "queueAge": {
+      "count": 6845,
+      "withTimestamp": 6845,
+      "oldestAgeDays": 503.5,
+      "p50AgeDays": 17.5,
+      "p90AgeDays": 58.5,
+      "buckets": {
+        "0-1d": 390,
+        "1-2d": 1568,
+        "2-7d": 796,
+        "0-7d": 2754,
+        "7-30d": 2168,
+        "30-90d": 1590,
+        "90-180d": 328,
+        "180d+": 5
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 1216,
+      "withTimestamp": 1216,
+      "oldestAgeDays": 168.1,
+      "p50AgeDays": 54,
+      "p90AgeDays": 131.6,
+      "buckets": {
+        "0-1d": 55,
+        "1-2d": 10,
+        "2-7d": 61,
+        "0-7d": 126,
+        "7-30d": 230,
+        "30-90d": 549,
+        "90-180d": 311,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 6394,
+      "sampled": 120,
+      "processed": 49,
+      "residual": 1,
+      "residualRate": 0.02040816326530612
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 2792
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 473
+      },
+      {
+        "company": "PEMSA",
+        "pending": 259
+      },
+      {
+        "company": "Elsa Group",
+        "pending": 159
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 133
+      },
+      {
+        "company": "Manor AG",
+        "pending": 131
+      },
+      {
+        "company": "Richemont",
+        "pending": 122
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 92
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 87
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 73
       }
     ]
   }
