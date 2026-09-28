@@ -626,7 +626,6 @@ function findIssueReportingRun(title, runUrl) {
 }
 
 export async function main() {
-  assertRunAgeHorizon();
   const nowMs = Date.now();
   // Once the base already reaches the ceiling, the previous successful start
   // cannot widen the window. Avoid paying a third Actions API request for a
@@ -843,8 +842,11 @@ export async function main() {
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
 if (process.argv[1]?.endsWith('scan-job-timeouts.mjs')) {
-  main().catch((err) => {
-    console.error(`[scan-job-timeouts] fatal: ${err.message}`);
-    process.exit(1);
-  });
+  Promise.resolve()
+    .then(() => assertRunAgeHorizon())
+    .then(() => main())
+    .catch((err) => {
+      console.error(`[scan-job-timeouts] fatal: ${err.message}`);
+      process.exit(1);
+    });
 }
