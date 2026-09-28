@@ -1,6 +1,6 @@
 {
   "crawlerKey": "im-bethesda-spital",
-  "assembledAt": "2026-09-28T03:23:30.932Z",
+  "assembledAt": "2026-09-28T04:56:32.088Z",
   "jobs": [
     {
       "id": "im-bethesda-spital-a1480b59921f",
@@ -33,7 +33,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-686f0be949cf",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.785Z",
+      "crawledAt": "2026-09-28T04:56:27.073Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-da574726f840",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.784Z",
+      "crawledAt": "2026-09-28T04:56:27.072Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -135,6 +135,68 @@
           "@type": "QuantitativeValue",
           "minValue": 49600,
           "maxValue": 75200,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "im-bethesda-spital-a7720e2052eb",
+      "slug": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+      "slugByLocale": {
+        "it": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "en": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "de": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+        "fr": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch"
+      },
+      "company": "& im Bethesda Spital",
+      "companyKey": "im-bethesda-spital",
+      "companyDomain": "bethesda-spital.ch",
+      "title": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
+      "titleByLocale": {
+        "it": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
+        "en": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
+        "de": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
+        "fr": "OP-Lagerungspfleger/in im Wunschpensum 80–100%"
+      },
+      "description": "Für unsere modern ausgestattete OP-Abteilung suchen wir nach Vereinbarung eine/n OP-Lagerungspfleger/in (80–100%)",
+      "descriptionByLocale": {
+        "de": "Für unsere modern ausgestattete OP-Abteilung suchen wir nach Vereinbarung eine/n OP-Lagerungspfleger/in (80–100%)"
+      },
+      "location": "Basel, Basel-Stadt",
+      "canton": "BS",
+      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-7db730b42f17",
+      "source": "& im Bethesda Spital Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T04:56:27.071Z",
+      "addressLocality": "Basel",
+      "addressRegion": "Basel-Stadt",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4052",
+      "streetAddress": "Gellertstrasse 144",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-7db730b42f17",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T16:01:29.727Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -170,7 +232,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-b68fafd8c3cf",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.783Z",
+      "crawledAt": "2026-09-28T04:56:27.071Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -196,68 +258,6 @@
           "oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-basel-basel-stadt-im-bethesda-spital"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:01:29.727Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "im-bethesda-spital-a7720e2052eb",
-      "slug": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
-      "slugByLocale": {
-        "it": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
-        "en": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
-        "de": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch",
-        "fr": "op-lagerungspfleger-in-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda-spital-ch"
-      },
-      "company": "& im Bethesda Spital",
-      "companyKey": "im-bethesda-spital",
-      "companyDomain": "bethesda-spital.ch",
-      "title": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
-      "titleByLocale": {
-        "it": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
-        "en": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
-        "de": "OP-Lagerungspfleger/in im Wunschpensum 80–100%",
-        "fr": "OP-Lagerungspfleger/in im Wunschpensum 80–100%"
-      },
-      "description": "Für unsere modern ausgestattete OP-Abteilung suchen wir nach Vereinbarung eine/n OP-Lagerungspfleger/in (80–100%)",
-      "descriptionByLocale": {
-        "de": "Für unsere modern ausgestattete OP-Abteilung suchen wir nach Vereinbarung eine/n OP-Lagerungspfleger/in (80–100%)"
-      },
-      "location": "Basel, Basel-Stadt",
-      "canton": "BS",
-      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-7db730b42f17",
-      "source": "& im Bethesda Spital Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.782Z",
-      "addressLocality": "Basel",
-      "addressRegion": "Basel-Stadt",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4052",
-      "streetAddress": "Gellertstrasse 144",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-7db730b42f17",
-      "requirements": [],
-      "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:01:29.727Z",
       "salaryMin": 62000,
@@ -305,7 +305,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-6563b3622fc0",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.779Z",
+      "crawledAt": "2026-09-28T04:56:27.069Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -370,7 +370,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-e2cf983347f5",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.778Z",
+      "crawledAt": "2026-09-28T04:56:27.068Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -445,7 +445,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-e5b73e8a6685",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.777Z",
+      "crawledAt": "2026-09-28T04:56:27.066Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -471,81 +471,6 @@
         "it": [
           "medizinische-praxisassistentin-efz-oder-diplomierte-pflegefachperson-hf-fh-80-100-basel",
           "medizinische-praxisassistentin-cfc-o-diplomierte-pflegefachperson-hf-fh-80-100-im-bethesda-spital-basel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:01:29.727Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "im-bethesda-spital-f131803aaa40",
-      "slug": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
-      "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
-        "en": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
-        "de": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-basel-basel-stadt-im-bethesda",
-        "fr": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
-      },
-      "company": "& im Bethesda Spital",
-      "companyKey": "im-bethesda-spital",
-      "companyDomain": "bethesda-spital.ch",
-      "title": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%",
-      "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%",
-        "en": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%",
-        "de": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%",
-        "fr": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%"
-      },
-      "description": "Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%",
-      "descriptionByLocale": {
-        "it": "Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%",
-        "en": "Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%",
-        "de": "Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%",
-        "fr": "Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%"
-      },
-      "location": "Basel, Basel-Stadt",
-      "canton": "BS",
-      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-64626de7988e",
-      "source": "& im Bethesda Spital Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.776Z",
-      "addressLocality": "Basel",
-      "addressRegion": "Basel-Stadt",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4052",
-      "streetAddress": "Gellertstrasse 144",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-64626de7988e",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-basel-basel-stadt-im-bethesda",
-        "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-basel-basel-stadt-im-bethesda",
-          "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
         ]
       },
       "needsRetranslation": true,
@@ -595,7 +520,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-62a12ed2768e",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.776Z",
+      "crawledAt": "2026-09-28T04:56:27.065Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -621,6 +546,81 @@
         "it": [
           "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-basel-basel-stadt-im",
           "diplom-experte-expertin-anasthesiepflege-hf-im-wunschpensum-40-100-im-bethesda-spital-basel"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T16:01:29.727Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "im-bethesda-spital-f131803aaa40",
+      "slug": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
+      "slugByLocale": {
+        "it": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
+        "en": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel",
+        "de": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-basel-basel-stadt-im-bethesda",
+        "fr": "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
+      },
+      "company": "& im Bethesda Spital",
+      "companyKey": "im-bethesda-spital",
+      "companyDomain": "bethesda-spital.ch",
+      "title": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%",
+      "titleByLocale": {
+        "it": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%",
+        "en": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%",
+        "de": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%",
+        "fr": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%"
+      },
+      "description": "Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%",
+      "descriptionByLocale": {
+        "it": "Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%",
+        "en": "Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%",
+        "de": "Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%",
+        "fr": "Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%"
+      },
+      "location": "Basel, Basel-Stadt",
+      "canton": "BS",
+      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-64626de7988e",
+      "source": "& im Bethesda Spital Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T04:56:27.064Z",
+      "addressLocality": "Basel",
+      "addressRegion": "Basel-Stadt",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4052",
+      "streetAddress": "Gellertstrasse 144",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-64626de7988e",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-basel-basel-stadt-im-bethesda",
+        "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-basel-basel-stadt-im-bethesda",
+          "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-im-bethesda-spital-basel"
         ]
       },
       "needsRetranslation": true,
@@ -670,7 +670,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-cde11a6b4d57",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.775Z",
+      "crawledAt": "2026-09-28T04:56:27.063Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -732,7 +732,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-e9c395b4aab0",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.774Z",
+      "crawledAt": "2026-09-28T04:56:27.062Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -807,7 +807,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-b74dd5f7f818",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.773Z",
+      "crawledAt": "2026-09-28T04:56:27.061Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -882,7 +882,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-2c4be85d5031",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.772Z",
+      "crawledAt": "2026-09-28T04:56:27.060Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -947,7 +947,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html#job-f8eccc37df02",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T03:23:26.768Z",
+      "crawledAt": "2026-09-28T04:56:27.055Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -988,90 +988,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "im-bethesda-spital-75f4f0aaf36d",
-      "slug": "assistente-medico-clinica-rheumatology-e-medicina-del-dolore-100-im-bethesda-spital-basel-basel-stadt",
-      "slugByLocale": {
-        "it": "assistente-medico-clinica-rheumatology-e-medicina-del-dolore-100-im-bethesda-spital-basel-basel-stadt",
-        "en": "assistant-physician-clinic-rheumatology-and-pain-medicine-100-im-bethesda-spital-basel-basel-stadt",
-        "de": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
-        "fr": "medecin-adjoint-clinique-rheumatologie-et-medecine-de-la-douleur-100-im-bethesda-spital-basel-basel-stadt"
-      },
-      "company": "& im Bethesda Spital",
-      "companyKey": "im-bethesda-spital",
-      "companyDomain": "bethesda-spital.ch",
-      "title": "Assistenzärztin/Assistenzarzt Klinik Rheumatologie und Schmerzmedizin 100%",
-      "titleByLocale": {
-        "it": "Assistente medico clinica Rheumatology e medicina del dolore 100%",
-        "en": "Assistant physician Clinic Rheumatology and Pain Medicine 100%",
-        "de": "Assistenzärztin/Assistenzarzt Klinik Rheumatologie und Schmerzmedizin 100%",
-        "fr": "Médecin adjoint Clinique Rheumatologie et Médecine de la douleur 100%"
-      },
-      "description": "Die Klinik Rheumatologie & Schmerzmedizin ist die grösste Rheumaklinik in der Nordwestschweiz. Ab sofort oder nach Vereinbarung suchen wir eine Assistenzärztin oder einen Assistenzarzt. Wir sind eine Weiterbildungsklinik für Rheumatologie (Kat. B zwei Jahre), Schmerzmedizin (SSIPM, 1 Jahr), und Innere Medizin (Kat. D, 6 Monate).Es besteht eine enge interdisziplinäre Zusammenarbeit mit der universitären Orthopädie im Hause, der Wirbelsäulenchirurgie sowie den internen Kliniken für Rehabilitation, Innere Medizin und Neurologie. Die Klinik Rheumatologie und Schmerzmedizin beteiligt sich aktiv am Arzt-Patient (AP-) Unterricht der Medizinischen Fakultät der Universität Basel.",
-      "descriptionByLocale": {
-        "it": "Clinic Rheumatology & Pain Medicine è la più grande clinica di reumatologia della Svizzera nord-occidentale. D'ora in poi o d'accordo stiamo cercando un assistente medico. Siamo una clinica di formazione per la reumatologia (cat. B due anni), medicina del dolore (SSIPM, 1 anno), e medicina interna (cat. D, 6 mesi). C'è una stretta cooperazione interdisciplinare con l'università ortopedia interna, la chirurgia spinale e le cliniche interne per la riabilitazione, la medicina interna e la neurologia. La Clinica di Rheumatologia e Medicina del Dolore partecipa attivamente all'insegnamento medico-paziente (AP) presso la Facoltà di Medicina dell'Università di Basilea.",
-        "en": "Clinic Rheumatology & Pain Medicine is the largest rheumatology clinic in northwestern Switzerland. From now on or by agreement we are looking for an assistant doctor. We are a training clinic for rheumatology (cat. B two years), pain medicine (SSIPM, 1 year), and internal medicine (cat. D, 6 months).There is a close interdisciplinary cooperation with the university orthopaedics in-house, spinal surgery and the internal clinics for rehabilitation, internal medicine and neurology. The Clinic of Rheumatology and Pain Medicine actively participates in doctor-patient (AP) teaching at the Faculty of Medicine of the University of Basel.",
-        "de": "Die Klinik Rheumatologie & Schmerzmedizin ist die grösste Rheumaklinik in der Nordwestschweiz. Ab sofort oder nach Vereinbarung suchen wir eine Assistenzärztin oder einen Assistenzarzt. Wir sind eine Weiterbildungsklinik für Rheumatologie (Kat. B zwei Jahre), Schmerzmedizin (SSIPM, 1 Jahr), und Innere Medizin (Kat. D, 6 Monate).Es besteht eine enge interdisziplinäre Zusammenarbeit mit der universitären Orthopädie im Hause, der Wirbelsäulenchirurgie sowie den internen Kliniken für Rehabilitation, Innere Medizin und Neurologie. Die Klinik Rheumatologie und Schmerzmedizin beteiligt sich aktiv am Arzt-Patient (AP-) Unterricht der Medizinischen Fakultät der Universität Basel.",
-        "fr": "Clinique Rheumatology & Pain Medicine est la plus grande clinique de rhumatologie dans le nord-ouest de la Suisse. Désormais ou d'un commun accord, nous cherchons un assistant médecin. Nous sommes une clinique de formation en rhumatologie (cat. B deux ans), la médecine de la douleur (SSIPM, 1 an) et la médecine interne (cat. D, 6 mois). Il existe une coopération interdisciplinaire étroite avec l'orthopédie universitaire en interne, la chirurgie spinale et les cliniques internes de réadaptation, de médecine interne et de neurologie. La Clinique de Rheumatologie et de Médecine de la Douleur participe activement à l'enseignement médecin-patient (AP) à la Faculté de Médecine de l'Université de Bâle."
-      },
-      "location": "Basel, Basel-Stadt",
-      "canton": "BS",
-      "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html",
-      "source": "& im Bethesda Spital Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:37:37.571Z",
-      "addressLocality": "Basel",
-      "addressRegion": "Basel-Stadt",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4052",
-      "streetAddress": "Gellertstrasse 144",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
-        "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel",
-        "assistente-medico-clinica-rheumatology-e-medicina-del-dolore-100-im-bethesda-spital-basel-basel-stadt"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
-          "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel",
-          "assistente-medico-clinica-rheumatology-e-medicina-del-dolore-100-im-bethesda-spital-basel-basel-stadt"
-        ],
-        "en": [
-          "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
-        ],
-        "fr": [
-          "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
-        ]
-      },
-      "firstSeenAt": "2026-09-21T16:01:29.727Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

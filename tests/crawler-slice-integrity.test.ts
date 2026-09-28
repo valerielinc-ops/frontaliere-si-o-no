@@ -3,7 +3,7 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import {
@@ -14,6 +14,8 @@ import {
   isSafeSourceGeographyPrune,
   isSafeSwissReForeignPrune,
   isSafeSwissReForeignPruneJobs,
+  loadHousekeepingProof,
+  writeHousekeepingProofFile,
 } from '../scripts/lib/crawler-slice-integrity.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from '../scripts/lib/crawler-grace-policy.mjs';
 import { writeJsonAtomic } from '../scripts/lib/atomic-write-json.mjs';
@@ -465,6 +467,53 @@ describe('crawler slice integrity guard', () => {
       next,
       { housekeepingProof: [{ job: removed, definitive: false }] },
     )).toThrow(/catastrophic truncation avoided/);
+  });
+
+  it('writes source-verified shrink evidence in the sidecar format used by the commit guard', () => {
+    const root = mkdtempSync(join(tmpdir(), 'crawler-slice-source-proof-'));
+    const filePath = join(root, 'data/jobs/by-crawler/convit-holding.json');
+    const proofDir = join(root, 'proofs');
+    const removed = dedupJob('https://convit.example/source-removed', 'Closed source job', 'x'.repeat(1_400_000));
+    const retained = dedupJob('https://convit.example/source-retained', 'Open source job', 'y'.repeat(100));
+    const previous = json({ crawlerKey: 'convit-holding', jobs: [removed, retained] });
+    const next = json({ crawlerKey: 'convit-holding', jobs: [retained] });
+    const fileLabel = 'data/jobs/by-crawler/convit-holding.json';
+    const env = {
+      GITHUB_RUN_ID: process.env.GITHUB_RUN_ID || 'source-proof-run',
+      GITHUB_RUN_ATTEMPT: process.env.GITHUB_RUN_ATTEMPT || '1',
+    };
+    const proofPath = join(proofDir, `${fileLabel}.housekeeping-proof.json`);
+
+    try {
+      mkdirSync(join(root, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(filePath, next);
+      expect(writeHousekeepingProofFile(filePath, [
+        { job: removed, definitive: true, reason: 'not-in-complete-convit-listing' },
+      ], {
+        baseRaw: previous,
+        candidateRaw: next,
+        proofDir,
+        cwd: root,
+        baseSha: 'source-proof-head',
+        env,
+      })).toBe(true);
+
+      const loaded = loadHousekeepingProof(fileLabel, {
+        proofPath,
+        basePath: '-',
+        candidatePath: filePath,
+        env: {
+          ...env,
+          HOUSEKEEPING_BASE_SHA: 'source-proof-head',
+        },
+      });
+      expect(loaded.candidateRaw).toBe(next);
+      expect(assertCrawlerSliceWriteSafe(fileLabel, previous, next, {
+        housekeepingProof: loaded,
+      }).reason).toBe('proven-housekeeping-prune');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('rejects an ID-only housekeeping proof without URL evidence', () => {
