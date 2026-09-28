@@ -31,6 +31,7 @@ import {
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
+import { CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from '../jina-proxy.mjs';
 import { launchChromium } from '../ensure-chromium.mjs';
 import {
@@ -130,6 +131,44 @@ async function tryBrowserRescue(url, runtime) {
   }
 }
 
+const SPEC_FETCH_METADATA_KEYS = ['fetchOutcome', 'discoveredCount', 'fetchDetail'];
+
+/**
+ * Keep a spec fetch verdict attached to the array without making it part of the
+ * job payload. The standard crawler accepts this legacy array shape and reads
+ * the fields before any merge or validation step.
+ *
+ * @param {any[]} target
+ * @param {any[]|Record<string, any>} source
+ * @returns {any[]}
+ */
+export function copySpecFetchMetadata(target, source) {
+  for (const key of SPEC_FETCH_METADATA_KEYS) {
+    if (!Object.prototype.hasOwnProperty.call(source || {}, key)) continue;
+    Object.defineProperty(target, key, {
+      value: source[key],
+      enumerable: false,
+      configurable: true,
+    });
+  }
+  return target;
+}
+
+/**
+ * A spec may opt into an explicit outcome for a zero that remains after its
+ * own rescue path. Unknown values are deliberately ignored: the shared
+ * crawler vocabulary is fail-closed and must not gain a producer-only typo.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {string|null}
+ */
+function configuredEmptyListingOutcome(spec) {
+  const outcome = spec?.emptyListingOutcome;
+  return typeof outcome === 'string' && CRAWLER_FETCH_OUTCOMES.has(outcome)
+    ? outcome
+    : null;
+}
+
 /**
  * Legacy template specs predate the explicit flag, but their index rows never
  * carry authoritative per-job fields. Mode is therefore the invariant; the
@@ -139,7 +178,8 @@ async function tryBrowserRescue(url, runtime) {
  * @param {any[]} [rows]
  */
 export function needsDetailEnrichment(spec, rows = []) {
-  if (spec.mode === 'template' || spec.detailEnrichment === true) return true;
+  if (spec.mode === 'template' || spec.detailEnrichment === true
+    || normalizeListingCandidateText(spec.detailCandidateText)) return true;
   // Legacy structured specs may have been promoted before the synthesiser
   // recorded this flag. If their listing carries no usable Swiss geography,
   // runtime must visit the same detail page that validation graded.
@@ -392,7 +432,22 @@ function normalizeListingCandidateText(value) {
  * @returns {boolean}
  */
 function matchesListingCandidateText(spec, candidate) {
-  const needle = normalizeListingCandidateText(spec.listingCandidateText);
+  return candidateContainsText(spec.listingCandidateText, candidate);
+}
+
+/**
+ * Apply a source discriminator to a candidate record. Listing candidates are
+ * allowed to carry only title/link evidence; detail candidates additionally
+ * carry the source-backed workplace labels and enriched description. Keeping
+ * the normalization shared prevents a multi-employer ATS from being filtered
+ * differently before and after detail enrichment.
+ *
+ * @param {unknown} requiredText
+ * @param {any} candidate
+ * @returns {boolean}
+ */
+function candidateContainsText(requiredText, candidate) {
+  const needle = normalizeListingCandidateText(requiredText);
   if (!needle) return true;
   const haystack = normalizeListingCandidateText([
     candidate?.title,
@@ -402,9 +457,24 @@ function matchesListingCandidateText(spec, candidate) {
     candidate?.location,
     candidate?.addressLocality,
     candidate?.addressRegion,
+    candidate?.addressCountry,
+    candidate?.postalCode,
+    candidate?.streetAddress,
     candidate?.description,
+    ...(Array.isArray(candidate?.workplaceLabels)
+      ? candidate.workplaceLabels
+      : [candidate?.workplaceLabels]),
   ].filter(Boolean).join(' '));
   return haystack.includes(needle);
+}
+
+/**
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {any} candidate
+ * @returns {boolean}
+ */
+function matchesDetailCandidateText(spec, candidate) {
+  return candidateContainsText(spec.detailCandidateText, candidate);
 }
 
 /**
@@ -560,6 +630,11 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
   /** @type {Map<string, any>} */
   const bySlug = new Map();
   const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
+  const emptyOutcome = spec.rescueOnEmptyListing === true
+    && runtime.disableWafProxy !== true
+    ? configuredEmptyListingOutcome(spec)
+    : null;
+  const emptyDetails = [];
 
   /**
    * Add one page of listing candidates to the de-duplicated row set.
@@ -700,6 +775,11 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       // della pagina ricevuta dicono se era la pagina attesa o un interstiziale.
       const pageTitle = (/<title[^>]*>([\s\S]{0,200}?)<\/title>/i.exec(html)?.[1] || '').replace(/\s+/g, ' ').trim();
       console.warn(`[prospector:${spec.companyKey}] nessun annuncio su ${effectiveSeedUrl}: title="${pageTitle}", ${links.length} link, ${html.length} byte`);
+      if (emptyOutcome) {
+        emptyDetails.push(
+          `${effectiveSeedUrl}: title="${pageTitle}", links=${links.length}, bytes=${html.length}`,
+        );
+      }
     }
     const seedRowsBefore = bySlug.size;
     await addListingCandidates(candidates, umantisListingEvidence);
@@ -775,7 +855,19 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       }
     }
   }
-  return [...bySlug.values()];
+  const rows = [...bySlug.values()];
+  // A configured outcome is evidence about an UNVERIFIED zero only. Never
+  // attach it after a seed yielded accepted vacancies: a partial source result
+  // must continue through the normal detail/geography gates instead of being
+  // reinterpreted as a WAF failure.
+  if (rows.length === 0 && emptyOutcome && emptyDetails.length > 0) {
+    copySpecFetchMetadata(rows, {
+      fetchOutcome: emptyOutcome,
+      discoveredCount: 0,
+      fetchDetail: emptyDetails.join('; '),
+    });
+  }
+  return rows;
 }
 
 /**
@@ -815,7 +907,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
       });
       reportDroppedRows(spec, rows.length - safeRows.length, rows.length,
         'localita svizzera source-backed assente o non verificabile');
-      return safeRows;
+      return copySpecFetchMetadata(safeRows, rows);
     }
 
     // Template extraction has no per-row semantics. Visit the detail pages with
@@ -825,6 +917,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const enriched = new Array(rows.length);
     let geographyDrops = 0;
     let descriptionDrops = 0;
+    let detailCandidateDrops = 0;
     let next = 0;
     const worker = async () => {
       while (next < rows.length) {
@@ -851,6 +944,14 @@ export async function runSpecInProduction(spec, runtime = {}) {
           const description = isSufficientVacancyDescription(detail.description)
             ? detail.description
             : row.description;
+          // Tenant identity is a detail-page contract. Listing fields remain
+          // valid enrichment fallbacks below, but they must never satisfy the
+          // detail discriminator when the detail response omits that evidence.
+          const detailCandidate = { ...detail };
+          if (!matchesDetailCandidateText(spec, detailCandidate)) {
+            detailCandidateDrops++;
+            continue;
+          }
           const publishable = { ...row, title: detail.title || row.title, description,
             postedAt: detail.postedDate || row.postedAt,
             employmentType: detail.employmentType || row.employmentType };
@@ -861,13 +962,10 @@ export async function runSpecInProduction(spec, runtime = {}) {
           if (!geography) { geographyDrops++; continue; }
           if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
           enriched[index] = { ...publishable, ...geography };
-        } catch (err) {
-          // A row without both source-backed fields must not be published with a
-          // fabricated employer default. Keep already complete index rows only.
-          const geography = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
-          if (!geography) geographyDrops++;
-          else if (!isSufficientVacancyDescription(row.description)) descriptionDrops++;
-          else enriched[index] = { ...row, ...geography };
+        } catch {
+          // A failed detail fetch/extraction carries no source-backed tenant
+          // evidence. Never let index-only fields satisfy the detail gate.
+          detailCandidateDrops++;
         }
       }
     };
@@ -877,7 +975,9 @@ export async function runSpecInProduction(spec, runtime = {}) {
       'localita svizzera source-backed assente o non verificabile');
     reportDroppedRows(spec, descriptionDrops, rows.length,
       'descrizione source-backed assente o non verificabile');
-    return enriched.filter(Boolean);
+    reportDroppedRows(spec, detailCandidateDrops, rows.length,
+      'identità tenant assente nella pagina dettaglio source-backed');
+    return copySpecFetchMetadata(enriched.filter(Boolean), rows);
   } finally {
     try {
       await validateUrl.dispatcher.close();
