@@ -316,7 +316,6 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.performer).toMatchObject({ '@type': 'Organization', name: expect.any(String) });
     expect(ld.offers).toMatchObject({
       '@type': 'Offer',
-      price: '0',
       priceCurrency: 'CHF',
       availability: 'https://schema.org/InStock',
       validFrom: expect.any(String),
@@ -341,6 +340,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
           url: 'https://www.tio.ch/agenda/day/20260704/62101',
           sourceKey: 'tio-agenda',
           sourceName: 'Tio.ch Agenda',
+          structuredDataDefaultsApplied: true,
         },
         'it',
       ),
@@ -458,6 +458,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
           url: 'https://www.tio.ch/agenda/day/20260704/62102',
           sourceKey: 'tio-agenda',
           sourceName: 'Tio.ch Agenda',
+          structuredDataDefaultsApplied: true,
         },
         'en',
       ),
@@ -520,13 +521,21 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.offers?.url).toBe(baseEvent.url);
   });
 
-  it('uses a complete fallback offer when price is present but not machine-parseable', () => {
+  it('omits offers when price is present but not machine-parseable without page defaults', () => {
     // e.g. tio.ch "Prezzo:" label says "su richiesta" / "CHF" with no digits —
     // parsePriceText returns amount: null, isFree: false for this bucket.
     const ld = eventLd({ ...baseEvent, price: { amount: null, currency: 'CHF', isFree: false } }, 'it') as Record<string, any>;
+    expect(ld.offers).toBeUndefined();
+  });
+
+  it('uses a complete fallback Offer without a fabricated amount when the page opts in', () => {
+    const ld = eventLd({
+      ...baseEvent,
+      structuredDataDefaultsApplied: true,
+      price: { amount: null, currency: 'CHF', isFree: false },
+    }, 'it') as Record<string, any>;
     expect(ld.offers).toEqual({
       '@type': 'Offer',
-      price: '0',
       priceCurrency: 'CHF',
       availability: 'https://schema.org/InStock',
       validFrom: baseEvent.startDate,

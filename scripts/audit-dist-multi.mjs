@@ -934,9 +934,15 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
     }
   }
-  // The current Event builder supplies deterministic defaults for image,
-  // organizer and performer. Keep this conditional for legacy/fixture
-  // documents while validating every value emitted by the current builder.
+  // These four fields are part of the current Event page contract. Legacy
+  // fixtures may still fail here, which is intentional: a regression that
+  // drops a deterministic default must block the build instead of passing as
+  // an absent optional value.
+  for (const field of ['image', 'organizer', 'performer', 'offers']) {
+    if (schema[field] === undefined || schema[field] === null) {
+      errors.push({ file: filePath, type: 'Event', field, message: `Event missing required structured-data field "${field}"` });
+    }
+  }
   if (schema.image !== undefined && schema.image !== null) {
     const hasImage = Array.isArray(schema.image)
       ? schema.image.some((img) => sdIsNonEmpty(typeof img === 'string' ? img : img?.url))
@@ -950,16 +956,16 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event "${field}" must include a named Person or Organization when present` });
     }
   }
-  // offers is recommended rather than required by Google. The current builder
-  // emits a complete fallback offer when price is unknown; this conditional
-  // also keeps legacy/fixture documents valid while checking every offer.
+  // The builder emits a fallback Offer without a fabricated amount when the
+  // source has no price. A source-backed Offer still has a price; validate it
+  // when the property is present and always validate the defaulted fields.
   // Kept in lockstep with the same rule in
   // scripts/validate-structured-data-completeness.mjs (shared Event contract).
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
-      if (schema.offers.price === undefined || schema.offers.price === null) {
+      if ('price' in schema.offers && (schema.offers.price === undefined || schema.offers.price === null)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
       }
       if (!sdIsNonEmpty(schema.offers.priceCurrency)) {

@@ -266,16 +266,9 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.location.address.postalCode).toBe('6900');
   });
 
-  it('emits a complete fallback offer when price is unknown', () => {
+  it('does not manufacture an Offer for a direct unpriced event input', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: EVENT.startDate,
-      url: EVENT.url,
-    });
+    expect(ld.offers).toBeUndefined();
   });
 
   it('emits verified price fields for a free event', () => {
@@ -371,6 +364,7 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain('"@type":"Event"');
     expect(page.html).toContain(`"url":"https://frontaliereticino.ch/eventi/ticino/lugano/${slugifyEvent(EVENT)}/"`);
     expect(page.html).toContain(`"sameAs":["${EVENT.url}"]`);
+    expect(page.html).toContain('"offers":{"@type":"Offer","priceCurrency":"CHF"');
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
   });

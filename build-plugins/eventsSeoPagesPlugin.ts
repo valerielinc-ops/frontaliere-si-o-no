@@ -123,6 +123,10 @@ interface SiteEvent {
   price?: EventPrice;
   organizer?: EventEntity | EventEntity[];
   performer?: EventEntity | EventEntity[];
+  // Set only by the detail-page builder after the page contract has opted into
+  // deterministic defaults for partial crawler slices. Direct callers that
+  // have no price evidence must not receive a synthetic Offer implicitly.
+  structuredDataDefaultsApplied?: boolean;
   address?: { street?: string; postalCode?: string; locality?: string; region?: string };
   geo?: { lat: number; lng: number };
   recurring?: boolean;
@@ -1202,9 +1206,10 @@ export function zurichOffset(isoDate: string): string {
  * schema.org/Event object for one agenda entry.
  *
  * Source values remain authoritative. Older and partial slices are completed
- * at render time with deterministic catalog/venue/image/offer defaults so
- * every Event has a stable structured-data shape. The visible UI still hides
- * the synthetic price when no confident source price exists.
+ * at detail-page render time with deterministic catalog/venue/image/offer
+ * defaults so every published Event has a stable structured-data shape. A
+ * direct caller without that explicit page-contract opt-in does not receive a
+ * synthetic Offer when the source published no price.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
   // Real location only (#3508): nationwide sources (guidle, myswitzerland)
@@ -1235,16 +1240,20 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const eventWithDefaults = fillEventPeopleDefaults(event, EVENT_SOURCES[event.sourceKey] || SOURCE) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
-  const offer = {
-    '@type': 'Offer',
-    price: confidentPrice && event.price!.isFree
-      ? '0'
-      : String(confidentPrice ? event.price!.amount : 0),
-    priceCurrency: event.price?.currency || 'CHF',
-    availability: event.price?.availability || 'https://schema.org/InStock',
-    validFrom: event.price?.validFrom || event.startDate,
-    url: event.price?.url || canonicalUrl || event.url,
-  };
+  const offer = (confidentPrice || event.structuredDataDefaultsApplied)
+    ? {
+      '@type': 'Offer',
+      // A fallback Offer describes the event page and availability defaults,
+      // but never fabricates a free/zero price when the source gave no amount.
+      ...(confidentPrice
+        ? { price: event.price!.isFree ? '0' : String(event.price!.amount) }
+        : {}),
+      priceCurrency: event.price?.currency || 'CHF',
+      availability: event.price?.availability || 'https://schema.org/InStock',
+      validFrom: event.price?.validFrom || event.startDate,
+      url: event.price?.url || canonicalUrl || event.url,
+    }
+    : undefined;
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
@@ -1277,7 +1286,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || event.url,
     ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
-    offers: offer,
+    ...(offer ? { offers: offer } : {}),
   };
 }
 
@@ -3115,9 +3124,9 @@ function osmLink(event: SiteEvent, comune: string): { href: string; place: strin
 }
 
 function priceLine(event: SiteEvent, dc: DetailCopy): string {
-  // Same confidence gate as eventLd()'s `offers`: an ambiguous price (present
-  // but not machine-parseable, e.g. "su richiesta") renders nothing rather
-  // than a bare "CHF" with no amount.
+  // Keep the visible price confidence gate separate from the detail-page
+  // structured-data fallback: an ambiguous price renders nothing rather than
+  // a bare "CHF" with no amount.
   if (!hasConfidentPrice(event.price)) return '';
   const value = event.price!.isFree ? dc.freeLabel : `${event.price!.currency || 'CHF'} ${event.price!.amount}`.trim();
   return renderMetric(dc.priceLabel, esc(value));
@@ -3318,7 +3327,9 @@ export function renderEventDetailPage(params: {
   // results for events that already happened) rather than keep it with a
   // stale date, unlike JobPosting which explicitly supports a past
   // `validThrough` — see comment on `isPast` above.
-  const eventLdScript = isPast ? null : inlineScriptJson(eventLd(event, locale, canonicalUrl));
+  const eventLdScript = isPast
+    ? null
+    : inlineScriptJson(eventLd({ ...event, structuredDataDefaultsApplied: true }, locale, canonicalUrl));
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
