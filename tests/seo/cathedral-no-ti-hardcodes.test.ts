@@ -125,7 +125,7 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'scripts/newsletter-template.mjs': 4,
   'scripts/reconcile-job-slugs.mjs': 2,
   'scripts/refresh-noslash-keep.mjs': 1,
-  'scripts/send-saved-jobs-digest.mjs': 3,
+  'scripts/send-saved-jobs-digest.mjs': 0,
   'scripts/seo-audit-employer-slugs.mjs': 8,
   'scripts/seo-audit-visual.mjs': 5,
   'scripts/validate-spa-render.mjs': 5,
