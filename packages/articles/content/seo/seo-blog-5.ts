@@ -95974,6 +95974,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambi-ripetuti-cassa-malati': {
+    title: 'Cassa malati in Ticino: cambiare più volte conviene',
+    description: 'L\'analisi Axa rileva 563 franchi di risparmio al primo cambio della cassa malati e 633 in Ticino: confronto tra cambi successivi, età e cantoni svizzeri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, malati, cambiare, volte',
+    ogTitle: 'Cassa malati in Ticino: cambiare più volte conviene',
+    ogDescription: 'Il primo cambio dell\'assicurazione di base ha portato in media 563 franchi annui di risparmio. L\'analisi Axa indica 633 franchi in Ticino e 383 franchi nei cambi successivi, con differenze tra fasce d\'età.',
+    canonicalPath: '/articoli-frontaliere/cambi-ripetuti-cassa-malati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa malati in Ticino: cambiare più volte conviene",
+      "description": "L'analisi Axa rileva 563 franchi di risparmio al primo cambio della cassa malati e 633 in Ticino: confronto tra cambi successivi, età e cantoni svizzeri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cambi-ripetuti-cassa-malati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mendrisio e il Canton Ticino sul tema dei premi della cassa malati"
+      },
+      "datePublished": "2026-09-28T07:23:51+00:00",
+      "dateModified": "2026-09-28T07:23:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cambi-ripetuti-cassa-malati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
