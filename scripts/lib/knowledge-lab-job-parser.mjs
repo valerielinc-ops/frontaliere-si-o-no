@@ -141,7 +141,7 @@ function extractEmploymentType(document, html = '') {
     || headerLine?.replace(/^work\s+type\s*:\s*/i, '')
     || bodyText.match(/work\s+type\s*:\s*(full\s*time|part\s*time|fixed\s+term\s+contract|contract|internship|temporary|seasonal|volunteer|secondment)/i)?.[1]
     || '';
-  return normalizeSpace(visible).toLowerCase().replace(/\s+/g, '-') || 'full-time';
+  return normalizeSpace(visible).toLowerCase().replace(/[\s_]+/g, '-') || 'full-time';
 }
 
 function extractPostedDate(document, html = '') {
