@@ -37,7 +37,6 @@ const PROTECTAS_COUNTER_ATTRIBUTE_NAMES = [
   'data-state', 'role', 'aria-label',
 ];
 const PROTECTAS_COUNTER_HINT_RE = /(?:career|count|empty|job|listing|offer|offert|opening|position|post|result|stelle|vacan)/i;
-const PROTECTAS_CAREER_HEADING_RE = /(?:unisciti\s+al\s+nostro\s+team|join\s+(?:our|the)\s+team|open\s+positions|posizioni\s+aperte|offene\s+positionen|offres?\s+d['’]emploi|tritt\s+unserem\s+team\s+bei|rejoignez(?:-nous|\s+notre\s+equipe|\s+notre\s+équipe))/i;
 const PROTECTAS_NON_EVIDENCE_CONTAINER_TAGS = new Set([
   'article', 'body', 'footer', 'head', 'header', 'html', 'main', 'nav',
   'noscript', 'script', 'section', 'style', 'template',
@@ -151,7 +150,6 @@ function hasProtectasCounterHint(rawTag) {
 
 function extractAuthoritativeEmptyEvidence(html = '') {
   const content = extractMainHtml(html) || String(html);
-  const hasCareerHeading = PROTECTAS_CAREER_HEADING_RE.test(stripHtml(content));
   const tags = scanHtmlTags(content);
 
   for (let index = 0; index < tags.length; index += 1) {
@@ -165,9 +163,10 @@ function extractAuthoritativeEmptyEvidence(html = '') {
     if (!match) continue;
 
     // A count-like element is source evidence only when its own text is the
-    // complete current vacancy-count label. A sentence elsewhere in the
-    // page (for example an archive note) must never authorize deleting jobs.
-    if (!hasProtectasCounterHint(tag.raw) && !hasCareerHeading) continue;
+    // complete current vacancy-count label and its attributes identify a
+    // counter/empty-state element. A heading elsewhere in the page (or a
+    // sentence such as an archive note) must never authorize deleting jobs.
+    if (!hasProtectasCounterHint(tag.raw)) continue;
     return `Protectas career listing reports "${match[0]}"`;
   }
 

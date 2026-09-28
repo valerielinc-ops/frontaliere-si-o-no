@@ -187,9 +187,9 @@ describe('Protectas SA crawler parser', () => {
       expect(jobs.authoritativeEmptyEvidence).toContain('0 Posizioni aperte');
     });
 
-    it('fails closed when unrelated page copy mentions zero open positions', async () => {
+    it('fails closed when a career heading is paired only with unrelated zero-count copy', async () => {
       vi.spyOn(globalThis, 'fetch').mockResolvedValue(
-        new Response('<main><p>Archive note: 0 open positions.</p></main>', { status: 200 }),
+        new Response('<main><h2>Open positions</h2><p data-note="archive">0 open positions</p></main>', { status: 200 }),
       );
 
       await expect(fetchAllProtectasJobs()).rejects.toThrow('no official vacancy detail links');
