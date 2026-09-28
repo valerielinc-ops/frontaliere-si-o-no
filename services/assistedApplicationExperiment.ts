@@ -39,6 +39,13 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_offerwall_gpt_fallback_shown',
   'rewarded_offerwall_gpt_fallback_granted',
   'rewarded_offerwall_gpt_fallback_aborted',
+  // Offerwall recovery (services/offerwallRecovery.ts): the reload that resumes
+  // the click, the resumed click, and the consent card.
+  'rewarded_offerwall_reload',
+  'rewarded_application_offer_resumed',
+  'rewarded_offerwall_consent_reopened',
+  'rewarded_offerwall_consent_decided',
+  'rewarded_offerwall_consent_declined',
   'external_apply_redirected',
   'checkout_started',
   'checkout_completed',
