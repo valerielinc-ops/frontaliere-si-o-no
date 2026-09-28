@@ -1,19 +1,21 @@
 {
   "key": "dxt-commodities",
   "label": "DXT Commodities",
-  "generatedAt": "2026-09-28T04:59:10.395Z",
-  "total": 2,
+  "generatedAt": "2026-09-28T21:15:34.924Z",
+  "total": 0,
+  "discovered": null,
+  "parsed": null,
+  "lastFetchOutcome": null,
+  "abortKind": null,
+  "written": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3008,
-  "avgDurationMs": 3008,
-  "durationHistory": [
-    3008
-  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
