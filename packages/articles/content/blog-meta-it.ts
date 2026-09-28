@@ -12188,6 +12188,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.busto-saronno-sequestro-giocattoli.title': 'Sequestro giocattoli e dispositivi non sicuri in Lombardia',
     'blog.article.busto-saronno-sequestro-giocattoli.excerpt': 'Oltre 20mila giocattoli e 300 dispositivi elettrici sequestrati. Sanzioni per 10mila euro e denunce per frode in commercio.',
     'blog.article.busto-saronno-sequestro-giocattoli.imageAlt': 'Giocattoli e dispositivi elettrici non conformi sequestrati dalla Guardia di Finanza a Busto Arsizio e Saronno.',
+    'blog.article.mastini-fassa-hockey-2026.title': 'Mastini Varese verso Fassa: cerca primo punti in campionato',
+    'blog.article.mastini-fassa-hockey-2026.excerpt': 'Sabato 26 settembre alle 18:30 i Mastini Varese affrontano il Fassa dopo l\'esordio perso 2-4 contro i Pirati di Appiano; la squadra cerca di sbloccare la classifica.',
+    'blog.article.mastini-fassa-hockey-2026.imageAlt': 'Partita di hockey su ghiaccio dei Mastini Varese sul ghiaccio di Fassa, Trentino-Alto Adige',
 };
 
 export default blogMetaIt;
