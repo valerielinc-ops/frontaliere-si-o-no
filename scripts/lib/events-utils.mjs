@@ -1529,7 +1529,7 @@ export function parsePriceText(rawText) {
  * `price:"0"` there would fabricate "free" for a plausibly-paid event.
  */
 export function hasConfidentPrice(price) {
-  return Boolean(price) && (price.isFree === true || typeof price.amount === 'number');
+  return Boolean(price) && (price.isFree === true || Number.isFinite(price.amount));
 }
 
 // ── Date helpers ─────────────────────────────────────────────
