@@ -6,6 +6,8 @@
  * already store about a subscriber — not just the keywords they typed:
  *
  *   1. Explicit alert keywords      → HARD filter (legacy contract preserved).
+ *      A keyword is also allowed to match an exact structured category/sector
+ *      value, because board sector filters are persisted in this same field.
  *   2. Source-job intent            → tokens from `sourceJobTitle` / `sourceJobSlug`,
  *                                      i.e. the job the user was viewing when they
  *                                      one-tap-subscribed. Stored since FRO-333 but
@@ -73,8 +75,8 @@ const SWISS_CANTONS = new Set([
  * the localized board label in `keywords` (for example, "Tecnologia"). Keep
  * recognizing those persisted labels instead of treating them as literal job
  * text. The keys are deliberately limited to the labels emitted by the four
- * supported board locales; arbitrary typed keywords remain text-only hard
- * filters.
+ * supported board locales. Raw sector labels are handled separately by the
+ * exact structured-value fallback in the scorer.
  */
 const ALERT_CATEGORY_LABELS = new Map([
   ['technology', 'tech'],
@@ -232,6 +234,14 @@ function jobCategoryKeys(job) {
   );
 }
 
+function jobTaxonomyValues(job) {
+  return new Set(
+    [job?.category, job?.sector]
+      .map(normalizeCategoryValue)
+      .filter(Boolean),
+  );
+}
+
 /**
  * Minimum number of in-area matches required before {@link partitionByGeoPreference}
  * drops out-of-area jobs entirely. Below this floor the email is padded with
@@ -284,6 +294,9 @@ export function freshnessBoost(job, nowMs) {
  * @property {Set<string>} hardCategoryKeys  Board taxonomy labels persisted as
  *                                           keywords, matched against structured
  *                                           job category/sector fields.
+ * @property {Set<string>} hardTaxonomyValues  Normalized explicit values checked
+ *                                             for exact equality against raw
+ *                                             structured job category/sector fields.
  * @property {TokenSet}  softTokens    Intent tokens from source job + newsletter profile.
  * @property {string}    company       Normalized company affinity token ('' when none).
  * @property {string[]}  locations     Lowercased location signals (soft — ranking only).
@@ -507,6 +520,9 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   const hardCategoryKeys = new Set(
     hardKeywordInputs.map(alertCategoryKey).filter(Boolean),
   );
+  const hardTaxonomyValues = new Set(
+    hardKeywordInputs.map(normalizeCategoryValue).filter(Boolean),
+  );
 
   // 2. Soft intent tokens — boost relevance and, for keyword-less alerts, act as
   //    the matching filter. Sourced from the job the user engaged with plus the
@@ -632,7 +648,7 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   );
 
   return {
-    hardKeywords, hardCategoryKeys, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
+    hardKeywords, hardCategoryKeys, hardTaxonomyValues, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
     specificJobIds, specificCompanyKey, preferredLocations: preferredLocationNames, preferredCantons,
     applicationIntentJobKeys: activeApplicationIntentJobKeys(ex.applicationIntent, ex.now),
   };
@@ -721,6 +737,7 @@ export function jobMatchFeatures(job, locale) {
     jobCanton: String(job.canton || '').toLowerCase(),
     jobSector: `${job.sector || ''} ${job.category || ''}`.toLowerCase(),
     jobCategoryKeys: jobCategoryKeys(job),
+    jobTaxonomyValues: jobTaxonomyValues(job),
     jobContract: String(job.contract || '').toLowerCase(),
   };
 }
@@ -1003,6 +1020,7 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
   const {
     hardKeywords,
     hardCategoryKeys = new Set(),
+    hardTaxonomyValues = new Set(),
     softTokens,
     cantons,
     sectors,
@@ -1025,7 +1043,9 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     if (!job || neverMatches) return 0;
     const cached = featureCache ? featureCache.entry(job, locale) : null;
     const {
-      titleText, fullText, jobTokens, jobCategoryKeys: jobCategories, jobCompany, jobLoc, jobCanton, jobSector, jobContract,
+      titleText, fullText, jobTokens, jobCategoryKeys: jobCategories,
+      jobTaxonomyValues: jobTaxonomy = new Set(),
+      jobCompany, jobLoc, jobCanton, jobSector, jobContract,
     } = cached ? cached.features : jobMatchFeatures(job, locale);
     let locHaystack = '';
     if (needsLocation) {
@@ -1052,9 +1072,10 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     let score = 0;
 
     // 1. HARD keyword filter — preserve the legacy contract: when the user typed
-    //    keywords, at least one MUST appear in the job text or the job is dropped.
-    //    The one-tap board labels are the exception: they are persisted in this
-    //    same field, but their source of truth is the structured job taxonomy.
+    //    keywords, at least one MUST appear in the job text or exactly equal a
+    //    structured category/sector value. Board sector filters are persisted in
+    //    this same field, so an exact taxonomy comparison is necessary; never use
+    //    a substring match against structured values.
     if (hardList.length > 0) {
       let hit = false;
       for (let k = 0; k < hardList.length; k++) {
@@ -1064,6 +1085,14 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
       if (!hit && hardCategoryKeys.size > 0) {
         for (const category of hardCategoryKeys) {
           if (jobCategories.has(category)) {
+            hit = true;
+            break;
+          }
+        }
+      }
+      if (!hit && hardTaxonomyValues.size > 0) {
+        for (const taxonomyValue of hardTaxonomyValues) {
+          if (jobTaxonomy.has(taxonomyValue)) {
             hit = true;
             break;
           }
