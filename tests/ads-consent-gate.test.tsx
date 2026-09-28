@@ -189,6 +189,21 @@ describe('ads-consent gate — no ad-serving script before consent', () => {
     expect(document.querySelector(FC_SELECTOR)).not.toBeNull();
   });
 
+  it('loads the CMP even when the ad-serving bot gate matches', () => {
+    const previous = Object.getOwnPropertyDescriptor(window.navigator, 'webdriver');
+    Object.defineProperty(window.navigator, 'webdriver', { value: true, configurable: true });
+
+    try {
+      runStaticLoader();
+      expect(document.querySelector(FC_SELECTOR)).not.toBeNull();
+      // The bot gate still protects Auto Ads and every other ad-serving path.
+      expect(injectedAdServingScripts()).toEqual([]);
+    } finally {
+      if (previous) Object.defineProperty(window.navigator, 'webdriver', previous);
+      else delete (window.navigator as Navigator & { webdriver?: boolean }).webdriver;
+    }
+  });
+
   it('static page loader serves NO ads when consent is explicitly denied', () => {
     localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
     runStaticLoader();
