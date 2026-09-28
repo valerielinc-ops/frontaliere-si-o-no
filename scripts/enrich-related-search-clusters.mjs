@@ -19,12 +19,13 @@
  *   node scripts/enrich-related-search-clusters.mjs --locale=it  # one locale only
  *   node scripts/enrich-related-search-clusters.mjs --force      # ignore cache
  *   node scripts/enrich-related-search-clusters.mjs --verbose    # log each call
+ *   node scripts/enrich-related-search-clusters.mjs --budget-minutes=24  # stop starting work after 24 min
  */
 
 import { readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import {
   callLLM,
@@ -80,15 +81,16 @@ const LOCALE_NAMES = {
 
 // ── CLI parsing (no minimist) ──────────────────────────────────────────
 function parseArgs(argv) {
-  const args = { dryRun: false, limit: null, locale: null, force: false, verbose: false };
+  const args = { dryRun: false, limit: null, locale: null, force: false, verbose: false, budgetMinutes: null };
   for (const a of argv.slice(2)) {
     if (a === '--dry-run') args.dryRun = true;
     else if (a === '--force') args.force = true;
     else if (a === '--verbose') args.verbose = true;
     else if (a.startsWith('--limit=')) args.limit = Number.parseInt(a.slice('--limit='.length), 10);
     else if (a.startsWith('--locale=')) args.locale = a.slice('--locale='.length).toLowerCase();
+    else if (a.startsWith('--budget-minutes=')) args.budgetMinutes = Number(a.slice('--budget-minutes='.length));
     else if (a === '--help' || a === '-h') {
-      console.log('Usage: enrich-related-search-clusters.mjs [--dry-run] [--limit=N] [--locale=it|en|de|fr] [--force] [--verbose]');
+      console.log('Usage: enrich-related-search-clusters.mjs [--dry-run] [--limit=N] [--locale=it|en|de|fr] [--budget-minutes=N] [--force] [--verbose]');
       process.exit(0);
     } else {
       console.error(`Unknown flag: ${a}`);
@@ -101,6 +103,10 @@ function parseArgs(argv) {
   }
   if (args.limit !== null && (!Number.isFinite(args.limit) || args.limit <= 0)) {
     console.error(`Invalid --limit: must be a positive integer`);
+    process.exit(2);
+  }
+  if (args.budgetMinutes !== null && (!Number.isFinite(args.budgetMinutes) || args.budgetMinutes <= 0)) {
+    console.error(`Invalid --budget-minutes: must be a positive number`);
     process.exit(2);
   }
   return args;
@@ -270,7 +276,7 @@ function validateEnrichment(parsed) {
 }
 
 // ── Single-candidate enrichment with one retry ─────────────────────────
-async function enrichOne(candidate, { verbose }) {
+async function enrichOne(candidate, { verbose, deadlineMs = null }) {
   const { keyword, city } = extractKeywordAndCity(candidate.sampleTerms);
   const messages = buildPrompt({
     keyword,
@@ -284,9 +290,13 @@ async function enrichOne(candidate, { verbose }) {
     temperature: 0.6,
     maxTokens: 900,
     jsonMode: true,
+    ...(deadlineMs ? { deadlineMs } : {}),
   };
 
   for (let attempt = 1; attempt <= 2; attempt++) {
+    if (attempt > 1 && deadlineMs && Date.now() >= deadlineMs) {
+      return { ok: false, reason: 'time budget expired before the retry' };
+    }
     let raw;
     try {
       raw = await callLLM(messages, callOpts);
@@ -326,19 +336,34 @@ async function enrichOne(candidate, { verbose }) {
 }
 
 // ── Concurrency limiter (stdlib only) ──────────────────────────────────
-async function runWithConcurrency(items, limit, worker) {
-  const results = new Array(items.length);
+/**
+ * Runs `worker` over `items` with at most `limit` in flight. With
+ * `deadlineMs`, no item STARTS at or after the deadline: the ones already
+ * running finish, the rest are left for the next run (the cache makes that a
+ * resume). Returns the number of items never started.
+ *
+ * The weekly step has a 30-minute `timeout-minutes` and ~22k clusters to do
+ * (run 36420178268): without a budget the step was killed mid-flight, so the
+ * final save and the stale-entry prune never ran and only the periodic
+ * 50-success flushes survived.
+ */
+export async function runWithConcurrency(items, limit, worker, { deadlineMs = null } = {}) {
   let next = 0;
+  let notStarted = 0;
   async function pump() {
     while (true) {
       const i = next++;
       if (i >= items.length) return;
-      results[i] = await worker(items[i], i);
+      if (deadlineMs && Date.now() >= deadlineMs) {
+        notStarted += 1;
+        continue;
+      }
+      await worker(items[i], i);
     }
   }
   const pumps = Array.from({ length: Math.min(limit, items.length) }, () => pump());
   await Promise.all(pumps);
-  return results;
+  return notStarted;
 }
 
 // ── I/O helpers ────────────────────────────────────────────────────────
@@ -474,6 +499,7 @@ function assertOutputSize(path) {
 async function main() {
   const args = parseArgs(process.argv);
   const startedAt = Date.now();
+  const deadlineMs = args.budgetMinutes ? startedAt + args.budgetMinutes * 60_000 : null;
 
   const candidates = loadCandidates();
   console.log(`📥 Loaded ${candidates.length} candidates from ${INPUT_PATH}`);
@@ -566,13 +592,13 @@ async function main() {
   let failureCount = 0;
   const failures = [];
 
-  await runWithConcurrency(workList, CONCURRENCY, async (item, idx) => {
+  const deferred = await runWithConcurrency(workList, CONCURRENCY, async (item, idx) => {
     if (args.verbose) {
       console.log(`  → [${idx + 1}/${workList.length}] ${item.candidate.locale}::${item.candidate.slug}`);
     } else if ((idx + 1) % 25 === 0) {
       console.log(`  ... ${idx + 1}/${workList.length} processed`);
     }
-    const result = await enrichOne(item.candidate, { verbose: args.verbose });
+    const result = await enrichOne(item.candidate, { verbose: args.verbose, deadlineMs });
     if (!result.ok) {
       failureCount++;
       failures.push({ key: item.key, reason: result.reason });
@@ -595,7 +621,7 @@ async function main() {
       try { saveEnriched(state); } catch (err) { console.warn(`  ⚠️  partial save failed: ${err.message}`); }
       assertOutputSize(OUTPUT_PATH); // process.exit bypasses the catch above
     }
-  });
+  }, { deadlineMs });
 
   // Prune stale entries (slugs that rotated out of candidates or fell below
   // the gate) so the file stays bounded, then final save. Skipped on --force
@@ -616,6 +642,7 @@ async function main() {
   console.log(`   Newly enriched: ${enrichedCount}`);
   console.log(`   Stale entries evicted: ${evicted}`);
   console.log(`   Failures: ${failureCount}`);
+  if (deadlineMs) console.log(`   Left for the next run (time budget ${args.budgetMinutes} min): ${deferred}`);
   if (failures.length > 0 && args.verbose) {
     for (const f of failures.slice(0, 20)) console.log(`     - ${f.key}: ${f.reason}`);
     if (failures.length > 20) console.log(`     ... +${failures.length - 20} more`);
@@ -626,7 +653,8 @@ async function main() {
   printRunSummary();
 }
 
-main().catch(async (err) => {
+const isCli = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isCli) main().catch(async (err) => {
   // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
   // errore butta via gli esiti dei modelli accumulati dalla run — per lo
   // piu' fallimenti, cioe' il segnale che serve al ledger. Bounded e
