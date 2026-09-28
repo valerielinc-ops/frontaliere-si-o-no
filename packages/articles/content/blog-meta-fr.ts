@@ -12180,6 +12180,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.manfrinati-ergastolo-casbeno-varese.title': 'Manfrinati condamné à la réclusion à perpétuité pour meurtre',
     'blog.article.manfrinati-ergastolo-casbeno-varese.excerpt': 'Cour d’assises de Varese : réclusion à perpétuité avec isolement diurne. Indemnités de plus de 2 millions. Appel annoncé.',
     'blog.article.manfrinati-ergastolo-casbeno-varese.imageAlt': 'Vue d\'une rue résidentielle dans un quartier italien près de la frontière suisse, atmosphère grise et silencieuse.',
+    'blog.article.varese-lentigione-franco-ossola.title': 'Varese-Lentigione : dimanche 27 septembre au Franco Ossola',
+    'blog.article.varese-lentigione-franco-ossola.excerpt': 'Le Varese cherche confirmation après le succès sur le Pontedera. Le match contre la Lentigione se joue le dimanche 27 septembre à 15 heures à Masnago.',
+    'blog.article.varese-lentigione-franco-ossola.imageAlt': 'Stade Franco Ossola à Masnago avec vue sur le Monte Generoso avant le match Varese-Lentigione',
 };
 
 export default blogMetaFr;
