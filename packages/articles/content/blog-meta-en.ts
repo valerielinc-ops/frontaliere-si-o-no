@@ -12208,6 +12208,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuova-strada-carlazzo-frontalieri.title': 'New road to Carlazzo: 1.2 million to connect SP10 and Via San Pietro',
     'blog.article.nuova-strada-carlazzo-frontalieri.excerpt': 'The Program Agreement between the Province of Como and the Municipality of Carlazzo finances a road of 1,242,383.84 euros, with 1,042,383.84 euros from the Municipality and 200,000 euros from the Province, to be built by 2026.',
     'blog.article.nuova-strada-carlazzo-frontalieri.imageAlt': 'Recently paved rural road near the Swiss-Italian border, with green hills and clear sky.',
+    'blog.article.bollettino-frontaliere-2026-09-28.title': 'Cross-border daily brief – September 28, 2026: 270 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-09-28.excerpt': 'Today\'s numbers, September 28, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-28.imageAlt': 'The day\'s numbers for cross-border commuters – September 28, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-28.seoDescription': 'Cross-border brief, September 28, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-28.ogDescription': 'The numbers for September 28, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;
