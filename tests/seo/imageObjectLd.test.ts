@@ -73,6 +73,24 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
     expect(ld.acquireLicensePage).toBe(SITE_LICENSE_PAGE);
   });
 
+  it('rejects a non-URL license override', () => {
+    expect(() =>
+      imageObjectLd({
+        contentUrl: 'https://example.com/x.png',
+        license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
+      }),
+    ).toThrow(/license must be an absolute http\(s\) URL/);
+  });
+
+  it('rejects a non-URL acquireLicensePage override', () => {
+    expect(() =>
+      imageObjectLd({
+        contentUrl: 'https://example.com/x.png',
+        acquireLicensePage: 'Come ottenere la licenza',
+      }),
+    ).toThrow(/acquireLicensePage must be an absolute http\(s\) URL/);
+  });
+
   it('preserves optional fields when present', () => {
     const ld = imageObjectLd({
       contentUrl: 'https://example.com/x.png',

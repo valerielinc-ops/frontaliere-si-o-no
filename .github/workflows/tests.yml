@@ -1268,6 +1268,9 @@ jobs:
             # Piccolo: 483 file, ~1.2 MB — nulla a che vedere con le decine di GB
             # di public/images/ escluse per il resto.
             /public/images/brands/
+            # tests/authors.test.ts is part of the test-tree lint whenever a PR
+            # changes tests; keep its small runtime photo fixtures materialized.
+            /public/images/authors/
             /*.cjs
             /*.js
             /*.json
