@@ -6905,6 +6905,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.massimo-balena-calendario-agricoltori-ticino.title': 'Massimo Balena: Ticino farmer in the Swiss calendar',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.excerpt': 'The 29-year-old from Bellinzona recounts the apprenticeship in German, the closure of the company with 650 hens, and the intensive work of up to 15 hours a day.',
     'blog.article.massimo-balena-calendario-agricoltori-ticino.imageAlt': 'Massimo Balena, 29-year-old Ticino farmer, portrait for the Swiss Farmers\' Calendar',
+    'blog.article.maratona-bilaterali-iii-consiglio.title': 'Bilateral Agreements III: Marathon begins in the Council of States',
+    'blog.article.maratona-bilaterali-iii-consiglio.excerpt': 'The three-day debate on the Switzerland-EU stabilization package begins today. At least five Federal Councillors are expected in the chamber.',
+    'blog.article.maratona-bilaterali-iii-consiglio.imageAlt': 'Federal Palace in Bern, seat of the Swiss federal chambers',
 };
 
 export default blogMetaChEn;
