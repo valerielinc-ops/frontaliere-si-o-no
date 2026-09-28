@@ -28186,8 +28186,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-als-berufsbildnerin-berufsbildner-a-80-100-hirslanden",
         "it": "fachfrau-fachmann-gesundheit-come-berufsbildnerin-berufsbildner-a-80-100-hirslanden-klinik-st-anna",
-        "en": "fachfrau-fachmann-gesundheit-als-berufsbildnerin-berufsbildner-a-80-100-hirslanden",
-        "fr": "fachfrau-fachmann-gesundheit-als-berufsbildnerin-berufsbildner-a-80-100-hirslanden"
+        "en": "specialist-health-as-a-vocational-trainer-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "fr": "specialiste-de-la-sante-en-tant-que-formateur-professionnel-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28248,12 +28248,12 @@
     },
     {
       "id": "hirslanden-897da08b3df6",
-      "slug": "med-praxisassistentin-med-praxisassistent-sportmedizin-physiotherapie-a-80-100-hirslanden",
+      "slug": "assistente-medico-med-assistente-di-pratica-medicina-dello-sport-e-fisioterapia-a-80-100-hirslanden-klinik-st-anna-im",
       "slugByLocale": {
         "de": "med-praxisassistentin-med-praxisassistent-sportmedizin-physiotherapie-a-80-100-hirslanden",
-        "it": "med-praxisassistentin-med-praxisassistent-sportmedizin-physiotherapie-a-80-100-hirslanden",
-        "en": "med-praxisassistentin-med-praxisassistent-sportmedizin-physiotherapie-a-80-100-hirslanden",
-        "fr": "med-praxisassistentin-med-praxisassistent-sportmedizin-physiotherapie-a-80-100-hirslanden"
+        "it": "assistente-medico-med-assistente-di-pratica-medicina-dello-sport-e-fisioterapia-a-80-100-hirslanden-klinik-st-anna-im",
+        "en": "med-practice-assistant-med-practice-assistant-sports-medicine-physiotherapy-a-80-100-hirslanden-klinik-st-anna-im",
+        "fr": "med-assistant-de-pratique-med-assistant-de-pratique-medecine-sportive-et-physiotherapie-a-80-100-hirslanden-klinik-st"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28308,7 +28308,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistentin-med-praxisassistent-sportmedizin-physiotherapie-a-80-100-hirslanden"
+        ],
+        "en": [
+          "med-praxisassistentin-med-praxisassistent-sportmedizin-physiotherapie-a-80-100-hirslanden"
+        ],
+        "fr": [
+          "med-praxisassistentin-med-praxisassistent-sportmedizin-physiotherapie-a-80-100-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistentin-med-praxisassistent-sportmedizin-physiotherapie-a-80-100-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-7e9baaf7b26c",
