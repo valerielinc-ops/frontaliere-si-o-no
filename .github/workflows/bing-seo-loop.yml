@@ -265,7 +265,7 @@ jobs:
     timeout-minutes: 50
     strategy:
       fail-fast: false
-      max-parallel: 4
+      max-parallel: 2
       matrix:
         # Keep this list explicit: coverage aggregation can fail closed if a
         # partition is ever omitted from a future edit.
