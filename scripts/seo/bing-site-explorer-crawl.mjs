@@ -31,8 +31,8 @@ export const DEFAULT_RETRIES = 4;
 // after the partition drains, at low concurrency, so a burst is not promoted
 // to a backlog finding. Persistent failures remain findings after this rescue.
 export const DEFAULT_RESCUE_CONCURRENCY = 2;
-export const DEFAULT_RESCUE_RETRIES = 2;
-export const DEFAULT_RESCUE_DELAY_MS = 1_000;
+export const DEFAULT_RESCUE_RETRIES = 4;
+export const DEFAULT_RESCUE_DELAY_MS = 3_000;
 export const DEFAULT_MAX_BODY_BYTES = 256 * 1024;
 export const DEFAULT_MAX_SITEMAP_BYTES = 64 * 1024 * 1024;
 
