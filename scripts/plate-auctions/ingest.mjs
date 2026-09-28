@@ -22,7 +22,6 @@ import { fetchExpandedCard, fetchExpandedEcari } from './connectors/expanded.mjs
 import {
   fetchAiFixedPrice,
   fetchBsFixedPrice,
-  fetchGlFixedPrice,
   fetchLuFixedPrice,
   fetchUrFixedPrice,
 } from './connectors/fixed-price.mjs';
@@ -55,7 +54,6 @@ export const FETCHERS = {
   // senza nessuna riga nello snapshot è fatale per check-health.mjs; con le
   // righe della prima sessione (poi chiuse e conservate) non lo è più.
   // Attivarla = registry `active` in entrambe le copie + una riga qui.
-  gl: fetchGlFixedPrice,
   gr: fetchGrPlateAuctions,
   lu: fetchLuFixedPrice,
   nw: () => fetchExpandedEcari('nw'),

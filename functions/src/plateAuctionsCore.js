@@ -403,41 +403,7 @@ export function parseUrFixedPricePdfText(value, {
   return rows;
 }
 
-/** Parses Glarus' official JSON plate inventory. */
-export function parseGlFixedPriceJson(value, {
-  canton = 'Glarona',
-  plateCode = 'GL',
-  officialUrl,
-  officialDetailUrl,
-  fetchedAt = new Date().toISOString(),
-} = {}) {
-  const items = Array.isArray(value) ? value : Array.isArray(value?.data) ? value.data : [];
-  return items.flatMap((item) => {
-    if (!item || typeof item !== 'object' || item.deleted || item.registered || item.available === 0) return [];
-    const plateNumber = String(item.number ?? '').replace(/\D/g, '');
-    const price = moneyText(item.price);
-    if (!plateNumber || price === undefined) return [];
-    const type = String(item.platetype || '').toLowerCase();
-    const vehicleType = type.includes('motor') ? 'motorcycle' : type.includes('trailer') ? 'trailer' : 'car';
-    const row = fixedPriceRow({
-      sourceKey: plateCode,
-      canton,
-      plateCode,
-      plateNumber,
-      sourceRecordId: item.id ?? plateNumber,
-      price,
-      officialUrl,
-      officialDetailUrl,
-      fetchedAt,
-      vehicleType,
-      sourceCategory: 'fixed-price-api',
-      rawSnapshot: JSON.stringify(item),
-    });
-    return row ? [row] : [];
-  });
-}
-
-/** Official indexes and machine-readable endpoints for the five structured
+/** Official indexes and machine-readable endpoints for the four structured
  * catalogues that were previously classified as "no public auction". */
 export const FIXED_PRICE_SOURCE_CONFIGS = Object.freeze({
   ai: {
@@ -486,14 +452,6 @@ export const FIXED_PRICE_SOURCE_CONFIGS = Object.freeze({
         pdfUrlPattern: /\/wuko-mr-[^/]+\.pdf$/i,
       },
     ],
-    parserVersion: 'fixed-price-1.0.0',
-  },
-  gl: {
-    kind: 'json',
-    canton: 'Glarona',
-    plateCode: 'GL',
-    officialUrl: 'https://www.gl.ch/verwaltung/sicherheit-und-justiz/justiz/strassenverkehrsamt/strassenverkehr/kontrollschilder/wunschkontrollschilder.html/450',
-    url: 'https://eschild.gl.ch/api/v1/plate',
     parserVersion: 'fixed-price-1.0.0',
   },
   lu: {
