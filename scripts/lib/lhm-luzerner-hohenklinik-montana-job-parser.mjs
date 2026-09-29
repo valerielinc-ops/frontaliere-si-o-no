@@ -107,15 +107,16 @@ export function extractBodyText(html) {
   const main = extractMainColumnText(html);
   if (main) return main;
   // The detail body is rendered as a stack of <p>/<h2>/<ul> elements after
-  // the <h1>. Take the substring from the closing </h1> to the next footer.
-  // If that fails, fall back to the whole document.
+  // the <h1>. Take the substring from the closing </h1> to the next footer;
+  // without a footer there is no delimited body.
   const h1End = html.search(/<\/h1>/i);
   if (h1End < 0) return '';
   const tail = html.slice(h1End + '</h1>'.length);
   const stopIdx = tail.search(/<footer|<div[^>]*class="[^"]*footer/i);
-  // The 30k HTML window only bounds a page without a footer marker; the text
-  // itself is not capped (issue 5253).
-  const block = stopIdx > 0 ? tail.slice(0, stopIdx) : tail.slice(0, 30000);
+  // No footer marker: no delimited body. The text has no length cap
+  // (issue 5253), so the page tail after the h1 is never published.
+  if (stopIdx <= 0) return '';
+  const block = tail.slice(0, stopIdx);
   // Strip nav portlets ("Suchen", "Sie sind hier:", contact widget,
   // breadcrumbs) — the LHM portal wraps everything in
   // `<div class="portlet-…">` blocks. Drop any portlet block with class

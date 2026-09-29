@@ -45,7 +45,8 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { decodeHtmlEntities, extractCaseificioDetailDescription } from './lib/caseificio-gottardo-detail.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -93,38 +94,6 @@ function slugify(text = '', suffix = '') {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
   return truncateSlugAtWordBoundary(s, 200);
-}
-
-function decodeHtmlEntities(html = '') {
-  return String(html)
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;/gi, "'")
-    .replace(/&#039;/gi, "'")
-    .replace(/&ndash;/gi, '–')
-    .replace(/&rsquo;/gi, '\u2019')
-    .replace(/&lsquo;/gi, '\u2018')
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8217;/g, '\u2019');
-}
-
-function stripHtml(html = '') {
-  return decodeHtmlEntities(
-    html
-      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-      // Open each <li> as a line-start bullet so list structure survives the strip (#2476).
-      .replace(/<li[^>]*>/gi, '\n• ')
-      .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
-      .replace(/<[^>]+>/g, '')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim()
-  );
 }
 
 function isTargetJob(job) {
@@ -254,40 +223,7 @@ function parseListingPage(html) {
 async function fetchDetailDescription(url) {
   const html = await fetchPage(url);
   if (!html) return '';
-
-  // Extract main content — find the area after the title heading
-  // The page has the job title as an H1, then content divs with the description
-  const titleSource = stripScriptsAndStyles(html);
-  const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const titleText = titleMatch ? stripHtml(titleMatch[1]).trim() : '';
-
-  // Try to extract the main content body
-  // Look for the content between the header section and the footer contact section
-  const contentMatch = html.match(
-    /class="[^"]*content[^"]*"[^>]*>([\s\S]*?)(?=Caseificio dimostrativo del Gottardo|<footer|class="[^"]*footer)/i
-  );
-
-  let description = '';
-  if (contentMatch) {
-    description = stripHtml(contentMatch[1]);
-  } else {
-    // Fallback: extract all text after h1 title until the contact box or the
-    // page footer (the same end markers as above; there is no length cap, so
-    // the page tail must never be reached).
-    const afterTitle = html.split(/<\/h1>/i).slice(1).join('');
-    const beforeFooter = afterTitle.split(/Caseificio dimostrativo del Gottardo|<footer|class="[^"]*footer/i)[0];
-    description = stripHtml(beforeFooter);
-  }
-
-  // Clean up CSS/JS noise that may leak through
-  description = description
-    .replace(/\.Menu_[^}]+\}/g, '')
-    .replace(/@[\w-]+keyframes[^}]+\}/g, '')
-    .replace(/\{[^}]*\}/g, '')
-    .replace(/\s{3,}/g, '\n\n')
-    .trim();
-
-  return description || `${titleText}\n\nPer maggiori dettagli, consultare la pagina dell'offerta.`;
+  return extractCaseificioDetailDescription(html);
 }
 
 // ─────────────────────────────────────────────────────────────

@@ -178,7 +178,10 @@ export function extractBalancedJobDescription(html = '') {
     }
     i = nextClose + 7;
   }
-  return html.slice(bodyStart, i);
+  // The span never closes: no delimited body. Returning everything up to the
+  // last </span> of the page would publish its tail, now that the text has
+  // no length cap (issue 5253).
+  return '';
 }
 
 export function parseDetail(html = '') {

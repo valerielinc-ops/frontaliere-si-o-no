@@ -281,6 +281,21 @@ describe('Zurich Insurance Switzerland crawler', () => {
     expect(job.descriptionByLocale[job.sourceLang]).toBe('');
   });
 
+  it('reads the jobdescription span to its own end when p.job-location is missing — no window of the page after it', async () => {
+    const page = pageWithRows(pageOne, [rowOne], 1);
+    const noMarker = longDetailPage
+      .replace('<p class="job-location"></p>', '')
+      .replace('</body>', `<nav>${'<a>Careers menu</a>'.repeat(300)}</nav><div class="cookie">Accept all cookies</div></body>`);
+    const crawler = await prepareZurichInsuranceCrawler({
+      fetchPage: (url: string) => Promise.resolve(new URL(url).pathname === '/search/' ? page : noMarker),
+      detailDelayMs: 0,
+    });
+    const [job] = await crawler.fetchJobs();
+
+    expect(job.description).toMatch(/• Recruiter name: Example Recruiter$/);
+    expect(job.description).not.toMatch(/Careers menu|Accept all cookies|Apply now/);
+  });
+
   it('fails loud when an explicit page limit would truncate the declared total', async () => {
     await expect(fetchZurichInsuranceListings({
       maxPages: 1,

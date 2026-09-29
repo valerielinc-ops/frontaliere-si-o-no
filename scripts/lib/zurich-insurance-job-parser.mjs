@@ -25,6 +25,7 @@ import { splitJobLocation } from './job-location-display.mjs';
 import { stripSuccessFactorsMoreLocations } from './successfactors-jobs2web-widget-guard.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractBalancedTagBlockWithStatus } from './hospital-custom-html-helpers.mjs';
 
 export const ZURICH_INSURANCE_KEY = 'zurich-insurance-sede-ticino';
 // Legacy key retained so existing Zurich Insurance records keep their identity.
@@ -373,10 +374,18 @@ function extractDescription(html = '') {
   const start = source.search(/<span\b[^>]*class=(?:"[^"]*\bjobdescription\b[^"]*"|'[^']*\bjobdescription\b[^']*')[^>]*>/i);
   if (start < 0) return '';
   const openingEnd = source.indexOf('>', start);
-  const boundary = source.slice(openingEnd + 1).search(/<p\b[^>]*class=(?:"[^"]*\bjob-location\b[^"]*"|'[^']*\bjob-location\b[^']*')/i);
-  const body = boundary < 0
-    ? source.slice(openingEnd + 1, openingEnd + 20_001)
-    : source.slice(openingEnd + 1, openingEnd + 1 + boundary);
+  const rest = source.slice(openingEnd + 1);
+  const boundary = rest.search(/<p\b[^>]*class=(?:"[^"]*\bjob-location\b[^"]*"|'[^']*\bjob-location\b[^']*')/i);
+  // Without the p.job-location marker, read the jobdescription span to its
+  // own closing tag; an unclosed span gives no body (never a window of the
+  // page after it — the text has no length cap, issue 5253).
+  let body = '';
+  if (boundary >= 0) {
+    body = rest.slice(0, boundary);
+  } else {
+    const span = extractBalancedTagBlockWithStatus(rest, 'span', rest.length);
+    body = span.complete ? span.html : '';
+  }
   return stripHtml(body)
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')

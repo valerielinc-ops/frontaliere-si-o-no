@@ -40,7 +40,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
   locateTagByAttribute,
-  extractBalancedTagBlock,
+  extractBalancedTagBlockWithStatus,
 } from './hospital-custom-html-helpers.mjs';
 
 export const ARSANTE_KEY = 'arsante-clinique-de-carouge';
@@ -116,8 +116,10 @@ export function extractDetailBody(html) {
   if (jobPostingIdx !== -1) {
     const located = locateTagByAttribute(html.slice(jobPostingIdx), 'itemprop="description"', { skipVoidTags: true });
     if (located) {
-      const inner = extractBalancedTagBlock(located.rest, located.tagName);
-      return normalizeSpace(htmlToText(inner));
+      // An unclosed description element falls through to <main> instead of
+      // returning a raw window of the page after it (no length cap, issue 5253).
+      const { html: inner, complete } = extractBalancedTagBlockWithStatus(located.rest, located.tagName, located.rest.length);
+      if (complete) return normalizeSpace(htmlToText(inner));
     }
   }
   const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);

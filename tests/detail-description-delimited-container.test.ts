@@ -19,7 +19,12 @@ import { extractChuvDetailDescription } from '../scripts/lib/chuv-job-parser.mjs
 import { parseDetailDescription as parsePlaineDetail } from '../scripts/lib/clinique-de-la-plaine-job-parser.mjs';
 import { parseDetailDescription as parseDiaconisDetail } from '../scripts/lib/stiftung-diaconis-job-parser.mjs';
 import { extractDetailBody as extractArsanteDetailBody } from '../scripts/lib/arsante-clinique-de-carouge-job-parser.mjs';
-import { parseDetail as parseRfsmDetail } from '../scripts/lib/rfsm-fribourg-job-parser.mjs';
+import { extractBalancedJobDescription, parseDetail as parseRfsmDetail } from '../scripts/lib/rfsm-fribourg-job-parser.mjs';
+import { extractCaseificioDetailDescription } from '../scripts/lib/caseificio-gottardo-detail.mjs';
+import { parseAlpiqDetailHtml } from '../scripts/lib/alpiq-job-parser.mjs';
+import { extractDetailBody as extractCrrDetailBody } from '../scripts/lib/crr-suva-sion-job-parser.mjs';
+import { extractBodyText as extractLhmBodyText } from '../scripts/lib/lhm-luzerner-hohenklinik-montana-job-parser.mjs';
+import { parseDetail as parseEnteroDetail } from '../scripts/lib/entero-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const fixture = (name: string) => fs.readFileSync(path.join(__dirname, 'fixtures', name), 'utf8');
@@ -132,5 +137,54 @@ describe('latent caps on delimited blocks', () => {
   it.each(PARSERS)('%s publishes the detail text without a character cap', (key) => {
     const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'lib', `${key}-job-parser.mjs`), 'utf8');
     expect(source).not.toMatch(/\.slice\(0,\s*[2-9]\d{3}\)/);
+  });
+});
+
+// With the length caps gone, a fallback that is not closed by a marker would
+// publish the tail of the page (menus, language switcher, cookie UI). Each
+// parser now safe-fails to no body instead.
+describe('no page tail when the end marker is missing', () => {
+  const tail = `<ul class="menu"><li><a>Ristorante</a></li><li><a>Noleggio</a></li></ul><div class="cookie-banner">Accetta i cookie</div>${'<p>Lingua Italiano Deutsch Français</p>'.repeat(120)}`;
+
+  it('Caseificio: without contact box, <footer> or footer class, only the title-only line', () => {
+    const html = `<html><body><h1>T</h1><div class="nav">${tail}</div></body></html>`;
+    expect(tail.length).toBeGreaterThan(3000);
+    expect(extractCaseificioDetailDescription(html)).toBe("T\n\nPer maggiori dettagli, consultare la pagina dell'offerta.");
+  });
+
+  it('Caseificio: the content block up to the contact box is still read whole', () => {
+    const body = '<p>Il tecnologo del latte trasforma il latte.</p>'.repeat(80);
+    const html = `<h1>Apprendista</h1><div class="boxContent">${body}</div><p><strong>Caseificio dimostrativo del Gottardo SA</strong></p>${tail}`;
+    const text = extractCaseificioDetailDescription(html);
+    expect(text.length).toBeGreaterThan(3000);
+    expect(text).not.toMatch(/Ristorante|cookie|Lingua/);
+  });
+
+  it('Alpiq: no role block without a Mission heading or <main>, nor without an end marker', () => {
+    expect(parseAlpiqDetailHtml(`<h1>Role</h1><div>${tail}</div>`)?.description).toBe('');
+    expect(parseAlpiqDetailHtml(`<main><h1>Role</h1><p>Text</p>${tail}`)?.description).toBe('');
+  });
+
+  it('CRR Suva: no body after the h1 without footer/aside/sidebar marker', () => {
+    expect(extractCrrDetailBody(`<h1>Maître socioprofessionnel</h1><div>${tail}</div>`)).toBe('');
+  });
+
+  it('LHM: no body after the h1 without a footer marker', () => {
+    expect(extractLhmBodyText(`<h1>Koch</h1><div>${tail}</div>`)).toBe('');
+  });
+
+  it('entero: from the intro, no body without a stop marker, footer or </main>', () => {
+    const { body } = parseEnteroDetail(`<h1>Pflege</h1><div class="jobs-show-intro"><p>Arbeitsort: Egliswil</p></div>${tail}`);
+    expect(body).toBe('');
+  });
+
+  it('RFSM: an unclosed jobdescription span gives no body', () => {
+    expect(extractBalancedJobDescription(`<span class="jobdescription"><p>Tâches</p>${tail}<span>x</span>`)).toBe('');
+    expect(parseRfsmDetail(`<span class="jobdescription"><p>Tâches</p>${tail}`).description).toBe('');
+  });
+
+  it('Arsanté: an unclosed microdata description falls through to <main>, never to the page tail', () => {
+    const html = `<div itemscope itemtype="https://schema.org/JobPosting"><div itemprop="description"><p>Missions</p>${tail}`;
+    expect(extractArsanteDetailBody(html)).toBe('');
   });
 });
