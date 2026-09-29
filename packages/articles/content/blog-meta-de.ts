@@ -12254,6 +12254,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-rapina-mediaworld-varese.title': 'Varese, stiehlt bei MediaWorld und schubst den Wachmann: festgenommen',
     'blog.article.arresto-rapina-mediaworld-varese.excerpt': 'Junger Mann wegen räuberischen Diebstahls im MediaWorld von Varese festgenommen, nachdem er ein Telefon gestohlen und einen Sicherheitsmitarbeiter gestoßen hatte.',
     'blog.article.arresto-rapina-mediaworld-varese.imageAlt': 'MediaWorld-Geschäft in Varese',
+    'blog.article.pasture-chiusura-garanzie.title': 'Schließung in Chiasso, Befürchtungen beim Personal von Pasture',
+    'blog.article.pasture-chiusura-garanzie.excerpt': 'Das SEM garantiert die Wiedereröffnung der Einrichtung in Chiasso; die Gewerkschaftsfront verteidigt die Arbeitsplätze und weist auf bevorstehende Entlassungen hin, ohne Gewissheit.',
+    'blog.article.pasture-chiusura-garanzie.imageAlt': 'Szene aus Chiasso im Zusammenhang mit den Sorgen des Pasture-Personals',
 };
 
 export default blogMetaDe;

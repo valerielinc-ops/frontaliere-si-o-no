@@ -12256,6 +12256,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-rapina-mediaworld-varese.title': 'Varese, ruba al MediaWorld e spintona la guardia: arrestato',
     'blog.article.arresto-rapina-mediaworld-varese.excerpt': 'Giovane arrestato per rapina impropria al MediaWorld di Varese dopo aver rubato un telefono e spinto un addetto alla sicurezza.',
     'blog.article.arresto-rapina-mediaworld-varese.imageAlt': 'Negozio MediaWorld a Varese',
+    'blog.article.pasture-chiusura-garanzie.title': 'Chiusura di Chiasso, timori tra il personale di Pasture',
+    'blog.article.pasture-chiusura-garanzie.excerpt': 'La SEM garantisce la riapertura della struttura di Chiasso; il fronte sindacale difende i posti di lavoro e segnala licenziamenti in vista, senza certezze.',
+    'blog.article.pasture-chiusura-garanzie.imageAlt': 'Scorcio di Chiasso legato alla preoccupazione del personale di Pasture',
 };
 
 export default blogMetaIt;

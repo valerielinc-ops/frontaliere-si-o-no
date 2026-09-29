@@ -36781,6 +36781,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pasture-chiusura-garanzie',
+ category: 'novita',
+ date: '2026-09-29T03:52:08.472Z',
+ image: '/images/blog/pasture-chiusura-garanzie.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

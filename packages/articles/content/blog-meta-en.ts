@@ -12255,6 +12255,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-rapina-mediaworld-varese.title': 'Varese, steals from MediaWorld and shoves security guard: arrested',
     'blog.article.arresto-rapina-mediaworld-varese.excerpt': 'Young man arrested for robbery at MediaWorld in Varese after stealing a phone and pushing a security guard.',
     'blog.article.arresto-rapina-mediaworld-varese.imageAlt': 'MediaWorld store in Varese',
+    'blog.article.pasture-chiusura-garanzie.title': 'Closure of Chiasso, concerns among Pasture staff',
+    'blog.article.pasture-chiusura-garanzie.excerpt': 'SEM guarantees the reopening of the Chiasso facility; the union front defends jobs and reports impending layoffs, with no certainty.',
+    'blog.article.pasture-chiusura-garanzie.imageAlt': 'Chiasso scene linked to staff concerns at Pasture',
 };
 
 export default blogMetaEn;
