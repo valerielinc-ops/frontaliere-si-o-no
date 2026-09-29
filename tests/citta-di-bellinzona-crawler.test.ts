@@ -150,6 +150,23 @@ describe('Bellinzona crawler — listing HTML parsing', () => {
     expect(jobs[0].pdfUrl).toContain('bando-vicedirettore.pdf');
   });
 
+  it('extracts the extension-less bando document link (bellinzona.ch, 2026-09-29)', () => {
+    // Minimized from the live listing: the bando is served from
+    // "<titolo>-<id>" (Content-Disposition …pdf), linked as "Scarica il
+    // documento" under the "Bando di concorso" label, before the pi-asp form.
+    const html = `<table class="ListOpenClose"><tr valign="top"><td><div class="ListBtApri"><table><tr><td><h3>un/a Agente di polizia, presso la Polizia comunale</h3></td></tr></table></div></td></tr>
+      <tr valign="top"><td><div class="ListContChiuso"><table class="AssunzioniTab"><tr><td><p>Pubbl.</p></td><td>18.09.26</td></tr>
+      <tr><td><p>Termine</p></td><td>05.10.2026 23:59</td></tr>
+      <tr><td colspan="2"><table><tr><td><div class="">Bando di concorso</div></td></tr>
+      <tr><td><table><tr><td class=""><div class=""><a href="una-Agente-di-polizia-presso-la-Polizia-comunale-47a46100" class="" target="_"></a></div></td>
+      <td class=""><div class=""><a href="una-Agente-di-polizia-presso-la-Polizia-comunale-47a46100" class="" target="_">Scarica il documento</a></div></td></tr></table></td></tr></table></td></tr>
+      <tr><td><div class="ObjListBtRosso"><a href="https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=64ce8328-085b-4978-8175-2d7c37391d5e,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140">Modulo di candidatura online</a></div></td><td></td></tr></table></div></td></tr></table>`;
+    const jobs = parseBellinzonaListingHtml(html);
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].pdfUrl).toBe('https://www.bellinzona.ch/una-Agente-di-polizia-presso-la-Polizia-comunale-47a46100');
+    expect(jobs[0].applyUrl).toContain('bellinz.pi-asp.de');
+  });
+
   it('extracts apply URLs from pi-asp.de', () => {
     const jobs = parseBellinzonaListingHtml(LISTING_HTML_FIXTURE);
     expect(jobs[0].applyUrl).toContain('bellinz.pi-asp.de');

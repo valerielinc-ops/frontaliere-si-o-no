@@ -13,7 +13,13 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
-import { fetchLocarnoJobs, slugify, inferEmploymentType } from './lib/citta-di-locarno-job-parser.mjs';
+import {
+  fetchLocarnoJobs,
+  slugify,
+  inferEmploymentType,
+  CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE,
+} from './lib/citta-di-locarno-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import {
   buildPdfBackedDescription,
   extractPdfJobContentFromUrl,
@@ -50,7 +56,11 @@ function mergeCompanyJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((j) => !isCompanyJob(j));
-  const companyExisting = allJobs.filter((j) => isCompanyJob(j));
+  const companyExisting = dropFabricatedDescriptions(
+    allJobs.filter((j) => isCompanyJob(j)),
+    CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
   const byUrl = new Map();
   for (const job of parsedJobs) { const k = String(job?.url || '').trim().replace(/\/+$/, ''); if (k) byUrl.set(k, job); }
   const deduped = [...byUrl.values()];
@@ -85,32 +95,23 @@ async function main() {
       }
     }
 
-    const fallbackDesc = `Concorso pubblico presso la ${COMPANY_NAME} per la posizione di ${raw.title}. Consultare il bando di concorso allegato per requisiti e modalit\u00e0 di candidatura.`;
-    const desc = buildPdfBackedDescription({
-      introLines: [
-        `## ${raw.title}`,
-        `${COMPANY_NAME} \u2014 concorso pubblico a Locarno (TI), Svizzera.`,
-      ],
-      pdfText,
-      fallbackText: fallbackDesc,
-      footerLines: [
-        `**Settore:** Pubblica Amministrazione`,
-        `**Sede:** Piazza Grande 18, 6600 Locarno, TI, Svizzera`,
-        raw.pdfUrl ? `[Bando ufficiale (PDF)](${raw.pdfUrl})` : '',
-      ].filter(Boolean),
-    });
+    // Only the text of the bando, in its own language: no lines of the crawler
+    // (CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE). A bando without readable text gets no
+    // description and takes the pipeline's thin-source path.
+    const desc = buildPdfBackedDescription({ pdfText });
+    const sourceLang = detectLang(desc || raw.title, 'it');
 
     parsedJobs.push({
-      id: raw.id, slug: raw.slug, slugByLocale: { it: raw.slug },
+      id: raw.id, slug: raw.slug, slugByLocale: { [sourceLang]: raw.slug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'locarno.ch',
-      title: raw.title, titleByLocale: { it: raw.title },
-      description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [] },
+      title: raw.title, titleByLocale: { [sourceLang]: raw.title },
+      description: desc, descriptionByLocale: { [sourceLang]: desc }, requirements: [], requirementsByLocale: { [sourceLang]: [] },
       location: 'Locarno', canton: HQ.canton, addressLocality: 'Locarno', addressRegion: HQ.addressRegion, addressCountry: 'CH',
       postalCode: HQ.postalCode, streetAddress: 'Piazza Grande 18',
       category: 'public-admin', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,
       postedDate: raw.datePosted,
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
-      source: 'Locarno Dedicated Parser', sourceLang: detectLang(desc || raw.title, 'it'), crawledAt: new Date().toISOString(),
+      source: 'Locarno Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     });
   }
 

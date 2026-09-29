@@ -55,7 +55,9 @@ import {
   BERIT_KLINIK_COMPANY_DOMAIN,
   BERIT_KLINIK_CAREERS_URL,
   BERIT_KLINIK_CMS_HOST,
+  BERIT_KLINIK_FABRICATED_DESCRIPTION_RE,
 } from './lib/berit-klinik-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -162,6 +164,9 @@ function jobMatchKey(job = {}) {
 
 function buildJob({ title, city, canton, postalCode, pdfUrl, pdfText, filename }) {
   const slug = slugify(`${title}-${COMPANY_KEY}`);
+  const description = buildBeritKlinikDescription({ title, pdfText }).description;
+  // The PDF text is keyed by its own language.
+  const sourceLang = detectLang(`${title} ${pdfText}`, 'de');
   return {
     title,
     slug,
@@ -182,16 +187,14 @@ function buildJob({ title, city, canton, postalCode, pdfUrl, pdfText, filename }
     employmentType: 'full-time',
     contractType: 'full-time',
     source: `${COMPANY_KEY}-dedicated-crawler`,
-    sourceLang: detectLang(`${title} ${pdfText}`, 'de'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     validThrough: '',
     needsRetranslation: true,
-    description: buildBeritKlinikDescription({ title, city, pdfText, pdfUrl }).description,
-    titleByLocale: { de: title },
-    descriptionByLocale: {
-      de: buildBeritKlinikDescription({ title, city, pdfText, pdfUrl }).description,
-    },
-    slugByLocale: { de: slug },
+    description,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: description },
+    slugByLocale: { [sourceLang]: slug },
     _meta: { sourceFilename: filename },
   };
 }
@@ -199,7 +202,11 @@ function buildJob({ title, city, canton, postalCode, pdfUrl, pdfText, filename }
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const existingTarget = existing.filter(isTargetJob);
+  const existingTarget = dropFabricatedDescriptions(
+    existing.filter(isTargetJob),
+    BERIT_KLINIK_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
   const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);

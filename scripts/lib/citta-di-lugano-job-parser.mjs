@@ -235,14 +235,11 @@ export function buildJob(raw) {
   const title = normalizeSpace(raw.title);
   if (!title || title.length < 3) return null;
 
-  const rawDescription = raw.description || '';
-
-  // Richer fallback description that always exceeds 50 words and 220 chars
-  const richDesc = `${title} — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. La Città di Lugano è il più grande Comune della Svizzera italiana con circa 3000 dipendenti attivi in diversi settori dell'amministrazione pubblica. L'ente offre condizioni di lavoro pubbliche regolate dal contratto cantonale per i dipendenti dello Stato, con prestazioni sociali complete, contributi alla cassa pensione e un ambiente di lavoro stabile e inclusivo. La sede principale si trova a Piazza della Riforma 1, nel cuore del centro storico di Lugano. Le candidature vanno presentate tramite il portale digitale egov.lugano.ch.`;
-
-  // Use raw description only if it meets both quality gates: >= 220 chars AND >= 50 words
-  const rawWordCount = rawDescription.split(/\s+/).filter(Boolean).length;
-  const finalDescription = (rawDescription.length >= 220 && rawWordCount >= 50) ? rawDescription : richDesc;
+  // The source's own text only. The builder used to substitute a paragraph of
+  // its own on the Città di Lugano below 220 characters / 50 words; a job
+  // without text now gets no description here, the runner fills it from the
+  // PDF bando, and without either it takes the pipeline's thin-source path.
+  const finalDescription = normalizeSpace(raw.description || '');
   const applyUrl = firstJobSpecificLuganoUrl(raw.applyUrl, raw.pdfUrl, raw.url);
 
   return {
@@ -309,3 +306,14 @@ export function inferEmploymentType(title = '', description = '', percentage = '
   }
   return 'FULL_TIME';
 }
+
+/**
+ * Fragments only the crawler once wrote: the builder's paragraph on the city
+ * ("<titolo> — concorso pubblico presso la Città di Lugano, amministrazione
+ * comunale…") and the runner's wrapper around the PDF bando ("## <titolo>",
+ * "Città di Lugano — concorso pubblico a Lugano (TI), Svizzera.",
+ * "Settore"/"Sede" footers). Used to clean jobs stored before the crawler
+ * published the source text alone.
+ */
+export const CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE =
+  /concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano|— concorso pubblico a Lugano \(TI\), Svizzera\.|\*\*Sede:\*\* Via Nizzola 5, 6900 Lugano/;

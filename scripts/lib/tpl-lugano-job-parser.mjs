@@ -204,7 +204,10 @@ export function extractTplCapitolatoUrl(html = '') {
 /**
  * Build the published description for a TPL vacancy: the capitolato PDF text is
  * the body, the page block (application instructions) is the fallback for a
- * missing/image-only PDF.
+ * missing/image-only PDF. Only the source's text: the crawler used to add
+ * lines of its own ("TPL pubblica il seguente concorso.", "Posizione: …",
+ * "Capitolato ufficiale disponibile in PDF.", "Settore: …", "Sede: …") and a
+ * sentence of its own when neither text existed.
  *
  * @param {string} title
  * @param {string} rawPdfText - un-normalized capitolato text ('' when absent)
@@ -212,20 +215,7 @@ export function extractTplCapitolatoUrl(html = '') {
  * @returns {{ description: string, warnings: string[] }}
  */
 export function buildTplDescription(title = '', rawPdfText = '', inlineBody = '') {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${TPL_COMPANY_NAME} pubblica il seguente concorso.`,
-      `Posizione: ${normalizeSpace(title)}.`,
-    ],
-    pdfText: rawPdfText,
-    fallbackText: inlineBody
-      || `Concorso ${normalizeSpace(title)} presso ${TPL_COMPANY_NAME}. Consultare il capitolato ufficiale per i dettagli completi su mansioni, requisiti e modalita di candidatura.`,
-    footerLines: [
-      'Capitolato ufficiale disponibile in PDF.',
-      'Settore: Trasporti pubblici / Mobilita',
-      'Sede: Via Campagna 15, 6900 Lugano (TI), Svizzera',
-    ],
-  });
+  const description = buildPdfBackedDescription({ pdfText: rawPdfText, fallbackText: inlineBody });
 
   const warnings = [];
   if (rawPdfText && description.length < MIN_TPL_DESC_LENGTH) {
@@ -236,6 +226,10 @@ export function buildTplDescription(title = '', rawPdfText = '', inlineBody = ''
   }
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former wrapper wrote (see `buildTplDescription`). */
+export const TPL_FABRICATED_DESCRIPTION_RE =
+  /pubblica il seguente concorso\.|Consultare il capitolato ufficiale per i dettagli completi|(?:^|\n)Capitolato ufficiale disponibile in PDF\.|(?:^|\n)Sede: Via Campagna 15, 6900 Lugano/;
 
 /**
  * Check if a job belongs to TPL.

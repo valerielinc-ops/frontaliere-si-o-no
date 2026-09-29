@@ -45,7 +45,9 @@ import {
   CLINIQUE_LE_NOIRMONT_COMPANY_NAME,
   CLINIQUE_LE_NOIRMONT_COMPANY_DOMAIN,
   CLINIQUE_LE_NOIRMONT_CAREERS_URL,
+  CLINIQUE_LE_NOIRMONT_FABRICATED_DESCRIPTION_RE,
 } from './lib/clinique-le-noirmont-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -156,7 +158,9 @@ function jobMatchKey(job = {}) {
 
 function buildJob({ title, pdfUrl, pdfText, identifier }) {
   const slug = slugify(`${title}-${COMPANY_KEY}`);
-  const description = buildCliniqueLeNoirmontDescription({ title, pdfText, pdfUrl }).description;
+  const description = buildCliniqueLeNoirmontDescription({ title, pdfText }).description;
+  // The PDF text is keyed by its own language.
+  const sourceLang = detectLang(`${title} ${pdfText}`, 'fr');
   return {
     title,
     slug,
@@ -177,14 +181,14 @@ function buildJob({ title, pdfUrl, pdfText, identifier }) {
     employmentType: 'full-time',
     contractType: 'full-time',
     source: `${COMPANY_KEY}-dedicated-crawler`,
-    sourceLang: detectLang(`${title} ${pdfText}`, 'fr'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     validThrough: '',
     needsRetranslation: true,
     description,
-    titleByLocale: { fr: title },
-    descriptionByLocale: { fr: description },
-    slugByLocale: { fr: slug },
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: description },
+    slugByLocale: { [sourceLang]: slug },
     _meta: { sourceIdentifier: identifier },
   };
 }
@@ -192,7 +196,11 @@ function buildJob({ title, pdfUrl, pdfText, identifier }) {
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const existingTarget = existing.filter(isTargetJob);
+  const existingTarget = dropFabricatedDescriptions(
+    existing.filter(isTargetJob),
+    CLINIQUE_LE_NOIRMONT_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
   const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);

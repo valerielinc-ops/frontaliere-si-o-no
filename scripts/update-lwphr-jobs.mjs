@@ -22,7 +22,18 @@ import {
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
-import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCanton, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle, isUsableLwphrPdf } from './lib/lwphr-job-parser.mjs';
+import {
+  parseLwphrOpenJobs,
+  inferLwphrLocation,
+  inferLwphrCanton,
+  inferLwphrCategory,
+  buildLwphrLocalizedPayload,
+  extractTitleFromPdfText,
+  reconcilePdfTitle,
+  isUsableLwphrPdf,
+  LWPHR_FABRICATED_DESCRIPTION_RE,
+} from './lib/lwphr-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -115,7 +126,11 @@ function buildJob({ title, pdfUrl, pdfText }) {
   title = resolvedTitle;
   const location = inferLwphrLocation(title, pdfText);
   const canton = inferLwphrCanton(title, pdfText);
-  const localized = buildLwphrLocalizedPayload({ title, pdfText, location, pdfUrl });
+  const localized = buildLwphrLocalizedPayload({ title, location });
+  // The PDF text alone, keyed by its own language (LWP publishes Italian and
+  // English mandates): no intro, location sentence or link of the crawler.
+  const description = buildPdfBackedDescription({ pdfText });
+  const sourceLang = detectLang(`${title} ${pdfText}`, 'it');
   const locationFields = location ? { location, addressLocality: location } : {};
   return {
     title: localized.titles.it,
@@ -133,30 +148,19 @@ function buildJob({ title, pdfUrl, pdfText }) {
     category: inferLwphrCategory(title, pdfText),
     sector: 'Consulenza',
     source: 'lwphr-dedicated-crawler',
-    sourceLang: detectLang(`${title} ${pdfText}`, 'it'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
-    description: buildPdfBackedDescription({
-      introLines: [
-        `${COMPANY_NAME} pubblica questa opportunita sul suo portale careers.`,
-        `Titolo: ${title}.`,
-        location ? `Sede indicativa: ${location}.` : 'Sede indicativa non specificata nella pubblicazione.',
-      ],
-      pdfText,
-      footerLines: [
-        `PDF ufficiale: ${pdfUrl}`,
-        `Portale careers: ${CAREERS_URL}`,
-      ],
-    }),
+    description,
     titleByLocale: {
       it: localized.titles.it,
       en: localized.titles.en,
       de: localized.titles.de,
       fr: localized.titles.fr,
     },
-    descriptionByLocale: localized.descriptions,
+    descriptionByLocale: { [sourceLang]: description },
     slugByLocale: localized.slugs,
   };
 }
@@ -168,7 +172,11 @@ function hasPublishableLocation(job = {}) {
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const existingTarget = existing.filter(isTargetJob);
+  const existingTarget = dropFabricatedDescriptions(
+    existing.filter(isTargetJob),
+    LWPHR_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
   // Preserve existing AI translations and slugs. Every successfully extracted

@@ -13,6 +13,7 @@ import {
   parseSwissDate,
   stripHtml,
   normalizeSpace,
+  CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE,
 } from '@/scripts/lib/citta-di-lugano-job-parser.mjs';
 
 // ─── Fixture: Concorsi pubblici listing page ───────────────
@@ -184,10 +185,16 @@ describe('buildJob', () => {
     expect(job!.slugByLocale.fr).toBeUndefined();
   });
 
-  it('sets default description when none provided', () => {
+  it('writes no description of its own when the source has none', () => {
     const job = buildJob({ title: 'Test Position' });
-    expect(job!.description).toContain('Città di Lugano');
-    expect(job!.description.length).toBeGreaterThan(50);
+    expect(job!.description).toBe('');
+    expect(job!.descriptionByLocale).toEqual({ it: '' });
+  });
+
+  it('keeps a short source description as it is', () => {
+    const job = buildJob({ title: 'Test Position', description: 'Concorso valido per il 2026.' });
+    expect(job!.description).toBe('Concorso valido per il 2026.');
+    expect(job!.description).not.toMatch(CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE);
   });
 
   it('returns null for empty or missing title', () => {

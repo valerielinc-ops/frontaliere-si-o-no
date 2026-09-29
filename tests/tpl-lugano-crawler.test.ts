@@ -16,6 +16,7 @@ import {
   parseTplDetailPage,
   extractTplCapitolatoUrl,
   buildTplDescription,
+  TPL_FABRICATED_DESCRIPTION_RE,
   isTplJob,
   inferEmploymentType,
 } from '@/scripts/lib/tpl-lugano-job-parser.mjs';
@@ -234,6 +235,11 @@ describe('parseTplDetailPage', () => {
 
     const fallback = buildTplDescription('', '', 'Le candidature dovranno pervenire via email.');
     expect(fallback.description).toContain('Le candidature dovranno');
+
+    // Only the source's text: no intro, footer or sentence of the crawler.
+    expect(built.description).not.toMatch(TPL_FABRICATED_DESCRIPTION_RE);
+    expect(fallback.description).toBe('Le candidature dovranno pervenire via email.');
+    expect(buildTplDescription('Addetto/a rimessa', '', '').description).toBe('');
   });
 });
 

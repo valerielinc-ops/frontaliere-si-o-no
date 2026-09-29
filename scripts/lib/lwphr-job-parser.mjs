@@ -277,14 +277,17 @@ export function inferLwphrCategory(title = '', pdfText = '') {
   return 'other';
 }
 
-export function buildLwphrLocalizedPayload({ title = '', pdfText = '', location = '', pdfUrl = '' } = {}) {
-  const trimmed = normalize(pdfText);
-  const locationLabel = String(location || '').trim();
-  const locationForSlug = locationLabel || 'Switzerland';
-  const locationSentenceIt = locationLabel ? `Sede indicativa: ${locationLabel}.` : 'Sede indicativa non specificata nella pubblicazione.';
-  const locationSentenceEn = locationLabel ? `Indicative location: ${locationLabel}.` : 'The publication does not specify a location.';
-  const locationSentenceDe = locationLabel ? `Ungefaehrer Arbeitsort: ${locationLabel}.` : 'Die Ausschreibung nennt keinen Arbeitsort.';
-  const locationSentenceFr = locationLabel ? `Lieu indicatif: ${locationLabel}.` : 'La publication ne precise pas de lieu.';
+/**
+ * Titles and slugs of one LWP posting (kept identical in the four locales, as
+ * the published slugs are). The description is not part of this payload: the
+ * runner publishes the PDF text alone, in its own language. This payload used
+ * to wrap that text, untranslated, in four intros of its own ("LWP Ledermann
+ * Wieting & Partners pubblica questa opportunita…", "… lists this role…",
+ * "… veroeffentlicht diese Stelle…", "… publie cette opportunite…"), a
+ * "Sede indicativa…" sentence and a "PDF ufficiale: …" line.
+ */
+export function buildLwphrLocalizedPayload({ title = '', location = '' } = {}) {
+  const locationForSlug = String(location || '').trim() || 'Switzerland';
   const titles = {
     en: title,
     it: title,
@@ -297,33 +300,14 @@ export function buildLwphrLocalizedPayload({ title = '', pdfText = '', location 
     de: slugify(`${title} lwp ledermann wieting partners ${locationForSlug}`),
     fr: slugify(`${title} lwp ledermann wieting partners ${locationForSlug}`),
   };
-
-  const descriptions = {
-    it: [
-      `LWP Ledermann Wieting & Partners pubblica questa opportunita sul proprio portale per il mercato svizzero. La descrizione completa del ruolo e stata estratta dal PDF ufficiale del mandato.`,
-      locationSentenceIt,
-      trimmed,
-      `PDF ufficiale: ${pdfUrl}`,
-    ].join('\n\n'),
-    en: [
-      `LWP Ledermann Wieting & Partners lists this role on its Swiss opportunities portal. The full role description below is extracted from the official PDF published by the recruiter.`,
-      locationSentenceEn,
-      trimmed,
-      `Official PDF: ${pdfUrl}`,
-    ].join('\n\n'),
-    de: [
-      `LWP Ledermann Wieting & Partners veroeffentlicht diese Stelle in seinem Schweizer Karriereportal. Die vollstaendige Beschreibung unten wurde aus dem offiziellen PDF der Ausschreibung extrahiert.`,
-      locationSentenceDe,
-      trimmed,
-      `Offizielles PDF: ${pdfUrl}`,
-    ].join('\n\n'),
-    fr: [
-      `LWP Ledermann Wieting & Partners publie cette opportunite sur son portail suisse. La description complete ci-dessous provient du PDF officiel de l annonce.`,
-      locationSentenceFr,
-      trimmed,
-      `PDF officiel: ${pdfUrl}`,
-    ].join('\n\n'),
-  };
-
-  return { titles, slugs, descriptions };
+  return { titles, slugs };
 }
+
+/**
+ * Fragments only the crawler once wrote around the PDF text (the four
+ * localized intros of `buildLwphrLocalizedPayload` and the runner's own
+ * intro/footer). Used to clean jobs stored before the PDF text was published
+ * alone.
+ */
+export const LWPHR_FABRICATED_DESCRIPTION_RE =
+  /LWP Ledermann Wieting & Partners (?:pubblica questa opportunita|lists this role on its Swiss|veroeffentlicht diese Stelle|publie cette opportunite)|(?:^|\n)(?:PDF ufficiale|Official PDF|Offizielles PDF|PDF officiel|Portale careers): https?:/;
