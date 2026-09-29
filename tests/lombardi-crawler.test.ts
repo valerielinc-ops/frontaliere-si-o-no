@@ -1,7 +1,8 @@
 /**
  * Lombardi Group crawler parser tests
  *
- * Tests parseLombardiDetailHtml(), buildLombardiLocalizedContent(),
+ * Tests parseLombardiDetailHtml(), buildLombardiLocalizedContent(), the legacy
+ * locale scrub,
  * and titleOverlap() using real HTML fixtures from lombardi.group.
  */
 import { describe, it, expect } from 'vitest';
@@ -9,10 +10,14 @@ import { describe, it, expect } from 'vitest';
 import {
   buildLombardiLocalizedContent,
   extractLombardiJobsFromHtml,
+  isLombardiLegacyBlurb,
   isLombardiLocalJob,
+  lombardiHasSourceBody,
   parseLombardiDetailHtml,
+  scrubLombardiLegacyLocaleCopies,
   titleOverlap,
 } from '@/scripts/lib/lombardi-job-parser.mjs';
+import { sourceBodyWordCount } from '@/scripts/lib/source-body-floor.mjs';
 
 // ─── Fixture: Progettista / Tecnico RVCS (id=108934) ───
 const RVCS_HTML = `
@@ -298,49 +303,77 @@ describe('parseLombardiDetailHtml', () => {
 // buildLombardiLocalizedContent
 // ═══════════════════════════════════════════════════════════════
 
+// The Italian blurb the old builder invented for every job, as stored for the
+// Geotechnical Engineer (id=159053) in the committed slice. The English page
+// had a full English body; the Italian page showed only this. Pinned to prove
+// it is recognised and removed.
+const LEGACY_IT_BLURB = "Lombardi Group, studio di ingegneria con sede a Giubiasco, cerca un profilo Geotechnical Engineer (M/F/X) (80%–100%). Lombardi è specializzata nella progettazione di grandi infrastrutture: tunnel, dighe, ponti e impianti idroelettrici in Svizzera e nel mondo. Lo studio, con sede principale a Giubiasco (Ticino), opera nei settori dell'ingegneria civile, idraulica e geotecnica. Candidati tramite il portale ufficiale.";
+const EN_BODY = "As a Project Engineer, you will play a key role in the design, execution, and delivery of challenging infrastructure projects. If you thrive in a collaborative environment and have strong technical expertise, we'd love to hear from you learn more.\n\n## Mansioni\n- Design and plan geotechnical engineering solutions in soil and rock for complex projects with some or minimum support.\n- Participate in geotechnical investigation campaigns, interpreting tests and monitoring technical data for decision-making.\n\n## Requisiti\n- Degree in Civil Engineering and specialization in geotechnics.\n- Minimum experience of 7 years in geotechnical design, preferably in engineering, consulting, linked to large-scale projects.";
+
 describe('buildLombardiLocalizedContent', () => {
-  it('stores detail markdown as EN description and IT as boilerplate', () => {
-    const longMarkdown = 'Lombardi Group cerca un profilo qualificato per il team.\n\n## Mansioni\n- Task 1 progettazione completa\n- Task 2 coordinamento multidisciplinare\n- Task 3 gestione dei costi e qualità\n\n## Requisiti\n- Req 1 laurea ingegneria\n- Req 2 almeno 5 anni esperienza';
-    const result = buildLombardiLocalizedContent({
-      title: 'Progettista RVCS',
-      city: 'Giubiasco',
-      occupancy: '80%–100%',
-      detailMarkdown: longMarkdown,
-    });
-    expect(result.descriptionByLocale.it).toContain('## Mansioni');
-    expect(result.descriptionByLocale.it).toContain('- Task 1');
+  it('fills only the source language, with the detail body, title and slug', () => {
+    // The real RVCS detail page pinned above (Italian posting).
+    const itBody = parseLombardiDetailHtml(RVCS_HTML)!.markdown;
+    const result = buildLombardiLocalizedContent({ title: 'Progettista RVCS', city: 'Giubiasco', detailMarkdown: itBody });
+    expect(result?.sourceLang).toBe('it');
+    expect(result?.descriptionByLocale).toEqual({ it: itBody });
+    expect(result?.titleByLocale).toEqual({ it: 'Progettista RVCS' });
+    expect(result?.slugByLocale).toEqual({ it: 'progettista-rvcs-lombardi-giubiasco' });
   });
 
-  it('falls back to boilerplate when markdown is short', () => {
-    const result = buildLombardiLocalizedContent({
-      title: 'Progettista RVCS',
-      city: 'Giubiasco',
-      occupancy: '80%–100%',
-      detailMarkdown: 'Too short',
-    });
-    expect(result.descriptionByLocale.it).toContain('Lombardi Group');
-    expect(result.descriptionByLocale.it).toContain('Giubiasco');
+  it('puts an English body under EN only — no invented Italian blurb, no title copies', () => {
+    const result = buildLombardiLocalizedContent({ title: 'Geotechnical Engineer (M/F/X)', city: 'Giubiasco', detailMarkdown: EN_BODY });
+    expect(result?.sourceLang).toBe('en');
+    expect(Object.keys(result?.descriptionByLocale || {})).toEqual(['en']);
+    expect(result?.titleByLocale).toEqual({ en: 'Geotechnical Engineer (M/F/X)' });
+    expect(result?.slugByLocale).toEqual({ en: 'geotechnical-engineer-m-f-x-lombardi-giubiasco' });
   });
 
-  it('generates IT boilerplate and no EN when detail markdown is empty', () => {
-    const result = buildLombardiLocalizedContent({
-      title: 'Test',
-      city: 'Giubiasco',
-      detailMarkdown: '',
-    });
-    expect(result.descriptionByLocale.it).toBeTruthy();
-    expect(result.descriptionByLocale.it).toContain('Lombardi Group');
-    expect(result.descriptionByLocale.en).toBeUndefined();
+  it('returns null without a detail body instead of a made-up description', () => {
+    expect(buildLombardiLocalizedContent({ title: 'Test', city: 'Giubiasco', detailMarkdown: '' })).toBeNull();
+    expect(buildLombardiLocalizedContent({ title: 'Test', city: 'Giubiasco', detailMarkdown: 'Too short' })).toBeNull();
+  });
+});
+
+describe('Lombardi legacy locale scrub', () => {
+  it('recognises the invented blurb and nothing else', () => {
+    expect(isLombardiLegacyBlurb(LEGACY_IT_BLURB)).toBe(true);
+    expect(isLombardiLegacyBlurb(EN_BODY)).toBe(false);
   });
 
-  it('stores English detail markdown under EN locale', () => {
-    const result = buildLombardiLocalizedContent({
-      title: 'Civil Engineer',
-      city: 'Giubiasco',
-      detailMarkdown: 'As an apprentice, you will learn the basics of technical drawing, support project teams, collaborate with colleagues, and develop your engineering skills in a structured environment.\n\n## Responsibilities\n- Coordinate projects',
+  it('drops the blurb and the never-translated title copies, keeps real translations', () => {
+    const stored = {
+      sourceLang: 'en',
+      title: 'Geotechnical Engineer (M/F/X)',
+      description: EN_BODY,
+      titleByLocale: {
+        it: 'Geotechnical Engineer (M/F/X)',
+        en: 'Geotechnical Engineer (M/F/X)',
+        de: 'Geotechnical Engineer (M/F/X)',
+        fr: 'Ingénieur géotechnicien (M/F/X)',
+      },
+      descriptionByLocale: {
+        it: LEGACY_IT_BLURB,
+        en: EN_BODY,
+        de: 'Als Projektingenieur spielen Sie eine Schlüsselrolle bei der Planung und Umsetzung anspruchsvoller Infrastrukturprojekte.',
+        fr: "En tant qu'ingénieur de projet, vous jouerez un rôle clé dans la conception de projets d'infrastructure.",
+      },
+    };
+    const scrubbed = scrubLombardiLegacyLocaleCopies(stored);
+    expect(Object.keys(scrubbed.descriptionByLocale).sort()).toEqual(['de', 'en', 'fr']);
+    // it: copy without a translation → removed; de: same text but a real
+    // translation exists for that locale → kept; fr: translated → kept.
+    expect(scrubbed.titleByLocale).toEqual({
+      en: 'Geotechnical Engineer (M/F/X)',
+      de: 'Geotechnical Engineer (M/F/X)',
+      fr: 'Ingénieur géotechnicien (M/F/X)',
     });
-    expect(result.descriptionByLocale.en).toContain('As an apprentice');
-    expect(result.descriptionByLocale.it).toContain('Lombardi Group');
+  });
+
+  it('keeps a job without a detail body this run only if an earlier run read one', () => {
+    expect(lombardiHasSourceBody({ sourceLang: 'en', descriptionByLocale: { en: EN_BODY, it: LEGACY_IT_BLURB } })).toBe(true);
+    expect(lombardiHasSourceBody({ sourceLang: 'it', description: LEGACY_IT_BLURB, descriptionByLocale: { it: LEGACY_IT_BLURB } })).toBe(false);
+    expect(lombardiHasSourceBody({ sourceLang: 'it', descriptionByLocale: {} })).toBe(false);
   });
 });
 
@@ -429,5 +462,32 @@ describe('isLombardiLocalJob', () => {
     expect(isLombardiLocalJob({ sedeId: '1' })).toBe(true);
     expect(isLombardiLocalJob({ sedeId: 12 })).toBe(false);
     expect(isLombardiLocalJob({ sedeId: 458683 })).toBe(false);
+  });
+});
+
+// Word floor (source-body-floor.mjs): real detail text of the Geotechnical
+// Engineer (lombardi.group/eng/careers/job?id=159053, 2026-09-29) cut at 49 and
+// 50 words. Both cuts are far above the old 100-character gate.
+const GEOTECH_DETAIL_TEXT = "As a Project Engineer, you will play a key role in the design, execution, and delivery of challenging infrastructure projects. If you thrive in a collaborative environment and have strong technical expertise, we'd love to hear from you learn more. Design and plan geotechnical engineering solutions in soil and rock for complex projects with some or minimum support. Participate in geotechnical investigation campaigns, interpreting tests and monitoring technical data for decision-making.";
+const firstWords = (text: string, n: number) => text.split(' ').slice(0, n).join(' ');
+
+describe('Lombardi source body word floor', () => {
+  const body49 = firstWords(GEOTECH_DETAIL_TEXT, 49);
+  const body50 = firstWords(GEOTECH_DETAIL_TEXT, 50);
+
+  it('pins the fixture at 49 and 50 words, both over the old character gate', () => {
+    expect(sourceBodyWordCount(body49)).toBe(49);
+    expect(sourceBodyWordCount(body50)).toBe(50);
+    expect(body49.length).toBeGreaterThan(100);
+  });
+
+  it('builds content from a 50-word body and returns null for a 49-word one', () => {
+    expect(buildLombardiLocalizedContent({ title: 'Geotechnical Engineer (M/F/X)', city: 'Giubiasco', detailMarkdown: body49 })).toBeNull();
+    expect(buildLombardiLocalizedContent({ title: 'Geotechnical Engineer (M/F/X)', city: 'Giubiasco', detailMarkdown: body50 })?.descriptionByLocale).toEqual({ en: body50 });
+  });
+
+  it('keeps a stored body only at 50 words or more', () => {
+    expect(lombardiHasSourceBody({ sourceLang: 'en', descriptionByLocale: { en: body49 } })).toBe(false);
+    expect(lombardiHasSourceBody({ sourceLang: 'en', descriptionByLocale: { en: body50 } })).toBe(true);
   });
 });

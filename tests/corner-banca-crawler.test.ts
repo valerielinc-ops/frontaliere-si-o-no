@@ -11,7 +11,7 @@
  */
 import { describe, it, expect } from 'vitest';
 
-import { parseCornerOffer } from '@/scripts/update-corner-jobs.mjs';
+import { parseCornerOffer, applyOfficialCornerDescriptions, dropCornerLocaleCopies } from '@/scripts/update-corner-jobs.mjs';
 import {
   parseCornerOfferFull,
   buildFullDescription,
@@ -127,7 +127,10 @@ const OFFER_MULTILINGUAL: any = {
   id: 22222,
   slug: 'relationship-manager',
   title: 'Relationship Manager',
-  description: '<p>We are looking for a Relationship Manager.</p>',
+  description:
+    '<p>We are looking for a Relationship Manager to strengthen our Private Banking team in Lugano. ' +
+    'You will advise an international clientele, build lasting relationships and work closely with our ' +
+    'investment specialists.</p>',
   requirements: '<ul><li>Banking experience required</li><li>Client-focused attitude</li></ul>',
   offer_sections: [
     {
@@ -271,19 +274,19 @@ describe('parseCornerOfferFull — guards', () => {
     expect(parseCornerOfferFull(tinyOffer)).toBeNull();
   });
 
-  it('returns non-null for short-but-above-50-char description with no sections (with warning)', () => {
-    // "Posizione disponibile." → after stripHtml = "Posizione disponibile." = 22 chars < 300
-    // → warning emitted, but still returned (> 50 chars threshold)
-    // Actually 22 chars is < 50, so null. Let us use a slightly longer one:
+  it('returns null for a body under 50 words, however many characters it has (#10348)', () => {
+    // 9 words, 69 characters: the old character gate (< 50 chars) let it through.
     const shortOffer = {
       ...OFFER_SHORT_NO_SECTIONS,
       description: '<p>Posizione disponibile per candidature spontanee nel settore bancario.</p>',
       offer_sections: [],
       translations: { it: { title: 'Impiegato Banca', description: '<p>Posizione disponibile per candidature spontanee nel settore bancario.</p>' } },
     };
-    const result = parseCornerOfferFull(shortOffer);
-    // 73 chars > 50, so should return a result (even if < MIN_CORNER_DESC_LENGTH)
-    expect(result).not.toBeNull();
+    expect(parseCornerOfferFull(shortOffer)).toBeNull();
+    const long49 = Array.from({ length: 49 }, () => 'Verantwortungsbewusstsein').join(' ');
+    expect(long49.length).toBeGreaterThan(1000);
+    expect(parseCornerOfferFull({ ...OFFER_SHORT_NO_SECTIONS, description: `<p>${long49}</p>`, translations: {} })).toBeNull();
+    expect(parseCornerOfferFull({ ...OFFER_SHORT_NO_SECTIONS, description: `<p>${long49} Lugano</p>`, translations: {} })).not.toBeNull();
   });
 });
 
@@ -396,5 +399,139 @@ describe('parseBullets', () => {
 
   it('returns empty array for empty input', () => {
     expect(parseBullets('')).toHaveLength(0);
+  });
+});
+
+// ─── Primary language (#5253 source-detail-mismatch) ──────────────────────
+//
+// Live shape of cornerbancasa.recruitee.com/api/offers/ (ref. 1068, minimised):
+// the top-level fields carry the PRIMARY language (English), which is what
+// jobs.corner.ch/o/<slug> renders; `translations.it` is the bank's own Italian
+// alternate. Publishing the Italian alternate as the source text left a
+// 2 % word overlap with the source page.
+const OFFER_PRIMARY_EN: any = {
+  id: 1068,
+  slug: 'employee-collection-team-zurich-ref-1068',
+  careers_url: 'https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068',
+  title: 'Employee Collection Team Zürich -  ref. 1068',
+  description:
+    '<p>We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. ' +
+    'The ideal candidate is eager to develop their skills in client relationship management and credit recovery.</p>' +
+    '<p><strong>Key Responsibilities:</strong></p><ul><li>Phone contact with clients for credit management and debt recovery</li>' +
+    '<li>Negotiation of repayment plans and monitoring of agreed arrangements</li></ul>',
+  requirements:
+    '<ul><li>Commercial training (commercial apprenticeship or equivalent qualification)</li>' +
+    '<li>Native German and good knowledge of English</li></ul>',
+  translations: {
+    en: {
+      title: 'Employee Collection Team Zürich -  ref. 1068',
+      description:
+        '<p>We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. ' +
+        'The ideal candidate is eager to develop their skills in client relationship management and credit recovery.</p>' +
+        '<p><strong>Key Responsibilities:</strong></p><ul><li>Phone contact with clients for credit management and debt recovery</li>' +
+        '<li>Negotiation of repayment plans and monitoring of agreed arrangements</li></ul>',
+      requirements:
+        '<ul><li>Commercial training (commercial apprenticeship or equivalent qualification)</li>' +
+        '<li>Native German and good knowledge of English</li></ul>',
+    },
+    it: {
+      title: 'Employee Collection Team Zurigo -  ref. 1068',
+      description:
+        '<p>Stiamo cercando un professionista motivato e orientato al cliente per unirsi al nostro team in un ambiente dinamico e in crescita. ' +
+        'Il candidato ideale è desideroso di sviluppare le proprie competenze nella gestione delle relazioni con i clienti e nel recupero crediti.</p>' +
+        '<p><strong>Responsabilità principali:</strong></p><ul><li>Contatto telefonico con i clienti per la gestione del credito e il recupero crediti</li>' +
+        '<li>Negoziazione di piani di rimborso e monitoraggio degli accordi</li></ul>',
+      requirements:
+        '<ul><li>Formazione commerciale (apprendistato commerciale o qualifica equivalente)</li>' +
+        "<li>Tedesco madrelingua e buona conoscenza dell'inglese</li></ul>",
+    },
+  },
+  locations: [{ city: 'Wallisellen', state_code: 'ZH' }],
+  published_at: '2026-01-15T10:00:00Z',
+};
+
+describe('parseCornerOffer — primary language is the source language', () => {
+  it('publishes the primary-language text the source page renders, labelled with its language', () => {
+    const job = parseCornerOffer(OFFER_PRIMARY_EN)!;
+    expect(job.sourceLang).toBe('en');
+    expect(job.description).toContain('We are looking for a motivated and customer-oriented professional');
+    expect(job.description).toContain('Native German and good knowledge of English');
+    expect(job.descriptionByLocale.en).toBe(job.description);
+    // The bank's Italian alternate still serves the Italian site.
+    expect(job.descriptionByLocale.it).toContain('Stiamo cercando un professionista motivato');
+    expect(job.titleByLocale.it).toBe('Employee Collection Team Zurigo -  ref. 1068');
+  });
+
+  it('files an Italian primary text under it even when a translation slot is mislabelled', () => {
+    // unsolicited-application-apprenticeship: every alternate carries Italian text.
+    const job = parseCornerOffer(OFFER_WITH_SECTIONS)!;
+    expect(job.sourceLang).toBe('it');
+    expect(job.descriptionByLocale.it).toContain('fondata nel 1952');
+  });
+
+  it('keeps company-written alternates authoritative over stored machine translations', () => {
+    const fresh = parseCornerOffer(OFFER_PRIMARY_EN)!;
+    const stored = {
+      ...fresh,
+      descriptionByLocale: { ...fresh.descriptionByLocale, it: 'Traduzione automatica ormai superata del testo inglese.' },
+    };
+    const [merged] = applyOfficialCornerDescriptions([stored], [fresh]);
+    expect(merged.descriptionByLocale.it).toContain('Stiamo cercando un professionista motivato');
+    expect(merged.descriptionByLocale.en).toBe(fresh.description);
+  });
+
+  it('does not treat a mislabelled alternate (Italian text in the en slot) as official', () => {
+    const offer = {
+      ...OFFER_WITH_SECTIONS,
+      careers_url: 'https://jobs.corner.ch/o/unsolicited-application-apprenticeship',
+      translations: {
+        ...OFFER_WITH_SECTIONS.translations,
+        en: { ...OFFER_WITH_SECTIONS.translations.it, title: 'Unsolicited Application – Apprenticeship' },
+      },
+    };
+    const fresh = parseCornerOffer(offer)!;
+    const stored = { ...fresh, descriptionByLocale: { ...fresh.descriptionByLocale, en: 'Unsolicited application: an English translation.' } };
+    const [merged] = applyOfficialCornerDescriptions([stored], [fresh]);
+    expect(merged.descriptionByLocale.en).toBe('Unsolicited application: an English translation.');
+  });
+});
+
+// ─── No language copied into another's slot (review of #10348) ─────────────
+
+describe('Cornèr — only bank-written languages fill description slots', () => {
+  it('parseCornerOfferFull returns only the languages the bank wrote', () => {
+    const result = parseCornerOfferFull(OFFER_MULTILINGUAL)!;
+    expect(Object.keys(result.descriptionByLocale).sort()).toEqual(['de', 'it']);
+  });
+
+  it('parseCornerOffer adds the primary text under its language and leaves the rest empty', () => {
+    const job = parseCornerOffer(OFFER_PRIMARY_EN)!;
+    expect(Object.keys(job.descriptionByLocale).sort()).toEqual(['en', 'it']);
+    expect(job.descriptionByLocale.de).toBeUndefined();
+    expect(job.descriptionByLocale.fr).toBeUndefined();
+  });
+
+  it('drops stored de/fr slots that copy the English body and flags retranslation, keeping the bank\'s Italian', () => {
+    const fresh = parseCornerOffer(OFFER_PRIMARY_EN)!;
+    const stored = {
+      ...fresh,
+      descriptionByLocale: {
+        ...fresh.descriptionByLocale,
+        de: fresh.description,
+        fr: `${fresh.description}  `,
+      },
+    };
+    const [merged] = dropCornerLocaleCopies([stored], [fresh]);
+    expect(Object.keys(merged.descriptionByLocale).sort()).toEqual(['en', 'it']);
+    expect(merged.descriptionByLocale.it).toContain('Stiamo cercando un professionista motivato');
+    expect(merged.needsRetranslation).toBe(true);
+  });
+
+  it('keeps real translations that are not copies', () => {
+    const fresh = parseCornerOffer(OFFER_PRIMARY_EN)!;
+    const stored = { ...fresh, descriptionByLocale: { ...fresh.descriptionByLocale, de: 'Wir suchen eine motivierte Fachperson.' } };
+    const [merged] = dropCornerLocaleCopies([stored], [fresh]);
+    expect(merged.descriptionByLocale.de).toBe('Wir suchen eine motivierte Fachperson.');
+    expect(merged.needsRetranslation).toBeUndefined();
   });
 });

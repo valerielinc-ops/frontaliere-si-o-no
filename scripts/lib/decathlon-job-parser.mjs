@@ -282,7 +282,12 @@ export async function fetchAllDecathlonJobs() {
     // catches the empty-after-strip case (Liebherr/Implenia use the same idiom).
     const descriptionText = normalizeSpace(stripHtml(detailDescHtml)) || title;
 
-    const sourceLang = detectLang(title, 'fr');
+    // The language is read from the body we publish, not from the title:
+    // titles such as "CANDIDATURE SPONTANEE - STAGE SPORT LEADER" or
+    // "Mécanicien⸱ne … - BIENNE" detected as en/it and filed French ads in a
+    // foreign source slot (5/54 jobs, #5253). `descriptionText` already falls
+    // back to the title when the detail body is missing.
+    const sourceLang = detectLang(descriptionText, 'fr');
     const jobSlug = slugify(`${title} decathlon ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 

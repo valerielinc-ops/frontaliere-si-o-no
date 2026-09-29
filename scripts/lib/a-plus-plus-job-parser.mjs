@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { decodeHtmlEntities } from './decode-html-entities.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -36,14 +37,14 @@ function htmlFragmentToMarkdown(html = '') {
       if (items.length) parts.push(items.join('\n'));
       continue;
     }
-    const text = normalizeSpace(
+    const text = normalizeSpace(decodeHtmlEntities(
       (node.innerHTML || '')
         .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
         .replace(/<\/(?:p|div|li)>/gi, '\n')
         .replace(/<[^>]+>/g, ' ')
         .replace(/&nbsp;/g, ' ')
-    );
+    ));
     if (text) parts.push(text);
   }
 
@@ -117,6 +118,7 @@ export function parseAplusListings(html = '') {
  */
 export function parseAplusJobDetail(html = '', pageUrl = '') {
   const jsonLd = extractJobPostingJsonLd(html);
+  const htmlDetail = parseAplusHtmlDetail(html, pageUrl);
   if (jsonLd?.title) {
     const rawLocality = normalizeSpace(
       jsonLd.jobLocation?.address?.addressLocality ||
@@ -129,9 +131,18 @@ export function parseAplusJobDetail(html = '', pageUrl = '') {
     const cleaned = rawLocality
       .replace(/\s+(?:svizzera|suisse|schweiz|switzerland|italia|italy|italien|italie)\s*$/i, '').trim();
     const addressLocality = /^\d+$/.test(cleaned) ? '' : cleaned;
-    const description = typeof jsonLd.description === 'string'
+    const jsonLdDescription = typeof jsonLd.description === 'string'
       ? htmlFragmentToMarkdown(jsonLd.description)
       : '';
+    // InRecruiting tenants do not always copy the vacancy body into the
+    // JobPosting JSON-LD: A++ Group's `description` carries only the bolded
+    // title (49 chars) while `#description__body` on the same page holds the
+    // company paragraph, responsibilities, profile and offer. Publish whichever
+    // of the two carries more of the posting, so a title-only JSON-LD never
+    // replaces the visible vacancy body.
+    const description = plainLength(htmlDetail.description) > plainLength(jsonLdDescription)
+      ? htmlDetail.description
+      : jsonLdDescription;
     return {
       title: normalizeSpace(jsonLd.title),
       location: addressLocality,
@@ -140,7 +151,18 @@ export function parseAplusJobDetail(html = '', pageUrl = '') {
     };
   }
 
-  // HTML fallback — same structure used across InRecruiting tenants
+  return htmlDetail;
+}
+
+function plainLength(markdown = '') {
+  return normalizeSpace(String(markdown || '').replace(/^#+\s+/gm, '').replace(/^-\s+/gm, '')).length;
+}
+
+/**
+ * Parse the standard InRecruiting HTML vacancy structure (title, subtitle
+ * spans, `#description__body` heading/text pairs).
+ */
+function parseAplusHtmlDetail(html = '', pageUrl = '') {
   const document = new JSDOM(html).window.document;
   const title = normalizeSpace(document.querySelector('#description__vacancy-title')?.textContent || '');
   const subtitleInfos = [
@@ -199,13 +221,18 @@ export function inferAplusCanton(raw = '') {
  * Build stub localised content from a parsed detail.
  * The AI translation pipeline will fill in the remaining locales.
  */
-export function buildAplusLocalizedContent(detail = {}) {
+export function buildAplusLocalizedContent(detail = {}, sourceLang = 'it') {
   const title = String(detail.title || '').trim();
   const location = String(detail.location || 'Massagno').trim();
   const slug = slugify(`${title} a-plus-plus group ${location}`);
+  // The description is stored under the language it is written in: the
+  // portal is browsed in English but most bodies are Italian, and a body
+  // filed under the wrong locale is what the translation pipeline and the
+  // source-detail audit both read as the source text.
+  const descriptionLocale = ['it', 'en', 'de', 'fr'].includes(sourceLang) ? sourceLang : 'it';
   return {
     titleByLocale: { it: title },
-    descriptionByLocale: { it: detail.description || '' },
+    descriptionByLocale: { [descriptionLocale]: detail.description || '' },
     slugByLocale: { it: slug, en: slug },
   };
 }

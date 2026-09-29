@@ -52,6 +52,9 @@ import {
 import {
   htmlToMarkdown,
   validateLaFonteDescription,
+  buildLaFonteDescription,
+  scrubLaFonteLegacyFrame,
+  laFonteHasSourceBody,
 } from './lib/lafonte-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -246,41 +249,6 @@ function parseListingPage(html) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Description building
-// ─────────────────────────────────────────────────────────────
-
-function buildDescription(title, location, rawDesc) {
-  const parts = [];
-
-  parts.push(`## Descrizione`);
-  parts.push(
-    `${COMPANY_NAME}, con sede a Lugano (TI), è alla ricerca di: ${title}.`
-  );
-  parts.push('');
-
-  if (rawDesc) {
-    // Insert the structured markdown content
-    parts.push(rawDesc);
-    parts.push('');
-  }
-
-  parts.push(`## Mansioni`);
-  if (!rawDesc || rawDesc.length < 100) {
-    parts.push(`Contattare ${COMPANY_NAME} per i dettagli della posizione.`);
-  }
-
-  parts.push('');
-  parts.push(`**Settore:** Servizi sociali / Assistenza disabilità`);
-  parts.push(`**Sede:** Via A. Giacometti 1, 6900 Lugano (TI), Svizzera`);
-  if (location && location !== 'Lugano') {
-    parts.push(`**Luogo di lavoro:** ${location}`);
-  }
-  parts.push(`**Candidatura:** recruiting@lafonte.ch`);
-
-  return parts.join('\n').trim();
-}
-
-// ─────────────────────────────────────────────────────────────
 // Category & experience detection
 // ─────────────────────────────────────────────────────────────
 
@@ -340,11 +308,9 @@ async function fetchLaFonteJobs() {
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.title} (${listing.location})`);
 
-    const description = buildDescription(
-      listing.title,
-      listing.location,
-      listing.rawDesc
-    );
+    // Only the role card of the page is published; a card without a body
+    // carries no text of its own (see mergeJobs).
+    const description = buildLaFonteDescription(listing.rawDesc);
 
     // Normalize location to the primary city
     const locationCity = listing.location
@@ -380,11 +346,12 @@ async function fetchLaFonteJobs() {
       source: 'la-fonte-crawler',
       postedDate: new Date().toISOString().slice(0, 10),
       titleByLocale: { it: listing.title },
-      descriptionByLocale: { it: description },
+      descriptionByLocale: description ? { it: description } : {},
       slugByLocale: { it: slug },
       sourceLang: detectLang(description || listing.title, 'it'),
       _targetScope: { canton: HQ.canton, location: 'Lugano' },
     };
+    if (!description) job._noSourceBody = true;
 
     jobs.push(job);
   }
@@ -430,11 +397,25 @@ async function mergeJobs(discoveredJobs) {
   let added = 0;
   let updated = 0;
   let removed = 0;
+  let withoutSourceBody = 0;
   const merged = [];
 
   for (const discovered of dedupedDiscovered) {
     const key = jobMatchKey(discovered);
     const ex = existingByKey.get(key);
+
+    if (discovered._noSourceBody) {
+      // Card without a body this run: keep the body read from the page on an
+      // earlier run, or leave the job out — never a made-up text.
+      if (ex && laFonteHasSourceBody(ex)) {
+        merged.push(scrubLaFonteLegacyFrame(ex));
+        updated++;
+      } else {
+        withoutSourceBody++;
+        console.log(`  ⏭️ ${discovered.title} — no role text on the page, not published this run`);
+      }
+      continue;
+    }
 
     if (ex) {
       const updatedJob = {
@@ -449,26 +430,23 @@ async function mergeJobs(discoveredJobs) {
         category: discovered.category || ex.category,
         sector: discovered.sector || ex.sector,
         source: 'la-fonte-crawler',
-        titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3),
+        // The page title is the source-language title: it replaces the `it`
+        // slot (a stored "Apprendistato" for the page's "Stagiaire" was a
+        // translation into the source language itself). Slugs keep their merge.
+        titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3, discovered.sourceLang),
         descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
         slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3),
       };
 
-      if (
-        discovered.description &&
-        discovered.description.length > (ex.description || '').length
-      ) {
-        // Sibling of issue #3453 (Coop crawler): this used to reset
-        // descriptionByLocale to `filterEmpty(discovered.descriptionByLocale)`
-        // (source-locale only) whenever the description grew by >100 chars,
-        // discarding the safe merge computed above via mergeLocaleTextMap
-        // (which preserves existing translated locales and only fills gaps)
-        // and wiping any already-translated en/de/fr entries. The merge above
-        // already reflects the fresh source text — no separate reset needed.
-        updatedJob.description = discovered.description;
-      }
+      // The fresh card body is the description, also when it is shorter than
+      // the stored one: the old frame padded every description with lines the
+      // page does not carry, so "longer wins" kept the padding forever.
+      // Sibling of issue #3453 (Coop crawler): descriptionByLocale is still the
+      // safe merge above (existing translations kept, source slot refreshed);
+      // the scrub only drops translations of the old frame.
+      updatedJob.description = discovered.description;
 
-      merged.push(updatedJob);
+      merged.push(scrubLaFonteLegacyFrame(updatedJob));
       updated++;
     } else {
       merged.push(discovered);
@@ -478,6 +456,9 @@ async function mergeJobs(discoveredJobs) {
 
   for (const [key] of existingByKey) {
     if (!discoveredByKey.has(key)) removed++;
+  }
+  if (withoutSourceBody > 0) {
+    console.log(`  ⏭️ ${withoutSourceBody} La Fonte job(s) without role text left out of this run.`);
   }
 
   const final = [...nonTargetJobs, ...merged];

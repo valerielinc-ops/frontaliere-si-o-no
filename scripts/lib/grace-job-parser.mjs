@@ -1,12 +1,27 @@
 import { STRONG_PHRASES } from './validate-job-url.mjs';
 import { assertExtractionComplete } from './extraction-completeness.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 function compact(text = '') {
   return String(text || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+// Whitespace is collapsed per LINE, not across lines: the detail extractor
+// emits one line per paragraph and `- ` per list item, and collapsing `\n`
+// here turned hotelcareer's WHAT WILL YOU DO / YOUR +sides / benefits lists
+// into one run-on sentence (9/11 stored jobs without a single list).
+function compactLines(text = '') {
+  return String(text || '')
+    .replace(/\u00a0/g, ' ')
+    .split(/\r?\n/)
+    .map((line) => line.replace(/[ \t\f\v]+/g, ' ').trim())
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
 function trimNoise(text = '') {
-  return compact(text)
+  return compactLines(text)
     .replace(/\bStart application\b[\s\S]*$/i, '')
     .replace(/\bMatching jobs by mail\b[\s\S]*$/i, '')
     .replace(/\bcompany profile\s+Jobs:\s*\d+[\s\S]*$/i, '')
@@ -166,4 +181,53 @@ export function classifyGraceProbe({ status = 0, finalUrl = '', bodyText = '', p
   }
 
   return { valid: true, status, reason: 'still-live-or-ambiguous' };
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Source-only rule (lot D, 2026-09-29)
+//
+// A description under the word floor used to be padded with text we wrote
+// ("Open position at Grace La Margna in St. Moritz … is a luxury hotel in the
+// heart of St. Moritz, part of the Grace Hotels collection. Apply on
+// hotelcareer.com for this opportunity."), and a job whose detail page was
+// blocked got that padding as its whole description. Only source text is
+// published now: under the floor, the stored source text of the same job, or
+// the job is not published this run.
+// ────────────────────────────────────────────────────────────────────────────
+
+/** The legacy padding (or a translation of it, which keeps these names). */
+export function isGraceInventedText(text = '') {
+  return /hotelcareer\.com|Grace Hotels collection/i.test(String(text || ''));
+}
+
+/** Source text of a stored record that clears the word floor, or null. */
+export function storedGraceSourceText(record) {
+  if (!record) return null;
+  const lang = String(record.sourceLang || '').trim();
+  for (const candidate of [record.descriptionByLocale?.[lang], record.description]) {
+    const text = String(candidate || '').trim();
+    if (text && !isGraceInventedText(text) && meetsSourceBodyFloor(text)) return { text, lang };
+  }
+  return null;
+}
+
+/** The body of this run if it clears the floor, else the stored one, else null. */
+export function resolveGraceJobBody(job, prev) {
+  if (meetsSourceBodyFloor(job?.description || '') && !isGraceInventedText(job?.description)) return job;
+  const stored = storedGraceSourceText(prev);
+  if (!stored) return null;
+  const lang = stored.lang || job.sourceLang;
+  return { ...job, description: stored.text, sourceLang: lang, descriptionByLocale: { [lang]: stored.text } };
+}
+
+/** Remove padding copies from every locale slot (in place); returns the count. */
+export function clearGraceInventedSlots(job) {
+  let removed = 0;
+  for (const [locale, text] of Object.entries(job?.descriptionByLocale || {})) {
+    if (isGraceInventedText(text)) {
+      delete job.descriptionByLocale[locale];
+      removed += 1;
+    }
+  }
+  return removed;
 }

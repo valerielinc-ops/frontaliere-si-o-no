@@ -9,6 +9,7 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 // ──────────────────────────────────────────────────────────────
 // HTML → Markdown converter
@@ -178,4 +179,69 @@ export function validateLaFonteDescription(detail, minChars = 350, minSourceRati
   }
 
   return { ok: warnings.length === 0, warnings };
+}
+
+// ──────────────────────────────────────────────────────────────
+// Published description: the role section of the page, nothing else
+// ──────────────────────────────────────────────────────────────
+
+/**
+ * The published description is the role card of the careers page as-is
+ * (see htmlToMarkdown). The runner used to wrap it in text the page does not
+ * carry: "Fondazione La Fonte, con sede a Lugano (TI), è alla ricerca di: X.",
+ * a "## Mansioni" heading over nothing, fixed Settore/Sede lines and, for an
+ * empty card, "Contattare … per i dettagli della posizione." A card whose body
+ * is under the shared word floor (source-body-floor.mjs) yields '' — the
+ * caller keeps an earlier source body or leaves the job out.
+ */
+export function buildLaFonteDescription(cardMarkdown = '') {
+  const body = String(cardMarkdown || '').trim();
+  return meetsSourceBodyFloor(body) ? body : '';
+}
+
+// Frame the old buildDescription() put around the card body. The `Sede` line
+// ("Via A. Giacometti 1") survives machine translation verbatim, so it also
+// marks the translated copies of that frame in the other locales.
+const LEGACY_FRAME_MARKER = 'Via A. Giacometti 1';
+const LEGACY_HEAD_RE = /^## Descrizione\s*\n+Fondazione La Fonte, con sede a Lugano \(TI\), è alla ricerca di: [^\n]*\n+/;
+const LEGACY_TAIL_RE = /\n*## Mansioni\s*\n[\s\S]*$/;
+
+export function isLaFonteLegacyFrame(text = '') {
+  return String(text || '').includes(LEGACY_FRAME_MARKER);
+}
+
+/**
+ * The card body inside a description written by the old frame ('' when the
+ * frame held no body), or the text unchanged when it carries no frame.
+ */
+export function stripLaFonteLegacyFrame(text = '') {
+  const value = String(text || '');
+  if (!isLaFonteLegacyFrame(value)) return value.trim();
+  return value.replace(LEGACY_HEAD_RE, '').replace(LEGACY_TAIL_RE, '').trim();
+}
+
+/**
+ * Stored record without the old frame: the source slot (and base
+ * description) keep only the card body; framed translations in the other
+ * locales are dropped so the translation step regenerates them from it.
+ */
+export function scrubLaFonteLegacyFrame(job = {}) {
+  const sourceLang = job.sourceLang || 'it';
+  const descriptionByLocale = {};
+  for (const [locale, value] of Object.entries(job.descriptionByLocale || {})) {
+    if (locale === sourceLang) {
+      const body = buildLaFonteDescription(stripLaFonteLegacyFrame(value));
+      if (body) descriptionByLocale[locale] = body;
+    } else if (value && !isLaFonteLegacyFrame(value)) {
+      descriptionByLocale[locale] = value;
+    }
+  }
+  const description = buildLaFonteDescription(stripLaFonteLegacyFrame(job.description))
+    || descriptionByLocale[sourceLang] || '';
+  return { ...job, description, descriptionByLocale };
+}
+
+/** True when the stored record still carries a body read from the page. */
+export function laFonteHasSourceBody(job = {}) {
+  return Boolean(scrubLaFonteLegacyFrame(job).description);
 }
