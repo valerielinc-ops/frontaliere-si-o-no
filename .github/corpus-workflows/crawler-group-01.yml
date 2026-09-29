@@ -478,6 +478,10 @@ jobs:
               echo "::error::coop: invalid terminal status: $status"
               printf '%s\n' '| coop | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::coop: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| coop | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::coop: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| coop | systemic runner shutdown (143) |' >> "$summary_file"

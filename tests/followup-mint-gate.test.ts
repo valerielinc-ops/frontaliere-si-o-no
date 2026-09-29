@@ -331,6 +331,26 @@ describe('gate sul conio — conservazione per item e per repository', () => {
     const corpus = { repo: 'corpus/r', read: () => ({ ok: true, comments: marker(9769) }) };
     expect(triageMarkerCitesBucket(marker(9769), 9769)).toBe(true);
     expect(triageMarkerCitesBucket(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\nbucket per PR #9769: #1' }] }), 9769)).toBe(false);
+    // Marker REALE di #10050: un bucket per bullet, `#N` + tag daily, senza «bucket».
+    const realMarker = JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\n\nCreated/updated: 1 item.\n- Corpus #1957 `follow-up(daily:2026-09-28)` — `FU-2026-09-28-010` (riallineamento della baseline adattata in `scripts/ci/loop-sync-manifest.json`).\n\nDropped: 3 item — `non-actionable-churn` (reviewer ❓ marcato `deferred, non funnel-critical`).' }] });
+    expect(triageMarkerCitesBucket(realMarker, 1957)).toBe(true);
+    expect(triageMarkerCitesBucket(realMarker, 10050)).toBe(false);
+    expect(triageMarkerCitesBucket(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\n- PR #1957 `follow-up(daily:2026-09-28)`' }] }), 1957)).toBe(false);
+    // Review #10338: la forma col tag vale solo nella finestra di claim del
+    // collector; una citazione storica dopo la lista non qualifica il bucket.
+    const withHistory = JSON.stringify({ comments: [{ body: [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: 1 item.',
+      '- Corpus #1957 `follow-up(daily:2026-09-28)` — `FU-2026-09-28-009`',
+      '',
+      'Historical #10171 `follow-up(daily:2026-09-28)`',
+    ].join('\n') }] });
+    expect(triageMarkerCitesBucket(withHistory, 1957)).toBe(true);
+    expect(triageMarkerCitesBucket(withHistory, 10171)).toBe(false);
+    // `pull-request #N` e' una PR, non un bucket.
+    const pullRequest = JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\nCreated/updated: 1 item.\n- pull-request #1957 `follow-up(daily:2026-09-28)`' }] });
+    expect(triageMarkerCitesBucket(pullRequest, 1957)).toBe(false);
     expect(qualifySourcePrLookups(1742, 9769, [site, corpus])!.map((l) => l.repo)).toEqual(['corpus/r']);
     // Nessun marker cita il bucket: risoluzione legacy, primo repository in cui e' una PR.
     expect(qualifySourcePrLookups(1742, 5555, [site, corpus])!.map((l) => l.repo)).toEqual(['site/r']);
