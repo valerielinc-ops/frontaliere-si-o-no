@@ -18,7 +18,9 @@
  *   — only description was being read; offer_sections were ignored → teaser-only body
  */
 
-/** Minimum accepted description length (characters). */
+import { meetsSourceBodyFloor, MIN_SOURCE_BODY_WORDS } from './source-body-floor.mjs';
+
+/** Length (characters) under which a body is logged as thin; not a gate. */
 export const MIN_CORNER_DESC_LENGTH = 300;
 
 export function stripHtml(html = '') {
@@ -77,24 +79,19 @@ export function buildSectionsHtml(sections = []) {
 }
 
 /**
- * Extract offer_sections for a given locale, with fallbacks.
+ * The description the bank itself wrote for one Recruitee language — that
+ * translation's own teaser, sections and requirements, never another
+ * language's. Empty when the translation has no description of its own.
  *
- * Priority: localized sections → top-level sections → empty array.
- *
- * @param {object} locTrans   Localized translation object (e.g. offer.translations.it)
- * @param {object} fallbackTrans  Fallback locale translation (e.g. .en)
- * @param {object} offer      Top-level offer object
- * @returns {Array}
+ * @param {object} trans  `offer.translations.<locale>`
+ * @returns {string}
  */
-function getSections(locTrans, fallbackTrans, offer) {
-  return (
-    locTrans?.offer_sections ||
-    locTrans?.sections ||
-    fallbackTrans?.offer_sections ||
-    fallbackTrans?.sections ||
-    offer?.offer_sections ||
-    offer?.sections ||
-    []
+function ownLocaleDescription(trans) {
+  if (!String(trans?.description || '').trim()) return '';
+  return buildFullDescription(
+    trans.description,
+    trans.offer_sections || trans.sections || [],
+    trans.requirements || '',
   );
 }
 
@@ -145,48 +142,58 @@ export function parseCornerOfferFull(offer) {
   const title = itTrans.title || enTrans.title || offer.title || '';
   if (!title) return null;
 
-  // Build full description per locale: teaser + offer_sections + requirements
-  const descIt = buildFullDescription(
-    itTrans.description || enTrans.description || offer.description || '',
-    getSections(itTrans, enTrans, offer),
-    itTrans.requirements || enTrans.requirements || offer.requirements || ''
-  );
-  const descEn = buildFullDescription(
-    enTrans.description || offer.description || '',
-    getSections(enTrans, null, offer),
-    enTrans.requirements || offer.requirements || ''
-  );
-  const descDe = buildFullDescription(
-    deTrans.description || '',
-    getSections(deTrans, enTrans, offer),
-    deTrans.requirements || ''
-  );
-  const descFr = buildFullDescription(
-    frTrans.description || '',
-    getSections(frTrans, enTrans, offer),
-    frTrans.requirements || ''
-  );
+  // Each language's text is the bank's own for that language (teaser +
+  // offer_sections + requirements of that translation). Earlier versions
+  // filled a missing language with another one (`de: descDe || descEn ||
+  // description`), publishing English under de/fr: those slots now stay
+  // empty for the translation step.
+  const descIt = ownLocaleDescription(itTrans);
+  const descEn = ownLocaleDescription(enTrans);
+  const descDe = ownLocaleDescription(deTrans);
+  const descFr = ownLocaleDescription(frTrans);
 
-  // Primary description for guards
-  const description = descIt || descEn || '';
+  // Primary-language description. Recruitee's top-level `title`/`description`
+  // /`requirements` carry the offer's PRIMARY language — the one the public
+  // page jobs.corner.ch/o/<slug> renders — while `translations.<locale>` are
+  // the company's own alternates. Cornèr's primary language is English on
+  // every current offer, so preferring the Italian alternate here published a
+  // description in a language the source page does not show (and labelled it
+  // as the source language), which the source-detail audit reads as an
+  // unrelated body (word overlap 2-12 %, #5253).
+  const descPrimary = buildFullDescription(
+    offer.description || '',
+    offer.offer_sections || offer.sections || [],
+    offer.requirements || ''
+  );
+  const description = descPrimary || descIt || descEn || '';
 
+  // Locales the company wrote itself (not filled from another locale), so the
+  // runner can keep them authoritative over machine translations.
+  const ownDescriptions = { it: descIt, en: descEn, de: descDe, fr: descFr };
+  const officialLocales = Object.keys(ownDescriptions).filter((locale) => ownDescriptions[locale]);
+
+  // Gate in words (shared floor), not characters: without padding, a
+  // character gate let a 20-49-word teaser through as a thin page.
+  if (!meetsSourceBodyFloor(description)) {
+    console.warn(
+      `  ⚠️ Not publishing "${title}": the offer body is under ${MIN_SOURCE_BODY_WORDS} words`
+    );
+    return null;
+  }
   if (description.length < MIN_CORNER_DESC_LENGTH) {
     console.warn(
-      `  ⚠️ Thin description for "${title}" (${description.length} chars < ${MIN_CORNER_DESC_LENGTH}) — ` +
-      `offer_sections may be missing or vacancy has no body content`
+      `  ⚠️ Short description for "${title}" (${description.length} chars < ${MIN_CORNER_DESC_LENGTH}) — ` +
+      `offer_sections may be missing`
     );
-    if (description.length < 50) return null;
   }
 
   return {
     title,
     description,
-    descriptionByLocale: {
-      it: descIt || description,
-      en: descEn || description,
-      de: descDe || descEn || description,
-      fr: descFr || descEn || description,
-    },
+    // Only the languages the bank wrote; the runner adds the primary text
+    // under its detected language and verifies each alternate's language.
+    descriptionByLocale: Object.fromEntries(officialLocales.map((locale) => [locale, ownDescriptions[locale]])),
+    officialLocales,
     requirements: parseBullets(itTrans.requirements || enTrans.requirements || offer.requirements || ''),
     titleByLocale: {
       it: itTrans.title || title,
