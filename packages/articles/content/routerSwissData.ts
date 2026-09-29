@@ -2361,6 +2361,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'finma-conclude-julius-baer': { it: 'finma-conclude-julius-baer', en: 'finma-concludes-julius-baer-case', de: 'finma-schliesst-julius-baer-verfahren', fr: 'la-finma-clot-le-dossier-julius-baer' },
  'stadler-nomina-nuovo-ceo': { it: 'stadler-nomina-nuovo-ceo', en: 'stadler-appoints-new-ceo', de: 'stadler-ernennt-neuen-ceo', fr: 'stadler-nomme-nouveau-ceo' },
  'zugo-cybersecurity-de-escalation': { it: 'zugo-cybersecurity-de-escalation', en: 'zug-cybersecurity-de-escalation', de: 'zug-cybersicherheit-deeskalation', fr: 'zoug-cybersecurite-de-escalade' },
+ 'lindt-prungli-stime-2026': { it: 'lindt-prungli-stime-2026', en: 'lindt-prungli-estimates-2026', de: 'lindt-prungli-schatzungen-2026', fr: 'lindt-prungli-estimations-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

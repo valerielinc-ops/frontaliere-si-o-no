@@ -7016,6 +7016,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.zugo-cybersecurity-de-escalation.title': 'Zoug mise sur la cybersécurité : désescalade et résilience',
     'blog.article.zugo-cybersecurity-de-escalation.excerpt': 'Le canton de Zoug lance une initiative pour la cybersécurité, misant sur la diplomatie préventive, la médiation et la collaboration entre l\'État et le secteur privé.',
     'blog.article.zugo-cybersecurity-de-escalation.imageAlt': 'Centre de compétence pour la cybersécurité à Zoug',
+    'blog.article.lindt-prungli-stime-2026.title': 'Lindt et Sprüngli réduit ses prévisions de croissance pour 2026',
+    'blog.article.lindt-prungli-stime-2026.excerpt': 'Lindt et Sprüngli révise à la baisse la croissance organique du chiffre d’affaires 2026 entre 0 et 2 % en raison de la chaleur et des prix.',
+    'blog.article.lindt-prungli-stime-2026.imageAlt': 'Siege de Lindt et Sprungli a Kilchberg',
 };
 
 export default blogMetaChFr;

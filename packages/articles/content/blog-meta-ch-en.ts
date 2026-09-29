@@ -7016,6 +7016,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.zugo-cybersecurity-de-escalation.title': 'Zug focuses on cybersecurity: de-escalation and resilience',
     'blog.article.zugo-cybersecurity-de-escalation.excerpt': 'The Canton of Zug launches an initiative for cybersecurity, focusing on preventive diplomacy, mediation, and cooperation between the state and the private sector.',
     'blog.article.zugo-cybersecurity-de-escalation.imageAlt': 'Cybersecurity competence center in Zug',
+    'blog.article.lindt-prungli-stime-2026.title': 'Lindt & Sprüngli cuts growth estimates for 2026',
+    'blog.article.lindt-prungli-stime-2026.excerpt': 'Lindt e Sprüngli lowers its 2026 organic revenue growth forecast to between 0 and 2% due to heat and prices.',
+    'blog.article.lindt-prungli-stime-2026.imageAlt': 'Lindt and Sprungli headquarters in Kilchberg',
 };
 
 export default blogMetaChEn;
