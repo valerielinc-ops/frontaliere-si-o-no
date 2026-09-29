@@ -265,6 +265,55 @@ function canonicalJsonLdIdentity(value, key = '') {
  */
 
 /**
+ * JobPosting properties that carry part of the vacancy body. schema.org lets a
+ * publisher split the ad: Dualoo puts only the intro in `description` and the
+ * tasks, profile and offer in `responsibilities`, `qualifications` and
+ * `jobBenefits`, so reading `description` alone measured a 600-character
+ * intro against a complete published body.
+ */
+const JOB_POSTING_BODY_PROPERTIES = [
+  'responsibilities',
+  'qualifications',
+  'skills',
+  'educationRequirements',
+  'experienceRequirements',
+  'jobBenefits',
+];
+
+/** Prose values of a JobPosting property: strings only, never typed nodes. */
+function proseValues(value) {
+  if (typeof value === 'string') return [value];
+  if (Array.isArray(value)) return value.flatMap((item) => (typeof item === 'string' ? [item] : []));
+  return [];
+}
+
+/**
+ * The vacancy body of one JobPosting node: `description`, then every other
+ * body property whose text `description` does not already contain.
+ * Structured values (an `EducationalOccupationalCredential`, a `DefinedTerm`)
+ * are enumerations, not prose, and stay out.
+ *
+ * @param {any} node
+ * @returns {string}
+ */
+function jobPostingBodyText(node) {
+  const parts = [];
+  const identities = [];
+  const add = (value) => {
+    const text = textOf(value);
+    const identity = identityText(text);
+    if (!text || !identity || identities.some((known) => known.includes(identity))) return;
+    identities.push(identity);
+    parts.push(text);
+  };
+  add(firstString(node?.description));
+  for (const property of JOB_POSTING_BODY_PROPERTIES) {
+    for (const value of proseValues(node?.[property])) add(value);
+  }
+  return parts.join(' ');
+}
+
+/**
  * @param {string} html
  * @param {string} pageUrl
  * @returns {Vacancy[]}
@@ -309,7 +358,7 @@ export function extractJsonLd(html, pageUrl) {
       location: primaryLocation.location || '',
       addressCountry: primaryLocation.addressCountry || '',
       locationCandidates,
-      description: textOf(firstString(node.description)).slice(0, 8000),
+      description: jobPostingBodyText(node).slice(0, 8000),
       postedDate: firstString(node.datePosted),
       employmentType: firstString(node.employmentType),
       via: 'jsonld',
@@ -440,6 +489,154 @@ export function selectDetailStructuredRecords(records, pageUrl, renderedTitle, r
 }
 
 /**
+ * Class vocabulary of a rendered vacancy body container. Vendor-neutral:
+ * Fachkraft's `ff-detail-*`, SuccessFactors' `jobdescription`, eRecruiter's
+ * `jobAdContent` are spellings of the same idea.
+ */
+const DETAIL_BODY_CLASS_VOCABULARY = /job[-_ ]?(?:description|details?|content|tasks?|profile|perspective)|job[-_ ]?ad[-_ ]?(?:content|text|body)|vacancy[-_ ]?(?:description|details?)|position[-_ ]?description|detail[-_ ]{1,2}text|detail[-_ ]?intro|description/i;
+
+/** The same vocabulary minus the bare word `description`. */
+const QUALIFIED_BODY_CLASS_VOCABULARY = /job[-_ ]?(?:description|details?|content|tasks?|profile|perspective)|job[-_ ]?ad[-_ ]?(?:content|text|body)|vacancy[-_ ]?(?:description|details?)|position[-_ ]?description|detail[-_ ]{1,2}text|detail[-_ ]?intro/i;
+
+/**
+ * Name parts of a UI component that carries its own `…description` caption.
+ * The bare word `description` names a vacancy body only when nothing in the
+ * same class token says it is the caption of something else: a picture
+ * (`picture-description__slider`, the application-process carousel on
+ * hornbach.ch), a slide (`process-slide__description`, abraxas.ch), a
+ * definition-list term (`desfinition-list__description`), a button or a link
+ * (`mobi-custom-link-button-description`). Those captions repeat on every
+ * vacancy of the site, so reading them as the body measured one carousel
+ * against every published job.
+ */
+const UI_COMPONENT_CLASS_PARTS = new Set([
+  'picture', 'image', 'img', 'photo', 'media', 'video', 'gallery',
+  'slide', 'slides', 'slider', 'carousel', 'swiper', 'slick',
+  'process', 'step', 'steps', 'list', 'term', 'definition',
+  'button', 'btn', 'link', 'card', 'teaser', 'tile', 'tooltip', 'modal', 'dialog',
+  'category', 'icon', 'logo', 'component',
+]);
+
+/**
+ * Whether a class attribute marks a vacancy body rather than a component
+ * caption. A token qualified by the vacancy vocabulary (`job-description`,
+ * `cmp-job-details__description`, `jobAdContent`) always counts; a token that
+ * only says `description` counts unless it also names a UI component.
+ *
+ * @param {string} classValue
+ * @returns {boolean}
+ */
+function isVacancyBodyClass(classValue = '') {
+  let vocabularyTokens = 0;
+  for (const token of String(classValue).split(/\s+/).filter(Boolean)) {
+    if (!DETAIL_BODY_CLASS_VOCABULARY.test(token)) continue;
+    vocabularyTokens++;
+    if (QUALIFIED_BODY_CLASS_VOCABULARY.test(token)) return true;
+    const parts = token.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase().split(/[-_]+/);
+    if (!parts.some((part) => UI_COMPONENT_CLASS_PARTS.has(part))) return true;
+  }
+  // The vocabulary can span two tokens (`class="job description"`): no single
+  // token carries it, so there is no component caption to reject either.
+  return vocabularyTokens === 0;
+}
+
+/**
+ * @typedef {{ start: number, contentStart: number, contentEnd: number }} BodyRange
+ */
+
+/** Whether a start tag carries the boolean `itemscope` attribute. */
+function hasItemscope(raw = '') {
+  return /\sitemscope(?=[\s=/>])/i.test(String(raw).replace(/"[^"]*"|'[^']*'/g, '""'));
+}
+
+/**
+ * Top-level `itemprop="description"` elements of a document, in document
+ * order. SuccessFactors jobs2web splits one vacancy into several sibling
+ * description spans (intro, body, closing), so all of them are the body.
+ * When there are several, only those whose microdata scope is a JobPosting
+ * count — an `Organization` nested in the posting, or one in the page chrome,
+ * describes the employer, not the vacancy. A page with no such scope keeps
+ * the single first element it was always read from.
+ *
+ * @param {string} html
+ * @param {HtmlTagIndex} index
+ * @returns {BodyRange[]}
+ */
+function vacancyDescriptionItempropRanges(html, index) {
+  /** @type {BodyRange[]} */
+  const all = [];
+  let consumedUntil = 0;
+  for (const opening of index.openings) {
+    if (opening.index < consumedUntil || opening.selfClosing || VOID_HTML_TAGS.has(opening.name)) continue;
+    if (!readAttr(opening.raw, 'itemprop').split(/\s+/).includes('description')) continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    all.push({ start: opening.index, contentStart: opening.end, contentEnd: bounds.contentEnd });
+    consumedUntil = bounds.end;
+  }
+  if (all.length <= 1) return all;
+  const scopes = [];
+  const itemscopes = [];
+  for (const opening of index.openings) {
+    if (!hasItemscope(opening.raw)) continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    const scope = { start: opening.index, end: bounds.contentEnd };
+    itemscopes.push(scope);
+    if (readAttr(opening.raw, 'itemtype').split(/\s+/).some((type) => /schema\.org\/JobPosting\/?$/i.test(type))) {
+      scopes.push(scope);
+    }
+  }
+  const inside = (range, scope) => range.start > scope.start && range.start < scope.end;
+  const owned = all.filter((range) => scopes.some((scope) => inside(range, scope)
+    && !itemscopes.some((inner) => inner.start > scope.start && inner.start < scope.end && inside(range, inner))));
+  return owned.length ? owned : all.slice(0, 1);
+}
+
+/**
+ * Text of the vacancy body ranges, each counted once. Candidate containers
+ * nest (`jobcontent` ⊃ `jobcontent_left` ⊃ `description`, five Marriott
+ * wrappers of one body): only the outermost one of each chain is read, so the
+ * joined candidate is the body, not the body four times over. Chrome ranges
+ * inside a kept container are cut out of its text, and a container whose text
+ * repeats an earlier one (the desktop and mobile copies of one SuccessFactors
+ * layout) is read once.
+ *
+ * @param {string} html
+ * @param {BodyRange[]} bodyRanges
+ * @param {Array<{start: number, end: number}>} [chromeRanges]
+ * @returns {string[]} texts in document order
+ */
+function distinctBodyTexts(html, bodyRanges, chromeRanges = []) {
+  const ordered = [...bodyRanges].sort((a, b) => a.start - b.start || b.contentEnd - a.contentEnd);
+  /** @type {BodyRange[]} */
+  const outermost = [];
+  for (const range of ordered) {
+    if (outermost.some((outer) => range.start >= outer.start && range.start < outer.contentEnd)) continue;
+    outermost.push(range);
+  }
+  const cuts = [...chromeRanges].sort((a, b) => a.start - b.start);
+  const texts = [];
+  const seen = new Set();
+  for (const range of outermost) {
+    let cursor = range.contentStart;
+    let raw = '';
+    for (const cut of cuts) {
+      if (cut.start < range.contentStart || cut.start >= range.contentEnd || cut.end <= cursor) continue;
+      raw += `${html.slice(cursor, cut.start)} `;
+      cursor = Math.max(cursor, cut.end);
+    }
+    raw += html.slice(cursor, range.contentEnd);
+    const text = textOf(raw);
+    const key = text.toLowerCase();
+    if (!text || seen.has(key)) continue;
+    seen.add(key);
+    texts.push(text);
+  }
+  return texts;
+}
+
+/**
  * Read authoritative fields from a vacancy detail page. JSON-LD often contains
  * only a teaser; the rendered detail body is therefore preferred when it is
  * richer than the structured description.
@@ -540,15 +737,29 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     && structuredLocationClasses.some((entry) => entry.swiss)
     && structuredLocationClasses.some((entry) => entry.foreign);
   const location = primaryLocation.location || structured.location || renderedLocation;
-  const blocks = [];
+  /** @type {BodyRange[]} */
+  const bodyRanges = [];
+  /** @type {Array<{start: number, end: number}>} */
+  const chromeRanges = [];
   // Extract balanced containers so nested lists/divs do not truncate the
   // vacancy at the first inner closing tag. The vocabulary is vendor-neutral;
   // Fachkraft's ff-detail-* classes are just one supported spelling.
-  const openingRx = /<(div|section|article)\b([^>]*\bclass\s*=\s*["'][^"']*(?:job[-_ ]?(?:description|details?|content|tasks?|profile|perspective)|vacancy[-_ ]?(?:description|details?)|position[-_ ]?description|detail[-_ ]{1,2}text|detail[-_ ]?intro|description)[^"']*["'][^>]*)>/gi;
+  const openingRx = new RegExp(
+    `<(div|section|article)\\b([^>]*\\bclass\\s*=\\s*["'][^"']*(?:${DETAIL_BODY_CLASS_VOCABULARY.source})[^"']*["'][^>]*)>`,
+    'gi',
+  );
+  // Markup quoted inside a script is not rendered: Marriott's JSON-LD string
+  // `"description":"<div class='description'>…"` is the structured record,
+  // already read as such, not a second rendered body, and a client-side
+  // template is not the page either. `textOf` drops scripts for the same
+  // reason; a container that merely STARTS inside one escaped it.
+  const scriptRanges = [...html.matchAll(/<script\b[\s\S]*?<\/script>/gi)]
+    .map((script) => ({ start: script.index, end: script.index + script[0].length }));
   let match;
   while ((match = openingRx.exec(html))) {
+    const at = match.index;
+    if (scriptRanges.some((script) => at > script.start && at < script.end)) continue;
     const detailClassAttr = match[2];
-    if (/\b(?:cookie|cmplz|consent|meta)\b/i.test(detailClassAttr)) continue;
     const tag = match[1];
     const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
     tags.lastIndex = openingRx.lastIndex;
@@ -560,29 +771,42 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
       else if (!/\/\\s*>$/.test(detailTagMatch[0])) depth++;
       if (depth === 0) { end = detailTagMatch.index; break; }
     }
-    if (end !== undefined) blocks.push(textOf(html.slice(openingRx.lastIndex, end)));
+    if (end === undefined) continue;
+    // A consent banner, a meta line, or a UI component whose own caption is
+    // spelled `…description` (a picture/slide/list-term/button caption) is
+    // page chrome. It is not a candidate, and its text is cut out of any
+    // vacancy container that happens to wrap it.
+    if (/\b(?:cookie|cmplz|consent|meta)\b/i.test(detailClassAttr)
+      || !isVacancyBodyClass(readAttr(match[0], 'class'))) {
+      chromeRanges.push({ start: match.index, end });
+      continue;
+    }
+    bodyRanges.push({ start: match.index, contentStart: openingRx.lastIndex, contentEnd: end });
   }
-  // Read the description element to its matching close tag. SuccessFactors
-  // nests many same-name spans inside itemprop="description"; the former
-  // non-greedy regex stopped at the first inner </span>, making a correct
-  // published body appear unrelated to its source in the quality audit.
+  // Read every description element to its matching close tag. SuccessFactors
+  // nests many same-name spans inside itemprop="description" (the former
+  // non-greedy regex stopped at the first inner </span>), and its jobs2web
+  // layout splits ONE vacancy into several sibling itemprop="description"
+  // spans — intro, body, closing — so reading only the first one measured a
+  // teaser against a complete published body.
   const semanticIndex = indexHtmlTags(html);
-  const semanticOpening = semanticIndex.openings.find((candidate) =>
-    !candidate.selfClosing
-    && !VOID_HTML_TAGS.has(candidate.name)
-    && readAttr(candidate.raw, 'itemprop').split(/\s+/).includes('description')
-  );
-  const semanticBounds = semanticOpening
-    ? semanticIndex.boundsByStart.get(semanticOpening.index)
-    : null;
-  if (semanticOpening && semanticBounds) {
-    blocks.push(textOf(html.slice(semanticOpening.end, semanticBounds.contentEnd)));
-  }
+  for (const range of vacancyDescriptionItempropRanges(html, semanticIndex)) bodyRanges.push(range);
+  const blocks = distinctBodyTexts(html, bodyRanges, chromeRanges);
   // A detail page with no useful class still commonly puts the vacancy body
   // in its main/article container. Use it only when it is materially larger
   // than the page's structured teaser, avoiding a navigation-only shell.
-  const main = vacancyContainerContent(html, title);
-  if (!blocks.length && main) blocks.push(textOf(main));
+  // Chrome recognised above is cut out of it too: without the cut, rejecting
+  // a carousel as a candidate would hand the whole <main> — the same carousel
+  // included — to this fallback.
+  const main = vacancyContainerRegion(html, title);
+  if (!blocks.length && main) {
+    const [mainText] = distinctBodyTexts(
+      html,
+      [{ start: main.start, contentStart: main.start, contentEnd: main.end }],
+      chromeRanges,
+    );
+    if (mainText) blocks.push(mainText);
+  }
   const descriptions = [
     ...blocks,
     blocks.length > 1 ? blocks.join(' ') : '',
@@ -681,11 +905,12 @@ const ADDRESS_BLOCK_CLASS_RX = /(?:^|[\s_-])(?:contact|address|adresse|indirizzo
 const SWISS_POSTAL_ADDRESS_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{L}'\u2019.-]*(?:[ -]\p{L}[\p{L}'\u2019.-]*){0,3})/gu;
 
 /**
- * Content of the main/article container that holds THIS vacancy, or '' when
- * the page has none. The title is what identifies it: a detail page routinely
- * carries more than one such container — a related-positions block rendered as
- * a second `<article>`, or a list of other openings inside the same `<main>` —
- * and taking the first one in document order reads another vacancy's body.
+ * The main/article container that holds THIS vacancy — its content and its
+ * content offsets in `html` — or null when the page has none. The title is
+ * what identifies it: a detail page routinely carries more than one such
+ * container — a related-positions block rendered as a second `<article>`, or
+ * a list of other openings inside the same `<main>` — and taking the first
+ * one in document order reads another vacancy's body.
  * That is worse than reading nothing: the workplace corroborated from the
  * wrong ad silences the mismatch exactly where the published seat is really
  * wrong, and the job page stays indexed with the wrong `jobLocation` (#7772).
@@ -701,9 +926,9 @@ const SWISS_POSTAL_ADDRESS_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{
  *
  * @param {string} html
  * @param {string} [title] vacancy title as rendered/structured on the page
- * @returns {string}
+ * @returns {{ start: number, end: number, content: string } | null}
  */
-function vacancyContainerContent(html = '', title = '') {
+function vacancyContainerRegion(html = '', title = '') {
   const source = String(html);
   const index = indexHtmlTags(source);
   const regions = [];
@@ -730,7 +955,19 @@ function vacancyContainerContent(html = '', title = '') {
   for (const region of owning) {
     if (chosen && region.start > chosen.start && region.end <= chosen.end) chosen = region;
   }
-  return (chosen ?? regions[0])?.content ?? '';
+  return chosen ?? regions[0] ?? null;
+}
+
+/**
+ * Content of the main/article container that holds THIS vacancy, or '' when
+ * the page has none. See {@link vacancyContainerRegion}.
+ *
+ * @param {string} html
+ * @param {string} [title]
+ * @returns {string}
+ */
+function vacancyContainerContent(html = '', title = '') {
+  return vacancyContainerRegion(html, title)?.content ?? '';
 }
 
 /**
@@ -982,6 +1219,15 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
       });
     }
     const primaryLocation = locationCandidates[0] || { location: '', addressCountry: '' };
+    // Every description element of this posting, not only the first: the
+    // SuccessFactors jobs2web layout splits one vacancy into sibling spans.
+    // A `content="…"` attribute (a `<meta>` description) stays readable
+    // through `prop()`, and whichever reading is richer wins.
+    const unitedDescription = distinctBodyTexts(
+      block,
+      vacancyDescriptionItempropRanges(block, blockIndex),
+    ).join(' ');
+    const firstDescription = textOf(prop('description'));
     out.push({
       title,
       url,
@@ -990,7 +1236,9 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
       location: primaryLocation.location || '',
       addressCountry: primaryLocation.addressCountry || '',
       locationCandidates,
-      description: textOf(prop('description')).slice(0, 8000),
+      description: (unitedDescription.length > firstDescription.length
+        ? unitedDescription
+        : firstDescription).slice(0, 8000),
       postedDate: prop('datePosted'),
       employmentType: prop('employmentType'),
       via: 'microdata',
