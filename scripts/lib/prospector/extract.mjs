@@ -635,10 +635,35 @@ function wordRecall(reference, candidate) {
   return hit / wanted.size;
 }
 
-/** Whether the container text carries the vacancy title. */
-function containsTitle(content = '', title = '') {
-  const wanted = identityText(title);
-  return Boolean(wanted) && identityText(content).includes(wanted);
+const TITLE_ELEMENT_TAGS = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']);
+
+/**
+ * Whether a print-only region is this vacancy's own rendering: one of its
+ * title elements (a heading, or an `itemprop="title"` element) reads exactly
+ * as a vacancy title once normalized. Containing the title is not enough — a
+ * sample ad for "Senior Engineer" printed on the page of an "Engineer"
+ * vacancy contains "engineer" and is still another vacancy's text.
+ *
+ * @param {string} html
+ * @param {HtmlTagIndex} index tag index of `html`
+ * @param {number} from start of the region's content
+ * @param {number} to end of the region's content
+ * @param {string[]} titles candidate vacancy titles
+ * @returns {boolean}
+ */
+function printRegionCarriesTitle(html, index, from, to, titles) {
+  const wanted = new Set(titles.map((title) => identityText(title)).filter(Boolean));
+  if (!wanted.size) return false;
+  for (const opening of index.openings) {
+    if (opening.index < from || opening.index >= to) continue;
+    const isTitleElement = TITLE_ELEMENT_TAGS.has(opening.name)
+      || readAttr(opening.raw, 'itemprop').split(/\s+/).includes('title');
+    if (!isTitleElement) continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds || bounds.contentEnd > to) continue;
+    if (wanted.has(identityText(html.slice(opening.end, bounds.contentEnd)))) return true;
+  }
+  return false;
 }
 
 /**
@@ -958,9 +983,10 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // Hidden elements are not the rendered page either: Phenom ships every
   // vacancy with a `hide job-expired-view` block saying the job "has been
   // filled", shown only once it really is.
-  // A print-only rendering that does not carry this vacancy's title is
-  // another ad (job.post.ch serves the same sample in `printLayout` on every
-  // page), wherever it sits — also inside the <main> the fallback reads.
+  // A print-only rendering whose title element does not read exactly as this
+  // vacancy's title is another ad (job.post.ch serves the same sample in
+  // `printLayout` on every page), wherever it sits — also inside the <main>
+  // the fallback reads.
   const titles = [title, renderedTitle];
   for (const opening of semanticIndex.openings) {
     if (opening.selfClosing || VOID_HTML_TAGS.has(opening.name)) continue;
@@ -969,7 +995,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     const isChrome = FORM_CONTROL_TAGS.has(opening.name)
       || isHiddenElement(opening.raw)
       || (isPrintLayout(opening.raw)
-        && !titles.some((candidate) => containsTitle(html.slice(opening.end, bounds.contentEnd), candidate)));
+        && !printRegionCarriesTitle(html, semanticIndex, opening.end, bounds.contentEnd, titles));
     if (isChrome) chromeRanges.push({ start: opening.index, end: bounds.end });
   }
   let blocks = distinctBodyTexts(html, bodyRanges, chromeRanges);
@@ -988,7 +1014,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   const main = vacancyContainerRegion(html, title);
   if (!blocks.length && main) {
     const isThisVacancy = (region) => !isPrintLayout(region.raw)
-      || titles.some((candidate) => containsTitle(region.content, candidate));
+      || printRegionCarriesTitle(html, semanticIndex, region.start, region.end, titles);
     const regions = (main.owned ? [main] : main.outermost).filter(isThisVacancy);
     const mainText = distinctBodyTexts(
       html,
@@ -1145,11 +1171,23 @@ function vacancyContainerRegion(html = '', title = '') {
   const source = String(html);
   const index = indexHtmlTags(source);
   const regions = [];
+  // Print-only renderings of another vacancy, and every container inside them.
+  const foreignPrint = [];
   for (const opening of index.openings) {
     if (opening.name !== 'main' && opening.name !== 'article') continue;
     if (opening.selfClosing) continue;
     const bounds = index.boundsByStart.get(opening.index);
     if (!bounds) continue;
+    if (foreignPrint.some((range) => opening.index >= range.start && opening.index < range.end)) continue;
+    // A print-only rendering is a container of THIS vacancy only when its
+    // title element reads exactly as the title: a "Senior Engineer" sample
+    // printed on an "Engineer" page contains the title and would otherwise
+    // be chosen as the vacancy's own container.
+    if (isPrintLayout(opening.raw)
+      && !printRegionCarriesTitle(source, index, opening.end, bounds.contentEnd, [title])) {
+      foreignPrint.push({ start: opening.index, end: bounds.end });
+      continue;
+    }
     regions.push({
       raw: opening.raw,
       start: opening.end,

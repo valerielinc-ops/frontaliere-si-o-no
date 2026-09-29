@@ -289,6 +289,32 @@ describe('form controls, hidden blocks and print templates are not the body', ()
     const { description } = extractDetailFields(html, 'https://jobs.example.ch/job/Polizeiaspirantin/1370891157/');
     expect(description).toContain('zweijährige höhere Berufsbildung');
   });
+
+  // Review of the extractor PR: a print sample whose heading merely CONTAINS
+  // the vacancy title is another vacancy ("Senior Engineer" printed on the
+  // page of an "Engineer" ad). Only a title element that reads exactly as the
+  // vacancy title keeps a print region.
+  it('drops a print template whose title only contains this vacancy\'s title', () => {
+    const html = `<html><body>
+      <h1>Engineer</h1>
+      <div class="job-description"><p>You maintain the production lines and plan preventive maintenance with the shift teams.</p></div>
+      <article id="printLayout"><h1>Senior Engineer</h1>OTHER</article>
+    </body></html>`;
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/job/Engineer/1370891158/');
+    expect(description).toContain('preventive maintenance');
+    expect(description).not.toContain('OTHER');
+  });
+
+  it('drops such a print template also inside the <main> the fallback reads', () => {
+    const html = `<html><body><main>
+      <h1>Engineer</h1>
+      <p>You maintain the production lines and plan preventive maintenance with the shift teams.</p>
+      <article id="printLayout" class="print-page"><h2>Senior Engineer</h2><p>OTHER sample ad for a senior role.</p></article>
+    </main></body></html>`;
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/job/Engineer/1370891159/');
+    expect(description).toContain('preventive maintenance');
+    expect(description).not.toContain('OTHER');
+  });
 });
 
 describe('rendered text is weighed against the structured body', () => {
