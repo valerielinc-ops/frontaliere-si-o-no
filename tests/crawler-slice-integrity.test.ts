@@ -531,6 +531,40 @@ describe('crawler slice integrity guard', () => {
     }
   });
 
+  it('accepts a monolithic duplicate-slug decision only with a matching winner', () => {
+    const duplicate = {
+      ...dedupJob('https://buehler.example/duplicate', 'First title', 'x'.repeat(1_400_000)),
+      slug: 'same-slug',
+    };
+    const retained = dedupJob('https://buehler.example/retained', 'Retained title', 'y'.repeat(100_000));
+    const winner = { url: 'https://other-crawler.example/winner', slug: 'same-slug' };
+    const previous = json({ crawlerKey: 'buehler', jobs: [duplicate, retained] });
+    const next = json({ crawlerKey: 'buehler', jobs: [retained] });
+    const proof = {
+      entries: [{
+        job: duplicate,
+        retainedJob: winner,
+        reason: 'duplicate slug',
+        duplicateKey: 'same-slug',
+      }],
+    };
+
+    expect(isProvenCrossCrawlerDedupPrune(
+      'data/jobs/by-crawler/buehler.json',
+      previous,
+      next,
+      Object.assign([retained], { proof }),
+    )).toBe(true);
+    expect(isProvenCrossCrawlerDedupPrune(
+      'data/jobs/by-crawler/buehler.json',
+      previous,
+      next,
+      Object.assign([retained], {
+        proof: { entries: [{ ...proof.entries[0], retainedJob: { ...winner, slug: 'different-slug' } }] },
+      }),
+    )).toBe(false);
+  });
+
   it('allows a large shrink only when every removed job has definitive housekeeping evidence', () => {
     const removedA = dedupJob('https://convit.example/a', 'Closed A', 'x'.repeat(700_000));
     const removedB = dedupJob('https://convit.example/b', 'Closed B', 'y'.repeat(700_000));
