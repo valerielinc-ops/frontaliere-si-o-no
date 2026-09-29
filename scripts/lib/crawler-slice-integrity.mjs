@@ -7,7 +7,6 @@ import {
   isCatastrophicAccumulatorShrink,
 } from './accumulator-byte-floor-guard.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
-import { localeMapKey } from './locale-map-diff.mjs';
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 
@@ -309,6 +308,32 @@ function uniqueIdentities(jobs) {
   const identities = new Set();
   for (const job of jobs) {
     const identity = jobIdentity(job);
+    if (!identity || identities.has(identity)) return null;
+    identities.add(identity);
+  }
+  return identities;
+}
+
+/** Exact reconciliation proof identity; expired archives may omit URL/id. */
+function ghostReconciliationEntryIdentity(job) {
+  const identity = jobIdentity(job);
+  if (identity) return identity;
+  const slug = String(job?.slug ?? '').trim();
+  if (slug) return `slug:${slug}`;
+  const slugByLocale = job?.slugByLocale;
+  if (!slugByLocale || typeof slugByLocale !== 'object' || Array.isArray(slugByLocale)) return null;
+  const pairs = Object.keys(slugByLocale)
+    .sort()
+    .map((locale) => [locale, slugByLocale[locale]]);
+  return pairs.some(([, value]) => typeof value === 'string' && value.trim())
+    ? `slug-map:${JSON.stringify(pairs)}`
+    : null;
+}
+
+function uniqueGhostReconciliationEntryIdentities(entries) {
+  const identities = new Set();
+  for (const entry of entries) {
+    const identity = ghostReconciliationEntryIdentity(entry);
     if (!identity || identities.has(identity)) return null;
     identities.add(identity);
   }
@@ -943,106 +968,122 @@ export function isProvenRetiredScratchArchiveDelete(filePath, previousRaw, nextR
     && proof.entries[0]?.entryCount === previousEntries.length;
 }
 
-function expiredArchiveIdentity(entry) {
-  const slug = String(entry?.slug ?? '').trim();
-  if (slug) return `slug:${String(entry?.companyKey ?? '').trim()}:${slug}`;
-  const id = String(entry?.id ?? '').trim();
-  if (id) return `id:${id}`;
-  // reconcileGhostExpired falls back to this stable locale-map identity for
-  // legacy archive entries that predate a master slug and an id.
-  return `locale:${localeMapKey(entry?.slugByLocale)}`;
+function pathMatchesProofTarget(filePath, proofPath) {
+  const actual = normalizedPath(filePath).replace(/^\.\//u, '');
+  const expected = normalizedPath(proofPath).replace(/^\.\//u, '');
+  return Boolean(expected) && (actual === expected || actual.endsWith(`/${expected}`));
 }
 
-function isProvenExpiredGhostEntry(entry, activeJobs) {
-  if (!entry || typeof entry !== 'object' || !Array.isArray(activeJobs)) return false;
+function activeGhostReachableSlugs(job) {
+  const values = [
+    ...Object.values(job?.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {}),
+    ...(Array.isArray(job?.previousSlugs) ? job.previousSlugs : []),
+    ...Object.values(
+      job?.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
+        ? job.previousSlugsByLocale
+        : {},
+    ).flatMap((slugs) => (Array.isArray(slugs) ? slugs : [])),
+  ];
+  return new Set(nonEmptyStrings(values));
+}
 
-  const activeByTCL = new Map();
-  const activeSlugSet = new Set();
-  for (const job of activeJobs) {
-    if (!job || typeof job !== 'object') continue;
-    const key = `${(job.title || '').toLowerCase().trim()}||${(job.company || '').toLowerCase().trim()}||${(job.location || '').toLowerCase().trim()}`;
-    if (!activeByTCL.has(key)) activeByTCL.set(key, job);
-    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-      for (const slug of Object.values(job.slugByLocale)) {
-        if (slug) activeSlugSet.add(slug);
-      }
-    }
-    if (Array.isArray(job.previousSlugs)) {
-      for (const slug of job.previousSlugs) {
-        if (slug) activeSlugSet.add(slug);
-      }
-    }
-    if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
-      for (const values of Object.values(job.previousSlugsByLocale)) {
-        if (Array.isArray(values)) {
-          for (const slug of values) {
-            if (slug) activeSlugSet.add(slug);
-          }
-        }
-      }
-    }
+function expiredGhostOverlapSlugs(job) {
+  return new Set(nonEmptyStrings(
+    Object.values(job?.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {}),
+  ));
+}
+
+function isValidGhostExpiredProofEntry(entry, removedJob) {
+  const expired = entry?.expired;
+  const match = entry?.match;
+  if (!expired || typeof expired !== 'object' || !match || typeof match !== 'object') return false;
+  if (ghostReconciliationEntryIdentity(expired) !== ghostReconciliationEntryIdentity(removedJob)) return false;
+  if (JSON.stringify(expired) !== JSON.stringify(removedJob)) return false;
+
+  const expiredKey = titleCompanyLocationKey(expired);
+  if (!expiredKey || expiredKey !== titleCompanyLocationKey(match)) return false;
+
+  const overlapSlug = String(entry.overlapSlug ?? '').trim();
+  if (overlapSlug) {
+    return Boolean(
+      expiredGhostOverlapSlugs(expired).has(overlapSlug)
+      && entry.overlapJob
+      && typeof entry.overlapJob === 'object'
+      && titleCompanyLocationKey(entry.overlapJob) === expiredKey
+      && titleCompanyLocationKey(entry.overlapJob) === titleCompanyLocationKey(match)
+      && activeGhostReachableSlugs(entry.overlapJob).has(overlapSlug),
+    );
   }
 
-  const expiredSlugs = entry.slugByLocale && typeof entry.slugByLocale === 'object'
-    ? Object.values(entry.slugByLocale)
-    : [];
-  const hasSlugOverlap = expiredSlugs.some((slug) => activeSlugSet.has(slug));
-  const key = `${(entry.title || '').toLowerCase().trim()}||${(entry.company || '').toLowerCase().trim()}||${(entry.location || '').toLowerCase().trim()}`;
-  const match = activeByTCL.get(key);
-  const sameItSlug = match && entry.slugByLocale?.it === match.slugByLocale?.it;
-
-  // Mirror reconcileGhostExpired exactly: a ghost needs the same
-  // title/company/location posting plus either route overlap or an exact IT
-  // slug. The active reference is passed by the reconciler, never inferred
-  // from the candidate archive being written.
-  return Boolean(match && (hasSlugOverlap || sameItSlug));
+  const expiredItSlug = String(expired?.slugByLocale?.it ?? '').trim();
+  const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
+  return Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
 }
 
 /**
- * Prove a catastrophic shrink of an expired crawler slice caused only by
- * reconcileGhostExpired removing entries already represented by active jobs.
+ * Prove the narrow expired-slice rewrite performed by reconcileGhostExpired.
  *
- * The proof is intentionally local to the expired-archive reconciler. It
- * requires a strict subset by unique archive key and replays the same
- * title/company/location + slug-overlap predicate against the active dataset.
- * An empty or stale active reference therefore cannot authorize a truncation.
+ * The assembler removes only archived records that have a title/company/
+ * location match with an active record and either share a reachable slug or
+ * carry the exact same non-empty Italian slug. Bind the proof to the exact
+ * before/after bytes and require the candidate to be an unchanged subset, so
+ * a degraded reader or an unrelated archive rewrite remains fail-closed.
  */
-export function isProvenExpiredGhostPrune(filePath, previousRaw, nextRaw, proof) {
+export function isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRaw, proof) {
   if (!EXPIRED_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  if (!proof || typeof proof !== 'object' || Array.isArray(proof)) return false;
   if (
-    !proof
-    || typeof proof !== 'object'
-    || Array.isArray(proof)
-    || proof.kind !== 'reconcile-ghost-expired'
-    || !Array.isArray(proof.activeJobs)
+    proof.schemaVersion !== 1
+    || proof.type !== 'ghost-expired-reconciliation'
+    || !pathMatchesProofTarget(filePath, proof.path)
+    || typeof proof.baseRaw !== 'string'
+    || typeof proof.candidateRaw !== 'string'
+    || proof.baseRaw !== previousRaw
+    || proof.candidateRaw !== nextRaw
+    || !Array.isArray(proof.entries)
   ) {
     return false;
   }
 
-  const previousEntries = parseJobs(previousRaw);
-  const nextEntries = parseJobs(nextRaw);
-  if (!previousEntries || !nextEntries || previousEntries.length <= nextEntries.length) return false;
-
-  const previousKeys = previousEntries.map(expiredArchiveIdentity);
-  const nextKeys = nextEntries.map(expiredArchiveIdentity);
-  if (
-    previousKeys.some((key) => !key)
-    || nextKeys.some((key) => !key)
-    || new Set(previousKeys).size !== previousKeys.length
-    || new Set(nextKeys).size !== nextKeys.length
-  ) {
+  let previousEntries;
+  let nextEntries;
+  try {
+    previousEntries = JSON.parse(previousRaw);
+    nextEntries = JSON.parse(nextRaw);
+  } catch {
+    return false;
+  }
+  if (!Array.isArray(previousEntries) || !Array.isArray(nextEntries) || previousEntries.length <= nextEntries.length) {
     return false;
   }
 
-  const previousKeySet = new Set(previousKeys);
-  const nextKeySet = new Set(nextKeys);
-  if ([...nextKeySet].some((key) => !previousKeySet.has(key))) return false;
+  const previousIds = uniqueGhostReconciliationEntryIdentities(previousEntries);
+  const nextIds = uniqueGhostReconciliationEntryIdentities(nextEntries);
+  if (!previousIds || !nextIds || [...nextIds].some((identity) => !previousIds.has(identity))) return false;
 
-  const removedEntries = previousEntries.filter(
-    (entry) => !nextKeySet.has(expiredArchiveIdentity(entry)),
-  );
+  const previousById = new Map(previousEntries.map((entry) => [ghostReconciliationEntryIdentity(entry), entry]));
+  if (nextEntries.some((entry) => JSON.stringify(entry) !== JSON.stringify(previousById.get(ghostReconciliationEntryIdentity(entry))))) {
+    return false;
+  }
+
+  const removedEntries = previousEntries.filter((entry) => !nextIds.has(ghostReconciliationEntryIdentity(entry)));
   if (removedEntries.length !== previousEntries.length - nextEntries.length) return false;
-  return removedEntries.every((entry) => isProvenExpiredGhostEntry(entry, proof.activeJobs));
+  if (proof.entries.length !== removedEntries.length) return false;
+
+  const removedById = new Map(removedEntries.map((entry) => [ghostReconciliationEntryIdentity(entry), entry]));
+  const provenIds = new Set();
+  for (const entry of proof.entries) {
+    const identity = ghostReconciliationEntryIdentity(entry?.expired);
+    if (!identity || provenIds.has(identity) || !removedById.has(identity)) return false;
+    if (!isValidGhostExpiredProofEntry(entry, removedById.get(identity))) return false;
+    provenIds.add(identity);
+  }
+  return provenIds.size === removedEntries.length;
+}
+
+/** Backwards-compatible name for the expired ghost proof introduced first. */
+export function isProvenExpiredGhostPrune(filePath, previousRaw, nextRaw, proof) {
+  return isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRaw, proof);
 }
 
 /**
@@ -1076,11 +1117,11 @@ export function assertCrawlerSliceWriteSafe(
   if (isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-housekeeping-prune' };
   }
+  if (isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRaw, housekeepingProof)) {
+    return { previousBytes, nextBytes, reason: 'proven-ghost-expired-reconciliation' };
+  }
   if (isProvenRetiredScratchArchiveDelete(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-retired-scratch-archive-delete' };
-  }
-  if (isProvenExpiredGhostPrune(filePath, previousRaw, nextRaw, housekeepingProof)) {
-    return { previousBytes, nextBytes, reason: 'proven-expired-ghost-prune' };
   }
   assertAccumulatorByteFloor(previousBytes, nextBytes, { label: filePath });
   return { previousBytes, nextBytes, reason: null };
