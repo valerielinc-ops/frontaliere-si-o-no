@@ -51,7 +51,45 @@ describe('traffic provider rotation at crossing level', () => {
 
     expect(result.source).toBe('openrouteservice');
     expect(result.waitTimeMinutes).toBe(0);
-    expect(fetchMock.mock.calls.filter(([url]) => String(url).includes('mapbox.com'))).toHaveLength(2);
+    expect(fetchMock.mock.calls.filter(([url]) => String(url).includes('mapbox.com'))).toHaveLength(1);
+  });
+
+  it('skips the approach after a traffic-aware failure falls back to GraphHopper', async () => {
+    const fetchMock = vi.fn(async (url: unknown) => {
+      const requestUrl = String(url);
+      if (requestUrl.includes('mapbox.com')) {
+        return { ok: false, status: 429, text: async () => 'rate limit' } as unknown as Response;
+      }
+      return {
+        ok: true,
+        json: async () => ({ paths: [{ time: 240_000 }] }),
+      } as unknown as Response;
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const disabled = new Set<string>();
+    const result = await fetchCrossingTraffic(
+      { name: 'Chiasso-Brogeda', lat: 45.8409, lng: 9.0376 },
+      {
+        mapboxAccessToken: 'mapbox-public',
+        graphhopperApiKey: 'graphhopper-key',
+        providerChain: buildTrafficProviderChain({
+          mapboxAccessToken: 'mapbox-public',
+          graphhopperApiKey: 'graphhopper-key',
+        }),
+        providerRuntime: {
+          disabled,
+          ensureProvider: async (providerId: string) => !disabled.has(providerId),
+          reserveRequest: async () => ({ allowed: true }),
+        },
+        enableWebcam: false,
+      },
+    );
+
+    expect(result.source).toBe('graphhopper');
+    expect(result.approachMinutes).toBe(0);
+    expect(fetchMock.mock.calls.filter(([url]) => String(url).includes('mapbox.com'))).toHaveLength(1);
+    expect(fetchMock.mock.calls.filter(([url]) => String(url).includes('graphhopper.com'))).toHaveLength(1);
   });
 
   it('keeps an explicit official queue as a lower bound over a clear route', async () => {

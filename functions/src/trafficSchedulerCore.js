@@ -436,15 +436,6 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  // Italian approach point: ≈500 m south of the crossing
  const approachLat = lat - 0.0045;
 
- const hasTrafficAwareProvider = providerChain?.length
-  ? providerChain.some((entry) => {
-   const providerId = providerIdFromEntry(entry);
-   return providerId
-    && !options.providerRuntime?.disabled?.has(providerId)
-    && TRAFFIC_PROVIDER_SPECS[providerId]?.trafficAware;
-  })
-  : TRAFFIC_PROVIDER_SPECS[provider]?.trafficAware ?? true;
-
  const segmentFetcher = providerChain?.length
   ? (originLat, originLng, destLat, destLng) => getSegmentWithProviderFallback(
    originLat,
@@ -462,17 +453,23 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
    options,
   ).then((value) => ({ ...value, provider }));
 
- const settledSegments = await Promise.allSettled(
-  hasTrafficAwareProvider
-   ? [
-    segmentFetcher(lat, lng, checkpointLat, lng),
-    segmentFetcher(approachLat, lng, lat, lng),
-   ]
-   : [segmentFetcher(lat, lng, checkpointLat, lng)],
- );
- const crossingResult = settledSegments[0];
- const approachResult = hasTrafficAwareProvider
-  ? settledSegments[1]
+ // Select the crossing provider before starting the approach request. If a
+ // traffic-aware provider fails and fallback selects a static router, a
+ // parallel approach request would spend a second static-provider route for
+ // the same crossing even though it cannot provide a traffic delay.
+ const [crossingResult] = await Promise.allSettled([
+  segmentFetcher(lat, lng, checkpointLat, lng),
+ ]);
+ const selectedCrossingProvider = crossingResult.status === 'fulfilled'
+  ? crossingResult.value.provider
+  : null;
+ const selectedProviderIsTrafficAware = crossingResult.status === 'fulfilled'
+  ? providerChain?.length
+   ? TRAFFIC_PROVIDER_SPECS[selectedCrossingProvider]?.trafficAware === true
+   : TRAFFIC_PROVIDER_SPECS[selectedCrossingProvider]?.trafficAware ?? true
+  : false;
+ const approachResult = selectedProviderIsTrafficAware
+  ? (await Promise.allSettled([segmentFetcher(approachLat, lng, lat, lng)]))[0]
   : { status: 'skipped' };
 
  let waitTimeMinutes = 0;
