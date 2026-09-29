@@ -107,6 +107,11 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(action).toContain('printf \'socket=%s\\n\' "$broker_socket" >> "$GITHUB_OUTPUT"');
     expect(action).toContain('--max-requests 512');
     expect(action).toContain('codex-luna-max-codex-cli.XXXXXX');
+    // Corsie parallele: il default e' 3, e un valore fuori da 1..6 torna a 3.
+    const document = YAML.parse(action) as { inputs?: Record<string, { default?: string }> };
+    expect(document.inputs?.broker_max_concurrency?.default).toBe('3');
+    expect(action).toContain('--max-concurrency "$broker_max_concurrency"');
+    expect(action).toMatch(/\[1-6\]\) ;;\n\s+\*\) broker_max_concurrency=3 ;;/);
     expect(action).not.toContain('CODEX_AUTH_BROKER_SOCKET=');
     expect(action).not.toContain('CODEX_AUTH_FILE=');
   });

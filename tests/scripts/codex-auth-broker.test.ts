@@ -972,6 +972,102 @@ function jsonLine(raw: string) {
   return JSON.parse(raw.replace(/^[\0\x01]+/, ''));
 }
 
+/**
+ * Un login ChatGPT finto con le sole date che il broker legge: `last_refresh`
+ * e l'`exp` dell'access token. La firma non conta, il broker non la verifica.
+ */
+function chatgptLogin({ lastRefreshAgoMs = 60_000, accessTtlMs = 10 * 24 * 60 * 60 * 1000 } = {}) {
+  const segment = (value: unknown) => Buffer.from(JSON.stringify(value)).toString('base64url');
+  const now = Date.now();
+  const accessToken = `${segment({ alg: 'none' })}.${segment({ exp: Math.floor((now + accessTtlMs) / 1000) })}.fixture`;
+  return JSON.stringify({
+    auth_mode: 'chatgpt',
+    OPENAI_API_KEY: null,
+    tokens: { id_token: 'fixture', access_token: accessToken, refresh_token: 'fixture-refresh', account_id: 'fixture' },
+    last_refresh: new Date(now - lastRefreshAgoMs).toISOString(),
+  });
+}
+
+function writeArgvCodex(root: string) {
+  const fake = path.join(root, 'argv-codex.mjs');
+  fs.writeFileSync(fake, `#!/usr/bin/env node
+    import fs from 'node:fs';
+    if (process.argv.includes('--version')) {
+      console.log('OpenAI Codex v0.153.4');
+      process.exit(0);
+    }
+    const argv = process.argv.slice(2);
+    const output = argv[argv.indexOf('--output-last-message') + 1];
+    const override = argv.find((arg) => arg.startsWith('model_instructions_file='));
+    const instructionsPath = override ? JSON.parse(override.slice('model_instructions_file='.length)) : '';
+    const instructions = instructionsPath ? fs.readFileSync(instructionsPath, 'utf8') : '';
+    process.stdin.resume();
+    process.stdin.on('end', () => fs.writeFileSync(output, JSON.stringify({ argv, instructions })));
+  `);
+  fs.chmodSync(fake, 0o700);
+  return fake;
+}
+
+describe('Codex auth broker request profiles', () => {
+  const children: ReturnType<typeof spawn>[] = [];
+  const roots: string[] = [];
+
+  afterEach(() => {
+    for (const child of children.splice(0)) if (child.exitCode === null) child.kill('SIGTERM');
+    for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
+  });
+
+  async function startArgvBroker() {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-profile-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeArgvCodex(prefix);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"profile-test"}');
+    await waitForSocket(socketPath, child);
+    return socketPath;
+  }
+
+  it('runs a function-profile request without the agent prompt and tools, same model and effort', async () => {
+    const socketPath = await startArgvBroker();
+    const response = await request(socketPath, { op: 'exec', prompt: 'translate', timeoutMs: 5000, schema: null, profile: 'function' });
+    expect(response).toMatchObject({ ok: true });
+    const { argv, instructions } = JSON.parse(String(response.result));
+    expect(argv).toEqual(expect.arrayContaining([
+      'model_reasoning_effort=max',
+      'include_permissions_instructions=false',
+      'include_environment_context=false',
+      'web_search="disabled"',
+    ]));
+    for (const feature of ['shell_tool', 'unified_exec', 'multi_agent', 'apps', 'plugins']) {
+      expect(argv[argv.indexOf(feature) - 1]).toBe('--disable');
+    }
+    expect(instructions).toMatch(/stateless text-processing function/);
+  });
+
+  it('keeps the agent prompt for a request without a profile', async () => {
+    const socketPath = await startArgvBroker();
+    const response = await request(socketPath, { op: 'exec', prompt: 'review', timeoutMs: 5000, schema: null });
+    const { argv, instructions } = JSON.parse(String(response.result));
+    expect(argv).toContain('model_reasoning_effort=max');
+    expect(argv.some((arg: string) => arg.startsWith('model_instructions_file='))).toBe(false);
+    expect(argv).not.toContain('--disable');
+    expect(instructions).toBe('');
+  });
+
+  it('rejects an unknown profile without running Codex', async () => {
+    const socketPath = await startArgvBroker();
+    const response = await request(socketPath, { op: 'exec', prompt: 'x', timeoutMs: 5000, schema: null, profile: 'root' });
+    expect(response).toEqual({ ok: false, error: 'invalid profile' });
+  });
+});
+
 function firstAt(chunks: Array<{ at: number; data: string }>, predicate: (data: string) => boolean) {
   return chunks.find((chunk) => predicate(chunk.data))?.at ?? Number.NaN;
 }
@@ -994,7 +1090,7 @@ describe('Codex auth broker queue and lifetime', () => {
     for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
   });
 
-  async function startBroker(extraArgs: string[]) {
+  async function startBroker(extraArgs: string[], credential = '{"access_token":"queue-test"}') {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
     fs.chmodSync(root, 0o700);
     roots.push(root);
@@ -1006,10 +1102,47 @@ describe('Codex auth broker queue and lifetime', () => {
       env: { PATH: process.env.PATH || '/usr/bin:/bin' },
     });
     children.push(child);
-    child.stdin.end('{"access_token":"queue-test"}');
+    child.stdin.end(credential);
     await waitForSocket(socketPath, child);
     return { child, socketPath };
   }
+
+  /** Inizio (segnale \x01) e fine (riga JSON) di una richiesta, in ms. */
+  function span(exchange: { chunks: Array<{ at: number; data: string }> }) {
+    return {
+      start: firstAt(exchange.chunks, (data) => data.includes('\x01')),
+      end: firstAt(exchange.chunks, (data) => data.includes('{')),
+    };
+  }
+
+  it('opens parallel lanes after the first request, while the login cannot refresh', async () => {
+    const { socketPath } = await startBroker(['--ttl-ms', '10000', '--max-concurrency', '3'], chatgptLogin());
+    const first = rawRequest(socketPath, { op: 'exec', prompt: 'sleep:300', timeoutMs: 5000, schema: null, notifyStart: true });
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const queued = [1, 2, 3].map(() => rawRequest(socketPath, { op: 'exec', prompt: 'sleep:700', timeoutMs: 5000, schema: null, notifyStart: true }));
+    const [a, ...rest] = await Promise.all([first, ...queued]);
+    for (const exchange of [a, ...rest]) expect(jsonLine(exchange.raw)).toMatchObject({ ok: true });
+
+    // La prima richiesta corre da sola: e' quella che rinnoverebbe un login vecchio.
+    const firstAnswered = span(a).end;
+    const spans = rest.map(span);
+    for (const s of spans) expect(s.start).toBeGreaterThanOrEqual(firstAnswered);
+    // Poi le tre in coda partono insieme: ognuna parte prima che una qualsiasi risponda.
+    expect(Math.max(...spans.map((s) => s.start))).toBeLessThan(Math.min(...spans.map((s) => s.end)));
+  });
+
+  it.each([
+    ['a login refreshed more than 7 days ago', { lastRefreshAgoMs: 8 * 24 * 60 * 60 * 1000 }],
+    ['an access token close to expiry', { accessTtlMs: 20 * 60 * 1000 }],
+    ['a login without dates', { raw: '{"access_token":"queue-test"}' }],
+  ])('keeps one request at a time with %s', async (_label, login) => {
+    const credential = 'raw' in login ? login.raw : chatgptLogin(login);
+    const { socketPath } = await startBroker(['--ttl-ms', '10000', '--max-concurrency', '3'], credential);
+    expect(jsonLine((await rawRequest(socketPath, { op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null })).raw)).toMatchObject({ ok: true });
+    const pair = await Promise.all([1, 2].map(() => rawRequest(socketPath, { op: 'exec', prompt: 'sleep:300', timeoutMs: 5000, schema: null, notifyStart: true })));
+    const [earlier, later] = pair.map(span).sort((x, y) => x.start - y.start);
+    expect(later.start).toBeGreaterThanOrEqual(earlier.end);
+  });
 
   // Il TTL partiva al listen() e non si rinnovava: a 30 minuti dall'avvio il
   // broker chiudeva anche una richiesta in corso (send-newsletter run
