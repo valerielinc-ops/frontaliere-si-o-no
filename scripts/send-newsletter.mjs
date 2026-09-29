@@ -334,21 +334,45 @@ export const SUBJECT_THEME_CHARS = 100;
 const stripTags = (html) => String(html || '').replace(/<[^>]+>/g, '');
 
 /**
+ * The fixed openings of the jobs paragraph ("Se cerchi qualcosa di concreto,
+ * questa settimana ci sono "), the same words in every email of a locale.
+ */
+function jobsIntroOpenings(locale) {
+  const i18n = JOB_FALLBACK_I18N[locale] || JOB_FALLBACK_I18N.it;
+  const mark = '\u0000';
+  return [i18n.introMulti(mark, mark), i18n.introSingle(mark)].map((s) => s.split(mark)[0]);
+}
+
+/**
+ * The Theme text of a cohort briefing: its first SUBJECT_THEME_CHARS
+ * characters without the jobs paragraph's fixed opening. With the opening,
+ * most of the Theme was those same words every week, and the model copied
+ * them into the subjects of both A/B arms ("💼 Suchst du etwas Konkretes in
+ * Bellinzona?" in the curioso arm).
+ */
+function subjectThemeText(html, locale) {
+  const text = stripTags(html);
+  const opening = jobsIntroOpenings(locale).find((o) => text.startsWith(o));
+  return (opening ? text.slice(opening.length) : text).slice(0, SUBJECT_THEME_CHARS);
+}
+
+/**
  * The Theme of a locale's subjects: the start of its largest cohort's
- * briefing. With `briefingMap` it is read from the finished Phase 2. With
- * `briefingFor(locale)` (a promise of the locale's AI text or null) Phase 3
- * runs next to Phase 2 and waits for that text only when the Theme depends on
- * it: injectJobAndCompanyLinks puts the cohort's jobs paragraph first when the
- * model does not name the jobs, which the briefing prompt forbids, and when
- * that paragraph alone covers the Theme the briefing cannot change it.
+ * briefing (subjectThemeText). With `briefingMap` it is read from the finished
+ * Phase 2. With `briefingFor(locale)` (a promise of the locale's AI text or
+ * null) Phase 3 runs next to Phase 2 and waits for that text only when the
+ * Theme depends on it: injectJobAndCompanyLinks puts the cohort's jobs
+ * paragraph first when the model does not name the jobs, which the briefing
+ * prompt forbids, and when that paragraph alone covers the Theme the briefing
+ * cannot change it.
  */
 async function localeSubjectTheme(rep, { briefingMap, briefingFor, exchangeRate }) {
   if (!rep) return '';
-  if (briefingMap) return stripTags(briefingMap.get(rep.key)).slice(0, SUBJECT_THEME_CHARS);
-  const jobsParagraph = stripTags(injectJobAndCompanyLinks('', rep.matchedJobs, rep.locale));
-  if (jobsParagraph.length >= SUBJECT_THEME_CHARS) return jobsParagraph.slice(0, SUBJECT_THEME_CHARS);
+  if (briefingMap) return subjectThemeText(briefingMap.get(rep.key), rep.locale);
+  const jobsTheme = subjectThemeText(injectJobAndCompanyLinks('', rep.matchedJobs, rep.locale), rep.locale);
+  if (jobsTheme.length >= SUBJECT_THEME_CHARS) return jobsTheme;
   const localeHtml = briefingFor ? await briefingFor(rep.locale) : null;
-  return stripTags(cohortBriefingHtml(localeHtml, rep, exchangeRate)).slice(0, SUBJECT_THEME_CHARS);
+  return subjectThemeText(cohortBriefingHtml(localeHtml, rep, exchangeRate), rep.locale);
 }
 
 /** Key of the subject for one (locale, A/B variant) pair. */
