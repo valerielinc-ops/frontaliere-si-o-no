@@ -673,6 +673,9 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
           JOBS_STALE_DAYS: '60',
           JOBS_EXPIRED_JOBS_PATH: expiredJobsPath,
           JOBS_PUBLIC_EXPIRED_JOBS_PATH: publicExpiredJobsPath,
+          GITHUB_SHA: 'test-housekeeping-sha',
+          GITHUB_RUN_ID: 'test-housekeeping-run',
+          GITHUB_RUN_ATTEMPT: '1',
         },
       });
 

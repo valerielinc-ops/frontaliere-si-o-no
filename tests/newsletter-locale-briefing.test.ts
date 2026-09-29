@@ -128,8 +128,9 @@ describe('buildLocaleBriefingPrompt', () => {
 });
 
 // Phases 2 and 3 run together: a subject waits for its locale's AI briefing
-// only when the Theme (first 100 characters of the largest cohort's briefing)
-// depends on it, and the Theme is the same one the sequential phases produced.
+// only when the Theme (first 100 characters of the largest cohort's briefing,
+// without the jobs paragraph's fixed opening) depends on it, and the Theme is
+// the same one the sequential phases produced.
 describe('composeLocaleSubjects next to Phase 2', () => {
   const job = (n: number, title: string) => ({ title, company: `Azienda${n}`, location: 'Lugano', url: `/lavoro/ruolo-${n}` });
   function cohortMap(entries: Array<[string, { locale: string; matchedJobs: any[] }]>) {

@@ -12266,6 +12266,20 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-sangiano-lavorare-ticino.title': 'Vivre à Sangiano et travailler au Tessin : guide budgétaire',
     'blog.article.vivere-sangiano-lavorare-ticino.excerpt': 'Le nouvel accord frontalier est en vigueur depuis le 1er janvier 2024. Découvrez comment distinguer les exonérations, les franchises et les retenues pour votre projet de vie.',
     'blog.article.vivere-sangiano-lavorare-ticino.imageAlt': 'Vue panoramique sur Lugano, destination pour de nombreux frontaliers.',
+    'blog.article.ticino-costi-mobilita-abitazione.title': 'Le Tessin en tête des hausses des coûts de la mobilité et du logement',
+    'blog.article.ticino-costi-mobilita-abitazione.excerpt': 'En août, les hausses de prix au Tessin atteignent 3%, tandis qu’au niveau national, les prix du logement et de la mobilité augmentent de 2,4% et que l’inflation générale s’établit à 0,8%, ce qui correspond à 1\'066 francs de plus par an pour une famille type.',
+    'blog.article.ticino-costi-mobilita-abitazione.imageAlt': 'Usager de la route près de Lugano avec maisons en arrière-plan, représentant les coûts de mobilité et de logement',
+    'blog.article.fials-vigilanza-ospedale-varese.title': 'FIALS : plus de surveillance nocturne à Varèse',
+    'blog.article.fials-vigilanza-ospedale-varese.excerpt': 'Le syndicat demande à l\'ASST Sept Lacs de revoir les accès et les quarts de travail : un seul garde aux urgences ne suffit pas.',
+    'blog.article.fials-vigilanza-ospedale-varese.imageAlt': 'Entrée d\'un hôpital gardée par un agent de sécurité la nuit',
+    'blog.article.corpo-lago-como-288-metri.title': 'Lac de Côme, corps retrouvé à 288 mètres',
+    'blog.article.corpo-lago-como-288-metri.excerpt': 'À San Siro, les plongeurs des sapeurs-pompiers ont trouvé à environ 288 mètres le corps de l\'homme de 38 ans porté disparu dans le lac de Como.',
+    'blog.article.corpo-lago-como-288-metri.imageAlt': 'Lac de Côme près de San Siro, corps retrouvé à environ 288 mètres (Como)',
+    'blog.article.bollettino-frontaliere-2026-09-29.title': 'Bulletin du frontalier – 29 septembre 2026 : franc à 1,0582 €',
+    'blog.article.bollettino-frontaliere-2026-09-29.excerpt': 'Les chiffres du jour, 29 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-29.imageAlt': 'Les chiffres du jour pour les frontaliers – 29 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-29.seoDescription': 'Bulletin du frontalier du 29 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-29.ogDescription': 'Les chiffres du 29 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;

@@ -36,6 +36,9 @@ const parser = createProspectiveChParser({
   defaultSourceLang: 'de',
   // Also trust the Prospective-hosted job pages served from jobs.pdag.ch
   extraTrustedHosts: ['jobs.pdag.ch', 'ohws.prospective.ch'],
+  // Listing payload = 32 % of the rendered vacancy (audit 2026-09-29):
+  // "Über den Bereich" and the rendered benefit list exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllPdagJobs = parser.fetchAllJobs;

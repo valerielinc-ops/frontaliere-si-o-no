@@ -1,15 +1,15 @@
 {
   "crawlerKey": "puk-zuerich",
-  "assembledAt": "2026-09-28T21:14:22.983Z",
+  "assembledAt": "2026-09-29T10:18:20.778Z",
   "jobs": [
     {
       "id": "puk-zuerich-fadca51159cb",
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
+        "en": "sub-assistants-psychiatrische-universitatsklinik-zurich",
         "de": "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
-        "fr": "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische"
+        "fr": "sous-assistants-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/163206/2117/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:07.473Z",
+      "crawledAt": "2026-09-29T10:18:05.925Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,7 +153,8 @@
         "infirmiere-certifiee-en-hf-fh-pour-le-service-e0-f0-psychiatrische-universitatsklinik-zurich-zurich",
         "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich"
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -175,12 +176,14 @@
           "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
           "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-puk-zuerich-zurich",
           "dipl-nursing-professional-dipl-nurse-hf-fh-for-station-e0-f0-psychiatrische-universitatsklinik-zurich-zurich",
           "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich",
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
           "sub-assistants-psychiatrische-universitatsklinik-zurich"
         ],
         "de": [
@@ -205,6 +208,7 @@
           "infirmiere-certifiee-en-hf-fh-pour-le-service-e0-f0-psychiatrische-universitatsklinik-zurich-zurich",
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
           "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich",
+          "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
           "sous-assistants-psychiatrische-universitatsklinik-zurich"
         ]
       },
@@ -221,7 +225,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-86d7321787ea",
@@ -255,7 +260,7 @@
       "url": "https://apply.refline.ch/163206/1987/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:07.059Z",
+      "crawledAt": "2026-09-29T10:18:05.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -278,11 +283,13 @@
       "pensum": "100%",
       "previousSlugs": [
         "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
-        "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich"
+        "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich",
+        "soccorritori-assistenti-pubblici-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+          "soccorritori-assistenti-pubblici-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich"
@@ -337,7 +344,7 @@
       "url": "https://apply.refline.ch/163206/2676/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:06.646Z",
+      "crawledAt": "2026-09-29T10:18:04.108Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -364,11 +371,13 @@
         "team-leader-team-leader-segreteria-medica-60-psychiatrische-universitatsklinik-zurich-zurich",
         "team-leader-team-leader-medical-secretariat-60-psychiatrische-universitatsklinik-zurich-zurich",
         "teamleiterin-teamleiter-medizinisches-sekretariat-60-puk-zuerich-zurich",
-        "chef-d-equipe-chef-d-equipe-secretariat-medical-60-psychiatrische-universitatsklinik-zurich-zurich"
+        "chef-d-equipe-chef-d-equipe-secretariat-medical-60-psychiatrische-universitatsklinik-zurich-zurich",
+        "leader-del-team-segretariati-medici-leader-del-team-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-teamleiter-medizinische-sekretariate-puk-zuerich-zurich"
+          "teamleiterin-teamleiter-medizinische-sekretariate-puk-zuerich-zurich",
+          "leader-del-team-segretariati-medici-leader-del-team-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "teamleiterin-teamleiter-medizinische-sekretariate-puk-zuerich-zurich",
@@ -391,7 +400,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-e559c253a502",
@@ -425,7 +435,7 @@
       "url": "https://apply.refline.ch/163206/2765/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:06.233Z",
+      "crawledAt": "2026-09-29T10:18:03.628Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -449,12 +459,14 @@
       "previousSlugs": [
         "tanz-und-bewegungstherapeutin-tanz-und-bewegungstherapeut-in-ausbildung-puk-zuerich-zurich",
         "tanz-e-bewegungstherapeutin-tanz-e-bewegungstherapeut-in-ausbildung-psychiatrische-universitatsklinik-zurich",
-        "tanz-und-bewegungstherapeutin-tanz-und-bewegungstherapeut-in-ausbildung-psychiatrische-universitatsklinik-zurich-zurich"
+        "tanz-und-bewegungstherapeutin-tanz-und-bewegungstherapeut-in-ausbildung-psychiatrische-universitatsklinik-zurich-zurich",
+        "danza-e-movimento-terapeuta-danza-e-movimento-terapeuta-in-formazione-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tanz-und-bewegungstherapeutin-tanz-und-bewegungstherapeut-in-ausbildung-puk-zuerich-zurich",
-          "tanz-e-bewegungstherapeutin-tanz-e-bewegungstherapeut-in-ausbildung-psychiatrische-universitatsklinik-zurich"
+          "tanz-e-bewegungstherapeutin-tanz-e-bewegungstherapeut-in-ausbildung-psychiatrische-universitatsklinik-zurich",
+          "danza-e-movimento-terapeuta-danza-e-movimento-terapeuta-in-formazione-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "tanz-und-bewegungstherapeutin-tanz-und-bewegungstherapeut-in-ausbildung-psychiatrische-universitatsklinik-zurich-zurich"
@@ -509,7 +521,7 @@
       "url": "https://apply.refline.ch/163206/2750/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:05.819Z",
+      "crawledAt": "2026-09-29T10:18:03.149Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -532,16 +544,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "de": [
-          "stellvertretende-stationsleitung-zentrum-fur-akutpsychiatrische-erkrankungen-80-100-puk"
+          "stellvertretende-stationsleitung-zentrum-fur-akutpsychiatrische-erkrankungen-80-100-puk",
+          "stellvertretende-stationsleitung-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich"
         ],
         "it": [
           "stellvertretende-stationsleitung-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
-          "stellvertretende-stationsleitung-zentrum-fur-akutpsychiatrische-erkrankungen-80-100-puk"
+          "stellvertretende-stationsleitung-zentrum-fur-akutpsychiatrische-erkrankungen-80-100-puk",
+          "stellvertretende-stationsleitung-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "previousSlugs": [
         "stellvertretende-stationsleitung-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
-        "stellvertretende-stationsleitung-zentrum-fur-akutpsychiatrische-erkrankungen-80-100-puk"
+        "stellvertretende-stationsleitung-zentrum-fur-akutpsychiatrische-erkrankungen-80-100-puk",
+        "stellvertretende-stationsleitung-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
       ],
       "firstSeenAt": "2026-08-13T21:48:18.352Z",
       "salaryMin": 124000,
@@ -556,7 +571,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-9029c3b88511",
@@ -575,7 +591,7 @@
         "it": "Station manager / Station manager Stazione di misura",
         "en": "Station manager / Station manager Measurement station",
         "de": "Stationsleiterin / Stationsleiter Massnahmestation",
-        "fr": "Gestionnaire de station / Gestionnaire de station Station de mesure"
+        "fr": "Stationsleiterin / Stationsleiter Massnahmestation"
       },
       "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Stationäre Forensische Therapie in Rheinau suchen wir per 01. Oktober 2026 oder nach Vereinbarung, eine/n\n\nStationsleiterin / Stationsleiter Massnahmestation\n\n80% - 100%\n\nIhre Aufgaben\n\n• Fachliche, personelle und organisatorische Führung der Station sowie Sicherstellung einer professionellen Pflege und Betreuung gemäss den definierten Fachstandards\n• Personalführung und -entwicklung des Pflegeteams, inkl. Personaleinsatzplanung und Rekrutierung\n• Sicherstellen einer optimalen interdisziplinären Zusammenarbeit im forensisch-psychiatrischen Behandlungssetting\n• Verantwortung für Konzept- und Organisationsentwicklung sowie aktive Mitarbeit in Projekten\n• Budgetverantwortung und Sicherstellung einer wirtschaftlichen Stationsführung\n• Förderung einer sicherheitsbewussten und deliktorientierten Behandlungskultur im geschlossenen Setting\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH sowie eine Weiterbildung in Führung, z.B. CAS Leadership, oder Bereitschaft, diese zu absolvieren\n• CAS in forensisch-psychiatrischer Pflege und Betreuung von Vorteil oder Bereitschaft, diesen zu absolvieren\n• Mehrjährige Berufs- und Führungserfahrung im forensischen oder akutpsychiatrischen Bereich\n• Fähigkeit, in einem geschlossenen Setting sicherheitsbewusst und lösungsorientiert zu arbeiten\n• Reflektiertes, ergebnis- und konsensorientiertes Denken und Handeln\n• Hohe Belastbarkeit, Flexibilität und ausgeprägte Kommunikationsfähigkeit\n• Innovation mitgestalten: Mitarbeit an zukunftsweisenden Forschungs- und Entwicklungsprojekten\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement",
       "descriptionByLocale": {
@@ -589,7 +605,7 @@
       "url": "https://apply.refline.ch/163206/2779/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:05.405Z",
+      "crawledAt": "2026-09-29T10:18:02.671Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -612,12 +628,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "stationsleiterin-stationsleiter-massnahmestation-puk-zuerich-rheinau",
-        "stationsleiterin-stationsleiter-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau"
+        "stationsleiterin-stationsleiter-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau",
+        "station-manager-station-manager-stazione-di-misura-psychiatrische-universitatsklinik-zurich-rheinau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stationsleiterin-stationsleiter-massnahmestation-puk-zuerich-rheinau",
-          "stationsleiterin-stationsleiter-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau"
+          "stationsleiterin-stationsleiter-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau",
+          "station-manager-station-manager-stazione-di-misura-psychiatrische-universitatsklinik-zurich-rheinau"
         ],
         "en": [
           "stationsleiterin-stationsleiter-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau"
@@ -639,7 +657,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-c2e9e6433b7e",
@@ -673,7 +692,7 @@
       "url": "https://apply.refline.ch/163206/2777/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:04.959Z",
+      "crawledAt": "2026-09-29T10:18:02.189Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -696,12 +715,14 @@
       "pensum": "70%",
       "previousSlugs": [
         "schulische-r-heilpadagogin-heilpadagoge-primar-oder-sekundarlehrperson-mit-erfahrung-im",
-        "schulische-r-heilpadagogin-heilpadagoge-primar-o-sekundarlehrperson-con-erfahrung-im-sonderschulbereich-psychiatrische-universitatsklinik-zurich"
+        "schulische-r-heilpadagogin-heilpadagoge-primar-o-sekundarlehrperson-con-erfahrung-im-sonderschulbereich-psychiatrische-universitatsklinik-zurich",
+        "insegnante-curativo-scolastico-insegnante-primario-o-secondario-con-esperienza-in-istruzione-speciale-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schulische-r-heilpadagogin-heilpadagoge-primar-oder-sekundarlehrperson-mit-erfahrung-im",
-          "schulische-r-heilpadagogin-heilpadagoge-primar-o-sekundarlehrperson-con-erfahrung-im-sonderschulbereich-psychiatrische-universitatsklinik-zurich"
+          "schulische-r-heilpadagogin-heilpadagoge-primar-o-sekundarlehrperson-con-erfahrung-im-sonderschulbereich-psychiatrische-universitatsklinik-zurich",
+          "insegnante-curativo-scolastico-insegnante-primario-o-secondario-con-esperienza-in-istruzione-speciale-psychiatrische"
         ],
         "en": [
           "schulische-r-heilpadagogin-heilpadagoge-primar-oder-sekundarlehrperson-mit-erfahrung-im"
@@ -756,7 +777,7 @@
       "url": "https://apply.refline.ch/163206/2060/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:03.708Z",
+      "crawledAt": "2026-09-29T10:18:01.706Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -782,14 +803,16 @@
         "psicologo-psicologo-pool-psychiatrische-universitatsklinik-zurich-zurich",
         "psychologue-psychologue-pool-psychiatrische-universitatsklinik-zurich-zurich",
         "psicologo-a-pool-psychiatrische-universitatsklinik-zurich-zurich",
-        "psychologist-pool-psychiatrische-universitatsklinik-zurich-zurich"
+        "psychologist-pool-psychiatrische-universitatsklinik-zurich-zurich",
+        "psicologa-psicologo-pool-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologin-psychologe-pool-puk-zuerich-zurich",
           "psicologo-psicologo-pool-psychiatrische-universitatsklinik-zurich-zurich",
           "psicologo-a-pool-psychiatrische-universitatsklinik-zurich-zurich",
-          "psychologist-pool-psychiatrische-universitatsklinik-zurich-zurich"
+          "psychologist-pool-psychiatrische-universitatsklinik-zurich-zurich",
+          "psicologa-psicologo-pool-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "psychologin-psychologe-pool-puk-zuerich-zurich"
@@ -812,7 +835,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-02efb009d38d",
@@ -845,7 +869,7 @@
       "url": "https://apply.refline.ch/163206/2785/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:03.294Z",
+      "crawledAt": "2026-09-29T10:18:01.228Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -867,11 +891,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "psychologin-psychologe-puk-zuerich-zurich"
+        "psychologin-psychologe-puk-zuerich-zurich",
+        "psicologo-psicologo-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologe-puk-zuerich-zurich"
+          "psychologin-psychologe-puk-zuerich-zurich",
+          "psicologo-psicologo-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "psychologin-psychologe-puk-zuerich-zurich"
@@ -893,7 +919,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-1cdbd812f727",
@@ -927,7 +954,7 @@
       "url": "https://apply.refline.ch/163206/2756/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:02.879Z",
+      "crawledAt": "2026-09-29T10:18:00.750Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -951,12 +978,14 @@
       "previousSlugs": [
         "praktikumsplatze-fur-angehende-psychologinnen-psychologen-puk-zuerich-zurich",
         "praktikumsplatze-per-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich",
-        "praktikumsplatze-fur-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich-zurich"
+        "praktikumsplatze-fur-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich-zurich",
+        "stage-per-potenziali-psicologi-psicologi-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikumsplatze-fur-angehende-psychologinnen-psychologen-puk-zuerich-zurich",
-          "praktikumsplatze-per-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich"
+          "praktikumsplatze-per-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich",
+          "stage-per-potenziali-psicologi-psicologi-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "praktikumsplatze-fur-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich-zurich"
@@ -1015,7 +1044,7 @@
       "url": "https://apply.refline.ch/163206/2560/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:02.466Z",
+      "crawledAt": "2026-09-29T10:18:00.268Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1123,7 +1152,7 @@
       "url": "https://apply.refline.ch/163206/2460/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:02.051Z",
+      "crawledAt": "2026-09-29T10:17:59.789Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1174,7 +1203,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-729e33a95406",
@@ -1208,7 +1238,7 @@
       "url": "https://apply.refline.ch/163206/2738/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:01.638Z",
+      "crawledAt": "2026-09-29T10:17:59.309Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1289,7 +1319,7 @@
       "url": "https://apply.refline.ch/163206/2769/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:01.223Z",
+      "crawledAt": "2026-09-29T10:17:58.824Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1312,12 +1342,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "oberpsychologin-oberpsychologe-puk-zuerich-uster",
-        "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster"
+        "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster",
+        "psicologo-senior-psicologo-senior-psychiatrische-universitatsklinik-zurich-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberpsychologin-oberpsychologe-puk-zuerich-uster",
-          "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster"
+          "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster",
+          "psicologo-senior-psicologo-senior-psychiatrische-universitatsklinik-zurich-uster"
         ],
         "en": [
           "oberpsychologin-oberpsychologe-psychiatrische-universitatsklinik-zurich-uster"
@@ -1339,7 +1371,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-b3cbd6afde6e",
@@ -1373,7 +1406,7 @@
       "url": "https://apply.refline.ch/163206/2783/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:00.809Z",
+      "crawledAt": "2026-09-29T10:17:58.345Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1397,12 +1430,14 @@
       "previousSlugs": [
         "oberarztin-oberarzt-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich-zurich",
         "oberarztin-oberarzt-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
-        "oberarztin-oberarzt-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
+        "oberarztin-oberarzt-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
+        "medico-senior-centro-per-le-malattie-della-dipendenza-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich-zurich",
-          "oberarztin-oberarzt-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich"
+          "oberarztin-oberarzt-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
+          "medico-senior-centro-per-le-malattie-della-dipendenza-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "oberarztin-oberarzt-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
@@ -1458,7 +1493,7 @@
       "url": "https://apply.refline.ch/163206/2741/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:00.394Z",
+      "crawledAt": "2026-09-29T10:17:57.866Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1480,11 +1515,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "oberarztin-oberarzt-puk-zuerich-uster"
+        "oberarztin-oberarzt-puk-zuerich-uster",
+        "medico-senior-medico-senior-psychiatrische-universitatsklinik-zurich-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-puk-zuerich-uster"
+          "oberarztin-oberarzt-puk-zuerich-uster",
+          "medico-senior-medico-senior-psychiatrische-universitatsklinik-zurich-uster"
         ],
         "en": [
           "oberarztin-oberarzt-puk-zuerich-uster"
@@ -1540,7 +1577,7 @@
       "url": "https://apply.refline.ch/163206/2720/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:59.979Z",
+      "crawledAt": "2026-09-29T10:17:57.387Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1563,12 +1600,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "oberarztin-oberarzt-puk-zuerich-zurich-4",
-        "oberarztin-oberarzt-puk-zuerich-zurich"
+        "oberarztin-oberarzt-puk-zuerich-zurich",
+        "medico-senior-medico-senior-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-puk-zuerich-zurich-4",
-          "oberarztin-oberarzt-puk-zuerich-zurich"
+          "oberarztin-oberarzt-puk-zuerich-zurich",
+          "medico-senior-medico-senior-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "oberarztin-oberarzt-puk-zuerich-zurich-4",
@@ -1626,7 +1665,7 @@
       "url": "https://apply.refline.ch/163206/2696/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:59.566Z",
+      "crawledAt": "2026-09-29T10:17:56.885Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1650,13 +1689,15 @@
       "previousSlugs": [
         "oberarztin-oberarzt-puk-zuerich-winterthur",
         "oberarztin-oberarzt-puk-zuerich-zurich",
-        "oberarztin-oberarzt-puk-zuerich-zurich-3"
+        "oberarztin-oberarzt-puk-zuerich-zurich-3",
+        "medico-senior-medico-senior-psychiatrische-universitatsklinik-zurich-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-puk-zuerich-winterthur",
           "oberarztin-oberarzt-puk-zuerich-zurich",
-          "oberarztin-oberarzt-puk-zuerich-zurich-3"
+          "oberarztin-oberarzt-puk-zuerich-zurich-3",
+          "medico-senior-medico-senior-psychiatrische-universitatsklinik-zurich-winterthur"
         ],
         "en": [
           "oberarztin-oberarzt-puk-zuerich-winterthur",
@@ -1717,7 +1758,7 @@
       "url": "https://apply.refline.ch/163206/2658/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:58.732Z",
+      "crawledAt": "2026-09-29T10:17:55.923Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1792,7 +1833,7 @@
       "url": "https://apply.refline.ch/163206/2712/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:57.485Z",
+      "crawledAt": "2026-09-29T10:17:53.613Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1815,12 +1856,14 @@
       "pensum": "20%",
       "previousSlugs": [
         "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-puk-zuerich-zurich",
-        "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+        "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
+        "dottore-notturno-medico-assistito-medico-assistente-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-puk-zuerich-zurich",
-          "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+          "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
+          "dottore-notturno-medico-assistito-medico-assistente-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
@@ -1842,7 +1885,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-5961399df7a8",
@@ -1876,7 +1920,7 @@
       "url": "https://apply.refline.ch/163206/2516/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:57.072Z",
+      "crawledAt": "2026-09-29T10:17:53.132Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1901,11 +1945,13 @@
         "mitarbeiterin-reinigung-mitarbeiter-reinigung-puk-zuerich-zurich",
         "addetta-alle-pulizie-addetto-alle-pulizie-psychiatrische-universitatsklinik-zurich-zurich",
         "cleaning-assistant-psychiatrische-universitatsklinik-zurich-zurich",
-        "assistante-de-nettoyage-psychiatrische-universitatsklinik-zurich-zurich"
+        "assistante-de-nettoyage-psychiatrische-universitatsklinik-zurich-zurich",
+        "mitarbeiterin-reinigung-collaboratore-trice-reinigung-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-reinigung-mitarbeiter-reinigung-puk-zuerich-zurich"
+          "mitarbeiterin-reinigung-mitarbeiter-reinigung-puk-zuerich-zurich",
+          "mitarbeiterin-reinigung-collaboratore-trice-reinigung-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:43.203Z",
@@ -1954,7 +2000,7 @@
       "url": "https://apply.refline.ch/163206/2664/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:56.645Z",
+      "crawledAt": "2026-09-29T10:17:52.653Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1977,11 +2023,13 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "mitarbeiterin-mitarbeiter-hauswirtschaft-mba-mit-besonderen-aufgaben-am-standort-rheinau"
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-mba-mit-besonderen-aufgaben-am-standort-rheinau",
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-am-standort-rheinau-grenze-zu-schaffhausen-puk"
         ],
         "it": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-am-standort-rheinau-grenze-zu-schaffhausen-puk",
-          "mitarbeiterin-mitarbeiter-hauswirtschaft-mba-mit-besonderen-aufgaben-am-standort-rheinau"
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-mba-mit-besonderen-aufgaben-am-standort-rheinau",
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-am-standort-rheinau-grenze-zu-schaffhausen-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "previousSlugs": [
@@ -1989,7 +2037,8 @@
         "addetto-a-alla-casa-rheinau-confine-con-schaffhausen-psychiatrische-universitatsklinik-zurich-zurich",
         "housekeeping-assistant-rheinau-border-with-schaffhausen-psychiatrische-universitatsklinik-zurich-zurich",
         "assistante-en-maison-rheinau-frontiere-avec-schaffhouse-psychiatrische-universitatsklinik-zurich-zurich",
-        "mitarbeiterin-mitarbeiter-hauswirtschaft-mba-mit-besonderen-aufgaben-am-standort-rheinau"
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-mba-mit-besonderen-aufgaben-am-standort-rheinau",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-am-standort-rheinau-grenze-zu-schaffhausen-psychiatrische-universitatsklinik-zurich"
       ],
       "firstSeenAt": "2026-06-10T12:44:42.729Z",
       "salaryMin": 91500,
@@ -2004,7 +2053,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-5de06b84251e",
@@ -2038,7 +2088,7 @@
       "url": "https://apply.refline.ch/163206/2681/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:56.231Z",
+      "crawledAt": "2026-09-29T10:17:52.174Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2063,11 +2113,13 @@
         "mitarbeiterin-mitarbeiter-hauswirtschaft-spezialreinigung-puk-zuerich-zurich",
         "addetto-a-alle-pulizie-speciali-lavoro-domestico-psychiatrische-universitatsklinik-zurich-zurich",
         "housekeeping-specialist-special-cleaning-psychiatrische-universitatsklinik-zurich-zurich",
-        "specialiste-de-la-maison-nettoyage-special-psychiatrische-universitatsklinik-zurich-zurich"
+        "specialiste-de-la-maison-nettoyage-special-psychiatrische-universitatsklinik-zurich-zurich",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-spezialreinigung-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-hauswirtschaft-spezialreinigung-puk-zuerich-zurich"
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-spezialreinigung-puk-zuerich-zurich",
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-spezialreinigung-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:42.252Z",
@@ -2117,7 +2169,7 @@
       "url": "https://apply.refline.ch/163206/2753/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:55.817Z",
+      "crawledAt": "2026-09-29T10:17:51.696Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2141,12 +2193,14 @@
       "previousSlugs": [
         "leiterin-leiter-ict-business-services-puk-zuerich-zurich",
         "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich",
-        "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich-zurich"
+        "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich-zurich",
+        "responsabile-responsabile-dei-servizi-aziendali-ict-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiterin-leiter-ict-business-services-puk-zuerich-zurich",
-          "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich"
+          "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich",
+          "responsabile-responsabile-dei-servizi-aziendali-ict-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "leiterin-leiter-ict-business-services-puk-zuerich-zurich"
@@ -2205,7 +2259,7 @@
       "url": "https://apply.refline.ch/163206/2743/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:55.403Z",
+      "crawledAt": "2026-09-29T10:17:51.217Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2227,11 +2281,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehrstelle-fachfrau-gesundheit-fachmann-gesundheit-efz-standort-zurich-puk-zuerich-zurich"
+        "lehrstelle-fachfrau-gesundheit-fachmann-gesundheit-efz-standort-zurich-puk-zuerich-zurich",
+        "apprendistato-fachfrau-gesundheit-fachmann-gesundheit-cfc-standort-zurich-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-gesundheit-fachmann-gesundheit-efz-standort-zurich-puk-zuerich-zurich"
+          "lehrstelle-fachfrau-gesundheit-fachmann-gesundheit-efz-standort-zurich-puk-zuerich-zurich",
+          "apprendistato-fachfrau-gesundheit-fachmann-gesundheit-cfc-standort-zurich-psychiatrische-universitatsklinik-zurich"
         ],
         "en": [
           "lehrstelle-fachfrau-gesundheit-fachmann-gesundheit-efz-standort-zurich-puk-zuerich-zurich"
@@ -2286,7 +2342,7 @@
       "url": "https://apply.refline.ch/163206/2742/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:54.962Z",
+      "crawledAt": "2026-09-29T10:17:50.740Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2308,11 +2364,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehrstelle-fachfrau-gesundheit-fachmann-gesundheit-efz-standort-rheinau-puk-zuerich"
+        "lehrstelle-fachfrau-gesundheit-fachmann-gesundheit-efz-standort-rheinau-puk-zuerich",
+        "apprendistato-fachfrau-gesundheit-fachmann-gesundheit-cfc-standort-rheinau-psychiatrische-universitatsklinik-zurich-rheinau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-gesundheit-fachmann-gesundheit-efz-standort-rheinau-puk-zuerich"
+          "lehrstelle-fachfrau-gesundheit-fachmann-gesundheit-efz-standort-rheinau-puk-zuerich",
+          "apprendistato-fachfrau-gesundheit-fachmann-gesundheit-cfc-standort-rheinau-psychiatrische-universitatsklinik-zurich-rheinau"
         ],
         "en": [
           "lehrstelle-fachfrau-gesundheit-fachmann-gesundheit-efz-standort-rheinau-puk-zuerich"
@@ -2334,7 +2392,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-ccfd1996da36",
@@ -2368,7 +2427,7 @@
       "url": "https://apply.refline.ch/163206/2745/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:53.762Z",
+      "crawledAt": "2026-09-29T10:17:50.258Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2390,11 +2449,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehrstelle-als-praktikerin-praktiker-hotellerie-hauswirtschaft-eba-puk-zuerich-zurich"
+        "lehrstelle-als-praktikerin-praktiker-hotellerie-hauswirtschaft-eba-puk-zuerich-zurich",
+        "apprendistato-come-praktikerin-praktiker-hotellerie-hauswirtschaft-afp-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-praktikerin-praktiker-hotellerie-hauswirtschaft-eba-puk-zuerich-zurich"
+          "lehrstelle-als-praktikerin-praktiker-hotellerie-hauswirtschaft-eba-puk-zuerich-zurich",
+          "apprendistato-come-praktikerin-praktiker-hotellerie-hauswirtschaft-afp-psychiatrische-universitatsklinik-zurich"
         ],
         "en": [
           "lehrstelle-als-praktikerin-praktiker-hotellerie-hauswirtschaft-eba-puk-zuerich-zurich"
@@ -2450,7 +2511,7 @@
       "url": "https://apply.refline.ch/163206/2695/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:53.348Z",
+      "crawledAt": "2026-09-29T10:17:49.779Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2473,11 +2534,13 @@
       "pensum": "100%",
       "previousSlugs": [
         "lehrstelle-als-kuchenangestellte-r-eba-puk-zuerich-zurich",
-        "lehrstelle-als-kuchenangestellte-r-eba-psychiatrische-universitatsklinik-zurich-zurich"
+        "lehrstelle-als-kuchenangestellte-r-eba-psychiatrische-universitatsklinik-zurich-zurich",
+        "apprendistato-come-kuchenangestellte-r-afp-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kuchenangestellte-r-eba-puk-zuerich-zurich"
+          "lehrstelle-als-kuchenangestellte-r-eba-puk-zuerich-zurich",
+          "apprendistato-come-kuchenangestellte-r-afp-psychiatrische-universitatsklinik-zurich"
         ],
         "en": [
           "lehrstelle-als-kuchenangestellte-r-eba-psychiatrische-universitatsklinik-zurich-zurich"
@@ -2532,7 +2595,7 @@
       "url": "https://apply.refline.ch/163206/2694/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:52.929Z",
+      "crawledAt": "2026-09-29T10:17:49.287Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2558,7 +2621,8 @@
         "cuocere-cucinare-psychiatrische-universitatsklinik-zurich-zurich",
         "cook-cook-psychiatrische-universitatsklinik-zurich-zurich",
         "kochin-koch-puk-zuerich-zurich",
-        "cuisiniere-psychiatrische-universitatsklinik-zurich-zurich"
+        "cuisiniere-psychiatrische-universitatsklinik-zurich-zurich",
+        "apprendistato-come-kochin-koch-cfc-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2566,7 +2630,8 @@
           "cuocere-cucinare-psychiatrische-universitatsklinik-zurich-zurich",
           "cook-cook-psychiatrische-universitatsklinik-zurich-zurich",
           "kochin-koch-puk-zuerich-zurich",
-          "cuisiniere-psychiatrische-universitatsklinik-zurich-zurich"
+          "cuisiniere-psychiatrische-universitatsklinik-zurich-zurich",
+          "apprendistato-come-kochin-koch-cfc-psychiatrische-universitatsklinik-zurich"
         ],
         "en": [
           "lehrstelle-als-kochin-koch-efz-puk-zuerich-zurich",
@@ -2593,7 +2658,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-cebbd7d46d3d",
@@ -2626,7 +2692,7 @@
       "url": "https://apply.refline.ch/163206/2744/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:52.517Z",
+      "crawledAt": "2026-09-29T10:17:48.804Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2648,11 +2714,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-puk-zuerich-zurich"
+        "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-puk-zuerich-zurich",
+        "apprendistato-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-puk-zuerich-zurich"
+          "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-puk-zuerich-zurich",
+          "apprendistato-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-psychiatrische-universitatsklinik-zurich"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-puk-zuerich-zurich"
@@ -2674,7 +2742,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-6990439b791d",
@@ -2708,7 +2777,7 @@
       "url": "https://apply.refline.ch/163206/2780/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:52.106Z",
+      "crawledAt": "2026-09-29T10:17:48.326Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2731,12 +2800,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "klinische-psychologin-klinischen-psychologen-zentrum-fur-akute-psychische-erkrankungen-puk",
-        "klinische-psychologin-klinischen-psychologen-zentrum-per-akute-psychische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+        "klinische-psychologin-klinischen-psychologen-zentrum-per-akute-psychische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+        "psicologo-clinico-centro-di-malattia-mentale-acute-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "klinische-psychologin-klinischen-psychologen-zentrum-fur-akute-psychische-erkrankungen-puk",
-          "klinische-psychologin-klinischen-psychologen-zentrum-per-akute-psychische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+          "klinische-psychologin-klinischen-psychologen-zentrum-per-akute-psychische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+          "psicologo-clinico-centro-di-malattia-mentale-acute-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "klinische-psychologin-klinischen-psychologen-zentrum-fur-akute-psychische-erkrankungen-puk"
@@ -2792,7 +2863,7 @@
       "url": "https://apply.refline.ch/163206/2767/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:51.692Z",
+      "crawledAt": "2026-09-29T10:17:47.844Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2815,12 +2886,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "klinikmanagerin-klinikmanager-puk-zuerich-zurich",
-        "klinikmanagerin-klinikmanager-psychiatrische-universitatsklinik-zurich-zurich"
+        "klinikmanagerin-klinikmanager-psychiatrische-universitatsklinik-zurich-zurich",
+        "responsabile-clinica-responsabile-clinica-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "klinikmanagerin-klinikmanager-puk-zuerich-zurich",
-          "klinikmanagerin-klinikmanager-psychiatrische-universitatsklinik-zurich-zurich"
+          "klinikmanagerin-klinikmanager-psychiatrische-universitatsklinik-zurich-zurich",
+          "responsabile-clinica-responsabile-clinica-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "klinikmanagerin-klinikmanager-psychiatrische-universitatsklinik-zurich-zurich"
@@ -2876,7 +2949,7 @@
       "url": "https://apply.refline.ch/163206/2731/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:51.274Z",
+      "crawledAt": "2026-09-29T10:17:47.365Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2898,11 +2971,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ict-application-manager-business-analyst-senior-puk-zuerich-zurich"
+        "ict-application-manager-business-analyst-senior-puk-zuerich-zurich",
+        "ict-application-manager-business-analista-senior-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-application-manager-business-analyst-senior-puk-zuerich-zurich"
+          "ict-application-manager-business-analyst-senior-puk-zuerich-zurich",
+          "ict-application-manager-business-analista-senior-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "fr": [
           "ict-application-manager-business-analyst-senior-puk-zuerich-zurich"
@@ -2954,7 +3029,7 @@
       "url": "https://apply.refline.ch/163206/2772/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:50.855Z",
+      "crawledAt": "2026-09-29T10:17:46.887Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2980,7 +3055,8 @@
         "risorse-umane-beraterin-risorse-umane-berater-psychiatrische-universitatsklinik-zurich-zurich",
         "hr-consultant-hr-consultant-psychiatrische-universitatsklinik-zurich-zurich",
         "hr-beraterin-hr-berater-puk-zuerich-zurich",
-        "ressources-humaines-beraterin-ressources-humaines-berater-psychiatrische-universitatsklinik-zurich-zurich"
+        "ressources-humaines-beraterin-ressources-humaines-berater-psychiatrische-universitatsklinik-zurich-zurich",
+        "risorse-umane-assistentin-risorse-umane-assistent-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2988,7 +3064,8 @@
           "risorse-umane-beraterin-risorse-umane-berater-psychiatrische-universitatsklinik-zurich-zurich",
           "hr-consultant-hr-consultant-psychiatrische-universitatsklinik-zurich-zurich",
           "hr-beraterin-hr-berater-puk-zuerich-zurich",
-          "ressources-humaines-beraterin-ressources-humaines-berater-psychiatrische-universitatsklinik-zurich-zurich"
+          "ressources-humaines-beraterin-ressources-humaines-berater-psychiatrische-universitatsklinik-zurich-zurich",
+          "risorse-umane-assistentin-risorse-umane-assistent-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "hr-assistentin-hr-assistent-puk-zuerich-zurich",
@@ -3015,7 +3092,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-e716088c0e8e",
@@ -3049,7 +3127,7 @@
       "url": "https://apply.refline.ch/163206/2786/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:50.442Z",
+      "crawledAt": "2026-09-29T10:17:46.407Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3071,11 +3149,13 @@
       "pensumMax": 40,
       "pensum": "40%",
       "previousSlugs": [
-        "fachverantwortung-infektionspravention-und-spitalhygiene-puk-zuerich-zurich"
+        "fachverantwortung-infektionspravention-und-spitalhygiene-puk-zuerich-zurich",
+        "fachverantwortung-infektionspravention-e-spitalhygiene-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortung-infektionspravention-und-spitalhygiene-puk-zuerich-zurich"
+          "fachverantwortung-infektionspravention-und-spitalhygiene-puk-zuerich-zurich",
+          "fachverantwortung-infektionspravention-e-spitalhygiene-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "firstSeenAt": "2026-09-25T14:42:53.943Z",
@@ -3125,7 +3205,7 @@
       "url": "https://apply.refline.ch/163206/2519/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:50.027Z",
+      "crawledAt": "2026-09-29T10:17:45.928Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3148,11 +3228,13 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "de": [
-          "fachpsychologin-fachpsychologen-fur-neuropsychologie-puk-zuerich-rheinau"
+          "fachpsychologin-fachpsychologen-fur-neuropsychologie-puk-zuerich-rheinau",
+          "fachpsychologin-fachpsychologen-fur-neuropsychologie-puk-zuerich-zurich"
         ],
         "it": [
           "fachpsychologin-fachpsychologen-fur-neuropsychologie-puk-zuerich-zurich",
-          "fachpsychologin-fachpsychologen-fur-neuropsychologie-puk-zuerich-rheinau"
+          "fachpsychologin-fachpsychologen-fur-neuropsychologie-puk-zuerich-rheinau",
+          "fachpsychologin-fachpsychologen-per-neuropsychologie-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "previousSlugs": [
@@ -3160,7 +3242,8 @@
         "psicologa-specializzata-psicologo-specializzato-in-neuropsicologia-psychiatrische-universitatsklinik-zurich-zurich",
         "specialist-psychologist-in-neuropsychology-psychiatrische-universitatsklinik-zurich-zurich",
         "psychologue-specialise-en-neuropsychologie-psychiatrische-universitatsklinik-zurich-zurich",
-        "fachpsychologin-fachpsychologen-fur-neuropsychologie-puk-zuerich-rheinau"
+        "fachpsychologin-fachpsychologen-fur-neuropsychologie-puk-zuerich-rheinau",
+        "fachpsychologin-fachpsychologen-per-neuropsychologie-psychiatrische-universitatsklinik-zurich"
       ],
       "firstSeenAt": "2026-06-10T12:44:38.447Z",
       "salaryMin": 79000,
@@ -3209,7 +3292,7 @@
       "url": "https://apply.refline.ch/163206/2746/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:49.592Z",
+      "crawledAt": "2026-09-29T10:17:45.444Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3231,11 +3314,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "fachfrau-gesundheit-fachmann-gesundheit-akutstation-jugendliche-puk-zuerich-zurich"
+        "fachfrau-gesundheit-fachmann-gesundheit-akutstation-jugendliche-puk-zuerich-zurich",
+        "salute-specialistica-salute-specialistica-adolescenti-acuti-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-gesundheit-fachmann-gesundheit-akutstation-jugendliche-puk-zuerich-zurich"
+          "fachfrau-gesundheit-fachmann-gesundheit-akutstation-jugendliche-puk-zuerich-zurich",
+          "salute-specialistica-salute-specialistica-adolescenti-acuti-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "fachfrau-gesundheit-fachmann-gesundheit-akutstation-jugendliche-puk-zuerich-zurich"
@@ -3290,7 +3375,7 @@
       "url": "https://apply.refline.ch/163206/2754/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:49.179Z",
+      "crawledAt": "2026-09-29T10:17:43.635Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3314,12 +3399,14 @@
       "previousSlugs": [
         "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich",
         "fachfrau-apotheke-fachmann-apotheke-o-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich",
-        "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich"
+        "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich",
+        "specialista-farmaceutico-assistente-farmaceutico-assistente-farmaceutico-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich",
-          "fachfrau-apotheke-fachmann-apotheke-o-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich"
+          "fachfrau-apotheke-fachmann-apotheke-o-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich",
+          "specialista-farmaceutico-assistente-farmaceutico-assistente-farmaceutico-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich"
@@ -3344,7 +3431,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-26eca168eea5",
@@ -3378,7 +3466,7 @@
       "url": "https://apply.refline.ch/163206/2728/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:48.766Z",
+      "crawledAt": "2026-09-29T10:17:43.155Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3402,12 +3490,14 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
         "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
-        "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
+        "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
+        "salute-specialistica-centro-per-le-malattie-psichiatrici-acute-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
-          "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+          "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+          "salute-specialistica-centro-per-le-malattie-psichiatrici-acute-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
@@ -3466,7 +3556,7 @@
       "url": "https://apply.refline.ch/163206/2627/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:48.347Z",
+      "crawledAt": "2026-09-29T10:17:42.676Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3489,12 +3579,14 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "de": [
-          "fachexpertin-fachexperte-dipl-pflegefachfrau-pflegefachmann-fh-zentrum-fur"
+          "fachexpertin-fachexperte-dipl-pflegefachfrau-pflegefachmann-fh-zentrum-fur",
+          "fachexpertin-fachexperte-fh-f1-e2-puk-zuerich-zurich"
         ],
         "it": [
           "fachexpertin-fachexperte-fh-f1-e2-puk-zuerich-zurich",
           "esperta-di-settore-esperto-di-settore-fh-f1-e2-psychiatrische-universitatsklinik-zurich-zurich",
-          "fachexpertin-fachexperte-dipl-pflegefachfrau-pflegefachmann-fh-zentrum-fur"
+          "fachexpertin-fachexperte-dipl-pflegefachfrau-pflegefachmann-fh-zentrum-fur",
+          "esperto-esperto-fh-f1-e2-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "fachexpertin-fachexperte-fh-f1-e2-puk-zuerich-zurich"
@@ -3506,7 +3598,8 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-fh-f1-e2-puk-zuerich-zurich",
         "esperta-di-settore-esperto-di-settore-fh-f1-e2-psychiatrische-universitatsklinik-zurich-zurich",
-        "fachexpertin-fachexperte-dipl-pflegefachfrau-pflegefachmann-fh-zentrum-fur"
+        "fachexpertin-fachexperte-dipl-pflegefachfrau-pflegefachmann-fh-zentrum-fur",
+        "esperto-esperto-fh-f1-e2-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "firstSeenAt": "2026-06-10T12:44:34.631Z",
       "salaryMin": 91500,
@@ -3555,7 +3648,7 @@
       "url": "https://apply.refline.ch/163206/2581/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:47.932Z",
+      "crawledAt": "2026-09-29T10:17:42.191Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3578,11 +3671,13 @@
       "pensum": "70%",
       "previousSlugsByLocale": {
         "de": [
-          "fachexpertin-fachexperte-puk-zuerich-rheinau"
+          "fachexpertin-fachexperte-puk-zuerich-rheinau",
+          "fachexpertin-fachexperte-puk-zuerich-zurich"
         ],
         "it": [
           "fachexpertin-fachexperte-puk-zuerich-zurich",
-          "fachexpertin-fachexperte-puk-zuerich-rheinau"
+          "fachexpertin-fachexperte-puk-zuerich-rheinau",
+          "esperto-esperto-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "fachexpertin-fachexperte-puk-zuerich-zurich"
@@ -3593,7 +3688,8 @@
       },
       "previousSlugs": [
         "fachexpertin-fachexperte-puk-zuerich-zurich",
-        "fachexpertin-fachexperte-puk-zuerich-rheinau"
+        "fachexpertin-fachexperte-puk-zuerich-rheinau",
+        "esperto-esperto-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "firstSeenAt": "2026-06-10T12:44:34.155Z",
       "salaryMin": 91500,
@@ -3642,7 +3738,7 @@
       "url": "https://apply.refline.ch/163206/2715/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:47.489Z",
+      "crawledAt": "2026-09-29T10:17:41.712Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3707,7 +3803,7 @@
       "title": "Ergotherapeutin / Ergotherapeuten MSc in der Funktion als Advanced Practitioner in Occupational Therapy",
       "titleByLocale": {
         "it": "Terapista Occupazionale MSc in funzione di Praticante Avanzato in Terapia Occupazionale",
-        "en": "Occupational Therapist MSc in function as Advanced Practitioner in Occupational Therapy",
+        "en": "Ergotherapeutin / Ergotherapeuten MSc in der Funktion als Advanced Practitioner in Occupational Therapy",
         "de": "Ergotherapeutin / Ergotherapeuten MSc in der Funktion als Advanced Practitioner in Occupational Therapy",
         "fr": "MSc en ergothérapeute en fonction de praticien avancé en ergothérapie"
       },
@@ -3723,7 +3819,7 @@
       "url": "https://apply.refline.ch/163206/2710/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:47.073Z",
+      "crawledAt": "2026-09-29T10:17:41.233Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3771,7 +3867,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-dd6bf6468a5b",
@@ -3805,7 +3902,7 @@
       "url": "https://apply.refline.ch/163206/2760/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:46.658Z",
+      "crawledAt": "2026-09-29T10:17:40.753Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3828,12 +3925,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-puk-zuerich-zurich",
-        "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich"
+        "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich",
+        "terapeuta-professionale-terapeuta-professionale-fh-nel-campo-della-riabilitazione-del-lavoro-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-puk-zuerich-zurich",
-          "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich"
+          "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich",
+          "terapeuta-professionale-terapeuta-professionale-fh-nel-campo-della-riabilitazione-del-lavoro-psychiatrische"
         ],
         "en": [
           "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich"
@@ -3862,7 +3961,7 @@
       "slug": "terapista-professionale-terapista-professionale-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "it": "terapista-professionale-terapista-professionale-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "occupational-therapist-occupational-therapist-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich",
         "de": "ergotherapeutin-ergotherapeuten-fh-60-80-puk-zuerich-zurich",
         "fr": "ergotherapie-ergotherapeute-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
       },
@@ -3872,7 +3971,7 @@
       "title": "Ergotherapeutin / Ergotherapeuten FH 60 - 80%",
       "titleByLocale": {
         "it": "Terapista professionale / terapista professionale FH 60 - 80 %",
-        "en": "Occupational therapist / occupational therapist FH 60 - 80 %",
+        "en": "Ergotherapeutin / Ergotherapeuten FH 60 - 80%",
         "de": "Ergotherapeutin / Ergotherapeuten FH 60 - 80%",
         "fr": "Ergothérapie/ergothérapeute FH 60 - 80 %"
       },
@@ -3888,7 +3987,7 @@
       "url": "https://apply.refline.ch/163206/2759/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:46.241Z",
+      "crawledAt": "2026-09-29T10:17:40.276Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3913,16 +4012,20 @@
         "ergotherapeutin-ergotherapeuten-fh-60-80-puk-zuerich-zurich",
         "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
         "ergotherapeute-ergotherapeute-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
+        "occupational-therapist-occupational-therapist-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
+        "terapista-professionale-terapista-professionale-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
         "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeuten-fh-60-80-puk-zuerich-zurich",
           "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-          "ergotherapeute-ergotherapeute-hf-fh-psychiatrische-universitatsklinik-zurich-zurich"
+          "ergotherapeute-ergotherapeute-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
+          "terapista-professionale-terapista-professionale-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
+          "occupational-therapist-occupational-therapist-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
           "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich"
         ],
         "fr": [
@@ -3942,7 +4045,8 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-7b6c5b8697d3",
@@ -3976,7 +4080,7 @@
       "url": "https://apply.refline.ch/163206/1832/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:45.827Z",
+      "crawledAt": "2026-09-29T10:17:39.798Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4006,11 +4110,13 @@
         "dipl-sozialpadagogin-sozialpadagoge-o-dipl-pflegefachfrau-pflegefachmann-tagesklinik-per-kinder-mannedorf-psychiatrische-universitatsklinik-zurich",
         "dipl-social-pedagogue-social-pedagogue-or-dipl-nursing-specialist-nursing-specialist-day-clinic-for-children-mannedorf",
         "dipl-sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-tagesklinik",
-        "dipl-pedagogue-social-pedagogue-social-ou-dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers"
+        "dipl-pedagogue-social-pedagogue-social-ou-dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers",
+        "dipl-infermieristica-professionista-insegnante-sociale-dipl-infermieristica-professionale-insegnante-sociale-70-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-sozialpadagogin-dipl-pflegefachmann-sozialpadagoge-70-100-bereich"
+          "dipl-pflegefachfrau-sozialpadagogin-dipl-pflegefachmann-sozialpadagoge-70-100-bereich",
+          "dipl-infermieristica-professionista-insegnante-sociale-dipl-infermieristica-professionale-insegnante-sociale-70-100"
         ],
         "en": [
           "dipl-pflegefachfrau-sozialpadagogin-dipl-pflegefachmann-sozialpadagoge-70-100-bereich",
@@ -4067,7 +4173,7 @@
       "url": "https://apply.refline.ch/163206/2762/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:45.406Z",
+      "crawledAt": "2026-09-29T10:17:39.318Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4090,12 +4196,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und",
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau"
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau",
+        "dipl-specialista-infermieristico-centro-di-depressione-ansia-e-psicoterapia-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und",
-          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau"
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau",
+          "dipl-specialista-infermieristico-centro-di-depressione-ansia-e-psicoterapia-psychiatrische-universitatsklinik-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
@@ -4151,7 +4259,7 @@
       "url": "https://apply.refline.ch/163206/2279/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:44.963Z",
+      "crawledAt": "2026-09-29T10:17:38.840Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4176,13 +4284,15 @@
         "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
         "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psyc-1535fm",
         "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+        "dipl-specialista-infermieristico-centro-per-malattie-psichiatriche-acute-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
           "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psyc-1535fm",
-          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+          "dipl-specialista-infermieristico-centro-per-malattie-psichiatriche-acute-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
@@ -4241,7 +4351,7 @@
       "url": "https://apply.refline.ch/163206/2763/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:43.766Z",
+      "crawledAt": "2026-09-29T10:17:38.362Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4265,12 +4375,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich",
         "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau"
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau",
+        "dipl-specialista-infermieristico-centro-per-le-malattie-di-dipendenza-psychiatrische-universitatsklinik-zurich-rheinau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich",
-          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau"
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau",
+          "dipl-specialista-infermieristico-centro-per-le-malattie-di-dipendenza-psychiatrische-universitatsklinik-zurich-rheinau"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich"
@@ -4311,7 +4423,7 @@
       "companyDomain": "pukzh.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrale Triage",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale, Triage centrale",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrale Triage",
         "en": "Dipl. Nursing Professional, Central Triage",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrale Triage",
         "fr": "Dipl. Spécialiste des soins infirmiers, triage central"
@@ -4328,7 +4440,7 @@
       "url": "https://apply.refline.ch/163206/2626/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:43.350Z",
+      "crawledAt": "2026-09-29T10:17:37.883Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4351,12 +4463,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-puk-zuerich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-infermieristica-professionale-triage-centrale-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-puk-zuerich-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-infermieristica-professionale-triage-centrale-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-zentrale-triage-puk-zuerich-zurich"
@@ -4378,7 +4492,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-d5dc77f08d06",
@@ -4412,7 +4527,7 @@
       "url": "https://apply.refline.ch/163206/2729/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:42.935Z",
+      "crawledAt": "2026-09-29T10:17:37.406Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4436,7 +4551,8 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-krisen-abklarung-notfall-und-triagezentrum-kant-puk",
-          "dipl-pflegefachfrau-mann-hf-fh-a1-und-e1-puk-zuerich-zurich"
+          "dipl-pflegefachfrau-mann-hf-fh-a1-und-e1-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-zurich"
         ],
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-zurich",
@@ -4451,7 +4567,8 @@
           "dipl-pflegefachfrau-mann-hf-fh-a1-b0-und-e1-puk-zuerich-zurich",
           "dipl-pflegefachfrau-mann-hf-fh-a1-b0-e1-und-e2-puk-zuerich-zurich",
           "dipl-pflegefachfrau-mann-hf-fh-a1-und-e1-psychiatrische-universitatsklinik-zurich-zurich",
-          "dipl-pflegefachfrau-mann-hf-fh-80-100-a1-b0-b1-e1-e2-und-f1-puk-zuerich-zurich"
+          "dipl-pflegefachfrau-mann-hf-fh-80-100-a1-b0-b1-e1-e2-und-f1-puk-zuerich-zurich",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-zurich",
@@ -4475,7 +4592,8 @@
         "dipl-pflegefachfrau-mann-hf-fh-a1-b0-und-e1-puk-zuerich-zurich",
         "dipl-pflegefachfrau-mann-hf-fh-a1-b0-e1-und-e2-puk-zuerich-zurich",
         "dipl-pflegefachfrau-mann-hf-fh-a1-und-e1-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-mann-hf-fh-80-100-a1-b0-b1-e1-e2-und-f1-puk-zuerich-zurich"
+        "dipl-pflegefachfrau-mann-hf-fh-80-100-a1-b0-b1-e1-e2-und-f1-puk-zuerich-zurich",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "firstSeenAt": "2026-07-14T10:53:38.847Z",
       "salaryMin": 91500,
@@ -4524,7 +4642,7 @@
       "url": "https://apply.refline.ch/163206/2714/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:42.519Z",
+      "crawledAt": "2026-09-29T10:17:36.921Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4606,7 +4724,7 @@
       "url": "https://apply.refline.ch/163206/2139/pub/12/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:42.106Z",
+      "crawledAt": "2026-09-29T10:17:36.444Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4641,7 +4759,8 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-zurich",
           "dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-zurich",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-vorwiegend-im-nachtdienst-akutstation-jugendliche-puk"
+          "dipl-pflegefachfrau-pflegefachmann-vorwiegend-im-nachtdienst-akutstation-jugendliche-puk",
+          "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich"
         ],
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich",
@@ -4657,7 +4776,8 @@
           "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-psychiatrische-universitatsklinik",
           "dipl-pflegefachfrau-pflegefachmann-vorwiegend-im-nachtdienst-akutstation-jugendliche-puk",
           "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische"
         ],
         "en": [
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
@@ -4721,7 +4841,8 @@
         "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
         "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich",
         "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische"
       ],
       "firstSeenAt": "2026-06-10T12:44:25.576Z",
       "salaryMin": 91500,
@@ -4770,7 +4891,7 @@
       "url": "https://apply.refline.ch/163206/2764/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:41.690Z",
+      "crawledAt": "2026-09-29T10:17:35.966Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4793,12 +4914,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik",
-        "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-tagesklinik-per-kinder-psychiatrische-universitatsklinik-zurich-winterthur"
+        "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-tagesklinik-per-kinder-psychiatrische-universitatsklinik-zurich-winterthur",
+        "dipl-infermieristica-professionale-o-dipl-social-pedagogue-social-pedagogue-clinica-diurna-per-bambini-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik",
-          "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-tagesklinik-per-kinder-psychiatrische-universitatsklinik-zurich-winterthur"
+          "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-tagesklinik-per-kinder-psychiatrische-universitatsklinik-zurich-winterthur",
+          "dipl-infermieristica-professionale-o-dipl-social-pedagogue-social-pedagogue-clinica-diurna-per-bambini-psychiatrische"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik"
@@ -4854,7 +4977,7 @@
       "url": "https://apply.refline.ch/163206/2175/pub/13/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:41.277Z",
+      "crawledAt": "2026-09-29T10:17:35.486Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4947,7 +5070,7 @@
       "url": "https://apply.refline.ch/163206/2755/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:40.861Z",
+      "crawledAt": "2026-09-29T10:17:34.998Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4971,12 +5094,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-puk-zuerich",
         "dipl-pflegefachfrau-pflegefachmann-im-spat-o-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich-mannedorf",
-        "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich",
+        "dipl-infermieristica-specialista-infermieristica-in-ritardo-o-dopo-servizio-reparto-bambini-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-puk-zuerich",
-          "dipl-pflegefachfrau-pflegefachmann-im-spat-o-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich-mannedorf"
+          "dipl-pflegefachfrau-pflegefachmann-im-spat-o-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich-mannedorf",
+          "dipl-infermieristica-specialista-infermieristica-in-ritardo-o-dopo-servizio-reparto-bambini-psychiatrische"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-puk-zuerich"
@@ -5018,7 +5143,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann als Fachexpertin / Fachexperte, Therapiestation Jugendliche",
       "titleByLocale": {
         "it": "Dipl. Infermieristica specialista / specialista in allattamento come specialista / esperto, stazione di terapia giovanile",
-        "en": "Dipl. Nursing specialist / nursing specialist as a specialist / expert, therapy station youth",
+        "en": "Dipl. Pflegefachfrau / Pflegefachmann als Fachexpertin / Fachexperte, Therapiestation Jugendliche",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann als Fachexpertin / Fachexperte, Therapiestation Jugendliche",
         "fr": "Dipl. Spécialiste des soins infirmiers / spécialiste des soins infirmiers en tant que spécialiste / expert, poste de thérapie jeunesse"
       },
@@ -5034,7 +5159,7 @@
       "url": "https://apply.refline.ch/163206/2776/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:40.447Z",
+      "crawledAt": "2026-09-29T10:17:33.837Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5057,12 +5182,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-als-fachexpertin-fachexperte-therapiestation",
-        "dipl-pflegefachfrau-pflegefachmann-come-fachexpertin-fachexperte-therapiestation-jugendliche-psychiatrische-universitatsklinik-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-come-fachexpertin-fachexperte-therapiestation-jugendliche-psychiatrische-universitatsklinik-zurich",
+        "dipl-infermieristica-specialista-specialista-in-allattamento-come-specialista-esperto-stazione-di-terapia-giovanile"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-als-fachexpertin-fachexperte-therapiestation",
-          "dipl-pflegefachfrau-pflegefachmann-come-fachexpertin-fachexperte-therapiestation-jugendliche-psychiatrische-universitatsklinik-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-come-fachexpertin-fachexperte-therapiestation-jugendliche-psychiatrische-universitatsklinik-zurich",
+          "dipl-infermieristica-specialista-specialista-in-allattamento-come-specialista-esperto-stazione-di-terapia-giovanile"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-als-fachexpertin-fachexperte-therapiestation"
@@ -5084,7 +5211,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-1ad70c52a016",
@@ -5118,7 +5246,7 @@
       "url": "https://apply.refline.ch/163206/2766/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:40.034Z",
+      "crawledAt": "2026-09-29T10:17:33.358Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5141,12 +5269,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-station-fur-psychotische-storungen-puk-zuerich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-station-per-psychotische-storungen-psychiatrische-universitatsklinik-zurich-rheinau"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-station-per-psychotische-storungen-psychiatrische-universitatsklinik-zurich-rheinau",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-stazione-per-disturbi-psicotici-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-station-fur-psychotische-storungen-puk-zuerich",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-station-per-psychotische-storungen-psychiatrische-universitatsklinik-zurich-rheinau"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-station-per-psychotische-storungen-psychiatrische-universitatsklinik-zurich-rheinau",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-stazione-per-disturbi-psicotici-psychiatrische"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-station-fur-psychotische-storungen-puk-zuerich"
@@ -5184,7 +5314,7 @@
       "companyDomain": "pukzh.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica professionale",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
         "en": "Dipl. Nursing professional / Dipl. Nursing professional",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers"
@@ -5201,7 +5331,7 @@
       "url": "https://apply.refline.ch/163206/2735/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:39.618Z",
+      "crawledAt": "2026-09-29T10:17:32.871Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5224,12 +5354,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-rheinau",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-rheinau"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-rheinau",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-psychiatrische-universitatsklinik-zurich-rheinau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-rheinau",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-rheinau"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-rheinau",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-psychiatrische-universitatsklinik-zurich-rheinau"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-rheinau"
@@ -5251,7 +5383,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-37e5637b6e8b",
@@ -5285,7 +5418,7 @@
       "url": "https://apply.refline.ch/163206/2778/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:39.202Z",
+      "crawledAt": "2026-09-29T10:17:32.389Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5308,12 +5441,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "bildungsverantwortliche-bildungsverantwortlicher-pflege-puk-zuerich-zurich",
-        "bildungsverantwortliche-bildungsverantwortlicher-pflege-psychiatrische-universitatsklinik-zurich-zurich"
+        "bildungsverantwortliche-bildungsverantwortlicher-pflege-psychiatrische-universitatsklinik-zurich-zurich",
+        "istruzione-responsabile-istruzione-responsabile-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bildungsverantwortliche-bildungsverantwortlicher-pflege-puk-zuerich-zurich",
-          "bildungsverantwortliche-bildungsverantwortlicher-pflege-psychiatrische-universitatsklinik-zurich-zurich"
+          "bildungsverantwortliche-bildungsverantwortlicher-pflege-psychiatrische-universitatsklinik-zurich-zurich",
+          "istruzione-responsabile-istruzione-responsabile-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "bildungsverantwortliche-bildungsverantwortlicher-pflege-psychiatrische-universitatsklinik-zurich-zurich"
@@ -5368,7 +5503,7 @@
       "url": "https://apply.refline.ch/163206/2768/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:38.786Z",
+      "crawledAt": "2026-09-29T10:17:31.908Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5391,12 +5526,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "bereichsleiterin-bereichsleiter-hotellerie-standort-rheinau-nahe-schaffhausen-puk-zuerich",
-        "bereichsleiterin-bereichsleiter-hotellerie-standort-rheinau-nahe-schaffhausen-psychiatrische-universitatsklinik-zurich"
+        "bereichsleiterin-bereichsleiter-hotellerie-standort-rheinau-nahe-schaffhausen-psychiatrische-universitatsklinik-zurich",
+        "area-manager-area-manager-industria-alberghiera-posizione-rheinau-vicino-schaffhausen-psychiatrische-universitatsklinik"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bereichsleiterin-bereichsleiter-hotellerie-standort-rheinau-nahe-schaffhausen-puk-zuerich",
-          "bereichsleiterin-bereichsleiter-hotellerie-standort-rheinau-nahe-schaffhausen-psychiatrische-universitatsklinik-zurich"
+          "bereichsleiterin-bereichsleiter-hotellerie-standort-rheinau-nahe-schaffhausen-psychiatrische-universitatsklinik-zurich",
+          "area-manager-area-manager-industria-alberghiera-posizione-rheinau-vicino-schaffhausen-psychiatrische-universitatsklinik"
         ],
         "en": [
           "bereichsleiterin-bereichsleiter-hotellerie-standort-rheinau-nahe-schaffhausen-psychiatrische-universitatsklinik-zurich"
@@ -5418,7 +5555,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-7520fabeb690",
@@ -5451,7 +5589,7 @@
       "url": "https://apply.refline.ch/163206/0081/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:38.350Z",
+      "crawledAt": "2026-09-29T10:17:31.402Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5474,16 +5612,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf"
+          "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf",
+          "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-puk-zuerich-zurich"
         ],
         "it": [
           "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-puk-zuerich-zurich",
-          "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf"
+          "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf",
+          "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-puk-zuerich-zurich",
-        "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf"
+        "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf",
+        "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "firstSeenAt": "2026-06-10T12:44:23.152Z",
       "salaryMin": 91500,
@@ -5498,7 +5639,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-439c2627b2b9",
@@ -5531,7 +5673,7 @@
       "url": "https://apply.refline.ch/163206/2757/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:37.933Z",
+      "crawledAt": "2026-09-29T10:17:30.896Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5555,13 +5697,15 @@
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
         "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
-        "psicologo-psicologo-psychiatrische-universitatsklinik-zurich-rheinau"
+        "psicologo-psicologo-psychiatrische-universitatsklinik-zurich-rheinau",
+        "assistente-psicologo-assistente-psicologo-psychiatrische-universitatsklinik-zurich-rheinau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
           "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
-          "psicologo-psicologo-psychiatrische-universitatsklinik-zurich-rheinau"
+          "psicologo-psicologo-psychiatrische-universitatsklinik-zurich-rheinau",
+          "assistente-psicologo-assistente-psicologo-psychiatrische-universitatsklinik-zurich-rheinau"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
@@ -5586,7 +5730,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-0071db77b20d",
@@ -5619,7 +5764,7 @@
       "url": "https://apply.refline.ch/163206/2784/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:37.493Z",
+      "crawledAt": "2026-09-29T10:17:30.382Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5642,12 +5787,14 @@
       "pensum": "50%",
       "previousSlugs": [
         "assistenzarztinnen-assistenzarzte-puk-zuerich-zurich",
-        "assistenzarztinnen-assistenzarzte-psychiatrische-universitatsklinik-zurich-zurich"
+        "assistenzarztinnen-assistenzarzte-psychiatrische-universitatsklinik-zurich-zurich",
+        "assistenti-medici-assistenti-medici-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztinnen-assistenzarzte-puk-zuerich-zurich",
-          "assistenzarztinnen-assistenzarzte-psychiatrische-universitatsklinik-zurich-zurich"
+          "assistenzarztinnen-assistenzarzte-psychiatrische-universitatsklinik-zurich-zurich",
+          "assistenti-medici-assistenti-medici-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "assistenzarztinnen-assistenzarzte-psychiatrische-universitatsklinik-zurich-zurich"
@@ -5668,7 +5815,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-d7f19f668dc2",
@@ -5701,7 +5849,7 @@
       "url": "https://apply.refline.ch/163206/2654/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:37.078Z",
+      "crawledAt": "2026-09-29T10:17:29.903Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5726,11 +5874,13 @@
         "assistenzarztin-assistenzarzt-stationar-puk-zuerich-zurich",
         "medico-assistente-assistente-stazionario-psychiatrische-universitatsklinik-zurich-zurich",
         "resident-physician-inpatient-psychiatrische-universitatsklinik-zurich-zurich",
-        "medical-interne-hopital-psychiatrische-universitatsklinik-zurich-zurich"
+        "medical-interne-hopital-psychiatrische-universitatsklinik-zurich-zurich",
+        "assistenzarztin-assistenzarzt-stationar-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-stationar-puk-zuerich-zurich"
+          "assistenzarztin-assistenzarzt-stationar-puk-zuerich-zurich",
+          "assistenzarztin-assistenzarzt-stationar-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:22.195Z",
@@ -5746,7 +5896,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-c19129873389",
@@ -5779,7 +5930,7 @@
       "url": "https://apply.refline.ch/163206/2548/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:36.656Z",
+      "crawledAt": "2026-09-29T10:17:29.422Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5805,11 +5956,13 @@
         "medico-specializzando-psychiatrische-universitatsklinik-zurich-zurich",
         "resident-physician-psychiatrische-universitatsklinik-zurich-zurich",
         "medical-interne-psychiatrische-universitatsklinik-zurich-zurich",
-        "assistenzarztin-assistenzarzt-puk-zuerich-zurich-2"
+        "assistenzarztin-assistenzarzt-puk-zuerich-zurich-2",
+        "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-puk-zuerich-zurich"
+          "assistenzarztin-assistenzarzt-puk-zuerich-zurich",
+          "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:21.719Z",
@@ -5825,7 +5978,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-2b4f7179f24d",
@@ -5858,7 +6012,7 @@
       "url": "https://apply.refline.ch/163206/2657/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:36.240Z",
+      "crawledAt": "2026-09-29T10:17:28.871Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5906,7 +6060,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-291a9f4635d0",
@@ -5939,7 +6094,7 @@
       "url": "https://apply.refline.ch/163206/2719/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:35.406Z",
+      "crawledAt": "2026-09-29T10:17:27.908Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5962,18 +6117,21 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarztin-assistenzarzt-forschung-und-klinik-schizophrenie-puk-zuerich-zurich"
+          "assistenzarztin-assistenzarzt-forschung-und-klinik-schizophrenie-puk-zuerich-zurich",
+          "assistenzarztin-assistenzarzt-forschung-und-klinik-befristet-fur-1-jahr-puk-zuerich-zurich"
         ],
         "it": [
           "assistenzarztin-assistenzarzt-forschung-und-klinik-befristet-fur-1-jahr-puk-zuerich-zurich",
           "assistenzarztin-assistenzarzt-forschung-und-klinik-puk-zuerich-zurich",
-          "assistenzarztin-assistenzarzt-forschung-und-klinik-schizophrenie-puk-zuerich-zurich"
+          "assistenzarztin-assistenzarzt-forschung-und-klinik-schizophrenie-puk-zuerich-zurich",
+          "assistenzarztin-assistenzarzt-forschung-e-klinik-befristet-per-1-jahr-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-forschung-und-klinik-befristet-fur-1-jahr-puk-zuerich-zurich",
         "assistenzarztin-assistenzarzt-forschung-und-klinik-puk-zuerich-zurich",
-        "assistenzarztin-assistenzarzt-forschung-und-klinik-schizophrenie-puk-zuerich-zurich"
+        "assistenzarztin-assistenzarzt-forschung-und-klinik-schizophrenie-puk-zuerich-zurich",
+        "assistenzarztin-assistenzarzt-forschung-e-klinik-befristet-per-1-jahr-psychiatrische-universitatsklinik-zurich"
       ],
       "firstSeenAt": "2026-07-08T11:11:19.951Z",
       "salaryMin": 91500,
@@ -5988,7 +6146,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-23f158d232b8",
@@ -6005,7 +6164,7 @@
       "title": "Arztsekretärin / Arztsekretär",
       "titleByLocale": {
         "it": "Segretario medico / Segretario medico",
-        "en": "Medical Secretary / Medical Secretary",
+        "en": "Arztsekretärin / Arztsekretär",
         "de": "Arztsekretärin / Arztsekretär",
         "fr": "Secrétaire médical / Secrétaire médical"
       },
@@ -6021,7 +6180,7 @@
       "url": "https://apply.refline.ch/163206/2770/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:31.990Z",
+      "crawledAt": "2026-09-29T10:17:25.003Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6045,11 +6204,13 @@
       "previousSlugs": [
         "arztsekretarin-arztsekretar-puk-zuerich-zurich",
         "arztsekretarin-arztsekretar-psychiatrische-universitatsklinik-zurich-zurich",
-        "arztsekretarin-arztsekretar-psychiatrische-universitatsklinik-zurich"
+        "arztsekretarin-arztsekretar-psychiatrische-universitatsklinik-zurich",
+        "segretario-medico-segretario-medico-psychiatrische-universitatsklinik-zurich-zurich-9b926f"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-puk-zuerich-zurich"
+          "arztsekretarin-arztsekretar-puk-zuerich-zurich",
+          "segretario-medico-segretario-medico-psychiatrische-universitatsklinik-zurich-zurich-9b926f"
         ],
         "en": [
           "arztsekretarin-arztsekretar-psychiatrische-universitatsklinik-zurich-zurich",
@@ -6072,7 +6233,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "puk-zuerich-fadca51159cb-r986abb11",
@@ -6081,7 +6243,7 @@
         "it": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "en": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "de": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "fr": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+        "fr": "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -6089,7 +6251,7 @@
       "title": "Advanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst",
       "titleByLocale": {
         "it": "Advanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- e Liaisondienst",
-        "en": "Advanced Practice Nurse (APN) Retirement Psychiatry – Consiliary and Liaison Service",
+        "en": "Advanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst",
         "de": "Advanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst",
         "fr": "Infirmière en pratique avancée (APN) Psychiatrie de la retraite – Service de liaison et de liaison"
       },
@@ -6106,7 +6268,7 @@
       "url": "https://apply.refline.ch/163206/2644/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:31.565Z",
+      "crawledAt": "2026-09-29T10:17:24.022Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6194,6 +6356,8 @@
         "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
         "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische"
       ],
       "previousSlugsByLocale": {
@@ -6216,7 +6380,8 @@
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
           "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich"
         ],
         "en": [
           "dipl-nursing-professional-dipl-nurse-hf-fh-for-station-e0-f0-psychiatrische-universitatsklinik-zurich-zurich"
@@ -6231,6 +6396,7 @@
           "infirmiere-certifiee-en-hf-fh-pour-le-service-e0-f0-psychiatrische-universitatsklinik-zurich-zurich",
           "infirmiere-praticienne-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
           "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische"
         ]
       },

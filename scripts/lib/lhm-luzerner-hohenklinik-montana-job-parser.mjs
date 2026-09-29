@@ -29,10 +29,12 @@ import {
   decodeEntities,
   normalizeSpace,
   htmlToText,
+  extractBalancedTagBlockWithStatus,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const LHM_KEY = 'lhm-luzerner-hohenklinik-montana';
 export const LHM_COMPANY_NAME = 'Luzerner Höhenklinik Montana';
@@ -79,7 +81,31 @@ function extractH1(html) {
   return normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' ')));
 }
 
-function extractBodyText(html) {
+/**
+ * The vacancy lives in the page's main column, `<div class="content_overflow">`
+ * (introduction + tasks/profile/offer lists + application paragraph). The
+ * right column (`#portlets_right`) holds the contact-person widgets, which the
+ * old "everything after </h1>" slice put at the TOP of every description
+ * ("Pascale Baray Leiterin Hotellerie Auskunft: …") before the posting itself.
+ */
+function extractMainColumnText(html) {
+  const open = /<div\b[^>]*\bclass="[^"]*\bcontent_overflow\b[^"]*"[^>]*>/i.exec(html);
+  if (!open) return '';
+  const { html: inner, complete } = extractBalancedTagBlockWithStatus(
+    html.slice(open.index + open[0].length),
+    'div',
+    60000,
+  );
+  if (!complete) return '';
+  const cleaned = stripScriptsAndStyles(inner)
+    // Back-to-listing link ("Zurück" button or plain "zurück" anchor).
+    .replace(/<a\b[^>]*>\s*zurück\s*<\/a>/gi, '');
+  return htmlToTextLines(cleaned).slice(0, 6000);
+}
+
+export function extractBodyText(html) {
+  const main = extractMainColumnText(html);
+  if (main) return main;
   // The detail body is rendered as a stack of <p>/<h2>/<ul> elements after
   // the <h1>. Take the substring from the closing </h1> to the next footer.
   // If that fails, fall back to the whole document.

@@ -33,9 +33,13 @@ import {
   normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
-import { isSliceFile } from './lib/crawler-slice-files.mjs';
+import { isSliceFile, listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
-import { writeHousekeepingProofFile } from './lib/crawler-slice-integrity.mjs';
+import {
+  clearCrossCrawlerDedupProofFile,
+  writeCrossCrawlerDedupProofFile,
+  writeHousekeepingProofFile,
+} from './lib/crawler-slice-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -51,6 +55,7 @@ const EXPIRED_JOBS_PATH = process.env.JOBS_EXPIRED_JOBS_PATH
 const EXPIRED_SLICES_DIR = process.env.JOBS_EXPIRED_SLICES_DIR
   ? path.resolve(process.env.JOBS_EXPIRED_SLICES_DIR)
   : path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler');
+const ACTIVE_SLICES_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
 
 const MAX_CONCURRENCY = Math.max(1, Math.min(20, intFromEnv('JOBS_HOUSEKEEPING_CONCURRENCY', DEFAULT_CONCURRENCY)));
 const TIMEOUT_MS = Math.max(2000, Math.min(15000, intFromEnv('JOBS_HOUSEKEEPING_TIMEOUT_MS', DEFAULT_TIMEOUT_MS)));
@@ -71,6 +76,91 @@ const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 function readJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(raw);
+}
+
+function dedupProofJob(job) {
+  return {
+    id: job?.id ?? null,
+    url: String(job?.url ?? '').trim(),
+    title: job?.title ?? '',
+    company: job?.company ?? '',
+    location: job?.location ?? '',
+    slug: String(job?.slug ?? '').trim(),
+  };
+}
+
+function dedupProofSourceKeys(job) {
+  const keys = new Set();
+  const url = String(job?.url ?? '').trim();
+  if (url) keys.add(`url:${url}`);
+  const stableIdentity = buildStableJobIdentity(job);
+  if (stableIdentity) keys.add(`identity:${stableIdentity}`);
+  const id = String(job?.id ?? '').trim().toLowerCase();
+  if (id) keys.add(`id:${id}`);
+  const slug = String(job?.slug ?? '').trim().toLowerCase();
+  if (slug) keys.add(`slug:${slug}`);
+  return keys;
+}
+
+/**
+ * Index the exact records still present in the active slices.
+ *
+ * Assembly intentionally normalizes records before cleanup-jobs sees them
+ * (absolute URLs, titles, companies, locations and generated IDs). The later
+ * slice-pruning phase needs evidence for the pre-assembly record, so a proof
+ * entry carries every raw source snapshot sharing the loser identity.
+ */
+function buildDedupProofSourceIndex() {
+  const index = new Map();
+  for (const slicePath of listSliceFilePaths(ACTIVE_SLICES_DIR)) {
+    let slice;
+    try {
+      slice = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
+    } catch {
+      continue;
+    }
+    if (!Array.isArray(slice?.jobs)) continue;
+    for (const sourceJob of slice.jobs) {
+      const snapshot = dedupProofJob(sourceJob);
+      for (const key of dedupProofSourceKeys(sourceJob)) {
+        const entries = index.get(key) || [];
+        const duplicate = entries.some((entry) => JSON.stringify(entry) === JSON.stringify(snapshot));
+        if (!duplicate) entries.push(snapshot);
+        index.set(key, entries);
+      }
+    }
+  }
+  return index;
+}
+
+function dedupProofSourceJobs(index, job) {
+  if (!index) return [];
+  const keys = [...dedupProofSourceKeys(job)];
+  const directKeys = keys.filter((key) => !key.startsWith('identity:'));
+  const collect = (lookupKeys) => {
+    const candidates = [];
+    const seen = new Set();
+    for (const key of lookupKeys) {
+      for (const sourceJob of index.get(key) || []) {
+        const serialized = JSON.stringify(sourceJob);
+        if (seen.has(serialized)) continue;
+        seen.add(serialized);
+        candidates.push(sourceJob);
+      }
+    }
+    return candidates;
+  };
+
+  // Prefer the least ambiguous source key. In particular, identityUrlKey
+  // strips fragments by design, while some vendors use the fragment for the
+  // per-posting identity; falling back to it too early would copy unrelated
+  // records into every proof entry for that vendor.
+  for (const key of directKeys) {
+    const direct = collect([key]);
+    if (direct.length > 0) return direct;
+  }
+
+  return collect(keys);
 }
 
 function normalizeScopeValue(value) {
@@ -587,6 +677,10 @@ async function main() {
   }
 
   // ── Standard mode: operate on monolithic data/jobs.json ──────────────────
+  // A proof belongs to exactly one cleanup pass. Remove any residue before
+  // reading the next candidate so a failed/empty run can never authorize a
+  // later slice write with stale duplicate decisions.
+  clearCrossCrawlerDedupProofFile();
   if (!fs.existsSync(DATA_JOBS_PATH) || !fs.existsSync(PUBLIC_JOBS_PATH)) {
     console.log('ℹ️  jobs.json non trovato in data/ o public/data — skip housekeeping');
     return;
@@ -732,6 +826,8 @@ async function main() {
 
   // ── 2. URL validation ─────────────────────────────────────────────────
   const removed = [...ageRemoved];
+  const dedupProofEntries = [];
+  const dedupProofSourceIndex = buildDedupProofSourceIndex();
   let kept = [];
 
   if (SKIP_URL_VALIDATION) {
@@ -786,13 +882,24 @@ async function main() {
       // Keep the one with a more recent crawledAt
       const prevTs = prev.crawledAt ? new Date(prev.crawledAt).getTime() : 0;
       const currTs = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+      let retained = prev;
+      let loser = job;
       if (currTs > prevTs) {
         // Replace prev with current (newer)
         const idx = afterTcDedup.indexOf(prev);
         if (idx !== -1) afterTcDedup[idx] = job;
         seenTitleCompany.set(tcKey, job);
+        retained = job;
+        loser = prev;
       }
-      removed.push({ id: job.id, title: job.title, url: job.url, reason: 'duplicate title+company' });
+      dedupProofEntries.push({
+        job: dedupProofJob(loser),
+        retainedJob: dedupProofJob(retained),
+        sourceJobs: dedupProofSourceJobs(dedupProofSourceIndex, loser),
+        reason: 'duplicate title+company',
+        duplicateKey: tcKey,
+      });
+      removed.push({ id: loser.id, title: loser.title, url: loser.url, reason: 'duplicate title+company' });
       continue;
     }
     seenTitleCompany.set(tcKey, job);
@@ -818,14 +925,24 @@ async function main() {
       const prevTs = jobRecencyTimestamp(prev);
       const currTs = jobRecencyTimestamp(job);
       let loser;
+      let winner;
       if (currTs > prevTs) {
         const idx = afterSlugDedup.indexOf(prev);
         if (idx !== -1) afterSlugDedup[idx] = job;
         seenSlug.set(slug, job);
         loser = prev;
+        winner = job;
       } else {
         loser = job;
+        winner = prev;
       }
+      dedupProofEntries.push({
+        job: dedupProofJob(loser),
+        retainedJob: dedupProofJob(winner),
+        sourceJobs: dedupProofSourceJobs(dedupProofSourceIndex, loser),
+        reason: 'duplicate slug',
+        duplicateKey: slug,
+      });
       standardDedupLosers.push(disambiguateDedupLoser(loser, slug));
       removed.push({ id: loser.id, url: loser.url, reason: 'duplicate slug' });
       continue;
@@ -876,6 +993,9 @@ async function main() {
   writeJson(DATA_JOBS_PATH, finalJobs);
   writeJson(PUBLIC_JOBS_PATH, finalJobs);
   updateMeta(finalJobs.length);
+  writeCrossCrawlerDedupProofFile(dedupProofEntries, {
+    candidateRaw: fs.readFileSync(DATA_JOBS_PATH, 'utf8'),
+  });
 
   // Basic reference sanity checks (expected: no per-job routes/translations/sitemap entries)
   const suspiciousFiles = [

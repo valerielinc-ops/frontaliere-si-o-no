@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   ENTERO_KEY,
@@ -8,6 +10,7 @@ import {
   parseListing,
   parseDetail,
   resolveSite,
+  resolveDetailSite,
   ENTERO_SITES,
 } from '../scripts/lib/entero-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -154,6 +157,41 @@ describe('entero crawler parser', () => {
       const d = parseDetail('');
       expect(d.title).toBe('');
       expect(d.body).toBe('');
+    });
+  });
+
+  // Real entero.ch vacancy page (2026-09-29, "Diplomierte Pflegefachperson HF
+  // (60 – 100%)"), minimized: SVG/images dropped, the application form cut to
+  // a stub, the contact person anonymized.
+  describe('parseDetail on the live page markup', () => {
+    const LIVE_DETAIL_HTML = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'entero', 'detail-pflege-niederlenz.html'),
+      'utf8',
+    );
+
+    it('keeps intro, tasks and profile as sections with line-start bullets', () => {
+      const d = parseDetail(LIVE_DETAIL_HTML);
+      expect(d.body.startsWith('Die entero Klinik mit den Standorten')).toBe(true);
+      expect(d.body).toMatch(/\nDeine Aufgaben\n• Betreuung der Patientinnen und Patienten im psychiatrischen Setting\n• /);
+      expect(d.body).toMatch(/\nAnforderungsprofil\n• Abgeschlossene Ausbildung als diplomierte Pflegefachfrau/);
+      expect(d.body).toMatch(/• Wertschätzende Grundhaltung$/);
+    });
+
+    it('ends before the contact card, the buttons and the application form', () => {
+      const d = parseDetail(LIVE_DETAIL_HTML);
+      expect(d.body).not.toMatch(/Fragen zur Bewerbung|Vorname Nachname|zur Übersicht|Jetzt bewerben|Bewerbungsformular|Senden/);
+    });
+
+    it('reads the Arbeitsort marker and resolves the vacancy site from it, not from the intro prose', () => {
+      const d = parseDetail(LIVE_DETAIL_HTML);
+      expect(d.siteText).toBe('Entwöhnung Niederlenz');
+      // The intro names all three sites, Egliswil included.
+      expect(d.body.slice(0, 300)).toMatch(/Egliswil/);
+      expect(resolveDetailSite(d, d.title)).toMatchObject({ city: 'Niederlenz', postalCode: '5702' });
+    });
+
+    it('falls back to body/title text when the page has no Arbeitsort marker', () => {
+      expect(resolveDetailSite({ siteText: '', body: 'Entzug Neuenhof sucht' }, 'X').city).toBe('Neuenhof');
     });
   });
 
