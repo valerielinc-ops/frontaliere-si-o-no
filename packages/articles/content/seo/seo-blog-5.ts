@@ -97066,6 +97066,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cst-clausola-salvaguardia-tassa': {
+    title: 'CSt: clausola salvaguardia rafforzata con tassa incitativa',
+    description: 'Il Consiglio degli Stati ha approvato un rafforzamento della clausola di salvaguardia, introducendo una tassa d\'incentivazione da 2.000 a 4.000 franchi e nuovi',
+    keywords: 'frontalieri, ticino, svizzera, italia, clausola, salvaguardia, rafforzata, tassa',
+    ogTitle: 'Clausola salvaguardia rafforzata con tassa incitativa in Svizzera',
+    ogDescription: 'Il Consiglio degli Stati ha approvato misure per rafforzare la clausola di salvaguardia, includendo una tassa d\'incentivazione per le imprese (2.000-4.000 franchi) e nuovi indicatori come i frontalieri. Scopri le implicazioni per datori di lavoro',
+    canonicalPath: '/articoli-frontaliere/cst-clausola-salvaguardia-tassa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CSt: clausola salvaguardia rafforzata con tassa incitativa",
+      "description": "Il Consiglio degli Stati ha approvato un rafforzamento della clausola di salvaguardia, introducendo una tassa d'incentivazione da 2.000 a 4.000 franchi e nuovi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cst-clausola-salvaguardia-tassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano e del suo lago con le montagne sullo sfondo, un simbolo del Ticino."
+      },
+      "datePublished": "2026-09-29T11:47:01+00:00",
+      "dateModified": "2026-09-29T11:47:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cst-clausola-salvaguardia-tassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

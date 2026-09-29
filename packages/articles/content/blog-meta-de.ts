@@ -12277,6 +12277,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-29.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 29. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-29.seoDescription': 'Grenzgänger-Bulletin vom 29. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-29.ogDescription': 'Die Zahlen vom 29. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.cst-clausola-salvaguardia-tassa.title': 'CSt: Verstärkte Schutzklausel mit Anreizabgabe',
+    'blog.article.cst-clausola-salvaguardia-tassa.excerpt': 'Der Ständerat hat die Schutzklausel für die Einwanderung verschärft und dabei eine Anreizabgabe von 2.000 bis 4.000 Franken sowie neue Indikatoren eingeführt.',
+    'blog.article.cst-clausola-salvaguardia-tassa.imageAlt': 'Panoramablick auf Lugano und seinen See mit Bergen im Hintergrund, ein Wahrzeichen des Tessins.',
 };
 
 export default blogMetaDe;
