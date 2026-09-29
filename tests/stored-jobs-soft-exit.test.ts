@@ -140,3 +140,50 @@ describe('own-runner crawlers clean their stored jobs at the zero-job exit', () 
     expect(exit.slice(call.length).trimStart()).toMatch(/^return;/);
   });
 });
+
+// Runners of lots H and K with their own per-job cleanup in the merge
+// (`drop<Name>FabricatedText`): a local `cleanStoredJobsOnSoftExit` runs the
+// same cleanup, and every zero-job exit calls it before returning. swisscom,
+// ail and usi also have a second exit when the crawl ends with 0 jobs.
+describe('lot H/K runners clean their stored jobs at every zero-job exit', () => {
+  const RUNNERS: Array<[string, number]> = [
+    ['update-afry-jobs.mjs', 1],
+    ['update-agie-charmilles-jobs.mjs', 1],
+    ['update-ail-jobs.mjs', 2],
+    ['update-artificialy-jobs.mjs', 1],
+    ['update-baronie-jobs.mjs', 2],
+    ['update-bps-suisse-jobs.mjs', 1],
+    ['update-casale-jobs.mjs', 1],
+    ['update-hoval-jobs.mjs', 1],
+    ['update-julius-baer-jobs.mjs', 1],
+    ['update-knowledge-lab-jobs.mjs', 2],
+    ['update-mtic-jobs.mjs', 2],
+    ['update-pkb-private-bank-jobs.mjs', 1],
+    ['update-prada-jobs.mjs', 1],
+    ['update-relewant-jobs.mjs', 1],
+    ['update-sintetica-jobs.mjs', 1],
+    ['update-swiss-medical-network-jobs.mjs', 2],
+    ['update-swisscom-jobs.mjs', 2],
+    ['update-tarchini-group-jobs.mjs', 1],
+    ['update-usi-jobs.mjs', 2],
+  ];
+
+  for (const [runner, exits] of RUNNERS) {
+    it(`${runner} (${exits} exit${exits > 1 ? 's' : ''})`, () => {
+      const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', runner), 'utf8');
+      // The merge's cleanup: `<stored>.filter((job) => dropXFabricatedText(job))`.
+      const mergeDrop = source.match(/\.filter\(\(job\) => (drop[A-Za-z]+FabricatedText)\(job\)\)/)?.[1];
+      expect(mergeDrop).toBeTruthy();
+      const fnStart = source.indexOf('function cleanStoredJobsOnSoftExit() {');
+      expect(fnStart).toBeGreaterThan(-1);
+      const fn = source.slice(fnStart, source.indexOf('\n}\n', fnStart));
+      expect(fn).toContain(`prepare: (jobs) => { for (const job of jobs) ${mergeDrop}(job); },`);
+      expect(fn).toMatch(/storedJobs: readExistingCrawlerJobs\([A-Z_]+, DATA_JOBS\)\.filter\([A-Za-z]+\),/);
+      expect(fn).toMatch(/write: \(jobs\) => writeJobsCrawlerSlice\([A-Z_]+, jobs\),/);
+      // Each call sits right before the `return` of a zero-job exit.
+      const calls = source.match(/await cleanStoredJobsOnSoftExit\(\);\s*return;/g) || [];
+      expect(calls).toHaveLength(exits);
+      expect(source.split('await cleanStoredJobsOnSoftExit();').length - 1).toBe(exits);
+    });
+  }
+});

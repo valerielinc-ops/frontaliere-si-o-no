@@ -51,6 +51,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -399,6 +400,18 @@ function validateLocales() {
   });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropMticFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   // Keep the source/filter boundary observable: a non-zero listing page that
@@ -416,6 +429,7 @@ async function main() {
     counts.lastFetchOutcome = 'selector_miss';
     console.log('⚠️ No listings found on MTIC careers page — skipping without changing the published slice.');
     writeMticSummary({ counts });
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -440,6 +454,7 @@ async function main() {
   if (deduplicated.length === 0) {
     console.log('⚠️ No Lugano-Paradiso jobs found after filtering — keeping the published slice unchanged.');
     writeMticSummary({ counts });
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

@@ -21,6 +21,7 @@ import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExper
 import { normalizeAnyCantonCode, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -206,6 +207,18 @@ function updateAdapterConfig(seedUrls) {
   fs.writeFileSync(p, JSON.stringify(a, null, 2) + '\n');
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropSinteticaFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
@@ -214,7 +227,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════\n');
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
   const discovered = await fetchJobs();
-  if (!discovered.length) { console.log('⚠️ No Sintetica jobs discovered.'); return; }
+  if (!discovered.length) { console.log('⚠️ No Sintetica jobs discovered.'); await cleanStoredJobsOnSoftExit(); return; }
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
   console.log('\n🌐 Running base crawler for AI localization...');
