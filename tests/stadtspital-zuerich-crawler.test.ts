@@ -23,6 +23,23 @@ const FIXTURE = readFileSync(
   'utf8',
 );
 
+// The vacancy text comes from the city's official ad pages (issue 5253): the
+// pinned stadt-zuerich ad fixture, re-keyed to each tile's Referenz-Nr., and
+// an index entry per ad as the portal's search component lists it.
+const OFFICIAL_AD = readFileSync(
+  join(__dirname, 'fixtures', 'stadt-zuerich-official-ad-gaertner.html'),
+  'utf8',
+);
+const officialAdFor = (ref: string) => OFFICIAL_AD.replace(/51726/g, ref);
+const officialIndex = (entries: Array<{ id: string; unit: string }>) => JSON.stringify({
+  results: entries.map(({ id, unit }) => ({
+    tag: 'Job',
+    href: `/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/job-detailseite.${id}.html`,
+    heading: `Ad ${id}`,
+    meta: [unit, '20. September 2026'],
+  })),
+});
+
 afterEach(() => {
   vi.unstubAllGlobals();
 });
@@ -112,10 +129,29 @@ describe('Stadtspital Zürich crawler parser', () => {
 
   // ── fetchAllStadtspitalZuerichJobs (mocked fetch on live fixture) ──
   describe('fetchAllStadtspitalZuerichJobs', () => {
-    function stubFetchWith(html: string) {
+    // Official ads for both Stadtspital tiles (49951, 17521) plus one of
+    // another Dienstabteilung, which the unit filter must not fetch.
+    const ADS: Record<string, string> = { '70001': '49951', '70002': '17521', '70003': '49867' };
+    const INDEX = officialIndex([
+      { id: '70001', unit: 'Stadtspital Zürich' },
+      { id: '70002', unit: 'Stadtspital Zürich' },
+      { id: '70003', unit: 'Verkehrsbetriebe' },
+    ]);
+
+    function stubFetchWith(html: string, { index = INDEX, ads = ADS }: { index?: string | null; ads?: Record<string, string> } = {}) {
       const fetchMock = vi.fn(async (url: string) => {
-        // First page returns the fixture; further pages are empty.
-        const body = String(url).includes('startrow=0') ? html : '<ul></ul>';
+        const u = String(url);
+        let body: string;
+        if (u.includes('/stzh/jobsearch')) {
+          if (index === null) return { ok: false, status: 503, text: async () => '' } as unknown as Response;
+          body = index;
+        } else if (u.includes('job-detailseite.')) {
+          const id = u.match(/job-detailseite\.(\d+)\.html/)?.[1] || '';
+          body = ads[id] ? officialAdFor(ads[id]) : '';
+        } else {
+          // First listing page returns the fixture; further pages are empty.
+          body = u.includes('startrow=0') ? html : '<ul></ul>';
+        }
         return {
           ok: true,
           status: 200,
@@ -163,6 +199,29 @@ describe('Stadtspital Zürich crawler parser', () => {
       );
       expect(isTrustedDomain(job.url)).toBe(true);
       expect(isStadtspitalZuerichJob(job)).toBe(true);
+    });
+
+    it('publishes the official ad text, never a synthetic tile summary', async () => {
+      const fetchMock = stubFetchWith(FIXTURE);
+      const jobs = await fetchAllStadtspitalZuerichJobs();
+      for (const job of jobs) {
+        expect(job.description).toContain('Aufgaben');
+        expect(job.description).not.toMatch(/im Stadtspital Zürich.*Das Stadtspital Zürich ist mit den Standorten/s);
+      }
+      // Only the hospital's own ad pages are read, not the whole city index.
+      const adCalls = fetchMock.mock.calls.map((call) => String(call[0])).filter((u) => u.includes('job-detailseite.'));
+      expect(adCalls.some((u) => u.includes('70003'))).toBe(false);
+    });
+
+    it('does not publish a tile whose Referenz-Nr. has no official ad', async () => {
+      stubFetchWith(FIXTURE, { ads: { '70001': '49951' } });
+      const jobs = await fetchAllStadtspitalZuerichJobs();
+      expect(jobs.map((j: any) => j.referenceNumber)).toEqual(['49951']);
+    });
+
+    it('fails the run when the official ad index cannot be read', async () => {
+      stubFetchWith(FIXTURE, { index: null });
+      await expect(fetchAllStadtspitalZuerichJobs()).rejects.toThrow(/official ad index unavailable/);
     });
 
     it('produces required fields, safe structured-data defaults and 50+ word descriptions', async () => {

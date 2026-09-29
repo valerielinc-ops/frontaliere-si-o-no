@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   INTEGRA_BIOSCIENCES_KEY,
   INTEGRA_BIOSCIENCES_COMPANY_NAME,
@@ -9,6 +9,7 @@ import {
   detectCategory,
   detectExperienceLevel,
   inferEmploymentType,
+  fetchAllIntegraBiosciencesJobs,
 } from '../scripts/lib/integra-biosciences-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -492,4 +493,34 @@ describe('INTEGRA Biosciences crawler parser', () => {
       expect(validJob.sector).toBe('Scienze della Vita / Biotecnologia');
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253): a detail page
+// without a body used to be replaced by a stub of card metadata and a company
+// sentence ("{title} — INTEGRA Biosciences. Business Area: … Location: …").
+// Shapes of integra-biosciences.com (Drupal views table, JSON-LD detail).
+describe('fetchAllIntegraBiosciencesJobs — card without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    delete process.env.JOBS_CRAWLER_DELAY_MS;
+  });
+
+  it('publishes the card with a body and skips the one without, never inventing text', async () => {
+    process.env.JOBS_CRAWLER_DELAY_MS = '1';
+    const row = (slug: string, title: string) => `<tr><td headers="view-title-table-column" class="views-field views-field-title"><a href="/global/en/careers/${slug}" hreflang="en">${title}</a> </td>`
+      + '<td headers="view-field-business-area-table-column" class="views-field views-field-field-business-area">Engineering </td>'
+      + '<td headers="view-field-job-country-table-column" class="views-field views-field-field-job-country">Switzerland </td></tr>';
+    const listing = `<html><body><table class="cols-3"><thead><tr><th id="view-title-table-column">Title</th></tr></thead><tbody>${row('elektronikentwickler-mw-100', 'Elektronikentwickler (m/w | 100%)')}${row('junior-controller-mw-80-100', 'Junior Controller (m/w | 80-100%)')}</tbody></table></body></html>`;
+    const detail = (description: string) => `<html><head><script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', description, datePosted: '2026-09-20' })}</script></head><body>${'<p>page chrome</p>'.repeat(10)}</body></html>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('/open-positions')) return new Response(listing, { status: 200 });
+      if (u.includes('elektronikentwickler')) return new Response(detail('<p>Sie entwickeln Elektronik für unsere Laborgeräte in Zizers, von der Schaltung bis zur Serienreife. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld.</p>'), { status: 200 });
+      return new Response(detail(''), { status: 200 });
+    }));
+
+    const jobs = await fetchAllIntegraBiosciencesJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Elektronikentwickler (m/w | 100%)']);
+    for (const job of jobs) expect(job.description).not.toMatch(/— INTEGRA Biosciences/);
+  }, 20_000);
 });

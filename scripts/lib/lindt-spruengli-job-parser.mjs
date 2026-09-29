@@ -73,6 +73,7 @@ import {
   WorkdayAuthError,
   getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -336,6 +337,7 @@ export async function fetchAllLindtSpruengliJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   const seen = new Set();
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
@@ -384,15 +386,16 @@ export async function fetchAllLindtSpruengliJobs() {
         )
       : '';
 
-    const fallbackDescription = [
-      `${title} — ${LINDT_SPRUENGLI_COMPANY_NAME}, ${city}.`,
-      '',
-      'Key details:',
-      `• Location: ${city}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      `• Employer: ${LINDT_SPRUENGLI_COMPANY_NAME}.`,
-      `• Apply: ${LINDT_SPRUENGLI_COMPANY_NAME} Workday careers portal.`,
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} lindt spruengli ${city}`);
@@ -443,6 +446,9 @@ export async function fetchAllLindtSpruengliJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${LINDT_SPRUENGLI_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

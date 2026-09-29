@@ -33,6 +33,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -337,17 +338,13 @@ export function parseOstendisJob(entry, detailData = {}) {
   const idSource = entry.id ? String(entry.id) : publicUrl;
   const urlHash = createHash('sha1').update(idSource).digest('hex').slice(0, 12);
 
-  // Build description: prefer detail page JSON-LD, fall back to title-based + company boilerplate
-  let descriptionText = detailData.description || '';
-  if (!descriptionText || descriptionText.length < 150) {
-    // Detail page description too short or missing — build from metadata + company boilerplate.
-    // The boilerplate must be rich enough that AI translations into IT/EN/FR stay above 150 chars.
-    const parts = [`${title} — Regionalspital Surselva (RSS)`];
-    if (entry.department) parts.push(`Abteilung: ${entry.department}`);
-    parts.push(`Arbeitsort: ${location} (${canton})`);
-    parts.push('Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22\'000 Einwohner und saisonal 20\'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten');
-    descriptionText = parts.join('. ');
-  }
+  // Only the posting's own text is published (issue 5253): a detail page
+  // without a body used to be replaced by a stub of metadata plus a hospital
+  // summary ("{title} — Regionalspital Surselva (RSS). Abteilung: … Die
+  // Regionalspital Surselva AG ist …"); no job is built from it any more, nor
+  // from a body under the shared 50-word floor (source-body-floor.mjs).
+  const descriptionText = detailData.description || '';
+  if (!meetsSourceBodyFloor(descriptionText)) return null;
 
   // Employment type: detail page → title-based inference
   let employmentType = detailData.employmentType || inferEmploymentType(title);
@@ -466,7 +463,10 @@ export async function fetchAllRssSurselvaJobs() {
     }
 
     const job = parseOstendisJob(entry, detailData);
-    if (!job) continue;
+    if (!job) {
+      console.log(`  ⏭️ Not published (no title or no vacancy text on the detail page): ${title || '(no title)'}`);
+      continue;
+    }
 
     jobs.push(job);
     console.log(`  ✅ ${title.substring(0, 60)} — ${job.location} (${job.employmentType})`);

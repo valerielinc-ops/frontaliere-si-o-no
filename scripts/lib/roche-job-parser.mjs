@@ -23,6 +23,7 @@ import {
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
 import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -204,6 +205,7 @@ export async function fetchAllRocheJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   let missingDetailUrlCount = 0;
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
@@ -241,15 +243,16 @@ export async function fetchAllRocheJobs() {
     );
     await new Promise((r) => setTimeout(r, 400)); // Polite rate limit between detail calls
 
-    const fallbackDescription = [
-      `${title} — ${ROCHE_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
-      '• Employer: Roche — global pharma and diagnostics leader',
-      '• Apply on: Roche careers portal',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'it');
     const jobSlug = slugify(`${title} roche ch`);
@@ -294,6 +297,9 @@ export async function fetchAllRocheJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total Roche jobs discovered: ${jobs.length}`);
   jobs.missingDetailUrlCount = missingDetailUrlCount;
   return jobs;

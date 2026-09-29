@@ -2,7 +2,8 @@ import { describe, it, expect, afterEach, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({
   fetchWorkdayJobs: vi.fn(),
-  fetchWorkdayJobDescriptionText: vi.fn(async () => ''),
+  // A real vacancy body: a req without one is not published (issue 5253).
+  fetchWorkdayJobDescriptionText: vi.fn(async () => 'Responsibilities and requirements of the role, described at length by the employer, with the team context and the application steps. You bring relevant experience, good German or English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly team.'),
   // Detail of an `N Locations` roll-up: the req's own primary workplace.
   fetchWorkdayJobDetail: vi.fn(async (_apiBase: string, externalPath: string) => {
     const primary: Record<string, string> = {
