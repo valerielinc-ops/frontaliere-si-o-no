@@ -242,8 +242,10 @@ describe('Amstein + Walthert AG crawler parser', () => {
 
       const jobs = await fetchAllAmsteinWalthertJobs();
       expect(jobs).toHaveLength(1);
-      // Falls back to the safe-default description + office directory instead of dropping the job.
-      expect(jobs[0].description.length).toBeGreaterThan(0);
+      // The listing remains available, but a failed detail page must not
+      // fabricate crawler-owned source text.
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({ [jobs[0].sourceLang]: '' });
       expect(jobs[0].postalCode).toBe('8050');
       expect(jobs[0].canton).toBe('ZH');
     });
