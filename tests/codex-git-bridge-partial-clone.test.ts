@@ -93,12 +93,15 @@ describe('Codex Git bridge: the shadow common dir keeps the partial clone', () =
       expect(readPartialCloneFilter('git', commonGitDir)).toBe('');
       set('remote.origin.promisor', 'true');
       expect(readPartialCloneFilter('git', commonGitDir)).toBe('blob:none');
+      git(['-C', repo, 'config', '--unset', 'remote.origin.partialclonefilter']);
+      expect(() => readPartialCloneFilter('git', commonGitDir)).toThrow(/Unsupported partial-clone filter/);
+      set('remote.origin.partialclonefilter', 'blob:none');
       set('extensions.partialclone', 'evil');
-      expect(readPartialCloneFilter('git', commonGitDir)).toBe('');
+      expect(() => readPartialCloneFilter('git', commonGitDir)).toThrow(/Unsupported partial-clone promisor/);
       set('extensions.partialclone', 'origin');
       expect(readPartialCloneFilter('git', commonGitDir)).toBe('blob:none');
       set('remote.origin.partialclonefilter', 'sparse:oid=HEAD:.gitignore');
-      expect(readPartialCloneFilter('git', commonGitDir)).toBe('');
+      expect(() => readPartialCloneFilter('git', commonGitDir)).toThrow(/Unsupported partial-clone filter/);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
@@ -114,7 +117,9 @@ describe('Codex Git bridge: the shadow common dir keeps the partial clone', () =
     expect(partial).toContain('[extensions]\n\tpartialClone = origin');
     expect(partial).toContain(`\turl = ${remote}`);
     expect(partial).toContain('\tpromisor = true\n\tpartialclonefilter = blob:none');
-    expect(shadowCommonConfig(remote, { partialCloneFilter: 'blob:none\n[core]\n\thooksPath = /x' }))
-      .not.toMatch(/promisor|hooksPath/u);
+    expect(() => shadowCommonConfig(remote, { partialCloneFilter: 'blob:none\n[core]\n\thooksPath = /x' }))
+      .toThrow(/Unsupported partial-clone filter/);
+    expect(() => shadowCommonConfig(remote, { partialCloneFilter: 42 as never }))
+      .toThrow(/Unsupported partial-clone filter/);
   });
 });

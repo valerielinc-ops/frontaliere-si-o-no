@@ -18,10 +18,10 @@
  * to at most 1 report per 60 seconds to avoid flooding GA4.
  */
 
-import { Analytics } from '@/services/analytics';
-import { isBenignErrorMessage, isOriginRedactedThirdPartyStack } from '@/services/benignErrorPatterns';
-import { isNewsletterAutologinInFlight } from '@/services/newsletterAutologinSignal';
-import { isVersionSkewError, recoverFromStaleChunk } from '@/services/resilientImport';
+import { Analytics } from './analytics';
+import { isBenignErrorMessage, isOriginRedactedThirdPartyStack } from './benignErrorPatterns';
+import { isNewsletterAutologinInFlight } from './newsletterAutologinSignal';
+import { isVersionSkewError, recoverFromStaleChunk } from './resilientImport';
 
 type ErrorType =
  | 'api_error'
