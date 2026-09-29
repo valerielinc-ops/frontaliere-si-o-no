@@ -74,7 +74,7 @@ export function parseSpitexZuerichListing(html) {
 // The detail URL is a client-rendered shell; the ad itself is the onlyfy
 // `/job/show/{handle}/full` document (see onlyfyFullAdUrl). The former
 // `<p>/<li>` sweep of the shell (capped at 30 fragments) never reached the
-// role text, so every vacancy fell back to the synthesised stub below.
+// role text, so every vacancy fell back to a stub the parser wrote itself.
 async function fetchDetailContent(url) {
   const adUrl = onlyfyFullAdUrl(url);
   if (!adUrl) return '';
@@ -110,29 +110,20 @@ export async function fetchAllSpitexZuerichJobs() {
     // listing chrome, so the shell-era title-overlap heuristic does not apply:
     // it rejected "Ausbildungsplatz Dipl. Pflegefachfrau/-mann HF 2026/2027"
     // because the ad says "Pflegefachperson" and "Ausbildung".
-    const detailContent = rawDetail.length >= 80 ? rawDetail : '';
+    const detailContent = String(rawDetail || '').trim();
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, POLITE_DELAY_MS));
-    let description;
-    if (detailContent) {
-      // The ad as published, plus the listing's workload; no company text of
-      // our own (the ad carries the employer's).
-      description = [
+    // The ad as published, whatever its length, plus the listing's workload.
+    // Without the ad the parser used to write a stub of its own ("<Titel> bei
+    // Spitex Zürich, <Ort>, Schweiz." with Standort/Bereich/Bewerbung bullets,
+    // SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE); a vacancy without text now gets no
+    // description and takes the pipeline's thin-source path.
+    const description = detailContent
+      ? [
         detailContent,
         it.employmentTypeStr ? `• Arbeitszeit: ${it.employmentTypeStr}` : '',
-      ].filter(Boolean).join('\n\n');
-    } else {
-      // Detail page returned a consent wall or cookie chrome instead of the
-      // role body. Synthesise a bullet-structured fallback so the parser-
-      // quality `hasStructuredContent` audit passes.
-      const intro = `${it.title} bei Spitex Zürich, ${it.location || DEFAULT_CITY} (${DEFAULT_CANTON}), Schweiz.`;
-      const bullets = [];
-      if (it.employmentTypeStr) bullets.push(`• Arbeitszeit: ${it.employmentTypeStr}`);
-      bullets.push(`• Standort: ${it.location || DEFAULT_CITY} (${DEFAULT_CANTON})`);
-      bullets.push('• Bereich: Ambulante Pflege und Hauswirtschaft');
-      bullets.push('• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich');
-      description = `${intro}\n\n${bullets.join('\n')}`;
-    }
+      ].filter(Boolean).join('\n\n')
+      : '';
 
     const sourceLang = detectLang(description || it.title, 'de');
     const jobSlug = slugify(`${it.title} ${SPITEX_ZUERICH_KEY} ${it.location}`);
@@ -182,3 +173,7 @@ export async function fetchAllSpitexZuerichJobs() {
   console.log(`📋 Total ${SPITEX_ZUERICH_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${items.length} with rich detail content)`);
   return jobs;
 }
+
+/** Fragment only the parser's former stub wrote (no ad text). */
+export const SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE =
+  /Bewerbung über das softgarden onlyfy\.jobs-Karriereportal von Spitex Zürich/;

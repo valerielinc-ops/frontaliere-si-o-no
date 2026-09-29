@@ -214,16 +214,16 @@ export async function fetchAllSpitexChJobs() {
     const country = COUNTRY_TO_CC[addr.addressCountry] || 'CH';
 
     const descHtml = posting.description || '';
+    // The posting's own text, whatever its length, with the employer's
+    // sections of the same ad. Under 30 distinct words the parser used to
+    // replace it with "<Titel> bei <Arbeitgeber> in <Ort>. Spitex-Stelle in der
+    // Schweizer Hauspflege…" (SPITEX_CH_FABRICATED_DESCRIPTION_RE); a posting
+    // without text now gets no description and takes the thin-source path.
     let description = htmlToText(descHtml);
-    const uniqueWords = new Set(
-      description.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-    );
     const hiringOrg = posting.hiringOrganization?.name
       ? decodeEntities(String(posting.hiringOrganization.name)).trim()
       : '';
-    if (uniqueWords.size < 30) {
-      description = `${title}${hiringOrg ? ` bei ${hiringOrg}` : ''} in ${city}.\n\nSpitex-Stelle in der Schweizer Hauspflege. Diese Position bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
-    } else if (employerHtml) {
+    if (description.trim() && employerHtml) {
       description = htmlToText(`${descHtml}\n${employerHtml}`);
     }
 
@@ -323,3 +323,7 @@ export function isTrustedDomain(rawUrl = '') {
     return false;
   }
 }
+
+/** Fragment only the parser's former substitute description wrote. */
+export const SPITEX_CH_FABRICATED_DESCRIPTION_RE =
+  /Spitex-Stelle in der Schweizer Hauspflege\. Diese Position bietet ein modernes Arbeitsumfeld/;

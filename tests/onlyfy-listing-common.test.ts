@@ -6,7 +6,7 @@ import {
   onlyfyFullAdUrl,
   extractOnlyfyJobAdText,
 } from '../scripts/lib/onlyfy-listing-common.mjs';
-import { fetchAllSpitexZuerichJobs } from '../scripts/lib/spitex-zuerich-job-parser.mjs';
+import { fetchAllSpitexZuerichJobs, SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/spitex-zuerich-job-parser.mjs';
 
 // Redesigned onlyfy.jobs card markup (2026). Both spitex-zuerich and
 // vitrea-gesundheit sit on this portal; the old `<strong class="job-title">`
@@ -154,5 +154,21 @@ describe('fetchAllSpitexZuerichJobs', () => {
     expect(jobs[0].description.startsWith('Es freut uns, dass du dich')).toBe(true);
     expect(jobs[0].description).toContain('• Arbeitszeit: Teilzeit / Vollzeit');
     expect(jobs[0].description).not.toMatch(/Bewerbung über das softgarden|gemeinnützige Non-Profit-Organisation/);
+  }, 20000);
+
+  it('writes no stub of its own when the ad document has no text (thin-source path)', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const body = String(url).includes('/job/show/') ? '<html><body><main>Alle Jobs</main></body></html>' : NEW_MARKUP;
+      return new Response(body, { status: 200, headers: { 'content-type': 'text/html' } });
+    }));
+    const jobs = await fetchAllSpitexZuerichJobs();
+    // Both vacancies are kept, with no description: the former stub
+    // ("<Titel> bei Spitex Zürich, … Schweiz." with Standort/Bereich/Bewerbung
+    // bullets) is gone and the pipeline quarantines the empty description.
+    expect(jobs).toHaveLength(2);
+    for (const job of jobs) {
+      expect(job.description).toBe('');
+      expect(job.description).not.toMatch(SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE);
+    }
   }, 20000);
 });

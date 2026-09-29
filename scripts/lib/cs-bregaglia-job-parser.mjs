@@ -108,9 +108,12 @@ export async function fetchAllCsBregagliaJobs() {
     } catch (err) {
       console.warn(`  ⚠️ detail fetch failed for ${it.url}: ${err?.message || err}`);
     }
+    // The source's own text only: the detail body or the RSS description.
+    // Without either the parser used to write "<titolo> — Centro Sanitario
+    // Bregaglia, Promontogno (GR)."; the job now takes the thin-source path.
     const description = (detailBody.length > it.description.length ? detailBody : '')
       || it.description
-      || `${title} — Centro Sanitario Bregaglia, Promontogno (GR).`;
+      || '';
     const postedDate = (() => {
       const d = new Date(it.pubDate || '');
       return Number.isNaN(d.getTime()) ? todayIso : d.toISOString().slice(0, 10);
@@ -162,3 +165,7 @@ export async function fetchAllCsBregagliaJobs() {
   console.log(`📋 Total ${CS_BREGAGLIA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+/** The parser's former substitute description (a whole description of its own). */
+export const CS_BREGAGLIA_FABRICATED_DESCRIPTION_RE =
+  /^.{3,300} — Centro Sanitario Bregaglia, Promontogno \(GR\)\.$/;
