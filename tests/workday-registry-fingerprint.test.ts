@@ -81,3 +81,23 @@ describe('extractJobIdentityFromUrl — Umantis per-tenant vacancy fingerprint',
     expect(extractJobIdentityFromUrl(description)).toBe('recruitingapp-122706.umantis.com|5105');
   });
 });
+
+describe('extractJobIdentityFromUrl — text-fragment identity', () => {
+  it('keeps a trailing hyphen in the text start', () => {
+    const trailingHyphen = 'https://example.ch/list#:~:text=Ruolo%20-';
+    const extended = 'https://example.ch/list#:~:text=Ruolo%20-%20notturno';
+
+    expect(extractJobIdentityFromUrl(trailingHyphen)).toBe('example.ch|/list#text=ruolo -');
+    expect(extractJobIdentityFromUrl(trailingHyphen)).not.toBe(extractJobIdentityFromUrl(extended));
+  });
+
+  it('skips only an explicit prefix component', () => {
+    expect(extractJobIdentityFromUrl('https://example.ch/list#:~:text=prefix-,Ruolo%20-'))
+      .toBe('example.ch|/list#text=ruolo -');
+  });
+
+  it('keeps text-fragment identity when the query contains only tracking parameters', () => {
+    expect(extractJobIdentityFromUrl('https://example.ch/list?utm_source=x#:~:text=Ruolo'))
+      .toBe('example.ch|/list#text=ruolo');
+  });
+});

@@ -159,6 +159,20 @@ export function parseKlinikSeeschauListing(html = '') {
   return out;
 }
 
+/**
+ * Merge key of a Klinik Seeschau record: its id (digest of the title), not
+ * its URL. The stored records carry `#job-<hash>` URLs and #10334 publishes
+ * the same postings under text fragments of their headings; keyed by URL the
+ * next crawl would retire both and publish them again as new jobs, without
+ * their translations and slugs.
+ *
+ * @param {{ id?: string, url?: string }} job
+ * @returns {string}
+ */
+export function klinikSeeschauMatchKey(job = {}) {
+  return String(job?.id || job?.url || '');
+}
+
 export async function fetchAllKlinikSeeschauJobs() {
   console.log(`🏥 Fetching ${KLINIK_SEESCHAU_COMPANY_NAME} jobs`);
   console.log(`   Careers: ${KLINIK_SEESCHAU_CAREERS_URL}\n`);
