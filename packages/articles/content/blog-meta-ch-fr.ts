@@ -7088,6 +7088,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.validita-lista-onu-svizzera.title': 'ONU : la liste des sanctions a été mise à jour en Suisse',
     'blog.article.validita-lista-onu-svizzera.excerpt': 'Le 29 septembre 2026, le comité des sanctions de l’ONU a modifié la liste. SESAM a été mise à jour et la modification s’applique immédiatement en Suisse.',
     'blog.article.validita-lista-onu-svizzera.imageAlt': 'Berne, mise à jour de la liste des sanctions de l’ONU dans SESAM',
+    'blog.article.centro-premi-salute-2027.title': 'Primes d\'assurance-maladie 2027, Le Centre demande davantage de mesures',
+    'blog.article.centro-premi-salute-2027.excerpt': 'Au Tessin, les primes d\'assurance-maladie augmenteront de 3,7% en 2027, contre 5% au niveau national. Le Centre demande de renforcer les mesures cantonales et fédérales.',
+    'blog.article.centro-premi-salute-2027.imageAlt': 'Tessin : documents sur les primes d\'assurance maladie prévues pour 2027',
 };
 
 export default blogMetaChFr;

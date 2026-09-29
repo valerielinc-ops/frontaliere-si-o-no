@@ -7088,6 +7088,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.validita-lista-onu-svizzera.title': 'UNO: Sanktionsliste in der Schweiz aktualisiert',
     'blog.article.validita-lista-onu-svizzera.excerpt': 'Am 29. September 2026 änderte der Sanktionsausschuss der Vereinten Nationen die Liste. SESAM wurde aktualisiert und die Änderung gilt ab sofort in der Schweiz.',
     'blog.article.validita-lista-onu-svizzera.imageAlt': 'Bern: Aktualisierung der UN-Sanktionsliste in der SESAM-Datenbank',
+    'blog.article.centro-premi-salute-2027.title': 'Krankenkassenprämien 2027, Il Centro fordert mehr Massnahmen',
+    'blog.article.centro-premi-salute-2027.excerpt': 'Im Tessin werden die Krankenkassenprämien 2027 um 3,7% steigen, gegenüber dem nationalen Wert von 5%. Il Centro fordert, die kantonalen und eidgenössischen Massnahmen zu verstärken.',
+    'blog.article.centro-premi-salute-2027.imageAlt': 'Tessin: Unterlagen zu den Krankenkassenprämien für 2027',
 };
 
 export default blogMetaChDe;
