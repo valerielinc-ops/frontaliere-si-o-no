@@ -170,9 +170,15 @@ export function buildDescription(pdfText = '') {
   return buildPdfBackedDescription({ pdfText });
 }
 
-/** Fragments only the parser's former wrapper wrote (see `buildDescription`). */
+/**
+ * The former wrapper as it opened every description: "<titolo> presso
+ * l'Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi), Castelrotto
+ * (Malcantone, Canton Ticino)." followed by the parser's whole paragraph on the
+ * hospital. Anchored at the start of the text: a bando that quotes either line
+ * further down is never taken for it.
+ */
 export const OSCAM_CASTELROTTO_FABRICATED_DESCRIPTION_RE =
-  /presso l'Ospedale Malcantonese OSCAM \(Fondazione Giuseppe Rossi\), Castelrotto \(Malcantone, Canton Ticino\)\.|L'OSCAM è un ospedale di cure acute con sede a Castelrotto|Il concorso è pubblicato come bando ufficiale\. Il dettaglio completo|(?:^|\n)Bando completo \(PDF\): /;
+  /^[^\n]{3,300} presso l'Ospedale Malcantonese OSCAM \(Fondazione Giuseppe Rossi\), Castelrotto \(Malcantone, Canton Ticino\)\.\n\nL'OSCAM è un ospedale di cure acute con sede a Castelrotto che serve la regione del Malcantone\. La fondazione Giuseppe Rossi gestisce reparti di medicina interna, chirurgia, psichiatria, ostetricia-ginecologia e cure palliative, oltre a un pronto soccorso e a servizi ambulatoriali per la popolazione del distretto di Lugano-Malcantone\.(?:\n\n|\s*$)/;
 
 /* ── Main fetch ────────────────────────────────────────────── */
 

@@ -29,7 +29,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
-import { parseOnlyfyListing, onlyfyFullAdUrl, extractOnlyfyJobAdText } from './onlyfy-listing-common.mjs';
+import { parseOnlyfyListing, onlyfyFullAdUrl, extractOnlyfyJobAdText, isOnlyfyJobAdText } from './onlyfy-listing-common.mjs';
 
 export const SPITEX_ZUERICH_KEY = 'spitex-zuerich';
 export const SPITEX_ZUERICH_COMPANY_NAME = 'Spitex Zürich';
@@ -110,10 +110,12 @@ export async function fetchAllSpitexZuerichJobs() {
     // listing chrome, so the shell-era title-overlap heuristic does not apply:
     // it rejected "Ausbildungsplatz Dipl. Pflegefachfrau/-mann HF 2026/2027"
     // because the ad says "Pflegefachperson" and "Ausbildung".
-    const detailContent = String(rawDetail || '').trim();
+    // Only the ad itself: a consent, cookie or error page, or a body under the
+    // 50-word floor, is not the vacancy's text (isOnlyfyJobAdText).
+    const detailContent = isOnlyfyJobAdText(rawDetail) ? String(rawDetail).trim() : '';
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, POLITE_DELAY_MS));
-    // The ad as published, whatever its length, plus the listing's workload.
+    // The ad as published, plus the listing's workload.
     // Without the ad the parser used to write a stub of its own ("<Titel> bei
     // Spitex Zürich, <Ort>, Schweiz." with Standort/Bereich/Bewerbung bullets,
     // SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE); a vacancy without text now gets no
@@ -174,6 +176,11 @@ export async function fetchAllSpitexZuerichJobs() {
   return jobs;
 }
 
-/** Fragment only the parser's former stub wrote (no ad text). */
+/**
+ * The whole stub the parser used to write without the ad: "<Titel> bei Spitex
+ * Zürich, <Ort>, Schweiz." and its Arbeitszeit/Standort/Bereich/Bewerbung
+ * bullets, and nothing else. Anchored at both ends, so an ad that quotes one
+ * of these lines is never taken for it.
+ */
 export const SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE =
-  /Bewerbung über das softgarden onlyfy\.jobs-Karriereportal von Spitex Zürich/;
+  /^[^\n]{3,300} bei Spitex Zürich, [^\n]{1,120}, Schweiz\.\n\n(?:• Arbeitszeit: [^\n]{1,120}\n)?• Standort: [^\n]{0,120}\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy\.jobs-Karriereportal von Spitex Zürich\s*$/;

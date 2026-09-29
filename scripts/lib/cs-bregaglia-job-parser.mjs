@@ -166,6 +166,9 @@ export async function fetchAllCsBregagliaJobs() {
   return jobs;
 }
 
-/** The parser's former substitute description (a whole description of its own). */
-export const CS_BREGAGLIA_FABRICATED_DESCRIPTION_RE =
-  /^.{3,300} — Centro Sanitario Bregaglia, Promontogno \(GR\)\.$/;
+/**
+ * The whole one-line description the parser used to write without a body:
+ * "<titolo> — Centro Sanitario Bregaglia, Promontogno (GR)." (anchored at both
+ * ends; a body that names the centre is not taken for it).
+ */
+export const CS_BREGAGLIA_FABRICATED_DESCRIPTION_RE = /^[^\n]{3,300} — Centro Sanitario Bregaglia, Promontogno \(GR\)\.\s*$/;

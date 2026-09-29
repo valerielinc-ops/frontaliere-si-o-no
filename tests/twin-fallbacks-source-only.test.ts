@@ -15,7 +15,7 @@ import { describe, it, expect } from 'vitest';
 import { dropFabricatedDescription } from '../scripts/lib/drop-fabricated-description.mjs';
 import { SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/spitex-zuerich-job-parser.mjs';
 import { VITREA_GESUNDHEIT_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/vitrea-gesundheit-job-parser.mjs';
-import { SPITEX_CH_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/spitex-ch-job-parser.mjs';
+import { SPITEX_CH_FABRICATED_DESCRIPTION_RE, buildSpitexChDescription } from '../scripts/lib/spitex-ch-job-parser.mjs';
 import { CS_BREGAGLIA_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/cs-bregaglia-job-parser.mjs';
 import {
   buildDescription as buildOscamCastelrottoDescription,
@@ -103,5 +103,65 @@ describe('oscam-castelrotto: the description is the bando only', () => {
 
   it('writes nothing when the PDF has no readable text (thin-source path)', () => {
     expect(buildOscamCastelrottoDescription('')).toBe('');
+  });
+});
+
+// Each pattern is the WHOLE former text (anchored), not a fragment of it: a
+// substantial description that quotes the same lines is the source's and stays.
+describe('the patterns recognise the whole former text only', () => {
+  const REAL_AD = [
+    'Ihre Aufgaben',
+    '• Pflege und Betreuung der Klientinnen und Klienten in ihrem Zuhause',
+    '• Bedarfsabklärung, Pflegeplanung und Dokumentation im Team',
+    'Ihr Profil',
+    '• Abgeschlossene Ausbildung als Pflegefachperson HF oder FH',
+    '• Freude an selbständiger Arbeit und an der Zusammenarbeit mit Angehörigen',
+    'Wir bieten',
+    '• Fortschrittliche Anstellungsbedingungen, Weiterbildung und ein engagiertes Team',
+  ].join('\n');
+  const cases: Array<[string, RegExp, string]> = [
+    ['spitex-zuerich', SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE, FIXTURE['spitex-zuerich'].source],
+    ['vitrea-gesundheit', VITREA_GESUNDHEIT_FABRICATED_DESCRIPTION_RE, FIXTURE['vitrea-gesundheit'].source],
+    ['oscam-castelrotto', OSCAM_CASTELROTTO_FABRICATED_DESCRIPTION_RE, FIXTURE['oscam-castelrotto'].source],
+    ['spitex-ch', SPITEX_CH_FABRICATED_DESCRIPTION_RE,
+      'Pflegefachperson HF bei Spitex Bern in Bern.\n\nSpitex-Stelle in der Schweizer Hauspflege. Diese Position bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.'],
+    ['cs-bregaglia', CS_BREGAGLIA_FABRICATED_DESCRIPTION_RE, 'Infermiere/a — Centro Sanitario Bregaglia, Promontogno (GR).'],
+  ];
+
+  for (const [key, pattern, former] of cases) {
+    it(`${key}: the former text is removed, an ad that contains it stays`, () => {
+      const exact: any = { sourceLang: 'de', description: former, descriptionByLocale: { de: former } };
+      expect(dropFabricatedDescription(exact, pattern)).toBe(true);
+      expect(exact.description).toBe('');
+
+      const quoted = `${REAL_AD}\n\n${former}\n\n${REAL_AD}`;
+      const ad: any = { sourceLang: 'de', description: quoted, descriptionByLocale: { de: quoted, it: 'Traduzione dell annuncio.' } };
+      expect(pattern.test(quoted)).toBe(false);
+      expect(dropFabricatedDescription(ad, pattern)).toBe(false);
+      expect(ad.description).toBe(quoted);
+      expect(ad.descriptionByLocale).toEqual({ de: quoted, it: 'Traduzione dell annuncio.' });
+    });
+  }
+});
+
+describe('spitex-ch: the description is the source text of the posting and of its page', () => {
+  const EMPLOYER = `<h3>Porträt</h3><p>Aufgaben und Angebot der Spitex Grauholz: ${'wir pflegen und begleiten Menschen jeden Alters zu Hause in elf Gemeinden der Region. '.repeat(5)}</p>`;
+
+  it('builds it from the employer sections when the JSON-LD description is empty', () => {
+    const description = buildSpitexChDescription('', EMPLOYER);
+    expect(description).not.toBe('');
+    expect(description).toContain('Aufgaben');
+  });
+
+  it('keeps both parts when both are there', () => {
+    const description = buildSpitexChDescription('<p>Ihre Aufgaben: Grund- und Behandlungspflege.</p>', EMPLOYER);
+    expect(description).toContain('Grund- und Behandlungspflege');
+    expect(description).toContain('Spitex Grauholz');
+  });
+
+  it('writes nothing under the 50-word floor or without text', () => {
+    expect(buildSpitexChDescription('<p>Aufgaben: Pflege.</p>', '')).toBe('');
+    expect(buildSpitexChDescription('', '')).toBe('');
+    expect(buildSpitexChDescription('<p> </p>', '<div></div>')).toBe('');
   });
 });

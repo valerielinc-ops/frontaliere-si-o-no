@@ -25,7 +25,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
-import { parseOnlyfyListing, onlyfyFullAdUrl, extractOnlyfyJobAdText } from './onlyfy-listing-common.mjs';
+import { parseOnlyfyListing, onlyfyFullAdUrl, extractOnlyfyJobAdText, isOnlyfyJobAdText } from './onlyfy-listing-common.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 export const VITREA_GESUNDHEIT_KEY = 'vitrea-gesundheit';
@@ -103,10 +103,12 @@ export async function fetchAllVitreaGesundheitJobs() {
     // listing chrome, so the shell-era title-overlap heuristic does not apply:
     // on the sibling Spitex Zürich tenant it rejected "Ausbildungsplatz Dipl.
     // Pflegefachfrau/-mann HF 2026/2027" because the ad says "Pflegefachperson".
-    const detailContent = String(rawDetail || '').trim();
+    // Only the ad itself: a consent, cookie or error page, or a body under the
+    // 50-word floor, is not the vacancy's text (isOnlyfyJobAdText).
+    const detailContent = isOnlyfyJobAdText(rawDetail) ? String(rawDetail).trim() : '';
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, POLITE_DELAY_MS));
-    // The ad as published, whatever its length, plus the listing's workload.
+    // The ad as published, plus the listing's workload.
     // Without the ad the parser used to write a stub of its own ("<Titel> bei
     // Vitrea Gesundheit, <Ort>, Schweiz." with Standort/Bereich/Bewerbung bullets,
     // VITREA_GESUNDHEIT_FABRICATED_DESCRIPTION_RE); a vacancy without text now gets no
@@ -166,6 +168,11 @@ export async function fetchAllVitreaGesundheitJobs() {
   return jobs;
 }
 
-/** Fragment only the parser's former stub wrote (no ad text). */
+/**
+ * The whole stub the parser used to write without the ad: "<Titel> bei Vitrea
+ * Gesundheit (ehemals VAMED Schweiz), <Ort>, Schweiz." and its
+ * Arbeitszeit/Standort/Bereich/Bewerbung bullets, and nothing else. Anchored
+ * at both ends, so an ad that quotes one of these lines is never taken for it.
+ */
 export const VITREA_GESUNDHEIT_FABRICATED_DESCRIPTION_RE =
-  /Bewerbung über das softgarden onlyfy\.jobs-Karriereportal von Vitrea Gesundheit/;
+  /^[^\n]{3,300} bei Vitrea Gesundheit \(ehemals VAMED Schweiz\), [^\n]{0,120}, Schweiz\.\n\n(?:• Arbeitszeit: [^\n]{1,120}\n)?• Standort: [^\n]{0,120}\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy\.jobs-Karriereportal von Vitrea Gesundheit\s*$/;
