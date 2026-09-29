@@ -12280,6 +12280,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-29.imageAlt': 'Les chiffres du jour pour les frontaliers – 29 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-29.seoDescription': 'Bulletin du frontalier du 29 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-29.ogDescription': 'Les chiffres du 29 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.cst-clausola-salvaguardia-tassa.title': 'CSt : clause de sauvegarde renforcée avec taxe incitative',
+    'blog.article.cst-clausola-salvaguardia-tassa.excerpt': 'Le Conseil des Etats a renforcé la clause de sauvegarde pour l\'immigration en introduisant une taxe d\'incitation de 2 000 à 4 000 francs et de nouveaux indicateurs.',
+    'blog.article.cst-clausola-salvaguardia-tassa.imageAlt': 'Vue panoramique de Lugano et de son lac avec les montagnes en arrière-plan, un symbole du Tessin.',
 };
 
 export default blogMetaFr;
