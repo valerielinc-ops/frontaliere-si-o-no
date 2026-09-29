@@ -310,19 +310,33 @@ function extractAjoieRows(text, { sourceUrl, fetchedAt } = {}) {
 
 export function parseBaselStadtDutyPage({ html, sourceUrl, fetchedAt, calendarYear = new Date().getUTCFullYear() } = {}) {
   if (!Number.isInteger(calendarYear)) throw new Error(`Invalid Basel-Stadt calendar year: ${calendarYear}`);
-  const cells = [];
-  const cellPattern = /<td\b[^>]*>([\s\S]*?)<\/td>/gi;
-  let match;
-  while ((match = cellPattern.exec(String(html || '')))) cells.push(stripHtml(match[1]));
-  const record = cells.find((value) => /24\s+Stunden\s+Apotheke\s+Basel\s+AG/i.test(value));
+  const sourceRows = [];
+  const rowPattern = /<tr\b[^>]*>([\s\S]*?)<\/tr>/gi;
+  let rowMatch;
+  while ((rowMatch = rowPattern.exec(String(html || '')))) {
+    const cells = [];
+    const cellPattern = /<td\b[^>]*>([\s\S]*?)<\/td>/gi;
+    let cellMatch;
+    while ((cellMatch = cellPattern.exec(rowMatch[1]))) cells.push(stripHtml(cellMatch[1]));
+    if (cells.length > 0) sourceRows.push(cells);
+  }
+  if (sourceRows.length === 0) {
+    const cells = [];
+    const cellPattern = /<td\b[^>]*>([\s\S]*?)<\/td>/gi;
+    let cellMatch;
+    while ((cellMatch = cellPattern.exec(String(html || '')))) cells.push(stripHtml(cellMatch[1]));
+    if (cells.length > 0) sourceRows.push(cells);
+  }
+  const record = sourceRows.find((cells) => cells.some((value) => /24\s+Stunden\s+Apotheke\s+Basel\s+AG/i.test(value)));
   if (!record) throw new Error('Basel-Stadt page did not expose the allowlisted 24-hour pharmacy identity');
-  if (!/Petersgraben\s+3\b/i.test(record) || !/4051\s+Basel\b/i.test(record)) {
+  const recordText = record.join(' ');
+  if (!/Petersgraben\s+3\b/i.test(recordText) || !/4051\s+Basel\b/i.test(recordText)) {
     throw new Error('Basel-Stadt 24-hour pharmacy address changed or is unresolved');
   }
-  if (!/Montag\s*-\s*Sonntag\s+24\s+Stunden/i.test(record)) {
+  if (!/Montag\s*[-–]\s*Sonntag\s+24\s+Stunden/i.test(recordText)) {
     throw new Error('Basel-Stadt page no longer declares Monday-Sunday 24-hour opening');
   }
-  if (!/365\s+Tage\s+durchgehend/i.test(record)) {
+  if (!/365\s+Tage\s+durchgehend/i.test(recordText)) {
     throw new Error('Basel-Stadt page no longer declares year-round opening');
   }
 
