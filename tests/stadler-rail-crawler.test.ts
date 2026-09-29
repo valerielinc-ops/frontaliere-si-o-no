@@ -250,6 +250,19 @@ describe('stored fallback paragraph — removed before the merge', () => {
     expect(jobs[0].slugByLocale).toEqual(STORED.slugByLocale);
   });
 
+  it('recognises only the whole legacy template, not a real posting that quotes the company sentence', () => {
+    // Review of PR 10390: a real, long posting with the same company sentence
+    // must keep its body and translations.
+    expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(STORED.description)).toBe(true);
+    const real = 'Monteur:in Drehgestelle bei Stadler Rail in Bussnang. Stadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang. Reale mansioni: Montage von Drehgestellen, Qualitätskontrolle und Dokumentation.';
+    expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(real)).toBe(false);
+    expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(`${STORED.description}\n\nIhre Aufgaben: Montage von Drehgestellen.`)).toBe(false);
+    const job: any = { sourceLang: 'de', description: real, descriptionByLocale: { de: real, it: 'Traduzione reale.' } };
+    dropFabricatedDescriptions([job], STADLER_RAIL_FABRICATED_DESCRIPTION_RE, 'Stadler Rail');
+    expect(job.descriptionByLocale).toEqual({ de: real, it: 'Traduzione reale.' });
+    expect(job.description).toBe(real);
+  });
+
   it('never matches the text the parser publishes now', () => {
     const DETAIL = fs.readFileSync(new URL('./fixtures/stadler-rail-detail-short-lackierer.html', import.meta.url), 'utf8');
     expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(DETAIL)).toBe(false);
