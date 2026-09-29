@@ -16,6 +16,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
 
 const HQ = getCompanyDefaults('cerbios-pharma');
 
@@ -233,7 +234,14 @@ export function buildJob(raw) {
   if (!title || title.length < 3) return null;
 
   const location = raw.location || 'Barbengo';
-  const description = raw.description || `${title} presso Cerbios-Pharma SA, azienda farmaceutica CDMO con sede a Barbengo (Lugano, Ticino). Cerbios-Pharma è specializzata nello sviluppo e nella produzione di principi attivi farmaceutici (API) e coniugati anticorpo-farmaco (ADC), servendo clienti farmaceutici globali. L'azienda opera in un ambiente GMP certificato con tecnologie all'avanguardia.`;
+  // The listing's own text only, keyed by its language. The builder used to
+  // substitute a paragraph of its own on Cerbios-Pharma ("<titolo> presso
+  // Cerbios-Pharma SA, azienda farmaceutica CDMO…") and to copy the Italian
+  // title into all four locales; a listing without text now gets no
+  // description and takes the pipeline's thin-source path.
+  const description = normalizeSpace(raw.description || '');
+  const sourceLang = detectLang(description || title, 'it');
+  const slug = slugify(`${title}-cerbios-pharma-${location}`);
 
   return {
     title,
@@ -251,16 +259,13 @@ export function buildJob(raw) {
     employmentType: inferEmploymentType(title, description),
     category: detectCategory(title, description),
     description,
+    descriptionByLocale: { [sourceLang]: description },
+    sourceLang,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
     source: 'company-website',
-    slug: slugify(`${title}-cerbios-pharma-${location}`),
-    slugByLocale: {
-      it: slugify(`${title}-cerbios-pharma-${location}`),
-      en: slugify(`${title}-cerbios-pharma-${location}`),
-      de: slugify(`${title}-cerbios-pharma-${location}`),
-      fr: slugify(`${title}-cerbios-pharma-${location}`),
-    },
-    titleByLocale: { it: title, en: title, de: title, fr: title },
+    slug,
+    slugByLocale: { [sourceLang]: slug },
+    titleByLocale: { [sourceLang]: title },
   };
 }
 
