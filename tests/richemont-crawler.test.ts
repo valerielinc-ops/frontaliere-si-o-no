@@ -5,6 +5,7 @@ import {
   isRichemontJob,
   isTrustedDomain,
   buildJobDescription,
+  detectRichemontSourceLang,
 } from '../scripts/lib/richemont-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -160,37 +161,71 @@ describe('Richemont crawler parser', () => {
       expect(out.length).toBeGreaterThan(200);
     });
 
-    it('falls back to template when detail text is empty', () => {
-      const out = buildJobDescription({ ...cardFields, detailText: '' });
-      expect(out).toContain('HRIS Learning Intern');
-      expect(out).toContain('Maison: Richemont.');
-      expect(out).toContain('Department: Technology.');
-      expect(out).toContain('Location: Meyrin, CH.');
-      expect(out).toContain('Compagnie Financière Richemont');
+    // Only the posting's own text is published (issue 5253): the card-field
+    // template ("{title} Maison: … Open position at Compagnie Financière
+    // Richemont …") no longer stands in for a missing body.
+    it('returns no text when the detail body is empty', () => {
+      expect(buildJobDescription({ ...cardFields, detailText: '' })).toBe('');
     });
 
-    it('falls back to template when detail text is too short', () => {
-      const out = buildJobDescription({ ...cardFields, detailText: 'too short' });
-      expect(out).toContain('Compagnie Financière Richemont');
+    it('returns no text when the detail body is too short', () => {
+      expect(buildJobDescription({ ...cardFields, detailText: 'too short' })).toBe('');
     });
 
-    it('normalises whitespace in rich text', () => {
-      const rich = 'Line one.\n\n\nLine two.   Excessive    spaces. ' + 'x'.repeat(200);
+    it('collapses runs of spaces and blank lines but keeps the line structure', () => {
+      // Formerly asserted `not.toMatch(/\n/)`: the whole body was collapsed
+      // into one paragraph, which is why 144/174 Richemont postings had no
+      // list at all (audit run 36528331656, no-structured-content).
+      const rich = 'Line one.\n\n\n\nLine two.   Excessive    spaces. ' + 'x'.repeat(200);
       const out = buildJobDescription({ ...cardFields, detailText: rich });
-      expect(out).not.toMatch(/\s{2,}/);
-      expect(out).not.toMatch(/\n/);
+      expect(out).not.toMatch(/ {2,}/);
+      expect(out).not.toMatch(/\n{3,}/);
+      expect(out).toContain('Line one.\n\nLine two. Excessive spaces.');
     });
 
-    it('handles missing card fields gracefully in fallback', () => {
-      const out = buildJobDescription({ detailText: '' });
-      expect(out).toContain('Compagnie Financière Richemont');
-      expect(out).not.toContain('Maison:');
-      expect(out).not.toContain('Department:');
+    // Minimised from the rendered `.job-detail .cms-content` of
+    // careers.richemont.com/en/jobs/jr122028/ (2026-09-29): the detail reader
+    // prefixes every <li> with "• " and drops the "Similar Jobs" sidebar.
+    const RICH_DETAIL = [
+      'Reference code: JR122028',
+      '',
+      'Richemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories.',
+      '',
+      'HOW WILL YOU MAKE AN IMPACT?',
+      '',
+      '• Integration of Microsoft Exchange and our new acquired email signature solution.',
+      '• Review and adapt scripts and automation process around various email related products.',
+      '• Build Data Analytics dashboards that reflects usage of various UC products.',
+      '',
+      'HOW WILL YOU EXPERIENCE SUCESS WITH US?',
+      '',
+      '• You are fluent in English, French is a plus.',
+    ].join('\n');
+
+    it('keeps the posting lists as line-start bullets', () => {
+      const out = buildJobDescription({ ...cardFields, detailText: RICH_DETAIL });
+      expect(out).toMatch(/^• Integration of Microsoft Exchange/m);
+      expect(out).toMatch(/^HOW WILL YOU MAKE AN IMPACT\?$/m);
+      expect(out).not.toContain('Similar Jobs');
     });
 
-    it('never returns empty string', () => {
-      expect(buildJobDescription({}).length).toBeGreaterThan(0);
-      expect(buildJobDescription({ detailText: '' }).length).toBeGreaterThan(0);
+
+    it('detects the source language from the vacancy body, not from the title', () => {
+      const frenchBody = 'Au sein de notre Maison, vous serez responsable de la coordination des projets et vous travaillerez avec les équipes de production. '
+        .repeat(3);
+      // English-style title on a French posting: the title used to decide.
+      expect(detectRichemontSourceLang({ title: 'Project Manager', detailText: frenchBody })).toBe('fr');
+      expect(detectRichemontSourceLang({ title: 'Senior Data Engineer', detailText: RICH_DETAIL })).toBe('en');
+    });
+
+    it('falls back to the title language only when no detail body was read', () => {
+      expect(detectRichemontSourceLang({ title: 'Responsable logistique pour la Maison', detailText: 'short' }))
+        .toBe(detectRichemontSourceLang({ title: 'Responsable logistique pour la Maison' }));
+    });
+
+    it('never composes a stand-in text', () => {
+      expect(buildJobDescription({})).toBe('');
+      expect(buildJobDescription({ title: 'HRIS Learning Intern', maison: 'Cartier', detailText: '' })).not.toContain('Compagnie Financière Richemont');
     });
   });
 });

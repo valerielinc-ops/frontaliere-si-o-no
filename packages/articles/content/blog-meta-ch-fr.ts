@@ -7055,6 +7055,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.accessibilita-mezzi-pubblici-uft.title': 'Accessibilité transports en commun : le point de l\'OFT',
     'blog.article.accessibilita-mezzi-pubblici-uft.excerpt': 'Mise à jour de l\'état des travaux pour les gares ferroviaires et les arrêts de bus en Suisse selon l\'Office fédéral des transports.',
     'blog.article.accessibilita-mezzi-pubblici-uft.imageAlt': 'Gare ferroviaire suisse avec aménagements pour voyageurs à mobilité réduite',
+    'blog.article.reazioni-partiti-aumento-premi-2027.title': 'Hausse des primes 2027 : réactions du PLR, du PS et des syndicats',
+    'blog.article.reazioni-partiti-aumento-premi-2027.excerpt': 'Estimation à 3,7% pour 2027. Le PLR demande un contrôle des coûts, le PS et l\'OCST défendent les familles. Prime moyenne tessinoise à 519,90 francs.',
+    'blog.article.reazioni-partiti-aumento-premi-2027.imageAlt': 'Bâtiment du Grand Conseil tessinois au crépuscule avec des drapeaux suisses',
 };
 
 export default blogMetaChFr;

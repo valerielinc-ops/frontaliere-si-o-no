@@ -87,6 +87,9 @@ function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n')
     .replace(/<\/li>/gi, '\n')
+    // A heading ends its line: "Arbeitsort" + "6203 Sempach Station" used to
+    // run together as "Arbeitsort6203 Sempach Station".
+    .replace(/<\/h[1-6]>/gi, '\n')
     .replace(/<[^>]+>/g, '')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
@@ -221,6 +224,47 @@ export function parseAldiListingPage(html = '') {
   });
 }
 
+/** "70 - 80%" from `<div class="shifttype">` above the description. */
+function aldiWorkloadText(html = '') {
+  const m = html.match(/<div[^>]*class="[^"]*\bshifttype\b[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  return m ? normalizeSpace(stripHtml(m[1])) : '';
+}
+
+/** Employer intro (`ce-bodytext`) at the top of the job's left column. */
+function aldiIntroText(html = '') {
+  const left = extractBalancedDiv(html, 'jobcontent_left') || '';
+  const beforeJob = left.split(/<div[^>]*id="jobdetails"/i)[0] || '';
+  const intro = extractBalancedDiv(beforeJob, 'ce-bodytext');
+  return intro ? stripHtml(intro) : '';
+}
+
+/** "UNSERE BENEFITS FÜR DICH" headline + one bullet per benefit tile. */
+function aldiBenefitsText(html = '') {
+  const block = extractBalancedDiv(html, 'benefits');
+  if (!block) return '';
+  const items = [...block.matchAll(/<div[^>]*class="[^"]*\bbenefit\b[^"]*"[^>]*>([\s\S]*?)<\/div>/gi)]
+    .map((m) => normalizeSpace(stripHtml(m[1])))
+    .filter(Boolean);
+  if (!items.length) return '';
+  const headlineHtml = (html.match(/<div[^>]*id="job_details_benefits"[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/i) || [])[1] || '';
+  const headline = normalizeSpace(stripHtml(headlineHtml.replace(/<br\s*\/?>/gi, ' ')));
+  return [headline, ...items.map((item) => `• ${item}`)].filter(Boolean).join('\n');
+}
+
+/**
+ * The "Über ALDI SUISSE AG" / "À propos d'ALDI SUISSE AG" / "A proposito di
+ * ALDI SUISSE AG" company paragraph further down the posting page.
+ */
+function aldiCompanyText(html = '') {
+  const blocks = html.split(/(?=<div[^>]*class="[^"]*\bce-bodytext\b)/i).slice(1);
+  for (const chunk of blocks) {
+    const inner = extractBalancedDiv(chunk, 'ce-bodytext') || '';
+    const heading = inner.match(/<h[2-6][^>]*>([\s\S]*?)<\/h[2-6]>/i);
+    if (heading && /\bALDI\s+SUISSE\b/i.test(stripHtml(heading[1]))) return stripHtml(inner);
+  }
+  return '';
+}
+
 /**
  * Extract job data from an ALDI Suisse detail page.
  *
@@ -263,12 +307,27 @@ export function parseAldiDetailPage(html = '') {
   let body = '';
   const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
     || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-  const contentHtml = extractBalancedDiv(html, 'description')
+  const descriptionHtml = extractBalancedDiv(html, 'description');
+  const contentHtml = descriptionHtml
     || (mainMatch ? mainMatch[1] : '')
     || extractBalancedDiv(html, 'content')
     || '';
   if (contentHtml) {
     body = stripHtml(contentHtml);
+  }
+  // The live posting around `<div class="description">` carries more of the
+  // vacancy than the block itself: the workload line, the employer intro at
+  // the top of the left column, the "Unsere Benefits für dich" list in the
+  // right column and the "Über ALDI SUISSE AG" paragraph. The parser used to
+  // publish the block alone (~1.2k of ~3.5k unique characters).
+  if (descriptionHtml) {
+    body = [
+      aldiWorkloadText(html),
+      aldiIntroText(html),
+      body,
+      aldiBenefitsText(html),
+      aldiCompanyText(html),
+    ].filter(Boolean).join('\n\n');
   }
 
   // Requirements — bullet items within the job content block.

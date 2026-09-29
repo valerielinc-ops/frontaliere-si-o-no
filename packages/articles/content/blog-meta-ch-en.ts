@@ -7055,6 +7055,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.accessibilita-mezzi-pubblici-uft.title': 'Public transport accessibility: the Federal Office of Transport\'s update',
     'blog.article.accessibilita-mezzi-pubblici-uft.excerpt': 'Status of work on railway stations and bus stops in Switzerland updated according to the Federal Office of Transport.',
     'blog.article.accessibilita-mezzi-pubblici-uft.imageAlt': 'Swiss railway station with accessibility features for reduced mobility passengers',
+    'blog.article.reazioni-partiti-aumento-premi-2027.title': '2027 Premium Increase: Reactions from the PLR, PS, and Unions',
+    'blog.article.reazioni-partiti-aumento-premi-2027.excerpt': 'Estimate at 3,7% for 2027. PLR calls for cost control, PS and OCST defend families. Average Ticino premium at 519,90 francs.',
+    'blog.article.reazioni-partiti-aumento-premi-2027.imageAlt': 'Ticino parliament building at dusk with Swiss flags',
 };
 
 export default blogMetaChEn;
