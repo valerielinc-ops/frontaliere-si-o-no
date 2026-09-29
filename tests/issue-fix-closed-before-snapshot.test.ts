@@ -75,10 +75,12 @@ describe('issue-fix: issue chiusa fra label e snapshot', () => {
     expect(result.output).not.toContain('closed=true');
   });
 
-  it('resta fail-closed su una issue aperta con fingerprint diverso', () => {
+  it('non concede capability su una issue aperta con fingerprint diverso', () => {
+    // Il ri-accodamento che segue e' coperto da issue-fix-stale-snapshot-requeue.test.ts.
     const result = runSnapshot(issue());
-    expect(result.status).not.toBe(0);
-    expect(result.output).toBe('');
+    expect(result.output).toContain('verified=false');
+    expect(result.output).not.toContain('verified=true');
+    expect(result.output).not.toContain('closed=true');
   });
 
   it('resta fail-closed su uno stato non stringa', () => {

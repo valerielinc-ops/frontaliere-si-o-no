@@ -427,9 +427,60 @@ jobs:
             end
           ' "$issue_file")
           actual=$(printf '%s' "$snapshot" | sha256sum | cut -d' ' -f1)
+          # Snapshot cambiata fra `risk_policy` e qui (run 36381901150 su
+          # #10085 e 36420326517 su #9876, 2026-09-28): un commento legittimo
+          # arrivato nei 2-5 minuti del checkout. Il deny resta: nessuna
+          # capability su una snapshot che la policy non ha visto. Ma non e'
+          # un guasto, e uscire 1 lasciava `agent:fix` orfana: il RESCUE del
+          # drainer la ri-accodava addebitando un `fu-attempt` a una run che
+          # non ha mai letto la issue. Qui torna in `agent:fix-queued` senza
+          # tentativo; il drainer la ripromuove e un `risk_policy` fresco
+          # giudica la snapshot nuova. Il marker conta i giri: oltre
+          # `stale_requeue_max` nelle 24h lo scrittore e' sistematico e il
+          # deny torna un errore visibile (#9285).
           if [ "$actual" != "$expected" ]; then
-            echo "::error::issue snapshot cambiata o non coerente: deny prima del mint/bridge; nessuna capability remota."
-            exit 1
+            if ! jq -e 'any(.labels[]; .name == "agent:fix")' "$issue_file" >/dev/null; then
+              echo "::notice::issue snapshot cambiata dopo risk_policy e agent:fix già rimossa da un altro attore: nessuna capability remota, niente da ri-accodare."
+              echo "stale=true" >> "$GITHUB_OUTPUT"
+              echo "verified=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            stale_marker='<!-- ISSUE_FIX_SNAPSHOT_STALE -->'
+            stale_requeue_max=3
+            stale_recent=$(jq -r --arg marker "$stale_marker" '
+              ((now | floor) - 86400 | todate) as $since
+              | [.comments[]
+                  | select(((.createdAt // "") | type) == "string" and (.createdAt // "") >= $since)
+                  | select(((.body | type) == "string") and (.body | contains($marker)))]
+              | length
+            ' "$issue_file")
+            if [ "$stale_recent" -ge "$stale_requeue_max" ]; then
+              echo "::error::issue snapshot cambiata o non coerente, già ri-accodata $stale_recent volte in 24h: deny prima del mint/bridge; nessuna capability remota. Qualcosa modifica la issue fra risk_policy e fix a ogni giro."
+              exit 1
+            fi
+            stale_body=$(cat <<'BODY'
+          ♻️ **Issue-fix: issue cambiata prima delle capability, ri-accodata** (zero-Claude).
+
+          Fra il preflight `risk_policy` e il job `fix` la issue ha ricevuto un commento o una label, quindi la snapshot giudicata dalla policy non è più quella attuale. Questa run non ha concesso capability e non ha avviato il fixer.
+
+          La label passa da `agent:fix` a `agent:fix-queued` **senza consumare un `fu-attempt`**: il drainer la ripromuove e un preflight fresco valuta lo stato attuale.
+          BODY
+            )
+            run_url="${GITHUB_SERVER_URL:-https://github.com}/${REPO}/actions/runs/${GITHUB_RUN_ID:-unknown}"
+            if ! gh issue comment "$ISSUE_NUMBER" --repo "$REPO" \
+              --body "$(printf '%s\n%s\n\nRun: %s' "$stale_marker" "$stale_body" "$run_url")" >/dev/null; then
+              echo "::error::issue snapshot cambiata o non coerente e marker di ri-accodamento non postato: deny prima del mint/bridge; nessuna capability remota."
+              exit 1
+            fi
+            if ! gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
+              --add-label "agent:fix-queued" --remove-label "agent:fix" >/dev/null; then
+              echo "::error::issue snapshot cambiata o non coerente e ri-accodamento non applicato: deny prima del mint/bridge; nessuna capability remota."
+              exit 1
+            fi
+            echo "::notice::issue snapshot cambiata dopo risk_policy: nessuna capability remota; #${ISSUE_NUMBER} ri-accodata in agent:fix-queued senza tentativo consumato."
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+            echo "verified=false" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
           ctx_dir="${RUNNER_TEMP}/issue-fix-ctx"
           mkdir -p "$ctx_dir"
