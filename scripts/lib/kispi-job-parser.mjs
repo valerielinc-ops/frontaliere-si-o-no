@@ -208,10 +208,13 @@ export async function fetchAllKispiJobs() {
     // string and skip the `detail.metaDesc` tier (the raw HTML is truthy so the
     // `: metaDesc` branch never runs). `|| detail.metaDesc` preserves the
     // fallback hierarchy (same idiom fix as the Decathlon parser).
-    const descriptionText = normalizeDescriptionBullets(normalizeSpace(htmlToText(descriptionHtml))).slice(0, 6000)
-      || detail.metaDesc;
-    const description = descriptionText
-      || `${title} — ${KISPI_COMPANY_NAME}, Zürich.`;
+    // No length cap (issue 5253), and only source text: without a JSON-LD body
+    // or a meta description the description stays empty and the shared
+    // pipeline's thin-source check quarantines the job, instead of the
+    // "<title> — <company>, Zürich." line the crawler used to write.
+    const description = normalizeDescriptionBullets(normalizeSpace(htmlToText(descriptionHtml)))
+      || detail.metaDesc
+      || '';
 
     const address = (ld.jobLocation && ld.jobLocation.address) || {};
     const city = normalizeSpace(decodeEntities(String(address.addressLocality || DEFAULT_CITY)));

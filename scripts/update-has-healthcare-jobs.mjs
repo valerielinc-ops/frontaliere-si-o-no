@@ -48,6 +48,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { buildHasDescription, dropHasFabricatedText } from './lib/has-healthcare-description.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -226,6 +227,8 @@ function parseDetailPage(html) {
   const searchArea = mainAreaMatch ? mainAreaMatch[1] : html;
 
   const sections = {};
+  // The page's own heading for each section, keyed like `sections`.
+  const headings = {};
 
   // Extract sections by <h2> headers: Info azienda, Competenze richieste,
   // Saranno richiesti i seguenti compiti, Che cosa offriamo
@@ -236,6 +239,7 @@ function parseDetailPage(html) {
     const content = stripHtml(m[2]).trim();
     if (content.length > 20) {
       sections[header.toLowerCase()] = content;
+      headings[header.toLowerCase()] = header;
     }
   }
 
@@ -251,60 +255,9 @@ function parseDetailPage(html) {
   );
   const education = eduMatch ? stripHtml(eduMatch[1]).trim() : '';
 
-  return { sections, language, education };
+  return { sections, headings, language, education };
 }
 
-function buildDescription(title, detail) {
-  const parts = [];
-
-  parts.push(
-    `${COMPANY_NAME}, con sede a Biasca (TI), è alla ricerca di: ${title}.`
-  );
-  parts.push('');
-
-  // Company info (skip — too long and boilerplate)
-  // Add competenze
-  const competenze =
-    detail.sections['competenze richieste'] || '';
-  if (competenze) {
-    parts.push('📋 Competenze richieste:');
-    parts.push(competenze);
-    parts.push('');
-  }
-
-  // Add tasks
-  const compiti =
-    detail.sections['saranno richiesti i seguenti compiti'] || '';
-  if (compiti) {
-    parts.push('🎯 Mansioni principali:');
-    parts.push(compiti);
-    parts.push('');
-  }
-
-  // Add what we offer
-  const offriamo = detail.sections['che cosa offriamo'] || '';
-  if (offriamo) {
-    parts.push('🎁 Cosa offriamo:');
-    parts.push(offriamo);
-    parts.push('');
-  }
-
-  // Language / education
-  if (detail.language) {
-    parts.push(`🗣️ Lingue richieste: ${detail.language}`);
-  }
-  if (detail.education) {
-    parts.push(`🎓 Titolo di studio: ${detail.education}`);
-  }
-
-  parts.push('');
-  parts.push(
-    `Settore: Farmaceutico / API (Active Pharmaceutical Ingredients)`
-  );
-  parts.push(`Sede: Via Industria 24, Biasca (TI), Svizzera`);
-
-  return parts.join('\n').trim();
-}
 
 // ─────────────────────────────────────────────────────────────
 // Category & experience detection
@@ -369,7 +322,13 @@ async function fetchJobs() {
       ? parseDetailPage(detailHtml)
       : { sections: {}, language: '', education: '' };
 
-    const description = buildDescription(listing.title, detail);
+    const description = buildHasDescription(detail);
+    if (!description) {
+      // No source body: not published in this run (no crawler-written stand-in).
+      console.warn(`  ⚠️ No posting text on ${listing.detailUrl} — not published in this run.`);
+      await new Promise((r) => setTimeout(r, 500));
+      continue;
+    }
     const slug = slugify(listing.title, COMPANY_KEY);
     const postedDate = parseDate(listing.dateStr);
 
@@ -424,7 +383,24 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
-  const existingTargetJobs = allJobs.filter(isTargetJob);
+  // Stored jobs of the old description builder: their crawler-written lines
+  // and the translations of them go before the locale-preserving merge; a job
+  // that never had any of the posting's sections is not published (issue 5253).
+  const existingTargetJobs = [];
+  let fabricatedRepaired = 0;
+  let fabricatedDropped = 0;
+  for (const job of allJobs.filter(isTargetJob)) {
+    const repaired = dropHasFabricatedText(job);
+    if (!repaired) {
+      fabricatedDropped++;
+      continue;
+    }
+    if (repaired !== job) fabricatedRepaired++;
+    existingTargetJobs.push(repaired);
+  }
+  if (fabricatedRepaired || fabricatedDropped) {
+    console.log(`  🧹 Crawler-written text: ${fabricatedRepaired} stored job(s) repaired for retranslation, ${fabricatedDropped} without any posting text not published`);
+  }
 
   const existingKeys = new Set(
     existingTargetJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
