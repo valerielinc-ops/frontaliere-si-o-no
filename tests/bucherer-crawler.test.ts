@@ -10,6 +10,14 @@ import {
 } from '../scripts/lib/bucherer-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
+
+// A vacancy body of at least 50 words: a posting without one is not
+// published (issue 5253).
+const SOURCE_BODY = '<p>In unserer Boutique berätst du internationale Kundinnen und Kunden zu Uhren und Schmuck der führenden Marken, '
+  + 'präsentierst die Kollektionen, betreust Reparaturen und Serviceaufträge und pflegst langfristige Beziehungen. '
+  + 'Du bringst Erfahrung im Luxusdetailhandel, sehr gute Deutsch- und Englischkenntnisse, Freude an Uhrmacherei '
+  + 'und ein gepflegtes Auftreten mit; wir bieten eine fundierte Einarbeitung, Weiterbildungen und ein engagiertes Team.</p>';
+
 describe('Bucherer crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
@@ -164,7 +172,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '900',
         jobTitle: 'Regional Merchandiser',
-        jobDescription: 'x'.repeat(400),
+        jobDescription: SOURCE_BODY,
         postingLocations: [
           { formattedAddress: 'Maximilianstrasse 1, 80539 München, Germany', cityName: 'München', isoCountryCode: 'DE' },
         ],
@@ -176,7 +184,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '901',
         jobTitle: 'Group Buyer',
-        jobDescription: 'x'.repeat(400),
+        jobDescription: SOURCE_BODY,
         postingLocations: [
           { formattedAddress: 'Maximilianstrasse 1, 80539 München, Germany', cityName: 'München', isoCountryCode: 'DE' },
           { formattedAddress: 'Bahnhofstrasse 1, 8001 Zürich, Switzerland', cityName: 'Zürich', stateCode: 'ZH', isoCountryCode: 'CH' },
@@ -188,7 +196,7 @@ describe('Bucherer crawler parser', () => {
     });
 
     it('keeps a posting with no location data at all (falls back to HQ)', () => {
-      const posting = { jobPostingId: '902', jobTitle: 'Corporate Role', jobDescription: 'x'.repeat(400) };
+      const posting = { jobPostingId: '902', jobTitle: 'Corporate Role', jobDescription: SOURCE_BODY };
       const jobs = parsePostings([posting]);
       expect(jobs).toHaveLength(1);
       expect(jobs[0].canton).toBe('LU');
@@ -201,7 +209,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '910',
         jobTitle: 'Boutique Manager',
-        jobDescription: 'x'.repeat(400),
+        jobDescription: SOURCE_BODY,
         postingLocations: [
           {
             formattedAddress: 'Bahnhofstrasse 1, 8001 Zürich, Switzerland',
@@ -225,7 +233,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '911',
         jobTitle: 'Sales Associate Lugano',
-        jobDescription: 'x'.repeat(400),
+        jobDescription: SOURCE_BODY,
         postingLocations: [
           { formattedAddress: 'Via Nassa 5, 6900 Lugano, Switzerland', cityName: 'Lugano', isoCountryCode: 'CH' },
         ],
@@ -238,7 +246,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '912',
         jobTitle: 'Sales Associate Geneva',
-        jobDescription: 'x'.repeat(400),
+        jobDescription: SOURCE_BODY,
         postingLocations: [
           { cityName: 'Genève', stateCode: 'GE', isoCountryCode: 'CH' },
         ],
@@ -253,7 +261,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '913',
         jobTitle: 'Sales Associate Luzern',
-        jobDescription: 'x'.repeat(400),
+        jobDescription: SOURCE_BODY,
         postingLocations: [
           { cityName: 'Luzern', stateCode: 'LU', isoCountryCode: 'CH' },
         ],
@@ -280,28 +288,26 @@ describe('Bucherer crawler parser', () => {
       expect(jobs[0].description).toContain('Bucherer offre un ambiente');
     });
 
-    it('replaces a too-short crawled description with a rich >= 50-word fallback', () => {
+    // Only the posting's own text is published (issue 5253): a short or
+    // missing body used to be replaced by an invented Italian company summary
+    // ("Bucherer cerca un/una {title} … Bucherer AG, fondata nel 1888 …").
+    it('does not publish a posting whose crawled description is under 50 words', () => {
       const posting = {
         jobPostingId: '921',
         jobTitle: 'Trainee Orologeria',
         jobDescription: '<p>Short desc.</p>',
         postingLocations: [{ cityName: 'Luzern', stateCode: 'LU', isoCountryCode: 'CH' }],
       };
-      const jobs = parsePostings([posting]);
-      const wordCount = jobs[0].description.split(/\s+/).filter(Boolean).length;
-      expect(wordCount).toBeGreaterThanOrEqual(50);
-      expect(jobs[0].description).toContain('Trainee Orologeria');
-      expect(jobs[0].description).toContain('Bucherer AG');
+      expect(parsePostings([posting])).toEqual([]);
     });
 
-    it('replaces a missing crawled description with a rich fallback', () => {
+    it('does not publish a posting without a crawled description', () => {
       const posting = {
         jobPostingId: '922',
         jobTitle: 'Store Manager',
         postingLocations: [{ cityName: 'Basel', stateCode: 'BS', isoCountryCode: 'CH' }],
       };
-      const jobs = parsePostings([posting]);
-      expect(jobs[0].description.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
+      expect(parsePostings([posting])).toEqual([]);
     });
   });
 

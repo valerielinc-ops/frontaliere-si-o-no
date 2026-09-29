@@ -326,6 +326,7 @@ export async function fetchAllEdmondDeRothschildJobs() {
   console.log(`\n📋 ${swissRequisitions.length} Swiss requisitions (of ${requisitions.length} total) — fetching details...`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const req of swissRequisitions) {
     const reqId = String(req.Id || '');
     const title = normalizeSpace(req.Title || '');
@@ -347,16 +348,16 @@ export async function fetchAllEdmondDeRothschildJobs() {
       descriptionText = stripHtml(req.ShortDescriptionStr || '');
     }
 
-    const fallbackDescription = [
-      `${title} — ${EDMOND_DE_ROTHSCHILD_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Employer: Edmond de Rothschild — independent family-owned investment house specializing in Private Banking and Asset Management, with Corporate Finance, Private Equity and Fund Administration activities.',
-      '• Swiss footprint: Geneva head office (Rue de Hesse 18) covering private banking, compliance, IT and support functions.',
-      '• Apply: Edmond de Rothschild Oracle HCM careers portal.',
-    ].join('\n');
-    const desc = descriptionText.length >= 100 ? descriptionText : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a requisition
+    // without a body used to go out as a synthetic "Key details" stub
+    // (location, employer, "apply on the portal"); it is not published any
+    // more.
+    if (descriptionText.length < 100) {
+      console.log(`  ⏭️ No vacancy text in the requisition, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const desc = descriptionText;
 
     const sourceLang = detectLang(desc || title, 'fr');
     const jobSlug = slugify(`${title} edmond de rothschild ch`);
@@ -414,6 +415,9 @@ export async function fetchAllEdmondDeRothschildJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} requisition(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total ${EDMOND_DE_ROTHSCHILD_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

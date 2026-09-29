@@ -177,6 +177,7 @@ export async function fetchAllStrykerJobs() {
   console.log(`  📋 Swiss listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -215,16 +216,16 @@ export async function fetchAllStrykerJobs() {
     );
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${STRYKER_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Employer: Stryker — global leader in medical technology (orthopaedics, medical & surgical, neurotechnology).',
-      '• Swiss footprint: R&D + manufacturing hubs in Selzach (SO) and Biberist (SO).',
-      '• Apply: Stryker Workday careers portal.',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (detailDescription.length < 100) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ${STRYKER_KEY} ch`);
@@ -274,6 +275,9 @@ export async function fetchAllStrykerJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${STRYKER_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

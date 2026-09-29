@@ -250,17 +250,6 @@ export function parseDetailPage(html) {
   };
 }
 
-/* ── Single-site fallback description ─────────────────────── */
-
-/**
- * Build a rich single-site fallback description (>50 words) when the detail
- * page yields nothing.
- */
-export function buildFallbackDescription(title, location, entryLevel = '') {
-  const levelInfo = entryLevel ? ` Einstiegslevel: ${entryLevel}.` : '';
-  return `${title} bei Würth International AG in ${location}, Kanton Graubünden, Schweiz.${levelInfo}\n\nDie Würth International AG ist ein Unternehmen der Würth-Gruppe, dem weltgrössten Handelskonzern für Montage- und Befestigungsmaterial. Am Hauptsitz in Chur (Graubünden) betreut Würth International die Zentraleinkaufsaktivitäten des Würth Konzerns in rund 80 Ländern. Das Unternehmen bietet ein internationales Arbeitsumfeld mit modernen Anstellungsbedingungen, flexiblen Arbeitszeiten, hybriden Arbeitsmodellen, überdurchschnittlichen Sozialleistungen und vielfältigen Weiterbildungsmöglichkeiten. Würth International ist ausgezeichnet mit dem Label Friendly Work Space und legt grossen Wert auf eine wertschätzende Unternehmenskultur.`;
-}
-
 /* ── Job identification ───────────────────────────────────── */
 
 export function isWuerthInternationalJob(job = {}) {
@@ -347,6 +336,7 @@ export async function fetchAllWuerthInternationalJobs() {
 
   // Step 2: Fetch detail pages
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     try {
       const controller2 = new AbortController();
@@ -373,12 +363,18 @@ export async function fetchAllWuerthInternationalJobs() {
       const employmentTypeRaw = detail?.employmentType || 'FULL_TIME';
       const postedDate = detail?.postedDate || new Date().toISOString().slice(0, 10);
 
-      // Build description
-      let description = '';
-      if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-        description = detail.description;
-      } else {
-        description = buildFallbackDescription(title, location, listing.entryLevel);
+      // Only the posting's own text is published (issue 5253): a detail
+      // page that could not be read, or whose body is under 50 words, used
+      // to be replaced by an invented company summary ("{title} bei Würth
+      // International AG in {city} … Die Würth International AG ist ein
+      // Unternehmen der Würth-Gruppe …"); such a listing is not published
+      // any more.
+      const description = detail?.description || '';
+      if (description.split(/\s+/).filter(Boolean).length < 50) {
+        console.warn(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
+        withoutBody += 1;
+        await new Promise((r) => setTimeout(r, 300));
+        continue;
       }
 
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
@@ -437,6 +433,9 @@ export async function fetchAllWuerthInternationalJobs() {
     deduped.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
   console.log(`\n📋 Total unique Würth International jobs discovered: ${deduped.length}`);
   return deduped;
 }

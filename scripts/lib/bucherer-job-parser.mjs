@@ -222,23 +222,18 @@ function resolveAddress(rawLoc = {}) {
   return { city, postalCode, streetAddress, region };
 }
 
-/* ── Thin-content guard (Non-Negotiable #4: never index <50 words) ──── */
+/* ── Vacancy text ─────────────────────────────────────────────── */
 
-function buildFallbackDescription(title, location) {
-  return [
-    `Bucherer cerca un/una ${title} per la sede di ${location}.`,
-    `Bucherer AG, fondata nel 1888 a Lucerna, è il principale rivenditore svizzero di orologi e gioielli di lusso e partner ufficiale di marchi come Rolex, Patek Philippe, Cartier e Breitling.`,
-    `Il gruppo gestisce oltre 30 boutique in Svizzera, Germania e altri mercati internazionali e possiede la propria manifattura orologiera, Carl F. Bucherer.`,
-    `Lavorare in Bucherer significa entrare in un ambiente dedicato al lusso e all'artigianato svizzero, con formazione specialistica in orologeria e gioielleria, percorsi di carriera internazionali e un forte legame con la tradizione del settore.`,
-    `Le posizioni aperte spaziano tra vendita in boutique, orologeria e gioielleria, logistica, amministrazione, marketing e ruoli corporate presso la sede centrale di Lucerna.`,
-    `Candidature online sul portale ufficiale bucherer.com/en/career.`,
-  ].join(' ');
-}
-
-function resolveDescription(rawHtml, title, location) {
+/**
+ * The posting's own text, or '' when the Dayforce payload carries fewer than
+ * 50 words (no vacancy body). Only the posting's own text is published
+ * (issue 5253): such a posting used to be filled with an invented Italian
+ * company summary ("Bucherer cerca un/una {title} per la sede di {city}.
+ * Bucherer AG, fondata nel 1888 …") and is not published any more.
+ */
+function resolveDescription(rawHtml) {
   const text = stripHtml(rawHtml || '');
-  if (text && text.split(/\s+/).filter(Boolean).length >= 50) return text;
-  return buildFallbackDescription(title, location);
+  return text && text.split(/\s+/).filter(Boolean).length >= 50 ? text : '';
 }
 
 /* ── Fetch (Playwright, Cloudflare-gated) ─────────────────────── */
@@ -365,8 +360,8 @@ async function discoverAllJobPostings() {
  * with fixture postings without spinning up a browser.
  *
  * Filters out: postings with no usable title, postings whose only
- * location(s) are outside Switzerland (foreign-office filtering), and
- * duplicate public URLs.
+ * location(s) are outside Switzerland (foreign-office filtering), postings
+ * without vacancy text, and duplicate public URLs.
  */
 export function parsePostings(postings = []) {
   const jobs = [];
@@ -401,7 +396,11 @@ export function parsePostings(postings = []) {
     if (seenUrls.has(publicUrl)) continue;
     seenUrls.add(publicUrl);
 
-    const description = resolveDescription(posting.jobDescription, title, location);
+    const description = resolveDescription(posting.jobDescription);
+    if (!description) {
+      console.log(`  ⏭️ no vacancy text in the posting, not published: ${title}`);
+      continue;
+    }
     const sourceLang = detectLang(description, culture.slice(0, 2).toLowerCase());
     const jobSlug = slugify(`${title} bucherer ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);

@@ -177,6 +177,7 @@ export async function fetchAllArdianJobs() {
   console.log(`  📋 Swiss listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -208,16 +209,16 @@ export async function fetchAllArdianJobs() {
     );
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${ARDIAN_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Employer: Ardian — global private equity investment firm managing secondaries & primaries, buyout, infrastructure, real estate and private credit strategies.',
-      '• Swiss footprint: Zurich office covering client solutions, investor relations and investment functions.',
-      '• Apply: Ardian Workday careers portal.',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (detailDescription.length < 100) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ${ARDIAN_KEY} ch`);
@@ -267,6 +268,9 @@ export async function fetchAllArdianJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${ARDIAN_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

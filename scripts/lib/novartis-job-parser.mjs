@@ -184,6 +184,7 @@ export async function fetchAllNovartisJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
     // Adapt these field names to match the actual API response.
@@ -219,15 +220,16 @@ export async function fetchAllNovartisJobs() {
     );
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${NOVARTIS_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
-      '• Employer: Novartis — global pharmaceuticals leader',
-      '• Apply on: Novartis careers portal',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (detailDescription.length < 100) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'it');
     const jobSlug = slugify(`${title} novartis ch`);
@@ -272,6 +274,9 @@ export async function fetchAllNovartisJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total Novartis jobs discovered: ${jobs.length}`);
   return jobs;
 }

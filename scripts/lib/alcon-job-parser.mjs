@@ -205,6 +205,7 @@ export async function fetchAllAlconJobs() {
   console.log(`  📋 Swiss listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -235,16 +236,16 @@ export async function fetchAllAlconJobs() {
     );
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${ALCON_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Employer: Alcon — global leader in eye care (surgical equipment, intraocular lenses, contact lenses, ocular pharmaceuticals).',
-      '• Swiss footprint: Geneva HQ + Fribourg/Schönbühl (ASSA) manufacturing + Schaffhausen R&D.',
-      '• Apply: Alcon Workday careers portal.',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (detailDescription.length < 100) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ${ALCON_KEY} ch`);
@@ -294,6 +295,9 @@ export async function fetchAllAlconJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${ALCON_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

@@ -12,19 +12,19 @@
  *   - Trusted domain detection
  *   - Fallback description generation
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   parseListingPage,
   parseDetailPage,
   parseDate,
   detectCategory,
   detectEmploymentType,
-  buildFallbackDescription,
   isWuerthInternationalJob,
   isTrustedDomain,
   WUERTH_INTERNATIONAL_KEY,
   WUERTH_INTERNATIONAL_COMPANY_NAME,
   WUERTH_INTERNATIONAL_COMPANY_DOMAIN,
+  fetchAllWuerthInternationalJobs,
 } from '../scripts/lib/wuerth-international-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -516,35 +516,29 @@ describe('isTrustedDomain', () => {
 });
 
 // ═══════════════════════════════════════════════════════════════════
-// buildFallbackDescription
+// fetchAllWuerthInternationalJobs — listing without a vacancy body
 // ═══════════════════════════════════════════════════════════════════
 
-describe('buildFallbackDescription', () => {
-  it('generates description with >=50 words', () => {
-    const desc = buildFallbackDescription('Steuerexperte', 'Chur', 'Berufserfahrene');
-    const wordCount = desc.split(/\s+/).length;
-    expect(wordCount).toBeGreaterThanOrEqual(50);
+// Only the posting's own text is published (issue 5253): a detail page that
+// could not be read, or whose body is under 50 words, used to be replaced by
+// an invented company summary (the former `buildFallbackDescription`).
+describe('fetchAllWuerthInternationalJobs — listing without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
   });
 
-  it('includes job title', () => {
-    const desc = buildFallbackDescription('Einkäufer', 'Chur');
-    expect(desc).toContain('Einkäufer');
-  });
+  it('publishes the listing with a body and skips the one without, never inventing text', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('Job-details_17216')) return new Response(DETAIL_HTML, { status: 200 });
+      if (u.includes('Job-details_17088')) return new Response('<html lang="de"><body><h1 class="hyphens">Berufspraktikum Empfang (a)</h1></body></html>', { status: 200 });
+      return new Response(LISTING_HTML, { status: 200 });
+    }));
 
-  it('includes location', () => {
-    const desc = buildFallbackDescription('Test Job', 'Chur');
-    expect(desc).toContain('Chur');
-  });
-
-  it('includes company info', () => {
-    const desc = buildFallbackDescription('Test Job', 'Chur');
-    expect(desc).toContain('Würth International');
-  });
-
-  it('includes entry level when provided', () => {
-    const desc = buildFallbackDescription('Test Job', 'Chur', 'Auszubildende');
-    expect(desc).toContain('Auszubildende');
-  });
+    const jobs = await fetchAllWuerthInternationalJobs();
+    expect(jobs.map((job: { title: string }) => job.title)).toEqual(['Steuerexperte (W/M/D) oder sehr erfahrener Steuerspezialist']);
+    for (const job of jobs) expect(job.description).not.toMatch(/Die Würth International AG ist ein Unternehmen der Würth-Gruppe/);
+  }, 20_000);
 });
 
 // ═══════════════════════════════════════════════════════════════════
