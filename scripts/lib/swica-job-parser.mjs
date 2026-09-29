@@ -275,23 +275,13 @@ export async function fetchAllSwicaJobs() {
     const address = jobPostingAddress(jsonLd);
     const { city, canton, postalCode, streetAddress } = resolveAddress(address);
 
-    let descriptionText = jobPostingDescriptionText(jsonLd.description || '');
+    const descriptionText = jobPostingDescriptionText(jsonLd.description || '');
     const sourceLang = detectLang(descriptionText || title, 'de');
 
-    // Thin-content guard (Non-Negotiable #4): never index < 50 words —
-    // mirrors the enrichment pattern used by sibling parsers (e.g.
-    // css-versicherung-job-parser.mjs) rather than dropping the job outright.
-    const wordCount = descriptionText.split(/\s+/).filter(Boolean).length;
-    if (wordCount < 50) {
-      descriptionText = [
-        descriptionText || `${title} — ${SWICA_COMPANY_NAME}, ${city}.`,
-        'SWICA ist eine der führenden Kranken- und Unfallversicherungen der Schweiz mit rund 1,7 Millionen Versicherten und einem Netz von Agenturen und Gesundheitszentren in der ganzen Schweiz. Seit über 100 Jahren begleitet SWICA Menschen in der Schweiz mit Grundversicherung, Zusatzversicherungen und Gesundheitsförderung und bietet ihren Mitarbeitenden flexible Arbeitsmodelle, Weiterbildungsmöglichkeiten und ein dynamisches Arbeitsumfeld.',
-        'Bewirb dich direkt online über jobs.swica.ch.',
-      ]
-        .filter(Boolean)
-        .join('\n\n');
-    }
-
+    // The JSON-LD text only, whatever its length (issue 5253). Under 50 words
+    // it used to get "<title> — SWICA, <city>." and a SWICA paragraph we
+    // wrote; a posting without text now gets no description and takes the
+    // thin-source path of the pipeline.
     const employmentType =
       String(jsonLd.employmentType || '').toUpperCase().trim() || detectEmploymentType(title);
     const applyUrl = String(jsonLd.url || '').trim() || jobUrl;
@@ -315,7 +305,7 @@ export async function fetchAllSwicaJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
+      descriptionByLocale: descriptionText ? { [sourceLang]: descriptionText } : {},
       needsRetranslation: true,
       location: city,
       canton,

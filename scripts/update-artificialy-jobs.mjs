@@ -185,7 +185,8 @@ async function fetchAllListings() {
 }
 
 function buildArtificialyJob(row) {
-  const localized = buildArtificialyLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'it');
+  const localized = buildArtificialyLocalizedContent({ ...row, sourceLang });
   const canton = inferArtificialyCanton(row);
   const detailUrl = row.applyUrl || `${CAREER_URLS[0]}`;
   return {
@@ -205,12 +206,12 @@ function buildArtificialyJob(row) {
     category: inferArtificialyCategory(row.title),
     sector: 'Intelligenza Artificiale',
     source: 'artificialy-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
+    sourceLang,
     postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
     validThrough: row.validThrough || '',
     employmentType: 'full-time',
     contractType: 'full-time',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,

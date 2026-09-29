@@ -10,7 +10,7 @@
  * fall back to (often-empty) location-text detection and report 0 jobs.
  */
 import { describe, expect, it } from 'vitest';
-import { parseBaronieDetailHtml, isSwissJob } from '../scripts/lib/baronie-job-parser.mjs';
+import { buildBaronieLocalizedContent, parseBaronieDetailHtml, isSwissJob } from '../scripts/lib/baronie-job-parser.mjs';
 
 function detailHtml({
   title = 'IT Infrastructure Engineer',
@@ -132,5 +132,26 @@ describe('baronie-job-parser / parseBaronieDetailHtml — @graph JSON-LD', () =>
     expect(result?.addressCountry).toBe('CH');
     expect(result?.location).toBe('Caslano');
     expect(isSwissJob(result)).toBe(true);
+  });
+});
+
+// Issue 5253: the builder keyed the detail text as `it` whatever its
+// language, and replaced a text of 100 characters or less with a paragraph
+// about Baronie that it wrote. Text: the opening of the live "Plant Manager"
+// posting (baronie.com/en/jobs/plant-manager-caslano, 2026-09-29).
+describe('buildBaronieLocalizedContent — the posting text only, in its own slot', () => {
+  const SHORT_TEXT = 'As the Plant Manager of Chocolat Alprose, you oversee and coordinate the daily operations.';
+
+  it('keeps a short English text as it is, under `en`', () => {
+    expect(SHORT_TEXT.length).toBeLessThanOrEqual(100);
+    const content = buildBaronieLocalizedContent({ title: 'Plant Manager', location: 'Caslano', detailMarkdown: SHORT_TEXT, sourceLang: 'en' });
+    expect(content.description).toBe(SHORT_TEXT);
+    expect(content.descriptionByLocale).toEqual({ en: SHORT_TEXT });
+  });
+
+  it('gives a posting without text no description', () => {
+    const content = buildBaronieLocalizedContent({ title: 'Plant Manager', location: 'Caslano', detailMarkdown: '', sourceLang: 'en' });
+    expect(content.description).toBe('');
+    expect(content.descriptionByLocale).toEqual({});
   });
 });

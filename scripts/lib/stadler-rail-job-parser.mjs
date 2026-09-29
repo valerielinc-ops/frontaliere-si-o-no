@@ -296,12 +296,6 @@ function parseDetailDate(raw = '') {
   return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
 }
 
-/* ── Fallback description ─────────────────────────────────── */
-
-function buildFallbackDescription(title, location) {
-  return `${title} bei Stadler Rail in ${location || 'der Schweiz'}.\n\nStadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang (Kanton Thurgau). Das 1942 gegründete Unternehmen entwickelt und produziert Voll-, Regional- und S-Bahnen, Strassenbahnen, Lokomotiven sowie Zahnradbahnen und beschäftigt mehrere tausend Mitarbeitende in der Schweiz. Stadler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in einem innovativen Schweizer Industrieunternehmen.`;
-}
-
 /* ── Fetch listings ───────────────────────────────────────── */
 
 /**
@@ -399,12 +393,11 @@ export async function fetchAllStadlerRailJobs() {
       ? HQ_REGION
       : (detail?.addressRegion || '').split(/\s+/)[0] || '';
 
-    let description = '';
-    if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-      description = detail.description;
-    } else {
-      description = buildFallbackDescription(title, location);
-    }
+    // The detail text, whatever its length (issue 5253). A body under 50
+    // words used to be DISCARDED for "<title> bei Stadler Rail in <city>."
+    // and a company paragraph we wrote; a posting without text now gets no
+    // description and takes the thin-source path of the pipeline.
+    const description = String(detail?.description || '').trim();
 
     const sourceLang = detectLang(description || title, 'de');
     const publicUrl = listing.url;
@@ -424,7 +417,7 @@ export async function fetchAllStadlerRailJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description,
-      descriptionByLocale: { [sourceLang]: description },
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
       location,
       canton,
       url: publicUrl,

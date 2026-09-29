@@ -21,7 +21,7 @@ vi.mock("@/scripts/lib/atomic-write-json.mjs", async (importOriginal) => {
   return { ...actual, writeJsonAtomic };
 });
 
-import { main, parseCareersPage } from "../scripts/update-centiel-jobs.mjs";
+import { buildJob, main, parseCareersPage } from "../scripts/update-centiel-jobs.mjs";
 
 const LIVE_LISTINGS = [
   [
@@ -237,4 +237,47 @@ describe("Centiel careers parser", () => {
       expect(writeJsonAtomic).not.toHaveBeenCalled();
     },
   );
+});
+
+// Issue 5253: the selected text is the whole description, whatever its
+// length. Between 30 words (the fail-closed floor of main()) and 50 words
+// buildJob used to wrap it in "<title> — Centiel, Cadro (Lugano)…", a
+// paragraph about Centiel, the workplace address and "Apply via: …".
+// Text: the opening of the live "Tecnico Collaudatore" PDF (2026-09-29).
+describe("Centiel buildJob — the posting text only", () => {
+  const SHORT_PDF_TEXT = [
+    "Tecnico collaudatore",
+    "Chi siamo",
+    "Centiel SA è un’azienda tecnologica con sede in Svizzera specializzata nella progettazione, produzione e fornitura di",
+    "soluzioni di protezione dell’alimentazione per infrastrutture critiche. La nostra gamma di sistemi UPS ad alta efficienza",
+    "e affidabilità garantisce la massima disponibilità operativa",
+  ].join("\n");
+  const row = {
+    title: "Tecnico Collaudatore",
+    pdfUrl: "https://www.centiel.com/wp-content/uploads/2026/03/2026.03-JD-IT-tecnico-collaudatore.pdf",
+    pdfText: SHORT_PDF_TEXT,
+    inlineSummary: "",
+    workplace: "Cadro (Lugano)",
+    reportingTo: "Head of Department",
+    workingRate: "100%",
+  };
+
+  it("publishes a text under 50 words as it is", () => {
+    const words = SHORT_PDF_TEXT.split(/\s+/).filter(Boolean).length;
+    expect(words).toBeGreaterThanOrEqual(30);
+    expect(words).toBeLessThan(50);
+
+    const job = buildJob(row);
+
+    expect(job.description).toBe(SHORT_PDF_TEXT);
+    expect(job.descriptionByLocale).toEqual({ en: SHORT_PDF_TEXT });
+    expect(job.description).not.toMatch(/Apply via:|Via alla Stampa 15|specializing in the design and manufacture/);
+  });
+
+  it("gives a row without any text no description", () => {
+    const job = buildJob({ ...row, pdfText: "", inlineSummary: "" });
+
+    expect(job.description).toBe("");
+    expect(job.descriptionByLocale).toEqual({});
+  });
 });

@@ -333,27 +333,17 @@ export async function fetchAllKantonSolothurnJobs() {
     const address = jsonLd.jobLocation?.address || {};
     const { city, canton, postalCode, streetAddress, region } = resolveAddress(address);
 
-    let descriptionText = stripHtml(
+    const descriptionText = stripHtml(
       [jsonLd.description, jsonLd.responsibilities, jsonLd.qualifications]
         .filter(Boolean)
         .join('\n\n'),
     );
     const sourceLang = detectLang(descriptionText || title, 'de');
 
-    // Thin-content guard (Non-Negotiable #4): never index < 50 words —
-    // mirrors the enrichment pattern used by sibling parsers (e.g.
-    // css-versicherung-job-parser.mjs) rather than dropping the job outright.
-    const wordCount = descriptionText.split(/\s+/).filter(Boolean).length;
-    if (wordCount < 50) {
-      descriptionText = [
-        descriptionText || `${title} — ${KANTON_SOLOTHURN_COMPANY_NAME}, ${city}.`,
-        'Der Kanton Solothurn ist Arbeitgeber für tausende Mitarbeitende in der kantonalen Verwaltung — von der Informatik über Bildung, Sicherheit und Justiz bis zu Umwelt, Finanzen und zentralen Verwaltungsfunktionen. Er bietet flexible Arbeitsmodelle, faire Anstellungsbedingungen auf Basis eines Gesamtarbeitsvertrags (GAV) und Weiterbildungsmöglichkeiten in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz.',
-        'Bewirb dich direkt online über job.so.ch.',
-      ]
-        .filter(Boolean)
-        .join('\n\n');
-    }
-
+    // The JSON-LD text only, whatever its length (issue 5253). Under 50 words
+    // it used to get "<title> — Kanton Solothurn, <city>." and a paragraph
+    // about the canton we wrote; a posting without text now gets no
+    // description and takes the thin-source path of the pipeline.
     const employmentType =
       String(jsonLd.employmentType || '').toUpperCase().trim() || detectEmploymentType(title);
     const applyUrl = String(jsonLd.url || '').trim() || jobUrl;
@@ -377,7 +367,7 @@ export async function fetchAllKantonSolothurnJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
+      descriptionByLocale: descriptionText ? { [sourceLang]: descriptionText } : {},
       needsRetranslation: true,
       location: city,
       canton,

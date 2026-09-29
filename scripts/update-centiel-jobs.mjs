@@ -310,8 +310,7 @@ async function fetchPdfText(pdfUrl) {
 /**
  * Decide which description body to use: PDF text when it's substantially
  * richer than the inline summary, otherwise the inline summary. Both can
- * be empty; downstream `buildJob` pads with company boilerplate to meet
- * the 50-word non-negotiable.
+ * be empty: `buildJob` then publishes no description (thin-source path).
  */
 function selectDescriptionBody(pdfText, inlineSummary) {
   const pdfWords = (pdfText || '').split(/\s+/).filter(Boolean).length;
@@ -334,29 +333,16 @@ function inferCategory(title = '') {
 }
 
 /* ── Build job object ──────────────────────────────────────── */
-function buildJob(row) {
+export function buildJob(row) {
   const slug = deriveSlug(row.title);
   // Use the PDF URL as the canonical URL if available, otherwise careers page
   const url = row.pdfUrl || CAREERS_URL;
 
-  // Pick PDF text over inline summary when meaningfully richer.
-  let description = selectDescriptionBody(row.pdfText, row.inlineSummary);
-
-  // Ensure description meets the 50-word minimum threshold
-  const wordCount = description.split(/\s+/).filter(Boolean).length;
-  if (wordCount < 50) {
-    // Build a richer description with job-specific details
-    const parts = [
-      `${row.title} — Centiel, Cadro (Lugano), Canton Ticino, Switzerland.`,
-      row.reportingTo ? `Reporting to: ${row.reportingTo}.` : '',
-      row.workingRate ? `Working rate: ${row.workingRate}.` : '',
-      description ? `\n${description}` : '',
-      `\nCentiel is a Swiss company headquartered in Cadro (Lugano), specializing in the design and manufacture of uninterruptible power supply (UPS) systems and power protection solutions. The company develops innovative three-phase modular UPS technology for mission-critical applications including data centers, hospitals, industrial facilities, and telecommunications infrastructure. Centiel's products are known for their high efficiency, reliability, and scalability, serving clients across Europe and globally.`,
-      `\nWorkplace: ${row.workplace || 'Cadro (Lugano)'}, Via alla Stampa 15, CH-6965.`,
-      `Apply via: ${CAREERS_URL}`,
-    ];
-    description = parts.filter(Boolean).join('\n').trim();
-  }
+  // Pick PDF text over inline summary when meaningfully richer. That text is
+  // the whole description, whatever its length (issue 5253): under 50 words
+  // it used to get "<title> — Centiel, Cadro (Lugano)…", a paragraph about
+  // Centiel, the workplace address and "Apply via: …", all written by us.
+  const description = selectDescriptionBody(row.pdfText, row.inlineSummary).trim();
 
   return {
     title: row.title,
@@ -382,7 +368,7 @@ function buildJob(row) {
     validThrough: '',
     description,
     titleByLocale: { en: row.title },
-    descriptionByLocale: { en: description },
+    descriptionByLocale: description ? { en: description } : {},
     slugByLocale: { it: slug },
   };
 }

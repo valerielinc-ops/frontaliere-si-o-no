@@ -152,11 +152,13 @@ function buildBaronieJob(url, detail) {
   const city = detail.location || 'Caslano';
   const company = detail.company || 'Chocolat Alprose SA / Baronie Switzerland SA';
 
+  const sourceLang = detectLang(detail.markdown || title, 'en');
   const localized = buildBaronieLocalizedContent({
     title,
     location: city,
     company,
     detailMarkdown: detail.markdown,
+    sourceLang,
   });
 
   const job = {
@@ -176,12 +178,12 @@ function buildBaronieJob(url, detail) {
     category: inferCategory(title),
     sector: 'Alimentare / Cioccolato',
     source: 'baronie-dedicated-crawler',
-    sourceLang: detectLang(detail.markdown || title, 'en'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: 'full-time',
     contractType: 'permanent',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,

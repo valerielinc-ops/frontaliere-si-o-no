@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
+  buildArtificialyLocalizedContent,
   isArtificialyCloudflareBlockedPage,
   parseArtificialyCareerPage,
 } from '../scripts/lib/artificialy-job-parser.mjs';
@@ -63,5 +64,27 @@ describe('Artificialy career parser', () => {
       blocked: false,
       items: [expect.objectContaining({ title: 'Platform Engineer', location: 'Zurich' })],
     });
+  });
+});
+
+// Issue 5253: the builder copied the posting text into all four slots (so
+// translation never replaced them) and, without a text, wrote "Artificialy
+// cerca <title> con sede a <place>. Azienda svizzera specializzata in
+// intelligenza artificiale…" in all four.
+describe('buildArtificialyLocalizedContent — the posting text only, in its own slot', () => {
+  // The careers page answers with a Cloudflare challenge (see above): the text
+  // is the one of the JSON-LD fixture of this file.
+  const TEXT = 'Build reliable platform services.';
+
+  it('writes the text only in the slot of its language', () => {
+    const content = buildArtificialyLocalizedContent({ title: 'Platform Engineer', location: 'Zurich', description: TEXT, sourceLang: 'en' });
+    expect(content.description).toBe(TEXT);
+    expect(content.descriptionByLocale).toEqual({ en: TEXT });
+  });
+
+  it('gives a posting without text no description', () => {
+    const content = buildArtificialyLocalizedContent({ title: 'Platform Engineer', location: 'Zurich', description: '', sourceLang: 'en' });
+    expect(content.description).toBe('');
+    expect(content.descriptionByLocale).toEqual({});
   });
 });

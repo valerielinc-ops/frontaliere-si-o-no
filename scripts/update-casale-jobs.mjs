@@ -15,9 +15,9 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseApiResponse, buildJobFromApi, parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/casale-job-parser.mjs';
+import { parseApiResponse, buildJobFromApi, buildCasaleDescriptionFields, parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/casale-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -69,8 +69,8 @@ async function fetchJobs() {
     // (truthy) → `-undefined` in an active slug (#952, class #900/#901). location/
     // addressLocality keep raw `built.city` (choke-point normalizer owns de-index).
     const slug = slugify(`${built.title} casale ${safeLocationToken(built.city, 'Lugano')}`);
-    const fallbackDesc = `${built.title} — posizione aperta presso Casale SA a Lugano, Canton Ticino, Svizzera. Casale SA è un'azienda globale di ingegneria con sede a Lugano, specializzata nella progettazione e costruzione di impianti per la produzione di fertilizzanti e prodotti chimici (ammoniaca, urea, metanolo, melamina, nitrati e fosfati). L'azienda offre un ambiente di lavoro stimolante e internazionale nel cuore del Ticino, con opportunità di crescita professionale in un contesto globale.`;
-    const description = (built.description && built.description.length >= 220) ? built.description : fallbackDesc;
+    // Source text only, in its own slot (issue 5253): see buildCasaleDescriptionFields.
+    const { description, descriptionByLocale, sourceLang } = buildCasaleDescriptionFields(built);
     return {
       url: built.detailUrl, applyUrl: built.applyUrl, title: built.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
@@ -78,11 +78,11 @@ async function fetchJobs() {
       addressLocality: built.city || 'Lugano', addressRegion: HQ.addressRegion, addressCountry: 'CH',
       postalCode: HQ.postalCode, streetAddress: 'Via Giulio Pocobelli 6',
       description,
-      titleByLocale: { en: built.title }, descriptionByLocale: {},
+      titleByLocale: { en: built.title }, descriptionByLocale,
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(built.title),
       datePosted: built.datePosted,
-      source: 'casale-careers-crawler', sourceLang: detectLang(description || built.title, 'en'), employmentType: built.employmentType,
+      source: 'casale-careers-crawler', sourceLang, employmentType: built.employmentType,
       experienceLevel: detectExperienceLevel(built.title),
       sector: 'Ingegneria / Chimica',
       _targetScope: { canton: HQ.canton, location: built.city || 'Lugano' },

@@ -6,6 +6,7 @@ import { describe, it, expect } from 'vitest';
 import {
   parseApiResponse,
   buildJobFromApi,
+  buildCasaleDescriptionFields,
   combineDescriptionSections,
   isCasaleSwissOffer,
   isGenericOffer,
@@ -407,5 +408,33 @@ describe('detectExperienceLevel', () => {
 
   it('detects MID for Electrical Engineer', () => {
     expect(detectExperienceLevel('Electrical Engineer')).toBe('MID');
+  });
+});
+
+// Issue 5253: an offer under 220 characters used to be REPLACED by
+// "<title> — posizione aperta presso Casale SA a Lugano…" and a paragraph
+// about Casale written by the runner. Text: the opening of the live
+// "Expediter" offer (recruit.casale.ch/o/expediter-1, 2026-09-29).
+describe('buildCasaleDescriptionFields — the offer text only', () => {
+  const SHORT_OFFER = 'Casale SA is a leading firm that specializes in the design and implementation of innovative plants to produce green ammonia, ammonia, nitrates, phosphates, urea, methanol, melamine, and syngas.';
+
+  it('keeps a text under 220 characters, in the slot of its language', () => {
+    expect(SHORT_OFFER.length).toBeLessThan(220);
+    const fields = buildCasaleDescriptionFields({ title: 'Expediter', description: SHORT_OFFER });
+    expect(fields).toEqual({ description: SHORT_OFFER, descriptionByLocale: { en: SHORT_OFFER }, sourceLang: 'en' });
+  });
+
+  it('gives an offer without text no description', () => {
+    const fields = buildCasaleDescriptionFields({ title: 'Expediter', description: '' });
+    expect(fields.description).toBe('');
+    expect(fields.descriptionByLocale).toEqual({});
+  });
+
+  it('publishes the Recruitee text of a full offer unchanged', () => {
+    const built = buildJobFromApi(FIXTURE_API_RESPONSE.offers[0]);
+    const fields = buildCasaleDescriptionFields(built);
+    expect(fields.description).toBe(built.description.trim());
+    expect(Object.values(fields.descriptionByLocale)).toEqual([built.description.trim()]);
+    expect(fields.description).not.toMatch(/posizione aperta presso Casale SA/);
   });
 });
