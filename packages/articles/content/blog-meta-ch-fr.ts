@@ -7067,6 +7067,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Primes d\'assurance-maladie 2027 au Tessin : +3,7% et EFAS à partir de 2028',
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger : le système est bon et coûte cher. Au Tessin, les primes augmentent de 3,7%, avec EFAS attendu à partir de 2028.',
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Couloir d\'un hôpital suisse à Berne, lumière naturelle et atmosphère professionnelle',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Parlement suisse : guide Curia Vista et Open Data',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'Des députés de 1848 aux votes CN : comment utiliser le portail officiel pour suivre les actes, les commissions et les délégations UE/OTAN.',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Le Palais fédéral suisse à Berne, siège du Conseil national et du Conseil des États',
 };
 
 export default blogMetaChFr;
