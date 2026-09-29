@@ -91046,6 +91046,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rincari-auto-abitazione-ticino': {
+    title: 'Forti rincari per auto e abitazione, specie in Ticino',
+    description: 'Scopri i dati di Comparis sui forti rincari per auto, abitazione, carburanti e riscaldamento in Svizzera, con il Ticino in testa al 3%. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, forti, rincari, auto, abitazione',
+    ogTitle: 'Rincari per auto e abitazione in Ticino e Svizzera',
+    ogDescription: 'Analisi dei prezzi di abitazione e mobilità in Svizzera ad agosto. Il Ticino registra il rincaro annuo più alto al 3%, trainato da carburanti e riscaldamento.',
+    canonicalPath: '/articoli-svizzera/rincari-auto-abitazione-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Forti rincari per auto e abitazione, specie in Ticino",
+      "description": "Scopri i dati di Comparis sui forti rincari per auto, abitazione, carburanti e riscaldamento in Svizzera, con il Ticino in testa al 3%. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rincari-auto-abitazione-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rincari per auto e abitazione in Ticino e Svizzera"
+      },
+      "datePublished": "2026-09-29T08:33:25+00:00",
+      "dateModified": "2026-09-29T08:33:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rincari-auto-abitazione-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -7022,6 +7022,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.compensi-lvamal-camera-bassa.title': 'Caisses-maladie : plafonnement des salaires des dirigeants',
     'blog.article.compensi-lvamal-camera-bassa.excerpt': 'La Chambre basse approuve la modification de la LVAMal : 157 voix pour, 27 contre et 8 abstentions. Le dossier passe maintenant au Conseil des États.',
     'blog.article.compensi-lvamal-camera-bassa.imageAlt': 'Débat suisse sur un plafond pour la rémunération des dirigeants des caisses maladie',
+    'blog.article.rincari-auto-abitazione-ticino.title': 'Fortes hausses pour l\'automobile et le logement, surtout au Tessin',
+    'blog.article.rincari-auto-abitazione-ticino.excerpt': 'En août, les coûts du logement et de la mobilité augmentent de 2,4% en Suisse. Le Tessin enregistre la plus forte hausse annuelle avec 3%.',
+    'blog.article.rincari-auto-abitazione-ticino.imageAlt': 'Haussees des prix pour l\'auto et le logement au Tessin et en Suisse',
 };
 
 export default blogMetaChFr;
