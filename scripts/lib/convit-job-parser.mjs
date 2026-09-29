@@ -20,6 +20,7 @@ import {
 } from './target-swiss-locations.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './crawler-location-config.mjs';
 import { stripLocationRegionMarkers } from './job-location-plausibility.mjs';
+import { dropFabricatedLocaleText } from './source-locale-description.mjs';
 
 const HQ = getCompanyDefaults('convit');
 
@@ -324,31 +325,34 @@ export function parseConvitDetailPage(html = '', fallbackTitle = '') {
 }
 
 /**
- * Build localized content for a Convit job.
+ * Build localized content for a Convit job. The description is the posting's
+ * own text (JSON-LD or detail DOM), keyed by its language (`job.sourceLang`,
+ * Italian by default); the other locales are left to the translation step.
+ *
+ * This used to write a sentence of its own into EVERY non-source slot of every
+ * job ("Convit Holding GmbH is hiring for the <title> role based in <city>.
+ * Financial and pension consulting in Ticino. Apply through the official Convit
+ * careers page.", and the same in German and French) and, without a source
+ * text, an Italian one too. Convit publishes none of it, and because those
+ * slots were full the translation step never replaced them. A posting without
+ * text now gets no description and takes the pipeline's thin-source path.
  */
 export function buildConvitLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const canton = job.canton || HQ.canton;
-  const regionLabel = getCantonDisplayName(canton, 'it') || canton || 'Svizzera';
-  const regionLabelDe = getCantonDisplayName(canton, 'de') || canton || 'Schweiz';
-  const regionLabelFr = getCantonDisplayName(canton, 'fr') || canton || 'Suisse';
-  const defaultCity = regionLabel;
+  const defaultCity = getCantonDisplayName(canton, 'it') || canton || 'Svizzera';
   const location = String(job.location || '').trim() || defaultCity;
   const description = stripLocationRegionMarkers(
     String(job.description || '').trim(),
     location,
     canton,
   );
-
-  const itDesc = description
-    || `Convit Holding GmbH ha aperto una selezione per il ruolo ${title} con sede a ${location}. Consulenza finanziaria e previdenziale in ${regionLabel}. Per candidarti utilizza il modulo ufficiale nella pagina Convit.`;
-  const enDesc = `Convit Holding GmbH is hiring for the ${title} role based in ${location}. Financial and pension consulting in ${regionLabel}. Apply through the official Convit careers page.`;
-  const deDesc = `Convit Holding GmbH sucht derzeit für die Position ${title} am Standort ${location}. Finanz- und Vorsorgeberatung im ${regionLabelDe}. Bewirb dich über die offizielle Karriereseite von Convit.`;
-  const frDesc = `Convit Holding GmbH recrute actuellement pour le poste ${title} basé à ${location}. Conseil financier et prévoyance au ${regionLabelFr}. Postulez via la page carrière officielle de Convit.`;
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} convit ${location}`),
       en: slugify(`${title} convit ${location}`),
@@ -356,6 +360,29 @@ export function buildConvitLocalizedContent(job = {}) {
       fr: slugify(`${title} convit ${location}`),
     },
   };
+}
+
+// Fossils of the former builder's sentences in stored jobs.
+const CONVIT_FABRICATED_RE = /^Convit Holding GmbH (?:ha aperto una selezione per il ruolo|is hiring for the|sucht derzeit für die Position|recrute actuellement pour le poste) /;
+
+/**
+ * Remove the former builder's sentences from a stored job. The runner's merge
+ * keeps existing non-source slots, so without this they would never be
+ * translated from the posting.
+ *
+ * @returns {boolean} true when the job carried one.
+ */
+export function dropConvitFabricatedText(job) {
+  let changed = false;
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    if (dropFabricatedLocaleText(job, locale, CONVIT_FABRICATED_RE)) changed = true;
+  }
+  if (CONVIT_FABRICATED_RE.test(String(job?.description || '').trim())) {
+    job.description = '';
+    job.needsRetranslation = true;
+    changed = true;
+  }
+  return changed;
 }
 
 /**

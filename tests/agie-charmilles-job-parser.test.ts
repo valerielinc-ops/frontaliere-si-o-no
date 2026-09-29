@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   buildAgieCharmillesLocalizedContent,
+  dropAgieCharmillesFabricatedText,
   cleanAgieCharmillesCity,
   parseAgieCharmillesDetailPage,
 } from '@/scripts/lib/agie-charmilles-job-parser.mjs';
@@ -71,17 +72,38 @@ describe('agie-charmilles parser', () => {
     expect(description).not.toContain('jid8622e88jm');
   });
 
-  it('uses the inferred canton in the localized meta line', () => {
+  it('publishes the detail text alone, in the slot of the listing language', () => {
     const { description } = parseAgieCharmillesDetailPage(AGIE_DETAIL_HTML);
     const localized = buildAgieCharmillesLocalizedContent({
       title: 'Projektleiter*in Kundenprojekte 100%',
       city: 'Biel/Bienne',
       canton: 'TI',
+      language: 'de',
       detailDescription: description,
     });
 
-    expect(localized.descriptionByLocale.it).toContain('Biel/Bienne (BE)');
-    expect(localized.descriptionByLocale.it).not.toContain('Biel/Bienne (TI)');
+    // No header line of the crawler's own ("… — AGIE Charmilles SA (GF
+    // Machining Solutions), Biel/Bienne (BE).") and no copy of the German
+    // text in the it/en/fr slots.
+    expect(localized.description).toBe(description);
+    expect(localized.sourceLang).toBe('de');
+    expect(localized.descriptionByLocale).toEqual({ de: description });
+  });
+
+  it('removes the former header line and the copied slots from a stored job', () => {
+    const { description } = parseAgieCharmillesDetailPage(AGIE_DETAIL_HTML);
+    const wrapped = `Projektleiter*in Kundenprojekte 100% — AGIE Charmilles SA (GF Machining Solutions), Biel/Bienne (BE).\n\n${description}`;
+    const job: any = {
+      sourceLang: 'de',
+      description: wrapped,
+      descriptionByLocale: { it: wrapped, en: wrapped, de: wrapped, fr: wrapped },
+    };
+    expect(dropAgieCharmillesFabricatedText(job)).toBe(true);
+    expect(job.description).toBe(description);
+    expect(job.descriptionByLocale).toEqual({ de: description });
+    expect(job.needsRetranslation).toBe(true);
+    const clean: any = { sourceLang: 'de', description, descriptionByLocale: { de: description, it: 'Traduzione.' } };
+    expect(dropAgieCharmillesFabricatedText(clean)).toBe(false);
   });
 
   it('routes German AGIE headings into canonical sections', () => {

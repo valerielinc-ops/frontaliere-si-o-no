@@ -4,6 +4,8 @@ import {
   extractEmbeddedJobData,
   validateRelewantDescription,
   titleOverlap,
+  buildRelewantLocalizedContent,
+  dropRelewantFabricatedText,
 } from '../scripts/lib/relewant-job-parser.mjs';
 
 // ──────────────────────────────────────────────────────────────
@@ -144,5 +146,62 @@ describe('titleOverlap', () => {
 
   it('handles special characters', () => {
     expect(titleOverlap('Automation & MFT Specialist', 'Automation MFT Specialist')).toBeGreaterThanOrEqual(0.6);
+  });
+});
+
+// The builder used to wrap the Zoho text in lines of its own: a "## <title> /
+// **ReleWant** — <city>, Svizzera" header and "**Sede:**/**Tipo:**…" footers.
+// Stored jobs of the 2026-09-29 slice carry that wrapper in `description` and
+// the source slot (sometimes flattened), and translations made from it.
+describe('ReleWant — the Zoho text only', () => {
+  const ZOHO = zohoHtmlToMarkdown(FIXTURE_BI_HTML);
+
+  it('publishes the Zoho text as it is, without header or footers', () => {
+    const result = buildRelewantLocalizedContent({
+      title: 'BI Specialist', city: 'Bellinzona', description: ZOHO, sourceLang: 'it',
+      workExperience: '3-5 anni', industry: 'IT Services', jobType: 'Tempo pieno',
+    });
+    expect(result.description).toBe(ZOHO);
+    expect(result.descriptionByLocale).toEqual({ it: ZOHO });
+    expect(result.description).not.toMatch(/\*\*ReleWant\*\*|\*\*Sede:\*\*|\*\*Tipo:\*\*|\*\*Settore:\*\*|\*\*Esperienza richiesta:\*\*/);
+  });
+
+  it('drops the translations of a stored wrapped text, flattened or not', () => {
+    const wrapped = `## BI Specialist\n\n**ReleWant** — Bellinzona, Ticino, Svizzera\n\n${ZOHO}\n\n---\n**Sede:** Bellinzona, Svizzera`;
+    for (const it of [wrapped, wrapped.replace(/\*\*/g, '').replace(/#+ /g, '').replace(/\s*\n+\s*/g, ' ')]) {
+      const job: any = {
+        sourceLang: 'it',
+        description: wrapped,
+        descriptionByLocale: { it, en: '## Front End React Developer\n\n**ReleWant** — Chiasso, Ticino, Switzerland', de: 'Übersetzung.' },
+      };
+      expect(dropRelewantFabricatedText(job)).toBe(true);
+      expect(Object.keys(job.descriptionByLocale)).toEqual(['it']);
+      expect(job.needsRetranslation).toBe(true);
+    }
+  });
+
+  it('removes header and footers from description and every slot of a stored job', () => {
+    // Stored shape of the 2026-09-29 slice: bold header, "**Label:**" footers.
+    const stored = `## BI Specialist\n\n**ReleWant** — Bellinzona, Ticino, Svizzera\n\n${ZOHO}\n\n**Esperienza richiesta:** 4-5 anni\n**Settore:** Servizi finanziari\n**Sede:** Bellinzona, TI, Svizzera\n**Tipo:** A tempo pieno`;
+    const job: any = { sourceLang: 'it', description: stored, descriptionByLocale: { it: stored } };
+    expect(dropRelewantFabricatedText(job)).toBe(true);
+    expect(job.description).toBe(ZOHO);
+    expect(job.descriptionByLocale).toEqual({ it: ZOHO });
+    expect(dropRelewantFabricatedText(job)).toBe(false);
+  });
+
+  it('removes the wrapper from every locale when the source language of a legacy job changed', () => {
+    // Review of PR 10345: the old source slot must not keep the wrapper.
+    const wrapped = 'Tecnico ReleWant — Lugano, Svizzera';
+    const job: any = { sourceLang: 'en', description: wrapped, descriptionByLocale: { it: wrapped, en: wrapped, de: wrapped, fr: wrapped } };
+    expect(dropRelewantFabricatedText(job)).toBe(true);
+    expect(job.description).not.toMatch(/ReleWant.*Svizzera/);
+    for (const value of Object.values(job.descriptionByLocale)) expect(String(value)).not.toMatch(/ReleWant.*Svizzera/);
+  });
+
+  it('leaves a job with the bare Zoho text alone', () => {
+    const job: any = { sourceLang: 'it', description: ZOHO, descriptionByLocale: { it: ZOHO, en: 'Translated.' } };
+    expect(dropRelewantFabricatedText(job)).toBe(false);
+    expect(job.descriptionByLocale.en).toBe('Translated.');
   });
 });

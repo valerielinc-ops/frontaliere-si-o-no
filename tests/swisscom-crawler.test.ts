@@ -215,3 +215,33 @@ describe('buildSwisscomJob — slug regression', () => {
     expect(String(job.addressLocality).toLowerCase()).toContain('grancia');
   });
 });
+
+describe('buildSwisscomJob — description is the Workday text, in its own language', () => {
+  const listing = {
+    title: 'Fachspezialist:in Netzwerk',
+    externalPath: '/job/Bellinzona/Fachspezialist-in-Netzwerk_R-0009999',
+    locationsText: 'Bellinzona',
+    bulletFields: ['R-0009999'],
+  };
+
+  it('keys a German posting as `de` (not `it`)', () => {
+    const job = buildSwisscomJob(listing, {
+      jobPostingInfo: {
+        title: listing.title,
+        location: 'Bellinzona',
+        timeType: 'Full time',
+        jobDescription: '<p>Du betreust unsere Netzwerkinfrastruktur im Tessin und arbeitest eng mit den Teams in Bern und Zürich zusammen. Du bringst eine abgeschlossene Ausbildung als Informatiker:in mit.</p>',
+      },
+    });
+    expect(job.sourceLang).toBe('de');
+    expect(Object.keys(job.descriptionByLocale)).toEqual(['de']);
+    expect(job.descriptionByLocale.de).toContain('Netzwerkinfrastruktur');
+    expect(Object.keys(job.requirementsByLocale)).toEqual(['de']);
+  });
+
+  it('gives a posting without Workday text no description instead of a sentence of its own', () => {
+    const job = buildSwisscomJob(listing, { jobPostingInfo: { title: listing.title, location: 'Bellinzona' } });
+    expect(job.description).toBe('');
+    expect(JSON.stringify(job.descriptionByLocale)).not.toContain('Posizione aperta');
+  });
+});

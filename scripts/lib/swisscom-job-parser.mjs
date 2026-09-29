@@ -1,4 +1,5 @@
 import { JSDOM } from 'jsdom';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 const REQUIREMENT_SECTION_RE = /\b(cosa porti con te|what you bring|your profile|requirements?|qualifications?)\b/i;
 const SECTION_TITLE_FIXES = new Map([
@@ -120,12 +121,9 @@ function buildMarkdown(title, sections) {
 
 export function parseSwisscomJobDescription(html = '', title = '') {
   const sourceHtml = String(html || '').trim();
-  if (!sourceHtml) {
-    return {
-      description: normalizeSpace(title) ? `# ${normalizeSpace(title)}` : '',
-      requirements: [],
-    };
-  }
+  // No Workday text, no description: a bare "# <title>" heading is not a
+  // posting and would slip past the thin-source guard once the title is long.
+  if (!sourceHtml) return { description: '', requirements: [] };
 
   const dom = new JSDOM(`<body>${sourceHtml}</body>`);
   const body = dom.window.document.body;
@@ -185,4 +183,19 @@ export function parseSwisscomJobDescription(html = '', title = '') {
     description: buildMarkdown(title, normalizedSections),
     requirements: uniqueLines(requirements),
   };
+}
+
+// The text this crawler used to write itself: the line the runner wrote without Workday text ("Posizione aperta presso Swisscom a <city>.") or a lone "# <title>" heading.
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const SWISSCOM_FABRICATED_RE = /Posizione aperta presso Swisscom a |^# [^\n]*$/;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropSwisscomFabricatedText(job) {
+  return dropFabricatedDescription(job, SWISSCOM_FABRICATED_RE);
 }

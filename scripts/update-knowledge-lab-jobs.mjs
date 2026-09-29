@@ -54,6 +54,7 @@ import {
   buildKnowledgeLabLocalizedContent,
   isKnowledgeLabSwissRelevant,
   inferKnowledgeLabCanton,
+  dropKnowledgeLabFabricatedText,
 } from './lib/knowledge-lab-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -204,7 +205,8 @@ async function fetchAllListings() {
 }
 
 function buildKnowledgeLabJob(row) {
-  const localized = buildKnowledgeLabLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'en');
+  const localized = buildKnowledgeLabLocalizedContent({ ...row, sourceLang });
   const canton = inferKnowledgeLabCanton(row);
   return {
     title: localized.titleByLocale.it,
@@ -224,12 +226,12 @@ function buildKnowledgeLabJob(row) {
     category: inferCategory(row.title, row.department),
     sector: inferSector(),
     source: 'knowledge-lab-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'en'),
+    sourceLang,
     postedDate: row.postedDate,
     employmentType: row.employmentType || 'full-time',
     contractType: row.employmentType || 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -244,6 +246,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fabricatedFossils = targetExisting.filter((job) => dropKnowledgeLabFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Knowledge Lab job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

@@ -17,6 +17,7 @@ import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { normalizeAnyCantonCode } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 // ─── SmartRecruiters public API (CH-wide source of truth) ──────────────────
 // The swissmedical.net careers page is React-rendered; the
@@ -369,4 +370,19 @@ export function parseSmartRecruiterDetail(html = '') {
   const location = locMatch ? normalizeSpace(locMatch[1]) : '';
 
   return { title, description, location };
+}
+
+// The text this crawler used to write itself: the paragraph the runner put in place of a description under 50 words ("Open position: <title> at Swiss Medical Network…", "Posizione aperta: <title> presso Swiss Medical Network…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const SWISS_MEDICAL_NETWORK_FABRICATED_RE = /(?:Posizione aperta|Open position): [^\n]* (?:presso|at) Swiss Medical Network/;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropSwissMedicalNetworkFabricatedText(job) {
+  return dropFabricatedDescription(job, SWISS_MEDICAL_NETWORK_FABRICATED_RE);
 }

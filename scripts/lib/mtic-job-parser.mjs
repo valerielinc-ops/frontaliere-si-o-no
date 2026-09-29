@@ -16,6 +16,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { JSDOM } from 'jsdom';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 const BASE_URL = 'https://www.mtic-group.org';
 
@@ -191,15 +192,18 @@ export function buildMticLocalizedContent(job = {}) {
   const location = String(job.location || '').trim() || 'Lugano Paradiso';
   const description = String(job.description || '').trim();
 
-  const itDesc = description
-    || `MTIC Group / SPS InterCert S.A. ricerca ${title} con sede a ${location}. Certificazioni, ispezioni e prove nel settore tecnico. Candidati tramite il sito ufficiale MTIC Group.`;
-  const enDesc = `MTIC Group / SPS InterCert S.A. is hiring for the ${title} role based in ${location}. Certifications, inspections and testing in technical sectors. Apply through the official MTIC Group careers page.`;
-  const deDesc = `MTIC Group / SPS InterCert S.A. sucht derzeit für die Position ${title} am Standort ${location}. Zertifizierungen, Inspektionen und Prüfungen im technischen Bereich. Bewirb dich über die offizielle MTIC Group Karriereseite.`;
-  const frDesc = `MTIC Group / SPS InterCert S.A. recrute actuellement pour le poste ${title} basé à ${location}. Certifications, inspections et essais dans les secteurs techniques. Postulez via le site officiel de MTIC Group.`;
+  // The posting's own text, in its own language slot (`job.sourceLang`, set
+  // by the runner); the translation step fills the other locales. Without
+  // a text there is no description: this used to publish a sentence about
+  // MTIC Group / SPS InterCert S.A. of its own in four languages ("… is hiring for the <title>
+  // role … Apply through the official … careers page."), which filled every
+  // locale so the translation step never replaced it.
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} mtic-group ${location}`),
       en: slugify(`${title} mtic-group ${location}`),
@@ -216,4 +220,19 @@ export function buildMticLocalizedContent(job = {}) {
  */
 export function isMticSwissSubsidiaryJob(job = {}) {
   return String(job.subsidiaryCountry || '').toUpperCase() === 'CH';
+}
+
+// The text this crawler used to write itself: the sentences the builder wrote in it/en/de/fr ("MTIC Group / SPS InterCert S.A. ricerca…", "…is hiring for the…", "…sucht derzeit…", "…recrute actuellement…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const MTIC_FABRICATED_RE = /MTIC Group \/ SPS InterCert S\.A\. (?:ricerca |is hiring for the |sucht derzeit für die Position |recrute actuellement pour le poste )/;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropMticFabricatedText(job) {
+  return dropFabricatedDescription(job, MTIC_FABRICATED_RE);
 }

@@ -20,10 +20,11 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
-import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isSwissLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, parseWorkdayCity } from './lib/julius-baer-job-parser.mjs';
+import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
+import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isSwissLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, parseWorkdayCity, dropJuliusBaerFabricatedText } from './lib/julius-baer-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -152,18 +153,13 @@ async function fetchJuliusBaerJobs() {
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = buildPublicUrl(externalPath);
-    const descEn = descriptionText || `${title} position at Julius Baer in ${city}, Switzerland.`;
-    // Reuse the real scraped Workday description (which carries genuine
-    // bullet markup converted by stripHtml()) as the interim 'it' value too.
-    // Previously this always wrote a synthetic per-city boilerplate paragraph
-    // regardless of whether real content was scraped — that paragraph has no
-    // list markup and, because effectiveDescription() checks the 'it' locale
-    // before 'en', it masked the real bulleted content for both the
-    // parser-quality audit and real Italian-locale site visitors. Only fall
-    // back to synthetic boilerplate when no real description was scraped.
-    const descIt = descriptionText
-      ? descEn
-      : `Posizione aperta presso Julius Baer a ${city}.\nRuolo: ${title}.\n\nJulius Baer è uno dei principali gruppi bancari privati svizzeri con sede a Zurigo e uffici in tutta la Svizzera.`;
+    // The Workday description (with the bullet markup stripHtml() keeps) is
+    // published in its own language slot only; the translation step fills the
+    // others. Without a Workday description there is none: the runner used to
+    // publish "<title> position at Julius Baer in <city>, Switzerland." and an
+    // Italian company paragraph of its own ("Posizione aperta presso Julius
+    // Baer a … Ruolo: …") instead, and to key German postings as `en`.
+    const { description, descriptionByLocale, sourceLang } = sourceLocaleDescription(descriptionText);
     const slug = slugify(title, 'julius-baer');
 
     jobs.push({
@@ -171,11 +167,11 @@ async function fetchJuliusBaerJobs() {
       location: city, canton: inferredCanton, country: 'CH',
       addressLocality: city, addressRegion: inferredCanton, addressCountry: 'CH',
       postalCode, streetAddress,
-      description: descEn, descriptionByLocale: { en: descEn, it: descIt },
+      description, descriptionByLocale,
       titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'julius-baer') },
       category: detectCategory(title), datePosted: info.startDate || new Date().toISOString().split('T')[0],
       source: 'julius-baer-workday-crawler', employmentType: detectEmploymentType(info.timeType || ''),
-      sourceLang: detectLang(descEn || title, 'en'),
+      sourceLang,
       experienceLevel: detectExperienceLevel(title), sector: 'Banking / Wealth Management',
       _targetScope: { canton: inferredCanton, location: city },
     });
@@ -191,6 +187,8 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isJuliusBaerJob(j));
   const existingCompanyJobs = allJobs.filter(isJuliusBaerJob);
+  const fabricatedFossils = existingCompanyJobs.filter((job) => dropJuliusBaerFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Julius Baer job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));

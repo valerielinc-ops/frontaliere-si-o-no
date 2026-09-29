@@ -7,9 +7,9 @@
  *
  * Crawlers tested:
  *  1. grand-hotel-kronenhof (no fallback body since issue 5253: see grand-hotel-kronenhof-crawler.test.ts)
- *  2. afry
+ *  2. afry — no longer padded: see its section
  *  3. volg-fenaco
- *  4. agie-charmilles (GF Machining Solutions)
+ *  4. agie-charmilles (GF Machining Solutions) — no longer padded: see its section
  *  5. mks-pamp
  *  6. centiel
  *  7. confederazione-ticino
@@ -55,37 +55,42 @@ function wordCount(s: string): number {
 // issue 5253).
 
 // ─── 2. AFRY ───────────────────────────────────────────────────────────────
+// No longer padded: a short posting keeps its own text and a posting without
+// text gets NO description (the pipeline's thin-source path) instead of a
+// paragraph about AFRY that the source never published.
 
-describe('AFRY — fallback descriptions >= 50 words', () => {
-  it('produces >= 50 words when detail description is empty', () => {
+describe('AFRY — the posting text, never a padded paragraph', () => {
+  it('gives a posting without text no description', () => {
     const result = buildAfryLocalizedContent({
       title: 'Geologo Junior (f/m/d) 80-100%',
       location: 'Airolo',
       description: '',
       competenceArea: 'Civil & Structural Engineering',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({});
   });
 
-  it('produces >= 50 words when detail description is thin (< 50 words)', () => {
+  it('keeps a thin posting as it is', () => {
     const result = buildAfryLocalizedContent({
       title: 'Projektingenieur:in Kunstbauten 80-100%',
       location: 'Chur',
       description: 'Planning and execution of bridge construction projects.',
       competenceArea: 'Civil Engineering',
+      sourceLang: 'en',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({ en: 'Planning and execution of bridge construction projects.' });
   });
 
-  it('uses original description when >= 50 words', () => {
+  it('uses the original description when >= 50 words', () => {
     const richDesc = Array(60).fill('word').join(' ');
     const result = buildAfryLocalizedContent({
       title: 'Test Engineer',
       location: 'Bellinzona',
       description: richDesc,
       competenceArea: 'Testing',
+      sourceLang: 'en',
     });
-    expect(result.descriptionByLocale.it).toContain(richDesc);
+    expect(result.descriptionByLocale.en).toBe(richDesc);
   });
 });
 
@@ -146,28 +151,30 @@ describe('Volg/fenaco — fallback descriptions >= 50 words', () => {
 });
 
 // ─── 4. AGIE Charmilles ────────────────────────────────────────────────────
+// No longer padded: a posting without detail text gets NO description (the
+// pipeline's thin-source path) instead of a company paragraph in four
+// languages that the source never published.
 
-describe('AGIE Charmilles — fallback descriptions >= 50 words', () => {
-  it('produces >= 50 words when detail description is empty', () => {
+describe('AGIE Charmilles — the detail text, never a padded paragraph', () => {
+  it('gives a posting without detail text no description', () => {
     const result = buildAgieCharmillesLocalizedContent({
       title: 'Software Engineer Expert - R&D',
       city: 'Losone',
       detailDescription: '',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
-    expect(wordCount(result.descriptionByLocale.en)).toBeGreaterThanOrEqual(MIN_WORDS);
-    expect(wordCount(result.descriptionByLocale.de)).toBeGreaterThanOrEqual(MIN_WORDS);
-    expect(wordCount(result.descriptionByLocale.fr)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.description).toBe('');
+    expect(result.descriptionByLocale).toEqual({});
   });
 
-  it('uses detail description when >= 50 words', () => {
-    const richDesc = Array(60).fill('word').join(' ');
+  it('uses the detail description whatever its length, in its own slot only', () => {
+    const shortDesc = 'Wartung und Inbetriebnahme von Drahterodiermaschinen beim Kunden.';
     const result = buildAgieCharmillesLocalizedContent({
-      title: 'PLC Engineer',
-      city: 'Losone',
-      detailDescription: richDesc,
+      title: 'Servicetechniker',
+      city: 'Biel/Bienne',
+      language: 'de',
+      detailDescription: shortDesc,
     });
-    expect(result.descriptionByLocale.it).toContain(richDesc);
+    expect(result.descriptionByLocale).toEqual({ de: shortDesc });
   });
 
   it('parseAgieCharmillesDetailPage returns empty for thin HTML', () => {

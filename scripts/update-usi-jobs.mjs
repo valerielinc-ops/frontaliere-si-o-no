@@ -42,8 +42,9 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
-  ensureMinimumDescriptionWordCount, isSlugStable,
+  isSlugStable,
 } from './lib/dedicated-crawler-common.mjs';
+import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { extractDrupalNodeId, extractIrsolDetailPage, MIN_IRSOL_BODY_LENGTH } from './lib/irsol-html-parser.mjs';
@@ -465,63 +466,65 @@ function detectCity(department = '', organization = '') {
 }
 
 /**
- * Build a description from the parsed job block data.
- * Since USI jobs don't have individual detail pages (only PDFs),
- * we construct a meaningful description from the available metadata.
+ * The posting's own text: the call PDF (or the IRSOL detail body), normalized
+ * like every other PDF-backed crawler. USI publishes one call per position and
+ * nothing else about it, so that text IS the description, keyed by the
+ * language it is written in (several calls are English-only).
+ *
+ * The runner used to wrap it in lines of its own — "Posizione aperta presso
+ * Università della Svizzera italiana. / Dipartimento/Istituto: … / Ruolo: … /
+ * Sede: …, Svizzera (Canton Ticino)." and "Bando ufficiale disponibile in PDF."
+ * in the `it` slot, the same in English in the `en` slot — and to substitute a
+ * paragraph about USI of its own when the PDF had no text. The `en` slot held
+ * the Italian (or English) call under an English header, so it was never
+ * translated, and the `it` slot of an English call stayed English. A call
+ * without readable text now gets no description and takes the pipeline's
+ * thin-source path instead of a paragraph USI never wrote.
+ *
+ * @param {string} bodyText
+ * @returns {string}
  */
-function buildDescription(job, locale = 'it', pdfText = '') {
-  const city = detectCity(job.department, job.organization);
-  const category = detectCategory(job.title, job.department);
-  const footerLines = job.pdfUrl
-    ? [locale === 'en' ? 'Official call available as PDF.' : 'Bando ufficiale disponibile in PDF.']
-    : [];
+export function buildUsiSourceDescription(bodyText = '') {
+  return buildPdfBackedDescription({ pdfText: bodyText });
+}
 
-  // Build a richer fallback when PDF text is empty/thin
-  const hasPdfText = pdfText && pdfText.split(/\s+/).length >= 30;
+// Fossils of the former wrapper in stored jobs: the header opened every slot
+// the runner wrote, and every other locale was translated from it.
+const USI_WRAPPER_HEAD_RE = /^(?:Posizione aperta presso|Open position at) /;
+const USI_WRAPPER_LINE_RE = /^(?:Dipartimento\/Istituto|Department\/Institute|Ruolo|Role|Sede|Location): .+$/;
+const USI_WRAPPER_FOOTER_RE = /^(?:Bando ufficiale disponibile in PDF|Official call available as PDF)\.$/;
+const USI_WRAPPER_FALLBACK_RE = /^(?:L'USI – Università della Svizzera italiana è l'unica università|USI – Università della Svizzera italiana is the only Italian-speaking university)/;
 
-  if (locale === 'en') {
-    const fallbackText = !hasPdfText ? [
-      `USI – Università della Svizzera italiana is the only Italian-speaking university in Switzerland, with campuses in Lugano and Mendrisio.`,
-      `The university offers a stimulating academic and research environment with a strong international orientation, hosting students and researchers from over 100 countries.`,
-      category === 'professor' || category === 'researcher' || category === 'phd' ?
-        `The position involves academic research and teaching activities within the department.` :
-        `The position contributes to the university's operational excellence and academic mission.`,
-      `USI offers competitive employment conditions, a dynamic multicultural environment, and professional development opportunities.`,
-    ].join(' ') : '';
+/** The call text inside a description the former wrapper produced. */
+export function stripUsiWrapper(text = '') {
+  const paragraphs = String(text || '').split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  if (!paragraphs.length || !USI_WRAPPER_HEAD_RE.test(paragraphs[0])) return String(text || '').trim();
+  paragraphs.shift();
+  for (let i = 0; i < 3 && paragraphs.length && USI_WRAPPER_LINE_RE.test(paragraphs[0]); i += 1) paragraphs.shift();
+  if (paragraphs.length && USI_WRAPPER_FOOTER_RE.test(paragraphs[paragraphs.length - 1])) paragraphs.pop();
+  return paragraphs.filter((p) => !USI_WRAPPER_FALLBACK_RE.test(p)).join('\n\n').trim();
+}
 
-    return buildPdfBackedDescription({
-      introLines: [
-        `Open position at ${job.organization || USI_COMPANY_NAME}.`,
-        ...(job.department ? [`Department/Institute: ${job.department}.`] : []),
-        `Role: ${job.title}.`,
-        `Location: ${city}, Switzerland (Canton Ticino).`,
-      ],
-      pdfText,
-      fallbackText,
-      footerLines,
-    });
-  }
-
-  const fallbackText = !hasPdfText ? [
-    `L'USI – Università della Svizzera italiana è l'unica università di lingua italiana in Svizzera, con campus a Lugano e Mendrisio.`,
-    `L'ateneo offre un ambiente accademico e di ricerca stimolante con un forte orientamento internazionale, ospitando studenti e ricercatori da oltre 100 Paesi.`,
-    category === 'professor' || category === 'researcher' || category === 'phd' ?
-      `La posizione prevede attività di ricerca accademica e insegnamento all'interno del dipartimento.` :
-      `La posizione contribuisce all'eccellenza operativa e alla missione accademica dell'università.`,
-    `L'USI offre condizioni di impiego competitive, un ambiente multiculturale dinamico e opportunità di sviluppo professionale.`,
-  ].join(' ') : '';
-
-  return buildPdfBackedDescription({
-    introLines: [
-      `Posizione aperta presso ${job.organization || USI_COMPANY_NAME}.`,
-      ...(job.department ? [`Dipartimento/Istituto: ${job.department}.`] : []),
-      `Ruolo: ${job.title}.`,
-      `Sede: ${city}, Svizzera (Canton Ticino).`,
-    ],
-    pdfText,
-    fallbackText,
-    footerLines,
-  });
+/**
+ * Remove the former wrapper from a stored job before the merge. The
+ * locale-preserving merge keeps every non-source slot of a job whose source did
+ * not drift, so the wrapped `it`/`en` slots and the translations made from them
+ * would otherwise outlive the fix. Every slot is dropped (the translation step
+ * rebuilds them from the call) and the description keeps only the call text,
+ * so a job the listing no longer shows still carries its own posting.
+ *
+ * @returns {boolean} true when the job carried the wrapper.
+ */
+export function dropUsiFabricatedText(job) {
+  if (!job || typeof job !== 'object') return false;
+  const texts = [job.description, ...Object.values(job.descriptionByLocale || {})];
+  if (!texts.some((t) => USI_WRAPPER_HEAD_RE.test(String(t || '').trim()))) return false;
+  const source = sourceLocaleDescription(stripUsiWrapper(job.description), { defaultLang: 'it' });
+  job.description = source.description;
+  job.descriptionByLocale = source.description ? source.descriptionByLocale : {};
+  if (source.description) job.sourceLang = source.sourceLang;
+  job.needsRetranslation = true;
+  return true;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -592,7 +595,7 @@ function matchEnglishJobs(itJobs, enJobs) {
  * Fetch both IT and EN listing pages and extract all unique jobs.
  * Returns an array of merged job objects with both locale titles.
  */
-async function fetchUsiJobs() {
+export async function fetchUsiJobs() {
   console.log('🔍 Fetching USI job listings from Drupal page...');
 
   // Fetch Italian page (primary source)
@@ -643,7 +646,7 @@ async function fetchUsiJobs() {
     // For external HTML pages (e.g. IRSOL Drupal detail pages): fetch the
     // detail page to obtain (a) the canonical title from <h1> — more stable
     // than the listing-page title which can drift between runs — and (b) the
-    // full job body instead of a synthetic 4-line summary.
+    // full job body instead of an empty description.
     let externalContent = { title: '', body: '' };
     if (itJob.externalUrl && !itJob.pdfUrl) {
       const detailHtml = await fetchPage(itJob.externalUrl, 15000);
@@ -653,7 +656,7 @@ async function fetchUsiJobs() {
           console.log(`  🏷️ IRSOL detail title: "${externalContent.title}"`);
         }
         if (externalContent.body.length < MIN_IRSOL_BODY_LENGTH) {
-          console.warn(`  ⚠️ IRSOL body too short (${externalContent.body.length} chars) for ${itJob.externalUrl} — using synthetic description.`);
+          console.warn(`  ⚠️ IRSOL body too short (${externalContent.body.length} chars) for ${itJob.externalUrl} — no description (thin-source path).`);
           externalContent.body = '';
         }
       }
@@ -665,8 +668,10 @@ async function fetchUsiJobs() {
     const bodyText = pdfContent.text || externalContent.body || '';
 
     const slug = slugify(canonicalItTitle, 'usi');
-    const descIt = buildDescription({ ...itJob, title: canonicalItTitle }, 'it', bodyText);
-    const descEn = buildDescription(enJob ? { ...enJob } : { ...itJob, title: canonicalItTitle }, 'en', bodyText);
+    const { description, descriptionByLocale, sourceLang } = sourceLocaleDescription(
+      buildUsiSourceDescription(bodyText),
+      { defaultLang: 'it' },
+    );
 
     const job = {
       url: jobUrl,
@@ -677,11 +682,9 @@ async function fetchUsiJobs() {
       location: city,
       canton: DEFAULT_CANTON,
       country: 'CH',
-      description: descIt,
-      descriptionByLocale: {
-        it: descIt,
-        en: descEn,
-      },
+      description,
+      descriptionByLocale,
+      sourceLang,
       titleByLocale: {
         it: canonicalItTitle,
         en: enJob ? enJob.title : '',
@@ -728,8 +731,10 @@ async function fetchUsiJobs() {
       ? await extractPdfJobContentFromUrl(enJob.pdfUrl)
       : { text: '', error: '' };
 
-    const descEn = buildDescription(enJob, 'en', pdfContent.text || '');
-    const descIt = buildDescription(enJob, 'it', pdfContent.text || '');
+    const { description, descriptionByLocale, sourceLang } = sourceLocaleDescription(
+      buildUsiSourceDescription(pdfContent.text || ''),
+      { defaultLang: 'en' },
+    );
 
     const job = {
       url: jobUrl,
@@ -740,11 +745,9 @@ async function fetchUsiJobs() {
       location: city,
       canton: DEFAULT_CANTON,
       country: 'CH',
-      description: descIt,
-      descriptionByLocale: {
-        it: descIt,
-        en: descEn,
-      },
+      description,
+      descriptionByLocale,
+      sourceLang,
       titleByLocale: {
         en: enJob.title,
       },
@@ -792,6 +795,8 @@ async function mergeUsiJobs(discoveredJobs) {
   // Separate USI jobs from other companies
   const nonUsiJobs = allJobs.filter((j) => !isUsiJob(j));
   const existingUsiJobs = allJobs.filter(isUsiJob);
+  const fossils = existingUsiJobs.filter((job) => dropUsiFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former description wrapper from ${fossils} stored USI job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingUsiJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
@@ -1067,41 +1072,29 @@ async function postProcessUsiJobs() {
       if (pdfContent.warning) {
         console.warn(`⚠️ USI post-process PDF thin content for "${job.title}": ${pdfContent.warning}`);
       }
-      const itDescription = buildDescription({
-        organization: job.company,
-        department: job.department,
-        title: job.titleByLocale?.it || job.title,
-        pdfUrl,
-      }, 'it', pdfContent.text || '');
-      const enDescription = buildDescription({
-        organization: job.company,
-        department: job.department,
-        title: job.titleByLocale?.en || job.title,
-        pdfUrl,
-      }, 'en', pdfContent.text || '');
-
-      if (itDescription && itDescription !== job.description) {
-        job.description = itDescription;
-        fixed++;
+      // The call text is the source description, in its own language; the
+      // other slots are translations of it (or, until the translation step
+      // runs, copies of it, which the step treats as untranslated).
+      const source = sourceLocaleDescription(buildUsiSourceDescription(pdfContent.text || ''), { defaultLang: 'it' });
+      if (source.description) {
+        if (source.description !== job.description) {
+          job.description = source.description;
+          fixed++;
+        }
+        job.sourceLang = source.sourceLang;
+        job.descriptionByLocale = {
+          ...(job.descriptionByLocale || {}),
+          [source.sourceLang]: source.description,
+        };
       }
-      job.descriptionByLocale = {
-        ...(job.descriptionByLocale || {}),
-        it: String(job.descriptionByLocale?.it || '').trim() || itDescription || job.description || '',
-        en: String(job.descriptionByLocale?.en || '').trim() || enDescription || '',
-      };
       const descriptionFallback =
-        String(job.descriptionByLocale?.it || '').trim() ||
-        String(job.descriptionByLocale?.en || '').trim() ||
-        itDescription ||
-        enDescription ||
+        String(job.descriptionByLocale?.[job.sourceLang] || '').trim() ||
         String(job.description || '').trim();
+      if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') job.descriptionByLocale = {};
       for (const locale of LOCALES) {
         if (!String(job.descriptionByLocale?.[locale] || '').trim() && descriptionFallback) {
           job.descriptionByLocale[locale] = descriptionFallback;
         }
-      }
-      if (String(job.descriptionByLocale?.it || '').trim()) {
-        job.description = job.descriptionByLocale.it;
       }
       if (String(job.titleByLocale?.it || '').trim()) {
         job.title = job.titleByLocale.it;
@@ -1307,17 +1300,8 @@ async function main() {
     return;
   }
 
-  // 6b. Ensure no thin descriptions (< 50 words)
-  const allJobsForPatch = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-  const usiJobsForPatch = (Array.isArray(allJobsForPatch) ? allJobsForPatch : []).filter(isUsiJob);
-  const patchedCount = ensureMinimumDescriptionWordCount(usiJobsForPatch, 50);
-  if (patchedCount > 0) {
-    writeJsonAtomic(DATA_JOBS, allJobsForPatch);
-    if (fs.existsSync(PUBLIC_JOBS)) {
-      writeJsonAtomic(PUBLIC_JOBS, allJobsForPatch);
-    }
-    console.log(`📝 Patched ${patchedCount} thin USI descriptions (< 50 words)`);
-  }
+  // A call with little or no text is NOT padded with a paragraph about USI:
+  // the locale validation below routes it through the thin-source path.
 
   // 7. Validate locale coverage (IT/EN/DE/FR)
   validateUsiLocaleCoverage();

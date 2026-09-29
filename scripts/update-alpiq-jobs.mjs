@@ -21,8 +21,10 @@ import {
   slugify,
   inferEmploymentType,
   repairThinAlpiqLocaleDescriptions,
+  dropAlpiqFabricatedText,
 } from './lib/alpiq-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
@@ -109,6 +111,8 @@ function mergeCompanyJobs(parsedJobs) {
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((j) => !isCompanyJob(j));
   const companyExisting = allJobs.filter((j) => isCompanyJob(j));
+  const fabricatedFossils = companyExisting.filter((job) => dropAlpiqFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Alpiq job(s); they will be retranslated`);
   const byUrl = new Map();
   for (const job of parsedJobs) { const k = String(job?.url || '').trim().replace(/\/+$/, ''); if (k) byUrl.set(k, job); }
   const deduped = [...byUrl.values()];
@@ -151,8 +155,12 @@ async function main() {
     // and would slip past `|| 'switzerland'` into an active slug (#952, class
     // #900/#901). addressLocality stays as-is (choke-point normalizer handles it).
     const jobSlug = slugify(`${raw.title}-alpiq-${safeLocationToken(raw.location, 'switzerland')}`);
-    const desc = raw.description || `Posizione aperta presso Alpiq (${raw.location || 'Svizzera'}). Alpiq \u00e8 uno dei principali produttori di energia in Svizzera con attivita idroelettriche sul territorio nazionale. Candidati tramite il portale SuccessFactors.`;
-    const sourceLang = detectLang(desc || raw.title, 'en');
+    // Every job here passed the rich-detail gate above (an incomplete one
+    // defers the whole snapshot), so the description is the posting's own
+    // text; it is published in its own language slot only. The Italian
+    // company sentence that used to stand in for a missing description, and
+    // the copy of a non-Italian description in the `it` slot, are gone.
+    const { description: desc, descriptionByLocale, sourceLang } = sourceLocaleDescription(raw.description);
     const sourceLocation = String(raw.location || '').trim();
     const hasConcreteLocation = Boolean(sourceLocation && !/^switzerland$/i.test(sourceLocation));
     const location = hasConcreteLocation ? sourceLocation : ALPIQ_SAFE_DEFAULT_ADDRESS.location;
@@ -161,7 +169,7 @@ async function main() {
       id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'alpiq.com',
       title: raw.title, titleByLocale: { it: raw.title },
-      description: desc, descriptionByLocale: { [sourceLang]: desc, it: desc }, requirements: [], requirementsByLocale: { it: [] },
+      description: desc, descriptionByLocale, requirements: [], requirementsByLocale: { it: [] },
       location,
       canton,
       postalCode: resolveAlpiqPostalCode(location, canton),

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { normalizePdfJobText, buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
+import { buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
+import { buildAilDescriptionFields, dropAilFabricatedText } from '../scripts/update-ail-jobs.mjs';
 
 // ──────────────────────────────────────────────────────────────
 // Inline the title extraction + overlap functions (mirrors crawler)
@@ -101,46 +102,54 @@ describe('titleOverlap — AIL title validation', () => {
 // Description building tests
 // ──────────────────────────────────────────────────────────────
 
-describe('buildPdfBackedDescription — AIL format', () => {
-  it('builds rich description from Project Coordinator PDF', () => {
-    const normalized = normalizePdfJobText(FIXTURE_PROJECT_COORDINATOR_PDF);
-    const desc = buildPdfBackedDescription({
-      introLines: [
-        '## Project Coordinator',
-        'Aziende Industriali di Lugano (AIL) SA — posizione aperta a Lugano/Muzzano (TI).',
-      ],
-      pdfText: normalized,
-      footerLines: [
-        '---',
-        '**Settore:** Energia / Servizi pubblici',
-        '**Sede:** Via Industria 2, 6933 Muzzano (Lugano), TI, Svizzera',
-      ],
-    });
+describe('buildAilDescriptionFields — the PDF call, nothing of the runner', () => {
+  it('publishes the Project Coordinator call alone, keyed by its language', () => {
+    const fields = buildAilDescriptionFields(FIXTURE_PROJECT_COORDINATOR_PDF);
 
-    expect(desc.length).toBeGreaterThanOrEqual(500);
-    expect(desc).toContain('## Project Coordinator');
-    expect(desc).toContain('progettazione');
-    expect(desc).toContain('Chi cerchiamo');
-    expect(desc).toContain('**Settore:**');
+    expect(fields.description.length).toBeGreaterThanOrEqual(500);
+    expect(fields.description).toContain('progettazione');
+    expect(fields.description).toContain('Chi cerchiamo');
+    expect(fields.sourceLang).toBe('it');
+    expect(fields.descriptionByLocale).toEqual({ it: fields.description });
+    // The runner's former header/footer lines are gone.
+    expect(fields.description).not.toMatch(/posizione aperta a Lugano\/Muzzano|\*\*Settore:\*\*|\*\*Sede:\*\*|## Project Coordinator/);
   });
 
-  it('builds rich description from Audit PDF', () => {
-    const normalized = normalizePdfJobText(FIXTURE_AUDIT_PDF);
-    const desc = buildPdfBackedDescription({
-      introLines: [
-        '## Responsabile della Revisione interna (Audit)',
-        'Aziende Industriali di Lugano (AIL) SA — posizione aperta a Lugano/Muzzano (TI).',
-      ],
-      pdfText: normalized,
-      footerLines: ['**Sede:** Muzzano'],
-    });
+  it('publishes the Audit call alone', () => {
+    const fields = buildAilDescriptionFields(FIXTURE_AUDIT_PDF);
 
-    expect(desc.length).toBeGreaterThanOrEqual(500);
-    expect(desc).toContain('Revisione interna');
-    expect(desc).toContain('audit');
-    expect(desc).toContain('governance');
+    expect(fields.description.length).toBeGreaterThanOrEqual(500);
+    expect(fields.description).toContain('Revisione interna');
+    expect(fields.description).toContain('governance');
   });
 
+  it('gives a call without readable text no description', () => {
+    expect(buildAilDescriptionFields('').description).toBe('');
+  });
+});
+
+describe('dropAilFabricatedText — stored wrapper fossils', () => {
+  it('drops the wrapped description, source slot and translations', () => {
+    const wrapped = '## Supporto organizzativo\n\nAziende Industriali di Lugano (AIL) SA — posizione aperta a Lugano/Muzzano (TI).\n\nChi siamo: Siamo una Società dinamica nel settore dell’energia.';
+    const job: any = {
+      sourceLang: 'it',
+      description: wrapped,
+      descriptionByLocale: { it: wrapped, en: '## Organisational support\n\nAziende Industriali di Lugano (AIL) SA — open position in Lugano/Muzzano (TI).' },
+    };
+    expect(dropAilFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('leaves a clean job alone', () => {
+    const job: any = { sourceLang: 'it', description: 'Chi siamo: Siamo una Società dinamica.', descriptionByLocale: { it: 'Chi siamo: Siamo una Società dinamica.', en: 'About us.' } };
+    expect(dropAilFabricatedText(job)).toBe(false);
+    expect(job.descriptionByLocale.en).toBe('About us.');
+  });
+});
+
+describe('buildPdfBackedDescription — generic fallback', () => {
   it('uses fallback when no PDF text available', () => {
     const desc = buildPdfBackedDescription({
       introLines: ['## Test Position'],

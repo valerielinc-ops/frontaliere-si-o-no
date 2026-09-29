@@ -13,6 +13,7 @@ import {
   extractConvitListingCodes,
   createConvitListingSourceValidator,
   buildConvitLocalizedContent,
+  dropConvitFabricatedText,
   isConvitSwissRelevant,
   inferConvitCanton,
 } from '../scripts/lib/convit-job-parser.mjs';
@@ -464,32 +465,69 @@ describe('convit-job-parser / buildConvitLocalizedContent', () => {
     expect(result.descriptionByLocale.it).not.toContain('Agno, Svizzera (TI)');
   });
 
-  it('falls back to generated description when job description is empty', () => {
+  it('writes only the source slot: the other locales are left to the translation step', () => {
     const result = buildConvitLocalizedContent({
-      title: 'Consulente',
-      location: 'Massagno',
+      title: 'Consulente previdenziale – cambio di carriera (zona Capolago)',
+      location: 'Capolago',
       canton: 'TI',
-      description: '',
+      description: 'Sei pronto a dare una svolta alla tua carriera e a intraprendere un percorso stimolante nel mondo della previdenza?',
     });
-    expect(result.descriptionByLocale.it).toContain('Convit');
-    expect(result.descriptionByLocale.it.length).toBeGreaterThan(50);
+    expect(Object.keys(result.descriptionByLocale)).toEqual(['it']);
+    expect(result.description).toBe(result.descriptionByLocale.it);
+    expect(JSON.stringify(result)).not.toContain('is hiring for the');
   });
 
-  it('uses the resolved canton label instead of a TI/GR binary fallback', () => {
+  it('keys the posting by its own language', () => {
+    const result = buildConvitLocalizedContent({
+      title: 'Financial advisor',
+      location: 'Zurich',
+      canton: 'ZH',
+      description: 'Advise private clients on occupational and private pension planning.',
+      sourceLang: 'en',
+    });
+    expect(result.descriptionByLocale).toEqual({ en: 'Advise private clients on occupational and private pension planning.' });
+  });
+
+  it('gives a posting without text no description instead of a sentence about Convit', () => {
     const result = buildConvitLocalizedContent({
       title: 'Analista finanziario',
       location: 'Zurich',
       canton: 'ZH',
       description: '',
     });
-    expect(result.descriptionByLocale.it).toContain('Zurigo');
-    expect(result.descriptionByLocale.it).not.toContain('Ticino');
-    expect(result.descriptionByLocale.de).toContain('Zürich');
+    expect(result.description).toBe('');
+    expect(result.descriptionByLocale).toEqual({});
+    expect(result.slugByLocale.it).toContain('zurich');
   });
 
   it('accepts all Swiss cantons and keeps foreign locations out', () => {
     expect(isConvitSwissRelevant('Zurich')).toBe(true);
     expect(inferConvitCanton('Zurich')).toBe('ZH');
     expect(isConvitSwissRelevant('Milano, Italia')).toBe(false);
+  });
+});
+
+describe('convit-job-parser / dropConvitFabricatedText', () => {
+  // Stored slots of the "cambio di carriera (zona Capolago)" job, slice of 2026-09-29.
+  it('drops the former builder sentences and keeps the posting', () => {
+    const job: any = {
+      sourceLang: 'it',
+      description: 'Sei pronto a dare una svolta alla tua carriera?',
+      descriptionByLocale: {
+        it: 'Sei pronto a dare una svolta alla tua carriera?',
+        en: 'Convit Holding GmbH is hiring for the Consulente previdenziale – cambio di carriera (zona Capolago) role based in Capolago. Financial and pension consulting in Ticino. Apply through the official Convit careers page.',
+        de: 'Convit Holding GmbH sucht derzeit für die Position Consulente previdenziale – cambio di carriera (zona Capolago) am Standort Capolago. Finanz- und Vorsorgeberatung im Tessin.',
+        fr: 'Convit Holding GmbH recrute actuellement pour le poste Consulente previdenziale – cambio di carriera (zona Capolago) basé à Capolago.',
+      },
+    };
+    expect(dropConvitFabricatedText(job)).toBe(true);
+    expect(job.descriptionByLocale).toEqual({ it: 'Sei pronto a dare una svolta alla tua carriera?' });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('leaves real translations alone', () => {
+    const job: any = { sourceLang: 'it', description: 'Testo.', descriptionByLocale: { it: 'Testo.', en: 'Text.' } };
+    expect(dropConvitFabricatedText(job)).toBe(false);
+    expect(job.descriptionByLocale.en).toBe('Text.');
   });
 });

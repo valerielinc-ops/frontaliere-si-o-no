@@ -42,6 +42,7 @@ import {
   parseMticDetailPage,
   buildMticLocalizedContent,
   isMticSwissSubsidiaryJob,
+  dropMticFabricatedText,
 } from './lib/mtic-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -247,7 +248,8 @@ async function enrichWithDetails(listings) {
 }
 
 function buildMticJob(row) {
-  const localized = buildMticLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'it');
+  const localized = buildMticLocalizedContent({ ...row, sourceLang });
   const location = row.location || row.subsidiaryLocation || 'Lugano Paradiso';
 
   return {
@@ -267,12 +269,12 @@ function buildMticJob(row) {
     category: inferCategory(row.title, row.description),
     sector: 'Certificazione e Ispezioni',
     source: 'mtic-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
+    sourceLang,
     postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -287,6 +289,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fabricatedFossils = targetExisting.filter((job) => dropMticFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored MTIC Group job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

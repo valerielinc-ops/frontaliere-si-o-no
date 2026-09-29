@@ -243,19 +243,25 @@ export function suggestDirectoryLabels(targets, departments = []) {
 }
 
 /**
- * Synthesise a structured fallback description (in source locale) so
- * postings without a usable SmartRecruiters detail payload still pass the
- * thin-content gate.
+ * Description fields of one SmartRecruiters posting: its own text, whatever
+ * its length, in the slot of its own language (clinic default when the text
+ * does not tell).
+ *
+ * The factory used to DISCARD a posting text under 30 words and publish a
+ * paragraph of its own instead ("Posizione aperta: <title> presso <clinic> …",
+ * "Poste ouvert: … chez …", "Offene Stelle: … bei …" + "Swiss Medical Network
+ * è il principale gruppo sanitario privato in Svizzera …"), so that a short or
+ * missing posting "passed the thin-content gate". A short posting now keeps
+ * its own text; one without text gets no description and takes the pipeline's
+ * thin-source path.
+ *
+ * @param {object} posting  SmartRecruiters posting (with detail payload)
+ * @param {{ title?: string, defaultSourceLang?: string }} [options]
  */
-function buildFallbackDescription({ title, clinicName, city, canton, sourceLang }) {
-  if (sourceLang === 'it') {
-    return `Posizione aperta: ${title} presso ${clinicName} a ${city} (Cantone ${canton}), Svizzera.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera. ${clinicName} offre cure mediche specialistiche e un ambiente di lavoro stimolante con condizioni contrattuali allineate ai contratti collettivi del settore sanitario svizzero. Il gruppo offre opportunità di sviluppo professionale, formazione continua e un pacchetto retributivo competitivo. Candidarsi tramite SmartRecruiters per entrare a far parte del team.`;
-  }
-  if (sourceLang === 'fr') {
-    return `Poste ouvert: ${title} chez ${clinicName} à ${city} (canton ${canton}), Suisse.\n\nSwiss Medical Network est le premier groupe hospitalier privé de Suisse. ${clinicName} offre des soins médicaux spécialisés dans un environnement stimulant, avec des conditions d'emploi alignées sur les conventions collectives du secteur de la santé. Le groupe propose des opportunités de développement professionnel, de la formation continue et une rémunération compétitive. Postulez via SmartRecruiters pour rejoindre l'équipe.`;
-  }
-  // Default DE
-  return `Offene Stelle: ${title} bei ${clinicName} in ${city} (Kanton ${canton}), Schweiz.\n\nSwiss Medical Network ist die führende private Spitalgruppe der Schweiz. ${clinicName} bietet spezialisierte medizinische Versorgung in einem stimulierenden Arbeitsumfeld mit Anstellungsbedingungen gemäss den Gesamtarbeitsverträgen des Schweizer Gesundheitswesens. Die Gruppe bietet berufliche Entwicklungsmöglichkeiten, Weiterbildung und ein attraktives Gehaltspaket. Bewerben Sie sich über SmartRecruiters und werden Sie Teil des Teams.`;
+export function buildSmnClinicDescriptionFields(posting, { title = '', defaultSourceLang = 'de' } = {}) {
+  const description = String(extractSmnApiDescription(posting) || '').trim();
+  const sourceLang = detectLang(description || title, defaultSourceLang);
+  return { description, descriptionByLocale: { [sourceLang]: description }, sourceLang };
 }
 
 function detectCategory(title = '') {
@@ -451,16 +457,8 @@ export function createSmnClinicParser(config) {
       const city = normalizeSpace(loc.city || '') || defaultCity;
       const postalCode = normalizeSpace(loc.postalCode || '') || defaultPostalCode;
 
-      let descriptionFromDetail = extractSmnApiDescription(posting);
-      if (descriptionFromDetail && descriptionFromDetail.split(/\s+/).length >= 30) {
-        detailHits += 1;
-      } else {
-        descriptionFromDetail = '';
-      }
-
-      const sourceLang = detectLang(descriptionFromDetail || title, defaultSourceLang);
-      const description = descriptionFromDetail
-        || buildFallbackDescription({ title, clinicName: companyName, city, canton: defaultCanton, sourceLang });
+      const { description, descriptionByLocale, sourceLang } = buildSmnClinicDescriptionFields(posting, { title, defaultSourceLang });
+      if (description.split(/\s+/).length >= 30) detailHits += 1;
 
       // Same URL format the old listing tiles exposed ({id}-{title-slug}),
       // so job ids (sha1 of URL) stay stable across the source migration.
@@ -481,7 +479,7 @@ export function createSmnClinicParser(config) {
         title,
         titleByLocale: { [sourceLang]: title },
         description,
-        descriptionByLocale: { [sourceLang]: description },
+        descriptionByLocale,
         // Source-only fields → shared AI step fills the other 3 locales.
         needsRetranslation: true,
         location: city,

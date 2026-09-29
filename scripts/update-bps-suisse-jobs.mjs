@@ -47,12 +47,12 @@ mergeLocaleTextMap,
 import {
   parseBpsSuisseListingPage,
   parseBpsSuisseDetailPage, inferEmploymentType,
+  buildBpsSuisseDescriptionFields,
+  dropBpsSuisseFabricatedText,
 } from './lib/bps-suisse-job-parser.mjs';
-import {
-  buildPdfBackedDescription,
-  extractPdfJobContentFromUrl,
-} from './lib/pdf-job-content.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { fetchHtml as fetchHtmlShared, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -115,7 +115,7 @@ async function fetchHtml(url, timeoutMs = 15000) {
 }
 
 /* ── Discovery & Detail Fetching ──────────────────────────── */
-async function fetchJobs() {
+export async function fetchJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   console.log(`🔍 Fetching BPS Suisse listing page: ${BPS_LISTING_URL}`);
 
@@ -164,7 +164,7 @@ async function fetchJobs() {
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
       .join(' ');
 
-    // Start with best available title: parser listing > URL-derived > fallback
+    // Start with best available title: parser listing > URL-derived
     if (!listing.title && urlDerivedTitle) {
       listing.title = urlDerivedTitle;
     }
@@ -188,7 +188,10 @@ async function fetchJobs() {
     }
 
     if (!listing.title) {
-      listing.title = 'Posizione aperta BPS Suisse';
+      // Neither the listing nor the carriera-*.php slug names the role: there
+      // is no posting title to publish (the runner used to invent one).
+      console.warn(`  ⚠️ Skipping BPS Suisse link without a title: ${listing.url}`);
+      continue;
     }
 
     // Fetch and parse PDF content when available — BPS Suisse posts full job descriptions as PDFs
@@ -204,18 +207,9 @@ async function fetchJobs() {
       }
     }
 
-    // Build description: prefer PDF content; fall back to HTML body
-    const fallbackDesc = `${listing.title} — posizione aperta presso BPS (Banca Popolare di Sondrio) SUISSE, istituto bancario con sede a Lugano, Canton Ticino, Svizzera. BPS Suisse offre servizi bancari per clientela privata e commerciale con una forte presenza sul territorio ticinese. L'azienda offre un ambiente di lavoro professionale e stimolante nel settore finanziario.`;
-    description = buildPdfBackedDescription({
-      introLines: [`## ${listing.title}`, `BPS (Banca Popolare di Sondrio) SUISSE — posizione aperta a ${location} (TI).`],
-      pdfText: pdfText || '',
-      fallbackText: description || fallbackDesc,
-      footerLines: [
-        `**Settore:** Bancario / Finanziario`,
-        `**Sede:** Via Giacomo Bentina 5, 6901 Lugano, TI, Svizzera`,
-        pdfUrl ? `[Bando ufficiale (PDF)](${pdfUrl})` : '',
-      ].filter(Boolean),
-    });
+    // Description: the PDF call when present, else the detail-page body.
+    const descriptionFields = buildBpsSuisseDescriptionFields({ pdfText, bodyText: description });
+    description = descriptionFields.description;
 
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     // Slug-only guard: `location` is reassigned from `detail.location`, which can
@@ -244,7 +238,8 @@ async function fetchJobs() {
       slug,
       slugByLocale: { it: slug },
       titleByLocale: { it: listing.title },
-      descriptionByLocale: {},
+      descriptionByLocale: descriptionFields.descriptionByLocale,
+      sourceLang: descriptionFields.sourceLang,
       requirementsByLocale: { it: [] },
       category: 'finance',
       contract: 'full-time',
@@ -271,6 +266,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(BPS_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isBpsJob(job));
   const targetExisting = existing.filter(isBpsJob);
+  const fossils = targetExisting.filter((job) => dropBpsSuisseFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former description wrapper from ${fossils} stored BPS Suisse job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -396,4 +393,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'BPS Suisse'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'BPS Suisse'));
+}

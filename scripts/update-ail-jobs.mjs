@@ -51,13 +51,18 @@ import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
-  detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   buildPdfBackedDescription,
   extractPdfJobContentFromUrl,
 } from './lib/pdf-job-content.mjs';
+import {
+  dropFabricatedLocaleText,
+  dropTranslationsOfFabricatedSource,
+  sourceLocaleDescription,
+} from './lib/source-locale-description.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -328,7 +333,7 @@ function detectEmploymentType(title = '') {
 }
 
 /* ── Main discovery ────────────────────────────────────────── */
-async function fetchAilJobs() {
+export async function fetchAilJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
   console.log(`🔍 Fetching AIL SA jobs...`);
@@ -377,23 +382,7 @@ async function fetchAilJobs() {
       }
     }
 
-    const description = buildPdfBackedDescription({
-      introLines: [
-        `## ${title}`,
-        `${COMPANY_NAME} — posizione aperta a Lugano/Muzzano (TI).`,
-      ],
-      pdfText: pdfContent.text || '',
-      fallbackText: `Posizione: ${title} presso ${COMPANY_NAME}. Consultare il bando ufficiale (PDF) per maggiori dettagli.`,
-      footerLines: [
-        '---',
-        listing.validThrough
-          ? `**Termine di candidatura:** ${listing.validThrough}`
-          : '',
-        '**Settore:** Energia / Servizi pubblici',
-        '**Sede:** Via Industria 2, 6933 Muzzano (Lugano), TI, Svizzera',
-        `[Bando ufficiale (PDF)](${listing.pdfUrl || CAREERS_URL})`,
-      ].filter(Boolean),
-    });
+    const { description, descriptionByLocale, sourceLang } = buildAilDescriptionFields(pdfContent.text || '');
 
     const slug = slugify(title, COMPANY_KEY);
 
@@ -417,10 +406,10 @@ async function fetchAilJobs() {
       datePosted: listing.datePosted,
       validThrough: listing.validThrough || undefined,
       titleByLocale: { it: title },
-      descriptionByLocale: { it: description },
+      descriptionByLocale,
       slug,
       slugByLocale: { it: slug },
-      sourceLang: detectLang(description || title, 'it'),
+      sourceLang,
       _targetScope: { canton: HQ.canton, location: 'Lugano' },
     };
 
@@ -430,6 +419,47 @@ async function fetchAilJobs() {
   }
 
   return jobs;
+}
+
+/**
+ * Description fields of one AIL posting: the text of its PDF call, in its own
+ * language. The runner used to wrap it in lines of its own ("## <title>",
+ * "Aziende Industriali di Lugano (AIL) SA — posizione aperta a Lugano/Muzzano
+ * (TI).", "**Settore:** Energia / Servizi pubblici", "**Sede:** Via Industria
+ * 2…", a link to the PDF) and to substitute "Posizione: <title> presso AIL…
+ * Consultare il bando ufficiale (PDF)…" when the PDF had no text; AIL
+ * publishes none of it (the deadline stays in `validThrough`, the PDF in
+ * `applyUrl`). A call without readable text gets no description and takes the
+ * pipeline's thin-source path.
+ *
+ * @param {string} pdfText
+ */
+export function buildAilDescriptionFields(pdfText = '') {
+  return sourceLocaleDescription(buildPdfBackedDescription({ pdfText }), { defaultLang: 'it' });
+}
+
+// Fossils of the former wrapper in stored jobs (header line or substituted
+// fallback sentence).
+const AIL_WRAPPER_RE = /— posizione aperta a Lugano\/Muzzano \(TI\)\.|Consultare il bando ufficiale \(PDF\) per maggiori dettagli\./;
+
+/**
+ * Remove the former wrapper from a stored job: the translations made from the
+ * wrapped text, the wrapped source slot and the wrapped description. The merge
+ * below keeps existing locale slots and only replaces the description with a
+ * LONGER one, so without this the wrapper would outlive the fix.
+ *
+ * @returns {boolean} true when the job carried the wrapper.
+ */
+export function dropAilFabricatedText(job) {
+  if (!job || typeof job !== 'object') return false;
+  const derived = dropTranslationsOfFabricatedSource(job, AIL_WRAPPER_RE);
+  const source = dropFabricatedLocaleText(job, job.sourceLang || 'it', AIL_WRAPPER_RE);
+  const wrappedDescription = AIL_WRAPPER_RE.test(String(job.description || ''));
+  if (wrappedDescription) {
+    job.description = '';
+    job.needsRetranslation = true;
+  }
+  return derived || source || wrappedDescription;
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
@@ -455,6 +485,8 @@ async function mergeJobs(discoveredJobs) {
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
   const existingTargetJobs = allJobs.filter(isTargetJob);
+  const fossils = existingTargetJobs.filter((job) => dropAilFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former description wrapper from ${fossils} stored AIL job(s); they will be retranslated`);
 
   const existingByKey = new Map();
   for (const job of existingTargetJobs) {
@@ -743,4 +775,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'AIL SA'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'AIL SA'));
+}
