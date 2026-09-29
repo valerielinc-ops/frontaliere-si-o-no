@@ -670,12 +670,25 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
     const normalizedStdout = stdout.split('\n').map((line) => line.trimStart()).join('\n');
 
-    expect(exitCode).not.toBe(0);
+    expect(exitCode).toBe(124);
     expect(normalizedStdout).toContain('target exceeded 30 minute wall timeout');
     expect(normalizedStdout).toContain('DESCRIPTION<<EOF\n## Crawler fallito\n**Causa:** timeout del target dopo 30 minuti (exit 124).\n**Run:** fixture\nEOF');
     expect(normalizedStdout).toContain('TITLE=Crawler Failure: Run test-crawler');
     expect(normalizedStdout).toContain('WORKFLOW=Run test-crawler');
     expect(fs.existsSync(commitMarker)).toBe(false);
+  });
+
+  it('preserves exit 124 from a nested crawler timeout through the outer wrapper', () => {
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ runCommand: 'exit 124' })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(124);
+    expect(stdout).toContain('nested timeout reached the target deadline (exit 124)');
+    expect(stdout).toContain('**Causa:** timeout del target dopo 30 minuti (exit 124).');
   });
 
   it('keeps the generic failure description, title, and dedup workflow unchanged for non-timeout crashes', () => {
@@ -925,6 +938,33 @@ describe('crawler group outcome isolation', () => {
       expect(fs.readFileSync(output, 'utf8')).toContain('systemic_count=1');
       expect(fs.readFileSync(output, 'utf8')).toContain('wait_outcome=failure');
       expect(fs.readFileSync(summary, 'utf8')).toContain('systemic runner shutdown (143)');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps exit 124 as an actionable target-timeout failure', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-aggregate-124-'));
+    try {
+      const stateDir = path.join(temp, 'crawler-generation', 'group-23');
+      fs.mkdirSync(stateDir, { recursive: true });
+      fs.writeFileSync(path.join(stateDir, 'timed-out-crawler.status'), '124\n');
+      const output = path.join(temp, 'output.txt');
+      const summary = path.join(temp, 'summary.md');
+      execFileSync('bash', ['-e', '-c', buildCrawlerAggregateShellBody([{ slug: 'timed-out-crawler' }], 23)], {
+        env: {
+          ...process.env,
+          RUNNER_TEMP: temp,
+          GITHUB_OUTPUT: output,
+          GITHUB_STEP_SUMMARY: summary,
+        },
+        encoding: 'utf8',
+      });
+
+      expect(fs.readFileSync(output, 'utf8')).toContain('failure_count=1');
+      expect(fs.readFileSync(output, 'utf8')).toContain('systemic_count=0');
+      expect(fs.readFileSync(output, 'utf8')).toContain('wait_outcome=failure');
+      expect(fs.readFileSync(summary, 'utf8')).toContain('target timeout (124)');
     } finally {
       fs.rmSync(temp, { recursive: true, force: true });
     }
