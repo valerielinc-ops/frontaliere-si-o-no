@@ -12268,6 +12268,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-costi-mobilita-abitazione.title': 'Ticino guida i rincari di mobilità e abitazione',
     'blog.article.ticino-costi-mobilita-abitazione.excerpt': 'Ad agosto i rincari in Ticino raggiungono il 3%, mentre a livello nazionale casa e mobilità salgono del 2,4% e l\'inflazione generale è allo 0,8%, corrispondenti a 1\'066 franchi in più l\'anno per una famiglia tipo.',
     'blog.article.ticino-costi-mobilita-abitazione.imageAlt': 'Automobilista in viaggio vicino a Lugano con case sullo sfondo, rappresenta i costi di mobilità e abitazione',
+    'blog.article.fials-vigilanza-ospedale-varese.title': 'FIALS: più vigilanza notturna a Varese',
+    'blog.article.fials-vigilanza-ospedale-varese.excerpt': 'Il sindacato chiede all\'ASST Sette Laghi di rivedere gli accessi e i turni: una sola guardia al Pronto Soccorso non basta.',
+    'blog.article.fials-vigilanza-ospedale-varese.imageAlt': 'Ingresso di un ospedale presidiato da una guardia giurata di notte',
 };
 
 export default blogMetaIt;
