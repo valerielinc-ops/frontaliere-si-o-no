@@ -90695,6 +90695,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-starlink-aereo-internet': {
+    title: 'Swiss porta Internet veloce Starlink a bordo dei suoi aerei',
+    description: 'Swiss attiva Internet Starlink sul primo Airbus A320neo Iseltwald. Connessione gratuita e ad alta velocità in tutte le classi di viaggio fino al 2029.',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, porta, internet, veloce',
+    ogTitle: 'Swiss attiva Internet Starlink in volo: primo aereo e regole',
+    ogDescription: 'Scopri come funziona la nuova connessione Internet Starlink a bordo del primo Airbus A320neo di Swiss. Servizio gratuito in tutte le classi con Travel ID o Miles & More.',
+    canonicalPath: '/articoli-svizzera/swiss-starlink-aereo-internet/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss porta Internet veloce Starlink a bordo dei suoi aerei",
+      "description": "Swiss attiva Internet Starlink sul primo Airbus A320neo Iseltwald. Connessione gratuita e ad alta velocità in tutte le classi di viaggio fino al 2029.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swiss-starlink-aereo-internet.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aereo Swiss Airbus A320neo con connessione Starlink"
+      },
+      "datePublished": "2026-09-29T04:59:42+00:00",
+      "dateModified": "2026-09-29T04:59:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swiss-starlink-aereo-internet/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
