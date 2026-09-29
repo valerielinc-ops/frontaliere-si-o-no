@@ -6,6 +6,7 @@ import { assertCompleteDutyResult } from '../scripts/import-pharmacy-duties-tici
 import {
   LOCARNESE_REGION,
   buildLocarnesePharmacyDuties,
+  locarneseCatalogueMapping,
   parseLocarneseDutyRows,
   resolveLocarnesePharmacyIdentity,
 } from '../scripts/lib/pharmacy-locarnese-parser.mjs';
@@ -141,6 +142,41 @@ describe('Locarnese pharmacy duty parser', () => {
     expect(() => assertCompleteDutyResult(result, LOCARNESE_REGION)).toThrow(
       'locarnese: parser skipped 1 malformed duty row(s); refusing partial region',
     );
+  });
+
+  it('maps the current live abbreviated names only through unique catalogue records', () => {
+    const mapping = locarneseCatalogueMapping(LOCARNESE_CATALOGUE);
+    expect(mapping({ name: 'Nuova', city: 'Ascona' }).map(({ id }) => id)).toEqual([
+      'ti-ofct-6612-farmacia-nuova-ascona',
+    ]);
+    expect(mapping({ name: 'Centro', city: 'Losone' }).map(({ id }) => id)).toEqual([
+      'ti-ofct-6616-farmacia-centro-losone-sa-losone',
+    ]);
+    expect(mapping({ name: 'Celesia', city: 'Locarno' }).map(({ id }) => id)).toEqual([
+      'ti-ofct-6600-farmacia-celesia-sa-locarno',
+    ]);
+
+    const html = `
+      <table>
+        <thead><tr><th>Data</th><th>Ora</th><th>Farmacia</th><th>Località</th></tr></thead>
+        <tbody>
+          <tr><td>${sourceDate(1)}</td><td>08:00</td><td>Nuova</td><td>Ascona</td></tr>
+          <tr><td>${sourceDate(4)}</td><td>18:30</td><td>Centro</td><td>Losone</td></tr>
+          <tr><td>${sourceDate(8)}</td><td>08:00</td><td>Celesia</td><td>Locarno</td></tr>
+        </tbody>
+      </table>`;
+    const result = buildLocarnesePharmacyDuties(
+      html,
+      LOCARNESE_REGION,
+      NOW.toISOString(),
+      LOCARNESE_CATALOGUE,
+    );
+
+    expect(result.unresolved).toEqual([]);
+    expect(result.duties.map(({ pharmacyId }) => pharmacyId)).toEqual([
+      'ti-ofct-6612-farmacia-nuova-ascona',
+      'ti-ofct-6616-farmacia-centro-losone-sa-losone',
+    ]);
   });
 
   it('returns unresolved identities and emits no duty for unknown or ambiguous catalogue matches', () => {
