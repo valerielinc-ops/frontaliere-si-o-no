@@ -213,7 +213,13 @@ describe('Helsana — hybrid-work location suffix (issue 5253)', () => {
       if (href.includes('/search/')) {
         return new Response(href.includes('startrow=0') ? search : '<table></table>', { status: 200 });
       }
-      return new Response('<html lang="de-DE"><body><h1>Stelle</h1></body></html>', { status: 200 });
+      // A real vacancy body: the factory publishes only the posting's own
+      // text and skips a detail page without one (issue 5253).
+      return new Response('<html lang="de-DE"><body><h1>Stelle</h1><div data-careersite-propertyid="description">'
+        + '<p>In dieser Funktion beraten Sie unsere Versicherten kompetent und freundlich zu Leistungen, Prämien und Produkten.</p>'
+        + '<p>Sie bearbeiten Anfragen telefonisch und schriftlich, klären Abrechnungen ab und arbeiten eng mit Fachstellen zusammen.</p>'
+        + '<p>Sie bringen eine kaufmännische Ausbildung, Freude am Kundenkontakt sowie sehr gute Deutschkenntnisse mit.</p>'
+        + '</div></body></html>', { status: 200 });
     }));
     vi.spyOn(console, 'log').mockImplementation(() => {});
     vi.spyOn(console, 'warn').mockImplementation(() => {});

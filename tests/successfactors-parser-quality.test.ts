@@ -31,12 +31,16 @@ const fixture = (name: string) => fs.readFileSync(
   'utf8',
 );
 
+// A vacancy body of at least 30 distinct words: the factory publishes only
+// the posting's own text and skips a detail page below that (issue 5253).
 const factoryDetail = ({ city = '', region = '', postalCode = '', country = 'CH' } = {}) => `
   <html lang="en"><body>
     <span data-careersite-propertyid="title">Source-backed vacancy</span>
     <div data-careersite-propertyid="description">
       Responsibilities include planning delivery, coordinating stakeholders, documenting decisions,
       improving processes, supporting customers, and working with the team on reliable outcomes.
+      You bring several years of experience, strong analytical skills, fluent German or French,
+      and enjoy solving practical problems together with colleagues across locations.
     </div>
     <div itemscope itemtype="http://schema.org/JobPosting">
       <span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">
@@ -56,6 +60,8 @@ const factoryCsbDetail = ({ city = '', country = 'CH' } = {}) => `
     <div data-careersite-propertyid="description">
       Responsibilities include planning delivery, coordinating stakeholders, documenting decisions,
       improving processes, supporting customers, and working with the team on reliable outcomes.
+      You bring several years of experience, strong analytical skills, fluent German or French,
+      and enjoy solving practical problems together with colleagues across locations.
     </div>
     <span data-careersite-propertyid="city">${city}</span>
     <span data-careersite-propertyid="country">${country}</span>
