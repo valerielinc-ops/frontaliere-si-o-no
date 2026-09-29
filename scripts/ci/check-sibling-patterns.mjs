@@ -100,9 +100,8 @@
  *   node scripts/ci/check-sibling-patterns.mjs --json
  *
  * Nessuna dipendenza Node aggiuntiva: usa il TypeScript già presente nel
- * progetto e git in PATH. `tar` è usato solo per l'ottimizzazione `--head`;
- * se manca, il checker torna al percorso Git storico. Cerca sempre solo file
- * tracked.
+ * progetto e git in PATH. Se lo snapshot `--head` non si può creare, il
+ * checker torna al percorso Git storico. Cerca sempre solo file tracked.
  */
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
@@ -504,7 +503,7 @@ function isPartialClone() {
 }
 
 /**
- * Materializza i blob di codice del ref in un file temporaneo.
+ * Materializza i blob di codice del ref in una directory temporanea.
  * `git grep` ricrea un processo che può arrivare a centinaia di MB per ogni
  * token; un indice estratto una volta permette al pass lessicale di leggere
  * ogni file direttamente e poi rilasciarne il contenuto.
@@ -538,9 +537,16 @@ function createHeadSnapshot(files) {
       if (!record) continue;
       const tab = record.indexOf('\t');
       if (tab < 0) continue;
-      const [, type, oid] = record.slice(0, tab).split(' ');
+      const [mode, type, oid] = record.slice(0, tab).split(' ');
       const file = record.slice(tab + 1);
       if (type !== 'blob' || !oid || (wantedFiles && !wantedFiles.has(file)) || !isCodeFile(file)) continue;
+      // Un symlink (mode 120000) ha come blob il testo del path, non codice.
+      // Quelli nelle CODE_DIRS puntano a `packages/articles/**`, fuori dallo
+      // snapshot: con `git archive` + `tar` restavano pendenti e `readTracked`
+      // restituiva null. Scritti come file, il loro path entrava nel pass
+      // lessicale e nei conteggi MAX_FILES (`blog-body-ch`: 15 file reali + il
+      // symlink = token scartato). Saltarli conserva il verdetto precedente.
+      if (mode === '120000') continue;
       entries.push({ file, oid });
     }
 
