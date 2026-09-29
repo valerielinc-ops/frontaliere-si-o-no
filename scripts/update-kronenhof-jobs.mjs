@@ -53,6 +53,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -300,13 +301,12 @@ export function buildJob(raw, detailDescription = '') {
     '6-months': '6-Monats-Stelle / 6-month contract',
   }[raw.contract_duration] || raw.contract_duration || 'Seasonal';
 
-  // Only the detail page's own vacancy body is published (>= 50 words). A
+  // Only the detail page's own vacancy body is published (shared word floor). A
   // thinner or missing body yields NO description here: mergeJobLists keeps
   // the body stored from an earlier read of the source, or leaves the job
   // unpublished this run. The old marketing fallback ("Die Kulm Gruppe
   // betreibt …, Bewerbungen an: …") was text the source never showed.
-  const detailWordCount = detailDescription ? detailDescription.split(/\s+/).length : 0;
-  const hasRichDetail = detailWordCount >= 50;
+  const hasRichDetail = meetsSourceBodyFloor(detailDescription);
 
   // The language is read from the body we publish, not from the title: the
   // detail page is the /en/ portal, while titles are brigade terms ("Chef de
@@ -529,7 +529,7 @@ async function main() {
     try {
       const html = await fetchText(detailUrl);
       const desc = parseDetailPage(html);
-      if (desc && desc.split(/\s+/).length >= 50) {
+      if (desc && meetsSourceBodyFloor(desc)) {
         detailDescriptions.set(vac.id, desc);
         enriched++;
         console.log(`  ✅ ${i + 1}/${allVacancies.length}: ${String(vac.title).trim()}`);

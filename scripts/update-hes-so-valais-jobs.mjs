@@ -57,6 +57,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -83,8 +84,6 @@ const HESSO_LOCALES = {
 const LOCALES = ['it', 'en', 'de', 'fr'];
 // Detail pages are read one at a time with a pause (polite to hevs.ch).
 const DETAIL_DELAY_MS = Number(process.env.JOBS_HESSO_DETAIL_DELAY_MS) || 600;
-// Below this the detail parse is treated as not found (excerpt fallback).
-const MIN_DETAIL_CHARS = 200;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -427,21 +426,95 @@ export function parseHessoDetailPage(html = '') {
   return { fr: toMarkdown(parts.fr), de: toMarkdown(parts.de) };
 }
 
-/* ── Description building ──────────────────────────────────── */
+/* ── Source bodies ─────────────────────────────────────────── */
 
-function buildDescriptionFr(title, descriptionRaw, location) {
-  const base = descriptionRaw && descriptionRaw.length > 30
-    ? descriptionRaw
-    : `Poste de ${title} à la HES-SO Valais-Wallis à ${location}.`;
-  return `${base}\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.`.trim();
+/**
+ * The text a job publishes, taken ONLY from the ad on its detail page: the
+ * French half is the source when it clears the shared word floor, the German
+ * half otherwise; the other half, when it clears the floor too, is HES-SO's
+ * own translation. Nothing is synthesized: earlier versions published the
+ * listing excerpt plus an institution blurb in French, a generic "Offene
+ * Stelle an der HES-SO Wallis…" in German and an always-invented English
+ * "Open position at HES-SO Valais-Wallis…" (#5253, review of #10348).
+ *
+ * @returns {{ description: string, sourceLang: string, descriptionByLocale: Record<string, string>, officialDe: string }}
+ */
+export function hessoSourceBodies(detail = {}) {
+  const fr = meetsSourceBodyFloor(detail?.fr) ? String(detail.fr) : '';
+  const de = meetsSourceBodyFloor(detail?.de) ? String(detail.de) : '';
+  const description = fr || de;
+  if (!description) return { description: '', sourceLang: '', descriptionByLocale: {}, officialDe: '' };
+  const sourceLang = detectLang(description, fr ? 'fr' : 'de');
+  const officialDe = fr && de && sourceLang !== 'de' ? de : '';
+  return { description, sourceLang, descriptionByLocale: { [sourceLang]: description }, officialDe };
 }
 
-function buildDescriptionDe(title, location) {
-  return `Offene Stelle an der HES-SO Wallis in ${location}.\nPosition: ${title}.\n\nDie HES-SO Wallis ist eine zweisprachige (Französisch-Deutsch) Fachhochschule im Kanton Wallis mit Standorten in Sitten, Siders, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in den Bereichen Ingenieurwesen, Management, Gesundheit, Soziale Arbeit und Kunst aus.`.trim();
+// Text earlier versions invented (see hessoSourceBodies).
+const INVENTED_HESSO_TEXT_RE = /HES-SO Valais-Wallis est une haute école spécialisée bilingue|^Poste de .+ à la HES-SO Valais-Wallis|Offene Stelle an der HES-SO Wallis|Die HES-SO Wallis ist eine zweisprachige|Open position at HES-SO Valais-Wallis|HES-SO Valais-Wallis is a bilingual/m;
+
+function storedSourceText(job) {
+  return String(job?.description || job?.descriptionByLocale?.[job?.sourceLang] || '');
 }
 
-function buildDescriptionEn(title, location) {
-  return `Open position at HES-SO Valais-Wallis in ${location}.\nPosition: ${title}.\n\nHES-SO Valais-Wallis is a bilingual (French-German) university of applied sciences in Canton Valais, Switzerland, with campuses in Sion, Sierre, Visp and Saint-Maurice. It trains over 2,800 students in engineering, management, health, social work and the arts.`.trim();
+/**
+ * Reconcile fresh jobs with stored ones before the shared merge.
+ * - A job whose detail page yielded no body keeps the body stored from an
+ *   earlier read of the source (description, locale slots, language); with
+ *   nothing stored, or only invented text, it is not published this run —
+ *   and a stored record holding only invented text is not carried over.
+ * @returns {{ existingForMerge: object[], discoveredForMerge: object[], skipped: number }}
+ */
+export function prepareHessoMerge(existingJobs = [], discoveredJobs = []) {
+  const keyOf = (job) => extractStableJobId(job?.url) || job?.url;
+  const existingByKey = new Map(existingJobs.map((job) => [keyOf(job), job]));
+  const dropKeys = new Set();
+  const discoveredForMerge = [];
+  let skipped = 0;
+  for (const job of discoveredJobs) {
+    if (job.description) {
+      discoveredForMerge.push(job);
+      continue;
+    }
+    const previous = existingByKey.get(keyOf(job));
+    const stored = storedSourceText(previous);
+    if (!stored || INVENTED_HESSO_TEXT_RE.test(stored)) {
+      console.log(`  ⏭️  Not publishing ${job.title || job.url}: no vacancy body and none stored from the source`);
+      if (previous) dropKeys.add(keyOf(job));
+      skipped++;
+      continue;
+    }
+    discoveredForMerge.push({
+      ...job,
+      description: previous.description || stored,
+      descriptionByLocale: { ...(previous.descriptionByLocale || {}) },
+      sourceLang: previous.sourceLang,
+    });
+  }
+  const existingForMerge = existingJobs.filter((job) => !dropKeys.has(keyOf(job)));
+  return { existingForMerge, discoveredForMerge, skipped };
+}
+
+/**
+ * Drop stored slots made of invented text, and every non-source translation
+ * of a stored source that carried it (their wording is a translation of the
+ * blurb, not of the ad), then flag the job for retranslation.
+ */
+export function dropInventedHessoLocaleText(mergedJobs, existingJobs = []) {
+  const keyOf = (job) => extractStableJobId(job?.url) || job?.url;
+  const previousByKey = new Map(existingJobs.map((job) => [keyOf(job), job]));
+  for (const job of mergedJobs) {
+    const translatedFromInvented = INVENTED_HESSO_TEXT_RE.test(storedSourceText(previousByKey.get(keyOf(job))));
+    let dropped = false;
+    for (const [locale, text] of Object.entries(job.descriptionByLocale || {})) {
+      if (locale === job.sourceLang) continue;
+      if (translatedFromInvented || INVENTED_HESSO_TEXT_RE.test(String(text || ''))) {
+        delete job.descriptionByLocale[locale];
+        dropped = true;
+      }
+    }
+    if (dropped) job.needsRetranslation = true;
+  }
+  return mergedJobs;
 }
 
 /* ── Fetch and build all HES-SO jobs ─────────────────────────── */
@@ -501,9 +574,11 @@ export async function fetchHessoJobs() {
     if (!frUrl) continue;
 
     // The listing only carries an excerpt: read the ad from its detail page.
-    // A failed or unrecognised page keeps the job on the excerpt fallback.
+    // A page without a body leaves the job to prepareHessoMerge (stored body
+    // or not published this run).
     const detail = parseHessoDetailPage(await fetchHtml(frUrl));
-    if (!detail.fr) console.warn(`  ⚠️ No vacancy body read from ${frUrl} — using the listing excerpt`);
+    const bodies = hessoSourceBodies(detail);
+    if (!bodies.description) console.warn(`  ⚠️ No vacancy body read from ${frUrl}`);
     await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
 
     // Extract employment rate from title
@@ -514,17 +589,11 @@ export async function fetchHessoJobs() {
     const city = locationInfo.city;
     const postalCode = locationInfo.postal;
 
-    const hasDetailFr = detail.fr.length >= MIN_DETAIL_CHARS;
-    const hasDetailDe = detail.de.length >= MIN_DETAIL_CHARS;
-    const descFr = hasDetailFr ? detail.fr : buildDescriptionFr(title, descriptionRaw, city);
-    const descDe = hasDetailDe ? detail.de : buildDescriptionDe(title, city);
-    const descEn = buildDescriptionEn(title, city);
-
     const slug = slugify(title, HESSO_KEY);
-    // Detected on the published body, not on the bilingual title
-    // ("Collaboratrice ou collaborateur technique *** Technischer Mitarbeiter")
-    // which read as Italian and filed the French text under the wrong locale.
-    const sourceLang = detectLang(descFr, 'fr');
+    // sourceLang is detected on the published body, not on the bilingual
+    // title ("Collaboratrice ou collaborateur technique *** Technischer
+    // Mitarbeiter"), which read as Italian and filed French under `it`.
+    const { description, sourceLang, descriptionByLocale, officialDe } = bodies;
 
     const job = {
       url: frUrl,
@@ -536,12 +605,8 @@ export async function fetchHessoJobs() {
       postalCode,
       canton: 'VS',
       country: 'CH',
-      description: descFr,
-      descriptionByLocale: {
-        fr: descFr,
-        de: descDe,
-        en: descEn,
-      },
+      description,
+      descriptionByLocale,
       titleByLocale: {
         fr: title,
       },
@@ -560,7 +625,7 @@ export async function fetchHessoJobs() {
     };
 
     if (rate) job.employmentRate = rate;
-    if (hasDetailDe && sourceLang !== 'de') OFFICIAL_DESCRIPTIONS.set(job, { de: descDe });
+    if (officialDe) OFFICIAL_DESCRIPTIONS.set(job, { de: officialDe });
 
     // Add DE/EN URLs if available
     if (deUrl) {
@@ -643,8 +708,9 @@ async function mergeHessoJobs(discoveredJobs) {
   // record's previousSlugs/previousSlugsByLocale/firstSeenAt was dropped
   // as "no longer in the feed" while the fresh job was pushed as new
   // (issue #3699).
+  const { existingForMerge, discoveredForMerge, skipped } = prepareHessoMerge(existingHessoJobs, discoveredJobs);
   const existingKeys = new Set(existingHessoJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
-  const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
+  const discoveredKeys = new Set(discoveredForMerge.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
   const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
   const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
@@ -656,12 +722,15 @@ async function mergeHessoJobs(discoveredJobs) {
   // handled independently by postProcessHessoJobs() right after this
   // function runs, so no constant-field overrides need to be reapplied here.
   const mergedHessoJobs = applyOfficialHessoDescriptions(
-    repairHessoRelabeledSource(
-      mergePreserveLocaleData(existingHessoJobs, discoveredJobs),
-      existingHessoJobs,
-      discoveredJobs,
+    dropInventedHessoLocaleText(
+      repairHessoRelabeledSource(
+        mergePreserveLocaleData(existingForMerge, discoveredForMerge),
+        existingForMerge,
+        discoveredForMerge,
+      ),
+      existingForMerge,
     ),
-    discoveredJobs,
+    discoveredForMerge,
   );
 
   const final = [...nonHessoJobs, ...mergedHessoJobs];
@@ -674,9 +743,10 @@ async function mergeHessoJobs(discoveredJobs) {
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  🗑️  Removed (stale): ${removed}`);
+  if (skipped) console.log(`  ⏭️  Not published (no vacancy body): ${skipped}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
 
-  return { added, updated, removed, total: final.length };
+  return { added, updated, removed, skipped, total: final.length };
 }
 
 /* ── Adapter management ────────────────────────────────────── */

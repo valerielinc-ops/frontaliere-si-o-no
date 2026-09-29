@@ -45,6 +45,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr } from './lib/html-attr.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -436,14 +437,14 @@ function extractJobId(url = '') {
   return match ? match[1] : '';
 }
 
-// Below this many words a detail body is not a vacancy description (#5253:
-// the fallback it replaced was a one-line, 15-word stub).
-const MIN_BODY_WORDS = 50;
-
-/** The vacancy body read from the detail page, or '' when it has none. */
+/**
+ * The vacancy body read from the detail page, or '' when it is under the
+ * shared source-body word floor (#5253: the fallback it replaced was a
+ * one-line, 15-word stub).
+ */
 export function zegnaVacancyBody(detail = {}) {
   const body = String(detail?.description || '').trim();
-  return body.split(/\s+/).filter(Boolean).length >= MIN_BODY_WORDS ? body : '';
+  return meetsSourceBodyFloor(body) ? body : '';
 }
 
 function filterEmpty(obj = {}) {
@@ -502,6 +503,10 @@ export function mergeZegnaJobLists(existingZegnaJobs = [], discoveredJobs = []) 
     }
 
     if (existing) {
+      // A fresh body is the source text and replaces the stored one; without
+      // one, the stored body, its locale slots and its language stay exactly
+      // as they were (a detail page that came back empty must not erase them).
+      const hasFreshBody = Boolean(discovered.description);
       const updatedJob = {
         ...existing,
         title: discovered.title || existing.title,
@@ -516,17 +521,17 @@ export function mergeZegnaJobLists(existingZegnaJobs = [], discoveredJobs = []) 
         category: discovered.category || existing.category,
         sector: discovered.sector || existing.sector,
         source: 'zegna-careers-crawler',
-        sourceLang: discovered.sourceLang || existing.sourceLang,
+        sourceLang: hasFreshBody ? (discovered.sourceLang || existing.sourceLang) : existing.sourceLang,
         brand: discovered.brand || existing.brand,
         contractType: discovered.contractType || existing.contractType,
         titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
+        descriptionByLocale: hasFreshBody
+          ? mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang)
+          : { ...(existing.descriptionByLocale || {}) },
         slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       };
 
-      if (discovered.description && discovered.description.length > (existing.description || '').length) {
-        updatedJob.description = discovered.description;
-      }
+      updatedJob.description = hasFreshBody ? discovered.description : existing.description;
 
       merged.push(updatedJob);
       updated++;

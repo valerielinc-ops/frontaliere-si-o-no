@@ -87,3 +87,32 @@ describe('mergeZegnaJobLists', () => {
     expect(merged[0].description).toBe(BODY);
   });
 });
+
+describe('Zegna — review criteria (#10348)', () => {
+  it('keeps the stored body, locale slots and language when the same JobID comes back without a body', () => {
+    const existing = {
+      ...discovered(URL_A, 'source body'),
+      descriptionByLocale: { en: 'source body', it: 'corpo tradotto' },
+      sourceLang: 'en',
+    };
+    const { merged } = mergeZegnaJobLists([existing], [{ ...discovered(URL_A, ''), sourceLang: 'it' }]);
+    expect(merged[0].description).toBe('source body');
+    expect(merged[0].descriptionByLocale).toEqual({ en: 'source body', it: 'corpo tradotto' });
+    expect(merged[0].sourceLang).toBe('en');
+  });
+
+  it('lets a fresh source body replace the stored one even when it is shorter', () => {
+    const fresh = BODY.split(' ').slice(0, 60).join(' ');
+    const existing = { ...discovered(URL_A, `${BODY} ${BODY}`), sourceLang: 'en' };
+    const { merged } = mergeZegnaJobLists([existing], [discovered(URL_A, fresh)]);
+    expect(merged[0].description).toBe(fresh);
+    expect(merged[0].descriptionByLocale.en).toBe(fresh);
+  });
+
+  it('rejects a 49-word body however many characters it has', () => {
+    const long49 = Array.from({ length: 49 }, () => 'Verantwortungsbewusstsein').join(' ');
+    expect(long49.length).toBeGreaterThan(1000);
+    expect(zegnaVacancyBody({ description: long49 })).toBe('');
+    expect(zegnaVacancyBody({ description: `${long49} Stabio` })).not.toBe('');
+  });
+});

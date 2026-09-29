@@ -18,6 +18,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 
 const LISTING_URL = 'https://lombardi.group/eng/careers/open-positions';
@@ -261,9 +262,6 @@ export function isLombardiLocalJob(job = {}) {
   return LOCAL_SEDE_IDS.has(String(job.sedeId ?? ''));
 }
 
-/** Below this the detail markdown is not a vacancy body. */
-export const LOMBARDI_MIN_DETAIL_CHARS = 100;
-
 /**
  * Build the source-language content of a Lombardi job from its detail page.
  *
@@ -275,8 +273,10 @@ export const LOMBARDI_MIN_DETAIL_CHARS = 100;
  * blurb on the Italian page, and the title copies kept the translation step
  * from ever translating the title.
  *
- * Without a detail body there is nothing from the source to publish: returns
- * null and the caller keeps an earlier source body or leaves the job out.
+ * Without a detail body — or with one under the shared word floor
+ * (source-body-floor.mjs) — there is nothing from the source to publish:
+ * returns null and the caller keeps an earlier source body or leaves the job
+ * out.
  *
  * @returns {{ sourceLang: string, titleByLocale: object, descriptionByLocale: object, slugByLocale: object } | null}
  */
@@ -284,7 +284,7 @@ export function buildLombardiLocalizedContent(job = {}) {
   const title = normalizeSpace(job.title);
   const city = normalizeSpace(job.city) || 'Giubiasco';
   const detailDesc = String(job.detailMarkdown || '');
-  if (detailDesc.length <= LOMBARDI_MIN_DETAIL_CHARS) return null;
+  if (!meetsSourceBodyFloor(detailDesc)) return null;
   const sourceLang = detectLang(detailDesc, 'it');
   return {
     sourceLang,
@@ -308,7 +308,7 @@ export function isLombardiLegacyBlurb(text = '') {
  */
 export function lombardiHasSourceBody(job = {}) {
   const body = String(job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '').trim();
-  return body.length > LOMBARDI_MIN_DETAIL_CHARS && !isLombardiLegacyBlurb(body);
+  return meetsSourceBodyFloor(body) && !isLombardiLegacyBlurb(body);
 }
 
 /**

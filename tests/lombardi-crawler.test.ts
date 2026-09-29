@@ -17,6 +17,7 @@ import {
   scrubLombardiLegacyLocaleCopies,
   titleOverlap,
 } from '@/scripts/lib/lombardi-job-parser.mjs';
+import { sourceBodyWordCount } from '@/scripts/lib/source-body-floor.mjs';
 
 // ─── Fixture: Progettista / Tecnico RVCS (id=108934) ───
 const RVCS_HTML = `
@@ -307,11 +308,12 @@ describe('parseLombardiDetailHtml', () => {
 // had a full English body; the Italian page showed only this. Pinned to prove
 // it is recognised and removed.
 const LEGACY_IT_BLURB = "Lombardi Group, studio di ingegneria con sede a Giubiasco, cerca un profilo Geotechnical Engineer (M/F/X) (80%–100%). Lombardi è specializzata nella progettazione di grandi infrastrutture: tunnel, dighe, ponti e impianti idroelettrici in Svizzera e nel mondo. Lo studio, con sede principale a Giubiasco (Ticino), opera nei settori dell'ingegneria civile, idraulica e geotecnica. Candidati tramite il portale ufficiale.";
-const EN_BODY = 'As a Project Engineer, you will play a key role in the design, execution, and delivery of challenging infrastructure projects.\n\n## Mansioni\n- Design and plan geotechnical engineering solutions in soil and rock for complex projects.\n\n## Requisiti\n- Degree in Civil Engineering and specialization in geotechnics.';
+const EN_BODY = "As a Project Engineer, you will play a key role in the design, execution, and delivery of challenging infrastructure projects. If you thrive in a collaborative environment and have strong technical expertise, we'd love to hear from you learn more.\n\n## Mansioni\n- Design and plan geotechnical engineering solutions in soil and rock for complex projects with some or minimum support.\n- Participate in geotechnical investigation campaigns, interpreting tests and monitoring technical data for decision-making.\n\n## Requisiti\n- Degree in Civil Engineering and specialization in geotechnics.\n- Minimum experience of 7 years in geotechnical design, preferably in engineering, consulting, linked to large-scale projects.";
 
 describe('buildLombardiLocalizedContent', () => {
   it('fills only the source language, with the detail body, title and slug', () => {
-    const itBody = 'Lombardi Group cerca un profilo qualificato per il team.\n\n## Mansioni\n- Task 1 progettazione completa\n- Task 2 coordinamento multidisciplinare\n- Task 3 gestione dei costi e qualità\n\n## Requisiti\n- Req 1 laurea ingegneria\n- Req 2 almeno 5 anni esperienza';
+    // The real RVCS detail page pinned above (Italian posting).
+    const itBody = parseLombardiDetailHtml(RVCS_HTML)!.markdown;
     const result = buildLombardiLocalizedContent({ title: 'Progettista RVCS', city: 'Giubiasco', detailMarkdown: itBody });
     expect(result?.sourceLang).toBe('it');
     expect(result?.descriptionByLocale).toEqual({ it: itBody });
@@ -460,5 +462,32 @@ describe('isLombardiLocalJob', () => {
     expect(isLombardiLocalJob({ sedeId: '1' })).toBe(true);
     expect(isLombardiLocalJob({ sedeId: 12 })).toBe(false);
     expect(isLombardiLocalJob({ sedeId: 458683 })).toBe(false);
+  });
+});
+
+// Word floor (source-body-floor.mjs): real detail text of the Geotechnical
+// Engineer (lombardi.group/eng/careers/job?id=159053, 2026-09-29) cut at 49 and
+// 50 words. Both cuts are far above the old 100-character gate.
+const GEOTECH_DETAIL_TEXT = "As a Project Engineer, you will play a key role in the design, execution, and delivery of challenging infrastructure projects. If you thrive in a collaborative environment and have strong technical expertise, we'd love to hear from you learn more. Design and plan geotechnical engineering solutions in soil and rock for complex projects with some or minimum support. Participate in geotechnical investigation campaigns, interpreting tests and monitoring technical data for decision-making.";
+const firstWords = (text: string, n: number) => text.split(' ').slice(0, n).join(' ');
+
+describe('Lombardi source body word floor', () => {
+  const body49 = firstWords(GEOTECH_DETAIL_TEXT, 49);
+  const body50 = firstWords(GEOTECH_DETAIL_TEXT, 50);
+
+  it('pins the fixture at 49 and 50 words, both over the old character gate', () => {
+    expect(sourceBodyWordCount(body49)).toBe(49);
+    expect(sourceBodyWordCount(body50)).toBe(50);
+    expect(body49.length).toBeGreaterThan(100);
+  });
+
+  it('builds content from a 50-word body and returns null for a 49-word one', () => {
+    expect(buildLombardiLocalizedContent({ title: 'Geotechnical Engineer (M/F/X)', city: 'Giubiasco', detailMarkdown: body49 })).toBeNull();
+    expect(buildLombardiLocalizedContent({ title: 'Geotechnical Engineer (M/F/X)', city: 'Giubiasco', detailMarkdown: body50 })?.descriptionByLocale).toEqual({ en: body50 });
+  });
+
+  it('keeps a stored body only at 50 words or more', () => {
+    expect(lombardiHasSourceBody({ sourceLang: 'en', descriptionByLocale: { en: body49 } })).toBe(false);
+    expect(lombardiHasSourceBody({ sourceLang: 'en', descriptionByLocale: { en: body50 } })).toBe(true);
   });
 });

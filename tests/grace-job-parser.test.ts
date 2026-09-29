@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  clearGraceInventedSlots,
+  isGraceInventedText,
+  resolveGraceJobBody,
   selectGraceDescription,
   parseDeclaredJobTotal,
   reconcileGraceListings,
@@ -257,5 +260,44 @@ describe('selectGraceDescription keeps the list structure (flat 9/11)', () => {
     });
     expect(description).not.toMatch(/Start application|company profile/);
     expect(description).toMatch(/^WHAT WILL YOU DO\?\n- Rock the drinks/);
+  });
+});
+
+// The padding enrichDescription() used to append below 150 characters (verbatim).
+const GRACE_PADDING = 'Bartender Open position at Grace La Margna St Moritz in St. Moritz, Graubünden, Switzerland. Industry: Tourism & Hospitality. Grace La Margna St Moritz is a luxury hotel in the heart of St. Moritz, part of the Grace Hotels collection. Apply on hotelcareer.com for this opportunity.';
+const GRACE_SOURCE = [
+  'WHO WE NEED',
+  'We are looking for ambitious talents who will become the shapers of the new reborn legendary hotel in one of the most prestigious alpine resorts in the world. Are you expecting more than a job? Then let’s GRACE together!',
+  '',
+  'WHAT WILL YOU DO?',
+  '- Rock the drinks at our bars',
+  '- You share your passion about Drinks & Food with our guests',
+  '- Make sure our Bar always look perfect for our guests',
+  '- Create memorable, lasting and individual experiences',
+].join('\n');
+
+describe('Grace source-only rule (review #10348: no padding)', () => {
+  const job = (description: string) => ({ url: 'u', sourceLang: 'en', description, descriptionByLocale: description ? { en: description } : {} });
+
+  it('recognises the padding, not the posting', () => {
+    expect(isGraceInventedText(GRACE_PADDING)).toBe(true);
+    expect(isGraceInventedText(GRACE_SOURCE)).toBe(false);
+  });
+
+  it('publishes a source body of 50+ words as is', () => {
+    expect(resolveGraceJobBody(job(GRACE_SOURCE), null)?.description).toBe(GRACE_SOURCE);
+  });
+
+  it('under 50 words: the stored source text, else not published', () => {
+    const short = 'WHAT WILL YOU DO?\n- Rock the drinks at our bars';
+    expect(resolveGraceJobBody(job(short), job(GRACE_SOURCE))?.description).toBe(GRACE_SOURCE);
+    expect(resolveGraceJobBody(job(short), null)).toBeNull();
+    expect(resolveGraceJobBody(job(''), job(GRACE_PADDING))).toBeNull();
+  });
+
+  it('clears padding copies from the locale slots', () => {
+    const merged = { descriptionByLocale: { en: GRACE_SOURCE, it: GRACE_PADDING } };
+    expect(clearGraceInventedSlots(merged)).toBe(1);
+    expect(merged.descriptionByLocale).toEqual({ en: GRACE_SOURCE });
   });
 });

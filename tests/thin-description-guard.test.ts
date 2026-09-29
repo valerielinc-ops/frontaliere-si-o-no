@@ -222,8 +222,9 @@ describe('MKS PAMP — no padded fallback, source text only', () => {
       descriptionHtml: '',
       detailDescription: richDesc,
     });
-    expect(result.descriptionByLocale.it).toContain(richDesc);
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.description).toContain(richDesc);
+    expect(result.descriptionByLocale[result.sourceLang]).toBe(result.description);
+    expect(wordCount(result.description)).toBeGreaterThanOrEqual(MIN_WORDS);
   });
 });
 

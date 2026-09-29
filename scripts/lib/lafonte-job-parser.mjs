@@ -9,6 +9,7 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 // ──────────────────────────────────────────────────────────────
 // HTML → Markdown converter
@@ -184,21 +185,18 @@ export function validateLaFonteDescription(detail, minChars = 350, minSourceRati
 // Published description: the role section of the page, nothing else
 // ──────────────────────────────────────────────────────────────
 
-/** Below this the card holds no vacancy body. */
-export const LAFONTE_MIN_BODY_CHARS = 100;
-
 /**
  * The published description is the role card of the careers page as-is
  * (see htmlToMarkdown). The runner used to wrap it in text the page does not
  * carry: "Fondazione La Fonte, con sede a Lugano (TI), è alla ricerca di: X.",
  * a "## Mansioni" heading over nothing, fixed Settore/Sede lines and, for an
- * empty card, "Contattare … per i dettagli della posizione." A card without a
- * body yields '' — the caller keeps an earlier source body or leaves the job
- * out.
+ * empty card, "Contattare … per i dettagli della posizione." A card whose body
+ * is under the shared word floor (source-body-floor.mjs) yields '' — the
+ * caller keeps an earlier source body or leaves the job out.
  */
 export function buildLaFonteDescription(cardMarkdown = '') {
   const body = String(cardMarkdown || '').trim();
-  return body.length >= LAFONTE_MIN_BODY_CHARS ? body : '';
+  return meetsSourceBodyFloor(body) ? body : '';
 }
 
 // Frame the old buildDescription() put around the card body. The `Sede` line

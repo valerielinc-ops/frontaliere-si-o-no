@@ -11,7 +11,7 @@
  */
 import { describe, it, expect } from 'vitest';
 
-import { parseCornerOffer, applyOfficialCornerDescriptions } from '@/scripts/update-corner-jobs.mjs';
+import { parseCornerOffer, applyOfficialCornerDescriptions, dropCornerLocaleCopies } from '@/scripts/update-corner-jobs.mjs';
 import {
   parseCornerOfferFull,
   buildFullDescription,
@@ -127,7 +127,10 @@ const OFFER_MULTILINGUAL: any = {
   id: 22222,
   slug: 'relationship-manager',
   title: 'Relationship Manager',
-  description: '<p>We are looking for a Relationship Manager.</p>',
+  description:
+    '<p>We are looking for a Relationship Manager to strengthen our Private Banking team in Lugano. ' +
+    'You will advise an international clientele, build lasting relationships and work closely with our ' +
+    'investment specialists.</p>',
   requirements: '<ul><li>Banking experience required</li><li>Client-focused attitude</li></ul>',
   offer_sections: [
     {
@@ -271,19 +274,19 @@ describe('parseCornerOfferFull — guards', () => {
     expect(parseCornerOfferFull(tinyOffer)).toBeNull();
   });
 
-  it('returns non-null for short-but-above-50-char description with no sections (with warning)', () => {
-    // "Posizione disponibile." → after stripHtml = "Posizione disponibile." = 22 chars < 300
-    // → warning emitted, but still returned (> 50 chars threshold)
-    // Actually 22 chars is < 50, so null. Let us use a slightly longer one:
+  it('returns null for a body under 50 words, however many characters it has (#10348)', () => {
+    // 9 words, 69 characters: the old character gate (< 50 chars) let it through.
     const shortOffer = {
       ...OFFER_SHORT_NO_SECTIONS,
       description: '<p>Posizione disponibile per candidature spontanee nel settore bancario.</p>',
       offer_sections: [],
       translations: { it: { title: 'Impiegato Banca', description: '<p>Posizione disponibile per candidature spontanee nel settore bancario.</p>' } },
     };
-    const result = parseCornerOfferFull(shortOffer);
-    // 73 chars > 50, so should return a result (even if < MIN_CORNER_DESC_LENGTH)
-    expect(result).not.toBeNull();
+    expect(parseCornerOfferFull(shortOffer)).toBeNull();
+    const long49 = Array.from({ length: 49 }, () => 'Verantwortungsbewusstsein').join(' ');
+    expect(long49.length).toBeGreaterThan(1000);
+    expect(parseCornerOfferFull({ ...OFFER_SHORT_NO_SECTIONS, description: `<p>${long49}</p>`, translations: {} })).toBeNull();
+    expect(parseCornerOfferFull({ ...OFFER_SHORT_NO_SECTIONS, description: `<p>${long49} Lugano</p>`, translations: {} })).not.toBeNull();
   });
 });
 
@@ -490,5 +493,45 @@ describe('parseCornerOffer — primary language is the source language', () => {
     const stored = { ...fresh, descriptionByLocale: { ...fresh.descriptionByLocale, en: 'Unsolicited application: an English translation.' } };
     const [merged] = applyOfficialCornerDescriptions([stored], [fresh]);
     expect(merged.descriptionByLocale.en).toBe('Unsolicited application: an English translation.');
+  });
+});
+
+// ─── No language copied into another's slot (review of #10348) ─────────────
+
+describe('Cornèr — only bank-written languages fill description slots', () => {
+  it('parseCornerOfferFull returns only the languages the bank wrote', () => {
+    const result = parseCornerOfferFull(OFFER_MULTILINGUAL)!;
+    expect(Object.keys(result.descriptionByLocale).sort()).toEqual(['de', 'it']);
+  });
+
+  it('parseCornerOffer adds the primary text under its language and leaves the rest empty', () => {
+    const job = parseCornerOffer(OFFER_PRIMARY_EN)!;
+    expect(Object.keys(job.descriptionByLocale).sort()).toEqual(['en', 'it']);
+    expect(job.descriptionByLocale.de).toBeUndefined();
+    expect(job.descriptionByLocale.fr).toBeUndefined();
+  });
+
+  it('drops stored de/fr slots that copy the English body and flags retranslation, keeping the bank\'s Italian', () => {
+    const fresh = parseCornerOffer(OFFER_PRIMARY_EN)!;
+    const stored = {
+      ...fresh,
+      descriptionByLocale: {
+        ...fresh.descriptionByLocale,
+        de: fresh.description,
+        fr: `${fresh.description}  `,
+      },
+    };
+    const [merged] = dropCornerLocaleCopies([stored], [fresh]);
+    expect(Object.keys(merged.descriptionByLocale).sort()).toEqual(['en', 'it']);
+    expect(merged.descriptionByLocale.it).toContain('Stiamo cercando un professionista motivato');
+    expect(merged.needsRetranslation).toBe(true);
+  });
+
+  it('keeps real translations that are not copies', () => {
+    const fresh = parseCornerOffer(OFFER_PRIMARY_EN)!;
+    const stored = { ...fresh, descriptionByLocale: { ...fresh.descriptionByLocale, de: 'Wir suchen eine motivierte Fachperson.' } };
+    const [merged] = dropCornerLocaleCopies([stored], [fresh]);
+    expect(merged.descriptionByLocale.de).toBe('Wir suchen eine motivierte Fachperson.');
+    expect(merged.needsRetranslation).toBeUndefined();
   });
 });

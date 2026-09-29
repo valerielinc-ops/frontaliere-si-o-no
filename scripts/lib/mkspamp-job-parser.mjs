@@ -16,6 +16,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { detectLanguage } from './detect-language.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const RSS_URL = 'https://careers.mkspamp.com/jobs.rss';
 
@@ -93,10 +95,6 @@ export function teamtailorHtmlToMarkdown(html = '') {
     out.push(line);
   }
   return out.join('\n').replace(/\n{3,}/g, '\n\n').trim();
-}
-
-function wordCountOf(markdown = '') {
-  return String(markdown || '').replace(/[#*-]/g, ' ').split(/\s+/).filter(Boolean).length;
 }
 
 /**
@@ -177,7 +175,7 @@ export async function fetchMksPampDetailLocation(url, timeoutMs = 15000) {
           // Extract description from JSON-LD — this is the full job description
           if (data.description) {
             const desc = teamtailorHtmlToMarkdown(data.description);
-            if (wordCountOf(desc) >= 50) {
+            if (meetsSourceBodyFloor(desc)) {
               result.description = desc;
             }
           }
@@ -238,23 +236,23 @@ export function buildMksPampLocalizedContent(job = {}) {
   const detailDesc = teamtailorHtmlToMarkdown(job.detailDescription || '');
   const rssDesc = teamtailorHtmlToMarkdown(job.descriptionHtml || '');
 
-  const MIN_WORDS = 50;
-
-  // Source text only. Without 50 words of posting (detail JSON-LD or RSS)
-  // the description stays empty: the runner keeps the text a previous run
-  // read from the source, or does not publish the job this run. The company
-  // paragraph that used to stand in ("MKS PAMP SA, leader mondiale … cerca un
-  // profilo …") was not the posting.
-  let description = '';
-  if (detailDesc && wordCountOf(detailDesc) >= MIN_WORDS) {
-    description = `${title} — MKS PAMP SA, ${city} (TI).\n\n${detailDesc}`;
-  } else if (rssDesc && wordCountOf(rssDesc) >= MIN_WORDS) {
-    description = `${title} — MKS PAMP SA, ${city} (TI).\n\n${rssDesc}`;
-  }
+  // Source text only. Without MIN_SOURCE_BODY_WORDS words of posting (detail
+  // JSON-LD or RSS) the description stays empty: the runner keeps the text a
+  // previous run read from the source, or does not publish the job this run.
+  // The company paragraph that used to stand in ("MKS PAMP SA, leader
+  // mondiale … cerca un profilo …") was not the posting.
+  const body = meetsSourceBodyFloor(detailDesc) ? detailDesc : (meetsSourceBodyFloor(rssDesc) ? rssDesc : '');
+  const description = body ? `${title} — MKS PAMP SA, ${city} (TI).\n\n${body}` : '';
+  // Only the slot of the language the posting is written in: a copy in the
+  // other slots reads as "already localized" and the translation step
+  // never runs (English postings sat untranslated in it/de/fr).
+  const sourceLang = body ? detectLanguage(body, 'it') : '';
 
   return {
+    sourceLang,
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: description ? { it: description, en: description, de: description, fr: description } : {},
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} mks-pamp ${city}`),
       en: slugify(`${title} mks-pamp ${city}`),
@@ -283,7 +281,7 @@ export function storedMksPampSourceText(record) {
   const lang = String(record.sourceLang || '').trim();
   for (const candidate of [record.descriptionByLocale?.[lang], record.description]) {
     const text = String(candidate || '').trim();
-    if (text && !isMksPampInventedDescription(text) && wordCountOf(text) >= 50) return { text, lang };
+    if (text && !isMksPampInventedDescription(text) && meetsSourceBodyFloor(text)) return { text, lang };
   }
   return null;
 }
@@ -293,7 +291,7 @@ export function storedMksPampSourceText(record) {
  * of the same posting, or `null` (not published this run).
  */
 export function resolveMksPampJobBody(job, prev) {
-  if (String(job?.description || '').trim()) return job;
+  if (meetsSourceBodyFloor(job?.description || '')) return job;
   const stored = storedMksPampSourceText(prev);
   if (!stored) return null;
   const lang = stored.lang || job.sourceLang;
@@ -306,6 +304,33 @@ export function clearMksPampInventedSlots(job) {
   for (const [locale, text] of Object.entries(job?.descriptionByLocale || {})) {
     if (isMksPampInventedDescription(text)) {
       delete job.descriptionByLocale[locale];
+      removed += 1;
+    }
+  }
+  return removed;
+}
+
+function comparableText(text = '') {
+  return String(text || '').replace(/[#*•\-]/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+/**
+ * Remove, from every slot but the source one, stale copies of the source
+ * text: identical once markdown and whitespace are ignored (older runs wrote
+ * the source into all four slots), or still written in the source language
+ * (a copy of an older version of it). Returns the number of slots cleared;
+ * the caller marks the job for retranslation.
+ */
+export function clearMksPampSourceCopies(job) {
+  const sourceLang = String(job?.sourceLang || '').trim();
+  const byLocale = job?.descriptionByLocale || {};
+  const source = comparableText(byLocale[sourceLang] || job?.description || '');
+  if (!sourceLang || !source) return 0;
+  let removed = 0;
+  for (const [locale, text] of Object.entries(byLocale)) {
+    if (locale === sourceLang || !String(text || '').trim()) continue;
+    if (comparableText(text) === source || detectLanguage(String(text), locale) === sourceLang) {
+      delete byLocale[locale];
       removed += 1;
     }
   }

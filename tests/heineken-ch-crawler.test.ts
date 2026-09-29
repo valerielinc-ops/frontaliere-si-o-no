@@ -337,6 +337,13 @@ describe('Heineken Switzerland crawler parser', () => {
       expect(heinekenVacancyBody({})).toBe('');
     });
 
+    it('rejects a 49-word body however many characters it has', () => {
+      const long49 = Array.from({ length: 49 }, () => 'Verantwortungsbewusstsein').join(' ');
+      expect(long49.length).toBeGreaterThan(1000);
+      expect(heinekenVacancyBody({ description: long49 })).toBe('');
+      expect(heinekenVacancyBody({ description: `${long49} Denges` })).not.toBe('');
+    });
+
     it('publishes no job and no invented text when the detail body is under 50 words', () => {
       expect(buildHeinekenChJob({ row, detail: thinDetail, detailUrl })).toBeNull();
       expect(buildHeinekenChJob({ row, detail: { ...thinDetail, description: '' }, detailUrl })).toBeNull();

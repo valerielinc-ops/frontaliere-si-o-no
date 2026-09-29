@@ -55,6 +55,7 @@ import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locati
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -136,14 +137,6 @@ const GALENICA_COMPANY_BLURB_RE = /\((?:Gruppo Galenica|Galenica Group)\), (?:co
 
 export function isGalenicaCompanyBlurb(text = '') {
   return GALENICA_COMPANY_BLURB_RE.test(String(text || ''));
-}
-
-// Below this a page is thin content (Non-Negotiable #4): a record whose only
-// source text is shorter is not published.
-const GALENICA_MIN_DESCRIPTION_WORDS = 50;
-
-function wordCount(text = '') {
-  return String(text || '').replace(/[#*]/g, ' ').split(/\s+/).filter(Boolean).length;
 }
 
 const WORKPLACE_LABEL = { de: 'Arbeitsort', fr: 'Lieu de travail', it: 'Luogo di lavoro', en: 'Place of work' };
@@ -440,7 +433,9 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
   job.sourceLang = sourceLang;
   job.descriptionByLocale = { [sourceLang]: description };
   if (sourceLang === 'it') job.descriptionIt = description;
-  if (wordCount(sourceContent.description) + wordCount(workplace) < GALENICA_MIN_DESCRIPTION_WORDS) {
+  // Shared word floor (Non-Negotiable #4) on what is published: the branch
+  // line plus the source body.
+  if (!meetsSourceBodyFloor(description)) {
     return { job, id: preferred.id, firm, city, thinSourceDescription: true };
   }
 
@@ -523,8 +518,8 @@ function compareGalenicaJobIds(a, b) {
 /**
  * Split the built jobs of one run:
  *   - `jobs`: publishable, with a source description;
- *   - `noSource` / `thin`: no source text read this run, or fewer than 50
- *     words — mergeGalenicaJobs keeps the text a previous run read, or does
+ *   - `noSource` / `thin`: no source text read this run, or under the shared
+ *     word floor (source-body-floor.mjs) — mergeGalenicaJobs keeps the text a previous run read, or does
  *     not publish them;
  *   - `dropped`: true republications — same title and same description,
  *     which opens with the branch line, i.e. the same place — collapsed onto
@@ -570,7 +565,7 @@ export function storedGalenicaSourceText(record) {
   if (!record) return null;
   const lang = String(record.sourceLang || '').toLowerCase();
   const text = String(record.descriptionByLocale?.[lang] || record.description || '').trim();
-  if (!text || isGalenicaCompanyBlurb(text) || wordCount(text) < GALENICA_MIN_DESCRIPTION_WORDS) return null;
+  if (!text || isGalenicaCompanyBlurb(text) || !meetsSourceBodyFloor(text)) return null;
   return { text, lang: ['it', 'en', 'de', 'fr'].includes(lang) ? lang : detectLang(text, 'it') };
 }
 

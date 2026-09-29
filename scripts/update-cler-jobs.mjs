@@ -50,6 +50,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -367,13 +368,15 @@ async function fetchDetailPage(relativeUrl) {
 
 /**
  * The posting's own text, or '' when the detail page gave none (no HTML, or
- * under 200 characters of markdown). No stand-in text: mergeJobs keeps the
- * stored source text of the requisition, or does not publish the job.
+ * fewer than MIN_SOURCE_BODY_WORDS words — measured in words, not characters:
+ * a 49-word body padded with long compounds is still thin). No stand-in
+ * text: mergeJobs keeps the stored source text of the requisition, or does
+ * not publish the job.
  */
 export function buildDescription(title, html) {
   if (!html) return '';
   const markdown = htmlToMarkdown(html);
-  return markdown && markdown.length >= 200 ? markdown : '';
+  return markdown && meetsSourceBodyFloor(markdown) ? markdown : '';
 }
 
 async function fetchClerJobs() {

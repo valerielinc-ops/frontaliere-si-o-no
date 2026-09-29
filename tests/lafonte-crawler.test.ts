@@ -8,6 +8,7 @@ import {
   scrubLaFonteLegacyFrame,
   laFonteHasSourceBody,
 } from '../scripts/lib/lafonte-job-parser.mjs';
+import { sourceBodyWordCount } from '../scripts/lib/source-body-floor.mjs';
 
 // ──────────────────────────────────────────────────────────────
 // Real fixture: Operatore/trice socioassistenziale 60%
@@ -273,8 +274,8 @@ describe('validateLaFonteDescription', () => {
 // ──────────────────────────────────────────────────────────────
 
 // Card body of "Apprendisti/e operatori/trici socioassistenziali AFC" as the
-// page publishes it (lafonte.ch/inizia-con-noi, 2026-09-29), shortened.
-const APPRENDISTI_BODY = "Nel corso dei tre anni di formazione potrai raggiungere gli obiettivi fissati dall'ordinanza sulla formazione di operatori/trici OSA, indirizzo persone con disabilità.\n\nCondizioni:\n\n- maggiore età\n- assolvimento della scolarità obbligatoria\n\nLe/gli interessate/i sono pregate/i di inviare la loro candidatura via mail a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)";
+// page publishes it (lafonte.ch/inizia-con-noi, 2026-09-29).
+const APPRENDISTI_BODY = "Nel corso dei tre anni di formazione potrai raggiungere gli obiettivi fissati dall'ordinanza sulla formazione di operatori/trici OSA, indirizzo persone con disabilità. Le/gli apprendiste/i fanno parte del team di presa in carico dei residenti e, affiancati da un responsabile pratico, sviluppano le proprie competenze attraverso il progressivo svolgimento delle mansioni previste dal curriculum formativo. È possibile svolgere l’apprendistato presso le strutture abitative Fonte 3 a Neggio e Fonte 8 a Lugano.\n\nCondizioni:\n\n- maggiore età\n- assolvimento della scolarità obbligatoria\n- spiccato interesse e motivazione all’accompagnamento e assistenza di persone con disabilità\n- titolo preferenziale verrà dato a candidature che hanno già svolto prime esperienze in ambito sociale, quali volontariato, colonie estive, stage d’orientamento\n\nLe/gli interessate/i sono pregate/i di inviare la loro candidatura insieme ad una lettera di presentazione e motivazione, un curriculum vitae e la copia dei certificati di studio via mail a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)";
 // The same job as the old runner stored it (committed slice): the card body
 // inside a frame of sentences and fixed lines that are not on the page, and a
 // machine translation of that frame in `en`.
@@ -318,5 +319,32 @@ describe('La Fonte published description', () => {
     expect(laFonteHasSourceBody({ sourceLang: 'it', description: LEGACY_IT, descriptionByLocale: { it: LEGACY_IT } })).toBe(true);
     const emptyFrame = '## Descrizione\nFondazione La Fonte, con sede a Lugano (TI), è alla ricerca di: Stagiaire.\n\n## Mansioni\nContattare Fondazione La Fonte per i dettagli della posizione.\n\n**Settore:** Servizi sociali / Assistenza disabilità\n**Sede:** Via A. Giacometti 1, 6900 Lugano (TI), Svizzera\n**Candidatura:** recruiting@lafonte.ch';
     expect(laFonteHasSourceBody({ sourceLang: 'it', description: emptyFrame, descriptionByLocale: { it: emptyFrame } })).toBe(false);
+  });
+});
+
+// Word floor (source-body-floor.mjs): real card text of "Stagiaire"
+// (lafonte.ch/inizia-con-noi, 2026-09-29) cut at 49 and 50 words. Both cuts
+// are far above the old 100-character gate, which let the 49-word one through.
+const STAGIAIRE_CARD_TEXT = "È possibile svolgere uno stage presso una struttura abitativa (Fonte 3 a Neggio o Fonte 8 a Lugano) o presso un laboratorio protetto (La Fattoria a Vaglio, Il Fornaio a Lugano, Lo Spazio Officina ad Agno). Lo stage può avere validità preformativa e prevede l’accompagnamento di persone con disabilità in attività socio-assistenziali e/o lavorative. Condizioni: maggiore età, spiccato interesse e motivazione all’accompagnamento e assistenza di persone con disabilità";
+const firstWords = (text: string, n: number) => text.split(' ').slice(0, n).join(' ');
+
+describe('La Fonte source body word floor', () => {
+  const body49 = firstWords(STAGIAIRE_CARD_TEXT, 49);
+  const body50 = firstWords(STAGIAIRE_CARD_TEXT, 50);
+
+  it('pins the fixture at 49 and 50 words, both over the old character gate', () => {
+    expect(sourceBodyWordCount(body49)).toBe(49);
+    expect(sourceBodyWordCount(body50)).toBe(50);
+    expect(body49.length).toBeGreaterThan(100);
+  });
+
+  it('publishes a 50-word card and nothing for a 49-word one', () => {
+    expect(buildLaFonteDescription(body49)).toBe('');
+    expect(buildLaFonteDescription(body50)).toBe(body50);
+  });
+
+  it('keeps a stored body only at 50 words or more', () => {
+    expect(laFonteHasSourceBody({ sourceLang: 'it', description: body49, descriptionByLocale: { it: body49 } })).toBe(false);
+    expect(laFonteHasSourceBody({ sourceLang: 'it', description: body50, descriptionByLocale: { it: body50 } })).toBe(true);
   });
 });

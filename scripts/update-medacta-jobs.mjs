@@ -46,8 +46,8 @@ import {
   detailBackedMedactaLocales,
   resolveMedactaDescriptionAction,
   MEDACTA_DETAIL_SOURCE,
-  MEDACTA_MIN_DETAIL_CHARS,
 } from './lib/medacta-job-enrichment.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
@@ -378,7 +378,7 @@ async function fetchJobDescription(detailUrl) {
   if (!html) return { detailMarkdown: '', metaDescription: '' };
   const detailMarkdown = extractMedactaDetailMarkdown(html);
   return {
-    detailMarkdown: detailMarkdown.length >= MEDACTA_MIN_DETAIL_CHARS ? detailMarkdown : '',
+    detailMarkdown: meetsSourceBodyFloor(detailMarkdown) ? detailMarkdown : '',
     metaDescription: metaDescriptionFromHtml(html),
   };
 }

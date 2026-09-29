@@ -607,3 +607,25 @@ describe('Cler source-only rule (no "per i dettagli consultare la pagina" stand-
     expect(Object.keys(merged.descriptionByLocale)).toEqual(['de']);
   });
 });
+
+describe('Cler word floor (review #10348: characters are not words)', () => {
+  // 49 long German compounds: well over 200 characters, still a thin page.
+  const LONG = 'Kundenbetreuungsverantwortung';
+  const page = (words: number) => `<html><body><div class="m-richtext__content"><p>${Array(words).fill(LONG).join(' ')}</p></div></body></html>`;
+
+  it('rejects a 49-word body stretched past 200 characters', () => {
+    expect(htmlToMarkdown(page(49)).length).toBeGreaterThan(200);
+    expect(buildDescription('Kundenberater/in', page(49))).toBe('');
+  });
+
+  it('accepts the same body at 50 words', () => {
+    expect(buildDescription('Kundenberater/in', page(50))).toBe(htmlToMarkdown(page(50)));
+  });
+
+  it('does not reuse a stored text under the floor', () => {
+    const thin = htmlToMarkdown(page(49));
+    const job = { url: 'u', description: '', sourceLang: 'de', descriptionByLocale: {} };
+    expect(resolveClerJobBody(job, { sourceLang: 'de', description: thin, descriptionByLocale: { de: thin } })).toBeNull();
+    expect(resolveClerJobBody({ ...job, description: thin }, undefined)).toBeNull();
+  });
+});

@@ -25,6 +25,9 @@ import {
   detectEmploymentType,
   parseHessoDetailPage,
   repairHessoRelabeledSource,
+  hessoSourceBodies,
+  prepareHessoMerge,
+  dropInventedHessoLocaleText,
 } from '../../scripts/update-hes-so-valais-jobs.mjs';
 
 // ─── Constants (mirroring the crawler script) ─────────────────────────────────
@@ -757,5 +760,104 @@ describe('repairHessoRelabeledSource', () => {
     const [out] = repairHessoRelabeledSource([{ ...job }], [job], [job]);
     expect(out.descriptionByLocale).toEqual({ fr: 'a', it: 'b' });
     expect(out.needsRetranslation).toBeUndefined();
+  });
+});
+
+// ─── Source text only (review of #10348) ─────────────────────────────────────
+//
+// The crawler used to publish, besides the ad, text it wrote itself: the
+// listing excerpt plus an institution blurb in French, "Offene Stelle an der
+// HES-SO Wallis…" in German and an always-invented English "Open position at
+// HES-SO Valais-Wallis…". Bodies below are the live 215387 ad (minimised).
+const FR_AD =
+  'Tu as terminé ta scolarité obligatoire ? Le domaine de la communication, du multimédia et du digital t’intéresse ? ' +
+  'Alors rejoins la Haute Ecole de Santé de la HES-SO Valais-Wallis pour effectuer ton apprentissage. ' +
+  'Tes missions : participer à la création de contenus visuels, numériques et imprimés ; contribuer à la gestion et à ' +
+  'l’animation des médias sociaux ; réaliser des supports de communication tels que flyers, affiches, présentations ou ' +
+  'contenus web. Lieu de travail Sion. Entrée en fonction 01.08.2027.';
+const DE_AD =
+  'Die HES-SO Valais-Wallis bildet über 2’800 Studierende aus. Du hast die obligatorische Schule abgeschlossen? Du ' +
+  'interessierst dich für Kommunikation, Multimedia und die digitale Welt? Deine Aufgaben: Mitwirkung bei der Gestaltung ' +
+  'von visuellen, digitalen und gedruckten Kommunikationsmitteln, Mitarbeit bei der Betreuung und Animation der ' +
+  'Social-Media-Kanäle, Erstellung von Kommunikationsmitteln wie Flyer, Plakate und Präsentationen. Arbeitsort Sitten.';
+const LONG_49 = Array.from({ length: 49 }, () => 'Verantwortungsbewusstsein').join(' ');
+const INVENTED_FR =
+  'Tu as terminé ta scolarité obligatoire ?\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais.';
+const HESSO_URL = 'https://www.hevs.ch/fr/recruitee/mediamaticien-cfc-ou-mediamaticienne-cfc-215387';
+
+describe('hessoSourceBodies', () => {
+  it('publishes the French half as source and the German half as HES-SO\'s own translation — never an en slot', () => {
+    const bodies = hessoSourceBodies({ fr: FR_AD, de: DE_AD });
+    expect(bodies.description).toBe(FR_AD);
+    expect(bodies.sourceLang).toBe('fr');
+    expect(bodies.descriptionByLocale).toEqual({ fr: FR_AD });
+    expect(bodies.officialDe).toBe(DE_AD);
+  });
+
+  it('measures the floor in words: a 49-word half is thin however long its words are', () => {
+    expect(LONG_49.length).toBeGreaterThan(1000);
+    const bodies = hessoSourceBodies({ fr: LONG_49, de: DE_AD });
+    expect(bodies.description).toBe(DE_AD);
+    expect(bodies.sourceLang).toBe('de');
+    expect(bodies.officialDe).toBe('');
+  });
+
+  it('returns no body at all (no invented text) when neither half clears the floor', () => {
+    expect(hessoSourceBodies({ fr: 'Tu as terminé ta scolarité ?', de: '' })).toEqual({
+      description: '', sourceLang: '', descriptionByLocale: {}, officialDe: '',
+    });
+  });
+});
+
+describe('prepareHessoMerge', () => {
+  const fresh = { url: HESSO_URL, title: 'Médiamaticien CFC', description: '', descriptionByLocale: {}, sourceLang: '' };
+
+  it('keeps the stored source body, slots and language when the detail page has none', () => {
+    const stored = { url: HESSO_URL, title: 'Médiamaticien CFC', description: FR_AD, sourceLang: 'fr', descriptionByLocale: { fr: FR_AD, it: 'Annuncio tradotto.' } };
+    const { discoveredForMerge, existingForMerge, skipped } = prepareHessoMerge([stored], [fresh]);
+    expect(skipped).toBe(0);
+    expect(existingForMerge).toHaveLength(1);
+    expect(discoveredForMerge[0]).toMatchObject({ description: FR_AD, sourceLang: 'fr', descriptionByLocale: { fr: FR_AD, it: 'Annuncio tradotto.' } });
+  });
+
+  it('does not publish a job without body whose only stored text is invented, nor carry the stored record', () => {
+    const stored = { url: HESSO_URL, title: 'Médiamaticien CFC', description: INVENTED_FR, sourceLang: 'fr', descriptionByLocale: { fr: INVENTED_FR } };
+    const { discoveredForMerge, existingForMerge, skipped } = prepareHessoMerge([stored], [fresh]);
+    expect(skipped).toBe(1);
+    expect(discoveredForMerge).toHaveLength(0);
+    expect(existingForMerge).toHaveLength(0);
+    expect(prepareHessoMerge([], [fresh])).toMatchObject({ discoveredForMerge: [], skipped: 1 });
+  });
+});
+
+describe('dropInventedHessoLocaleText', () => {
+  it('drops invented slots and the translations of an invented source, and flags retranslation', () => {
+    const previous = {
+      url: HESSO_URL,
+      sourceLang: 'fr',
+      description: INVENTED_FR,
+      descriptionByLocale: { fr: INVENTED_FR, it: 'La HES-SO Valais-Wallis è una scuola universitaria bilingue.' },
+    };
+    const merged = [{
+      url: HESSO_URL,
+      sourceLang: 'fr',
+      description: FR_AD,
+      descriptionByLocale: {
+        fr: FR_AD,
+        it: 'La HES-SO Valais-Wallis è una scuola universitaria bilingue.',
+        en: 'Open position at HES-SO Valais-Wallis in Sion.\nPosition: Médiamaticien CFC.',
+        de: 'Offene Stelle an der HES-SO Wallis in Sion.',
+      },
+    }];
+    const [job] = dropInventedHessoLocaleText(merged, [previous]);
+    expect(job.descriptionByLocale).toEqual({ fr: FR_AD });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('keeps real translations of a source-read body', () => {
+    const previous = { url: HESSO_URL, sourceLang: 'fr', description: FR_AD, descriptionByLocale: { fr: FR_AD } };
+    const [job] = dropInventedHessoLocaleText([{ ...previous, descriptionByLocale: { fr: FR_AD, it: 'Annuncio tradotto.' } }], [previous]);
+    expect(job.descriptionByLocale.it).toBe('Annuncio tradotto.');
+    expect(job.needsRetranslation).toBeUndefined();
   });
 });

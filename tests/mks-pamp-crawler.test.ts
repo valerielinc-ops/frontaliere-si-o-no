@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildMksPampLocalizedContent,
   clearMksPampInventedSlots,
+  clearMksPampSourceCopies,
   isMksPampInventedDescription,
   resolveMksPampJobBody,
   teamtailorHtmlToMarkdown,
@@ -37,8 +38,8 @@ describe('MKS PAMP Teamtailor description (flat 5/5)', () => {
       descriptionHtml: '',
       detailDescription,
     });
-    expect(descriptionByLocale.it).toMatch(/^Precious Metal Control Manager — MKS PAMP SA, Castel San Pietro \(TI\)\.\n\n## MISSION/);
-    expect(descriptionByLocale.it).toMatch(/^- Independently assure the site metal balance/m);
+    expect(descriptionByLocale.en).toMatch(/^Precious Metal Control Manager — MKS PAMP SA, Castel San Pietro \(TI\)\.\n\n## MISSION/);
+    expect(descriptionByLocale.en).toMatch(/^- Independently assure the site metal balance/m);
   });
 });
 
@@ -69,5 +70,45 @@ describe('MKS PAMP source-only rule (no padded company paragraph)', () => {
     const merged = { descriptionByLocale: { it: STORED_SOURCE, en: LEGACY_PARAGRAPH } };
     expect(clearMksPampInventedSlots(merged)).toBe(1);
     expect(merged.descriptionByLocale).toEqual({ it: STORED_SOURCE });
+  });
+});
+
+// First 50+ words of the English JSON-LD description of
+// https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager (2026-09-29).
+const ENGLISH_DETAIL = [
+  '## MISSION',
+  '',
+  "The Precious Metal Control Manager's mission is to provide business assurance that all precious metal on site is accounted for, continuously, accurately, and to a full metal balance.",
+  '',
+  'The job holder will report directly to the Chief Risk and Compliance Officer and will act as a second line of control, independently challenging the design, integrity, and application of controls covering metal custody.',
+].join('\n');
+
+describe('MKS PAMP source-language slot only (review #10348)', () => {
+  it('puts an English posting of 50+ words in the en slot only', () => {
+    const result = buildMksPampLocalizedContent({
+      title: 'Precious Metal Control Manager',
+      city: 'Castel San Pietro',
+      descriptionHtml: '',
+      detailDescription: ENGLISH_DETAIL,
+    });
+    expect(result.sourceLang).toBe('en');
+    expect(Object.keys(result.descriptionByLocale)).toEqual(['en']);
+    expect(result.description).toBe(result.descriptionByLocale.en);
+  });
+
+  it('clears stale copies of the source from the other slots', () => {
+    const source = `Precious Metal Control Manager — MKS PAMP SA, Castel San Pietro (TI).\n\n${ENGLISH_DETAIL}`;
+    const flattened = source.replace(/\n+/g, ' ').replace(/## /g, '');
+    const merged = {
+      sourceLang: 'en',
+      description: source,
+      descriptionByLocale: {
+        en: source,
+        fr: flattened, // older run: source copied into every slot
+        it: 'Precious Metal Control Manager — MKS PAMP SA, Castel San Pietro (TI).\n\n## MISSIONE\n\nLa missione del Precious Metal Control Manager è garantire che tutto il metallo prezioso presente in sede sia contabilizzato in modo continuo e preciso, con un bilancio completo del metallo, riferendo direttamente al Chief Risk and Compliance Officer.',
+      },
+    };
+    expect(clearMksPampSourceCopies(merged)).toBe(1);
+    expect(Object.keys(merged.descriptionByLocale).sort()).toEqual(['en', 'it']);
   });
 });

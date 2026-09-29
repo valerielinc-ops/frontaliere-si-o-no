@@ -5,6 +5,7 @@
 import { JSDOM } from 'jsdom';
 import { extractStableJobId } from './job-match-key.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /**
  * Validate the Cler listing envelope and reconcile it with the source total.
@@ -187,24 +188,28 @@ export function isClerPlaceholderDescription(text = '') {
   return value.length < 300 && /^##[^\n]*\n+\s*Banca Cler\s*[—–-]/.test(value);
 }
 
-/** Source text of a stored record (source-locale slot, then description), or null. */
+/**
+ * Source text of a stored record (source-locale slot, then description) that
+ * clears the shared word floor, or null.
+ */
 export function storedClerSourceText(record) {
   if (!record) return null;
   const lang = String(record.sourceLang || '').trim();
   for (const candidate of [record.descriptionByLocale?.[lang], record.description]) {
     const text = String(candidate || '').trim();
-    if (text && !isClerPlaceholderDescription(text)) return { text, lang };
+    if (text && !isClerPlaceholderDescription(text) && meetsSourceBodyFloor(text)) return { text, lang };
   }
   return null;
 }
 
 /**
- * Source-only rule for a discovered job whose detail page gave no body:
- * the stored source text of the same requisition, or `null` (not published
- * this run). A job with a body is returned unchanged.
+ * Source-only rule for a discovered job whose detail page gave no body (or
+ * one under the shared word floor): the stored source text of the same
+ * requisition, or `null` (not published this run). A job with a body is
+ * returned unchanged.
  */
 export function resolveClerJobBody(job, prev) {
-  if (String(job?.description || '').trim()) return job;
+  if (meetsSourceBodyFloor(job?.description || '')) return job;
   const stored = storedClerSourceText(prev);
   if (!stored) return null;
   const lang = stored.lang || job.sourceLang;

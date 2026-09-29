@@ -1,5 +1,6 @@
 import { workloadPercent } from './dedicated-crawler-common.mjs';
 import { extractBalancedTagBlock, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const CATEGORY_BY_KEY = {
   production: 'engineering',
@@ -175,8 +176,6 @@ export function isMedactaTemplateDescription(text = '') {
 
 /** `source` of a job whose description is the vacancy body of the detail page. */
 export const MEDACTA_DETAIL_SOURCE = 'Allibo ATS detail page';
-/** Below this the detail block is a teaser, not a vacancy body. */
-export const MEDACTA_MIN_DETAIL_CHARS = 150;
 
 /**
  * True when the job carries the real vacancy body read from the detail page
@@ -185,7 +184,7 @@ export const MEDACTA_MIN_DETAIL_CHARS = 150;
 export function isMedactaDetailBacked(job = {}, clean = (text) => text) {
   if (job?.source !== MEDACTA_DETAIL_SOURCE) return false;
   const base = String(clean(String(job?.description || '')) || '').trim();
-  return base.length >= MEDACTA_MIN_DETAIL_CHARS && !isMedactaTemplateDescription(base);
+  return meetsSourceBodyFloor(base) && !isMedactaTemplateDescription(base);
 }
 
 /**
@@ -214,7 +213,7 @@ export function detailBackedMedactaLocales(job = {}, clean = (text) => text) {
  *              There is no fallback text: publishing one would be invented.
  */
 export function resolveMedactaDescriptionAction({ detailMarkdown = '', existing = null, clean = (text) => text } = {}) {
-  if (String(detailMarkdown || '').trim().length >= MEDACTA_MIN_DETAIL_CHARS) return 'detail';
+  if (meetsSourceBodyFloor(detailMarkdown)) return 'detail';
   if (existing && isMedactaDetailBacked(existing, clean)) return 'keep';
   return 'drop';
 }

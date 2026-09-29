@@ -102,6 +102,13 @@ describe('buildJob', () => {
     expect(job.description).not.toContain('Stellenantritt:');
   });
 
+  it('measures the floor in words: a 49-word body is thin however long its words are', () => {
+    const long49 = Array.from({ length: 49 }, () => 'Verantwortungsbewusstsein').join(' ');
+    expect(long49.length).toBeGreaterThan(1000);
+    expect(buildJob(raw, long49).description).toBe('');
+    expect(buildJob(raw, `${long49} Pontresina`).description).toContain('Pontresina');
+  });
+
   it('builds no description at all when the detail page is thin (no invented fallback)', () => {
     const job = buildJob(raw, 'Chef de Rang wanted.');
     expect(job.description).toBe('');

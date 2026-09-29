@@ -44,6 +44,7 @@ import {
   buildMksPampLocalizedContent,
   resolveMksPampJobBody,
   clearMksPampInventedSlots,
+  clearMksPampSourceCopies,
 } from './lib/mkspamp-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -182,15 +183,14 @@ function buildMksPampJob(rssItem, location) {
     category: inferCategory(rssItem.title),
     sector: 'Metalli preziosi',
     source: 'mkspamp-dedicated-crawler',
-    // The language of the posting, not of its title: English titles such as
-    // "Precious Metal Control Manager" were detected as `fr`, which pinned an
-    // English description to the French slot.
-    sourceLang: detectLang(localized.descriptionByLocale.it || rssItem.title, 'it'),
+    // The language of the posting body, not of its title: English titles such
+    // as "Precious Metal Control Manager" were detected as `fr`.
+    sourceLang: localized.sourceLang || detectLang(rssItem.title, 'it'),
     postedDate: parseDate(rssItem.pubDate),
     employmentType: 'full-time',
     contractType: 'permanent',
     validThrough: '',
-    description: localized.descriptionByLocale.it || '',
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -236,6 +236,9 @@ function mergeJobs(discoveredJobs) {
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     clearMksPampInventedSlots(merged);
+    // Older runs copied the source into all four slots: drop those copies so
+    // the translation step fills the other locales for real.
+    if (clearMksPampSourceCopies(merged) > 0) merged.needsRetranslation = true;
     mergedTarget.push(merged);
   }
   if (unpublished.length > 0) {

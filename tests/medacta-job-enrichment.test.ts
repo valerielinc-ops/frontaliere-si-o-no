@@ -9,6 +9,7 @@ import {
   resolveMedactaDescriptionAction,
   MEDACTA_DETAIL_SOURCE,
 } from '../scripts/lib/medacta-job-enrichment.mjs';
+import { sourceBodyWordCount } from '../scripts/lib/source-body-floor.mjs';
 
 // Openings of the category template the crawler published before 2026-09-29,
 // as stored for the Demand Planner (medacta-105851) in the committed slice:
@@ -140,5 +141,35 @@ describe('medacta-job-enrichment', () => {
       detailMarkdown: 'Lavora con noi! Medacta International SA sta cercando Demand Planner su Ticino',
       existing: null,
     })).toBe('drop');
+  });
+});
+
+// Word floor (source-body-floor.mjs): real body text of the Demand Planner
+// (job-offer.aspx?DM=1818&ID=105851, 2026-09-29) cut at 49 and 50 words. Both
+// cuts are far above the old 150-character gate.
+const DEMAND_PLANNER_BODY_TEXT = 'The Demand Planner is responsible for managing large datasets, analyzing demand trends, and ensuring accurate forecast to support business objectives. The role requires strong communication skills to collaborate effectively with internal departments and external customers, as well as a commitment to continuous improvement of demand planning processes. The candidate will be responsible for managing the following activities: Budget & Forecast Support: Assist in the preparation of budget and forecast sessions by providing accurate demand insights and data-driven recommendations;';
+const firstWords = (text: string, n: number) => text.split(' ').slice(0, n).join(' ');
+
+describe('Medacta source body word floor', () => {
+  const body49 = firstWords(DEMAND_PLANNER_BODY_TEXT, 49);
+  const body50 = firstWords(DEMAND_PLANNER_BODY_TEXT, 50);
+
+  it('pins the fixture at 49 and 50 words, both over the old character gate', () => {
+    expect(sourceBodyWordCount(body49)).toBe(49);
+    expect(sourceBodyWordCount(body50)).toBe(50);
+    expect(body49.length).toBeGreaterThan(150);
+  });
+
+  it('publishes a 50-word detail body and drops a 49-word one', () => {
+    expect(resolveMedactaDescriptionAction({ detailMarkdown: body49, existing: null })).toBe('drop');
+    expect(resolveMedactaDescriptionAction({ detailMarkdown: body50, existing: null })).toBe('detail');
+  });
+
+  it('keeps a stored body only at 50 words or more', () => {
+    const stored = (description: string) => ({ source: MEDACTA_DETAIL_SOURCE, sourceLang: 'en', description });
+    expect(isMedactaDetailBacked(stored(body49))).toBe(false);
+    expect(isMedactaDetailBacked(stored(body50))).toBe(true);
+    expect(resolveMedactaDescriptionAction({ detailMarkdown: '', existing: stored(body49) })).toBe('drop');
+    expect(resolveMedactaDescriptionAction({ detailMarkdown: '', existing: stored(body50) })).toBe('keep');
   });
 });

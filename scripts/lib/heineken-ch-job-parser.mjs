@@ -43,6 +43,7 @@ import {
 } from './ats-clients/playwright-runtime.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { detectLanguage } from './detect-language.mjs';
+import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -302,9 +303,6 @@ export function parseDetailPage(html) {
 
 /* ── Vacancy body ──────────────────────────────────────────── */
 
-// Below this many words a detail body is not a vacancy description.
-const MIN_BODY_WORDS = 50;
-
 /**
  * The vacancy body read from the detail page, or '' when it has none.
  *
@@ -316,7 +314,7 @@ const MIN_BODY_WORDS = 50;
  */
 export function heinekenVacancyBody(detail = {}) {
   const body = String(detail?.description || '').trim();
-  return body.split(/\s+/).filter(Boolean).length >= MIN_BODY_WORDS ? body : '';
+  return meetsSourceBodyFloor(body) ? body : '';
 }
 
 /* ── Locale fields ─────────────────────────────────────────── */
@@ -366,7 +364,7 @@ export function buildHeinekenChJob({ row, detail, detailUrl }) {
 
   const description = heinekenVacancyBody(detail);
   if (!description) {
-    console.warn(`   ⚠️ Not publishing ${detailUrl} this run — detail page has no vacancy body (< ${MIN_BODY_WORDS} words)`);
+    console.warn(`   ⚠️ Not publishing ${detailUrl} this run — detail page has no vacancy body (< ${MIN_SOURCE_BODY_WORDS} words)`);
     return null;
   }
 

@@ -33,7 +33,10 @@ import {
   parseDeclaredJobTotal,
   reconcileGraceListings,
   classifyGraceProbe,
+  resolveGraceJobBody,
+  clearGraceInventedSlots,
 } from './lib/grace-job-parser.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -136,25 +139,6 @@ function inferCategory(title = '', description = '') {
 
 function inferSector() {
   return 'Turismo & Ospitalità';
-}
-
-/**
- * Ensure descriptions meet the quality-gate minimum (150 chars).
- * When detail-page scraping fails (Cloudflare, changed structure),
- * enrich the short description with structured metadata so the
- * translation pipeline has enough substance to produce quality output.
- */
-const MIN_DESCRIPTION_CHARS = 150;
-function enrichDescription(title, description, { category, empType, location } = {}) {
-  if (description && description.length >= MIN_DESCRIPTION_CHARS) return description;
-  const parts = [(description || title).trim()];
-  parts.push(`\nOpen position at ${COMPANY_NAME} in ${location || 'St. Moritz'}, Graubünden, Switzerland.`);
-  parts.push(`Industry: Tourism & Hospitality.`);
-  if (category) parts.push(`Department: ${category}.`);
-  if (empType) parts.push(`Employment type: ${empType.replace(/_/g, ' ')}.`);
-  parts.push(`${COMPANY_NAME} is a luxury hotel in the heart of St. Moritz, part of the Grace Hotels collection.`);
-  parts.push(`Apply on hotelcareer.com for this opportunity.`);
-  return parts.join(' ').trim();
 }
 
 function inferEmploymentType(text = '') {
@@ -551,6 +535,8 @@ function buildJobFromListing(listing) {
   const category = inferCategory(listing.title, '');
   const empType = inferEmploymentType(listing.empType || listing.title);
   const srcLang = 'en';
+  // Detail page not read: no description of our own. mergeJobs keeps the
+  // stored source text of this job, or does not publish it this run.
   return {
     title: listing.title,
     slug,
@@ -571,11 +557,11 @@ function buildJobFromListing(listing) {
     employmentType: empType,
     contractType: empType === 'internship' ? 'stage' : 'permanent',
     sourceLang: srcLang,
-    description: enrichDescription(listing.title, '', { category, empType, location: 'St. Moritz' }),
+    description: '',
     postedDate: todayIso(),
     validThrough: '',
     titleByLocale: { [srcLang]: listing.title },
-    descriptionByLocale: { [srcLang]: enrichDescription(listing.title, '', { category, empType, location: 'St. Moritz' }) },
+    descriptionByLocale: {},
     slugByLocale: { [srcLang]: slug },
     source: 'dedicated-crawler',
     crawledAt: new Date().toISOString(),
@@ -587,13 +573,14 @@ function buildJobFromDetail(listing, detail) {
   const slug = normalizeKey(title);
   const category = inferCategory(title, detail.description);
   const empType = inferEmploymentType(detail.empType || listing.empType || title);
-  const rawDescription = detail.description || title;
+  // Source text only, and only above the shared word floor.
+  const rawDescription = meetsSourceBodyFloor(detail.description || '') ? detail.description : '';
   // hotelcareer's `.location` textContent truncates "St. Moritz" → "St"
   // (period-split node). This is a single-site employer, so HQ.city is the
   // authoritative locality — never trust the scraped token for addressLocality.
   const location = HQ.city || 'St. Moritz';
-  const description = enrichDescription(title, rawDescription, { category, empType, location });
-  const srcLang = detectLang(description) || 'en';
+  const description = rawDescription;
+  const srcLang = detectLang(description || title) || 'en';
 
   return {
     title,
@@ -619,7 +606,7 @@ function buildJobFromDetail(listing, detail) {
     postedDate: detail.postedDate || todayIso(),
     validThrough: '',
     titleByLocale: { [srcLang]: title },
-    descriptionByLocale: { [srcLang]: description.substring(0, 5000) },
+    descriptionByLocale: description ? { [srcLang]: description.substring(0, 5000) } : {},
     slugByLocale: { [srcLang]: slug },
     source: 'dedicated-crawler',
     crawledAt: new Date().toISOString(),
@@ -639,11 +626,22 @@ function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  const unpublished = [];
+  const mergedTarget = [];
+  for (const candidate of discoveredJobs) {
+    const prev = existingByKey.get(jobMatchKey(candidate));
+    // Source text only: under the word floor this run, the stored source
+    // text of the job, or the job is not published this run.
+    const job = resolveGraceJobBody(candidate, prev);
+    if (!job) {
+      unpublished.push(candidate.url);
+      continue;
+    }
     if (!prev) {
       added += 1;
-      return job;
+      clearGraceInventedSlots(job);
+      mergedTarget.push(job);
+      continue;
     }
     updated += 1;
     const merged = {
@@ -654,8 +652,12 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
-    return merged;
-  });
+    clearGraceInventedSlots(merged);
+    mergedTarget.push(merged);
+  }
+  if (unpublished.length > 0) {
+    console.warn(`⚠️ ${unpublished.length} ${COMPANY_NAME} job(s) not published this run: no source text above the word floor and none stored (${unpublished.join(', ')})`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
@@ -716,7 +718,9 @@ async function main() {
   console.log('\n═══════════════════════════════════════');
   console.log('Phase 4: Translate');
   console.log('═══════════════════════════════════════');
-  // Backfill missing locale descriptions for target jobs to avoid strict validation failures
+  // Backfill missing locale titles and slugs. Descriptions are NOT filled
+  // here: the other locales come from translateMissingJobLocales below, never
+  // from padding or from a copy of the source text.
   try {
     const all = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
     let patched = 0;
@@ -725,18 +729,15 @@ async function main() {
       job.titleByLocale = job.titleByLocale || {};
       job.descriptionByLocale = job.descriptionByLocale || {};
       job.slugByLocale = job.slugByLocale || {};
-      const baseDesc = String(job.description || '').trim();
       const baseTitle = String(job.title || '').trim();
       for (const loc of LOCALES) {
-        if (!String(job.descriptionByLocale[loc] || '').trim()) {
-          job.descriptionByLocale[loc] = enrichDescription(baseTitle, baseDesc, { category: job.category, empType: job.employmentType, location: job.location });
-          patched += 1;
-        }
         if (!String(job.titleByLocale[loc] || '').trim()) {
           job.titleByLocale[loc] = baseTitle;
+          patched += 1;
         }
         if (!String(job.slugByLocale[loc] || '').trim()) {
           job.slugByLocale[loc] = job.slug || normalizeKey(baseTitle);
+          patched += 1;
         }
       }
     }
@@ -745,7 +746,7 @@ async function main() {
       if (fs.existsSync(path.dirname(PUBLIC_JOBS))) {
         writeJson(PUBLIC_JOBS, all);
       }
-      console.log(`🛠️ Backfilled ${patched} missing locale descriptions for ${COMPANY_NAME} jobs`);
+      console.log(`🛠️ Backfilled ${patched} missing locale titles/slugs for ${COMPANY_NAME} jobs`);
     }
   } catch (e) {
     console.warn('⚠️ Failed to backfill missing locales:', e.message);
