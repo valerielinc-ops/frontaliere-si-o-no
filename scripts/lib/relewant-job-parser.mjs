@@ -327,13 +327,14 @@ export async function enrichRelewantJob(parsed, timeoutMs = 15000) {
 }
 
 /**
- * Build localized content for a ReleWant job: the Zoho Recruit description
- * with the posting's own fields (experience, industry, location, job type),
- * in the slot of its language (`job.sourceLang`, set by the runner); the
- * translation step fills the other locales.
+ * Build localized content for a ReleWant job: the Zoho Recruit description as
+ * the source wrote it, in the slot of its language (`job.sourceLang`, set by
+ * the runner); the translation step fills the other locales.
  *
- * This used to copy that Italian text into the en/de/fr slots too, and — for a
- * posting whose detail yielded under 100 characters — to publish a paragraph
+ * This used to copy that Italian text into the en/de/fr slots too, to wrap it
+ * in lines of its own — a "## <title> / **ReleWant** — <city>, Svizzera"
+ * header and "**Esperienza richiesta/Settore/Sede/Tipo:**" footers — and, for
+ * a posting whose detail yielded under 100 characters, to publish a paragraph
  * of its own in four languages ("ReleWant, an IT consulting firm based in …,
  * is looking for a … Apply through the official portal."). A posting without
  * text now gets no description and takes the pipeline's thin-source path.
@@ -341,19 +342,7 @@ export async function enrichRelewantJob(parsed, timeoutMs = 15000) {
 export function buildRelewantLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || '').trim() || 'Switzerland';
-  const markdown = String(job.description || '').trim();
-
-  let description = '';
-  if (markdown) {
-    const introLine = `## ${title}\n\n**ReleWant** — ${city}, Svizzera`;
-    const footerLines = [];
-    if (job.workExperience) footerLines.push(`**Esperienza richiesta:** ${job.workExperience}`);
-    if (job.industry) footerLines.push(`**Settore:** ${job.industry}`);
-    footerLines.push(`**Sede:** ${city}, Svizzera`);
-    if (job.jobType) footerLines.push(`**Tipo:** ${job.jobType}`);
-
-    description = [introLine, '', markdown, '', '---', ...footerLines].join('\n');
-  }
+  const description = String(job.description || '').trim();
   const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
@@ -367,6 +356,36 @@ export function buildRelewantLocalizedContent(job = {}) {
       fr: slugify(`${title} relewant ${city}`),
     },
   };
+}
+
+// The header the builder used to put above the Zoho text in stored jobs
+// ("## <title>\n\n**ReleWant** — <city>, Svizzera"), also in the flattened
+// form some slots were saved in ("<title> ReleWant — <city>, Ticino, Svizzera").
+const RELEWANT_WRAPPER_RE = /^\s*(?:##\s+)?[^\n]{1,200}?\s+(?:\*\*)?ReleWant(?:\*\*)? — [^\n]{1,80}?Svizzera\b/;
+
+/**
+ * Stored jobs still carry the former header and footers in their source text
+ * (`description` or the source slot), and the other slots were translated
+ * from that wrapped text. Drop those translations — the fresh crawl replaces
+ * the source slot with the bare Zoho text — and flag the job for
+ * retranslation.
+ *
+ * @returns {boolean} true when translations of the wrapped text were dropped.
+ */
+export function dropRelewantFabricatedText(job) {
+  const byLocale = job?.descriptionByLocale;
+  if (!byLocale || typeof byLocale !== 'object') return false;
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
+  const wrapped = [job.description, byLocale[sourceLang]].some((text) => RELEWANT_WRAPPER_RE.test(String(text || '')));
+  if (!wrapped) return false;
+  let dropped = false;
+  for (const locale of Object.keys(byLocale)) {
+    if (locale === sourceLang) continue;
+    delete byLocale[locale];
+    dropped = true;
+  }
+  if (dropped) job.needsRetranslation = true;
+  return dropped;
 }
 
 /**

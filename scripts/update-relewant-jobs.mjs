@@ -42,6 +42,7 @@ import {
   parseRelewantJob,
   enrichRelewantJob,
   buildRelewantLocalizedContent,
+  dropRelewantFabricatedText,
   isRelewantSwissRelevant,
 } from './lib/relewant-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
@@ -165,6 +166,8 @@ async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropRelewantFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the translations of the former header/footer wrapper from ${fossils} stored ReleWant job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
