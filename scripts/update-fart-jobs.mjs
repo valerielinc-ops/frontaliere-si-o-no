@@ -51,7 +51,9 @@ import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import {
   parseFartListingPage,
   buildFartDescription,
+  FART_FABRICATED_DESCRIPTION_RE,
 } from './lib/fart-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -272,6 +274,8 @@ async function fetchFartJobs() {
       console.warn(`  ⚠️ ${w}`);
     }
     const slug = slugify(listing.title, COMPANY_KEY);
+    // The bando's text is keyed by its own language.
+    const sourceLang = detectLang(description || listing.title, 'it');
 
     const job = {
       title: listing.title,
@@ -288,11 +292,11 @@ async function fetchFartJobs() {
       employmentType: detectEmploymentType(listing.title),
       experienceLevel: detectExperienceLevel(listing.title),
       source: 'fart-crawler',
-      sourceLang: detectLang(description || listing.title, 'it'),
+      sourceLang,
       postedDate: new Date().toISOString().slice(0, 10),
-      titleByLocale: { it: listing.title },
-      descriptionByLocale: { it: description },
-      slugByLocale: { it: slug },
+      titleByLocale: { [sourceLang]: listing.title },
+      descriptionByLocale: { [sourceLang]: description },
+      slugByLocale: { [sourceLang]: slug },
       _targetScope: { canton: HQ.canton, location: 'Locarno' },
     };
 
@@ -324,7 +328,13 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
-  const existingTargetJobs = allJobs.filter(isTargetJob);
+  // The merge keeps stored locale slots and only replaces the description
+  // with a LONGER one: remove the former wrapper from stored jobs first.
+  const existingTargetJobs = dropFabricatedDescriptions(
+    allJobs.filter(isTargetJob),
+    FART_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
 
   const existingByKey = new Map();
   for (const job of existingTargetJobs) {
