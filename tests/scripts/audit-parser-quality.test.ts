@@ -55,6 +55,7 @@ import {
   vacancyPdfLink,
   sharedSourceDocuments,
   fragmentAnchoredBlock,
+  fragmentKind,
   fetchVacancyPdfText,
   createPdfSafeFetch,
 } from '../../scripts/audit-parser-quality.mjs';
@@ -2553,15 +2554,33 @@ describe('source detail on a document several postings share (ehnv, klinik-gut)'
       jobLocation: { address: { addressLocality: 'Yverdon-les-Bains', addressCountry: 'CH' } },
     })}</script></head><body><div id="app"></div></body></html>`;
     const [result] = await check(role('Médecin').repeat(3), 'https://www.ehnv.ch/emplois#offer/4094/une-medecin', page);
-    expect(result).toMatchObject({ sourceScope: 'shared-document', descriptionMismatch: false, locationMismatch: false });
-    const report: Record<string, { total: number; issues: Issue[]; severity?: string }> = { 'shared-fixture': { total: 16, issues: [] } };
+    expect(fragmentKind('https://www.ehnv.ch/emplois#offer/4094/une-medecin')).toBe('client-route');
+    expect(result).toMatchObject({ sourceScope: 'client-route', descriptionMismatch: false, locationMismatch: false });
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string; sourceDetailUnattributable?: number }> = { 'shared-fixture': { total: 16, issues: [] } };
     const summary = applySourceDetailResults(report, [result], 1);
     assignSeverity(report['shared-fixture']);
     expect(report['shared-fixture'].issues).toEqual([]);
     expect(report['shared-fixture'].severity).toBe('OK');
-    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, notAttributable: 1 });
+    expect(report['shared-fixture'].sourceDetailUnattributable).toBe(1);
+    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, clientRoute: 1, anchorMissing: 0 });
     expect(summary.unobserved).toBe(0);
-    expect(formatSourceDetailObservationLines(summary)).toContain('Source detail samples on a page several postings share: 0 read from the element their URL fragment names, 1 not attributable to the posting (no per-vacancy page — not compared)');
+    expect(formatSourceDetailObservationLines(summary)).toContain('Source detail samples on a page several postings share: 0 read from the element their URL fragment names, 1 on an app route with no static page per posting (informational), 0 behind an anchor the page does not have (source-detail-anchor-missing)');
+  });
+
+  it('keeps an anchor the shared page does not have visible as a WARNING', async () => {
+    // oscam-castelrotto / klinik-seeschau shape: every ad is on one static
+    // page, the published anchors name no element of it.
+    const page = `<html><body><main><h2>Concorso generale 2026</h2><p>${role('Medici assistenti').repeat(3)}</p><h2>Concorso infermieri</h2><p>${role('Infermieri').repeat(3)}</p></main></body></html>`;
+    const url = 'https://www.oscam.example/lavoraconnoi/#concorso-generale-2026';
+    expect(fragmentKind(url)).toBe('anchor');
+    const [result] = await check(role('Medici assistenti').repeat(3), url, page);
+    expect(result).toMatchObject({ sourceScope: 'anchor-missing', descriptionMismatch: false, locationMismatch: false });
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string }> = { 'shared-fixture': { total: 2, issues: [] } };
+    const summary = applySourceDetailResults(report, [result], 1);
+    assignSeverity(report['shared-fixture']);
+    expect(report['shared-fixture'].issues).toMatchObject([{ type: 'source-detail-anchor-missing', count: 1, total: 1 }]);
+    expect(report['shared-fixture'].severity).toBe('WARNING');
+    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, clientRoute: 0, anchorMissing: 1 });
   });
 
   it('leaves a sample without the shared-document mark exactly as before', async () => {

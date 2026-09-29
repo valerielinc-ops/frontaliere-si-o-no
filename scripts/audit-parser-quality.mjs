@@ -1339,6 +1339,19 @@ export function sharedSourceDocuments(jobs = []) {
 }
 
 /**
+ * What a fragment on a shared document is. A route of a single-page app
+ * (`offer/4094/…`, `fr/sites/CX_1/job/5725`, `position,id=…`, `job.id=…`)
+ * carries separators an element id is never written with; the page has no
+ * static place for the posting at all. Anything else is an anchor: it names,
+ * or claims to name, an element of the page.
+ */
+export function fragmentKind(url = '') {
+  const fragment = urlFragment(url);
+  if (!fragment) return 'none';
+  return /^[A-Za-z][\w:.-]*$/.test(fragment) ? 'anchor' : 'client-route';
+}
+
+/**
  * The element a URL fragment names (`id="…"`) inside the fetched page, as the
  * inner HTML of that element, or ''. klinik-gut (`#drz-accordion-id-4367`)
  * and klinik-schuetzen (`#job-PLUT7122`) list every ad on one page but give
@@ -1435,14 +1448,18 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
           detail.location = anchoredLocation.location || '';
           locationEvidence = anchoredLocation.evidence;
         } else {
-          sourceScope = 'shared-document';
+          // Nothing on the page is this posting's: an app route has no
+          // static place for it (informational), an anchor that is not on
+          // the page is a defect of the published URL (visible issue).
+          sourceScope = fragmentKind(item.job?.url || item.url) === 'anchor' ? 'anchor-missing' : 'client-route';
           detail.description = '';
           detail.location = '';
           detail.headingSublineFields = [];
           locationEvidence = 'generic';
         }
       }
-      const { linkedDocument, vacancyPdf } = sourceScope === 'shared-document'
+      const unattributable = sourceScope === 'client-route' || sourceScope === 'anchor-missing';
+      const { linkedDocument, vacancyPdf } = unattributable
         ? { linkedDocument: null, vacancyPdf: null }
         : await vacancyPdfDescription(
           fetched.body,
@@ -1717,8 +1734,9 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     // than what the page already carried.
     vacancyPdfPages: { read: 0, unreadable: 0, shorterThanPage: 0 },
     // Samples on a document several postings share (see sharedSourceDocuments):
-    // read from the element their fragment names, or not attributable.
-    sharedDocumentSamples: { fragmentAnchored: 0, notAttributable: 0 },
+    // read from the element their fragment names, on an app route with no
+    // static page for the posting, or behind an anchor the page does not have.
+    sharedDocumentSamples: { fragmentAnchored: 0, clientRoute: 0, anchorMissing: 0 },
   };
   const byKey = {};
   for (const result of sourceResults) {
@@ -1730,6 +1748,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       circularCorroborationObservations: 0,
       unobservedDetails: [], details: [], failureFamilies: {},
       bucketVerification: null,
+      unattributable: 0, anchorMissing: 0, anchorMissingDetails: [],
     };
     const info = byKey[key];
     const sourceReference = sourceDetailReportReference(result.url);
@@ -1767,10 +1786,17 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     }
     sourceDetailSummary.fetched++;
     if (result.sourceScope === 'fragment-anchor') sourceDetailSummary.sharedDocumentSamples.fragmentAnchored++;
-    if (result.sourceScope === 'shared-document') {
-      // Not «unobserved»: the page may well carry a JobPosting, just not this
-      // posting's. Counted here and printed; no issue, no verdict.
-      sourceDetailSummary.sharedDocumentSamples.notAttributable++;
+    // Neither is «unobserved»: the page may well carry a JobPosting, just not
+    // this posting's. No verdict on description or location either way.
+    if (result.sourceScope === 'client-route') {
+      sourceDetailSummary.sharedDocumentSamples.clientRoute++;
+      info.unattributable++;
+      continue;
+    }
+    if (result.sourceScope === 'anchor-missing') {
+      sourceDetailSummary.sharedDocumentSamples.anchorMissing++;
+      info.anchorMissing++;
+      info.anchorMissingDetails.push(`${sourceReference}#${urlFragment(result.job?.url || result.url)}: the page this URL shares with other postings has no element with that id`);
       continue;
     }
     addLocationEvidenceCounts(
@@ -1846,6 +1872,18 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (info.bucketVerification) {
       const bucketIssue = entry.issues.find((issue) => issue.type === 'duplicate-descriptions-desc-only');
       if (bucketIssue) bucketIssue.sourceVerification = info.bucketVerification;
+    }
+    // Informational, never an issue: the source is an app with no static
+    // page per posting, so these samples could not be checked at all.
+    if (info.unattributable > 0) entry.sourceDetailUnattributable = info.unattributable;
+    if (info.anchorMissing > 0) {
+      entry.issues.push({
+        type: 'source-detail-anchor-missing',
+        count: info.anchorMissing,
+        total: info.checked,
+        details: info.anchorMissingDetails,
+        message: `${info.anchorMissing}/${info.checked} published URLs point into a page several postings share with an anchor that is not on it — the posting cannot be checked against its source; publish a per-vacancy URL or an anchor that exists`,
+      });
     }
     if (info.processingFailed > 0) {
       entry.issues.push({
@@ -1965,8 +2003,8 @@ export function formatSourceDetailObservationLines(summary = {}) {
   // stopped producing WARNINGs, so what the source said about each bucket is
   // printed here on every run instead of disappearing with the WARNING.
   const shared = summary.sharedDocumentSamples;
-  if (shared && count(shared.fragmentAnchored) + count(shared.notAttributable) > 0) {
-    lines.push(`Source detail samples on a page several postings share: ${count(shared.fragmentAnchored)} read from the element their URL fragment names, ${count(shared.notAttributable)} not attributable to the posting (no per-vacancy page — not compared)`);
+  if (shared && count(shared.fragmentAnchored) + count(shared.clientRoute) + count(shared.anchorMissing) > 0) {
+    lines.push(`Source detail samples on a page several postings share: ${count(shared.fragmentAnchored)} read from the element their URL fragment names, ${count(shared.clientRoute)} on an app route with no static page per posting (informational), ${count(shared.anchorMissing)} behind an anchor the page does not have (source-detail-anchor-missing)`);
   }
   const pdfPages = summary.vacancyPdfPages;
   if (pdfPages && count(pdfPages.read) + count(pdfPages.unreadable) + count(pdfPages.shorterThanPage) > 0) {
