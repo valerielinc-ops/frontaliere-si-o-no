@@ -57,6 +57,7 @@
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
+import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -492,8 +493,15 @@ export async function fetchAllStadtZuerichJobs() {
   if (withoutText > 0) {
     console.log(`  ⏭️ ${withoutText} tile(s) whose Referenz-Nr. has no official ad page — not published.`);
   }
-  console.log(`\n📋 Total Stadt Zürich jobs discovered: ${jobs.length} (all with the official ad text)`);
-  return jobs;
+  // The same ad re-posted under a second Referenz-Nr. (same title, service
+  // and official text: Gastro-Allrounder*in 51367/51788, Heizwerkführer*in
+  // 50406/51591 on 2026-09-29) is one vacancy: one page.
+  const { jobs: unique, dropped } = dropIdenticalPostings(jobs);
+  if (dropped.length > 0) {
+    console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, service and official text under another Referenz-Nr.).`);
+  }
+  console.log(`\n📋 Total Stadt Zürich jobs discovered: ${unique.length} (all with the official ad text)`);
+  return unique;
 }
 
 export { slugify, stripHtml };
