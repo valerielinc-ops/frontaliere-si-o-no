@@ -53,7 +53,10 @@ import {
   DUPLICATE_BUCKET_SAMPLE_REASON,
   countDuplicateListings,
   vacancyPdfLink,
+  fetchVacancyPdfText,
+  createPdfSafeFetch,
 } from '../../scripts/audit-parser-quality.mjs';
+import { createHash } from 'node:crypto';
 import { extractJsonLd } from '../../scripts/lib/prospector/extract.mjs';
 import {
   SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
@@ -1459,6 +1462,7 @@ describe('source-detail fidelity checks', () => {
 
     expect(SOURCE_DETAIL_EXTRACTOR_VERSION_FILES).toEqual([
       'scripts/lib/prospector/extract.mjs',
+      'scripts/lib/pdf-job-content.mjs',
       'scripts/lib/prospector/registrable.mjs',
       'scripts/lib/prospector/entities.mjs',
       'scripts/lib/decode-html-entities.mjs',
@@ -2567,6 +2571,66 @@ describe('source detail that presents the vacancy as a PDF (gemeinde-st-moritz, 
     expect(embedded.descriptionMismatch).toBe(false);
     const summary = applySourceDetailResults({ 'pdf-fixture': { total: 1, issues: [] } }, [linked, embedded], 2);
     expect(summary.vacancyPdfPages).toEqual({ read: 0, unreadable: 2, shorterThanPage: 0 });
+  });
+
+  // A one-page PDF with a real text layer, built here so the test needs no
+  // binary fixture: pdf.js (via unpdf) reads it like any other PDF.
+  const minimalPdf = (text: string) => {
+    const stream = `BT /F1 12 Tf 40 700 Td (${text.replace(/[()\\]/g, (c) => `\\${c}`)}) Tj ET`;
+    const objects = [
+      '<< /Type /Catalog /Pages 2 0 R >>',
+      '<< /Type /Pages /Kids [3 0 R] /Count 1 >>',
+      '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>',
+      '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>',
+      `<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`,
+    ];
+    let out = '%PDF-1.4\n';
+    const offsets: number[] = [];
+    objects.forEach((body, i) => { offsets.push(out.length); out += `${i + 1} 0 obj\n${body}\nendobj\n`; });
+    const xref = out.length;
+    out += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n${offsets.map((o) => `${String(o).padStart(10, '0')} 00000 n \n`).join('')}`;
+    out += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
+    return Buffer.from(out, 'latin1');
+  };
+  // Follows redirects through the injected `fetchImpl`, like politeFetch.
+  const politeLike = async (url: string, opts: { fetchImpl: (u: string, i: object) => Promise<Response> }) => {
+    let current = url;
+    for (let hop = 0; hop < 4; hop++) {
+      const res = await opts.fetchImpl(current, {});
+      if (res.status >= 300 && res.status < 400) {
+        current = new URL(res.headers.get('location') || '', current).href;
+        continue;
+      }
+      return { ok: res.ok, status: res.status, url: current, body: await res.text() };
+    }
+    return { ok: false, status: 0, url: current, body: '' };
+  };
+
+  it('keeps the PDF bytes when a .pdf link redirects to an extension-less octet-stream download', async () => {
+    const bytes = minimalPdf('Stelleninserat Gemeindeschreiber 100 Prozent Leitung der Gemeindekanzlei und Protokollfuehrung');
+    const baseFetch = async (url: string) => (url.endsWith('.pdf')
+      ? new Response(null, { status: 302, headers: { location: '/download?id=42' } })
+      : new Response(bytes, { status: 200, headers: { 'content-type': 'application/octet-stream' } }));
+    const pdf = await fetchVacancyPdfText('https://www.gemeinde.example/stellenausschreibungen/Gemeindeschreiber_2026.pdf', {
+      fetchPage: politeLike as never,
+      baseFetch: baseFetch as never,
+    });
+
+    expect(pdf.text).toContain('Stelleninserat Gemeindeschreiber');
+    expect(pdf.bodySha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(pdf.bodySha256).toBe(createHash('sha256').update(bytes).digest('hex'));
+  });
+
+  it('decides on the %PDF- signature: an HTML error page is not a PDF, robots.txt stays text', async () => {
+    const htmlError = async () => new Response('<html><body>404 – Dokument nicht gefunden</body></html>', { status: 200, headers: { 'content-type': 'application/pdf' } });
+    expect(await fetchVacancyPdfText('https://www.gemeinde.example/a.pdf', { fetchPage: politeLike as never, baseFetch: htmlError as never }))
+      .toEqual({ text: '', error: 'not a pdf' });
+    const robots = await createPdfSafeFetch(async () => new Response('User-agent: *\nDisallow: /images/\n', { status: 200 }))('https://www.csvm.example/robots.txt', {});
+    expect(await robots.text()).toBe('User-agent: *\nDisallow: /images/\n');
+  });
+
+  it('versions the PDF reader with the extractor, so a changed PDF reading invalidates old evidence', () => {
+    expect(SOURCE_DETAIL_EXTRACTOR_VERSION_FILES).toContain('scripts/lib/pdf-job-content.mjs');
   });
 
   it('binds the PDF it read into the replayable evidence', async () => {

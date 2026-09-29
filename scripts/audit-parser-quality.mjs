@@ -62,6 +62,8 @@ const BASELINE_PATH = path.join(ROOT, 'data', 'parser-quality-no-structure-basel
 
 export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/prospector/extract.mjs',
+  // Reads the vacancy PDF a detail page links or embeds (fetchVacancyPdfText).
+  'scripts/lib/pdf-job-content.mjs',
   'scripts/lib/prospector/registrable.mjs',
   'scripts/lib/prospector/entities.mjs',
   'scripts/lib/decode-html-entities.mjs',
@@ -1181,49 +1183,66 @@ export function vacancyPdfLink(html = '', pageUrl = '') {
   return null;
 }
 
+const PDF_SIGNATURE = '%PDF-';
+const PDF_BASE64_PREFIX = Buffer.from(PDF_SIGNATURE, 'latin1').toString('base64').slice(0, 6);
+
 /**
  * `politeFetch` reads every body as text, which mangles PDF bytes. This
  * transport keeps its URL policy, robots, throttle and redirects (it is the
- * `fetchImpl` politeFetch calls for each hop) and hands back a PDF as base64
- * text; any other response — robots.txt included — passes through untouched.
+ * `fetchImpl` politeFetch calls for each hop) and decides on the BYTES, not
+ * on the headers or the URL: a body that starts with `%PDF-` comes back as
+ * base64, anything else — robots.txt, an HTML error page — as UTF-8 text.
+ * Neither the final Content-Type nor the final path is evidence: a `.pdf`
+ * link that redirects to `/download?id=…` served as
+ * `application/octet-stream` is still the PDF.
  */
-async function pdfSafeFetch(url, init) {
-  const response = await undiciFetch(url, init);
-  const contentType = response.headers?.get?.('content-type') || '';
-  let pathname = '';
-  try { pathname = new URL(response.url || url).pathname; } catch { pathname = ''; }
-  if (!/application\/pdf/i.test(contentType) && !isPdfReference(pathname)) return response;
-  return {
-    ok: response.ok,
-    status: response.status,
-    url: response.url,
-    headers: response.headers,
-    body: response.body,
-    text: async () => Buffer.from(await response.arrayBuffer()).toString('base64'),
+export function createPdfSafeFetch(baseFetch = undiciFetch) {
+  return async function pdfSafeFetch(url, init) {
+    const response = await baseFetch(url, init);
+    if (response.status >= 300 && response.status < 400) return response;
+    const bytes = Buffer.from(await response.arrayBuffer());
+    const isPdf = bytes.subarray(0, PDF_SIGNATURE.length).toString('latin1') === PDF_SIGNATURE;
+    return {
+      ok: response.ok,
+      status: response.status,
+      url: response.url || url,
+      headers: response.headers,
+      body: null,
+      text: async () => (isPdf ? bytes.toString('base64') : bytes.toString('utf8')),
+    };
   };
 }
 
-/** Text of the vacancy PDF, fetched through the same politeFetch contract as the page. */
-export async function fetchVacancyPdfText(pdfUrl, { fetchPage = politeFetch } = {}) {
+/**
+ * Text of the vacancy PDF, fetched through the same politeFetch contract as
+ * the page. `baseFetch` and `extractTextImpl` exist for tests.
+ */
+export async function fetchVacancyPdfText(pdfUrl, {
+  fetchPage = politeFetch,
+  baseFetch = undiciFetch,
+  extractTextImpl,
+} = {}) {
   const fetched = await fetchPage(pdfUrl, {
     timeoutMs: 20000,
     retries: 1,
     accept: 'application/pdf,*/*;q=0.8',
-    fetchImpl: pdfSafeFetch,
+    fetchImpl: createPdfSafeFetch(baseFetch),
   });
   if (!fetched?.ok || !fetched.body) {
     const refusal = fetched?.blockedByRobots ? 'robots.txt disallows it' : fetched?.policyBlocked ? 'fetch policy refused it' : `status ${fetched?.status || 0}`;
     return { text: '', error: refusal };
   }
+  if (!String(fetched.body).startsWith(PDF_BASE64_PREFIX)) return { text: '', error: 'not a pdf' };
   const bytes = Buffer.from(fetched.body, 'base64');
   if (bytes.length > MAX_VACANCY_PDF_BYTES) return { text: '', error: 'pdf too large' };
-  if (bytes.subarray(0, 5).toString('latin1') !== '%PDF-') return { text: '', error: 'not a pdf' };
+  if (bytes.subarray(0, PDF_SIGNATURE.length).toString('latin1') !== PDF_SIGNATURE) return { text: '', error: 'not a pdf' };
   const extracted = await extractPdfJobContentFromUrl(pdfUrl, {
     fetchImpl: async () => ({
       ok: true,
       status: 200,
       arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength),
     }),
+    ...(extractTextImpl ? { extractTextImpl } : {}),
   });
   return {
     text: extracted.text || '',
