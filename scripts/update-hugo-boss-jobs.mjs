@@ -20,14 +20,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { resolveLocalityAddress } from './lib/swiss-structured-address.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml as sharedFetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
 import { inferAnyCanton, isKnownSwissCity } from './lib/target-swiss-locations.mjs';
@@ -69,11 +70,9 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    return await sharedFetchHtml(url, {
+      timeoutMs,
       headers: {
         Accept: 'text/html,application/xhtml+xml',
         'Accept-Language': 'en,it-CH;q=0.9',
@@ -82,10 +81,7 @@ async function fetchPage(url, timeoutMs = 20000) {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.text();
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
 function slugify(value = '') {
@@ -254,6 +250,9 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     const detailUrl = buildDetailUrl(raw);
     const locationToken = location || canton;
     const slug = slugify(`${raw.title} hugo-boss ${locationToken}`);
+    // Title, body and slug in the posting's own language slot, read from the
+    // body (a fixed `en` filed Italian and German postings as English).
+    const sourceLang = sourceLangOfBody(raw.description, 'en');
     return {
       url: detailUrl || CAREERS_URL,
       applyUrl: raw.applyUrl ? `https://${COMPANY_HOST}${raw.applyUrl}` : detailUrl,
@@ -269,14 +268,13 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       postalCode: resolvedAddress.postalCode,
       streetAddress: resolvedAddress.streetAddress,
       description: raw.description || `${raw.title} position at Hugo Boss in ${locationToken}, Switzerland.`,
-      titleByLocale: { en: raw.title },
-      descriptionByLocale: { en: raw.description || '' },
+      ...sourceSlotTitleAndSlug(raw.title, slug, sourceLang),
+      descriptionByLocale: { [sourceLang]: raw.description || '' },
       slug,
-      slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
       datePosted: raw.postedDate || new Date().toISOString().split('T')[0],
       source: 'hugo-boss-careers-crawler',
-      sourceLang: detectLang(raw.description || raw.title, 'en'),
+      sourceLang,
       employmentType: inferEmploymentType(raw.title, raw.description),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Moda / Lusso',
@@ -316,6 +314,9 @@ async function mergeJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

@@ -28,11 +28,13 @@
  *   - fetchAllDormakabaJobs() — Fetch and parse all jobs
  *   - isDormakabaJob()        — Match jobs belonging to this company
  *   - isTrustedDomain()       — Validate URLs belong to this company
- *   - resolveAddress()        — City-gated (never canton-only) HQ/office
- *                               street+postal fallback for structured data
+ *   - resolveAddress()        — City-gated (never canton-only) verified office
+ *                               address resolver for structured data
  */
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCantonForLocation } from './crawler-location-config.mjs';
+import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
+import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -77,16 +79,6 @@ const KNOWN_OFFICES = {
   wetzikon: { streetAddress: 'Mühlebühlstrasse 23', postalCode: '8623', canton: 'ZH' },
 };
 
-// Safe canton-level postal fallbacks for Swiss cities that appear in job
-// addresses but have no verified dormakaba office street — never invent a
-// street number we haven't confirmed (Non-Negotiable #3: safe default, not
-// removal of the postalCode/streetAddress check).
-const CANTON_POSTAL_FALLBACK = {
-  SG: '9000',
-  VD: '1000',
-  ZH: '8000',
-};
-
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -106,8 +98,8 @@ function normalizeSpace(s = '') {
  * name itself unlocks the verified street address.
  *
  * Returns `null` when the city isn't one of the two verified offices; callers
- * should fall back to {@link CANTON_POSTAL_FALLBACK} / {@link HQ} for a safe
- * generic postal code without fabricating a street.
+ * should resolve the source locality through the official directory for a
+ * missing postal code without fabricating a street.
  *
  * @param {string} city - free-text city, e.g. "Rümlang", "Wetzikon".
  * @returns {{streetAddress: string, postalCode: string, canton: string}|null}
@@ -377,7 +369,14 @@ export async function fetchAllDormakabaJobs() {
     // HQ.city (matches the ruemlang known-office pattern) and silently
     // fabricate the HQ canton for a job that isn't positively there (AGENTS.md
     // Non-Negotiable #3). No text at all still defaults to HQ.
-    const realCity = normalizeSpace(addr.city || '');
+    const sourceCity = normalizeSpace(addr.city || '');
+    const sourcePostalCode = normalizeSpace(
+      addr.postalCode || addr.zipCode || addr.zip || sourceCity.match(/\b(\d{4})\b/)?.[1] || '',
+    );
+    const sourceStreetAddress = normalizeSpace(
+      addr.streetAddress || addr.street || addr.address1 || addr.addressLine1 || '',
+    );
+    const realCity = sourceCity.replace(/^\d{4}\s+/u, '').trim();
     const resolved = resolveAddress(realCity);
     const inferredCanton = resolved?.canton || getCantonForLocation(realCity) || null;
     if (realCity && !inferredCanton) {
@@ -386,11 +385,14 @@ export async function fetchAllDormakabaJobs() {
     }
     const location = realCity || HQ.city;
     const canton = inferredCanton || HQ.canton;
-    const postalCode = resolved?.postalCode
-      || (location === HQ.city ? HQ.postalCode : CANTON_POSTAL_FALLBACK[canton])
+    const postalCode = sourcePostalCode
+      || (realCity ? officialLocalityPostalCode(realCity, canton) : '')
+      || resolved?.postalCode
+      || (realCity ? getCantonPostalFallback(canton) : '')
       || HQ.postalCode;
-    const streetAddress = resolved?.streetAddress
-      || (location === HQ.city ? KNOWN_OFFICES.ruemlang.streetAddress : undefined);
+    const streetAddress = sourceStreetAddress
+      || resolved?.streetAddress
+      || (location === HQ.city ? KNOWN_OFFICES.ruemlang.streetAddress : location);
 
     const description = htmlToMarkdown(rec.description || '');
     if (!description || description.length < 30) continue; // skip empties → never synthesise

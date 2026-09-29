@@ -1,23 +1,55 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-09-29T09:37:26.904Z",
+  "generatedAt": "2026-09-29T21:39:40.193Z",
   "total": 116,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
   "sourceTotal": 4331,
   "sourceSwiss": 116,
   "foreignDiscarded": 4215,
-  "newCount": 0,
-  "updatedCount": 116,
+  "newCount": 1,
+  "updatedCount": 115,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17371,
-  "avgDurationMs": 17371,
+  "durationMs": 10582,
+  "avgDurationMs": 10582,
   "durationHistory": [
-    17371
+    10582
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
+      "slug": "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur-dfa1adf1",
+      "slugDisambiguator": "dfa1adf1",
+      "url": "https://jobs.lever.co/tsmg/dfa1adf1-2998-49a5-ad04-f034b97c916b",
+      "applyUrl": "https://jobs.lever.co/tsmg/dfa1adf1-2998-49a5-ad04-f034b97c916b/apply",
+      "company": "TSMG",
+      "companyKey": "tsmg",
+      "companyDomain": "tsmg.co",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "logistics",
+      "sector": "Tecnologia & IT",
+      "source": "tsmg-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-29",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Tester conversazioni vocali AI (French native speaker - Switzerland regional variant)",
@@ -326,7 +358,6 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -780,7 +811,6 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -857,7 +887,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -896,7 +925,6 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -935,7 +963,6 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -12,6 +12,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import { fetchLaderachJobUrls, fetchLaderachDetailPage, slugify, inferEmploymentType } from './lib/laderach-job-parser.mjs';
 import {
   inferAnyCanton,
@@ -55,6 +56,9 @@ function mergeCompanyJobs(parsedJobs) {
   for (const job of parsedJobs) { const key = String(job?.url || '').trim().replace(/\/+$/, ''); if (!key) continue; byUrl.set(key, job); }
   const deduped = [...byUrl.values()];
   const merged = mergePreserveLocaleData(companyExisting, deduped);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   return writeJobsFiles([...others, ...clean]), clean;
 }
@@ -91,14 +95,16 @@ async function main() {
     }
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-laderach-${safeLocationToken(raw.location, 'Switzerland')}`);
+    // The language the body is written in, not a fixed `de` key.
+    const sourceLang = sourceLangOfBody(description, 'de');
     parsedJobs.push({
       id: `laderach-${urlHash}`, slug: jobSlug,
-      slugByLocale: { de: jobSlug },
+      slugByLocale: { [sourceLang]: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'laderach.com',
-      title: raw.title, titleByLocale: { de: raw.title },
-      description, descriptionByLocale: { de: description },
-      sourceLang: detectLang(description || raw.title, 'de'),
-      requirements: [], requirementsByLocale: { de: [] },
+      title: raw.title, titleByLocale: { [sourceLang]: raw.title },
+      description, descriptionByLocale: { [sourceLang]: description },
+      sourceLang,
+      requirements: [], requirementsByLocale: { [sourceLang]: [] },
       location: rawLocation, canton: inferredCanton,
       addressLocality: rawLocation, addressCountry: 'CH',
       category: 'manufacturing', contract: 'full-time',

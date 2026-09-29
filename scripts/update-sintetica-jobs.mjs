@@ -8,7 +8,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -16,11 +16,13 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, buildSinteticaDescriptionFields, dropSinteticaFabricatedText } from './lib/sintetica-job-parser.mjs';
 import { normalizeAnyCantonCode, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -85,12 +87,16 @@ function isTrustedDomain(rawUrl = '') { try { const h = new URL(rawUrl).hostname
 const SINTETICA_DEFAULT_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en-US,en;q=0.9,it-CH;q=0.8', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || SINTETICA_DEFAULT_UA } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
+    return await fetchHtml(url, {
+      timeoutMs,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'en-US,en;q=0.9,it-CH;q=0.8',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || SINTETICA_DEFAULT_UA,
+      },
+    });
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
 export async function fetchJobs() {
@@ -158,8 +164,10 @@ export async function fetchJobs() {
       addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
       postalCode: site.postalCode, streetAddress: site.streetAddress,
       description,
-      titleByLocale: { en: raw.title }, descriptionByLocale,
-      slug, slugByLocale: { en: slug, it: slug },
+      descriptionByLocale,
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(raw.title, slug, sourceLang),
+      slug,
       category: detectCategory(raw.title),
       datePosted: new Date().toISOString().split('T')[0],
       source: 'sintetica-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
@@ -190,6 +198,9 @@ async function mergeJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -206,6 +217,18 @@ function updateAdapterConfig(seedUrls) {
   fs.writeFileSync(p, JSON.stringify(a, null, 2) + '\n');
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropSinteticaFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
@@ -214,7 +237,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════\n');
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
   const discovered = await fetchJobs();
-  if (!discovered.length) { console.log('⚠️ No Sintetica jobs discovered.'); return; }
+  if (!discovered.length) { console.log('⚠️ No Sintetica jobs discovered.'); await cleanStoredJobsOnSoftExit(); return; }
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
   console.log('\n🌐 Running base crawler for AI localization...');

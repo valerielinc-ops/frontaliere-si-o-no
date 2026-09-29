@@ -12,13 +12,14 @@
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, extractHelsinnJobBody } from './lib/helsinn-job-parser.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -58,14 +59,16 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'it,en;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.text();
+    return await fetchHtml(url, {
+      timeoutMs,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'it,en;q=0.9',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+    });
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
 const DETAIL_DELAY_MS = 1000;
@@ -91,8 +94,9 @@ export function buildHelsinnJob(listing, body = '') {
     addressLocality: 'Lugano-Pambio Noranco', addressRegion: HQ.addressRegion, addressCountry: 'CH',
     postalCode: HQ.postalCode, streetAddress: 'Via Pian Scairolo 9',
     description,
-    titleByLocale: { [sourceLang]: listing.title }, descriptionByLocale: { [sourceLang]: description },
-    slug, slugByLocale: { en: slug, it: slug },
+    ...sourceSlotTitleAndSlug(listing.title, slug, sourceLang),
+    descriptionByLocale: { [sourceLang]: description },
+    slug,
     category: detectCategory(listing.title),
     datePosted: new Date().toISOString().split('T')[0],
     source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, description),
@@ -138,7 +142,10 @@ async function mergeJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs).map((job) => {
+    dropStaleLocaleDescriptions(job);
+    return job;
+  });
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

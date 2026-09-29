@@ -232,6 +232,7 @@ export function clearClerPlaceholderSlots(job) {
 // any future locale switch of the source site.
 const META_LABELS = {
   arbeitsort: ['arbeitsort', 'lieu de travail', 'luogo di lavoro', 'workplace', 'work location'],
+  street:    ['strasse', 'straße', 'rue', 'via', 'street', 'adresse', 'address', 'indirizzo'],
   pensum:     ['pensum', 'taux d\'occupation', 'percentuale', 'workload'],
   start:      ['stellenantritt', 'entrée en fonction', 'inizio', 'start date'],
   bereich:    ['bereich / abteilung', 'domaine / département', 'ambito / reparto', 'department'],
@@ -252,7 +253,7 @@ function pickMetaValue(meta, kind) {
  * from a Cler detail page. Returns empty strings for any field not present.
  */
 export function extractJobMeta(html) {
-  if (!html) return { arbeitsort: '', pensum: '', start: '', bereich: '', raw: {} };
+  if (!html) return { arbeitsort: '', street: '', pensum: '', start: '', bereich: '', raw: {} };
   const dom = new JSDOM(html);
   const doc = dom.window.document;
   const meta = {};
@@ -266,6 +267,7 @@ export function extractJobMeta(html) {
   }
   return {
     arbeitsort: pickMetaValue(meta, 'arbeitsort'),
+    street:     pickMetaValue(meta, 'street'),
     pensum:     pickMetaValue(meta, 'pensum'),
     start:      pickMetaValue(meta, 'start'),
     bereich:    pickMetaValue(meta, 'bereich'),

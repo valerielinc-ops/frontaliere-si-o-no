@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   parseAvaloqListingLinks,
@@ -6,6 +8,8 @@ import {
   inferAvaloqCanton,
   fetchAvaloqJobsFromApi,
   assertCompleteAvaloqSnapshot,
+  buildAvaloqLocalizedContent,
+  dropStaleLocaleDescriptions,
 } from '../scripts/lib/avaloq-job-parser.mjs';
 
 afterEach(() => {
@@ -199,5 +203,54 @@ describe('avaloq-job-parser', () => {
     expect(isAvaloqTargetLocation('Lugano, Italy')).toBe(false);
     expect(inferAvaloqCanton('Bioggio')).toBe('TI');
     expect(inferAvaloqCanton('Chur')).toBe('GR');
+  });
+});
+
+// ── #5253: text in the slot of the language it is written in ─────────────
+describe('Avaloq locale slots', () => {
+  // Pinned: posting 744000152257749 — English source body, the published
+  // Italian/German translations and the published slugs.
+  const fixture = JSON.parse(fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'crawler-quality-f', 'avaloq-744000152257749-locales.json'),
+    'utf8',
+  ));
+
+  it('keys an English posting under en, never under it', () => {
+    const localized = buildAvaloqLocalizedContent(fixture.detail, 'Avaloq');
+    expect(localized.sourceLang).toBe('en');
+    expect(localized.descriptionByLocale).toEqual({ en: fixture.detail.description });
+    expect(localized.titleByLocale).toEqual({ en: fixture.detail.title });
+    expect(localized.descriptionByLocale.it).toBeUndefined();
+  });
+
+  it('reads the language from the body, not from the title', () => {
+    const italian = { ...fixture.detail, description: fixture.published.descriptionByLocale.it };
+    expect(buildAvaloqLocalizedContent(italian, 'Avaloq').sourceLang).toBe('it');
+  });
+
+  it('keeps the published slug value', () => {
+    const localized = buildAvaloqLocalizedContent(fixture.detail, 'Avaloq');
+    expect(localized.slug).toBe(fixture.published.slug);
+    expect(localized.slugByLocale).toEqual({ en: fixture.published.slug });
+  });
+
+  it('drops an it slot that holds the English source (copy or other English text) and flags retranslation', () => {
+    const copy = { sourceLang: 'en', description: fixture.detail.description, descriptionByLocale: { en: fixture.detail.description, it: fixture.detail.description } };
+    expect(dropStaleLocaleDescriptions(copy)).toEqual(['it']);
+    expect(copy.descriptionByLocale).toEqual({ en: fixture.detail.description });
+    expect(copy.needsRetranslation).toBe(true);
+
+    const olderEnglish = { sourceLang: 'en', descriptionByLocale: { en: 'Short fresh body.', it: fixture.detail.description } };
+    expect(dropStaleLocaleDescriptions(olderEnglish)).toEqual(['it']);
+  });
+
+  it('keeps genuine translations and leaves the flag alone when nothing is stale', () => {
+    const job = {
+      sourceLang: 'en',
+      descriptionByLocale: { en: fixture.detail.description, ...fixture.published.descriptionByLocale },
+    };
+    expect(dropStaleLocaleDescriptions(job)).toEqual([]);
+    expect(Object.keys(job.descriptionByLocale).sort()).toEqual(['de', 'en', 'it']);
+    expect(job).not.toHaveProperty('needsRetranslation');
   });
 });

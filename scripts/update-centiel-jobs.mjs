@@ -53,6 +53,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -348,6 +349,9 @@ export function buildJob(row) {
   // and takes the thin-source path (quarantine).
   const body = selectDescriptionBody(row.pdfText, row.inlineSummary).trim();
   const description = meetsSourceBodyFloor(body) ? body : '';
+  // Keyed by the language the PDF is written in (3 of 8 Centiel ads are
+  // Italian), not a fixed `en`; the slug under the same source slot (#5253).
+  const sourceLang = sourceLangOfBody(description, 'en');
 
   return {
     title: row.title,
@@ -366,15 +370,15 @@ export function buildJob(row) {
     category: inferCategory(row.title),
     sector: 'Energia / UPS / Power Protection',
     source: 'centiel-dedicated-crawler',
-    sourceLang: 'en',
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: row.workingRate || 'full-time',
     contractType: 'full-time',
     validThrough: '',
     description,
-    titleByLocale: { en: row.title },
-    descriptionByLocale: description ? { en: description } : {},
-    slugByLocale: { it: slug },
+    titleByLocale: { [sourceLang]: row.title },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
+    slugByLocale: { [sourceLang]: slug },
   };
 }
 
@@ -420,10 +424,12 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

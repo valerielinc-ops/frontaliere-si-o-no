@@ -4,11 +4,11 @@
   "generatorSha256": "5716e0f06d0393d97adaeb866e367c37312ed061bf8e7a46bee81061d6699264",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "fb09781bf01e72a05f94df3eb9132263adbe436d",
+  "sourceCommit": "69c14d7c24ff8f51582e743c0cef1cc39d4d9564",
   "artifactObservation": {
     "generatorSha256": "5716e0f06d0393d97adaeb866e367c37312ed061bf8e7a46bee81061d6699264",
     "sourceRef": "main",
-    "sourceCommit": "fb09781bf01e72a05f94df3eb9132263adbe436d"
+    "sourceCommit": "69c14d7c24ff8f51582e743c0cef1cc39d4d9564"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -17,7 +17,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:ce18be902d7c896fe4a39f6a8af05e499e85a63464512f7076191420d5ac1680",
+    "rosterDigest": "sha256:086bcc78ad174a9bf8664566eb9fa923010f10f523e0e1419e8c4c670a7c93b3",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -1101,7 +1101,9 @@
         "csvp-poschiavo",
         "answerconsulting",
         "1a-hunkeler",
-        "abraxas"
+        "abraxas",
+        "afry",
+        "buehler"
       ]
     },
     {
@@ -1462,7 +1464,8 @@
         "tsmg",
         "capri-holdings",
         "anicura",
-        "fisba"
+        "fisba",
+        "postauto"
       ]
     },
     {
@@ -1476,10 +1479,7 @@
         "protectas",
         "lwphr",
         "knowledge-lab",
-        "convit",
-        "afry",
-        "buehler",
-        "postauto"
+        "convit"
       ]
     },
     {

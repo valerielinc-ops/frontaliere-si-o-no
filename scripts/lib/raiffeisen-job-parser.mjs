@@ -46,6 +46,7 @@ import { createProspectiveChParser } from './prospective-ch-job-parser-common.mj
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
+import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 
 export const RAIFFEISEN_KEY = 'raiffeisen';
 export const RAIFFEISEN_COMPANY_NAME = 'Raiffeisen';
@@ -127,7 +128,12 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://jobs.raiffeisen.ch/',
   defaultSourceLang: 'de',
   strictPagination: true,
-  postalCodeFallback: (canton) => getCantonPostalFallback(canton),
+  // Prospective often gives the locality without a ZIP. Resolve that real
+  // source locality through the official directory, then use the verified
+  // representative postal code for the inferred canton when necessary.
+  postalCodeFallback: (canton, location) => (
+    officialLocalityPostalCode(location, canton) || getCantonPostalFallback(canton)
+  ),
   extraTrustedHosts: ['jobs.raiffeisen.ch', 'www.raiffeisen.ch'],
   // Partition: drop the regional bank already covered by the dedicated
   // raiffeisen-vc crawler (see header comment above).
@@ -144,7 +150,14 @@ export async function fetchAllRaiffeisenJobs() {
   return jobs
     .map((job) => {
       const canton = inferAnyCanton(job?.location || job?.addressLocality || '');
-      return canton ? { ...job, canton, addressRegion: canton } : null;
+      return canton
+        ? {
+          ...job,
+          canton,
+          addressRegion: canton,
+          streetAddress: job.streetAddress || job.addressLocality || job.location,
+        }
+        : null;
     })
     .filter(Boolean);
 }

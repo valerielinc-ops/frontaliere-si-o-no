@@ -39,6 +39,7 @@ import {
   deriveLocalizedSlug,
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   fetchPradaJobUrls,
   fetchPradaDetailPage,
@@ -52,6 +53,7 @@ import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -111,6 +113,9 @@ function mergeCompanyJobs(parsedJobs, companyExisting) {
   const fossils = companyExisting.filter((job) => dropPradaFabricatedText(job)).length;
   if (fossils > 0) console.log(`  🧹 Removed the former invented descriptions from ${fossils} stored Prada Group job(s); they will be retranslated`);
   const merged = mergePreserveLocaleData(companyExisting, deduped);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
   return clean;
@@ -135,6 +140,18 @@ export function buildPradaDescriptionFields(detailDesc = '') {
   return sourceLocaleDescription(text, { defaultLang: 'en' });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropPradaFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   // `sourceCounts.parsed` (issue #7707): the post-parser, pre-pipeline count.
@@ -153,6 +170,7 @@ async function main() {
   sourceCounts.discovered = rawJobs.length;
   if (rawJobs.length === 0) {
     console.log('\u26a0\ufe0f No jobs found on Prada Group careers page. Keeping existing jobs.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -198,16 +216,16 @@ async function main() {
     parsedJobs.push({
       id: `prada-${urlHash}`,
       slug: jobSlug,
-      slugByLocale: { en: jobSlug },
+      slugByLocale: { [sourceLang]: jobSlug },
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       companyDomain: 'pradagroup.com',
       title: raw.title,
-      titleByLocale: { en: raw.title },
+      titleByLocale: { [sourceLang]: raw.title },
       description,
       descriptionByLocale: descByLocale,
       requirements: [],
-      requirementsByLocale: { en: [] },
+      requirementsByLocale: { [sourceLang]: [] },
       location: loc,
       canton,
       addressRegion: canton,

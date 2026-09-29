@@ -1,7 +1,7 @@
 {
   "key": "flury-stiftung",
   "label": "Flury Stiftung",
-  "generatedAt": "2026-09-29T09:39:29.904Z",
+  "generatedAt": "2026-09-29T21:36:16.668Z",
   "total": 19,
   "discovered": null,
   "parsed": 19,
@@ -12,10 +12,10 @@
   "updatedCount": 19,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2664,
-  "avgDurationMs": 2664,
+  "durationMs": 45458,
+  "avgDurationMs": 45458,
   "durationHistory": [
-    2664
+    45458
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-09/Mitarbeiter_in%20Patientenanmeldung%2080%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.353Z",
+      "crawledAt": "2026-09-29T21:35:27.470Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -49,12 +49,13 @@
       "pensum": "80%",
       "pensumMin": 80,
       "pensumMax": 80,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:11:16.948Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -70,7 +71,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FAGE%2080-100%25%20Altersheim%20Schiers.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.399Z",
+      "crawledAt": "2026-09-29T21:35:58.936Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -88,12 +89,13 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T20:14:26.006Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -109,7 +111,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/Stelleninserat_Applikationsmanager.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.364Z",
+      "crawledAt": "2026-09-29T21:35:29.562Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -127,12 +129,13 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:20:22.908Z",
-      "_qualityScore": 85,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 24,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -148,7 +151,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/Arztsekret%C3%A4rin%2080%20-%20100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.374Z",
+      "crawledAt": "2026-09-29T21:35:38.823Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -166,12 +169,13 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:50:45.042Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -187,7 +191,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FaGe%20f%C3%BCr%20Tagesklinik%20Aufwachraum%20Notfall%20IMC%2080-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.381Z",
+      "crawledAt": "2026-09-29T21:35:42.262Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -205,12 +209,13 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:34:31.038Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -226,7 +231,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Radiologiefachperson_MTRA%2080%20-%20100%25%20Radiologie_Angiologie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.371Z",
+      "crawledAt": "2026-09-29T21:35:36.324Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -244,12 +249,13 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T22:06:39.530Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -265,7 +271,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Dipl.%20Pflegefachperson%20IMC%20Notfall%2080-%20100%25_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.377Z",
+      "crawledAt": "2026-09-29T21:35:40.561Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -283,12 +289,13 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T22:06:39.533Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -304,7 +311,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Inserat_Dipl_Pflegefachperson_Fachperson%20Gesundheit_80-100_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.400Z",
+      "crawledAt": "2026-09-29T21:36:00.937Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -322,12 +329,13 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T22:06:39.552Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -343,7 +351,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Fachperson%20Gesundheit%20im%20Personalpool%2040-80%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.366Z",
+      "crawledAt": "2026-09-29T21:35:31.469Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -361,12 +369,13 @@
       "pensum": "40 - 80%",
       "pensumMin": 40,
       "pensumMax": 80,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T22:38:46.198Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -382,7 +391,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-09/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.369Z",
+      "crawledAt": "2026-09-29T21:35:33.646Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -400,12 +409,13 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.230Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -421,7 +431,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/BMA%20Labor%2050%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.384Z",
+      "crawledAt": "2026-09-29T21:35:44.564Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -439,12 +449,13 @@
       "pensum": "50%",
       "pensumMin": 50,
       "pensumMax": 50,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.231Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -460,7 +471,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.387Z",
+      "crawledAt": "2026-09-29T21:35:46.913Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -478,12 +489,13 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -499,7 +511,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.392Z",
+      "crawledAt": "2026-09-29T21:35:48.886Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -517,12 +529,13 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -538,7 +551,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.394Z",
+      "crawledAt": "2026-09-29T21:35:51.519Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -556,12 +569,13 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -577,7 +591,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.396Z",
+      "crawledAt": "2026-09-29T21:35:53.508Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -595,12 +609,13 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -616,7 +631,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.398Z",
+      "crawledAt": "2026-09-29T21:35:55.986Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -634,12 +649,13 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -655,7 +671,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.402Z",
+      "crawledAt": "2026-09-29T21:36:03.442Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -673,12 +689,13 @@
       "pensum": "50 - 100%",
       "pensumMin": 50,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -694,7 +711,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachperson%20Betreuung%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.404Z",
+      "crawledAt": "2026-09-29T21:36:05.259Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -712,12 +729,13 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -733,7 +751,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:39:23.406Z",
+      "crawledAt": "2026-09-29T21:36:06.950Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -751,12 +769,13 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
-      "_qualityScore": 85,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 17
       }
     }

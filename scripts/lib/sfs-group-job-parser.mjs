@@ -50,6 +50,8 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
+import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -72,18 +74,6 @@ const HQ = {
 };
 
 const SECTOR = 'Industria / Meccanica';
-
-// Safe canton-level postal fallbacks for Swiss cities that appear in job
-// addresses but have no verified SFS office street — never invent a street
-// number we haven't confirmed (Non-Negotiable #3: safe default, not removal,
-// of the postalCode/streetAddress check). Cantons cover the towns actually
-// observed on the live listing: Heerbrugg/Rebstein (SG), Hallau (SH, Tegra
-// Medical), Payerne (VD).
-const CANTON_POSTAL_FALLBACK = {
-  SG: '9000',
-  SH: '8200',
-  VD: '1000',
-};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -292,7 +282,12 @@ export async function fetchAllSfsGroupJobs() {
 
   const jobs = [];
   for (const row of rows) {
-    const location = normalizeSpace(row.rawLocation || '').replace(/,\s*Schweiz$/i, '').trim() || HQ.city;
+    const rawLocation = normalizeSpace(row.rawLocation || '').replace(/,\s*Schweiz$/i, '').trim();
+    const sourcePostalCode = normalizeSpace(
+      row.postalCode || row.zipCode || rawLocation.match(/\b(\d{4})\b/)?.[1] || '',
+    );
+    const sourceStreetAddress = normalizeSpace(row.streetAddress || row.street || '');
+    const location = rawLocation.replace(/^\d{4}\s+/u, '').trim() || HQ.city;
     const legalEntity = normalizeSpace(row.rawCompany || '') || SFS_GROUP_COMPANY_NAME;
     // Strip the trailing percentage token(s) SFS appends to every title
     // (e.g. "Digital Process Manager (m/f/d) 100%" → "Digital Process
@@ -318,11 +313,14 @@ export async function fetchAllSfsGroupJobs() {
 
     const canton = inferSwissTargetCanton(location) || HQ.canton;
     const resolvedHq = resolveAddress(location);
-    const postalCode = resolvedHq?.postalCode
-      || (location === HQ.city ? HQ.postalCode : CANTON_POSTAL_FALLBACK[canton])
+    const postalCode = sourcePostalCode
+      || officialLocalityPostalCode(location, canton)
+      || resolvedHq?.postalCode
+      || (location === HQ.city ? HQ.postalCode : getCantonPostalFallback(canton))
       || HQ.postalCode;
-    const streetAddress = resolvedHq?.streetAddress
-      || (location === HQ.city ? HQ.streetAddress : undefined);
+    const streetAddress = sourceStreetAddress
+      || resolvedHq?.streetAddress
+      || (location === HQ.city ? HQ.streetAddress : location);
     // The detail's own text only: without it the job gets no description
     // (thin-source path) instead of "<Titel> bei <Gesellschaft> (SFS Group) in
     // <Ort>." written by the crawler.

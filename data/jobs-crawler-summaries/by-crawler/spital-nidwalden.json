@@ -1,21 +1,21 @@
 {
   "key": "spital-nidwalden",
   "label": "Spital Nidwalden",
-  "generatedAt": "2026-09-29T09:26:10.247Z",
-  "total": 10,
+  "generatedAt": "2026-09-29T21:28:18.104Z",
+  "total": 9,
   "discovered": null,
-  "parsed": 9,
+  "parsed": 8,
   "lastFetchOutcome": null,
-  "written": 10,
+  "written": 9,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 9,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4523,
-  "avgDurationMs": 4523,
+  "durationMs": 7302,
+  "avgDurationMs": 7302,
   "durationHistory": [
-    4523
+    7302
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/chefaerztin-chefarzt-allgemeine-innere-medizin-standort-stans/76b803fc-c4ed-43da-a84e-7ab609b136cb",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:01.931Z",
+      "crawledAt": "2026-09-29T21:28:07.449Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -49,10 +49,10 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a0b4609b8b7986&j=jobexchange",
       "firstSeenAt": "2026-09-19T23:07:26.578Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -70,7 +70,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachperson-hf-fh-fuer-den-einstieg-in-die-intensivmedizin/35fc51ce-162d-4cad-be0c-f3caa8311268",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:01.946Z",
+      "crawledAt": "2026-09-29T21:28:07.482Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -87,10 +87,10 @@
       "postedDate": "2026-09-17",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a06210f93655fd&j=jobexchange",
       "firstSeenAt": "2026-09-19T23:07:26.582Z",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -108,7 +108,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mpa-oder-fachperson-gesundheit/b312e5a5-b470-44c8-8327-f13e17981840",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:01.950Z",
+      "crawledAt": "2026-09-29T21:28:07.486Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -125,10 +125,10 @@
       "postedDate": "2026-09-15",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a09f37e2d9772a&j=jobexchange",
       "firstSeenAt": "2026-09-19T23:07:26.583Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -146,7 +146,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mpa-oder-arztsekretaer-in-sekretariat-klinik-anaesthesie-intensiv-und-schmerzmedizin/3274f595-7e18-4d13-8faf-71ed1170fbd7",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:01.958Z",
+      "crawledAt": "2026-09-29T21:28:07.501Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -163,10 +163,10 @@
       "postedDate": "2026-08-22",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a0238fb1020e20&j=jobexchange",
       "firstSeenAt": "2026-08-23T21:45:26.924Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -184,7 +184,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/oberaerztin-oberarzt-intensivmedizin-50/4db0abe4-9ba2-4178-9421-2d8d676397d5",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:01.954Z",
+      "crawledAt": "2026-09-29T21:28:07.497Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -201,10 +201,10 @@
       "postedDate": "2026-08-17",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029c2784ef019cfbca298f10c4&j=jobexchange",
       "firstSeenAt": "2026-08-17T21:51:41.186Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -222,7 +222,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mpa-arztsekretaer-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie-adipositaszentrum/e95f0cdb-d12f-40aa-a06e-5a14962fc8e4",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:01.960Z",
+      "crawledAt": "2026-09-29T21:28:07.502Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -239,10 +239,10 @@
       "postedDate": "2026-08-17",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a00f77a50f519c&j=jobexchange",
       "firstSeenAt": "2026-08-17T21:51:41.188Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -260,7 +260,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/dipl-pflegefachperson-hf-endoskopie/145804c1-3f2f-46d7-a531-c8d07aade199",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:01.963Z",
+      "crawledAt": "2026-09-29T21:28:07.504Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -277,10 +277,10 @@
       "postedDate": "2026-08-17",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029e222cb9019ff54607340ae1&j=jobexchange",
       "firstSeenAt": "2026-08-17T21:51:41.182Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -298,7 +298,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/36066625-1773-4459-afcc-8a9c7f575c5e",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:01.969Z",
+      "crawledAt": "2026-09-29T21:28:07.506Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -315,48 +315,10 @@
       "postedDate": "2026-08-11",
       "applyUrl": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/36066625-1773-4459-afcc-8a9c7f575c5e",
       "firstSeenAt": "2026-08-12T10:22:41.642Z",
-      "_qualityScore": 82,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "spital-nidwalden-3026ca67f725",
-      "slug": "leitung-spital-nidwalden-100-spital-nidwalden-stans",
-      "company": "Spital Nidwalden",
-      "companyKey": "spital-nidwalden",
-      "companyDomain": "spital-nidwalden.ch",
-      "title": "Leitung Spital Nidwalden 100%",
-      "needsRetranslation": false,
-      "location": "Stans",
-      "canton": "NW",
-      "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
-      "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:01.965Z",
-      "addressLocality": "Stans",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6370",
-      "streetAddress": "Ennetmooserstrasse 19",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "applyUrl": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
-      "firstSeenAt": "2026-08-12T10:22:41.642Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -396,7 +358,7 @@
       "salaryMax": 60300,
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:23:08.963Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,

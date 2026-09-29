@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-09-29T09:26:28.225Z",
+  "assembledAt": "2026-09-29T21:29:54.876Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:24.305Z",
+      "crawledAt": "2026-09-29T21:29:51.184Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -54,11 +54,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+        "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+          "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
@@ -113,7 +115,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:24.170Z",
+      "crawledAt": "2026-09-29T21:29:51.030Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -179,7 +181,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-kunststofftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:24.036Z",
+      "crawledAt": "2026-09-29T21:29:50.875Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -200,12 +202,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-kunststofftechnik-m-f-d-sfs-group-altstatten",
-        "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten"
+        "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten",
+        "project-manager-plastics-engineering-m-f-d-sfs-group-altstatten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-kunststofftechnik-m-f-d-sfs-group-altstatten",
-          "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten"
+          "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten",
+          "project-manager-plastics-engineering-m-f-d-sfs-group-altstatten"
         ],
         "en": [
           "projektleiter-kunststofftechnik-m-f-d-sfs-group-altstatten"
@@ -215,6 +219,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:47.672Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -260,7 +265,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:23.901Z",
+      "crawledAt": "2026-09-29T21:29:50.718Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -282,11 +287,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "project-manager-m-f-d-sfs-group-heerbrugg",
-        "project-manager-m-w-d-sfs-group-heerbrugg"
+        "project-manager-m-w-d-sfs-group-heerbrugg",
+        "responsabile-del-progetto-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-m-f-d-sfs-group-heerbrugg"
+          "project-manager-m-f-d-sfs-group-heerbrugg",
+          "responsabile-del-progetto-m-f-d-sfs-group-heerbrugg"
         ],
         "fr": [
           "project-manager-m-f-d-sfs-group-heerbrugg",
@@ -340,7 +347,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:23.766Z",
+      "crawledAt": "2026-09-29T21:29:50.563Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -361,11 +368,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
+        "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
+        "responsabile-prodotto-parapioggia-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
+          "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
+          "responsabile-prodotto-parapioggia-m-f-d-80-sfs-group-heerbrugg"
         ],
         "fr": [
           "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
@@ -418,7 +427,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:23.631Z",
+      "crawledAt": "2026-09-29T21:29:50.407Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -439,6 +448,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T13:52:15.375Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -484,7 +494,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:23.493Z",
+      "crawledAt": "2026-09-29T21:29:50.250Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -536,11 +546,13 @@
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+        "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+          "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
@@ -550,6 +562,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -595,7 +608,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:23.355Z",
+      "crawledAt": "2026-09-29T21:29:50.093Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -615,11 +628,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "messtechniker-in-m-f-d-sfs-group-hallau"
+        "messtechniker-in-m-f-d-sfs-group-hallau",
+        "tecnico-di-misura-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "messtechniker-in-m-f-d-sfs-group-hallau"
+          "messtechniker-in-m-f-d-sfs-group-hallau",
+          "tecnico-di-misura-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "messtechniker-in-m-f-d-sfs-group-hallau"
@@ -674,7 +689,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/maschinenbediener-in-umformtechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:23.220Z",
+      "crawledAt": "2026-09-29T21:29:49.937Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -695,11 +710,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
+        "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
+        "tecnologia-di-formatura-dell-operatore-macchina-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
+          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
+          "tecnologia-di-formatura-dell-operatore-macchina-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
@@ -738,7 +755,7 @@
       "title": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
       "titleByLocale": {
         "it": "Ingegnere di progettazione di piombo che forma gli strumenti (m/f/d) 80–",
-        "en": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
+        "en": "Lead Design Engineer Forming Tools (m/f/d) 80–",
         "de": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
         "fr": "Ingénieur de conception principal formant des outils (h/f/d) 80–"
       },
@@ -754,7 +771,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/lead-konstrukteur-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:23.082Z",
+      "crawledAt": "2026-09-29T21:29:49.777Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -775,11 +792,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+        "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+        "ingegnere-di-progettazione-di-piombo-che-forma-gli-strumenti-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+          "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+          "ingegnere-di-progettazione-di-piombo-che-forma-gli-strumenti-m-f-d-80-sfs-group-heerbrugg"
         ],
         "en": [
           "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
@@ -788,7 +807,6 @@
           "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:56.944Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -835,7 +853,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-für-verfahrenstechnik-spritzgiessen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.949Z",
+      "crawledAt": "2026-09-29T21:29:49.622Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -856,12 +874,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kunststofftechnologe-in-fur-verfahrenstechnik-spritzgiessen-m-f-d-sfs-group-altstatten",
-        "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten"
+        "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten",
+        "tecnologo-di-plastica-per-l-ingegneria-di-processo-stampaggio-ad-iniezione-m-f-d-sfs-group-altstatten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kunststofftechnologe-in-fur-verfahrenstechnik-spritzgiessen-m-f-d-sfs-group-altstatten",
-          "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten"
+          "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten",
+          "tecnologo-di-plastica-per-l-ingegneria-di-processo-stampaggio-ad-iniezione-m-f-d-sfs-group-altstatten"
         ],
         "en": [
           "kunststofftechnologe-in-fur-verfahrenstechnik-spritzgiessen-m-f-d-sfs-group-altstatten"
@@ -916,7 +936,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.814Z",
+      "crawledAt": "2026-09-29T21:29:49.465Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -937,11 +957,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
-        "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
+        "kunststofftechnologe-in-m-w-d-sfs-group-hallau",
+        "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
+          "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
+          "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
@@ -951,6 +973,7 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -970,7 +993,7 @@
       "slug": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
         "it": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
-        "en": "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "en": "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg",
         "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "fr": "operateur-operatrice-de-formage-a-froid-m-w-d-sfs-group-heerbrugg"
       },
@@ -996,7 +1019,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.677Z",
+      "crawledAt": "2026-09-29T21:29:49.308Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1045,15 +1068,19 @@
         "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg",
         "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+        "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
         "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg"
+          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+          "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+          "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
           "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
         ],
         "fr": [
@@ -1097,7 +1124,7 @@
         "it": "Junior costruttore-formatore strumenti (m/f/d) 80–",
         "en": "Junior constructor–forming tools (m/f/d) 80–",
         "de": "Junior Konstrukteur–Umformwerkzeuge (m/f/d) 80–",
-        "fr": "Junior Konstrukteur–Umformwerkzeuge (m/f/d) 80–"
+        "fr": "Outils de construction junior (h/f/d) 80–"
       },
       "description": "Du möchtest deinen Karriereweg in einer dynamischen Engineering-Umgebung ausbauen und Verantwortung in der Werkzeugkonstruktion übernehmen? Als Junior-Konstrukteur Umformwerkzeuge gestaltest du innovative Prozesse in der Kaltmassivumformung aktiv mit und setzt präzise Lösungen erfolgreich um. Your Tasks:\n• Konstruktion und Modifikation von Umformwerkzeugen mittels modernem CAD-System (MSTK, MSTG)\n• Auslegung der Stadienfolge nach vorgegebenen Spezifikationen\n• Mitarbeit bei der Prozessentwicklung sowie beim Contract Review für den Bereich Kaltumformen\n• Erstellung und Verantwortung von präzisen Fertigungsunterlagen für Werkzeuge\n• Betreuung und Optimierung über die gesamte Produktelebensdauer Your profile:\n• Abgeschlossene technische Ausbildung und idealerweise erster Berufserfahrung als Konstrukteur\n• Kenntnisse in der Anwendung von CAD-Programmen sowie MS-Office. PLM/PDM-Kenntnisse von Vorteil\n• Erfahrung im allgemeinen Werkzeugbau sowie in der Umformtechnik und Mehrstufen-Pressen-Technik wünschenswert\n• Sehr gute Deutschkenntnisse und gute Englischkenntnisse\n• Lösungsorientierte Arbeitsweise mit hohem Qualitäts- und Verantwortungsbewusstsein We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
       "descriptionByLocale": {
@@ -1111,7 +1138,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/junior-konstrukteur-–-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.538Z",
+      "crawledAt": "2026-09-29T21:29:49.152Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1132,11 +1159,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+        "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+        "junior-costruttore-formatore-strumenti-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+          "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+          "junior-costruttore-formatore-strumenti-m-f-d-80-sfs-group-heerbrugg"
         ],
         "en": [
           "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
@@ -1145,7 +1174,6 @@
           "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:56.333Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -1192,7 +1220,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-specialist-recruiting-administration-–-befristet-bis-31.12.2027-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.401Z",
+      "crawledAt": "2026-09-29T21:29:48.996Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1213,14 +1241,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
+        "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg",
+        "risorse-umane-specialista-recruiting-administration-befristet-bis-31-12-2027-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
+          "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg",
+          "risorse-umane-specialista-recruiting-administration-befristet-bis-31-12-2027-m-w-d-sfs-group-heerbrugg"
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:36.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1266,7 +1297,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.263Z",
+      "crawledAt": "2026-09-29T21:29:48.836Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1286,11 +1317,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
+        "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+          "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
+          "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil"
         ],
         "en": [
           "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
@@ -1300,6 +1333,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1345,7 +1379,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.126Z",
+      "crawledAt": "2026-09-29T21:29:48.677Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1366,11 +1400,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg",
+        "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+          "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg",
+          "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
@@ -1425,7 +1461,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:21.987Z",
+      "crawledAt": "2026-09-29T21:29:48.520Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1477,11 +1513,13 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
+        "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
+          "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
@@ -1491,6 +1529,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:13.503Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1536,7 +1575,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:26:21.849Z",
+      "crawledAt": "2026-09-29T21:29:48.363Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "postalCode": "9435",
@@ -1556,11 +1595,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion",
+        "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion",
+          "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion"
         ],
         "en": [
           "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
@@ -1615,7 +1656,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:21.712Z",
+      "crawledAt": "2026-09-29T21:29:48.205Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1636,11 +1677,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+          "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
@@ -1650,6 +1693,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.291Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1695,7 +1739,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:21.575Z",
+      "crawledAt": "2026-09-29T21:29:48.045Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1717,12 +1761,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-oder-betriebselektriker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
-        "automatiker-in-o-betriebselektriker-in-instandhaltung-m-w-d-sfs-group-heerbrugg"
+        "automatiker-in-o-betriebselektriker-in-instandhaltung-m-w-d-sfs-group-heerbrugg",
+        "automatico-o-servizio-elettrico-manutenzione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-oder-betriebselektriker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
-          "automatiker-in-o-betriebselektriker-in-instandhaltung-m-w-d-sfs-group-heerbrugg"
+          "automatiker-in-o-betriebselektriker-in-instandhaltung-m-w-d-sfs-group-heerbrugg",
+          "automatico-o-servizio-elettrico-manutenzione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-oder-betriebselektriker-in-instandhaltung-m-f-d-sfs-group-heerbrugg"
@@ -1750,9 +1796,9 @@
       "id": "sfs-group-c9d7f2a8063f",
       "slug": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
-        "de": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
         "it": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
         "en": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "de": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
         "fr": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
@@ -1760,16 +1806,16 @@
       "companyDomain": "sfs.com",
       "title": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)",
       "titleByLocale": {
-        "de": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)",
         "it": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)",
         "en": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)",
+        "de": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)",
         "fr": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)"
       },
       "description": "Aufgrund des starken Wachstums in der Fertigung innovativer Kugelgewindetriebe suchen wir eine engagierte und erfahrene Fachkraft für die Instandhaltung im Schichtbetrieb. Dich erwartet ein kollegiales Team, das technisches Know-how mit lösungsorientiertem Handeln verbindet. Gemeinsam stellt ihr sicher, dass unser moderner Maschinenpark zuverlässig läuft. Du packst gerne an, begeisterst dich für Technik und Automation und findest auch bei anspruchsvollen technischen Aufgaben passende Lösungen? Dann freuen wir uns, dich kennenzulernen. Your Tasks:\n• Identifizieren und Beheben von Störungen an Montagelinien und Zerspanungsanlagen, insbesondere an CNC-Rundtaktautomaten\n• Durchführen von Erstdiagnosen und Einleiten geeigneter Sofortmassnahmen zur Wiederherstellung der Anlagenverfügbarkeit\n• Übergeben komplexer Störungen an interne und externe Fachstellen sowie Koordinieren und Nachverfolgen der weiteren Bearbeitung\n• Durchführen von Wartungs- und Instandhaltungsarbeiten\n• Analysieren von Störungsursachen und nachhaltiges Umsetzen geeigneter Massnahmen\n• Dokumentieren von Störungen, Ursachen und getroffenen Massnahmen im Instandhaltungssystem\n• Durchführen technischer Schulungen für das Bedienpersonal Your profile:\n• Abgeschlossene technische Grundausbildung, beispielsweise als Automatiker, Mechatroniker, Anlagenelektriker oder in einer vergleichbaren Fachrichtung\n• Weiterbildung auf Stufe HF in Automation, Elektrotechnik oder Maschinenbau von Vorteil\n• Bereitschaft zur Arbeit im Schichtmodell mit Früh-, Spät- und Nachtschichten\n• Mehrjährige Erfahrung in der Instandhaltung von Produktionsanlagen\n• Gute Kenntnisse in der elektrischen und/oder mechanischen Instandhaltung\n• Erfahrung in der systematischen Fehlersuche und Störungsbehebung an elektrischen, pneumatischen und hydraulischen Systemen\n• Kenntnisse in Siemens SINUMERIK sowie SIMATIC S7/TIA Portal von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Attraktives Schichtmodell mit entsprechender Vergütung\n• Abwechslungsreiche Aufgaben in einem technisch anspruchsvollen Umfeld\n• Moderne Anlagen und Möglichkeiten, aktiv an deren Weiterentwicklung mitzuwirken\n• Arbeitskleidung inklusive Wäscheservice\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen",
       "descriptionByLocale": {
-        "de": "Aufgrund des starken Wachstums in der Fertigung innovativer Kugelgewindetriebe suchen wir eine engagierte und erfahrene Fachkraft für die Instandhaltung im Schichtbetrieb. Dich erwartet ein kollegiales Team, das technisches Know-how mit lösungsorientiertem Handeln verbindet. Gemeinsam stellt ihr sicher, dass unser moderner Maschinenpark zuverlässig läuft. Du packst gerne an, begeisterst dich für Technik und Automation und findest auch bei anspruchsvollen technischen Aufgaben passende Lösungen? Dann freuen wir uns, dich kennenzulernen. Your Tasks:\n• Identifizieren und Beheben von Störungen an Montagelinien und Zerspanungsanlagen, insbesondere an CNC-Rundtaktautomaten\n• Durchführen von Erstdiagnosen und Einleiten geeigneter Sofortmassnahmen zur Wiederherstellung der Anlagenverfügbarkeit\n• Übergeben komplexer Störungen an interne und externe Fachstellen sowie Koordinieren und Nachverfolgen der weiteren Bearbeitung\n• Durchführen von Wartungs- und Instandhaltungsarbeiten\n• Analysieren von Störungsursachen und nachhaltiges Umsetzen geeigneter Massnahmen\n• Dokumentieren von Störungen, Ursachen und getroffenen Massnahmen im Instandhaltungssystem\n• Durchführen technischer Schulungen für das Bedienpersonal Your profile:\n• Abgeschlossene technische Grundausbildung, beispielsweise als Automatiker, Mechatroniker, Anlagenelektriker oder in einer vergleichbaren Fachrichtung\n• Weiterbildung auf Stufe HF in Automation, Elektrotechnik oder Maschinenbau von Vorteil\n• Bereitschaft zur Arbeit im Schichtmodell mit Früh-, Spät- und Nachtschichten\n• Mehrjährige Erfahrung in der Instandhaltung von Produktionsanlagen\n• Gute Kenntnisse in der elektrischen und/oder mechanischen Instandhaltung\n• Erfahrung in der systematischen Fehlersuche und Störungsbehebung an elektrischen, pneumatischen und hydraulischen Systemen\n• Kenntnisse in Siemens SINUMERIK sowie SIMATIC S7/TIA Portal von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Attraktives Schichtmodell mit entsprechender Vergütung\n• Abwechslungsreiche Aufgaben in einem technisch anspruchsvollen Umfeld\n• Moderne Anlagen und Möglichkeiten, aktiv an deren Weiterentwicklung mitzuwirken\n• Arbeitskleidung inklusive Wäscheservice\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen",
         "it": "A causa della forte crescita della produzione di viti a sfera innovative, stiamo cercando uno specialista dedicato ed esperto per la manutenzione nelle operazioni a turni. Puoi aspettarti un team collaborativo che combina know-how tecnico con un'azione orientata alla soluzione. Insieme si assicura che il nostro moderno parco macchine funziona in modo affidabile. Ti piace affrontare, sono entusiasti della tecnologia e dell'automazione e trovare soluzioni adatte per compiti tecnici impegnativi? Allora non vediamo l'ora di incontrarti. I vostri compiti:\n• Identificazione e correzione di guasti nelle linee di montaggio e negli impianti di lavorazione, in particolare nelle macchine a ciclo rotante CNC\n• Eseguire la diagnosi iniziale e avviare opportune misure immediate per ripristinare la disponibilità degli impianti\n• Trasferire interruzioni complesse ai dipartimenti specializzati interni ed esterni, coordinare e tracciare ulteriori elaborazioni\n• Eseguire lavori di manutenzione e manutenzione\n• Analisi delle cause di disgregazione e attuazione sostenibile delle misure appropriate\n• Documentazione di difetti, cause e misure adottate nel sistema di manutenzione\n• Condurre la formazione tecnica per l'operatore Il tuo profilo:\n• Completata la formazione tecnica di base, ad esempio come ingegnere automatico, ingegnere meccatronico, elettricista o in un campo comparabile di competenza\n• L'ulteriore formazione a livello HF in automazione, ingegneria elettrica o ingegneria meccanica è vantaggioso\n• Prontezza al lavoro nel modello a turni con spostamenti anticipati, tardivi e notturni\n• Diversi anni di esperienza nel mantenimento di impianti di produzione\n• Buona conoscenza della manutenzione elettrica e/o meccanica\n• Esperienza nella risoluzione dei problemi e nella risoluzione dei problemi dei sistemi elettrici, pneumatici e idraulici\n• Conoscenza del portale Siemens SINUMERIK e SIMATIC S7/TIA di vantaggio Offriamo:\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Modello di strato attraente con compensazione corrispondente\n• Variazione delle mansioni in un ambiente tecnicamente esigente\n• Strutture e opportunità moderne per partecipare attivamente al loro ulteriore sviluppo\n• Abbigliamento da lavoro con servizio lavanderia\n• Partecipazione annuale al successo\n• Staff ristorante con prezzi accattivanti",
         "en": "Due to the strong growth in the production of innovative ball screws, we are looking for a dedicated and experienced specialist for maintenance in shift operations. You can expect a collaborative team that combines technical know-how with solution-oriented action. Together you ensure that our modern machine park runs reliably. Do you like to tackle, are enthusiastic about technology and automation and find suitable solutions for challenging technical tasks? Then we look forward to meeting you. Your Tasks:\n• Identification and correction of faults at assembly lines and machining installations, in particular at CNC rotary cycle machines\n• Perform initial diagnosis and initiate appropriate immediate measures to restore plant availability\n• Transferring complex disruptions to internal and external specialist departments as well as coordinating and tracking further processing\n• Performing maintenance and maintenance work\n• Analysis of causes of disruption and sustainable implementation of appropriate measures\n• Documentation of faults, causes and measures taken in the maintenance system\n• Conducting technical training for the operator Your profile:\n• Completed basic technical training, for example as an automatic engineer, mechatronic engineer, plant electrician or in a comparable field of expertise\n• Further education at HF level in automation, electrical engineering or mechanical engineering is advantageous\n• Readiness to work in shift model with early, late and night shifts\n• Several years of experience in the maintenance of production facilities\n• Good knowledge of electrical and/or mechanical maintenance\n• Experience in systematic troubleshooting and troubleshooting of electrical, pneumatic and hydraulic systems\n• Knowledge of Siemens SINUMERIK and SIMATIC S7/TIA portal of advantage We offer:\n• Six weeks of holidays & additional holiday purchase possible\n• Attractive layer model with corresponding compensation\n• Varied tasks in a technically demanding environment\n• Modern facilities and opportunities to actively participate in their further development\n• Workwear including laundry services\n• Annual participation in success\n• Staff restaurant with attractive prices",
+        "de": "Aufgrund des starken Wachstums in der Fertigung innovativer Kugelgewindetriebe suchen wir eine engagierte und erfahrene Fachkraft für die Instandhaltung im Schichtbetrieb. Dich erwartet ein kollegiales Team, das technisches Know-how mit lösungsorientiertem Handeln verbindet. Gemeinsam stellt ihr sicher, dass unser moderner Maschinenpark zuverlässig läuft. Du packst gerne an, begeisterst dich für Technik und Automation und findest auch bei anspruchsvollen technischen Aufgaben passende Lösungen? Dann freuen wir uns, dich kennenzulernen. Your Tasks:\n• Identifizieren und Beheben von Störungen an Montagelinien und Zerspanungsanlagen, insbesondere an CNC-Rundtaktautomaten\n• Durchführen von Erstdiagnosen und Einleiten geeigneter Sofortmassnahmen zur Wiederherstellung der Anlagenverfügbarkeit\n• Übergeben komplexer Störungen an interne und externe Fachstellen sowie Koordinieren und Nachverfolgen der weiteren Bearbeitung\n• Durchführen von Wartungs- und Instandhaltungsarbeiten\n• Analysieren von Störungsursachen und nachhaltiges Umsetzen geeigneter Massnahmen\n• Dokumentieren von Störungen, Ursachen und getroffenen Massnahmen im Instandhaltungssystem\n• Durchführen technischer Schulungen für das Bedienpersonal Your profile:\n• Abgeschlossene technische Grundausbildung, beispielsweise als Automatiker, Mechatroniker, Anlagenelektriker oder in einer vergleichbaren Fachrichtung\n• Weiterbildung auf Stufe HF in Automation, Elektrotechnik oder Maschinenbau von Vorteil\n• Bereitschaft zur Arbeit im Schichtmodell mit Früh-, Spät- und Nachtschichten\n• Mehrjährige Erfahrung in der Instandhaltung von Produktionsanlagen\n• Gute Kenntnisse in der elektrischen und/oder mechanischen Instandhaltung\n• Erfahrung in der systematischen Fehlersuche und Störungsbehebung an elektrischen, pneumatischen und hydraulischen Systemen\n• Kenntnisse in Siemens SINUMERIK sowie SIMATIC S7/TIA Portal von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Attraktives Schichtmodell mit entsprechender Vergütung\n• Abwechslungsreiche Aufgaben in einem technisch anspruchsvollen Umfeld\n• Moderne Anlagen und Möglichkeiten, aktiv an deren Weiterentwicklung mitzuwirken\n• Arbeitskleidung inklusive Wäscheservice\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen",
         "fr": "En raison de la forte croissance de la production de vis à billes innovantes, nous sommes à la recherche d'un spécialiste dédié et expérimenté pour la maintenance dans les opérations de quart. Vous pouvez vous attendre à une équipe collaborative qui combine le savoir-faire technique et l'action orientée vers la solution. Ensemble, vous assurez que notre parc de machines moderne fonctionne de manière fiable. Aimez-vous aborder, êtes-vous enthousiaste à l'égard de la technologie et de l'automatisation et de trouver des solutions adaptées aux tâches techniques difficiles? Alors nous avons hâte de vous rencontrer. Vos tâches :\n• Identification et correction des défauts sur les lignes de montage et les installations d'usinage, en particulier sur les machines à cycle rotatif CNC\n• Effectuer le diagnostic initial et prendre les mesures immédiates appropriées pour rétablir la disponibilité des plantes\n• Transfert de perturbations complexes à des départements spécialisés internes et externes ainsi que coordination et suivi du traitement ultérieur\n• Effectuer des travaux d'entretien\n• Analyse des causes des perturbations et application durable des mesures appropriées\n• Documentation des défauts, causes et mesures prises dans le système de maintenance\n• Formation technique pour l'opérateur Votre profil :\n• Formation technique de base terminée, par exemple en tant qu'ingénieur automatique, ingénieur mécatronique, électricien d'usine ou dans un domaine d'expertise comparable\n• La formation continue au niveau HF en automatisation, génie électrique ou mécanique est avantageuse\n• Préparation au travail dans le modèle de quart avec des équipes de début, de fin et de nuit\n• Plusieurs années d'expérience dans l'entretien des installations de production\n• Bonne connaissance de l'entretien électrique et/ou mécanique\n• Expérience dans le dépannage systématique et le dépannage des systèmes électriques, pneumatiques et hydrauliques\n• Connaissance du portail d'avantage Siemens SINUMERIK et SIMATIC S7/TIA Nous offrons:\n• Six semaines de vacances et achat de vacances supplémentaires possible\n• Modèle de couche attrayante avec compensation correspondante\n• Des tâches variées dans un environnement techniquement exigeant\n• Installations modernes et possibilités de participer activement à leur développement\n• Vêtements de travail y compris les services de blanchisserie\n• Participation annuelle au succès\n• Restaurant du personnel aux prix attractifs"
       },
       "location": "Heerbrugg",
@@ -1777,7 +1823,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-im-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:21.420Z",
+      "crawledAt": "2026-09-29T21:29:47.871Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1796,10 +1842,9 @@
       "jobReqId": "3032",
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T09:26:21.420Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1812,76 +1857,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-29T09:26:21.420Z"
-    },
-    {
-      "id": "sfs-group-ef7c66ad83ea",
-      "slug": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-      "slugByLocale": {
-        "it": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "en": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "de": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "fr": "gestionnaire-du-marketing-branding-de-l-employeur-et-rh-h-f-d-80-sfs-group-heerbrugg"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
-      "titleByLocale": {
-        "it": "Marketing Manager. Impiegato Branding & HR (m/f/d) 80.",
-        "en": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
-        "de": "Marketing Manager–Employer Branding & Personalwesen (m/f/d) 80–",
-        "fr": "Gestionnaire du marketing – Branding de l'employeur et RH (h/f/d) 80–"
-      },
-      "description": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
-      "descriptionByLocale": {
-        "it": "Progettare il marchio Datori di lavoro di Domani Con noi, avete l'opportunità di formare attivamente un marchio di datore di lavoro internazionale, strategicamente, creativo e con un sacco di ambito creativo. Dall'uso del \"Golden\" diventiamo idee forti, da strategie campagne pertinenti e da diverse prospettive comunicazione che rimane bloccato. Se non si semplicemente implementare le cose, ma vogliono pensare qualcosa di nuovo e davvero spostare, dovremmo conoscere l'altro.\n\nI vostri compiti:\n• Sviluppo globale e implementazione della strategia di marketing per i Datori di lavoro e HR per tutti i marchi e i gruppi target pertinenti\n• Consulenza e supporto comunicativo per i dipartimenti HR e i soggetti interessati, nonché sviluppo di concetti, messaggi e idee guida creative\n• Pianificazione e implementazione di campagne di Datori di lavoro Branding globali e locali, nonché creazione e controllo dei contenuti per i canali digitali e interni\n• Pianificazione, priorità e coordinamento delle attività quotidiane e gestione della cooperazione con i team di entità interne,\n\nNET e Centri Assistenza e partner esterni\n• Assicurare una presenza costante in tutti i paesi e canali, nonché sviluppare soluzioni valide nella configurazione internazionale multi-brand\n• Definizione e valutazione dei KPI pertinenti, nonché creazione, controllo e rilascio di presentazioni Il tuo profilo:\n• Studi completati in marketing, comunicazione, produzione multimediale, marketing digitale o qualifiche comparabili.\n\nIn alternativa, HR Background con ulteriore sviluppo verso il marketing, il marchio dei dipendenti o il branding\n• esperienza in una funzione concettuale strategica, project management ed esperienza solida nel branding dei datori di lavoro, nel marketing delle risorse umane o in un ambiente comparabile\n• tedesco a livello di lingua madre e a livello di lingua inglese monosesso\n• capacità di sviluppare strategie, concetti e campagne e di presentarle e ancorarle in modo convincente in una comunità internazionale di risorse umane, di marchi o di marketing\n• Gestione sovrana di interessi e requisiti diversi nonché\n\nCapacità di sviluppare soluzioni sostenibili in un contesto internazionale multimarca\n• Forza di comunicazione, creatività, lavoro di squadra e iniziativa, nonché metodi di lavoro strutturati e gestione del tempo libero Offriamo:\n• Area di responsabilità e spazio per la proprietà e l'iniziativa\n• Fase di formazione chiaramente strutturata con programma di imbarco trasversale\n• Orario di lavoro flessibile e ufficio\n• Sei settimane di vacanze e acquisto di vacanze supplementari possibili\n• Partecipazione annuale al successo, numerosi eventi sportivi e di personale, ristorante del personale\n\ncon prezzi interessanti\n• Concetto di mobilità flessibile per il viaggio di lavoro",
-        "en": "Design the Employer Brand of Tomorrow With us, you have the opportunity to actively shape an international employer brand, strategically, creatively and with plenty of creative scope. From the use of the \"Golden\" we become strong ideas, from strategies relevant campaigns and from different perspectives communication that remains stuck. If you do not simply implement things, but want to think new and really move something, we should get to know each other.\n\nYour Tasks:\n• Global development and implementation of the Employer Branding and HR marketing strategy for all brands and relevant target groups\n• Consulting and communicative support for HR departments and relevant stakeholders as well as development of concepts, messages and creative guiding ideas\n• Planning and implementation of global and local Employer Branding campaigns as well as creation and control of content for digital and internal channels\n• Planning, prioritization and coordination of daily activities and management of cooperation with internal entity teams,\n\nNET and Service Centers and external partners\n• Ensure consistent presence across all countries and channels, as well as develop viable solutions in the international multi-brand setup\n• Definition and evaluation of relevant KPIs, as well as creation, control and release of presentations Your profile:\n• Completed studies in marketing, communication, multimedia production, digital marketing or comparable qualifications.\n\nAlternatively HR Background with further development towards marketing, employee branding or branding\n• experience in a strategic conceptual function, project management and sound experience in employer branding, HR marketing or a comparable environment\n• German at native language level and at the level of a single-sex English language\n• ability to develop strategies, concepts and campaigns and to present and anchor them convincingly in an international HR, brand or marketing community\n• Sovereign handling of different interests and requirements as well as\n\nAbility to develop sustainable solutions in an international multi-brand setup\n• Strength of communication, creativity, teamwork and initiative, as well as structured working methods and good time management We offer:\n• Varied area of responsibility and room for ownership and initiative\n• Clearly structured training phase with cross-departmental onboarding programme\n• Flexible working hours & home office\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success, numerous sports and employee events, staff restaurant\n\nwith attractive prices\n• Flexible mobility concept for your work journey",
-        "de": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
-        "fr": "Designer la marque patronale de demain Avec nous, vous avez l'occasion de façonner activement une marque patronale internationale, stratégiquement, de manière créative et avec beaucoup de créativité.L'utilisation de l'or nous devenons des idées fortes, des stratégies des campagnes pertinentes et de la communication de différentes perspectives qui reste bloquée. Si vous ne vous contentez pas de mettre en œuvre des choses, mais voulez penser nouveau et vraiment bouger quelque chose, nous devrions apprendre à nous connaître.\n\nVos tâches:\n• Développement et mise en œuvre à l'échelle mondiale de la stratégie de marketing de l'image de marque et des ressources humaines pour toutes les marques et groupes cibles concernés\n• Conseil et soutien communicatif aux services des ressources humaines et aux parties prenantes concernées ainsi que développement de concepts, de messages et d'idées créatives\n• Planification et mise en œuvre de campagnes de promotion de l'image de marque des employeurs aux niveaux mondial et local ainsi que création et contrôle de contenus pour les canaux numériques et internes\n• Planification, hiérarchisation et coordination des activités quotidiennes et gestion de la coopération avec les équipes internes,\n\nNET et les centres de services et partenaires externes\n• Assurer une présence cohérente dans tous les pays et canaux, ainsi que développer des solutions viables dans la configuration internationale multi-marques\n• Définition et évaluation des ICR pertinents, ainsi que la création, le contrôle et la diffusion des présentations Votre profil:\n• Études terminées dans le marketing, la communication, la production multimédia, le marketing numérique ou des qualifications comparables.\n\nAutre facteur de ressources humaines: développement ultérieur vers le marketing, l'image de marque ou l'image de marque des employés\n• expérience dans une fonction conceptuelle stratégique, gestion de projet et expérience solide dans l'image de marque des employeurs, le marketing des ressources humaines ou un environnement comparable\n• allemand au niveau de la langue maternelle et au niveau d'une langue anglaise monosexuelle\n• capacité à développer des stratégies, des concepts et des campagnes et à les présenter et à les ancrer de manière convaincante dans une communauté internationale des ressources humaines, de la marque ou du marketing\n• gestion souveraine des différents intérêts et exigences ainsi que\n\nCapacité de développer des solutions durables dans un cadre international multimarques\n• Force de communication, créativité, travail d'équipe et initiative, ainsi que méthodes de travail structurées et bonne gestion du temps Nous offrons:\n• domaine de responsabilité varié et espace de propriété et d'initiative\n• phase de formation clairement structurée avec programme interservices d'embarquement\n• horaires de travail flexibles et bureau à domicile\n• Six semaines de vacances et d'achats de vacances supplémentaires possibles\n• participation annuelle au succès, nombreux événements sportifs et d'employés, restaurant du personnel\n\n• Concept de mobilité flexible pour votre voyage de travail"
-      },
-      "location": "Heerbrugg",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/marketing-manager-–-employer-branding-hr-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:36.310Z",
-      "addressLocality": "Heerbrugg",
-      "addressRegion": "SG",
-      "streetAddress": "Rosenbergsaustrasse 8",
-      "postalCode": "9435",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3025/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "3025",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:44:36.484Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }

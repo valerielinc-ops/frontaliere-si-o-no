@@ -24,10 +24,12 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
+import { sourceSlotTitleAndSlug, dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isSwissLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, parseWorkdayCity, dropJuliusBaerFabricatedText } from './lib/julius-baer-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -161,6 +163,9 @@ async function fetchJuliusBaerJobs() {
     // Baer a … Ruolo: …") instead, and to key German postings as `en`.
     const { description, descriptionByLocale, sourceLang } = sourceLocaleDescription(descriptionText);
     const slug = slugify(title, 'julius-baer');
+    // Title and slug in the same source slot as the body (German postings are
+    // `de`), not under a fixed `en` title and an `en`/`it` slug.
+    const { titleByLocale, slugByLocale } = sourceSlotTitleAndSlug(title, slug, sourceLang);
 
     jobs.push({
       url: publicUrl, applyUrl: publicUrl, title, company: COMPANY_NAME, companyKey: COMPANY_KEY,
@@ -168,7 +173,7 @@ async function fetchJuliusBaerJobs() {
       addressLocality: city, addressRegion: inferredCanton, addressCountry: 'CH',
       postalCode, streetAddress,
       description, descriptionByLocale,
-      titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'julius-baer') },
+      titleByLocale, slug, slugByLocale,
       category: detectCategory(title), datePosted: info.startDate || new Date().toISOString().split('T')[0],
       source: 'julius-baer-workday-crawler', employmentType: detectEmploymentType(info.timeType || ''),
       sourceLang,
@@ -202,6 +207,9 @@ async function mergeJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  // The merge keeps every non-source slot it finds: drop the ones not written
+  // in their own language (an English body left under `it`) for retranslation.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -219,6 +227,18 @@ function updateAdapterConfig() {
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropJuliusBaerFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isJuliusBaerJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Julius Baer');
@@ -234,6 +254,7 @@ async function main() {
     const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isJuliusBaerJob)) : new Map();
     printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Julius Baer');
     writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Julius Baer');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

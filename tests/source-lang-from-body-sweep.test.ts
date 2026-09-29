@@ -186,7 +186,7 @@ describe('class guard — no title-only language detection left in the swept cra
   ])('%s reads the detail page and no longer writes an invented description', (file, invented) => {
     const source = read(file);
     expect(source).not.toMatch(invented);
-    expect(source).toMatch(/detectLang\(description(?: \|\| title)?, '(?:it|en)'\)/);
+    expect(source).toMatch(/(?:detectLang\(description(?: \|\| title)?, '(?:it|en)'\)|sourceLangOfBody\(description, '(?:it|en)'\))/);
     expect(source).toMatch(/if \(isInvokedDirectly\(import\.meta\.url\)\)/);
   });
 

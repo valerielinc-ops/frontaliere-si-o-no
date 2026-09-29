@@ -52,6 +52,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
   decodeEntities,
   detectHealthcareCategory,
@@ -60,7 +61,6 @@ import {
   fetchHtml,
   htmlToText,
 } from './hospital-custom-html-helpers.mjs';
-import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const DETAIL_DELAY_MS = 300;
 
@@ -503,6 +503,7 @@ export function createReflineParser(config) {
 
     const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
+    let withoutBody = 0;
 
     for (const listing of listings) {
       let detail = { title: '', description: '' };
@@ -522,11 +523,18 @@ export function createReflineParser(config) {
       const canton = hints.canton;
       const postalCode = hints.postal || defaultPostalCode;
 
-      // Only the posting's own text (issue 5253): a detail body under the
-      // common 50-word floor gives no description (the shared pipeline's
-      // thin-source path), instead of "<company> bietet eine sinnstiftende
-      // Tätigkeit…" and a benefit list written by the crawler.
-      const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
+      // Only the posting's own text is published (issue 5253): a detail page
+      // that could not be read, or whose body is under the shared 50-word
+      // floor (source-body-floor.mjs), used to go out as "{title} bei
+      // {company} in {workplace}." plus three generic benefits the ad never
+      // listed. Such a listing is not published any more.
+      const description = detail.description || '';
+      if (!meetsSourceBodyFloor(description)) {
+        console.log(`  ⏭️ no vacancy text on the detail page, not published: ${title.substring(0, 70)} (${listing.posId})`);
+        withoutBody += 1;
+        await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+        continue;
+      }
 
       const haystack = `${title} ${description}`;
       const sourceLang = detectLang(description || title, defaultSourceLang);
@@ -588,6 +596,9 @@ export function createReflineParser(config) {
       await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     }
 
+    if (withoutBody > 0) {
+      console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+    }
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
     return jobs;
   }

@@ -22,6 +22,8 @@ import {
   mergeLocaleTextMap,
   repairRelabeledSourceLocale,
 } from './dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './source-locale-slots.mjs';
+import { fetchHtml } from './crawler-template.mjs';
 
 const LISTING_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/';
 
@@ -165,47 +167,35 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
  * Fetch the listing page and extract all job URLs.
  */
 export async function parsePemsaListingPage(timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(LISTING_URL, {
-      signal: controller.signal,
+    const html = await fetchHtml(LISTING_URL, {
+      timeoutMs,
       headers: {
         Accept: 'text/html',
         'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const html = await res.text();
 
-    const urls = new Set();
+  const urls = new Set();
     const regex = /href="(https:\/\/www\.pemsa\.ch\/it\/job\/[^"]+)"/g;
-    let match;
-    while ((match = regex.exec(html)) !== null) {
-      urls.add(match[1].replace(/\/$/, '') + '/');
-    }
-    return [...urls];
-  } finally {
-    clearTimeout(timer);
+  let match;
+  while ((match = regex.exec(html)) !== null) {
+    urls.add(match[1].replace(/\/$/, '') + '/');
   }
+  return [...urls];
 }
 
 /**
  * Fetch a detail page and extract JSON-LD JobPosting data.
  */
 export async function parsePemsaDetailPage(url, timeoutMs = 15000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    const html = await fetchHtml(url, {
+      timeoutMs,
       headers: {
         Accept: 'text/html',
         'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) return null;
-    const html = await res.text();
 
     const ldBlocks = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g) || [];
     for (const block of ldBlocks) {
@@ -236,8 +226,6 @@ export async function parsePemsaDetailPage(url, timeoutMs = 15000) {
     return null;
   } catch {
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -292,15 +280,11 @@ export function buildPemsaLocalizedContent(job = {}) {
   }
 
   const sourceLang = detectLang(desc || title, 'it');
+  const slug = slugify(`${title} pemsa ${city}`);
   return {
     sourceLang,
-    titleByLocale: { [sourceLang]: title },
+    ...sourceSlotTitleAndSlug(title, slug, sourceLang),
     descriptionByLocale: desc ? { [sourceLang]: desc } : {},
-    // Slug key unchanged: the published PEMSA slugs live under `it`, and the
-    // runner merges slugs existing-wins, so no public URL moves.
-    slugByLocale: {
-      it: slugify(`${title} pemsa ${city}`),
-    },
   };
 }
 
@@ -386,5 +370,6 @@ export function mergePemsaJobRecord(prev, job) {
     }).map;
   }
   if (relabeled) merged.needsRetranslation = true;
+  dropStaleLocaleDescriptions(merged);
   return merged;
 }

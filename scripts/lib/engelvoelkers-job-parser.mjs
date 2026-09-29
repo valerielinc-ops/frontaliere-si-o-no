@@ -18,6 +18,7 @@ import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
+import { sourceLangOfBody, sourceSlotTitleAndSlug } from './source-locale-slots.mjs';
 
 const BASE_URL = 'https://www.engelvoelkers.com';
 const LISTING_PATH = '/ch/it/azienda/carriera/offerte-di-lavoro';
@@ -277,20 +278,20 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
  * posting (10/10 jobs) — and, without a body, an invented sentence ("… cerca
  * personale per la posizione …"). A body under the 50-word source floor gives
  * no description: the runner keeps the stored source text or leaves the job
- * out (issue 5253). Slugs keep their four-locale shape so no published URL
- * changes.
+ * out (issue 5253). Slugs are filed under the source slot; the
+ * locale-preserving merge keeps every slug already published under another
+ * key.
  */
 export function buildEngelvoelkersLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.location || '').replace(/,?\s*Switzerland$/i, '').trim();
   const description = String(job.description || '').trim();
-  const sourceLang = String(job.sourceLang || 'it');
+  const sourceLang = sourceLangOfBody(description, String(job.sourceLang || 'it'));
   const slug = slugify(`${title} engel-voelkers ${location}`);
   return {
     sourceLang,
-    titleByLocale: { [sourceLang]: title },
+    ...sourceSlotTitleAndSlug(title, slug, sourceLang),
     descriptionByLocale: meetsSourceBodyFloor(description) ? { [sourceLang]: description } : {},
-    slugByLocale: { it: slug, en: slug, de: slug, fr: slug },
   };
 }
 

@@ -8,6 +8,7 @@ import {
   stripSuccessFactorsMoreLocations,
 } from './successfactors-jobs2web-widget-guard.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 const HQ = getCompanyDefaults('damiani');
@@ -195,6 +196,7 @@ export function parseDamianiJobDetail(html = '') {
 }
 
 export function buildDamianiLocalizedContent(detail = {}) {
+  const descriptionSourceLang = sourceLangOfBody(detail.description, 'it');
   const sourceTitle = String(detail.title || '').trim();
   const location = String(detail.location || '').trim();
   const itTitle = localizeDamianiTitle(sourceTitle, 'it');
@@ -212,8 +214,12 @@ export function buildDamianiLocalizedContent(detail = {}) {
       de: slugify(`${titles.de} Damiani Group ${location}`),
       fr: slugify(`${titles.fr} Damiani Group ${location}`),
     },
+    // The body goes in the slot of the language it is written in, read
+    // from the body (Damiani publishes in Italian and English),
+    // not under a fixed `it` (#5253).
+    sourceLang: descriptionSourceLang,
     descriptionByLocale: {
-      it: detail.description || '',
+      [descriptionSourceLang]: detail.description || '',
     },
   };
 }

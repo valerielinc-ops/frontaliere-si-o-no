@@ -41,6 +41,7 @@
  *   6. Per-job canton via inferAnyCanton on the city slug (all 26 cantons);
  *      drop jobs whose canton does not resolve to a Swiss canton (non-CH)
  */
+import { decodeSitemapLoc } from './lib/sitemap-loc.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -361,7 +362,8 @@ function parseSitemapUrls(xml = '') {
   const locRe = /<loc>\s*(.*?)\s*<\/loc>/gi;
   let match;
   while ((match = locRe.exec(xml)) !== null) {
-    const url = match[1].replace(/&amp;/g, '&').trim();
+    // XML text: every predefined entity, not only `&amp;` (decodeSitemapLoc).
+    const url = decodeSitemapLoc(match[1]);
     if (url) urls.push(url);
   }
   return urls;
@@ -771,10 +773,10 @@ async function buildJobFromRecruitingApiEntry(entry) {
     // see keyPostDescriptionBySourceLocale().
     descriptionByLocale: description ? { [sourceLang]: description } : {},
     // The page title is in the page's language: keyed there, never forced
-    // into `it` (see keyPostTitleBySourceLocale). Slugs keep their `it` key.
+    // into `it` (see keyPostTitleBySourceLocale); the slug too.
     titleByLocale: sourceLang ? { [sourceLang]: title } : {},
     slug,
-    slugByLocale: { it: slug },
+    slugByLocale: sourceLang ? { [sourceLang]: slug } : {},
     sourceLang,
     department: category,
     category: category || 'servizi-finanziari',
@@ -924,7 +926,7 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
       descriptionByLocale: description ? { [sourceLang]: description } : {},
       titleByLocale: sourceLang ? { [sourceLang]: title } : {},
       slug,
-      slugByLocale: { it: slug },
+      slugByLocale: sourceLang ? { [sourceLang]: slug } : {},
       sourceLang,
       department: detail.industry || '',
       category: detail.industry || 'servizi-finanziari',
@@ -1124,9 +1126,11 @@ function runBaseCrawler() {
 // Post-processing
 // ──────────────────────────────────────────────────────────────
 
-function postProcessPostFinanceJobs() {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+export function postProcessPostFinanceJobs(jobsOverride = null) {
+  if (jobsOverride === null && !fs.existsSync(DATA_JOBS)) return;
+  const raw = jobsOverride === null
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : jobsOverride;
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
 
@@ -1162,9 +1166,13 @@ function postProcessPostFinanceJobs() {
       if (keyedTitles.needsRetranslation) job.needsRetranslation = true;
       fixed++;
     }
-    // Published slugs keep their `it` key (untouched by the title keying).
-    if (!job.slugByLocale || job.slugByLocale.it !== job.slug) {
-      job.slugByLocale = { ...(job.slugByLocale || {}), it: job.slug };
+    // The slug is filed under the source language like the body and the title
+    // (it used to be forced into `it`, whatever the vacancy's language). A key
+    // A source-language slug is never rewritten. If that slot is missing, add
+    // the existing raw slug there even when a legacy locale already holds it.
+    const slugKeys = job.slugByLocale || {};
+    if (job.slug && sourceLang && !slugKeys[sourceLang]) {
+      job.slugByLocale = { ...slugKeys, [sourceLang]: job.slug };
       fixed++;
     }
     if (!job.canton) {
@@ -1178,11 +1186,12 @@ function postProcessPostFinanceJobs() {
     }
   }
 
-  if (fixed > 0) {
+  if (fixed > 0 && jobsOverride === null) {
     writeJsonAtomic(DATA_JOBS, jobs);
     writeJsonAtomic(PUBLIC_JOBS, jobs);
     console.log(`🔧 Post-processed ${fixed} PostFinance jobs (fixed company/location/canton).`);
   }
+  return jobs;
 }
 
 // ──────────────────────────────────────────────────────────────

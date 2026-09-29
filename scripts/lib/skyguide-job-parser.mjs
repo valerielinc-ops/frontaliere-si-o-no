@@ -7,6 +7,7 @@ import {
   stripSuccessFactorsMoreLocations,
 } from './successfactors-jobs2web-widget-guard.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 function normalizeSpace(value = '') {
@@ -163,19 +164,23 @@ export function parseSkyguideJobDetail(html = '') {
   };
 }
 
+/**
+ * Source-locale fields of one Skyguide posting: the text in the slot of the
+ * language it is written in (read from the body, see source-locale-slots.mjs),
+ * not under a fixed `it` — Skyguide publishes in en/de/fr/it. The slug keeps
+ * its formula, so existing jobs keep the value they already publish.
+ */
 export function buildSkyguideLocalizedContent(detail = {}, companyName = 'Skyguide') {
   const title = String(detail.title || '').trim();
   const location = String(detail.location || '').trim() || 'Svizzera';
   const description = String(detail.description || '').trim();
+  const sourceLang = sourceLangOfBody(description, 'it');
+  const slug = slugify(`${title} ${companyName} ${location}`);
   return {
-    titleByLocale: {
-      it: title,
-    },
-    descriptionByLocale: {
-      it: description,
-    },
-    slugByLocale: {
-      it: slugify(`${title} ${companyName} ${location}`),
-    },
+    sourceLang,
+    slug,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: description },
+    slugByLocale: { [sourceLang]: slug },
   };
 }

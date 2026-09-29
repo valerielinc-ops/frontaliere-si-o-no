@@ -1,7 +1,7 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-09-29T09:34:51.399Z",
+  "generatedAt": "2026-09-29T21:37:01.181Z",
   "total": 1,
   "discovered": 13,
   "parsed": 1,
@@ -12,10 +12,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5050,
-  "avgDurationMs": 5050,
+  "durationMs": 4047,
+  "avgDurationMs": 4047,
   "durationHistory": [
-    5050
+    4047
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,8 +30,8 @@
       "canton": "ZH",
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "source": "Kudelski NAGRA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-29T09:34:44.625Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-29T21:36:56.529Z",
       "addressLocality": "Zurich, Switzerland (Hybrid, onsite with client)",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -47,13 +47,12 @@
       "featured": false,
       "postedDate": "2026-08-20",
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15828",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:09:21.794Z",
-      "_qualityScore": 73,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 3,
-        "translation": 25,
+        "richness": 20,
+        "translation": 15,
         "completeness": 20
       }
     }

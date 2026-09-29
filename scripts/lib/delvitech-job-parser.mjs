@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
 const HQ = getCompanyDefaults('delvitech');
@@ -168,21 +169,28 @@ export function inferDelvitechCategory(title = '', description = '') {
   return 'other';
 }
 
+/**
+ * Title, body and slug of a posting in the SOURCE slot only: the language the
+ * body is written in (English for today's postings), never a fixed `en` key.
+ * The other slots belong to the translation pipeline. The slug keeps its
+ * formula (title + company + location), so existing jobs keep the value they
+ * already publish.
+ *
+ * @param {{ title?: string, location?: string, description?: string }} detail
+ * @returns {{ sourceLang: string, slug: string, titleByLocale: object, descriptionByLocale: object, slugByLocale: object }}
+ */
 export function buildDelvitechLocalizedContent(detail = {}) {
   const sourceTitle = normalizeSpace(detail.title || '');
   const sourceDesc = String(detail.description || '').trim();
   const location = detail.location || 'Mendrisio';
   const baseSlug = slugify(`${sourceTitle} Delvitech ${location}`);
+  const sourceLang = sourceLangOfBody(sourceDesc, 'en');
   return {
-    titleByLocale: {
-      en: sourceTitle,
-    },
-    descriptionByLocale: {
-      en: sourceDesc,
-    },
-    slugByLocale: {
-      en: baseSlug,
-    },
+    sourceLang,
+    slug: baseSlug,
+    titleByLocale: { [sourceLang]: sourceTitle },
+    descriptionByLocale: { [sourceLang]: sourceDesc },
+    slugByLocale: { [sourceLang]: baseSlug },
   };
 }
 

@@ -16,13 +16,14 @@
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, ZAMBON_SWISS_SITE, extractZambonJobBody } from './lib/zambon-job-parser.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -56,12 +57,16 @@ function isCompanyJob(job) {
 function isTrustedDomain(rawUrl = '') { try { const h = new URL(rawUrl).hostname.toLowerCase(); return h.includes('zambon') || h.includes('ncoreplat.com'); } catch { return false; } }
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en,it-CH;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
+    return await fetchHtml(url, {
+      timeoutMs,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'en,it-CH;q=0.9',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+    });
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
 function isZambonSwissSiteLocation(rawLocation = '') {
@@ -87,8 +92,8 @@ export const ZAMBON_FABRICATED_DESCRIPTION_RE = /opportunità professionale pres
  */
 export function buildZambonJob({ id = '', url, title, datePosted = '', contract = '', department = '', seniority = '', source = 'zambon-ncoreplat-api' }, body = '') {
   const description = meetsSourceBodyFloor(body) ? String(body).trim() : '';
-  const sourceLang = detectLang(description || title, 'it');
   const slug = slugify(title, 'zambon');
+  const sourceLang = sourceLangOfBody(description, 'it');
   return {
     ...(id ? { id } : {}),
     url, applyUrl: url, title,
@@ -97,9 +102,9 @@ export function buildZambonJob({ id = '', url, title, datePosted = '', contract 
     addressLocality: ZAMBON_SWISS_SITE.city, addressRegion: ZAMBON_SWISS_SITE.canton, addressCountry: ZAMBON_SWISS_SITE.country,
     postalCode: ZAMBON_SWISS_SITE.postalCode, streetAddress: ZAMBON_SWISS_SITE.streetAddress,
     description,
-    titleByLocale: { [sourceLang]: title },
+    ...sourceSlotTitleAndSlug(title, slug, sourceLang),
     descriptionByLocale: description ? { [sourceLang]: description } : {},
-    slug, slugByLocale: { it: slug },
+    slug,
     category: detectCategory(title),
     datePosted: datePosted || new Date().toISOString().split('T')[0],
     source,
@@ -248,8 +253,16 @@ export function mergeZambonJobs(existingCompanyJobs = [], discoveredJobs = []) {
       console.log(`  ⏭️ ${job.title}: no source text — not published this run`);
       continue;
     }
-    const storedLang = detectLang(storedBody, old.sourceLang || 'it');
-    withBodies.push({ ...job, sourceLang: storedLang, description: storedBody, descriptionByLocale: { [storedLang]: storedBody } });
+    const storedLang = sourceLangOfBody(storedBody, old.sourceLang || 'it');
+    const sourceTitle = String(job.titleByLocale?.[job.sourceLang] || job.title || '').trim();
+    const sourceSlug = String(job.slugByLocale?.[job.sourceLang] || job.slug || '').trim();
+    withBodies.push({
+      ...job,
+      sourceLang: storedLang,
+      ...sourceSlotTitleAndSlug(sourceTitle, sourceSlug, storedLang),
+      description: storedBody,
+      descriptionByLocale: { [storedLang]: storedBody },
+    });
   }
   const keep = new Set(withBodies.map((job) => extractStableJobId(job?.url)));
   // Stored jobs whose only text was the runner's own description (now
@@ -268,6 +281,7 @@ export function mergeZambonJobs(existingCompanyJobs = [], discoveredJobs = []) {
       ? { [job.sourceLang]: byLocale[job.sourceLang] }
       : byLocale;
     if (changed) job.needsRetranslation = true;
+    dropStaleLocaleDescriptions(job);
     return job;
   });
 }

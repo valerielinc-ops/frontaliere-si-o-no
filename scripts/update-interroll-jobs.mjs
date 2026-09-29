@@ -9,7 +9,7 @@
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
@@ -17,6 +17,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseListingPage, isSwissLocation, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, extractInterrollJobBody } from './lib/interroll-job-parser.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -74,12 +75,16 @@ function isCompanyJob(job) {
 function isTrustedDomain(rawUrl = '') { try { return new URL(rawUrl).hostname.toLowerCase().includes('interroll.com'); } catch { return false; } }
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en,it-CH;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
+    return await fetchHtml(url, {
+      timeoutMs,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'en,it-CH;q=0.9',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+    });
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
 const DETAIL_DELAY_MS = 1000;
@@ -104,8 +109,9 @@ export function buildInterrollJob(raw, site, body = '') {
     addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
     postalCode: site.postalCode, streetAddress: site.streetAddress,
     description,
-    titleByLocale: { [sourceLang]: raw.title }, descriptionByLocale: { [sourceLang]: description },
-    slug, slugByLocale: { en: slug, it: slug },
+    ...sourceSlotTitleAndSlug(raw.title, slug, sourceLang),
+    descriptionByLocale: { [sourceLang]: description },
+    slug,
     category: detectCategory(raw.title),
     datePosted: new Date().toISOString().split('T')[0],
     source: 'interroll-careers-crawler', employmentType: inferEmploymentType(raw.title, description),
@@ -157,7 +163,10 @@ async function mergeJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs).map((job) => {
+    dropStaleLocaleDescriptions(job);
+    return job;
+  });
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

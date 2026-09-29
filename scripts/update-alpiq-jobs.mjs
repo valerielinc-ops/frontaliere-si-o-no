@@ -23,11 +23,14 @@ import {
   repairThinAlpiqLocaleDescriptions,
   dropAlpiqFabricatedText,
 } from './lib/alpiq-job-parser.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, normalizeSpace } from './lib/crawler-template.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { getCantonPostalFallback } from './lib/canton-postal-fallback.mjs';
+import { officialLocalityPostalCode } from './lib/swiss-locality-directory.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -41,57 +44,20 @@ const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Alpiq';
 
-/** Alpiq location → postal code map for known Swiss locations. */
-const ALPIQ_PLZ = {
-  airolo: '6780', biasca: '6710', locarno: '6600', bellinzona: '6500',
-  lugano: '6900', mendrisio: '6850', chiasso: '6830', rodi: '6772',
-  ritom: '6772', piotta: '6772', lausanne: '1003', zurich: '8001',
-  olten: '4600', bern: '3001', baden: '5400',
-};
-
 // When the source exposes only "Switzerland", use Alpiq Holding's registered
-// Lausanne office as the safe structured-data fallback. For a known canton
-// without a city-level PLZ, use that canton's seat PLZ rather than emitting an
-// incomplete JobPosting address.
+// Lausanne office as the safe structured-data fallback. A concrete source
+// locality uses the official directory and then the verified representative
+// postal code for its inferred canton.
 const ALPIQ_SAFE_DEFAULT_ADDRESS = {
   location: 'Lausanne',
   canton: 'VD',
   postalCode: '1003',
   streetAddress: 'Chemin de Mornex 10',
 };
-const CANTON_DEFAULT_PLZ = {
-  AG: '5000', AI: '9050', AR: '9100', BE: '3001', BL: '4410', BS: '4001',
-  FR: '1700', GE: '1201', GL: '8750', GR: '7000', JU: '2800', LU: '6003',
-  NE: '2000', NW: '6370', OW: '6060', SG: '9000', SH: '8200', SO: '4500',
-  SZ: '6430', TG: '8500', TI: '6500', UR: '6460', VD: '1003', VS: '1950',
-  ZG: '6300', ZH: '8001',
-};
-
-const SWISS_POSTAL_CODES_PATH = path.resolve(ROOT, 'data', 'swiss-postal-codes.json');
-const SWISS_POSTAL_CODES = fs.existsSync(SWISS_POSTAL_CODES_PATH)
-  ? JSON.parse(fs.readFileSync(SWISS_POSTAL_CODES_PATH, 'utf8'))
-  : {};
-
-function normalizePostalKey(value = '') {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim();
-}
-
-function resolveAlpiqPostalCode(location = '', canton = '') {
-  const key = normalizePostalKey(location);
-  if (ALPIQ_PLZ[key]) return ALPIQ_PLZ[key];
-
-  const sourceMatch = Object.entries(SWISS_POSTAL_CODES).find(
-    ([city]) => normalizePostalKey(city) === key,
-  );
-  if (sourceMatch?.[1]) return String(sourceMatch[1]);
-
-  return CANTON_DEFAULT_PLZ[String(canton || '').toUpperCase()]
+export function resolveAlpiqPostalCode(location = '', canton = '', sourcePostalCode = '') {
+  return normalizeSpace(sourcePostalCode)
+    || officialLocalityPostalCode(location, canton)
+    || getCantonPostalFallback(canton)
     || ALPIQ_SAFE_DEFAULT_ADDRESS.postalCode;
 }
 
@@ -161,19 +127,33 @@ async function main() {
     // company sentence that used to stand in for a missing description, and
     // the copy of a non-Italian description in the `it` slot, are gone.
     const { description: desc, descriptionByLocale, sourceLang } = sourceLocaleDescription(raw.description);
-    const sourceLocation = String(raw.location || '').trim();
+    const sourceLocation = normalizeSpace(raw.location || '');
+    const sourcePostalCode = normalizeSpace(
+      raw.postalCode || raw.zipCode || raw.zip || sourceLocation.match(/\b(\d{4})\b/)?.[1] || '',
+    );
+    const sourceStreetAddress = normalizeSpace(raw.streetAddress || raw.street || '');
     const hasConcreteLocation = Boolean(sourceLocation && !/^switzerland$/i.test(sourceLocation));
-    const location = hasConcreteLocation ? sourceLocation : ALPIQ_SAFE_DEFAULT_ADDRESS.location;
-    const canton = inferAnyCanton(sourceLocation) || ALPIQ_SAFE_DEFAULT_ADDRESS.canton;
+    const location = hasConcreteLocation
+      ? sourceLocation.replace(/^\d{4}\s+/u, '').trim()
+      : ALPIQ_SAFE_DEFAULT_ADDRESS.location;
+    const canton = inferAnyCanton(location) || ALPIQ_SAFE_DEFAULT_ADDRESS.canton;
     return {
-      id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug },
+      // Title, slug and requirements are keyed by the same source-language
+      // slot as the description (4 of 5 Alpiq postings are English), not a
+      // fixed `it` (#5253); the slug keeps its formula and existing jobs keep
+      // their published slugs through the merge.
+      id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { [sourceLang]: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'alpiq.com',
-      title: raw.title, titleByLocale: { it: raw.title },
-      description: desc, descriptionByLocale, requirements: [], requirementsByLocale: { it: [] },
+      title: raw.title, titleByLocale: { [sourceLang]: raw.title },
+      description: desc, descriptionByLocale, requirements: [], requirementsByLocale: { [sourceLang]: [] },
       location,
       canton,
-      postalCode: resolveAlpiqPostalCode(location, canton),
-      streetAddress: hasConcreteLocation ? '' : ALPIQ_SAFE_DEFAULT_ADDRESS.streetAddress,
+      postalCode: hasConcreteLocation
+        ? resolveAlpiqPostalCode(location, canton, sourcePostalCode)
+        : sourcePostalCode || ALPIQ_SAFE_DEFAULT_ADDRESS.postalCode,
+      streetAddress: hasConcreteLocation
+        ? sourceStreetAddress || location
+        : sourceStreetAddress || ALPIQ_SAFE_DEFAULT_ADDRESS.streetAddress,
       addressLocality: location,
       addressRegion: canton,
       addressCountry: 'CH',
@@ -203,4 +183,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Alpiq'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Alpiq'));
+}

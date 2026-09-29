@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-09-29T09:23:13.866Z",
+  "assembledAt": "2026-09-29T21:20:24.406Z",
   "jobs": [
     {
       "id": "company-7uc0r2",
@@ -90,7 +90,9 @@
       "addressLocality": "Bielstrasse 45 2543 Lengnau (Bern) Schweiz",
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
-      "postalCode": "2543"
+      "postalCode": "2543",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }

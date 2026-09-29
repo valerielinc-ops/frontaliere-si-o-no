@@ -2387,6 +2387,15 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'validita-lista-onu-svizzera': { it: 'validita-lista-onu-svizzera', en: 'un-sanctions-list-switzerland', de: 'uno-sanktionsliste-schweiz', fr: 'liste-sanctions-onu-suisse' },
  'centro-premi-salute-2027': { it: 'centro-premi-salute-2027', en: 'centre-health-premiums-2027', de: 'zentrum-krankenkassenpraemien-2027', fr: 'centre-primes-maladie-2027' },
  'premi-cassa-malati-ticino-rincaro-lettori': { it: 'premi-cassa-malati-ticino-rincaro-lettori', en: 'health-insurance-premiums-ticino-increase-readers', de: 'krankenkassenpraemien-tessin-erhoehung-leser', fr: 'primes-assurance-maladie-tessin-augmentation-lecteurs' },
+ 'soletta-successione-donazione-aliquote': { it: 'soletta-successione-donazione-aliquote', en: 'solothurn-inheritance-donation-rates', de: 'solothurn-erbschaft-schenkung-saetze', fr: 'soleure-heritage-donation-taux' },
+ 'sresi-prezzi-lugano-2026': { it: 'sresi-prezzi-lugano-2026', en: 'swiss-real-estate-confidence-lugano', de: 'immobilien-vertrauen-lugano-schweiz', fr: 'confiance-immobiliere-lugano-suisse' },
+ 'groupe-e-riorganizzazione-friburgo': { it: 'groupe-e-riorganizzazione-friburgo', en: 'groupe-e-restructuring-fribourg', de: 'groupe-e-umstrukturierung-freiburg', fr: 'groupe-e-reorganisation-fribourg' },
+ 'parlamento-sonno-power-nap': { it: 'parlamento-sonno-power-nap', en: 'parliament-sleep-power-nap', de: 'parlament-schlaf-power-nap', fr: 'parlement-sommeil-power-nap' },
+ 'progetto-ia-medicina-bellinzona': { it: 'progetto-ia-medicina-bellinzona', en: 'ai-medicine-project-bellinzona', de: 'ki-medizin-projekt-bellinzona', fr: 'projet-ia-medecine-bellinzona' },
+ 'dati-srf-dipendenti-rubati': { it: 'dati-srf-dipendenti-rubati', en: 'srf-hacker-attack-employee-data', de: 'srf-hackerangriff-mitarbeiterdaten', fr: 'attaque-hacker-srf-donnees-salaries' },
+ 'samedan-aeroporto-rinnovo-2025': { it: 'samedan-aeroporto-rinnovo-2025', en: 'samedan-airport-reneal', de: 'flughafen-samedan-wartet-auf-bundesgerichtsentscheidung', fr: 'la-renovation-de-l-aeroport-de-samedan-attend-la-decision-du-tribunal-federal' },
+ 'revisione-legge-materiale-bellico': { it: 'revisione-legge-materiale-bellico', en: 'revision-war-material-act', de: 'revision-kriegsmaterialgesetz', fr: 'revision-loi-materiel-de-guerre' },
+ 'revisione-legge-armi-votazione-novembre': { it: 'revisione-legge-armi-votazione-novembre', en: 'switzerland-weapons-exports-law-revision', de: 'schweiz-waffenexporte-gesetzesrevision', fr: 'suisse-loi-export-armes-revision' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

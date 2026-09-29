@@ -1,23 +1,98 @@
 {
   "key": "stadt-luzern",
   "label": "Stadt Luzern",
-  "generatedAt": "2026-09-29T09:26:30.836Z",
-  "total": 28,
+  "generatedAt": "2026-09-29T21:23:42.747Z",
+  "total": 30,
   "discovered": null,
-  "parsed": 28,
+  "parsed": 30,
   "lastFetchOutcome": null,
-  "written": 28,
+  "written": 30,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 2,
   "updatedCount": 28,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3799,
-  "avgDurationMs": 3799,
+  "durationMs": 13845,
+  "avgDurationMs": 13845,
   "durationHistory": [
-    3799
+    13845
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "stadt-luzern-3361643c6aa4",
+      "slug": "zivilstandsbeamtin-zivilstandsbeamter-90-100-stadt-luzern-luzern",
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Zivilstandsbeamtin / Zivilstandsbeamter (90-100 %)",
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamtin-zivilstandsbeamter/1d890002-2291-4379-a255-97880e1961bb",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T21:23:24.976Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6002",
+      "streetAddress": "Obergrundstrasse 1",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamtin-zivilstandsbeamter/1d890002-2291-4379-a255-97880e1961bb",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "stadt-luzern-6a256f999a64",
+      "slug": "stadtteilleitung-facility-management-bildungsbauten-80-100-stadt-luzern-luzern",
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Stadtteilleitung Facility Management Bildungsbauten (80-100 %)",
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/stadtteilleitung-facility-management-bildungsbauten/4198afed-9882-4df6-ade3-c247553a9f55",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T21:23:24.991Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Hirschengraben 17",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/stadtteilleitung-facility-management-bildungsbauten/4198afed-9882-4df6-ade3-c247553a9f55",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "stadt-luzern-48ab344bb700",
@@ -32,7 +107,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/teamleiter-in-stationaere-jugendwohngruppe/c7b37b4f-1ec5-46ee-aad6-ee7e3ff05d6a",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.022Z",
+      "crawledAt": "2026-09-29T21:23:24.993Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -49,11 +124,11 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/teamleiter-in-stationaere-jugendwohngruppe/c7b37b4f-1ec5-46ee-aad6-ee7e3ff05d6a",
       "firstSeenAt": "2026-09-28T21:21:16.505Z",
-      "_qualityScore": 85,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 20,
+        "richness": 22,
+        "translation": 10,
         "completeness": 20
       }
     },
@@ -70,7 +145,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachperson-fuer-die-planungs-und-baukoordination-sowie-baubewilligungen/73cfd7e9-e619-4902-a455-ff06ee319347",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.037Z",
+      "crawledAt": "2026-09-29T21:23:24.996Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -87,11 +162,11 @@
       "postedDate": "2026-09-24",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachperson-fuer-die-planungs-und-baukoordination-sowie-baubewilligungen/73cfd7e9-e619-4902-a455-ff06ee319347",
       "firstSeenAt": "2026-09-25T14:49:33.157Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -108,7 +183,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-schuelerwohngruppe/ee0c03cf-0357-4614-81cd-6ceed896148d",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.039Z",
+      "crawledAt": "2026-09-29T21:23:24.997Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -125,11 +200,11 @@
       "postedDate": "2026-09-24",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-schuelerwohngruppe/ee0c03cf-0357-4614-81cd-6ceed896148d",
       "firstSeenAt": "2026-09-25T14:49:33.168Z",
-      "_qualityScore": 85,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 20,
+        "richness": 22,
+        "translation": 10,
         "completeness": 20
       }
     },
@@ -146,7 +221,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sachbearbeiter-in-ahv-zweigstelle/ba66fb62-0bfd-4c43-82db-10f6459cf08c",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.041Z",
+      "crawledAt": "2026-09-29T21:23:25.000Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -163,10 +238,10 @@
       "postedDate": "2026-09-24",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sachbearbeiter-in-ahv-zweigstelle/ba66fb62-0bfd-4c43-82db-10f6459cf08c",
       "firstSeenAt": "2026-09-25T14:49:33.169Z",
-      "_qualityScore": 85,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 20,
         "completeness": 20
       }
@@ -184,7 +259,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-fuer-teilbetreutes-wohnen/2f41a477-4f45-46e4-9778-8876321b782b",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.043Z",
+      "crawledAt": "2026-09-29T21:23:25.001Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -201,11 +276,11 @@
       "postedDate": "2026-09-24",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-fuer-teilbetreutes-wohnen/2f41a477-4f45-46e4-9778-8876321b782b",
       "firstSeenAt": "2026-09-25T14:49:33.170Z",
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
+        "richness": 22,
+        "translation": 13,
         "completeness": 20
       }
     },
@@ -222,7 +297,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/j+s-leiter-innen-fuer-schneesportlager/e50a316a-23f2-4eba-a903-9849901baef6",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.045Z",
+      "crawledAt": "2026-09-29T21:23:25.002Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -239,10 +314,10 @@
       "postedDate": "2026-09-21",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/j+s-leiter-innen-fuer-schneesportlager/e50a316a-23f2-4eba-a903-9849901baef6",
       "firstSeenAt": "2026-09-23T23:42:47.784Z",
-      "_qualityScore": 85,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -260,7 +335,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-uni-kindheitspaedagog-in-hf-fachperson-betreuung-zirk-sbe-grenzhof-roennimoos/08a200e0-7b3a-4929-afc9-cce1ec2dd342",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.048Z",
+      "crawledAt": "2026-09-29T21:23:25.004Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -277,10 +352,10 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-uni-kindheitspaedagog-in-hf-fachperson-betreuung-zirk-sbe-grenzhof-roennimoos/08a200e0-7b3a-4929-afc9-cce1ec2dd342",
       "firstSeenAt": "2026-09-19T23:08:50.425Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -298,7 +373,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/mitarbeiter-in-kundendienst-steueramt/45c7a98d-d1be-4d7d-b298-2c12f17df297",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.050Z",
+      "crawledAt": "2026-09-29T21:23:25.006Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -315,10 +390,10 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/mitarbeiter-in-kundendienst-steueramt/45c7a98d-d1be-4d7d-b298-2c12f17df297",
       "firstSeenAt": "2026-09-19T23:08:50.431Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -336,7 +411,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/co-leitung-fachstelle-fuer-die-gleichstellung-von-menschen-mit-behinderungen/d2a0f9db-30ed-4d95-92d2-b802596f4527",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.052Z",
+      "crawledAt": "2026-09-29T21:23:25.008Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -353,11 +428,11 @@
       "postedDate": "2026-09-17",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/co-leitung-fachstelle-fuer-die-gleichstellung-von-menschen-mit-behinderungen/d2a0f9db-30ed-4d95-92d2-b802596f4527",
       "firstSeenAt": "2026-09-19T23:08:50.435Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -374,7 +449,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-schueler-innen-wohngruppe-kju/370a1a80-e9ac-4d2e-83c6-5bde12fa82c1",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.055Z",
+      "crawledAt": "2026-09-29T21:23:25.009Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -391,11 +466,11 @@
       "postedDate": "2026-09-17",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-schueler-innen-wohngruppe-kju/370a1a80-e9ac-4d2e-83c6-5bde12fa82c1",
       "firstSeenAt": "2026-09-19T23:08:50.437Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -412,7 +487,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/spetter-in-chauffeur-in-kat-c/ee508d84-7ed2-4811-87bd-c0b4da558444",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.058Z",
+      "crawledAt": "2026-09-29T21:23:25.012Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -429,11 +504,11 @@
       "postedDate": "2026-09-17",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/spetter-in-chauffeur-in-kat-c/ee508d84-7ed2-4811-87bd-c0b4da558444",
       "firstSeenAt": "2026-09-19T23:08:50.439Z",
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
+        "richness": 22,
+        "translation": 13,
         "completeness": 20
       }
     },
@@ -450,7 +525,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/mitarbeiter-in-verpflegung-zirka-betreuung-st-karli/aa44d45b-f27c-4bfd-b79c-4816e217622e",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.060Z",
+      "crawledAt": "2026-09-29T21:23:25.013Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -467,11 +542,11 @@
       "postedDate": "2026-09-16",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/mitarbeiter-in-verpflegung-zirka-betreuung-st-karli/aa44d45b-f27c-4bfd-b79c-4816e217622e",
       "firstSeenAt": "2026-09-19T23:08:50.441Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -488,7 +563,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/rektor-in-volksschule-luzern/1c993f13-71d9-4b65-923c-115199229c4e",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.063Z",
+      "crawledAt": "2026-09-29T21:23:25.015Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -505,11 +580,11 @@
       "postedDate": "2026-09-15",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/rektor-in-volksschule-luzern/1c993f13-71d9-4b65-923c-115199229c4e",
       "firstSeenAt": "2026-09-19T23:08:50.443Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -526,7 +601,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/mitarbeiter-in-betrieb-und-logistik-stadtbibliothek/584daed4-5039-4eab-b9a4-af9f0144c32f",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.064Z",
+      "crawledAt": "2026-09-29T21:23:25.016Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -543,11 +618,11 @@
       "postedDate": "2026-09-10",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/mitarbeiter-in-betrieb-und-logistik-stadtbibliothek/584daed4-5039-4eab-b9a4-af9f0144c32f",
       "firstSeenAt": "2026-09-10T23:24:11.165Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -564,7 +639,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/aushilfe-als-sozialpaedagogische-r-mitarbeiter-in-ueber-mittag-und-tagesbetreuung-betreuung-saeli-steinhof/ece87e0c-c1a5-4f27-8d20-3f3a3ddae062",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.066Z",
+      "crawledAt": "2026-09-29T21:23:25.017Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -581,10 +656,10 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/aushilfe-als-sozialpaedagogische-r-mitarbeiter-in-ueber-mittag-und-tagesbetreuung-betreuung-saeli-steinhof/ece87e0c-c1a5-4f27-8d20-3f3a3ddae062",
       "firstSeenAt": "2026-09-08T13:57:26.209Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -602,7 +677,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-zirka-betreuung-saeli-steinhof/716916c5-24fc-4d9a-8d37-6ff7d852c4bc",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.067Z",
+      "crawledAt": "2026-09-29T21:23:25.019Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -619,10 +694,10 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-zirka-betreuung-saeli-steinhof/716916c5-24fc-4d9a-8d37-6ff7d852c4bc",
       "firstSeenAt": "2026-09-08T23:41:29.307Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -640,7 +715,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/motorgeraete-landmaschinen-baumaschinenmechaniker-in/a2bdbb6b-489f-47de-8c06-eef5992aa1e1",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.069Z",
+      "crawledAt": "2026-09-29T21:23:25.020Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -657,10 +732,10 @@
       "postedDate": "2026-09-02",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/motorgeraete-landmaschinen-baumaschinenmechaniker-in/a2bdbb6b-489f-47de-8c06-eef5992aa1e1",
       "firstSeenAt": "2026-09-02T13:53:34.582Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -678,7 +753,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikant-in-schulergaenzende-betreuung-zirka/2f4ebb32-5883-4294-a03c-71b526234e67",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.071Z",
+      "crawledAt": "2026-09-29T21:23:25.021Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -695,10 +770,10 @@
       "postedDate": "2026-09-02",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikant-in-schulergaenzende-betreuung-zirka/2f4ebb32-5883-4294-a03c-71b526234e67",
       "firstSeenAt": "2026-09-02T13:53:34.588Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -716,7 +791,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-kindheitspaedagog-in-hf-fachperson-betreuung-zirka-betreuung-st-karli/98469e22-b903-49d5-a09e-91b18c6587c9",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.073Z",
+      "crawledAt": "2026-09-29T21:23:25.023Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -733,10 +808,10 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-kindheitspaedagog-in-hf-fachperson-betreuung-zirka-betreuung-st-karli/98469e22-b903-49d5-a09e-91b18c6587c9",
       "firstSeenAt": "2026-09-01T14:26:43.005Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -754,7 +829,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/berufsbeistandsperson-kinder-und-jugendschutz/e8031468-89ff-465c-b73f-eea30c83fa61",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.075Z",
+      "crawledAt": "2026-09-29T21:23:25.025Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -771,11 +846,11 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/berufsbeistandsperson-kinder-und-jugendschutz/e8031468-89ff-465c-b73f-eea30c83fa61",
       "firstSeenAt": "2026-08-31T17:27:00.951Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -792,7 +867,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikant-in-kinder-jugend-familie-kinder-und-jugendhilfe/d248ab35-4ede-42c2-8a10-b331c62652ad",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.077Z",
+      "crawledAt": "2026-09-29T21:23:25.031Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -809,11 +884,11 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikant-in-kinder-jugend-familie-kinder-und-jugendhilfe/d248ab35-4ede-42c2-8a10-b331c62652ad",
       "firstSeenAt": "2026-08-24T10:38:47.516Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -830,7 +905,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikant-in-betreibungsamt/3c7bf5a8-102a-44f2-bc64-a4b0827344f8",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.079Z",
+      "crawledAt": "2026-09-29T21:23:25.033Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -847,10 +922,10 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikant-in-betreibungsamt/3c7bf5a8-102a-44f2-bc64-a4b0827344f8",
       "firstSeenAt": "2026-08-24T10:38:47.520Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -868,7 +943,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikant-in-kinder-jugend-familie/96b78c35-feda-4a3b-9f08-e87b8d166636",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.081Z",
+      "crawledAt": "2026-09-29T21:23:25.034Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -885,11 +960,11 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikant-in-kinder-jugend-familie/96b78c35-feda-4a3b-9f08-e87b8d166636",
       "firstSeenAt": "2026-08-24T10:38:47.524Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -906,7 +981,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-gaertner-in-eba-fachrichtung-garten-und-landschaftsbau/4873df83-63d1-4f37-8c83-0599cbd58336",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.082Z",
+      "crawledAt": "2026-09-29T21:23:25.035Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -923,11 +998,11 @@
       "postedDate": "2026-07-31",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-gaertner-in-eba-fachrichtung-garten-und-landschaftsbau/4873df83-63d1-4f37-8c83-0599cbd58336",
       "firstSeenAt": "2026-07-31T22:26:03.491Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -944,7 +1019,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatiker-in-efz-geomatiktechniker-in-eidg-fa/7e75d21e-7d3f-4f00-8fcb-71ebb603f5ac",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.084Z",
+      "crawledAt": "2026-09-29T21:23:25.036Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -961,11 +1036,11 @@
       "postedDate": "2026-07-23",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatiker-in-efz-geomatiktechniker-in-eidg-fa/7e75d21e-7d3f-4f00-8fcb-71ebb603f5ac",
       "firstSeenAt": "2026-07-23T12:23:46.579Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -982,7 +1057,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachspezialist-in-baugesuche/aeb15b73-2ce9-42f3-8d73-d97b6d2467a4",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.085Z",
+      "crawledAt": "2026-09-29T21:23:25.038Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -999,11 +1074,11 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachspezialist-in-baugesuche/aeb15b73-2ce9-42f3-8d73-d97b6d2467a4",
       "firstSeenAt": "2026-07-09T12:46:55.660Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -1020,7 +1095,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachspezialist-in-baukontrolle-vollzug/0d498076-521d-43a4-9304-2a9168f41507",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.087Z",
+      "crawledAt": "2026-09-29T21:23:25.039Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1037,10 +1112,10 @@
       "postedDate": "2026-07-06",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachspezialist-in-baukontrolle-vollzug/0d498076-521d-43a4-9304-2a9168f41507",
       "firstSeenAt": "2026-07-06T15:48:54.339Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -1058,7 +1133,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa/eab851b2-2bc7-4d4e-8ca2-827b952bdeb3",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:26:22.089Z",
+      "crawledAt": "2026-09-29T21:23:25.040Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1075,11 +1150,11 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa/eab851b2-2bc7-4d4e-8ca2-827b952bdeb3",
       "firstSeenAt": "2026-07-04T12:19:10.037Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     }

@@ -12293,6 +12293,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.premi-lamal-ticino-de-rosa.title': 'Ticino LAMal premiums 2027: increase to 3,7% and 519,90 francs',
     'blog.article.premi-lamal-ticino-de-rosa.excerpt': 'In 2027, the increase in premiums in Ticino will be 3,7%, with 519,90 francs per month. DSS Director Raffaele De Rosa comments on the measures and healthcare spending.',
     'blog.article.premi-lamal-ticino-de-rosa.imageAlt': 'View of Bellinzona with medieval castles',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.title': 'Varese-Ticino agreement: S40/S50 every 30 min and RE50 to Malpensa',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.excerpt': 'The Regional Council has ratified the agreement: S40 and S50 every 30 min between Varese and Mendrisio. The RE50 for Malpensa and Lugano is planned.',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.imageAlt': 'Mendrisio station: new S40/S50 connection every 30 minutes to Varese and Malpensa',
 };
 
 export default blogMetaEn;

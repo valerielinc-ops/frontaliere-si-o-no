@@ -396,7 +396,7 @@ describe('buildAldiJobRecord', () => {
         address: 'Via Stazione 1',
         workload: '100%',
       },
-      parsed: { body: 'Responsabilità e requisiti.', requirements: ['Esperienza'] },
+      parsed: { body: 'Responsabilità e requisiti. ' + 'Gestisci la filiale, guidi il team e curi la presentazione della merce con attenzione al cliente. '.repeat(4), requirements: ['Esperienza'] },
       now: new Date('2026-09-22T00:00:00.000Z'),
     });
 
@@ -446,6 +446,14 @@ describe('buildAldiJobRecord — no invented text', () => {
     expect(job).toBeNull();
   });
 
+  it('returns null for a body under the shared 50-word floor', () => {
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/3', title: 'Mitarbeiter Verkauf (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed: { body: 'Aufgaben\n• Mitarbeit in der Filiale' },
+    });
+    expect(job).toBeNull();
+  });
+
   it('does not cut a long body', () => {
     const body = `Aufgaben\n${'• Mitarbeit in der Filiale\n'.repeat(400)}`;
     const job = buildAldiJobRecord({
@@ -453,5 +461,26 @@ describe('buildAldiJobRecord — no invented text', () => {
       parsed: { body },
     });
     expect(job.description.length).toBe(body.length);
+  });
+});
+
+// ── #5253: every field keyed by the language the ad is written in ─────────
+describe('buildAldiJobRecord — source-language slots', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'aldi-suisse-typo3-detail-sempach.html'),
+    'utf8',
+  );
+
+  it('files the German posting under de, not under a fixed it', () => {
+    const parsed = parseAldiDetailPage(fixture);
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/1389180133', title: 'Filialleiter/in Stv. (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed,
+    });
+    expect(job.sourceLang).toBe('de');
+    expect(job.descriptionByLocale).toEqual({ de: parsed.body });
+    expect(Object.keys(job.titleByLocale)).toEqual(['de']);
+    expect(job.slugByLocale).toEqual({ de: job.slug });
+    expect(Object.keys(job.requirementsByLocale)).toEqual(['de']);
   });
 });

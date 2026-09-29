@@ -6,6 +6,7 @@ import {
   fetchAllKlinikSeeschauJobs,
   isKlinikSeeschauJob,
   isTrustedDomain,
+  klinikSeeschauMatchKey,
   KLINIK_SEESCHAU_KEY,
   KLINIK_SEESCHAU_COMPANY_NAME,
 } from './lib/klinik-seeschau-job-parser.mjs';
@@ -18,6 +19,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllKlinikSeeschauJobs,
   isCompanyJob: isKlinikSeeschauJob,
   isTrustedDomain,
+  matchKey: klinikSeeschauMatchKey,
   defaultSourceLang: 'de',
 }).catch((err) => {
   console.error(`❌ Klinik Seeschau crawler failed: ${err?.message || err}`);

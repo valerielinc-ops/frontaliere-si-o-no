@@ -30,6 +30,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import { parseEfgOracleDescription } from './lib/efg-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { isTargetCanton } from './lib/crawler-location-config.mjs';
@@ -527,6 +528,9 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
     const rawDesc = descriptions.get(String(req.Id)) || req.ShortDescriptionStr || '';
     const parsedContent = parseEfgOracleDescription(rawDesc);
     const description = parsedContent.description || cleanEfgDescription(rawDesc);
+    // Every locale-keyed field follows the language the ad is written in
+    // (read from the body), not a fixed `en` (#5253).
+    const srcLang = sourceLangOfBody(description || req.ShortDescriptionStr || '', 'en');
     const title = String(req.Title || '').trim();
     if (!title) continue;
 
@@ -563,13 +567,13 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       url,
       applyUrl: buildEfgApplicationUrl(),
       source: 'Oracle HCM API',
-      sourceLang: detectLang(description || title),
+      sourceLang: srcLang,
       companyKey: EFG_KEY,
       companyDomain: EFG_OFFICIAL_HOST,
-      titleByLocale: { en: title },
-      descriptionByLocale: description ? { en: description } : {},
-      requirementsByLocale: parsedContent.requirements?.length ? { en: parsedContent.requirements } : {},
-      canonicalContent: parsedContent.canonical ? { byLocale: { en: parsedContent.canonical } } : undefined,
+      titleByLocale: { [srcLang]: title },
+      descriptionByLocale: description ? { [srcLang]: description } : {},
+      requirementsByLocale: parsedContent.requirements?.length ? { [srcLang]: parsedContent.requirements } : {},
+      canonicalContent: parsedContent.canonical ? { byLocale: { [srcLang]: parsedContent.canonical } } : undefined,
       crawledAt: new Date().toISOString(),
       slugByLocale: {},
       addressLocality: city || '',
@@ -600,28 +604,30 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       existing.contract = jobEntry.contract || existing.contract;
       existing.postedDate = jobEntry.postedDate || existing.postedDate;
       existing.crawledAt = jobEntry.crawledAt;
+      existing.sourceLang = srcLang;
       existing.titleByLocale = {
         ...(existing.titleByLocale || {}),
-        en: title,
+        [srcLang]: title,
       };
       if (jobEntry.description) {
         existing.descriptionByLocale = {
           ...(existing.descriptionByLocale || {}),
-          en: jobEntry.description,
+          [srcLang]: jobEntry.description,
         };
       }
+      dropStaleLocaleDescriptions(existing);
       if (Array.isArray(jobEntry.requirements) && jobEntry.requirements.length > 0) {
         existing.requirementsByLocale = {
           ...(existing.requirementsByLocale || {}),
-          en: jobEntry.requirements,
+          [srcLang]: jobEntry.requirements,
         };
       }
-      if (jobEntry.canonicalContent?.byLocale?.en) {
+      if (jobEntry.canonicalContent?.byLocale?.[srcLang]) {
         existing.canonicalContent = {
           ...(existing.canonicalContent || {}),
           byLocale: {
             ...((existing.canonicalContent && existing.canonicalContent.byLocale) || {}),
-            en: jobEntry.canonicalContent.byLocale.en,
+            [srcLang]: jobEntry.canonicalContent.byLocale[srcLang],
           },
         };
       }

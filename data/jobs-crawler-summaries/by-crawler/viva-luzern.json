@@ -1,23 +1,60 @@
 {
   "key": "viva-luzern",
   "label": "Viva Luzern",
-  "generatedAt": "2026-09-29T09:20:09.271Z",
-  "total": 23,
+  "generatedAt": "2026-09-29T21:17:51.510Z",
+  "total": 24,
   "discovered": null,
-  "parsed": 22,
+  "parsed": 23,
   "lastFetchOutcome": null,
-  "written": 23,
+  "written": 24,
   "authoritativeEmptySnapshot": false,
-  "newCount": 3,
+  "newCount": 4,
   "updatedCount": 19,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6598,
-  "avgDurationMs": 6598,
+  "durationMs": 28418,
+  "avgDurationMs": 28418,
   "durationHistory": [
-    6598
+    28418
   ],
   "newJobs": [
+    {
+      "id": "viva-luzern-1f27b35086d1",
+      "slug": "mitarbeiter-in-wohnbereichsgastronomie-im-abendservice-viva-luzern-luzern",
+      "company": "Viva Luzern",
+      "companyKey": "viva-luzern",
+      "companyDomain": "viva-luzern.ch",
+      "title": "Mitarbeiter/-in Wohnbereichsgastronomie im Abendservice",
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-wohnbereichsgastronomie-im-abendservice/62868e15-4bc9-4a9d-bd54-0b9083540e27",
+      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T21:17:18.290Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6015",
+      "streetAddress": "Staffelnhofstrasse 60",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-wohnbereichsgastronomie-im-abendservice/62868e15-4bc9-4a9d-bd54-0b9083540e27",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 20
+      }
+    },
     {
       "id": "viva-luzern-f45f34fec097",
       "slug": "pflegefachfrau-mann-hf-viva-luzern-luzern",
@@ -31,7 +68,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/65d772c5-cd0f-4a72-a422-6cbb949de951",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.264Z",
+      "crawledAt": "2026-09-29T21:17:18.318Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -47,10 +84,10 @@
       "featured": false,
       "postedDate": "2026-09-25",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/65d772c5-cd0f-4a72-a422-6cbb949de951",
-      "_qualityScore": 69,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -68,7 +105,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/3329bce2-ce82-4fbc-a21f-2e9461eced23",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.266Z",
+      "crawledAt": "2026-09-29T21:17:18.323Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -84,10 +121,10 @@
       "featured": false,
       "postedDate": "2026-09-17",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/3329bce2-ce82-4fbc-a21f-2e9461eced23",
-      "_qualityScore": 69,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -105,7 +142,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/fa5a412d-0c73-4ad8-abb9-5244f8eebc7b",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.280Z",
+      "crawledAt": "2026-09-29T21:17:18.349Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -121,10 +158,10 @@
       "featured": false,
       "postedDate": "2026-09-02",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/fa5a412d-0c73-4ad8-abb9-5244f8eebc7b",
-      "_qualityScore": 69,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -138,13 +175,13 @@
       "companyKey": "viva-luzern",
       "companyDomain": "viva-luzern.ch",
       "title": "Köchin / Koch",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/koechin-koch/801ef47f-7193-477c-ba0c-38bd7c0cae1d",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.254Z",
+      "crawledAt": "2026-09-29T21:17:18.315Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -160,10 +197,10 @@
       "featured": false,
       "postedDate": "2026-09-25",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/koechin-koch/801ef47f-7193-477c-ba0c-38bd7c0cae1d",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -181,7 +218,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz/e190e5d0-e970-4a27-92e4-c8a53f587b03",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.265Z",
+      "crawledAt": "2026-09-29T21:17:18.321Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -197,10 +234,10 @@
       "featured": false,
       "postedDate": "2026-09-24",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz/e190e5d0-e970-4a27-92e4-c8a53f587b03",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -218,7 +255,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-pflege/28359277-7f1b-49c3-8572-694ea25e16fd",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.268Z",
+      "crawledAt": "2026-09-29T21:17:18.325Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -235,11 +272,11 @@
       "postedDate": "2026-09-14",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-pflege/28359277-7f1b-49c3-8572-694ea25e16fd",
       "firstSeenAt": "2026-09-16T09:21:18.587Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -256,7 +293,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/aufnahmeverantwortliche-r/8d474404-5306-4e6b-a842-9dbff53d0ec3",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.269Z",
+      "crawledAt": "2026-09-29T21:17:18.328Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -273,10 +310,10 @@
       "postedDate": "2026-09-14",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/aufnahmeverantwortliche-r/8d474404-5306-4e6b-a842-9dbff53d0ec3",
       "firstSeenAt": "2026-09-14T16:01:47.331Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -294,7 +331,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-palliative-care/78c1f742-8405-4637-8b09-24f62e33ee5d",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.271Z",
+      "crawledAt": "2026-09-29T21:17:18.330Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -311,11 +348,11 @@
       "postedDate": "2026-09-14",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-palliative-care/78c1f742-8405-4637-8b09-24f62e33ee5d",
       "firstSeenAt": "2026-09-14T16:01:47.366Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -332,7 +369,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/913e4859-1c5d-4545-ace6-4e596a948f0e",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.273Z",
+      "crawledAt": "2026-09-29T21:17:18.333Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -349,11 +386,11 @@
       "postedDate": "2026-09-14",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/913e4859-1c5d-4545-ace6-4e596a948f0e",
       "firstSeenAt": "2026-09-14T16:01:47.374Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -370,7 +407,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-kueche/a4916bcb-a9f3-4538-828c-dea51b7bcbc7",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.275Z",
+      "crawledAt": "2026-09-29T21:17:18.335Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -387,11 +424,11 @@
       "postedDate": "2026-09-07",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-kueche/a4916bcb-a9f3-4538-828c-dea51b7bcbc7",
       "firstSeenAt": "2026-09-07T23:30:56.000Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -408,7 +445,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pharma-assistent-in/67d205e3-29d6-4231-b170-955873c0d476",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.277Z",
+      "crawledAt": "2026-09-29T21:17:18.339Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -425,11 +462,11 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/pharma-assistent-in/67d205e3-29d6-4231-b170-955873c0d476",
       "firstSeenAt": "2026-09-03T13:34:29.116Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -446,7 +483,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleitung-nacht-betreuung-und-pflege/f6cf51cf-3352-4ed9-ad4f-e53831f95338",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.282Z",
+      "crawledAt": "2026-09-29T21:17:18.351Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -463,11 +500,11 @@
       "postedDate": "2026-08-11",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/teamleitung-nacht-betreuung-und-pflege/f6cf51cf-3352-4ed9-ad4f-e53831f95338",
       "firstSeenAt": "2026-08-11T22:11:10.817Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -484,7 +521,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-fuer-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung/b56e0936-9a9e-485d-8d35-cd286dd309a9",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.285Z",
+      "crawledAt": "2026-09-29T21:17:18.354Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -501,10 +538,10 @@
       "postedDate": "2026-07-30",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-fuer-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung/b56e0936-9a9e-485d-8d35-cd286dd309a9",
       "firstSeenAt": "2026-07-30T11:16:53.007Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -522,7 +559,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fuer-die-demenz-wohngruppe/ccbfa5c2-4beb-43d0-8b7f-f12e5f5c5fd5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.287Z",
+      "crawledAt": "2026-09-29T21:17:18.356Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -539,11 +576,11 @@
       "postedDate": "2026-07-21",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fuer-die-demenz-wohngruppe/ccbfa5c2-4beb-43d0-8b7f-f12e5f5c5fd5",
       "firstSeenAt": "2026-07-21T22:07:31.457Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -560,7 +597,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege-fuer-die-demenz-wohngruppe/ee8b8ca5-2d50-412e-b489-b01ee0ae385c",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.289Z",
+      "crawledAt": "2026-09-29T21:17:18.358Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -577,11 +614,11 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege-fuer-die-demenz-wohngruppe/ee8b8ca5-2d50-412e-b489-b01ee0ae385c",
       "firstSeenAt": "2026-07-10T10:23:15.121Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -598,7 +635,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.290Z",
+      "crawledAt": "2026-09-29T21:17:18.360Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -615,10 +652,10 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
       "firstSeenAt": "2026-07-02T23:17:19.765Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -636,7 +673,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.291Z",
+      "crawledAt": "2026-09-29T21:17:18.361Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -653,11 +690,11 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
       "firstSeenAt": "2026-07-02T23:17:19.767Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -674,7 +711,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege/1f23ea8f-dc96-4500-87b5-d5e710d52714",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.293Z",
+      "crawledAt": "2026-09-29T21:17:18.363Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -691,11 +728,11 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege/1f23ea8f-dc96-4500-87b5-d5e710d52714",
       "firstSeenAt": "2026-07-02T23:17:19.766Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -712,7 +749,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.295Z",
+      "crawledAt": "2026-09-29T21:17:18.366Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -729,11 +766,11 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
       "firstSeenAt": "2026-06-16T14:51:25.698Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -750,7 +787,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.297Z",
+      "crawledAt": "2026-09-29T21:17:18.368Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -767,11 +804,11 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
       "firstSeenAt": "2026-06-16T14:51:25.702Z",
-      "_qualityScore": 90,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -788,7 +825,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/cc1bce20-e58d-4ae3-9c1a-713f5237ccaa",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.299Z",
+      "crawledAt": "2026-09-29T21:17:18.370Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -805,10 +842,10 @@
       "postedDate": "2025-02-20",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/cc1bce20-e58d-4ae3-9c1a-713f5237ccaa",
       "firstSeenAt": "2026-07-06T15:43:44.088Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -826,7 +863,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-oder-betreuung-efz/c09e6e2b-540c-4320-91c5-cb956ab6c7e5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:19:27.301Z",
+      "crawledAt": "2026-09-29T21:17:18.371Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -843,10 +880,10 @@
       "postedDate": "2025-02-20",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-oder-betreuung-efz/c09e6e2b-540c-4320-91c5-cb956ab6c7e5",
       "firstSeenAt": "2026-05-19T18:25:39.380Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -887,7 +924,7 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,

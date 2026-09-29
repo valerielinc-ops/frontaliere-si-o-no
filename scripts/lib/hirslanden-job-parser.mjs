@@ -33,11 +33,12 @@ import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from './jina-proxy.
 import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 import { inferSwissTargetCanton, isKnownSwissCity } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { parseSuccessFactorsMicrodataLocation } from './successfactors-shared-job-parser-common.mjs';
 import { hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
-import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
+import { dropSameSourceReference } from './identical-posting-dedupe.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -514,13 +515,29 @@ export function resolveHirslandenLocation(detailLocationText, listingCity) {
   return detail || listing;
 }
 
+// "Referenznummer: 43018" (German ads), "Numéro de référence: 70053" (French).
+const REFERENCE_NUMBER_RE = /\b(?:Referenznummer|Numéro de référence)\s*:\s*(\d{3,})/iu;
+
+/**
+ * The Referenznummer the advertisement prints in its header, or '' when it
+ * prints none.
+ *
+ * @param {{ description?: string, descriptionByLocale?: Record<string, string>, sourceLang?: string }} job
+ * @returns {string}
+ */
+export function hirslandenReferenceNumber(job) {
+  const text = job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '';
+  return REFERENCE_NUMBER_RE.exec(String(text))?.[1] || '';
+}
+
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
  * Fetch all Hirslanden Klinik jobs.
  *   1. Walk paginated SF j2w search results
  *   2. For each listing, fetch its detail page for the description
- * Returns ParsedJob[] with source-locale fields only (sourceLang='de').
+ * Returns ParsedJob[] with source-locale fields only, keyed by the language
+ * the body is written in (German, or French for the Romandie clinics).
  */
 export async function fetchAllHirslandenJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
@@ -610,18 +627,21 @@ export async function fetchAllHirslandenJobs() {
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} ${HIRSLANDEN_KEY} ${location}`);
       const employmentType = detectEmploymentType(title);
+      // The language the body is written in: 33 of 339 published postings
+      // (2026-09-29) are French, and a fixed `de` put them in the German slot.
+      const sourceLang = sourceLangOfBody(description, 'de');
 
       const job = {
         id: `${HIRSLANDEN_KEY}-${urlHash}`,
         slug: jobSlug,
-        slugByLocale: { de: jobSlug },
+        slugByLocale: { [sourceLang]: jobSlug },
         company: HIRSLANDEN_COMPANY_NAME,
         companyKey: HIRSLANDEN_KEY,
         companyDomain: HIRSLANDEN_COMPANY_DOMAIN,
         title,
-        titleByLocale: { de: title },
+        titleByLocale: { [sourceLang]: title },
         description,
-        descriptionByLocale: { de: description },
+        descriptionByLocale: { [sourceLang]: description },
         location,
         canton,
         addressLocality: location,
@@ -640,10 +660,10 @@ export async function fetchAllHirslandenJobs() {
         url: listing.url,
         applyUrl: detail?.applyUrl || listing.url,
         source: 'Hirslanden Klinik Dedicated Parser (SuccessFactors j2w)',
-        sourceLang: 'de',
+        sourceLang,
         crawledAt: new Date().toISOString(),
         requirements: [],
-        requirementsByLocale: { de: [] },
+        requirementsByLocale: { [sourceLang]: [] },
       };
 
       if (detail?.locationEvidence === 'description') markLocationDerivedFromVacancyText(job);
@@ -669,13 +689,14 @@ export async function fetchAllHirslandenJobs() {
     deduped.push(job);
   }
 
-  // The same requisition (same Referenznummer, same text, same clinic) is
-  // occasionally re-posted under a second SuccessFactors job id: 5 such pairs
-  // on 2026-09-29 (e.g. 1124147801/1123876301, Referenznummer 43018). One
-  // vacancy, one page.
-  const { jobs: unique, dropped } = dropIdenticalPostings(deduped);
+  // Hirslanden publishes the same advertisement under a second SuccessFactors
+  // job id: a re-post (1124147801/1123876301, Referenznummer 43018) or the
+  // French version of a Biel posting (1391700433/1391700533, 70053). The ad
+  // prints its own Referenznummer, and the same number on two URLs is one
+  // advertisement: one page. Postings without a number are never grouped.
+  const { jobs: unique, dropped } = dropSameSourceReference(deduped, hirslandenReferenceNumber);
   if (dropped.length > 0) {
-    console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, clinic and text under another job id).`);
+    console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same Referenznummer under another job id).`);
   }
 
   console.log(`\n📋 Total unique ${HIRSLANDEN_COMPANY_NAME} jobs discovered: ${unique.length}`);

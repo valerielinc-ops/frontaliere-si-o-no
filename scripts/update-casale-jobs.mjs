@@ -16,6 +16,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseApiResponse, buildJobFromApi, buildCasaleDescriptionFields, parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/casale-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -23,6 +24,7 @@ import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -80,8 +82,10 @@ async function fetchJobs() {
       addressLocality: built.city || 'Lugano', addressRegion: HQ.addressRegion, addressCountry: 'CH',
       postalCode: HQ.postalCode, streetAddress: 'Via Giulio Pocobelli 6',
       description,
-      titleByLocale: { en: built.title }, descriptionByLocale,
-      slug, slugByLocale: { en: slug, it: slug },
+      descriptionByLocale,
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(built.title, slug, sourceLang),
+      slug,
       category: detectCategory(built.title),
       datePosted: built.datePosted,
       source: 'casale-careers-crawler', sourceLang, employmentType: built.employmentType,
@@ -129,6 +133,9 @@ async function mergeJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -145,6 +152,18 @@ function updateAdapterConfig(seedUrls) {
   fs.writeFileSync(p, JSON.stringify(a, null, 2) + '\n');
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropCasaleFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
@@ -153,7 +172,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════\n');
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
   const discovered = await fetchJobs();
-  if (!discovered.length) { console.log('⚠️ No Casale Swiss jobs discovered.'); return; }
+  if (!discovered.length) { console.log('⚠️ No Casale Swiss jobs discovered.'); await cleanStoredJobsOnSoftExit(); return; }
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
   console.log('\n🌐 Running base crawler for AI localization...');

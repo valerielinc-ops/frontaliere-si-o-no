@@ -16,7 +16,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml as sharedFetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   printPublishedJobUrls,
@@ -42,6 +42,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
@@ -157,22 +158,13 @@ function inferCategory(title = '') {
 /* ── Fetch helpers ─────────────────────────────────────────── */
 async function fetchHtml(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+  return sharedFetchHtml(url, {
+    timeoutMs,
       headers: {
         Accept: 'text/html,application/xhtml+xml,*/*',
         'User-Agent': UA,
       },
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  });
 }
 
 /* ── Kenjo detail page parser ──────────────────────────────── */
@@ -310,7 +302,8 @@ async function buildJobs(positions) {
       description,
       titleByLocale: { [sourceLang]: title },
       descriptionByLocale: { [sourceLang]: description },
-      slugByLocale: { it: slug },
+      // Slug in the same source slot as the text (#5253).
+      slugByLocale: { [sourceLang]: slug },
     });
   }
 
@@ -342,10 +335,12 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
