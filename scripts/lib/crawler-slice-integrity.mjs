@@ -7,11 +7,13 @@ import {
   isCatastrophicAccumulatorShrink,
 } from './accumulator-byte-floor-guard.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
+import { localeMapKey } from './locale-map-diff.mjs';
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
 const ACTIVE_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/[^/]+\.json$/;
+const EXPIRED_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/expired\/by-crawler\/[^/]+\.json$/;
 const RETIRED_COOP_SCRATCH_ARCHIVE = 'data/jobs/expired/by-crawler/coop-ticino-locale-cache.json';
 const SWISS_RE_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/swiss-re\.json$/;
 const BUEHLER_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/buehler\.json$/;
@@ -616,13 +618,43 @@ export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, r
 
   const referenceIds = new Set(reference.map(jobIdentity).filter(Boolean));
   if (removed.some((job) => referenceIds.has(jobIdentity(job)))) return false;
+  const evidence = { reference, proof };
+  return removed.every((job) => isProvenCrossCrawlerDedupRemovalWithEvidence(filePath, job, evidence));
+}
+
+/**
+ * Prove one record is a cross-crawler duplicate without requiring a complete
+ * file-level rewrite proof.
+ *
+ * `prune-dedup-from-slices` sees every record that disappeared between a raw
+ * slice and the final assembled dataset. Some of those records may have been
+ * filtered or normalized by assembly rather than removed by monolithic dedup.
+ * Callers must therefore retain any record without this positive evidence.
+ */
+export function isProvenCrossCrawlerDedupRemoval(filePath, removedJob, referenceJobs) {
+  if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  const evidence = crossCrawlerDedupEvidence(referenceJobs);
+  return isProvenCrossCrawlerDedupRemovalWithEvidence(filePath, removedJob, evidence);
+}
+
+function isProvenCrossCrawlerDedupRemovalWithEvidence(filePath, removedJob, { reference, proof }) {
+  if (
+    !ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))
+    || !Array.isArray(reference)
+    || !removedJob
+    || !jobIdentity(removedJob)
+  ) {
+    return false;
+  }
+  const referenceIds = new Set(reference.map(jobIdentity).filter(Boolean));
+  if (referenceIds.has(jobIdentity(removedJob))) return false;
+
   const referenceKeys = new Set(reference.map(titleCompanyLocationKey).filter(Boolean));
+  const key = titleCompanyLocationKey(removedJob);
+  if (key !== null && referenceKeys.has(key)) return true;
+
   const proofEntries = Array.isArray(proof?.entries) ? proof.entries : [];
-  return removed.every((job) => {
-    const key = titleCompanyLocationKey(job);
-    if (key !== null && referenceKeys.has(key)) return true;
-    return proofEntries.some((entry) => isValidCrossCrawlerDedupEntry(entry, job));
-  });
+  return proofEntries.some((entry) => isValidCrossCrawlerDedupEntry(entry, removedJob));
 }
 
 /** `data/jobs/by-crawler/<key>.json` -> `data/jobs/expired/by-crawler/<key>.json`, or null. */
@@ -824,6 +856,108 @@ export function isProvenRetiredScratchArchiveDelete(filePath, previousRaw, nextR
     && proof.entries[0]?.entryCount === previousEntries.length;
 }
 
+function expiredArchiveIdentity(entry) {
+  const slug = String(entry?.slug ?? '').trim();
+  if (slug) return `slug:${String(entry?.companyKey ?? '').trim()}:${slug}`;
+  const id = String(entry?.id ?? '').trim();
+  if (id) return `id:${id}`;
+  // reconcileGhostExpired falls back to this stable locale-map identity for
+  // legacy archive entries that predate a master slug and an id.
+  return `locale:${localeMapKey(entry?.slugByLocale)}`;
+}
+
+function isProvenExpiredGhostEntry(entry, activeJobs) {
+  if (!entry || typeof entry !== 'object' || !Array.isArray(activeJobs)) return false;
+
+  const activeByTCL = new Map();
+  const activeSlugSet = new Set();
+  for (const job of activeJobs) {
+    if (!job || typeof job !== 'object') continue;
+    const key = `${(job.title || '').toLowerCase().trim()}||${(job.company || '').toLowerCase().trim()}||${(job.location || '').toLowerCase().trim()}`;
+    if (!activeByTCL.has(key)) activeByTCL.set(key, job);
+    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+      for (const slug of Object.values(job.slugByLocale)) {
+        if (slug) activeSlugSet.add(slug);
+      }
+    }
+    if (Array.isArray(job.previousSlugs)) {
+      for (const slug of job.previousSlugs) {
+        if (slug) activeSlugSet.add(slug);
+      }
+    }
+    if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+      for (const values of Object.values(job.previousSlugsByLocale)) {
+        if (Array.isArray(values)) {
+          for (const slug of values) {
+            if (slug) activeSlugSet.add(slug);
+          }
+        }
+      }
+    }
+  }
+
+  const expiredSlugs = entry.slugByLocale && typeof entry.slugByLocale === 'object'
+    ? Object.values(entry.slugByLocale)
+    : [];
+  const hasSlugOverlap = expiredSlugs.some((slug) => activeSlugSet.has(slug));
+  const key = `${(entry.title || '').toLowerCase().trim()}||${(entry.company || '').toLowerCase().trim()}||${(entry.location || '').toLowerCase().trim()}`;
+  const match = activeByTCL.get(key);
+  const sameItSlug = match && entry.slugByLocale?.it === match.slugByLocale?.it;
+
+  // Mirror reconcileGhostExpired exactly: a ghost needs the same
+  // title/company/location posting plus either route overlap or an exact IT
+  // slug. The active reference is passed by the reconciler, never inferred
+  // from the candidate archive being written.
+  return Boolean(match && (hasSlugOverlap || sameItSlug));
+}
+
+/**
+ * Prove a catastrophic shrink of an expired crawler slice caused only by
+ * reconcileGhostExpired removing entries already represented by active jobs.
+ *
+ * The proof is intentionally local to the expired-archive reconciler. It
+ * requires a strict subset by unique archive key and replays the same
+ * title/company/location + slug-overlap predicate against the active dataset.
+ * An empty or stale active reference therefore cannot authorize a truncation.
+ */
+export function isProvenExpiredGhostPrune(filePath, previousRaw, nextRaw, proof) {
+  if (!EXPIRED_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  if (
+    !proof
+    || typeof proof !== 'object'
+    || Array.isArray(proof)
+    || proof.kind !== 'reconcile-ghost-expired'
+    || !Array.isArray(proof.activeJobs)
+  ) {
+    return false;
+  }
+
+  const previousEntries = parseJobs(previousRaw);
+  const nextEntries = parseJobs(nextRaw);
+  if (!previousEntries || !nextEntries || previousEntries.length <= nextEntries.length) return false;
+
+  const previousKeys = previousEntries.map(expiredArchiveIdentity);
+  const nextKeys = nextEntries.map(expiredArchiveIdentity);
+  if (
+    previousKeys.some((key) => !key)
+    || nextKeys.some((key) => !key)
+    || new Set(previousKeys).size !== previousKeys.length
+    || new Set(nextKeys).size !== nextKeys.length
+  ) {
+    return false;
+  }
+
+  const previousKeySet = new Set(previousKeys);
+  const nextKeySet = new Set(nextKeys);
+  if ([...nextKeySet].some((key) => !previousKeySet.has(key))) return false;
+
+  const removedEntries = previousEntries.filter(
+    (entry) => !nextKeySet.has(expiredArchiveIdentity(entry)),
+  );
+  if (removedEntries.length !== previousEntries.length - nextEntries.length) return false;
+  return removedEntries.every((entry) => isProvenExpiredGhostEntry(entry, proof.activeJobs));
+}
+
 /**
  * Guard the final bytes written for a crawler slice. The semantic exception
  * is deliberately narrower than the byte guard and is shared by all writers
@@ -854,6 +988,9 @@ export function assertCrawlerSliceWriteSafe(
   }
   if (isProvenRetiredScratchArchiveDelete(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-retired-scratch-archive-delete' };
+  }
+  if (isProvenExpiredGhostPrune(filePath, previousRaw, nextRaw, housekeepingProof)) {
+    return { previousBytes, nextBytes, reason: 'proven-expired-ghost-prune' };
   }
   assertAccumulatorByteFloor(previousBytes, nextBytes, { label: filePath });
   return { previousBytes, nextBytes, reason: null };
