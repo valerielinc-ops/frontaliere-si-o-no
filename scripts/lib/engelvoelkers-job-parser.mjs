@@ -190,10 +190,29 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
   // structure survives. Previously we wrapped it in normalizeSpace() which
   // collapsed all the newlines back into spaces — the audit then flagged
   // every E&V job as flat prose.
-  const nextDescriptionHtml = posting?.content?.descriptionHtml || posting?.content?.description || '';
-  const nextDescription = stripHtml(nextDescriptionHtml)
+  // The posting is a Lever payload: `descriptionHtml` is only the opening
+  // paragraph, the role itself lives in `lists` (one entry per section —
+  // «Ihre Aufgaben», «Ihr Profil», «Unser Angebot», each a heading `text` and
+  // an HTML `content` list) and the application note in `closingHtml`.
+  // Reading only `descriptionHtml` published the licensee's company intro for
+  // every posting: the Senior (5+ years) and the Junior (2-5 years) broker in
+  // Schaffhausen carried the same 930-char body (issue 5253).
+  const content = posting?.content || {};
+  const sections = [stripHtml(content.descriptionHtml || content.description || '')];
+  for (const list of Array.isArray(content.lists) ? content.lists : []) {
+    const body = stripHtml(list?.content || '');
+    if (!body) continue;
+    const heading = normalizeSpace(decodeEntities(list?.text || ''));
+    sections.push(heading ? `${heading}\n${body}` : body);
+  }
+  sections.push(stripHtml(content.closingHtml || content.closing || ''));
+  const nextDescription = sections
+    .filter(Boolean)
+    .join('\n\n')
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')
+    // `<li><p>…</p></li>` leaves the marker alone on its line.
+    .replace(/•\n+/g, '• ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 

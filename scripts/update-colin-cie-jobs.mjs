@@ -53,6 +53,7 @@ import {
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { decodeColinCieEntities, parseColinCieJobDescription } from './lib/colin-cie-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -107,32 +108,6 @@ function normalizeKey(value = '') {
     .trim().toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-}
-
-function decodeHtmlEntities(text) {
-  return text
-    .replace(/&#038;/g, '&')
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8217;/g, "'")
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'");
-}
-
-function stripHtml(html) {
-  return html
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/p>/gi, '\n\n')
-    .replace(/<\/li>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n• ')
-    .replace(/<[^>]+>/g, '')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
 }
 
 function deriveSlug(title, city) {
@@ -226,7 +201,7 @@ function parseListingPage(html) {
     // Title
     const titleMatch = cardHtml.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i);
     if (!titleMatch) continue;
-    const title = decodeHtmlEntities(titleMatch[1].replace(/<[^>]+>/g, '').trim());
+    const title = decodeColinCieEntities(titleMatch[1].replace(/<[^>]+>/g, '').trim());
 
     // Detail URL
     const urlMatch = cardHtml.match(/href='([^']*karriere[^']*)'/i);
@@ -261,38 +236,12 @@ function parseListingPage(html) {
 }
 
 /**
- * Fetch a detail page and extract the job description.
- * Sections: intro h4, "Das bieten wir Ihnen", "Ihre Hauptaufgaben bei uns", "Das bringen Sie mit"
+ * Fetch a detail page and extract the job description (see
+ * `parseColinCieJobDescription` for the sections it reads).
  */
 async function fetchJobDescription(url) {
   try {
-    const html = await fetchPage(url);
-    const sections = [];
-
-    // Intro paragraph (h4 with strong/mediumStyle)
-    const introMatch = html.match(/<h4><strong><span[^>]*class="mediumStyle"[^>]*>([\s\S]*?)<\/span><\/strong><\/h4>/i);
-    if (introMatch) {
-      sections.push(decodeHtmlEntities(stripHtml(introMatch[1])));
-    }
-
-    // Named sections: "Das bieten wir Ihnen", "Ihre Hauptaufgaben", "Das bringen Sie mit"
-    const sectionRegex = /<h3[^>]*><span[^>]*class="pinkStyle"[^>]*>([\s\S]*?)<\/span><\/h3>\s*<ul[^>]*>([\s\S]*?)<\/ul>/gi;
-    let sMatch;
-    while ((sMatch = sectionRegex.exec(html)) !== null) {
-      const heading = decodeHtmlEntities(stripHtml(sMatch[1]));
-      const listHtml = sMatch[2];
-      const items = [];
-      const itemRegex = /<li>([\s\S]*?)<\/li>/gi;
-      let iMatch;
-      while ((iMatch = itemRegex.exec(listHtml)) !== null) {
-        items.push(decodeHtmlEntities(stripHtml(iMatch[1])));
-      }
-      if (items.length > 0) {
-        sections.push(`## ${heading}\n${items.map(i => `• ${i}`).join('\n')}`);
-      }
-    }
-
-    return sections.join('\n\n') || '';
+    return parseColinCieJobDescription(await fetchPage(url));
   } catch (err) {
     console.warn(`  ⚠️  Could not fetch detail page ${url}: ${err.message}`);
     return '';

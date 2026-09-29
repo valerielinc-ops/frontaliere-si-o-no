@@ -20,6 +20,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { textFragmentUrl } from './text-fragment-url.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -184,7 +185,10 @@ export async function fetchAllKlinikSeeschauJobs() {
       .update(`${KLINIK_SEESCHAU_KEY}:${it.title.toLowerCase()}`)
       .digest('hex')
       .slice(0, 12);
-    const jobUrl = `${KLINIK_SEESCHAU_CAREERS_URL}#job-${stableId}`;
+    // The listing IS the detail and has no per-ad id: the ad is addressed by
+    // its heading (text fragment), not by an invented `#job-<hash>` anchor
+    // the page does not have (issue 5253).
+    const jobUrl = textFragmentUrl(KLINIK_SEESCHAU_CAREERS_URL, it.title);
 
     jobs.push({
       id: `${KLINIK_SEESCHAU_KEY}-${stableId}`,

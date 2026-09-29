@@ -30,6 +30,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { textFragmentUrl } from './text-fragment-url.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -208,7 +209,13 @@ export async function fetchAllOscamCastelrottoJobs() {
     const description = buildDescription(title, listing.pdfUrl, pdfText);
     const haystack = `${title} ${description}`;
 
-    const url = `${PUBLIC_CAREER_URL}#${listing.id}`;
+    // The bando PDF IS the advertisement: it is the posting's URL. Without a
+    // PDF the concorso is addressed by its heading on the page (text
+    // fragment), never by an invented `#<slug>` anchor the page does not
+    // have (issue 5253).
+    const url = listing.pdfUrl
+      ? listing.pdfUrl.replace(/^http:\/\//i, 'https://')
+      : textFragmentUrl(PUBLIC_CAREER_URL, title);
     const jobSlug = slugify(`${title} ${OSCAM_CASTELROTTO_KEY} ${DEFAULT_CITY}`);
     const urlHash = createHash('sha1')
       .update(`${url}|${listing.id}`)

@@ -46,7 +46,6 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
-  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { inferAnyCanton, rescueSwissCityFromText } from './lib/target-swiss-locations.mjs';
@@ -55,6 +54,7 @@ import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { groupeMutuelSourceContent } from './lib/groupe-mutuel-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -439,15 +439,6 @@ function detectEmploymentType(rawType = '') {
   return 'FULL_TIME';
 }
 
-function buildDescription(title, descriptionText, location) {
-  const base = descriptionText || `${title} position at Groupe Mutuel in ${location}, Switzerland.`;
-  return `${base}\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.`.trim();
-}
-
-function buildDescriptionFr(title, location) {
-  return `Poste ouvert chez Groupe Mutuel à ${location}.\nRôle : ${title}.\n\nGroupe Mutuel est l'un des principaux groupes d'assurance en Suisse, dont le siège est à Martigny (Valais). L'entreprise propose une large gamme de produits d'assurance et de prévoyance pour les particuliers et les entreprises dans toute la Suisse.`.trim();
-}
-
 function buildPublicUrl(requisitionId) {
   return `https://groupemutuel.csod.com/ux/ats/careersite/${CSOD_CAREER_SITE_ID}/home/requisition/${requisitionId}?c=groupemutuel&lang=fr-FR`;
 }
@@ -497,8 +488,8 @@ function parseCsodJob(rawJob) {
     ? buildPublicUrl(requisitionId)
     : rawJob.url || rawJob.applyUrl || rawJob.jobDetailUrl || '';
 
-  const descEn = buildDescription(title, descriptionText, city);
-  const descFr = buildDescriptionFr(title, city);
+  const content = groupeMutuelSourceContent({ title, descriptionText });
+  if (!content) return null;
 
   const slug = slugify(title, 'groupe-mutuel');
   const employmentType = detectEmploymentType(rawJob.employmentType || rawJob.timeType || rawJob.type || '');
@@ -523,14 +514,9 @@ function parseCsodJob(rawJob) {
     location: city,
     canton,
     country: 'CH',
-    description: descEn,
-    descriptionByLocale: {
-      en: descEn,
-      fr: descFr,
-    },
-    titleByLocale: {
-      fr: title,
-    },
+    description: content.description,
+    descriptionByLocale: content.descriptionByLocale,
+    titleByLocale: content.titleByLocale,
     slug,
     slugByLocale: {
       fr: slug,
@@ -539,7 +525,7 @@ function parseCsodJob(rawJob) {
     category: detectCategory(title),
     datePosted,
     source: 'groupe-mutuel-csod-crawler',
-    sourceLang: detectLang(title, 'fr'),
+    sourceLang: content.sourceLang,
     employmentType,
     experienceLevel: detectExperienceLevel(title),
     sector: 'Assicurazioni / Sanità',
