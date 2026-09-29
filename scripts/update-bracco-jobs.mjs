@@ -51,6 +51,8 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -333,13 +335,14 @@ function detectEmploymentType(timeType = '') {
  * own language. The runner used to append an English paragraph about Bracco
  * Suisse to it and to write an Italian company blurb of its own into
  * `descriptionByLocale.it` ("Posizione aperta presso Bracco Suisse S.A. a …");
- * neither was published by the source. The title-only sentence is kept as the
- * last resort for a posting without any text.
+ * neither was published by the source.
+ * Under the shared word floor (50 words) nothing is emitted: the merge keeps
+ * the stored source body, or the job is not published this run.
  */
 export function buildBraccoDescriptionFields(title, descriptionText, location) {
-  return sourceLocaleDescription(descriptionText, {
-    fallback: `${title} position at Bracco Suisse S.A. in ${location}, Switzerland.`,
-  });
+  // Only the posting's own text over the shared word floor: nothing under it
+  // (the merge keeps the stored source body, or omits the job this run).
+  return sourceLocaleDescription(meetsSourceBodyFloor(descriptionText) ? descriptionText : '');
 }
 
 // Fossils of the removed builders in stored jobs (see source-locale-description.mjs).
@@ -498,6 +501,13 @@ async function mergeBraccoJobs(discoveredJobs) {
   const existingBraccoJobs = allJobs.filter(isBraccoJob);
   const fossils = existingBraccoJobs.filter((job) => dropBraccoFabricatedText(job)).length;
   if (fossils > 0) console.log(`  🧹 Dropped fabricated Bracco text from ${fossils} stored job(s); they will be retranslated`);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingBraccoJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(
     existingBraccoJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)

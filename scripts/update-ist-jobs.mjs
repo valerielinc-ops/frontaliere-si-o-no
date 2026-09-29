@@ -63,11 +63,12 @@ import {
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
-import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { locateTagByAttribute, extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -415,14 +416,14 @@ function detectExperienceLevel(title = '') {
  * language. The runner used to append an English paragraph about IST and
  * Inspired Education to it and to write an Italian company blurb of its own
  * into `descriptionByLocale.it` ("Posizione aperta presso la International
- * School of Ticino a …"); neither was published by the source. The title-only
- * sentence is kept as the last resort for a posting without any text.
+ * School of Ticino a …"); neither was published by the source.
+ * Under the shared word floor (50 words) nothing is emitted: the merge keeps
+ * the stored source body, or the job is not published this run.
  */
 export function buildIstDescriptionFields(title, descriptionText, location, canton) {
-  const place = location || getCantonDisplayName(canton, 'en') || 'Switzerland';
-  return sourceLocaleDescription(descriptionText, {
-    fallback: `${title} position at the International School of Ticino in ${place}, Switzerland.`,
-  });
+  // Only the posting's own text over the shared word floor: nothing under it
+  // (the merge keeps the stored source body, or omits the job this run).
+  return sourceLocaleDescription(meetsSourceBodyFloor(descriptionText) ? descriptionText : '');
 }
 
 // Fossils of the removed builders in stored jobs (see source-locale-description.mjs).
@@ -553,6 +554,13 @@ async function mergeIstJobs(discoveredJobs) {
   const existingIstJobs = allJobs.filter(isLegacyIstJob);
   const fossils = existingIstJobs.filter((job) => dropIstFabricatedText(job)).length;
   if (fossils > 0) console.log(`  🧹 Dropped fabricated IST text from ${fossils} stored job(s); they will be retranslated`);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingIstJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(
     existingIstJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)

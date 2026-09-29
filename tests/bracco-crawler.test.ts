@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { buildBraccoDescriptionFields, dropBraccoFabricatedText } from '../scripts/update-bracco-jobs.mjs';
+import { keepStoredSourceBodies } from '../scripts/lib/stored-source-body.mjs';
 
 const TEXT = fs.readFileSync(path.join(__dirname, 'fixtures', 'bracco', 'workday-description-cadempino.txt'), 'utf8').trim();
 
@@ -19,10 +20,19 @@ describe('buildBraccoDescriptionFields', () => {
     expect(fields.description).not.toContain('Bracco Suisse S.A. is part of the Bracco Group');
   });
 
-  it('falls back to a title sentence only without source text', () => {
-    const fields = buildBraccoDescriptionFields('QA Operator', '', 'Plan-les-Ouates');
-    expect(fields.description).toBe('QA Operator position at Bracco Suisse S.A. in Plan-les-Ouates, Switzerland.');
-    expect(Object.keys(fields.descriptionByLocale)).toEqual(['en']);
+  it('emits no body under the shared word floor, and such a job is not published', () => {
+    for (const text of ['', 'Short Workday teaser for a QA Operator in Plan-les-Ouates.']) {
+      const fields = buildBraccoDescriptionFields('QA Operator', text, 'Plan-les-Ouates');
+      expect(fields.description).toBe('');
+      expect(fields.description).not.toMatch(/position at Bracco/);
+      const url = 'https://bracco.wd3.myworkdayjobs.com/en-US/Careers/job/Plan-les-Ouates/QA-Operator_R0001';
+      // What the merge does with it: no stored source body → the job is omitted.
+      expect(keepStoredSourceBodies([{ url, ...fields }], [], (u: string) => u)).toEqual([]);
+      // A stored source body from an earlier read is kept instead.
+      const kept = keepStoredSourceBodies([{ url, ...fields }], [{ url, sourceLang: 'en', description: TEXT, descriptionByLocale: { en: TEXT } }], (u: string) => u);
+      expect(kept).toHaveLength(1);
+      expect(kept[0].description).toBe(TEXT);
+    }
   });
 });
 

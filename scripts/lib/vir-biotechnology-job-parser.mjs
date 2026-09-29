@@ -14,6 +14,7 @@ import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mj
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { dropFabricatedLocaleText, sourceLocaleDescription } from './source-locale-description.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const HQ = getCompanyDefaults('vir-biotechnology');
 
@@ -185,15 +186,16 @@ export function inferEmploymentType(title = '', description = '', percentage = '
  * its language. The runner used to add an Italian company blurb of its own
  * to `descriptionByLocale.it` of every job ("Posizione aperta presso Vir
  * Biotechnology (Humabs BioMed) a …"), the same fabricated-locale defect
- * corrected in mikron, bracco, fnz, ist and capri-holdings. The title sentence
- * stays as the last-resort fallback of a posting without any text.
+ * corrected in mikron, bracco, fnz, ist and capri-holdings. Under the shared
+ * word floor (50 words) nothing is emitted: the merge keeps the stored source
+ * body, or the job is not published this run.
  *
  * @param {{ title: string, city: string, description?: string }} parsed
  */
 export function buildVirDescriptionFields(parsed = {}) {
-  return sourceLocaleDescription(parsed.description, {
-    fallback: `${parsed.title} position at Vir Biotechnology (Humabs BioMed) in ${parsed.city}, Switzerland.`,
-  });
+  // Only the posting's own text over the shared word floor: nothing under it
+  // (the merge keeps the stored source body, or omits the job this run).
+  return sourceLocaleDescription(meetsSourceBodyFloor(parsed.description) ? parsed.description : '');
 }
 
 // Fossil of the removed Italian builder in stored jobs (see source-locale-description.mjs).

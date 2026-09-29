@@ -193,7 +193,9 @@ describe('parseCity', () => {
 
 describe('buildVirDescriptionFields', () => {
   it('publishes only the posting text, keyed by its language', () => {
-    const [parsed] = parseGreenhouseJobs(MOCK_GREENHOUSE_RESPONSE);
+    const [first] = parseGreenhouseJobs(MOCK_GREENHOUSE_RESPONSE);
+    // Over the shared 50-word floor, as the live Greenhouse postings are.
+    const parsed = { ...first, description: Array(4).fill(first.description).join(' ') };
     const fields = buildVirDescriptionFields(parsed);
     expect(fields.sourceLang).toBe('en');
     expect(Object.keys(fields.descriptionByLocale)).toEqual(['en']);
@@ -201,9 +203,10 @@ describe('buildVirDescriptionFields', () => {
     expect(fields.description).not.toMatch(/Posizione aperta/);
   });
 
-  it('falls back to the title sentence only without any posting text', () => {
-    const fields = buildVirDescriptionFields({ title: 'Research Associate', city: 'Bellinzona', description: '' });
-    expect(fields.description).toBe('Research Associate position at Vir Biotechnology (Humabs BioMed) in Bellinzona, Switzerland.');
+  it('emits no body without posting text or under the word floor', () => {
+    expect(buildVirDescriptionFields({ title: 'Research Associate', city: 'Bellinzona', description: '' }).description).toBe('');
+    const [first] = parseGreenhouseJobs(MOCK_GREENHOUSE_RESPONSE);
+    expect(buildVirDescriptionFields(first).description).toBe('');
   });
 });
 

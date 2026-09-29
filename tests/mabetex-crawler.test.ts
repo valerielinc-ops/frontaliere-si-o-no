@@ -223,6 +223,29 @@ describe('Mabetex Group crawler parser', () => {
       })).toEqual({ authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true });
     });
 
+    it('proves the zero when the only, foreign, vacancy is fully read but has a short body', async () => {
+      // Review #10393: a complete page whose one listing is in Southwest Africa
+      // was "partial" because its short body kept it out of the geo-eligible
+      // count, so the stale Mabetex row was never retired.
+      vi.mocked(fetchHtml).mockResolvedValue(`<html><body><div class="et_pb_text_inner">
+        <h2>Job offers</h2>
+        <p>${Array.from({ length: 12 }, () => 'Mabetex Group builds large civil works packages across several regions.').join(' ')}</p>
+        <p><strong>PROJECT MANAGER</strong></p>
+        <p>Place of work: Southwest Africa</p>
+      </div></body></html>`);
+
+      const jobs = await fetchAllMabetexJobs();
+
+      expect(jobs).toEqual([]);
+      expect(Reflect.get(jobs, 'mabetexSnapshotState')).toBe('complete-career-page');
+      expect(assertCompleteMabetexSnapshot(jobs)).toBe(true);
+      expect(evaluateAuthoritativeSnapshot(jobs, {
+        validateAuthoritativeSnapshot: assertCompleteMabetexSnapshot,
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+      })).toEqual({ authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true });
+    });
+
     it('refuses a zero when a listing was dropped by a non-geographic gate', async () => {
       vi.mocked(fetchHtml).mockResolvedValue(careerPageWithTruncatedDescription());
 

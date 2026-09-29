@@ -50,6 +50,9 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -171,7 +174,10 @@ async function fetchLinneaJobs() {
     // ("Posizione aperta presso Linnea SA…" around untranslated English) were
     // text the source never published; the base crawler translates the other
     // locales from this source slot.
-    const description = parsed.descriptionText;
+    // Only an article over the shared word floor is published; a shorter or
+    // empty one emits no body (the merge keeps the stored source body, or
+    // omits the job this run).
+    const description = meetsSourceBodyFloor(parsed.descriptionText) ? parsed.descriptionText : '';
     const sourceLang = detectLang(description || parsed.title, 'en');
 
     const employmentType = /full\s*time/i.test(parsed.contractType) ? 'FULL_TIME'
@@ -229,12 +235,25 @@ function filterEmpty(obj = {}) {
   return out;
 }
 
+// Text the former builders wrote themselves: the English company paragraph
+// appended to every article and the Italian wrapper around it.
+const LINNEA_FABRICATED_RE = /Linnea SA is a leading pharmaceutical company specializing in botanical ingredients|Posizione aperta presso Linnea SA a Riazzino/;
+
 async function mergeLinneaJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(LINNEA_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonLinneaJobs = allJobs.filter((j) => !isLinneaJob(j));
-  const existingLinneaJobs = allJobs.filter(isLinneaJob);
+  // The former builders' own text (EN company paragraph, IT wrapper) goes
+  // before the merge, so a stored body kept below is always source text.
+  const existingLinneaJobs = dropFabricatedDescriptions(allJobs.filter(isLinneaJob), LINNEA_FABRICATED_RE, LINNEA_COMPANY_NAME);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingLinneaJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(
     existingLinneaJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)

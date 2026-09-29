@@ -233,12 +233,27 @@ export async function fetchAllMabetexJobs() {
 
   const jobs = [];
   let geoEligible = 0;
+  // Snapshot proof, counted apart from the health count above: a listing is
+  // READ when its title and its "Place of work" were both extracted — that is
+  // all it takes to know whether it is Swiss. A foreign listing whose body is
+  // short is still read (its location alone excludes it); a SWISS listing lost
+  // to a non-geographic gate makes the page's zero unprovable.
+  let readListings = 0;
+  let swissDropped = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
+    const geography = listing.location ? resolveSourceBackedSwissGeography(listing.location) : null;
+    if (title.length >= 3 && listing.location) readListings += 1;
+    if (!title || title.length < 3) {
+      if (geography) swissDropped += 1;
+      continue;
+    }
 
     const description = listing.description;
-    if (!description || description.length < MIN_DESC_LENGTH) continue;
+    if (!description || description.length < MIN_DESC_LENGTH) {
+      if (geography) swissDropped += 1;
+      continue;
+    }
 
     // Every non-geographic gate is behind us: title and description are fully
     // extracted, so only the location can still exclude this listing.
@@ -246,7 +261,6 @@ export async function fetchAllMabetexJobs() {
     // mean what autoFilteredEmpty claims it means (see note below).
     geoEligible += 1;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
     if (!geography) continue;
     const { location, canton } = geography;
     const sourceLang = detectLang(listing.title, 'en');
@@ -315,12 +329,19 @@ export async function fetchAllMabetexJobs() {
   // Africa", 2026-09) returned [] and the template kept the stored legacy row
   // forever (source-detail audit 2026-09-29: a 4.9k-char page dump published
   // against a 277-char page footer).
+  // The proof is the count of listings READ (title + place of work), not the
+  // geo-eligible count: comparing the latter with the raw listing count made a
+  // complete page whose only vacancy is abroad with a short body "partial",
+  // so the stale row was never retired.
   Object.defineProperties(jobs, {
     mabetexSnapshotState: {
-      value: listings.length > 0 && geoEligible === listings.length ? MABETEX_COMPLETE_SNAPSHOT : 'partial',
+      value: listings.length > 0 && readListings === listings.length && swissDropped === 0
+        ? MABETEX_COMPLETE_SNAPSHOT
+        : 'partial',
       enumerable: false,
     },
     sourceListingCount: { value: listings.length, enumerable: false },
+    readListingCount: { value: readListings, enumerable: false },
   });
   return jobs;
 }
@@ -329,8 +350,10 @@ export async function fetchAllMabetexJobs() {
 /**
  * Authoritative-snapshot validator for the crawler template (scope
  * `empty-only`): a zero is published only when the career page was parsed
- * end to end. A missing job section or a listing dropped by a non-geographic
- * gate throws, which fails the run and preserves the existing slice.
+ * end to end — every listing READ (title and place of work) and no Swiss
+ * listing lost to a non-geographic gate. A missing job section, an unread
+ * listing or a dropped Swiss listing throws, which fails the run and
+ * preserves the existing slice.
  *
  * @param {object[]} jobs
  * @returns {true}
@@ -340,14 +363,14 @@ export function assertCompleteMabetexSnapshot(jobs) {
     !Array.isArray(jobs)
     || Reflect.get(jobs, 'mabetexSnapshotState') !== MABETEX_COMPLETE_SNAPSHOT
     || Number(Reflect.get(jobs, 'sourceListingCount')) < 1
-    || Reflect.get(jobs, 'discoveredCount') !== Reflect.get(jobs, 'sourceListingCount')
+    || Reflect.get(jobs, 'readListingCount') !== Reflect.get(jobs, 'sourceListingCount')
   ) {
     throw new Error(
       'Mabetex snapshot is not a proven complete career page: '
       + `rows=${Array.isArray(jobs) ? jobs.length : 'not-an-array'}, `
       + `state=${Array.isArray(jobs) ? Reflect.get(jobs, 'mabetexSnapshotState') ?? '(unset)' : 'n/a'}, `
       + `listings=${Array.isArray(jobs) ? Reflect.get(jobs, 'sourceListingCount') ?? '(unset)' : 'n/a'}, `
-      + `geoEligible=${Array.isArray(jobs) ? Reflect.get(jobs, 'discoveredCount') ?? '(unset)' : 'n/a'}`,
+      + `read=${Array.isArray(jobs) ? Reflect.get(jobs, 'readListingCount') ?? '(unset)' : 'n/a'}`,
     );
   }
   return true;

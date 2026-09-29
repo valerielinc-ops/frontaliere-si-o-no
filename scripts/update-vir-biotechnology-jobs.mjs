@@ -30,6 +30,7 @@ import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmpl
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -152,6 +153,13 @@ async function mergeJobs(discoveredJobs) {
   const existingCompanyJobs = allJobs.filter(isVirJob);
   const fossils = existingCompanyJobs.filter((job) => dropVirFabricatedText(job)).length;
   if (fossils > 0) console.log(`  🧹 Dropped the fabricated Italian blurb from ${fossils} stored job(s); they will be retranslated`);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingCompanyJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));

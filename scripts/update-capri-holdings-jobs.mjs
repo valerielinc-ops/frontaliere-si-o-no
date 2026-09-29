@@ -57,6 +57,8 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -520,13 +522,14 @@ export function assertUniqueWorkdayPostings(
  * Description fields of one posting: the Workday `jobDescription` text in its
  * own language. The runner used to write an Italian company blurb of its own
  * into `descriptionByLocale.it` of every job ("Posizione aperta presso <brand>
- * (Capri Holdings) a …"), which the source never published. The title-only
- * sentence is kept as the last resort for a posting without any text.
+ * (Capri Holdings) a …"), which the source never published.
+ * Under the shared word floor (50 words) nothing is emitted: the merge keeps
+ * the stored source body, or the job is not published this run.
  */
 export function buildCapriDescriptionFields(title, descriptionText, brand, city) {
-  return sourceLocaleDescription(descriptionText, {
-    fallback: `${title} position at ${brand} in ${city}.`,
-  });
+  // Only the posting's own text over the shared word floor: nothing under it
+  // (the merge keeps the stored source body, or omits the job this run).
+  return sourceLocaleDescription(meetsSourceBodyFloor(descriptionText) ? descriptionText : '');
 }
 
 // Fossil of the removed Italian builder in stored jobs (see source-locale-description.mjs).
@@ -666,6 +669,13 @@ async function mergeJobs(discoveredJobs) {
   const existingCapriJobs = allJobs.filter(isCapriJob);
   const fossils = existingCapriJobs.filter((job) => dropCapriFabricatedText(job)).length;
   if (fossils > 0) console.log(`  🧹 Dropped the fabricated Italian Capri blurb from ${fossils} stored job(s); they will be retranslated`);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingCapriJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(
     existingCapriJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
