@@ -1,0 +1,21 @@
+{
+  "companyKey": "rugglipartner-ch",
+  "companyName": "Ruggli & Partner Bauingenieure AG",
+  "companyHost": "rugglipartner.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://rugglipartner.ch/jobs.html"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Bauingenieur:in Hochbau mit Teamleitungsfunktion 80-100%",
+    "Bauingenieur:in Hochbau 60-100%"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-29T11:42:00.453Z"
+}
