@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-09-28T21:21:49.789Z",
+  "generatedAt": "2026-09-29T09:20:24.983Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6622,
-  "avgDurationMs": 6622,
+  "durationMs": 6396,
+  "avgDurationMs": 6396,
   "durationHistory": [
-    6622
+    6396
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -202,7 +202,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-assistente-alla-consulenza-lugano/",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
