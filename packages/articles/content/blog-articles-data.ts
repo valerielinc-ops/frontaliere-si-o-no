@@ -36772,6 +36772,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'arresto-rapina-mediaworld-varese',
+ category: 'novita',
+ date: '2026-09-29T03:17:23.047Z',
+ image: '/images/blog/arresto-rapina-mediaworld-varese.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

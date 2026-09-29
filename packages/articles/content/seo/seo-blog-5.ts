@@ -96754,6 +96754,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arresto-rapina-mediaworld-varese': {
+    title: 'Varese, ruba al MediaWorld e spintona la guardia: arrestato',
+    description: 'Arrestato al MediaWorld di Varese un giovane per rapina impropria dopo aver rubato elettronica e spintonato una guardia. Validato l\'arresto in tribunale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, ruba, mediaworld, spintona',
+    ogTitle: 'Varese, ruba al MediaWorld e spintona una guardia: arrestato per rapina',
+    ogDescription: 'I carabinieri di Varese hanno arrestato un giovane ventenne per rapina impropria dopo un furto al MediaWorld. Convalidato l\'arresto e disposto il divieto di dimora nel Varesotto.',
+    canonicalPath: '/articoli-frontaliere/arresto-rapina-mediaworld-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese, ruba al MediaWorld e spintona la guardia: arrestato",
+      "description": "Arrestato al MediaWorld di Varese un giovane per rapina impropria dopo aver rubato elettronica e spintonato una guardia. Validato l'arresto in tribunale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/arresto-rapina-mediaworld-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Negozio MediaWorld a Varese"
+      },
+      "datePublished": "2026-09-29T03:17:23+00:00",
+      "dateModified": "2026-09-29T03:17:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-rapina-mediaworld-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

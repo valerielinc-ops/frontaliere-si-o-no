@@ -12251,6 +12251,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.luino-convegno-incidenti-stradali.title': 'Luino: Konferenz über Verkehrsunfälle im Palazzo Verbania',
     'blog.article.luino-convegno-incidenti-stradali.excerpt': 'Am Freitag, den 25. September, versammelten sich etwa hundert Carabinieri und Polizisten in Luino, um die Einsatzverfahren zu vertiefen.',
     'blog.article.luino-convegno-incidenti-stradali.imageAlt': 'Konferenz zur Erfassung von Verkehrsunfällen im Palazzo Verbania, Luino',
+    'blog.article.arresto-rapina-mediaworld-varese.title': 'Varese, stiehlt bei MediaWorld und schubst den Wachmann: festgenommen',
+    'blog.article.arresto-rapina-mediaworld-varese.excerpt': 'Junger Mann wegen räuberischen Diebstahls im MediaWorld von Varese festgenommen, nachdem er ein Telefon gestohlen und einen Sicherheitsmitarbeiter gestoßen hatte.',
+    'blog.article.arresto-rapina-mediaworld-varese.imageAlt': 'MediaWorld-Geschäft in Varese',
 };
 
 export default blogMetaDe;
