@@ -32,6 +32,9 @@ const parser = createProspectiveChParser({
   // corporate `viva-luzern.ch` host, so the default trust check misses them
   // and validation fails every job with `url_not_viva-luzern_domain`.
   extraTrustedHosts: ['jobs.vivaluzern.ch', 'vivaluzern.ch', 'www.vivaluzern.ch'],
+  // Listing payload = 21 % of the rendered vacancy (audit 2026-09-29):
+  // the benefit groups (Bestens ausgebildet sein, Freizeit geniessen, …) exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllVivaLuzernJobs = parser.fetchAllJobs;

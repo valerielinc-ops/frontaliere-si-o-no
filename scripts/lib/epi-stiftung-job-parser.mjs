@@ -44,6 +44,9 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://jobs.epi.ch/',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.epi.ch', 'job.swissepi.ch', 'swissepi.ch'],
+  // Listing payload = 40-41 % of the rendered vacancy (audit 2026-09-29):
+  // the working-day and "Vielfältige Beziehungen" benefit blocks exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllEpiStiftungJobs = parser.fetchAllJobs;

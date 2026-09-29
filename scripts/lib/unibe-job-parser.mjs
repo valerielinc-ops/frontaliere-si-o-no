@@ -30,6 +30,9 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://jobs.unibe.ch/',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.unibe.ch'],
+  // Listing payload = 22 % of the rendered vacancy (audit 2026-09-29):
+  // "Was erwartet dich bei uns" and "Bewerbung und Kontakt" details exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllUnibeJobs = parser.fetchAllJobs;

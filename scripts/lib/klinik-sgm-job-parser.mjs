@@ -30,6 +30,11 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://www.klinik-sgm.ch/karriere',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.klinik-sgm.ch'],
+  // The listing lacks the benefit list and the "Mit uns kommen Sie
+  // aufwärts" block the page prints; the page text is also what proves a
+  // re-post (two identical "Psychotherapeutin / Psychotherapeut,
+  // Ambulatorium Spiez" pages, audit 2026-09-29).
+  detailPageDescription: true,
 });
 
 export const fetchAllKlinikSgmJobs = parser.fetchAllJobs;

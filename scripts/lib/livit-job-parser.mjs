@@ -49,6 +49,9 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://jobs.livit.ch',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.livit.ch'],
+  // Listing payload = 36-42 % of the rendered vacancy (audit 2026-09-29):
+  // the "Avantages/Vorteile" catalogue and "La Livit Family" exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllLivitJobs = parser.fetchAllJobs;

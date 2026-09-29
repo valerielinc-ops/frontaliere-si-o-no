@@ -37,6 +37,9 @@ const parser = createProspectiveChParser({
       : [];
     return tag.includes('KSNW');
   },
+  // The page text is what proves a re-post: the two "Leitung Spital
+  // Nidwalden" listings render the same vacancy (audit 2026-09-29).
+  detailPageDescription: true,
 });
 
 export const fetchAllSpitalNidwaldenJobs = parser.fetchAllJobs;

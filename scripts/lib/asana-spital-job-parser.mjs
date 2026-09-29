@@ -50,6 +50,9 @@ const parser = createProspectiveChParser({
     'jobs.spitalleuggern.ch',
     'asana-gruppe.ch',
   ],
+  // Listing payload = 24-36 % of the rendered vacancy (audit 2026-09-29):
+  // the "Abteilungsbeschrieb" and the "Was Dich erwartet" benefit blocks exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllAsanaSpitalJobs = parser.fetchAllJobs;
