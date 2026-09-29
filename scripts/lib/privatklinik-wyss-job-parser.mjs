@@ -178,7 +178,10 @@ function extractDetail(html = '') {
 
   return {
     title,
-    description: text.slice(0, 6000),
+    // Only a delimited container is published: with no length cap, the
+    // whole-page fallback (kept for the field lookups above) must not become
+    // the vacancy text.
+    description: mainMatch ? text : '',
     location,
     pensum,
     startDate,

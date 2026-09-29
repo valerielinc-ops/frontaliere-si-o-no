@@ -130,7 +130,7 @@ export function parseDetailDescription(html = '') {
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
-  return normalizeDescriptionBullets(cleaned).slice(0, 6000);
+  return normalizeDescriptionBullets(cleaned);
 }
 
 /* ── Fetch + build ─────────────────────────────────────────── */
