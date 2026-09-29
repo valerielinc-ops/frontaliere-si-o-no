@@ -494,18 +494,25 @@ function claimLinesWithBullets(lines) {
 // seguito sulla stessa riga dal tag `follow-up(daily:YYYY-MM-DD)` che il
 // template impone (FOLLOWUP.md § Closing comment), senza un altro `#` in mezzo:
 // il tag si lega al numero piu' vicino, non a una PR citata prima sulla riga.
-// Un `#N` preceduto da `PR` non e' mai un bucket.
+// Un `#N` preceduto da `PR`, `pull request` o `pull-request` non e' mai un bucket.
 const BUCKET_WORD_REF_RE = /\bbucket\s*:?\s*#([1-9]\d*)\b/gi;
-const BUCKET_TAG_REF_RE = /(?<!\b(?:PR|pull\s+request)\s*)#([1-9]\d*)\b[^#\n]*?`follow-up\(daily:\d{4}-\d{2}-\d{2}\)`/gi;
+const BUCKET_TAG_REF_RE = /(?<!\b(?:PR|pull[-\s]+request)\s*)#([1-9]\d*)\b[^#\n]*?`follow-up\(daily:\d{4}-\d{2}-\d{2}\)`/gi;
 
-/**
- * I `#N` legati al tag `follow-up(daily:YYYY-MM-DD)` in un testo. Unica copia
- * della forma: la usa anche `triageMarkerCitesBucket` di
- * gate-minted-followups.mjs, che qualifica il repository della PR sorgente dal
- * marker che cita il bucket.
- */
+/** I `#N` legati al tag `follow-up(daily:YYYY-MM-DD)` in un testo. */
 export function dailyTagBucketReferences(text) {
   return [...String(text || '').matchAll(BUCKET_TAG_REF_RE)].map((match) => Number(match[1]));
+}
+
+/**
+ * I `#N` col tag daily che il marker PROMETTE: solo dentro la finestra di claim
+ * (`claimLinesWithBullets`), la stessa che legge `triageMarkerPersistenceExpectation`.
+ * Unica copia della regola: la usa anche `triageMarkerCitesBucket` di
+ * gate-minted-followups.mjs per qualificare il repository della PR sorgente.
+ * Una citazione storica dopo la lista (`Historical #10171 `follow-up(daily:…)``)
+ * non e' un claim, e non deve qualificare un bucket che il marker non ha promesso.
+ */
+export function claimDailyTagBucketReferences(markerBody) {
+  return dailyTagBucketReferences(claimLinesWithBullets(String(markerBody || '').split(/\r?\n/)).join('\n'));
 }
 
 /**

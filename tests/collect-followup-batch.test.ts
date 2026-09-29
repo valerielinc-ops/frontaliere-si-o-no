@@ -653,6 +653,17 @@ describe('marker su piu bucket: conteggio in testa e un bucket per bullet (#1001
     expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [1957], requiresBucket: true });
   });
 
+  it('`pull-request #N` e `pull request #N` col tag daily non sono bucket', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      'Created/updated: 1 item.',
+      '- pull-request #10015 `follow-up(daily:2026-09-28)`',
+      '- pull request #10050 `follow-up(daily:2026-09-28)`',
+      '- Corpus #1957 `follow-up(daily:2026-09-28)`',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [1957], requiresBucket: true });
+  });
+
   it('un bullet non trasforma in promessa un claim a zero', () => {
     const marker = [
       '## Post-merge follow-up triage',
