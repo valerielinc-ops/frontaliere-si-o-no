@@ -203,17 +203,8 @@ describe('runStandardCrawlerPipeline prepareExistingJobs on a run that parses no
     expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledTimes(1);
     const [key, jobs, options] = mocks.writeJobsCrawlerSliceVerified.mock.calls[0];
     expect(key).toBe(COMPANY_KEY);
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject({
-      id: 'stored-1',
-      slug: 'stored-job',
-      url: 'https://example.com/stored-job',
-      description: '',
-      descriptionByLocale: {},
-      needsRetranslation: true,
-    });
-    expect(options).toMatchObject({ preserveExistingSlugs: false });
-    expect(options).not.toHaveProperty('skipShrinkGuard');
+    expect(jobs).toEqual([]);
+    expect(options).toMatchObject({ preserveExistingSlugs: false, skipShrinkGuard: true });
     // Still the soft exit: no merge, no retirement or localization; the
     // cleaned slice is assembled before the process returns.
     expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
@@ -222,11 +213,15 @@ describe('runStandardCrawlerPipeline prepareExistingJobs on a run that parses no
     expect(mocks.assembleJobsDataset).toHaveBeenCalledTimes(1);
   });
 
-  it('writes nothing when the hook finds no crawler text in the stored jobs', async () => {
+  it('quarantines a stored job that has no source body even when the hook finds no crawler text', async () => {
     const prepareExistingJobs = vi.fn((jobs: object[]) => dropFabricatedDescriptions(jobs, /Karriereseite: /, 'Prepare Existing Test'));
     await runEmpty({ prepareExistingJobs });
     expect(prepareExistingJobs).toHaveBeenCalledTimes(1);
-    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      [],
+      expect.objectContaining({ skipShrinkGuard: true }),
+    );
   });
 
   it('writes nothing without the option (unchanged behaviour)', async () => {

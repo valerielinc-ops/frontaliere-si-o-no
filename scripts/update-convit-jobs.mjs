@@ -438,7 +438,7 @@ async function main() {
       storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
       companyKey: COMPANY_KEY,
       companyLabel: 'Convit Holding',
-      write: (jobs) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob }),
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob, ...options }),
       assemble: () => assembleJobsDataset(),
     });
     return;

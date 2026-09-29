@@ -200,7 +200,7 @@ function cleanStoredJobsOnSoftExit() {
     storedJobs: readExistingCrawlerJobs(PKB_KEY, DATA_JOBS).filter(isPkbJob),
     companyKey: PKB_KEY,
     companyLabel: COMPANY_NAME,
-    write: (jobs) => writeJobsCrawlerSlice(PKB_KEY, jobs),
+    write: (jobs, options) => writeJobsCrawlerSlice(PKB_KEY, jobs, options),
   });
 }
 

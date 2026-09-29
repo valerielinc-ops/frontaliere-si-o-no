@@ -17,6 +17,14 @@ import {
   detectBoilerplateDescriptions,
   isSystemicBoilerplateFailure,
 } from '../assemble-jobs-dataset.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+
+function sourceBodyForQuarantine(job) {
+  const topLevel = String(job?.description || '').trim();
+  if (topLevel) return topLevel;
+  const sourceLang = String(job?.sourceLang || '').trim();
+  return String(job?.descriptionByLocale?.[sourceLang] || '').trim();
+}
 
 /**
  * @param {{
@@ -24,7 +32,7 @@ import {
  *   storedJobs: object[],
  *   companyKey: string,
  *   companyLabel: string,
- *   write: (jobs: object[]) => (unknown|Promise<unknown>),
+ *   write: (jobs: object[], options?: { skipShrinkGuard?: boolean }) => (unknown|Promise<unknown>),
  *   assemble?: () => (unknown|Promise<unknown>),
  * }} options `prepare` repairs the stored jobs in place or returns a
  *   replacement array (the `prepareExistingJobs` contract); `write` persists
@@ -43,7 +51,9 @@ export async function rewritePreparedStoredJobs({
   if (typeof prepare !== 'function' || !Array.isArray(storedJobs) || storedJobs.length === 0) return false;
   const before = JSON.stringify(storedJobs);
   const prepared = prepare(storedJobs) || storedJobs;
-  if (JSON.stringify(prepared) === before) return false;
+  const preparedChanged = JSON.stringify(prepared) !== before;
+  const thinSourceJobs = prepared.filter((job) => !meetsSourceBodyFloor(sourceBodyForQuarantine(job)));
+  if (!preparedChanged && thinSourceJobs.length === 0) return false;
 
   if (isSystemicBoilerplateFailure(detectBoilerplateDescriptions(prepared, companyKey))) {
     console.log(
@@ -51,8 +61,15 @@ export async function rewritePreparedStoredJobs({
     );
     return false;
   }
+  const publishable = prepared.filter((job) => meetsSourceBodyFloor(sourceBodyForQuarantine(job)));
+  const quarantineCount = prepared.length - publishable.length;
+  if (quarantineCount > 0) {
+    console.warn(
+      `  ⚠️ ${companyLabel}: quarantining ${quarantineCount} stored job(s) without a source body of at least 50 words (thin-source path).`,
+    );
+  }
   try {
-    await write(prepared);
+    await write(publishable, quarantineCount > 0 ? { skipShrinkGuard: true } : {});
   } catch (err) {
     console.warn(
       `  ⚠️ ${companyLabel}: rewrite of the stored jobs failed (${err?.message || err}); keeping the prior slice.`,
@@ -60,6 +77,6 @@ export async function rewritePreparedStoredJobs({
     return false;
   }
   if (typeof assemble === 'function') await assemble();
-  console.log(`  🧹 ${companyLabel}: stored slice rewritten without the crawler's own text (${prepared.length} job(s), nothing else changed).`);
+  console.log(`  🧹 ${companyLabel}: stored slice rewritten without the crawler's own text (${publishable.length} job(s), ${quarantineCount} thin-source quarantine(s)).`);
   return true;
 }

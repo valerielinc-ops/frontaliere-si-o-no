@@ -686,7 +686,7 @@ function cleanStoredJobsOnSoftExit() {
     storedJobs: readExistingCrawlerJobs(SWISSCOM_KEY, DATA_JOBS).filter(isSwisscomJob),
     companyKey: SWISSCOM_KEY,
     companyLabel: SWISSCOM_COMPANY_NAME,
-    write: (jobs) => writeJobsCrawlerSlice(SWISSCOM_KEY, jobs),
+    write: (jobs, options) => writeJobsCrawlerSlice(SWISSCOM_KEY, jobs, options),
   });
 }
 

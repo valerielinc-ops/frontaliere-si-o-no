@@ -338,7 +338,7 @@ function cleanStoredJobsOnSoftExit() {
     storedJobs: readExistingCrawlerJobs(BPS_KEY, DATA_JOBS).filter(isBpsJob),
     companyKey: BPS_KEY,
     companyLabel: BPS_COMPANY_NAME,
-    write: (jobs) => writeJobsCrawlerSlice(BPS_KEY, jobs),
+    write: (jobs, options) => writeJobsCrawlerSlice(BPS_KEY, jobs, options),
   });
 }
 

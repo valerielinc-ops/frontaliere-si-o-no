@@ -1136,9 +1136,10 @@ export async function runStandardCrawlerPipeline(config) {
       storedJobs: companyExisting,
       companyKey,
       companyLabel,
-      write: (jobs) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
         isTargetJob: isCompanyJob,
         preserveExistingSlugs,
+        ...options,
       }),
       assemble: () => assembleJobsDataset(),
     });
