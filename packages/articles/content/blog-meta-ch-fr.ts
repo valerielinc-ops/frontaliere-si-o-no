@@ -6992,6 +6992,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-iniziativa-neutralita-grigioni.title': 'Initiative sur la neutralité : comment les Grisons ont voté',
     'blog.article.voto-iniziativa-neutralita-grigioni.excerpt': 'Quinze communes grisonnes ont approuvé l\'initiative sur la neutralité. À contre-courant des 70,2% de non au niveau national, le oui a atteint 67% à Santa Maria.',
     'blog.article.voto-iniziativa-neutralita-grigioni.imageAlt': 'Drapeau suisse flottant avec paysage de montagne en arrière-plan',
+    'blog.article.soletta-avvio-impresa-obblighi.title': 'Ouvrir une entreprise dans le canton de Soleure : coûts',
+    'blog.article.soletta-avvio-impresa-obblighi.excerpt': 'Forme juridique, registre du commerce, des impôts et des assurances : les éléments à examiner pour démarrer une activité dans le canton de Soleure.',
+    'blog.article.soletta-avvio-impresa-obblighi.imageAlt': 'Entrepreneur examinant les documents et coûts d\'une création d\'activité en Suisse',
 };
 
 export default blogMetaChFr;

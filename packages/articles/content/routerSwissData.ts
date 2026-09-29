@@ -2353,6 +2353,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'voto-iniziativa-neutralita': { it: 'voto-iniziativa-neutralita', en: 'neutrality-initiative-vote', de: 'neutralitaetsinitiative-abstimmung', fr: 'vote-initiative-neutralite' },
  'dibattito-stati-bilaterali-iii': { it: 'dibattito-stati-bilaterali-iii', en: 'states-debate-bilaterals-iii', de: 'staenderat-debatte-bilaterale-iii', fr: 'debat-etats-bilaterales-iii' },
  'voto-iniziativa-neutralita-grigioni': { it: 'voto-iniziativa-neutralita-grigioni', en: 'neutrality-initiative-vote-grisons', de: 'neutralitaetsinitiative-abstimmung-graubuenden', fr: 'vote-initiative-neutralite-grisons' },
+ 'soletta-avvio-impresa-obblighi': { it: 'soletta-avvio-impresa-obblighi', en: 'solothurn-business-startup-costs', de: 'geschaeftsstart-solothurn-kosten', fr: 'creation-entreprise-soleure-couts' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

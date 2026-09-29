@@ -6992,6 +6992,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.voto-iniziativa-neutralita-grigioni.title': 'Iniziativa neutralità: come hanno votato i Grigioni',
     'blog.article.voto-iniziativa-neutralita-grigioni.excerpt': 'Quindici Comuni Grigioni hanno approvato l\'iniziativa sulla neutralità. In controtendenza rispetto al 70,2% di no nazionale, il sì ha raggiunto il 67% a Santa Maria.',
     'blog.article.voto-iniziativa-neutralita-grigioni.imageAlt': 'Bandiera svizzera che sventola con paesaggio montano sullo sfondo',
+    'blog.article.soletta-avvio-impresa-obblighi.title': 'Aprire un\'attività nel Canton Soletta: costi',
+    'blog.article.soletta-avvio-impresa-obblighi.excerpt': 'Forma giuridica, registro di commercio, imposte e assicurazioni: le voci da esaminare per avviare un\'attività nel Canton Soletta.',
+    'blog.article.soletta-avvio-impresa-obblighi.imageAlt': 'Imprenditore esamina documenti e costi per avviare un\'attività in Svizzera',
 };
 
 export default blogMetaChIt;
