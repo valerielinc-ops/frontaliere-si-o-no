@@ -190,6 +190,26 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
     expect(cleanedExpired).toEqual([expiredJobs[1]]);
   });
 
+  it('uses a top-level slug as overlap evidence when locale slugs are absent', () => {
+    const activeJobs = [{
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Zürich',
+      slug: 'store-manager-zurich',
+    }];
+    const expiredJobs = [{
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Zürich',
+      slug: 'store-manager-zurich',
+    }];
+
+    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+
+    expect(result.ghostCount).toBe(1);
+    expect(result.cleanedExpired).toEqual([]);
+  });
+
   it('does not remove an expired record without a stable slug identity', () => {
     const activeJobs = [{
       title: 'Store Manager',
