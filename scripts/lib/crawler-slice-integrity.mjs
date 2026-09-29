@@ -7,6 +7,7 @@ import {
   isCatastrophicAccumulatorShrink,
 } from './accumulator-byte-floor-guard.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
+import { localeMapKey } from './locale-map-diff.mjs';
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 
@@ -859,7 +860,10 @@ function expiredArchiveIdentity(entry) {
   const slug = String(entry?.slug ?? '').trim();
   if (slug) return `slug:${String(entry?.companyKey ?? '').trim()}:${slug}`;
   const id = String(entry?.id ?? '').trim();
-  return id ? `id:${id}` : null;
+  if (id) return `id:${id}`;
+  // reconcileGhostExpired falls back to this stable locale-map identity for
+  // legacy archive entries that predate a master slug and an id.
+  return `locale:${localeMapKey(entry?.slugByLocale)}`;
 }
 
 function isProvenExpiredGhostEntry(entry, activeJobs) {

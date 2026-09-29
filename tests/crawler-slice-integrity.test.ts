@@ -797,6 +797,40 @@ describe('crawler slice integrity guard', () => {
     }
   });
 
+  it('proves legacy expired ghosts identified only by slugByLocale', () => {
+    const legacyGhost = {
+      companyKey: 'legacy-crawler',
+      title: 'Legacy position',
+      company: 'Legacy Company',
+      location: 'Lugano',
+      slugByLocale: { it: 'legacy-position-lugano' },
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      companyKey: 'legacy-crawler',
+      slug: 'retained-route',
+      title: 'Retained position',
+      company: 'Legacy Company',
+      location: 'Bellinzona',
+    };
+    const activeJobs = [{
+      slug: 'current-position-lugano',
+      title: legacyGhost.title,
+      company: legacyGhost.company,
+      location: legacyGhost.location,
+      slugByLocale: { it: 'current-position-lugano' },
+      previousSlugs: ['legacy-position-lugano'],
+    }];
+    const previous = json([legacyGhost, retained]);
+    const next = json([retained]);
+    const proof = { kind: 'reconcile-ghost-expired', activeJobs };
+    const filePath = 'data/jobs/expired/by-crawler/legacy-crawler.json';
+
+    expect(isProvenExpiredGhostPrune(filePath, previous, next, proof)).toBe(true);
+    expect(assertCrawlerSliceWriteSafe(filePath, previous, next, { housekeepingProof: proof }).reason)
+      .toBe('proven-expired-ghost-prune');
+  });
+
   it('writes source-verified shrink evidence in the sidecar format used by the commit guard', () => {
     const root = mkdtempSync(join(tmpdir(), 'crawler-slice-source-proof-'));
     const filePath = join(root, 'data/jobs/by-crawler/convit-holding.json');
