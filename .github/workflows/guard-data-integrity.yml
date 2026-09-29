@@ -52,6 +52,14 @@ jobs:
           fetch-depth: 0
           filter: blob:none
           persist-credentials: true
+          # The guard may receive any data/public-data path in a push. Keep
+          # both trees materialized, while excluding only assets and article
+          # sources that guard-data-integrity.mjs never reads.
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/packages/articles/content/
+          sparse-checkout-cone-mode: false
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
