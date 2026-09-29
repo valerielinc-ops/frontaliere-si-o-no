@@ -1,16 +1,16 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-09-29T09:25:48.575Z",
+  "generatedAt": "2026-09-29T21:26:22.075Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3747,
-  "avgDurationMs": 3747,
+  "durationMs": 7509,
+  "avgDurationMs": 7509,
   "durationHistory": [
-    3747
+    7509
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,14 +38,14 @@
       "sector": "Farmaceutica",
       "department": "Accounting, Finance & Control",
       "seniority": "from 5 years to 10 years",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:18:15.295Z",
-      "_qualityScore": 81,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
+        "richness": 20,
+        "translation": 15,
         "completeness": 15
       }
     },
@@ -73,14 +73,14 @@
       "sector": "Farmaceutica",
       "department": "Accounting, Finance & Control",
       "seniority": "from 5 years to 10 years",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:18:15.295Z",
-      "_qualityScore": 81,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 15,
         "completeness": 15
       }
     },
@@ -111,11 +111,11 @@
       "sourceLang": "it",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:49:02.200Z",
-      "_qualityScore": 81,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
+        "richness": 20,
+        "translation": 15,
         "completeness": 15
       }
     }
