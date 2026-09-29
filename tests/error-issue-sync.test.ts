@@ -128,6 +128,11 @@ describe('hasActionableErrorMessage', () => {
     expect(hasActionableErrorMessage('  (Not Set)  ')).toBe(false);
     expect(hasActionableErrorMessage('Stale chunk: Failed to fetch dynamically imported module')).toBe(true);
   });
+
+  it('denies the proven non-actionable cross-origin type without denying the same message first-party', () => {
+    expect(isIssueDenied('RangeError: Maximum call stack size exceeded.', 'cross_origin_script')).toBe(true);
+    expect(isIssueDenied('RangeError: Maximum call stack size exceeded.', 'unhandled_error')).toBe(false);
+  });
 });
 
 describe('app-error-issue-sync.mjs', () => {
@@ -197,6 +202,35 @@ describe('app-error-issue-sync.mjs', () => {
     const title = calls[0][calls[0].indexOf('--title') + 1];
     expect(title).toContain('x is not a function');
     expect(title).not.toContain('does not provide an export');
+  });
+
+  it('keeps cross-origin telemetry out of the backlog while preserving first-party RangeErrors', async () => {
+    issueListEmptyThenCreate(105);
+    readFileSync.mockReturnValue(JSON.stringify({
+      ga4: {
+        errorHealth: {
+          totalErrors: 30,
+          errorRate: 0.2,
+          healthStatus: '🟢 HEALTHY',
+          appErrors: [
+            // This classification is assigned only after the entire stack is
+            // proven to be an opaque cross-origin script (#10369).
+            { errorType: 'cross_origin_script', errorMessage: 'RangeError: Maximum call stack size exceeded.', pagePath: '/cerca-lavoro-ticino/stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona/', count: 10, users: 1 },
+            // Same generic message, but first-party and therefore still actionable.
+            { errorType: 'unhandled_error', errorMessage: 'RangeError: Maximum call stack size exceeded.', pagePath: '/it/lavoro/', count: 6, users: 2 },
+          ],
+          topStacks: [],
+        },
+      },
+    }));
+
+    await appErrorSync.main();
+
+    const calls = createCalls();
+    expect(calls).toHaveLength(1);
+    const title = calls[0][calls[0].indexOf('--title') + 1];
+    expect(title).toContain('unhandled_error');
+    expect(title).not.toContain('cross_origin_script');
   });
 
   it('skips message-less "(not set)" / empty GA4 buckets (#4148 — no message, reason or stack to act on)', async () => {
@@ -329,6 +363,43 @@ describe('posthog-error-issue-sync.mjs', () => {
     await posthogSync.main();
 
     expect(createCalls()).toHaveLength(1);
+    delete process.env.POSTHOG_PERSONAL_API_KEY;
+    delete process.env.POSTHOG_PROJECT_ID;
+  });
+
+  it('filters the same semantic type on the GA4 fallback path (#10369)', async () => {
+    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
+    process.env.POSTHOG_PROJECT_ID = 'p';
+    issueListEmptyThenCreate(206);
+    // An empty liveness window selects the injected GA4 fallback rows.
+    vi.stubGlobal('fetch', vi.fn(async () => ({
+      ok: true,
+      json: async () => ({ results: [] }),
+    })));
+
+    await posthogSync.main({
+      ga4FallbackImpl: async () => [
+        {
+          type: 'cross_origin_script',
+          message: 'RangeError: Maximum call stack size exceeded.',
+          count: 10,
+          sessions: 1,
+          sampleUrl: 'https://frontaliereticino.ch/cerca-lavoro-ticino/stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona/',
+        },
+        {
+          type: 'unhandled_error',
+          message: 'RangeError: Maximum call stack size exceeded.',
+          count: 6,
+          sessions: 2,
+          sampleUrl: 'https://frontaliereticino.ch/it/lavoro/',
+        },
+      ],
+    });
+
+    const calls = createCalls();
+    expect(calls).toHaveLength(1);
+    const title = calls[0][calls[0].indexOf('--title') + 1];
+    expect(title).toContain('GA4 Exception: unhandled_error');
     delete process.env.POSTHOG_PERSONAL_API_KEY;
     delete process.env.POSTHOG_PROJECT_ID;
   });

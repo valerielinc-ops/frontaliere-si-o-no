@@ -151,10 +151,16 @@ export const ISSUE_DENY_PATTERNS = [
 ];
 
 /**
- * True when `message` matches the shared deny-list above and therefore must
- * not open/recur a GitHub backlog issue (telemetry capture is unaffected).
+ * True when the telemetry message or its semantic type is already known to be
+ * non-actionable for the GitHub backlog. `cross_origin_script` is assigned
+ * only after the client proves that every stack frame belongs to an opaque
+ * cross-origin script, so it remains useful in GA4/PostHog dashboards but no
+ * code change in this repository can repair it. Keep that decision type-aware:
+ * a generic message such as a RangeError can still be a real first-party bug
+ * when its type is `unhandled_error` or `error_boundary`.
  */
-export function isIssueDenied(message) {
+export function isIssueDenied(message, type = '') {
+  if (String(type || '').trim().toLowerCase() === 'cross_origin_script') return true;
   return ISSUE_DENY_PATTERNS.some((p) => p.test(message || ''));
 }
 

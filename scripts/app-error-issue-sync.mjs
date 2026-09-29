@@ -113,7 +113,11 @@ export async function main() {
     // PostHog $exception through parallel pipelines, so the "tracked in
     // dashboards but never a backlog ticket" decision must apply to BOTH
     // feeders — see ISSUE_DENY_PATTERNS in ./lib/error-issue-sync.mjs.
-    .filter((e) => !isIssueDenied(e.errorMessage))
+    // Keep cross-origin errors in GA4 for observability, but do not reopen a
+    // backlog issue: the client assigned this type only after proving that the
+    // stack is outside our code. A generic message can still be actionable
+    // when its type is first-party, so the type must be passed explicitly.
+    .filter((e) => !isIssueDenied(e.errorMessage, e.errorType))
     .sort((a, b) => b.count - a.count);
 
   if (!entries.length) {

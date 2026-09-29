@@ -181,7 +181,11 @@ export async function main({ ga4FallbackImpl = fetchGa4ErrorFallback } = {}) {
     .map((entry) => ({ ...entry, sourceLabel }))
     .filter((e) => e.count >= MIN_COUNT)
     .filter((e) => hasActionableErrorMessage(e.message))
-    .filter((e) => !isIssueDenied(e.message));
+    // `cross_origin_script` is deliberately retained in telemetry, but its
+    // stack was already proven to be entirely outside this repository. Do not
+    // turn that semantic classification into a repair issue just because the
+    // message itself is generic (e.g. a RangeError).
+    .filter((e) => !isIssueDenied(e.message, e.type));
 
   if (!entries.length) {
     console.log(`[posthog-error-issue-sync] no $exception above MIN_COUNT=${MIN_COUNT} in last ${WINDOW_DAYS}d — nothing to sync`);
