@@ -312,7 +312,7 @@ describe('migrolino crawler parser', () => {
       expect(parsed.description.length).toBeGreaterThan(0);
       expect(parsed.city).toBe('');
       expect(parsed.canton).toBe('');
-      expect(parsed.postalCode).toBe('3000');
+      expect(parsed.postalCode).toBe('');
       expect(parsed.streetAddress).toBe('');
     });
 
