@@ -7106,6 +7106,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parlamento-sonno-power-nap.title': 'Parliament needs a place to sleep: power nap',
     'blog.article.parlamento-sonno-power-nap.excerpt': 'During sessions, Swiss parliamentarians sleep an average of 6 hours and 10 minutes, about 50 minutes less than usual, according to Björn Rasch\'s study of 16 members of Parliament.',
     'blog.article.parlamento-sonno-power-nap.imageAlt': 'Quiet resting room with sofas inside the Swiss Federal Palace for parliamentarians\' power nap',
+    'blog.article.progetto-ia-medicina-bellinzona.title': 'AI and drugs: Bellinzona in the SWIT-DREAMS project',
+    'blog.article.progetto-ia-medicina-bellinzona.excerpt': 'SWIT-DREAMS gets underway: 1,37 million euros from Interreg for research between Novara and Bellinzona on nanobodies and artificial intelligence applied to medicine.',
+    'blog.article.progetto-ia-medicina-bellinzona.imageAlt': 'Medical research and AI in Bellinzona',
 };
 
 export default blogMetaChEn;

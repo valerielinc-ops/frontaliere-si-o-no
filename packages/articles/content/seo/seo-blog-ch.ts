@@ -92138,6 +92138,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-progetto-ia-medicina-bellinzona': {
+    title: 'IA e farmaci: Bellinzona nel progetto SWIT-DREAMS',
+    description: 'Dettagli sul progetto SWIT-DREAMS: 1,37 milioni di euro per la ricerca su IA e nanoanticorpi a Bellinzona. Partner, obiettivi e stime del mercato',
+    keywords: 'frontalieri, ticino, svizzera, italia, farmaci, bellinzona, progetto, swit-dreams',
+    ogTitle: 'IA e farmaci: Bellinzona protagonista in SWIT-DREAMS',
+    ogDescription: 'Scopri il progetto italo-svizzero SWIT-DREAMS: 1,37 milioni di euro per lo sviluppo di anticorpi di nuova generazione grazie all\'intelligenza artificiale. Focus sul ruolo di Bellinzona.',
+    canonicalPath: '/articoli-svizzera/progetto-ia-medicina-bellinzona/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IA e farmaci: Bellinzona nel progetto SWIT-DREAMS",
+      "description": "Dettagli sul progetto SWIT-DREAMS: 1,37 milioni di euro per la ricerca su IA e nanoanticorpi a Bellinzona. Partner, obiettivi e stime del mercato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/progetto-ia-medicina-bellinzona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ricerca medica e intelligenza artificiale a Bellinzona"
+      },
+      "datePublished": "2026-09-29T21:23:36+00:00",
+      "dateModified": "2026-09-29T21:23:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/progetto-ia-medicina-bellinzona/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
