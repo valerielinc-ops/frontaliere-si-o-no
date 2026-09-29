@@ -140,9 +140,14 @@ const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github', 'workflows');
  */
 export const INTENTIONAL_FAILURE_WORKFLOW_PATHS = new Set([
   '.github/workflows/quality-alerts.yml',
+  // This workflow is a manual baseline measurement: known red test files are
+  // the result being measured, not an infrastructure failure to open as an
+  // issue (see .github/workflows/full-suite-dispatch.yml).
+  '.github/workflows/full-suite-dispatch.yml',
 ]);
 export const INTENTIONAL_FAILURE_WORKFLOW_NAMES = new Set([
   'Quality alerts',
+  'full-suite dispatch',
 ]);
 
 /**
