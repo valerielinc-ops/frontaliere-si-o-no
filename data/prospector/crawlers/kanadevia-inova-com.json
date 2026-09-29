@@ -1,0 +1,24 @@
+{
+  "companyKey": "kanadevia-inova-com",
+  "companyName": "Kanadevia Inova AG",
+  "companyHost": "kanadevia-inova.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://kanadevia-inova.com/careers/jobs"
+  ],
+  "detailTemplate": "/careers/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Italy, Milano Senior Piping Specialist Engineering Mid-Senior Level <div class=\"card-job__icon-wrapper d-flex ju",
+    "Ireland, Dublin O&M Plant Attendant Engineering Mid-Senior Level <div class=\"card-job__icon-wrapper d-flex j",
+    "Italy, Milano Mechanical Engineer Equipment&Packages Engineering Mid-Senior Level <div class=\"card-job__icon",
+    "Germany, Zeven Inbetriebnahme-Techniker (m/w/d) – Biomethananlagen / Gasaufbereitung Engineering Mid-Senior Level </d",
+    "Italy, Milano Project Procurement Manager Engineering Mid-Senior Level <div class=\"card-job__icon-wrapper d-flex"
+  ],
+  "canton": "ZH",
+  "sourceLang": "en",
+  "learnedAt": "2026-09-29T11:41:45.552Z"
+}

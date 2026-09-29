@@ -18,6 +18,11 @@ describe('PostHog quota sampling', () => {
     expect(isLocalDevHost('[::1]')).toBe(true);
     expect(isLocalDevHost('frontaliereticino.ch')).toBe(false);
     expect(isLocalDevHost('localhost.example')).toBe(false);
+    expect(isLocalDevHost('www.frontaliereticino.ch')).toBe(false);
+    expect(isLocalDevHost('localhost.frontaliereticino.ch')).toBe(false);
+    expect(isLocalDevHost('127.0.0.1.nip.io')).toBe(false);
+    expect(isLocalDevHost('')).toBe(false);
+    expect(isLocalDevHost()).toBe(false);
   });
 
   it('keeps replay snapshots and identity events even at zero analytics sampling', () => {
