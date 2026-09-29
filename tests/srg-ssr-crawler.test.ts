@@ -172,6 +172,15 @@ describe('SRG SSR crawler parser', () => {
       expect(text).not.toContain('In fufragnadi tar RTR porscha sguards');
     });
 
+    it('keeps a benefits-only detail page', () => {
+      const html = '<section id="benefits"><h2>Offer</h2><div class="teaser">T</div><p class="benefit-1 content">B</p></section>';
+      const benefitsOnly = extractSrgSsrRenderedDescription(html);
+
+      expect(benefitsOnly).toContain('## Offer');
+      expect(benefitsOnly).toContain('T');
+      expect(benefitsOnly).toContain('B');
+    });
+
     it('returns an empty string when the template sections are absent', () => {
       expect(extractSrgSsrRenderedDescription('<html><body><h1>x</h1></body></html>')).toBe('');
     });

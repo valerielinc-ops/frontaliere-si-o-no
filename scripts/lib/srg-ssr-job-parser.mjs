@@ -309,9 +309,9 @@ export function extractSrgSsrRenderedDescription(html = '') {
       .replace(/\n{3,}/g, '\n\n')
       .trim())
     .filter(Boolean);
-  if (!parts.length) return '';
   const benefits = srgSsrBenefitsText(html);
   if (benefits) parts.push(benefits);
+  if (!parts.length) return '';
   return parts.join('\n\n').trim();
 }
 
