@@ -2099,6 +2099,9 @@ export function formatSourceDetailObservationLines(summary = {}) {
   // Same reasoning for the identical-description buckets: the hidden signal
   // stopped producing WARNINGs, so what the source said about each bucket is
   // printed here on every run instead of disappearing with the WARNING.
+  if (count(summary.duplicateRequestsDropped) > 0) {
+    lines.push(`Source detail requests dropped as duplicates of a request of the same crawler: ${count(summary.duplicateRequestsDropped)} (same URL sampled twice — a sampler defect)`);
+  }
   const shared = summary.sharedDocumentSamples;
   if (shared && count(shared.fragmentAnchored) + count(shared.clientRoute) + count(shared.anchorMissing) > 0) {
     lines.push(`Source detail samples on a page several postings share: ${count(shared.fragmentAnchored)} read from the element their URL fragment names, ${count(shared.clientRoute)} on an app route with no static page per posting (informational), ${count(shared.anchorMissing)} behind an anchor the page does not have (source-detail-anchor-missing)`);
@@ -2163,19 +2166,28 @@ export async function runSourceDetailChecks(report, sourceDetailsToCheck, {
   concurrency = 3,
   checkBatch = checkSourceDetailsBatch,
 } = {}) {
+  // Last line of defence behind the samplers: the same crawler asking for the
+  // same URL twice is one observation, not two, and a single duplicate makes
+  // the evidence bundle refuse the whole run. Kept once, counted, printed.
+  const seenRequests = new Set();
+  const requests = sourceDetailsToCheck.filter(({ crawlerKey, url }) => {
+    const identity = `${crawlerKey}\u0000${url}`;
+    if (seenRequests.has(identity)) return false;
+    seenRequests.add(identity);
+    return true;
+  });
+  const duplicateRequestsDropped = sourceDetailsToCheck.length - requests.length;
   const evidenceContext = {
     provenance,
     versions,
-    requestedCount: sourceDetailsToCheck.length,
-    requestedSamples: sourceDetailsToCheck.map(({ crawlerKey, url }) => ({ crawlerKey, url })),
+    requestedCount: requests.length,
+    requestedSamples: requests.map(({ crawlerKey, url }) => ({ crawlerKey, url })),
   };
-  const sourceResults = await checkBatch(sourceDetailsToCheck, concurrency, { evidenceContext });
+  const sourceResults = await checkBatch(requests, concurrency, { evidenceContext });
+  const sourceDetailSummary = applySourceDetailResults(report, sourceResults, requests.length);
+  sourceDetailSummary.duplicateRequestsDropped = duplicateRequestsDropped;
   return {
-    sourceDetailSummary: applySourceDetailResults(
-      report,
-      sourceResults,
-      sourceDetailsToCheck.length,
-    ),
+    sourceDetailSummary,
     sourceDetailEvidence: finalizeSourceDetailEvidence(report, sourceResults, evidenceContext),
   };
 }
@@ -2579,14 +2591,65 @@ export const DUPLICATE_BUCKET_SAMPLE_REASON = 'identical-description-bucket';
  * a bucket member there is verified already, and a URL fetched there is not
  * fetched twice (the evidence bundle refuses a duplicate request identity).
  */
-export function duplicateBucketSourceSample(jobs, fps, sampledCount = SOURCE_DETAIL_SAMPLE_SIZE) {
+export function duplicateBucketSourceSample(jobs, fps, regularIndices = regularSourceSampleIndices(jobs)) {
   const members = largestDuplicateBucketMembers(fps);
   if (members.length < 2) return null;
-  const regular = jobs.slice(0, sampledCount).filter((job) => job?.url);
-  if (members.some((index) => index < sampledCount && jobs[index]?.url)) return null;
-  const regularUrls = new Set(regular.map((job) => job.url));
+  const regular = new Set(regularIndices);
+  if (members.some((index) => regular.has(index))) return null;
+  const regularUrls = new Set(regularIndices.map((index) => jobs[index]?.url));
   const index = members.find((candidate) => jobs[candidate]?.url && !regularUrls.has(jobs[candidate].url));
   return index === undefined ? null : { index, bucketSize: members.length };
+}
+
+/**
+ * Indices of the regular source-detail sample: the first `size` jobs, in
+ * slice order, whose URL no earlier sampled job already has. The evidence
+ * bundle binds each request by `crawlerKey:sha256(url)` and refuses a
+ * duplicate identity; pwc on 2026-09-29 published the same internship twice
+ * as its first two jobs (same URL), `jobs.slice(0, 2)` requested it twice and
+ * the refused bundle turned all 589 sampled crawlers into CRITICAL
+ * parse-errors (run 36562995006). A repeated URL is skipped for the next job.
+ */
+export function regularSourceSampleIndices(jobs = [], size = SOURCE_DETAIL_SAMPLE_SIZE) {
+  const indices = [];
+  const urls = new Set();
+  for (let index = 0; index < jobs.length && indices.length < size; index += 1) {
+    const url = jobs[index]?.url;
+    if (!url || urls.has(url)) continue;
+    urls.add(url);
+    indices.push(index);
+  }
+  return indices;
+}
+
+/**
+ * Every source-detail request of one crawler: the regular sample plus, when
+ * a body repeats, one member of the largest identical-body bucket. Each URL
+ * is requested at most once (see regularSourceSampleIndices), and a posting
+ * on a document other postings share (a URL fragment tells them apart) is
+ * marked so — its full URL, fragment included, stays its identity.
+ */
+export function sourceDetailSamplesForCrawler(crawlerKey, jobs = []) {
+  const sharedDocuments = sharedSourceDocuments(jobs);
+  const sharedDocumentMark = (job) => (sharedDocuments.has(withoutFragment(job.url)) ? { sharedDocument: true } : {});
+  const regularIndices = regularSourceSampleIndices(jobs);
+  const samples = regularIndices.map((index) => {
+    const job = jobs[index];
+    return { crawlerKey, job, url: job.url, ...sharedDocumentMark(job) };
+  });
+  const bucketSample = duplicateBucketSourceSample(jobs, fingerprintsForCrawler(jobs, 'desc-only'), regularIndices);
+  if (bucketSample) {
+    const job = jobs[bucketSample.index];
+    samples.push({
+      crawlerKey,
+      job,
+      url: job.url,
+      sampleReason: DUPLICATE_BUCKET_SAMPLE_REASON,
+      bucketSize: bucketSample.bucketSize,
+      ...sharedDocumentMark(job),
+    });
+  }
+  return samples;
 }
 
 /* ── URL checker with concurrency limit ────────────────────── */
@@ -2707,12 +2770,7 @@ async function main() {
       }
     }
 
-    const sharedDocuments = sharedSourceDocuments(jobs);
-    const sharedDocumentMark = (job) => (sharedDocuments.has(withoutFragment(job.url)) ? { sharedDocument: true } : {});
-    if (checkSourceDetails) {
-      const sampled = jobs.slice(0, SOURCE_DETAIL_SAMPLE_SIZE).filter((j) => j.url);
-      for (const job of sampled) sourceDetailsToCheck.push({ crawlerKey: key, job, url: job.url, ...sharedDocumentMark(job) });
-    }
+    if (checkSourceDetails) sourceDetailsToCheck.push(...sourceDetailSamplesForCrawler(key, jobs));
 
     // 4. Missing locale coverage — skip in-flight translations
     const missingLocales = jobs.filter((j) => {
@@ -2788,20 +2846,8 @@ async function main() {
         message: '',
         hidden: true,
       });
-      if (checkSourceDetails) {
-        const bucketSample = duplicateBucketSourceSample(jobs, fpsDescOnly);
-        if (bucketSample) {
-          const job = jobs[bucketSample.index];
-          sourceDetailsToCheck.push({
-            crawlerKey: key,
-            job,
-            url: job.url,
-            sampleReason: DUPLICATE_BUCKET_SAMPLE_REASON,
-            bucketSize: bucketSample.bucketSize,
-            ...sharedDocumentMark(job),
-          });
-        }
-      }
+      // Its source-detail sample is requested with the regular one, by
+      // sourceDetailSamplesForCrawler (step 3 above).
     }
 
     report[key] = { total: jobs.length, population, issues };

@@ -51,6 +51,8 @@ import {
   duplicateBucketSampleOutcome,
   largestDuplicateBucketMembers,
   DUPLICATE_BUCKET_SAMPLE_REASON,
+  regularSourceSampleIndices,
+  sourceDetailSamplesForCrawler,
   countDuplicateListings,
   vacancyPdfLink,
   sharedSourceDocuments,
@@ -2831,6 +2833,72 @@ describe('source detail that presents the vacancy as a PDF (gemeinde-st-moritz, 
       bodySha256: pdfSha,
     });
     expect(replaySourceDetailEvidence(result.sourceDetailEvidence, { provenance, versions })).toMatchObject({ descriptionMismatch: false });
+  });
+});
+
+describe('source-detail manifest never repeats a request (pwc, run 36562995006)', () => {
+  // pwc on 2026-09-29: the first two jobs were the same internship published
+  // twice, same URL. jobs.slice(0, 2) requested it twice, the evidence bundle
+  // refused the duplicate identity and every sampled crawler became CRITICAL.
+  const body = 'Du unterstützt unser Audit-Team bei der Prüfung von Jahresabschlüssen, analysierst Geschäftsprozesse und erstellst Prüfberichte. '.repeat(3);
+  const internship = 'https://jobs.pwc.ch/job-vacancies/intern-in-audit-november-2026-bis-april-2027/1f7684c9';
+  const pwc = [
+    { title: 'Intern in Audit', url: internship, location: 'Zürich', sourceLang: 'de', description: body },
+    { title: 'Intern in Audit', url: internship, location: 'Zürich', sourceLang: 'de', description: body },
+    { title: 'Consultant Tax', url: 'https://jobs.pwc.ch/job-vacancies/consultant-tax/2a', location: 'Zürich', sourceLang: 'de', description: `${body} Steuern.` },
+    { title: 'Consultant Deals', url: 'https://jobs.pwc.ch/job-vacancies/consultant-deals/3b', location: 'Zürich', sourceLang: 'de', description: `${body} Deals.` },
+  ];
+  const identities = (items: Array<{ crawlerKey: string; url: string }>) => items.map(({ crawlerKey, url }) => `${crawlerKey}:${url}`);
+  const page = (description: string) => `<html><head><script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: 'Stelle', description, jobLocation: { address: { addressLocality: 'Zürich', addressCountry: 'CH' } } })}</script></head><body></body></html>`;
+  const sealedRun = async (items: Array<{ crawlerKey: string; url: string; job: { description: string } }>) => {
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string }> = {};
+    const { sourceDetailSummary, sourceDetailEvidence } = await runSourceDetailChecks(report, items, {
+      provenance: { repoHeadSha: 'a'.repeat(40), datasetLastCommit: { sha: 'b'.repeat(40), committedAt: null } },
+      versions: { extractor: 'extractor-v1', normalizer: 'normalizer-v1' },
+      checkBatch: (batch: unknown[], concurrency: number, options: object) => checkSourceDetailsBatch(batch as never, concurrency, {
+        ...options,
+        fetchPage: async (url: string) => ({ ok: true, status: 200, url, body: page(body), host: 'jobs.pwc.ch' }),
+      }),
+    });
+    return { report, sourceDetailSummary, sourceDetailEvidence };
+  };
+
+  it('samples the first jobs with distinct URLs, skipping a re-posting for the next job', () => {
+    expect(regularSourceSampleIndices(pwc)).toEqual([0, 2]);
+    expect(regularSourceSampleIndices([{ url: '' }, { url: 'https://a.test/1' }, { url: 'https://a.test/1' }])).toEqual([1]);
+    const items = sourceDetailSamplesForCrawler('pwc', pwc);
+    expect(new Set(identities(items)).size).toBe(items.length);
+    expect(items.map((item) => item.url)).toEqual([internship, 'https://jobs.pwc.ch/job-vacancies/consultant-tax/2a']);
+  });
+
+  it('seals the evidence bundle for that slice: no parse-error, no CRITICAL', async () => {
+    const { report, sourceDetailSummary, sourceDetailEvidence } = await sealedRun(sourceDetailSamplesForCrawler('pwc', pwc));
+    expect(sourceDetailEvidence).toMatchObject({ requestedCount: 2 });
+    expect(sourceDetailEvidence.format).toBe('frontaliere.source-detail-observation-bundle/v1');
+    expect(Object.values(report).flatMap((entry) => entry.issues).filter((issue) => issue.type === 'parse-error')).toEqual([]);
+    expect(sourceDetailSummary.duplicateRequestsDropped).toBe(0);
+  });
+
+  it('keeps distinct identities for postings on one document told apart by their fragment', async () => {
+    const shared = [
+      { title: 'Infirmier', url: 'https://www.ehnv.example/emplois#offer/4094', location: 'Yverdon-les-Bains', sourceLang: 'fr', description: body },
+      { title: 'Médecin', url: 'https://www.ehnv.example/emplois#offer/4402', location: 'Yverdon-les-Bains', sourceLang: 'fr', description: `${body} Médecine.` },
+    ];
+    const items = sourceDetailSamplesForCrawler('ehnv', shared);
+    expect(items).toHaveLength(2);
+    expect(items.every((item) => item.sharedDocument)).toBe(true);
+    expect(new Set(identities(items)).size).toBe(2);
+    const { sourceDetailEvidence } = await sealedRun(items);
+    expect(sourceDetailEvidence.format).toBe('frontaliere.source-detail-observation-bundle/v1');
+  });
+
+  it('drops a duplicate request that reaches the manifest anyway, and counts it', async () => {
+    const [first] = sourceDetailSamplesForCrawler('pwc', pwc);
+    const { sourceDetailSummary, sourceDetailEvidence } = await sealedRun([first, { ...first }]);
+    expect(sourceDetailEvidence).toMatchObject({ requestedCount: 1 });
+    expect(sourceDetailEvidence.format).toBe('frontaliere.source-detail-observation-bundle/v1');
+    expect(sourceDetailSummary.duplicateRequestsDropped).toBe(1);
+    expect(formatSourceDetailObservationLines(sourceDetailSummary)).toContain('Source detail requests dropped as duplicates of a request of the same crawler: 1 (same URL sampled twice — a sampler defect)');
   });
 });
 
