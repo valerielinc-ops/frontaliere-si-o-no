@@ -92333,6 +92333,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sonno-deputati-sessioni-federali': {
+    title: 'Parlamento: sonno breve in sessione, proposti power nap',
+    description: 'Indagine Uni Friburgo: 16 parlamentari dormono 6h10min in sessione (-50min). Esperto propone stanze per power nap a Palazzo federale per mantenere efficienza',
+    keywords: 'frontalieri, ticino, svizzera, italia, parlamento, sonno, breve, sessione',
+    ogTitle: 'Parlamento: sonno breve in sessione, proposti power nap',
+    ogDescription: 'Durante le sessioni i parlamentari dormono 50 minuti in meno del solito (6h10min). Il ricercatore Björn Rasch propone stanze per power nap a Palazzo federale: la stanchezza porta a decisioni più rischiose e minore capacità di assimilare informazioni',
+    canonicalPath: '/articoli-svizzera/sonno-deputati-sessioni-federali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parlamento: sonno breve in sessione, proposti power nap",
+      "description": "Indagine Uni Friburgo: 16 parlamentari dormono 6h10min in sessione (-50min). Esperto propone stanze per power nap a Palazzo federale per mantenere efficienza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sonno-deputati-sessioni-federali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stanza per il riposo a Palazzo federale con poltrone comode e luce soffusa"
+      },
+      "datePublished": "2026-09-29T23:53:14+00:00",
+      "dateModified": "2026-09-29T23:53:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sonno-deputati-sessioni-federali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
