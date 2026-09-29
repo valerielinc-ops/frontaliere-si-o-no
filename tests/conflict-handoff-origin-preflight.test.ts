@@ -20,6 +20,7 @@ import {
   findOverlapFile,
 } from '../scripts/ci/followup-drainer.mjs';
 import {
+  conflictHandoffExpectedHead,
   conflictHandoffOriginPr as preflightOriginPr,
   handoffOriginVerdict,
 } from '../scripts/ci/check-issue-already-resolved.mjs';
@@ -84,13 +85,34 @@ describe('findOverlapFile ignora la PR che l\'hand-off sostituisce (#10131)', ()
 describe('handoffOriginVerdict: quando l\'hand-off non ha più nulla da riapplicare (#10136)', () => {
   it.each([
     [{ state: 'MERGED', mergeable: 'UNKNOWN' }, true, 'merged'],
-    [{ state: 'OPEN', mergeable: 'MERGEABLE' }, true, 'conflict-resolved'],
-    [{ state: 'OPEN', mergeable: 'CONFLICTING' }, false, 'origin-open'],
-    [{ state: 'OPEN', mergeable: 'UNKNOWN' }, false, 'origin-open'],
+    [{ state: 'OPEN', mergeable: 'MERGEABLE', mergeStateStatus: 'CLEAN', headRefOid: HEAD }, true, 'conflict-resolved'],
+    [{ state: 'OPEN', mergeable: 'CONFLICTING', mergeStateStatus: 'DIRTY', headRefOid: HEAD }, false, 'origin-open'],
+    [{ state: 'OPEN', mergeable: 'UNKNOWN', mergeStateStatus: 'UNKNOWN', headRefOid: HEAD }, false, 'origin-mergeability-stale'],
+    [{ state: 'OPEN', mergeable: 'MERGEABLE', mergeStateStatus: 'CLEAN', headRefOid: 'b'.repeat(40) }, false, 'origin-head-unverified'],
+    [{ state: 'OPEN', mergeable: 'MERGEABLE', mergeStateStatus: 'CLEAN' }, false, 'origin-head-unverified'],
     [{ state: 'CLOSED', mergeable: 'CONFLICTING' }, false, 'origin-closed'],
     [null, false, 'origin-unreadable'],
   ])('%j → resolved=%s (%s)', (pr, resolved, reason) => {
-    expect(handoffOriginVerdict(pr)).toEqual({ resolved, reason });
+    expect(handoffOriginVerdict(pr, { expectedHead: HEAD.slice(0, 12) })).toEqual({ resolved, reason });
+  });
+
+  it('legge la head osservata nel body del hand-off e non accetta una head nuova', () => {
+    const { body } = buildConflictHandoffIssue({
+      num: 10121,
+      branch: 'fix/example',
+      head: HEAD,
+      files: ['src/example.ts'],
+    });
+    expect(conflictHandoffExpectedHead(body)).toBe(HEAD.slice(0, 12));
+    expect(handoffOriginVerdict({
+      state: 'OPEN',
+      mergeable: 'MERGEABLE',
+      mergeStateStatus: 'CLEAN',
+      headRefOid: HEAD,
+    }, { expectedHead: conflictHandoffExpectedHead(body) })).toEqual({
+      resolved: true,
+      reason: 'conflict-resolved',
+    });
   });
 
   it('il ramo di hand-off precede il filtro follow-up-only, che lo lasciava passare', () => {
@@ -102,7 +124,7 @@ describe('handoffOriginVerdict: quando l\'hand-off non ha più nulla da riapplic
     expect(handoff).toBeGreaterThan(closed);
     expect(handoff).toBeGreaterThan(-1);
     expect(handoff).toBeLessThan(followUpOnly);
-    expect(main.slice(handoff, followUpOnly)).toContain("'--json', 'state,mergeable'");
+    expect(main.slice(handoff, followUpOnly)).toContain("'--json', 'state,mergeable,mergeStateStatus,headRefOid'");
   });
 });
 

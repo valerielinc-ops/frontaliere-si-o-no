@@ -203,8 +203,10 @@ import {
 } from '@/services/jobGateExperiment';
 import {
  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+ isOfferwallLoadFailure,
  trackAssistedApplicationEvent,
  useAssistedApplicationVariant,
+ useOfferwallPaidFallback,
  type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
 import {
@@ -2356,6 +2358,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
   : alwaysRewardedApplicationSurface
   ? (killSwitches.rewardedApplicationAd ? 'control' : 'rewarded_ad')
   : configuredAssistedApplicationVariant;
+ // Paid 0,99 € offer as the fallback of an Offerwall that could not load
+ // (owner decision 2026-09-29), only on the rewarded job-board surface.
+ const offerwallPaidFallbackEnabled = useOfferwallPaidFallback(
+  alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,
+ );
  const assistedApplicationVariantReady = shouldBypassAssistedApplicationExperiment
   || alwaysRewardedApplicationSurface
   || configuredAssistedApplicationVariantReady;
@@ -2537,6 +2544,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // responded.
  const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
  const [assistedApplicationJob, setAssistedApplicationJob] = useState<JobListing | null>(null);
+ // Why the paid offer is open: the assisted-application experiment arm, or the
+ // fallback of a rewarded Offerwall that could not load.
+ const [assistedOfferSource, setAssistedOfferSource] = useState<'experiment' | 'offerwall_fallback'>('experiment');
+ const assistedOfferAvailable = assistedApplicationVariant === 'assisted_application'
+  || (assistedApplicationVariant === 'rewarded_ad' && assistedOfferSource === 'offerwall_fallback');
  const [rewardedApplicationJob, setRewardedApplicationJob] = useState<JobListing | null>(null);
  // The open rewarded offer resumes a click after the Offerwall recovery reload.
  const [rewardedApplicationResumed, setRewardedApplicationResumed] = useState(false);
@@ -7227,6 +7239,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const handleRewardedApplicationUnavailable = (reason: string) => {
   const job = rewardedApplicationJob;
   if (!job) return;
+  // The Offerwall and its GPT fallback could not LOAD: when enabled, the same
+  // click opens the paid offer, which keeps the free external path one tap
+  // away. A deliberate user choice (closed Offerwall, declined consent) still
+  // goes straight to the employer below.
+  if (offerwallPaidFallbackEnabled && isOfferwallLoadFailure(reason)) {
+   setRewardedApplicationJob(null);
+   setAssistedCheckoutError(null);
+   setAssistedOfferSource('offerwall_fallback');
+   setAssistedApplicationJob(job);
+   trackAssistedApplicationEvent('offerwall_paid_fallback_offered', {
+    ...assistedApplicationJobContext(job, assistedApplicationVariant),
+    reason,
+    price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+   });
+   return;
+  }
   // No Google creative to show (no-fill, timeout, consent, eligibility): the
   // offer has already tracked the technical detail, and the same click goes
   // straight to the employer. No retry, no local video, no second click.
@@ -7239,7 +7267,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleAssistedPaid = async () => {
   const job = assistedApplicationJob;
-  if (!job || assistedApplicationVariant !== 'assisted_application' || assistedCheckoutBusy) return;
+  if (!job || !assistedOfferAvailable || assistedCheckoutBusy) return;
   setAssistedCheckoutBusy(true);
   setAssistedCheckoutError(null);
   trackAssistedApplicationEvent(
@@ -7260,7 +7288,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobUrl: String(job.url || job.applyUrl || ''),
     companyName: String(job.company || ''),
     jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
-    experimentVariant: assistedApplicationVariant,
+    experimentVariant: assistedApplicationVariant === 'assisted_application' ? 'assisted_application' : 'offerwall_fallback',
     successUrl: currentPath,
     cancelUrl: currentPath,
    }, user);
@@ -7387,6 +7415,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // clicks through the detail render, where `assistedApplicationOfferJsx` is
   // mounted, so the treatment CTA never becomes an invisible state update.
   setAssistedCheckoutError(null);
+  setAssistedOfferSource('experiment');
   applicationOfferOpenRef.current = true;
   setAssistedApplicationJob(job);
   if (!isJobDetailView) openDetail(job);
@@ -7780,7 +7809,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
- const assistedApplicationOfferJsx = assistedApplicationJob && assistedApplicationVariant === 'assisted_application' ? (
+ const assistedApplicationOfferJsx = assistedApplicationJob && assistedOfferAvailable ? (
   <Suspense fallback={null}>
    <AssistedApplicationOffer
     jobId={String(assistedApplicationJob.id)}
@@ -7792,6 +7821,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     onChoosePaid={handleAssistedPaid}
     onClose={() => {
      setAssistedApplicationJob(null);
+     setAssistedOfferSource('experiment');
      setAssistedCheckoutBusy(false);
      setAssistedCheckoutError(null);
     }}

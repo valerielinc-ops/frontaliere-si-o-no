@@ -190,6 +190,22 @@ describe('isReportableRun — cosa suona l\'allarme', () => {
     })).toBe(true);
   });
 
+  it('non riporta il rosso atteso della misura full-suite dispatch', () => {
+    const fullSuite = run({
+      workflow_name: 'full-suite dispatch',
+      workflow_path: '.github/workflows/full-suite-dispatch.yml',
+    });
+    expect(isIntentionalFailureWorkflow(fullSuite)).toBe(true);
+    expect(isReportableRun(fullSuite, { since, ignore: new Set() })).toBe(false);
+  });
+
+  it('mantiene il fallback sul nome per la misura full-suite senza path', () => {
+    expect(isIntentionalFailureWorkflow({
+      workflow_name: 'full-suite dispatch',
+      workflow_path: null,
+    })).toBe(true);
+  });
+
   it('non nasconde un normale workflow che fallisce', () => {
     expect(isIntentionalFailureWorkflow({
       workflow_name: 'Quality alerts copy',

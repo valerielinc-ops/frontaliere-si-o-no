@@ -96,6 +96,7 @@ jobs:
       issues: write
     outputs:
       blocked: ${{ steps.risk.outputs.blocked }}
+      closed: ${{ steps.risk.outputs.closed }}
       vision_approved: ${{ steps.risk.outputs.vision_approved }}
       snapshot_fingerprint: ${{ steps.risk.outputs.snapshot_fingerprint }}
     steps:
@@ -126,6 +127,21 @@ jobs:
             (''|*[!0-9]*) echo "::error::numero issue non verificabile"; exit 1 ;;
           esac
           gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels,comments > "$issue_file"
+          # Issue gia' chiusa quando arriva la label (run 36272477075: #9934
+          # chiusa da un commit alle 21:16:56, `agent:fix` riapplicata alle
+          # 21:18:23): «niente da fare», non un guasto. E' il gemello del
+          # ramo `closed` dello step issue_snapshot del job `fix` (#10069), che
+          # qui non arrivava: il jq sotto pretende OPEN e usciva 5 (#9285).
+          # closed=true salta il job `fix`; numero e forma restano fail-closed.
+          issue_state=$(jq -r --argjson issue_number "$ISSUE_NUMBER" '
+            if (.number == $issue_number) and ((.state | type) == "string")
+            then .state else "" end
+          ' "$issue_file")
+          if [ -n "$issue_state" ] && [ "$issue_state" != "OPEN" ]; then
+            echo "::notice::issue #${ISSUE_NUMBER} chiusa prima del preflight: niente da fare"
+            echo "closed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           # `agent:vision-approved` resta fuori dal fingerprint: questo job la
           # rimuove quando la policy consente il run, e il verify del job `fix`
           # ricalcola la snapshot dopo. Contarla faceva fallire ogni issue
@@ -317,6 +333,7 @@ jobs:
     if: |
       needs.risk_policy.result == 'success' &&
       needs.risk_policy.outputs.blocked != 'true' &&
+      needs.risk_policy.outputs.closed != 'true' &&
       github.event.label.name == 'agent:fix' &&
       ((github.event.sender.type == 'User' &&
         github.event.sender.login == 'valerielinc-ops') ||
@@ -427,9 +444,60 @@ jobs:
             end
           ' "$issue_file")
           actual=$(printf '%s' "$snapshot" | sha256sum | cut -d' ' -f1)
+          # Snapshot cambiata fra `risk_policy` e qui (run 36381901150 su
+          # #10085 e 36420326517 su #9876, 2026-09-28): un commento legittimo
+          # arrivato nei 2-5 minuti del checkout. Il deny resta: nessuna
+          # capability su una snapshot che la policy non ha visto. Ma non e'
+          # un guasto, e uscire 1 lasciava `agent:fix` orfana: il RESCUE del
+          # drainer la ri-accodava addebitando un `fu-attempt` a una run che
+          # non ha mai letto la issue. Qui torna in `agent:fix-queued` senza
+          # tentativo; il drainer la ripromuove e un `risk_policy` fresco
+          # giudica la snapshot nuova. Il marker conta i giri: oltre
+          # `stale_requeue_max` nelle 24h lo scrittore e' sistematico e il
+          # deny torna un errore visibile (#9285).
           if [ "$actual" != "$expected" ]; then
-            echo "::error::issue snapshot cambiata o non coerente: deny prima del mint/bridge; nessuna capability remota."
-            exit 1
+            if ! jq -e 'any(.labels[]; .name == "agent:fix")' "$issue_file" >/dev/null; then
+              echo "::notice::issue snapshot cambiata dopo risk_policy e agent:fix già rimossa da un altro attore: nessuna capability remota, niente da ri-accodare."
+              echo "stale=true" >> "$GITHUB_OUTPUT"
+              echo "verified=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            stale_marker='<!-- ISSUE_FIX_SNAPSHOT_STALE -->'
+            stale_requeue_max=3
+            stale_recent=$(jq -r --arg marker "$stale_marker" '
+              ((now | floor) - 86400 | todate) as $since
+              | [.comments[]
+                  | select(((.createdAt // "") | type) == "string" and (.createdAt // "") >= $since)
+                  | select(((.body | type) == "string") and (.body | contains($marker)))]
+              | length
+            ' "$issue_file")
+            if [ "$stale_recent" -ge "$stale_requeue_max" ]; then
+              echo "::error::issue snapshot cambiata o non coerente, già ri-accodata $stale_recent volte in 24h: deny prima del mint/bridge; nessuna capability remota. Qualcosa modifica la issue fra risk_policy e fix a ogni giro."
+              exit 1
+            fi
+            stale_body=$(cat <<'BODY'
+          ♻️ **Issue-fix: issue cambiata prima delle capability, ri-accodata** (zero-Claude).
+
+          Fra il preflight `risk_policy` e il job `fix` la issue ha ricevuto un commento o una label, quindi la snapshot giudicata dalla policy non è più quella attuale. Questa run non ha concesso capability e non ha avviato il fixer.
+
+          La label passa da `agent:fix` a `agent:fix-queued` **senza consumare un `fu-attempt`**: il drainer la ripromuove e un preflight fresco valuta lo stato attuale.
+          BODY
+            )
+            run_url="${GITHUB_SERVER_URL:-https://github.com}/${REPO}/actions/runs/${GITHUB_RUN_ID:-unknown}"
+            if ! gh issue comment "$ISSUE_NUMBER" --repo "$REPO" \
+              --body "$(printf '%s\n%s\n\nRun: %s' "$stale_marker" "$stale_body" "$run_url")" >/dev/null; then
+              echo "::error::issue snapshot cambiata o non coerente e marker di ri-accodamento non postato: deny prima del mint/bridge; nessuna capability remota."
+              exit 1
+            fi
+            if ! gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
+              --add-label "agent:fix-queued" --remove-label "agent:fix" >/dev/null; then
+              echo "::error::issue snapshot cambiata o non coerente e ri-accodamento non applicato: deny prima del mint/bridge; nessuna capability remota."
+              exit 1
+            fi
+            echo "::notice::issue snapshot cambiata dopo risk_policy: nessuna capability remota; #${ISSUE_NUMBER} ri-accodata in agent:fix-queued senza tentativo consumato."
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+            echo "verified=false" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
           ctx_dir="${RUNNER_TEMP}/issue-fix-ctx"
           mkdir -p "$ctx_dir"
@@ -1431,12 +1499,31 @@ jobs:
         env:
           REPO: ${{ github.repository }}
           VISION_APPROVED: ${{ needs.risk_policy.outputs.vision_approved }}
+          EVENT_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
-          git fetch --no-tags origin main
+          # Il clone e' blobless: se l'agente ha scritto oggetti locali che
+          # puntano a oggetti mai scaricati, l'index-pack del fetch muore
+          # ripacchettando i «local links» (run 36286839919 e 36286841846:
+          # `could not finish pack-objects to repack local links`, exit 128)
+          # e il lavoro dell'agente non arrivava nemmeno al checkpoint (#9285).
+          # Il fetch fallito non aggiorna i ref. Non si ripiega sul ref locale
+          # `origin/main`, che l'agente puo' riscrivere, ma sul commit
+          # dell'evento, da cui l'agente e' partito: il diff contro quello
+          # contiene tutto il suo lavoro (piu' l'eventuale main integrato, cioe'
+          # al massimo path in piu'). Commit non leggibile → deny.
+          base=origin/main
+          if ! git fetch --no-tags origin main; then
+            if ! [[ "${EVENT_SHA:-}" =~ ^[0-9a-f]{40}$ ]] || ! git cat-file -e "${EVENT_SHA}^{tree}"; then
+              echo "::error::F1/F7 diff gate: fetch di origin/main fallito e commit dell'evento non leggibile: diff non classificabile."
+              exit 1
+            fi
+            base="$EVENT_SHA"
+            echo "::warning::F1/F7 diff gate: fetch di origin/main fallito; classifico contro il commit dell'evento ${base}."
+          fi
           paths_file="$RUNNER_TEMP/f1-f7-output.paths"
           {
-            git diff --name-only origin/main
+            git diff --name-only "$base"
             git ls-files --others --exclude-standard
           } | sort -u > "$paths_file"
           # Albero pulito = niente da pushare, quindi niente da classificare.
