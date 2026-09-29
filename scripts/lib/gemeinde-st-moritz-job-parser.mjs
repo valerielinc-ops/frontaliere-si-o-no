@@ -21,6 +21,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { readAttr, scanHtmlTags } from './html-attr.mjs';
+import { extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -336,6 +337,68 @@ export function parseDetailHtml(html) {
   return Object.keys(result).length > 0 ? result : null;
 }
 
+/* ── Stelleninserat PDF ────────────────────────────────────── */
+
+// The application/contact block that closes every Inserat: contact persons
+// with phone numbers and e-mail addresses, the postal address for the
+// application and (Gemeindeschreiber) the recruiting agency's letterhead.
+// None of it describes the role.
+const INSERAT_TAIL_RE = /\b(?:Haben wir Ihr Interesse geweckt|(?:Fachliche )?Auskünfte zur Stelle|Interessierte wenden sich|Interessent\S* wenden sich|Kontakt:)/i;
+
+// Section labels of the St. Moritz Inserate. A label is a heading only when
+// a bullet list follows it or when it opens a sentence, so the same words
+// inside prose ("…wir bieten Ihnen eine…") stay prose.
+const INSERAT_HEADING = '(Ihre Aufgaben|Ihr Aufgabenbereich|Ihre Hauptaufgaben|Ihre Kompetenzen|Ihr Profil|Wir erwarten|Wir bieten(?: Ihnen)?|Unser Angebot)';
+const INSERAT_HEADING_BEFORE_LIST_RE = new RegExp(`\\s+${INSERAT_HEADING}\\s*:?\\s+(?=[-•]\\s)`, 'g');
+const INSERAT_HEADING_AFTER_SENTENCE_RE = new RegExp(`([.!?:])\\s+${INSERAT_HEADING}\\s*:?\\s+`, 'g');
+
+/**
+ * Structure the text layer of a Gemeinde St. Moritz Stelleninserat PDF.
+ *
+ * The PDF is the actual job ad: the detail page only carries its first one
+ * or two sentences, so the published description used to be a 150-600 char
+ * teaser with no tasks, requirements or offer (6/6 without a list). unpdf
+ * returns the page as one line — headings and ` - `/` • ` bullets inline —
+ * so sections are rebuilt here: a heading line per section, one `- ` line per
+ * item, and only inside a section (the agency prose of the Gemeindeschreiber
+ * ad uses ` - ` as a dash and has no section headings, so it stays prose).
+ */
+export function structureGemeindeInseratText(raw = '') {
+  let text = normalizeSpace(raw);
+  const tail = text.search(INSERAT_TAIL_RE);
+  if (tail > 0) text = text.slice(0, tail).trim();
+  text = text
+    .replace(INSERAT_HEADING_BEFORE_LIST_RE, '\n\n$1\n')
+    .replace(INSERAT_HEADING_AFTER_SENTENCE_RE, '$1\n\n$2\n');
+  const [intro, ...sections] = text.split(/\n\n/);
+  const structured = sections.map((section) => {
+    const [heading, ...bodyLines] = section.split('\n');
+    const body = ` ${bodyLines.join(' ')}`
+      .split(/\s+[-•]\s+/)
+      .map((part, index) => (index === 0 ? part.trim() : `- ${part.trim()}`))
+      .filter((part) => part && part !== '-')
+      .join('\n');
+    return `${heading}\n${body}`.trim();
+  });
+  return normalizeDescriptionSpace([intro, ...structured].filter(Boolean).join('\n\n'));
+}
+
+/**
+ * Full description from the Stelleninserat PDF, or '' when the PDF is missing,
+ * unreadable or image-only (the caller then keeps the detail-page teaser).
+ */
+async function fetchInseratDescription(pdfUrl, { extractPdf = extractPdfJobContentFromUrl } = {}) {
+  if (!pdfUrl) return '';
+  try {
+    const pdf = await extractPdf(pdfUrl);
+    const raw = pdf?.thin ? '' : (pdf?.rawText || pdf?.text || '');
+    return raw ? structureGemeindeInseratText(raw) : '';
+  } catch (err) {
+    console.warn(`    ⚠️ Stelleninserat PDF unreadable (${pdfUrl}): ${err?.message || err}`);
+    return '';
+  }
+}
+
 /* ── Fetch Helpers ─────────────────────────────────────────── */
 
 async function fetchPage(url, timeoutMs = 15_000) {
@@ -390,7 +453,10 @@ export async function fetchAllGemeindeStMoritzJobs() {
     const detail = detailHtml ? parseDetailHtml(detailHtml) : null;
 
     const title = detail?.title || listing.title;
-    const descriptionText = detail?.description || '';
+    // The Stelleninserat PDF is the job ad; the page text is only its teaser.
+    const inseratText = await fetchInseratDescription(detail?.pdfUrl);
+    const pageText = detail?.description || '';
+    const descriptionText = inseratText.length > pageText.length ? inseratText : pageText;
     const postedDate = detail?.date || listing.date || new Date().toISOString().split('T')[0];
     const publicUrl = listing.url;
 

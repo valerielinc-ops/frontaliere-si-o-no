@@ -8,6 +8,7 @@ import {
   parseListingHtml,
   parseDetailHtml,
   parseGermanDate,
+  structureGemeindeInseratText,
 } from '../scripts/lib/gemeinde-st-moritz-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -396,5 +397,46 @@ describe('Gemeinde St. Moritz crawler parser', () => {
       expect(validJob.location).toBe('St. Moritz');
       expect(validJob.canton).toBe('GR');
     });
+  });
+});
+
+// Text layers of live Stelleninserat PDFs (2026-09-29), shortened, with the
+// contact persons replaced by placeholders. unpdf returns each page as one line.
+describe('structureGemeindeInseratText', () => {
+  const inserat = (name: string) => readFileSync(
+    new URL(`./fixtures/gemeinde-st-moritz/${name}`, import.meta.url),
+    'utf8',
+  );
+
+  it('rebuilds headed sections with one line per item', () => {
+    const text = structureGemeindeInseratText(inserat('inserat-bistro.txt'));
+    expect(text).toContain('suchen wir ab sofort oder nach Vereinbarung:\n\nIhre Aufgaben\nBeim OVAVERVA Bistro');
+    expect(text).toContain('Hektik des Alltags:\n- Unterstützung bei den täglichen Mise-en-Place-Arbeiten\n- Auf- und Abbau des Selbstbedienungsbuffets');
+    expect(text).toContain('Wir erwarten\n- Saubere, selbständige und speditive Arbeitsweise\n- Erfahrung im Gastrobereich erwünscht');
+    expect(text).toContain('Wir bieten\n- Eine selbständige, vielseitige Tätigkeit');
+    // The en dash of an opening-hours range is not a list item.
+    expect(text).toContain('täglich von 09:00 – 21:00 Uhr geöffnet');
+  });
+
+  it('turns • bullets into line-start items, first item included', () => {
+    const text = structureGemeindeInseratText(inserat('inserat-polizist.txt'));
+    expect(text).toContain('Ihr Aufgabenbereich\n- Aufrechterhaltung von Ruhe, Ordnung und Sicherheit\n- Schalterdienst');
+    expect(text).toContain('Ihre Kompetenzen\n- Abgeschlossene Ausbildung');
+    expect(text).toContain('Wir bieten Ihnen\n- Ein kollegiales');
+    expect(text).not.toContain('•');
+  });
+
+  it('drops the application and contact block', () => {
+    for (const name of ['inserat-bistro.txt', 'inserat-polizist.txt', 'inserat-gemeindeschreiber.txt']) {
+      const text = structureGemeindeInseratText(inserat(name));
+      expect(text).not.toMatch(/example\.ch|081 000 00 00|Vorname Nachname|Interesse geweckt|Kontakt:/);
+    }
+  });
+
+  it('keeps prose without section headings as prose', () => {
+    const text = structureGemeindeInseratText(inserat('inserat-gemeindeschreiber.txt'));
+    expect(text).toContain('Unsere Auftraggeberin - die Gemeinde St. Moritz - gestaltet');
+    expect(text).not.toMatch(/^- /m);
+    expect(text.endsWith('Wir freuen uns auf Ihre Bewerbung.')).toBe(true);
   });
 });

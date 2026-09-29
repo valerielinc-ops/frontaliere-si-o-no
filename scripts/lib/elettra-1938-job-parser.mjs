@@ -16,7 +16,13 @@
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
+import {
+  slugify,
+  stripHtml,
+  fetchHtml,
+  fetchJson,
+  normalizeDescriptionSpace,
+} from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -169,6 +175,60 @@ function parseCareerPage(html = '', pageUrl = '') {
   return { jobs, totalCards: cards.length };
 }
 
+function htmlBlockToText(html = '') {
+  return normalizeDescriptionSpace(stripHtml(html)).replace(/\n{2,}(?=• )/g, '\n');
+}
+
+/**
+ * Full vacancy text of an InRecruiting detail page (`/fiammcomponents/jobs/…`).
+ * The career-page card only carries a teaser cut at ~230 characters and ending
+ * in `...`; the detail page renders every section under `#description__body`
+ * as `h3.body__headings` + `div.body__text` pairs ("Descrizione azienda",
+ * "Posizione", "Requisiti", "Altre informazioni"). The application form that
+ * follows (`#vacancy__form`) is chrome and stays out. Falls back to the
+ * JobPosting JSON-LD description (the "Posizione" section alone), then ''.
+ */
+export function parseElettraDetailDescription(html = '') {
+  if (!html) return '';
+  const { document } = new JSDOM(html).window;
+  const sections = [];
+  const body = document.querySelector('#description__body');
+  if (body) {
+    let heading = '';
+    for (const element of body.children) {
+      if (element.matches('h3.body__headings')) {
+        heading = normalizeSpace(element.textContent || '');
+        continue;
+      }
+      if (!element.matches('.body__text')) continue;
+      const text = htmlBlockToText(element.innerHTML);
+      if (text) sections.push(heading ? `${heading}\n${text}` : text);
+      heading = '';
+    }
+  }
+  if (sections.length) return normalizeDescriptionSpace(sections.join('\n\n'));
+
+  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+    try {
+      const data = JSON.parse(script.textContent || '');
+      const postings = (Array.isArray(data) ? data : [data]).filter((node) => node?.['@type'] === 'JobPosting');
+      const description = htmlBlockToText(postings[0]?.description || '');
+      if (description) return description;
+    } catch { /* malformed JSON-LD: try the next block */ }
+  }
+  return '';
+}
+
+async function fetchDetailDescription(url) {
+  if (!url || url === CAREER_URL || !/\/fiammcomponents\/jobs\//.test(url)) return '';
+  try {
+    return parseElettraDetailDescription(await fetchHtml(url, { timeoutMs: 20000 }));
+  } catch (err) {
+    console.warn(`  ⚠️ Elettra 1938 detail fetch failed for ${url}: ${err?.message || err}`);
+    return '';
+  }
+}
+
 function extractAjaxScaffold(html = '') {
   const { document } = new JSDOM(html).window;
   const hasMountContainer = Boolean(document.querySelector('#vacancyList'));
@@ -279,8 +339,11 @@ export async function fetchAllElettra1938Jobs() {
 
     const location = normalizeSpace(listing.location || '') || HQ?.city || 'Stabio';
     const canton = HQ?.canton || 'TI';
-    const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url || CAREER_URL;
+    // The card teaser is truncated ("…attività su linea di..."): read the
+    // detail page and keep the teaser only when the detail yields nothing.
+    const detailDescription = await fetchDetailDescription(publicUrl);
+    const descriptionText = detailDescription || stripHtml(listing.description || '');
 
     const sourceLang = detectLang(descriptionText || title, 'it');
     const jobSlug = slugify(`${title} elettra-1938 ch`);
