@@ -1,9 +1,12 @@
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 import {
   SRG_SSR_KEY,
   SRG_SSR_COMPANY_NAME,
   isSrgSsrJob,
   isTrustedDomain,
+  extractSrgSsrRenderedDescription,
 } from '../scripts/lib/srg-ssr-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -124,6 +127,39 @@ describe('SRG SSR crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── Rendered description (issue 5253) ──
+  describe('extractSrgSsrRenderedDescription', () => {
+    // Minimised RTR detail page (contact names/phones redacted). Its JSON-LD
+    // `description` carries tasks + profile + a contact stub only: the
+    // introduction and the «Per infurmaziun» block exist only in the markup.
+    const html = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'srg-ssr', 'rtr-fufragnadi-detail.html'),
+      'utf8',
+    );
+    const text = extractSrgSsrRenderedDescription(html);
+
+    it('keeps the introduction and every specification block the page renders', () => {
+      expect(text).toMatch(/^RTR è in'unitad d'interpresa da la SRG SSR/);
+      expect(text).toContain('## Tge èn las pussaivladads?');
+      expect(text).toContain('## Tge èn nossas spetgas?');
+      expect(text).toContain('## Per infurmaziun');
+      expect(text).toContain("RTR porscha mintg'onn ina plazza d'emprendissadi commerziala");
+    });
+
+    it('keeps the line structure of the source instead of one flat paragraph', () => {
+      expect(text).toContain('Ti discurras in idiom rumantsch e sas era scriver rumantsch\nTi has almain');
+    });
+
+    it('leaves out contact, slogan quote and other sections', () => {
+      expect(text).not.toMatch(/Persuna da contact|resursas umanas|\+41/);
+      expect(text).not.toContain('In fufragnadi tar RTR porscha sguards');
+    });
+
+    it('returns an empty string when the template sections are absent', () => {
+      expect(extractSrgSsrRenderedDescription('<html><body><h1>x</h1></body></html>')).toBe('');
     });
   });
 });
