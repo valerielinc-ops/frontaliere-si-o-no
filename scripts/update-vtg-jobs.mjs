@@ -49,9 +49,13 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import {
+  federalRegionCantons,
+  federalWorkplaceFactValue,
   normalizeFederalDepartmentCompany,
   normalizeFederalJobLocation,
+  resolveFederalWorkplaceAddress,
   resolveFederalWorkplaceLocality,
+  resolveSwissLocalityCanton,
 } from './lib/federal-job-normalization.mjs';
 import { holdSourceLang } from './lib/job-locale-utils.mjs';
 import {
@@ -158,20 +162,35 @@ function buildSeedMetaFromApiJob(job) {
   // An explicit canton marker in `arbeitsort` ("Grolley (FR)", "Zimmerwald
   // BE") places an ambiguous or former municipality; it is kept in the
   // federal display form "Locality (XX)" that confederazione already uses.
-  const resolvedWorkplace = resolveFederalWorkplaceLocality(arbeitsort);
+  // Without a marker, the official locality directory places the name within
+  // the cantons of the posting's `region` facet ("Bronschhofen" + Ostschweiz
+  // (AI … SG …) → SG, "Rüti" + Zürich (ZH) → ZH); a name the directory lists
+  // in two of those cantons (Romont BE/FR) stays unplaced. That canton also
+  // replaces the region's first code (AI for every Ostschweiz posting).
+  const regionCantons = federalRegionCantons(job?.attributes?.['region']);
+  const directoryCanton = (locality) => (
+    regionCantons.size > 0 ? resolveSwissLocalityCanton(locality, { cantons: regionCantons }) : ''
+  );
+  const resolvedWorkplace = resolveFederalWorkplaceLocality(arbeitsort, {
+    isPlaced: (locality) => Boolean(directoryCanton(locality)),
+  });
   const markerCanton = normalizeSwissCantonCode(
     normalizedLocation.canton || arbeitsort.match(/\b([A-Z]{2})\b(?=\s*(?:,|$))/)?.[1] || '',
   );
   let workplaceLocation = '';
+  let workplaceCanton = '';
   if (resolvedWorkplace && (isKnownSwissMunicipality(resolvedWorkplace) || inferAnyCanton(resolvedWorkplace))) {
     workplaceLocation = resolvedWorkplace;
   } else if (resolvedWorkplace && markerCanton) {
     workplaceLocation = `${resolvedWorkplace} (${markerCanton})`;
+  } else if (resolvedWorkplace && (workplaceCanton = directoryCanton(resolvedWorkplace))) {
+    workplaceLocation = `${resolvedWorkplace} (${workplaceCanton})`;
   }
+  const seedCanton = workplaceCanton || canton;
   return {
     location: normalizedLocation.location || region || 'Schweiz',
     ...(workplaceLocation ? { workplaceLocation } : {}),
-    ...(canton ? { canton } : {}),
+    ...(seedCanton ? { canton: seedCanton } : {}),
     company: normalizeFederalDepartmentCompany(dept, VTG_COMPANY_NAME) || VTG_COMPANY_NAME,
     ...(job?.start_date ? { postedDate: dateOnly(job.start_date) } : {}),
   };
@@ -425,13 +444,20 @@ function ensureSourceLang() {
  * the detail page (audit run 36528331656). composeFederalJobDescription
  * skips sections already present, so a job the engine carried over from an
  * earlier run is not enriched twice. An unreadable page keeps the engine text.
+ *
+ * The same page states the workplace address under the title ("Arbeitsort:
+ * Amp-Strasse 12, 9552 Bronschhofen"): see applyVtgWorkplaceAddress.
  */
-async function enrichVtgDescriptionsFromDetailPages() {
+async function enrichVtgDescriptionsFromDetailPages(seedMetaByUrl = {}) {
   if (!fs.existsSync(DATA_JOBS)) return;
   const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   if (!Array.isArray(jobs)) return;
+  const seedMetaById = new Map(Object.entries(seedMetaByUrl || {})
+    .map(([url, meta]) => [extractStableJobId(url), meta])
+    .filter(([id]) => Boolean(id)));
   const targets = jobs.filter((job) => isVtgJob(job) && job.url);
   let enriched = 0;
+  let addressed = 0;
   let failed = 0;
   await mapPool(targets, 3, async (job) => {
     try {
@@ -447,13 +473,73 @@ async function enrichVtgDescriptionsFromDetailPages() {
         }
         enriched += 1;
       }
+      const seedMeta = seedMetaById.get(extractStableJobId(job.url));
+      const located = applyVtgWorkplaceAddress(job, extras.facts, { seededWorkplace: Boolean(seedMeta?.workplaceLocation) });
+      if (located !== job) {
+        Object.assign(job, located);
+        addressed += 1;
+      }
     } catch {
       failed += 1;
     }
     await new Promise((resolve) => setTimeout(resolve, 150));
   });
-  if (enriched > 0) writeJsonAtomic(DATA_JOBS, jobs);
-  console.log(`📝 VTG detail sections added to ${enriched}/${targets.length} job(s)${failed ? ` (${failed} page(s) unreadable, engine text kept)` : ''}.`);
+  if (enriched > 0 || addressed > 0) writeJsonAtomic(DATA_JOBS, jobs);
+  console.log(`📝 VTG detail sections added to ${enriched}/${targets.length} job(s), workplace address from the page on ${addressed}${failed ? ` (${failed} page(s) unreadable, engine text kept)` : ''}.`);
+}
+
+/**
+ * The workplace address a jobs.admin.ch page states under the title
+ * ("Arbeitsort: Amp-Strasse 12, 9552 Bronschhofen"), carried into the job:
+ * street line, CAP and locality, with the canton the official locality
+ * directory gives that CAP and locality. Two same-title apprenticeships with
+ * one body are two workplaces when their pages name two addresses — the
+ * JSON-LD only knows the administrative unit (Bern).
+ *
+ * - `seededWorkplace` and the address lies in the published canton: the
+ *   engine already published the posting's own `arbeitsort`. The address adds
+ *   street and CAP, and its locality as `addressLocality` when it names
+ *   another one (arbeitsort "Stans-Oberdorf", address "6370 Oberdorf").
+ * - otherwise the published place is not the workplace: the engine fell back
+ *   to the administrative unit's JSON-LD address (Bern, with the region
+ *   facet's first canton), or the arbeitsort was read in another canton than
+ *   the page's address ("Bremgarten" in region Espace Mittelland, address
+ *   "Kaserne, 5620 Bremgarten" in Aargau). The page's workplace replaces
+ *   location and canton.
+ *
+ * Returns the job unchanged when the page states no address that can be
+ * placed in one canton ("Pristina, Kosovo", no fact) — no address is made up.
+ */
+export function applyVtgWorkplaceAddress(job, facts = [], { seededWorkplace = false } = {}) {
+  const value = federalWorkplaceFactValue(facts);
+  if (!value || !job) return job;
+  const publishedCanton = String(job.canton || '').toUpperCase();
+  // The published canton only settles a CAP several cantons share ("8630
+  // Rüti": Zürich or St. Gallen); an address elsewhere is resolved on its own.
+  const inPublishedCanton = seededWorkplace && publishedCanton
+    ? resolveFederalWorkplaceAddress(value, { cantons: [publishedCanton] })
+    : null;
+  const address = inPublishedCanton || resolveFederalWorkplaceAddress(value);
+  if (!address) return job;
+  const next = {
+    ...job,
+    postalCode: address.postalCode,
+    addressLocality: address.addressLocality,
+    addressRegion: address.canton,
+  };
+  if (address.streetAddress) next.streetAddress = address.streetAddress;
+  else if (job.streetAddress && job.postalCode !== address.postalCode) next.streetAddress = '';
+  if (!inPublishedCanton) {
+    // Same display form as the seed: a locality its name alone does not put
+    // in this canton keeps the marker ("Romont (FR)", "Oberdorf (NW)").
+    next.location = inferAnyCanton(address.addressLocality) === address.canton
+      ? address.addressLocality
+      : `${address.addressLocality} (${address.canton})`;
+    next.canton = address.canton;
+  }
+  const changed = ['postalCode', 'streetAddress', 'addressLocality', 'addressRegion', 'location', 'canton']
+    .some((field) => (next[field] || '') !== (job[field] || ''));
+  return changed ? next : job;
 }
 
 /* ── Stats & Validation ────────────────────────────────────── */
@@ -527,7 +613,7 @@ async function main() {
   // Step 3: Run the base crawler (fetches detail pages)
   await runBaseCrawler();
   ensureSourceLang();
-  await enrichVtgDescriptionsFromDetailPages();
+  await enrichVtgDescriptionsFromDetailPages(discovery.seedMetaByUrl);
 
   // Step 4: Translate missing locales
   await translateMissingJobLocales({
