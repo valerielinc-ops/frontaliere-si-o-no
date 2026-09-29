@@ -5508,7 +5508,8 @@ function textFragmentIdentity(fragment = '') {
   const textParam = fragment.slice(at + 3).split('&').find((part) => part.startsWith('text='));
   if (!textParam) return '';
   const parts = textParam.slice('text='.length).split(',');
-  const start = parts.find((part) => part && !part.endsWith('-')) || '';
+  const hasPrefix = parts.length > 1 && parts[0].endsWith('-');
+  const start = parts[hasPrefix ? 1 : 0] || '';
   let text = '';
   try {
     text = decodeURIComponent(start);
