@@ -164,10 +164,10 @@ function parseListingPage(html = '') {
  * The posting's text lives in the page's text sections — the introduction
  * (`.wysiwyg-usp-area`) and one `.wysiwyg-with-medium` section per block
  * ("Dein Job", "Dein Profil", …) — read in page order, without the apply
- * button. The generic selectors below matched the whole `<main>` instead,
+ * button. The former generic selectors matched the whole `<main>` instead,
  * whose hero carries the department, the title and the breadcrumbs
- * ("breadcrumbs.home Über uns Jobs und Karriere …"); they remain the fallback
- * for a page without those sections.
+ * ("breadcrumbs.home Über uns Jobs und Karriere …"). A page without those
+ * sections gives no description.
  */
 export function parseDetailPage(html = '') {
   if (!html) return '';
@@ -175,55 +175,22 @@ export function parseDetailPage(html = '') {
   const { document } = new JSDOM(html).window;
 
   const sections = [...document.querySelectorAll('.wysiwyg-usp-area, .wysiwyg-with-medium')];
-  if (sections.length > 0) {
-    const parts = [];
-    for (const section of sections) {
-      for (const button of section.querySelectorAll('a.btn, .btn, button')) button.remove();
-      const text = stripHtml(section.innerHTML || '')
-        .split('\n')
-        .map((line) => line.trim())
-        .join('\n')
-        .replace(/\n{3,}/g, '\n\n')
-        .trim();
-      if (text) parts.push(text);
-    }
-    const body = parts.join('\n\n').trim();
-    if (body) return body;
+  const parts = [];
+  for (const section of sections) {
+    for (const button of section.querySelectorAll('a.btn, .btn, button')) button.remove();
+    const text = stripHtml(section.innerHTML || '')
+      .split('\n')
+      .map((line) => line.trim())
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    if (text) parts.push(text);
   }
-
-  const BODY_SELECTORS = [
-    '.content-block',
-    '.ce-bodytext',
-    '.frame-type-text',
-    'article',
-    '.content-main',
-    '#content',
-    'main',
-  ];
-
-  let body = '';
-  for (const sel of BODY_SELECTORS) {
-    const els = document.querySelectorAll(sel);
-    for (const el of els) {
-      const candidate = stripHtml(el.innerHTML || '');
-      if (candidate.length > body.length) body = candidate;
-    }
-    if (body.length >= MIN_DESC_LENGTH) break;
-  }
-
-  if (body.length < MIN_DESC_LENGTH) {
-    let best = null;
-    let bestLen = 0;
-    for (const el of document.querySelectorAll('div, section, article')) {
-      const len = (el.textContent || '').trim().length;
-      if (len > bestLen) { best = el; bestLen = len; }
-    }
-    if (best && bestLen > body.length) {
-      body = stripHtml(best.innerHTML || '');
-    }
-  }
-
-  return body;
+  // Without those sections the posting's text was not found: no description
+  // (the job takes the pipeline's thin-source path). The former fallback to
+  // `.content-block` / `article` / `main` / the largest `div` published the
+  // hero and the breadcrumbs instead.
+  return parts.join('\n\n').trim();
 }
 
 /* ── Category / Employment helpers ────────────────────────── */

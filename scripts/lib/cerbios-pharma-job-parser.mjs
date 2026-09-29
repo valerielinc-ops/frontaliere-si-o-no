@@ -269,6 +269,15 @@ export function buildJob(raw) {
   };
 }
 
+/**
+ * Fragment only the former builder wrote ("<titolo> presso Cerbios-Pharma SA,
+ * azienda farmaceutica CDMO con sede a Barbengo…" when the listing had no
+ * text). Used to clean jobs stored before the builder published the listing
+ * text alone.
+ */
+export const CERBIOS_PHARMA_FABRICATED_DESCRIPTION_RE =
+  /presso Cerbios-Pharma SA, azienda farmaceutica CDMO con sede a Barbengo/;
+
 /* ── Category detection ────────────────────────────────────── */
 
 function detectCategory(title = '', description = '') {

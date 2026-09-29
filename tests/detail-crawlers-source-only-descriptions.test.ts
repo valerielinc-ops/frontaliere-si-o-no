@@ -40,6 +40,7 @@ import {
   parseDetailPage as parseZermattDetailPage,
 } from '../scripts/lib/zermatt-bergbahnen-job-parser.mjs';
 import { MONCUCCO_FABRICATED_DESCRIPTION_RE, fetchAllMoncuccoJobs } from '../scripts/lib/moncucco-job-parser.mjs';
+import { CERBIOS_PHARMA_FABRICATED_DESCRIPTION_RE, buildJob as buildCerbiosJob } from '../scripts/lib/cerbios-pharma-job-parser.mjs';
 
 const fixture = (name: string) => fs.readFileSync(path.join(__dirname, 'fixtures', name), 'utf8');
 const LIST_LINE_RE = /^\s*[-•*]\s/m;
@@ -170,6 +171,13 @@ describe('Zermatt Bergbahnen — the text sections of the detail page', () => {
     expect(out).not.toMatch(/breadcrumbs|Jetzt bewerben|Bewerbungsunterlagen/);
     expect(ZERMATT_BERGBAHNEN_FABRICATED_DESCRIPTION_RE.test(out)).toBe(false);
   });
+
+  it('gives a page without those sections no description instead of the hero', () => {
+    expect(parseZermattDetailPage('<main>breadcrumbs.home Jobs und Karriere</main>')).toBe('');
+    const heroOnly = fixture('zermatt-bergbahnen/detail-unterhalt-gletscherlifte.html')
+      .replace(/<section class="wysiwyg-(?:usp-area|with-medium)[\s\S]*?<\/section>/g, '');
+    expect(parseZermattDetailPage(heroOnly)).toBe('');
+  });
 });
 
 describe('Moncucco — the detail text whatever its length', () => {
@@ -219,6 +227,21 @@ describe('stored rows carrying crawler-written text (main slices)', () => {
       expect(job.description).toBe('');
     });
   }
+
+  it('cerbios-pharma: the former builder paragraph is recognised and removed (no stored rows today)', () => {
+    // The paragraph the builder used to write when the listing had no text.
+    const former = 'Chimico di processo presso Cerbios-Pharma SA, azienda farmaceutica CDMO con sede a Barbengo (Lugano, Ticino). Cerbios-Pharma è specializzata nello sviluppo e nella produzione di principi attivi farmaceutici (API).';
+    const job: any = {
+      sourceLang: 'it',
+      description: former,
+      descriptionByLocale: { it: former, en: 'Process chemist at Cerbios-Pharma SA, a CDMO pharmaceutical company based in Barbengo.' },
+    };
+    expect(dropFabricatedDescription(job, CERBIOS_PHARMA_FABRICATED_DESCRIPTION_RE)).toBe(true);
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.description).toBe('');
+    const fresh = buildCerbiosJob({ title: 'Chimico di processo' });
+    expect(CERBIOS_PHARMA_FABRICATED_DESCRIPTION_RE.test(fresh!.description)).toBe(false);
+  });
 
   it('moncucco: the former metadata description is recognised (no stored rows today)', () => {
     expect(MONCUCCO_FABRICATED_DESCRIPTION_RE.test('Infermiere/a — Gruppo Ospedaliero Moncucco, Lugano Percentuale di impiego: 80%')).toBe(true);
