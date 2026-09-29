@@ -148,7 +148,7 @@ describe('fetchAllMicrosoftJobs — position without a vacancy body', () => {
         return new Response(JSON.stringify({ data: { count: first ? 2 : 0, positions: first ? [pos('1', 'Cloud Solution Architect'), pos('2', 'Account Executive')] : [] } }), { status: 200 });
       }
       if (u.includes('position_details') && u.includes('position_id=1')) {
-        return new Response(JSON.stringify({ data: { jobDescription: '<p>Design and deliver Azure solutions with our enterprise customers in Switzerland.</p>' } }), { status: 200 });
+        return new Response(JSON.stringify({ data: { jobDescription: '<p>Design and deliver Azure solutions with our enterprise customers in Switzerland. You work closely with colleagues from several departments, document your work carefully and help us improve our processes. We offer a modern workplace, flexible working hours, further training and an open team culture in a growing international company. Good English skills and a structured way of working complete your profile.</p>' } }), { status: 200 });
       }
       if (u.includes('position_details')) return new Response(JSON.stringify({ data: { jobDescription: '' } }), { status: 200 });
       return new Response('', { status: 404 });

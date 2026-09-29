@@ -145,7 +145,7 @@ describe('fetchAllRolexJobs — listing without a vacancy body', () => {
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
       const u = String(url);
       if (u.includes('/go/Toutes-nos-offres-Rolex/')) return new Response(listing, { status: 200 });
-      if (u.includes('1180001')) return new Response(detail('<p>Vous assemblez et réglez des mouvements dans nos ateliers de Genève, dans le respect des standards Rolex.</p>'), { status: 200 });
+      if (u.includes('1180001')) return new Response(detail("<p>Vous assemblez et réglez des mouvements dans nos ateliers de Genève, dans le respect des standards Rolex. Vous travaillez en étroite collaboration avec plusieurs services, documentez votre travail avec soin et contribuez à l'amélioration de nos processus. Nous offrons un poste moderne, des horaires flexibles, des formations continues et une culture d'équipe ouverte. De bonnes connaissances du français et une méthode de travail structurée complètent votre profil.</p>"), { status: 200 });
       return new Response(detail(''), { status: 200 });
     }));
 

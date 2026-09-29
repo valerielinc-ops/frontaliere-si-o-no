@@ -16,6 +16,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -271,10 +272,10 @@ export async function fetchAllBcvJobs() {
       // Only the posting's own text is published (issue 5253): a page
       // without a description used to go out as "{title} — BCV, {city}.",
       // and a short one was padded with a bank summary and a call to
-      // apply. Neither is vacancy text; a page without a body is not
-      // published, a short body is published as it is.
+      // apply. Neither is vacancy text: a page whose body is under the
+      // shared 50-word floor (source-body-floor.mjs) is not published.
       const description = parsed.description;
-      if (!description) {
+      if (!meetsSourceBodyFloor(description)) {
         console.log(`  ⏭️ ${jobId || '—'} — no vacancy text on the detail page, not published`);
         withoutBody += 1;
         await new Promise((r) => setTimeout(r, 300));

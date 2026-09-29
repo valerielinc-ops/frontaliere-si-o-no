@@ -68,6 +68,7 @@ import { parseDotNetJsonDate } from './dotnet-json-date.mjs';
 import { detectLang, workloadPercent } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -372,7 +373,7 @@ export async function fetchAllSelectaJobs() {
     // a body used to go out as "{title} ({subtitle}) — Selecta, {city}."; it
     // is not published any more.
     const descriptionText = normalizeSpace(await fetchJobDescription(id));
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
       withoutBody += 1;
       continue;

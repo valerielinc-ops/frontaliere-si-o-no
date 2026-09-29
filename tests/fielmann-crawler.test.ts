@@ -151,7 +151,7 @@ describe('fetchAllFielmannJobs — req without a vacancy body', () => {
           ],
         });
       }
-      if (u.includes('R-2837')) return json({ jobPostingInfo: { title: 'Augenoptiker (w/m/d)', jobDescription: '<p>Sie beraten unsere Kundinnen und Kunden rund um Brillen und Kontaktlinsen.</p>', location: 'Basel' } });
+      if (u.includes('R-2837')) return json({ jobPostingInfo: { title: 'Augenoptiker (w/m/d)', jobDescription: '<p>Sie beraten unsere Kundinnen und Kunden rund um Brillen und Kontaktlinsen. Du arbeitest eng mit Kolleginnen und Kollegen aus mehreren Abteilungen zusammen, dokumentierst deine Arbeit sorgfältig und hilfst uns, unsere Abläufe zu verbessern. Wir bieten einen modernen Arbeitsplatz, flexible Arbeitszeiten, Weiterbildungen und eine offene Teamkultur. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden dein Profil ab.</p>', location: 'Basel' } });
       return json({ jobPostingInfo: { title: 'Filialleiter (w/m/d)', jobDescription: '', location: 'Basel' } });
     }));
 

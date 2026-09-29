@@ -68,6 +68,7 @@ import {
   createMutableFeedPaginationTracker,
   recordMutableFeedPageWithRetry,
 } from './pagination-identity.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -456,7 +457,7 @@ export async function fetchAllPostAutoJobs() {
       if (!html) continue;
       const parsed = parsePostJobDetail(html, url);
       const looksLikePlaceholder = /^stellendetails$/i.test(String(parsed?.title || '').trim());
-      const hasBody = (parsed?.description || '').length > 80;
+      const hasBody = meetsSourceBodyFloor(parsed?.description || '');
       if (parsed?.title && !looksLikePlaceholder && hasBody) {
         detail = parsed;
         sourceUrl = url;
@@ -482,7 +483,8 @@ export async function fetchAllPostAutoJobs() {
     const { city, canton, postalCode, streetAddress, region } = address;
     const location = city;
 
-    // A detail is accepted above only with a body (> 80 characters), so the
+    // A detail is accepted above only with a body over the shared 50-word
+    // floor (source-body-floor.mjs; it used to be 80 characters), so the
     // published text is always the posting's own; the "{title} bei PostAuto
     // in {city}." stand-in could never be reached and is gone (issue 5253).
     const descriptionText = detail.description;

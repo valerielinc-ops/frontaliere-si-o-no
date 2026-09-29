@@ -154,7 +154,7 @@ describe('fetchAllBcvJobs — published text', () => {
       + '<url><loc>https://jobs.bcv.ch/job/Lausanne-Analyste/1202/</loc><lastmod>2026-09-21</lastmod></url></urlset>';
     const detail = (title: string, desc: string) => `<html><body><div><span itemprop="title">${title}</span></div>`
       + (desc ? `<div><span itemprop="description"><p>${desc}</p></span></div>` : '') + '</body></html>';
-    const body = 'Vous conseillez une clientèle privée exigeante et développez un portefeuille de clients dans la région lausannoise.';
+    const body = 'Vous conseillez une clientèle privée exigeante et développez un portefeuille de clients dans la région lausannoise. Vous travaillez en étroite collaboration avec plusieurs services, documentez votre travail avec soin et contribuez à l’amélioration de nos processus. Nous offrons un poste moderne, des horaires flexibles, des formations continues et une culture d’équipe ouverte. De bonnes connaissances du français et une méthode de travail structurée complètent votre profil.';
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
       const u = String(url);
       if (u.endsWith('/sitemap.xml')) return new Response(sitemap, { status: 200, headers: { 'content-type': 'application/xml' } });
@@ -164,7 +164,7 @@ describe('fetchAllBcvJobs — published text', () => {
 
     const jobs = await fetchAllBcvJobs();
     expect(jobs.map((job) => job.title)).toEqual(['Conseiller clientèle privée']);
-    // A short body is the posting's own text: published without padding.
+    // The posting's own text, published as it is: no bank summary, no call to apply.
     expect(jobs[0].description).toBe(body);
   }, 20_000);
 });

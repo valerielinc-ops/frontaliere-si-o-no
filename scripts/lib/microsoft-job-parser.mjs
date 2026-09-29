@@ -13,6 +13,7 @@
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { normalizeCantonCode, canonicalSwissCityName } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -330,7 +331,7 @@ export async function fetchAllMicrosoftJobs() {
     // Only the posting's own text is published (issue 5253): a position
     // without a description used to go out as "{title} — Microsoft"; it is
     // not published any more.
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ no vacancy text in the position, not published: ${title}`);
       withoutBody += 1;
       continue;

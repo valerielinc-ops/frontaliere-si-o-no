@@ -145,7 +145,7 @@ describe('fetchAllLiebherrJobs — listing without a vacancy body', () => {
       const u = String(url);
       if (u.includes('/search/')) return new Response(u.includes('startrow=') ? '<ul></ul>' : listing, { status: 200 });
       if (u.includes('1438000001')) {
-        return new Response('<html><body><span itemprop="description"><p>Sie fertigen Präzisionsteile für unsere Baumaschinen und betreuen die CNC-Anlagen.</p></span></body></html>', { status: 200 });
+        return new Response('<html><body><span itemprop="description"><p>Sie fertigen Präzisionsteile für unsere Baumaschinen und betreuen die CNC-Anlagen. Du arbeitest eng mit Kolleginnen und Kollegen aus mehreren Abteilungen zusammen, dokumentierst deine Arbeit sorgfältig und hilfst uns, unsere Abläufe zu verbessern. Wir bieten einen modernen Arbeitsplatz, flexible Arbeitszeiten, Weiterbildungen und eine offene Teamkultur. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden dein Profil ab.</p></span></body></html>', { status: 200 });
       }
       return new Response('<html><body><h1>Einkäufer</h1></body></html>', { status: 200 });
     }));

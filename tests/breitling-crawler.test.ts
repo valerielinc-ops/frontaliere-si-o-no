@@ -251,7 +251,7 @@ describe('fetchAllBreitlingJobs — published text', () => {
     vi.unstubAllGlobals();
   });
 
-  it('publishes a short body as it is and skips a posting without one', async () => {
+  it('publishes the body as it is and skips a posting without one', async () => {
     const resp = (id: string, title: string) => ({
       response: { id, unifiedStandardTitle: title, jobLocationShort: ['Grenchen, SO, CH, 2540'], unifiedStandardStart: '2026-09-20', currency: ['CHF'] },
     });
@@ -262,13 +262,13 @@ describe('fetchAllBreitlingJobs — published text', () => {
         return new Response(JSON.stringify({ jobSearchResult: body.pageNumber ? [] : [resp('3001', 'Watchmaker'), resp('3002', 'Buyer')] }), { status: 200 });
       }
       if (u.includes('3001')) {
-        return new Response('<html><body><span itemprop="description"><p>You assemble and regulate chronograph movements in our Grenchen workshop.</p></span></body></html>', { status: 200 });
+        return new Response('<html><body><span itemprop="description"><p>You assemble and regulate chronograph movements in our Grenchen workshop. You work closely with colleagues from several departments, document your work carefully and help us improve our processes. We offer a modern workplace, flexible working hours, further training and an open team culture in a growing international company. Good English skills and a structured way of working complete your profile.</p></span></body></html>', { status: 200 });
       }
       return new Response('<html><body><h1>Buyer</h1></body></html>', { status: 200 });
     }));
 
     const jobs = await fetchAllBreitlingJobs();
     expect(jobs.map((job) => job.title)).toEqual(['Watchmaker']);
-    expect(jobs[0].description).toBe('You assemble and regulate chronograph movements in our Grenchen workshop.');
+    expect(jobs[0].description).toBe('You assemble and regulate chronograph movements in our Grenchen workshop. You work closely with colleagues from several departments, document your work carefully and help us improve our processes. We offer a modern workplace, flexible working hours, further training and an open team culture in a growing international company. Good English skills and a structured way of working complete your profile.');
   }, 20_000);
 });

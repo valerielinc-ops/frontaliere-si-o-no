@@ -42,6 +42,7 @@ import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mj
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
 import { isDedicatedFribourgEmployer } from './crawler-company-ownership.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* -- Constants ------------------------------------------------- */
 
@@ -306,12 +307,13 @@ export async function fetchAllEtatDeFribourgJobs() {
     const jobSlug = slugify(`${title} etat-de-fribourg ch`);
 
     // Only the posting's own text is published (issue 5253). A detail page
-    // that could not be read, or whose body is under 30 words, used to be
+    // that could not be read, or whose body is under the shared 50-word
+    // floor (it used to be 30 words), used to be
     // replaced by a stub of listing metadata ("{title} -- Etat de Fribourg.
     // Service: … Lieu de travail: … Taux d'activité: …"); such a listing is
     // not published any more.
     const descriptionText = detail?.descriptionText || '';
-    if (descriptionText.split(/\s+/).filter(Boolean).length < 30) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ No vacancy text on the detail page, not published: ${title}`);
       withoutBody += 1;
       continue;

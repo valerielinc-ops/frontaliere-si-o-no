@@ -77,6 +77,7 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { jobUrlHost } from './job-url-host.mjs';
 import { fetchHtml, decodeEntities, normalizeSpace as normalizeSpaceRaw } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const BREITLING_KEY = 'breitling';
 export const BREITLING_COMPANY_NAME = 'Breitling';
@@ -401,10 +402,10 @@ export async function fetchAllBreitlingJobs() {
     // Only the posting's own text is published (issue 5253): a body under
     // 30 words used to get an invented Italian summary appended ("{title}
     // presso Breitling a {city}. Manifattura orologiera svizzera …"), and a
-    // missing body was replaced by it. A short body is published as it is; a
-    // posting without one is not published.
+    // missing body was replaced by it. A posting whose body is under the
+    // shared 50-word floor (source-body-floor.mjs) is not published.
     const descriptionText = await fetchJobDescription(publicUrl);
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`   ⏭️ no vacancy text on the detail page, not published: ${title}`);
       withoutBody += 1;
       continue;

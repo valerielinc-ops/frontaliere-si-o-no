@@ -45,6 +45,7 @@ import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractMicrodataDescription } from './jobposting-jsonld.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -334,7 +335,7 @@ export async function fetchAllLiebherrJobs() {
     // Only the posting's own text is published (issue 5253): without a
     // readable body the listing used to go out as "{title} — Liebherr
     // ({city}, CH)"; it is not published any more.
-    if (!detailDescText) {
+    if (!meetsSourceBodyFloor(detailDescText)) {
       console.log(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
       withoutBody += 1;
       continue;

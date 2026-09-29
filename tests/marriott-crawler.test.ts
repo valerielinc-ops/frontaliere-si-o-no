@@ -209,7 +209,7 @@ describe('fetchAllMarriottJobs — listing without a vacancy body', () => {
       if (u.includes('/api/get-jobs')) {
         return new Response(JSON.stringify({
           jobs: [
-            item('26001', 'Guest Service Agent', '<p>Welcome guests at the front desk and handle check-in and check-out.</p><ul><li>Answer guest requests</li></ul>'),
+            item('26001', 'Guest Service Agent', '<p>Welcome guests at the front desk and handle check-in and check-out. You work closely with colleagues from several departments, document your work carefully and help us improve our processes. We offer a modern workplace, flexible working hours, further training and an open team culture in a growing international company. Good English skills and a structured way of working complete your profile.</p><ul><li>Answer guest requests</li></ul>'),
             item('26002', 'Night Auditor', ''),
           ],
           totalJob: 2,

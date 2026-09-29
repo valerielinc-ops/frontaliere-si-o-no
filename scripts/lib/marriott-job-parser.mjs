@@ -25,6 +25,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -343,7 +344,7 @@ function buildJobFromApi(listing) {
   // Only the posting's own text is published (issue 5253): a listing without
   // a description used to go out as "{title} — Marriott International"; no
   // job is built from it any more.
-  if (!descriptionText) return null;
+  if (!meetsSourceBodyFloor(descriptionText)) return null;
 
   // Job field from custom fields
   const jobField = getCustomField(listing.customFields, 'cf_jobfield') ||

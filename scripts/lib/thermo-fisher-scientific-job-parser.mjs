@@ -24,6 +24,7 @@ import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { htmlToMarkdown } from './axpo-job-parser.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -314,7 +315,7 @@ export async function fetchAllThermoFisherScientificJobs() {
     // detail body nor a listing teaser the posting used to go out as
     // "{title} — Thermo Fisher Scientific (Schweiz) AG"; it is not published
     // any more.
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ no vacancy text on the detail page nor in the listing, not published: ${title}`);
       withoutBody += 1;
       continue;

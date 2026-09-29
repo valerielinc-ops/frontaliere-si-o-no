@@ -541,7 +541,7 @@ describe('fetchAllHornbachJobs — offer without vacancy text', () => {
       if (u.includes('/api-key')) return json({ key: 'k' });
       if (u.includes('/multi_search')) {
         return json({ results: [{ hits: [
-          { document: doc('148901', 'Verkäufer:in Bau &amp; Garten', '<p>Du berätst unsere Kundschaft in der Abteilung Bau und Garten.</p>') },
+          { document: doc('148901', 'Verkäufer:in Bau &amp; Garten', '<p>Du berätst unsere Kundschaft in der Abteilung Bau und Garten. Du arbeitest eng mit Kolleginnen und Kollegen aus mehreren Abteilungen zusammen, dokumentierst deine Arbeit sorgfältig und hilfst uns, unsere Abläufe zu verbessern. Wir bieten einen modernen Arbeitsplatz, flexible Arbeitszeiten, Weiterbildungen und eine offene Teamkultur. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden dein Profil ab.</p>') },
           { document: doc('148902', 'Kassierer:in', '') },
         ] }] });
       }

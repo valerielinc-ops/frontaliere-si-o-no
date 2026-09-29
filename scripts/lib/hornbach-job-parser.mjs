@@ -88,6 +88,7 @@ import { createHash } from 'node:crypto';
 import { fetchJson, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -495,7 +496,7 @@ export async function fetchAllHornbachJobs() {
     // without text used to go out as "{title} — Hornbach ({city})."; it is
     // not published any more.
     const description = parsed.description;
-    if (!description) {
+    if (!meetsSourceBodyFloor(description)) {
       console.log(`  ⏭️ no vacancy text in the offer, not published: ${parsed.title}`);
       withoutBody += 1;
       continue;

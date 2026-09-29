@@ -16,6 +16,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -302,7 +303,7 @@ export async function fetchAllFielmannJobs() {
     // Group"; it is not published any more.
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️  Skipped — no vacancy text in the Workday detail: ${title}`);
       withoutBody += 1;
       await new Promise((r) => setTimeout(r, 300));

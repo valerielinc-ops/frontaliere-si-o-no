@@ -266,7 +266,9 @@ $(function () {
 <h2>Ihre Aufgaben</h2>
 <ul><li>Betreuung und Bestückung der Automaten</li><li>Reinigung und Wartung vor Ort</li></ul>
 <h2>Ihr Profil</h2>
-<ul><li>Freude am Kundenkontakt</li></ul>
+<ul><li>Freude am Kundenkontakt</li><li>Führerausweis Kategorie B und Bereitschaft zu flexiblen Einsätzen in der Region</li></ul>
+<h2>Wir bieten</h2>
+<p>Eine abwechslungsreiche Tätigkeit in einem motivierten Team, ein eigenes Servicefahrzeug, moderne Arbeitsmittel und attraktive Sozialleistungen.</p>
 </div>
 <div class="jobBlock jobApply"><button>Jetzt online Bewerben</button></div>
 </body></html>`;

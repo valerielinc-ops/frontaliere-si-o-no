@@ -158,7 +158,7 @@ describe('fetchAllThermoFisherScientificJobs — posting without vacancy text', 
         return new Response(JSON.stringify({ refineSearch: { totalHits: 2, data: { jobs: body.from ? [] : [raw('R-01', 'QC Analyst'), raw('R-02', 'Buyer')] } } }), { status: 200 });
       }
       if (u.includes('/R-01/')) {
-        return new Response(`<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', description: '<p>Run release testing for our clinical supply chain in Allschwil.</p><ul><li>HPLC analysis</li></ul>' })}</script>`, { status: 200 });
+        return new Response(`<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', description: '<p>Run release testing for our clinical supply chain in Allschwil. You work closely with colleagues from several departments, document your work carefully and help us improve our processes. We offer a modern workplace, flexible working hours, further training and an open team culture in a growing international company. Good English skills and a structured way of working complete your profile.</p><ul><li>HPLC analysis</li></ul>' })}</script>`, { status: 200 });
       }
       return new Response('<html></html>', { status: 200 });
     }));
