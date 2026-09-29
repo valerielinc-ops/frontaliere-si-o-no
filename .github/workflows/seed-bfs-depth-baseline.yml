@@ -135,6 +135,8 @@ jobs:
           set -e
           mkdir -p dist
           tar -xf "${{ steps.pages.outputs.tar-path }}" -C dist
+          # Release the source archive before rehydrating stripped shards.
+          rm -f "${{ steps.pages.outputs.tar-path }}"
           echo "dist/ tree (top level):"
           find dist -maxdepth 1 -mindepth 1 -print | head
           echo ""
