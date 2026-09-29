@@ -92,6 +92,7 @@ describe('no crawler-written stand-in, and the common 50-word floor', () => {
     ['lib/solina-job-parser.mjs', /`Pensum \/ Standort: \$\{|SOLINA_CONTEXT/],
     ['update-has-healthcare-jobs.mjs', /`Settore: Farmaceutico|è alla ricerca di: \$\{title\}/],
     ['lib/cds-savognin-job-parser.mjs', /buildFallbackDescription|beim Center da Sanadad Savognin in Savognin/],
+    ['lib/klinik-gut-job-parser.mjs', /buildFallbackDescription|bei der Klinik Gut AG am Standort/],
   ])('%s', (file, pattern) => {
     const text = source(file);
     expect(text).not.toMatch(pattern);
