@@ -15,6 +15,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { smartRecruitersPostingUrls } from './ats-clients/smartrecruiters-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -111,7 +112,8 @@ function detectEmploymentType(text = '') {
  * Listing: GET /v1/companies/KONE1/postings?limit=N&offset=N&country=CH
  * Detail:  GET /v1/companies/KONE1/postings/{id}
  */
-const SR_API_BASE = 'https://api.smartrecruiters.com/v1/companies/KONE1';
+const SR_TENANT = 'KONE1';
+const SR_API_BASE = `https://api.smartrecruiters.com/v1/companies/${SR_TENANT}`;
 const PAGE_SIZE = 100;
 
 /**
@@ -234,8 +236,10 @@ export async function fetchAllKoneJobs() {
     const descriptionText = buildDescription(sections);
     const requirements = extractRequirements(sections);
 
-    // Public URL — SmartRecruiters provides an apply URL
-    const publicUrl = detail?.applyUrl || `${CAREER_URL}`;
+    // Public URL — the ad page, not the `?oga=true` apply flow
+    // (see smartRecruitersPostingUrls).
+    const srUrls = smartRecruitersPostingUrls(detail || listing, SR_TENANT);
+    const publicUrl = srUrls.pageUrl || `${CAREER_URL}`;
     const refNumber = detail?.refNumber || listing.refNumber || '';
 
     const sourceLang = detectLang(descriptionText || title, 'en');
@@ -279,7 +283,7 @@ export async function fetchAllKoneJobs() {
       currency: 'CHF',
       featured: false,
       postedDate,
-      applyUrl: publicUrl,
+      applyUrl: srUrls.applyUrl || publicUrl,
       requirements,
       requirementsByLocale: { [sourceLang]: requirements },
     };

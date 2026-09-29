@@ -14,7 +14,13 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
-import { fetchBellinzonaJobs, slugify, inferEmploymentType } from './lib/citta-di-bellinzona-job-parser.mjs';
+import {
+  fetchBellinzonaJobs,
+  slugify,
+  inferEmploymentType,
+  CITTA_DI_BELLINZONA_FABRICATED_DESCRIPTION_RE,
+} from './lib/citta-di-bellinzona-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import {
   buildPdfBackedDescription,
   extractPdfJobContentFromUrl,
@@ -51,7 +57,11 @@ function mergeCompanyJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((j) => !isCompanyJob(j));
-  const companyExisting = allJobs.filter((j) => isCompanyJob(j));
+  const companyExisting = dropFabricatedDescriptions(
+    allJobs.filter((j) => isCompanyJob(j)),
+    CITTA_DI_BELLINZONA_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
   const byUrl = new Map();
   for (const job of parsedJobs) { const k = String(job?.url || '').trim().replace(/\/+$/, ''); if (k) byUrl.set(k, job); }
   const deduped = [...byUrl.values()];
@@ -86,33 +96,23 @@ async function main() {
       }
     }
 
-    const fallbackDesc = `Concorso pubblico presso la ${COMPANY_NAME} per la posizione di ${raw.title}. ${raw.deadline ? `Termine di candidatura: ${raw.deadline}.` : ''} Consultare il bando di concorso per i requisiti completi.`;
-    const desc = buildPdfBackedDescription({
-      introLines: [
-        `## ${raw.title}`,
-        `${COMPANY_NAME} — concorso pubblico a Bellinzona (TI), Svizzera.`,
-      ],
-      pdfText,
-      fallbackText: fallbackDesc,
-      footerLines: [
-        `**Settore:** Pubblica Amministrazione`,
-        `**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera`,
-        raw.deadline ? `**Termine di candidatura:** ${raw.deadline}` : '',
-        raw.pdfUrl ? `[Bando ufficiale (PDF)](${raw.pdfUrl})` : '',
-      ].filter(Boolean),
-    });
+    // Only the text of the bando, in its own language: no lines of the crawler
+    // (CITTA_DI_BELLINZONA_FABRICATED_DESCRIPTION_RE). A bando without readable text gets no
+    // description and takes the pipeline's thin-source path.
+    const desc = buildPdfBackedDescription({ pdfText });
+    const sourceLang = detectLang(desc || raw.title, 'it');
 
     parsedJobs.push({
-      id: raw.id, slug: raw.slug, slugByLocale: { it: raw.slug },
+      id: raw.id, slug: raw.slug, slugByLocale: { [sourceLang]: raw.slug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'bellinzona.ch',
-      title: raw.title, titleByLocale: { it: raw.title },
-      description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [] },
+      title: raw.title, titleByLocale: { [sourceLang]: raw.title },
+      description: desc, descriptionByLocale: { [sourceLang]: desc }, requirements: [], requirementsByLocale: { [sourceLang]: [] },
       location: 'Bellinzona', canton: HQ.canton, addressLocality: 'Bellinzona', addressRegion: HQ.addressRegion, addressCountry: 'CH',
       postalCode: HQ.postalCode, streetAddress: 'Piazza Nosetto',
       category: 'public-admin', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,
       postedDate: raw.datePosted, validThrough: raw.deadline || undefined,
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
-      source: 'Bellinzona Dedicated Parser', sourceLang: detectLang(desc || raw.title, 'it'), crawledAt: new Date().toISOString(),
+      source: 'Bellinzona Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     });
   }
 

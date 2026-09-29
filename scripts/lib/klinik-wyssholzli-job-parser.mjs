@@ -84,22 +84,14 @@ export function parseKlinikWysshholzliListing(html = '') {
 }
 
 /**
- * Build a structured PDF-backed description for a Wysshölzli posting.
+ * The description of one Wysshölzli posting: the text of its PDF and nothing
+ * else. The crawler used to wrap it in lines of its own (a sentence on the
+ * clinic, "Stelle: <Titel>.", "Quelle (PDF): …", "Karriereportal: …",
+ * "Sektor: …") and to substitute a sentence of its own when the PDF had no
+ * text.
  */
-export function buildKlinikWysshholzliDescription({ title, pdfText = '', pdfUrl = '' }) {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `Die Klinik Wysshölzli ist eine spezialisierte psychiatrische und psychotherapeutische Privatklinik im Oberaargau (Herzogenbuchsee, BE).`,
-      `Stelle: ${title}.`,
-    ],
-    pdfText,
-    fallbackText: `Stelleninserat ${title} bei ${KLINIK_WYSSHOLZLI_COMPANY_NAME}. Vollständige Angaben zu Profil und Bewerbung finden Sie im offiziellen PDF.`,
-    footerLines: [
-      `Quelle (PDF): ${pdfUrl}`,
-      `Karriereportal: ${KLINIK_WYSSHOLZLI_CAREERS_URL}`,
-      `Sektor: Psychiatrie und Psychotherapie / Suchterkrankungen / Essstörungen`,
-    ],
-  });
+export function buildKlinikWysshholzliDescription({ title, pdfText = '' } = {}) {
+  const description = buildPdfBackedDescription({ pdfText });
 
   const warnings = [];
   if (pdfText && description.length < MIN_KLINIK_WYSSHOLZLI_DESC_LENGTH) {
@@ -109,3 +101,7 @@ export function buildKlinikWysshholzliDescription({ title, pdfText = '', pdfUrl 
   }
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former wrapper wrote. */
+export const KLINIK_WYSSHOLZLI_FABRICATED_DESCRIPTION_RE =
+  /ist eine spezialisierte psychiatrische und psychotherapeutische Privatklinik im Oberaargau|Vollständige Angaben zu Profil und Bewerbung finden Sie im offiziellen PDF\.|(?:^|\n)Karriereportal: https?:/;

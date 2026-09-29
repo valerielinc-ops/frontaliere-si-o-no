@@ -12282,6 +12282,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cst-clausola-salvaguardia-tassa.title': 'CSt: clausola salvaguardia rafforzata con tassa incitativa',
     'blog.article.cst-clausola-salvaguardia-tassa.excerpt': 'Il Consiglio degli Stati ha rafforzato la clausola di salvaguardia per l\'immigrazione, introducendo una tassa d\'incentivazione da 2.000 a 4.000 franchi e nuovi indicatori.',
     'blog.article.cst-clausola-salvaguardia-tassa.imageAlt': 'Veduta panoramica di Lugano e del suo lago con le montagne sullo sfondo, un simbolo del Ticino.',
+    'blog.article.stangata-premi-cassa-malati-ticino.title': 'Premi cassa malati Ticino 2027: aumento del 3,7%',
+    'blog.article.stangata-premi-cassa-malati-ticino.excerpt': 'Nel 2027 i premi di cassa malati in Ticino aumentano del 3,7%, portando il premio medio a 520 franchi al mese, il più alto della Svizzera.',
+    'blog.article.stangata-premi-cassa-malati-ticino.imageAlt': 'Premi cassa malati in Ticino nel 2027',
+    'blog.article.lamal-premi-ticino-triplicati.title': 'LAMal, 30 anni di aumenti: i premi sono triplicati',
+    'blog.article.lamal-premi-ticino-triplicati.excerpt': 'La LAMal, introdotta nel 1996, ha visto triplicare il premio medio. Per il 2027 il DFI indica +5% in Svizzera e +3,7% in Ticino.',
+    'blog.article.lamal-premi-ticino-triplicati.imageAlt': 'Vista di Lugano e del Ticino per un articolo sui premi LAMal',
 };
 
 export default blogMetaIt;

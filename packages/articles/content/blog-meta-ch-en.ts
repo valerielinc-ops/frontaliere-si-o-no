@@ -7043,6 +7043,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cioccolato-mercato-svizzera.title': 'Lindt revises downwards its sales forecasts for 2026',
     'blog.article.cioccolato-mercato-svizzera.excerpt': 'Lindt expects revenue growth of 0%-2% (versus previous 4-6%), BP -8% in the morning, YTD performance -30%, -35% over 12 months, -24% over 5 years; headquarters in Kilchberg ZH, 15\'500 employees.',
     'blog.article.cioccolato-mercato-svizzera.imageAlt': 'Swiss chocolate bars on a wooden table with Alps background',
+    'blog.article.lindt-prezzi-cacao-2026.title': 'Lindt revises estimates: sales and prices decline',
+    'blog.article.lindt-prezzi-cacao-2026.excerpt': 'Lindt&Sprüngli cuts the 2026 organic growth forecast to 0-2 percent and is considering broader price reductions from January after the impact of cocoa and summer heat.',
+    'blog.article.lindt-prezzi-cacao-2026.imageAlt': 'Lindt chocolate display in a shop',
+    'blog.article.classifica-ompi-alta-tecnologia.title': 'Switzerland ranks first in the world for innovation',
+    'blog.article.classifica-ompi-alta-tecnologia.excerpt': 'Switzerland has ranked first since 2011 in the WIPO ranking; Sweden and the United States follow, while China enters the top ten for the first time.',
+    'blog.article.classifica-ompi-alta-tecnologia.imageAlt': 'Researchers outside a Swiss center dedicated to research and innovation',
+    'blog.article.soletta-licenza-estera-esami.title': 'Driving licence in the Canton of Solothurn: conversion and exams',
+    'blog.article.soletta-licenza-estera-esami.excerpt': 'Conversion of a foreign driver\'s license, theory and practical exams, mandatory courses, and the competent road traffic office in Solothurn.',
+    'blog.article.soletta-licenza-estera-esami.imageAlt': 'Driving licence application in a Swiss canton',
+    'blog.article.accessibilita-mezzi-pubblici-uft.title': 'Public transport accessibility: the Federal Office of Transport\'s update',
+    'blog.article.accessibilita-mezzi-pubblici-uft.excerpt': 'Status of work on railway stations and bus stops in Switzerland updated according to the Federal Office of Transport.',
+    'blog.article.accessibilita-mezzi-pubblici-uft.imageAlt': 'Swiss railway station with accessibility features for reduced mobility passengers',
 };
 
 export default blogMetaChEn;
