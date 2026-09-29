@@ -51,6 +51,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
 
@@ -211,15 +212,6 @@ export function isSwissJobUrlCandidate(url = '') {
   return postal[1].length === 4;
 }
 
-function decodeXmlText(value = '') {
-  return String(value)
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'")
-    .replace(/&amp;/g, '&');
-}
-
 /**
  * Some Belimo requisitions expose their workplace ONLY as the CSB
  * `streetAddress` string "City, CC, Postal" ("Vaassen, NL, 8171 MG",
@@ -247,7 +239,7 @@ async function fetchAllJobUrls() {
   // published URL reads "...Energy-&amp;-Metering..." and no longer equals
   // the one stored on the previous run.
   const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)]
-    .map((m) => decodeXmlText(m[1].trim()))
+    .map((m) => decodeEntities(m[1].trim()))
     .filter((url) => /\/job\/[^/]+\/\d+\/?$/.test(url))
     .map((url) => new URL(url, JOB_BASE).toString());
 
