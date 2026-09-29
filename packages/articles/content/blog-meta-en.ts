@@ -12240,6 +12240,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-ponti-gallerie-controllo-2026.title': 'Lombardy: 230.640 euro for bridges and tunnels in the Varese area',
     'blog.article.varese-ponti-gallerie-controllo-2026.excerpt': 'Lombardy Region allocates 230,640 euros to the Province of Varese for checks on bridges, viaducts and tunnels, to be completed by 30 November 2028 with final reporting by 15 December 2028.',
     'blog.article.varese-ponti-gallerie-controllo-2026.imageAlt': 'View of Lake Lugano with mountains in the background and a border road sign in the foreground',
+    'blog.article.centro-ovale-chiasso-nuova-proprieta.title': 'Centro Ovale Chiasso: new ownership and end of Ellipticum',
+    'blog.article.centro-ovale-chiasso-nuova-proprieta.excerpt': 'After the failure of the Ellipticum project on 9 settembre, the Centro Ovale di Chiasso passes to a fashion multinational, destination still uncertain.',
+    'blog.article.centro-ovale-chiasso-nuova-proprieta.imageAlt': 'Centro Ovale in Chiasso near the border crossing',
 };
 
 export default blogMetaEn;

@@ -96598,6 +96598,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centro-ovale-chiasso-nuova-proprieta': {
+    title: 'Centro Ovale Chiasso: nuova proprietà e fine Ellipticum',
+    description: 'Fallimento di Ellipticum il 9 settembre. Il Centro Ovale di Chiasso passa a una multinazionale della moda: ecco i dettagli sulla nuova proprietà.',
+    keywords: 'frontalieri, ticino, svizzera, italia, centro, ovale, chiasso, nuova',
+    ogTitle: 'Centro Ovale Chiasso: Nuova Proprietà e Fine Ellipticum',
+    ogDescription: 'Il Centro Ovale di Chiasso riparte da capo: dopo il fallimento di Ellipticum il 9 settembre, lo stabile passa a una multinazionale della moda. La destinazione finale resta ancora da chiarire.',
+    canonicalPath: '/articoli-frontaliere/centro-ovale-chiasso-nuova-proprieta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Centro Ovale Chiasso: nuova proprietà e fine Ellipticum",
+      "description": "Fallimento di Ellipticum il 9 settembre. Il Centro Ovale di Chiasso passa a una multinazionale della moda: ecco i dettagli sulla nuova proprietà.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centro-ovale-chiasso-nuova-proprieta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro Ovale di Chiasso all'entrata della dogana"
+      },
+      "datePublished": "2026-09-29T00:01:21+00:00",
+      "dateModified": "2026-09-29T00:01:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centro-ovale-chiasso-nuova-proprieta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
