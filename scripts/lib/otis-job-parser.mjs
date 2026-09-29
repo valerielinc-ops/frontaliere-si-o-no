@@ -42,6 +42,11 @@ export function stripHtml(html = '') {
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
+    // Otis' template leaves the metadata values outside any element
+    // (`<p><b>Date Posted:</b></p>2026-09-16<p><b>Country: </b></p>Switzerland`):
+    // an opening block tag also starts a line, or value and next label merge
+    // into "2026-09-16Country:" in every locale.
+    .replace(/<(?:p|div|h[1-6])(?:\s[^>]*)?>/gi, '\n')
     .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
     .replace(/<[^>]+>/g, '')
     .replace(/&nbsp;/gi, ' ')

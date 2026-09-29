@@ -48,6 +48,7 @@ import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { dropIdenticalPostings } from './lib/identical-posting-dedupe.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -178,7 +179,14 @@ async function main() {
     return;
   }
 
-  const published = mergeCompanyJobs(parsedJobs);
+  // Two Workday reqs carrying the very same ad (title, site, text) are one
+  // vacancy to a reader, and publishing both made two identical pages.
+  const { jobs: uniqueJobs, dropped } = dropIdenticalPostings(parsedJobs);
+  if (dropped.length > 0) {
+    console.log(`  \ud83e\uddf9 Dropped ${dropped.length} double publication(s) (same title, site and text under another req).`);
+  }
+
+  const published = mergeCompanyJobs(uniqueJobs);
   printPublishedJobUrls(published, 'Otis');
   writeJobsSummary(published, 'Otis');
 

@@ -13,6 +13,8 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -300,6 +302,7 @@ export async function fetchAllLonzaJobs() {
   console.log(`  📋 Swiss job listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const externalPath = listing.externalPath;
     if (!externalPath) continue;
@@ -349,10 +352,16 @@ export async function fetchAllLonzaJobs() {
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${LONZA_PUBLIC_BASE}${externalPath}`;
 
-    // Build the source-locale description (EN — Lonza posts primarily in English)
-    const descEn = descriptionText
-      ? `${descriptionText}\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.`.trim()
-      : `${title} position at Lonza in ${city}, Switzerland.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.`.trim();
+    // Only the req's own text is published: no company sentence appended to
+    // it, and no "{title} position at Lonza" stand-in when the detail has no
+    // body — a req under the shared 50-word floor is not published (issue
+    // 5253).
+    const descEn = descriptionText.trim();
+    if (!meetsSourceBodyFloor(descEn)) {
+      console.log(`  ⏭️  Skipped — no vacancy text in the Workday detail: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(title, 'lonza-ch');
@@ -405,8 +414,20 @@ export async function fetchAllLonzaJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
- console.log(`\n📋 Total unique Lonza jobs discovered: ${jobs.length}`);
- return jobs;
+ // Lonza sometimes opens a second Workday req with the very same ad (title,
+ // site and text identical: R76184-1/R76397, R78157-1/R79043 on 2026-09-29).
+ // One advertisement, one page.
+ const { jobs: unique, dropped } = dropIdenticalPostings(jobs);
+ if (dropped.length > 0) {
+  console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, site and text under another req).`);
+ }
+
+ if (withoutBody > 0) {
+  console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+ }
+
+ console.log(`\n📋 Total unique Lonza jobs discovered: ${unique.length}`);
+ return unique;
 }
 
 export const __internals = {

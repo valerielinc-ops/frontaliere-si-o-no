@@ -27,14 +27,14 @@
  * text as the site's English-locale content. See the flag's doc comment on
  * `createSuccessFactorsParser` in successfactors-shared-job-parser-common.mjs.
  *
- * `sector` / `detectCategory` / `boilerplateFallback` overrides — the shared
+ * `sector` / `detectCategory` overrides — the shared
  * factory's built-in defaults are healthcare-flavored (it was written for
  * hospital/pharma/biotech CSB tenants): default `sector` is literally
  * `'Sanità / Ospedali'` and the default category detector falls back to the
  * same healthcare label for any title it doesn't recognise (observed
  * mis-tagging "Chemist", "Automation Technician", "Chef d'Équipe Paysagiste"
  * etc. as healthcare on this tenant). SICPA is a security-ink / security-tech
- * manufacturer, not healthcare, so all three are overridden below.
+ * manufacturer, not healthcare, so both are overridden below.
  */
 import { createSuccessFactorsParser } from './successfactors-shared-job-parser-common.mjs';
 
@@ -63,16 +63,6 @@ function detectSicpaCategory(title = '') {
   return 'Produzione';
 }
 
-/**
- * French/English thin-description fallback (SICPA's source locale is French,
- * not German). Padded well past the 50-word content-quality floor
- * (`AGENTS.md` Non-Negotiable #4) regardless of title length, since some
- * titles are a single word (e.g. "Automaticien").
- */
-function sicpaBoilerplateFallback(title, companyName, city) {
-  return `${title} chez ${companyName} à ${city}.\n\n${companyName} est une entreprise suisse spécialisée dans les technologies de sécurité : encres de sécurité, solutions d'authentification et de protection des marques, ainsi que des programmes d'intégrité fiscale pour les gouvernements et les entreprises du monde entier. Basée à Prilly, dans le canton de Vaud, l'entreprise emploie plus de 3000 collaborateurs dans plus de 80 pays. Ce poste offre un environnement de travail moderne et multiculturel, des conditions d'emploi attractives ainsi que de réelles possibilités de formation continue et d'évolution de carrière.`;
-}
-
 const parser = createSuccessFactorsParser({
   companyKey: SICPA_KEY,
   companyName: SICPA_COMPANY_NAME,
@@ -88,7 +78,6 @@ const parser = createSuccessFactorsParser({
   trustPageLangAttr: false,
   sector: SECTOR,
   detectCategory: detectSicpaCategory,
-  boilerplateFallback: sicpaBoilerplateFallback,
 });
 
 export const fetchAllSicpaJobs = parser.fetchAllJobs;
