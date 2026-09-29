@@ -3,7 +3,8 @@
  *
  * ─── The defect this encodes ─────────────────────────────────────────────────
  * locale-router.js's serveShard() rewrites the upstream Host to a shard origin
- * and fetches it with `cf: { cacheEverything: true, cacheTtl: 7200 }`. For every
+ * and fetches it with `cf: { cacheEverything: true, cacheTtlByStatus: ... }`,
+ * with a 7200-second positive-status TTL. For every
  * path on a Cloudflare Worker route the entry a visitor is served is therefore
  * keyed on `origin-<shard>.frontaliereticino.ch/<path>`, and a
  * `files: ['https://frontaliereticino.ch/<path>']` purge answers 200, prints a

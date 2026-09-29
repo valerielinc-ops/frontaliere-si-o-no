@@ -77,13 +77,28 @@ describe('locale-router stale-if-error', () => {
     expect(await res.text()).toBe('<html>last-good DE</html>');
   });
 
-  it('propagates the origin 5xx when there is no cached copy', async () => {
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('boom', { status: 502 }));
+  it('does not cache origin 5xx and propagates it when there is no cached copy', async () => {
+    const cfOptions: Array<Record<string, unknown> | undefined> = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (_input, init) => {
+      cfOptions.push((init as RequestInit & { cf?: Record<string, unknown> } | undefined)?.cf);
+      return new Response('boom', { status: 502 });
+    });
 
     const res = await worker.fetch(new Request(`${APEX}/fr/emploi/`), {}, ctx);
 
     expect(res.status).toBe(502);
     expect(res.headers.get('X-Served-Stale')).toBeNull();
+    expect(cfOptions).toHaveLength(2);
+    expect(cfOptions[0]).toMatchObject({
+      cacheEverything: true,
+      cacheTtlByStatus: {
+        '200-299': 7200,
+        '300-399': 7200,
+        '400-499': 7200,
+        '500-599': -1,
+      },
+    });
+    expect(cfOptions[1]).toEqual(cfOptions[0]);
   });
 
   it('returns 503 on origin throw when there is no cached copy', async () => {
