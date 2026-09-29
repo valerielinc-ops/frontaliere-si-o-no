@@ -70,7 +70,8 @@ describe('page-view emission identity', () => {
     expect(emissionIdSource).not.toContain('window.history');
     expect(emissionIdSource).not.toContain('pushState');
     expect(emissionIdSource).not.toContain('replaceState');
-    expect(analyticsSource).toContain('emissionId === undefined ? createAnalyticsEmissionId() : emissionId');
+    expect(analyticsSource).toContain('emissionId === undefined');
+    expect(analyticsSource).toContain('staticPageViewEmissionId || createAnalyticsEmissionId()');
   });
 
   it('returns distinct non-empty ids when Web Crypto is unavailable', () => {
@@ -112,7 +113,7 @@ describe('page-view emission identity', () => {
 
   it('emits an explicit identity for the static bounce-safe page_view', () => {
     const dataLayer: unknown[] = [];
-    const staticWindow = { dataLayer };
+    const staticWindow: { dataLayer: unknown[]; [key: string]: unknown } = { dataLayer };
     const staticDocument = { title: 'Static page' };
     const staticLocation = {
       pathname: '/static-page/',
@@ -120,11 +121,12 @@ describe('page-view emission identity', () => {
     };
     const staticCrypto = { randomUUID: () => 'static-emission-id' };
 
-    new Function('window', 'document', 'location', 'crypto', GTAG_INIT_CONTENT)(
+    new Function('window', 'document', 'location', 'crypto', 'dataLayer', GTAG_INIT_CONTENT)(
       staticWindow,
       staticDocument,
       staticLocation,
       staticCrypto,
+      dataLayer,
     );
 
     const pageView = dataLayer.find((entry) => {
