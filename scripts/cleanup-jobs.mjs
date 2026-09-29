@@ -34,7 +34,11 @@ import {
 } from './lib/expired-jobs-archive.mjs';
 import { isSliceFile } from './lib/crawler-slice-files.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
-import { writeHousekeepingProofFile } from './lib/crawler-slice-integrity.mjs';
+import {
+  clearCrossCrawlerDedupProofFile,
+  writeCrossCrawlerDedupProofFile,
+  writeHousekeepingProofFile,
+} from './lib/crawler-slice-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -70,6 +74,17 @@ const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 function readJson(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(raw);
+}
+
+function dedupProofJob(job) {
+  return {
+    id: job?.id ?? null,
+    url: String(job?.url ?? '').trim(),
+    title: job?.title ?? '',
+    company: job?.company ?? '',
+    location: job?.location ?? '',
+    slug: String(job?.slug ?? '').trim(),
+  };
 }
 
 function normalizeScopeValue(value) {
@@ -577,6 +592,10 @@ async function main() {
   }
 
   // ── Standard mode: operate on monolithic data/jobs.json ──────────────────
+  // A proof belongs to exactly one cleanup pass. Remove any residue before
+  // reading the next candidate so a failed/empty run can never authorize a
+  // later slice write with stale duplicate decisions.
+  clearCrossCrawlerDedupProofFile();
   if (!fs.existsSync(DATA_JOBS_PATH) || !fs.existsSync(PUBLIC_JOBS_PATH)) {
     console.log('ℹ️  jobs.json non trovato in data/ o public/data — skip housekeeping');
     return;
@@ -722,6 +741,7 @@ async function main() {
 
   // ── 2. URL validation ─────────────────────────────────────────────────
   const removed = [...ageRemoved];
+  const dedupProofEntries = [];
   let kept = [];
 
   if (SKIP_URL_VALIDATION) {
@@ -776,13 +796,23 @@ async function main() {
       // Keep the one with a more recent crawledAt
       const prevTs = prev.crawledAt ? new Date(prev.crawledAt).getTime() : 0;
       const currTs = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+      let retained = prev;
+      let loser = job;
       if (currTs > prevTs) {
         // Replace prev with current (newer)
         const idx = afterTcDedup.indexOf(prev);
         if (idx !== -1) afterTcDedup[idx] = job;
         seenTitleCompany.set(tcKey, job);
+        retained = job;
+        loser = prev;
       }
-      removed.push({ id: job.id, title: job.title, url: job.url, reason: 'duplicate title+company' });
+      dedupProofEntries.push({
+        job: dedupProofJob(loser),
+        retainedJob: dedupProofJob(retained),
+        reason: 'duplicate title+company',
+        duplicateKey: tcKey,
+      });
+      removed.push({ id: loser.id, title: loser.title, url: loser.url, reason: 'duplicate title+company' });
       continue;
     }
     seenTitleCompany.set(tcKey, job);
@@ -808,14 +838,23 @@ async function main() {
       const prevTs = jobRecencyTimestamp(prev);
       const currTs = jobRecencyTimestamp(job);
       let loser;
+      let winner;
       if (currTs > prevTs) {
         const idx = afterSlugDedup.indexOf(prev);
         if (idx !== -1) afterSlugDedup[idx] = job;
         seenSlug.set(slug, job);
         loser = prev;
+        winner = job;
       } else {
         loser = job;
+        winner = prev;
       }
+      dedupProofEntries.push({
+        job: dedupProofJob(loser),
+        retainedJob: dedupProofJob(winner),
+        reason: 'duplicate slug',
+        duplicateKey: slug,
+      });
       standardDedupLosers.push(disambiguateDedupLoser(loser, slug));
       removed.push({ id: loser.id, url: loser.url, reason: 'duplicate slug' });
       continue;
@@ -866,6 +905,9 @@ async function main() {
   writeJson(DATA_JOBS_PATH, finalJobs);
   writeJson(PUBLIC_JOBS_PATH, finalJobs);
   updateMeta(finalJobs.length);
+  writeCrossCrawlerDedupProofFile(dedupProofEntries, {
+    candidateRaw: fs.readFileSync(DATA_JOBS_PATH, 'utf8'),
+  });
 
   // Basic reference sanity checks (expected: no per-job routes/translations/sitemap entries)
   const suspiciousFiles = [
