@@ -6,7 +6,7 @@
  *
  * Crawlers tested:
  *  1. grand-hotel-kronenhof (Kulm Group)
- *  2. afry
+ *  2. afry — no longer padded: see its section
  *  3. volg-fenaco
  *  4. agie-charmilles (GF Machining Solutions) — no longer padded: see its section
  *  5. mks-pamp
@@ -82,37 +82,42 @@ describe('Grand Hotel Kronenhof — fallback descriptions >= 50 words', () => {
 });
 
 // ─── 2. AFRY ───────────────────────────────────────────────────────────────
+// No longer padded: a short posting keeps its own text and a posting without
+// text gets NO description (the pipeline's thin-source path) instead of a
+// paragraph about AFRY that the source never published.
 
-describe('AFRY — fallback descriptions >= 50 words', () => {
-  it('produces >= 50 words when detail description is empty', () => {
+describe('AFRY — the posting text, never a padded paragraph', () => {
+  it('gives a posting without text no description', () => {
     const result = buildAfryLocalizedContent({
       title: 'Geologo Junior (f/m/d) 80-100%',
       location: 'Airolo',
       description: '',
       competenceArea: 'Civil & Structural Engineering',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({});
   });
 
-  it('produces >= 50 words when detail description is thin (< 50 words)', () => {
+  it('keeps a thin posting as it is', () => {
     const result = buildAfryLocalizedContent({
       title: 'Projektingenieur:in Kunstbauten 80-100%',
       location: 'Chur',
       description: 'Planning and execution of bridge construction projects.',
       competenceArea: 'Civil Engineering',
+      sourceLang: 'en',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({ en: 'Planning and execution of bridge construction projects.' });
   });
 
-  it('uses original description when >= 50 words', () => {
+  it('uses the original description when >= 50 words', () => {
     const richDesc = Array(60).fill('word').join(' ');
     const result = buildAfryLocalizedContent({
       title: 'Test Engineer',
       location: 'Bellinzona',
       description: richDesc,
       competenceArea: 'Testing',
+      sourceLang: 'en',
     });
-    expect(result.descriptionByLocale.it).toContain(richDesc);
+    expect(result.descriptionByLocale.en).toBe(richDesc);
   });
 });
 
