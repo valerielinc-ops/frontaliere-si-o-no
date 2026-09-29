@@ -4,11 +4,11 @@
   "generatorSha256": "2ccaa1ac64f96d819006d6ad0c52a48246c27e6dcdd971b2acfae2b68ce7e9d0",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "fb09781bf01e72a05f94df3eb9132263adbe436d",
+  "sourceCommit": "69c14d7c24ff8f51582e743c0cef1cc39d4d9564",
   "artifactObservation": {
     "generatorSha256": "2ccaa1ac64f96d819006d6ad0c52a48246c27e6dcdd971b2acfae2b68ce7e9d0",
     "sourceRef": "main",
-    "sourceCommit": "fb09781bf01e72a05f94df3eb9132263adbe436d"
+    "sourceCommit": "69c14d7c24ff8f51582e743c0cef1cc39d4d9564"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -17,7 +17,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:ce18be902d7c896fe4a39f6a8af05e499e85a63464512f7076191420d5ac1680",
+    "rosterDigest": "sha256:086bcc78ad174a9bf8664566eb9fa923010f10f523e0e1419e8c4c670a7c93b3",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -1071,8 +1071,8 @@
     {
       "file": "crawler-group-13.yml",
       "sourceLogic": "crawler-group-13-logic.yml",
-      "sourceSha256": "04963837d70393fef5ec447886c2f010e7d92fa74aaf4e72bf60200580db0a86",
-      "artifactSha256": "19fe42553b666fa16ada53f778999b960ebb988e63ed45121dfee054c9064a1e",
+      "sourceSha256": "99c63b728b604a31146bbb22325030b10164ded33a25ccfceccf69822d69c130",
+      "artifactSha256": "d316ee1e1b62624c5fe52fa5a9a2e555e385589db944a2e2e53f6c1e349caaf9",
       "generatorSha256": "2ccaa1ac64f96d819006d6ad0c52a48246c27e6dcdd971b2acfae2b68ce7e9d0",
       "members": [
         "pwc",
@@ -1101,7 +1101,9 @@
         "csvp-poschiavo",
         "answerconsulting",
         "1a-hunkeler",
-        "abraxas"
+        "abraxas",
+        "afry",
+        "buehler"
       ]
     },
     {
@@ -1439,8 +1441,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "6bd0c3167e48d7b68d538a19eb30dc193ccd192b9b0f45a7e35e8feb26949fbe",
-      "artifactSha256": "fe510daf048f785efab3bbb80858537cbf46b889976fea79129229f52b260c61",
+      "sourceSha256": "85b987e49726a7616410472c8578e4a9103a8267414f4cddf5cf7469865efe65",
+      "artifactSha256": "e84a1a2de5b1776280e9103fd6103f85c945f495b39ed1b329fccc28a6b237e3",
       "generatorSha256": "2ccaa1ac64f96d819006d6ad0c52a48246c27e6dcdd971b2acfae2b68ce7e9d0",
       "members": [
         "albergo-gardenia",
@@ -1462,24 +1464,22 @@
         "tsmg",
         "capri-holdings",
         "anicura",
-        "fisba"
+        "fisba",
+        "postauto"
       ]
     },
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "751ae8c6b91b498bfb559acce66c14f57deacda1638add00de81c540deb1f78d",
-      "artifactSha256": "9909fda3b562d615170cef55bb3e79d34f3ca8b0a559c1ba6d091689a60c2a6e",
+      "sourceSha256": "7d9778627bfbb6ccd1fdbc304a616b6fcc2b09770317c726152bbd2349895be1",
+      "artifactSha256": "5371a6719f9fa513ab289a84f80ab453ab376b970eeec2f90743461a60da72a6",
       "generatorSha256": "2ccaa1ac64f96d819006d6ad0c52a48246c27e6dcdd971b2acfae2b68ce7e9d0",
       "members": [
         "confederazione",
         "protectas",
         "lwphr",
         "knowledge-lab",
-        "convit",
-        "afry",
-        "buehler",
-        "postauto"
+        "convit"
       ]
     },
     {
