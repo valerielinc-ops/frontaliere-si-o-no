@@ -9,7 +9,8 @@
   ],
   "detailTemplate": "/emploi/*",
   "pagination": {
-    "maxPages": 20
+    "maxPages": 20,
+    "selfNextIsTerminal": true
   },
   "sampleVacancyCount": 10,
   "sampleTitles": [
