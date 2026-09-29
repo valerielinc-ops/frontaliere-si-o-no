@@ -134,6 +134,29 @@ function panelStableId(rawId = '') {
   return m ? `${m[1]}-${m[2]}` : rawId;
 }
 
+/**
+ * Public URL of one accordion panel. The `?panel=` query is the job's identity
+ * since issue #3699 (merge keys, slug registry), but dxt.com ignores it: every
+ * `?panel=…` serves the careers page, canonical `https://dxt.com/careers/`,
+ * with all panels closed, so the link led to the top of a page listing every
+ * opening (parser-quality run 36571839273). The fragment names the panel's
+ * own element, `id="offset_GROUPID_N"` (heading and body), so the browser
+ * lands on the vacancy; the query stays and keeps the identity.
+ */
+export function dxtPanelUrl(panelId) {
+  return `${DXT_CAREERS_URL}?panel=${panelId}#offset_${panelId}`;
+}
+
+/**
+ * Merge identity of a DXT job: the stable id of its URL without the fragment,
+ * so the stored `?panel=N` records and the `?panel=N#offset_N` ones are the
+ * same posting (translations, first-seen date and slugs carry over).
+ */
+export function dxtMergeKey(job) {
+  const url = String(job?.url || '').split('#')[0];
+  return extractStableJobId(url) || url;
+}
+
 // ─────────────────────────────────────────────────────────────
 // HTML fetching
 // ─────────────────────────────────────────────────────────────
@@ -231,7 +254,7 @@ export async function fetchDxtJobs() {
   const jobs = [];
   for (const parsed of parsedJobs) {
     const slug = slugify(parsed.title, 'dxt');
-    const canonicalUrl = `${DXT_CAREERS_URL}?panel=${parsed.panelId}`;
+    const canonicalUrl = dxtPanelUrl(parsed.panelId);
 
     // The panel text is the whole vacancy and it is written in English; the
     // other locales come from the translation pass, never from a template.
@@ -320,7 +343,7 @@ const INVENTED_EN_BLURB = 'DXT Commodities S.A. is an energy and commodity tradi
  * from the real panel text, and flag the job for retranslation.
  */
 export function dropInventedDxtLocaleText(mergedJobs, existingJobs = []) {
-  const keyOf = (job) => extractStableJobId(job?.url) || job?.url;
+  const keyOf = dxtMergeKey;
   const previousByKey = new Map(existingJobs.map((job) => [keyOf(job), job]));
   return mergedJobs.map((job) => {
     const sourceLang = job?.sourceLang || 'en';
@@ -361,12 +384,8 @@ async function mergeDxtJobs(discoveredJobs) {
   const nonDxtJobs = allJobs.filter((j) => !isDxtJob(j));
   const existingDxtJobs = allJobs.filter(isDxtJob);
 
-  const existingKeys = new Set(
-    existingDxtJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
-  );
-  const discoveredKeys = new Set(
-    discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
-  );
+  const existingKeys = new Set(existingDxtJobs.map(dxtMergeKey).filter(Boolean));
+  const discoveredKeys = new Set(discoveredJobs.map(dxtMergeKey).filter(Boolean));
   const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
   const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
   const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
@@ -377,7 +396,7 @@ async function mergeDxtJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = dropInventedDxtLocaleText(
-    mergePreserveLocaleData(existingDxtJobs, discoveredJobs),
+    mergePreserveLocaleData(existingDxtJobs, discoveredJobs, { matchKey: dxtMergeKey }),
     existingDxtJobs,
   ).map((job) => ({
     ...job,

@@ -59,6 +59,10 @@ import {
   fragmentAnchoredBlock,
   fragmentKind,
   textFragmentBlock,
+  headingSectionBlock,
+  querySharedDocumentCandidates,
+  pageDeclaresBareDocument,
+  pageListsSharedPostings,
   fetchVacancyPdfText,
   createPdfSafeFetch,
 } from '../../scripts/audit-parser-quality.mjs';
@@ -85,6 +89,7 @@ type Issue = {
   total: number;
   message: string;
   hidden?: boolean;
+  details?: string[];
 };
 
 type Entry = {
@@ -2474,10 +2479,69 @@ describe('desc-only fingerprint compares the whole body (issue 5253, run 3652833
     expect(largestDuplicateBucketMembers(fps)).toEqual([2, 3, 4]);
   });
 
-  it('leaves the title-aware fingerprint (duplicate listings) unchanged', () => {
+  it('keys duplicate listings on title, place and the whole body', () => {
     const fps = fingerprintsForCrawler(clinicJobs, 'title-aware');
     expect(fps.every((fp) => fp.split('||').length === 3)).toBe(true);
-    expect(fps[0].split('||')[2].length).toBeLessThanOrEqual(500);
+    expect(fps[0].split('||')[2]).toBe(fingerprintsForCrawler(clinicJobs, 'desc-only')[0]);
+  });
+});
+
+describe('duplicate listings compare the whole body (reboot-monkey, selecta — run 36571839273)', () => {
+  // reboot-monkey publishes each Data Center Technician role twice per city,
+  // full-time and freelance; the bodies differ in one word near the start
+  // (before the crawler-wide offset the old window skipped) or in the
+  // requirements list 3 000 characters in (after the 500-character window).
+  const intro = (kind: string) => `Reboot Monkey is hiring a Data Center Technician in Chiasso, Switzerland. This is a ${kind}, on-site position where you'll support critical infrastructure at world-class data center facilities. `;
+  const duties = 'Responsibilities: rack and stack servers, replace failed components, run structured cabling, follow change procedures and document every intervention in the ticketing system. '.repeat(6);
+  const requirementsFull = 'Requirements: associate or bachelor degree in computer science or a related field is preferred, two years of data center experience. ';
+  const requirementsFreelance = 'Requirements: data center or IT infrastructure experience, server hardware and networking knowledge, reliable and professional with clients. ';
+  const role = (kind: string, requirements: string, url: string) => ({
+    title: 'Data Center Technician - Switzerland - Chiasso - On-site',
+    location: 'Chiasso',
+    url,
+    description: `${intro(kind)}${duties}${requirements}`,
+  });
+  // Two other roles sharing a long head set the old crawler-wide offset past
+  // the word that tells the Chiasso postings apart.
+  const zurichHead = 'Reboot Monkey operates colocation and hyperscale sites across Switzerland and keeps them running around the clock for its customers. '.repeat(3);
+  const zurich = (shift: string) => ({
+    title: `Data Center Technician - Zurich - ${shift}`,
+    location: 'Zurich',
+    description: `${zurichHead}${`The ${shift} shift covers remote hands, audits and incident response for the Zurich campus. `.repeat(8)}`,
+  });
+
+  it('does not count a full-time and a freelance posting of one role as a duplicate', () => {
+    const jobs = [
+      role('full-time', requirementsFull, 'https://jobs.example.test/o/dct-chiasso-on-site'),
+      role('freelance', requirementsFull, 'https://jobs.example.test/o/dct-chiasso-on-site-1'),
+      zurich('early'),
+      zurich('late'),
+    ];
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(0);
+  });
+
+  it('does not count two postings that differ only after the first 500 characters', () => {
+    const jobs = [
+      role('full-time', requirementsFull, 'https://jobs.example.test/o/dct-chiasso-on-site-3'),
+      role('full-time', requirementsFreelance, 'https://jobs.example.test/o/dct-chiasso-on-site-4'),
+    ];
+    expect(jobs[0].description.slice(0, 500)).toBe(jobs[1].description.slice(0, 500));
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(0);
+  });
+
+  it('does not count two shifts of one driver role at one depot (selecta Job/4600 and Job/4601)', () => {
+    const head = 'Für unser Team suchen wir eine zuverlässige Person mit Führerausweis Kat. C und E, die unsere Kundinnen und Kunden pünktlich beliefert und die Automaten mit frischen Produkten versorgt. '.repeat(4);
+    const shift = (hours: string) => `Arbeitsort Kirchberg BE (Montag bis Freitag von ${hours}). Hauptaufgaben: Anlieferung und Einlagerung von Waren.`;
+    const jobs = ['05:00 Uhr bis 15:00 Uhr', '12:00 Uhr bis 22:00 Uhr'].map((hours) => ({
+      title: 'Chauffeur Kat. C und E (m/w/d)', location: 'Kirchberg BE', description: `${head}${shift(hours)}`,
+    }));
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(0);
+  });
+
+  it('still counts the same posting published twice, however long its body', () => {
+    const posting = role('full-time', requirementsFull, 'https://jobs.example.test/o/dct-chiasso-on-site');
+    const jobs = [posting, { ...posting, url: `${posting.url}-2` }, zurich('early')];
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(2);
   });
 });
 
@@ -2598,9 +2662,9 @@ describe('source detail on a document several postings share (ehnv, klinik-gut)'
     expect(report['shared-fixture'].issues).toEqual([]);
     expect(report['shared-fixture'].severity).toBe('OK');
     expect(report['shared-fixture'].sourceDetailUnattributable).toBe(1);
-    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, clientRoute: 1, anchorMissing: 0 });
+    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, titleHeading: 0, clientRoute: 1, anchorMissing: 0 });
     expect(summary.unobserved).toBe(0);
-    expect(formatSourceDetailObservationLines(summary)).toContain('Source detail samples on a page several postings share: 0 read from the element their URL fragment names, 1 on an app route with no static page per posting (informational), 0 behind an anchor the page does not have (source-detail-anchor-missing)');
+    expect(formatSourceDetailObservationLines(summary)).toContain('Source detail samples on a page several postings share: 0 read from the element their URL fragment names, 0 read from the section under their title, 1 on an app route with no static page per posting (informational), 0 behind an anchor or a query that does not lead to the posting (source-detail-anchor-missing)');
   });
 
   it('keeps an anchor the shared page does not have visible as a WARNING', async () => {
@@ -2616,7 +2680,7 @@ describe('source detail on a document several postings share (ehnv, klinik-gut)'
     assignSeverity(report['shared-fixture']);
     expect(report['shared-fixture'].issues).toMatchObject([{ type: 'source-detail-anchor-missing', count: 1, total: 1 }]);
     expect(report['shared-fixture'].severity).toBe('WARNING');
-    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, clientRoute: 0, anchorMissing: 1 });
+    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, titleHeading: 0, clientRoute: 0, anchorMissing: 1 });
   });
 
   it('resolves every non-text fragment as an element id before calling it an app route', async () => {
@@ -2680,6 +2744,133 @@ describe('source detail on a document several postings share (ehnv, klinik-gut)'
     }], 1, { fetchPage: async () => ({ ok: true, status: 200, url: 'https://jobs.example.test/stelle/9', body: page, host: 'jobs.example.test' }) });
     expect(result.sourceScope).toBeUndefined();
     expect(result.descriptionMismatch).toBe(true);
+  });
+});
+
+describe('source detail on a page several postings share through a query it ignores (la-fonte, dxt — run 36571839273)', () => {
+  const role = (name: string) => `${name}: accompagnamento degli utenti nella vita quotidiana, collaborazione con l'équipe educativa e partecipazione ai progetti della fondazione. `;
+  const page = (canonical: string) => `<html><head><link rel="canonical" href="${canonical}"><script>var tracking = "${'x'.repeat(4000)}";</script></head><body>
+<header><nav>Chi siamo News Contatti</nav></header>
+<main><h2>Inizia con noi</h2><p>${'La fondazione accoglie persone con disabilità in strutture abitative e laboratori protetti. '.repeat(12)}</p>
+<h4><strong>Stagiaire</strong></h4><div><p>${role('Stage').repeat(4)}</p></div>
+<h4>Apprendisti/e operatori/trici socioassistenziali AFC</h4><div><p>${role('Apprendistato').repeat(4)}</p></div>
+</main><footer><h3>Contatti</h3><p>${'Via Lavizzari, Lugano. Telefono e orari degli uffici. '.repeat(10)}</p><script>window.cookieBanner = "${'y'.repeat(3000)}";</script></footer></body></html>`;
+  const at = (role: string) => `https://www.lafonte.example/inizia-con-noi?role=${role}`;
+  const jobs = [
+    { title: 'Stagiaire', url: at('stagiaire-la-fonte'), location: 'Lugano', sourceLang: 'it', description: role('Stage').repeat(4) },
+    { title: 'Apprendisti/e operatori/trici socioassistenziali AFC', url: at('apprendisti-afc'), location: 'Lugano', sourceLang: 'it', description: role('Apprendistato').repeat(4) },
+  ];
+  const fetchFrom = (body: string) => async (url: string) => ({ ok: true, status: 200, url, body, host: 'www.lafonte.example' });
+  const run = (items: Array<Record<string, unknown>>, body: string) => checkSourceDetailsBatch(items, 1, { fetchPage: fetchFrom(body) });
+
+  it('marks postings that only a query tells apart as candidates, never a fragment-only or single URL', () => {
+    expect([...querySharedDocumentCandidates(jobs)]).toEqual(['https://www.lafonte.example/inizia-con-noi']);
+    expect(querySharedDocumentCandidates([jobs[0]]).size).toBe(0);
+    expect(querySharedDocumentCandidates([jobs[0], { url: `${jobs[0].url}#apply` }]).size).toBe(0);
+    const samples = sourceDetailSamplesForCrawler('la-fonte', jobs);
+    expect(samples.map((sample) => sample.sharedDocumentCandidate)).toEqual(['query', 'query']);
+  });
+
+  it('confirms the shared page only through a canonical without the query', () => {
+    expect(pageDeclaresBareDocument(page('https://www.lafonte.example/inizia-con-noi'), at('x'))).toBe(true);
+    expect(pageDeclaresBareDocument(page('/inizia-con-noi/'), at('x'))).toBe(true);
+    expect(pageDeclaresBareDocument(page('https://www.lafonte.example/inizia-con-noi?role=x'), at('x'))).toBe(false);
+    expect(pageDeclaresBareDocument(page('https://www.lafonte.example/altro'), at('x'))).toBe(false);
+    expect(pageDeclaresBareDocument('<html><body></body></html>', at('x'))).toBe(false);
+  });
+
+  it('compares each posting with the section under its own title and reports the URL', async () => {
+    const body = page('https://www.lafonte.example/inizia-con-noi');
+    const results = await run(sourceDetailSamplesForCrawler('la-fonte', jobs), body);
+    for (const result of results) {
+      expect(result).toMatchObject({ sourceScope: 'title-heading', sharedBy: 'query', urlAddressesPosting: false, descriptionMismatch: false });
+    }
+    // the whole page (intro, both roles, footer) is not either posting's source
+    expect(results[0].sourceDescriptionLength).toBeLessThan(700);
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string }> = { 'la-fonte': { total: 2, issues: [] } };
+    const summary = applySourceDetailResults(report, results, 2);
+    assignSeverity(report['la-fonte']);
+    expect(report['la-fonte'].issues).toMatchObject([{ type: 'source-detail-anchor-missing', count: 2, total: 2 }]);
+    expect(report['la-fonte'].issues[0].details?.[0]).toContain('ignores the query');
+    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, titleHeading: 2, clientRoute: 0, anchorMissing: 2 });
+    expect(summary.descriptionMismatches).toBe(0);
+  });
+
+  it('reads the place a fragment gives the posting on a query-shared page, and the URL leads there', async () => {
+    const body = page('https://www.lafonte.example/inizia-con-noi');
+    const withFragments = jobs.map((job) => ({ ...job, url: `${job.url}#:~:text=${encodeURIComponent(job.title).replace(/-/g, '%2D')}` }));
+    const results = await run(sourceDetailSamplesForCrawler('la-fonte', withFragments), body);
+    for (const result of results) {
+      expect(result).toMatchObject({ sourceScope: 'fragment-anchor', sharedBy: 'query', descriptionMismatch: false });
+      expect(result.urlAddressesPosting).toBeUndefined();
+    }
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string }> = { 'la-fonte': { total: 2, issues: [] } };
+    applySourceDetailResults(report, results, 2);
+    assignSeverity(report['la-fonte']);
+    expect(report['la-fonte'].issues).toEqual([]);
+    expect(report['la-fonte'].severity).toBe('OK');
+    // dxt-commodities shape: an accordion whose panels have ids
+    const accordion = `<html><head><link rel="canonical" href="https://dxt.example/careers/"></head><body><main>
+<div class="panel" id="offset_20897_1"><h4><a href="#collapse_20897_1">Junior Power Analyst</a></h4><div id="collapse_20897_1">${role('Power').repeat(4)}</div></div>
+<div class="panel" id="offset_20897_2"><h4><a href="#collapse_20897_2">Junior Accountant</a></h4><div id="collapse_20897_2">${role('Accounting').repeat(4)}</div></div>
+</main><footer><h3>Offices</h3></footer></body></html>`;
+    const dxtJobs = [['Junior Power Analyst', 1, 'Power'], ['Junior Accountant', 2, 'Accounting']].map(([title, n, body]) => ({
+      title, url: `https://dxt.example/careers/?panel=20897_${n}#offset_20897_${n}`, location: 'Lugano', sourceLang: 'en', description: role(String(body)).repeat(4),
+    }));
+    const dxt = await checkSourceDetailsBatch(sourceDetailSamplesForCrawler('dxt', dxtJobs), 1, { fetchPage: fetchFrom(accordion) });
+    expect(dxt.map((result) => [result.sourceScope, result.sharedBy, result.descriptionMismatch, result.urlAddressesPosting]))
+      .toEqual([['fragment-anchor', 'query', false, undefined], ['fragment-anchor', 'query', false, undefined]]);
+  });
+
+  it('keeps the check able to fail on a posting that publishes part of its section', async () => {
+    const [teaser] = await run([{ ...sourceDetailSamplesForCrawler('la-fonte', jobs)[0], job: { ...jobs[0], description: role('Stage').slice(0, 150) } }], page('https://www.lafonte.example/inizia-con-noi'));
+    expect(teaser).toMatchObject({ sourceScope: 'title-heading', descriptionMismatch: true });
+  });
+
+  it('measures a query candidate whose page does not declare the bare document as its own page', async () => {
+    const body = page('https://www.lafonte.example/inizia-con-noi?role=stagiaire-la-fonte');
+    const [result] = await run(sourceDetailSamplesForCrawler('la-fonte', jobs).slice(0, 1), body);
+    expect(result.sourceScope).toBeUndefined();
+    expect(result.sharedBy).toBeUndefined();
+    expect(result.urlAddressesPosting).toBeUndefined();
+  });
+
+  it('keeps an app shell that declares its bare URL canonical a per-vacancy page (BrassRing HomeWithPreLoad)', async () => {
+    const shell = `<html><head><link rel="canonical" href="https://jobs.bank.example/Search/Home/HomeWithPreLoad"></head><body><div id="app"></div><div class="jobdetails">${role('Stage').repeat(4)}</div></body></html>`;
+    const url = 'https://jobs.bank.example/Search/Home/HomeWithPreLoad?jobid=348358&PageType=jobdetails';
+    const sibling = 'https://jobs.bank.example/Search/Home/HomeWithPreLoad?jobid=348353&PageType=jobdetails';
+    const bankJobs = [{ ...jobs[0], url }, { ...jobs[1], url: sibling }];
+    expect(pageDeclaresBareDocument(shell, url)).toBe(true);
+    expect(pageListsSharedPostings(shell, url, bankJobs[0].title, [bankJobs[1].title])).toBe(false);
+    const [result] = await run(sourceDetailSamplesForCrawler('bank', bankJobs).slice(0, 1), shell);
+    expect(result.sharedBy).toBeUndefined();
+    expect(result.sourceScope).toBeUndefined();
+  });
+
+  it('ends a section at the next heading of the same or a higher rank, without scripts', () => {
+    const block = headingSectionBlock(page('https://www.lafonte.example/inizia-con-noi'), 'Apprendisti/e operatori/trici socioassistenziali AFC');
+    expect(block).toContain('Apprendistato');
+    expect(block).not.toContain('Contatti');
+    expect(block).not.toContain('cookieBanner');
+    expect(headingSectionBlock(page(''), 'Ruolo che non esiste')).toBe('');
+  });
+
+  it('compares a fragment-shared posting under its title when its anchor is missing (grischapersonal)', async () => {
+    const list = `<html><body><table><tbody>
+<tr><td><h1>CAD-ZEICHNER (m/w/d)</h1><div>${role('CAD').repeat(4)}</div></td><td><h2>Kontakt</h2></td></tr>
+<tr><td><h1>METALLBAUMONTEUR (m/w/d)</h1><div>${role('Metallbau').repeat(4)}</div></td></tr>
+</tbody></table></body></html>`;
+    const url = 'https://grischapersonal.example/stellen/#job-a49cb87c8254';
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'grischapersonal', url, sharedDocument: true,
+      job: { title: 'CAD-ZEICHNER (m/w/d)', url, location: 'Chur', sourceLang: 'de', description: role('CAD').repeat(4) },
+    }], 1, { fetchPage: async () => ({ ok: true, status: 200, url: url.split('#')[0], body: list, host: 'grischapersonal.example' }) });
+    expect(result).toMatchObject({ sourceScope: 'title-heading', sharedBy: 'fragment', urlAddressesPosting: false, descriptionMismatch: false });
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string }> = { grischapersonal: { total: 38, issues: [] } };
+    applySourceDetailResults(report, [result], 1);
+    assignSeverity(report.grischapersonal);
+    expect(report.grischapersonal.issues).toMatchObject([{ type: 'source-detail-anchor-missing', count: 1 }]);
+    expect(report.grischapersonal.severity).toBe('WARNING');
   });
 });
 

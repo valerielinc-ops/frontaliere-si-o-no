@@ -5,6 +5,8 @@ import {
   isLeukerbadClinicJob,
   isTrustedDomain,
   fetchAllLeukerbadClinicJobs,
+  leukerbadClinicMatchKey,
+  listedJobDocumentIds,
 } from '../scripts/lib/leukerbad-clinic-job-parser.mjs';
 import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
 
@@ -16,10 +18,11 @@ import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
 // (canonicalizeJobUrl strips the hash → a bare listing URL collapses to a
 // single key) folded them onto ONE fingerprint in mergeAndDeduplicate. The
 // slice shrank to 2 (fr + de) and the shrink-guard hard-failed the crawler on
-// EVERY run. The fix appends a stable `#job-<hash>` fragment so
-// extractJobIdentityFromUrl mints a distinct identity per job — the same
-// fragment-as-identity convention the other single-listing-page crawlers use
-// (galenica, eHnv, état de vaud, klinik-gut).
+// EVERY run. The fix gives every job a stable per-document token that
+// extractJobIdentityFromUrl reads: first a `#job-<hash>` fragment, since issue
+// 5253 a `?jobid=<hash>` query — the fragment is now the text fragment of the
+// title, which takes the reader to the posting (the `#job-<hash>` anchor
+// named no element of the page, rendered or not).
 
 const PRISMIC_API = 'https://leukerbad-clinic.cdn.prismic.io/api/v2';
 
@@ -89,9 +92,25 @@ describe('Leukerbad Clinic (leukerbad-clinic) crawler parser', () => {
       delete process.env.JOBS_CRAWLER_TIMEOUT_MS;
     });
 
-    function mockPrismic(docs: unknown[]) {
+    // The `jobs` page documents link the positions the site lists; by
+    // default every job document passed in is listed.
+    function jobsPage(lang: string, ids: string[]) {
+      return {
+        id: `page-${lang}`, uid: 'jobs', type: 'page', lang,
+        data: { body: [{ slice_type: 'jobs', items: ids.map((id) => ({ job: { id, type: 'job', link_type: 'Document', isBroken: false } })) }] },
+      };
+    }
+
+    function mockPrismic(docs: any[], listedIds: string[] | null = docs.map((doc) => doc.id)) {
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
+        if (u.includes('/documents/search') && decodeURIComponent(u).includes('my.page.uid')) {
+          const results = listedIds === null ? [] : [jobsPage('fr-ch', listedIds), jobsPage('de-ch', [])];
+          return new Response(
+            JSON.stringify({ page: 1, total_pages: 1, results_size: results.length, results }),
+            { status: 200, headers: { 'content-type': 'application/json' } },
+          );
+        }
         if (u === PRISMIC_API) {
           return new Response(
             JSON.stringify({
@@ -123,10 +142,12 @@ describe('Leukerbad Clinic (leukerbad-clinic) crawler parser', () => {
       const jobs = await fetchAllLeukerbadClinicJobs();
       expect(jobs).toHaveLength(4);
 
-      // Every job carries the per-doc fragment and points at the live listing.
+      // Every job carries its per-doc token and the text fragment of its title,
+      // on the live listing of its language.
       for (const job of jobs) {
         expect(job.companyKey).toBe('leukerbad-clinic');
-        expect(job.url).toMatch(/^https:\/\/leukerbadclinic\.ch\/(fr|de)\/page\/jobs\/#job-[0-9a-f]{12}$/);
+        expect(job.url).toMatch(/^https:\/\/leukerbadclinic\.ch\/(fr|de)\/page\/jobs\/\?jobid=[0-9a-f]{12}#:~:text=/);
+        expect(decodeURIComponent(job.url.split('#:~:text=')[1])).toBe(job.title);
         expect(isTrustedDomain(job.url)).toBe(true);
       }
 
@@ -136,10 +157,10 @@ describe('Leukerbad Clinic (leukerbad-clinic) crawler parser', () => {
       const fps = jobs.map((j) => fingerprintJob(j));
       expect(new Set(fps).size).toBe(jobs.length);
 
-      // And each fingerprint resolves via the fragment identity, not the bare
+      // And each fingerprint resolves via the per-doc token, not the bare
       // (collapsing) listing URL.
       for (const fp of fps) {
-        expect(fp).toMatch(/^id\|leukerbadclinic\.ch\|#job-[0-9a-f]{12}$/);
+        expect(fp).toMatch(/^id\|leukerbadclinic\.ch\|[0-9a-f]{12}$/);
       }
     });
 
@@ -150,6 +171,40 @@ describe('Leukerbad Clinic (leukerbad-clinic) crawler parser', () => {
       const second = await fetchAllLeukerbadClinicJobs();
       expect(first[0].url).toBe(second[0].url);
       expect(fingerprintJob(first[0])).toBe(fingerprintJob(second[0]));
+    });
+
+    it('publishes only the job documents the site lists (issue 5253: MPA, Chefarzt, Verwaltung were Prismic-only)', async () => {
+      mockPrismic([
+        jobDoc('doc-A', 'infirmiere', 'fr-ch', 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%'),
+        jobDoc('doc-D', 'mpa', 'de-ch', 'Medizinische/r Praxisassistent/in (m/w)'),
+      ], ['doc-A']);
+      const jobs = await fetchAllLeukerbadClinicJobs();
+      expect(jobs.map((job) => job.title)).toEqual(['INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%']);
+    });
+
+    it('fails instead of publishing every document when the jobs page cannot be read', async () => {
+      mockPrismic([jobDoc('doc-A', 'infirmiere', 'fr-ch', 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%')], null);
+      await expect(fetchAllLeukerbadClinicJobs()).rejects.toThrow('jobs');
+    });
+
+    it('keeps the stored record identity: merge key is the id, unchanged by the URL', async () => {
+      mockPrismic([jobDoc('doc-A', 'infirmiere', 'fr-ch', 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%')]);
+      const [job] = await fetchAllLeukerbadClinicJobs();
+      const stored = { id: job.id, url: 'https://leukerbadclinic.ch/fr/page/jobs/#job-0123456789ab' };
+      expect(leukerbadClinicMatchKey(stored)).toBe(leukerbadClinicMatchKey(job));
+    });
+  });
+
+  describe('listedJobDocumentIds', () => {
+    it('reads the job links of the jobs page, not broken links or other documents', () => {
+      const ids = listedJobDocumentIds([{ data: { body: [
+        { primary: { title: [] }, items: [
+          { job: { id: 'A', type: 'job', link_type: 'Document', isBroken: false } },
+          { job: { id: 'B', type: 'job', link_type: 'Document', isBroken: true } },
+          { job: { id: 'C', type: 'page', link_type: 'Document', isBroken: false } },
+        ] },
+      ] } }]);
+      expect([...ids]).toEqual(['A']);
     });
   });
 });

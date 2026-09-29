@@ -415,3 +415,97 @@ describe('review findings on #10322', () => {
     expect(description).not.toContain('OTHER');
   });
 });
+
+describe('issue 5253, run 36571839273: the body the audit reads is the ad', () => {
+  it('does not read a form help text hidden by inline style as the body (InRecruiting, a-group)', () => {
+    const html = `<html><body>
+      <div class="card-body vacancy__sections collapse show" id="description__info"><div id="description__body">
+        <h3 class="body__headings">Requirements</h3><div class="body__text"><ul><li>Gestione e ottimizzazione dei sistemi di prenotazione e dei canali di vendita online</li><li>Analisi delle performance commerciali e dei principali indicatori</li></ul></div>
+      </div></div>
+      <form><div class="geolocation-description text-danger" style="display: none">OTHER Select a data item from the drop-down list or enter a new one and click on Add Manually</div></form>
+    </body></html>`;
+    const { description } = extractDetailFields(html, 'https://inrecruiting.example/a2plus/jobs/booking-revenue-specialist-724674/en/');
+    expect(description).toContain('sistemi di prenotazione');
+    expect(description).not.toContain('OTHER');
+  });
+
+  it('reads a body container named by its id (InRecruiting description__body)', () => {
+    const html = `<html><body><main>
+      <div class="login-box"><p>Login E-Mail Password Password Recovery</p></div>
+      <div id="description__body"><p>Ricerchiamo una persona che gestisca le prenotazioni e la strategia di revenue management del gruppo alberghiero.</p></div>
+      <form class="apply"><p>OTHER First Name Surname E-Mail Confirm E-Mail Personal Details Date of Birth Home Address Country Postcode or City name ${'Privacy policy text. '.repeat(40)}</p></form>
+    </main></body></html>`;
+    const { description } = extractDetailFields(html, 'https://inrecruiting.example/jobs/x/en/');
+    expect(description).toContain('revenue management');
+    expect(description).not.toContain('OTHER');
+  });
+
+  it('cuts a «Similar jobs» section that carries other complete ads (hotel careers, kronenhof)', () => {
+    const other = '<article><a href="/en/vacancies/731"><h3>OTHER Demi Chef de Partie</h3><p>OTHER complete ad of another vacancy with its own tasks and profile.</p></a></article>';
+    const html = `<html><body><main>
+      <h1>Chef de Rang - immediate start (m/w/d)</h1>
+      <div class="prose"><h2>This is you</h2><ul><li>Completed training in hospitality or equivalent practical experience</li></ul></div>
+      <section class="entry border-gray mt-12"><div class="flex"><h2> Similar jobs </h2><a href="/en/vacancies">See all jobs</a></div><div>${other.repeat(3)}</div></section>
+    </main></body></html>`;
+    const { description } = extractDetailFields(html, 'https://careers.hotel.example/en/vacancies/716');
+    expect(description).toContain('Completed training in hospitality');
+    expect(description).not.toContain('OTHER');
+  });
+
+  it('cuts a similar-jobs slider whose teasers carry description classes (Prospective, srg-ssr)', () => {
+    const html = `<html><body><main id="main">
+      <div id="content"><h1>Fufragnadi - emprendissadi da prova</h1><div class="job-description"><p>RTR è in'unitad d'interpresa da la SRG SSR e la chasa da medias per la Svizra rumantscha.</p></div></div>
+      <section id="similar-jobs" class="sixteen wide column"><h2>Ulteriuras Plazzas</h2><div class="similar-jobs-slider">
+        <div class="slide job"><h1 class="job-title">OTHER HMS-Praktikum</h1><div class="description">OTHER Die SRG SSR bildet motivierte Lernende in unterschiedlichen Lehrberufen aus.</div></div>
+      </div></section>
+    </main></body></html>`;
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/rtr/offene-stellen/fufragnadi/b6e22b31');
+    expect(description).toContain('Svizra rumantscha');
+    expect(description).not.toContain('OTHER');
+  });
+
+  it("keeps a section whose heading is this vacancy's own title", () => {
+    const html = `<html><body><h1>Pflegefachperson HF</h1><section class="related-jobs"><h2>Pflegefachperson HF</h2><div class="job-description"><p>Sie betreuen Patientinnen und Patienten auf der Bettenstation und planen die Pflege.</p></div></section></body></html>`;
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/stelle/1', {});
+    expect(description).toContain('planen die Pflege');
+  });
+
+  it('reads the prose layout tokens of a jobs2web ad whose only itemprop description is the contact card (PostFinance, Mobiliar)', () => {
+    const token = (inner: string, itemprop = false) => `<div class="joblayouttoken displayDTM "><div class="inner"><div class="row"><div class="col-xs-12"><span lang="de-DE" ${itemprop ? 'itemprop="description" ' : ''}class="rtltextaligneligible">${inner}</span></div></div></div></div>`;
+    const body = 'Im Compliance Office stellst du sicher, dass alle gesetzlichen und regulatorischen Vorgaben im Umgang mit Firmenkundinnen und Firmenkunden erfüllt werden. Du erkennst Risiken frühzeitig, klärst sie direkt mit den Kundinnen und Kunden und dokumentierst deine Erkenntnisse in präzisen Berichten für die Geschäftsleitung.';
+    const html = `<html><body><div itemscope itemtype="http://schema.org/JobPosting">
+      ${token('Mitarbeiter:in Compliance Office Firmenkunden')}${token('80')}${token('100')}${token('Bern|Bern|BE|Schweiz|CHE')}
+      ${token(`<ul><li>${body}</li></ul>`)}
+      ${token('Max Muster Compliance Officer [[cust_secondRecruiterPhone]] Erika Beispiel +41 58 000 00 00', true)}
+    </div></body></html>`;
+    const { description } = extractDetailFields(html, 'https://jobs.bank.example/job/Compliance/74803-de_DE');
+    expect(description).toContain('Im Compliance Office stellst du sicher');
+    expect(description).not.toContain('Bern|Bern');
+  });
+
+  it('reads the answers of a BrassRing job detail, not its Angular templates (UBS HomeWithPreLoad)', () => {
+    const html = `<html><body><div class="jobDetailsContainer" ng-if="jobs.length > 0 && tgSettings.IsSRCFlow=='no'">
+      <p>OTHER You have already applied for this job. {{LimitExceededMessage}} ${'Choose your sign in option {{dynamicStrings.Button_LogIn}}. '.repeat(30)}</p>
+      <p class="section2LeftfieldsInJobDetails jobDetailTextArea question thick">Your role</p>
+      <p class="section2LeftfieldsInJobDetails jobDetailTextArea answer">Do you want to translate content from English and German into French for our digital products?<br/>• help shape a consistent voice and terminology</p>
+      <p class="section2LeftfieldsInJobDetails jobDetailTextArea question thick">About us</p>
+      <p class="section2LeftfieldsInJobDetails jobDetailTextArea answer">We are a leading global wealth manager headquartered in Zurich.</p>
+    </div></body></html>`;
+    const { description } = extractDetailFields(html, 'https://jobs.bank.example/TGnewUI/Search/Home/HomeWithPreLoad?jobid=348358&PageType=jobdetails');
+    expect(description).toContain('translate content from English');
+    expect(description).toContain('leading global wealth manager');
+    expect(description).not.toContain('OTHER');
+  });
+
+  it('keeps the lists of the body as `- item` lines (anker-swiss)', () => {
+    const html = `<html><body><section class="job-details"><h3>Deine Herausforderung:</h3><ul><li>allgemeine Fassadenarbeiten</li><li><p>kleinere Gipserarbeiten</p></li></ul><p>Ab sofort<br>oder nach Vereinbarung</p></section></body></html>`;
+    const { description } = extractDetailFields(html, 'https://anker.example/stellen/maler-1274176/');
+    expect(description.split('\n')).toEqual(['Deine Herausforderung:', '- allgemeine Fassadenarbeiten', '- kleinere Gipserarbeiten', 'Ab sofort', 'oder nach Vereinbarung']);
+  });
+
+  it('keeps the line structure of a JSON-LD description written as plain text lines (grischapersonal)', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: 'CAD-ZEICHNER (m/w/d)', description: 'Für unseren Kunden suchen wir\r\n\r\n<strong>Aufgaben</strong>\r\n\r\n- Erstellung von Plänen\r\n- Koordination mit Bauherrschaften' })}</script>`;
+    const [record] = extractJsonLd(html, 'https://grischapersonal.example/stellen/');
+    expect(record.description.split('\n')).toEqual(['Für unseren Kunden suchen wir', 'Aufgaben', '- Erstellung von Plänen', '- Koordination mit Bauherrschaften']);
+  });
+});
