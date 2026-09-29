@@ -516,11 +516,25 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern"
+          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern",
+          "meccatronica-automobilistica-tecnico-in-facilmente-swiss-armed-forces-vtg-bern"
+        ],
+        "en": [
+          "automotive-mechatronics-technician-in-easily-swiss-armed-forces-vtg-bern"
+        ],
+        "de": [
+          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-k6tud5"
+        ],
+        "fr": [
+          "technicien-mecatronique-automobile-en-facilement-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
-        "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern"
+        "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern",
+        "meccatronica-automobilistica-tecnico-in-facilmente-swiss-armed-forces-vtg-bern",
+        "automotive-mechatronics-technician-in-easily-swiss-armed-forces-vtg-bern",
+        "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-k6tud5",
+        "technicien-mecatronique-automobile-en-facilement-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1349,13 +1363,18 @@
           "logistics-swiss-armed-forces-vtg-bern",
           "logistique-swiss-armed-forces-vtg-bern",
           "logistics-swiss-armed-forces-vtg-bern-b9e29f",
-          "logistique-swiss-armed-forces-vtg-bern-b9e29f"
+          "logistique-swiss-armed-forces-vtg-bern-b9e29f",
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern-1bmlp0",
+          "logistiker-in-swiss-armed-forces-vtg-bern-1bmlp0"
         ],
         "en": [
           "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7"
         ],
         "fr": [
           "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7"
+        ],
+        "de": [
+          "logistiker-in-swiss-armed-forces-vtg-bern-1bmlp0"
         ]
       },
       "previousSlugs": [
@@ -1364,7 +1383,9 @@
         "logistics-swiss-armed-forces-vtg-bern",
         "logistique-swiss-armed-forces-vtg-bern",
         "logistics-swiss-armed-forces-vtg-bern-b9e29f",
-        "logistique-swiss-armed-forces-vtg-bern-b9e29f"
+        "logistique-swiss-armed-forces-vtg-bern-b9e29f",
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern-1bmlp0",
+        "logistiker-in-swiss-armed-forces-vtg-bern-1bmlp0"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -4717,8 +4738,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "salaryMin": 77000,
-      "salaryMax": 116500,
-      "needsRetranslation": true
+      "salaryMax": 116500
     },
     {
       "id": "company-e2fmuy",
@@ -5207,8 +5227,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "salaryMin": 73000,
-      "salaryMax": 124500,
-      "needsRetranslation": true
+      "salaryMax": 124500
     },
     {
       "id": "company-v1b670",

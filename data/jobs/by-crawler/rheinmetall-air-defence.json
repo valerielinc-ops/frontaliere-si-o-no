@@ -372,7 +372,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:16.416Z"
+      "firstSeenAt": "2026-09-19T23:05:16.416Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "quality-it-specialist-m-f-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "quality-it-specialist-m-f-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-cb308457ce7c",
@@ -439,7 +447,23 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "esperto-atlante-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "expert-atlasien-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "esperto-atlassian-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "expert-atlassian-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "esperto-atlante-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "expert-atlasien-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "esperto-atlassian-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "expert-atlassian-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-fc13970fedad",
@@ -577,7 +601,6 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-09-26T14:10:25.807Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -890,7 +913,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:23.511Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -2279,7 +2301,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:19.530Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -2494,7 +2515,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:49.852Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2562,7 +2582,6 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-09-19T23:05:11.884Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2718,7 +2737,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:11.032Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2799,7 +2817,6 @@
         ]
       },
       "firstSeenAt": "2026-09-12T13:06:53.356Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -3472,7 +3489,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T10:03:19.755Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "comptable-financier-principal-h-f-d-rheinmetall-air-defence-ag-zurich"
@@ -3726,7 +3742,6 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-09-01T04:33:27.462Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -3858,7 +3873,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:44.706Z",
-      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -4830,7 +4844,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:04.455Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -5088,7 +5101,6 @@
         "technical-project-manager-sistemi-completi-m-f-d-rheinmetall-air-defence-ag-zurich"
       ],
       "firstSeenAt": "2026-07-04T11:46:24.672Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -5897,7 +5909,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:14.685Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",

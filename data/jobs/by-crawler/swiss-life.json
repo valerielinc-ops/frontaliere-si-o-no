@@ -945,8 +945,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-8d16b972b4a6",
@@ -1159,12 +1158,14 @@
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
       "previousSlugs": [
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
-        "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2"
+        "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
+        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bhp163"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
-          "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2"
+          "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
+          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bhp163"
         ],
         "en": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
@@ -4009,7 +4010,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:37.334Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4356,7 +4356,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:39.938Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4723,8 +4722,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-1cc20debfef3",
@@ -4879,8 +4877,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-a8afa8be18c1",
@@ -7911,7 +7908,6 @@
         "ai-engineer-w-m-d-80-100-swiss-life-ch"
       ],
       "firstSeenAt": "2026-09-19T23:00:19.595Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",

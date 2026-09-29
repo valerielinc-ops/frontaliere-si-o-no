@@ -178,8 +178,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitex-basel-70fc219c15e5",
@@ -445,8 +444,7 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitex-basel-62d31a0d9677",
@@ -538,8 +536,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitex-basel-dceae5118ed1",
@@ -619,8 +616,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitex-basel-a06d0d8e3a67",
@@ -964,8 +960,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitex-basel-40218b5e6d58",
@@ -981,7 +976,7 @@
       "companyDomain": "spitexbasel.ch",
       "title": "Planerin/Planer",
       "titleByLocale": {
-        "it": "Planerin/Planer",
+        "it": "Planner/Planner",
         "en": "Planner/Planner",
         "de": "Planerin/Planer",
         "fr": "Planificateur/planificateur"
@@ -1048,8 +1043,7 @@
         "planificateur-planificateur-spitex-basel-basel",
         "planerin-planer-spitex-basel-basel",
         "planner-planner-spitex-basel-basel"
-      ],
-      "needsRetranslation": true
+      ]
     }
   ]
 }
