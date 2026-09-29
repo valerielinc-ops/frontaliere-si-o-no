@@ -6989,6 +6989,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dibattito-stati-bilaterali-iii.title': 'Ständerat: Start der Bilateraldebatte III',
     'blog.article.dibattito-stati-bilaterali-iii.excerpt': 'Der Ständerat diskutiert das Abkommenspaket mit der EU. Zu den heissen Themen gehören: Personenfreizügigkeit, Rechtsübernahme und Schutzklausel.',
     'blog.article.dibattito-stati-bilaterali-iii.imageAlt': 'Bundeshaus in Bern Sitz des Ständerates',
+    'blog.article.voto-iniziativa-neutralita-grigioni.title': 'Neutralitätsinitiative: So stimmten die Bündner ab',
+    'blog.article.voto-iniziativa-neutralita-grigioni.excerpt': 'Fünfzehn Bündner Gemeinden haben die Initiative zur Neutralität angenommen. Im Gegensatz zum nationalen Nein-Anteil von 70,2% erreichte das Ja in Santa Maria 67%.',
+    'blog.article.voto-iniziativa-neutralita-grigioni.imageAlt': 'Schweizer Flagge weht mit Berglandschaft im Hintergrund',
 };
 
 export default blogMetaChDe;

@@ -6989,6 +6989,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dibattito-stati-bilaterali-iii.title': 'Conseil des Etats : début du débat sur les Bilatérales III',
     'blog.article.dibattito-stati-bilaterali-iii.excerpt': 'Le Conseil des Etats discute du paquet d\'accords avec l\'UE. Parmi les thèmes chauds : la libre circulation, la reprise du droit et la clause de sauvegarde.',
     'blog.article.dibattito-stati-bilaterali-iii.imageAlt': 'Palais fédéral à Berne siège du Conseil des États',
+    'blog.article.voto-iniziativa-neutralita-grigioni.title': 'Initiative sur la neutralité : comment les Grisons ont voté',
+    'blog.article.voto-iniziativa-neutralita-grigioni.excerpt': 'Quinze communes grisonnes ont approuvé l\'initiative sur la neutralité. À contre-courant des 70,2% de non au niveau national, le oui a atteint 67% à Santa Maria.',
+    'blog.article.voto-iniziativa-neutralita-grigioni.imageAlt': 'Drapeau suisse flottant avec paysage de montagne en arrière-plan',
 };
 
 export default blogMetaChFr;
