@@ -11,7 +11,9 @@ import {
   isTrustedDomain,
   REHA_ANDEER_KEY,
   REHA_ANDEER_COMPANY_NAME,
+  REHA_ANDEER_FABRICATED_DESCRIPTION_RE,
 } from './lib/reha-andeer-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -24,6 +26,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isRehaAndeerJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, REHA_ANDEER_FABRICATED_DESCRIPTION_RE, REHA_ANDEER_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Reha Andeer crawler failed: ${err?.message || err}`);
   process.exit(1);

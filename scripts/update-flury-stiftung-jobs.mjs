@@ -14,7 +14,9 @@ import {
   isTrustedDomain,
   FLURY_STIFTUNG_KEY,
   FLURY_STIFTUNG_COMPANY_NAME,
+  FLURY_STIFTUNG_FABRICATED_DESCRIPTION_RE,
 } from './lib/flury-stiftung-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +29,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isFluryStiftungJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, FLURY_STIFTUNG_FABRICATED_DESCRIPTION_RE, FLURY_STIFTUNG_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Flury Stiftung crawler failed: ${err?.message || err}`);
   process.exit(1);

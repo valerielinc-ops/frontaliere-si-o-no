@@ -3433,6 +3433,24 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
   }
 
   const jobTclKey = (job) => `${(job.title || '').toLowerCase().trim()}||${(job.company || '').toLowerCase().trim()}||${(job.location || '').toLowerCase().trim()}`;
+  const hasEqualNonEmptyLocaleSlug = (left, right) => {
+    const leftSlugs = left?.slugByLocale;
+    const rightSlugs = right?.slugByLocale;
+    if (
+      !leftSlugs
+      || typeof leftSlugs !== 'object'
+      || Array.isArray(leftSlugs)
+      || !rightSlugs
+      || typeof rightSlugs !== 'object'
+      || Array.isArray(rightSlugs)
+    ) return false;
+    return Object.entries(leftSlugs).some(([locale, value]) => {
+      if (typeof value !== 'string' || typeof rightSlugs[locale] !== 'string') return false;
+      const leftValue = value.trim();
+      const rightValue = rightSlugs[locale].trim();
+      return Boolean(leftValue && rightValue && leftValue === rightValue);
+    });
+  };
   const expiredGhostIdentity = (job) => {
     const url = String(job?.url ?? '').trim();
     if (url) return `url:${url}`;
@@ -3468,6 +3486,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     if (!activeSlugOwners.has(slug)) activeSlugOwners.set(slug, job);
   };
   for (const j of activeJobs) {
+    registerActiveSlug(j.slug, j);
     if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => registerActiveSlug(s, j));
     if (j.previousSlugs) j.previousSlugs.forEach(s => registerActiveSlug(s, j));
     if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === 'object') {
@@ -3493,14 +3512,31 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     const match = overlapJob && jobTclKey(overlapJob) === key
       ? overlapJob
       : activeByTCL[key];
-    const overlapSlug = overlapJob && jobTclKey(overlapJob) === key ? overlapCandidate : null;
-    const hasSlugOverlap = Boolean(overlapSlug);
+    // Keep the first active owner in the proof even when it belongs to a
+    // different TCL. That makes a foreign locale slug an explicit negative
+    // proof instead of allowing the locale-only fallback to hide it.
+    const overlapSlug = overlapCandidate;
+    const hasSlugOverlap = Boolean(overlapSlug && overlapJob && jobTclKey(overlapJob) === key);
 
     // Ghost: slug overlap + title match, or exact same IT slug
     const expiredItSlug = String(ej.slugByLocale?.it ?? '').trim();
     const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
-    const sameItSlug = Boolean(match && expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
-    if (!match || (!hasSlugOverlap && !sameItSlug)) continue;
+    const hasSameItSlug = Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
+    // Legacy archives sometimes carry only de/fr/en locale maps. Without an
+    // Italian slug, require one equal non-empty locale value as the durable
+    // same-posting evidence; a shared locale key alone is not proof.
+    const hasMatchingLocaleSlug = hasEqualNonEmptyLocaleSlug(ej, match);
+    // An exact Italian slug is independent, decisive evidence. Do not let an
+    // unrelated non-Italian owner turn that valid proof into a rejection.
+    const proofOverlapSlug = hasSameItSlug ? null : overlapSlug;
+    const legacySamePosting = Boolean(
+      match
+      && !expiredItSlug
+      && !matchItSlug
+      && hasMatchingLocaleSlug
+      && !overlapCandidate,
+    );
+    if (!match || (!hasSlugOverlap && !hasSameItSlug && !legacySamePosting)) continue;
 
     // Mark as ghost
     const ghostId = expiredGhostIdentity(ej);
@@ -3508,8 +3544,8 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     ghostIds.add(ghostId);
     ghostEvidenceById.set(ghostId, {
       match,
-      overlapSlug,
-      overlapJob: overlapSlug ? overlapJob : null,
+      overlapSlug: proofOverlapSlug,
+      overlapJob: proofOverlapSlug ? overlapJob : null,
     });
 
     // Merge expired slugs into active job's previousSlugs (journaled + capped,
@@ -3591,6 +3627,28 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
             entries: proofEntries,
           },
         });
+        // The in-process proof above protects assembly itself. Persist the
+        // same exact evidence for the later grouped-isolated commit, which
+        // sees only the checkout blob and the post-merge candidate.
+        if (process.env.GITHUB_RUN_ID && process.env.GITHUB_RUN_ATTEMPT) {
+          const committedCandidateRaw = fs.readFileSync(fp, 'utf8');
+          const ghostProof = {
+            schemaVersion: 1,
+            type: 'ghost-expired-reconciliation',
+            path: path.relative(ROOT, fp).split(path.sep).join('/'),
+            baseRaw: previousRaw,
+            candidateRaw: committedCandidateRaw,
+            entries: proofEntries,
+          };
+          writeHousekeepingProofFile(fp, [{
+            operation: 'reconcile-ghost-expired',
+            removedCount: slice.length - cleaned.length,
+          }], {
+            baseRaw: previousRaw,
+            candidateRaw: committedCandidateRaw,
+            metadata: ghostProof,
+          });
+        }
       }
     }
   }

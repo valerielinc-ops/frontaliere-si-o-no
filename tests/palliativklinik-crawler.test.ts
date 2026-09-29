@@ -8,8 +8,10 @@ import {
   parseListing,
   cleanPalliativklinikTitle,
   buildPalliativklinikDescription,
+  PALLIATIVKLINIK_FABRICATED_DESCRIPTION_RE,
 } from '../scripts/lib/palliativklinik-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
 
 const FIXTURE_LISTING_HTML = `
 <div id="article">
@@ -144,26 +146,17 @@ describe('Palliativklinik im Park crawler parser', () => {
       'Ihre Aufgaben: Pflege, Betreuung, Dokumentation. ' +
       'Ihre Anforderungen: Diplom HF, Berufserfahrung. ';
 
-    it('embeds intro + PDF text + footer when PDF is rich enough', () => {
-      const out = buildPalliativklinikDescription({
-        title: 'Diplomierte Pflegefachperson HF 80–100%',
-        pdfText: realPdfBody,
-        pdfUrl: 'https://palliativklinik.ch/wp/PKiP_Pflegefach.pdf',
-      });
-      expect(out).toContain('Palliativklinik im Park');
-      expect(out).toContain('Pflegefachperson');
+    // Only the PDF's own text (#5253): no sentence on the clinic, no
+    // "Stelle:" line, no "Quelle (PDF)" / "Karriereseite" / "Fachbereich:" footer.
+    it('publishes the PDF text alone', () => {
+      const out = buildPalliativklinikDescription({ pdfText: realPdfBody });
+      expect(out).toBe(buildPdfBackedDescription({ pdfText: realPdfBody }));
       expect(out).toContain('Ihre Aufgaben');
-      expect(out).toContain('PKiP_Pflegefach.pdf');
-      expect(out.length).toBeGreaterThan(400);
+      expect(out).not.toMatch(PALLIATIVKLINIK_FABRICATED_DESCRIPTION_RE);
+      expect(out).not.toMatch(/spezialisiertes Zentrum für Palliative Care|Quelle \(PDF\)|Karriereseite/);
     });
-    it('falls back gracefully when PDF text is empty', () => {
-      const out = buildPalliativklinikDescription({
-        title: 'Test Position',
-        pdfText: '',
-        pdfUrl: 'https://palliativklinik.ch/wp/empty.pdf',
-      });
-      expect(out).toContain('Palliativklinik im Park');
-      expect(out).toContain('Test Position');
+    it('writes no description of its own when the PDF text is empty', () => {
+      expect(buildPalliativklinikDescription({ pdfText: '' })).toBe('');
     });
     it('caps output length below 7000 chars', () => {
       const huge = 'A'.repeat(20000);

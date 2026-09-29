@@ -152,5 +152,18 @@ describe('PKB Private Bank crawler parser', () => {
     it('returns null for empty parse results', () => {
       expect(buildPkbJob(url, null)).toBeNull();
     });
+
+    it('publishes the Arca24 text in its own language slot', () => {
+      const job = buildPkbJob(url, parsed)!;
+      expect(job.description).toBe(parsed.description);
+      expect(job.descriptionByLocale).toEqual({ [job.sourceLang]: parsed.description });
+    });
+
+    it('gives a posting without text no description instead of a paragraph about PKB', () => {
+      const job = buildPkbJob(url, { ...parsed, description: '' })!;
+      expect(job.description).toBe('');
+      expect(job.descriptionByLocale).toEqual({ it: '' });
+      expect(JSON.stringify(job)).not.toContain('Posizione aperta');
+    });
   });
 });
