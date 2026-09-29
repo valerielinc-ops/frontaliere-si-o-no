@@ -1,18 +1,19 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-09-28T21:21:02.418Z",
+  "generatedAt": "2026-09-29T09:24:51.576Z",
   "total": 9,
-  "newCount": 3,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4192,
-  "avgDurationMs": 4192,
+  "durationMs": 5308,
+  "avgDurationMs": 5308,
   "durationHistory": [
-    4192
+    5308
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "davos-klosters-bergbahnen-cf4b041277f7",
       "slug": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
@@ -33,19 +34,21 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3940214",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:20:55.489Z",
+      "crawledAt": "2026-09-29T09:24:42.451Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-27T05:53:18.816Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3940214",
-      "_qualityScore": 61,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
     {
       "id": "davos-klosters-bergbahnen-a71adf445d97",
-      "slug": "leiter-pisten-und-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-davos",
+      "slug": "leiter-pisten-e-beschneiung-jakobshorn-vg-davos-klosters-bergbahnen-ag-davos",
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
       "companyDomain": "davosklosters.ch",
@@ -63,13 +66,15 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-Pisten-und-Beschneiung-Jakobshorn-VG_j_3940215",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:20:55.686Z",
+      "crawledAt": "2026-09-29T09:24:42.666Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:53:18.981Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-Pisten-und-Beschneiung-Jakobshorn-VG_j_3940215",
-      "_qualityScore": 46,
+      "_qualityScore": 63,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -93,18 +98,17 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:20:55.886Z",
+      "crawledAt": "2026-09-29T09:24:42.887Z",
+      "firstSeenAt": "2026-09-28T21:20:55.886Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
-      "_qualityScore": 61,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "davos-klosters-bergbahnen-c8fb0d7b8310",
       "slug": "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos",
@@ -125,7 +129,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:20:54.302Z",
+      "crawledAt": "2026-09-29T09:24:41.144Z",
       "firstSeenAt": "2026-09-27T05:53:17.644Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399",
       "_qualityScore": 82,
@@ -156,7 +160,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:20:54.498Z",
+      "crawledAt": "2026-09-29T09:24:41.360Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:56:17.794Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691",
@@ -188,15 +192,15 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:20:55.097Z",
+      "crawledAt": "2026-09-29T09:24:42.021Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-23T11:55:22.607Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
-      "_qualityScore": 82,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -220,7 +224,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Rang-Hotel-Waldhuus_j_3937517",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:20:55.294Z",
+      "crawledAt": "2026-09-29T09:24:42.237Z",
       "firstSeenAt": "2026-09-23T23:49:03.575Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Rang-Hotel-Waldhuus_j_3937517",
       "_qualityScore": 82,
@@ -251,7 +255,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:20:54.696Z",
+      "crawledAt": "2026-09-29T09:24:41.578Z",
       "firstSeenAt": "2026-06-09T11:17:26.005Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "_qualityScore": 82,
@@ -282,7 +286,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:20:54.897Z",
+      "crawledAt": "2026-09-29T09:24:41.801Z",
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "_qualityScore": 82,
