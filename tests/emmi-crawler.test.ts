@@ -1,11 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   EMMI_KEY,
   EMMI_COMPANY_NAME,
   isEmmiJob,
   isTrustedDomain,
+  extractEmmiVacancyHtml,
 } from '../scripts/lib/emmi-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { slugify, stripHtml } from '../scripts/lib/crawler-template.mjs';
 
 describe('Emmi crawler parser', () => {
   // ── Constants ──
@@ -125,5 +128,43 @@ describe('Emmi crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// ── #5253: the OHWS feed carries only the two bullet lists ────────────────
+describe('extractEmmiVacancyHtml', () => {
+  // Real jobs.emmi.com page, minimised (three benefit cards; contact anonymised).
+  const LANGNAU = fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'crawler-quality-f', 'emmi-vacancy-langnau.html'),
+    'utf8',
+  );
+  const text = stripHtml(extractEmmiVacancyHtml(LANGNAU)).replace(/[ \t]+/g, ' ');
+
+  it('starts with the role-specific introduction', () => {
+    expect(text.trim().startsWith('Wir vereinen Schweizer Tradition mit innovativer Expertise')).toBe(true);
+    expect(text).toContain('Werde Teil unseres Technik-Teams im Tagesbetrieb');
+  });
+
+  it('keeps both headed lists', () => {
+    expect(text).toContain('Das kannst du bewirken');
+    expect(text).toContain('• Du bist verantwortlich für die Instandhaltung und -setzung von technischen Anlagen.');
+    expect(text).toContain('Das bringst du mit');
+    expect(text).toContain('• Du sprichst fliessend Deutsch.');
+  });
+
+  it('turns every benefit card into one list item with its title and text', () => {
+    expect(text).toContain('Das bieten wir dir');
+    expect(text).toContain('• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung');
+    expect(text).toContain('• Kostenlose Parkplätze & vergünstigte Verpflegung: Wir bieten unseren Mitarbeitenden');
+  });
+
+  it('leaves the workplace, contact and similar-jobs sections out', () => {
+    expect(text).not.toContain('Dein Arbeitsort');
+    expect(text).not.toContain('Hast du Fragen?');
+    expect(text).not.toMatch(/\+41/);
+  });
+
+  it('returns nothing for a page without the ad sections, so the OHWS blocks are used', () => {
+    expect(extractEmmiVacancyHtml('<html><body><section id="contact">x</section></body></html>')).toBe('');
   });
 });

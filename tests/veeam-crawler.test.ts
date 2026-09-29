@@ -5,7 +5,9 @@ import {
   isVeeamJob,
   isTrustedDomain,
   resolveAddress,
+  provenEmptySwissBatch,
 } from '../scripts/lib/veeam-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Veeam Software crawler parser', () => {
@@ -196,5 +198,23 @@ describe('Veeam Software crawler parser', () => {
       expect(result.postalCode).toBe('');
       expect(result.streetAddress).toBe('');
     });
+  });
+});
+
+// ── #5253: closed Swiss postings stayed published ─────────────────────────
+describe('provenEmptySwissBatch', () => {
+  it('proves the zero when the board answered with open jobs, none in Switzerland', () => {
+    const batch = provenEmptySwissBatch({ listings: [], boardTotal: 240 });
+    expect(batch).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(batch)).toBe(true);
+    expect(Reflect.get(batch as object, 'authoritativeEmptyEvidence')).toMatch(/240 open job\(s\), none located in Switzerland/);
+  });
+
+  it('proves nothing when the board itself answered empty (renamed token or drifted payload)', () => {
+    expect(provenEmptySwissBatch({ listings: [], boardTotal: 0 })).toBeNull();
+  });
+
+  it('never stamps a batch that has Swiss listings', () => {
+    expect(provenEmptySwissBatch({ listings: [{ title: 'Sales Engineer' }], boardTotal: 240 })).toBeNull();
   });
 });

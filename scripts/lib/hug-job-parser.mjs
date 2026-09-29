@@ -163,19 +163,58 @@ function composeLocationText(loc = {}) {
   return parts.join(', ');
 }
 
-function extractPostingDescription(posting) {
+// The four sections of a SmartRecruiters job ad, in the order the public
+// posting page renders them.
+const JOB_AD_SECTION_KEYS = ['companyDescription', 'jobDescription', 'qualifications', 'additionalInformation'];
+
+/**
+ * The whole job ad as HTML: every non-empty section, each under the heading
+ * the posting page gives it ("Description de l'entreprise", "Description du
+ * poste", "Qualifications", "Informations complémentaires").
+ *
+ * The previous reader returned the FIRST non-empty section only, so every HUG
+ * vacancy was published as its "Description du poste" alone: the department
+ * presentation, the qualifications (diploma, MEBEKO recognition, C1 French)
+ * and the practical terms (start date, activity rate, salary class, contract,
+ * contact) were dropped — 1,200 of 3,440 characters on
+ * `744000103028970-medecin-interne-en-radiologie-100-` (2026-09-29).
+ */
+export function extractPostingDescription(posting) {
   const sections = posting?.jobAd?.sections;
   if (!sections || typeof sections !== 'object') return '';
-  const candidates = [
-    sections.jobDescription,
-    sections.qualifications,
-    sections.additionalInformation,
-  ];
-  for (const section of candidates) {
-    const raw = typeof section?.text === 'string' ? section.text : '';
-    if (raw && raw.trim().length > 0) return raw;
+  const parts = [];
+  for (const key of JOB_AD_SECTION_KEYS) {
+    const section = sections[key];
+    const raw = typeof section?.text === 'string' ? section.text.trim() : '';
+    if (!raw) continue;
+    const title = normalizeSpace(typeof section?.title === 'string' ? section.title : '');
+    parts.push(title ? `<h3>${title}</h3>\n${raw}` : raw);
   }
-  return '';
+  return parts.join('\n');
+}
+
+/**
+ * The job page and the apply link of a HUG SmartRecruiters posting.
+ *
+ * The job page is the public ad (`postingUrl`), not the apply flow:
+ * `applyUrl` carries `?oga=true`, which 302s to the one-click application UI
+ * (`/oneclick-ui/company/HUG/publication/…`) — no job text, and a 403 for
+ * non-browser clients, so every source-detail check of this crawler failed.
+ * `postingUrl` keeps the numeric posting id in its path, so
+ * `extractStableJobId` still matches the records published under the old URL
+ * and they keep their id and slug.
+ *
+ * @param {object} posting SmartRecruiters posting (detail payload)
+ * @returns {{ publicUrl: string, applyUrl: string }}
+ */
+export function hugPostingUrls(posting) {
+  const postingId = String(posting?.id || '').trim();
+  const apply = typeof posting?.applyUrl === 'string' ? posting.applyUrl.trim() : '';
+  const publicUrl = (typeof posting?.postingUrl === 'string' && posting.postingUrl.trim())
+    || (postingId ? `https://jobs.smartrecruiters.com/${SR_TENANT}/${postingId}` : '')
+    || apply
+    || CAREER_URL;
+  return { publicUrl, applyUrl: apply || publicUrl };
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
@@ -224,9 +263,7 @@ export async function fetchAllHugJobs() {
       const descriptionText = stripHtml(descriptionRaw);
 
       const postingId = String(posting?.id || '').trim();
-      const publicUrl =
-        (typeof posting?.applyUrl === 'string' && posting.applyUrl) ||
-        (postingId ? `https://jobs.smartrecruiters.com/${SR_TENANT}/${postingId}` : CAREER_URL);
+      const { publicUrl, applyUrl } = hugPostingUrls(posting);
 
       const sourceLang = detectLang(descriptionText || title, 'fr');
       const jobSlug = slugify(`${title} hug ${city || 'geneve'}`);
@@ -272,7 +309,7 @@ export async function fetchAllHugJobs() {
         currency: 'CHF',
         featured: false,
         postedDate,
-        applyUrl: publicUrl,
+        applyUrl,
         jobReqId: postingId || null,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

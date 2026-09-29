@@ -59,6 +59,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchGreenhouseJobs } from './ats-clients/greenhouse-client.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -232,7 +233,7 @@ async function fetchJobListings() {
     includeContent: true,
     companyName: VEEAM_COMPANY_NAME,
   });
-  return jobs
+  const listings = jobs
     .filter((j) => SWISS_LOCATION_RE.test(j.location || ''))
     .map((j) => ({
       title: j.title,
@@ -242,6 +243,30 @@ async function fetchJobListings() {
       description: j.descriptionHtml || '',
       jobReqId: j.jobReqId,
     }));
+  return { listings, boardTotal: jobs.length };
+}
+
+/**
+ * The empty Swiss batch is a statement by the source only when the board
+ * itself answered with open jobs: the Greenhouse API returns the WHOLE board
+ * in one response, so "N open jobs, none in Switzerland" is positively
+ * observed. A board that answers with nothing at all proves nothing (a renamed
+ * token or a drifted payload looks the same) and keeps the previous slice.
+ *
+ * Without this, every run after the last Swiss posting closed returned a bare
+ * `[]`, the pipeline kept the previous slice, and the two Baar postings closed
+ * in August stayed published with URLs that redirect to
+ * `veeamsoftware?error=true` (measured 2026-09-29: board 200, 0 Swiss jobs).
+ *
+ * @param {{ listings: object[], boardTotal: number }} observation
+ * @returns {object[]|null} the stamped empty batch, or null when unproven
+ */
+export function provenEmptySwissBatch({ listings, boardTotal }) {
+  if (listings.length > 0 || !(boardTotal > 0)) return null;
+  return markAuthoritativeEmptySnapshot(
+    [],
+    `Greenhouse board "${GREENHOUSE_BOARD}" lists ${boardTotal} open job(s), none located in Switzerland`,
+  );
 }
 
 /**
@@ -255,10 +280,13 @@ export async function fetchAllVeeamJobs() {
   console.log(`🔍 Fetching ${VEEAM_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_URL} (Greenhouse board "${GREENHOUSE_BOARD}")\n`);
 
-  const listings = await fetchJobListings();
+  const observation = await fetchJobListings();
+  const { listings } = observation;
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No Swiss job listings returned.');
-    return [];
+    const provenEmpty = provenEmptySwissBatch(observation);
+    if (provenEmpty) console.log(`  🧩 Source-proven zero: ${Reflect.get(provenEmpty, 'authoritativeEmptyEvidence')}`);
+    return provenEmpty || [];
   }
 
   console.log(`  📋 Swiss listings found: ${listings.length}`);
