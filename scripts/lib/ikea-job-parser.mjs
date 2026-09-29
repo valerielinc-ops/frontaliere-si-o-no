@@ -164,17 +164,35 @@ function parseListingRows(html) {
   return rows;
 }
 
+/**
+ * Parse one JSON-LD block. IKEA's apprenticeship postings ship raw TAB
+ * characters inside the description string (`<br/>•\tDetailhandelsassistent`),
+ * which strict JSON rejects. The block used to be skipped, the row lost its
+ * whole description and was published as "{title} — IKEA" (7 of 38 rows,
+ * audit run 36528331656). JSON forbids raw U+0000-U+001F only inside strings
+ * and treats them as insignificant whitespace outside, so replacing each with
+ * a space is lossless for the document structure; the description is HTML,
+ * where a tab and a space render the same.
+ */
+function parseJsonLdBlock(raw) {
+  try {
+    return JSON.parse(raw);
+  } catch {
+    try {
+      return JSON.parse(raw.replace(/[\u0000-\u001f]/g, ' '));
+    } catch {
+      return null;
+    }
+  }
+}
+
 /** Pull the JSON-LD JobPosting (if any) from a detail page. */
-function parseJobPosting(html) {
-  const blocks = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g) || [];
+export function parseJobPosting(html) {
+  const blocks = String(html || '').match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g) || [];
   for (const block of blocks) {
     const raw = block.replace(/^<script[^>]*>/, '').replace(/<\/script>$/, '').trim();
-    let data;
-    try {
-      data = JSON.parse(raw);
-    } catch {
-      continue;
-    }
+    const data = parseJsonLdBlock(raw);
+    if (!data) continue;
     const candidates = Array.isArray(data) ? data : [data];
     for (const c of candidates) {
       if (c && c['@type'] === 'JobPosting') return c;

@@ -198,3 +198,57 @@ describe('UBS crawler parser', () => {
     });
   });
 });
+
+// Minimised from the Taleo job-details payload
+// (POST /TgNewUI/Search/Ajax/JobDetails) of jobid 348353 on site 5131
+// (2026-09-29). The search rows only carry the first section ("Your role"):
+// UBS postings were published at 6-7 % of their source page.
+describe('Taleo job details', () => {
+  const QUESTIONS = [
+    { QuestionName: '', AnswerValue: '2026 Internship – German language expert / translation specialist – ZH', VerityZone: 'jobtitle', ClassName: 'jobtitleInJobDetails' },
+    { QuestionName: 'City', AnswerValue: 'Zürich ', VerityZone: 'formtext2', ClassName: 'section2RightfieldsInJobDetails' },
+    { QuestionName: 'Your role', AnswerValue: 'We’re looking for ambitious students.<br><br>You’ll get to:<br><br>• craft clear, engaging UX content<br>• translate content from English into German', VerityZone: 'jobdescription', ClassName: 'section2LeftfieldsInJobDetails jobDetailTextArea' },
+    { QuestionName: 'Your team', AnswerValue: 'Join the software localization team in Zurich.', VerityZone: 'formtext58', ClassName: 'section2LeftfieldsInJobDetails jobDetailTextArea' },
+    { QuestionName: 'Your expertise', AnswerValue: 'We’re looking for a candidate who:<br><br>• has completed at least 4 semesters of a bachelor’s degree', VerityZone: 'formtext59', ClassName: 'section2LeftfieldsInJobDetails jobDetailTextArea' },
+    { QuestionName: 'About us', AnswerValue: 'UBS is a leading and truly global wealth manager.', VerityZone: 'formtext60', ClassName: 'section2LeftfieldsInJobDetails jobDetailTextArea' },
+    { QuestionName: 'Empty', AnswerValue: '', VerityZone: 'formtext61', ClassName: 'section2LeftfieldsInJobDetails jobDetailTextArea' },
+    { QuestionName: '', AnswerValue: '348353', VerityZone: 'reqid', ClassName: null },
+  ];
+
+  it('composes every text section under its own heading, in page order', () => {
+    const text = __internals.composeTaleoJobDetailDescription(QUESTIONS);
+    const order = ['Your role', 'Your team', 'Your expertise', 'About us'].map((heading) => text.indexOf(`${heading}\n`));
+    expect(order.every((index) => index >= 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(text).toMatch(/^• craft clear, engaging UX content$/m);
+    expect(text).not.toContain('348353');
+    expect(text).not.toContain('Empty');
+    expect(__internals.composeTaleoJobDetailDescription(null)).toBe('');
+  });
+
+  function taleoRow(lang: string, reqid: string) {
+    const q = (name: string, value: string) => ({ QuestionName: name, Value: value });
+    return {
+      Questions: [
+        q('reqid', reqid), q('jobtitle', 'Spécialiste Crédits 80-100%'), q('jobdescription', 'Votre rôle au sein de notre équipe crédit.'),
+        q('formtext23', 'Suisse - Suisse romande'), q('formtext2', 'Lausanne'), q('jobreqlanguage', lang),
+        q('lastupdated', '29-Sep-2026'),
+      ],
+    };
+  }
+
+  it('points main-site postings to their locale site (French → 5049, German → 5050)', () => {
+    // Opened through the English site 5012, jobid 350552 rendered the German
+    // "Spezialist/in Hypotheken und Grundbuchwesen" (overlap 0.01 in the audit).
+    const fr = __internals.buildJobFromTaleo(taleoRow('34', '350552'), '5012');
+    expect(fr.url).toContain('siteid=5049&jobid=350552');
+    expect(fr._ubsMeta.detailSiteId).toBe('5049');
+    const de = __internals.buildJobFromTaleo(taleoRow('23', '350553'), '5012');
+    expect(de.url).toContain('siteid=5050&jobid=350553');
+    const en = __internals.buildJobFromTaleo(taleoRow('1', '348000'), '5012');
+    expect(en.url).toContain('siteid=5012&jobid=348000');
+    // The single-site tenants keep their own id.
+    const apprentice = __internals.buildJobFromTaleo(taleoRow('34', '346345'), '5054');
+    expect(apprentice.url).toContain('siteid=5054&jobid=346345');
+  });
+});

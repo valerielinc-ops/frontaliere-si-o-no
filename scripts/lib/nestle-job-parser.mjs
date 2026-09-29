@@ -13,13 +13,14 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { normalizeDescriptionSpace, slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { splitJobLocation } from './job-location-display.mjs';
 import {
   fetchSuccessFactorsJobs,
   SuccessFactorsAuthError,
 } from './ats-clients/successfactors-client.mjs';
+import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -184,17 +185,28 @@ export async function fetchJobDescriptionText(
     if (!res.ok) return '';
     // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
     const html = await rescueHtmlIfChallenged(await res.text(), listingUrl, {});
-    const match = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>/i);
-    if (!match) return '';
-    return stripHtml(match[1])
-      .replace(/[ \t]+/g, ' ')
-      .replace(/[ \t]*\n[ \t]*/g, '\n')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim()
-      .slice(0, 4000);
+    return parseNestleDetailDescription(html);
   } catch {
     return '';
   }
+}
+
+/**
+ * Read the full vacancy body from a jobdetails.nestle.com (SuccessFactors
+ * jobs2web) detail page.
+ *
+ * The body sits in `<span data-careersite-propertyid="description">` and is
+ * full of nested `<span style=...>` section headings. The former non-greedy
+ * `<span class="jobdescription">([\s\S]*?)</span>` stopped at the FIRST inner
+ * `</span>` — on the Basel "Anlagenführer/in Abfüllung" page that is right
+ * after the "Positions Übersicht" heading, so the parser kept 2 words, fell
+ * under the 50-word floor and published the synthetic "Key details" stub
+ * instead of the ~3000-character vacancy (audit run 36528331656). The shared
+ * CSB reader walks the balanced element and keeps `<li>` items as bullets; no
+ * length cap, the whole posting is the description.
+ */
+export function parseNestleDetailDescription(html = '') {
+  return normalizeDescriptionSpace(String(parseCsbDetailPage(html)?.descriptionText || '').replace(/\u00a0/g, ' ').replace(/\r\n?/g, '\n'));
 }
 
 /**

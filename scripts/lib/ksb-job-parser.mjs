@@ -32,6 +32,7 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDescriptionText,
+  fetchWorkdaySidebarText,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -176,6 +177,14 @@ export async function fetchAllKsbJobs() {
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
+  // KSB's career site shows an "About us" sidebar next to every posting, and
+  // Workday folds it into each posting's JSON-LD description. The CXS job
+  // payload never carries it, so KSB's short postings (a two-line
+  // "Spontanbewerbung", a 445-character OP-technician apprenticeship) were
+  // published at 13-35 % of what the source page states (audit run
+  // 36528331656). Read it once per run and append it to each posting body.
+  const aboutText = await fetchWorkdaySidebarText(WORKDAY_API_BASE, stripHtml);
+
   const jobs = [];
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
@@ -209,9 +218,15 @@ export async function fetchAllKsbJobs() {
       '• Arbeitgeber: Kantonsspital Baden — Akutspital im Kanton Aargau',
       '• Bewerbung über: KSB-Karriereportal',
     ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    const bodyText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    const descriptionText = detailDescription.length >= 100 && aboutText
+      ? `${bodyText}\n\n${aboutText}`
+      : bodyText;
 
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    // Language of the POSTING, not of the site-level sidebar: the "About us"
+    // block is English on a German-language site and would otherwise outvote
+    // a two-line German body.
+    const sourceLang = detectLang(bodyText || title, 'de');
     const jobSlug = slugify(`${title} ${KSB_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 

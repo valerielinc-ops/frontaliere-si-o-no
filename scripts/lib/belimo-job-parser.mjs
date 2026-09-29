@@ -211,6 +211,29 @@ export function isSwissJobUrlCandidate(url = '') {
   return postal[1].length === 4;
 }
 
+function decodeXmlText(value = '') {
+  return String(value)
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, '&');
+}
+
+/**
+ * Some Belimo requisitions expose their workplace ONLY as the CSB
+ * `streetAddress` string "City, CC, Postal" ("Vaassen, NL, 8171 MG",
+ * "New Taipei City, TW, 234") with no addressLocality/addressCountry.
+ * Returns `{ city, country, postalCode }` from that shape, or null.
+ *
+ * @param {string} value
+ */
+export function parseCsbStreetAddressLocation(value = '') {
+  const m = normalizeSpace(value).match(/^([^,]+),\s*([A-Z]{2}),\s*([^,]+)$/);
+  if (!m) return null;
+  return { city: m[1].trim(), country: m[2], postalCode: m[3].trim() };
+}
+
 /**
  * Fetch the CSB sitemap and return every job detail URL.
  */
@@ -220,8 +243,11 @@ async function fetchAllJobUrls() {
     headers: { Accept: 'application/xml,text/xml,*/*' },
   });
 
+  // <loc> is XML text: `&` in a slug arrives as `&amp;`. Decode it, or the
+  // published URL reads "...Energy-&amp;-Metering..." and no longer equals
+  // the one stored on the previous run.
   const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)]
-    .map((m) => m[1].trim())
+    .map((m) => decodeXmlText(m[1].trim()))
     .filter((url) => /\/job\/[^/]+\/\d+\/?$/.test(url))
     .map((url) => new URL(url, JOB_BASE).toString());
 
@@ -265,9 +291,20 @@ export function parseBelimoDetailPage(html = '') {
     descriptionHtml = (end !== -1 ? body.slice(0, end) : body.slice(0, 20000)).trim();
   }
 
-  const city = grabMeta('addressLocality');
-  const country = grabMeta('addressCountry');
+  // Workplace from microdata; when the page only carries the CSB
+  // "City, CC, Postal" streetAddress, read it from there. Without this the
+  // Dutch (Vaassen) and Taiwanese (New Taipei City) requisitions had no city
+  // and no country, passed the CH gate and were published under the Hinwil HQ.
+  const streetLocation = parseCsbStreetAddressLocation(grabMeta('streetAddress'));
+  const city = grabMeta('addressLocality') || streetLocation?.city || '';
+  const country = grabMeta('addressCountry') || streetLocation?.country || '';
   if (!title && !city && !country) return null;
+  // A requisition that is already filled stays in the CSB sitemap, but its
+  // page keeps only the title and the notice "Diese Stelle wurde leider
+  // bereits besetzt." — no description, no JobLocation microdata. It is not
+  // an open vacancy: publishing it produced the "{title} presso Belimo a
+  // Hinwil." stub (audit run 36528331656, 1163687855).
+  if (!descriptionHtml && !city && !country) return null;
 
   // SF CSB truncates region labels ("Züri" for Zürich) — expand the known one.
   let region = grabMeta('addressRegion');
@@ -277,7 +314,7 @@ export function parseBelimoDetailPage(html = '') {
     title,
     city,
     region,
-    postalCode: grabMeta('postalCode'),
+    postalCode: grabMeta('postalCode') || (streetLocation?.country === 'CH' ? streetLocation.postalCode : ''),
     country: country.toUpperCase(),
     postedDate: parseSuccessFactorsPostedDate(grabMeta('datePosted')),
     descriptionHtml,

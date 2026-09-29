@@ -56,6 +56,16 @@ const MATCHED_JOBS_URL = 'https://jobs.ubs.com/TgNewUI/Search/Ajax/MatchedJobs';
  */
 const SHOW_MORE_JOBS_URL = 'https://jobs.ubs.com/TgNewUI/Search/Ajax/ProcessSortAndShowMoreJobs';
 
+/**
+ * Taleo job-details endpoint — what the site's own job page posts to
+ * (`t.post("/TgNewUI/Search/Ajax/JobDetails", {partnerId, siteId, jobid,
+ * configMode, jobSiteId, turnOffHttps})` in TGNewUI search.min.js). The
+ * search endpoints only carry the FIRST text section (`jobdescription`, the
+ * "Your role" block); team, expertise, program, "About us", "Join us" and
+ * the policy statement live in the other `jobDetailTextArea` questions.
+ */
+const JOB_DETAILS_URL = 'https://jobs.ubs.com/TgNewUI/Search/Ajax/JobDetails';
+
 /** Deterministic sort so page boundaries stay stable across requests. */
 const SORT_TYPE = 'LastUpdated';
 
@@ -81,8 +91,28 @@ const SITE_IDS = ['5012', '5054', '5131'];
  * list.
  */
 
-/** Taleo language code → ISO 639-1 */
-const TALEO_LANG_MAP = { 1: 'en', 23: 'de', 34: 'fr', 6: 'it' };
+/** Taleo language code → ISO 639-1 (52 is the Italian code the tenant's
+ * locale table declares; 6 kept for older payloads). */
+const TALEO_LANG_MAP = { 1: 'en', 23: 'de', 34: 'fr', 6: 'it', 52: 'it' };
+
+/**
+ * The main tenant (5012) is the English locale site of a four-site group:
+ * its search lists every Swiss posting, but a German, French or Italian
+ * posting lives on its own locale site (the tenant's `TGLocales`: 5050
+ * Deutsch, 5049 Français, 5048 Italiano). Opened through 5012, the job page
+ * renders another language version of the requisition — the French "Spécialiste
+ * Crédits" (jobid 350552) came back as the German "Spezialist/in Hypotheken
+ * und Grundbuchwesen", overlap 0.01 in audit run 36528331656 — and the
+ * job-details endpoint returns nothing unless `jobSiteId` names the locale
+ * site. The apprenticeship (5054) and graduate (5131) sites are single-site
+ * tenants and keep their own id.
+ */
+const MAIN_SITE_LOCALE_SITE_IDS = { en: '5012', de: '5050', fr: '5049', it: '5048' };
+
+function detailSiteIdFor(siteId, taleoLang) {
+  if (siteId !== SITE_IDS[0]) return siteId;
+  return MAIN_SITE_LOCALE_SITE_IDS[taleoLang] || siteId;
+}
 
 /** Postal codes for Valais cities */
 const VS_POSTAL_CODES = {
@@ -479,6 +509,70 @@ async function searchMoreJobs(cookies, rft, pageNumber, siteId) {
   }
 }
 
+/**
+ * Compose the full vacancy text from Taleo `JobDetailQuestions`: every
+ * `jobDetailTextArea` question with a value, in the order the job page shows
+ * them, each under its own heading ("Your role", "Your team", "Your
+ * expertise", …). Returns '' when the payload has no such section.
+ *
+ * @param {Array<{QuestionName?: string, AnswerValue?: string, ClassName?: string|null}>} questions
+ * @returns {string}
+ */
+export function composeTaleoJobDetailDescription(questions = []) {
+  if (!Array.isArray(questions)) return '';
+  const sections = [];
+  for (const q of questions) {
+    if (!/\bjobDetailTextArea\b/.test(String(q?.ClassName || ''))) continue;
+    const body = normalizeDescriptionSpace(stripHtml(String(q?.AnswerValue || '')));
+    if (!body) continue;
+    const heading = normalizeSpace(stripHtml(String(q?.QuestionName || '')));
+    sections.push(heading ? `${heading}\n${body}` : body);
+  }
+  return sections.join('\n\n');
+}
+
+/**
+ * POST the Taleo job-details endpoint within an established site session.
+ * `jobSiteId` is the posting's locale site (see `detailSiteIdFor`). Returns
+ * the composed description, or '' on any failure (the search-result "Your
+ * role" text then stays in place).
+ */
+async function fetchTaleoJobDetailDescription(session, siteId, reqId, jobSiteId = siteId) {
+  if (!session || !reqId) return '';
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(JOB_DETAILS_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        Accept: 'application/json',
+        Cookie: session.cookies,
+        RFT: session.rft,
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+      body: JSON.stringify({
+        partnerId: PARTNER_ID,
+        siteId,
+        jobid: String(reqId),
+        configMode: '',
+        jobSiteId,
+        turnOffHttps: false,
+      }),
+      signal: controller.signal,
+    });
+    if (!res.ok) return '';
+    const data = await res.json();
+    return composeTaleoJobDetailDescription(data?.ServiceResponse?.Jobdetails?.JobDetailQuestions);
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /* ── Job Builder ──────────────────────────────────────────── */
 
 /**
@@ -520,10 +614,11 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
   })());
   if (!resolvedLocation) return null;
   const { city, canton, fromVacancyText } = resolvedLocation;
-  const publicUrl = buildJobUrl(reqId, siteId);
 
   // Detect source language: use Taleo's language code, fallback to content detection
   const taleoLang = TALEO_LANG_MAP[Number(langCode)];
+  const detailSiteId = detailSiteIdFor(siteId, taleoLang);
+  const publicUrl = buildJobUrl(reqId, detailSiteId);
   const sourceLang = taleoLang || detectLang(descriptionText || title, 'de');
 
   const jobSlug = slugify(`${title} ubs ${city}`);
@@ -569,6 +664,7 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
     // ── Internal metadata ──
     _ubsMeta: {
       reqId,
+      detailSiteId,
       department,
       region,
       cities: cityStr,
@@ -603,6 +699,7 @@ export async function fetchAllUbsJobs() {
   // and merge them in a loop rather than a single request.
   const allEntries = []; // { taleoJob, siteId }
   const seenReqIds = new Set();
+  const sessions = new Map(); // siteId → { cookies, rft }
 
   for (const siteId of SITE_IDS) {
     console.log(`  🌐 Site ${siteId}: ${buildSearchPageUrl(siteId)}`);
@@ -618,6 +715,7 @@ export async function fetchAllUbsJobs() {
       console.warn(`  ⚠️ Site ${siteId} session bootstrap failed: ${err?.message || err}`);
       continue;
     }
+    sessions.set(siteId, { cookies, rft });
     console.log('  ✅ Session established\n');
 
     // Step 2: Paginated walk of this site's tenant.
@@ -676,13 +774,36 @@ export async function fetchAllUbsJobs() {
     return [];
   }
 
-  // Step 3: Build ParsedJob objects
+  // Step 3: Build ParsedJob objects, then read each Swiss posting's full
+  // text from the job-details endpoint. The search rows only carry "Your
+  // role": UBS postings were published at 6-7 % of their source page
+  // (audit run 36528331656) and templated programmes collapsed onto the same
+  // teaser (duplicate descriptions).
   const jobs = [];
+  let detailMisses = 0;
   for (const { taleoJob, siteId } of allEntries) {
     const job = buildJobFromTaleo(taleoJob, siteId);
-    if (job) {
-      jobs.push(job);
+    if (!job) continue;
+    // eslint-disable-next-line no-await-in-loop
+    const full = await fetchTaleoJobDetailDescription(
+      sessions.get(siteId),
+      siteId,
+      job._ubsMeta.reqId,
+      job._ubsMeta.detailSiteId,
+    );
+    if (full && full.length > String(job.description || '').length) {
+      job.description = full;
+      job.descriptionByLocale = { [job.sourceLang]: full };
+    } else {
+      detailMisses += 1;
     }
+    jobs.push(job);
+    // Polite delay between detail requests.
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((r) => setTimeout(r, 250));
+  }
+  if (detailMisses > 0) {
+    console.warn(`  ⚠️ ${detailMisses}/${jobs.length} UBS job-details requests returned no fuller text — kept the search-row "Your role" text.`);
   }
 
   console.log(`\n📋 Total UBS Swiss jobs: ${jobs.length}`);
@@ -692,6 +813,7 @@ export async function fetchAllUbsJobs() {
 export const __internals = {
  extractRequestVerificationToken,
  buildJobFromTaleo,
+ composeTaleoJobDetailDescription,
  inferCanton,
  isSwissRegion,
  resolveSwissLocation,

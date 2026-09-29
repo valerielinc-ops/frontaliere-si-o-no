@@ -8,6 +8,10 @@ import {
   parseDetailPage,
 } from '../scripts/lib/schindler-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { parseDetailPage as parseSchindlerDetailPage } from '../scripts/lib/schindler-job-parser.mjs';
 
 describe('Schindler crawler parser', () => {
   // ── Constants ──
@@ -220,5 +224,40 @@ describe('Schindler crawler parser', () => {
       expect(detail.title).toBe('Recruiter (m/f/d) 100%');
       expect(detail.description).toBe('');
     });
+  });
+});
+
+// Pinned fixture: a job.schindler.com/SBB_AS apprenticeship (Le Mont-sur-
+// Lausanne). No `h1.job-title`, an unrendered `[[Title]]` token inside the
+// body, and no job-action/footer marker after the description span. The
+// parser used to (a) stop the body at the first inner `</span>` and (b) wipe
+// the whole description on the token, publishing its German company blurb
+// on a French posting (2/99 rows, audit run 36528331656).
+describe('parseDetailPage — SBB_AS apprenticeship body', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'schindler-sbb-as-apprentissage-detail.html'),
+    'utf8',
+  );
+  const listingTitle = "Apprentissage de Polymécanicien-ne CFC / Monteur-euse d'ascenseurs pour 2027";
+
+  it('reads the whole balanced jobdescription element', () => {
+    const { description } = parseSchindlerDetailPage(fixture, { listingTitle });
+    expect(description).toContain('Quelles sont tes tâches?');
+    expect(description).toContain('Tes avantages chez nous');
+    expect(description).toContain('Quels sont les prochains pas pour postuler?');
+    expect(description.length).toBeGreaterThan(1800);
+  });
+
+  it('renders the [[Title]] token with the listing title instead of wiping the body', () => {
+    const { description } = parseSchindlerDetailPage(fixture, { listingTitle });
+    expect(description).not.toContain('[[');
+    expect(description).toContain(`${listingTitle} à Le Mont-sur-Lausanne`);
+    expect(description).not.toContain('Die Schindler-Gruppe ist einer der weltweit führenden');
+  });
+
+  it('drops a token it cannot render rather than the posting', () => {
+    const { description } = parseSchindlerDetailPage(fixture);
+    expect(description).not.toContain('[[');
+    expect(description).toContain('Quelles sont tes tâches?');
   });
 });

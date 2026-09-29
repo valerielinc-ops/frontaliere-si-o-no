@@ -6,6 +6,10 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/stadt-zuerich-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { parseOfficialAdPage } from '../scripts/lib/stadt-zuerich-job-parser.mjs';
 
 describe('Stadt Zürich crawler parser', () => {
   // ── Constants ──
@@ -154,5 +158,40 @@ describe('Stadt Zürich crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// Pinned fixture minimised from the city's official ad page
+// www.stadt-zuerich.ch/…/jobs/job-detailseite.61759.html (2026-09-29). The
+// jobs2web page only carries the title (even after client-side rendering), so
+// every row was published as the tile summary: distinct postings with the same
+// title and unit became identical (19/430 duplicate descriptions, audit run
+// 36528331656), with no tasks, profile or offer at all.
+describe('parseOfficialAdPage', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'stadt-zuerich-official-ad-gaertner.html'),
+    'utf8',
+  );
+
+  it('reads the Referenz-Nr. that joins the ad to its jobs2web tile', () => {
+    expect(parseOfficialAdPage(fixture)?.ref).toBe('51726');
+  });
+
+  it('reads intro, Aufgaben, Profil, Wir bieten and Über uns with bullets', () => {
+    const { description } = parseOfficialAdPage(fixture)!;
+    const order = ['Sind Sie bereit', 'Aufgaben', 'Profil', 'Wir bieten', 'Über uns'].map((m) => description.indexOf(m));
+    expect(order.every((index) => index >= 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(description).toMatch(/^• Sie führen selbständig anspruchsvolle Pflege- und Unterhaltsarbeiten/m);
+  });
+
+  it('leaves out the recruiter contact block', () => {
+    const { description } = parseOfficialAdPage(fixture)!;
+    expect(description).not.toContain('Interessiert?');
+    expect(description).not.toMatch(/044 000 00 00|Vorname Nachname/);
+  });
+
+  it('returns null for a page without a reference or a body', () => {
+    expect(parseOfficialAdPage('<html><body><stzh-richtext><p>x</p></stzh-richtext></body></html>')).toBeNull();
   });
 });

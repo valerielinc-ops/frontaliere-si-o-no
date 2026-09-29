@@ -7,6 +7,7 @@ import {
   resolveAppleRetailSwitzerlandCanton,
 } from '../scripts/lib/apple-retail-switzerland-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { parseAppleJobDetailsData, buildAppleJobDescription } from '../scripts/lib/apple-retail-switzerland-job-parser.mjs';
 
 describe('Apple Retail Switzerland crawler parser', () => {
   // ── Constants ──
@@ -141,5 +142,38 @@ describe('Apple Retail Switzerland crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// Shape minimised from the job page of jobs.apple.com/en-us/details/114438017/
+// ch-specialist-m-f-d (2026-09-29): the page hydrates from
+// `window.__staticRouterHydrationData = JSON.parse("…")`. The search API only
+// returns `jobSummary`, so 15/18 postings were published as the teaser
+// paragraph alone, without any list (audit run 36528331656).
+describe('Apple job-details record', () => {
+  const jobsData = {
+    postingTitle: 'CH-Specialist (m/f/d)',
+    jobSummary: 'Apple Retail is where the best of Apple comes together.',
+    description: 'Deliver excellent service to Apple customers by seeking to understand their needs.',
+    minimumQualifications: 'Fluency in German and English.\n\nAvailability to work a flexible schedule.',
+    preferredQualifications: 'Retail experience.\nEnthusiasm for Apple products.',
+    postingFooters: [{ localizations: { en_US: [{ content: '<p>At Apple, we’re not all the same. And that’s our greatest strength.</p>' }] } }],
+  };
+  const html = `<html><body><script nonce="x">window.__staticRouterHydrationData = JSON.parse(${JSON.stringify(JSON.stringify({ loaderData: { jobDetails: { jobsData } } }))});</script></body></html>`;
+
+  it('reads the hydrated posting record', () => {
+    expect(parseAppleJobDetailsData(html)).toMatchObject({ postingTitle: 'CH-Specialist (m/f/d)' });
+    expect(parseAppleJobDetailsData('<html></html>')).toBeNull();
+  });
+
+  it('composes summary, description, qualifications as bullets and the footer', () => {
+    const text = buildAppleJobDescription(parseAppleJobDetailsData(html));
+    const order = ['Summary', 'Description', 'Minimum Qualifications', 'Preferred Qualifications'].map((h) => text.indexOf(`${h}\n`));
+    expect(order.every((index) => index >= 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(text).toMatch(/^• Fluency in German and English\.$/m);
+    expect(text).toMatch(/^• Enthusiasm for Apple products\.$/m);
+    expect(text).toContain('greatest strength');
+    expect(buildAppleJobDescription(null)).toBe('');
   });
 });

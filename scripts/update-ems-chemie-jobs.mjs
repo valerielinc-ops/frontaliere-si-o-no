@@ -48,7 +48,13 @@ import {
 mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, parseDetailPage, buildJob, stripHtml } from './lib/ems-chemie-job-parser.mjs';
+import {
+  parseListingPage,
+  parsePortalDetailPage,
+  isForeignPortalListing,
+  isForeignPortalDetail,
+  buildJob,
+} from './lib/ems-chemie-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -149,7 +155,30 @@ async function fetchEmsPage(offset, timeoutMs) {
   }
 }
 
-async function fetchJobs() {
+/**
+ * Minimum length of a portal body to publish instead of the seat fallback.
+ * Every live careercenter vacancy carries tasks + profile + "Über uns"
+ * (≈1.5-3k characters); anything shorter is a broken or foreign template.
+ */
+const MIN_PORTAL_DESCRIPTION_CHARS = 200;
+const DETAIL_DELAY_MS = 300;
+
+/**
+ * Read one careercenter vacancy page. Returns the parsed portal detail, or
+ * null when the page cannot be fetched/parsed (the listing then keeps the
+ * seat fallback rather than being dropped on a transient error).
+ */
+async function fetchPortalDetail(url, timeoutMs) {
+  try {
+    const html = await fetchHtml(url, timeoutMs);
+    return parsePortalDetailPage(html);
+  } catch (err) {
+    console.warn(`  ⚠️ Detail fetch failed for ${url}: ${err?.message || err}`);
+    return null;
+  }
+}
+
+export async function fetchJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   console.log(`🔍 Fetching ${COMPANY_NAME} career page...`);
 
@@ -191,10 +220,40 @@ async function fetchJobs() {
 
   const jobs = [];
   for (const listing of allListings) {
-    const job = buildJob(listing);
+    // The careercenter lists EMS's German sites (Groß-Umstadt, DEU) next to
+    // the Swiss ones. They used to be published under the Domat/Ems seat with
+    // an invented Italian blurb; they are not Swiss vacancies at all.
+    if (isForeignPortalListing(listing)) {
+      console.log(`  ⏭️  Skipped non-Swiss vacancy: ${listing.title} (${listing.location}, ${listing.countryCode})`);
+      continue;
+    }
+    // The vacancy body lives on the detail page only. Without this fetch
+    // every job carried the fallback seat blurb instead of its tasks, profile
+    // and benefits (audit run 36528331656: 312-363 published characters
+    // against ~3k on the source page).
+    const detail = /\/offene-stellen\//.test(listing.url)
+      ? await fetchPortalDetail(listing.url, Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000)
+      : null;
+    if (detail && isForeignPortalDetail(detail)) {
+      console.log(`  ⏭️  Skipped non-Swiss vacancy: ${listing.title} (${detail.locality}, ${detail.country})`);
+      continue;
+    }
+    const detailDescription = detail?.description && detail.description.length >= MIN_PORTAL_DESCRIPTION_CHARS
+      ? detail.description
+      : '';
+    const job = buildJob({
+      ...listing,
+      description: detailDescription,
+      sourceLang: detailDescription ? detectLang(detailDescription, 'de') : undefined,
+      datePosted: listing.datePosted || detail?.datePosted || '',
+      employmentType: detail?.employmentType || listing.employmentType,
+    });
     if (job) {
-      console.log(`  ✅ ${job.title} (${job.location})`);
+      console.log(`  ✅ ${job.title} (${job.location})${detailDescription ? '' : ' — seat fallback'}`);
       jobs.push(job);
+    }
+    if (detail !== null || /\/offene-stellen\//.test(listing.url)) {
+      await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
     }
   }
 

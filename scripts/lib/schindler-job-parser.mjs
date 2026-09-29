@@ -34,8 +34,13 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  resolveSuccessFactorsTemplateTokens,
+  sanitizeSuccessFactorsField,
+} from './successfactors-jobs2web-widget-guard.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractBalancedTagBlockWithStatus, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -278,8 +283,11 @@ export function extractTotalResults(html) {
 /**
  * Parse a Schindler SF j2w detail page.
  * Returns { title, description, location, applyUrl }.
+ *
+ * `listingTitle` (the authoritative results-row title) fills an unrendered
+ * `[[Title]]` token in the body when the page's own heading is unusable.
  */
-export function parseDetailPage(html) {
+export function parseDetailPage(html, { listingTitle = '' } = {}) {
   if (!html || typeof html !== 'string') return null;
 
   // Title: <h1 class="job-title"> for Schindler tenants
@@ -300,10 +308,20 @@ export function parseDetailPage(html) {
   //   <span class="jobdescription">...</span>
   // (NOT in <div id="content"> — that wrapper contains search widgets too).
   let descriptionHtml = '';
-  const jdSpanMatch = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*(?:<\/div>\s*){0,5}(?:<div[^>]*class="(?:job-action|jobtitle-action|btn|apply-button)|<footer|<div[^>]*id="footer")/i);
+  // Walk the element's own nesting: the body is full of nested
+  // `<span style=…>` headings, so a non-greedy `…([\s\S]*?)</span>` stops
+  // inside the body. On the SBB_AS apprenticeship pages (no job-action/footer
+  // marker right after the span) it kept only the first ~half of the posting
+  // — the "Ton profil", "Tes avantages" and application sections were lost.
+  const jdLoc = locateTagByAttribute(html, 'class="[^"]*\\bjobdescription\\b[^"]*"', { skipVoidTags: true });
+  if (jdLoc) {
+    const balanced = extractBalancedTagBlockWithStatus(jdLoc.rest, jdLoc.tagName, 400000);
+    if (balanced.complete) descriptionHtml = balanced.html;
+  }
+  const jdSpanMatch = descriptionHtml ? null : html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*(?:<\/div>\s*){0,5}(?:<div[^>]*class="(?:job-action|jobtitle-action|btn|apply-button)|<footer|<div[^>]*id="footer")/i);
   if (jdSpanMatch) {
     descriptionHtml = jdSpanMatch[1];
-  } else {
+  } else if (!descriptionHtml) {
     // Fall back: greedy match from <span class="jobdescription"> to its closing </span>.
     // SF templates can nest tags inside jobdescription, so we accept the largest match.
     const fallbackSpan = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*<\/div>/i);
@@ -329,7 +347,12 @@ export function parseDetailPage(html) {
     if (parts.length > 0) descriptionHtml = parts.join('\n\n');
   }
 
-  let description = normalizeDescriptionBullets(normalizeDescriptionSpace(stripHtml(descriptionHtml)));
+  let description = normalizeDescriptionBullets(normalizeDescriptionSpace(stripHtml(descriptionHtml).replace(/\r\n?/g, '\n')));
+
+  // The SBB_AS apprenticeship template ships an unrendered `[[Title]]` token
+  // inside the body ("nous t'offrons une: [[Title]] à Le Mont-sur-Lausanne").
+  // Render it with the posting title before the widget guard runs.
+  description = resolveSuccessFactorsTemplateTokens(description, { title: title || listingTitle });
 
   // Reject SF widget garbage that occasionally bleeds into the description.
   description = sanitizeSuccessFactorsField(description);
@@ -440,7 +463,7 @@ export async function fetchAllSchindlerJobs() {
       let detail = null;
       try {
         const detailHtml = await fetchPage(listing.url, timeoutMs, userAgent);
-        detail = parseDetailPage(detailHtml);
+        detail = parseDetailPage(detailHtml, { listingTitle: listing.title });
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
       }

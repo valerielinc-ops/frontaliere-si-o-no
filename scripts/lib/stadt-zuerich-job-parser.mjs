@@ -55,7 +55,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -80,6 +80,20 @@ const HQ = {
 };
 
 const SECTOR = 'Amministrazione Pubblica';
+
+// The vacancy text is NOT on the jobs2web page: its `.jobdescription` holds
+// only the title, even after client-side rendering (verified 2026-09-29 with
+// a headless browser). The city publishes each ad on its own portal
+// ("Arbeiten für Zürich", www.stadt-zuerich.ch), one page per posting,
+// carrying the same Referenz-Nr. as the jobs2web tile's `adcode`. The
+// portal's own search component lists every page in one JSON call.
+const OFFICIAL_HOST = 'https://www.stadt-zuerich.ch';
+const OFFICIAL_JOBSEARCH_URL = `${OFFICIAL_HOST}/stzh/jobsearch`;
+const OFFICIAL_JOBSEARCH_COMPONENT =
+  '/content/web/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/jcr:content/mainparsys/jobsearch';
+const OFFICIAL_JOBSEARCH_LIMIT = 2000;
+// A Swiss phone number: the recruiter contact block of each ad.
+const CONTACT_PHONE_RE = /(?:\+41|\b0)\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}\b/;
 
 // Dienstabteilung/Departement substrings already covered by their own
 // dedicated crawler pulling from a DIFFERENT source site — exclude here so
@@ -293,6 +307,80 @@ function buildDescription(row) {
   return parts.join(' ');
 }
 
+/* ── Official ad pages ("Arbeiten für Zürich") ─────────────── */
+
+function officialBlockText(blockHtml = '') {
+  return normalizeDescriptionSpace(stripHtml(String(blockHtml)
+    .replace(/<a\b[^>]*href="tel:[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '')));
+}
+
+/**
+ * Parse one official ad page (`/…/jobs/job-detailseite.{id}.html`): the
+ * Referenz-Nr. and the vacancy body — every `<stzh-richtext>` section of the
+ * page content in order (intro, Aufgaben, Profil, Wir bieten, Über uns),
+ * headings on their own line and list items as bullets. The "Interessiert?"
+ * contact block (recruiter names and direct phone numbers) is left out, as
+ * is page chrome outside the sections.
+ *
+ * @param {string} html
+ * @returns {{ ref: string, description: string } | null}
+ */
+export function parseOfficialAdPage(html = '') {
+  if (!html || typeof html !== 'string') return null;
+  const ref = (html.match(/Referenz-Nr\.?:?\s*(\d{3,})/i) || [])[1] || '';
+  const content = (html.match(/<stzh-pagecontent\b[\s\S]*?<\/stzh-pagecontent>/i) || [html])[0];
+  const sections = [];
+  const re = /<stzh-richtext\b[^>]*>([\s\S]*?)<\/stzh-richtext>/gi;
+  let m;
+  while ((m = re.exec(content)) !== null) {
+    if (CONTACT_PHONE_RE.test(stripHtml(m[1]))) continue;
+    const text = officialBlockText(m[1]);
+    if (text) sections.push(text);
+  }
+  const description = normalizeDescriptionBullets(sections.join('\n\n'));
+  if (!ref || !description) return null;
+  return { ref, description };
+}
+
+/**
+ * Referenz-Nr. → full vacancy text, read from the city's official ad pages.
+ * One search call lists every page; each page is then fetched politely.
+ * Returns an empty map on any listing failure (the tile stub then remains).
+ */
+async function fetchOfficialAdTexts(wantedRefs, delayMs) {
+  const byRef = new Map();
+  let index;
+  try {
+    const params = new URLSearchParams({
+      q: '',
+      lang: 'de',
+      compResource: OFFICIAL_JOBSEARCH_COMPONENT,
+      variant: 'default',
+      offset: '0',
+      limit: String(OFFICIAL_JOBSEARCH_LIMIT),
+    });
+    index = JSON.parse(await fetchPage(`${OFFICIAL_JOBSEARCH_URL}?${params}`));
+  } catch (err) {
+    console.warn(`  ⚠️ Official ad index unavailable (${err?.message || err}) — keeping tile summaries.`);
+    return byRef;
+  }
+  const hrefs = [...new Set((Array.isArray(index?.results) ? index.results : [])
+    .map((r) => String(r?.href || ''))
+    .filter((href) => /\/job-detailseite\.\d+\.html$/.test(href)))];
+  console.log(`  📰 Official ad pages listed: ${hrefs.length}`);
+  for (const href of hrefs) {
+    if (wantedRefs.size && [...wantedRefs].every((ref) => byRef.has(ref))) break;
+    try {
+      const parsed = parseOfficialAdPage(await fetchPage(`${OFFICIAL_HOST}${href}`));
+      if (parsed && !byRef.has(parsed.ref)) byRef.set(parsed.ref, parsed.description);
+    } catch (err) {
+      console.warn(`  ⚠️ Official ad page failed: ${href} — ${err?.message || err}`);
+    }
+    await new Promise((r) => setTimeout(r, delayMs));
+  }
+  return byRef;
+}
+
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 /**
@@ -346,6 +434,11 @@ export async function fetchAllStadtZuerichJobs() {
 
   const sourceLang = 'de';
   const jobs = [];
+  const officialTexts = await fetchOfficialAdTexts(
+    new Set(rows.map((r) => r.ref).filter(Boolean)),
+    Math.min(delayMs, 300),
+  );
+  let withOfficialText = 0;
 
   for (const row of rows) {
     const title = row.title;
@@ -361,7 +454,13 @@ export async function fetchAllStadtZuerichJobs() {
     // splices in row.title/department/unit verbatim — sanitize the finished
     // string as a defense-in-depth backstop against SF widget chrome leaking
     // through those fields.
-    const descriptionText = sanitizeSuccessFactorsField(buildDescription(row));
+    // The official ad text when the portal publishes this Referenz-Nr.; the
+    // tile summary otherwise. The summary made distinct postings with the
+    // same title and unit identical — 19/430 duplicate descriptions, and no
+    // tasks/profile/offer at all on any row (audit run 36528331656).
+    const officialText = row.ref ? officialTexts.get(String(row.ref)) : '';
+    if (officialText) withOfficialText += 1;
+    const descriptionText = officialText || sanitizeSuccessFactorsField(buildDescription(row));
     const employmentType = detectEmploymentType(title);
     const expLevel = detectExperienceLevel(title);
 
@@ -412,7 +511,7 @@ export async function fetchAllStadtZuerichJobs() {
     console.log(`  ✅ ${title.substring(0, 55)} — ${row.department || 'N/A'} / ${row.unit || 'N/A'}`);
   }
 
-  console.log(`\n📋 Total Stadt Zürich jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total Stadt Zürich jobs discovered: ${jobs.length} (${withOfficialText} with the official ad text)`);
   return jobs;
 }
 

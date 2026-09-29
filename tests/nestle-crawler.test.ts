@@ -8,6 +8,10 @@ import {
 } from '../scripts/lib/nestle-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { detectSuccessFactorsKind } from '../scripts/lib/ats-clients/successfactors-client.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { parseNestleDetailDescription } from '../scripts/lib/nestle-job-parser.mjs';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -163,5 +167,40 @@ describe('Nestlé crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// Pinned fixture: the description property block of jobdetails.nestle.com's
+// Basel "Anlagenführer/in Abfüllung" page. Its body is full of nested
+// `<span style=…>` headings; the former `<span class="jobdescription">(…?)</span>`
+// regex stopped after "Positions Übersicht", fell under the 50-word floor and
+// the parser published the synthetic "Key details" stub (40/108 rows,
+// audit run 36528331656).
+describe('parseNestleDetailDescription', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'nestle-sf-detail-anlagenfuehrer.html'),
+    'utf8',
+  );
+
+  it('reads the whole vacancy body past the nested heading spans', () => {
+    const text = parseNestleDetailDescription(fixture);
+    expect(text).toContain('Positions Übersicht');
+    expect(text).toContain('Ein Tag im Leben eines/-r Anlagenführer/in');
+    expect(text).toContain('Das macht Sie erfolgreich');
+    expect(text).toContain('Möchten auch Sie Teil der Thomy-Familie werden?');
+    expect(text.split(/\s+/).length).toBeGreaterThan(300);
+    expect(text).not.toContain('Key details');
+  });
+
+  it('keeps the lists as line-start bullets and does not cap the length', () => {
+    const text = parseNestleDetailDescription(fixture);
+    expect(text).toMatch(/^• Min\. 25 Tage Ferien pro Jahr/m);
+    expect(text).toMatch(/^• Bereitschaft zu flexiblen Arbeitseinsätzen/m);
+    expect(text.length).toBeGreaterThan(3000);
+    expect(text).not.toMatch(/\r|\n{3,}| /);
+  });
+
+  it('returns empty for a page without the description block', () => {
+    expect(parseNestleDetailDescription('<html><body><h1>x</h1></body></html>')).toBe('');
   });
 });

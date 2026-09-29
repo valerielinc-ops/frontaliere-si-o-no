@@ -29,6 +29,7 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
+  fetchWorkdaySidebarText,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -264,6 +265,14 @@ function detectEmploymentType(timeType = '', title = '') {
  *   refuses by design (issue #9651). Pair with the runner's
  *   `allowAuthoritativeEmptySnapshot` + `authoritativeSnapshotScope:
  *   'empty-only'`.
+ * @param {boolean} [config.includeCareerSiteSidebar=false] Append the career
+ *   site's sidebar text (`GET {apiBase}/sidebar`: "Über uns", employer
+ *   benefits, …) to every posting body. Workday folds those blocks into each
+ *   posting's JSON-LD `description`, while the CXS job payload never carries
+ *   them — so a tenant that keeps its company paragraph in the sidebar
+ *   (Medbase) published ~45 % of what its source page states. Opt-in per
+ *   tenant, after checking its sidebar is employer content and not a bare
+ *   video/landing widget.
  */
 export function createWorkdaySwissParser(config) {
   const {
@@ -281,6 +290,7 @@ export function createWorkdaySwissParser(config) {
     locationFilters = WORKDAY_SWISS_LOCATION_IDS,
     preferJobRequisitionLocation = false,
     proveForeignOnlyBoardEmpty = false,
+    includeCareerSiteSidebar = false,
   } = config;
 
   if (!companyKey || !companyName || !tenantHost || !sitePath || !defaultCanton) {
@@ -394,6 +404,10 @@ export function createWorkdaySwissParser(config) {
       return [];
     }
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
+
+    const sidebarText = includeCareerSiteSidebar
+      ? await fetchWorkdaySidebarText(API_BASE, stripHtml)
+      : '';
 
     const jobs = [];
     let missingDetailUrlCount = 0;
@@ -534,7 +548,6 @@ export function createWorkdaySwissParser(config) {
           .replace(/[ \t]*\n[ \t]*/g, '\n')
           .replace(/\n{3,}/g, '\n\n')
           .trim()
-          .slice(0, 4000)
         : '';
       await new Promise((r) => setTimeout(r, 350));
 
@@ -546,9 +559,13 @@ export function createWorkdaySwissParser(config) {
         `• Employer: ${companyName}.`,
         `• Apply: ${companyName} Workday careers portal.`,
       ].join('\n');
-      const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+      const bodyText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+      const descriptionText = detailDescription.length >= 100 && sidebarText
+        ? `${bodyText}\n\n${sidebarText}`
+        : bodyText;
 
-      const sourceLang = detectLang(descriptionText || title, defaultSourceLang);
+      // Language of the posting body, not of the site-level sidebar.
+      const sourceLang = detectLang(bodyText || title, defaultSourceLang);
       const jobSlug = slugify(`${title} ${companyKey} ch`);
       const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
