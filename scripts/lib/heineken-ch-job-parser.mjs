@@ -26,7 +26,7 @@
  *   - isHeinekenChJob() / isTrustedDomain()
  *   - parseSearchResults() / parseDetailPage() / parseDate() / parseLocation()
  *   - detectCategory() / detectEmploymentType() / extractTotalResults()
- *   - buildFallbackDescription()
+ *   - heinekenVacancyBody() / buildHeinekenChJob() / heinekenLocaleFields()
  *   - HEINEKEN_CH_KEY / HEINEKEN_CH_COMPANY_NAME / HEINEKEN_CH_COMPANY_DOMAIN
  */
 import { createHash } from 'node:crypto';
@@ -42,6 +42,7 @@ import {
   NavigationTimeout,
 } from './ats-clients/playwright-runtime.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import { detectLanguage } from './detect-language.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -299,14 +300,132 @@ export function parseDetailPage(html) {
   };
 }
 
-/* ── Fallback description ─────────────────────────────────── */
+/* ── Vacancy body ──────────────────────────────────────────── */
+
+// Below this many words a detail body is not a vacancy description.
+const MIN_BODY_WORDS = 50;
 
 /**
- * Build a rich fallback description (>50 words) when detail page yields nothing.
+ * The vacancy body read from the detail page, or '' when it has none.
+ *
+ * Only the source's own text is published. A thinner body used to be replaced
+ * by an invented company paragraph ("… Calanda Brauerei in Chur, Kanton
+ * Graubünden …") — wrong for the Denges (VD) postings and never on the source
+ * page. A job without a body is now left out of the run: the merge keeps the
+ * stored record (with the body read earlier) under its miss-grace policy.
  */
-export function buildFallbackDescription(title, location, department = '') {
-  const deptInfo = department ? ` im Bereich ${department}` : '';
-  return `${title}${deptInfo} bei Heineken Switzerland (Calanda Brauerei) in ${location}, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.`;
+export function heinekenVacancyBody(detail = {}) {
+  const body = String(detail?.description || '').trim();
+  return body.split(/\s+/).filter(Boolean).length >= MIN_BODY_WORDS ? body : '';
+}
+
+/* ── Locale fields ─────────────────────────────────────────── */
+
+const SITE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
+
+/**
+ * Locale fields of a freshly parsed job, filed under the language the ad is
+ * written in. HEINEKEN Switzerland posts in German AND French (the Denges VD
+ * site: "Ce poste intéressant et varié…", "Pour notre filiale Stardrinks
+ * AG…"); a fixed `de` key stored those French bodies as the German source
+ * text, so the German page served French and no German translation was ever
+ * produced. The language comes from the body, with the title as fallback.
+ *
+ * Slugs keep the `de` key every published Heineken slug has carried: the
+ * merge then leaves each locale's live slug untouched even when the source
+ * language of a posting is re-derived.
+ */
+export function heinekenLocaleFields({ title = '', description = '', slug = '' } = {}) {
+  const detected = detectLanguage(description, detectLanguage(title, 'de'));
+  const sourceLang = SITE_LOCALES.has(detected) ? detected : 'de';
+  return {
+    sourceLang,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: description },
+    slugByLocale: { de: slug },
+  };
+}
+
+/**
+ * Build one job from a listing row and its detail page, or null when the row
+ * cannot be published (no title, or no vacancy body — see heinekenVacancyBody).
+ */
+export function buildHeinekenChJob({ row, detail, detailUrl }) {
+  const title = normalizeSpace(detail?.title || row.title);
+  if (!title || title.length < 3) {
+    console.warn(`   ⚠️ Skipping ${detailUrl} — missing title`);
+    return null;
+  }
+
+  const rawLocation = detail?.location || '';
+  const { city, postalCode: parsedPostal } = parseLocation(rawLocation);
+  const location = city;
+  const canton = inferSwissTargetCanton(location) || inferAnyCanton(location) || HQ.canton;
+  const postalCode = parsedPostal || HQ.postalCode;
+  const department = detail?.department || '';
+
+  const description = heinekenVacancyBody(detail);
+  if (!description) {
+    console.warn(`   ⚠️ Not publishing ${detailUrl} this run — detail page has no vacancy body (< ${MIN_BODY_WORDS} words)`);
+    return null;
+  }
+
+  // The new Drupal listing URL is `/job/heineken-switzerland/switzerland/<slug>` —
+  // the `extractJobIdentityFromUrl()` heuristic in dedicated-crawler-common.mjs
+  // matches `/job/<x>/<y>` and would dedupe every Swiss job down to a single
+  // entry (captured = "switzerland"). Append a stable per-job identifier as
+  // a `jobid` query param so the heuristic instead picks up that unique
+  // value (see queryKeys at line 4162 of dedicated-crawler-common.mjs).
+  // Prefer the SuccessFactors req-id when the apply-link was scraped;
+  // fall back to the listing URL's terminal slug (always unique per job).
+  const jobReqId = detail?.jobReqId || '';
+  const urlSlugFallback =
+    (row.href.match(/\/job\/heineken-switzerland\/switzerland\/([^/?#]+)/i)?.[1] || '')
+      .toLowerCase();
+  const stableId = jobReqId || urlSlugFallback;
+  const canonicalUrl = stableId
+    ? `${detailUrl}?jobid=${stableId}`
+    : detailUrl;
+
+  const urlHash = createHash('sha1').update(canonicalUrl).digest('hex').slice(0, 12);
+  const jobSlug = slugify(`${title} heineken-ch ${location}`);
+  const employmentType = detectEmploymentType(title);
+  const postedDate = new Date().toISOString().slice(0, 10);
+  const localeFields = heinekenLocaleFields({ title, description, slug: jobSlug });
+
+  return {
+    id: `${HEINEKEN_CH_KEY}-${urlHash}`,
+    jobReqId: jobReqId || null,
+    slug: jobSlug,
+    slugByLocale: localeFields.slugByLocale,
+    company: HEINEKEN_CH_COMPANY_NAME,
+    companyKey: HEINEKEN_CH_KEY,
+    companyDomain: HEINEKEN_CH_COMPANY_DOMAIN,
+    title,
+    titleByLocale: localeFields.titleByLocale,
+    description,
+    descriptionByLocale: localeFields.descriptionByLocale,
+    location,
+    canton,
+    addressLocality: location,
+    addressRegion: canton,
+    addressCountry: 'CH',
+    country: 'CH',
+    postalCode,
+    streetAddress: `${location}, ${canton === 'GR' ? 'Graubünden' : canton}`,
+    category: detectCategory(title, department),
+    sector: 'Industria / Alimentare',
+    contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+    employmentType,
+    experienceLevel: detectExperienceLevel(title),
+    featured: false,
+    postedDate,
+    url: canonicalUrl,
+    applyUrl: detail?.applyUrl || detailUrl,
+    source: 'Heineken Switzerland Dedicated Parser (Playwright)',
+    sourceLang: localeFields.sourceLang,
+    crawledAt: new Date().toISOString(),
+  };
 }
 
 /* ── Job identification ───────────────────────────────────── */
@@ -611,7 +730,7 @@ export async function fetchAllHeinekenChJobs() {
 
     const jobs = [];
     let ok = 0;
-    let fallback = 0;
+    let skipped = 0;
 
     for (let i = 0; i < rows.length; i++) {
       const row = rows[i];
@@ -620,88 +739,17 @@ export async function fetchAllHeinekenChJobs() {
         : `${BASE_URL}${row.href.startsWith('/') ? '' : '/'}${row.href}`;
 
       const detail = await fetchDetailPage(context, detailUrl);
-
-      const title = normalizeSpace(detail?.title || row.title);
-      if (!title || title.length < 3) {
-        console.warn(`   ⚠️ Skipping ${detailUrl} — missing title`);
+      const job = buildHeinekenChJob({ row, detail, detailUrl });
+      if (!job) {
+        skipped++;
         continue;
       }
-
-      const rawLocation = detail?.location || '';
-      const { city, postalCode: parsedPostal } = parseLocation(rawLocation);
-      const location = city;
-      const canton = inferSwissTargetCanton(location) || inferAnyCanton(location) || HQ.canton;
-      const postalCode = parsedPostal || HQ.postalCode;
-      const department = detail?.department || '';
-
-      let description = detail?.description || '';
-      if (!description || description.split(/\s+/).length < 50) {
-        description = buildFallbackDescription(title, location, department);
-        fallback++;
-      } else {
-        ok++;
-      }
-
-      // The new Drupal listing URL is `/job/heineken-switzerland/switzerland/<slug>` —
-      // the `extractJobIdentityFromUrl()` heuristic in dedicated-crawler-common.mjs
-      // matches `/job/<x>/<y>` and would dedupe every Swiss job down to a single
-      // entry (captured = "switzerland"). Append a stable per-job identifier as
-      // a `jobid` query param so the heuristic instead picks up that unique
-      // value (see queryKeys at line 4162 of dedicated-crawler-common.mjs).
-      // Prefer the SuccessFactors req-id when the apply-link was scraped;
-      // fall back to the listing URL's terminal slug (always unique per job).
-      const jobReqId = detail?.jobReqId || '';
-      const urlSlugFallback =
-        (row.href.match(/\/job\/heineken-switzerland\/switzerland\/([^/?#]+)/i)?.[1] || '')
-          .toLowerCase();
-      const stableId = jobReqId || urlSlugFallback;
-      const canonicalUrl = stableId
-        ? `${detailUrl}?jobid=${stableId}`
-        : detailUrl;
-
-      const urlHash = createHash('sha1').update(canonicalUrl).digest('hex').slice(0, 12);
-      const jobSlug = slugify(`${title} heineken-ch ${location}`);
-      const employmentType = detectEmploymentType(title);
-      const postedDate = new Date().toISOString().slice(0, 10);
-
-      jobs.push({
-        id: `${HEINEKEN_CH_KEY}-${urlHash}`,
-        jobReqId: jobReqId || null,
-        slug: jobSlug,
-        slugByLocale: { de: jobSlug },
-        company: HEINEKEN_CH_COMPANY_NAME,
-        companyKey: HEINEKEN_CH_KEY,
-        companyDomain: HEINEKEN_CH_COMPANY_DOMAIN,
-        title,
-        titleByLocale: { de: title },
-        description,
-        descriptionByLocale: { de: description },
-        location,
-        canton,
-        addressLocality: location,
-        addressRegion: canton,
-        addressCountry: 'CH',
-        country: 'CH',
-        postalCode,
-        streetAddress: `${location}, ${canton === 'GR' ? 'Graubünden' : canton}`,
-        category: detectCategory(title, department),
-        sector: 'Industria / Alimentare',
-        contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
-        employmentType,
-        experienceLevel: detectExperienceLevel(title),
-        featured: false,
-        postedDate,
-        url: canonicalUrl,
-        applyUrl: detail?.applyUrl || detailUrl,
-        source: 'Heineken Switzerland Dedicated Parser (Playwright)',
-        sourceLang: 'de',
-        crawledAt: new Date().toISOString(),
-      });
-
-      console.log(`  ✅ ${title.substring(0, 60)} — ${location}`);
+      ok++;
+      jobs.push(job);
+      console.log(`  ✅ ${job.title.substring(0, 60)} — ${job.location}`);
     }
 
-    console.log(`\n  Detail enrichment: ${ok} rich, ${fallback} fallback`);
+    console.log(`\n  Detail enrichment: ${ok} with a vacancy body, ${skipped} not published this run`);
 
     // Deduplicate by canonical URL (which embeds the stable jobReqId).
     const seen = new Set();

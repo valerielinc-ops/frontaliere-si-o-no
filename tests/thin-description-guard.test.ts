@@ -6,7 +6,7 @@
  * (mks-pamp: returns none instead — source-only rule, see its section).
  *
  * Crawlers tested:
- *  1. grand-hotel-kronenhof (Kulm Group)
+ *  1. grand-hotel-kronenhof (no fallback body since issue 5253: see grand-hotel-kronenhof-crawler.test.ts)
  *  2. afry
  *  3. volg-fenaco
  *  4. agie-charmilles (GF Machining Solutions)
@@ -50,37 +50,9 @@ function wordCount(s: string): number {
 }
 
 // ─── 1. Grand Hotel Kronenhof ──────────────────────────────────────────────
-// The buildJob function is not exported, so we replicate the fallback logic.
-
-describe('Grand Hotel Kronenhof — fallback descriptions >= 50 words', () => {
-  function buildKronenhofFallback(title: string, company: string, city: string) {
-    const durationLabel = 'Saisonstelle / Seasonal';
-    const workload = '100%';
-    const metaLine = [
-      `${title} — ${company}, ${city} (Engadin, Graubünden).`,
-      `Pensum: ${workload}. Vertrag: ${durationLabel}.`,
-    ].filter(Boolean).join(' ');
-
-    return [
-      metaLine,
-      `Die Kulm Gruppe betreibt zwei der exklusivsten 5-Sterne-Hotels im Engadin: das Grand Hotel Kronenhof in Pontresina und das Kulm Hotel in St. Moritz.`,
-      `Beide Häuser stehen für Schweizer Luxushotellerie auf höchstem Niveau mit einer langen Tradition, erstklassigem Service und einem engagierten internationalen Team.`,
-      `Als Arbeitgeber bieten wir: Personalunterkunft in der Engadiner Bergwelt, vergünstigte Verpflegung, umfassende Weiterbildungsmöglichkeiten, attraktive Mitarbeitervergünstigungen und ein inspirierendes Arbeitsumfeld in einer der schönsten Regionen der Schweiz.`,
-      `Die Kulm Gruppe beschäftigt rund 500 Mitarbeitende und bietet vielfältige Karrieremöglichkeiten in Gastronomie, Küche, Housekeeping, Front Office, Spa, Events und Administration.`,
-      `Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies`,
-    ].join(' ');
-  }
-
-  it('Kronenhof hotel job fallback is >= 50 words', () => {
-    const desc = buildKronenhofFallback('Breakfast Cook (m/w/d)', 'Grand Hotel Kronenhof', 'Pontresina');
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-
-  it('Kulm hotel job fallback is >= 50 words', () => {
-    const desc = buildKronenhofFallback('Team Assistant Concierge (m/w/d)', 'Kulm Hotel St. Moritz', 'St. Moritz');
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-});
+// No fallback body any more: a vacancy without a detail body keeps the source
+// text read before or is not published (tests/grand-hotel-kronenhof-crawler.test.ts,
+// issue 5253).
 
 // ─── 2. AFRY ───────────────────────────────────────────────────────────────
 

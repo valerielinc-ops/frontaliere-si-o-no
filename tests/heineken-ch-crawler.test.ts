@@ -11,9 +11,12 @@ import {
   detectCategory,
   detectEmploymentType,
   extractTotalResults,
-  buildFallbackDescription,
+  buildHeinekenChJob,
+  heinekenLocaleFields,
+  heinekenVacancyBody,
 } from '../scripts/lib/heineken-ch-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('Heineken Switzerland crawler parser', () => {
   // ── Constants ──
@@ -312,24 +315,40 @@ describe('Heineken Switzerland crawler parser', () => {
     });
   });
 
-  // ── buildFallbackDescription ──
-  describe('buildFallbackDescription', () => {
-    it('generates description with >50 words', () => {
-      const desc = buildFallbackDescription('Brauer', 'Chur', 'Supply Chain');
-      const wordCount = desc.split(/\s+/).length;
-      expect(wordCount).toBeGreaterThan(50);
+  // ── Vacancy body: source text only (#5253) ──
+  // A detail page under 50 words used to get an invented company paragraph
+  // ("… Calanda Brauerei in Chur, Kanton Graubünden …", wrong for Denges VD).
+  describe('heinekenVacancyBody / buildHeinekenChJob', () => {
+    const row = {
+      href: '/job/heineken-switzerland/switzerland/chauffeur-cat-c-e',
+      title: 'Chauffeur Cat. C / E',
+    };
+    const detailUrl = 'https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-cat-c-e';
+    const thinDetail = {
+      title: 'Chauffeur Cat. C / E',
+      location: '1026 Denges',
+      department: 'Supply Chain',
+      description: 'Chauffeur Cat. C / E pour notre site de Denges.',
+      jobReqId: '165660',
+    };
+
+    it('treats a detail body under 50 words as no body', () => {
+      expect(heinekenVacancyBody(thinDetail)).toBe('');
+      expect(heinekenVacancyBody({})).toBe('');
     });
 
-    it('includes company and location info', () => {
-      const desc = buildFallbackDescription('Brauer', 'Chur', 'Supply Chain');
-      expect(desc).toContain('Heineken Switzerland');
-      expect(desc).toContain('Calanda');
-      expect(desc).toContain('Chur');
+    it('publishes no job and no invented text when the detail body is under 50 words', () => {
+      expect(buildHeinekenChJob({ row, detail: thinDetail, detailUrl })).toBeNull();
+      expect(buildHeinekenChJob({ row, detail: { ...thinDetail, description: '' }, detailUrl })).toBeNull();
     });
 
-    it('includes department when provided', () => {
-      const desc = buildFallbackDescription('Brauer', 'Chur', 'Supply Chain');
-      expect(desc).toContain('Supply Chain');
+    it('publishes the source body verbatim when the detail has one', () => {
+      const body = `${Array(12).fill('Pour notre filiale Stardrinks AG, nous recherchons un chauffeur.').join(' ')}`;
+      const job = buildHeinekenChJob({ row, detail: { ...thinDetail, description: body }, detailUrl })!;
+      expect(job.description).toBe(body);
+      expect(job.description).not.toContain('Calanda');
+      expect(job.sourceLang).toBe('fr');
+      expect(job.url).toBe(`${detailUrl}?jobid=165660`);
     });
   });
 
@@ -437,5 +456,66 @@ describe('Heineken Switzerland crawler parser', () => {
     it('sector is food/beverage industry', () => {
       expect(validJob.sector).toBe('Industria / Alimentare');
     });
+  });
+});
+
+// ── Locale of the ad body (#5253 sibling: fixed `de` slot) ──
+//
+// Bodies from heineken-ch slice 995a6583431 (minimised): HEINEKEN Switzerland
+// posts the Denges (VD) vacancies in French. The parser filed every body under
+// a fixed `de` key with sourceLang 'de', so the German page served French.
+const FRENCH_BODY =
+  'Pour notre filiale Stardrinks AG, nous recherchons pour notre site de Denges (VD) un chauffeur motivé, fiable et autonome ' +
+  'en qualité de Chauffeur Cat. C / E Tu es responsable de la livraison ponctuelle et fiable de nos bières et autres boissons ' +
+  'à nos clients de la restauration, selon le plan de tournée.';
+const GERMAN_BODY =
+  'Für unsere Tochtergesellschaft Stardrinks AG suchen wir an unserem Standort in Belp eine selbstständige und motivierte Person ' +
+  'als Chauffeur Kat. C / E. In dieser Funktion bist du für folgende Aufgaben zuständig: Du lieferst unsere Biere und andere ' +
+  'Getränke gemäss einem Tourenplan an unsere Kunden.';
+
+describe('heinekenLocaleFields', () => {
+  it('files a French ad under fr with sourceLang fr, keeping the slug under de', () => {
+    const f = heinekenLocaleFields({ title: 'Chauffeur Cat. C / E', description: FRENCH_BODY, slug: 'chauffeur-cat-c-e-heineken-ch-denges' });
+    expect(f.sourceLang).toBe('fr');
+    expect(f.descriptionByLocale).toEqual({ fr: FRENCH_BODY });
+    expect(f.titleByLocale).toEqual({ fr: 'Chauffeur Cat. C / E' });
+    expect(f.slugByLocale).toEqual({ de: 'chauffeur-cat-c-e-heineken-ch-denges' });
+  });
+
+  it('keeps German ads under de', () => {
+    const f = heinekenLocaleFields({ title: 'Truck Driver (m/w/d)', description: GERMAN_BODY, slug: 'truck-driver-m-w-d-heineken-ch-belp' });
+    expect(f.sourceLang).toBe('de');
+    expect(f.descriptionByLocale).toEqual({ de: GERMAN_BODY });
+  });
+
+  it('leaves every published slug untouched when a stored French ad is relabelled', () => {
+    const url = 'https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-cat-c-e?jobid=165660';
+    const slugByLocale = {
+      it: 'conducente-cat-c-e-heineken-switzerland-denges',
+      en: 'cat-c-e-driver-heineken-switzerland-denges',
+      de: 'chauffeur-cat-c-e-heineken-ch-denges',
+      fr: 'chauffeur-chat-c-e-heineken-switzerland-denges',
+    };
+    const stored = {
+      url,
+      title: 'Chauffeur Cat. C / E',
+      slug: 'conducente-cat-c-e-heineken-switzerland-denges',
+      slugByLocale,
+      sourceLang: 'de',
+      description: FRENCH_BODY,
+      titleByLocale: { de: 'Chauffeur Cat. C / E', fr: 'Chauffeur Cat. C / E' },
+      descriptionByLocale: { de: FRENCH_BODY, fr: FRENCH_BODY },
+    };
+    const fresh = {
+      url,
+      title: 'Chauffeur Cat. C / E',
+      slug: 'chauffeur-cat-c-e-heineken-ch-denges',
+      description: FRENCH_BODY,
+      ...heinekenLocaleFields({ title: 'Chauffeur Cat. C / E', description: FRENCH_BODY, slug: 'chauffeur-cat-c-e-heineken-ch-denges' }),
+    };
+    const [merged] = mergePreserveLocaleData([stored], [fresh]);
+    expect(merged.sourceLang).toBe('fr');
+    expect(merged.descriptionByLocale.fr).toBe(FRENCH_BODY);
+    expect(merged.slugByLocale).toEqual(slugByLocale);
   });
 });
