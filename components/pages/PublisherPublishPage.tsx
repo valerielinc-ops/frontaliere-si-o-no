@@ -349,7 +349,7 @@ const PublisherPublishPage: React.FC = () => {
  // free      → plain crawler-style listing (no featured/blast, external apply only), no payment.
  // sponsored → paid subscription (featured/blast/all apply modes), Stripe checkout.
  const [tier, setTier] = useState<PublisherTier>('sponsored');
- const isFree = tier === 'free';
+ const isFree = Boolean(tier === 'free');
 
  // ── Pay-first prepaid credits ────────────────────────────────
  // null = not yet fetched (loading); { remainingUnits: 0, tier: null } = fetched,
