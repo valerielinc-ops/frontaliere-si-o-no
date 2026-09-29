@@ -24,6 +24,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -442,6 +443,7 @@ export async function fetchAllSpitalThusisJobs() {
   console.log(`  📋 Job listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   const delayMs = Number(process.env.JOBS_CRAWLER_DELAY_MS) || 500;
 
   for (const listing of listings) {
@@ -464,16 +466,15 @@ export async function fetchAllSpitalThusisJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} spital-thusis ch`);
 
-    // Build description: prefer detail page, fall back to title-based
-    let descriptionText = detail.description;
-    if (!descriptionText || descriptionText.length < 30) {
-      const parts = [`${title} — Spital Thusis (Gesundheit Mittelbünden)`];
-      parts.push('Arbeitsort: Thusis (GR)');
-      const pensum = parsePensum(title);
-      if (pensum) {
-        parts.push(`Pensum: ${formatPensum(pensum)}`);
-      }
-      descriptionText = parts.join('. ');
+    // Only the posting's own text is published (issue 5253): a detail page
+    // without a body used to be replaced by a stub ("{title} — Spital Thusis
+    // (Gesundheit Mittelbünden). Arbeitsort: Thusis (GR). Pensum: …"); such
+    // a listing is not published any more.
+    const descriptionText = detail.description || '';
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.log(`  ⏭️ No vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
     }
 
     // Determine employment type from pensum
@@ -536,6 +537,9 @@ export async function fetchAllSpitalThusisJobs() {
     console.log(`  ✅ ${title.substring(0, 60)} — ${location} (${pensum ? formatPensum(pensum) : 'flexible'})`);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
   console.log(`\n📋 Total Spital Thusis jobs discovered: ${jobs.length}`);
   return jobs;
 }

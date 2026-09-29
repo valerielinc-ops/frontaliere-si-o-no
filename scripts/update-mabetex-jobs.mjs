@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import {
   fetchAllMabetexJobs,
+  assertCompleteMabetexSnapshot,
   isMabetexJob,
   isTrustedDomain,
   MABETEX_KEY,
@@ -27,6 +28,11 @@ runStandardCrawlerPipeline({
   isCompanyJob: isMabetexJob,
   isTrustedDomain,
   defaultSourceLang: 'en',
+  // The career page is the full inventory: a parsed page whose listings are
+  // all abroad proves zero Swiss vacancies and retires the stored rows.
+  validateAuthoritativeSnapshot: assertCompleteMabetexSnapshot,
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
 }).catch((err) => {
   console.error(`❌ Mabetex Group crawler failed: ${err?.message || err}`);
   process.exit(1);

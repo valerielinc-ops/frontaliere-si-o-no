@@ -4,6 +4,8 @@
  * Tests parseCapriHoldingsDetailPage(), isCapriHoldingsSwissJob(),
  * isCapriHoldingsJob(), and CAPRI_WORKDAY_HOSTS constants.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { afterEach, describe, it, expect, vi } from 'vitest';
 
 import {
@@ -19,6 +21,8 @@ import {
   isSwissWorkdayListing,
   resolveWorkdayCity,
   resolveWorkdayLocation,
+  buildCapriDescriptionFields,
+  dropCapriFabricatedText,
 } from '../scripts/update-capri-holdings-jobs.mjs';
 import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
 
@@ -424,5 +428,30 @@ describe('CAPRI_WORKDAY_HOSTS', () => {
 
   it('includes capriholdings Workday host', () => {
     expect(CAPRI_WORKDAY_HOSTS).toContain('capriholdings.wd1.myworkdayjobs.com');
+  });
+});
+
+// Fixture: the start of a live Workday `jobDescription` (Michael Kors Landquart, 2026-09-29).
+describe('Capri description fields', () => {
+  const text = fs.readFileSync(path.join(__dirname, 'fixtures', 'capri-holdings', 'workday-description-landquart.txt'), 'utf8').trim();
+
+  it('publishes the Workday text alone, without an Italian company blurb', () => {
+    const fields = buildCapriDescriptionFields('Store Manager, Landquart', text, 'Michael Kors', 'Landquart');
+    expect(fields.description).toBe(text);
+    expect(fields.descriptionByLocale).toEqual({ en: text });
+  });
+
+  it('removes the fabricated Italian blurb from a stored job', () => {
+    const job: any = {
+      sourceLang: 'en',
+      descriptionByLocale: {
+        en: text,
+        it: "Posizione aperta presso Michael Kors (Capri Holdings) a Landquart.\nRuolo: Store Manager, Landquart.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo.",
+        de: 'Michael Kors ist immer daran interessiert …',
+      },
+    };
+    expect(dropCapriFabricatedText(job)).toBe(true);
+    expect(Object.keys(job.descriptionByLocale).sort()).toEqual(['de', 'en']);
+    expect(job.needsRetranslation).toBe(true);
   });
 });

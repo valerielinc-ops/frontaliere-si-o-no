@@ -327,8 +327,18 @@ export function parseOfficialAdPage(html = '') {
  * One search call lists every page; each page is then fetched politely.
  * Throws when the portal's index cannot be read: without it no posting has
  * its text, and publishing none would empty the whole board.
+ *
+ * Exported for `stadtspital-zuerich-job-parser.mjs`, whose tiles live on the
+ * same portal: `unit` keeps only the ad pages whose Dienstabteilung (the
+ * index entry's first meta value) matches, so that crawler reads its own
+ * ~90 pages instead of the whole city index.
+ *
+ * @param {Set<string>} wantedRefs Referenz-Nr. of the tiles to fill
+ * @param {number} delayMs pause between two ad pages
+ * @param {{ unit?: RegExp }} [options]
+ * @returns {Promise<Map<string, string>>}
  */
-async function fetchOfficialAdTexts(wantedRefs, delayMs) {
+export async function fetchOfficialAdTexts(wantedRefs, delayMs, { unit } = {}) {
   const byRef = new Map();
   let index;
   try {
@@ -345,6 +355,7 @@ async function fetchOfficialAdTexts(wantedRefs, delayMs) {
     throw new Error(`Stadt Zürich official ad index unavailable (${err?.message || err}): no posting has its vacancy text`);
   }
   const hrefs = [...new Set((Array.isArray(index?.results) ? index.results : [])
+    .filter((r) => !unit || unit.test(String(Array.isArray(r?.meta) ? r.meta[0] || '' : '')))
     .map((r) => String(r?.href || ''))
     .filter((href) => /\/job-detailseite\.\d+\.html$/.test(href)))];
   console.log(`  📰 Official ad pages listed: ${hrefs.length}`);

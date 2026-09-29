@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { beforeEach, describe, it, expect, vi } from 'vitest';
 
 // Mock only network access from the shared template; parsing helpers stay real.
@@ -13,6 +15,7 @@ import {
   isElettra1938Job,
   isTrustedDomain,
   fetchAllElettra1938Jobs,
+  parseElettraDetailDescription,
 } from '../scripts/lib/elettra-1938-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -31,6 +34,17 @@ const NON_STABIO_CARD = `
     <span class="subtitle__informations" title="Sede">Avellino, Italia</span>
     <span class="subtitle__informations" title="Azienda">FIAMM</span>
     <div class="vacancy__description">Descrizione posizione.</div>
+  </div>
+`;
+
+const DETAIL_HTML = readFileSync(path.join(__dirname, 'fixtures', 'elettra-1938-detail.html'), 'utf8');
+
+const STABIO_DETAIL_CARD = `
+  <div class="vacancy__render">
+    <div class="vacancy__title"><h3><a href="/fiammcomponents/jobs/operaio-desercizio-728378/it/">Operaio d'esercizio</a></h3></div>
+    <span class="subtitle__informations" title="Sede">Stabio, Svizzera</span>
+    <span class="subtitle__informations" title="Azienda">Elettra 1938</span>
+    <div class="vacancy__description">Per la nostra sede di Stabio siamo alla ricerca di un operatore di produzione che si occuperà delle seguenti mansioni: handling delle batterie; attività su linea di...</div>
   </div>
 `;
 
@@ -235,6 +249,56 @@ describe('Elettra 1938 crawler parser', () => {
       fetchHtml.mockResolvedValueOnce(AJAX_SCAFFOLD);
       fetchJson.mockRejectedValueOnce(new Error('endpoint timed out'));
       await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/failed to verify.*endpoint timed out/i);
+    });
+  });
+
+  // ── Detail body (#5253: the card teaser is cut at ~230 chars) ──
+  describe('parseElettraDetailDescription', () => {
+    it('reads every #description__body section with its heading, in page order', () => {
+      const description = parseElettraDetailDescription(DETAIL_HTML);
+      const order = ['Descrizione azienda', 'Posizione', 'Requisiti', 'Altre informazioni'];
+      const positions = order.map((marker) => description.indexOf(`${marker}\n`));
+      expect(positions.every((index) => index >= 0)).toBe(true);
+      expect([...positions].sort((a, b) => a - b)).toEqual(positions);
+      expect(description).toMatch(/^• Patente muletto SUVA;$/m);
+      expect(description).toContain('materiali contenenti nickel');
+    });
+
+    it('leaves the application form and apply button out', () => {
+      const description = parseElettraDetailDescription(DETAIL_HTML);
+      expect(description).not.toContain('Selezionare un valore');
+      expect(description).not.toContain('Candidati per questo annuncio');
+    });
+
+    it('falls back to the JobPosting JSON-LD body when the sections are missing', () => {
+      const withoutBody = DETAIL_HTML.replace(/<div id="description__body">[\s\S]*?<div id="description__apply-button">/, '<div id="description__apply-button">');
+      const description = parseElettraDetailDescription(withoutBody);
+      expect(description).toContain('handling delle batterie;');
+      expect(description).not.toContain('Requisiti');
+    });
+
+    it('publishes the detail body instead of the truncated card teaser', async () => {
+      fetchHtml
+        .mockResolvedValueOnce(`<html><body>${STABIO_DETAIL_CARD}</body></html>`)
+        .mockResolvedValueOnce(DETAIL_HTML);
+      const jobs = await fetchAllElettra1938Jobs();
+      expect(jobs).toHaveLength(1);
+      expect(fetchHtml).toHaveBeenLastCalledWith(
+        'https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/',
+        expect.anything(),
+      );
+      expect(jobs[0].description).toContain('Requisiti');
+      expect(jobs[0].description).not.toMatch(/\.\.\.$/);
+      expect(jobs[0].descriptionByLocale[jobs[0].sourceLang]).toBe(jobs[0].description);
+    });
+
+    it('keeps the card teaser when the detail page cannot be fetched', async () => {
+      fetchHtml
+        .mockResolvedValueOnce(`<html><body>${STABIO_DETAIL_CARD}</body></html>`)
+        .mockRejectedValueOnce(new Error('detail timed out'));
+      const jobs = await fetchAllElettra1938Jobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].description).toContain('attività su linea di...');
     });
   });
 });

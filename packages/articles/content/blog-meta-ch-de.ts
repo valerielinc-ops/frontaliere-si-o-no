@@ -7067,6 +7067,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Krankenkassenprämien 2027 im Tessin: +3,7% und EFAS ab 2028',
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger: Das System ist gut und kostet Geld. Im Tessin steigen die Prämien um 3,7%, wobei EFAS ab 2028 erwartet wird.',
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Schweizer Krankenhausflur in Bern, natürliches Licht und professionelle Atmosphäre',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Schweizer Parlament: Leitfaden für Curia Vista und Open Data',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'Von den Abgeordneten von 1848 bis zu den CN-Abstimmungen: Wie man das offizielle Portal verwendet, um Akten, Ausschüsse und EU/NATO-Delegationen zu verfolgen.',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Der Schweizerische Bundespalast in Bern, Sitz des Nationalrats und des Ständerats',
+    'blog.article.percorsi-impiego-pubblico.title': 'Arbeiten in der Bundesverwaltung: Chancen und Ausbildung',
+    'blog.article.percorsi-impiego-pubblico.excerpt': 'Die Bundesverwaltung bietet 50 Berufsausbildungen, Praktika für Hochschulabsolventinnen und -absolventen sowie sieben Wochen Ferien an.',
+    'blog.article.percorsi-impiego-pubblico.imageAlt': 'Schweizer Büroteam bei der Arbeit für die Bundesverwaltung',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Krankenkasse 2027: bis zu 10\'000 Franken Unterschied',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'Im Jahr 2027 wird der nationale Durchschnitt 16\'450 Franken betragen, aber zwischen Genf und Zug beträgt der Unterschied für dieselbe Familie knapp 10\'000 Franken.',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Schweizer Familie prüft Krankenkassen-Rechnung im Tessin',
 };
 
 export default blogMetaChDe;

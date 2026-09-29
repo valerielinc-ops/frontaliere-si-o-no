@@ -40,6 +40,22 @@ export const STADLER_RAIL_KEY = 'stadler-rail';
 export const STADLER_RAIL_COMPANY_NAME = 'Stadler Rail';
 export const STADLER_RAIL_COMPANY_DOMAIN = 'stadlerrail.com';
 
+/**
+ * The WHOLE text the parser used to publish INSTEAD of a detail body under
+ * 50 words (issue 5253), and nothing else: "<title> bei Stadler Rail in
+ * <city>." followed by the three fixed sentences about Stadler. Anchored at
+ * both ends on purpose: a real posting that quotes the same company sentence
+ * inside its own text must never be taken for it. Only ever recognised, to
+ * remove it from stored jobs before the merge (`prepareExistingJobs` in
+ * update-stadler-rail-jobs.mjs).
+ */
+export const STADLER_RAIL_FABRICATED_DESCRIPTION_RE = new RegExp(
+  '^\\s*[^\\n]{1,200}? bei Stadler Rail in [^\\n]{1,120}?\\.\\s+'
+  + 'Stadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang \\(Kanton Thurgau\\)\\.\\s+'
+  + 'Das 1942 gegründete Unternehmen entwickelt und produziert Voll-, Regional- und S-Bahnen, Strassenbahnen, Lokomotiven sowie Zahnradbahnen und beschäftigt mehrere tausend Mitarbeitende in der Schweiz\\.\\s+'
+  + 'Stadler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in einem innovativen Schweizer Industrieunternehmen\\.\\s*$',
+);
+
 const BASE_URL = 'https://careers.stadlerrail.com';
 const SEARCH_URL = `${BASE_URL}/search/`;
 const PAGE_SIZE = 25;

@@ -1,0 +1,31 @@
+{
+  "_comment": "Minimized from data/jobs/by-crawler/mcdonald-s-switzerland.json at dataset commit 995a6583431 (2026-09-29): the real French body is back in `fr`/description, while `it` still carries the blurb an earlier failed-detail run invented and en/de carry its machine translations. French body truncated to its first paragraphs.",
+  "records": [
+    {
+      "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-318741-1",
+      "title": "Crew",
+      "location": "SCHAFFHAUSEN",
+      "sourceLang": "fr",
+      "description": "Drive Mitarbeiter mit guten Deutschkenntnissen, sowie Mitarbeiter/-in in der Küche (Deutschkenntnis ist kein muss)\n\nPrésentation de l’entreprise\n\nChez McDonald’s, nous créons un environnement où chacun se sent accueilli, valorisé et inspiré. Rejoins une équipe qui célèbre les caractéristiques individuelles de chacun, encourage le développement et rend chaque journée enrichissante. Si tu aimes rendre les gens heureux et cherches un emploi adapté à ta vie, tu es au bon endroit !",
+      "descriptionByLocale": {
+        "it": "Posizione aperta presso un ristorante McDonald's a SCHAFFHAUSEN (SH), Svizzera. Candidati tramite il portale ufficiale McDonald's Switzerland.",
+        "en": "Open location at McDonald's restaurant in SCHAFFHAUSEN (SH), Switzerland. Candidate through the official McDonald's Switzerland portal.",
+        "de": "Offene Location im McDonald's Restaurant in SCHAFF HausEN (SH), Schweiz. Kandidat über das offizielle McDonald's Schweiz Portal.",
+        "fr": "Drive Mitarbeiter mit guten Deutschkenntnissen, sowie Mitarbeiter/-in in der Küche (Deutschkenntnis ist kein muss)\n\nPrésentation de l’entreprise\n\nChez McDonald’s, nous créons un environnement où chacun se sent accueilli, valorisé et inspiré. Rejoins une équipe qui célèbre les caractéristiques individuelles de chacun, encourage le développement et rend chaque journée enrichissante. Si tu aimes rendre les gens heureux et cherches un emploi adapté à ta vie, tu es au bon endroit !"
+      }
+    },
+    {
+      "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-319044-2",
+      "title": "Crew",
+      "location": "ALLSCHWIL",
+      "sourceLang": "fr",
+      "description": "Wir suchen motivierte Lernende, die bereit sind, hauptsächlich in der Mittags- und Abendschicht zu arbeiten. Flexibilität am Wochenende ist sehr wichtig. Du arbeitest gerne im Team, bist freundlich und hast Freude am Kontakt mit Gästen.",
+      "descriptionByLocale": {
+        "it": "## Descrizione\nPosizione aperta presso un ristorante McDonald's a ALLSCHWIL (BL), Svizzera.\n\n## Come candidarsi\nCandidati tramite il portale ufficiale McDonald's Switzerland.",
+        "en": "Description Location open at a McDonald's restaurant in ALL scoppiIL (BL), Switzerland. How to get a job with the official McDonald's Switzerland portal.",
+        "de": "Beschreibung Ort geöffnet in einem McDonald's Restaurant in ALL scoppiIL (BL), Schweiz. Wie man einen Job mit dem offiziellen McDonald's Schweiz Portal bekommt.",
+        "fr": "Wir suchen motivierte Lernende, die bereit sind, hauptsächlich in der Mittags- und Abendschicht zu arbeiten. Flexibilität am Wochenende ist sehr wichtig. Du arbeitest gerne im Team, bist freundlich und hast Freude am Kontakt mit Gästen."
+      }
+    }
+  ]
+}

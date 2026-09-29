@@ -47,7 +47,7 @@ type WorkdayPosting = {
 };
 
 const LONG_BODY = '<p>'
-  + 'Responsibilities and requirements of the role, described at length by the employer. '.repeat(3)
+  + 'Responsibilities and requirements of the role, described at length by the employer. '.repeat(5)
   + '</p>';
 
 function json(payload: unknown, status = 200) {

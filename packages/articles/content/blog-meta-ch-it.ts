@@ -7067,6 +7067,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Premi cassa malati 2027 in Ticino: +3,7% e EFAS dal 2028',
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger: il sistema è buono e costa. In Ticino i premi salgono del 3,7%, con EFAS atteso dal 2028.',
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Corridoio di un ospedale svizzero a Berna, luce naturale e atmosfera professionale',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Parlamento svizzero: guida a Curia Vista e Open Data',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'Dai deputati dal 1848 alle votazioni CN: come usare il portale ufficiale per tracciare atti, commissioni e delegazioni UE/NATO.',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Il Palazzo del Parlamento svizzero a Berna, sede del Consiglio nazionale e del Consiglio degli Stati',
+    'blog.article.percorsi-impiego-pubblico.title': 'Lavorare nell\'Amministrazione federale: opportunità e formazione',
+    'blog.article.percorsi-impiego-pubblico.excerpt': 'L\'Amministrazione federale offre 50 formazioni professionali, praticantati per neolaureati e sette settimane di vacanze.',
+    'blog.article.percorsi-impiego-pubblico.imageAlt': 'Team al lavoro in un ufficio svizzero per l\'Amministrazione federale',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Cassa malati 2027: fino a 10\'000 franchi di differenza',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'Nel 2027 la media nazionale sarà 16\'450 franchi, ma tra Ginevra e Zugo la differenza per la stessa famiglia sfiora i 10\'000 franchi.',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Famiglia svizzera che esamina la fattura dell\'assicurazione malattia in Ticino',
 };
 
 export default blogMetaChIt;

@@ -7067,6 +7067,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Primes d\'assurance-maladie 2027 au Tessin : +3,7% et EFAS à partir de 2028',
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger : le système est bon et coûte cher. Au Tessin, les primes augmentent de 3,7%, avec EFAS attendu à partir de 2028.',
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Couloir d\'un hôpital suisse à Berne, lumière naturelle et atmosphère professionnelle',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Parlement suisse : guide Curia Vista et Open Data',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'Des députés de 1848 aux votes CN : comment utiliser le portail officiel pour suivre les actes, les commissions et les délégations UE/OTAN.',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Le Palais fédéral suisse à Berne, siège du Conseil national et du Conseil des États',
+    'blog.article.percorsi-impiego-pubblico.title': 'Travailler au sein de l\'Administration fédérale : opportunités et formation',
+    'blog.article.percorsi-impiego-pubblico.excerpt': 'L\'Administration fédérale offre 50 formations professionnelles, des stages pour les étudiants récemment diplômés et sept semaines de vacances.',
+    'blog.article.percorsi-impiego-pubblico.imageAlt': 'Équipe au travail dans un bureau de l\'administration fédérale suisse',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Caisse-maladie 2027 : jusqu’à 10\'000 francs de différence',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'En 2027, la moyenne nationale sera de 16\'450 francs, mais entre Genève et Zoug, la différence pour la même famille frôle les 10\'000 francs.',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Famille suisse examinant la facture d\'assurance maladie au Tessin',
 };
 
 export default blogMetaChFr;

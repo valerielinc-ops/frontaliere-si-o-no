@@ -7,6 +7,7 @@ import {
   ensureAdapterSeedUrls,
   fetchVtgJobUrls,
 } from '../scripts/update-vtg-jobs.mjs';
+import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 
 const IDS = [
   '11111111-1111-4111-8111-111111111111',
@@ -160,5 +161,56 @@ describe('VTG adapter persistence', () => {
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
     }
+  });
+});
+
+describe('VTG workplace location', () => {
+  // The jobs.admin.ch JSON-LD address is the administrative unit (Bern), not
+  // the workplace the page states ("Arbeitsort: Places d'armes, 1436
+  // Chamblon") — 174/184 VTG jobs were published in Bern and the same
+  // apprenticeship in Hinwil and Bronschhofen became two identical listings.
+  const jsonLd = {
+    '@type': 'JobPosting',
+    title: 'Verantwortliche/-r Ausbildungsanlagen',
+    description: '<p><div>Diesen Beitrag können Sie leisten</div><br><ul><li>Anlagen und Gebäude instand halten</li></ul></p>',
+    hiringOrganization: { name: 'Schweizer Armee - Logistikbasis der Armee LBA' },
+    jobLocation: {
+      '@type': 'Place',
+      address: { addressLocality: 'Bern', addressRegion: 'Bern', postalCode: '3003', addressCountry: 'Schweiz' },
+    },
+  };
+  const url = `https://jobs.admin.ch/offene-stellen/verantwortliche-r-ausbildungsanlagen/${IDS[0]}`;
+
+  async function seedMetaFor(arbeitsort: string) {
+    const apiJob = {
+      links: { directlink: url },
+      attributes: { arbeitsort: [arbeitsort], region: ['Genferseeregion (GE, VD, VS)'], verwaltungseinheit: ['Gruppe Verteidigung'] },
+    };
+    const fetchImpl = async () => new Response(JSON.stringify({ total: 1, jobs: [apiJob] }), { status: 200 });
+    const result = await fetchVtgJobUrls({ fetchImpl, timeoutMs: 1000, scope: 'ch-wide' });
+    return result.seedMetaByUrl[url];
+  }
+
+  it('hands the engine the arbeitsort as workplace and the engine publishes it', async () => {
+    const seedMeta = await seedMetaFor('Chamblon');
+    expect(seedMeta).toMatchObject({ workplaceLocation: 'Chamblon' });
+    expect(sharedCrawlerTestables.toJobFromJsonLd(jsonLd, 'Swiss Armed Forces (VTG)', url, { seedMeta, isSeedDetail: true }))
+      .toMatchObject({ reason: null, job: { location: 'Chamblon', canton: 'VD' } });
+  });
+
+  it('keeps an explicit canton marker for a locality it cannot place alone, and no workplace abroad', async () => {
+    expect(await seedMetaFor('Grolley (FR), Lehrbeginn August 2027')).toMatchObject({ workplaceLocation: 'Grolley (FR)' });
+    // A former municipality without a marker would get a canton guessed from
+    // the job text: the engine keeps its previous behaviour instead.
+    expect((await seedMetaFor('Bronschhofen')).workplaceLocation).toBeUndefined();
+    expect((await seedMetaFor('Ausland / Kosovo')).workplaceLocation).toBeUndefined();
+  });
+
+  it('skips a leading site label that is not a place: "Places d\'armes, 1436 Chamblon" is Chamblon', async () => {
+    const seedMeta = await seedMetaFor("Places d'armes, 1436 Chamblon");
+    expect(seedMeta).toMatchObject({ workplaceLocation: 'Chamblon' });
+    expect(seedMeta.workplaceLocation).not.toBe("Places d'armes");
+    expect(sharedCrawlerTestables.toJobFromJsonLd(jsonLd, 'Swiss Armed Forces (VTG)', url, { seedMeta, isSeedDetail: true }))
+      .toMatchObject({ reason: null, job: { location: 'Chamblon', canton: 'VD' } });
   });
 });
