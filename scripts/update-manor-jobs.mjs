@@ -20,6 +20,7 @@
  * from the store city encoded in the URL via inferAnyCanton; the region gate
  * is isTargetSwissLocation across all 26 Swiss cantons.
  */
+import { decodeSitemapLoc } from './lib/sitemap-loc.mjs';
 import fs from 'node:fs';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './lib/source-body-floor.mjs';
 import path from 'node:path';
@@ -429,13 +430,7 @@ export function parseSitemapUrls(xml) {
   while ((match = re.exec(xml)) !== null) {
     // The sitemap escapes the apostrophe too ("Basel-Buyer-%28Women&apos;s-
     // Fashion%29-100"): left undecoded it became part of the published URL.
-    const url = match[1]
-      .replace(/&apos;|&#0*39;/g, "'")
-      .replace(/&quot;/g, '"')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&amp;/g, '&')
-      .trim();
+    const url = decodeSitemapLoc(match[1]);
     urls.push(url);
   }
   return urls;
