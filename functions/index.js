@@ -70,7 +70,7 @@ import { handleAssistedApplicationAdmin } from './src/assistedApplicationAdminCo
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { handleCreateReaderCheckout, handleClaimReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
-import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted } from './src/consultingCore.js';
+import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted, handleConsultingOrderPaid } from './src/consultingCore.js';
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
@@ -1921,6 +1921,10 @@ export const notifyConsultingDetailsSubmitted = onDocumentWritten(
     const afterData = after.data();
     const beforeData = event.data?.before?.exists ? event.data.before.data() : null;
     try {
+      // Paid → email the customer the intake link and the internal inbox, so a
+      // closed success page no longer strands a paying customer.
+      const paid = await handleConsultingOrderPaid(beforeData, afterData, event.params.orderId, { db: getAdminDb() });
+      if (!paid.ok) console.error('[notifyConsultingDetailsSubmitted] paid notice', paid.error);
       const result = await handleConsultingDetailsSubmitted(beforeData, afterData);
       if (!result.ok) console.error('[notifyConsultingDetailsSubmitted]', result.error);
     } catch (error) {

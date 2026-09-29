@@ -292,6 +292,69 @@ describe('handleConsultingDetailsSubmitted', () => {
   });
 });
 
+describe('handleConsultingOrderPaid', () => {
+  function fakeDb(initial: Record<string, any>) {
+    const docs: Record<string, any> = { ...initial };
+    const ref = (id: string) => ({
+      id,
+      async get() { return { exists: docs[id] != null, data: () => docs[id] }; },
+      async set(data: any, options?: { merge?: boolean }) { docs[id] = options?.merge ? { ...(docs[id] || {}), ...data } : data; },
+    });
+    return {
+      docs,
+      collection: (name: string) => {
+        expect(name).toBe('consulting_orders');
+        return { doc: ref };
+      },
+      runTransaction: async (callback: any) => callback({
+        get: (r: any) => r.get(),
+        set: (r: any, data: any, options?: { merge?: boolean }) => r.set(data, options),
+      }),
+    };
+  }
+
+  const paid = { tier: 'base', status: 'paid', locale: 'fr', customerEmail: 'client@example.com', detailsSubmitted: false };
+
+  it('emails the customer the localized intake link and the internal inbox, once', async () => {
+    const { handleConsultingOrderPaid, consultingIntakeUrl } = await load();
+    const db = fakeDb({ cs_1: paid });
+
+    const first = await handleConsultingOrderPaid(null, paid, 'cs_1', { db });
+    const again = await handleConsultingOrderPaid(null, paid, 'cs_1', { db });
+
+    expect(first).toEqual({ ok: true });
+    expect(again).toEqual({ ok: true, skipped: 'already_notified' });
+    expect(sendEmailCascadeMock).toHaveBeenCalledTimes(1);
+    const [customer, internal] = (sendEmailCascadeMock.mock.calls[0][0] as any[]).map((email) => email.payload);
+    expect(customer.to).toBe('client@example.com');
+    expect(customer.subject).toContain('Paiement reçu');
+    expect(customer.html).toContain(consultingIntakeUrl('cs_1', 'fr').replace(/&/g, '&amp;'));
+    expect(consultingIntakeUrl('cs_1', 'fr')).toBe('https://frontaliereticino.ch/fr/consultation/?consulting_checkout=success&session_id=cs_1');
+    expect(internal.to).toBe('consulenza@frontaliereticino.ch');
+    expect(internal.replyTo).toBe('client@example.com');
+  });
+
+  it('releases the claim when the provider fails so a retry can send', async () => {
+    const { handleConsultingOrderPaid } = await load();
+    const db = fakeDb({ cs_2: paid });
+    sendEmailCascadeMock.mockResolvedValueOnce({ sent: [], failed: [{ error: 'down' }] } as any);
+
+    const result = await handleConsultingOrderPaid(null, paid, 'cs_2', { db });
+
+    expect(result).toEqual({ ok: false, error: 'send_failed:down' });
+    expect(db.docs.cs_2.paidNotifiedAt).toBeNull();
+  });
+
+  it('does nothing without a paid transition or once the intake form is in', async () => {
+    const { handleConsultingOrderPaid } = await load();
+    const db = fakeDb({ cs_3: paid });
+    expect(await handleConsultingOrderPaid(paid, paid, 'cs_3', { db })).toEqual({ ok: true, skipped: 'no_paid_transition' });
+    expect(await handleConsultingOrderPaid(null, { ...paid, detailsSubmitted: true }, 'cs_3', { db }))
+      .toEqual({ ok: true, skipped: 'details_already_submitted' });
+    expect(sendEmailCascadeMock).not.toHaveBeenCalled();
+  });
+});
+
 describe('Firestore rules — consulting_orders collection', () => {
   const root = resolve(__dirname, '..');
   const rules = readFileSync(resolve(root, 'firestore.rules'), 'utf8');

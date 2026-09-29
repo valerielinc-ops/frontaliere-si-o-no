@@ -193,4 +193,124 @@ export async function handleConsultingDetailsSubmitted(before, after) {
   return { ok: true };
 }
 
+// ── handleConsultingOrderPaid ───────────────────────────────────────────
+/**
+ * A paid consultation used to depend entirely on the success page: whoever
+ * closed the tab before the intake form was never contacted and the internal
+ * inbox never learned about the payment (same defect as the assisted
+ * application, 2026-09-29). On the paid transition, email the customer a link
+ * back to the intake form and tell the internal inbox. Claimed in a
+ * transaction (`paidNotifiedAt`) so the at-least-once trigger sends once; the
+ * claim is released when the provider fails.
+ */
+const CONSULTING_PAGE_BY_LOCALE = {
+  it: '/consulenza/',
+  en: '/en/consulting/',
+  de: '/de/beratung/',
+  fr: '/fr/consultation/',
+};
+
+const PAID_COPY = {
+  it: {
+    subject: 'Pagamento ricevuto: completa la prenotazione della consulenza',
+    lead: 'grazie per il pagamento. Per fissare la consulenza ci servono l’argomento, una breve descrizione e le tue disponibilità.',
+    cta: 'Completa la prenotazione',
+    alt: 'Se il link non si apre, scrivi a consulenza@frontaliereticino.ch con queste informazioni.',
+  },
+  en: {
+    subject: 'Payment received: complete your consultation booking',
+    lead: 'thank you for your payment. To schedule the consultation we need the topic, a short description and your availability.',
+    cta: 'Complete the booking',
+    alt: 'If the link does not open, write to consulenza@frontaliereticino.ch with these details.',
+  },
+  de: {
+    subject: 'Zahlung erhalten: Schliesse die Buchung deiner Beratung ab',
+    lead: 'danke für deine Zahlung. Um die Beratung zu planen, brauchen wir das Thema, eine kurze Beschreibung und deine Verfügbarkeit.',
+    cta: 'Buchung abschliessen',
+    alt: 'Wenn sich der Link nicht öffnet, schreib an consulenza@frontaliereticino.ch mit diesen Angaben.',
+  },
+  fr: {
+    subject: 'Paiement reçu : finalisez la réservation de votre consultation',
+    lead: 'merci pour votre paiement. Pour planifier la consultation, nous avons besoin du sujet, d’une brève description et de vos disponibilités.',
+    cta: 'Finaliser la réservation',
+    alt: 'Si le lien ne s’ouvre pas, écrivez à consulenza@frontaliereticino.ch avec ces informations.',
+  },
+};
+
+const GREETING = { it: 'Ciao,', en: 'Hi,', de: 'Hallo,', fr: 'Bonjour,' };
+
+export function consultingIntakeUrl(orderId, locale) {
+  const path = CONSULTING_PAGE_BY_LOCALE[locale] || CONSULTING_PAGE_BY_LOCALE.it;
+  const url = new URL(`https://frontaliereticino.ch${path}`);
+  url.searchParams.set('consulting_checkout', 'success');
+  url.searchParams.set('session_id', String(orderId));
+  return url.toString();
+}
+
+export async function handleConsultingOrderPaid(before, after, orderId, { db } = {}) {
+  if (!after || after.status !== 'paid' || before?.status === 'paid') return { ok: true, skipped: 'no_paid_transition' };
+  if (after.detailsSubmitted === true) return { ok: true, skipped: 'details_already_submitted' };
+
+  const orderRef = db.collection(CONSULTING_ORDERS_COLLECTION).doc(String(orderId));
+  const claimed = await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(orderRef);
+    const current = snapshot.exists ? snapshot.data() || {} : null;
+    if (!current || current.paidNotifiedAt) return false;
+    transaction.set(orderRef, { paidNotifiedAt: new Date() }, { merge: true });
+    return true;
+  });
+  if (!claimed) return { ok: true, skipped: 'already_notified' };
+
+  const release = () => orderRef.set({ paidNotifiedAt: null }, { merge: true });
+  await bridgeEmailCascadeCredentialsToEnv();
+  if (!PROVIDERS.some((p) => isProviderConfigured(p.id))) {
+    await release();
+    return { ok: false, error: 'no_email_provider_configured' };
+  }
+
+  const locale = PAID_COPY[after.locale] ? after.locale : 'it';
+  const copy = PAID_COPY[locale];
+  const tierLabel = TIER_LABEL[after.tier] || TIER_LABEL.base;
+  const customerEmail = String(after.customerEmail || '').trim();
+  const link = consultingIntakeUrl(orderId, locale);
+  const emails = [];
+  if (customerEmail) {
+    emails.push({
+      payload: {
+        from: FROM_EMAIL,
+        to: customerEmail,
+        subject: copy.subject,
+        html: `<p>${esc(GREETING[locale])}</p><p>${esc(copy.lead)}</p>`
+          + `<p><strong>${esc(tierLabel)}</strong></p>`
+          + `<p><a href="${esc(link)}">${esc(copy.cta)}</a></p><p>${esc(copy.alt)}</p>`,
+        text: `${GREETING[locale]}\n\n${copy.lead}\n\n${tierLabel}\n\n${copy.cta}: ${link}\n\n${copy.alt}`,
+      },
+      recipient: { email: customerEmail },
+      meta: {},
+    });
+  }
+  emails.push({
+    payload: {
+      from: FROM_EMAIL,
+      to: INTERNAL_NOTIFY_EMAIL,
+      subject: `Consulenza pagata, modulo non ancora compilato — ${tierLabel}`,
+      html: `<p>Pagamento Stripe confermato; il cliente non ha ancora compilato il modulo di prenotazione.</p>`
+        + `<p><strong>Cliente:</strong> ${esc(customerEmail || 'email non disponibile')}</p>`
+        + `<p><strong>Pacchetto:</strong> ${esc(tierLabel)}</p>`
+        + `<p><strong>Stripe session:</strong> ${esc(orderId)}</p>`
+        + `<p>Al cliente è partita l’email con il link al modulo. Se non lo compila, contattalo direttamente.</p>`,
+      ...(customerEmail ? { replyTo: customerEmail } : {}),
+    },
+    recipient: { email: INTERNAL_NOTIFY_EMAIL },
+    meta: {},
+  });
+
+  const { failed } = await sendEmailCascade(emails);
+  if (failed.length > 0) {
+    await release();
+    return { ok: false, error: `send_failed:${failed[0].error || 'unknown'}` };
+  }
+  return { ok: true };
+}
+
 export { CONSULTING_ORDERS_COLLECTION, CONSULTING_PRODUCT };
