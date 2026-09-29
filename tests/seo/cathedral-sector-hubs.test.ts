@@ -135,6 +135,7 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
   });
 });
 
+describe('cathedral — Switzerland aggregate sector hubs', () => {
   it('Switzerland aggregate sector hubs emit for every sector and locale', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const aggregateSections = {
@@ -186,6 +187,8 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
       expect(missingSitemapLocs, `national sector hubs missing from sitemap-jobs.xml:\n${missingSitemapLocs.join('\n')}`).toEqual([]);
     }
   });
+});
+
 /**
  * Phase 3.3 — per-canton company hubs (additive, thin variant).
  *
