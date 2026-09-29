@@ -642,9 +642,12 @@ function containsTitle(content = '', title = '') {
 }
 
 /**
- * A print-only rendering of the page (`<article id="printLayout"
+ * A whole print-only rendering of the page (`<article id="printLayout"
  * class="print-page">`). Some SuccessFactors tenants print the real ad there;
  * others fill it client-side and ship a static sample ad in the meantime.
+ * Only a print LAYOUT/PAGE/VERSION counts: `printColumn`, `printOnly` or a
+ * `print` button are parts of an ordinary page (Spital Uster's body column
+ * is `printColumn`).
  *
  * @param {string} raw opening tag
  * @returns {boolean}
@@ -653,7 +656,7 @@ function isPrintLayout(raw = '') {
   return [readAttr(raw, 'id'), readAttr(raw, 'class')]
     .join(' ')
     .split(/\s+/)
-    .some((token) => /^print(?:$|[-_A-Z])/.test(token));
+    .some((token) => /^print[-_]?(?:layout|page|version|view|template)$/i.test(token));
 }
 
 /** Whether a start tag carries the boolean `itemscope` attribute. */
@@ -674,7 +677,7 @@ function hasItemscope(raw = '') {
  * @param {HtmlTagIndex} index
  * @returns {BodyRange[]}
  */
-function vacancyDescriptionItempropRanges(html, index) {
+function vacancyDescriptionItempropRanges(html, index, { selectedTitle = null } = {}) {
   /** @type {BodyRange[]} */
   const all = [];
   let consumedUntil = 0;
@@ -683,26 +686,68 @@ function vacancyDescriptionItempropRanges(html, index) {
     if (!readAttr(opening.raw, 'itemprop').split(/\s+/).includes('description')) continue;
     const bounds = index.boundsByStart.get(opening.index);
     if (!bounds) continue;
-    all.push({ start: opening.index, contentStart: opening.end, contentEnd: bounds.contentEnd });
     consumedUntil = bounds.end;
+    // A hidden description element, and everything in it, is not the
+    // rendered page.
+    if (isHiddenElement(opening.raw)) continue;
+    all.push({ start: opening.index, contentStart: opening.end, contentEnd: bounds.contentEnd });
   }
-  if (all.length <= 1) return all;
+  if (!all.length) return all;
   const scopes = [];
   const itemscopes = [];
   for (const opening of index.openings) {
     if (!hasItemscope(opening.raw)) continue;
     const bounds = index.boundsByStart.get(opening.index);
     if (!bounds) continue;
-    const scope = { start: opening.index, end: bounds.contentEnd };
+    const scope = { start: opening.index, end: bounds.contentEnd, title: '' };
     itemscopes.push(scope);
     if (readAttr(opening.raw, 'itemtype').split(/\s+/).some((type) => /schema\.org\/JobPosting\/?$/i.test(type))) {
       scopes.push(scope);
     }
   }
   const inside = (range, scope) => range.start > scope.start && range.start < scope.end;
-  const owned = all.filter((range) => scopes.some((scope) => inside(range, scope)
-    && !itemscopes.some((inner) => inner.start > scope.start && inner.start < scope.end && inside(range, inner))));
+  const ownedBy = (range, scope) => inside(range, scope)
+    && !itemscopes.some((inner) => inner.start > scope.start && inner.start < scope.end && inside(range, inner));
+  // Sibling JobPostings on one page (a vacancy plus "similar jobs"): only the
+  // posting the structured selection chose is this vacancy, and when none was
+  // chosen the siblings are indistinguishable, so none of their descriptions
+  // is read.
+  if (scopes.length > 1 && selectedTitle !== null) {
+    const wanted = identityText(selectedTitle);
+    const selectedScopes = wanted
+      ? scopes.filter((scope) => identityText(jobPostingScopeTitle(html, index, scope, itemscopes)) === wanted)
+      : [];
+    return all.filter((range) => selectedScopes.some((scope) => ownedBy(range, scope)));
+  }
+  if (all.length <= 1) return all;
+  const owned = all.filter((range) => scopes.some((scope) => ownedBy(range, scope)));
   return owned.length ? owned : all.slice(0, 1);
+}
+
+/**
+ * The `title` (or `name`) a JobPosting microdata scope states for itself,
+ * ignoring properties of items nested in it.
+ *
+ * @param {string} html
+ * @param {HtmlTagIndex} index
+ * @param {{ start: number, end: number }} scope
+ * @param {Array<{ start: number, end: number }>} itemscopes
+ * @returns {string}
+ */
+function jobPostingScopeTitle(html, index, scope, itemscopes) {
+  for (const property of ['title', 'name']) {
+    const opening = index.openings.find((candidate) => candidate.index > scope.start
+      && candidate.index < scope.end
+      && readAttr(candidate.raw, 'itemprop').split(/\s+/).includes(property)
+      && !itemscopes.some((inner) => inner.start > scope.start && inner.start < scope.end
+        && candidate.index > inner.start && candidate.index < inner.end));
+    if (!opening) continue;
+    const content = readAttr(opening.raw, 'content');
+    if (content) return content;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (bounds) return textOf(html.slice(opening.end, bounds.contentEnd));
+  }
+  return '';
 }
 
 /**
@@ -888,8 +933,11 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     // spelled `…description` (a picture/slide/list-term/button caption) is
     // page chrome. It is not a candidate, and its text is cut out of any
     // vacancy container that happens to wrap it.
+    // A hidden candidate (`class="job-description hidden"`) is not the
+    // rendered page either.
     if (/\b(?:cookie|cmplz|consent|meta)\b/i.test(detailClassAttr)
-      || !isVacancyBodyClass(readAttr(match[0], 'class'))) {
+      || !isVacancyBodyClass(readAttr(match[0], 'class'))
+      || isHiddenElement(match[0])) {
       chromeRanges.push({ start: match.index, end });
       continue;
     }
@@ -902,18 +950,27 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // spans — intro, body, closing — so reading only the first one measured a
   // teaser against a complete published body.
   const semanticIndex = indexHtmlTags(html);
-  for (const range of vacancyDescriptionItempropRanges(html, semanticIndex)) bodyRanges.push(range);
+  const selectedTitle = structuredRecords.length ? (structured.title || '') : '';
+  for (const range of vacancyDescriptionItempropRanges(html, semanticIndex, { selectedTitle })) bodyRanges.push(range);
   // Form controls are never vacancy prose: an application form embedded in
   // the body (Jobalino ships one as a nested document) carries a nationality
   // select of ~250 country names that outweighed the vacancy itself.
   // Hidden elements are not the rendered page either: Phenom ships every
   // vacancy with a `hide job-expired-view` block saying the job "has been
   // filled", shown only once it really is.
+  // A print-only rendering that does not carry this vacancy's title is
+  // another ad (job.post.ch serves the same sample in `printLayout` on every
+  // page), wherever it sits — also inside the <main> the fallback reads.
+  const titles = [title, renderedTitle];
   for (const opening of semanticIndex.openings) {
     if (opening.selfClosing || VOID_HTML_TAGS.has(opening.name)) continue;
-    if (!FORM_CONTROL_TAGS.has(opening.name) && !isHiddenElement(opening.raw)) continue;
     const bounds = semanticIndex.boundsByStart.get(opening.index);
-    if (bounds) chromeRanges.push({ start: opening.index, end: bounds.end });
+    if (!bounds) continue;
+    const isChrome = FORM_CONTROL_TAGS.has(opening.name)
+      || isHiddenElement(opening.raw)
+      || (isPrintLayout(opening.raw)
+        && !titles.some((candidate) => containsTitle(html.slice(opening.end, bounds.contentEnd), candidate)));
+    if (isChrome) chromeRanges.push({ start: opening.index, end: bounds.end });
   }
   let blocks = distinctBodyTexts(html, bodyRanges, chromeRanges);
   // A detail page with no useful class still commonly puts the vacancy body
@@ -931,7 +988,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   const main = vacancyContainerRegion(html, title);
   if (!blocks.length && main) {
     const isThisVacancy = (region) => !isPrintLayout(region.raw)
-      || [title, renderedTitle].some((candidate) => containsTitle(region.content, candidate));
+      || titles.some((candidate) => containsTitle(region.content, candidate));
     const regions = (main.owned ? [main] : main.outermost).filter(isThisVacancy);
     const mainText = distinctBodyTexts(
       html,

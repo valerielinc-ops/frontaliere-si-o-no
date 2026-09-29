@@ -352,3 +352,40 @@ describe('rendered text is weighed against the structured body', () => {
     expect(record.description).not.toContain('&lt;');
   });
 });
+
+describe('review findings on #10322', () => {
+  it('reads only the selected JobPosting when sibling postings carry their own description', () => {
+    const posting = (title: string, body: string, href: string) => `<div itemscope itemtype="http://schema.org/JobPosting">
+      <a href="${href}"><span itemprop="title">${title}</span></a>
+      <span itemprop="description"><p>${body}</p></span></div>`;
+    const html = `<html><body><h1>Pflegefachperson HF 80%</h1>
+      ${posting('Pflegefachperson HF 80%', 'Sie betreuen Patientinnen und Patienten auf der chirurgischen Station im Schichtbetrieb.', 'https://jobs.example.ch/job/1/')}
+      <aside><h2>Ähnliche Stellen</h2>
+      ${posting('Fachperson Betreuung 60%', 'OTHER posting body about the kindergarten team and its daily routine.', 'https://jobs.example.ch/job/2/')}
+      </aside></body></html>`;
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/job/1/');
+    expect(description).toContain('chirurgischen Station');
+    expect(description).not.toContain('OTHER posting body');
+  });
+
+  it('cuts a print layout nested inside the <main> the fallback reads', () => {
+    const html = `<html><body><main>
+      <h1>Conductrice / Conducteur CarPostal</h1>
+      <p>Tu conduis les voyageuses et les voyageurs à leur destination du lundi au dimanche sur nos lignes régionales.</p>
+      <article id="printLayout" class="print-page"><p>OTHER sample ad: Teamleiter Paketzustellung in Zürich.</p></article>
+    </main></body></html>`;
+    const { description } = extractDetailFields(html, 'https://job.example.ch/default/job/Conductrice/74652-fr_FR');
+    expect(description).toContain('lignes régionales');
+    expect(description).not.toContain('OTHER');
+  });
+
+  it('drops a vacancy container that is itself hidden', () => {
+    const html = `<html><body>
+      <div class="job-description hidden"><p>OTHER hidden template text for a vacancy that has been filled.</p></div>
+      <div class="job-description"><p>Sie planen die Produktion und koordinieren Lieferungen mit dem Verkauf und der Logistik.</p></div>
+    </body></html>`;
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/job/3/');
+    expect(description).toContain('koordinieren Lieferungen');
+    expect(description).not.toContain('OTHER');
+  });
+});
