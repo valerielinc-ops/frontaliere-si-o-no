@@ -11,6 +11,7 @@ import {
   extractPagingToken,
   buildKsaDetailDescription,
   buildProspectiveDescriptionMap,
+  resolveKsaVacancyBody,
 } from '../scripts/lib/ksa-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -20,6 +21,12 @@ const FIXTURES = path.join(__dirname, 'fixtures');
 const listingHtml = fs.readFileSync(path.join(FIXTURES, 'ksa-umantis-listing.html'), 'utf8');
 const prospectiveFeed = JSON.parse(
   fs.readFileSync(path.join(FIXTURES, 'ksa-prospective-jobs.json'), 'utf8'),
+);
+// Two real careercenter records (vacancies 4369 and 4319, 2026-09-29) of the
+// same role on two wards: the audit read their published bodies as one
+// duplicate listing.
+const fachexpertinPair = JSON.parse(
+  fs.readFileSync(path.join(FIXTURES, 'ksa-prospective-fachexpertin-pair.json'), 'utf8'),
 );
 
 describe('Kantonsspital Aarau (KSA) crawler parser', () => {
@@ -150,6 +157,44 @@ describe('Kantonsspital Aarau (KSA) crawler parser', () => {
     it('returns empty string for an empty bag', () => {
       expect(buildKsaDetailDescription({})).toBe('');
       expect(buildKsaDetailDescription(undefined)).toBe('');
+    });
+
+    it('leads with the ward and the start line, which tell two postings of one role apart', () => {
+      const [urologie, traumatologie] = fachexpertinPair.jobs.map((job: { szas: object }) => buildKsaDetailDescription(job.szas));
+      expect(urologie).not.toBe(traumatologie);
+      expect(urologie.split('\n')[0]).toContain('Urologie, Hand- und Plastische Chirurgie');
+      expect(traumatologie.split('\n')[0]).toContain('Traumatologie und Orthopädie');
+      expect(urologie).toContain('Stellenantritt: Nach Vereinbarung, unbefristet');
+      // The 500-character window the audit fingerprints differs too.
+      expect(urologie.slice(0, 500)).not.toBe(traumatologie.slice(0, 500));
+    });
+  });
+
+  describe('resolveKsaVacancyBody', () => {
+    it('uses the careercenter body when the vacancy has one', () => {
+      const body = buildKsaDetailDescription(prospectiveFeed.jobs[0].szas);
+      expect(body.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+      expect(resolveKsaVacancyBody({ snippet: 'kurz' }, body)).toBe(body);
+    });
+
+    it('applies the same 50-word floor to a short or malformed careercenter join', () => {
+      expect(resolveKsaVacancyBody({}, 'uno due tre')).toBe('');
+      expect(resolveKsaVacancyBody({ snippet: 'kurz' }, 'Aufgaben: …')).toBe('');
+      // A thin join still leaves the teaser as the body when the teaser is one.
+      const teaser = Array.from({ length: 60 }, (_, i) => `Wort${i}`).join(' ');
+      expect(resolveKsaVacancyBody({ snippet: teaser }, 'Aufgaben: …')).toBe(teaser);
+    });
+
+    it('publishes no title-only or one-line record (thin content, Non-Negotiable #4)', () => {
+      expect(resolveKsaVacancyBody({ snippet: '' })).toBe('');
+      expect(resolveKsaVacancyBody({
+        snippet: 'Anstellung ab dem 3. Studienjahr Teilzeitstudiengang BFH für FaGe EFZ. Die Anstellung dauert zwei Jahre und findet in Absprache mit den Bereichen (Medizin, Chirurgie, Frauen- und Kinderklinik) statt.',
+      })).toBe('');
+    });
+
+    it('keeps a listing teaser that is a real body (≥ 50 words)', () => {
+      const teaser = Array.from({ length: 60 }, (_, i) => `Wort${i}`).join(' ');
+      expect(resolveKsaVacancyBody({ snippet: teaser })).toBe(teaser);
     });
   });
 

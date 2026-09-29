@@ -234,13 +234,12 @@ describe('nextCrawlerState', () => {
     expect(state.consecutiveEmptyRuns).toBe(0);
   });
 
-  it('clears broken status for axa-svizzera (national insurer, empty-ok hiring lull) on a fresh zero-job run (#3564)', () => {
-    // Reproduces the #3564 state: the AXA Svizzera dedicated crawler's
-    // national listing (Prospective.ch Career Center 2193) currently renders
-    // its own "no-results" template with zero job anchors — verified via a
-    // direct fetch and the production crawl log, not a selector/parser break
-    // (detail pages still 410 normally, proving the ATS backend is live).
-    // It must not stay flagged broken once added to EMPTY_OK_CRAWLERS.
+  it('keeps axa-svizzera broken on repeated zero-job runs: the #3564 "hiring lull" was the move to careers.axa.com', () => {
+    // #3564 read the empty Prospective listing of jobs.axa.ch as a hiring lull
+    // and put the crawler on the empty-ok list. The portal had moved: jobs.axa.ch
+    // answers 301 to careers.axa.com, which listed 158 Swiss openings on
+    // 2026-09-29 while the crawler kept 3 dead postings for three months. The
+    // crawler reads the new portal now, so an empty run is a failure again.
     const prev = {
       lastSuccessfulRunAt: '2026-07-01T21:46:57.421Z',
       lastNonZeroJobs: 5,
@@ -251,7 +250,7 @@ describe('nextCrawlerState', () => {
       _lastObservedJobs: 0,
       _lastObservedAssembledAt: new Date(NOW_MS - DAY_MS).toISOString(),
     };
-    const { status, state, reason } = nextCrawlerState(
+    const { status } = nextCrawlerState(
       prev,
       {
         slug: 'axa-svizzera',
@@ -264,9 +263,7 @@ describe('nextCrawlerState', () => {
       NOW_ISO,
       NOW_MS,
     );
-    expect(status).toBe('healthy');
-    expect(reason).toBeNull();
-    expect(state.consecutiveEmptyRuns).toBe(0);
+    expect(status).not.toBe('healthy');
   });
 
   it('clears broken status for has-healthcare (Drupal micro-site, empty-ok) on a fresh zero-job run (#3565, #3819)', () => {

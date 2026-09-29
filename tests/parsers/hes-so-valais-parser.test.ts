@@ -23,6 +23,11 @@ import {
   detectCategory,
   detectExperienceLevel,
   detectEmploymentType,
+  parseHessoDetailPage,
+  repairHessoRelabeledSource,
+  hessoSourceBodies,
+  prepareHessoMerge,
+  dropInventedHessoLocaleText,
 } from '../../scripts/update-hes-so-valais-jobs.mjs';
 
 // ─── Constants (mirroring the crawler script) ─────────────────────────────────
@@ -652,5 +657,207 @@ describe('job object construction from NUXT data', () => {
 
     expect(detectCategory(collab!.title)).toBe('research-support');
     expect(extractEmploymentRate(collab!.title)).toBe('80-100%');
+  });
+});
+
+// ─── Detail page + sourceLang relabel (#5253 source-detail-mismatch) ─────────
+//
+// Fixture: www.hevs.ch/fr/recruitee/mediamaticien-cfc-…-215387 (live shape,
+// minimised). The crawler used to publish the listing's ~150-char excerpt plus
+// a generic institution blurb (434 chars against a 4.5k-char ad) and to detect
+// sourceLang on the bilingual title, filing French text under `it`.
+
+const DETAIL_HTML = `
+<html><body>
+<div class="main-header"><h1 class="text__content">Médiamaticien CFC ou Médiamaticienne CFC *** Mediamatiker EFZ / Mediamatikerin EFZ</h1></div>
+<div class="container mt-60 mt-lg-120">
+  <div class="row mb-30 mb-lg-70">
+    <div class="col-12"><span>28.09.2026</span><h2>Médiamaticien CFC ou Médiamaticienne CFC *** Mediamatiker EFZ / Mediamatikerin EFZ</h2>
+      <a href="https://hessovalaiswallis.recruitee.com/o/mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-mediamatikerin-efz/c/new">POSTULER / BEWERBEN</a></div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-9">
+      <p class="MsoNormal">Tu as terminé ta scolarité obligatoire ? Le domaine de la communication, du multimédia et du digital t’intéresse ?</p>
+      <p class="MsoNormal">&nbsp;</p>
+      <p class="MsoNormal"><strong>Tes missions </strong></p>
+      <ul><li><p class="MsoNormal">Participer à la création de contenus visuels, numériques et imprimés ;</p></li></ul>
+      <ul><li><p class="MsoListParagraphCxSpMiddle">Contribuer à la gestion et à l’animation des médias sociaux ;</p></li></ul>
+      <p class="MsoNormal"><strong>Ton profil</strong></p>
+      <ul><li><p>Créativité et sens de l’organisation ;</p></li></ul>
+      <p>Lieu de travail Sion</p>
+      <p>***</p>
+      <p>Die HES-SO Valais-Wallis bildet über 2’800 Studierende aus.</p>
+      <p><strong>Deine Aufgaben</strong></p>
+      <ul><li>Mitwirkung bei der Gestaltung von visuellen, digitalen und gedruckten Kommunikationsmitteln</li></ul>
+      <p>Arbeitsort Sitten</p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center mt-30">
+    <a href="https://hessovalaiswallis.recruitee.com/o/mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-mediamatikerin-efz/c/new">POSTULER / BEWERBEN</a>
+  </div>
+  <div class="row"><p>Autres informations</p></div>
+</div>
+</body></html>
+`;
+
+describe('parseHessoDetailPage', () => {
+  it('reads the French ad from the vacancy body row, with headings and lists', () => {
+    const { fr } = parseHessoDetailPage(DETAIL_HTML);
+    expect(fr.startsWith('Tu as terminé ta scolarité obligatoire')).toBe(true);
+    expect(fr).toContain('## Tes missions');
+    expect(fr).toContain('- Participer à la création de contenus visuels, numériques et imprimés ;\n- Contribuer à la gestion');
+    expect(fr).toContain('## Ton profil');
+    expect(fr).toContain('Lieu de travail Sion');
+    expect(fr).not.toContain('POSTULER');
+    expect(fr).not.toContain('Autres informations');
+    expect(fr).not.toContain('Die HES-SO');
+  });
+
+  it('returns the German half after the *** separator separately', () => {
+    const { de } = parseHessoDetailPage(DETAIL_HTML);
+    expect(de.startsWith('Die HES-SO Valais-Wallis bildet')).toBe(true);
+    expect(de).toContain('## Deine Aufgaben');
+    expect(de).toContain('- Mitwirkung bei der Gestaltung');
+    expect(de).not.toContain('***');
+  });
+
+  it('returns empty strings for a page without the vacancy layout', () => {
+    expect(parseHessoDetailPage('<html><body><p>Page introuvable</p></body></html>')).toEqual({ fr: '', de: '' });
+    expect(parseHessoDetailPage('')).toEqual({ fr: '', de: '' });
+  });
+});
+
+describe('repairHessoRelabeledSource', () => {
+  it('drops the French text stored under it when sourceLang moves from it to fr', () => {
+    const url = 'https://www.hevs.ch/fr/recruitee/collaboratrice-ou-collaborateur-technique-215254';
+    const oldText = 'Afin de compléter son équipe, la HES-SO Valais-Wallis met au concours le poste suivant.';
+    const previous = {
+      url,
+      title: 'Collaboratrice ou collaborateur technique',
+      sourceLang: 'it',
+      description: oldText,
+      descriptionByLocale: { it: oldText, en: 'Collaborator ou borzán' },
+      titleByLocale: { it: 'Collaboratrice ou collaborateur technique' },
+    };
+    const fresh = {
+      url,
+      title: 'Collaboratrice ou collaborateur technique',
+      sourceLang: 'fr',
+      description: 'Afin de compléter son équipe… (annonce complète)',
+      descriptionByLocale: { fr: 'Afin de compléter son équipe… (annonce complète)' },
+    };
+    const merged = [{ ...previous, ...fresh, descriptionByLocale: { ...previous.descriptionByLocale, ...fresh.descriptionByLocale } }];
+    const [job] = repairHessoRelabeledSource(merged, [previous], [fresh]);
+    expect(job.descriptionByLocale.it).toBeUndefined();
+    expect(job.descriptionByLocale.fr).toBe(fresh.description);
+    expect(job.titleByLocale.it).toBeUndefined();
+    expect(job.titleByLocale.fr).toBe(fresh.title);
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('leaves jobs whose sourceLang did not change untouched', () => {
+    const job = { url: 'https://www.hevs.ch/fr/recruitee/x-1', sourceLang: 'fr', descriptionByLocale: { fr: 'a', it: 'b' } };
+    const [out] = repairHessoRelabeledSource([{ ...job }], [job], [job]);
+    expect(out.descriptionByLocale).toEqual({ fr: 'a', it: 'b' });
+    expect(out.needsRetranslation).toBeUndefined();
+  });
+});
+
+// ─── Source text only (review of #10348) ─────────────────────────────────────
+//
+// The crawler used to publish, besides the ad, text it wrote itself: the
+// listing excerpt plus an institution blurb in French, "Offene Stelle an der
+// HES-SO Wallis…" in German and an always-invented English "Open position at
+// HES-SO Valais-Wallis…". Bodies below are the live 215387 ad (minimised).
+const FR_AD =
+  'Tu as terminé ta scolarité obligatoire ? Le domaine de la communication, du multimédia et du digital t’intéresse ? ' +
+  'Alors rejoins la Haute Ecole de Santé de la HES-SO Valais-Wallis pour effectuer ton apprentissage. ' +
+  'Tes missions : participer à la création de contenus visuels, numériques et imprimés ; contribuer à la gestion et à ' +
+  'l’animation des médias sociaux ; réaliser des supports de communication tels que flyers, affiches, présentations ou ' +
+  'contenus web. Lieu de travail Sion. Entrée en fonction 01.08.2027.';
+const DE_AD =
+  'Die HES-SO Valais-Wallis bildet über 2’800 Studierende aus. Du hast die obligatorische Schule abgeschlossen? Du ' +
+  'interessierst dich für Kommunikation, Multimedia und die digitale Welt? Deine Aufgaben: Mitwirkung bei der Gestaltung ' +
+  'von visuellen, digitalen und gedruckten Kommunikationsmitteln, Mitarbeit bei der Betreuung und Animation der ' +
+  'Social-Media-Kanäle, Erstellung von Kommunikationsmitteln wie Flyer, Plakate und Präsentationen. Arbeitsort Sitten.';
+const LONG_49 = Array.from({ length: 49 }, () => 'Verantwortungsbewusstsein').join(' ');
+const INVENTED_FR =
+  'Tu as terminé ta scolarité obligatoire ?\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais.';
+const HESSO_URL = 'https://www.hevs.ch/fr/recruitee/mediamaticien-cfc-ou-mediamaticienne-cfc-215387';
+
+describe('hessoSourceBodies', () => {
+  it('publishes the French half as source and the German half as HES-SO\'s own translation — never an en slot', () => {
+    const bodies = hessoSourceBodies({ fr: FR_AD, de: DE_AD });
+    expect(bodies.description).toBe(FR_AD);
+    expect(bodies.sourceLang).toBe('fr');
+    expect(bodies.descriptionByLocale).toEqual({ fr: FR_AD });
+    expect(bodies.officialDe).toBe(DE_AD);
+  });
+
+  it('measures the floor in words: a 49-word half is thin however long its words are', () => {
+    expect(LONG_49.length).toBeGreaterThan(1000);
+    const bodies = hessoSourceBodies({ fr: LONG_49, de: DE_AD });
+    expect(bodies.description).toBe(DE_AD);
+    expect(bodies.sourceLang).toBe('de');
+    expect(bodies.officialDe).toBe('');
+  });
+
+  it('returns no body at all (no invented text) when neither half clears the floor', () => {
+    expect(hessoSourceBodies({ fr: 'Tu as terminé ta scolarité ?', de: '' })).toEqual({
+      description: '', sourceLang: '', descriptionByLocale: {}, officialDe: '',
+    });
+  });
+});
+
+describe('prepareHessoMerge', () => {
+  const fresh = { url: HESSO_URL, title: 'Médiamaticien CFC', description: '', descriptionByLocale: {}, sourceLang: '' };
+
+  it('keeps the stored source body, slots and language when the detail page has none', () => {
+    const stored = { url: HESSO_URL, title: 'Médiamaticien CFC', description: FR_AD, sourceLang: 'fr', descriptionByLocale: { fr: FR_AD, it: 'Annuncio tradotto.' } };
+    const { discoveredForMerge, existingForMerge, skipped } = prepareHessoMerge([stored], [fresh]);
+    expect(skipped).toBe(0);
+    expect(existingForMerge).toHaveLength(1);
+    expect(discoveredForMerge[0]).toMatchObject({ description: FR_AD, sourceLang: 'fr', descriptionByLocale: { fr: FR_AD, it: 'Annuncio tradotto.' } });
+  });
+
+  it('does not publish a job without body whose only stored text is invented, nor carry the stored record', () => {
+    const stored = { url: HESSO_URL, title: 'Médiamaticien CFC', description: INVENTED_FR, sourceLang: 'fr', descriptionByLocale: { fr: INVENTED_FR } };
+    const { discoveredForMerge, existingForMerge, skipped } = prepareHessoMerge([stored], [fresh]);
+    expect(skipped).toBe(1);
+    expect(discoveredForMerge).toHaveLength(0);
+    expect(existingForMerge).toHaveLength(0);
+    expect(prepareHessoMerge([], [fresh])).toMatchObject({ discoveredForMerge: [], skipped: 1 });
+  });
+});
+
+describe('dropInventedHessoLocaleText', () => {
+  it('drops invented slots and the translations of an invented source, and flags retranslation', () => {
+    const previous = {
+      url: HESSO_URL,
+      sourceLang: 'fr',
+      description: INVENTED_FR,
+      descriptionByLocale: { fr: INVENTED_FR, it: 'La HES-SO Valais-Wallis è una scuola universitaria bilingue.' },
+    };
+    const merged = [{
+      url: HESSO_URL,
+      sourceLang: 'fr',
+      description: FR_AD,
+      descriptionByLocale: {
+        fr: FR_AD,
+        it: 'La HES-SO Valais-Wallis è una scuola universitaria bilingue.',
+        en: 'Open position at HES-SO Valais-Wallis in Sion.\nPosition: Médiamaticien CFC.',
+        de: 'Offene Stelle an der HES-SO Wallis in Sion.',
+      },
+    }];
+    const [job] = dropInventedHessoLocaleText(merged, [previous]);
+    expect(job.descriptionByLocale).toEqual({ fr: FR_AD });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('keeps real translations of a source-read body', () => {
+    const previous = { url: HESSO_URL, sourceLang: 'fr', description: FR_AD, descriptionByLocale: { fr: FR_AD } };
+    const [job] = dropInventedHessoLocaleText([{ ...previous, descriptionByLocale: { fr: FR_AD, it: 'Annuncio tradotto.' } }], [previous]);
+    expect(job.descriptionByLocale.it).toBe('Annuncio tradotto.');
+    expect(job.needsRetranslation).toBeUndefined();
   });
 });

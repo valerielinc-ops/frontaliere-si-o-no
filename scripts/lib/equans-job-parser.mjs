@@ -69,6 +69,10 @@ const parser = createProspectiveChParser({
   defaultSourceLang: 'de',
   sector: 'Facility Management / Impiantistica',
   categoryFn: detectCategory,
+  // Listing payload = 34-44 % of the rendered vacancy (audit 2026-09-29): the
+  // offer list, the "Nos avantages"/"Unsere Benefits" block and the workplace
+  // exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllEquansJobs = parser.fetchAllJobs;

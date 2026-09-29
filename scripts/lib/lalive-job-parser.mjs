@@ -28,6 +28,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { withRenderedPersonioPage } from './ats-clients/personio-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -238,8 +239,13 @@ export async function fetchAllLaliveJobs() {
   const jobs = [];
   for (const rec of records) {
     try {
-      const job = buildParsedJob(rec);
-      if (job) jobs.push(job);
+      const kept = buildParsedJob(rec);
+      if (!kept) continue;
+      // The listing's `description` omits the company block and is empty for
+      // a position that only exists in another language; the published job
+      // page renders the whole vacancy (see `withRenderedPersonioPage`).
+      const job = buildParsedJob(await withRenderedPersonioPage(rec, kept.url)) || kept;
+      jobs.push(job);
     } catch (err) {
       console.warn(`⚠️ Skipping id=${rec?.id || '<?>'}: ${err?.message || err}`);
     }

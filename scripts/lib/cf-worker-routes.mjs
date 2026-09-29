@@ -4,7 +4,8 @@
  *
  * THE DEFECT THIS EXISTS FOR. `infra/cloudflare-worker/locale-router.js`'s
  * serveShard() rewrites the upstream Host to a shard origin and fetches it with
- * `cf: { cacheEverything: true, cacheTtl: ORIGIN_CACHE_TTL }`. The entry that
+ * `cf: { cacheEverything: true, cacheTtlByStatus: ... }`, using the positive
+ * status TTL configured by `ORIGIN_CACHE_TTL`. The entry that
  * then serves the user is keyed on
  * `https://origin-<shard>.frontaliereticino.ch/<path>`, NOT on the apex URL the
  * browser asked for. So a `files: ['https://frontaliereticino.ch/de/']` purge

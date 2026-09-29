@@ -56,6 +56,9 @@ const parser = createProspectiveChParser({
     'baselland.ch',
     'jobs.baselland.ch',
   ],
+  // Listing payload = 34 % of the rendered vacancy (audit 2026-09-29):
+  // "Ihre Vorteile" and the office description exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllKantonBaselLandschaftJobs = parser.fetchAllJobs;
