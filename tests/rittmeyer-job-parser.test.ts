@@ -165,6 +165,18 @@ describe('rittmeyer-job-parser', () => {
     });
     expect(Object.keys(legacy.descriptionByLocale)).toEqual(['de']);
   });
+
+  it('drops a copied German source title from Italian and requests retranslation', () => {
+    const scrubbed = scrubRittmeyerLegacyLocaleCopies({
+      sourceLang: 'de',
+      title: 'Titel Deutsch',
+      titleByLocale: { it: 'Titel Deutsch', de: 'Titel Deutsch' },
+      descriptionByLocale: { de: 'Ein ausreichend langer deutscher Quelltext.' },
+    });
+
+    expect(scrubbed.titleByLocale).toEqual({ de: 'Titel Deutsch' });
+    expect(scrubbed.needsRetranslation).toBe(true);
+  });
 });
 
 // ─── Site resolver (regression: Camorino jobs were getting Baar HQ postal) ──

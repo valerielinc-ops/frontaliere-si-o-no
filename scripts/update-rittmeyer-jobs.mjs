@@ -305,10 +305,18 @@ const LEGACY_HEADING_RE = new RegExp(
 export function scrubRittmeyerLegacyLocaleCopies(job = {}) {
   const placeholders = new Set(RITTMEYER_LEGACY_PLACEHOLDER_TITLES);
   const titleByLocale = { ...(job.titleByLocale || {}) };
+  let needsRetranslation = Boolean(job.needsRetranslation);
   for (const [locale, value] of Object.entries(titleByLocale)) {
     if (placeholders.has(String(value || '').trim()) && String(value).trim() !== String(job.title || '').trim()) {
       delete titleByLocale[locale];
     }
+  }
+  const sourceLang = String(job.sourceLang || '').trim();
+  const sourceTitle = String(job.title || '').trim();
+  if (sourceLang && sourceLang !== 'it' && sourceTitle
+    && String(titleByLocale.it || '').trim() === sourceTitle) {
+    delete titleByLocale.it;
+    needsRetranslation = true;
   }
   const descriptionByLocale = { ...(job.descriptionByLocale || {}) };
   for (const [locale, value] of Object.entries(descriptionByLocale)) {
@@ -317,7 +325,9 @@ export function scrubRittmeyerLegacyLocaleCopies(job = {}) {
       delete descriptionByLocale[locale];
     }
   }
-  return { ...job, titleByLocale, descriptionByLocale };
+  const scrubbed = { ...job, titleByLocale, descriptionByLocale };
+  if (needsRetranslation) scrubbed.needsRetranslation = true;
+  return scrubbed;
 }
 
 function jobMatchKey(job = {}) {

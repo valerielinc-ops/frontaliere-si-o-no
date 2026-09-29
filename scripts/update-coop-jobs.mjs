@@ -803,6 +803,19 @@ export function coopStoredBody(description = '') {
   return body.join('\n').trim();
 }
 
+/**
+ * A Coop detail is publishable when the composed source body — JSON-LD plus
+ * the facts/lists that exist only in the page — clears the shared word floor.
+ * The stored body is only a grace-period fallback when the fresh detail stays
+ * below the floor or cannot be fetched.
+ */
+export function shouldQuarantineCoopJob({ jsonLd = null, page = null, storedDescription = '' } = {}) {
+  if (!jsonLd) return !meetsSourceBodyFloor(coopStoredBody(storedDescription));
+  const sourceMarkdown = coopDescHtmlToMarkdown(jsonLd.description || '');
+  const composed = composeCoopFamilyDescription(sourceMarkdown, page);
+  return !meetsSourceBodyFloor(composed) && !meetsSourceBodyFloor(coopStoredBody(storedDescription));
+}
+
 async function postProcessCoopJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
 
@@ -1013,13 +1026,13 @@ async function postProcessCoopJobs() {
   async function processOne(job) {
     const detail = await fetchCoopDetailResilient(job.url);
     const jsonLd = detail?.jsonLd || null;
-    if (!jsonLd || !meetsSourceBodyFloor(jsonLd.description)) {
-      // No real source description available → quarantine (don't publish a
-      // boilerplate-padded thin page) unless the stored body already meets
-      // the source-body floor.
-      if (!meetsSourceBodyFloor(coopStoredBody(job.description))) quarantineUrls.add(job.url);
-      if (!jsonLd) return;
+    // Judge the composed source body, not JSON-LD alone: the detail page can
+    // carry enough authoritative facts/lists to lift a 49-word JSON-LD body
+    // over the floor. A stored valid body remains the only grace fallback.
+    if (shouldQuarantineCoopJob({ jsonLd, page: detail?.page, storedDescription: job.description })) {
+      quarantineUrls.add(job.url);
     }
+    if (!jsonLd) return;
     if (repairJobFromJsonLd(job, jsonLd, detail.page)) repaired += 1;
   }
 

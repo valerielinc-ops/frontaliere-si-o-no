@@ -207,11 +207,17 @@ describe('Volg publishes only source text', () => {
   it('drops invented slots and their translations, keeping only a real source slot', () => {
     const stale = staleByTail('82dfafe3b264');
     const cleaned = stripVolgInventedSlots(stale);
+    expect(cleaned.description).toBe(stale.descriptionByLocale.de);
     expect(cleaned.descriptionByLocale).toEqual({ de: stale.descriptionByLocale.de });
     expect(cleaned.needsRetranslation).toBe(true);
 
     const inventedSource = stripVolgInventedSlots(staleByTail('a903536a7c83'));
-    expect(inventedSource.descriptionByLocale).toEqual({});
+    expect(inventedSource).toBeNull();
+
+    expect(stripVolgInventedSlots({
+      ...staleByTail('33a95efbbde8'),
+      descriptionByLocale: {},
+    })).toBeNull();
 
     const clean = { ...staleByTail('33a95efbbde8'), description: staleByTail('33a95efbbde8').descriptionByLocale.de };
     expect(stripVolgInventedSlots(clean)).toBe(clean);

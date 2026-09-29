@@ -134,4 +134,14 @@ describe('Migros double publications (audit-parser-quality issue 5253)', () => {
     expect(jobs).toHaveLength(2);
     expect(reposts).toEqual([]);
   });
+
+  it('returns a deduplicated list without the removed repost URL', () => {
+    const duplicateUrl = `${base}c922adc5-d69b-4d00-a717-5002ad249e33`;
+    const { jobs } = dedupeMigrosReposts([
+      job('43315b46-0af4-46e8-9361-b737a9683d5d'),
+      job('c922adc5-d69b-4d00-a717-5002ad249e33'),
+    ], () => true);
+
+    expect(jobs.map((candidate) => candidate.url)).not.toContain(duplicateUrl);
+  });
 });

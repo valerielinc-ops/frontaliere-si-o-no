@@ -61,6 +61,7 @@ const MIGROS_KEY = 'migros-ticino';
 // gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(MIGROS_KEY);
+const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 
 /**
  * Migros listing page URL — no REGION filter, so the whole of Switzerland is
@@ -758,6 +759,10 @@ async function main() {
     const { jobs: uniqueJobs, reposts } = dedupeMigrosReposts(allJobs);
     if (reposts.length > 0) {
       writeJsonAtomic(DATA_JOBS, uniqueJobs);
+      // The public scratch mirror feeds the assembled/public dataset; keep it
+      // in lockstep with the deduped private slice or the removed repost can
+      // remain indexable there.
+      if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, uniqueJobs);
       console.log(`  🧹 Collapsed ${reposts.length} Migros repost(s) of an identical vacancy: ${reposts.map((r) => `${r.url} → ${r.keptUrl}`).join(', ')}`);
     }
   }

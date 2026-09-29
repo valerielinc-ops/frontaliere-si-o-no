@@ -618,21 +618,32 @@ export function resolveVolgJobBodies(freshJobs = [], existingJobs = []) {
 }
 
 /**
- * Remove invented text that earlier runs stored in the locale slots. The merge
- * keeps non-source slots ("existing translation wins"), so a record that once
- * published the invented paragraph kept it — untranslated German in `it`/`en`/
- * `fr` included — after the real body came back. When any slot carries it,
- * every non-source slot is of that vintage: drop them and flag the record for
- * retranslation from the real source slot.
+ * Remove invented text that earlier runs stored in the top-level description
+ * or locale slots. The merge keeps non-source slots ("existing translation
+ * wins"), so a record that once published the invented paragraph kept it —
+ * untranslated German in `it`/`en`/`fr` included — after the real body came
+ * back. When any field carries it, keep only a valid source body, make it the
+ * top-level description, and flag the record for retranslation. A record with
+ * no valid source body is dropped.
  */
 export function stripVolgInventedSlots(job) {
-  const slots = job?.descriptionByLocale;
-  if (!slots || typeof slots !== 'object') return job;
-  if (!Object.values(slots).some((text) => isVolgInventedText(text))) return job;
-  const sourceLang = job.sourceLang;
-  const sourceText = String(slots[sourceLang] || '').trim();
-  const kept = sourceLang && sourceText && !isVolgInventedText(sourceText) ? { [sourceLang]: slots[sourceLang] } : {};
-  return { ...job, descriptionByLocale: kept, needsRetranslation: true };
+  const slots = job?.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : {};
+  const hasInventedText = isVolgInventedText(job?.description)
+    || Object.values(slots).some((text) => isVolgInventedText(text));
+  if (!hasInventedText) return job;
+
+  const sourceLang = String(job?.sourceLang || '').trim();
+  const sourceText = sourceLang ? previousSourceBody(job) : '';
+  if (!sourceText) return null;
+
+  return {
+    ...job,
+    description: sourceText,
+    descriptionByLocale: { [sourceLang]: sourceText },
+    needsRetranslation: true,
+  };
 }
 
 // Per-city postal code table for known Volg/LANDI/fenaco locations.
@@ -768,7 +779,7 @@ function mergeJobs(discoveredJobs) {
       added += 1;
       const j = { ...job };
       delete j._enrichedFromDetail;
-      return j;
+      return stripVolgInventedSlots(j);
     }
     updated += 1;
     // When description was enriched from the detail page, clear stale
@@ -788,7 +799,7 @@ function mergeJobs(discoveredJobs) {
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     delete merged._enrichedFromDetail;
     return stripVolgInventedSlots(merged);
-  });
+  }).filter(Boolean);
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
