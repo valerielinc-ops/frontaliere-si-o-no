@@ -7046,6 +7046,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lindt-prezzi-cacao-2026.title': 'Lindt revises estimates: sales and prices decline',
     'blog.article.lindt-prezzi-cacao-2026.excerpt': 'Lindt&Sprüngli cuts the 2026 organic growth forecast to 0-2 percent and is considering broader price reductions from January after the impact of cocoa and summer heat.',
     'blog.article.lindt-prezzi-cacao-2026.imageAlt': 'Lindt chocolate display in a shop',
+    'blog.article.classifica-ompi-alta-tecnologia.title': 'Switzerland ranks first in the world for innovation',
+    'blog.article.classifica-ompi-alta-tecnologia.excerpt': 'Switzerland has ranked first since 2011 in the WIPO ranking; Sweden and the United States follow, while China enters the top ten for the first time.',
+    'blog.article.classifica-ompi-alta-tecnologia.imageAlt': 'Researchers outside a Swiss center dedicated to research and innovation',
 };
 
 export default blogMetaChEn;
