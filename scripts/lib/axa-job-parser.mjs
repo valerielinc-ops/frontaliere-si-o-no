@@ -29,7 +29,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { JSDOM } from 'jsdom';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 
 const BASE_URL = 'https://jobs.axa.ch';
 
@@ -338,6 +339,131 @@ export function buildDetailUrl(uuid, lang = 'it') {
 export function extractUuidFromUrl(url = '') {
   const match = url.match(/\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i);
   return match ? match[1] : '';
+}
+
+/* ── careers.axa.com (AXA Group Jibe portal) ─────────────────────────────
+ *
+ * jobs.axa.ch answers 301 to https://careers.axa.com/careers-home/jobs since
+ * AXA Switzerland moved to the group career portal: the old Prospective
+ * listing rendered «no results» from 2026-07 on and the crawler kept its last
+ * 3 postings (dead links) while the new portal listed 158 Swiss openings on
+ * 2026-09-29. The portal is a Jibe site:
+ *   - listing API: /api/jobs?country=Switzerland&page=N&limit=100 → JSON with
+ *     `jobs[].data` {req_id, title, language, city, postal_code,
+ *     street_address, country_code, description (flat text), apply_url, …};
+ *   - detail page: /careers-home/jobs/{req_id}?lang={language} with a
+ *     schema.org JobPosting whose `description` is the full HTML ad;
+ *   - robots.txt: `Allow: /`, `crawl-delay: 5`.
+ */
+export const AXA_CAREERS_BASE_URL = 'https://careers.axa.com';
+
+// Named and numeric entities, case-preserving («&Uuml;ber» → «Über»): the
+// portal's JSON-LD HTML encodes every umlaut.
+let entityDecoder = null;
+function decodeHtmlEntities(text = '') {
+  if (!entityDecoder) entityDecoder = new JSDOM('').window.document.createElement('textarea');
+  entityDecoder.innerHTML = String(text || '');
+  return entityDecoder.value;
+}
+export const AXA_CAREERS_CRAWL_DELAY_MS = 5000;
+
+export function buildAxaJibeListingUrl(page = 1, limit = 100) {
+  return `${AXA_CAREERS_BASE_URL}/api/jobs?country=Switzerland&page=${page}&limit=${limit}`;
+}
+
+export function buildAxaJibeDetailUrl(reqId = '', language = 'de-de') {
+  return `${AXA_CAREERS_BASE_URL}/careers-home/jobs/${encodeURIComponent(String(reqId))}?lang=${encodeURIComponent(language || 'de-de')}`;
+}
+
+export function extractAxaJibeJobId(url = '') {
+  const match = String(url || '').match(/careers\.axa\.com\/careers-home\/jobs\/(\d+)/i);
+  return match ? match[1] : '';
+}
+
+function titleCaseCity(value = '') {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/(^|[\s\-/(.])(\p{L})/gu, (all, sep, letter) => `${sep}${letter.toUpperCase()}`)
+    .trim();
+}
+
+/**
+ * Swiss postings of one listing-API page. The locality comes from the
+ * geocoded postal address Google Jobs derived for the posting («Bern»), and
+ * falls back to the portal's upper-cased `city` («BERN») in title case.
+ *
+ * @returns {{ total: number, rows: Array<object> }}
+ */
+export function parseAxaJibeListing(json) {
+  const jobs = Array.isArray(json?.jobs) ? json.jobs : [];
+  const rows = [];
+  for (const entry of jobs) {
+    const data = entry?.data || {};
+    if (String(data.country_code || '').toUpperCase() !== 'CH') continue;
+    const reqId = String(data.req_id || data.slug || '').trim();
+    const title = normalizeSpace(decodeHtmlEntities(String(data.title || '')));
+    if (!reqId || !title) continue;
+    const postal = data.meta_data?.googlejobs?.derivedInfo?.locations?.[0]?.postalAddress || {};
+    // The portal's own city is what the detail page states («PFÄFFIKON»);
+    // the geocoded locality is the municipality («Freienbach») and is used
+    // only when it names the same place («RÜTI ZH» → «Rüti»). The canton
+    // comes from the geocoded address, which resolves the homonyms the city
+    // alone cannot (Pfäffikon SZ, Oberwil BL, Kirchberg BE).
+    const portalCity = titleCaseCity(String(data.city || '').replace(/\s+[A-Za-z]{2}$/, ''));
+    const geocodedCity = normalizeSpace(postal.locality || '');
+    const locality = geocodedCity && geocodedCity.toLowerCase() === portalCity.toLowerCase()
+      ? geocodedCity
+      : (portalCity || geocodedCity);
+    const cantonHint = normalizeCantonCode(String(postal.administrativeArea || '')) || '';
+    const postalCode = String(data.postal_code || postal.postalCode || '').trim();
+    const street = normalizeSpace(data.street_address || '');
+    const language = String(data.language || 'de-de');
+    const detailUrl = buildAxaJibeDetailUrl(reqId, language);
+    rows.push({
+      id: reqId,
+      reqId,
+      title,
+      url: detailUrl,
+      detailUrl,
+      applyUrl: String(data.apply_url || '').trim(),
+      excerpt: normalizeSpace(String(data.description || '')).slice(0, 300),
+      // The listing carries the whole ad as flat text: the fallback when the
+      // detail page cannot be read is the same ad, not a teaser.
+      listingDescription: normalizeSpace(decodeHtmlEntities(String(data.description || ''))),
+      listingCity: locality,
+      cantonHint,
+      street,
+      address: [street, [postalCode, locality].filter(Boolean).join(' ')].filter(Boolean).join(', '),
+      postalCode,
+      lang: language.slice(0, 2).toLowerCase(),
+      postedDate: String(data.posted_date || '').slice(0, 10),
+    });
+  }
+  return { total: Number(json?.totalCount) || 0, rows };
+}
+
+/**
+ * The ad from the JSON-LD JobPosting of a careers.axa.com detail page. The
+ * body is the posting's own HTML: paragraphs and lists become lines and
+ * «• » bullets. The first line of every AXA ad states the workload and the
+ * workplace («100%, Arbeitsort Bern»).
+ */
+export function parseAxaJibeDetailPage(html = '') {
+  const descriptionHtml = String(extractJobPostingField(html, 'description') || '');
+  const description = decodeHtmlEntities(stripHtml(descriptionHtml))
+    .replace(/\u00a0/g, ' ')
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/•\n+/g, '• ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  const title = normalizeSpace(decodeHtmlEntities(String(extractJobPostingField(html, 'title') || '')));
+  const workloadMatch = description.match(/^\s*(\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%)/);
+  return {
+    title,
+    description,
+    workload: workloadMatch ? workloadMatch[1].replace(/\s+/g, '') : '',
+  };
 }
 
 export { LANG_SLUGS, BASE_URL };

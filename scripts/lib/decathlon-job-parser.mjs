@@ -184,10 +184,34 @@ async function fetchDecathlonDetailDescription(url) {
       timeoutMs: 15000,
       headers: { 'User-Agent': REQUEST_HEADERS['User-Agent'] },
     });
-    return extractJobPostingDescription(html);
+    return extractDecathlonDetailDescription(html);
   } catch {
     return ''; // network/timeout → caller falls back to the title
   }
+}
+
+/**
+ * The advertisement as the DigitalRecruiters page renders it: one
+ * `<section data-logic-value="html_block">` per part of the ad — «Mission»
+ * and «Profil», each an `<h2>` title and a `.rich-text` body. The JSON-LD
+ * `description` holds only the first of them, so reading it alone dropped the
+ * profile, the offer («Was wir dir bieten») and the application steps:
+ * velo-verkaufer Baar on 2026-09-29 published 1 136 of the page's 3 141 chars,
+ * and the two Baar postings shared that same mission text (issue 5253).
+ * The location, share and catch-phrase blocks are other `data-logic-value`s
+ * and are not read. When the page has no html_block, or they are shorter than
+ * the JSON-LD body, the JSON-LD body is kept.
+ */
+export function extractDecathlonDetailDescription(html = '') {
+  const source = String(html || '');
+  const blocks = [...source.matchAll(/<section\b[^>]*\bdata-logic-value="html_block"[^>]*>([\s\S]*?)<\/section>/gi)]
+    .map((match) => match[1].trim())
+    .filter((block) => stripHtml(block).trim());
+  const fromBlocks = blocks.join('\n');
+  const fromJsonLd = extractJobPostingDescription(source);
+  return stripHtml(fromBlocks).trim().length >= stripHtml(fromJsonLd).trim().length
+    ? fromBlocks
+    : fromJsonLd;
 }
 
 /**

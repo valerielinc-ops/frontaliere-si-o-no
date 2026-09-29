@@ -5,9 +5,11 @@
  * AXA Svizzera is a national insurer (HQ Winterthur), so this crawler collects
  * jobs CH-wide across all 26 cantons — NOT filtered to any region.
  *
- * Crawls https://jobs.axa.ch/ (Prospective.ch Career Center)
- * 1. Fetches the national listing (no region facet), paginated via offset/limit
- * 2. Fetches each detail page → extracts description, workload, location, apply URL
+ * Crawls https://careers.axa.com (AXA Group Jibe portal). jobs.axa.ch, the
+ * former Prospective.ch Career Center, answers 301 to that portal since
+ * 2026-07 (see the careers.axa.com block in lib/axa-job-parser.mjs).
+ * 1. Pages through the listing API filtered to country=Switzerland
+ * 2. Fetches each detail page → JSON-LD JobPosting description (full HTML ad)
  * 3. Resolves each job's Swiss canton from the clean city signal; drops jobs
  *    whose canton does not resolve to one of the 26 Swiss cantons
  * 4. Merges into data/jobs.json
@@ -45,15 +47,16 @@ import {
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
-  parseAxaListingPage,
-  parseAxaDetailPage,
   buildAxaLocalizedContent,
   inferAxaCanton,
   inferAxaCategory,
   extractUuidFromUrl,
-  buildDetailUrl,
-  buildListingUrl,
-  BASE_URL,
+  buildAxaJibeListingUrl,
+  parseAxaJibeListing,
+  parseAxaJibeDetailPage,
+  extractAxaJibeJobId,
+  AXA_CAREERS_BASE_URL,
+  AXA_CAREERS_CRAWL_DELAY_MS,
 } from './lib/axa-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { inferAnyCanton, rescueSwissCityFromText } from './lib/target-swiss-locations.mjs';
@@ -74,15 +77,18 @@ const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 
 const COMPANY_KEY = 'axa-svizzera';
 const COMPANY_NAME = 'AXA Svizzera';
-const COMPANY_HOST = 'jobs.axa.ch';
+const COMPANY_HOST = 'careers.axa.com';
 const COMPANY_DOMAIN = 'axa.ch';
-const CAREERS_URL = 'https://jobs.axa.ch/?lang=it';
+const CAREERS_URL = `${AXA_CAREERS_BASE_URL}/careers-home/jobs?country=Switzerland`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 const MAX_DETAIL_PAGES = positiveIntFromEnv('AXA_MAX_DETAIL_PAGES', 100000);
-const DETAIL_DELAY_MS = 300;
-const DETAIL_CONCURRENCY = 4;
+// careers.axa.com robots.txt asks `crawl-delay: 5`: one request at a time.
+const DETAIL_DELAY_MS = AXA_CAREERS_CRAWL_DELAY_MS;
+const DETAIL_CONCURRENCY = 1;
+const LISTING_PAGE_SIZE = 100;
+const LISTING_MAX_PAGES = 20; // safety cap; the Swiss set is ~160 jobs
 
 function readJson(filePath, fallback) {
   try {
@@ -121,7 +127,7 @@ function isTargetJob(job = {}) {
 
 function isTrustedDomain(url = '') {
   const host = jobUrlHost(url).replace(/^www\./, '');
-  return host === COMPANY_HOST || host.endsWith(`.${COMPANY_DOMAIN}`);
+  return host === COMPANY_HOST || host === COMPANY_DOMAIN || host.endsWith(`.${COMPANY_DOMAIN}`);
 }
 
 async function fetchText(url, retries = 2) {
@@ -140,115 +146,71 @@ async function fetchText(url, retries = 2) {
   });
 }
 
-const LISTING_PAGE_LIMIT = 500;
-const LISTING_MAX_OFFSET = 5000; // safety cap; AXA national set is ~160 jobs
-
 /**
- * Fetch the national listing (no region facet), paginating offset/limit until a
- * page yields no new jobs. Collects all job summaries CH-wide.
+ * Page through the careers.axa.com listing API (country=Switzerland) until the
+ * reported total is reached or a page adds nothing new.
  */
 async function fetchAllListings() {
-  const allJobs = new Map();
-
-  for (let offset = 0; offset <= LISTING_MAX_OFFSET; offset += LISTING_PAGE_LIMIT) {
-    const url = buildListingUrl('it', offset, LISTING_PAGE_LIMIT);
-    console.log(`\n📋 Fetching national listing (offset ${offset}): ${url}`);
-
-    let jobs;
+  const all = new Map();
+  let total = 0;
+  for (let page = 1; page <= LISTING_MAX_PAGES; page += 1) {
+    const url = buildAxaJibeListingUrl(page, LISTING_PAGE_SIZE);
+    console.log(`\n📋 Fetching listing page ${page}: ${url}`);
+    let parsed;
     try {
-      const html = await fetchText(url);
-      jobs = parseAxaListingPage(html);
-      console.log(`  ✅ Found ${jobs.length} jobs on this page`);
+      parsed = parseAxaJibeListing(JSON.parse(await fetchText(url)));
     } catch (err) {
-      console.log(`  ⚠️ Failed to fetch listing at offset ${offset}: ${err.message}`);
+      console.log(`  ⚠️ Failed to fetch listing page ${page}: ${err.message}`);
       break;
     }
-
+    total = parsed.total || total;
     let added = 0;
-    for (const job of jobs) {
-      const uuid = extractUuidFromUrl(job.url);
-      if (uuid && !allJobs.has(uuid)) {
-        allJobs.set(uuid, { ...job, uuid });
+    for (const row of parsed.rows) {
+      if (!all.has(row.reqId)) {
+        all.set(row.reqId, row);
         added += 1;
       }
     }
-
-    // Stop when a page adds no new vacancies (end of the national set).
-    if (added === 0) break;
+    console.log(`  ✅ ${parsed.rows.length} Swiss jobs on this page (${all.size}/${total || '?'})`);
+    if (added === 0 || (total && all.size >= total)) break;
     await sleep(DETAIL_DELAY_MS);
   }
-
-  console.log(`\n📊 Total unique national jobs: ${allJobs.size}`);
-  return [...allJobs.values()];
+  console.log(`\n📊 Total unique Swiss jobs: ${all.size}`);
+  return [...all.values()];
 }
 
 /**
- * Fetch detail pages and enrich job data.
+ * Fetch detail pages and enrich job data. The listing API already carries the
+ * whole ad as flat text; the detail page's JSON-LD carries it as HTML, which
+ * keeps the lists. A failed detail page falls back to the listing text of the
+ * SAME ad, never to a teaser.
  */
 async function enrichWithDetails(listings) {
   const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'AXA');
-  const enriched = new Array(toFetch.length);
+  const enriched = [];
 
-  console.log(`\n🔎 Fetching up to ${toFetch.length} detail pages (concurrency: ${DETAIL_CONCURRENCY})...`);
-
-  // Process in batches of DETAIL_CONCURRENCY
-  for (let start = 0; start < toFetch.length; start += DETAIL_CONCURRENCY) {
-    const batch = toFetch.slice(start, start + DETAIL_CONCURRENCY);
-    const results = await Promise.all(
-      batch.map(async (item, batchIdx) => {
-        const idx = start + batchIdx;
-        try {
-          // Use the full URL from the listing page (includes slug + uuid)
-          const itUrl = item.url || buildDetailUrl(item.uuid, 'it');
-          const html = await fetchText(itUrl);
-          const detail = parseAxaDetailPage(html, itUrl);
-
-          if (detail) {
-            return {
-              ...item,
-              detailUrl: itUrl,
-              title: detail.title || item.title,
-              location: detail.location || '',
-              address: detail.address || '',
-              workload: detail.workload || '',
-              description: detail.description || '',
-              metaDescription: detail.metaDescription || item.excerpt || '',
-              applyUrl: detail.applyUrl || item.applyUrl || '',
-              lang: detail.lang || 'it',
-            };
-          }
-          return {
-            ...item,
-            detailUrl: itUrl,
-            description: item.excerpt || '',
-            metaDescription: item.excerpt || '',
-            location: '',
-            address: '',
-            workload: '',
-            lang: 'it',
-          };
-        } catch (err) {
-          console.log(`  ⚠️ Detail fetch failed for ${item.title}: ${err.message}`);
-          return {
-            ...item,
-            detailUrl: item.url,
-            description: item.excerpt || '',
-            metaDescription: item.excerpt || '',
-            location: '',
-            address: '',
-            workload: '',
-            lang: 'it',
-          };
-        }
-      }),
-    );
-
-    results.forEach((r, batchIdx) => { enriched[start + batchIdx] = r; });
-    const done = Math.min(start + DETAIL_CONCURRENCY, toFetch.length);
-    if (done % 5 === 0 || done === toFetch.length) {
-      console.log(`  ✅ ${done}/${toFetch.length} detail pages fetched`);
+  console.log(`\n🔎 Fetching ${toFetch.length} detail pages (one every ${DETAIL_DELAY_MS / 1000}s, robots crawl-delay)...`);
+  for (let index = 0; index < toFetch.length; index += 1) {
+    const item = toFetch[index];
+    let detail = null;
+    try {
+      detail = parseAxaJibeDetailPage(await fetchText(item.detailUrl));
+    } catch (err) {
+      console.log(`  ⚠️ Detail fetch failed for ${item.title}: ${err.message}`);
     }
-    if (start + DETAIL_CONCURRENCY < toFetch.length) await sleep(DETAIL_DELAY_MS);
+    const description = detail?.description || item.listingDescription || '';
+    enriched.push({
+      ...item,
+      title: detail?.title || item.title,
+      location: item.listingCity,
+      workload: detail?.workload || '',
+      description,
+      metaDescription: item.excerpt || '',
+    });
+    if ((index + 1) % 10 === 0 || index + 1 === toFetch.length) {
+      console.log(`  ✅ ${index + 1}/${toFetch.length} detail pages fetched`);
+    }
+    if (index + 1 < toFetch.length) await sleep(DETAIL_DELAY_MS);
   }
 
   // Keep only jobs whose canton resolves to one of the 26 Swiss cantons.
@@ -257,7 +219,7 @@ async function enrichWithDetails(listings) {
   // TI. Unresolved / foreign locations are dropped.
   const relevant = [];
   for (const job of enriched) {
-    let canton = inferAxaCanton(job.listingCity, job.location, job.address);
+    let canton = job.cantonHint || inferAxaCanton(job.listingCity, job.location, job.address);
     if (!canton) {
       // jobs.axa.ch is AXA Switzerland's own dedicated national portal — a
       // job scraped from it is Swiss by construction, so an unresolved
@@ -387,6 +349,8 @@ export function buildAxaJob(row) {
     companyDomain: COMPANY_DOMAIN,
     location: resolvedLocation,
     addressLocality,
+    ...(row.postalCode ? { postalCode: row.postalCode } : {}),
+    ...(row.street ? { streetAddress: row.street } : {}),
     addressRegion: canton,
     addressCountry: 'CH',
     canton,
@@ -408,7 +372,9 @@ export function buildAxaJob(row) {
 }
 
 function jobMatchKey(job = {}) {
-  // Use UUID from URL as primary key
+  // careers.axa.com requisition id, then the jobs.axa.ch UUID of older records
+  const reqId = extractAxaJibeJobId(job.url || '');
+  if (reqId) return `axa-req-${reqId}`;
   const uuid = extractUuidFromUrl(job.url || '');
   if (uuid) return uuid;
   return normalize(job.url) || normalize(job.slug);
@@ -472,7 +438,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated AXA Svizzera crawler. Prospective.ch Career Center (CC 2193). National (CH-wide) listing, no region facet — per-job canton inferred from the clean city signal across all 26 cantons. Detail pages at /posizioni-aperte/{slug}/{uuid}. ATS: Umantis (recruitingapp-2735.umantis.com).',
+    notes: 'Dedicated AXA Svizzera crawler. AXA Group Jibe portal careers.axa.com (jobs.axa.ch redirects there since 2026-07). Listing API /api/jobs?country=Switzerland, detail JSON-LD at /careers-home/jobs/{req_id}; robots crawl-delay 5 s. Per-job canton inferred from the posting locality across all 26 cantons. ATS: iCIMS (careers-*-axa.icims.com).',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -501,12 +467,11 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log('  AXA Svizzera — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
-  console.log(`  Careers page: ${CAREERS_URL}`);
-  console.log(`  Career Center ID: 2193 (Prospective.ch)\n`);
+  console.log(`  Careers page: ${CAREERS_URL}\n`);
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {
-    console.log('⚠️ No listings found on AXA career center — skipping.');
+    console.log('⚠️ No Swiss listings found on careers.axa.com — skipping.');
     return;
   }
 

@@ -22,6 +22,7 @@ import {
   buildAxaRegeneratedSlug,
   buildAxaJob,
 } from '@/scripts/update-axa-jobs.mjs';
+import { parseAxaJibeDetailPage, parseAxaJibeListing } from '@/scripts/lib/axa-job-parser.mjs';
 
 interface AxaRowFixture {
   url: string;
@@ -184,5 +185,82 @@ describe('buildAxaJob — slug regression', () => {
     const job = buildAxaJob(row);
     expect(job.addressLocality).toBeTruthy();
     expect(String(job.addressLocality).toLowerCase()).toContain('manno');
+  });
+});
+
+describe('AXA careers.axa.com (Jibe) source', () => {
+  // Shapes of https://careers.axa.com/api/jobs?country=Switzerland and of a
+  // detail page's JSON-LD on 2026-09-29, minimized (jobs.axa.ch answers 301
+  // to this portal since 2026-07).
+  const listingJson = {
+    totalCount: 3,
+    jobs: [
+      {
+        data: {
+          req_id: '26952',
+          title: 'Berater:in Gesundheitsvorsorge für die Generalagentur Vorsorge & Vermögen Bern',
+          language: 'de-de',
+          city: 'BERN',
+          postal_code: '3008',
+          street_address: 'Laupenstrasse 19',
+          country_code: 'CH',
+          description: '100%, Arbeitsort Bern Gestalte deine Zukunft – gemeinsam mit uns! Das erwartet dich Bedürfnisorientierte Beratung',
+          apply_url: 'https://careers-de-axa.icims.com/jobs/26952/login',
+          posted_date: '2026-09-24T06:32:00+0000',
+          meta_data: { googlejobs: { derivedInfo: { locations: [{ postalAddress: { locality: 'Bern', administrativeArea: 'BE', postalCode: '3008' } }] } } },
+        },
+      },
+      {
+        data: {
+          req_id: '23727',
+          title: 'Mitarbeiter:in Innendienst für die Hauptagentur Pfäffikon SZ',
+          language: 'de-de',
+          city: 'PFÄFFIKON',
+          postal_code: '8808',
+          street_address: 'Churerstrasse 135',
+          country_code: 'CH',
+          description: '60%, Arbeitsort Pfäffikon SZ',
+          meta_data: { googlejobs: { derivedInfo: { locations: [{ postalAddress: { locality: 'Freienbach', administrativeArea: 'SZ' } }] } } },
+        },
+      },
+      { data: { req_id: '99999', title: 'Claims Handler', language: 'en-us', city: 'DUBLIN', country_code: 'IE' } },
+    ],
+  };
+
+  it('keeps the Swiss postings with the city the page states and the geocoded canton', () => {
+    const { total, rows } = parseAxaJibeListing(listingJson);
+
+    expect(total).toBe(3);
+    expect(rows.map((row) => row.reqId)).toEqual(['26952', '23727']);
+    expect(rows[0]).toMatchObject({
+      url: 'https://careers.axa.com/careers-home/jobs/26952?lang=de-de',
+      listingCity: 'Bern',
+      cantonHint: 'BE',
+      address: 'Laupenstrasse 19, 3008 Bern',
+      postalCode: '3008',
+      lang: 'de',
+    });
+    // «PFÄFFIKON» is what the detail page says; «Freienbach» is only the
+    // municipality the geocoder picked. The canton settles the homonym.
+    expect(rows[1]).toMatchObject({ listingCity: 'Pfäffikon', cantonHint: 'SZ' });
+    expect(rows[0].listingDescription).toContain('Das erwartet dich');
+  });
+
+  it('reads the full HTML ad from the detail JSON-LD, lists and umlauts included', () => {
+    const html = `<html><head><script type="application/ld+json">${JSON.stringify({
+      '@context': 'http://schema.org',
+      '@type': 'JobPosting',
+      title: 'Berater:in Gesundheitsvorsorge für die Generalagentur Vorsorge &amp; Verm&ouml;gen Bern',
+      description: '<p><span>100%, Arbeitsort Bern</span></p><p>&nbsp;</p><p><strong>Das erwartet dich</strong></p><ul><li>Bed&uuml;rfnisorientierte Beratung von Versicherungskund:innen</li><li>Gewinnung von Neukund:innen</li></ul><p><strong>Das bringst du mit</strong></p><ul><li>&Uuml;berzeugendes Auftreten</li></ul>',
+      jobLocation: { '@type': 'Place', address: { addressLocality: 'BERN', postalCode: '3008' } },
+    })}</script></head><body></body></html>`;
+    const detail = parseAxaJibeDetailPage(html);
+
+    expect(detail.title).toBe('Berater:in Gesundheitsvorsorge für die Generalagentur Vorsorge & Vermögen Bern');
+    expect(detail.workload).toBe('100%');
+    expect(detail.description).toMatch(/^100%, Arbeitsort Bern/);
+    expect(detail.description).toContain('Das erwartet dich\n\n• Bedürfnisorientierte Beratung von Versicherungskund:innen');
+    expect(detail.description).toContain('• Überzeugendes Auftreten');
+    expect(detail.description).not.toMatch(/&[a-z]+;/i);
   });
 });

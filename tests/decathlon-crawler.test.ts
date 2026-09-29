@@ -2,10 +2,47 @@ import { describe, it, expect } from 'vitest';
 import {
   DECATHLON_KEY,
   DECATHLON_COMPANY_NAME,
+  extractDecathlonDetailDescription,
   isDecathlonJob,
   isTrustedDomain,
 } from '../scripts/lib/decathlon-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+// joinus.decathlon.ch/fr_CH/annonce/4534967-velo-verkaufer-mwd-50-baar-6340-baar
+// on 2026-09-29, minimized: the JSON-LD `description` is the «Mission» block
+// only; «Profil» (profile, offer, application steps) is a second html_block.
+const DETAIL_HTML = `<html><head><script type="application/ld+json">${JSON.stringify({
+  '@context': 'http://schema.org',
+  '@type': 'JobPosting',
+  title: 'Velo-Verkäufer (m/w/d) 50% - Baar',
+  description: '<h3>Dein Spielfeld: Die Welt auf zwei Rädern</h3><p>Du liebst Fahrräder nicht nur, du verstehst sie auch?</p><h3>Deine Mission bei uns:</h3><ul><li><p><b>Beratung &amp; Verkauf:</b> Du bist der erste Ansprechpartner für Einsteiger und Profis.</p></li></ul>',
+})}</script></head><body>
+<section data-logic-value="catch_phrase" id="catch_phrase" class="catch-phrase-block blockList__block"><p>Rejoins-nous !</p></section>
+<section data-logic-value="html_block" id="mission" class="html-block blockList__block"><h2 class="title html-block__title"> Mission </h2><div class="rich-text"><h3>Dein Spielfeld: Die Welt auf zwei Rädern</h3><p>Du liebst Fahrräder nicht nur, du verstehst sie auch?</p><h3>Deine Mission bei uns:</h3><ul><li><p><b>Beratung &amp; Verkauf:</b> Du bist der erste Ansprechpartner für Einsteiger und Profis.</p></li></ul></div></section>
+<section data-logic-value="html_block" id="profile" class="html-block blockList__block"><h2 class="title html-block__title"> Profil </h2><div class="rich-text"><h3>Das bist du:</h3><ul><li><p><b>Velo-Fanatiker:</b> Du bist selbst aktiver Radfahrer (MTB, Rennrad oder City).</p></li></ul><h3>Was wir dir bieten:</h3><ul><li><p><b>Sport-Benefits:</b> 25% Rabatt auf Eigenmarken und 5 Wochen Ferien.</p></li></ul></div></section>
+<section data-logic-value="job_ad_location" id="job_ad_location" class="job-ad-location-block blockList__block"><p>Langgasse 40, 6340 Baar, Switzerland</p></section>
+<section data-logic-value="social_media_share" id="social_media_share" class="social-media-share-block blockList__block"><p>Partager cette annonce sur LinkedIn</p></section>
+</body></html>`;
+
+describe('Decathlon detail description', () => {
+  it('reads every html_block of the ad, not only the JSON-LD mission', () => {
+    const description = extractDecathlonDetailDescription(DETAIL_HTML);
+
+    expect(description).toContain('Deine Mission bei uns:');
+    expect(description).toContain('Velo-Fanatiker:');
+    expect(description).toContain('Was wir dir bieten:');
+    expect(description).toContain('Profil');
+    expect(description).not.toContain('Langgasse 40');
+    expect(description).not.toContain('Partager cette annonce');
+    expect(description).not.toContain('Rejoins-nous');
+  });
+
+  it('keeps the JSON-LD body when the page has no html_block', () => {
+    const jsonLdOnly = DETAIL_HTML.replace(/<section\b[\s\S]*<\/section>/, '');
+    expect(extractDecathlonDetailDescription(jsonLdOnly)).toContain('Deine Mission bei uns:');
+    expect(extractDecathlonDetailDescription(jsonLdOnly)).not.toContain('Velo-Fanatiker');
+  });
+});
 
 describe('Decathlon crawler parser', () => {
   // ── Constants ──
