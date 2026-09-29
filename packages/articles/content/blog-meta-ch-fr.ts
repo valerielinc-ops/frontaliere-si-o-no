@@ -7031,6 +7031,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.obbligo-assicurazione-detenuti.title': 'Détenus domiciliés à l\'étranger : aucune obligation LAMal',
     'blog.article.obbligo-assicurazione-detenuti.excerpt': 'Après le vote du Conseil des États en juin, le Conseil national a rejeté la modification de la LAMal sans aucune voix favorable : les coûts des détenus restent à la charge des cantons.',
     'blog.article.obbligo-assicurazione-detenuti.imageAlt': 'Parlement suisse à Berne avec un dossier sur l\'assurance maladie des détenus',
+    'blog.article.uova-piccoli-allevamenti-csl.title': 'Œufs suisses : parler de petits élevages est « trompeur »',
+    'blog.article.uova-piccoli-allevamenti-csl.excerpt': 'La Commission suisse pour la loyauté juge trompeuse une publicité de Suisse Garantie : 65% des poules pondeuses vivent dans des élevages de plus de 4000 animaux.',
+    'blog.article.uova-piccoli-allevamenti-csl.imageAlt': 'Œufs suisses et poules pondeuses dans un élevage',
 };
 
 export default blogMetaChFr;

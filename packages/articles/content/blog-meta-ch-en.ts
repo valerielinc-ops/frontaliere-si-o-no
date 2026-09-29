@@ -7031,6 +7031,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.obbligo-assicurazione-detenuti.title': 'Prisoners domiciled abroad: no LAMal obligation',
     'blog.article.obbligo-assicurazione-detenuti.excerpt': 'After the Council of States\' vote in June, the National Council rejected the amendment to LAMal with no votes in favor: the costs of detainees remain with the Cantons.',
     'blog.article.obbligo-assicurazione-detenuti.imageAlt': 'Swiss Parliament in Bern with a dossier on detainees\' health insurance',
+    'blog.article.uova-piccoli-allevamenti-csl.title': 'Swiss eggs: “misleading” to talk about small farms',
+    'blog.article.uova-piccoli-allevamenti-csl.excerpt': 'The Swiss Commission for Fairness deems an advertisement by Suisse Garantie misleading: 65% of laying hens live on farms with more than 4000 animals.',
+    'blog.article.uova-piccoli-allevamenti-csl.imageAlt': 'Swiss eggs and laying hens in a farm setting',
 };
 
 export default blogMetaChEn;
