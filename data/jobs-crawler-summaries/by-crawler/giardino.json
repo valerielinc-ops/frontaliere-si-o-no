@@ -1,7 +1,7 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-09-29T09:35:16.740Z",
+  "generatedAt": "2026-09-29T21:37:37.029Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,10 +12,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4392,
-  "avgDurationMs": 4392,
+  "durationMs": 3108,
+  "avgDurationMs": 3108,
   "durationHistory": [
-    4392
+    3108
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,8 +30,8 @@
       "canton": "GR",
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
       "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:08.318Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-29T21:37:31.586Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -46,13 +46,13 @@
       "featured": false,
       "postedDate": "2026-09-16",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:04:35.177Z",
-      "_qualityScore": 92,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -67,8 +67,8 @@
       "canton": "GR",
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:08.516Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-29T21:37:31.640Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -83,13 +83,13 @@
       "featured": false,
       "postedDate": "2026-09-16",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:04:35.324Z",
-      "_qualityScore": 92,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -104,8 +104,8 @@
       "canton": "GR",
       "url": "https://giardinohotels.ch/talents/en/job-restaurant-manager.html",
       "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:07.920Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-29T21:37:31.325Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -120,13 +120,13 @@
       "featured": false,
       "postedDate": "2026-08-01",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-restaurant-manager.html",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T23:13:18.866Z",
-      "_qualityScore": 92,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -141,8 +141,8 @@
       "canton": "GR",
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang.html",
       "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:08.122Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-29T21:37:31.534Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -157,13 +157,13 @@
       "featured": false,
       "postedDate": "2026-08-01",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-chef-de-rang.html",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T23:13:18.868Z",
-      "_qualityScore": 92,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 4,
         "completeness": 17
       }
     }

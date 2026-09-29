@@ -1,21 +1,21 @@
 {
   "key": "bossard",
   "label": "Bossard Group",
-  "generatedAt": "2026-09-29T09:35:46.125Z",
+  "generatedAt": "2026-09-29T21:38:53.540Z",
   "total": 3,
   "discovered": null,
-  "parsed": 3,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4845,
-  "avgDurationMs": 4845,
+  "unchangedCount": 1,
+  "durationMs": 4259,
+  "avgDurationMs": 4259,
   "durationHistory": [
-    4845
+    4259
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Junior-Controller-80---100----all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:39.780Z",
+      "crawledAt": "2026-09-29T21:38:46.868Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -74,7 +74,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Customer-Service-Specialist-80--100---all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:40.511Z",
+      "crawledAt": "2026-09-29T21:38:47.938Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -99,10 +99,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bossard-991c25cd89d3",
-      "slug": "anwendungstechniker-fur-verbindungslosungen-80-100-all-gender-bossard-ag-bossard-zug",
+      "slug": "application-ingegnere-80-100-all-gender-bossard-ag-bossard-group-zug",
       "company": "Bossard Group",
       "companyKey": "bossard",
       "companyDomain": "bossard.com",
@@ -131,15 +134,17 @@
       "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Application-Engineer-80-100---all-gender-_-1",
       "jobReqId": null,
       "firstSeenAt": "2026-08-11T10:08:45.316Z",
-      "_qualityScore": 85,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

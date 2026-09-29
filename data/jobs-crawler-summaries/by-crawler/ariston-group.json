@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-09-29T09:35:39.851Z",
+  "generatedAt": "2026-09-29T21:38:55.276Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7267,
-  "avgDurationMs": 7267,
+  "durationMs": 6253,
+  "avgDurationMs": 6253,
   "durationHistory": [
-    7267
+    6253
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -119,7 +119,6 @@
       "firstSeenAt": "2026-06-17T22:09:47.599Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://careers.aristongroup.com/job/gerlafingen-servicetechniker-gas-%28mw%29-gerl-4563/1405660433",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -158,7 +157,6 @@
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://careers.aristongroup.com/job/thun-servicetechniker-gas-thun-3600/1151381101",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -310,7 +308,6 @@
       "firstSeenAt": "2026-06-17T22:09:47.599Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://careers.aristongroup.com/job/biel-servicetechniker-gas-%28mw%29-biel-2502/1405657733",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -358,44 +355,6 @@
       }
     },
     {
-      "title": "TECHNICIEN/NE DE SERVICE MAZOUT - RÉGION FRIBOURG",
-      "slug": "technicien-ne-de-service-mazout-region-fribourg-ariston-group-freiburg-ch-1700",
-      "url": "https://careers.aristongroup.com/job/Fribourg-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-FRIBOURG-Frei-1700/1439030933/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1439030933/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Freiburg, CH, 1700",
-      "addressLocality": "Freiburg, CH, 1700",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-09-18",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-10-17",
-      "id": "ariston-group-7ba06c921aef",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:09:54.078Z",
-      "sourceIdentity": "url:https://careers.aristongroup.com/job/fribourg-technicienne-de-service-mazout-r%c3%89gion-fribourg-frei-1700/1439030933",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "title": "TECHNICIEN/NE DE SERVICE MAZOUT - RÉGION NEUCHÂTEL",
       "slug": "technicien-ne-de-service-mazout-region-neuchatel-ariston-group-fontaines-ch-2046",
       "url": "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/",
@@ -424,11 +383,47 @@
       "salarySource": "estimated",
       "sourceIdentity": "url:https://careers.aristongroup.com/job/grosses-fontaines-technicienne-de-service-mazout-r%c3%89gion-neuch%c3%82tel-font-2046/1403021733",
       "firstSeenAt": "2026-06-10T22:11:57.658Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "TECHNICIEN/NE DE SERVICE MAZOUT - RÉGION FRIBOURG",
+      "slug": "technicien-ne-de-service-mazout-region-fribourg-ariston-group-freiburg-ch-1700",
+      "url": "https://careers.aristongroup.com/job/Fribourg-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-FRIBOURG-Frei-1700/1439030933/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1439030933/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Freiburg, CH, 1700",
+      "addressLocality": "Freiburg, CH, 1700",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-09-18",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-10-17",
+      "id": "ariston-group-7ba06c921aef",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-19T23:09:54.078Z",
+      "sourceIdentity": "url:https://careers.aristongroup.com/job/fribourg-technicienne-de-service-mazout-r%c3%89gion-fribourg-frei-1700/1439030933",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
