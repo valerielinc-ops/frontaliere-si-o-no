@@ -52,12 +52,13 @@ import {
   ALDI_SEARCH_API,
 } from './lib/aldi-suisse-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -172,10 +173,11 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
   // REST row holds the canonical structured fields; the detail page only
   // supplies the prose body + bullet requirements.
   // Only the posting's own text is published. A detail page that parsed to
-  // no body (expired vacancy, template drift) yields no job rather than the
-  // old invented "Posizione aperta presso ALDI SUISSE. {title}." filler.
+  // no body (expired vacancy, template drift), or to one under the shared
+  // 50-word floor (source-body-floor.mjs), yields no job rather than the old
+  // invented "Posizione aperta presso ALDI SUISSE. {title}." filler.
   const description = parsed.body || '';
-  if (!description) return null;
+  if (!meetsSourceBodyFloor(description)) return null;
   const requirements = Array.isArray(parsed.requirements) ? parsed.requirements : [];
   const location = listing.city || parsed.location || '';
   const workPct = String(listing.workload || parsed.percentage || '').replace(/\s+/g, '');
@@ -239,21 +241,14 @@ async function fetchAndParseDetailPages(listings) {
     const batch = listings.slice(i, i + concurrency);
     const results = await Promise.allSettled(
       batch.map(async (listing) => {
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
         try {
-          const res = await fetch(listing.url, {
-            signal: controller.signal,
+          const html = await fetchHtml(listing.url, {
+            timeoutMs,
             headers: { Accept: 'text/html', 'User-Agent': UA },
-            redirect: 'follow',
           });
-          if (!res.ok) return null;
-          const html = await res.text();
           return { listing, html };
         } catch {
           return null;
-        } finally {
-          clearTimeout(timer);
         }
       })
     );

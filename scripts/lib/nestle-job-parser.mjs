@@ -21,6 +21,7 @@ import {
   SuccessFactorsAuthError,
 } from './ats-clients/successfactors-client.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -52,10 +53,6 @@ function normalizeSpace(s = '') {
 
 function isSwissLocation(location = '') {
   return /(?:^|,\s*)CH(?:\s|$)/i.test(String(location || ''));
-}
-
-function wordCount(text = '') {
-  return String(text || '').split(/\s+/).filter(Boolean).length;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -266,7 +263,7 @@ export async function fetchAllNestleJobs() {
     // without a vacancy body used to go out as a synthetic "Key details"
     // stub (location, employer, "apply on the portal"); such a listing is
     // not published any more.
-    if (wordCount(detailDescription) < 50) {
+    if (!meetsSourceBodyFloor(detailDescription)) {
       console.log(`  ⏭️  No vacancy text on the detail page, not published: ${title}`);
       withoutBody += 1;
       continue;

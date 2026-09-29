@@ -12294,6 +12294,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.premi-lamal-ticino-de-rosa.title': 'Premi LAMal Ticino 2027: aumento al 3,7% e 519,90 franchi',
     'blog.article.premi-lamal-ticino-de-rosa.excerpt': 'Nel 2027 l\'aumento dei premi in Ticino sarà del 3,7% con 519,90 franchi al mese. Il direttore del DSS Raffaele De Rosa commenta le misure e la spesa sanitaria.',
     'blog.article.premi-lamal-ticino-de-rosa.imageAlt': 'Vista di Bellinzona con i castelli medievali',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.title': 'Intesa Varese-Ticino: S40/S50 ogni 30 min e RE50 Malpensa',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.excerpt': 'Il Consiglio regionale ha ratificato l\'intesa: S40 e S50 ogni 30 min tra Varese e Mendrisio. Prevista la RE50 per Malpensa e Lugano.',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.imageAlt': 'Stazione di Mendrisio: nuovo collegamento S40/S50 ogni 30 minuti verso Varese e Malpensa',
 };
 
 export default blogMetaIt;

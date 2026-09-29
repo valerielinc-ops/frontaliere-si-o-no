@@ -154,7 +154,7 @@ describe('Apple job-details record', () => {
   const jobsData = {
     postingTitle: 'CH-Specialist (m/f/d)',
     jobSummary: 'Apple Retail is where the best of Apple comes together.',
-    description: 'Deliver excellent service to Apple customers by seeking to understand their needs.',
+    description: 'Deliver excellent service to Apple customers by seeking to understand their needs. You bring relevant experience, good English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly and international team.',
     minimumQualifications: 'Fluency in German and English.\n\nAvailability to work a flexible schedule.',
     preferredQualifications: 'Retail experience.\nEnthusiasm for Apple products.',
     postingFooters: [{ localizations: { en_US: [{ content: '<p>At Apple, we’re not all the same. And that’s our greatest strength.</p>' }] } }],
@@ -192,7 +192,7 @@ describe('fetchAllAppleRetailSwitzerlandJobs — posting without any vacancy tex
     const jobsData = {
       postingTitle: 'Specialist',
       jobSummary: 'Apple Retail is where the best of Apple comes together.',
-      description: 'Deliver excellent service to Apple customers by seeking to understand their needs.',
+      description: 'Deliver excellent service to Apple customers by seeking to understand their needs. You bring relevant experience, good English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly and international team.',
     };
     const detailHtml = `<html><body><script nonce="x">window.__staticRouterHydrationData = JSON.parse(${JSON.stringify(JSON.stringify({ loaderData: { jobDetails: { jobsData } } }))});</script></body></html>`;
     const listing = (positionId: string, title: string) => ({

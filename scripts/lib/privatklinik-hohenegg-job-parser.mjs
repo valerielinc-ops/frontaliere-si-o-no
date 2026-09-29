@@ -15,7 +15,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { parseReflineDetail } from './refline-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -128,24 +128,15 @@ function extractPensum(workload = '') {
 /* ── HTTP fetch ────────────────────────────────────────────── */
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
+  return fetchHtml(url, {
+    timeoutMs,
       headers: {
         'User-Agent': USER_AGENT,
         Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
         Referer: PUBLIC_CAREER_URL,
       },
-      signal: controller.signal,
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  });
 }
 
 /* ── Listing parser ────────────────────────────────────────── */

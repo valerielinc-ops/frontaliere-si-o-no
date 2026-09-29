@@ -9,6 +9,7 @@ import { describe, it, expect } from 'vitest';
 import {
   parseOtisWorkdayListings,
   parseOtisWorkdayDetail,
+  parseOtisSiteAddress,
   isSwissLocation,
   parseWorkdayCity,
   buildPublicUrl,
@@ -17,6 +18,7 @@ import {
   normalizeSpace,
   stripHtml,
 } from '@/scripts/lib/otis-job-parser.mjs';
+import { dropIdenticalPostings } from '@/scripts/lib/identical-posting-dedupe.mjs';
 
 // ─── Mock Workday API listing response (matches real API format) ──────────────
 
@@ -313,5 +315,42 @@ describe('stripHtml — Otis metadata header', () => {
     expect(text).toMatch(/^Switzerland$/m);
     expect(text).not.toMatch(/\d{4}-\d{2}-\d{2}Country|SwitzerlandLocation/);
     expect(text).toMatch(/^Deine Rolle$/m);
+  });
+});
+
+// The ad prints its branch address in the header ("Location:"), 2026-09-29.
+// It is the workplace the dedupe key needs; a part the ad does not print
+// stays empty (the Dietlikon line has no postal code).
+describe('parseOtisSiteAddress', () => {
+  const header = (line: string) => `Date Posted:\n2026-09-16\nCountry: \nSwitzerland\nLocation: \n${line}\nDeine Rolle\n\nDu bist verantwortlich …`;
+
+  it('reads street, postal code and town, skipping post-office boxes', () => {
+    expect(parseOtisSiteAddress(header('Nenzlingerweg 2, 4153 Reinach'))).toEqual({ streetAddress: 'Nenzlingerweg 2', postalCode: '4153', locality: 'Reinach' });
+    expect(parseOtisSiteAddress(header('Route de Moncor 12, CP 1136, 1701 Fribourg'))).toEqual({ streetAddress: 'Route de Moncor 12', postalCode: '1701', locality: 'Fribourg' });
+    expect(parseOtisSiteAddress(header('Chemin des Mésanges 5, 1032, Romanel-sur-Lausanne'))).toEqual({ streetAddress: 'Chemin des Mésanges 5', postalCode: '1032', locality: 'Romanel-sur-Lausanne' });
+  });
+
+  it('leaves the postal code empty when the ad prints none, and returns null without a Location line', () => {
+    expect(parseOtisSiteAddress(header('Bahnhofstrasse 3, Postfach 371, Dietlikon / ZH'))).toEqual({ streetAddress: 'Bahnhofstrasse 3', postalCode: '', locality: 'Dietlikon' });
+    expect(parseOtisSiteAddress('Deine Rolle\n\nDu bist verantwortlich …')).toBeNull();
+  });
+
+  it('is part of the parsed detail', () => {
+    const detail = parseOtisWorkdayDetail({
+      jobPostingInfo: { title: 'Servicetechniker:in (m/w/d)', location: 'Reinach', jobDescription: `<p>${header('Nenzlingerweg 2, 4153 Reinach').replace(/\n/g, '<br>')}</p>`, jobReqId: '20169334' },
+    }, '/job/Reinach/Servicetechniker-in--m-w-d-_20169334');
+    expect(detail?.siteAddress).toEqual({ streetAddress: 'Nenzlingerweg 2', postalCode: '4153', locality: 'Reinach' });
+  });
+
+  it('groups two reqs with the same ad only when the branch address is complete', () => {
+    const body = `${header('Nenzlingerweg 2, 4153 Reinach')}\n\nWartung und Reparatur von Aufzügen in der Region Basel.`;
+    const job = (id: string, address: Record<string, string>) => ({
+      title: 'Servicetechniker:in (m/w/d)', sourceLang: 'de', description: body, descriptionByLocale: { de: body },
+      location: 'Reinach', addressLocality: 'Reinach', url: `https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Reinach/Servicetechniker-in--m-w-d-_${id}`, ...address,
+    });
+    const site = { postalCode: '4153', streetAddress: 'Nenzlingerweg 2' };
+    expect(dropIdenticalPostings([job('20169334', site), job('20169288', site)]).jobs).toHaveLength(1);
+    // Dietlikon: street printed, postal code not: never grouped.
+    expect(dropIdenticalPostings([job('20169211', {}), job('20169212-1', {})]).jobs).toHaveLength(2);
   });
 });

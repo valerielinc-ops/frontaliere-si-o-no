@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import { jsonLdBlocks } from './prospector/extract.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -379,8 +380,10 @@ export async function fetchAllCsdEngineersJobs() {
     // no real description is dropped and counted, so the loss stays visible
     // as a smaller slice (and, if it is widespread, as the anti-shrink guard
     // firing) instead of arriving as plausible-looking content.
+    // A body under the shared 50-word floor (source-body-floor.mjs) is thin
+    // content, not a vacancy text: dropped and counted like an empty one.
     const descriptionText = detail?.description || '';
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       skippedNoDescription.push(title);
       continue;
     }
@@ -445,7 +448,7 @@ export async function fetchAllCsdEngineersJobs() {
     // Loud, not silent: this is the number that used to be invisible because
     // the titles were dressed up as descriptions.
     console.warn(
-      `  ⚠️ Dropped ${skippedNoDescription.length} job(s) with no extractable description `
+      `  ⚠️ Dropped ${skippedNoDescription.length} job(s) with no extractable description of 50+ words `
       + `(no title-synthesized placeholder is emitted): ${skippedNoDescription.slice(0, 5).join(' | ')}`
       + `${skippedNoDescription.length > 5 ? ` … +${skippedNoDescription.length - 5} more` : ''}`,
     );

@@ -39,6 +39,7 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -265,6 +266,18 @@ function runBaseCrawler() {
   return runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, localizeOnlyCompanyKeys: COMPANY_KEY, forceLocalizeKeys: COMPANY_KEY, localizeExistingOnly: true, extraEnv: { JOBS_CRAWLER_MAX_JOB_LINKS: '100000', JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '100000' } });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropSwissMedicalNetworkFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isSwissMedicalJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Swiss Medical Network');
@@ -275,7 +288,7 @@ async function main() {
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isSwissMedicalJob))
 
   const rawPostings = await fetchAllApiPostings();
-  if (!rawPostings.length) { console.log('\n⚠️ Could not fetch Swiss Medical Network postings from the SmartRecruiters API.'); return; }
+  if (!rawPostings.length) { console.log('\n⚠️ Could not fetch Swiss Medical Network postings from the SmartRecruiters API.'); await cleanStoredJobsOnSoftExit(); return; }
 
   // Keep only Swiss postings (the tenant is CH-only, but guard anyway —
   // accept both the ISO code 'ch' and a spelled-out country name).
@@ -319,7 +332,7 @@ async function main() {
     await new Promise((r) => setTimeout(r, 150));
   }
 
-  if (discoveredJobs.length === 0) { console.log('\n⚠️ No Swiss Medical Network jobs found.'); return; }
+  if (discoveredJobs.length === 0) { console.log('\n⚠️ No Swiss Medical Network jobs found.'); await cleanStoredJobsOnSoftExit(); return; }
 
   updateAdapterConfig();
   await mergeJobs(discoveredJobs);

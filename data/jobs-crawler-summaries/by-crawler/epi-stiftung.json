@@ -1,7 +1,7 @@
 {
   "key": "epi-stiftung",
   "label": "Schweizerische Epilepsie-Stiftung (EPI)",
-  "generatedAt": "2026-09-29T09:13:09.886Z",
+  "generatedAt": "2026-09-29T21:17:18.085Z",
   "total": 15,
   "discovered": null,
   "parsed": 15,
@@ -12,10 +12,10 @@
   "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4851,
-  "avgDurationMs": 4851,
+  "durationMs": 19741,
+  "avgDurationMs": 19741,
   "durationHistory": [
-    4851
+    19741
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/junior-chefin-chef-de-service-epi-park-restaurant/f0d5b208-7e9d-4eb7-9424-6165d2ed8105",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.757Z",
+      "crawledAt": "2026-09-29T21:16:54.753Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,8 +52,8 @@
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 22,
+        "translation": 23,
         "completeness": 20
       }
     },
@@ -70,7 +70,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/lehrstelle-als-fachmann-frau-betreuung-fabe-efz-menschen-mit-beeintraechtigung/35714dab-6233-484f-a713-98b89e14cace",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.797Z",
+      "crawledAt": "2026-09-29T21:16:54.771Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,10 +87,10 @@
       "postedDate": "2026-09-27",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/lehrstelle-als-fachmann-frau-betreuung-fabe-efz-menschen-mit-beeintraechtigung/35714dab-6233-484f-a713-98b89e14cace",
       "firstSeenAt": "2026-08-18T09:50:35.455Z",
-      "_qualityScore": 80,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 23,
         "completeness": 20
       }
@@ -108,7 +108,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/lehrstelle-als-assistent-in-gesundheit-und-soziales-ags-eba/cea6e2ea-2b6c-4c60-9190-192cdcbf1c2e",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.804Z",
+      "crawledAt": "2026-09-29T21:16:54.774Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -125,10 +125,10 @@
       "postedDate": "2026-09-27",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/lehrstelle-als-assistent-in-gesundheit-und-soziales-ags-eba/cea6e2ea-2b6c-4c60-9190-192cdcbf1c2e",
       "firstSeenAt": "2026-08-18T09:50:35.445Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 23,
         "completeness": 20
       }
@@ -146,7 +146,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/lehrstelle-als-fachmann-frau-gesundheit-fage-efz/31ba9f72-c4f0-4c2d-8e0e-ac14511f3c93",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.811Z",
+      "crawledAt": "2026-09-29T21:16:54.775Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -163,10 +163,10 @@
       "postedDate": "2026-09-27",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/lehrstelle-als-fachmann-frau-gesundheit-fage-efz/31ba9f72-c4f0-4c2d-8e0e-ac14511f3c93",
       "firstSeenAt": "2026-09-28T21:18:56.954Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 23,
         "completeness": 20
       }
@@ -184,7 +184,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/stv-teamleiterin-teamleiter-bereich-wohnen/0e3f158f-1805-48e0-bf55-f4600a349380",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.840Z",
+      "crawledAt": "2026-09-29T21:16:54.782Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -201,10 +201,10 @@
       "postedDate": "2026-09-16",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/stv-teamleiterin-teamleiter-bereich-wohnen/0e3f158f-1805-48e0-bf55-f4600a349380",
       "firstSeenAt": "2026-09-18T23:14:06.575Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -222,7 +222,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/schulsozialarbeiterin-schulsozialarbeiter/f18c0e20-6333-4570-9b80-e1539a0ff8bb",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.854Z",
+      "crawledAt": "2026-09-29T21:16:54.784Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -239,10 +239,10 @@
       "postedDate": "2026-09-16",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/schulsozialarbeiterin-schulsozialarbeiter/f18c0e20-6333-4570-9b80-e1539a0ff8bb",
       "firstSeenAt": "2026-09-17T03:44:49.628Z",
-      "_qualityScore": 82,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -260,7 +260,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/studierende-sozialpaedagogik-hf-fh/ed4c7092-4bb7-4d24-b9c6-4307371472b6",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.860Z",
+      "crawledAt": "2026-09-29T21:16:54.786Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -277,10 +277,10 @@
       "postedDate": "2026-09-15",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/studierende-sozialpaedagogik-hf-fh/ed4c7092-4bb7-4d24-b9c6-4307371472b6",
       "firstSeenAt": "2026-09-17T03:44:49.637Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -298,7 +298,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/dipl-sozialpaedagogin-sozialpaedagoge-hf-fh/6fad5778-c894-40f6-888a-b7ef92ecde8a",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.873Z",
+      "crawledAt": "2026-09-29T21:16:54.788Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -315,10 +315,10 @@
       "postedDate": "2026-09-15",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/dipl-sozialpaedagogin-sozialpaedagoge-hf-fh/6fad5778-c894-40f6-888a-b7ef92ecde8a",
       "firstSeenAt": "2026-09-17T03:44:49.639Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -336,7 +336,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten/478831df-4276-4a34-9378-96030cc76730",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.822Z",
+      "crawledAt": "2026-09-29T21:16:54.779Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -353,10 +353,10 @@
       "postedDate": "2026-09-10",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten/478831df-4276-4a34-9378-96030cc76730",
       "firstSeenAt": "2026-09-11T13:36:03.238Z",
-      "_qualityScore": 82,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -374,7 +374,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-betreuung-efz/b623eea5-fec6-4975-bcc6-a60e0f2682f3",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.827Z",
+      "crawledAt": "2026-09-29T21:16:54.781Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -391,10 +391,10 @@
       "postedDate": "2026-09-10",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-betreuung-efz/b623eea5-fec6-4975-bcc6-a60e0f2682f3",
       "firstSeenAt": "2026-09-11T13:36:03.233Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -412,7 +412,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk/986fa317-695c-454c-919f-6f0d211d086b",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.879Z",
+      "crawledAt": "2026-09-29T21:16:54.790Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -429,10 +429,10 @@
       "postedDate": "2026-09-10",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk/986fa317-695c-454c-919f-6f0d211d086b",
       "firstSeenAt": "2026-09-11T13:36:03.221Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -450,7 +450,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/3376a3e1-04de-4772-b9cf-34cb26aae744",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.887Z",
+      "crawledAt": "2026-09-29T21:16:54.791Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -467,10 +467,10 @@
       "postedDate": "2026-09-10",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/3376a3e1-04de-4772-b9cf-34cb26aae744",
       "firstSeenAt": "2026-09-11T13:36:03.229Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -488,7 +488,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh/6614132c-a28a-4376-ba44-02d861dbf0d2",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.816Z",
+      "crawledAt": "2026-09-29T21:16:54.777Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -505,10 +505,10 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh/6614132c-a28a-4376-ba44-02d861dbf0d2",
       "firstSeenAt": "2026-09-09T23:05:25.940Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -526,7 +526,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-tagesstaetten-kreativatelier-und-seniorenclub/036a4ea0-e46f-4bf5-8694-ae5f5eb5c0d4",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.897Z",
+      "crawledAt": "2026-09-29T21:16:54.794Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -543,10 +543,10 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-tagesstaetten-kreativatelier-und-seniorenclub/036a4ea0-e46f-4bf5-8694-ae5f5eb5c0d4",
       "firstSeenAt": "2026-09-02T13:34:25.483Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -564,7 +564,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-oder-fachfrau-fachmann-betreuung-efz/741bd5de-868b-4386-acf6-e5a7489e4696",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:57.906Z",
+      "crawledAt": "2026-09-29T21:16:54.798Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -581,10 +581,10 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://job.swissepi.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-oder-fachfrau-fachmann-betreuung-efz/741bd5de-868b-4386-acf6-e5a7489e4696",
       "firstSeenAt": "2026-09-01T23:07:44.226Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }

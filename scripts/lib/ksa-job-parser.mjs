@@ -46,6 +46,7 @@ import {
   fetchJson,
   fetchHtmlWithCookies,
 } from './crawler-template.mjs';
+import { meetsSourceBodyFloor, MIN_SOURCE_BODY_WORDS } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -58,13 +59,9 @@ const BASE_URL = `https://recruitingapp-${UMANTIS_TENANT}.umantis.com`;
 const LISTING_URL = `${BASE_URL}/Jobs/All?lang=ger`;
 const PUBLIC_CAREER_URL = 'https://www.ksa.ch/de/kantonsspital-aarau/karriere-bildung/bewerben/offene-stellen';
 
-// Below this a text is not a vacancy body (Non-Negotiable #4), whether it
-// comes from the careercenter join or from the listing teaser.
-const MIN_LISTING_BODY_WORDS = 50;
-
-function countWords(text = '') {
-  return String(text || '').split(/\s+/).filter(Boolean).length;
-}
+// Below the shared 50-word floor (source-body-floor.mjs) a text is not a
+// vacancy body (Non-Negotiable #4), whether it comes from the careercenter
+// join or from the listing teaser.
 
 /**
  * The publishable body of one Umantis vacancy: its careercenter text when it
@@ -84,9 +81,9 @@ function countWords(text = '') {
  * @returns {string}
  */
 export function resolveKsaVacancyBody(listing = {}, richDesc = '') {
-  if (countWords(richDesc) >= MIN_LISTING_BODY_WORDS) return richDesc;
+  if (meetsSourceBodyFloor(richDesc)) return richDesc;
   const snippet = normalizeSpace(listing?.snippet || '');
-  return countWords(snippet) >= MIN_LISTING_BODY_WORDS ? snippet : '';
+  return meetsSourceBodyFloor(snippet) ? snippet : '';
 }
 
 // Hard cap on pagination walk (10 rows/page → 200 vacancies max).
@@ -530,7 +527,7 @@ export async function fetchAllKsaJobs() {
 
   console.log(`  ✓ Rich descriptions joined: ${enriched}/${jobs.length}`);
   if (withoutBody.length) {
-    console.log(`  ⏭️  Skipped ${withoutBody.length} vacancies with no public body (careercenter text and teaser both < ${MIN_LISTING_BODY_WORDS} words): ${withoutBody.join(', ')}`);
+    console.log(`  ⏭️  Skipped ${withoutBody.length} vacancies with no public body (careercenter text and teaser both < ${MIN_SOURCE_BODY_WORDS} words): ${withoutBody.join(', ')}`);
   }
   // A failed or drifted careercenter join is not "these vacancies have no
   // body": refuse to publish a gutted slice instead of dropping the batch.

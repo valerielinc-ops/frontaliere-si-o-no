@@ -1,13 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   CSD_ENGINEERS_KEY,
   CSD_ENGINEERS_COMPANY_NAME,
   isCsdEngineersJob,
   isTrustedDomain,
   parseCsdDetailPage,
+  fetchAllCsdEngineersJobs,
 } from '../scripts/lib/csd-engineers-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -206,5 +207,39 @@ describe('CSD ENGINEERS crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// A text under the shared 50-word floor is thin content, not a vacancy body:
+// the posting is dropped and counted like one without text (issue 5253). The
+// long body is the opening of 5761617 (jobs.csd.ch, 2026-09-29).
+describe('fetchAllCsdEngineersJobs — posting without a vacancy body', () => {
+  it('publishes the posting with a body and drops the one under 50 words', async () => {
+    const body = 'Bei Henauer Gugler zu arbeiten bedeutet, interessante und komplexe Bauprojekte zu entwickeln – und das in kleinen, hochqualifizierten Teams an attraktiven und modernen Arbeitsplätzen im Herzen von Zürich. '
+      + 'Wir sind ein renommiertes, leistungsstarkes und erfolgreiches Ingenieur- und Planungsbüro mit einer über 100-jährigen Geschichte. '
+      + 'Seit 2015 gehören wir zur CSD Ingenieure Gruppe. CSD ist ein dynamisches, stetig wachsendes und multidisziplinäres Ingenieurunternehmen.';
+    const detail = (title: string, description: string) => `<html><body><h1>${title}</h1><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title,
+      description: `<p>${description}</p>`,
+      jobLocation: { address: { streetAddress: 'Hardturmstrasse 253', addressLocality: 'Zürich', postalCode: '8005', addressCountry: 'CH' } },
+    })}</script></body></html>`;
+    const item = (title: string, link: string) => `<item><title>${title}</title><link>${link}</link><pubDate>Mon, 28 Sep 2026 08:00:00 +0200</pubDate>`
+      + '<tt:locations><tt:location><tt:city>Zürich</tt:city><tt:country>Switzerland</tt:country><tt:name>Zürich</tt:name></tt:location></tt:locations></item>';
+    const rss = `<rss><channel>${item('Projektleiter:in / Bauingenieur:in Hochbau 60-100%', 'https://jobs.csd.ch/jobs/5761617-projektleiter')}${item('Bauzeichner:in EFZ', 'https://jobs.csd.ch/jobs/5700001-bauzeichner')}</channel></rss>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const href = String(url);
+      const text = href.endsWith('.rss') ? rss
+        : href.includes('5761617') ? detail('Projektleiter:in / Bauingenieur:in Hochbau 60-100%', body)
+          : detail('Bauzeichner:in EFZ', 'Wir freuen uns auf deine Bewerbung.');
+      return { ok: true, status: 200, headers: new Headers({ 'content-type': 'text/html' }), text: async () => text } as unknown as Response;
+    }));
+    try {
+      const jobs = await fetchAllCsdEngineersJobs();
+      expect(jobs.map((job: { title: string }) => job.title)).toEqual(['Projektleiter:in / Bauingenieur:in Hochbau 60-100%']);
+      expect(jobs[0].description).toContain('Henauer Gugler');
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

@@ -27,6 +27,7 @@ import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import {
   fetchJson,
+  fetchHtml,
   fetchWithRetry,
   RETRYABLE_STATUS,
   slugify,
@@ -308,49 +309,40 @@ async function fetchTypesenseApiKeyFromSearchApi(nuxtArr) {
  */
 export async function fetchTypesenseApiKey() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const html = await fetchHtml(CAREER_URL, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'de-CH,de;q=0.9',
+    },
+  });
 
-  try {
-    const res = await fetch(CAREER_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'de-CH,de;q=0.9',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from career page`);
-    const html = await res.text();
+  // Extract __NUXT_DATA__ JSON array
+  const nuxtMatch = html.match(/<script[^>]*id="__NUXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+  if (!nuxtMatch) throw new Error('__NUXT_DATA__ not found in career page HTML');
 
-    // Extract __NUXT_DATA__ JSON array
-    const nuxtMatch = html.match(/<script[^>]*id="__NUXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
-    if (!nuxtMatch) throw new Error('__NUXT_DATA__ not found in career page HTML');
+  const nuxtArr = JSON.parse(nuxtMatch[1]);
 
-    const nuxtArr = JSON.parse(nuxtMatch[1]);
+  const apiKey = extractTypesenseApiKeyFromNuxtData(nuxtArr);
 
-    const apiKey = extractTypesenseApiKeyFromNuxtData(nuxtArr);
-
-    if (apiKey) {
-      console.log(`  🔑 Extracted Typesense API key (${apiKey.length} chars)`);
-      return apiKey;
-    }
-
-    // The current job-shop Nuxt client refreshes the key through this endpoint
-    // when the SSR payload contains a null ref. Follow the same public client
-    // contract instead of treating a valid-but-keyless page as a parser break.
-    console.warn('  ⚠️ Nuxt payload has no usable Typesense key; refreshing it through the public job-shop API');
-    const refreshedKey = await fetchTypesenseApiKeyFromSearchApi(nuxtArr);
-    if (refreshedKey) {
-      console.log(`  🔑 Refreshed Typesense API key (${refreshedKey.length} chars)`);
-      return refreshedKey;
-    }
-
-    const keyProp = `typesenseApiKey-${JOB_SHOP_ID}`;
-    throw new Error(`NUXT_DATA: ${keyProp} not found and public key refresh metadata is unavailable (array has ${nuxtArr.length} entries)`);
-  } finally {
-    clearTimeout(timer);
+  if (apiKey) {
+    console.log(`  🔑 Extracted Typesense API key (${apiKey.length} chars)`);
+    return apiKey;
   }
+
+  // The current job-shop Nuxt client refreshes the key through this endpoint
+  // when the SSR payload contains a null ref. Follow the same public client
+  // contract instead of treating a valid-but-keyless page as a parser break.
+  console.warn('  ⚠️ Nuxt payload has no usable Typesense key; refreshing it through the public job-shop API');
+  const refreshedKey = await fetchTypesenseApiKeyFromSearchApi(nuxtArr);
+  if (refreshedKey) {
+    console.log(`  🔑 Refreshed Typesense API key (${refreshedKey.length} chars)`);
+    return refreshedKey;
+  }
+
+  const keyProp = `typesenseApiKey-${JOB_SHOP_ID}`;
+  throw new Error(`NUXT_DATA: ${keyProp} not found and public key refresh metadata is unavailable (array has ${nuxtArr.length} entries)`);
 }
 
 /* ── Typesense Search ────────────────────────────────────── */

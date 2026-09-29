@@ -23,9 +23,8 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractReflineDetailTitle, preferRicherReflineBody } from './refline-common.mjs';
-import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
@@ -161,25 +160,15 @@ function pickLocationHints(workplace = '') {
 /* ── HTTP fetch ────────────────────────────────────────────── */
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': USER_AGENT,
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'de-CH,de;q=0.9,fr;q=0.7,it;q=0.5,en;q=0.3',
-        Referer: PUBLIC_CAREER_URL,
-      },
-      signal: controller.signal,
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
-    return await rescueHtmlIfChallenged(await res.text(), url, { timeoutMs });
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      'User-Agent': USER_AGENT,
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language': 'de-CH,de;q=0.9,fr;q=0.7,it;q=0.5,en;q=0.3',
+      Referer: PUBLIC_CAREER_URL,
+    },
+  });
 }
 
 /* ── Listing parser ────────────────────────────────────────── */

@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-09-29T09:14:21.613Z",
+  "generatedAt": "2026-09-29T21:14:47.013Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18199,
-  "avgDurationMs": 18199,
+  "durationMs": 17252,
+  "avgDurationMs": 17252,
   "durationHistory": [
-    18199
+    17252
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -190,8 +190,8 @@
       "postalCode": "4500",
       "firstSeenAt": "2026-05-26T23:07:05.422Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

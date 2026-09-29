@@ -38,7 +38,7 @@ import { stripContactPII } from './strip-contact-pii.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { parseSuccessFactorsMicrodataLocation } from './successfactors-shared-job-parser-common.mjs';
 import { hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
-import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
+import { dropSameSourceReference } from './identical-posting-dedupe.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -515,6 +515,21 @@ export function resolveHirslandenLocation(detailLocationText, listingCity) {
   return detail || listing;
 }
 
+// "Referenznummer: 43018" (German ads), "Numéro de référence: 70053" (French).
+const REFERENCE_NUMBER_RE = /\b(?:Referenznummer|Numéro de référence)\s*:\s*(\d{3,})/iu;
+
+/**
+ * The Referenznummer the advertisement prints in its header, or '' when it
+ * prints none.
+ *
+ * @param {{ description?: string, descriptionByLocale?: Record<string, string>, sourceLang?: string }} job
+ * @returns {string}
+ */
+export function hirslandenReferenceNumber(job) {
+  const text = job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '';
+  return REFERENCE_NUMBER_RE.exec(String(text))?.[1] || '';
+}
+
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
@@ -674,13 +689,14 @@ export async function fetchAllHirslandenJobs() {
     deduped.push(job);
   }
 
-  // The same requisition (same Referenznummer, same text, same clinic) is
-  // occasionally re-posted under a second SuccessFactors job id: 5 such pairs
-  // on 2026-09-29 (e.g. 1124147801/1123876301, Referenznummer 43018). One
-  // vacancy, one page.
-  const { jobs: unique, dropped } = dropIdenticalPostings(deduped);
+  // Hirslanden publishes the same advertisement under a second SuccessFactors
+  // job id: a re-post (1124147801/1123876301, Referenznummer 43018) or the
+  // French version of a Biel posting (1391700433/1391700533, 70053). The ad
+  // prints its own Referenznummer, and the same number on two URLs is one
+  // advertisement: one page. Postings without a number are never grouped.
+  const { jobs: unique, dropped } = dropSameSourceReference(deduped, hirslandenReferenceNumber);
   if (dropped.length > 0) {
-    console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, clinic and text under another job id).`);
+    console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same Referenznummer under another job id).`);
   }
 
   console.log(`\n📋 Total unique ${HIRSLANDEN_COMPANY_NAME} jobs discovered: ${unique.length}`);
