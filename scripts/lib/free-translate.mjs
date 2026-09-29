@@ -1078,6 +1078,46 @@ const CODEX_TRANSLATE_CALL_TIMEOUT_MS = 180_000;
 // che ai-models.mjs applica alla lane (CODEX_CLI_MIN_TIMEOUT_MS).
 const CODEX_TRANSLATE_MIN_CALL_MS = 15_000;
 const CODEX_TRANSLATE_FAILURE_LIMIT = 3;
+
+// Scadenza ASSOLUTA (epoch ms) del processo che ospita la cascata, oltre la
+// quale nessuna chiamata Codex deve restare in volo. `null` = nessuna: e' il
+// caso di translate-pending e degli altri chiamanti senza un `timeout`
+// esterno, per i quali il comportamento resta quello di prima.
+//
+// Perche' serve: il budget del tier (FREE_TRANSLATE_CODEX_MAX_MS, 5 minuti) e'
+// CUMULATO dall'inizio delle traduzioni, non ancorato all'orologio del
+// processo. create-article parte con le traduzioni dopo generazione e gate,
+// quindi sulle run 36309380063 e 36305591991 i 300 s di Codex sono partiti a
+// processo gia' inoltrato e il `timeout` del workflow (cap 657 s) lo ha ucciso
+// con l'articolo IT pronto: `hard-killed after 657s on section frontaliere`.
+let _codexProcessDeadlineMs = null;
+
+/**
+ * create-article (o un altro processo con un tetto di durata) dichiara qui la
+ * propria scadenza assoluta. Il tier Codex non avvia una chiamata che non ha
+ * almeno CODEX_TRANSLATE_MIN_CALL_MS prima di quella scadenza, e la deadline
+ * di ogni chiamata e' limitata a essa. Un valore non finito o <= 0 la toglie.
+ */
+export function setCodexTranslateProcessDeadline(deadlineMs) {
+  const value = Number(deadlineMs);
+  _codexProcessDeadlineMs = deadlineMs !== null && Number.isFinite(value) && value > 0 ? value : null;
+}
+
+/**
+ * Deadline assoluta della prossima chiamata Codex, oppure `null` se la
+ * chiamata non va avviata: il minimo fra il tetto della singola chiamata, il
+ * residuo del budget del tier e la scadenza del processo. Sotto
+ * CODEX_TRANSLATE_MIN_CALL_MS di finestra la chiamata non ha il tempo di
+ * finire, e avviarla significa solo farsi uccidere a meta'.
+ */
+export function codexCallDeadlineMs({ now, budgetRemainingMs, processDeadlineMs = _codexProcessDeadlineMs }) {
+  let windowMs = Math.min(CODEX_TRANSLATE_CALL_TIMEOUT_MS, budgetRemainingMs);
+  if (processDeadlineMs !== null && processDeadlineMs !== undefined) {
+    windowMs = Math.min(windowMs, processDeadlineMs - now);
+  }
+  if (!(windowMs >= CODEX_TRANSLATE_MIN_CALL_MS)) return null;
+  return now + windowMs;
+}
 const CODEX_LANGUAGE_NAMES = { it: 'Italian', en: 'English', de: 'German', fr: 'French' };
 
 let _codexCalls = 0;
@@ -1232,6 +1272,15 @@ async function _translateWithCodexNow(clean, sourceLang, targetLang, outcome) {
     _stopCodex(`budget di ${Math.round(maxMs / 1000)}s esaurito (FREE_TRANSLATE_CODEX_MAX_MS)`);
     return '';
   }
+  // Rivalutata qui, in coda, e non all'ingresso: l'attesa dietro le chiamate
+  // precedenti consuma proprio la finestra del processo.
+  const callDeadlineMs = codexCallDeadlineMs({ now: Date.now(), budgetRemainingMs: remainingMs });
+  if (callDeadlineMs === null) {
+    // I testi non tradotti restano non tradotti: la cascata scende ai tier
+    // successivi e cio' che resta scoperto lo recupera translate-pending.
+    _stopCodex('scadenza del processo troppo vicina per una nuova chiamata');
+    return '';
+  }
   if (!_codexEngagedLogged) {
     _codexEngagedLogged = true;
     const why = _codexTierPosition() === 'last'
@@ -1250,7 +1299,7 @@ async function _translateWithCodexNow(clean, sourceLang, targetLang, outcome) {
       prefer: [model],
       // AI_MODELS_FORCE_CHAIN non deve trasformare questo tier in un'altra cascata.
       bypassForceChain: true,
-      deadlineMs: startedAt + Math.min(CODEX_TRANSLATE_CALL_TIMEOUT_MS, remainingMs),
+      deadlineMs: callDeadlineMs,
     });
     const out = _cleanCodexTranslation(raw, clean, marker);
     if (!out) {

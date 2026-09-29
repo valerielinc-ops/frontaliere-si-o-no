@@ -7004,6 +7004,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.licenza-estera-soletta-prove.title': 'Patente estera a Soletta: conversione ed esami',
     'blog.article.licenza-estera-soletta-prove.excerpt': 'La guida alla patente nel Cantone di Soletta copre conversione della licenza estera, esami teorico e pratico, corsi obbligatori e ufficio competente.',
     'blog.article.licenza-estera-soletta-prove.imageAlt': 'Conversione della patente estera e prove di guida nel Cantone di Soletta',
+    'blog.article.svizzera-robotica-crescita-aziende.title': 'Svizzera: 217 aziende di robotica e 7 mila posti di lavoro',
+    'blog.article.svizzera-robotica-crescita-aziende.excerpt': 'Analisi Raiffeisen: 50 nuove imprese dal 2020. Zurigo e Vaud poli chiave, forte legame con la ricerca accademica e spin-off.',
+    'blog.article.svizzera-robotica-crescita-aziende.imageAlt': 'Tecnologia robotica in un centro di ricerca svizzero',
+    'blog.article.finma-conclude-julius-baer.title': 'Caso Signa, la FINMA conclude il procedimento su Julius Bär',
+    'blog.article.finma-conclude-julius-baer.excerpt': 'L\'autorità di vigilanza chiude il caso legato al gruppo immobiliare Signa. Richiesti 250 milioni di franchi di capitale aggiuntivo e nuove relazioni sui rischi.',
+    'blog.article.finma-conclude-julius-baer.imageAlt': 'Sede di un istituto bancario nel centro finanziario di Zurigo',
 };
 
 export default blogMetaChIt;

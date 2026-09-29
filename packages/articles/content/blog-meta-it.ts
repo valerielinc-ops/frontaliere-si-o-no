@@ -12262,6 +12262,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.castelseprio-ticino-frontaliere.title': 'Vivere a Castelseprio e lavorare in Ticino da frontaliere',
     'blog.article.castelseprio-ticino-frontaliere.excerpt': 'Per chi vive a Castelseprio, accordo frontalieri in vigore dal 1° gennaio 2024: esenzione di €7\'500 per i vecchi e franchigia di €10\'000 per i nuovi.',
     'blog.article.castelseprio-ticino-frontaliere.imageAlt': 'Pendolare frontaliero verso il Ticino all\'alba, con paesaggio collinare e luce naturale',
+    'blog.article.vivere-sangiano-lavorare-ticino.title': 'Vivere a Sangiano e lavorare in Ticino: guida al budget',
+    'blog.article.vivere-sangiano-lavorare-ticino.excerpt': 'Dal 1° gennaio 2024 è in vigore il nuovo Accordo Frontalieri. Scopri come distinguere esenzioni, franchigie e trattenute per il tuo progetto di vita.',
+    'blog.article.vivere-sangiano-lavorare-ticino.imageAlt': 'Vista panoramica su Lugano, meta di molti frontalieri.',
 };
 
 export default blogMetaIt;

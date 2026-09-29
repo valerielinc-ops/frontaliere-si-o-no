@@ -12,10 +12,10 @@ import type { FirebaseApp } from "firebase/app";
 import type { Analytics as FirebaseAnalytics } from "firebase/analytics";
 import type { FirebasePerformance, PerformanceTrace } from "firebase/performance";
 import type { AppCheck } from "firebase/app-check";
-import { reportCaughtError } from '@/services/errorReporter';
-import { isIndexedDbError } from '@/services/benignErrorPatterns';
-import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
-import { setFirebaseApiKey } from '@/services/firebaseAuthPersistence';
+import { reportCaughtError } from './errorReporter';
+import { isIndexedDbError } from './benignErrorPatterns';
+import { isRecaptchaClientReady, type RecaptchaLikeWindow } from './recaptchaReady';
+import { setFirebaseApiKey } from './firebaseAuthPersistence';
 import { openIndexedDbWithSchema } from './indexedDbSchema';
 
 const firebaseConfig = {
@@ -569,7 +569,7 @@ async function initAppCheck(): Promise<void> {
  console.log('✅ reCAPTCHA pronto');
 
  // Passa la site key al recaptchaService per la verifica nelle API
- const { recaptchaService } = await import('@/services/recaptchaService');
+ const { recaptchaService } = await import('./recaptchaService');
  recaptchaService.setSiteKey(recaptchaSiteKey);
  
  const appCheckModule = await import("firebase/app-check");
