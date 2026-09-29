@@ -21175,6 +21175,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'soletta-licenza-estera-esami',
+    category: 'pratico',
+    date: '2026-09-29T13:19:30.604Z',
+    image: '/images/blog/soletta-licenza-estera-esami.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'accessibilita-mezzi-pubblici-uft',
+    category: 'pratico',
+    date: '2026-09-29T13:47:56.708Z',
+    image: '/images/blog/accessibilita-mezzi-pubblici-uft.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
