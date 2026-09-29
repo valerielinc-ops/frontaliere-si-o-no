@@ -24,6 +24,7 @@ import {
 import { splitJobLocation } from './job-location-display.mjs';
 import { stripSuccessFactorsMoreLocations } from './successfactors-jobs2web-widget-guard.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const ZURICH_INSURANCE_KEY = 'zurich-insurance-sede-ticino';
 // Legacy key retained so existing Zurich Insurance records keep their identity.
@@ -457,10 +458,11 @@ export async function prepareZurichInsuranceCrawler({
       }
 
       // Only the posting's own text is published. A detail page without a
-      // body leaves the description empty and the shared pipeline's
-      // thin-source check quarantines the job, instead of the "Key details"
-      // stub the crawler used to write in its place (issue 5253).
-      const description = detailDescription;
+      // body of at least MIN_SOURCE_BODY_WORDS leaves the description empty
+      // and the shared pipeline's thin-source check quarantines the job,
+      // instead of the "Key details" stub the crawler used to write in its
+      // place (issue 5253).
+      const description = meetsSourceBodyFloor(detailDescription) ? detailDescription : '';
       const sourceLang = detectLang(description || listing.title, 'en');
       const contract = normalizeContract('', listing.title, description);
       const generatedSlug = slugify(`${listing.title} ${ZURICH_INSURANCE_KEY} ${location}`);
