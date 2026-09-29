@@ -369,7 +369,7 @@ describe('fetchAllSfsGroupJobs', () => {
     expect(jobs[0].canton).toBe('SH');
   });
 
-  it('falls back to a synthesized description when the detail fetch fails, without dropping the job', async () => {
+  it('keeps the job without inventing a description when the detail fetch fails (thin-source path)', async () => {
     const href = '/ch/en/vacancies/some-role-(m-f-d).html';
     const listingHtml = buildListingHtml([
       listingRow(href, 'Some Role (m/f/d) 100%', 'Heerbrugg, Schweiz', 'SFS Group Schweiz AG'),
@@ -383,9 +383,15 @@ describe('fetchAllSfsGroupJobs', () => {
     }));
 
     const jobs = await fetchAllSfsGroupJobs();
+    // The parser still emits the job — it does not vanish silently — but with
+    // no text of its own: the former "<Titel> bei <Gesellschaft> (SFS Group) in
+    // <Ort>." is gone, and validateDedicatedLocaleCoverage quarantines the
+    // empty description (empty_source_description) instead of publishing it.
     expect(jobs).toHaveLength(1);
-    expect(jobs[0].description).toMatch(/Some Role/);
-    expect(jobs[0].description).toMatch(/SFS Group/);
+    expect(jobs[0].url).toContain('/ch/en/vacancies/some-role-(m-f-d).html');
+    expect(jobs[0].description).toBe('');
+    expect(Object.values(jobs[0].descriptionByLocale)).toEqual(['']);
+    expect(jobs[0].description).not.toMatch(/SFS Group|Some Role/);
   });
 
   it('returns [] (no throw) when the listing itself fails', async () => {
