@@ -91124,6 +91124,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-obbligo-assicurazione-detenuti': {
+    title: 'Detenuti domiciliati all\'estero: nessun obbligo LAMal',
+    description: 'Dopo il voto degli Stati in giugno, il Nazionale oggi boccia senza voti favorevoli la modifica LAMal: nessun obbligo per i detenuti domiciliati all\'estero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, detenuti, domiciliati, estero, nessun',
+    ogTitle: 'Detenuti domiciliati all\'estero: no all\'obbligo LAMal',
+    ogDescription: 'La proposta del Consiglio federale puntava a spostare dai Cantoni alle casse malati i costi sanitari dei detenuti stranieri. Dopo il no degli Stati in giugno, il Nazionale ha chiuso il dossier senza voti favorevoli.',
+    canonicalPath: '/articoli-svizzera/obbligo-assicurazione-detenuti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Detenuti domiciliati all'estero: nessun obbligo LAMal",
+      "description": "Dopo il voto degli Stati in giugno, il Nazionale oggi boccia senza voti favorevoli la modifica LAMal: nessun obbligo per i detenuti domiciliati all'estero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/obbligo-assicurazione-detenuti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parlamento svizzero a Berna e dossier sull'assicurazione malattie dei detenuti"
+      },
+      "datePublished": "2026-09-29T09:13:37+00:00",
+      "dateModified": "2026-09-29T09:13:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/obbligo-assicurazione-detenuti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

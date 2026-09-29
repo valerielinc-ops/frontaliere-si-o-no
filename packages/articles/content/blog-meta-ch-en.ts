@@ -7028,6 +7028,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rincari-abitazione-mobilita-svizzera.title': 'Rising housing and mobility costs: spending on the rise in Switzerland',
     'blog.article.rincari-abitazione-mobilita-svizzera.excerpt': 'In August 2026, prices related to housing and mobility in Switzerland show a +2,4% increase, with an additional burden of 89 francs per month for families.',
     'blog.article.rincari-abitazione-mobilita-svizzera.imageAlt': 'Increase in housing and mobility costs in Switzerland',
+    'blog.article.obbligo-assicurazione-detenuti.title': 'Prisoners domiciled abroad: no LAMal obligation',
+    'blog.article.obbligo-assicurazione-detenuti.excerpt': 'After the Council of States\' vote in June, the National Council rejected the amendment to LAMal with no votes in favor: the costs of detainees remain with the Cantons.',
+    'blog.article.obbligo-assicurazione-detenuti.imageAlt': 'Swiss Parliament in Bern with a dossier on detainees\' health insurance',
 };
 
 export default blogMetaChEn;
