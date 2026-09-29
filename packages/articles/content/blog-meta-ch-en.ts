@@ -7073,6 +7073,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.percorsi-impiego-pubblico.title': 'Working in the Federal Administration: opportunities and training',
     'blog.article.percorsi-impiego-pubblico.excerpt': 'The Federal Administration offers 50 vocational training programs, internships for recent graduates, and seven weeks of vacation.',
     'blog.article.percorsi-impiego-pubblico.imageAlt': 'Team working in a Swiss federal administration office',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Health insurance 2027: a difference of up to 10\'000 francs',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'In 2027, the national average will be 16\'450 francs, but the difference between Geneva and Zug for the same family is close to 10\'000 francs.',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Swiss family reviewing health insurance bill in Ticino',
 };
 
 export default blogMetaChEn;
