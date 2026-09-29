@@ -676,7 +676,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:09:57.617Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -758,7 +757,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:49:51.686Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1014,7 +1012,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:40:16.322Z",
-      "needsRetranslation": true,
       "salaryMin": 69900,
       "salaryMax": 97500,
       "salarySource": "estimated",
@@ -1252,7 +1249,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T23:12:49.371Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1332,7 +1328,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:56:08.452Z",
-      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -1662,7 +1657,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:02:35.390Z",
-      "needsRetranslation": true,
       "salaryMin": 17300,
       "salaryMax": 24100,
       "salarySource": "estimated",
@@ -1900,7 +1894,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:54:47.877Z",
-      "needsRetranslation": true,
       "salaryMin": 43300,
       "salaryMax": 60300,
       "salarySource": "estimated",
@@ -2218,7 +2211,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:30.470Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3131,7 +3123,7 @@
         "it": "psicologo-specializzato-in-psicoterapia-crans-montana-80-hug-crans-montana-61038f",
         "en": "psychologist-specialized-in-psychotherapy-crans-montana-80-hug-crans-montana-61038f",
         "de": "psychotherapeut-crans-montana-80-hug-crans-montana-61038f",
-        "fr": "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana"
+        "fr": "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana-utlsvq"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3184,6 +3176,9 @@
         ],
         "de": [
           "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana"
+        ],
+        "fr": [
+          "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana"
         ]
       },
       "firstSeenAt": "2026-07-24T11:11:50.827Z",
@@ -3200,8 +3195,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "hug-57be55c52c5b",
@@ -3444,8 +3438,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "hug-d91c48c2e3f5",
@@ -3630,7 +3623,7 @@
         "it": "collaboratore-o-collaboratore-scientifico-100-hug-geneve",
         "en": "collaborator-or-scientific-collaborator-100-hug-geneve",
         "de": "mitarbeiter-oder-wissenschaftlicher-mitarbeiter-100-hug-geneve",
-        "fr": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
+        "fr": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve-spdbze"
       },
       "company": "HUG",
       "companyKey": "hug",
