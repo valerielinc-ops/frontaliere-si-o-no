@@ -171,7 +171,12 @@ describe('promozione crawler — nessun side-effect a load-time nelle catene imp
       driver,
       `const mods = ${JSON.stringify(CLOSURE)};\n`
         + `for (const m of mods) {\n`
-        + `  await import(${JSON.stringify(ROOT)} + '/' + m);\n`
+        // The production graph legitimately contains JSON modules imported
+        // with an import attribute. Preserve that contract in the probe too;
+        // omitting it turns a valid JSON dependency into a false load-time
+        // failure before any side-effect assertion can run.
+        + `  if (m.endsWith('.json')) await import(${JSON.stringify(ROOT)} + '/' + m, { with: { type: 'json' } });\n`
+        + `  else await import(${JSON.stringify(ROOT)} + '/' + m);\n`
         + `  process.stdout.write('LOADED ' + m + '\\n');\n`
         + `}\n`,
     );
