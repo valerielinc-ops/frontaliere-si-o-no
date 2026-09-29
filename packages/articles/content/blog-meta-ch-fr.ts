@@ -7085,6 +7085,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ufc-finanzia-ricerca-provenienza.title': 'OFC : 1,95 million pour 26 projets de recherche',
     'blog.article.ufc-finanzia-ricerca-provenienza.excerpt': 'L\'OFC alloue environ 1,95 million de francs à 26 projets de recherche sur la provenance des musées et des collections en Suisse pour 2027-2028.',
     'blog.article.ufc-finanzia-ricerca-provenienza.imageAlt': 'Vue de Bellinzona avec musées en arrière-plan, lumière du matin',
+    'blog.article.validita-lista-onu-svizzera.title': 'ONU : la liste des sanctions a été mise à jour en Suisse',
+    'blog.article.validita-lista-onu-svizzera.excerpt': 'Le 29 septembre 2026, le comité des sanctions de l’ONU a modifié la liste. SESAM a été mise à jour et la modification s’applique immédiatement en Suisse.',
+    'blog.article.validita-lista-onu-svizzera.imageAlt': 'Berne, mise à jour de la liste des sanctions de l’ONU dans SESAM',
 };
 
 export default blogMetaChFr;
