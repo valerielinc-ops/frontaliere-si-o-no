@@ -29,6 +29,7 @@ import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
+import { loadCrossCrawlerDedupProofFile } from './lib/crawler-slice-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -38,6 +39,14 @@ function readJson(filePath, fallback) {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
   } catch {
     return fallback;
+  }
+}
+
+function readRaw(filePath) {
+  try {
+    return fs.readFileSync(filePath, 'utf8');
+  } catch {
+    return null;
   }
 }
 
@@ -79,10 +88,21 @@ export function filterSliceJobs(original, assembled) {
 export function pruneDedupFromSlices(root = ROOT) {
   const dataJobs = path.join(root, 'data', 'jobs.json');
   const slicesDir = path.join(root, 'data', 'jobs', 'by-crawler');
+  const assembledRaw = readRaw(dataJobs);
   const assembled = readJson(dataJobs, null);
   if (!Array.isArray(assembled)) {
     console.log('ℹ️  data/jobs.json not found or not an array — nothing to prune. Run assemble-jobs-dataset.mjs first.');
     return { totalPruned: 0, modifiedSlices: 0 };
+  }
+
+  let dedupProof = null;
+  try {
+    dedupProof = loadCrossCrawlerDedupProofFile({ candidateRaw: assembledRaw });
+    if (dedupProof) {
+      console.log(`🔐 Loaded ${dedupProof.entries.length} monolithic dedup proof decision(s)`);
+    }
+  } catch (error) {
+    console.warn(`⚠️  Ignoring unavailable monolithic dedup proof: ${error?.message ?? error}`);
   }
 
   const membership = buildAssembledMembership(assembled);
@@ -119,7 +139,9 @@ export function pruneDedupFromSlices(root = ROOT) {
       // The assembled dataset is the evidence that the removed records were
       // cross-crawler duplicates. Pass it to the shared byte guard explicitly;
       // an ordinary crawler write remains fail-closed on the same shrink.
-      writeJson(slicePath, { ...slice, jobs: kept }, { dedupReferenceJobs: assembled });
+      const dedupReferenceJobs = assembled.slice();
+      if (dedupProof) dedupReferenceJobs.proof = dedupProof;
+      writeJson(slicePath, { ...slice, jobs: kept }, { dedupReferenceJobs });
       modifiedSlices++;
       totalPruned += pruned;
     }
