@@ -21,7 +21,7 @@
  * provider keys and STRIPE_SECRET_KEY are read from Remote Config.
  */
 
-import admin from 'firebase-admin';
+import { createRequire } from 'node:module';
 import { getRemoteConfigValue } from '../functions/src/remoteConfigSecrets.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from '../functions/src/assistedApplicationConstants.js';
 import {
@@ -33,6 +33,14 @@ import {
   resolveOrderLocale,
   sendPaidOrderNotifications,
 } from '../functions/src/assistedApplicationNotifications.js';
+
+// The same firebase-admin instance the functions modules resolve. A bare
+// `import 'firebase-admin'` from scripts/ picks the root copy, while
+// functions/src resolves functions/node_modules when it is installed: the app
+// initialised here would then not exist for getRemoteConfigValue (Stripe key,
+// email provider keys) nor match the FieldValue sentinels of the order writes.
+export const FUNCTIONS_ADMIN_REQUIRE = createRequire(new URL('../functions/src/', import.meta.url));
+const admin = FUNCTIONS_ADMIN_REQUIRE('firebase-admin');
 
 export function parseArgs(argv) {
   const args = { orders: [], apply: false, testTo: '', variant: 'recovery' };
@@ -70,11 +78,11 @@ async function presentationFromStripe(order) {
   const sessionId = String(order.stripeCheckoutSessionId || order.stripeSessionId || '');
   if (!sessionId || (order.orderPageUrl && order.locale)) return null;
   const key = await getRemoteConfigValue('STRIPE_SECRET_KEY');
-  if (!key) return null;
+  if (!key) throw new Error('STRIPE_SECRET_KEY is empty in Remote Config');
   const response = await fetch(`https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sessionId)}`, {
     headers: { Authorization: `Bearer ${key}` },
   });
-  if (!response.ok) return null;
+  if (!response.ok) throw new Error(`Stripe checkout session lookup returned HTTP ${response.status}`);
   const session = await response.json();
   const locale = localeFromSiteUrl(session.success_url);
   return locale ? { locale, orderPageUrl: session.success_url } : null;
@@ -101,7 +109,15 @@ async function main() {
       continue;
     }
 
-    const presentation = await presentationFromStripe(order).catch(() => null);
+    let presentation = null;
+    try {
+      presentation = await presentationFromStripe(order);
+    } catch (error) {
+      // Without the Stripe success_url the email silently falls back to
+      // Italian and the job-board root: never send that for real.
+      console.log(`\n✗ ${snapshot.id}: locale backfill from Stripe failed (${error instanceof Error ? error.message : error})`);
+      if (args.apply) continue;
+    }
     if (presentation) order = { ...order, ...presentation };
     const customer = buildCustomerEmail(args.variant, order, snapshot.id);
     const owner = buildOwnerEmail('new_order', order, snapshot.id, { customerKey: args.variant });

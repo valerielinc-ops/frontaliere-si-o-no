@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+import { resolve } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('firebase-admin', () => ({ default: { apps: [] } }));
@@ -6,7 +9,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
-const { maskEmail, needsRecovery, parseArgs } = await import('../scripts/recover-assisted-application-orders.mjs');
+const { FUNCTIONS_ADMIN_REQUIRE, maskEmail, needsRecovery, parseArgs } = await import('../scripts/recover-assisted-application-orders.mjs');
 
 describe('assisted application recovery script', () => {
   it('is a dry run unless an explicit order is named', () => {
@@ -36,5 +39,15 @@ describe('assisted application recovery script', () => {
   it('masks customer addresses in its output', () => {
     expect(maskEmail('someone@example.com')).toBe('so***@example.com');
     expect(maskEmail('')).toBe('(none)');
+  });
+
+  it('initialises the firebase-admin copy that the functions modules use', () => {
+    // A second copy (root vs functions/node_modules) left getRemoteConfigValue
+    // without an app: the Stripe locale backfill failed silently and a French
+    // customer would have received the Italian email.
+    const source = readFileSync(resolve(process.cwd(), 'scripts/recover-assisted-application-orders.mjs'), 'utf8');
+    expect(source).not.toMatch(/from 'firebase-admin'/);
+    const fromFunctions = createRequire(resolve(process.cwd(), 'functions/src/remoteConfigSecrets.js'));
+    expect(FUNCTIONS_ADMIN_REQUIRE.resolve('firebase-admin')).toBe(fromFunctions.resolve('firebase-admin'));
   });
 });
