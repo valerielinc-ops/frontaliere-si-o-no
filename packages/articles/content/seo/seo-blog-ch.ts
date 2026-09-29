@@ -91007,6 +91007,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-compensi-lvamal-camera-bassa': {
+    title: 'Casse malati: tetto agli stipendi dei dirigenti',
+    description: 'La Camera bassa approva la modifica della LVAMal con 157 voti contro 27 e 8 astensioni: il progetto limita i compensi e prevede trasparenza sui dirigenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, malati, tetto, agli',
+    ogTitle: 'Casse malati: tetto agli stipendi dei dirigenti',
+    ogDescription: 'La Camera bassa ha approvato un progetto sui compensi dei dirigenti delle casse malati. Il riferimento è la classe più alta della legge sul personale della Confederazione; sono previste anche la pubblicazione di nome, salari e tasso d\'impiego. Ora',
+    canonicalPath: '/articoli-svizzera/compensi-lvamal-camera-bassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse malati: tetto agli stipendi dei dirigenti",
+      "description": "La Camera bassa approva la modifica della LVAMal con 157 voti contro 27 e 8 astensioni: il progetto limita i compensi e prevede trasparenza sui dirigenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/compensi-lvamal-camera-bassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dibattito svizzero sul limite ai compensi dei dirigenti delle casse malati"
+      },
+      "datePublished": "2026-09-29T08:03:27+00:00",
+      "dateModified": "2026-09-29T08:03:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/compensi-lvamal-camera-bassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

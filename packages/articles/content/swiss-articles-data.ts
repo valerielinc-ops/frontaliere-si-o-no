@@ -21085,6 +21085,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'compensi-lvamal-camera-bassa',
+    category: 'novita',
+    date: '2026-09-29T08:03:27.238Z',
+    image: '/images/blog/compensi-lvamal-camera-bassa.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

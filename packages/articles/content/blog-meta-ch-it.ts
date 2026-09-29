@@ -7019,6 +7019,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lindt-prungli-stime-2026.title': 'Lindt e Sprüngli taglia le stime di crescita per il 2026',
     'blog.article.lindt-prungli-stime-2026.excerpt': 'Lindt e Sprüngli rivede al ribasso la crescita organica del fatturato 2026 tra lo 0 e il 2% a causa del caldo e dei prezzi.',
     'blog.article.lindt-prungli-stime-2026.imageAlt': 'Sede di Lindt e Sprüngli a Kilchberg',
+    'blog.article.compensi-lvamal-camera-bassa.title': 'Casse malati: tetto agli stipendi dei dirigenti',
+    'blog.article.compensi-lvamal-camera-bassa.excerpt': 'La Camera bassa approva la modifica della LVAMal: 157 voti favorevoli, 27 contrari e 8 astensioni. Il dossier passa ora al Consiglio degli Stati.',
+    'blog.article.compensi-lvamal-camera-bassa.imageAlt': 'Dibattito svizzero sul limite ai compensi dei dirigenti delle casse malati',
 };
 
 export default blogMetaChIt;
