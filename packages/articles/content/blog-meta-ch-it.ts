@@ -7082,6 +7082,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoratori-svizzeri-ia-2026.title': 'Lavoratori svizzeri e IA: il 28% la usa ma non convince',
     'blog.article.lavoratori-svizzeri-ia-2026.excerpt': 'Il 28% dei lavoratori in Svizzera usa l\'IA ogni giorno ma manca la convinzione. I dati della ricerca PwC \'Hopes and Fears\' 2026 sui dipendenti.',
     'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Lavoratore svizzero in ufficio alle prese con l\'intelligenza artificiale generativa',
+    'blog.article.ufc-finanzia-ricerca-provenienza.title': 'UFC: 1,95 mln per 26 progetti di ricerca',
+    'blog.article.ufc-finanzia-ricerca-provenienza.excerpt': 'L\'UFC stanzia circa 1,95 milioni di franchi per 26 progetti di ricerca sulla provenienza di musei e collezioni in Svizzera per il 2027-2028.',
+    'blog.article.ufc-finanzia-ricerca-provenienza.imageAlt': 'Vista di Bellinzona con musei sullo sfondo, luce mattutina',
 };
 
 export default blogMetaChIt;

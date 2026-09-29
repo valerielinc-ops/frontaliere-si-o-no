@@ -91826,6 +91826,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ufc-finanzia-ricerca-provenienza': {
+    title: 'UFC: 1,95 mln per 26 progetti di ricerca | Frontaliere Ticino',
+    description: 'L\'UFC stanzia circa 1,95 milioni di franchi per 26 progetti di ricerca sulla provenienza di musei e collezioni in Svizzera per il 2027-2028. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, progetti, ricerca, stanzia, circa',
+    ogTitle: 'UFC: 1,95 mln per 26 progetti di ricerca',
+    ogDescription: 'L\'Ufficio federale della cultura finanzia 26 progetti di ricerca sulla provenienza per circa 1,95 milioni di franchi. Il bando copre catalogazione, analisi di resti umani e collaborazioni internazionali per il periodo 2027-2028.',
+    canonicalPath: '/articoli-svizzera/ufc-finanzia-ricerca-provenienza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UFC: 1,95 mln per 26 progetti di ricerca",
+      "description": "L'UFC stanzia circa 1,95 milioni di franchi per 26 progetti di ricerca sulla provenienza di musei e collezioni in Svizzera per il 2027-2028. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ufc-finanzia-ricerca-provenienza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Bellinzona con musei sullo sfondo, luce mattutina"
+      },
+      "datePublished": "2026-09-29T18:34:01+00:00",
+      "dateModified": "2026-09-29T18:34:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ufc-finanzia-ricerca-provenienza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -7082,6 +7082,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoratori-svizzeri-ia-2026.title': 'Schweizer Arbeitnehmende und KI: 28% nutzen sie, aber sie überzeugt nicht',
     'blog.article.lavoratori-svizzeri-ia-2026.excerpt': '28% der Arbeitnehmenden in der Schweiz nutzen täglich KI, doch es fehlt an Überzeugung. Die Daten der PwC-Studie \'Hopes and Fears\' 2026 über die Beschäftigten.',
     'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Schweizer Arbeitnehmer im Büro im Umgang mit generativer künstlicher Intelligenz',
+    'blog.article.ufc-finanzia-ricerca-provenienza.title': 'UFC: 1,95 Mio. für 26 Forschungsprojekte',
+    'blog.article.ufc-finanzia-ricerca-provenienza.excerpt': 'Das UFC stellt für 2027-2028 rund 1,95 Millionen Franken für 26 Provenienzforschungsprojekte zu Museen und Sammlungen in der Schweiz bereit.',
+    'blog.article.ufc-finanzia-ricerca-provenienza.imageAlt': 'Ansicht von Bellinzona mit Museen im Hintergrund, Morgenlicht',
 };
 
 export default blogMetaChDe;

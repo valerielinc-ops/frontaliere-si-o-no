@@ -7082,6 +7082,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoratori-svizzeri-ia-2026.title': 'Swiss workers and AI: 28% use it but it does not convince them',
     'blog.article.lavoratori-svizzeri-ia-2026.excerpt': '28% of workers in Switzerland use AI every day, but confidence is lacking. Data from PwC\'s 2026 \'Hopes and Fears\' research on employees.',
     'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Swiss worker in an office dealing with generative artificial intelligence',
+    'blog.article.ufc-finanzia-ricerca-provenienza.title': 'UFC: 1,95 million for 26 research projects',
+    'blog.article.ufc-finanzia-ricerca-provenienza.excerpt': 'The UFC is allocating around 1,95 million francs for 26 research projects on the provenance of museums and collections in Switzerland for 2027-2028.',
+    'blog.article.ufc-finanzia-ricerca-provenienza.imageAlt': 'View of Bellinzona with museums in the background, morning light',
 };
 
 export default blogMetaChEn;
