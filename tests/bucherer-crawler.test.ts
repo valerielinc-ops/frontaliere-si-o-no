@@ -280,28 +280,35 @@ describe('Bucherer crawler parser', () => {
       expect(jobs[0].description).toContain('Bucherer offre un ambiente');
     });
 
-    it('replaces a too-short crawled description with a rich >= 50-word fallback', () => {
+    // Issue 5253: these two cases used to assert a >= 50-word fallback ("Bucherer
+    // cerca un/una <title>…" + five sentences about Bucherer written by the
+    // parser) — the ripiego this lot removes. A short text now stays as the
+    // source wrote it and a posting without text gets no description (the
+    // pipeline's thin-source path). Text: the opening of the live "Client
+    // Advisor mit SAV-Aufgaben – St. Moritz" posting (2026-09-29).
+    it('keeps a too-short crawled description as the source wrote it', () => {
       const posting = {
         jobPostingId: '921',
-        jobTitle: 'Trainee Orologeria',
-        jobDescription: '<p>Short desc.</p>',
-        postingLocations: [{ cityName: 'Luzern', stateCode: 'LU', isoCountryCode: 'CH' }],
+        jobTitle: 'Client Advisor mit SAV-Aufgaben 100% (m/w/d) – St. Moritz',
+        jobDescription: '<p>Ihre Rolle bei uns</p><p>Sie betreuen unsere anspruchsvollen nationalen und internationalen Kunden beim Kauf von hochwertigen Uhren und Schmuckstücken.</p>',
+        postingLocations: [{ cityName: 'St. Moritz', stateCode: 'GR', isoCountryCode: 'CH' }],
       };
       const jobs = parsePostings([posting]);
-      const wordCount = jobs[0].description.split(/\s+/).filter(Boolean).length;
-      expect(wordCount).toBeGreaterThanOrEqual(50);
-      expect(jobs[0].description).toContain('Trainee Orologeria');
-      expect(jobs[0].description).toContain('Bucherer AG');
+      expect(jobs[0].description).toMatch(/^Ihre Rolle bei uns\s+Sie betreuen unsere anspruchsvollen/);
+      expect(jobs[0].description.split(/\s+/).filter(Boolean).length).toBeLessThan(50);
+      expect(jobs[0].description).not.toContain('Bucherer AG');
+      expect(jobs[0].descriptionByLocale).toEqual({ de: jobs[0].description });
     });
 
-    it('replaces a missing crawled description with a rich fallback', () => {
+    it('gives a posting without a crawled description no description', () => {
       const posting = {
         jobPostingId: '922',
         jobTitle: 'Store Manager',
         postingLocations: [{ cityName: 'Basel', stateCode: 'BS', isoCountryCode: 'CH' }],
       };
       const jobs = parsePostings([posting]);
-      expect(jobs[0].description.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({});
     });
   });
 

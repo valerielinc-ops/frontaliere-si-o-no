@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   BCV_KEY,
   BCV_COMPANY_NAME,
   isBcvJob,
   isTrustedDomain,
+  fetchAllBcvJobs,
 } from '../scripts/lib/bcv-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -135,5 +136,50 @@ describe('Banque Cantonale Vaudoise crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// Issue 5253: under 50 words the parser used to add "<title> — Banque
+// Cantonale Vaudoise, <city>.", a paragraph about the BCV and "Postulez en
+// ligne…"; without a description, those lines alone. Text: the opening of the
+// live "Stagiaires maturantes ou maturants - mars 2027" posting (jobs.bcv.ch,
+// 2026-09-29), trimmed below 50 words.
+describe('fetchAllBcvJobs — the detail text only', () => {
+  const JOB_URL = 'https://jobs.bcv.ch/job/Stagiaires-maturantes-ou-maturants-mars-2027/1431013433/';
+  const SITEMAP = `<?xml version="1.0" encoding="UTF-8"?><urlset><url><loc>${JOB_URL}</loc><lastmod>2026-09-20</lastmod></url></urlset>`;
+  const SHORT_TEXT = 'Et si votre histoire professionnelle commençait à la BCV ? La formation est au cœur des priorités de la première banque universelle du canton de Vaud.';
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  function stubSite(detailHtml: string) {
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      text: () => Promise.resolve(String(url).endsWith('sitemap.xml') ? SITEMAP : detailHtml),
+    })));
+  }
+
+  it('keeps a description under 50 words as the source wrote it', async () => {
+    expect(SHORT_TEXT.split(/\s+/).length).toBeLessThan(50);
+    stubSite(`<div><span itemprop="title">Stagiaires maturantes ou maturants - mars 2027</span></div><div><span itemprop="description"><p>${SHORT_TEXT}</p></span></div>`);
+
+    const jobs = await fetchAllBcvJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe(SHORT_TEXT);
+    expect(jobs[0].descriptionByLocale).toEqual({ fr: SHORT_TEXT });
+    expect(jobs[0].description).not.toMatch(/première banque universelle du canton de Vaud et l'une des banques|Postulez en ligne/);
+  });
+
+  it('gives a posting without a description no description', async () => {
+    stubSite('<div><span itemprop="title">Stagiaires maturantes ou maturants - mars 2027</span></div>');
+
+    const jobs = await fetchAllBcvJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
   });
 });

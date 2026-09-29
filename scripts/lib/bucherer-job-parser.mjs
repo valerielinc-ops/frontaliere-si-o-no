@@ -222,23 +222,16 @@ function resolveAddress(rawLoc = {}) {
   return { city, postalCode, streetAddress, region };
 }
 
-/* ── Thin-content guard (Non-Negotiable #4: never index <50 words) ──── */
+/* ── Description: the posting text only ──────────────────────────── */
 
-function buildFallbackDescription(title, location) {
-  return [
-    `Bucherer cerca un/una ${title} per la sede di ${location}.`,
-    `Bucherer AG, fondata nel 1888 a Lucerna, è il principale rivenditore svizzero di orologi e gioielli di lusso e partner ufficiale di marchi come Rolex, Patek Philippe, Cartier e Breitling.`,
-    `Il gruppo gestisce oltre 30 boutique in Svizzera, Germania e altri mercati internazionali e possiede la propria manifattura orologiera, Carl F. Bucherer.`,
-    `Lavorare in Bucherer significa entrare in un ambiente dedicato al lusso e all'artigianato svizzero, con formazione specialistica in orologeria e gioielleria, percorsi di carriera internazionali e un forte legame con la tradizione del settore.`,
-    `Le posizioni aperte spaziano tra vendita in boutique, orologeria e gioielleria, logistica, amministrazione, marketing e ruoli corporate presso la sede centrale di Lucerna.`,
-    `Candidature online sul portale ufficiale bucherer.com/en/career.`,
-  ].join(' ');
-}
-
-function resolveDescription(rawHtml, title, location) {
-  const text = stripHtml(rawHtml || '');
-  if (text && text.split(/\s+/).filter(Boolean).length >= 50) return text;
-  return buildFallbackDescription(title, location);
+/**
+ * The Dayforce text of the posting, whatever its length (issue 5253). Under
+ * 50 words it used to be REPLACED by "Bucherer cerca un/una <title> per la
+ * sede di <location>." and five sentences about Bucherer written by the
+ * parser; a posting without text now gets no description (thin-source path).
+ */
+function resolveDescription(rawHtml) {
+  return stripHtml(rawHtml || '').trim();
 }
 
 /* ── Fetch (Playwright, Cloudflare-gated) ─────────────────────── */
@@ -401,7 +394,7 @@ export function parsePostings(postings = []) {
     if (seenUrls.has(publicUrl)) continue;
     seenUrls.add(publicUrl);
 
-    const description = resolveDescription(posting.jobDescription, title, location);
+    const description = resolveDescription(posting.jobDescription);
     const sourceLang = detectLang(description, culture.slice(0, 2).toLowerCase());
     const jobSlug = slugify(`${title} bucherer ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
@@ -420,7 +413,7 @@ export function parsePostings(postings = []) {
       title,
       titleByLocale: { [sourceLang]: title },
       description,
-      descriptionByLocale: { [sourceLang]: description },
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
       location,
       canton,
       url: publicUrl,

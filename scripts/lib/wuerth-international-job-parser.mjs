@@ -250,15 +250,19 @@ export function parseDetailPage(html) {
   };
 }
 
-/* ── Single-site fallback description ─────────────────────── */
+/* ── Description: the posting text only ──────────────────── */
 
 /**
- * Build a rich single-site fallback description (>50 words) when the detail
- * page yields nothing.
+ * The detail text of a posting, whatever its length (issue 5253). Under 50
+ * words it used to be REPLACED by buildFallbackDescription: "<title> bei
+ * Würth International AG in <location>, Kanton Graubünden, Schweiz." and a
+ * paragraph about the Würth group written by the parser. A posting without
+ * text now gets no description and takes the thin-source path.
+ *
+ * @param {{ description?: string } | null} detail  parseDetailPage output
  */
-export function buildFallbackDescription(title, location, entryLevel = '') {
-  const levelInfo = entryLevel ? ` Einstiegslevel: ${entryLevel}.` : '';
-  return `${title} bei Würth International AG in ${location}, Kanton Graubünden, Schweiz.${levelInfo}\n\nDie Würth International AG ist ein Unternehmen der Würth-Gruppe, dem weltgrössten Handelskonzern für Montage- und Befestigungsmaterial. Am Hauptsitz in Chur (Graubünden) betreut Würth International die Zentraleinkaufsaktivitäten des Würth Konzerns in rund 80 Ländern. Das Unternehmen bietet ein internationales Arbeitsumfeld mit modernen Anstellungsbedingungen, flexiblen Arbeitszeiten, hybriden Arbeitsmodellen, überdurchschnittlichen Sozialleistungen und vielfältigen Weiterbildungsmöglichkeiten. Würth International ist ausgezeichnet mit dem Label Friendly Work Space und legt grossen Wert auf eine wertschätzende Unternehmenskultur.`;
+export function wuerthDescriptionFromDetail(detail) {
+  return String(detail?.description || '').trim();
 }
 
 /* ── Job identification ───────────────────────────────────── */
@@ -373,13 +377,8 @@ export async function fetchAllWuerthInternationalJobs() {
       const employmentTypeRaw = detail?.employmentType || 'FULL_TIME';
       const postedDate = detail?.postedDate || new Date().toISOString().slice(0, 10);
 
-      // Build description
-      let description = '';
-      if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-        description = detail.description;
-      } else {
-        description = buildFallbackDescription(title, location, listing.entryLevel);
-      }
+      // Build description: the detail text only (see wuerthDescriptionFromDetail).
+      const description = wuerthDescriptionFromDetail(detail);
 
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} wuerth-international ${location}`);
@@ -394,7 +393,7 @@ export async function fetchAllWuerthInternationalJobs() {
         title,
         titleByLocale: { de: title },
         description,
-        descriptionByLocale: { de: description },
+        descriptionByLocale: description ? { de: description } : {},
         location,
         canton: HQ.canton,
         addressLocality: location,
