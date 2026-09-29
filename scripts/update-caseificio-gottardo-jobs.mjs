@@ -18,6 +18,10 @@
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -297,26 +301,22 @@ async function fetchDetailDescription(url) {
 // Description building
 // ─────────────────────────────────────────────────────────────
 
-function buildFallbackDescription(title, category, locationInfo) {
-  const parts = [];
+// First words of the description earlier versions wrote themselves when the
+// detail page was thin ("Caseificio dimostrativo del Gottardo SA pubblica il
+// seguente … Per i dettagli completi, consultare la pagina dell'offerta."):
+// text the source never showed. It marks a STORED description as not
+// source-read; mergeJobs removes it (and its translations) before merging.
+export const CASEIFICIO_INVENTED_RE = /Caseificio dimostrativo del Gottardo SA pubblica il seguente /;
 
-  const categoryLabel =
-    /tirocinio/i.test(category) ? 'posto di tirocinio' : 'offerta di impiego';
-
-  parts.push(
-    `Caseificio dimostrativo del Gottardo SA pubblica il seguente ${categoryLabel}: ${title}.`
-  );
-  if (locationInfo) {
-    parts.push(`Sede: ${locationInfo}`);
-  }
-  parts.push('');
-  parts.push('Per i dettagli completi, consultare la pagina dell\'offerta.');
-  parts.push('');
-  parts.push('Settore: Industria lattiero-casearia / Alimentare');
-  parts.push('Sede aziendale: Via Fontana 3, 6780 Airolo (TI), Svizzera');
-  parts.push('Contatto: direzione@cdga.ch | Tel. +41 91 869 11 80');
-
-  return parts.join('\n').trim();
+/**
+ * Description fields of a posting: the detail page's own text over the shared
+ * word floor, keyed by its language; nothing under the floor (the job then
+ * keeps its stored source body, or is not published this run).
+ */
+export function caseificioDescriptionFields(detailText = '') {
+  const description = meetsSourceBodyFloor(detailText) ? String(detailText).trim() : '';
+  const sourceLang = description ? detectLang(description, 'it') : 'it';
+  return { description, descriptionByLocale: description ? { [sourceLang]: description } : {}, sourceLang };
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -356,7 +356,7 @@ function detectEmploymentType(title = '', locationInfo = '') {
 // Main discovery
 // ─────────────────────────────────────────────────────────────
 
-async function fetchCaseificioJobs() {
+export async function fetchCaseificioJobs() {
   console.log(`📡 Fetching careers page: ${CAREERS_URL}`);
   const html = await fetchPage(CAREERS_URL);
   if (!html) {
@@ -388,9 +388,7 @@ async function fetchCaseificioJobs() {
       console.warn(`  ⚠️  Could not fetch detail page: ${err?.message || err}`);
     }
 
-    if (!description || description.length < 50) {
-      description = buildFallbackDescription(listing.title, listing.category, listing.location);
-    }
+    const fields = caseificioDescriptionFields(description);
 
     const slug = slugify(listing.title, COMPANY_KEY);
 
@@ -403,7 +401,7 @@ async function fetchCaseificioJobs() {
       country: 'CH',
       url: listing.detailUrl,
       applyUrl: listing.detailUrl,
-      description,
+      description: fields.description,
       category: detectCategory(listing.title, listing.category),
       sector: 'Industria lattiero-casearia / Alimentare',
       employmentType: detectEmploymentType(listing.title, listing.location),
@@ -411,9 +409,9 @@ async function fetchCaseificioJobs() {
       source: 'caseificio-gottardo-crawler',
       postedDate: new Date().toISOString().slice(0, 10),
       titleByLocale: { it: listing.title },
-      descriptionByLocale: { it: description },
+      descriptionByLocale: fields.descriptionByLocale,
       slugByLocale: { it: slug },
-      sourceLang: detectLang(description || listing.title, 'it'),
+      sourceLang: fields.sourceLang,
       _targetScope: { canton: HQ.canton, location: 'Airolo' },
     };
 
@@ -445,7 +443,14 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
-  const existingTargetJobs = allJobs.filter(isTargetJob);
+  const existingTargetJobs = dropFabricatedDescriptions(allJobs.filter(isTargetJob), CASEIFICIO_INVENTED_RE, COMPANY_NAME);
+  // A detail page under the word floor: keep the stored source body, or do not
+  // publish the posting this run (no invented text, no thin page).
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingTargetJobs, (url) => url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingByKey = new Map();
   for (const job of existingTargetJobs) {
@@ -744,4 +749,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Caseificio del Gottardo'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Caseificio del Gottardo'));
+}
