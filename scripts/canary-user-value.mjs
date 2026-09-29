@@ -2,7 +2,8 @@
 /**
  * canary-user-value.mjs — user-value (ARPU) crash detector.
  *
- * Pulls daily GA4 `totalAdRevenue`/`activeUsers` for the last 17 days,
+ * Pulls daily GA4 `totalAdRevenue`/`activeUsers` for the Italy + Switzerland
+ * target market for the last 17 days,
  * computes ARPU = revenue / activeUsers per day, and compares the latest
  * fully-closed day against a trailing 7-day baseline (days T-9..T-3).
  * Exits non-zero only when BOTH hold:
@@ -21,6 +22,11 @@
  * wrapper over the same shared core the RPM canary uses
  * (scripts/lib/canaryRegressionClassify.mjs).
  *
+ * Both metrics use the same target-market filter as the hourly revenue monitor.
+ * This keeps a foreign bot fleet from inflating the active-user denominator
+ * without changing the revenue numerator; the country scope is included in
+ * the JSON output so every alert states what was measured.
+ *
  * Auth: same 3-legged OAuth2 pattern as scripts/user-value-report.mjs and
  * scripts/canary-rpm.mjs (load via scripts/load-rc-env.mjs in CI, or:
  *   eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
@@ -36,8 +42,10 @@
  *   node scripts/canary-user-value.mjs --ratio-floor=0.7 --absolute-floor=0.005 --revenue-floor=0.6
  */
 import process from 'node:process';
+import { pathToFileURL } from 'node:url';
 import { classifyArpu } from './lib/arpuCanaryClassify.mjs';
 import { DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
+import { buildTargetMarketCountryFilter, TARGET_MARKET_COUNTRIES } from './lib/ga4-target-market.mjs';
 
 const args = process.argv.slice(2);
 const wantsJson = args.includes('--json');
@@ -53,6 +61,17 @@ const RATIO_FLOOR = parseFlag('ratio-floor', 0.65);
 const ABSOLUTE_FLOOR = parseFlag('absolute-floor', 0);
 const REVENUE_FLOOR = parseFlag('revenue-floor', 0.65);
 const LOOKBACK_DAYS = Math.round(parseFlag('lookback-days', 17));
+
+export function buildDailyArpuRequest(lookbackDays = LOOKBACK_DAYS) {
+  return {
+    dateRanges: [{ startDate: `${lookbackDays}daysAgo`, endDate: 'today' }],
+    dimensions: [{ name: 'date' }],
+    metrics: [{ name: 'totalAdRevenue' }, { name: 'activeUsers' }],
+    dimensionFilter: buildTargetMarketCountryFilter(),
+    orderBys: [{ dimension: { dimensionName: 'date' } }],
+    limit: lookbackDays + 2,
+  };
+}
 
 const log = (line) => {
   if (wantsJson) console.error(line);
@@ -98,13 +117,7 @@ async function fetchDailyArpu() {
   const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
     method: 'POST',
     headers,
-    body: JSON.stringify({
-      dateRanges: [{ startDate: `${LOOKBACK_DAYS}daysAgo`, endDate: 'today' }],
-      dimensions: [{ name: 'date' }],
-      metrics: [{ name: 'totalAdRevenue' }, { name: 'activeUsers' }],
-      orderBys: [{ dimension: { dimensionName: 'date' } }],
-      limit: LOOKBACK_DAYS + 2,
-    }),
+    body: JSON.stringify(buildDailyArpuRequest()),
   });
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
@@ -123,6 +136,7 @@ async function fetchDailyArpu() {
       };
     })
     .sort((a, b) => a.date.localeCompare(b.date));
+  if (rows.length === 0) throw new Error(`GA4 daily report returned no rows for ${TARGET_MARKET_COUNTRIES.join('+')}`);
   return { propertyId, rows };
 }
 
@@ -138,6 +152,7 @@ async function main() {
       todayUtc: fmtDate(new Date()),
     });
     result.propertyId = propertyId;
+    result.targetMarketCountries = [...TARGET_MARKET_COUNTRIES];
     result.rows = rows;
   } catch (err) {
     console.error(`[canary-user-value] auth/API failure: ${err.message || err}`);
@@ -171,4 +186,6 @@ async function main() {
   process.exit(result.verdict === 'regression' ? 1 : 0);
 }
 
-main();
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+  main();
+}
