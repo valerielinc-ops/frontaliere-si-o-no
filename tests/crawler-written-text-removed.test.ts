@@ -93,6 +93,7 @@ describe('no crawler-written stand-in, and the common 50-word floor', () => {
     ['update-has-healthcare-jobs.mjs', /`Settore: Farmaceutico|è alla ricerca di: \$\{title\}/],
     ['lib/cds-savognin-job-parser.mjs', /buildFallbackDescription|beim Center da Sanadad Savognin in Savognin/],
     ['lib/klinik-gut-job-parser.mjs', /buildFallbackDescription|bei der Klinik Gut AG am Standort/],
+    ['lib/canton-ticino-osc-job-parser.mjs', /buildFallbackDescription|Il concorso è pubblicato dalla Sezione delle risorse umane/],
   ])('%s', (file, pattern) => {
     const text = source(file);
     expect(text).not.toMatch(pattern);
