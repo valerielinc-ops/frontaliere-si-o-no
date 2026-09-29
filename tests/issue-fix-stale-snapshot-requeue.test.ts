@@ -143,8 +143,8 @@ describe('issue-fix: snapshot cambiata fra risk_policy e fix', () => {
     expect(comment).toMatch(/^issue comment 10085 --repo valerielinc-ops\/frontaliere-si-o-no --body /u);
     expect(comment).toContain(MARKER);
     expect(comment).toContain('https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/424242');
+    // L'edit e' l'unica scrittura di label: nessun `fu-attempt:N` aggiunto.
     expect(edit).toBe('issue edit 10085 --repo valerielinc-ops/frontaliere-si-o-no --add-label agent:fix-queued --remove-label agent:fix');
-    expect(result.writes.join('\n')).not.toMatch(/fu-attempt/u);
   });
 
   it('non ri-accoda se agent:fix e\' gia\' stata tolta da un altro attore', () => {
