@@ -21229,6 +21229,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'parlamento-svizzero-strumenti-ricerca',
+    category: 'pratico',
+    date: '2026-09-29T16:36:37.801Z',
+    image: '/images/blog/parlamento-svizzero-strumenti-ricerca.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

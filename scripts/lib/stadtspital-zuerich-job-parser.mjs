@@ -33,9 +33,11 @@
  *
  * Listing tiles expose title / Departement / Dienstabteilung / Referenz-Nr.
  * only; detail pages hydrate their body client-side (same portal behaviour
- * documented in the sibling parser), so the description is synthesised from
- * the tile fields + employer blurb, above the 50-word thin-content floor
- * (Non-Negotiable #4). Structured-data safe defaults (Non-Negotiable #3):
+ * documented in the sibling parser). The vacancy text is the city's official
+ * ad page with the same Referenz-Nr. ("Arbeiten für Zürich", read with the
+ * sibling's `fetchOfficialAdTexts`); a tile without one is not published
+ * (issue 5253: the synthetic tile summary that stood in for it made 146/147
+ * descriptions the same boilerplate). Structured-data safe defaults (Non-Negotiable #3):
  * every job carries the Stadtspital Triemli main-site civic address
  * (Birmensdorferstrasse 497, 8063 Zürich, ZH).
  *
@@ -47,7 +49,8 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { parseListingTiles } from './stadt-zuerich-job-parser.mjs';
+import { parseListingTiles, fetchOfficialAdTexts } from './stadt-zuerich-job-parser.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -191,31 +194,6 @@ async function fetchPage(url) {
   }
 }
 
-/* ── Description Builder ──────────────────────────────────── */
-
-function buildDescription(row) {
-  const parts = [];
-  parts.push(
-    `${row.title} im Stadtspital Zürich` +
-      `${row.department && !/stadtspital/i.test(row.department) ? ` (${row.department})` : ''}.`
-  );
-  parts.push(
-    'Das Stadtspital Zürich ist mit den Standorten Triemli und Waid das grösste ' +
-      'Stadtzürcher Spital und bietet Spitzenmedizin, Pflege und eine breite ' +
-      'Grundversorgung für die Bevölkerung der Stadt und Region Zürich. ' +
-      'Als Arbeitgeberin der Stadt Zürich bietet es fortschrittliche ' +
-      'Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und ' +
-      'eine sinnstiftende Tätigkeit im Gesundheitswesen.'
-  );
-  if (row.ref) parts.push(`Referenz-Nr.: ${row.ref}.`);
-  parts.push(
-    `Arbeitsort: ${HQ.city} (${HQ.canton}). Weitere Details zu Aufgaben, Anforderungen und dem ` +
-      'Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform der Stadt Zürich. ' +
-      'Wir freuen uns auf Ihre Bewerbung.'
-  );
-  return parts.join(' ');
-}
-
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 /**
@@ -271,6 +249,12 @@ export async function fetchAllStadtspitalZuerichJobs() {
 
   const sourceLang = 'de';
   const jobs = [];
+  const officialTexts = await fetchOfficialAdTexts(
+    new Set(rows.map((r) => r.ref).filter(Boolean)),
+    Math.min(delayMs, 300),
+    { unit: /stadtspital/i },
+  );
+  let withoutText = 0;
 
   for (const row of rows) {
     const title = row.title;
@@ -281,7 +265,14 @@ export async function fetchAllStadtspitalZuerichJobs() {
     // Pflegefachperson" xN distinct postings); without a disambiguator the
     // assemble step's slug-collision guard would drop all but one of them.
     const jobSlug = slugify(`${title} stadtspital-zuerich ${row.ref || row.jobId}`);
-    const descriptionText = buildDescription(row);
+    // Only the posting's own text is published (issue 5253): the official
+    // ad of this Referenz-Nr.; a tile the portal does not publish is not
+    // published here either.
+    const descriptionText = row.ref ? officialTexts.get(String(row.ref)) : '';
+    if (!descriptionText || !meetsSourceBodyFloor(descriptionText)) {
+      withoutText += 1;
+      continue;
+    }
     const employmentType = detectEmploymentType(title);
 
     const job = {
@@ -331,6 +322,9 @@ export async function fetchAllStadtspitalZuerichJobs() {
     console.log(`  ✅ ${title.substring(0, 55)} — ${row.unit || 'N/A'}`);
   }
 
+  if (withoutText > 0) {
+    console.log(`  ⏭️ ${withoutText} tile(s) whose Referenz-Nr. has no official ad page — not published.`);
+  }
   console.log(`\n📋 Total Stadtspital Zürich jobs discovered: ${jobs.length}`);
   return jobs;
 }

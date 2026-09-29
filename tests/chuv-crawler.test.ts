@@ -6,7 +6,8 @@
  * Catégorie: … · Lieu: … · Taux d'activité: …"). Only the source's body above
  * the 50-word floor is published; below it the job stays out of the run and
  * the standard pipeline keeps the stored source body under its miss grace.
- * Fixtures are minimised feed and page shapes; no `data/**` is read.
+ * Fixtures are minimised feed and page shapes (the Hireserve `job_description`
+ * block the parser reads); no `data/**` is read.
  */
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { fetchAllChuvJobs, FEED_URL } from '../scripts/lib/chuv-job-parser.mjs';
@@ -16,6 +17,7 @@ const SOURCE_WORDS = ('Le Service de médecine interne du CHUV recherche un-e in
   + 'interprofessionnelle, participez à la formation des étudiant-e-s et contribuez aux projets qualité du service. Vous êtes titulaire '
   + 'd un diplôme d infirmier-ère reconnu en Suisse et justifiez d une expérience en médecine aiguë.').split(' ');
 const text = (n: number) => SOURCE_WORDS.slice(0, n).join(' ');
+const page = (body: string) => `<html><body><div class="job_description"><h1>Infirmier-ère en médecine interne</h1><p>${body}</p></div></body></html>`;
 
 const FEED = {
   jobs: [{
@@ -44,7 +46,7 @@ afterEach(() => {
 
 describe('fetchAllChuvJobs — only a source body above the floor is published', () => {
   it('publishes the vacancy body under its own language', async () => {
-    const [job] = await stubChuv(`<html><body><main><p>${text(SOURCE_WORDS.length)}</p></main></body></html>`);
+    const [job] = await stubChuv(page(text(SOURCE_WORDS.length)));
     expect(job.sourceLang).toBe('fr');
     expect(job.description).toContain('unité de soins aigus');
   });
@@ -56,8 +58,8 @@ describe('fetchAllChuvJobs — only a source body above the floor is published',
   });
 
   it('publishes a 50-word source body and not a 49-word one', async () => {
-    expect(await stubChuv(`<main><p>${text(49)}</p></main>`)).toEqual([]);
-    const [job] = await stubChuv(`<main><p>${text(50)}</p></main>`);
+    expect(await stubChuv(page(text(49)))).toEqual([]);
+    const [job] = await stubChuv(page(text(50)));
     expect(job.description.split(/\s+/)).toHaveLength(50);
   });
 });

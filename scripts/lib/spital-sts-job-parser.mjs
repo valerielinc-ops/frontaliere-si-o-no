@@ -206,7 +206,7 @@ async function fetchDetailDescription(detailUrl, fallbackTeaser) {
     if (skills) parts.push(skills);
 
     const text = normalizeDescriptionBullets(parts.filter(Boolean).join('\n\n').trim());
-    if (text && text.split(/\s+/).length >= 30) return text.slice(0, 6000);
+    if (text && text.split(/\s+/).length >= 30) return text;
 
     // Detail page returned but sections were empty / too short — combine
     // whatever we got with the listing teaser so the description is never

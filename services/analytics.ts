@@ -103,7 +103,7 @@ import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
-import { createAnalyticsEmissionId } from './analyticsEmissionId';
+import { createAnalyticsEmissionId as createAnalyticsEmissionIdSource } from './analyticsEmissionId';
 import {
  isBenignErrorMessage,
  isIndexedDbError,
@@ -451,7 +451,7 @@ function maybeEmitL2UsefulAction(eventName: string, params: Record<string, any>)
 }
 
 const log = (eventName: string, params?: Record<string, any>) => {
- const enrichedParams = enrichEventParams(params);
+ const enrichedParams = enrichEventParams(eventName, params);
  // Mirror to PostHog (fire-and-forget, independent of Firebase)
  if (eventName === 'page_view') {
  const pagePath = enrichedParams.page_path || window.location.pathname;
@@ -586,7 +586,7 @@ function readStoredAttribution(): AttributionContext | null {
  * reports joinable even when the event itself is emitted by a nested widget.
  * The explicit event fields still win, so existing callers keep their intent.
  */
-function enrichEventParams(params?: Record<string, any>): Record<string, any> {
+function enrichEventParams(eventName: string, params?: Record<string, any>): Record<string, any> {
  const eventPath = typeof params?.page_path === 'string' && params.page_path
   ? params.page_path
   : currentScreen !== '/' || typeof window === 'undefined' || window.location.pathname === '/'
@@ -597,6 +597,15 @@ function enrichEventParams(params?: Record<string, any>): Record<string, any> {
  const landingPath = sessionLandingPath
   || storedAttribution?.landing_path
   || normalizeAnalyticsPath(typeof window !== 'undefined' ? window.location.pathname : '/');
+ // `chatbot_question` has an explicit privacy contract: its payload is only
+ // the closed question schema plus numeric measurements. Do not add the
+ // otherwise-global opaque event identity to that contract.
+ const { emission_id: explicitEmissionId, ...eventParams } = params || {};
+ const emissionId = eventName === 'chatbot_question'
+  ? undefined
+  : explicitEmissionId === undefined
+   ? createAnalyticsEmissionIdSource()
+   : explicitEmissionId;
 
  return {
   page_path: eventPath,
@@ -607,8 +616,30 @@ function enrichEventParams(params?: Record<string, any>): Record<string, any> {
   route_family: pageContext.routeFamily,
   ...eventPageTelemetry(eventPath, pageContext),
   landing_path: landingPath,
-  ...(params || {}),
+  ...eventParams,
+  ...(emissionId === undefined ? {} : { emission_id: emissionId }),
  };
+}
+
+/**
+ * The static gtag bootstrap fires before React hydrates so a fast bounce still
+ * has a page_view. Consume its identity exactly once when the matching SPA
+ * page_view arrives; a route mismatch is discarded instead of joining two
+ * different pages by accident.
+ */
+function consumeStaticGtagPageViewEmissionId(path: string): string | undefined {
+ if (typeof window === 'undefined') return undefined;
+ const w = window as unknown as Record<string, unknown>;
+ const emissionId = typeof w.__GTAG_PAGE_VIEW_EMISSION_ID__ === 'string'
+  ? w.__GTAG_PAGE_VIEW_EMISSION_ID__
+  : undefined;
+ const staticPath = typeof w.__GTAG_PAGE_VIEW_PATH__ === 'string'
+  ? w.__GTAG_PAGE_VIEW_PATH__
+  : undefined;
+ delete w.__GTAG_PAGE_VIEW_EMISSION_ID__;
+ delete w.__GTAG_PAGE_VIEW_PATH__;
+ if (!emissionId || !staticPath) return undefined;
+ return normalizeAnalyticsPath(staticPath) === normalizeAnalyticsPath(path) ? emissionId : undefined;
 }
 
 // ─── Error Tracking Helpers ────────────────────────────────────
@@ -1150,8 +1181,8 @@ export const Analytics = {
  * before React hydrates). Firebase also fires page_view unconditionally so
  * that sessions where gtag.js is blocked (ad blockers, ~30-40% of users)
  * still have a page_view with correct page_location in GA4.
- * This means non-blocked users get a duplicate page_view (gtag + Firebase)
- * on the initial page, which is a minor metric inflation but correct.
+ * When both producers run, they carry one shared emission identity and the
+ * D18 builder can collapse them without suppressing the fallback producer.
  */
  trackPageView: (
  path: string,
@@ -1163,27 +1194,21 @@ export const Analytics = {
  // disponibile" — never a guessed value.
  emissionId?: string | null,
  ) => {
+ const staticPageViewEmissionId = consumeStaticGtagPageViewEmissionId(path);
+ // Both fallback branches below must resolve to one identity for this act.
+ // The local memo keeps the generated fallback stable, while the static
+ // bootstrap identity remains authoritative when it is available.
+ let generatedPageViewEmissionId: string | undefined;
+ const createAnalyticsEmissionId = (): string => {
+  if (staticPageViewEmissionId) return staticPageViewEmissionId;
+  generatedPageViewEmissionId ??= createAnalyticsEmissionIdSource();
+  return generatedPageViewEmissionId;
+ };
  const pageViewEmissionId = emissionId === undefined ? createAnalyticsEmissionId() : emissionId;
+ const resolvedPageViewEmissionId = emissionId === undefined
+  ? staticPageViewEmissionId || createAnalyticsEmissionId()
+  : pageViewEmissionId;
  const now = Date.now();
- // NOTE: We intentionally do NOT skip Firebase page_view even when
- // window.__GTAG_PAGE_VIEW_SENT__ is set by static HTML pages.
- //
- // The flag is set synchronously by the inline GTAG_SNIPPET before gtag.js
- // loads (gtag.js is async). When gtag.js is blocked by an ad blocker or
- // privacy browser (~30-40% of users), the flag is set but gtag never fires
- // page_view. Other Firebase events (e.g. funnel_step) still fire, creating
- // a GA4 session with no page_view → landing page = "(not set)".
- //
- // By always firing the Firebase page_view, we ensure every session has a
- // page_view with correct page_location. Non-blocked users get a duplicate
- // page_view (gtag + Firebase), which is a minor metric inflation but far
- // better than 25% of sessions having "(not set)" landing page.
- //
- // The flag is cleared here so it doesn't interfere with any future code.
- const w = window as unknown as Record<string, unknown>;
- if (w.__GTAG_PAGE_VIEW_SENT__) {
- delete w.__GTAG_PAGE_VIEW_SENT__;
- }
  // Calculate time spent on previous page (for pagesPerSession accuracy)
  const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;
  lastTrackedPageAt = now;
@@ -1203,7 +1228,7 @@ export const Analytics = {
   route_family: pageContext.routeFamily,
   ...eventPageTelemetry(path, pageContext),
   engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
- emission_id: pageViewEmissionId,
+ emission_id: resolvedPageViewEmissionId,
  ...buildPageViewAttributionParams(path, identity),
  });
  if (pageContext.pageTemplate === 'job_detail') {
@@ -1214,7 +1239,7 @@ export const Analytics = {
  tagClarity('content_group', pageContext.contentGroup);
  // Reset dead-click counter for new page
  _deadClickCount = 0;
- return pageViewEmissionId;
+ return resolvedPageViewEmissionId;
  },
 
  /**
@@ -1996,7 +2021,7 @@ export const Analytics = {
  * Link esterno cliccato — uses outbound_click (not 'click' which is GA4 reserved)
  */
  trackExternalLink: (url: string, label?: string) => {
- const emissionId = createAnalyticsEmissionId();
+ const emissionId = createAnalyticsEmissionIdSource();
  log('outbound_click', {
   link_url: url,
   link_text: label || url,
@@ -2052,7 +2077,7 @@ export const Analytics = {
    destination_host: destinationHost,
    handoff_surface: details.surface || 'job_board_apply',
    application_status: 'redirect_only',
-   emission_id: details.emissionId || createAnalyticsEmissionId(),
+   emission_id: details.emissionId || createAnalyticsEmissionIdSource(),
   });
   return true;
  },

@@ -32,6 +32,8 @@ import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
+import { htmlToText } from './hospital-custom-html-helpers.mjs';
+import { readClosedElement } from './html-balanced-element.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -224,6 +226,27 @@ async function fetchFeed() {
 }
 
 /**
+ * Vacancy text of a Hireserve detail page: the `job_description` block
+ * (summary, Contexte, Mission, Profil, Nous offrons, Contact) without its
+ * title, the classification table (department code, level, reference — the
+ * labels are served as mis-declared Latin-1) and the trailing share links.
+ *
+ * The parser used to look for `<main>` or a `.vacancy` wrapper, which these
+ * pages do not have, so it converted the WHOLE page (menus, login, the
+ * application modal) and the 8000-character cap was the only bound on that
+ * sweep (issue 5253).
+ */
+export function extractChuvDetailDescription(html = '') {
+  const block = readClosedElement(html, 'class="job_description"');
+  if (!block) return '';
+  const body = block
+    .replace(/<h1\b[\s\S]*?<\/h1>/gi, ' ')
+    .replace(/<div[^>]*\bclass="job_classifications"[\s\S]*?(?=<h2\b)/i, ' ')
+    .replace(/<div[^>]*\bclass="[^"]*\bbottomlinks\b[\s\S]*$/i, ' ');
+  return normalizeSpace(htmlToText(body));
+}
+
+/**
  * Fetch the detail HTML for a single vacancy and return a plain-text description.
  * Empty string on failure: the caller does not publish a job without a body.
  */
@@ -239,12 +262,7 @@ async function fetchJobDetail(weblink = '') {
     });
     if (!res.ok) return '';
     const html = await res.text();
-    // The Hireserve vacancy page wraps the description in #vacancy-content / .vacancy
-    // Extract the main column conservatively — strip nav/header/footer noise.
-    const bodyMatch = html.match(/<main[\s\S]*?<\/main>/i)
-      || html.match(/<div[^>]*class="[^"]*vacancy[^"]*"[\s\S]*?<\/div>\s*<\/div>/i);
-    const raw = bodyMatch ? bodyMatch[0] : html;
-    return normalizeSpace(stripHtml(raw)).slice(0, 8000);
+    return extractChuvDetailDescription(html);
   } catch {
     return '';
   }

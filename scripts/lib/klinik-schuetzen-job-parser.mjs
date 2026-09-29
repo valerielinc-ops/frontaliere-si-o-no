@@ -86,10 +86,14 @@ export function parseListing(html) {
     // the careers page (apprenticeships, unsolicited applications, the generic
     // benefits accordion) — 5110 chars on "Psychologiepraktikum 2028" against
     // ~1900 for its siblings. The anchor slice stays only as a fallback when
-    // the element never closes.
+    // the element never closes, and only when the next anchor or a <footer>
+    // closes it: the last job of a page without a footer gives no block, so
+    // the text (which has no length cap, issue 5253) never runs to the end
+    // of the page.
     const openEnd = html.indexOf('>', a.start) + 1;
     const own = extractBalancedTagBlockWithStatus(html.slice(openEnd, next === endOfBody ? undefined : next), a.tag, 200000);
-    let block = (own.complete ? own.html : html.slice(a.start, next))
+    const fallback = next < html.length ? html.slice(a.start, next) : '';
+    let block = (own.complete ? own.html : fallback)
       .replace(/<script[\s\S]*?<\/script>/gi, '')
       .replace(/<style[\s\S]*?<\/style>/gi, '');
     // The title lives either in the accordion label (<a class="accordion-label">)
@@ -116,7 +120,7 @@ export function parseListing(html) {
     out.push({
       id,
       title,
-      description: text.slice(0, 6000),
+      description: text,
       url: `${PUBLIC_CAREER_URL}#job-${id}`,
     });
   }
