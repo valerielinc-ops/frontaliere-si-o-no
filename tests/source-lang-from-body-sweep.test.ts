@@ -105,9 +105,9 @@ describe('flagRelabeledSourceLang', () => {
 
   it('flags only the jobs whose stored source language differs', () => {
     const fresh = [
-      { url, sourceLang: 'it' },
-      { url: 'https://jobs.example-ats.ch/stellenangebot/57373/altro', sourceLang: 'it' },
-      { url: 'https://jobs.example-ats.ch/stellenangebot/57374/nuovo', sourceLang: 'it' },
+      { url, sourceLang: 'it', description: ITALIAN_BODY },
+      { url: 'https://jobs.example-ats.ch/stellenangebot/57373/altro', sourceLang: 'it', description: ITALIAN_BODY },
+      { url: 'https://jobs.example-ats.ch/stellenangebot/57374/nuovo', sourceLang: 'it', description: ITALIAN_BODY },
     ];
     const stored = [
       { url, sourceLang: 'fr' },
@@ -116,6 +116,22 @@ describe('flagRelabeledSourceLang', () => {
 
     expect(flagRelabeledSourceLang(fresh, stored)).toBe(1);
     expect(fresh.map((job) => Boolean((job as { needsRetranslation?: boolean }).needsRetranslation))).toEqual([true, false, false]);
+  });
+
+  it('does not flag a job without a body, whose language came from its title', () => {
+    // moncucco / zermatt-bergbahnen on main publish a detail page without text
+    // with no description and the title's language (thin-source path).
+    const fresh = [
+      { url, sourceLang: 'en', description: '', descriptionByLocale: { en: '' } },
+      { url: 'https://jobs.example-ats.ch/stellenangebot/57373/altro', sourceLang: 'en', description: 'Wir suchen eine motivierte Fachperson.' },
+    ];
+    const stored = [
+      { url, sourceLang: 'it' },
+      { url: 'https://jobs.example-ats.ch/stellenangebot/57373/altro', sourceLang: 'de' },
+    ];
+
+    expect(flagRelabeledSourceLang(fresh, stored)).toBe(1);
+    expect(fresh.map((job) => Boolean((job as { needsRetranslation?: boolean }).needsRetranslation))).toEqual([false, true]);
   });
 
   it('keeps the fetch result unchanged and survives an unreadable slice', async () => {
@@ -133,7 +149,7 @@ describe('flagRelabeledSourceLang', () => {
 
   it('reads the stored slice of the crawler it wraps', async () => {
     const readExisting = vi.fn(() => [{ url, sourceLang: 'en' }]);
-    const wrapped = withSourceLangRelabelFlags(async () => ({ jobs: [{ url, sourceLang: 'it' }] }), 'faulhaber', { readExisting });
+    const wrapped = withSourceLangRelabelFlags(async () => ({ jobs: [{ url, sourceLang: 'it', description: ITALIAN_BODY }] }), 'faulhaber', { readExisting });
 
     const result = (await wrapped()) as { jobs: Array<{ needsRetranslation?: boolean }> };
 

@@ -22,9 +22,22 @@ function relabelKey(job) {
 }
 
 /**
+ * The body a fresh job's `sourceLang` was read from ('' when there is none).
+ */
+function sourceBody(job) {
+  return String(job?.description || job?.descriptionByLocale?.[job?.sourceLang] || '').trim();
+}
+
+/**
  * Mark the fresh jobs whose derived `sourceLang` differs from the stored one.
  * Mutates `freshJobs` in place (the pipeline keeps the array identity and any
  * `.discoveredCount` it carries) and returns how many jobs were flagged.
+ *
+ * Only a language read from a body counts. A parser that publishes a job
+ * whose detail page had no text (moncucco and zermatt-bergbahnen on main take
+ * the pipeline's thin-source path) falls back to the title's language; a
+ * retranslation on that signal would rewrite the stored original from one of
+ * its own translations.
  *
  * @param {object[]} freshJobs     Jobs just built by the parser.
  * @param {object[]} existingJobs  Jobs currently stored in the crawler slice.
@@ -38,6 +51,7 @@ export function flagRelabeledSourceLang(freshJobs = [], existingJobs = []) {
   }
   let flagged = 0;
   for (const job of Array.isArray(freshJobs) ? freshJobs : []) {
+    if (!sourceBody(job)) continue;
     const previous = storedLang.get(relabelKey(job));
     if (previous && job?.sourceLang && previous !== job.sourceLang) {
       job.needsRetranslation = true;
