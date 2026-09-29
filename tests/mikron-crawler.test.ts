@@ -4,10 +4,15 @@
  * Tests parseMikronJobs(), parseMikronJobDetail(), isSwissLocation(),
  * and utility functions using HTML fixtures.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   parseMikronJobs,
   parseMikronJobDetail,
+  dropMikronItalianFallback,
+  dropMikronFabricatedText,
+  keepMikronSourceBodies,
   isSwissLocation,
   htmlToText,
   slugify,
@@ -288,5 +293,76 @@ describe('parseMikronJobDetail — rich descriptions', () => {
     expect(result.description).toContain('CNC');
     expect(result.description).toContain('precision');
     expect(result.title).toBe('CNC Operator (100%)');
+  });
+});
+
+// ─── Current mikron.com template (fixture minimized from the live page, 2026-09-29) ──
+
+describe('parseMikronJobDetail — #job-content template', () => {
+  const DETAIL = fs.readFileSync(path.join(__dirname, 'fixtures', 'mikron', 'detail-job-content.html'), 'utf8');
+
+  it('returns the posting without title, Apply buttons or the attribute table', () => {
+    const { description } = parseMikronJobDetail(DETAIL);
+    expect(description.startsWith('En tant que Team Leader des polymécaniciens')).toBe(true);
+    expect(description).not.toMatch(/\bApply\b/);
+    expect(description).not.toContain('Related location');
+    expect(description).not.toContain('Polymecanic Team Leader');
+    expect(description).not.toContain('Mühlebrücke');
+  });
+
+  it('keeps section headings and line-start bullets for every section', () => {
+    const { description } = parseMikronJobDetail(DETAIL);
+    expect(description).toContain('Responsabilités principales\nManagement & Leadership (30%) :\n• Encadrer');
+    expect(description).toContain('Profil\n• CFC de polymécanicien');
+    expect(description).toContain('Ce que nous offrons\n• Un rôle clé');
+    expect(description).not.toMatch(/\n\n• /);
+  });
+});
+
+describe('dropMikronItalianFallback', () => {
+  const blurb = "Posizione aperta: Polymecanic Team Leader presso Mikron Group a Boudry. Divisione: Automation.\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera).";
+
+  it('removes the fabricated Italian company blurb and asks for a real translation', () => {
+    const job: any = { descriptionByLocale: { fr: 'En tant que Team Leader…', it: blurb } };
+    expect(dropMikronItalianFallback(job)).toBe(true);
+    expect(job.descriptionByLocale).toEqual({ fr: 'En tant que Team Leader…' });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('leaves a real Italian translation alone', () => {
+    const job: any = { descriptionByLocale: { fr: 'En tant que…', it: 'In qualità di Team Leader dei polimeccanici, assumi la responsabilità…' } };
+    expect(dropMikronItalianFallback(job)).toBe(false);
+    expect(job.descriptionByLocale.it).toContain('In qualità di Team Leader');
+    expect(job.needsRetranslation).toBeUndefined();
+  });
+});
+
+describe('no invented fallback text', () => {
+  const BODY = Array(60).fill('Responsabilité').join(' ');
+  const url = 'https://www.mikron.com/en/polymecanic-team-leader';
+
+  it('removes the stored English fallback paragraph and its translations', () => {
+    const fossil = 'Open position: Polymecanic Team Leader at Mikron Group in Boudry.\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland).';
+    const job: any = { sourceLang: 'en', description: fossil, descriptionByLocale: { en: fossil, de: 'Offene Stelle: …' } };
+    expect(dropMikronFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('keeps a job over the word floor and one whose stored source body is real', () => {
+    const fresh = [
+      { url, description: BODY, descriptionByLocale: { fr: BODY }, sourceLang: 'fr' },
+      { url: 'https://www.mikron.com/en/controls-engineer-specialist-mfd', description: '', descriptionByLocale: {}, sourceLang: 'en' },
+    ];
+    const stored = [{ url: 'https://www.mikron.com/en/controls-engineer-specialist-mfd', sourceLang: 'fr', description: BODY, descriptionByLocale: { fr: BODY } }];
+    const kept = keepMikronSourceBodies(fresh, stored, (u: string) => u);
+    expect(kept).toHaveLength(2);
+    expect(kept[1]).toMatchObject({ description: BODY, descriptionByLocale: { fr: BODY }, sourceLang: 'fr' });
+  });
+
+  it('does not publish a job without any source body this run', () => {
+    const kept = keepMikronSourceBodies([{ url, description: '', descriptionByLocale: {}, sourceLang: 'en' }], [], (u: string) => u);
+    expect(kept).toEqual([]);
   });
 });

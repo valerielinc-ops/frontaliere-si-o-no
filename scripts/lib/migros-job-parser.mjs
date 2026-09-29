@@ -211,6 +211,116 @@ export function extractMigrosBenefitItems(sectionHtml) {
   return items.filter(item => !headingFilter.test(item.trim()));
 }
 
+// ─── Overview side blocks (workplace, notices) ────────────────────────────────
+
+/**
+ * Workplace card(s) of the overview: `<address>` with the employing
+ * cooperative, the store and its street/postcode. Several same-title openings
+ * in one city (two "Allrounder*in Verkauf" in Luzern: M Würzenbachstrasse vs
+ * M Grossmatte) differ ONLY here, and the published job has no other field
+ * carrying the store — without it the vacancies read as identical copies.
+ *
+ * @param {string} overviewHtml
+ * @returns {string[]} one "Company, Store, Street, 6006 City" line per address
+ */
+export function extractMigrosWorkplaces(overviewHtml) {
+  const workplaces = [];
+  for (const match of String(overviewHtml || '').matchAll(/<address\b[^>]*>([\s\S]*?)<\/address>/gi)) {
+    const lines = match[1]
+      .replace(/<!--[\s\S]*?-->/g, '')
+      .split(/<\/(?:p|div|span)>|<br\s*\/?>/i)
+      .map((part) => stripHtml(part))
+      .filter(Boolean);
+    const unique = lines.filter((line, index) => lines.indexOf(line) === index);
+    if (unique.length > 0) workplaces.push(unique.join(', '));
+  }
+  return workplaces.filter((line, index) => workplaces.indexOf(line) === index);
+}
+
+/**
+ * Headed notice boxes inside the overview ("Wichtige Hinweise": dossier
+ * requirements, closing dates). They are part of the vacancy text on the page.
+ *
+ * @param {string} overviewHtml
+ * @returns {{ heading: string, text: string }[]}
+ */
+export function extractMigrosOverviewNotices(overviewHtml) {
+  const notices = [];
+  const re = /<h3\b[^>]*>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3\b|<div[^>]*class="[^"]*flicking|$)/gi;
+  for (const match of String(overviewHtml || '').matchAll(re)) {
+    const heading = stripHtml(match[1]);
+    const paragraphs = [...match[2].matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)]
+      .map((p) => stripHtml(p[1]))
+      .filter(Boolean);
+    if (heading && paragraphs.length > 0) notices.push({ heading, text: paragraphs.join('\n') });
+  }
+  return notices;
+}
+
+/**
+ * Recruitment section as markdown lines: the contact block and each
+ * `<details><summary>` step of the process as its own bullet. The old flat
+ * conversion collapsed every newline, so the section's `<h3>` markers ended up
+ * inline ("## Bewerbung & Kontakt Selina … ## Rekrutierungsprozess …") and the
+ * whole process rendered as one run-on heading.
+ *
+ * @param {string} sectionHtml
+ * @returns {string}
+ */
+export function migrosRecruitmentToMarkdown(sectionHtml) {
+  const NL = '\u0001';
+  const text = String(sectionHtml || '')
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<figure[\s\S]*?<\/figure>/gi, ' ')
+    // The recruiter's social-profile icons ("LinkedIn", "xing") are links, not text.
+    .replace(/<a\b[^>]*href="https?:\/\/(?:[a-z]+\.)?(?:linkedin|xing|facebook|instagram)\.com[^"]*"[^>]*>[\s\S]*?<\/a>/gi, ' ')
+    .replace(/<summary\b[^>]*>([\s\S]*?)<\/summary>/gi, (_, inner) => `${NL}- ${stripHtml(inner)}: `)
+    .replace(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi, (_, inner) => `${NL}${NL}**${stripHtml(inner)}**${NL}`)
+    .replace(/<\/p>/gi, `${NL}`);
+  return stripHtml(text)
+    .split(NL)
+    .map((line) => line.replace(/:\s*$/, ':').trim())
+    .reduce((out, line) => {
+      if (line || (out.length > 0 && out[out.length - 1] !== '')) out.push(line);
+      return out;
+    }, [])
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
+ * Workload ("80 – 100%") from the JobPosting `workHours`, else from the
+ * VISIBLE overview text. Never from raw markup: the overview carries share
+ * links whose URL-encoded job UUID ends in digits before `%3F`
+ * (`…1ca7cf0c1b00%3Futm_source`), which the old raw-HTML regex published as
+ * "Grado di occupazione: 00%" / "535%".
+ */
+function extractMigrosWorkPercentage(html, overviewHtml) {
+  const fromText = (text) => {
+    const clean = String(text || '');
+    const range = clean.match(/\b(\d{1,3})\s*%?\s*[-–]\s*(\d{1,3})\s*%/);
+    if (range && Number(range[2]) <= 100) {
+      // "60% - 60%" is a fixed workload, not a range.
+      return range[1] === range[2] ? `${range[1]}%` : `${range[1]}-${range[2]}%`;
+    }
+    const single = clean.match(/\b(\d{1,3})\s*%/);
+    if (single && Number(single[1]) <= 100) return `${single[1]}%`;
+    return '';
+  };
+  for (const match of String(html || '').matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const nodes = [].concat(JSON.parse(match[1]));
+      const posting = nodes.find((node) => node && node['@type'] === 'JobPosting');
+      const fromLd = fromText(posting?.workHours);
+      if (fromLd) return fromLd;
+    } catch {
+      // malformed block: fall through to the visible text
+    }
+  }
+  return fromText(stripHtml(overviewHtml));
+}
+
 // ─── Main extraction ──────────────────────────────────────────────────────────
 
 /**
@@ -236,6 +346,7 @@ export function extractMigrosBenefitItems(sectionHtml) {
  * @property {string} recruitmentText - Contact/application text
  * @property {string} employmentType - 'permanent' | 'temporary' | ''
  * @property {string} workPercentage - e.g. '80-100%' or ''
+ * @property {string[]} workplaces - overview address card(s), one line each
  */
 export function extractMigrosStructuredData(html) {
   const str = String(html || '');
@@ -349,7 +460,11 @@ export function extractMigrosStructuredData(html) {
   }
 
   // ── Recruitment / contact ─────────────────────────────────────────────
-  const recruitmentText = sections.recruitment ? htmlToStructuredText(sections.recruitment) : '';
+  const recruitmentText = sections.recruitment ? migrosRecruitmentToMarkdown(sections.recruitment) : '';
+
+  // ── Workplace and notices from the overview side column ─────────────────
+  const workplaces = extractMigrosWorkplaces(sections.overview);
+  const notices = extractMigrosOverviewNotices(sections.overview);
 
   // ── Employment type and work percentage from overview ─────────────────
   const overviewHtml = sections.overview || '';
@@ -359,14 +474,13 @@ export function extractMigrosStructuredData(html) {
   const tempMatch = overviewHtml.match(/(?:temporaneo|befristet|temporary|temporaire|determinato)/i);
   if (empMatch) employmentType = 'permanent';
   else if (tempMatch) employmentType = 'temporary';
-  const pctMatch = overviewHtml.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/);
-  const pctSingle = overviewHtml.match(/(\d{2,3})\s*%/);
-  if (pctMatch) workPercentage = `${pctMatch[1]}-${pctMatch[2]}%`;
-  else if (pctSingle) workPercentage = `${pctSingle[1]}%`;
+  workPercentage = extractMigrosWorkPercentage(str, overviewHtml);
 
   // ── Compose full description ──────────────────────────────────────────
   const parts = [];
   if (overviewText) parts.push(overviewText);
+  if (workplaces.length > 0) parts.push(`**Luogo di lavoro:** ${workplaces.join('; ')}`);
+  for (const notice of notices) parts.push(`## ${notice.heading}\n${notice.text}`);
   if (responsibilities.length > 0) {
     parts.push(`## Mansioni\n${responsibilities.map(r => `- ${r}`).join('\n')}`);
   } else if (tasksText) {
@@ -400,5 +514,6 @@ export function extractMigrosStructuredData(html) {
     recruitmentText,
     employmentType,
     workPercentage,
+    workplaces,
   };
 }

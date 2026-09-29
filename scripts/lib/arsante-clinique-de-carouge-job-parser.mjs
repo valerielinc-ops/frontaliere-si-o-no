@@ -42,6 +42,7 @@ import {
   locateTagByAttribute,
   extractBalancedTagBlockWithStatus,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const ARSANTE_KEY = 'arsante-clinique-de-carouge';
 export const ARSANTE_COMPANY_NAME = 'Arsanté (Clinique de Carouge)';
@@ -191,10 +192,12 @@ export async function fetchAllArsanteJobs() {
 
     const entity = detail.entity || 'Arsanté';
     const loc = inferLocality(entity);
-    const fallback = `${r.title} chez ${entity} (groupe Arsanté), ${loc.city} (GE). ${r.teaser || ''}`.trim();
-    const description = detail.body && detail.body.split(/\s+/).length >= 30
-      ? detail.body
-      : [fallback, detail.body].filter(Boolean).join('\n\n');
+    // Only source text (issue 5253): the detail body, else the listing
+    // teaser — never the "<title> chez <entity> (groupe Arsanté), <city>
+    // (GE)." line in front of it. A text under the common 50-word floor gives
+    // no description (the shared pipeline's thin-source path).
+    const sourceText = meetsSourceBodyFloor(detail.body) ? detail.body : normalizeSpace(r.teaser || '');
+    const description = meetsSourceBodyFloor(sourceText) ? sourceText : '';
 
     const sourceLang = detectLang(description || r.title, 'fr');
     const jobSlug = slugify(`${r.title} ${ARSANTE_KEY} ${loc.city}`);

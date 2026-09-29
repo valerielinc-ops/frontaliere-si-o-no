@@ -7073,6 +7073,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.percorsi-impiego-pubblico.title': 'Arbeiten in der Bundesverwaltung: Chancen und Ausbildung',
     'blog.article.percorsi-impiego-pubblico.excerpt': 'Die Bundesverwaltung bietet 50 Berufsausbildungen, Praktika für Hochschulabsolventinnen und -absolventen sowie sieben Wochen Ferien an.',
     'blog.article.percorsi-impiego-pubblico.imageAlt': 'Schweizer Büroteam bei der Arbeit für die Bundesverwaltung',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Krankenkasse 2027: bis zu 10\'000 Franken Unterschied',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'Im Jahr 2027 wird der nationale Durchschnitt 16\'450 Franken betragen, aber zwischen Genf und Zug beträgt der Unterschied für dieselbe Familie knapp 10\'000 Franken.',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Schweizer Familie prüft Krankenkassen-Rechnung im Tessin',
+    'blog.article.uss-freno-premi-cassa-malati-3.title': 'USS: Gesetzliche Prämienbremse bei 3%',
+    'blog.article.uss-freno-premi-cassa-malati-3.excerpt': 'Die USS fordert vom Ständerat eine Begrenzung der LAMal-Prämienerhöhungen auf 3%. Im Tessin beträgt der für 2027 erwartete Anstieg 3,7%.',
+    'blog.article.uss-freno-premi-cassa-malati-3.imageAlt': 'Bern, Sitz des Schweizerischen Parlaments, im Vordergrund ein Taschenrechner und eine Versicherungskarte.',
+    'blog.article.lavoratori-svizzeri-ia-2026.title': 'Schweizer Arbeitnehmende und KI: 28% nutzen sie, aber sie überzeugt nicht',
+    'blog.article.lavoratori-svizzeri-ia-2026.excerpt': '28% der Arbeitnehmenden in der Schweiz nutzen täglich KI, doch es fehlt an Überzeugung. Die Daten der PwC-Studie \'Hopes and Fears\' 2026 über die Beschäftigten.',
+    'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Schweizer Arbeitnehmer im Büro im Umgang mit generativer künstlicher Intelligenz',
+    'blog.article.ufc-finanzia-ricerca-provenienza.title': 'UFC: 1,95 Mio. für 26 Forschungsprojekte',
+    'blog.article.ufc-finanzia-ricerca-provenienza.excerpt': 'Das UFC stellt für 2027-2028 rund 1,95 Millionen Franken für 26 Provenienzforschungsprojekte zu Museen und Sammlungen in der Schweiz bereit.',
+    'blog.article.ufc-finanzia-ricerca-provenienza.imageAlt': 'Ansicht von Bellinzona mit Museen im Hintergrund, Morgenlicht',
 };
 
 export default blogMetaChDe;

@@ -9,6 +9,7 @@
  */
 
 import admin from 'firebase-admin';
+import { HERE_MONTHLY_FREE_TIER_BUDGET } from './lib/hereBudget.js';
 
 const GOOGLE_ROUTES_URL = 'https://routes.googleapis.com/directions/v2:computeRoutes';
 const MAPBOX_DIRECTIONS_URL = 'https://api.mapbox.com/directions/v5/mapbox/driving-traffic';
@@ -107,8 +108,8 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
             // compatible with its legacy `month` field via the read fallback.
             documentId: 'hereTransactionBudget',
             budgetEnv: 'HERE_MONTHLY_BUDGET',
-            defaultBudget: 4_000,
-            safeMaximum: 4_500,
+            defaultBudget: HERE_MONTHLY_FREE_TIER_BUDGET,
+            safeMaximum: HERE_MONTHLY_FREE_TIER_BUDGET,
           }),
         ],
       }),

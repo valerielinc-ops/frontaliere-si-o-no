@@ -72,20 +72,30 @@ export function isTrustedDomain(rawUrl = '') {
 }
 
 /**
- * Extract the list of `/positions/{ID}` URLs from the Flair HR listing page.
- * The page renders position cards as anchors; we collect unique IDs.
+ * Extract every position of the Flair HR listing page as `/positions/{ID}`.
+ *
+ * The page renders only the first 10 cards as anchors ("10 von 18 Stellen";
+ * pages 2+ are client-side, `?page=2` returns the same HTML), but its Next.js
+ * flight payload carries every position as `{"id":…,"name":…,"language":…}`.
+ * Reading anchors alone dropped 8 of 18 vacancies on 2026-09-29, and which 8
+ * changed with the ordering. Anchors first, in page order, then the positions
+ * only the payload lists; unique IDs.
  */
 export function parsePallasListing(html) {
   const out = [];
   const seen = new Set();
-  const rx = /href="\/positions\/([A-Za-z0-9]+)"/g;
-  let m;
-  while ((m = rx.exec(html))) {
-    const id = m[1];
-    if (seen.has(id)) continue;
+  const push = (id) => {
+    if (!id || seen.has(id)) return;
     seen.add(id);
     out.push({ id, detailUrl: `${PORTAL_BASE}/positions/${id}` });
-  }
+  };
+  const rx = /href="\/positions\/([A-Za-z0-9]+)"/g;
+  let m;
+  while ((m = rx.exec(html))) push(m[1]);
+  // The payload is JSON quoted inside a JS string: drop the escaping first.
+  const payload = String(html || '').replace(/\\/g, '');
+  const recordRx = /"id":"([A-Za-z0-9]{15,18})","name":"[^"]*","language":"/g;
+  while ((m = recordRx.exec(payload))) push(m[1]);
   return out;
 }
 
@@ -115,7 +125,50 @@ function htmlDescriptionToText(htmlDescription = '') {
   // decode entities first, then strip tags.
   const decoded = decodeEntities(String(htmlDescription));
   const text = htmlToText(decoded);
-  return normalizeDescriptionBullets(normalizeSpace(text));
+  return normalizeDescriptionBullets(text
+    .split('\n')
+    .map((line) => normalizeSpace(line))
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim());
+}
+
+/**
+ * Headings the position page renders above each JSON-LD section, per language
+ * of the posting (the portal UI shows the German set on German postings).
+ */
+const SECTION_HEADINGS = {
+  de: { responsibilities: 'Verantwortlichkeiten', requirements: 'Anforderungen', benefits: 'Vorteile' },
+  fr: { responsibilities: 'Responsabilités', requirements: 'Exigences', benefits: 'Avantages' },
+  it: { responsibilities: 'Responsabilità', requirements: 'Requisiti', benefits: 'Vantaggi' },
+  en: { responsibilities: 'Responsibilities', requirements: 'Requirements', benefits: 'Benefits' },
+};
+
+/**
+ * The whole ad from the position's JSON-LD: the `description` holds only the
+ * intro, while tasks, requirements and benefits sit in `responsibilities`,
+ * `experienceRequirements` (or `qualifications`/`skills`) and `jobBenefits` —
+ * the three lists the page renders under «Verantwortlichkeiten»,
+ * «Anforderungen» and «Vorteile». Publishing `description` alone was the intro
+ * only (a3LTG00000Kb2yb2AB: 575 of 1'309 characters, issue 5253).
+ *
+ * @param {Record<string, any>} ld JobPosting JSON-LD
+ * @param {string} [lang] language of the posting, for the section headings
+ */
+export function buildPallasDescription(ld = {}, lang = 'de') {
+  const headings = SECTION_HEADINGS[lang] || SECTION_HEADINGS.de;
+  const requirementsHtml = [ld.experienceRequirements, ld.qualifications, ld.skills]
+    .find((value) => typeof value === 'string' && value.trim()) || '';
+  const parts = [htmlDescriptionToText(ld.description || '')];
+  for (const [key, value] of [
+    ['responsibilities', ld.responsibilities],
+    ['requirements', requirementsHtml],
+    ['benefits', ld.jobBenefits],
+  ]) {
+    const text = typeof value === 'string' ? htmlDescriptionToText(value) : '';
+    if (text) parts.push(`## ${headings[key]}\n${text}`);
+  }
+  return parts.filter(Boolean).join('\n\n');
 }
 
 function mapEmploymentTypeLd(value, fallbackText) {
@@ -160,12 +213,12 @@ export async function fetchAllPallasKlinikenJobs() {
     }
 
     const title = normalizeSpace(decodeEntities(ld.title));
-    const description = htmlDescriptionToText(ld.description || '');
+    const sourceLang = detectLang(htmlDescriptionToText(ld.description || '') || title, 'de');
+    const description = buildPallasDescription(ld, sourceLang);
     if (!title || description.split(/\s+/).length < 30) {
       console.warn(`  ⚠️ Pallas thin description for ${title || p.id}`);
       continue;
     }
-    const sourceLang = detectLang(description, 'de');
 
     const addr = ld.jobLocation?.address || {};
     const rawCity = normalizeSpace(decodeEntities(addr.addressLocality || ''));

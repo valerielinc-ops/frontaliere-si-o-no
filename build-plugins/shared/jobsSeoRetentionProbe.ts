@@ -119,5 +119,9 @@ export function logGcFreedProbeCheckpoint(
     ...details,
     candidate: candidate ?? 'none',
   });
-  return gcFreedProbeLogFields(candidate, gcFreed);
+  const fields = gcFreedProbeLogFields(candidate, gcFreed);
+  if (candidate !== null) {
+    console.log(`[gcfreed-probe] candidate=${fields.candidate} gcFreed=${fields.gcFreed}`);
+  }
+  return fields;
 }

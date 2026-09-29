@@ -1,5 +1,7 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { isIstDetailJob, parseCountryCode } from '@/scripts/update-ist-jobs.mjs';
+import { buildIstDescriptionFields, dropIstFabricatedText, isIstDetailJob, parseCountryCode } from '@/scripts/update-ist-jobs.mjs';
 
 describe('IST country-code parsing', () => {
   it('keeps Swiss canton codes Swiss when they are the final location component', () => {
@@ -73,5 +75,30 @@ describe('IST detail tenant identity', () => {
       description: 'An opportunity to work with the International School of Ticino team.',
       location: 'Zürich, CH',
     })).toBe(false);
+  });
+});
+
+// Fixture: the start of a live jobs.inspirededu.com posting text (2026-09-29).
+describe('IST description fields', () => {
+  const text = fs.readFileSync(path.join(__dirname, 'fixtures', 'ist', 'inspired-description-cover-teacher.txt'), 'utf8').trim();
+
+  it('publishes the posting text alone, keyed by its language', () => {
+    const fields = buildIstDescriptionFields('Primary Cover Teacher', text, 'Lugano', 'TI');
+    expect(fields.description).toBe(text);
+    expect(fields.descriptionByLocale).toEqual({ en: text });
+    expect(fields.description).not.toContain('The International School of Ticino (IST) is part of the Inspired Education Group');
+  });
+
+  it('removes the Italian blurb and the translations of the blurb-appended source from a stored job', () => {
+    const job: any = {
+      sourceLang: 'en',
+      descriptionByLocale: {
+        en: `${text}\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups.`,
+        it: 'Posizione aperta presso la International School of Ticino a Lugano.\nRuolo: Primary Cover Teacher.\n\nLa International School of Ticino (IST) fa parte di Inspired Education Group.',
+      },
+    };
+    expect(dropIstFabricatedText(job)).toBe(true);
+    expect(Object.keys(job.descriptionByLocale)).toEqual(['en']);
+    expect(job.needsRetranslation).toBe(true);
   });
 });

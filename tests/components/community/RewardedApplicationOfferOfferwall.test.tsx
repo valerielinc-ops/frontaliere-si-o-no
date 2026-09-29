@@ -4,8 +4,9 @@
  * Funding Choices holds an Offerwall for the page view, the "Candidati" click
  * releases it before any GPT request, behind a neutral loading screen that
  * never mentions ads, videos or Google (owner decision 2026-09-26). Google's
- * reward continues to the application with no further click, as soon as the
- * entitlement arrives; a released Offerwall that does not show hands off to
+ * reward continues to the application (a new tab) as soon as the entitlement
+ * arrives, with no further click inside a click's activation and from one
+ * click otherwise; a released Offerwall that does not show hands off to
  * the employer without a second ad; the GPT path runs only when nothing was
  * released.
  */
@@ -60,6 +61,7 @@ vi.mock('@/services/offerwallClickGate', () => ({
 }));
 
 import RewardedApplicationOffer from '@/components/community/RewardedApplicationOffer';
+import { setUserActivation } from '../../helpers/userActivation';
 import { itReady } from '@/services/i18n';
 
 const tracked = (name: string) => mocks.trackAssistedApplicationEvent.mock.calls
@@ -104,6 +106,9 @@ beforeAll(async () => {
 
 beforeEach(() => {
   vi.clearAllMocks();
+  // A reward inside a click's activation opens the employer at once; the
+  // `handoff` card without one is covered in RewardedApplicationOffer.test.tsx.
+  setUserActivation(true);
   // The Offerwall is released only with ad consent (services/offerwallRecovery.ts);
   // the recovery paths without it are in RewardedApplicationOfferRecovery.test.tsx.
   window.localStorage.setItem('frontaliere_ads_consent', 'granted');
@@ -120,6 +125,7 @@ beforeEach(() => {
 
 afterEach(() => {
   cleanup();
+  setUserActivation(null);
   document.body.style.overflow = '';
 });
 
@@ -213,7 +219,32 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
     expect(completed).not.toHaveProperty('closed_ms');
   });
 
-  it('after Google’s reward continues to the application once, with no further click', async () => {
+  it('without a click activation left at the reward, opens the employer from one click', async () => {
+    setUserActivation(false);
+    mocks.status = 'held';
+    render(<RewardedApplicationOffer {...props} />);
+    showOfferwall(800);
+
+    await settle({
+      outcome: 'completed',
+      signal: 'entitlement',
+      shownMs: 800,
+      closedMs: null,
+      completedMs: 9_100,
+      root: 'fc-message-root',
+    });
+
+    expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
+    expect(props.onContinue).not.toHaveBeenCalled();
+    expect(screen.getByTestId('rewarded-application-handoff')).toHaveTextContent('Candidatura a «Fisioterapista diplomato» sbloccata');
+
+    fireEvent.click(screen.getByTestId('rewarded-application-handoff-open'));
+
+    expect(props.onContinue).toHaveBeenCalledTimes(1);
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo a «Fisioterapista diplomato»…');
+  });
+
+  it('after Google’s reward continues to the application once, with no further click inside a click activation', async () => {
     mocks.status = 'held';
     render(<RewardedApplicationOffer {...props} />);
 

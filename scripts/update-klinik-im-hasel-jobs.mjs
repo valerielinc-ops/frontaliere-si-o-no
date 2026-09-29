@@ -12,6 +12,7 @@ import {
   KLINIK_IM_HASEL_KEY,
   KLINIK_IM_HASEL_COMPANY_NAME,
 } from './lib/klinik-im-hasel-job-parser.mjs';
+import { repairStoredUmantisJobs } from './lib/umantis-listing-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -24,6 +25,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isKlinikImHaselJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => repairStoredUmantisJobs(jobs, KLINIK_IM_HASEL_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Klinik im Hasel crawler failed: ${err?.message || err}`);
   process.exit(1);

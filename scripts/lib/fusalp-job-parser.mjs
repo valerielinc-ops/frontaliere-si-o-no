@@ -11,7 +11,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -170,6 +170,62 @@ function extractJsonLd(html) {
   }
 }
 
+function readBalancedDiv(html, contentStart) {
+  const tags = /<\/?div\b[^>]*>/gi;
+  tags.lastIndex = contentStart;
+  let depth = 1;
+  let match;
+  while ((match = tags.exec(html))) {
+    if (match[0][1] === '/') {
+      depth -= 1;
+      if (depth === 0) return { content: html.slice(contentStart, match.index), end: tags.lastIndex };
+    } else if (!/\/\s*>$/.test(match[0])) {
+      depth += 1;
+    }
+  }
+  return { content: html.slice(contentStart), end: html.length };
+}
+
+// One line per list item: WelcomeKit wraps item text in `<p>` and splits the
+// "Additional Information" values over several lines inside `<strong>`.
+function htmlBlockToText(html = '') {
+  const flatItems = String(html || '').replace(
+    /<li\b([^>]*)>([\s\S]*?)<\/li>/gi,
+    (_, attrs, inner) => `<li${attrs}>${inner.replace(/<\/?p\b[^>]*>|<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ')}</li>`,
+  );
+  return normalizeDescriptionSpace(stripHtml(flatItems))
+    .replace(/•[ \t]*\n+[ \t]*/g, '• ')
+    .replace(/\n{2,}(?=• )/g, '\n');
+}
+
+/**
+ * Full vacancy text of a WelcomeKit detail page, in page order: every
+ * `div.block-job-text` block ("About" — company and role context —, "Job
+ * Description", "Preferred Experience", "Recruitment Process", "Additional
+ * Information") as `Heading` + body, lists kept as `• ` lines. The apply block
+ * and the photo carousel are chrome. The JSON-LD `description` +
+ * `qualifications` pair used before carries only two of those blocks, and the
+ * old whitespace collapse flattened every list into one paragraph (#5253).
+ */
+export function parseFusalpDetailDescription(html = '') {
+  const source = String(html || '');
+  const sections = [];
+  const openings = /<div\b[^>]*\bclass\s*=\s*["']([^"']*)["'][^>]*>/gi;
+  let match;
+  while ((match = openings.exec(source))) {
+    const classes = match[1].split(/\s+/);
+    if (!classes.includes('block-job-text') || classes.includes('block-job-apply')) continue;
+    const { content, end } = readBalancedDiv(source, openings.lastIndex);
+    openings.lastIndex = end;
+    const heading = normalizeSpace(stripHtml(/<h[23]\b[^>]*class\s*=\s*["'][^"']*block-title[^"']*["'][^>]*>([\s\S]*?)<\/h[23]>/i.exec(content)?.[1] || ''));
+    const bodyStart = content.search(/<div\b[^>]*class\s*=\s*["'][^"']*block-content/i);
+    const body = bodyStart >= 0 ? htmlBlockToText(content.slice(bodyStart)) : '';
+    if (!body) continue;
+    sections.push(heading ? `${heading}\n${body}` : body);
+  }
+  return normalizeDescriptionSpace(sections.join('\n\n'));
+}
+
 /**
  * Fetch all Fusalp jobs.
  * Returns an array of ParsedJob objects (source-locale only).
@@ -227,12 +283,11 @@ export async function fetchAllFusalpJobs() {
         continue;
       }
 
-      // Description from JSON-LD
+      // Description: the rendered vacancy blocks; JSON-LD only as fallback.
       const rawDescription = jsonLd?.description || '';
       const qualifications = jsonLd?.qualifications || '';
-      const descriptionText = normalizeSpace(
-        stripHtml(rawDescription) +
-        (qualifications ? `\n\n${stripHtml(qualifications)}` : ''),
+      const descriptionText = parseFusalpDetailDescription(detailHtml) || htmlBlockToText(
+        rawDescription + (qualifications ? `\n\n${qualifications}` : ''),
       );
 
       const title = normalizeSpace(jsonLd?.title || listing.title || '');
