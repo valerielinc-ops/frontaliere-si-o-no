@@ -52,10 +52,11 @@ describe('ruag-job-parser', () => {
     // parser-side Italian label table that never matched the German pages.
     expect(parsed.description).toContain('## Il tuo ambito di lavoro');
     expect(parsed.description).toContain('Presso la nostra sede di Lodrino');
-    // Template without `.jobInfoList`: the JSON-LD lists are the fallback.
-    expect(parsed.description).toContain('## Responsabilita');
+    // Template without `.jobInfoList`: the JSON-LD lists are the fallback,
+    // without invented headings.
     expect(parsed.description).toContain('- Lavorazione di metalli');
-    expect(parsed.description).toContain('## Requisiti');
+    expect(parsed.description).toContain('- Buone prestazioni in matematica');
+    expect(parsed.description).not.toMatch(/^## (?:Responsabilita|Requisiti|Vantaggi|Contatto)$/m);
     expect(parsed.description).toContain('## I tuoi vantaggi');
     expect(parsed.description).toContain('- Usa jobs.ruag.ch');
     expect(parsed.description).toContain('Sonja Schwyn');

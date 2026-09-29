@@ -1,0 +1,43 @@
+{
+  "_comment": "Records shaped like those written by update-postch-jobs.mjs / update-postfinance-jobs.mjs before 2026-09-29, when an unreadable vacancy body was replaced by an invented Italian text (one-liner / buildPostFinanceFallbackDescription). Pinned for stripPostFallbackSlots() and carryPostSourceBody().",
+  "postaInventedOnly": {
+    "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74624-de_DE",
+    "title": "Zusteller:in Briefe und Pakete",
+    "sourceLang": "it",
+    "description": "Posizione aperta presso Die Schweizerische Post. Ruolo: Zusteller:in Briefe und Pakete. Sede: Ennenda, Svizzera.",
+    "descriptionByLocale": {
+      "it": "Posizione aperta presso Die Schweizerische Post. Ruolo: Zusteller:in Briefe und Pakete. Sede: Ennenda, Svizzera.",
+      "en": "Open position at Swiss Post. Role: Letter and parcel carrier. Location: Ennenda, Switzerland."
+    }
+  },
+  "postaRealBodyWithStaleSlots": {
+    "url": "https://job.post.ch/default/job/Teamleaderin-Inhouselogistik/74761-de_DE",
+    "title": "Teamleader:in Inhouselogistik",
+    "sourceLang": "de",
+    "description": "Du führst ein Team in der Inhouselogistik und sorgst dafür, dass Briefe und Pakete zuverlässig verarbeitet werden.\n\nDas kannst du bewirken:\n\n- Du planst die Einsätze deines Teams.\n\n- Du stellst die Qualität der Verarbeitung sicher.",
+    "descriptionByLocale": {
+      "de": "Du führst ein Team in der Inhouselogistik und sorgst dafür, dass Briefe und Pakete zuverlässig verarbeitet werden.\n\nDas kannst du bewirken:\n\n- Du planst die Einsätze deines Teams.\n\n- Du stellst die Qualität der Verarbeitung sicher.",
+      "it": "Posizione aperta presso Die Schweizerische Post. Ruolo: Teamleader:in Inhouselogistik. Sede: Zürich-Mülligen, Svizzera.",
+      "en": "Open position at Swiss Post. Role: Team leader in-house logistics. Location: Zürich-Mülligen, Switzerland."
+    }
+  },
+  "postfinanceInventedOnly": {
+    "url": "https://jobs.postfinance.ch/job/Kubernetes-Engineer/74638-de_DE",
+    "title": "Kubernetes Engineer",
+    "sourceLang": "it",
+    "description": "PostFinance, la sussidiaria di servizi finanziari della Posta Svizzera, ricerca attualmente la figura \"Kubernetes Engineer\" per la sede di Bern (Cantone BE). La posizione nell'ambito \"Informatik\" è pubblicata con un grado di occupazione flessibile tra il 80% e il 100% sul portale ufficiale delle carriere PostFinance/Posta Svizzera e rientra nell'offerta corrente di impieghi disponibili in Svizzera. Per consultare i requisiti completi del profilo ricercato, le condizioni di impiego e candidarsi direttamente, è necessario visitare la pagina dell'annuncio collegata a questo articolo.",
+    "descriptionByLocale": {
+      "it": "PostFinance, la sussidiaria di servizi finanziari della Posta Svizzera, ricerca attualmente la figura \"Kubernetes Engineer\" per la sede di Bern (Cantone BE). La posizione nell'ambito \"Informatik\" è pubblicata con un grado di occupazione flessibile tra il 80% e il 100% sul portale ufficiale delle carriere PostFinance/Posta Svizzera e rientra nell'offerta corrente di impieghi disponibili in Svizzera. Per consultare i requisiti completi del profilo ricercato, le condizioni di impiego e candidarsi direttamente, è necessario visitare la pagina dell'annuncio collegata a questo articolo."
+    }
+  },
+  "postfinanceRealBody": {
+    "url": "https://jobs.postfinance.ch/job/Kubernetes-Engineer/74638-de_DE",
+    "title": "Kubernetes Engineer",
+    "sourceLang": "de",
+    "description": "Deine Arbeit bleibt oft unsichtbar, ihre Wirkung aber nicht: Du stellst sicher, dass Zahlungen reibungslos funktionieren.\n\nDas kannst du bewirken\n\n- Du verantwortest Engineering, Weiterentwicklung und Betrieb unserer On-Prem-Kubernetes-Cluster",
+    "descriptionByLocale": {
+      "de": "Deine Arbeit bleibt oft unsichtbar, ihre Wirkung aber nicht: Du stellst sicher, dass Zahlungen reibungslos funktionieren.\n\nDas kannst du bewirken\n\n- Du verantwortest Engineering, Weiterentwicklung und Betrieb unserer On-Prem-Kubernetes-Cluster",
+      "en": "Your work often remains invisible, but its impact does not."
+    }
+  }
+}

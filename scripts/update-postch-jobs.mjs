@@ -40,6 +40,8 @@ import {
   parsePostJobDetail,
   extractPostJobIdFromUrl,
   keyPostDescriptionBySourceLocale,
+  previousPostSourceBody,
+  stripPostFallbackSlots,
 } from './lib/postch-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
@@ -527,7 +529,12 @@ async function fetchPostJobs() {
     }
 
     if (!detail || !detail.title) {
-      console.warn(`  ⚠️ Could not parse detail for job ${record.id}`);
+      // No body read this run. The listing still carries the vacancy, so the
+      // merge keeps the body a previous run read from it (same stable id) or
+      // leaves it out of this run — nothing is written in its place.
+      console.warn(`  ⚠️ Could not parse detail for job ${record.id} — keeping its previous source body if any`);
+      const url = buildDetailUrl(record, orderedLocales[0] || 'it_IT');
+      if (url) jobs.push({ url, _missingSourceBody: true });
       continue;
     }
 
@@ -559,9 +566,10 @@ async function fetchPostJobs() {
       ? record.cust_brandCompanyJobSearch[0]
       : '';
 
-    const description = detail.description && detail.description.length > 30
-      ? detail.description
-      : `Posizione aperta presso ${brandCompany || POST_COMPANY_NAME}. Ruolo: ${title}. Sede: ${city}, Svizzera.`;
+    // Only the source's own text: the detail loop above already requires a
+    // body of more than 80 characters (the former Italian one-liner
+    // "Posizione aperta presso …" was never source text).
+    const description = String(detail.description || '').trim();
     const sourceLang = detectLang(description || title, 'it');
 
     const job = {
@@ -597,7 +605,8 @@ async function fetchPostJobs() {
     console.log(`     ✅ ${title} — ${city} (${canton})`);
   }
 
-  console.log(`\n📋 Total Post.ch jobs discovered (CH-wide): ${jobs.length}`);
+  const withoutBody = jobs.filter((job) => job._missingSourceBody).length;
+  console.log(`\n📋 Total Post.ch jobs discovered (CH-wide): ${jobs.length - withoutBody} with a source body, ${withoutBody} without`);
   return jobs;
 }
 
@@ -660,9 +669,24 @@ async function mergePostJobs(discoveredJobs) {
   let removed = 0;
   const merged = [];
 
+  let carried = 0;
+  let withheld = 0;
   for (const discovered of dedupedDiscovered) {
     const uuid = extractUuid(discovered.url);
     const existing = uuid ? existingByUuid.get(uuid) : null;
+
+    if (discovered._missingSourceBody) {
+      // Still listed, body unreadable this run: keep the record a previous run
+      // built from the source (minus any invented text), or publish nothing.
+      const kept = existing ? stripPostFallbackSlots(existing) : null;
+      if (kept && previousPostSourceBody(kept)) {
+        merged.push(kept);
+        carried++;
+      } else {
+        withheld++;
+      }
+      continue;
+    }
 
     if (existing) {
       const updatedJob = {
@@ -695,7 +719,8 @@ async function mergePostJobs(discoveredJobs) {
         slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       };
 
-      merged.push(updatedJob);
+      const cleaned = stripPostFallbackSlots(updatedJob);
+      if (cleaned) merged.push(cleaned);
       updated++;
     } else {
       merged.push(discovered);
@@ -718,9 +743,11 @@ async function mergePostJobs(discoveredJobs) {
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  🗑️  Removed (stale): ${removed}`);
+  console.log(`  ♻️  Body unreadable, previous source body kept: ${carried}`);
+  console.log(`  ⏸️  Body unreadable, not published this run: ${withheld}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
 
-  return { added, updated, removed, total: final.length };
+  return { added, updated, removed, carried, withheld, total: final.length };
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -904,8 +931,10 @@ async function main() {
   // 1. Fetch and parse job listings
   const discoveredJobs = await fetchPostJobs();
 
-  if (discoveredJobs.length === 0) {
-    console.log('⚠️ No Post.ch jobs discovered from the careers portal (CH-wide).');
+  // A run that read no body at all is a detail-page outage, not an empty
+  // board: keep the existing slice exactly as before.
+  if (discoveredJobs.every((job) => job._missingSourceBody)) {
+    console.log(`⚠️ No Post.ch job body read from the careers portal (CH-wide; ${discoveredJobs.length} listed without a readable body).`);
     console.log('   The page structure may have changed or be temporarily unavailable.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     logPostJobStats();
@@ -913,7 +942,7 @@ async function main() {
   }
 
   // 2. Update the adapter config with discovered job URLs as seeds
-  const seedUrls = discoveredJobs.map(j => j.url);
+  const seedUrls = discoveredJobs.filter((j) => !j._missingSourceBody).map((j) => j.url);
   updateAdapterConfig(seedUrls);
 
   // 3. Merge discovered jobs into data/jobs.json

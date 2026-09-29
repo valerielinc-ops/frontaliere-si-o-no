@@ -122,26 +122,30 @@ export function isRittmeyerTicinoListing(listing = {}) {
 export function parseRittmeyerJobDetail(html = '') {
   const document = new JSDOM(html).window.document;
   const title = normalizeSpace(document.querySelector('h1')?.textContent || '');
-  // The JSON-LD description is the posting's own intro paragraph. The meta
-  // description is NOT per-vacancy on this site: "Projektingenieur (a)
-  // Wasserkraftwerke" and "Teamleiter Lager & Logistik (a)" both carry the
-  // "Projektleiter (a) Wasser- und Energieversorgung" blurb there, which is
-  // how two unrelated jobs ended up with one identical body (audit run
-  // 36528331656). It stays only as a last-resort fallback.
-  const summary = readJobPostingDescription(document)
-    || normalizeSpace(document.querySelector('meta[name="description"]')?.getAttribute('content') || '');
   const applyUrl =
     [...document.querySelectorAll('a[href*="onlyfy.jobs/job/"]')].map((link) => link.href).find(Boolean) || '';
 
   const facts = {};
   const paragraphs = [...document.querySelectorAll('p')].map((node) => normalizeSpace(node.textContent || '')).filter(Boolean);
+  let firstFactValueIndex = -1;
   for (let i = 0; i < paragraphs.length - 1; i += 1) {
     const value = paragraphs[i];
     const label = paragraphs[i + 1];
     if (['Bereich', 'Schweiz', 'Pensum'].includes(label)) {
       facts[label] = value;
+      if (firstFactValueIndex < 0) firstFactValueIndex = i;
     }
   }
+  // The posting's own intro: the JSON-LD description, else the page paragraph
+  // printed right above the key facts (the same text). The meta description
+  // is NOT per-vacancy on this site — "Projektingenieur (a) Wasserkraftwerke"
+  // and "Teamleiter Lager & Logistik (a)" both carry the "Projektleiter (a)
+  // Wasser- und Energieversorgung" blurb there, which is how two unrelated
+  // jobs ended up with one identical body (audit run 36528331656) — so it is
+  // never used.
+  const pageIntro = firstFactValueIndex >= 1 ? paragraphs[firstFactValueIndex - 1] : '';
+  const summary = readJobPostingDescription(document)
+    || (pageIntro.length >= 80 && !/^#/.test(pageIntro) ? pageIntro : '');
 
   const impact = eyebrowBlock(document, '#Impact') || headingBlock(document, 'La tua area di competenza');
   const requirementsBlock = eyebrowBlock(document, '#Requirements') || headingBlock(document, 'Ciò che porti con te');
@@ -178,33 +182,18 @@ export function parseRittmeyerJobDetail(html = '') {
   };
 }
 
-// Labels for the three facts the page shows under German labels on every
-// posting (Bereich / Schweiz / Pensum), rendered in the posting's language.
-const FACT_LABELS = {
-  it: { facts: 'Dettagli principali', area: 'Area', location: 'Località', workload: 'Percentuale' },
-  en: { facts: 'Key details', area: 'Team', location: 'Location', workload: 'Workload' },
-  de: { facts: 'Wichtige Eckdaten', area: 'Bereich', location: 'Standort', workload: 'Pensum' },
-  fr: { facts: 'Points clés', area: 'Domaine', location: 'Lieu', workload: 'Taux' },
-};
-
 /**
- * The posting in its own language, section headings as the page prints them:
- * intro, company paragraph, key facts, tasks, profile, benefits.
+ * The posting as the page prints it, in its own language: intro, company
+ * paragraph, tasks, profile, benefits — every heading is the page's own.
+ * Nothing is added: the key facts (area, site, workload) are published as the
+ * job's structured fields, and the old per-locale labels ("Dettagli
+ * principali", "Wichtige Eckdaten") and the invented application line
+ * ("Candidati tramite il portale ufficiale Rittmeyer/Onlyfy.") are gone.
  */
-export function renderRittmeyerDescription(detail = {}, sourceLang = 'it') {
-  const labels = FACT_LABELS[sourceLang] || FACT_LABELS.de;
+export function renderRittmeyerDescription(detail = {}) {
   const sections = [];
   if (detail.summary) sections.push(detail.summary);
   if (detail.company) sections.push(detail.company);
-
-  const facts = [
-    detail.area ? `- ${labels.area}: ${detail.area}` : '',
-    detail.location ? `- ${labels.location}: ${detail.location}` : '',
-    detail.workload ? `- ${labels.workload}: ${detail.workload}` : '',
-  ].filter(Boolean);
-  if (facts.length > 0) {
-    sections.push(`## ${labels.facts}\n${facts.join('\n')}`);
-  }
 
   const list = (heading, items) => {
     if (!items?.length) return;
@@ -233,7 +222,7 @@ export function buildRittmeyerLocalizedContent(detail = {}, sourceLang = 'it') {
   return {
     titleByLocale: { [sourceLang]: title },
     slugByLocale: { [sourceLang]: slugify(`${title} Rittmeyer AG ${locationLabel}`) },
-    descriptionByLocale: { [sourceLang]: renderRittmeyerDescription(detail, sourceLang) },
+    descriptionByLocale: { [sourceLang]: renderRittmeyerDescription(detail) },
   };
 }
 
@@ -242,4 +231,19 @@ export const RITTMEYER_LEGACY_PLACEHOLDER_TITLES = Object.freeze([
   'Sales Project Engineer (m/f/x) Ticino',
   'Verkaufsprojektingenieur:in Tessin',
   'Ingenieur commercial projets Tessin',
+]);
+
+/**
+ * Section headings the old builder invented for every locale (none of them is
+ * printed on the page). A stored locale slot that carries one is that
+ * builder's output or a translation of it — text of an older, incomplete
+ * body — and is dropped so the translation step redoes it from the source.
+ */
+export const RITTMEYER_LEGACY_SYNTHETIC_HEADINGS = Object.freeze([
+  'Panoramica', 'Overview', 'Überblick', 'Aperçu',
+  'Dettagli principali', 'Key details', 'Wichtige Eckdaten', 'Points clés',
+  'Main responsibilities', 'Dein Verantwortungsbereich', 'Vos responsabilités',
+  'What you bring', 'Votre profil',
+  'What Rittmeyer offers', 'Was Rittmeyer bietet', 'Ce que propose Rittmeyer',
+  'Candidatura', 'Application', 'Bewerbung', 'Candidature',
 ]);

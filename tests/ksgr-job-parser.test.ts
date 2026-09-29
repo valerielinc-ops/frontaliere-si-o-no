@@ -160,8 +160,9 @@ describe('ksgr description completeness', () => {
     expect(job.description).toBe([
       'Starte nach Vereinbarung als Bereichsleiter:in Human Resource Management 80 - 100%',
       'Wo über 3’600 Mitarbeitende zusammenarbeiten, treffen täglich unterschiedliche Welten aufeinander.\n\nDu bist präsent, auf Augenhöhe und weisst, wie du unterschiedliche Interessen zusammenführst.',
-      '## Aufgaben\n\n- Du treibst die Weiterentwicklung der HR-Strategie voran\n- Du führst den HRM-Bereich',
-      '## Anforderungen\n\n- Erfahrung in der Führung von Führungskräften',
+      // No invented list headings: the page's own go back on in compose.
+      '- Du treibst die Weiterentwicklung der HR-Strategie voran\n- Du führst den HRM-Bereich',
+      '- Erfahrung in der Führung von Führungskräften',
       'Du kannst etwas, was andere nicht können?\nDann gehörst du zu uns!',
     ].join('\n\n'));
   });
@@ -178,9 +179,28 @@ describe('ksgr description completeness', () => {
     expect(extras.contact).toContain('Erika Muster, Departementsleiterin Management Services');
     expect(extras.contact).toContain('Telefon +41 00 000 00 00');
 
+    expect(extras.listHeadings.map((entry: { heading: string }) => entry.heading))
+      .toEqual(['Das sind deine Aufgaben', 'Das bringst du mit']);
+
     const composed = composeKsgrDescription('API TEXT', extras);
     expect(composed).toMatch(/^API TEXT\n\n## Und das bieten wir dir\n\n- Beruf und Familie: /);
     expect(composed).toContain('## Kontakt\n\nBei Fragen bin ich gerne für dich da:');
+
+    // The page's list headings go back over the same lists of the API text.
+    const apiText = [
+      'Intro.',
+      `- ${extras.listHeadings[0].firstItem}\n- Zweite Aufgabe`,
+      `- ${extras.listHeadings[1].firstItem}`,
+    ].join('\n\n');
+    const withHeadings = composeKsgrDescription(apiText, { ...extras, benefits: [], contact: '' });
+    expect(withHeadings).toBe([
+      'Intro.',
+      `## Das sind deine Aufgaben\n\n- ${extras.listHeadings[0].firstItem}\n- Zweite Aufgabe`,
+      `## Das bringst du mit\n\n- ${extras.listHeadings[1].firstItem}`,
+    ].join('\n\n'));
+    // A section the page prints without heading gets none.
+    expect(composeKsgrDescription('API TEXT', { ...extras, benefitsHeading: '', contact: '' }))
+      .toMatch(/^API TEXT\n\n- Beruf und Familie: /);
     // "Weitere spannende Stellen" / JobAbo teasers are chrome.
     expect(composed).not.toContain('Weitere spannende Stellen');
     expect(composed).not.toContain('JobAbo');

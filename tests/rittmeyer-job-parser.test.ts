@@ -103,8 +103,6 @@ describe('rittmeyer-job-parser', () => {
     const markers = [
       'Bist du bereit',
       'Als Teil der BRUGG-Gruppe',
-      '## Wichtige Eckdaten',
-      '- Pensum: 100%',
       '## Was du bei uns bewegen kannst',
       '- Du erstellst und entwickelst anlagenspezifische Applikationssoftware',
       '## Was du mitbringst',
@@ -120,6 +118,16 @@ describe('rittmeyer-job-parser', () => {
     }
     // Blog/team teasers after the benefits are page chrome.
     expect(d).not.toContain('Lerne dein Team kennen');
+    // Only the page's own text and headings: no invented application line,
+    // no parser-side labels (the facts stay structured fields).
+    expect(d).not.toMatch(/Onlyfy|Candidat|Bewirb dich über/);
+    expect(d).not.toMatch(/^## (?:Wichtige Eckdaten|Überblick|Bewerbung)$/m);
+    expect([...d.matchAll(/^## (.+)$/gm)].map((m) => m[1])).toEqual([
+      'Was du bei uns bewegen kannst',
+      'Was du mitbringst',
+      'Was wir dir bieten',
+    ]);
+    expect(detail).toMatchObject({ area: 'Operations', location: 'Baar', workload: '100%' });
   });
 
   it('drops the legacy placeholder titles and untranslated locale copies, keeps real translations', () => {
@@ -144,6 +152,18 @@ describe('rittmeyer-job-parser', () => {
       de: 'Teamleiter Lager & Logistik (a)',
     });
     expect(Object.keys(scrubbed.descriptionByLocale).sort()).toEqual(['de', 'it']);
+
+    // The pinned snapshot job (slice 995a6583431): the Italian source slot of
+    // the old builder and its copies ended with an invented application line.
+    const legacy = scrubRittmeyerLegacyLocaleCopies({
+      title: 'Sales Project Engineer (a) Ticino',
+      sourceLang: 'de',
+      descriptionByLocale: {
+        de: 'Wir suchen eine engagierte Persönlichkeit für den Verkauf im Tessin.',
+        it: '## Panoramica\nCerchiamo una persona motivata per il nostro team di vendita interno.\n\n## Candidatura\nCandidati tramite il portale ufficiale Rittmeyer/Onlyfy.',
+      },
+    });
+    expect(Object.keys(legacy.descriptionByLocale)).toEqual(['de']);
   });
 });
 

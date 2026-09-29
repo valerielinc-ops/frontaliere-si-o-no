@@ -298,45 +298,19 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
   // cantons (the city is virtually always present; rare last-resort token).
   const regionLabel = getCantonDisplayName(canton, 'it') || canton;
   const city = String(job.city || regionLabel).trim();
-  const dept = String(job.subDepartment || job.department || 'Confederazione Svizzera').trim();
   const description = String(job.description || '').trim();
-  const deptShort = dept.replace(/\s*\([^)]*\)\s*/g, '').trim();
 
-  // Ensure description meets 50-word threshold
-  const descWordCount = description.split(/\s+/).filter(Boolean).length;
-  let sourceDesc = '';
-
-  if (descWordCount >= 50) {
-    sourceDesc = description;
-  } else if (sourceLang === 'it') {
-    const pensumText = job.pensum ? ` Grado di occupazione: ${job.pensum}.` : '';
-    const fieldText = job.fieldOfActivity ? ` Settore: ${job.fieldOfActivity}.` : '';
-    sourceDesc = [
-      `${title} — ${deptShort}, ${city}.`,
-      `Posizione nell'Amministrazione federale svizzera (Confederazione Svizzera).`,
-      description ? description : '',
-      `${fieldText}${pensumText}`,
-      `La Confederazione Svizzera è uno dei maggiori datori di lavoro del Paese, con condizioni di impiego moderne, opportunità di formazione continua, orari di lavoro flessibili e prestazioni sociali competitive. L'Amministrazione federale si impegna per le pari opportunità e promuove un ambiente di lavoro inclusivo e diversificato.`,
-      `Candidati online su jobs.admin.ch.`,
-    ].filter(Boolean).join('\n');
-  } else if (sourceLang === 'de') {
-    const pensumText = job.pensum ? ` Beschäftigungsgrad: ${job.pensum}.` : '';
-    const fieldText = job.fieldOfActivity ? ` Bereich: ${job.fieldOfActivity}.` : '';
-    sourceDesc = [
-      `${title} — ${deptShort}, ${city}.`,
-      `Stelle in der Schweizerischen Bundesverwaltung (Schweizerische Eidgenossenschaft).`,
-      description ? description : '',
-      `${fieldText}${pensumText}`,
-      `Die Schweizerische Eidgenossenschaft ist einer der grössten Arbeitgeber des Landes mit modernen Anstellungsbedingungen, Weiterbildungsmöglichkeiten, flexiblen Arbeitszeiten und wettbewerbsfähigen Sozialleistungen. Die Bundesverwaltung setzt sich für Chancengleichheit ein und fördert ein inklusives und vielfältiges Arbeitsumfeld.`,
-      `Bewerben Sie sich online auf jobs.admin.ch.`,
-    ].filter(Boolean).join('\n');
-  } else {
-    sourceDesc = description || title;
-  }
+  // Only the source's own text: the full API/page text. The old padding for
+  // bodies under 50 words ("Posizione nell'Amministrazione federale
+  // svizzera…", a generic employer paragraph, "Candidati online su
+  // jobs.admin.ch.") and the title-as-body fallback published text the
+  // posting does not contain (1/261 jobs of slice 995a6583431); an empty body
+  // is handled in mergeJobs (stored source text, else not published).
+  const sourceDesc = description;
 
   return {
     titleByLocale: { [sourceLang]: title },
-    descriptionByLocale: { [sourceLang]: sourceDesc || title },
+    descriptionByLocale: sourceDesc ? { [sourceLang]: sourceDesc } : {},
     // Slug-only guard: `job.city` can be the literal "undefined"/"null" string
     // (truthy) → `-undefined` in an active slug (#952, class #900/#901). Fallback is
     // the localized region label, region-correct. addressLocality untouched.
@@ -580,11 +554,17 @@ function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
+  let unpublished = 0;
   const mergedTarget = newJobs.map((fresh) => {
     const { detailEnriched, ...job } = fresh;
     const key = extractStableJobId(job?.url);
     const prev = key ? existingByUrl.get(key) : null;
     if (!prev) {
+      if (!String(job.descriptionByLocale?.[job.sourceLang] || '').trim()) {
+        // No body from the API or the page, and none stored: not published.
+        unpublished += 1;
+        return null;
+      }
       added += 1;
       return job;
     }
@@ -599,6 +579,11 @@ function mergeJobs(discoveredJobs) {
         job.descriptionByLocale = { ...job.descriptionByLocale, [job.sourceLang]: kept };
         if (job.sourceLang === 'it' || !job.descriptionByLocale.it) job.description = kept;
       }
+    }
+    if (!String(job.descriptionByLocale?.[job.sourceLang] || '').trim()) {
+      // No body this run and none stored from the source: not published.
+      unpublished += 1;
+      return null;
     }
     updated += 1;
     // When merging slugByLocale, discard any pre-existing IT slug that contains German words
@@ -640,7 +625,10 @@ function mergeJobs(discoveredJobs) {
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
-  });
+  }).filter(Boolean);
+  if (unpublished > 0) {
+    console.log(`  ⏭️  ${unpublished} job(s) without any body from the source — not published.`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);

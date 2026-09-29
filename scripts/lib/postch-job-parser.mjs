@@ -339,6 +339,92 @@ export function keyPostDescriptionBySourceLocale(
   return out;
 }
 
+/* ── Source-body continuity (no invented text) ─────────────── */
+
+// The Italian texts the Post-platform runners used to invent when a vacancy
+// body could not be read: update-postch-jobs.mjs's one-liner and
+// update-postfinance-jobs.mjs's three-sentence buildPostFinanceFallbackDescription().
+// Records written by those runs can still carry them in a locale slot.
+const POST_FALLBACK_DESCRIPTION_RX = [
+  /^Posizione aperta presso .+?\. Ruolo: .+?\. Sede: .+?, Svizzera\.$/,
+  /^PostFinance, la sussidiaria di servizi finanziari della Posta Svizzera, ricerca attualmente la figura .+? è necessario visitare la pagina dell'annuncio collegata a questo articolo\.$/,
+];
+
+/** True when `text` is one of the invented fallback descriptions and nothing else. */
+export function isPostFallbackDescription(text = '') {
+  const value = String(text || '').replace(/\s+/g, ' ').trim();
+  return Boolean(value) && POST_FALLBACK_DESCRIPTION_RX.some((rx) => rx.test(value));
+}
+
+/** The source-language body a previous run read from this vacancy, or ''. */
+export function previousPostSourceBody(job) {
+  for (const candidate of [job?.descriptionByLocale?.[job?.sourceLang], job?.description]) {
+    const text = String(candidate || '').trim();
+    if (text && !isPostFallbackDescription(text)) return text;
+  }
+  return '';
+}
+
+/**
+ * Give a freshly built vacancy a body read from the source, or none at all.
+ *
+ * A vacancy whose body could not be read this run (empty `description`) keeps
+ * the text a previous run read from the SAME vacancy, with that run's
+ * `sourceLang`. Without such text it returns `null`: the vacancy is not
+ * published in this run, and the next run that reads its body publishes it
+ * again. Nothing is ever written in place of the source.
+ *
+ * @param {object} freshJob
+ * @param {object|null} previousJob  the stored record with the same stable id
+ * @returns {{ job: object|null, carried: boolean }}
+ */
+export function carryPostSourceBody(freshJob, previousJob = null) {
+  if (String(freshJob?.description || '').trim()) return { job: freshJob, carried: false };
+  const body = previousJob ? previousPostSourceBody(previousJob) : '';
+  if (!body) return { job: null, carried: false };
+  const sourceLang = previousJob.sourceLang || freshJob?.sourceLang || '';
+  return {
+    job: {
+      ...freshJob,
+      description: body,
+      ...(sourceLang ? { sourceLang, descriptionByLocale: { [sourceLang]: body } } : {}),
+    },
+    carried: true,
+  };
+}
+
+/**
+ * Remove invented fallback text from a merged record.
+ *
+ * The locale merge keeps every non-source slot ("existing translation
+ * wins"), so a record that once published an invented text keeps it — and
+ * machine translations of it — after the real body is back. When any slot
+ * still carries it, every non-source slot is of that vintage: only the real
+ * source slot is kept and the record is flagged for retranslation. A record
+ * with no real source body left returns `null` (not publishable).
+ *
+ * @param {object} job merged record
+ * @returns {object|null}
+ */
+export function stripPostFallbackSlots(job) {
+  if (!job || typeof job !== 'object') return job;
+  const slots = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : {};
+  const invented = isPostFallbackDescription(job.description)
+    || Object.values(slots).some((text) => isPostFallbackDescription(text));
+  if (!invented) return job;
+  const body = previousPostSourceBody(job);
+  if (!body) return null;
+  const sourceLang = job.sourceLang;
+  return {
+    ...job,
+    description: body,
+    descriptionByLocale: sourceLang ? { [sourceLang]: body } : {},
+    needsRetranslation: true,
+  };
+}
+
 /**
  * Iterate `.joblayouttoken` blocks inside #search-wrapper in document order.
  * Returns an array; index N corresponds to the Nth token.

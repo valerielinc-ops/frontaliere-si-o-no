@@ -85,6 +85,7 @@ function richTextToMarkdown(html = '') {
  * workload ("Starte nach Vereinbarung als <title> 80 - 100%"), the per-role
  * introduction (attribute `80` — the paragraph that tells one ward or team
  * from another), the task and profile lists, and the company tagline.
+ * Every word comes from the feed.
  *
  * Attribute `80` used to be ignored and `sza_introduction` was published on
  * its own ("Starte nach Vereinbarung als" with no object), so the published
@@ -99,10 +100,13 @@ function buildDescription(job = {}) {
   if (lead) parts.push([lead, title, pickPensum(job)].filter(Boolean).join(' '));
   const intro = richTextToMarkdown((job?.attributes?.['80'] || []).join('\n\n'));
   if (intro) parts.push(intro);
+  // The API carries the two lists without their headings; the page's own
+  // headings are put back by composeKsgrDescription when the detail page is
+  // read — none is invented here (the old "Aufgaben:"/"Anforderungen:").
   const tasks = richTextToMarkdown(szas.sza_tasks || '');
-  if (tasks) parts.push('## Aufgaben\n\n' + tasks);
+  if (tasks) parts.push(tasks);
   const reqs = richTextToMarkdown(szas.sza_requirements || '');
-  if (reqs) parts.push('## Anforderungen\n\n' + reqs);
+  if (reqs) parts.push(reqs);
   const profile = richTextToMarkdown(szas.sza_company_profil || '');
   if (profile) parts.push(profile);
   return parts.join('\n\n');
@@ -163,6 +167,17 @@ export function parseKsgrJobsPage(payload = {}) {
  */
 export function parseKsgrDetailExtras(html = '') {
   const document = new JSDOM(String(html || '')).window.document;
+  // The page's headings of the task and profile lists ("Das sind deine
+  // Aufgaben", "Das bringst du mit"), keyed by the list's first item so they
+  // can be put back over the same lists in the API text.
+  const listHeadings = ['#navTasks', '#navProfile']
+    .map((selector) => document.querySelector(selector))
+    .filter(Boolean)
+    .map((block) => ({
+      heading: normalizeSpace(block.querySelector('h2')?.textContent || ''),
+      firstItem: normalizeSpace(block.querySelector('li')?.textContent || ''),
+    }))
+    .filter((entry) => entry.heading && entry.firstItem);
   const benefitsSection = document.querySelector('section#benefits');
   const benefits = benefitsSection
     ? [...benefitsSection.querySelectorAll('.benefitContainer')]
@@ -183,6 +198,7 @@ export function parseKsgrDetailExtras(html = '') {
     contact = [...new Set(lines)].join('\n');
   }
   return {
+    listHeadings,
     benefitsHeading: normalizeSpace(benefitsSection?.querySelector('h2')?.textContent || ''),
     benefits,
     contactHeading: normalizeSpace(contactSection?.querySelector('h2')?.textContent || ''),
@@ -191,17 +207,31 @@ export function parseKsgrDetailExtras(html = '') {
 }
 
 /**
- * API description + the detail-page-only sections. Without extras (detail
- * page unreachable) the API description is returned unchanged.
+ * API description + the detail-page-only sections, with the page's own
+ * headings. Without extras (detail page unreadable) the API description is
+ * returned unchanged. A section whose heading the page does not print gets
+ * no heading — none is invented.
  */
 export function composeKsgrDescription(apiDescription = '', extras = null) {
-  const parts = [String(apiDescription || '').trim()].filter(Boolean);
-  if (extras?.benefits?.length) {
-    parts.push(`## ${extras.benefitsHeading || 'Und das bieten wir dir'}\n\n${extras.benefits.map((item) => `- ${item}`).join('\n')}`);
+  let body = String(apiDescription || '').trim();
+  if (!extras) return body;
+  if (body && extras.listHeadings?.length) {
+    const lines = body.split('\n');
+    for (const { heading, firstItem } of extras.listHeadings) {
+      const at = lines.findIndex((line) => normalizeSpace(line) === `- ${firstItem}`);
+      if (at >= 0 && (at === 0 || !lines[at - 1].trim())) {
+        lines.splice(at, 0, `## ${heading}`, '');
+      }
+    }
+    body = lines.join('\n');
   }
-  if (extras?.contact) {
-    parts.push(`## ${extras.contactHeading || 'Kontakt'}\n\n${extras.contact}`);
+  const parts = [body].filter(Boolean);
+  if (extras.benefits?.length) {
+    const list = extras.benefits.map((item) => `- ${item}`).join('\n');
+    parts.push(extras.benefitsHeading ? `## ${extras.benefitsHeading}\n\n${list}` : list);
+  }
+  if (extras.contact) {
+    parts.push(extras.contactHeading ? `## ${extras.contactHeading}\n\n${extras.contact}` : extras.contact);
   }
   return parts.join('\n\n');
 }
-

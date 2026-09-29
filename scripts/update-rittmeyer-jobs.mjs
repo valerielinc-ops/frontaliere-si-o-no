@@ -33,6 +33,7 @@ import {
   isRittmeyerTicinoListing,
   buildRittmeyerLocalizedContent,
   RITTMEYER_LEGACY_PLACEHOLDER_TITLES,
+  RITTMEYER_LEGACY_SYNTHETIC_HEADINGS,
 } from './lib/rittmeyer-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -290,11 +291,17 @@ async function buildRittmeyerJob(listing) {
 /**
  * Undo what the old locale builder left in stored jobs: the three placeholder
  * titles it stamped on every posting, and non-source description slots that
- * are the source text under translated headings rather than a translation
- * (a slot whose detected language is not its own locale). Both are dropped so
- * the translation step refills them from the current source text; a genuine
- * translation reads as its own locale and is kept.
+ * are either the source text under translated headings rather than a
+ * translation (a slot whose detected language is not its own locale) or that
+ * builder's output/translation carrying its invented headings and application
+ * line. They are dropped so the translation step refills them from the
+ * current source text; a translation of the current text is kept.
  */
+const LEGACY_HEADING_RE = new RegExp(
+  `^## (?:${RITTMEYER_LEGACY_SYNTHETIC_HEADINGS.map((h) => h.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\s*$`,
+  'mi',
+);
+
 export function scrubRittmeyerLegacyLocaleCopies(job = {}) {
   const placeholders = new Set(RITTMEYER_LEGACY_PLACEHOLDER_TITLES);
   const titleByLocale = { ...(job.titleByLocale || {}) };
@@ -306,7 +313,9 @@ export function scrubRittmeyerLegacyLocaleCopies(job = {}) {
   const descriptionByLocale = { ...(job.descriptionByLocale || {}) };
   for (const [locale, value] of Object.entries(descriptionByLocale)) {
     if (locale === job.sourceLang || !value) continue;
-    if (detectLang(String(value), locale) !== locale) delete descriptionByLocale[locale];
+    if (detectLang(String(value), locale) !== locale || LEGACY_HEADING_RE.test(String(value))) {
+      delete descriptionByLocale[locale];
+    }
   }
   return { ...job, titleByLocale, descriptionByLocale };
 }

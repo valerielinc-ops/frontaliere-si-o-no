@@ -1,7 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { fetchAllJobs, sourceLangFromDetailUrl } from '../scripts/update-volg-jobs.mjs';
+import {
+  buildJob,
+  fetchAllJobs,
+  isVolgInventedText,
+  resolveVolgJobBodies,
+  sourceLangFromDetailUrl,
+  stripVolgInventedSlots,
+} from '../scripts/update-volg-jobs.mjs';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -131,6 +138,74 @@ describe('Volg listing geography and source language', () => {
     expect(sourceLangFromDetailUrl('https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-efz/1')).toBe('de');
     expect(sourceLangFromDetailUrl('https://jobs.fenaco.com/posti-vacanti/venditrice/1')).toBe('it');
     expect(sourceLangFromDetailUrl('https://example.test/job/1')).toBe('');
+  });
+});
+
+// Three records of the 2026-09-29 slice that still carried the invented body
+// (listing line + company marketing paragraph), contacts redacted.
+const staleRecords = JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'volg-stale-invented-records.json'), 'utf8'),
+).records as Array<{ url: string, title: string, company: string, location: string, canton: string,
+  sourceLang: string, description: string, descriptionByLocale: Record<string, string> }>;
+const staleByTail = (tail: string) => staleRecords.find((record) => record.url.endsWith(tail))!;
+
+describe('Volg publishes only source text', () => {
+  it('builds a listing job without an invented body', () => {
+    const job = buildJob({
+      url: 'https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-m-w-d/9f62c326-d21b-4364-b7b1-33a95efbbde8',
+      title: 'Verkäuferin / Verkäufer (m/w/d)', company: 'VOLG', city: 'Krauchthal',
+      workload: '20-30%', contractTerms: 'unbefristet', canton: 'BE',
+    });
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.sourceLang).toBe('de');
+  });
+
+  it('recognises the invented text earlier runs stored', () => {
+    expect(isVolgInventedText(staleByTail('33a95efbbde8').description)).toBe(true);
+    expect(isVolgInventedText(staleByTail('a903536a7c83').descriptionByLocale.de)).toBe(true);
+    expect(isVolgInventedText(staleByTail('82dfafe3b264').descriptionByLocale.en)).toBe(true);
+    // Real source bodies — the fenaco "Über uns" included — are not invented.
+    expect(isVolgInventedText(staleByTail('33a95efbbde8').descriptionByLocale.de)).toBe(false);
+    expect(isVolgInventedText(staleByTail('82dfafe3b264').descriptionByLocale.de)).toBe(false);
+  });
+
+  it('carries the previously read source body, or withholds a job that never had one', () => {
+    const fresh = staleRecords.map((record) => buildJob({
+      url: record.url, title: record.title, company: record.company, city: record.location,
+      workload: '', contractTerms: '', canton: record.canton,
+    }));
+    const withBody = { ...fresh[2], description: 'Source body from this run', descriptionByLocale: { de: 'Source body from this run' } };
+    const { jobs, carried, withheld } = resolveVolgJobBodies([fresh[0], fresh[1], withBody], staleRecords);
+
+    expect(carried).toEqual([staleRecords[0].url]);
+    expect(withheld).toEqual([staleRecords[1].url]);
+    expect(jobs.map((job) => job.url)).toEqual([staleRecords[0].url, staleRecords[2].url]);
+    expect(jobs[0].description).toBe(staleRecords[0].descriptionByLocale.de);
+    expect(jobs[0].descriptionByLocale).toEqual({ de: staleRecords[0].descriptionByLocale.de });
+    expect(jobs[1]).toBe(withBody);
+    for (const job of jobs) expect(isVolgInventedText(job.description)).toBe(false);
+  });
+
+  it('drops invented slots and their translations, keeping only a real source slot', () => {
+    const stale = staleByTail('82dfafe3b264');
+    const cleaned = stripVolgInventedSlots(stale);
+    expect(cleaned.descriptionByLocale).toEqual({ de: stale.descriptionByLocale.de });
+    expect(cleaned.needsRetranslation).toBe(true);
+
+    const inventedSource = stripVolgInventedSlots(staleByTail('a903536a7c83'));
+    expect(inventedSource.descriptionByLocale).toEqual({});
+
+    const clean = { ...staleByTail('33a95efbbde8'), description: staleByTail('33a95efbbde8').descriptionByLocale.de };
+    expect(stripVolgInventedSlots(clean)).toBe(clean);
+  });
+
+  it('no longer pads thin bodies with the shared company paragraph', () => {
+    const runner = fs.readFileSync(path.resolve(import.meta.dirname, '../scripts/update-volg-jobs.mjs'), 'utf8');
+    expect(runner).not.toContain('ensureMinimumDescriptionWordCount(');
+    expect(runner).not.toContain('getCompanyBoilerplate(');
+    expect(runner).toContain('return stripVolgInventedSlots(merged);');
+    expect(runner).toContain('resolveVolgJobBodies(jobs, previousJobs)');
   });
 });
 

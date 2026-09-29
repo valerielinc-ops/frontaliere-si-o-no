@@ -275,10 +275,11 @@ export function parseRuagJobDetail(html = '', url = '') {
   const qualifications = htmlFragmentToMarkdown(jobPosting?.qualifications || '');
   if (!hasRoleLists) {
     // Older template without the `.jobInfoList` blocks: the JSON-LD
-    // responsibilities/qualifications are the only per-vacancy lists.
-    const fallback = [];
-    if (responsibilities) fallback.push(`## Responsabilita\n\n${responsibilities}`);
-    if (qualifications) fallback.push(`## Requisiti\n\n${qualifications}`);
+    // responsibilities/qualifications are the only per-vacancy lists. The
+    // JSON-LD carries no headings for them, and none is invented (the old
+    // "## Responsabilita"/"## Requisiti" labels sat in Italian over German
+    // bodies on 61/68 jobs of slice 995a6583431).
+    const fallback = [responsibilities, qualifications].filter(Boolean);
     roleSections.splice(Math.min(1, roleSections.length), 0, ...fallback);
   }
 

@@ -167,9 +167,16 @@ function buildJobFromApiData(apiJob, existingByUrl, extras = null) {
   const existing = existingByUrl.get(extractStableJobId(apiJob.detailUrl));
   const title = apiJob.title;
   const previousSourceDescription = existing?.descriptionByLocale?.de || '';
-  const description = extras
-    ? composeKsgrDescription(apiJob.description, extras)
-    : preferEnrichedDescription(previousSourceDescription, apiJob.description || '');
+  // Benefit cards and contact are the hospital's, not the vacancy's: without
+  // the feed's role text they are never published as a body. Such a job keeps
+  // the text the source gave on an earlier run, or is not published (main).
+  const hasRoleText = Boolean(String(apiJob.description || '').trim());
+  let description = previousSourceDescription;
+  if (hasRoleText) {
+    description = extras
+      ? composeKsgrDescription(apiJob.description, extras)
+      : preferEnrichedDescription(previousSourceDescription, apiJob.description);
+  }
   // The German source slot follows the crawl: it used to be frozen at the
   // first crawl (`existing.descriptionByLocale || …`), so a parser fix never
   // reached published jobs. Translations of an older source are kept until the
@@ -247,11 +254,15 @@ async function main() {
   const extrasByUrl = await fetchKsgrDetailExtras(discoveredJobs);
 
   // Build job objects from API data + detail-page-only sections
-  const jobs = discoveredJobs.map((apiJob) => buildJobFromApiData(
+  const builtJobs = discoveredJobs.map((apiJob) => buildJobFromApiData(
     apiJob,
     existingByUrl,
     extrasByUrl.get(apiJob.detailUrl) || null,
   ));
+  const jobs = builtJobs.filter((job) => String(job.description || '').trim());
+  if (jobs.length < builtJobs.length) {
+    console.log(`⏭️ KSGR: ${builtJobs.length - jobs.length} job(s) without role text in the feed and none stored — not published.`);
+  }
   console.log(`📋 Built ${jobs.length} KSGR job objects from API data.`);
 
   // Write slice directly (the shared crawler is not needed: the API carries

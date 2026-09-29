@@ -1,7 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
+  carryPostSourceBody,
+  isPostFallbackDescription,
   keyPostDescriptionBySourceLocale,
   parsePostJobDetail,
+  previousPostSourceBody,
+  stripPostFallbackSlots,
 } from '@/scripts/lib/postch-job-parser.mjs';
 
 function token(content = '') {
@@ -98,5 +105,56 @@ describe('keyPostDescriptionBySourceLocale', () => {
   it('leaves the map untouched without a usable source language or body', () => {
     expect(keyPostDescriptionBySourceLocale({ it: german }, german, '', detect)).toEqual({ it: german });
     expect(keyPostDescriptionBySourceLocale({ it: german }, '', 'de', detect)).toEqual({ it: german });
+  });
+});
+
+describe('Post-platform source-body continuity (no invented text)', () => {
+  const fixturePath = path.join(
+    path.dirname(fileURLToPath(import.meta.url)),
+    'fixtures',
+    'post-stale-fallback-records.json',
+  );
+  const records = JSON.parse(fs.readFileSync(fixturePath, 'utf-8'));
+
+  it('recognises the texts the runners used to invent, and only those', () => {
+    expect(isPostFallbackDescription(records.postaInventedOnly.description)).toBe(true);
+    expect(isPostFallbackDescription(records.postfinanceInventedOnly.description)).toBe(true);
+    expect(isPostFallbackDescription(records.postaRealBodyWithStaleSlots.description)).toBe(false);
+    expect(isPostFallbackDescription(records.postfinanceRealBody.description)).toBe(false);
+    expect(isPostFallbackDescription('')).toBe(false);
+  });
+
+  it('keeps a vacancy that has its own body untouched', () => {
+    const fresh = { url: records.postfinanceRealBody.url, description: 'Frischer Text aus der Quelle.', sourceLang: 'de' };
+    expect(carryPostSourceBody(fresh, records.postfinanceRealBody)).toEqual({ job: fresh, carried: false });
+  });
+
+  it('carries the body a previous run read from the same vacancy when this run read none', () => {
+    const fresh = { url: records.postfinanceRealBody.url, title: 'Kubernetes Engineer', description: '', descriptionByLocale: {} };
+    const { job, carried } = carryPostSourceBody(fresh, records.postfinanceRealBody);
+    expect(carried).toBe(true);
+    expect(job?.description).toBe(records.postfinanceRealBody.description);
+    expect(job?.sourceLang).toBe('de');
+    expect(job?.descriptionByLocale).toEqual({ de: records.postfinanceRealBody.description });
+  });
+
+  it('withholds a vacancy with no body and no previous source body — never composes one', () => {
+    const fresh = { url: records.postfinanceInventedOnly.url, title: 'Kubernetes Engineer', description: '' };
+    expect(carryPostSourceBody(fresh, null)).toEqual({ job: null, carried: false });
+    expect(carryPostSourceBody(fresh, records.postfinanceInventedOnly)).toEqual({ job: null, carried: false });
+    expect(previousPostSourceBody(records.postaInventedOnly)).toBe('');
+  });
+
+  it('strips stale invented slots (and their translations) and drops records left without a source body', () => {
+    expect(stripPostFallbackSlots(records.postaInventedOnly)).toBeNull();
+    expect(stripPostFallbackSlots(records.postfinanceInventedOnly)).toBeNull();
+
+    const cleaned = stripPostFallbackSlots(records.postaRealBodyWithStaleSlots);
+    expect(cleaned?.descriptionByLocale).toEqual({ de: records.postaRealBodyWithStaleSlots.description });
+    expect(cleaned?.description).toBe(records.postaRealBodyWithStaleSlots.description);
+    expect(cleaned?.needsRetranslation).toBe(true);
+
+    // A record without invented text is returned as-is.
+    expect(stripPostFallbackSlots(records.postfinanceRealBody)).toBe(records.postfinanceRealBody);
   });
 });

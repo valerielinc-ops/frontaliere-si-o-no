@@ -3,7 +3,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { extractPostFinanceBodyDescription } from '../scripts/update-postfinance-jobs.mjs';
+import {
+  extractPostFinanceBodyDescription,
+  parsePostFinanceMetaPage,
+} from '../scripts/update-postfinance-jobs.mjs';
+import { carryPostSourceBody } from '../scripts/lib/postch-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURE_DIR = path.resolve(__dirname, 'fixtures');
@@ -100,5 +104,36 @@ describe('PostFinance body-description extractor', () => {
     expect(result).toContain('\n- Mehrjährige Erfahrung als Software Engineer');
     expect(result).not.toContain('cust_secondRecruiterPhone');
     expect(result).not.toMatch(/[\r<>]/);
+  });
+});
+
+describe('PostFinance vacancy without a readable body', () => {
+  // Minimised from https://jobs.postfinance.ch/job/Senior-Process-Specialist-Third-Party-Management-%28wmd%29/74779-de_DE
+  // (2026-09-29): every locale served the generic "Stellendetails" shell with
+  // no rtltextaligneligible body. The runner used to publish a composed
+  // Italian text (buildPostFinanceFallbackDescription) for such a vacancy.
+  const placeholderHtml = `
+    <html><head>
+      <title> Stellendetails | Post | PostFinance | PostAuto</title>
+      <meta name="description" content="Stellendetails" />
+      <meta property="og:title" content="Stellendetails" />
+    </head><body><div id="search-wrapper"></div></body></html>
+  `;
+  const url = 'https://jobs.postfinance.ch/job/Senior-Process-Specialist-Third-Party-Management-%28wmd%29/74779-de_DE';
+
+  it('reads no vacancy body from the placeholder page', () => {
+    expect(extractPostFinanceBodyDescription(placeholderHtml)).toBe('');
+    expect(parsePostFinanceMetaPage(placeholderHtml, url).description.length).toBeLessThan(150);
+  });
+
+  it('keeps the previous source body or withholds the vacancy — nothing is composed', () => {
+    const fresh = { url, title: 'Senior Process Specialist Third Party Management (w/m/d)', description: '' };
+    const previous = {
+      url,
+      sourceLang: 'de',
+      description: 'Bei PostFinance gestaltest du die Zukunft des Third Party Managements aktiv mit.\n\nDas kannst du bewirken\n\n- Du entwickelst Rahmenwerke weiter',
+    };
+    expect(carryPostSourceBody(fresh, previous).job?.description).toBe(previous.description);
+    expect(carryPostSourceBody(fresh, null).job).toBeNull();
   });
 });
