@@ -1,18 +1,19 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-09-29T09:42:08.534Z",
+  "generatedAt": "2026-09-29T21:40:24.576Z",
   "total": 20,
-  "newCount": 2,
-  "updatedCount": 18,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 20,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20950,
-  "avgDurationMs": 20950,
+  "durationMs": 22834,
+  "avgDurationMs": 22834,
   "durationHistory": [
-    20950
+    22834
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Compliance-Office-Firmenkunden/74803-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Compliance-Office-Firmenkunden/74803-de_DE",
@@ -37,17 +38,19 @@
       "experienceLevel": "",
       "sector": "Finanza",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
+      "id": "postfinance-d0faf69cadb4",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T09:42:03.998Z",
       "crawledAt": "",
-      "_qualityScore": 58,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
+        "richness": 22,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -75,22 +78,22 @@
       "experienceLevel": "",
       "sector": "Marketing",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
+      "id": "postfinance-706782f0824d",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T09:42:03.998Z",
       "crawledAt": "",
-      "_qualityScore": 50,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 6,
+        "richness": 22,
+        "translation": 23,
         "completeness": 9
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://jobs.postfinance.ch/job/Sales-Coach-Leadership-&-Sales-Development-%28mwd%29/74651-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Sales-Coach-Leadership-&-Sales-Development-%28mwd%29/74651-de_DE",
@@ -115,18 +118,18 @@
       "experienceLevel": "",
       "sector": "IT",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-70b92ee25296",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:40:36.032Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 9
       }
@@ -155,19 +158,19 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-0cd1ab353779",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:14:15.597Z",
       "crawledAt": "",
       "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 20,
+        "richness": 24,
+        "translation": 16,
         "completeness": 9
       }
     },
@@ -195,18 +198,18 @@
       "experienceLevel": "",
       "sector": "IT",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-360cc6ad68ef",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:08:43.569Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 23,
         "completeness": 9
       }
@@ -235,19 +238,19 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-49bdd1a6f46c",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:08:43.569Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -275,7 +278,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -283,10 +285,11 @@
       "id": "postfinance-bfd54ef1cf94",
       "firstSeenAt": "2026-09-23T11:57:45.123Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "needsRetranslation": true,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 9
       }
@@ -315,7 +318,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -323,10 +325,11 @@
       "id": "postfinance-73d5b935a76b",
       "firstSeenAt": "2026-09-23T11:57:45.123Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "needsRetranslation": true,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 9
       }
@@ -355,19 +358,19 @@
       "experienceLevel": "",
       "sector": "Finanza",
       "workload": "70-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-8efde3e16ba8",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T11:57:45.123Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 24,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -395,18 +398,18 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-e7197755048c",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T11:57:45.123Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 9
       }
@@ -435,7 +438,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -443,10 +445,11 @@
       "id": "postfinance-5149afc9b3ce",
       "firstSeenAt": "2026-09-23T11:57:45.123Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 9
       }
@@ -475,7 +478,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -483,10 +485,11 @@
       "id": "postfinance-51f060b33bd7",
       "firstSeenAt": "2026-09-23T11:57:45.123Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 9
       }
@@ -515,19 +518,19 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "GL",
         "location": "Niederurnen"
       },
       "id": "postfinance-fe195634dcc0",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:14:15.597Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -555,18 +558,18 @@
       "experienceLevel": "",
       "sector": "IT",
       "workload": "80-100%",
-      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-c47e0b2a7f0e",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:52:28.945Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 9
       }
@@ -595,19 +598,19 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-87b72fa5d2ad",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T23:00:38.850Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -635,18 +638,18 @@
       "experienceLevel": "",
       "sector": "IT",
       "workload": "80-100%",
-      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-762e8839027e",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:32:08.390Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 9
       }
@@ -675,7 +678,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -683,11 +685,12 @@
       "id": "postfinance-c9714700c6d7",
       "firstSeenAt": "2026-09-04T13:32:08.390Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 9
       }
     },
@@ -715,7 +718,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -723,10 +725,11 @@
       "id": "postfinance-e6e37ff2414b",
       "firstSeenAt": "2026-09-03T13:41:15.545Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 9
       }
@@ -755,18 +758,18 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": false,
       "_targetScope": {
         "canton": "AG",
         "location": "Zofingen"
       },
       "id": "postfinance-6b0065787294",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:44:09.116Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 9
       }
@@ -795,71 +798,23 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-36c4f1f13f8b",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:09:37.382Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
+        "richness": 24,
+        "translation": 25,
         "completeness": 9
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Process-Specialist-Third-Party-Management-%28wmd%29/74779-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Process-Specialist-Third-Party-Management-%28wmd%29/74779-de_DE",
-      "title": "Senior Process Specialist Third Party Management (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "senior-process-specialist-third-party-management-w-m-d-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Einkauf"
-      ],
-      "category": [
-        "Büro-Einkauf"
-      ],
-      "datePosted": "14.09.26",
-      "validThrough": "12.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-b1c933560c15",
-      "firstSeenAt": "2026-09-23T11:57:45.123Z",
-      "crawledAt": "",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
