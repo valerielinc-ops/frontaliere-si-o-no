@@ -139,6 +139,7 @@ const LIDL_VERIFIED_LOCALITY_CANTONS = new Map([
   ['bevaix|2022', 'NE'],
   ['niederuzwil|9244', 'SG'],
   ['romont|1680', 'FR'],
+  ['luchingen|9450', 'SG'],
 ]);
 
 function isLidlJob(job) {

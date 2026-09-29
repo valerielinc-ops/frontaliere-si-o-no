@@ -84,7 +84,30 @@ export function classifySourceDetailObservation(observation) {
   if (overlapWordCount > publishedWordCount) {
     throw new SourceDetailEvidenceError('invalid-observation', 'description overlap exceeds the published word set');
   }
-  const overlapRatio = publishedWordCount ? overlapWordCount / publishedWordCount : 0;
+  // «Unrelated» is a statement about two texts, so it is measured against
+  // the SMALLER of the two word sets: the share of the shorter text that the
+  // longer one contains. Dividing by the published set only, as before, made
+  // a published body that carries the whole source and more read as
+  // unrelated whenever the source the extractor could reach was a fragment —
+  // microsoft 1970393557002627 publishes the full JD (6 140 chars) against a
+  // JSON-LD holding only its bullets (1 791): every source word is in the
+  // published text, yet overlap/published was 0.30. On run 36528331656 that
+  // was 17 of the 57 samples failing ONLY on overlap. "Materially shorter"
+  // stays the length rule below (published < 45 % of the source), untouched:
+  // a published fragment of a longer source is still caught there.
+  // `sourceWordCount` is absent from observations sealed before it existed;
+  // those replay with the denominator they were sealed with.
+  const hasSourceWordCount = description.sourceWordCount !== undefined;
+  const sourceWordCount = hasSourceWordCount
+    ? nonNegativeInteger(description.sourceWordCount, 'description.sourceWordCount')
+    : null;
+  if (hasSourceWordCount && overlapWordCount > sourceWordCount) {
+    throw new SourceDetailEvidenceError('invalid-observation', 'description overlap exceeds the source word set');
+  }
+  const overlapDenominator = hasSourceWordCount
+    ? Math.min(publishedWordCount, sourceWordCount)
+    : publishedWordCount;
+  const overlapRatio = overlapDenominator ? overlapWordCount / overlapDenominator : 0;
   const descriptionMismatch = sourceDescriptionLength >= COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS
     && (publishedDescriptionLength < 100
       || publishedDescriptionLength < sourceDescriptionLength * 0.45
@@ -128,9 +151,19 @@ export function createSourceDetailEvidence({
   observation,
   provenance,
   versions,
+  linkedDocument = null,
 }) {
   requiredString(body, 'body');
   const immutableObservation = JSON.parse(stableStringify(observation));
+  // When the vacancy text came from a document the page links (the PDF of the
+  // job ad), the observation derives from TWO responses: both are bound, the
+  // page by `bodySha256` and the document here, by digest only like the page.
+  const linked = linkedDocument
+    ? {
+      urlSha256: sha256(requiredString(linkedDocument.url, 'linkedDocument.url')),
+      bodySha256: requiredSha256(linkedDocument.bodySha256, 'linkedDocument.bodySha256'),
+    }
+    : null;
   const record = {
     format: SOURCE_DETAIL_EVIDENCE_FORMAT,
     crawlerKey: requiredString(crawlerKey, 'crawlerKey'),
@@ -141,6 +174,7 @@ export function createSourceDetailEvidence({
     },
     sourceUrlSha256: sha256(requiredString(sourceUrl, 'sourceUrl')),
     bodySha256: sha256(body),
+    ...(linked ? { linkedDocument: linked } : {}),
     observation: immutableObservation,
     observationSha256: documentSha256(immutableObservation),
   };
