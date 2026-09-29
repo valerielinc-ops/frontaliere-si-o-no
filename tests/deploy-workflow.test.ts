@@ -46,6 +46,18 @@ const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), '
 const AUDIT_ALL_REGISTRY_SRC = readFileSync(resolve(ROOT, 'scripts/audit-all.mjs'), 'utf-8');
 const BUILD_LOCALE_ENV = (YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].env as Record<string, unknown>;
 
+// Direct Pages-artifact extractors must release the source tar before shard
+// rehydration. Keeping both copies is enough to exhaust the hosted runner.
+const PAGES_ARTIFACT_EXTRACTION_WORKFLOWS = [
+  '.github/workflows/post-deploy-validate-dist.yml',
+  '.github/workflows/revalidate-dist-from-run.yml',
+  '.github/workflows/matrix-equivalence-check.yml',
+  '.github/workflows/seed-title-baselines.yml',
+  '.github/workflows/seed-text-html-ratio-baseline.yml',
+  '.github/workflows/seed-bfs-depth-baseline.yml',
+  '.github/workflows/seed-orphan-pages-baseline.yml',
+] as const;
+
 // `audit:title-uniqueness` was moved to a separate weekly workflow because it
 // OOM-killed the parallel block. All remaining gates must stay in parallel.
 const AUDIT_SCRIPTS_IN_PARALLEL_BLOCK = [
@@ -226,6 +238,30 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
       'scripts/validate-sitemap-pages.mjs no longer mentions audit-sitemap-canonicals — ' +
         'the check it was standing in for may have been removed.',
     ).toBe(true);
+  });
+});
+
+describe('Pages artifact extraction disk lifetime', () => {
+  it('removes the source tar in every direct extractor before shard rehydration', () => {
+    for (const workflowPath of PAGES_ARTIFACT_EXTRACTION_WORKFLOWS) {
+      const workflow = YAML.parse(readFileSync(resolve(ROOT, workflowPath), 'utf-8')) as any;
+      const extractionSteps = Object.values(workflow.jobs ?? {}).flatMap((job: any) => (
+        Array.isArray(job?.steps)
+          ? job.steps.filter((step: any) => (
+            typeof step?.run === 'string'
+            && /\btar -xf\b/.test(step.run)
+            && /(artifact\.tar|TAR_PATH|tar-path)/.test(step.run)
+          ))
+          : []
+      ));
+
+      expect(extractionSteps, `${workflowPath} must have one direct Pages-artifact extractor`).toHaveLength(1);
+      const run = (extractionSteps[0] as any).run as string;
+      const extractIndex = run.indexOf('tar -xf');
+      const cleanupIndex = run.indexOf('rm -f', extractIndex);
+      expect(cleanupIndex, `${workflowPath} must remove the source tar after extraction`).toBeGreaterThan(extractIndex);
+      expect(run.slice(cleanupIndex, cleanupIndex + 160)).toMatch(/(artifact\.tar|TAR_PATH|tar-path)/);
+    }
   });
 });
 

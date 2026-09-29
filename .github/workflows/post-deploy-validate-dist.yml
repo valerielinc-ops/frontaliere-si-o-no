@@ -191,6 +191,10 @@ jobs:
           # Pages artifact wraps a single artifact.tar — extract into dist/.
           rm -rf dist && mkdir -p dist
           tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
+          # The archive is no longer needed after extraction. Remove it before
+          # shard rehydration so the source tar does not double the dist disk
+          # footprint and exhaust the runner.
+          rm -f /tmp/github-pages-artifact/artifact.tar
 
           # Restore master data/jobs.json from the dedicated artifact
           # (jobsJsonDistCleanupPlugin strips it from dist/ to clear the
