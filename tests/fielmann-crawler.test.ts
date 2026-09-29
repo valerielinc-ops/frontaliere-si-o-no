@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   FIELMANN_KEY,
   FIELMANN_COMPANY_NAME,
   isFielmannJob,
   isTrustedDomain,
+  fetchAllFielmannJobs,
 } from '../scripts/lib/fielmann-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -126,4 +127,37 @@ describe('Fielmann Group crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253): a req without a
+// Workday body used to go out as "{title} — Fielmann Group". CXS shapes of
+// fielmann.wd3.myworkdayjobs.com (listing bulletFields with the store
+// address, job detail).
+describe('fetchAllFielmannJobs — req without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the req with a body and skips the one without, never inventing text', async () => {
+    const json = (payload: unknown) => new Response(JSON.stringify(payload), { status: 200, headers: { 'content-type': 'application/json' } });
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.endsWith('/jobs')) {
+        return json({
+          total: 2,
+          jobPostings: [
+            { title: 'Augenoptiker (w/m/d)', externalPath: '/job/Basel/Augenoptiker--w-m-_R-2837', bulletFields: ['R-2837', 'Marktplatz 16, 4001 Basel'] },
+            { title: 'Filialleiter (w/m/d)', externalPath: '/job/Basel/Filialleiter--w-m-_R-2838', bulletFields: ['R-2838', 'Marktplatz 16, 4001 Basel'] },
+          ],
+        });
+      }
+      if (u.includes('R-2837')) return json({ jobPostingInfo: { title: 'Augenoptiker (w/m/d)', jobDescription: '<p>Sie beraten unsere Kundinnen und Kunden rund um Brillen und Kontaktlinsen.</p>', location: 'Basel' } });
+      return json({ jobPostingInfo: { title: 'Filialleiter (w/m/d)', jobDescription: '', location: 'Basel' } });
+    }));
+
+    const jobs = await fetchAllFielmannJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Augenoptiker (w/m/d)']);
+    expect(jobs[0].description).toContain('Sie beraten unsere Kundinnen und Kunden');
+    for (const job of jobs) expect(job.description).not.toMatch(/— Fielmann Group$/);
+  }, 20_000);
 });

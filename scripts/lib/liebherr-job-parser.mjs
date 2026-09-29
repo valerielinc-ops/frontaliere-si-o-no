@@ -27,8 +27,8 @@
  *   body in an `itemprop="description"` schema.org/JobPosting microdata block,
  *   ~2.5k chars / ~385 words). We fetch each detail page to recover the REAL
  *   description (the previous title-only stub failed the assemble
- *   boilerplate-guard, #1722). Falls back to a brand blurb on fetch failure;
- *   the AI-localization pipeline enriches locales.
+ *   boilerplate-guard, #1722). A listing whose body cannot be read is not
+ *   published (issue 5253); the AI-localization pipeline enriches locales.
  *
  * Liebherr Swiss HQ: Rue Hans-Liebherr 7, 1630 Bulle (FR) — default canton when
  * location extraction can't resolve one.
@@ -274,8 +274,8 @@ async function fetchJobListings() {
  * Fetch the full job-body description from a Liebherr jobs2web detail page.
  * The page is server-rendered plain HTML carrying the body in an
  * `itemprop="description"` schema.org/JobPosting microdata block. Returns the
- * inner HTML (caller strips tags) or '' on any failure → caller falls back to
- * a brand blurb. fetchHtml follows the 302 to the canonical detail URL.
+ * inner HTML (caller strips tags) or '' on any failure → the caller does not
+ * publish the listing. fetchHtml follows the 302 to the canonical detail URL.
  */
 async function fetchLiebherrDetailDescription(url) {
   if (!url || !/^https?:\/\//.test(url)) return '';
@@ -286,7 +286,7 @@ async function fetchLiebherrDetailDescription(url) {
     });
     return extractMicrodataDescription(html);
   } catch {
-    return ''; // network/timeout → caller falls back to the brand blurb
+    return ''; // network/timeout → the listing is not published
   }
 }
 
@@ -308,6 +308,7 @@ export async function fetchAllLiebherrJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -322,18 +323,23 @@ export async function fetchAllLiebherrJobs() {
 
     const publicUrl = listing.url || SEARCH_URL;
     // The jobs2web detail page is server-rendered: recover the REAL job body
-    // from the itemprop="description" microdata block. Fall back to a brand
-    // blurb on any fetch failure (fail-per-record, never fake content). This
-    // replaces the previous title-only stub that 100%-failed the boilerplate
-    // guard (#1722).
+    // from the itemprop="description" microdata block (#1722: the previous
+    // title-only stub 100%-failed the boilerplate guard).
     const detailDescHtml = await fetchLiebherrDetailDescription(publicUrl);
     // Detail page can itself surface widget chrome as the "description" body
-    // (same class of bleed as the title) — sanitize before falling back to
-    // the brand blurb.
+    // (same class of bleed as the title) — sanitize before the body check.
     const detailDescText = detailDescHtml
       ? sanitizeSuccessFactorsField(normalizeSpace(stripHtml(detailDescHtml)))
       : '';
-    const descriptionText = detailDescText || `${title} — Liebherr (${city}, CH)`;
+    // Only the posting's own text is published (issue 5253): without a
+    // readable body the listing used to go out as "{title} — Liebherr
+    // ({city}, CH)"; it is not published any more.
+    if (!detailDescText) {
+      console.log(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescText;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} liebherr ${city}`);
@@ -380,6 +386,9 @@ export async function fetchAllLiebherrJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
   console.log(`\n📋 Total Liebherr jobs discovered: ${jobs.length}`);
   return jobs;
 }

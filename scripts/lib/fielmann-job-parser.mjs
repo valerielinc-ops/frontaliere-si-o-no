@@ -260,6 +260,7 @@ export async function fetchAllFielmannJobs() {
   console.log(`\n  📋 Swiss job listings found: ${listings.length}. Fetching details...\n`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const externalPath = listing.externalPath;
     if (!externalPath) continue;
@@ -296,9 +297,17 @@ export async function fetchAllFielmannJobs() {
     const streetAddress = locInfo.streetAddress || '';
     const canton = inferAnyCanton(city) || '';
 
-    // Description
+    // Description. Only the posting's own text is published (issue 5253):
+    // a req without a Workday body used to go out as "{title} — Fielmann
+    // Group"; it is not published any more.
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
+    if (!descriptionText) {
+      console.log(`  ⏭️  Skipped — no vacancy text in the Workday detail: ${title}`);
+      withoutBody += 1;
+      await new Promise((r) => setTimeout(r, 300));
+      continue;
+    }
     // Canonical public URL: the Workday tenant detail page (live + HEAD-friendly).
     // The previously-used `jobs.fielmann.com/de/stellenangebote/detail/{reqId}-{slug}`
     // pattern was fabricated and returns 404, which made cleanup-jobs.mjs delete
@@ -321,8 +330,8 @@ export async function fetchAllFielmannJobs() {
       companyDomain: FIELMANN_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Fielmann Group`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Fielmann Group` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       // Newly-discovered jobs ship with source-locale-only fields. The
       // shared AI-localization step clears this flag when it fills the
       // remaining locales; if it can't (cache miss + AI quota), the flag
@@ -373,6 +382,9 @@ export async function fetchAllFielmannJobs() {
     deduped.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total Fielmann Group jobs discovered: ${deduped.length}`);
   return deduped;
 }

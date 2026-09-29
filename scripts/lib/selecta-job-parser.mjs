@@ -351,6 +351,7 @@ export async function fetchAllSelectaJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   const seen = new Set();
   for (const listing of listings) {
     const title = normalizeSpace(listing.Title || '');
@@ -367,9 +368,16 @@ export async function fetchAllSelectaJobs() {
     const { city, canton, postalCode, streetAddress } = resolveAddress(rawLocation);
     const location = rawLocation || city || HQ.city;
 
+    // Only the posting's own text is published (issue 5253): a page without
+    // a body used to go out as "{title} ({subtitle}) — Selecta, {city}."; it
+    // is not published any more.
     const descriptionText = normalizeSpace(await fetchJobDescription(id));
-    const description = descriptionText
-      || `${title} (${subTitle || 'n/d'}) — ${SELECTA_COMPANY_NAME}, ${location}.`;
+    if (!descriptionText) {
+      console.log(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const description = descriptionText;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} selecta ${location}`);
@@ -426,6 +434,9 @@ export async function fetchAllSelectaJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} posting(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total ${SELECTA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

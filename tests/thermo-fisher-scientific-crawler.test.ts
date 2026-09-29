@@ -1,10 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   THERMO_FISHER_SCIENTIFIC_KEY,
   THERMO_FISHER_SCIENTIFIC_COMPANY_NAME,
   thermoFisherPostalCode,
   isThermoFisherScientificJob,
   isTrustedDomain,
+  fetchAllThermoFisherScientificJobs,
 } from '../scripts/lib/thermo-fisher-scientific-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -134,4 +135,37 @@ describe('Thermo Fisher Scientific (Schweiz) AG crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253): with neither a
+// detail body nor a listing teaser a posting used to go out as "{title} —
+// Thermo Fisher Scientific (Schweiz) AG". Shapes of the Phenom widgets API and
+// JSON-LD detail page of jobs.thermofisher.com.
+describe('fetchAllThermoFisherScientificJobs — posting without vacancy text', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the posting with a body and skips the one without, never inventing text', async () => {
+    const raw = (jobId: string, title: string) => ({
+      jobId, title, location: 'Allschwil, Basel-Landschaft, Switzerland', cityStateCountry: 'Allschwil, Basel-Landschaft, Switzerland',
+      city: 'Allschwil', country: 'Switzerland', descriptionTeaser: '', postedDate: '2026-09-20',
+    });
+    vi.stubGlobal('fetch', vi.fn(async (url: string, init: any = {}) => {
+      const u = String(url);
+      if (u.endsWith('/widgets')) {
+        const body = JSON.parse(init.body || '{}');
+        return new Response(JSON.stringify({ refineSearch: { totalHits: 2, data: { jobs: body.from ? [] : [raw('R-01', 'QC Analyst'), raw('R-02', 'Buyer')] } } }), { status: 200 });
+      }
+      if (u.includes('/R-01/')) {
+        return new Response(`<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', description: '<p>Run release testing for our clinical supply chain in Allschwil.</p><ul><li>HPLC analysis</li></ul>' })}</script>`, { status: 200 });
+      }
+      return new Response('<html></html>', { status: 200 });
+    }));
+
+    const jobs = await fetchAllThermoFisherScientificJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['QC Analyst']);
+    expect(jobs[0].description).toContain('release testing');
+    for (const job of jobs) expect(job.description).not.toMatch(/— Thermo Fisher Scientific \(Schweiz\) AG$/);
+  }, 20_000);
 });

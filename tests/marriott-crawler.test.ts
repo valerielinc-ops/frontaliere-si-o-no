@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   MARRIOTT_KEY,
   MARRIOTT_COMPANY_NAME,
@@ -6,6 +6,7 @@ import {
   isMarriottJob,
   isMarriottOracleApplyUrl,
   isTrustedDomain,
+  fetchAllMarriottJobs,
 } from '../scripts/lib/marriott-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -186,4 +187,40 @@ describe('Marriott International crawler parser', () => {
       expect(validJob.sector).toContain('Hospitality');
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253): a listing without a
+// description used to go out as "{title} — Marriott International". Shapes of
+// the Paradox search API behind careers.marriott.com.
+describe('fetchAllMarriottJobs — listing without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the listing with a description and skips the one without, never inventing text', async () => {
+    const item = (id: string, title: string, description: string) => ({
+      title, uniqueID: id, originalURL: `https://careers.marriott.com/job/${id}`, description,
+      brandName: 'W Hotels', accountName: 'W Verbier',
+      locations: [{ city: 'Verbier', state: 'Valais', stateAbbr: 'VS', zipCode: '1936' }],
+      employmentType: 'Full-Time', customFields: [],
+    });
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('/api/get-jobs')) {
+        return new Response(JSON.stringify({
+          jobs: [
+            item('26001', 'Guest Service Agent', '<p>Welcome guests at the front desk and handle check-in and check-out.</p><ul><li>Answer guest requests</li></ul>'),
+            item('26002', 'Night Auditor', ''),
+          ],
+          totalJob: 2,
+        }), { status: 200, headers: { 'content-type': 'application/json' } });
+      }
+      return new Response('<html></html>', { status: 200, headers: { 'set-cookie': 'sid=1; Path=/' } });
+    }));
+
+    const jobs = await fetchAllMarriottJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Guest Service Agent']);
+    expect(jobs[0].description).toContain('Welcome guests at the front desk');
+    for (const job of jobs) expect(job.description).not.toMatch(/— Marriott International$/);
+  }, 20_000);
 });

@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   LIEBHERR_KEY,
   LIEBHERR_COMPANY_NAME,
   isLiebherrJob,
   isTrustedDomain,
+  fetchAllLiebherrJobs,
 } from '../scripts/lib/liebherr-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -126,4 +127,32 @@ describe('Liebherr crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253): without a readable
+// detail body a listing used to go out as "{title} — Liebherr ({city}, CH)".
+// Shapes of careers.liebherr.com (jobs2web tiles, itemprop="description").
+describe('fetchAllLiebherrJobs — listing without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the listing with a body and skips the one without, never inventing text', async () => {
+    const tile = (id: string, title: string) => `<li class="job-tile job-id-${id} job-row" data-url="/job/Bulle-${id}/${id}/">`
+      + `<a class="jobTitle-link" href="/job/Bulle-${id}/${id}/">${title}</a><div id="job-${id}-desktop-section-location-value">Bulle, CH</div></li>`;
+    const listing = `<ul>${tile('1438000001', 'Polymechaniker EFZ')}${tile('1438000002', 'Einkäufer')}</ul>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('/search/')) return new Response(u.includes('startrow=') ? '<ul></ul>' : listing, { status: 200 });
+      if (u.includes('1438000001')) {
+        return new Response('<html><body><span itemprop="description"><p>Sie fertigen Präzisionsteile für unsere Baumaschinen und betreuen die CNC-Anlagen.</p></span></body></html>', { status: 200 });
+      }
+      return new Response('<html><body><h1>Einkäufer</h1></body></html>', { status: 200 });
+    }));
+
+    const jobs = await fetchAllLiebherrJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Polymechaniker EFZ']);
+    expect(jobs[0].description).toContain('Präzisionsteile');
+    for (const job of jobs) expect(job.description).not.toMatch(/— Liebherr \(/);
+  }, 20_000);
 });

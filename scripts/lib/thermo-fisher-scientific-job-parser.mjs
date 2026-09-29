@@ -286,6 +286,7 @@ export async function fetchAllThermoFisherScientificJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   const seen = new Set();
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
@@ -309,6 +310,15 @@ export async function fetchAllThermoFisherScientificJobs() {
     // over the flat listing teaser. Falls back to teaser on any fetch failure.
     const detailMarkdown = await fetchThermoFisherDetailDescription(publicUrl);
     const descriptionText = detailMarkdown || stripHtml(listing.description || '');
+    // Only the posting's own text is published (issue 5253): with neither a
+    // detail body nor a listing teaser the posting used to go out as
+    // "{title} — Thermo Fisher Scientific (Schweiz) AG"; it is not published
+    // any more.
+    if (!descriptionText) {
+      console.log(`  ⏭️ no vacancy text on the detail page nor in the listing, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} thermo-fisher-scientific ch`);
@@ -324,8 +334,8 @@ export async function fetchAllThermoFisherScientificJobs() {
       companyDomain: THERMO_FISHER_SCIENTIFIC_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Thermo Fisher Scientific (Schweiz) AG`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Thermo Fisher Scientific (Schweiz) AG` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -356,6 +366,9 @@ export async function fetchAllThermoFisherScientificJobs() {
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} posting(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total Thermo Fisher Scientific (Schweiz) AG jobs discovered: ${jobs.length}`);
   return jobs;
 }

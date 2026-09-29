@@ -321,6 +321,24 @@ $(function () {
     expect(j.jobReqId).toBe('4614');
   });
 
+  // Only the posting's own text is published (issue 5253): a page without a
+  // body used to go out as "{title} ({subtitle}) — Selecta, {city}.".
+  it('does not publish a posting whose detail page has no vacancy text', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (url: unknown) => {
+      const href = String(url);
+      if (href.includes('/Jobs')) {
+        return { ok: true, status: 200, text: async () => listingHtml([listing(), listing({ Id: 4615, Title: 'Servicetechniker (a) 100%' })] as never) } as unknown as Response;
+      }
+      if (href.endsWith('/Job/4615')) {
+        return { ok: true, status: 200, text: async () => '<!doctype html><html><body><div class="jobBlock jobApply"><button>Jetzt online Bewerben</button></div></body></html>' } as unknown as Response;
+      }
+      return { ok: true, status: 200, text: async () => detailHtml() } as unknown as Response;
+    });
+    const jobs = await fetchAllSelectaJobs();
+    expect(jobs.map((job: { title: string }) => job.title)).toEqual(['Automatenbetreuer/in (a) 100%']);
+    for (const job of jobs) expect(job.description).not.toMatch(/— Selecta, /);
+  });
+
   it('parses the .NET /Date(epoch)/ wire format into an ISO date (not the ambiguous dd.mm.yyyy display string)', async () => {
     mockFetch([listing({ OnlineDateCorrected: '/Date(1783123200000)/' })]);
     const jobs = await fetchAllSelectaJobs();

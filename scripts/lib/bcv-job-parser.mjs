@@ -252,6 +252,7 @@ export async function fetchAllBcvJobs() {
   console.log(`\n  📋 Fetching ${entries.length} detail pages...\n`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const entry of entries) {
     const jobUrl = entry.url;
     const jobId = extractJobId(jobUrl);
@@ -267,17 +268,17 @@ export async function fetchAllBcvJobs() {
       }
 
       const address = resolveAddress(urlCity);
-      let description = parsed.description || `${parsed.title} — ${BCV_COMPANY_NAME}, ${address.city}.`;
-
-      // Non-Negotiable #4: never index thin content <50 words. Pad with a
-      // guaranteed-rich company blurb + CTA so every job clears the guard.
-      const wordCount = description.split(/\s+/).filter(Boolean).length;
-      if (wordCount < 50) {
-        description = [
-          description,
-          `La Banque Cantonale Vaudoise (BCV) est la première banque universelle du canton de Vaud et l'une des banques les plus solides au monde, notée AA par Standard & Poor's depuis 2011. Avec ses quelque 2000 collaboratrices et collaborateurs répartis entre le siège de Lausanne et son réseau d'agences régionales (Aigle, Yverdon, Pully, Payerne notamment), la BCV accompagne particuliers, entreprises et institutions dans leurs projets financiers tout en contribuant activement à l'essor du tissu économique vaudois.`,
-          `Postulez en ligne directement sur le portail carrière jobs.bcv.ch.`,
-        ].join('\n\n');
+      // Only the posting's own text is published (issue 5253): a page
+      // without a description used to go out as "{title} — BCV, {city}.",
+      // and a short one was padded with a bank summary and a call to
+      // apply. Neither is vacancy text; a page without a body is not
+      // published, a short body is published as it is.
+      const description = parsed.description;
+      if (!description) {
+        console.log(`  ⏭️ ${jobId || '—'} — no vacancy text on the detail page, not published`);
+        withoutBody += 1;
+        await new Promise((r) => setTimeout(r, 300));
+        continue;
       }
 
       const sourceLang = detectLang(description || parsed.title, 'fr');
@@ -339,6 +340,9 @@ export async function fetchAllBcvJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} page(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total Banque Cantonale Vaudoise jobs discovered: ${jobs.length}`);
   return jobs;
 }

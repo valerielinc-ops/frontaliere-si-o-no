@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   ROLEX_KEY,
   ROLEX_COMPANY_NAME,
   isRolexJob,
   isTrustedDomain,
+  fetchAllRolexJobs,
 } from '../scripts/lib/rolex-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -126,4 +127,31 @@ describe('Rolex crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253): without a body the
+// listing used to go out as "{title} — Rolex, {city} ({canton})." (5/174 rows
+// on 2026-09-29, where a template token blanked the body). Shapes of
+// carrieres-rolex.com (jobs2web rows, JobPosting microdata).
+describe('fetchAllRolexJobs — listing without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the listing with a body and skips the one without, never inventing text', async () => {
+    const row = (id: string, title: string) => `<tr class="data-row"><td><a href="/Rolex/job/Geneve-${id}/${id}/" class="jobTitle-link">${title}</a><span class="jobFacility">Genève</span></td></tr>`;
+    const listing = `<table>${row('1180001', 'Horloger / Horlogère')}${row('1180002', 'Stage découverte apprentissage')}</table>`;
+    const detail = (body: string) => `<html><body><meta itemprop="addressLocality" content="Genève"><meta itemprop="addressCountry" content="CH"><span itemprop="description">${body}</span></section></body></html>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('/go/Toutes-nos-offres-Rolex/')) return new Response(listing, { status: 200 });
+      if (u.includes('1180001')) return new Response(detail('<p>Vous assemblez et réglez des mouvements dans nos ateliers de Genève, dans le respect des standards Rolex.</p>'), { status: 200 });
+      return new Response(detail(''), { status: 200 });
+    }));
+
+    const jobs = await fetchAllRolexJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Horloger / Horlogère']);
+    expect(jobs[0].description).toContain('mouvements');
+    for (const job of jobs) expect(job.description).not.toMatch(/— Rolex, /);
+  }, 20_000);
 });

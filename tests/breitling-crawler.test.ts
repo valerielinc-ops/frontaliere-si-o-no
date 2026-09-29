@@ -1,10 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   BREITLING_KEY,
   BREITLING_COMPANY_NAME,
   isBreitlingJob,
   isTrustedDomain,
   parseLocation,
+  fetchAllBreitlingJobs,
 } from '../scripts/lib/breitling-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -238,4 +239,36 @@ describe('Breitling crawler parser', () => {
       });
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253). A body under 30
+// words used to get an invented Italian summary appended ("{title} presso
+// Breitling a {city}. Manifattura orologiera svizzera …") and a missing body
+// was replaced by it. Shapes of careers.breitling.com (recruiting search API
+// + Unify detail page).
+describe('fetchAllBreitlingJobs — published text', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes a short body as it is and skips a posting without one', async () => {
+    const resp = (id: string, title: string) => ({
+      response: { id, unifiedStandardTitle: title, jobLocationShort: ['Grenchen, SO, CH, 2540'], unifiedStandardStart: '2026-09-20', currency: ['CHF'] },
+    });
+    vi.stubGlobal('fetch', vi.fn(async (url: string, init: any = {}) => {
+      const u = String(url);
+      if (u.endsWith('/services/recruiting/v1/jobs')) {
+        const body = JSON.parse(init.body || '{}');
+        return new Response(JSON.stringify({ jobSearchResult: body.pageNumber ? [] : [resp('3001', 'Watchmaker'), resp('3002', 'Buyer')] }), { status: 200 });
+      }
+      if (u.includes('3001')) {
+        return new Response('<html><body><span itemprop="description"><p>You assemble and regulate chronograph movements in our Grenchen workshop.</p></span></body></html>', { status: 200 });
+      }
+      return new Response('<html><body><h1>Buyer</h1></body></html>', { status: 200 });
+    }));
+
+    const jobs = await fetchAllBreitlingJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Watchmaker']);
+    expect(jobs[0].description).toBe('You assemble and regulate chronograph movements in our Grenchen workshop.');
+  }, 20_000);
 });

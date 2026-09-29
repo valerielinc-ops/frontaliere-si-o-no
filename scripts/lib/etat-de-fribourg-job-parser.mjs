@@ -282,6 +282,7 @@ export async function fetchAllEtatDeFribourgJobs() {
 
   // Fetch detail pages and build jobs
   const jobs = [];
+  let withoutBody = 0;
   const delayMs = Number(process.env.JOBS_CRAWLER_DELAY_MS) || 500;
 
   for (const row of uniqueRows) {
@@ -304,14 +305,16 @@ export async function fetchAllEtatDeFribourgJobs() {
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} etat-de-fribourg ch`);
 
-    // Description: prefer detail page content, fall back to listing metadata.
-    let descriptionText = detail?.descriptionText || '';
-    if (!descriptionText || descriptionText.split(/\s+/).filter(Boolean).length < 30) {
-      const parts = [`${title} -- Etat de Fribourg`];
-      if (row.department) parts.push(`Service: ${row.department}`);
-      parts.push(`Lieu de travail: ${city} (${canton})`);
-      if (row.pensumText) parts.push(`Taux d'activité: ${row.pensumText}`);
-      descriptionText = parts.join('. ');
+    // Only the posting's own text is published (issue 5253). A detail page
+    // that could not be read, or whose body is under 30 words, used to be
+    // replaced by a stub of listing metadata ("{title} -- Etat de Fribourg.
+    // Service: … Lieu de travail: … Taux d'activité: …"); such a listing is
+    // not published any more.
+    const descriptionText = detail?.descriptionText || '';
+    if (descriptionText.split(/\s+/).filter(Boolean).length < 30) {
+      console.log(`  ⏭️ No vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
     }
 
     const pensum = parsePensum(row.pensumText);
@@ -382,6 +385,9 @@ export async function fetchAllEtatDeFribourgJobs() {
     console.log(`  ✅ ${title.substring(0, 55)} -- ${city} (${row.department || 'N/A'})`);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
   console.log(`\n📋 Total Etat de Fribourg jobs discovered: ${jobs.length}`);
   return jobs;
 }

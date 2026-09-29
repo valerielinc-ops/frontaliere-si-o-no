@@ -15,6 +15,7 @@ import {
   parseHornbachOffer,
   fetchHornbachSearchApiKey,
   fetchOfferDocumentsWithKeyRetry,
+  fetchAllHornbachJobs,
 } from '../scripts/lib/hornbach-job-parser.mjs';
 
 describe('Hornbach crawler parser', () => {
@@ -223,6 +224,8 @@ describe('Hornbach crawler parser', () => {
           about: '', additional: '', benefits: '', contact_text: '',
         }),
       ).toBe('');
+      // The department facet alone is metadata, not vacancy text (issue 5253).
+      expect(buildHornbachDescription({ introduction: '', department: ['Verkauf'] })).toBe('');
     });
   });
 
@@ -512,4 +515,41 @@ describe('Hornbach crawler parser', () => {
       expect(calls).toBe(2);
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253): an offer without text
+// used to go out as "{title} — Hornbach ({city})." (or as its department line
+// alone). Shapes of the job-shop Typesense API (api-key + multi_search).
+describe('fetchAllHornbachJobs — offer without vacancy text', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the offer with text and skips the one without, never inventing text', async () => {
+    const doc = (id: string, title: string, introduction: string) => ({
+      title, offer_uuid: `uuid-${id}`, external_id: id, title_slug: id,
+      url: `https://jobs.hornbach.ch/offer-redirect/?offerApiId=${id}`,
+      introduction, description: '', expectation: '', offering: '', about: '', additional: '', benefits: '', contact_text: '',
+      full_address: ['Schellenrain 9, 6210 Sursee'], location: ['Sursee'],
+      location_objects: [{ city: 'Sursee', street: 'Schellenrain 9', zip: '6210', country: 'CH' }],
+      department: ['Verkauf'], schedule: ['Vollzeit'], schema_values: { working_time_types: ['FULL_TIME'] },
+      custom_filter_4: ['Luzern (LU)'], country: ['Switzerland'], create_date: '2026-09-01T00:00:00Z', status: 'ACTIVE',
+    });
+    const json = (payload: unknown) => new Response(JSON.stringify(payload), { status: 200, headers: { 'content-type': 'application/json' } });
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('/api-key')) return json({ key: 'k' });
+      if (u.includes('/multi_search')) {
+        return json({ results: [{ hits: [
+          { document: doc('148901', 'Verkäufer:in Bau &amp; Garten', '<p>Du berätst unsere Kundschaft in der Abteilung Bau und Garten.</p>') },
+          { document: doc('148902', 'Kassierer:in', '') },
+        ] }] });
+      }
+      return new Response('', { status: 404 });
+    }));
+
+    const jobs = await fetchAllHornbachJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Verkäufer:in Bau & Garten']);
+    expect(jobs[0].description).toContain('Du berätst unsere Kundschaft');
+  }, 20_000);
 });

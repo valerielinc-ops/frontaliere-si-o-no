@@ -112,8 +112,6 @@ const CANTON_CITY_FALLBACK = {
   LU: 'Luzern',
 };
 
-const MIN_DESCRIPTION_WORDS = 30;
-
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -378,6 +376,7 @@ export async function fetchAllBreitlingJobs() {
 
   const jobs = [];
   const seenUrls = new Set();
+  let withoutBody = 0;
 
   for (const r of listings) {
     const id = String(r.id || '').trim();
@@ -399,11 +398,16 @@ export async function fetchAllBreitlingJobs() {
     if (seenUrls.has(publicUrl)) continue;
     seenUrls.add(publicUrl);
 
-    let descriptionText = await fetchJobDescription(publicUrl);
-    const wordCount = descriptionText ? descriptionText.split(/\s+/).filter(Boolean).length : 0;
-    if (wordCount < MIN_DESCRIPTION_WORDS) {
-      const fallback = `${title} presso ${BREITLING_COMPANY_NAME} a ${location}. Manifattura orologiera svizzera di lusso, sede storica a Grenchen dal 1884. Candidature tramite il portale carriere ufficiale.`;
-      descriptionText = descriptionText ? `${descriptionText}\n\n${fallback}` : fallback;
+    // Only the posting's own text is published (issue 5253): a body under
+    // 30 words used to get an invented Italian summary appended ("{title}
+    // presso Breitling a {city}. Manifattura orologiera svizzera …"), and a
+    // missing body was replaced by it. A short body is published as it is; a
+    // posting without one is not published.
+    const descriptionText = await fetchJobDescription(publicUrl);
+    if (!descriptionText) {
+      console.log(`   ⏭️ no vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
     }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
@@ -456,6 +460,9 @@ export async function fetchAllBreitlingJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`   ⏭️ ${withoutBody} posting(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total ${BREITLING_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

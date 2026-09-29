@@ -482,8 +482,11 @@ export async function fetchAllPostAutoJobs() {
     const { city, canton, postalCode, streetAddress, region } = address;
     const location = city;
 
-    const descriptionText = detail.description || '';
-    const description = descriptionText || `${title} bei ${POSTAUTO_COMPANY_NAME} in ${location}.`;
+    // A detail is accepted above only with a body (> 80 characters), so the
+    // published text is always the posting's own; the "{title} bei PostAuto
+    // in {city}." stand-in could never be reached and is gone (issue 5253).
+    const descriptionText = detail.description;
+    const description = descriptionText;
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} postauto ${location}`);
     const urlHash = createHash('sha1').update(sourceUrl).digest('hex').slice(0, 12);
