@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildEngelvoelkersLocalizedContent,
+  engelvoelkersPublishableBody,
+  isEngelvoelkersLegacyText,
+  scrubEngelvoelkersLegacySlots,
   inferEngelvoelkersCanton,
   isEngelvoelkersSwissRelevant,
   parseEngelvoelkersDetailPage,
@@ -104,17 +107,51 @@ describe('Engel & Völkers parser', () => {
     expect(inferEngelvoelkersCanton('Lugano, Switzerland')).toBe('TI');
   });
 
-  it('localizes the derived canton without a fixed regional fallback', () => {
+  // Real posting prose (Immobilienberater/in 100 % | Ascona, 2026-09-29),
+  // repeated to exact word counts for the 50-word source floor.
+  const PROSE = 'Bist du fasziniert von der Immobilienwelt, bringst Eigeninitiative mit und verstehst es, Menschen mit deiner dienstleistungsorientierten Art für dich zu gewinnen? Dann schreibe deine eigene Erfolgsgeschichte mit uns'.split(' ');
+  const prose = (n: number) => Array.from({ length: n }, (_, i) => PROSE[i % PROSE.length]).join(' ');
+
+  it('publishes only the source text, in its own language, with no synthesized details block', () => {
     const result = buildEngelvoelkersLocalizedContent({
       title: 'Immobilienberater/in',
-      location: 'Zürich',
+      location: 'Zürich, Switzerland',
       canton: 'ZH',
       company: 'Engel & Völkers Zürich',
-      description: 'Beratung und Verkauf hochwertiger Immobilien.',
+      description: prose(60),
+      sourceLang: 'de',
     });
 
-    expect(result.descriptionByLocale.it).toContain('Zurigo');
-    expect(result.descriptionByLocale.it).toContain('Canton: ZH');
-    expect(result.descriptionByLocale.it).not.toContain('Ticino');
+    expect(result.descriptionByLocale).toEqual({ de: prose(60) });
+    expect(result.titleByLocale).toEqual({ de: 'Immobilienberater/in' });
+    expect(JSON.stringify(result)).not.toMatch(/Eckdaten der Stelle|Dettagli della posizione|Position highlights|Canton: ZH/);
+    // Slugs keep their four-locale shape: no published URL changes.
+    expect(Object.keys(result.slugByLocale).sort()).toEqual(['de', 'en', 'fr', 'it']);
+  });
+
+  it('gives no description under the 50-word source floor and never an invented sentence', () => {
+    const result = buildEngelvoelkersLocalizedContent({ title: 'Immobilienberater/in', location: 'Zürich', canton: 'ZH', description: prose(49), sourceLang: 'de' });
+    expect(result.descriptionByLocale).toEqual({});
+    expect(engelvoelkersPublishableBody({ sourceLang: 'de', descriptionByLocale: {} }, null)).toBeNull();
+    expect(engelvoelkersPublishableBody({ sourceLang: 'de', descriptionByLocale: { de: prose(50) } }, null)).toEqual({ sourceLang: 'de', body: prose(50) });
+  });
+
+  it('keeps the stored source body without the retired block, and scrubs the retired slots', () => {
+    const block = '\n\nEckdaten der Stelle:\n• Standort: Ascona, Ticino\n• Arbeitgeber: Engel & Völkers\n• Bewerbung über die offizielle Karriereseite von Engel & Völkers';
+    const itBlock = '\n\nDettagli della posizione:\n• Sede: Ascona, Ticino\n• Candidature: pagina carriere ufficiale di Engel & Völkers';
+    const stored = {
+      title: 'Immobilienberater/in 100 % | Ascona',
+      sourceLang: 'de',
+      description: `${prose(60)}${itBlock}`,
+      titleByLocale: { de: 'Immobilienberater/in 100 % | Ascona', it: 'Immobilienberater/in 100 % | Ascona', en: 'Real estate advisor (100%) | Ascona' },
+      descriptionByLocale: { de: `${prose(60)}${block}`, it: `${prose(60)}${itBlock}` },
+    };
+    expect(isEngelvoelkersLegacyText(stored.descriptionByLocale.de)).toBe(true);
+    const scrubbed = scrubEngelvoelkersLegacySlots(stored);
+    expect(scrubbed.descriptionByLocale).toEqual({});
+    expect(scrubbed.titleByLocale).toEqual({ de: 'Immobilienberater/in 100 % | Ascona', en: 'Real estate advisor (100%) | Ascona' });
+    expect(scrubbed.needsRetranslation).toBe(true);
+    // A thin run keeps the stored source prose, stripped of the block.
+    expect(engelvoelkersPublishableBody({ sourceLang: 'de', descriptionByLocale: {} }, stored)).toEqual({ sourceLang: 'de', body: prose(60) });
   });
 });
