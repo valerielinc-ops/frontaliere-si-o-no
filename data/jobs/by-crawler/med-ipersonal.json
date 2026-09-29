@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "med-ipersonal-9578e41f1a9a",
-      "slug": "netzelektriker-region-trun-ipersonal-ag-trun-graubunden",
+      "slug": "grid-electrician-regione-di-trun-ipersonal-ag-trun-graubunden",
       "slugByLocale": {
         "de": "netzelektriker-region-trun-ipersonal-ag-trun-graubunden",
-        "it": "netzelektriker-region-trun-ipersonal-ag-trun-graubunden",
-        "en": "netzelektriker-region-trun-ipersonal-ag-trun-graubunden",
-        "fr": "netzelektriker-region-trun-ipersonal-ag-trun-graubunden"
+        "it": "grid-electrician-regione-di-trun-ipersonal-ag-trun-graubunden",
+        "en": "grid-electrician-trun-region-ipersonal-ag-trun-graubunden",
+        "fr": "electricien-du-reseau-region-de-trun-ipersonal-ag-trun-graubunden"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -61,16 +61,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T05:12:36.896Z"
+      "firstSeenAt": "2026-09-29T05:12:36.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "netzelektriker-region-trun-ipersonal-ag-trun-graubunden"
+        ],
+        "en": [
+          "netzelektriker-region-trun-ipersonal-ag-trun-graubunden"
+        ],
+        "fr": [
+          "netzelektriker-region-trun-ipersonal-ag-trun-graubunden"
+        ]
+      },
+      "previousSlugs": [
+        "netzelektriker-region-trun-ipersonal-ag-trun-graubunden"
+      ]
     },
     {
       "id": "med-ipersonal-385113e989e8",
-      "slug": "heizungsinstallateur-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen",
+      "slug": "installatore-di-riscaldamento-regione-gossau-sg-ipersonal-ag-gossau-sg-st-gallen",
       "slugByLocale": {
         "de": "heizungsinstallateur-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen",
-        "it": "heizungsinstallateur-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen",
-        "en": "heizungsinstallateur-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen",
-        "fr": "heizungsinstallateur-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen"
+        "it": "installatore-di-riscaldamento-regione-gossau-sg-ipersonal-ag-gossau-sg-st-gallen",
+        "en": "heating-installer-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen",
+        "fr": "installation-de-chauffage-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -122,7 +136,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T05:12:36.594Z"
+      "firstSeenAt": "2026-09-29T05:12:36.594Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen"
+        ],
+        "en": [
+          "heizungsinstallateur-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen"
+        ],
+        "fr": [
+          "heizungsinstallateur-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-region-gossau-sg-ipersonal-ag-gossau-sg-st-gallen"
+      ]
     },
     {
       "id": "med-ipersonal-71f690a4686a",
@@ -201,12 +229,12 @@
     },
     {
       "id": "med-ipersonal-bc2d096c6909",
-      "slug": "installatore-trice-elettrico-a-region-balsthal-ipersonal-ag-balsthal",
+      "slug": "installatore-trice-elettrico-a-region-balsthal-ipersonal-ag-balsthal-solothurn",
       "slugByLocale": {
         "de": "elektroinstallateur-region-balsthal-ipersonal-ag-balsthal-solothurn",
-        "it": "installatore-trice-elettrico-a-region-balsthal-ipersonal-ag-balsthal",
-        "en": "elektroinstallateur-region-balsthal-ipersonal-ag-balsthal-solothurn",
-        "fr": "elektroinstallateur-region-balsthal-ipersonal-ag-balsthal-solothurn"
+        "it": "installatore-trice-elettrico-a-region-balsthal-ipersonal-ag-balsthal-solothurn",
+        "en": "electrical-installer-balsthal-region-ipersonal-ag-balsthal-solothurn",
+        "fr": "installation-electrique-region-balsthal-ipersonal-ag-balsthal-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -247,11 +275,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-balsthal-offene-stelle/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-region-balsthal-ipersonal-ag-balsthal-solothurn",
+          "installatore-trice-elettrico-a-region-balsthal-ipersonal-ag-balsthal"
+        ],
+        "en": [
+          "elektroinstallateur-region-balsthal-ipersonal-ag-balsthal-solothurn"
+        ],
+        "fr": [
           "elektroinstallateur-region-balsthal-ipersonal-ag-balsthal-solothurn"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-region-balsthal-ipersonal-ag-balsthal-solothurn"
+        "elektroinstallateur-region-balsthal-ipersonal-ag-balsthal-solothurn",
+        "installatore-trice-elettrico-a-region-balsthal-ipersonal-ag-balsthal"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -274,8 +310,8 @@
       "slugByLocale": {
         "de": "schreiner-bankschreiner-100-fur-die-region-bellach-gesucht-ipersonal-ag-bellach",
         "it": "schreiner-bankschreiner-100-per-la-region-bellach-gesucht-ipersonal-ag-bellach",
-        "en": "schreiner-bankschreiner-100-fur-die-region-bellach-gesucht-ipersonal-ag-bellach",
-        "fr": "schreiner-bankschreiner-100-fur-die-region-bellach-gesucht-ipersonal-ag-bellach"
+        "en": "schreiner-bank-schreiner-100-sought-for-the-bellach-region-ipersonal-ag-bellach",
+        "fr": "schreiner-bank-schreiner-100-recherche-pour-la-region-de-bellach-ipersonal-ag-bellach"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -318,6 +354,12 @@
       "previousSlugsByLocale": {
         "it": [
           "schreiner-bankschreiner-100-fur-die-region-bellach-gesucht-ipersonal-ag-bellach"
+        ],
+        "en": [
+          "schreiner-bankschreiner-100-fur-die-region-bellach-gesucht-ipersonal-ag-bellach"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-100-fur-die-region-bellach-gesucht-ipersonal-ag-bellach"
         ]
       },
       "previousSlugs": [
@@ -340,12 +382,12 @@
     },
     {
       "id": "med-ipersonal-76476157391f",
-      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag-richterswil",
+      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben",
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag",
-        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag-richterswil",
-        "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag",
-        "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag"
+        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben",
+        "en": "electrical-installer-new-and-conversion-100-sought-in-the-richterswil-region-apply-now-ipersonal-ag-richterswil",
+        "fr": "installation-electrique-nouveau-et-conversion-100-recherche-dans-la-region-de-richterswil-appliquer-maintenant-ipersonal"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -387,11 +429,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag",
+          "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag-richterswil"
+        ],
+        "en": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag"
+        ],
+        "fr": [
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag"
+        "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag",
+        "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag-richterswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -410,12 +460,12 @@
     },
     {
       "id": "med-ipersonal-7cfd32d9ff7f",
-      "slug": "installatore-trice-elettrico-a-region-escholzmatt-ipersonal-ag-escholzmatt",
+      "slug": "installatore-trice-elettrico-a-region-escholzmatt-ipersonal-ag-escholzmatt-luzern",
       "slugByLocale": {
         "de": "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-luzern",
-        "it": "installatore-trice-elettrico-a-region-escholzmatt-ipersonal-ag-escholzmatt",
-        "en": "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-luzern",
-        "fr": "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-luzern"
+        "it": "installatore-trice-elettrico-a-region-escholzmatt-ipersonal-ag-escholzmatt-luzern",
+        "en": "electrical-installer-region-escholzmatt-ipersonal-ag-escholzmatt-luzern",
+        "fr": "installation-electrique-region-escolzmatt-ipersonal-ag-escholzmatt-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -455,11 +505,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-escholzmatt-marbach-offene-stelle/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-luzern",
+          "installatore-trice-elettrico-a-region-escholzmatt-ipersonal-ag-escholzmatt"
+        ],
+        "en": [
+          "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-luzern"
+        ],
+        "fr": [
           "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-luzern"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-luzern"
+        "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-luzern",
+        "installatore-trice-elettrico-a-region-escholzmatt-ipersonal-ag-escholzmatt"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -478,12 +536,12 @@
     },
     {
       "id": "med-ipersonal-01e1d03d25da",
-      "slug": "sanitarinstallateur-region-evolene-ipersonal-ag-evolene-wallis",
+      "slug": "installatore-sanitario-regione-di-evolene-ipersonal-ag-evolene-wallis",
       "slugByLocale": {
         "de": "sanitarinstallateur-region-evolene-ipersonal-ag-evolene-wallis",
-        "it": "sanitarinstallateur-region-evolene-ipersonal-ag-evolene-wallis",
-        "en": "sanitarinstallateur-region-evolene-ipersonal-ag-evolene-wallis",
-        "fr": "sanitarinstallateur-region-evolene-ipersonal-ag-evolene-wallis"
+        "it": "installatore-sanitario-regione-di-evolene-ipersonal-ag-evolene-wallis",
+        "en": "sanitary-installer-evolene-region-ipersonal-ag-evolene-wallis",
+        "fr": "installation-sanitaire-region-d-evolene-ipersonal-ag-evolene-wallis"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -535,16 +593,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T05:12:34.787Z"
+      "firstSeenAt": "2026-09-29T05:12:34.787Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-region-evolene-ipersonal-ag-evolene-wallis"
+        ],
+        "en": [
+          "sanitarinstallateur-region-evolene-ipersonal-ag-evolene-wallis"
+        ],
+        "fr": [
+          "sanitarinstallateur-region-evolene-ipersonal-ag-evolene-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-region-evolene-ipersonal-ag-evolene-wallis"
+      ]
     },
     {
       "id": "med-ipersonal-07a29db16720",
-      "slug": "installatore-trice-elettrico-a-region-dornach-ipersonal-ag-dornach",
+      "slug": "installatore-trice-elettrico-a-region-dornach-ipersonal-ag-dornach-solothurn",
       "slugByLocale": {
         "de": "elektroinstallateur-region-dornach-ipersonal-ag-dornach-solothurn",
-        "it": "installatore-trice-elettrico-a-region-dornach-ipersonal-ag-dornach",
-        "en": "elektroinstallateur-region-dornach-ipersonal-ag-dornach-solothurn",
-        "fr": "elektroinstallateur-region-dornach-ipersonal-ag-dornach-solothurn"
+        "it": "installatore-trice-elettrico-a-region-dornach-ipersonal-ag-dornach-solothurn",
+        "en": "electrical-installer-dornach-region-ipersonal-ag-dornach-solothurn",
+        "fr": "installation-electrique-region-de-dornach-ipersonal-ag-dornach-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -585,11 +657,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-in-der-region-dornach-stellenangebot/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-region-dornach-ipersonal-ag-dornach-solothurn",
+          "installatore-trice-elettrico-a-region-dornach-ipersonal-ag-dornach"
+        ],
+        "en": [
+          "elektroinstallateur-region-dornach-ipersonal-ag-dornach-solothurn"
+        ],
+        "fr": [
           "elektroinstallateur-region-dornach-ipersonal-ag-dornach-solothurn"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-region-dornach-ipersonal-ag-dornach-solothurn"
+        "elektroinstallateur-region-dornach-ipersonal-ag-dornach-solothurn",
+        "installatore-trice-elettrico-a-region-dornach-ipersonal-ag-dornach"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -608,12 +688,12 @@
     },
     {
       "id": "med-ipersonal-906642d90810",
-      "slug": "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich",
+      "slug": "installatore-di-riscaldamento-regione-egg-b-zurigo-ipersonal-ag-egg-b",
       "slugByLocale": {
-        "de": "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich",
-        "it": "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich",
-        "en": "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich",
-        "fr": "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich"
+        "de": "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b",
+        "it": "installatore-di-riscaldamento-regione-egg-b-zurigo-ipersonal-ag-egg-b",
+        "en": "heating-installer-region-egg-b-zurich-ipersonal-ag-egg-b",
+        "fr": "installation-de-chauffage-region-egg-b-zurich-ipersonal-ag-egg-b"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -664,16 +744,33 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T05:12:34.184Z"
+      "firstSeenAt": "2026-09-29T05:12:34.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich"
+        ],
+        "en": [
+          "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich"
+        ],
+        "de": [
+          "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich"
+        ],
+        "fr": [
+          "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-367573e1e38d",
-      "slug": "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich",
+      "slug": "mercato-immobiliare-regione-di-hinwil-ipersonal-ag-hinwil-zurich",
       "slugByLocale": {
         "de": "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich",
-        "it": "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich",
-        "en": "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich",
-        "fr": "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich"
+        "it": "mercato-immobiliare-regione-di-hinwil-ipersonal-ag-hinwil-zurich",
+        "en": "real-estate-marketer-hinwil-region-ipersonal-ag-hinwil-zurich",
+        "fr": "marche-immobilier-region-de-hinwil-ipersonal-ag-hinwil-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -725,7 +822,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T05:12:33.882Z"
+      "firstSeenAt": "2026-09-29T05:12:33.882Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich"
+        ],
+        "en": [
+          "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich"
+        ],
+        "fr": [
+          "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienvermarkter-region-hinwil-ipersonal-ag-hinwil-zurich"
+      ]
     }
   ]
 }
