@@ -135,6 +135,7 @@ function identity(id, name, city, sourceUrl, fetchedAt) {
 }
 
 function duty({ id, pharmacy, coverageName, startsAt, endsAt, dutyType = 'weekend', sourceUrl, fetchedAt }) {
+  const expired = Date.parse(endsAt) <= Date.parse(fetchedAt);
   return {
     id,
     pharmacyId: pharmacy.id,
@@ -144,7 +145,7 @@ function duty({ id, pharmacy, coverageName, startsAt, endsAt, dutyType = 'weeken
     startsAt,
     endsAt,
     dutyType,
-    status: 'verified',
+    status: expired ? 'expired' : 'verified',
     sourceUrl,
     sourceType: 'official',
     fetchedAt,

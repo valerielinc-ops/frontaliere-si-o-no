@@ -64,6 +64,8 @@ describe('pharmacy sources registry schema', () => {
       sourceType: 'official',
       fetchFrequency: 'P1D',
       status: 'active',
+      dutiesPath: 'data/pharmacy-duties-swiss-cantons.json',
+      dutiesKey: 'JU',
     });
     const sourceFetchedAt = registry.sources.jura.sourceFetchedAt;
     expect(typeof sourceFetchedAt).toBe('string');

@@ -38,7 +38,7 @@ export interface SwissCantonDuty {
   readonly startsAt: string;
   readonly endsAt: string;
   readonly dutyType: 'day' | 'night' | 'weekend' | 'holiday' | '24h';
-  readonly status: 'verified';
+  readonly status: 'verified' | 'expired';
   readonly sourceUrl: string;
   readonly sourceType: PharmacyDutySourceType;
   readonly fetchedAt: string;
@@ -212,10 +212,14 @@ function validDutyRows(snapshot: SwissCantonDutySnapshot, expectedSourceUrl: str
     if (!Number.isFinite(Date.parse(duty.startsAt)) || !Number.isFinite(Date.parse(duty.endsAt)) || Date.parse(duty.endsAt) <= Date.parse(duty.startsAt)) {
       errors.push(`duty[${index}]: interval is invalid`);
     }
-    if (duty.status !== 'verified') errors.push(`duty[${index}]: status is not verified`);
+    if (duty.status !== 'verified' && duty.status !== 'expired') errors.push(`duty[${index}]: status is invalid`);
     if (!sourceUrlMatchesRegistry(duty.sourceUrl, expectedSourceUrl)) errors.push(`duty[${index}]: source URL is not the allowlisted source host`);
     if (duty.sourceType !== expectedSourceType) errors.push(`duty[${index}]: source type does not match the registry`);
     if (!isoTimestamp(duty.fetchedAt)) errors.push(`duty[${index}]: fetchedAt is invalid`);
+    const endsAt = Date.parse(duty.endsAt);
+    const fetchedAt = Date.parse(duty.fetchedAt);
+    if (duty.status === 'expired' && endsAt > fetchedAt) errors.push(`duty[${index}]: expired row ends after its fetch timestamp`);
+    if (duty.status === 'verified' && endsAt <= fetchedAt) errors.push(`duty[${index}]: verified row is already expired at fetch time`);
   });
   return errors;
 }
@@ -268,7 +272,7 @@ function genericSnapshotEvaluation(
   const rowErrors = validDutyRows(value, value._source, expectedSourceType || 'official');
   if (rowErrors.length > 0) return { coverage: null, reason: `${canton.code}: ${rowErrors[0]}` };
   const duties = value.duties
-    .filter((duty) => intersectsWeek(duty.startsAt, duty.endsAt, weekStartKey, weekEndKey))
+    .filter((duty) => duty.status === 'verified' && intersectsWeek(duty.startsAt, duty.endsAt, weekStartKey, weekEndKey))
     .sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt) || a.id.localeCompare(b.id));
   if (duties.length === 0) return { coverage: null, reason: `${canton.code}: no verified duty intersects the selected week` };
   return {
