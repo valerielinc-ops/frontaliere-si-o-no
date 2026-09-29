@@ -39,6 +39,7 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, ensureMinimumDescriptionWordCount } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -345,7 +346,7 @@ export async function fetchAllSpruengliJobs() {
     // this run: the standard pipeline retains the stored record, with the
     // body an earlier run read from the source, and a new job without a
     // real body is not published.
-    if (descriptionText.split(/\s+/).filter(Boolean).length < 50) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.warn(`  ⏭️ ${title}: source body under 50 words — not published this run (${publicUrl})`);
       continue;
     }

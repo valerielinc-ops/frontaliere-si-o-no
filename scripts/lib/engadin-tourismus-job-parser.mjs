@@ -7,6 +7,7 @@
  * TYPO3-based CMS. Job listings use "Mehr lesen" links to detail pages.
  * Detail pages at /ueber-uns/jobs/jobs/{slug}
  */
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -22,8 +23,6 @@ const HQ = getCompanyDefaults('engadin-tourismus');
 export const ENGADIN_TOURISMUS_KEY = 'engadin-tourismus';
 export const ENGADIN_TOURISMUS_COMPANY_NAME = 'Engadin Tourismus AG';
 export const ENGADIN_TOURISMUS_COMPANY_DOMAIN = 'engadintourismus.ch';
-
-export const MIN_DESC_LENGTH = 100;
 
 function createDocument(html = '') {
   const sanitized = String(html || '').replace(/<style\b[\s\S]*?<\/style>/gi, '');
@@ -211,7 +210,7 @@ export async function fetchAllEngadinTourismusJobs() {
     // Source text only (issue 5253): without a vacancy body of at least 50
     // words the job is left out of this run — the standard pipeline retains
     // the stored record — instead of being published with navigation text.
-    if (description.split(/\s+/).filter(Boolean).length < 50) {
+    if (!meetsSourceBodyFloor(description)) {
       console.warn(`  ⏭️ ${listing.title}: no vacancy text on the detail page — not published this run`);
       continue;
     }

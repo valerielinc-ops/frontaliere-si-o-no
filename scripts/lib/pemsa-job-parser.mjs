@@ -1,3 +1,4 @@
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * PEMSA — WordPress career page parser
@@ -318,13 +319,13 @@ export const PEMSA_FABRICATED_DESCRIPTION_RE = new RegExp([
     ? [PEMSA_CENTRAL_BOILERPLATE_LEAD.split(/\s+/).map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[\\s•*-]+')]
     : []),
 ].join('|'), 'i');
-const PEMSA_MIN_SOURCE_BODY_CHARS = 100;
-
 function pemsaSourceBody(job = {}) {
   const candidates = [job?.descriptionByLocale?.[job?.sourceLang], job?.description];
+  // The shared 50-word floor (source-body-floor.mjs) for the fresh and the
+  // stored body alike: 100 characters let a 20-word text through.
   for (const raw of candidates) {
     const text = String(raw || '').trim();
-    if (text.length >= PEMSA_MIN_SOURCE_BODY_CHARS) return text;
+    if (meetsSourceBodyFloor(text)) return text;
   }
   return '';
 }

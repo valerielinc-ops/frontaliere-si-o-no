@@ -8,6 +8,7 @@
  * Each job is in a `.listing_entry` div inside `div#mixItUp`.
  * Detail pages are at /de/service/offene-stellen/{slug}-{id}
  */
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -24,6 +25,11 @@ export const AIR_ZERMATT_KEY = 'air-zermatt';
 export const AIR_ZERMATT_COMPANY_NAME = 'Air Zermatt AG';
 export const AIR_ZERMATT_COMPANY_DOMAIN = 'air-zermatt.ch';
 
+/**
+ * Node-selection heuristic only: the first body block with this many
+ * characters is taken as the vacancy text. Whether that text is published is
+ * decided by the shared 50-word floor (source-body-floor.mjs).
+ */
 export const MIN_DESC_LENGTH = 100;
 
 /* ── Job identification ───────────────────────────────────── */
@@ -180,6 +186,7 @@ export async function fetchAllAirZermattJobs() {
   if (!listings.length) return [];
 
   const jobs = [];
+  let belowFloor = 0;
   for (const listing of listings) {
     let description = listing.snippet || '';
     if (listing.url) {
@@ -192,6 +199,15 @@ export async function fetchAllAirZermattJobs() {
       } catch (err) {
         console.warn(`  Detail fetch failed for ${listing.url}: ${err.message}`);
       }
+    }
+
+    // The shared 50-word floor (source-body-floor.mjs): a shorter text — a
+    // listing snippet when the detail page failed — is not published this run;
+    // the standard pipeline keeps the stored record for its grace runs.
+    if (!meetsSourceBodyFloor(description)) {
+      belowFloor += 1;
+      console.warn(`  ⏭️ ${listing.title}: source body under 50 words — not published this run (${listing.url})`);
+      continue;
     }
 
     const location = listing.location || 'Raron';
@@ -236,6 +252,11 @@ export async function fetchAllAirZermattJobs() {
     });
   }
 
+  // Not one vacancy with a publishable body is a source-level failure: fail
+  // the run so the previous slice stays.
+  if (jobs.length === 0 && belowFloor > 0) {
+    throw new Error(`Air Zermatt: no detail page with a source body of 50 words (${belowFloor} below the floor)`);
+  }
   console.log(`  Total Air Zermatt jobs discovered: ${jobs.length}`);
   return jobs;
 }

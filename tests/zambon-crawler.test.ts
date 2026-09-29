@@ -330,6 +330,23 @@ describe('Zambon source text only (issue 5253)', () => {
     expect(mergeZambonJobs([STORED], [fresh])).toEqual([]);
   });
 
+  it('leaves the stored slice unchanged when no row was read from the source (review #10396)', () => {
+    // readZambonBodies() returns [] when no NcorePlat page is readable (a WAF):
+    // a total read failure never unpublishes the stored jobs, legacy text included.
+    const legacy = { url: 'https://app.ncoreplat.com/jobposition/1', description: 'Ruolo: opportunità professionale presso Zambon Svizzera SA' };
+    const merged = mergeZambonJobs([legacy], []);
+    expect(merged.map((job: { url: string }) => job.url)).toEqual(['https://app.ncoreplat.com/jobposition/1']);
+    expect(merged).toEqual([legacy]);
+    expect(merged[0]).not.toBe(legacy);
+  });
+
+  it('publishes a body only from the shared 50-word floor (review #10396)', () => {
+    const words = (count: number) => Array.from({ length: count }, (_, index) => `parola${index}`).join(' ');
+    const row = { id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' };
+    expect(buildZambonJob(row, words(49)).description).toBe('');
+    expect(buildZambonJob(row, words(50)).description).toBe(words(50));
+  });
+
   it('keeps the source text an earlier run read when the page gives none', () => {
     const real = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
     const [first] = mergeZambonJobs([STORED], [real]);

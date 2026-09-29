@@ -59,6 +59,7 @@
  * - detectCategory() / detectEmploymentType() / detectExperienceLevel()
  * - BUCHER_SUTER_KEY / BUCHER_SUTER_COMPANY_NAME / BUCHER_SUTER_COMPANY_DOMAIN
  */
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
@@ -293,8 +294,7 @@ export async function fetchAllBucherSuterJobs() {
 
     const articleProseHtml = extractArticleProseHtml(detailHtml);
     const description = normalizeDescriptionSpace(htmlToText(articleProseHtml));
-    const wordCount = description.split(/\s+/).filter(Boolean).length;
-    if (wordCount < 50) continue;
+    if (!meetsSourceBodyFloor(description)) continue;
 
     const postalCode = HQ.postalCode;
     const addressRegion = canton;

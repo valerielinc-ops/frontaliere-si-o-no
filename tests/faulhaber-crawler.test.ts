@@ -34,6 +34,8 @@ const DETAIL_HTML = `
       <div class="annonce-row">
         Per il nostro team Quality Management cerchiamo un tecnico di misura con esperienza nella metrologia,
         nel controllo qualità e nella documentazione dei risultati. La posizione collabora con produzione e ingegneria.
+        Pianifichi le misure sui micromotori, programmi le macchine di misura a coordinate, analizzi le deviazioni
+        con i reparti coinvolti e proponi azioni correttive documentate secondo le norme ISO in vigore nello stabilimento.
       </div>
     </div>
   </div>`;
@@ -239,7 +241,7 @@ describe('Faulhaber crawler parser', () => {
       await expect(fetchAllFaulhaberJobs({
         fetchHtmlImpl,
         fetchJinaImpl: vi.fn(async (url: string) => url === LISTING_DATA_URL ? JINA_LISTING_BODY : DETAIL_HTML),
-      })).rejects.toThrow(/description below 100 characters/);
+      })).rejects.toThrow(/no detail page with a source body of 50 words/);
     });
   });
 

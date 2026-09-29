@@ -6,6 +6,7 @@
  *   https://www.interroll.com/company/careers/jobs/
  * Detail pages at: /company/careers/jobs/job-detail/{slug}
  */
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -82,7 +83,6 @@ async function fetchPage(url, timeoutMs = 20000) {
 }
 
 const DETAIL_DELAY_MS = 1000;
-const MIN_SOURCE_WORDS = 50;
 
 /**
  * Build one Interroll job from its listing row, its site and the vacancy text
@@ -94,7 +94,7 @@ const MIN_SOURCE_WORDS = 50;
  */
 export function buildInterrollJob(raw, site, body = '') {
   const description = String(body || '').trim();
-  if (description.split(/\s+/).filter(Boolean).length < MIN_SOURCE_WORDS) return null;
+  if (!meetsSourceBodyFloor(description)) return null;
   const slug = slugify(raw.title, 'interroll');
   const sourceLang = detectLang(description, 'en');
   return {

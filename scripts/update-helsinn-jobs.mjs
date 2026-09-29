@@ -9,6 +9,7 @@
  *
  * Previously used jobopportunity.ch (defunct as of early 2026).
  */
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -68,7 +69,6 @@ async function fetchPage(url, timeoutMs = 20000) {
 }
 
 const DETAIL_DELAY_MS = 1000;
-const MIN_SOURCE_WORDS = 50;
 
 /**
  * Build one Helsinn job from its listing row and the vacancy text of its
@@ -81,7 +81,7 @@ const MIN_SOURCE_WORDS = 50;
  */
 export function buildHelsinnJob(listing, body = '') {
   const description = String(body || '').trim();
-  if (description.split(/\s+/).filter(Boolean).length < MIN_SOURCE_WORDS) return null;
+  if (!meetsSourceBodyFloor(description)) return null;
   const slug = slugify(listing.title, 'helsinn');
   const sourceLang = detectLang(description, 'it');
   return {

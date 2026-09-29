@@ -75,6 +75,7 @@
  * - isTrustedDomain() — Validate URLs belong to Kuhn Rikon / Jobalino
  * - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -309,7 +310,7 @@ export async function fetchAllKuhnRikonJobs() {
     // this run: the standard pipeline retains the stored record, with the
     // body an earlier run read from the source, and a new job without a
     // real body is not published.
-    if (descriptionText.split(/\s+/).filter(Boolean).length < 50) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.warn(`   ⏭️ ${title}: source body under 50 words — not published this run (${tile.url})`);
       failed += 1;
       if (i < tiles.length - 1) await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));

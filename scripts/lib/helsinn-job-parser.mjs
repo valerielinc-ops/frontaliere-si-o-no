@@ -53,7 +53,11 @@ export function slugify(value = '', suffix = '') {
   return truncateSlugAtWordBoundary(s, 200);
 }
 
-/** Minimum description length to accept. */
+/**
+ * Node-selection heuristic only: the first body block with this many
+ * characters is taken as the vacancy text. Whether that text is published is
+ * decided by the shared 50-word floor (source-body-floor.mjs).
+ */
 export const MIN_DESC_LENGTH = 100;
 
 /**

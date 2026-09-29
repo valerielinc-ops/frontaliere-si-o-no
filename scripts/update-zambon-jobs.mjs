@@ -13,6 +13,7 @@
  *
  * Previously used jobopportunity.ch (defunct as of early 2026).
  */
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -69,16 +70,11 @@ function isZambonSwissSiteLocation(rawLocation = '') {
 }
 
 const DETAIL_DELAY_MS = 1000;
-const MIN_SOURCE_WORDS = 50;
 // Fragments only the runner ever wrote: the description it composed from API
 // metadata ("<titolo>: opportunità professionale presso Zambon Svizzera SA, …"
 // and "<titolo> — posizione presso Zambon Svizzera SA a Cadempino (TI).").
 // Only ever recognised to be removed from stored records.
 export const ZAMBON_FABRICATED_DESCRIPTION_RE = /opportunità professionale presso Zambon Svizzera SA|— posizione presso Zambon Svizzera SA a /;
-
-function wordCount(text = '') {
-  return String(text || '').split(/\s+/).filter(Boolean).length;
-}
 
 /**
  * Build one Zambon job from its source row and the vacancy text of its
@@ -90,7 +86,7 @@ function wordCount(text = '') {
  * the body an earlier run read, or does not publish it.
  */
 export function buildZambonJob({ id = '', url, title, datePosted = '', contract = '', department = '', seniority = '', source = 'zambon-ncoreplat-api' }, body = '') {
-  const description = wordCount(body) >= MIN_SOURCE_WORDS ? String(body).trim() : '';
+  const description = meetsSourceBodyFloor(body) ? String(body).trim() : '';
   const sourceLang = detectLang(description || title, 'it');
   const slug = slugify(title, 'zambon');
   return {
@@ -205,7 +201,7 @@ function parseZambonDate(dateStr) {
 
 function storedZambonSourceBody(job = {}) {
   const text = String(job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '').trim();
-  return text && wordCount(text) >= MIN_SOURCE_WORDS ? text : '';
+  return text && meetsSourceBodyFloor(text) ? text : '';
 }
 
 /**
@@ -226,6 +222,13 @@ function storedZambonSourceBody(job = {}) {
  * previousSlugs/firstSeenAt history (issue #3699).
  */
 export function mergeZambonJobs(existingCompanyJobs = [], discoveredJobs = []) {
+  // No row read from the source (the listing failed, or `readZambonBodies`
+  // found no readable NcorePlat page) is a source-level failure, not "every
+  // vacancy closed": the stored slice stays exactly as it is. Scrubbing it
+  // here would drop every record whose only text is a legacy one.
+  if (!Array.isArray(discoveredJobs) || discoveredJobs.length === 0) {
+    return existingCompanyJobs.map((job) => structuredClone(job));
+  }
   const stored = dropFabricatedDescriptions(
     existingCompanyJobs.map((job) => structuredClone(job)),
     ZAMBON_FABRICATED_DESCRIPTION_RE,

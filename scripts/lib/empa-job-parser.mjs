@@ -42,6 +42,7 @@
  * block; the Dübendorf HQ address below is used ONLY as a last-resort
  * fallback when JSON-LD is absent/malformed for a given posting.
  */
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, ensureMinimumDescriptionWordCount } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -254,7 +255,7 @@ export async function fetchAllEmpaJobs() {
     // this run: the standard pipeline retains the stored record, with the
     // body an earlier run read from the source, and a new job without a
     // real body is not published.
-    if (descriptionText.split(/\s+/).filter(Boolean).length < 50) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.warn(`  ⏭️ ${title}: source body under 50 words — not published this run (${publicUrl})`);
       continue;
     }

@@ -115,6 +115,15 @@ describe('mergePemsaJobRecord after dropFabricatedDescriptions (the runner flow)
     expect(cleanThenMerge(inventedOnly, freshJob(''))).toBeNull();
   });
 
+  it('does not publish a real text under the shared 50-word floor, even above 100 characters (review #10396)', () => {
+    const short = 'Questo testo reale contiene venti parole e supera il limite di cento caratteri grazie a una descrizione abbastanza lunga ma ancora troppo breve.';
+    expect(short.length).toBeGreaterThan(100);
+    expect(mergePemsaJobRecord(null, { sourceLang: 'it', description: short, descriptionByLocale: { it: short } })).toBeNull();
+    // Nor is a stored body under the floor carried over.
+    const stored = { ...STORED, sourceLang: 'it', description: short, descriptionByLocale: { it: short } };
+    expect(mergePemsaJobRecord(stored, freshJob(''))).toBeNull();
+  });
+
   it('leaves a correctly labelled job without the retranslation flag', () => {
     const clean = { ...STORED, sourceLang: 'it', descriptionByLocale: { it: SOURCE_BODY, en: 'Do you want the freedom of temporary work and the security of a permanent job?' } };
     const merged = cleanThenMerge(clean, freshJob(SOURCE_BODY));
