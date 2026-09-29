@@ -35,6 +35,8 @@ import {
   workflowScheduleFromSource,
   workflowNameFromIssue,
   latestIssuePerWorkflow,
+  latestClosedIssuePerWorkflow,
+  closedIssueCoversRun,
   runBody,
   dormantBody,
   recoveryVerdict,
@@ -126,6 +128,36 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
       updatedAt: '2026-09-19T12:39:07Z',
     });
   });
+
+  it('conserva la chiusura piu recente di una issue di failure', () => {
+    const issues = [
+      {
+        number: 10260,
+        title: 'User-value canary: ARPU crash detected',
+        closedAt: '2026-09-29T11:34:09Z',
+        body: '**Workflow:** user-value-canary',
+      },
+      {
+        number: 9000,
+        title: 'CI Failure: user-value-canary',
+        closedAt: '2026-09-28T12:00:00Z',
+        body: '**Workflow:** user-value-canary',
+      },
+    ];
+
+    expect(latestClosedIssuePerWorkflow([...issues].reverse()).get('user-value-canary')).toEqual({
+      number: 10260,
+      closedAt: '2026-09-29T11:34:09Z',
+    });
+  });
+
+  it('non riapre uno storico già coperto ma lascia passare una run nuova', () => {
+    const closed = { number: 10260, closedAt: '2026-09-29T11:34:09Z' };
+    expect(closedIssueCoversRun(closed, '2026-09-28T18:31:07Z')).toBe(true);
+    expect(closedIssueCoversRun(closed, '2026-09-29T11:34:09Z')).toBe(false);
+    expect(closedIssueCoversRun(closed, '2026-09-29T11:35:00Z')).toBe(false);
+    expect(closedIssueCoversRun(closed, 'not-a-date')).toBe(false);
+  });
 });
 
 describe('isReportableRun — cosa suona l\'allarme', () => {
@@ -187,6 +219,22 @@ describe('isReportableRun — cosa suona l\'allarme', () => {
     expect(isIntentionalFailureWorkflow({
       workflow_name: 'Renamed quality signal',
       workflow_path: '.github/workflows/quality-alerts.yml',
+    })).toBe(true);
+  });
+
+  it('non riporta il rosso atteso della misura full-suite dispatch', () => {
+    const fullSuite = run({
+      workflow_name: 'full-suite dispatch',
+      workflow_path: '.github/workflows/full-suite-dispatch.yml',
+    });
+    expect(isIntentionalFailureWorkflow(fullSuite)).toBe(true);
+    expect(isReportableRun(fullSuite, { since, ignore: new Set() })).toBe(false);
+  });
+
+  it('mantiene il fallback sul nome per la misura full-suite senza path', () => {
+    expect(isIntentionalFailureWorkflow({
+      workflow_name: 'full-suite dispatch',
+      workflow_path: null,
     })).toBe(true);
   });
 

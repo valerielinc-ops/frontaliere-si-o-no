@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { parseLwphrOpenJobs, inferLwphrLocation, buildLwphrLocalizedPayload, isUsableLwphrPdf } from '../scripts/lib/lwphr-job-parser.mjs';
+import {
+  parseLwphrOpenJobs,
+  inferLwphrLocation,
+  buildLwphrLocalizedPayload,
+  isUsableLwphrPdf,
+  LWPHR_FABRICATED_DESCRIPTION_RE,
+} from '../scripts/lib/lwphr-job-parser.mjs';
 
 const HTML = `
 <div class="accordion__item">
@@ -58,16 +64,24 @@ describe('lwphr-job-parser', () => {
     expect(inferLwphrLocation('Marketing Manager', 'Sede di lavoro Zürich, Switzerland')).toBe('Zürich');
   });
 
-  it('rejects ordinary aliases and builds localized wrappers', () => {
+  it('rejects ordinary aliases and builds titles and slugs, no description of its own', () => {
     expect(inferLwphrLocation('Consulente', 'Per importante società finanziaria nel Luganese')).toBe('');
     const localized = buildLwphrLocalizedPayload({
       title: 'HR SPECIALIST',
       location: 'Lugano',
-      pdfUrl: 'https://www.lwphr.ch/uploads/hr_specialist.pdf',
-      pdfText: 'HR Specialist Main Duties: Manage employee documentation.',
     });
-    expect(localized.descriptions.it).toContain('PDF ufficiale');
-    expect(localized.descriptions.en).toContain('official PDF');
+    expect(localized.titles.it).toBe('HR SPECIALIST');
+    expect(localized.slugs.it).toBe(localized.slugs.en);
+    expect(localized.slugs.it).toContain('lugano');
+    // The PDF text is published alone by the runner, in its own language: the
+    // payload no longer wraps it in four intros and a "PDF ufficiale" line.
+    expect(localized).not.toHaveProperty('descriptions');
+  });
+
+  it('recognises the former wrappers in stored jobs', () => {
+    expect(LWPHR_FABRICATED_DESCRIPTION_RE.test('LWP Ledermann Wieting & Partners pubblica questa opportunita sul proprio portale per il mercato svizzero.')).toBe(true);
+    expect(LWPHR_FABRICATED_DESCRIPTION_RE.test('LWP Ledermann Wieting & Partners lists this role on its Swiss opportunities portal.')).toBe(true);
+    expect(LWPHR_FABRICATED_DESCRIPTION_RE.test('HR Specialist\n\nMain Duties: Manage employee documentation.')).toBe(false);
   });
 
   it('recovers an explicit narrative workplace from LWP PDFs', () => {

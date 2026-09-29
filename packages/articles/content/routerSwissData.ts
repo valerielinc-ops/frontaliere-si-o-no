@@ -2360,6 +2360,21 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-robotica-crescita-aziende': { it: 'svizzera-robotica-crescita-aziende', en: 'switzerland-robotics-growth-companies', de: 'schweiz-robotik-wachstum-unternehmen', fr: 'suisse-robotique-croissance-entreprises' },
  'finma-conclude-julius-baer': { it: 'finma-conclude-julius-baer', en: 'finma-concludes-julius-baer-case', de: 'finma-schliesst-julius-baer-verfahren', fr: 'la-finma-clot-le-dossier-julius-baer' },
  'stadler-nomina-nuovo-ceo': { it: 'stadler-nomina-nuovo-ceo', en: 'stadler-appoints-new-ceo', de: 'stadler-ernennt-neuen-ceo', fr: 'stadler-nomme-nouveau-ceo' },
+ 'zugo-cybersecurity-de-escalation': { it: 'zugo-cybersecurity-de-escalation', en: 'zug-cybersecurity-de-escalation', de: 'zug-cybersicherheit-deeskalation', fr: 'zoug-cybersecurite-de-escalade' },
+ 'lindt-prungli-stime-2026': { it: 'lindt-prungli-stime-2026', en: 'lindt-prungli-estimates-2026', de: 'lindt-prungli-schatzungen-2026', fr: 'lindt-prungli-estimations-2026' },
+ 'compensi-lvamal-camera-bassa': { it: 'compensi-lvamal-camera-bassa', en: 'health-insurer-pay-cap-vote', de: 'krankenkassen-lohnobergrenze', fr: 'plafond-salaires-caisses-maladie' },
+ 'rincari-auto-abitazione-ticino': { it: 'rincari-auto-abitazione-ticino', en: 'car-housing-price-increases-ticino', de: 'preissteigerungen-auto-wohnen-tessin', fr: 'hausses-prix-auto-logement-tessin' },
+ 'rincari-abitazione-mobilita-svizzera': { it: 'rincari-abitazione-mobilita-svizzera', en: 'housing-mobility-costs-switzerland', de: 'wohn-mobilitaetskosten-schweiz', fr: 'couts-logement-mobilite-suisse' },
+ 'obbligo-assicurazione-detenuti': { it: 'obbligo-assicurazione-detenuti', en: 'detainees-abroad-lamal-obligation', de: 'gefangene-ausland-krankenversicherung', fr: 'detenus-etranger-assurance-maladie' },
+ 'uova-piccoli-allevamenti-csl': { it: 'uova-piccoli-allevamenti-csl', en: 'swiss-eggs-small-farms-csl', de: 'schweizer-eier-kleine-betriebe-csl', fr: 'oeufs-suisses-petits-elevages-csl' },
+ 'svizzera-patrimonio-finanziario-mondiale': { it: 'svizzera-patrimonio-finanziario-mondiale', en: 'switzerland-global-financial-wealth', de: 'schweiz-globales-finanzvermoegen', fr: 'suisse-patrimoine-financier-mondial' },
+ 'lavoratori-svizzeri-ia-benefici': { it: 'lavoratori-svizzeri-ia-benefici', en: 'swiss-workers-ai-benefits', de: 'schweizer-arbeitnehmer-ki-vorteile', fr: 'travailleurs-suisses-ia-benefices' },
+ 'cioccolato-mercato-svizzera': { it: 'cioccolato-mercato-svizzera', en: 'chocolate-market-switzerland', de: 'schokolade-markt-schweiz', fr: 'chocolat-marche-suisse' },
+ 'lindt-prezzi-cacao-2026': { it: 'lindt-prezzi-cacao-2026', en: 'lindt-prices-cocoa-2026', de: 'lindt-preise-kakao-2026', fr: 'lindt-prix-cacao-2026' },
+ 'classifica-ompi-alta-tecnologia': { it: 'classifica-ompi-alta-tecnologia', en: 'switzerland-innovation-ranking', de: 'schweiz-innovationsranking', fr: 'classement-innovation-suisse' },
+ 'soletta-licenza-estera-esami': { it: 'soletta-licenza-estera-esami', en: 'solothurn-driving-licence-conversion', de: 'solothurn-fuehrerausweis-umtausch', fr: 'soleure-permis-conduire-conversion' },
+ 'accessibilita-mezzi-pubblici-uft': { it: 'accessibilita-mezzi-pubblici-uft', en: 'public-transport-accessibility-swiss', de: 'barrierefreiheit-oeffentlicher-verkehr-schweiz', fr: 'accessibilite-transports-publics-suisse' },
+ 'reazioni-partiti-aumento-premi-2027': { it: 'reazioni-partiti-aumento-premi-2027', en: 'party-reactions-2027-premium-increase', de: 'parteireaktionen-2027-premiumerhoehung', fr: 'reactions-partis-hausse-premiums-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

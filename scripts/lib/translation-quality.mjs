@@ -20,6 +20,7 @@
  * `passesQualityGate` (local NLLB/Ollama path) — this gate is the free-cascade
  * equivalent so both translation paths reject the same defect.
  */
+import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
 
 // The deploy validator rejects locale titles shorter than three characters.
 // Keep this floor shared by every writer so a provider cannot persist a title
@@ -76,6 +77,13 @@ export function isAcceptableTranslation(source, translated) {
   if (typeof translated !== 'string') return false;
   const candidate = translated.trim();
   if (candidate.length < MIN_TRANSLATION_CHARS) return false;
+  // A model answer carrying its reasoning or echoing the prompt is not a
+  // translation, however long (see ai-output-fidelity.mjs). This predicate also
+  // judges localize-job-v2 cache hits, so a stored leak is busted on read.
+  if (detectAiReasoningLeak(candidate)) return false;
+  // Nor is a candidate that loops («Risk-Lights-Lights-Lights-…») or collapses
+  // onto a handful of words compared with its source.
+  if (detectDegenerateRepetition(candidate, { references: [typeof source === 'string' ? source : ''] })) return false;
   const srcLen = (typeof source === 'string' ? source.trim() : '').length;
   if (srcLen > 0 && candidate.length < srcLen * MIN_TRANSLATION_RATIO) return false;
   const sourceBullets = countBullets(source);

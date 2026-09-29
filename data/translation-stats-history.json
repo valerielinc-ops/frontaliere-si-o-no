@@ -1,373 +1,5 @@
 [
   {
-    "timestamp": "2026-09-09T10:39:11.154Z",
-    "label": "after",
-    "total": 32272,
-    "needsRetranslation": 6192,
-    "suppressed": 154,
-    "incomplete": 6671,
-    "complete": 25601,
-    "slotsPresent": 25601,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 25601,
-    "sourceCopyExcused": 722,
-    "slotsPresentByLength": 32137,
-    "languageVerified": 26558,
-    "missingByLocale": {
-      "it": 60,
-      "en": 54,
-      "de": 80,
-      "fr": 85
-    },
-    "queueAge": {
-      "count": 6192,
-      "withTimestamp": 6192,
-      "oldestAgeDays": 149,
-      "p50AgeDays": 12.2,
-      "p90AgeDays": 67,
-      "buckets": {
-        "0-1d": 1508,
-        "1-2d": 89,
-        "2-7d": 595,
-        "0-7d": 2192,
-        "7-30d": 2226,
-        "30-90d": 1410,
-        "90-180d": 364,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 35,
-      "withTimestamp": 35,
-      "oldestAgeDays": 39.5,
-      "p50AgeDays": 13.4,
-      "p90AgeDays": 13.4,
-      "buckets": {
-        "0-1d": 1,
-        "1-2d": 1,
-        "2-7d": 2,
-        "0-7d": 4,
-        "7-30d": 30,
-        "30-90d": 1,
-        "90-180d": 0,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1313
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 512
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 471
-      },
-      {
-        "company": "Roche",
-        "pending": 469
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 280
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 170
-      },
-      {
-        "company": "PEMSA",
-        "pending": 159
-      },
-      {
-        "company": "Sulzer",
-        "pending": 159
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 144
-      },
-      {
-        "company": "Manor AG",
-        "pending": 98
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-09-09T11:40:29.989Z",
-    "label": "before",
-    "total": 32272,
-    "needsRetranslation": 6189,
-    "suppressed": 154,
-    "incomplete": 6659,
-    "complete": 25613,
-    "slotsPresent": 25613,
-    "flaggedAmongSlotsPresent": 9,
-    "verifiedTranslated": 25604,
-    "sourceCopyExcused": 722,
-    "slotsPresentByLength": 32137,
-    "languageVerified": 26570,
-    "missingByLocale": {
-      "it": 60,
-      "en": 54,
-      "de": 80,
-      "fr": 85
-    },
-    "queueAge": {
-      "count": 6189,
-      "withTimestamp": 6189,
-      "oldestAgeDays": 149.1,
-      "p50AgeDays": 12.3,
-      "p90AgeDays": 67,
-      "buckets": {
-        "0-1d": 1508,
-        "1-2d": 89,
-        "2-7d": 594,
-        "0-7d": 2191,
-        "7-30d": 2221,
-        "30-90d": 1413,
-        "90-180d": 364,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1313
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 512
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 471
-      },
-      {
-        "company": "Roche",
-        "pending": 469
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 280
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 165
-      },
-      {
-        "company": "PEMSA",
-        "pending": 159
-      },
-      {
-        "company": "Sulzer",
-        "pending": 159
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 144
-      },
-      {
-        "company": "Manor AG",
-        "pending": 96
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-09-09T12:52:36.246Z",
-    "label": "after",
-    "total": 32272,
-    "needsRetranslation": 6137,
-    "suppressed": 158,
-    "incomplete": 6621,
-    "complete": 25651,
-    "slotsPresent": 25651,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 25651,
-    "sourceCopyExcused": 725,
-    "slotsPresentByLength": 32137,
-    "languageVerified": 26606,
-    "missingByLocale": {
-      "it": 60,
-      "en": 54,
-      "de": 80,
-      "fr": 85
-    },
-    "queueAge": {
-      "count": 6137,
-      "withTimestamp": 6137,
-      "oldestAgeDays": 149.1,
-      "p50AgeDays": 12.3,
-      "p90AgeDays": 67.1,
-      "buckets": {
-        "0-1d": 1507,
-        "1-2d": 89,
-        "2-7d": 591,
-        "0-7d": 2187,
-        "7-30d": 2191,
-        "30-90d": 1390,
-        "90-180d": 369,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 38,
-      "withTimestamp": 38,
-      "oldestAgeDays": 39.6,
-      "p50AgeDays": 13.5,
-      "p90AgeDays": 32.1,
-      "buckets": {
-        "0-1d": 0,
-        "1-2d": 0,
-        "2-7d": 3,
-        "0-7d": 3,
-        "7-30d": 30,
-        "30-90d": 5,
-        "90-180d": 0,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1313
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 512
-      },
-      {
-        "company": "Roche",
-        "pending": 469
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 440
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 280
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 163
-      },
-      {
-        "company": "PEMSA",
-        "pending": 159
-      },
-      {
-        "company": "Sulzer",
-        "pending": 159
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 144
-      },
-      {
-        "company": "Manor AG",
-        "pending": 96
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-09-09T13:51:49.050Z",
-    "label": "before",
-    "total": 32272,
-    "needsRetranslation": 6137,
-    "suppressed": 158,
-    "incomplete": 6608,
-    "complete": 25664,
-    "slotsPresent": 25664,
-    "flaggedAmongSlotsPresent": 12,
-    "verifiedTranslated": 25652,
-    "sourceCopyExcused": 726,
-    "slotsPresentByLength": 32141,
-    "languageVerified": 26621,
-    "missingByLocale": {
-      "it": 60,
-      "en": 54,
-      "de": 76,
-      "fr": 85
-    },
-    "queueAge": {
-      "count": 6137,
-      "withTimestamp": 6137,
-      "oldestAgeDays": 149.2,
-      "p50AgeDays": 12.4,
-      "p90AgeDays": 67.1,
-      "buckets": {
-        "0-1d": 1436,
-        "1-2d": 160,
-        "2-7d": 483,
-        "0-7d": 2079,
-        "7-30d": 2299,
-        "30-90d": 1385,
-        "90-180d": 374,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1313
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 506
-      },
-      {
-        "company": "Roche",
-        "pending": 469
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 440
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 280
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 162
-      },
-      {
-        "company": "PEMSA",
-        "pending": 159
-      },
-      {
-        "company": "Sulzer",
-        "pending": 159
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 144
-      },
-      {
-        "company": "Manor AG",
-        "pending": 96
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-09T15:04:32.261Z",
     "label": "after",
     "total": 32272,
@@ -19681,6 +19313,418 @@
       {
         "company": "Manor AG",
         "pending": 151
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-29T05:32:04.520Z",
+    "label": "before",
+    "total": 30457,
+    "needsRetranslation": 11068,
+    "suppressed": 209,
+    "incomplete": 11595,
+    "complete": 18862,
+    "slotsPresent": 18862,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 18862,
+    "sourceCopyExcused": 665,
+    "slotsPresentByLength": 30296,
+    "languageVerified": 19336,
+    "missingByLocale": {
+      "it": 4173,
+      "en": 3890,
+      "de": 162,
+      "fr": 3918
+    },
+    "queueAge": {
+      "count": 11068,
+      "withTimestamp": 11068,
+      "oldestAgeDays": 504.2,
+      "p50AgeDays": 2.6,
+      "p90AgeDays": 59.2,
+      "buckets": {
+        "0-1d": 1984,
+        "1-2d": 2523,
+        "2-7d": 2043,
+        "0-7d": 6550,
+        "7-30d": 2120,
+        "30-90d": 1873,
+        "90-180d": 522,
+        "180d+": 3
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 7166,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 2300
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1656
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 930
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 858
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 610
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 454
+      },
+      {
+        "company": "PEMSA",
+        "pending": 267
+      },
+      {
+        "company": "Elsa Group",
+        "pending": 234
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 217
+      },
+      {
+        "company": "Manor AG",
+        "pending": 151
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-29T09:00:24.563Z",
+    "label": "after",
+    "total": 30435,
+    "needsRetranslation": 11609,
+    "suppressed": 209,
+    "incomplete": 11407,
+    "complete": 19028,
+    "slotsPresent": 19028,
+    "flaggedAmongSlotsPresent": 729,
+    "verifiedTranslated": 18299,
+    "sourceCopyExcused": 676,
+    "slotsPresentByLength": 30307,
+    "languageVerified": 19488,
+    "missingByLocale": {
+      "it": 2884,
+      "en": 2611,
+      "de": 141,
+      "fr": 2633
+    },
+    "queueAge": {
+      "count": 11609,
+      "withTimestamp": 11609,
+      "oldestAgeDays": 504.4,
+      "p50AgeDays": 3.8,
+      "p90AgeDays": 59.4,
+      "buckets": {
+        "0-1d": 1802,
+        "1-2d": 2523,
+        "2-7d": 2098,
+        "0-7d": 6423,
+        "7-30d": 2446,
+        "30-90d": 2152,
+        "90-180d": 582,
+        "180d+": 6
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 201,
+      "withTimestamp": 201,
+      "oldestAgeDays": 0.5,
+      "p50AgeDays": 0.5,
+      "p90AgeDays": 0.5,
+      "buckets": {
+        "0-1d": 201,
+        "1-2d": 0,
+        "2-7d": 0,
+        "0-7d": 201,
+        "7-30d": 0,
+        "30-90d": 0,
+        "90-180d": 0,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "awaiting-retranslation",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 7166,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 2300
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1655
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 930
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 660
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 610
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 459
+      },
+      {
+        "company": "PEMSA",
+        "pending": 267
+      },
+      {
+        "company": "Elsa Group",
+        "pending": 234
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 214
+      },
+      {
+        "company": "Manor AG",
+        "pending": 151
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-29T09:12:35.078Z",
+    "label": "before",
+    "total": 30435,
+    "needsRetranslation": 11609,
+    "suppressed": 209,
+    "incomplete": 11407,
+    "complete": 19028,
+    "slotsPresent": 19028,
+    "flaggedAmongSlotsPresent": 729,
+    "verifiedTranslated": 18299,
+    "sourceCopyExcused": 676,
+    "slotsPresentByLength": 30307,
+    "languageVerified": 19488,
+    "missingByLocale": {
+      "it": 2884,
+      "en": 2611,
+      "de": 141,
+      "fr": 2633
+    },
+    "queueAge": {
+      "count": 11609,
+      "withTimestamp": 11609,
+      "oldestAgeDays": 504.4,
+      "p50AgeDays": 3.8,
+      "p90AgeDays": 59.4,
+      "buckets": {
+        "0-1d": 1802,
+        "1-2d": 2523,
+        "2-7d": 2098,
+        "0-7d": 6423,
+        "7-30d": 2446,
+        "30-90d": 2152,
+        "90-180d": 582,
+        "180d+": 6
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 7449,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 2300
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1655
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 930
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 660
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 610
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 459
+      },
+      {
+        "company": "PEMSA",
+        "pending": 267
+      },
+      {
+        "company": "Elsa Group",
+        "pending": 234
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 214
+      },
+      {
+        "company": "Manor AG",
+        "pending": 151
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-29T12:44:40.091Z",
+    "label": "after",
+    "total": 31282,
+    "needsRetranslation": 18627,
+    "suppressed": 209,
+    "incomplete": 12338,
+    "complete": 18944,
+    "slotsPresent": 18944,
+    "flaggedAmongSlotsPresent": 6917,
+    "verifiedTranslated": 12027,
+    "sourceCopyExcused": 768,
+    "slotsPresentByLength": 31155,
+    "languageVerified": 19418,
+    "missingByLocale": {
+      "it": 1609,
+      "en": 1500,
+      "de": 195,
+      "fr": 1488
+    },
+    "queueAge": {
+      "count": 18627,
+      "withTimestamp": 18627,
+      "oldestAgeDays": 504.5,
+      "p50AgeDays": 17.5,
+      "p90AgeDays": 103,
+      "buckets": {
+        "0-1d": 2387,
+        "1-2d": 2597,
+        "2-7d": 2936,
+        "0-7d": 7920,
+        "7-30d": 4198,
+        "30-90d": 4409,
+        "90-180d": 2093,
+        "180d+": 7
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 890,
+      "withTimestamp": 890,
+      "oldestAgeDays": 169.1,
+      "p50AgeDays": 53.1,
+      "p90AgeDays": 133,
+      "buckets": {
+        "0-1d": 43,
+        "1-2d": 6,
+        "2-7d": 46,
+        "0-7d": 95,
+        "7-30d": 183,
+        "30-90d": 384,
+        "90-180d": 228,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 7449,
+      "sampled": 120,
+      "processed": 7,
+      "residual": 0,
+      "residualRate": 0
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 2939
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1698
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 967
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 761
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 658
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 474
+      },
+      {
+        "company": "PEMSA",
+        "pending": 267
+      },
+      {
+        "company": "Galaxus",
+        "pending": 209
+      },
+      {
+        "company": "Manor AG",
+        "pending": 151
+      },
+      {
+        "company": "VOLG",
+        "pending": 117
       }
     ]
   }

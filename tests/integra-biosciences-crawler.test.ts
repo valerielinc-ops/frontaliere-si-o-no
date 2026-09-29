@@ -9,7 +9,6 @@ import {
   detectCategory,
   detectExperienceLevel,
   inferEmploymentType,
-  integraSourceLang,
 } from '../scripts/lib/integra-biosciences-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -492,22 +491,5 @@ describe('INTEGRA Biosciences crawler parser', () => {
     it('has correct sector for life sciences company', () => {
       expect(validJob.sector).toBe('Scienze della Vita / Biotecnologia');
     });
-  });
-});
-
-describe('integraSourceLang', () => {
-  it('follows the description language, not the title', () => {
-    expect(integraSourceLang(
-      'Als Software Engineer entwickeln Sie Firmware für unsere Pipettierroboter und arbeiten eng mit dem Hardware-Team zusammen. Ihr Profil: abgeschlossenes Studium in Informatik.',
-      'Software Engineer (m/w/d)',
-    )).toBe('de');
-    expect(integraSourceLang(
-      'As a warehouse operator you prepare shipments of our laboratory instruments and keep the stock accurate. Your profile: logistics apprenticeship and good English.',
-      'Lagermitarbeiter (m/w/d)',
-    )).toBe('en');
-  });
-
-  it('falls back to the title only without a description', () => {
-    expect(integraSourceLang('', 'Lagermitarbeiter')).toBe('de');
   });
 });

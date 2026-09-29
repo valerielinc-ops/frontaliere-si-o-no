@@ -1,23 +1,26 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-09-28T21:11:05.393Z",
-  "total": 9,
+  "generatedAt": "2026-09-29T10:16:41.290Z",
+  "total": 8,
   "discovered": null,
   "parsed": 8,
   "lastFetchOutcome": null,
-  "written": 9,
+  "written": 8,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3340,
-  "avgDurationMs": 3340,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3197,
+  "avgDurationMs": 3197,
   "durationHistory": [
-    3340
+    3578,
+    3257,
+    3197
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "nant-466f15d99955",
       "slug": "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x",
@@ -25,13 +28,13 @@
       "companyKey": "nant",
       "companyDomain": "nant.ch",
       "title": "Employé·e en intendance – contrat horaire 6h/semaine",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Château-d’Œx",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/PfepkyPQG",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:10:57.234Z",
+      "crawledAt": "2026-09-29T10:16:33.004Z",
       "addressLocality": "Château-d’Œx",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -47,16 +50,14 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://app.beehire.com/invite/PfepkyPQG",
       "careerSiteUrl": "https://nant.ch/carrieres/",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "nant-cbef38e52fd0",
       "slug": "infirmier-ere-nuit-95-nant-corsier-sur-vevey",
@@ -70,7 +71,7 @@
       "url": "https://app.beehire.com/invite/RHzt2eCrM",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:10:57.216Z",
+      "crawledAt": "2026-09-29T10:16:32.991Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -108,7 +109,7 @@
       "url": "https://app.beehire.com/invite/ERrUfAGgv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:10:57.218Z",
+      "crawledAt": "2026-09-29T10:16:32.993Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -146,7 +147,7 @@
       "url": "https://app.beehire.com/invite/yKOL6UF3X",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:10:57.222Z",
+      "crawledAt": "2026-09-29T10:16:32.994Z",
       "addressLocality": "Vaud, Suisse",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -184,7 +185,7 @@
       "url": "https://app.beehire.com/invite/7MtT679t5",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:10:57.223Z",
+      "crawledAt": "2026-09-29T10:16:32.998Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -222,7 +223,7 @@
       "url": "https://app.beehire.com/invite/bIZr6lj9a",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:10:57.227Z",
+      "crawledAt": "2026-09-29T10:16:33.000Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -260,7 +261,7 @@
       "url": "https://app.beehire.com/invite/4RPhgQTMf",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:10:57.228Z",
+      "crawledAt": "2026-09-29T10:16:33.003Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -298,7 +299,7 @@
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:10:57.231Z",
+      "crawledAt": "2026-09-29T10:16:33.004Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -324,8 +325,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "nant-fc8182a71f9d",
       "slug": "infermiera-cdm-70-molaine-fondation-de-nant-corsier-sur-vevey",
@@ -367,5 +367,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

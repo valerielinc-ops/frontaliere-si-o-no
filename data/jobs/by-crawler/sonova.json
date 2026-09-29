@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-09-28T21:09:12.043Z",
+  "assembledAt": "2026-09-29T09:10:15.052Z",
   "jobs": [
     {
       "id": "sonova-d6013fac87f6",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Data-Scientist-%28mfd%29/1408793633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.150Z",
+      "crawledAt": "2026-09-29T09:10:10.061Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Sound-Quality-Engineer-%28mfd%29/1434799633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.147Z",
+      "crawledAt": "2026-09-29T09:10:10.058Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.144Z",
+      "crawledAt": "2026-09-29T09:10:10.055Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -263,7 +263,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-Embedded-AI-%28mfd%29/1436636333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.141Z",
+      "crawledAt": "2026-09-29T09:10:10.049Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -340,7 +340,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Architect-Charging-Solutions/1436570633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.138Z",
+      "crawledAt": "2026-09-29T09:10:10.045Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -417,7 +417,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:09:05.135Z",
+      "crawledAt": "2026-09-29T09:10:10.041Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -493,7 +493,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-DSP-Tools-and-Infrastructure-%28mfd%29/1437852833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.132Z",
+      "crawledAt": "2026-09-29T09:10:10.038Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -570,7 +570,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Hearing-Performance/1413688533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.129Z",
+      "crawledAt": "2026-09-29T09:10:10.035Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -605,6 +605,7 @@
         "senior-manager-performance-uditiva-sonova-staefa"
       ],
       "firstSeenAt": "2026-09-26T13:55:54.917Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -615,6 +616,77 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sonova-374a65613887",
+      "slug": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
+      "slugByLocale": {
+        "it": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
+        "en": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
+        "de": "technical-specialist-production-tsp-m-f-d-sonova-ch",
+        "fr": "technical-specialiste-production-tsp-m-f-d-sonova-staefa"
+      },
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Technical Specialist Production (TSP) (m/f/d)",
+      "titleByLocale": {
+        "it": "Technical Specialista Production (TSP) (m/f/d)",
+        "en": "Technical Specialist Production (TSP) (m/f/d)",
+        "de": "Technical Spezialist Production (TSP) (m/f/d)",
+        "fr": "Technical Spécialiste Production (TSP) (m/f/d)"
+      },
+      "description": "In dieser Funktion bist du als Technischer Spezialist Produktion TSP (m/w/d) ein zentraler Bestandteil unseres Support-Teams in der Elektronikfertigung.\n\nDu stellst die Anlagenverfügbarkeit durch vorbeugende Wartung sicher, minimierst Stillstände durch nachhaltige Instandhaltungsstrategien und behebst Störungen inklusive Ursachenanalyse. Dabei treibst du kontinuierliche Verbesserungen im Bereich Maintenance voran und entwickelst deine Fachkenntnisse (z. B. im TPS) stetig weiter.\n\nAls technische Schnittstelle zwischen Produktion, Engineering und Entwicklung unterstützt du die Fachbereiche, berätst bei technischen Fragestellungen und wirkst an der Optimierung unserer Anlagen mit.\n\nMehr über die Rolle\n\n• Sicherstellung der Anlagenverfügbarkeit durch vorbeugende Wartung von Anlagen, Betriebs- und Prüfmitteln\n\n• Minimierung von Stillständen durch nachhaltige Instandhaltungsstrategien und Unterstützung der Maschinenbediener bei grundlegenden Wartungsaufgaben\n\n• Analyse und Behebung von Störungen in der Produktion inklusive Ursachenanalyse\n\n• Kontinuierliche Verbesserung (Continuous Improvement) im Bereich Maintenance\n\n• Technische Schnittstelle zwischen Produktion, Engineering, Entwicklung sowie weiteren Fachbereichen (R&D, NPI, B&I)\n\n• Technische Beratung und Unterstützung der Produktionsabteilungen sowie Mitwirkung bei der Optimierung von Anlagen\n\n• Koordination, Dokumentation und Überwachung von Instandhaltungsmaßnahmen (inkl. LEXA) sowie Einhaltung von Qualitäts- und Sicherheitsvorschriften\n\n• Verwaltung und Beschaffung von Ersatzteilen sowie Unterstützung bei der Weiterentwicklung automatisierter Anlagen und Pikettdienst bei Bedarf\n\nMehr über dich\n\n• Abgeschlossene technische Berufsbildung (EFZ) im elektronischen Bereich (z. B. Automatiker, Polymechaniker, Elektroniker)\n\n• Erfahrung in der Elektronikproduktion, idealerweise mit Kenntnissen in Lean Management, Supply Chain und SMD/Flip-Chip-Bestückung\n\n• Gute Übersicht über die gesamte Produktionskette sowie idealerweise Erfahrung in der Automatisierung oder Halbleiterfertigung\n\n• Ausgeprägtes technisches Verständnis, schnelle Auffassungsgabe und bereichsübergreifendes Denken\n\n• Hohes Qualitätsbewusstsein sowie strukturierte und verantwortungsvolle Arbeitsweise\n\n• Erfahrung in der Durchführung von Schulungen sowie in der Einhaltung von Prozessen und Qualitätsstandards\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n\n• Gute PC-Anwenderkenntnisse (MS Office 365); SAP-Kenntnisse von Vorteil\n\nMehr über unser Angebot\n\nAls eines der weltweit führenden Unternehmen im Bereich Hörlösungen mit Hauptsitz in der Schweiz legen wir großen Wert auf eine inklusive und wertschätzende Unternehmenskultur.\n\nWir bieten dir:\n\n• Strukturierte Einarbeitung sowie gezielte interne und externe Weiterbildungen\n\n• Individuelle Entwicklungs- und Wachstumsmöglichkeiten\n\n• Ein modernes Produktionsumfeld mit kurzen Entscheidungswege\n\n• Die Möglichkeit, Verantwortung zu übernehmen und Prozesse aktiv mitzugestalten\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "it": "In questa funzione, come Technical Specialist Production TSP (m/f/d), sei una parte centrale del nostro team di supporto nella produzione elettronica.\n\nGarantisci la disponibilità delle piante attraverso la manutenzione preventiva, minimizza i tempi di fermo attraverso strategie di manutenzione sostenibili e guasti di riparazione, tra cui l'analisi delle cause radice. Promuovi continui miglioramenti nel settore della manutenzione e sviluppi la tua esperienza (ad esempio nel TPS) continuamente.\n\nCome interfaccia tecnica tra produzione, ingegneria e sviluppo, supporta i dipartimenti, consiglia su questioni tecniche e aiuta a ottimizzare i nostri impianti.\n\nUlteriori informazioni sul ruolo\n\n• Garantire la disponibilità degli impianti attraverso la manutenzione preventiva di impianti, attrezzature e attrezzature di prova\n\n• Minimizzare i tempi di fermo attraverso strategie di manutenzione sostenibili e operatori di supporto nelle attività di manutenzione di base\n\n• Analisi e correzione delle interruzioni nella produzione, tra cui l'analisi delle cause principali\n\n• Miglioramento continuo della manutenzione\n\n• Interfaccia tecnica tra produzione, ingegneria, sviluppo e altri reparti (R&D, NPI, B&I)\n\n• Consulenza tecnica e sostegno dei dipartimenti di produzione e partecipazione all'ottimizzazione degli impianti\n\n• Coordinamento, documentazione e monitoraggio delle misure di manutenzione (inclusa LEXA) nonché del rispetto delle norme di qualità e sicurezza\n\n• Gestione e approvvigionamento di parti di ricambio e supporto per l'ulteriore sviluppo di attrezzature automatizzate e servizi di tubazione secondo le necessità\n\nPiù di te\n\n• Formazione professionale elettronica completa (ECZ) (ad esempio automatica, polimeccanica, elettronica)\n\n• Esperienza nella produzione elettronica, idealmente con la conoscenza della gestione magra, della supply chain e dell'assemblaggio SMD/flip-chip\n\n• Buona panoramica dell'intera catena di produzione e ideale esperienza nell'automazione o nella produzione di semiconduttori\n\n• Forte comprensione tecnica, rapida comprensione e pensiero trasversale\n\n• Sensibilizzazione di alta qualità e metodi di lavoro strutturati e responsabili\n\n• Esperienza nella conduzione della formazione e nel rispetto dei processi e degli standard di qualità\n\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese in parola e scrittura\n\n• Buona conoscenza dell'utente del PC (MS Office 365); la conoscenza di SAP è un vantaggio\n\nUlteriori informazioni sulla nostra offerta\n\nEssendo una delle aziende leader mondiali nel campo delle soluzioni uditive con sede in Svizzera, attribuiamo grande importanza ad una cultura aziendale inclusiva e apprezzativa.\n\nVi offriamo:\n\n• Conoscenze strutturate e formazione interna ed esterna mirata\n\n• Opportunità di sviluppo e crescita individuali\n\n• Un ambiente di produzione moderno con brevi percorsi decisionali\n\n• L'opportunità di assumersi la responsabilità e formare attivamente i processi\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "en": "In this function, as Technical Specialist Production TSP (m/f/d), you are a central part of our support team in electronics manufacturing.\n\nYou ensure plant availability through preventive maintenance, minimize downtimes through sustainable maintenance strategies and repair faults including root cause analysis. You drive continuous improvements in the area of maintenance and develop your expertise (e.g. in the TPS) continuously.\n\nAs a technical interface between production, engineering and development, you support the departments, advise on technical issues and help to optimize our plants.\n\nMore about the role\n\n• Ensuring plant availability through preventive maintenance of plants, equipment and test equipment\n\n• Minimizing downtime through sustainable maintenance strategies and supporting machine operators in basic maintenance tasks\n\n• Analysis and correction of disruptions in production including root cause analysis\n\n• Continuous Improvement in Maintenance\n\n• Technical interface between production, engineering, development and other departments (R&D, NPI, B&I)\n\n• Technical advice and support of production departments as well as participation in the optimization of plants\n\n• Coordination, documentation and monitoring of maintenance measures (including LEXA) as well as compliance with quality and safety regulations\n\n• Management and procurement of spare parts as well as support for the further development of automated equipment and piketting service as needed\n\nMore about you\n\n• Completed electronic vocational training (ECZ) (e.g. automatic, polymechanical, electronic)\n\n• Experience in electronics production, ideally with knowledge of lean management, supply chain and SMD/flip-chip assembly\n\n• Good overview of the entire production chain and ideally experience in automation or semiconductor production\n\n• Strong technical understanding, rapid comprehension and cross-cutting thinking\n\n• High quality awareness and structured and responsible working methods\n\n• Experience in conducting training and in complying with processes and quality standards\n\n• Very good knowledge of German and good knowledge of English in word and writing\n\n• Good PC user knowledge (MS Office 365); SAP knowledge is an advantage\n\nMore about our offer\n\nAs one of the world’s leading companies in the field of hearing solutions with headquarters in Switzerland, we attach great importance to an inclusive and appreciative corporate culture.\n\nWe offer you:\n\n• Structured familiarisation and targeted internal and external training\n\n• Individual development and growth opportunities\n\n• A modern production environment with short decision paths\n\n• The opportunity to take responsibility and actively shape processes\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px)!important;\"",
+        "de": "In dieser Funktion bist du als Technischer Spezialist Produktion TSP (m/w/d) ein zentraler Bestandteil unseres Support-Teams in der Elektronikfertigung.\n\nDu stellst die Anlagenverfügbarkeit durch vorbeugende Wartung sicher, minimierst Stillstände durch nachhaltige Instandhaltungsstrategien und behebst Störungen inklusive Ursachenanalyse. Dabei treibst du kontinuierliche Verbesserungen im Bereich Maintenance voran und entwickelst deine Fachkenntnisse (z. B. im TPS) stetig weiter.\n\nAls technische Schnittstelle zwischen Produktion, Engineering und Entwicklung unterstützt du die Fachbereiche, berätst bei technischen Fragestellungen und wirkst an der Optimierung unserer Anlagen mit.\n\nMehr über die Rolle\n\n• Sicherstellung der Anlagenverfügbarkeit durch vorbeugende Wartung von Anlagen, Betriebs- und Prüfmitteln\n\n• Minimierung von Stillständen durch nachhaltige Instandhaltungsstrategien und Unterstützung der Maschinenbediener bei grundlegenden Wartungsaufgaben\n\n• Analyse und Behebung von Störungen in der Produktion inklusive Ursachenanalyse\n\n• Kontinuierliche Verbesserung (Continuous Improvement) im Bereich Maintenance\n\n• Technische Schnittstelle zwischen Produktion, Engineering, Entwicklung sowie weiteren Fachbereichen (R&D, NPI, B&I)\n\n• Technische Beratung und Unterstützung der Produktionsabteilungen sowie Mitwirkung bei der Optimierung von Anlagen\n\n• Koordination, Dokumentation und Überwachung von Instandhaltungsmaßnahmen (inkl. LEXA) sowie Einhaltung von Qualitäts- und Sicherheitsvorschriften\n\n• Verwaltung und Beschaffung von Ersatzteilen sowie Unterstützung bei der Weiterentwicklung automatisierter Anlagen und Pikettdienst bei Bedarf\n\nMehr über dich\n\n• Abgeschlossene technische Berufsbildung (EFZ) im elektronischen Bereich (z. B. Automatiker, Polymechaniker, Elektroniker)\n\n• Erfahrung in der Elektronikproduktion, idealerweise mit Kenntnissen in Lean Management, Supply Chain und SMD/Flip-Chip-Bestückung\n\n• Gute Übersicht über die gesamte Produktionskette sowie idealerweise Erfahrung in der Automatisierung oder Halbleiterfertigung\n\n• Ausgeprägtes technisches Verständnis, schnelle Auffassungsgabe und bereichsübergreifendes Denken\n\n• Hohes Qualitätsbewusstsein sowie strukturierte und verantwortungsvolle Arbeitsweise\n\n• Erfahrung in der Durchführung von Schulungen sowie in der Einhaltung von Prozessen und Qualitätsstandards\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n\n• Gute PC-Anwenderkenntnisse (MS Office 365); SAP-Kenntnisse von Vorteil\n\nMehr über unser Angebot\n\nAls eines der weltweit führenden Unternehmen im Bereich Hörlösungen mit Hauptsitz in der Schweiz legen wir großen Wert auf eine inklusive und wertschätzende Unternehmenskultur.\n\nWir bieten dir:\n\n• Strukturierte Einarbeitung sowie gezielte interne und externe Weiterbildungen\n\n• Individuelle Entwicklungs- und Wachstumsmöglichkeiten\n\n• Ein modernes Produktionsumfeld mit kurzen Entscheidungswege\n\n• Die Möglichkeit, Verantwortung zu übernehmen und Prozesse aktiv mitzugestalten\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "Dans cette fonction, en tant que Technical Specialist Production TSP (h/f/d), vous êtes une partie centrale de notre équipe de support dans la fabrication électronique.\n\nVous assurez la disponibilité de l'usine grâce à l'entretien préventif, minimisez les temps d'arrêt grâce à des stratégies d'entretien durable et des défauts de réparation, y compris l'analyse des causes profondes. Vous conduisez des améliorations continues dans le domaine de la maintenance et développez votre expertise (par exemple dans le TPS) en continu.\n\nEn tant qu'interface technique entre la production, l'ingénierie et le développement, vous accompagnez les départements, conseillez sur les questions techniques et aidez à optimiser nos usines.\n\nEn savoir plus sur le rôle\n\n• Assurer la disponibilité des installations par l'entretien préventif des installations, du matériel et du matériel d'essai\n\n• Minimiser les temps d'arrêt grâce à des stratégies de maintenance durable et soutenir les opérateurs de machines dans les tâches de maintenance de base\n\n• Analyse et correction des perturbations de la production, y compris l'analyse des causes profondes\n\n• Amélioration continue de l'entretien\n\n• Interface technique entre la production, l'ingénierie, le développement et d'autres ministères (R-D, NPI, B-I)\n\n• Conseils techniques et soutien des services de production ainsi que participation à l'optimisation des installations\n\n• Coordination, documentation et suivi des mesures d'entretien (y compris LEXA) ainsi que respect des règles de qualité et de sécurité\n\n• Gestion et achat de pièces de rechange ainsi qu ' appui à la mise au point du matériel automatisé et du service de triage au besoin\n\nPlus sur vous\n\n• Formation professionnelle électronique terminée (ECZ) (par exemple automatique, polymécanique, électronique)\n\n• Expérience dans la production d'électronique, idéalement avec une connaissance de la gestion maigre, de la chaîne d'approvisionnement et de l'assemblage SMD/fichier\n\n• Bonne vue d'ensemble de toute la chaîne de production et idéalement expérience dans l'automatisation ou la production de semi-conducteurs\n\n• Forte compréhension technique, compréhension rapide et pensée transversale\n\n• Sensibilisation de haute qualité et méthodes de travail structurées et responsables\n\n• Expérience de la formation et du respect des processus et des normes de qualité\n\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais en paroles et en écriture\n\n• Bonne connaissance des utilisateurs de PC (MS Office 365); connaissance SAP est un avantage\n\nEn savoir plus sur notre offre\n\nEn tant que leader mondial dans le domaine des solutions auditives avec siège social en Suisse, nous attachons une grande importance à une culture d'entreprise inclusive et reconnaissante.\n\nNous vous offrons:\n\n• Connaissance structurée et formation interne et externe ciblée\n\n• Développement individuel et possibilités de croissance\n\n• Un environnement de production moderne avec des chemins de décision courts\n\n• La possibilité de prendre des responsabilités et de façonner activement les processus\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px)!important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:10:10.031Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1407383533/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technical-specialist-production-tsp-m-f-d-sonova-ch",
+        "technical-specialista-production-tsp-m-f-d-sonova-staefa"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-specialist-production-tsp-m-f-d-sonova-ch",
+          "technical-specialista-production-tsp-m-f-d-sonova-staefa"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
       }
@@ -650,7 +722,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.126Z",
+      "crawledAt": "2026-09-29T09:10:10.028Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -691,76 +763,6 @@
       }
     },
     {
-      "id": "sonova-374a65613887",
-      "slug": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
-      "slugByLocale": {
-        "it": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
-        "en": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
-        "de": "technical-specialist-production-tsp-m-f-d-sonova-ch",
-        "fr": "technical-specialiste-production-tsp-m-f-d-sonova-staefa"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Technical Specialist Production (TSP) (m/f/d)",
-      "titleByLocale": {
-        "it": "Technical Specialista Production (TSP) (m/f/d)",
-        "en": "Technical Specialist Production (TSP) (m/f/d)",
-        "de": "Technical Spezialist Production (TSP) (m/f/d)",
-        "fr": "Technical Spécialiste Production (TSP) (m/f/d)"
-      },
-      "description": "In dieser Funktion bist du als Technischer Spezialist Produktion TSP (m/w/d) ein zentraler Bestandteil unseres Support-Teams in der Elektronikfertigung.\n\nDu stellst die Anlagenverfügbarkeit durch vorbeugende Wartung sicher, minimierst Stillstände durch nachhaltige Instandhaltungsstrategien und behebst Störungen inklusive Ursachenanalyse. Dabei treibst du kontinuierliche Verbesserungen im Bereich Maintenance voran und entwickelst deine Fachkenntnisse (z. B. im TPS) stetig weiter.\n\nAls technische Schnittstelle zwischen Produktion, Engineering und Entwicklung unterstützt du die Fachbereiche, berätst bei technischen Fragestellungen und wirkst an der Optimierung unserer Anlagen mit.\n\nMehr über die Rolle\n\n• Sicherstellung der Anlagenverfügbarkeit durch vorbeugende Wartung von Anlagen, Betriebs- und Prüfmitteln\n\n• Minimierung von Stillständen durch nachhaltige Instandhaltungsstrategien und Unterstützung der Maschinenbediener bei grundlegenden Wartungsaufgaben\n\n• Analyse und Behebung von Störungen in der Produktion inklusive Ursachenanalyse\n\n• Kontinuierliche Verbesserung (Continuous Improvement) im Bereich Maintenance\n\n• Technische Schnittstelle zwischen Produktion, Engineering, Entwicklung sowie weiteren Fachbereichen (R&D, NPI, B&I)\n\n• Technische Beratung und Unterstützung der Produktionsabteilungen sowie Mitwirkung bei der Optimierung von Anlagen\n\n• Koordination, Dokumentation und Überwachung von Instandhaltungsmaßnahmen (inkl. LEXA) sowie Einhaltung von Qualitäts- und Sicherheitsvorschriften\n\n• Verwaltung und Beschaffung von Ersatzteilen sowie Unterstützung bei der Weiterentwicklung automatisierter Anlagen und Pikettdienst bei Bedarf\n\nMehr über dich\n\n• Abgeschlossene technische Berufsbildung (EFZ) im elektronischen Bereich (z. B. Automatiker, Polymechaniker, Elektroniker)\n\n• Erfahrung in der Elektronikproduktion, idealerweise mit Kenntnissen in Lean Management, Supply Chain und SMD/Flip-Chip-Bestückung\n\n• Gute Übersicht über die gesamte Produktionskette sowie idealerweise Erfahrung in der Automatisierung oder Halbleiterfertigung\n\n• Ausgeprägtes technisches Verständnis, schnelle Auffassungsgabe und bereichsübergreifendes Denken\n\n• Hohes Qualitätsbewusstsein sowie strukturierte und verantwortungsvolle Arbeitsweise\n\n• Erfahrung in der Durchführung von Schulungen sowie in der Einhaltung von Prozessen und Qualitätsstandards\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n\n• Gute PC-Anwenderkenntnisse (MS Office 365); SAP-Kenntnisse von Vorteil\n\nMehr über unser Angebot\n\nAls eines der weltweit führenden Unternehmen im Bereich Hörlösungen mit Hauptsitz in der Schweiz legen wir großen Wert auf eine inklusive und wertschätzende Unternehmenskultur.\n\nWir bieten dir:\n\n• Strukturierte Einarbeitung sowie gezielte interne und externe Weiterbildungen\n\n• Individuelle Entwicklungs- und Wachstumsmöglichkeiten\n\n• Ein modernes Produktionsumfeld mit kurzen Entscheidungswege\n\n• Die Möglichkeit, Verantwortung zu übernehmen und Prozesse aktiv mitzugestalten\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "In questa funzione, come Technical Specialist Production TSP (m/f/d), sei una parte centrale del nostro team di supporto nella produzione elettronica.\n\nGarantisci la disponibilità delle piante attraverso la manutenzione preventiva, minimizza i tempi di fermo attraverso strategie di manutenzione sostenibili e guasti di riparazione, tra cui l'analisi delle cause radice. Promuovi continui miglioramenti nel settore della manutenzione e sviluppi la tua esperienza (ad esempio nel TPS) continuamente.\n\nCome interfaccia tecnica tra produzione, ingegneria e sviluppo, supporta i dipartimenti, consiglia su questioni tecniche e aiuta a ottimizzare i nostri impianti.\n\nUlteriori informazioni sul ruolo\n\n• Garantire la disponibilità degli impianti attraverso la manutenzione preventiva di impianti, attrezzature e attrezzature di prova\n\n• Minimizzare i tempi di fermo attraverso strategie di manutenzione sostenibili e operatori di supporto nelle attività di manutenzione di base\n\n• Analisi e correzione delle interruzioni nella produzione, tra cui l'analisi delle cause principali\n\n• Miglioramento continuo della manutenzione\n\n• Interfaccia tecnica tra produzione, ingegneria, sviluppo e altri reparti (R&D, NPI, B&I)\n\n• Consulenza tecnica e sostegno dei dipartimenti di produzione e partecipazione all'ottimizzazione degli impianti\n\n• Coordinamento, documentazione e monitoraggio delle misure di manutenzione (inclusa LEXA) nonché del rispetto delle norme di qualità e sicurezza\n\n• Gestione e approvvigionamento di parti di ricambio e supporto per l'ulteriore sviluppo di attrezzature automatizzate e servizi di tubazione secondo le necessità\n\nPiù di te\n\n• Formazione professionale elettronica completa (ECZ) (ad esempio automatica, polimeccanica, elettronica)\n\n• Esperienza nella produzione elettronica, idealmente con la conoscenza della gestione magra, della supply chain e dell'assemblaggio SMD/flip-chip\n\n• Buona panoramica dell'intera catena di produzione e ideale esperienza nell'automazione o nella produzione di semiconduttori\n\n• Forte comprensione tecnica, rapida comprensione e pensiero trasversale\n\n• Sensibilizzazione di alta qualità e metodi di lavoro strutturati e responsabili\n\n• Esperienza nella conduzione della formazione e nel rispetto dei processi e degli standard di qualità\n\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese in parola e scrittura\n\n• Buona conoscenza dell'utente del PC (MS Office 365); la conoscenza di SAP è un vantaggio\n\nUlteriori informazioni sulla nostra offerta\n\nEssendo una delle aziende leader mondiali nel campo delle soluzioni uditive con sede in Svizzera, attribuiamo grande importanza ad una cultura aziendale inclusiva e apprezzativa.\n\nVi offriamo:\n\n• Conoscenze strutturate e formazione interna ed esterna mirata\n\n• Opportunità di sviluppo e crescita individuali\n\n• Un ambiente di produzione moderno con brevi percorsi decisionali\n\n• L'opportunità di assumersi la responsabilità e formare attivamente i processi\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "In this function, as Technical Specialist Production TSP (m/f/d), you are a central part of our support team in electronics manufacturing.\n\nYou ensure plant availability through preventive maintenance, minimize downtimes through sustainable maintenance strategies and repair faults including root cause analysis. You drive continuous improvements in the area of maintenance and develop your expertise (e.g. in the TPS) continuously.\n\nAs a technical interface between production, engineering and development, you support the departments, advise on technical issues and help to optimize our plants.\n\nMore about the role\n\n• Ensuring plant availability through preventive maintenance of plants, equipment and test equipment\n\n• Minimizing downtime through sustainable maintenance strategies and supporting machine operators in basic maintenance tasks\n\n• Analysis and correction of disruptions in production including root cause analysis\n\n• Continuous Improvement in Maintenance\n\n• Technical interface between production, engineering, development and other departments (R&D, NPI, B&I)\n\n• Technical advice and support of production departments as well as participation in the optimization of plants\n\n• Coordination, documentation and monitoring of maintenance measures (including LEXA) as well as compliance with quality and safety regulations\n\n• Management and procurement of spare parts as well as support for the further development of automated equipment and piketting service as needed\n\nMore about you\n\n• Completed electronic vocational training (ECZ) (e.g. automatic, polymechanical, electronic)\n\n• Experience in electronics production, ideally with knowledge of lean management, supply chain and SMD/flip-chip assembly\n\n• Good overview of the entire production chain and ideally experience in automation or semiconductor production\n\n• Strong technical understanding, rapid comprehension and cross-cutting thinking\n\n• High quality awareness and structured and responsible working methods\n\n• Experience in conducting training and in complying with processes and quality standards\n\n• Very good knowledge of German and good knowledge of English in word and writing\n\n• Good PC user knowledge (MS Office 365); SAP knowledge is an advantage\n\nMore about our offer\n\nAs one of the world’s leading companies in the field of hearing solutions with headquarters in Switzerland, we attach great importance to an inclusive and appreciative corporate culture.\n\nWe offer you:\n\n• Structured familiarisation and targeted internal and external training\n\n• Individual development and growth opportunities\n\n• A modern production environment with short decision paths\n\n• The opportunity to take responsibility and actively shape processes\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px)!important;\"",
-        "de": "In dieser Funktion bist du als Technischer Spezialist Produktion TSP (m/w/d) ein zentraler Bestandteil unseres Support-Teams in der Elektronikfertigung.\n\nDu stellst die Anlagenverfügbarkeit durch vorbeugende Wartung sicher, minimierst Stillstände durch nachhaltige Instandhaltungsstrategien und behebst Störungen inklusive Ursachenanalyse. Dabei treibst du kontinuierliche Verbesserungen im Bereich Maintenance voran und entwickelst deine Fachkenntnisse (z. B. im TPS) stetig weiter.\n\nAls technische Schnittstelle zwischen Produktion, Engineering und Entwicklung unterstützt du die Fachbereiche, berätst bei technischen Fragestellungen und wirkst an der Optimierung unserer Anlagen mit.\n\nMehr über die Rolle\n\n• Sicherstellung der Anlagenverfügbarkeit durch vorbeugende Wartung von Anlagen, Betriebs- und Prüfmitteln\n\n• Minimierung von Stillständen durch nachhaltige Instandhaltungsstrategien und Unterstützung der Maschinenbediener bei grundlegenden Wartungsaufgaben\n\n• Analyse und Behebung von Störungen in der Produktion inklusive Ursachenanalyse\n\n• Kontinuierliche Verbesserung (Continuous Improvement) im Bereich Maintenance\n\n• Technische Schnittstelle zwischen Produktion, Engineering, Entwicklung sowie weiteren Fachbereichen (R&D, NPI, B&I)\n\n• Technische Beratung und Unterstützung der Produktionsabteilungen sowie Mitwirkung bei der Optimierung von Anlagen\n\n• Koordination, Dokumentation und Überwachung von Instandhaltungsmaßnahmen (inkl. LEXA) sowie Einhaltung von Qualitäts- und Sicherheitsvorschriften\n\n• Verwaltung und Beschaffung von Ersatzteilen sowie Unterstützung bei der Weiterentwicklung automatisierter Anlagen und Pikettdienst bei Bedarf\n\nMehr über dich\n\n• Abgeschlossene technische Berufsbildung (EFZ) im elektronischen Bereich (z. B. Automatiker, Polymechaniker, Elektroniker)\n\n• Erfahrung in der Elektronikproduktion, idealerweise mit Kenntnissen in Lean Management, Supply Chain und SMD/Flip-Chip-Bestückung\n\n• Gute Übersicht über die gesamte Produktionskette sowie idealerweise Erfahrung in der Automatisierung oder Halbleiterfertigung\n\n• Ausgeprägtes technisches Verständnis, schnelle Auffassungsgabe und bereichsübergreifendes Denken\n\n• Hohes Qualitätsbewusstsein sowie strukturierte und verantwortungsvolle Arbeitsweise\n\n• Erfahrung in der Durchführung von Schulungen sowie in der Einhaltung von Prozessen und Qualitätsstandards\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n\n• Gute PC-Anwenderkenntnisse (MS Office 365); SAP-Kenntnisse von Vorteil\n\nMehr über unser Angebot\n\nAls eines der weltweit führenden Unternehmen im Bereich Hörlösungen mit Hauptsitz in der Schweiz legen wir großen Wert auf eine inklusive und wertschätzende Unternehmenskultur.\n\nWir bieten dir:\n\n• Strukturierte Einarbeitung sowie gezielte interne und externe Weiterbildungen\n\n• Individuelle Entwicklungs- und Wachstumsmöglichkeiten\n\n• Ein modernes Produktionsumfeld mit kurzen Entscheidungswege\n\n• Die Möglichkeit, Verantwortung zu übernehmen und Prozesse aktiv mitzugestalten\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "fr": "Dans cette fonction, en tant que Technical Specialist Production TSP (h/f/d), vous êtes une partie centrale de notre équipe de support dans la fabrication électronique.\n\nVous assurez la disponibilité de l'usine grâce à l'entretien préventif, minimisez les temps d'arrêt grâce à des stratégies d'entretien durable et des défauts de réparation, y compris l'analyse des causes profondes. Vous conduisez des améliorations continues dans le domaine de la maintenance et développez votre expertise (par exemple dans le TPS) en continu.\n\nEn tant qu'interface technique entre la production, l'ingénierie et le développement, vous accompagnez les départements, conseillez sur les questions techniques et aidez à optimiser nos usines.\n\nEn savoir plus sur le rôle\n\n• Assurer la disponibilité des installations par l'entretien préventif des installations, du matériel et du matériel d'essai\n\n• Minimiser les temps d'arrêt grâce à des stratégies de maintenance durable et soutenir les opérateurs de machines dans les tâches de maintenance de base\n\n• Analyse et correction des perturbations de la production, y compris l'analyse des causes profondes\n\n• Amélioration continue de l'entretien\n\n• Interface technique entre la production, l'ingénierie, le développement et d'autres ministères (R-D, NPI, B-I)\n\n• Conseils techniques et soutien des services de production ainsi que participation à l'optimisation des installations\n\n• Coordination, documentation et suivi des mesures d'entretien (y compris LEXA) ainsi que respect des règles de qualité et de sécurité\n\n• Gestion et achat de pièces de rechange ainsi qu ' appui à la mise au point du matériel automatisé et du service de triage au besoin\n\nPlus sur vous\n\n• Formation professionnelle électronique terminée (ECZ) (par exemple automatique, polymécanique, électronique)\n\n• Expérience dans la production d'électronique, idéalement avec une connaissance de la gestion maigre, de la chaîne d'approvisionnement et de l'assemblage SMD/fichier\n\n• Bonne vue d'ensemble de toute la chaîne de production et idéalement expérience dans l'automatisation ou la production de semi-conducteurs\n\n• Forte compréhension technique, compréhension rapide et pensée transversale\n\n• Sensibilisation de haute qualité et méthodes de travail structurées et responsables\n\n• Expérience de la formation et du respect des processus et des normes de qualité\n\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais en paroles et en écriture\n\n• Bonne connaissance des utilisateurs de PC (MS Office 365); connaissance SAP est un avantage\n\nEn savoir plus sur notre offre\n\nEn tant que leader mondial dans le domaine des solutions auditives avec siège social en Suisse, nous attachons une grande importance à une culture d'entreprise inclusive et reconnaissante.\n\nNous vous offrons:\n\n• Connaissance structurée et formation interne et externe ciblée\n\n• Développement individuel et possibilités de croissance\n\n• Un environnement de production moderne avec des chemins de décision courts\n\n• La possibilité de prendre des responsabilités et de façonner activement les processus\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px)!important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:09:05.123Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-18",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1407383533/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technical-specialist-production-tsp-m-f-d-sonova-ch",
-        "technical-specialista-production-tsp-m-f-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-specialist-production-tsp-m-f-d-sonova-ch",
-          "technical-specialista-production-tsp-m-f-d-sonova-staefa"
-        ]
-      },
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "sonova-65194a0b7ac7",
       "slug": "practical-apprendista-power-management-m-f-d-sonova-staefa",
       "slugByLocale": {
@@ -777,7 +779,7 @@
         "it": "Practical Apprendista - Power Management (m/f/d)",
         "en": "Practical Trainee - Power Management (m/f/d)",
         "de": "Practical Auszubildender - Power Management (m/f/d)",
-        "fr": "Trainee pratique - Power Management (h/f/d)"
+        "fr": "Practical Trainee - Power Management (m/f/d)"
       },
       "description": "Location: Stäfa, Switzerland\n\nFulltime, 6 Months\n\nAt Sonova, we create sense by bringing sound to life. Our innovative hearing care solutions help millions of people reconnect with the sounds that matter most. As a Power Management Trainee, you will support the development and verification of the technologies that power our hearing instruments and chargers, helping us deliver reliable, high-quality solutions that make a real difference in people's everyday lives.\n\nWhat you'll do\n\n• Perform experiments to evaluate battery runtime, power consumption, and charging performance in real-world usage scenarios\n\n• Build, calibrate, maintain, and improve test setups and measurement systems for battery and power-management verification\n\n• Develop and execute automated test scripts and verification frameworks\n\n• Verify the performance of battery and power management systems in hearing devices and chargers\n\n• Analyze measurement data, create visualizations, and prepare technical reports\n\n• Troubleshoot test equipment and continuously improve testing processes\n\n• Collaborate with multidisciplinary engineering teams on power electronics, charger integration, and system-level investigations\n\nWhat you bring\n\n• Currently enrolled in or graduated with a Master's degree in Electrical Engineering, Electronics, Mechatronics, or a related field.\n\n• Basic programming skills in Python. MATLAB or C are a plus\n\n• Interest in automation, testing, verification, and engineering problem-solving.\n\n• Analytical mindset with strong attention to detail\n\n• Ability to work with technical data and measurements\n\n• Experience with battery management systems, power electronics, embedded systems, laboratory equipment, or Li-ion batteries is a plus\n\n• Fluency in English\n\nWhat we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\nWe can offer you a new challenge, with interesting tasks and much more – including an open corporate culture, flat hierarchies, support for further training and development, opportunities to take on responsibility, and an excellent range of foods, sports and cultural facilities.\n\n• Insights into how hearing instruments and chargers manage power and energy efficiency\n\n• Practical data analysis skills and the opportunity to contribute to engineering decisions through testing results #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
@@ -791,7 +793,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.121Z",
+      "crawledAt": "2026-09-29T09:10:10.025Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -830,6 +832,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:37.985Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -875,7 +878,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Interaction-Designer/1439444733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.117Z",
+      "crawledAt": "2026-09-29T09:10:10.020Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -954,7 +957,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Procurement-Manager-NPI/1439443733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.115Z",
+      "crawledAt": "2026-09-29T09:10:10.014Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1028,7 +1031,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Product-Quality-%28mfd%29/1411716033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.111Z",
+      "crawledAt": "2026-09-29T09:10:10.008Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1053,6 +1056,7 @@
           "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1098,7 +1102,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Audiology-Innovation-Manager-%28mfd%29/1440786833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.107Z",
+      "crawledAt": "2026-09-29T09:10:10.003Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1168,7 +1172,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.103Z",
+      "crawledAt": "2026-09-29T09:10:09.995Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1210,6 +1214,86 @@
       }
     },
     {
+      "id": "sonova-a02b2dce588a",
+      "slug": "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland",
+      "slugByLocale": {
+        "it": "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland",
+        "en": "apprenticeship-logistics-manager-m-f-d-sonova-staefa-switzerland",
+        "de": "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
+        "fr": "gestionnaire-logistique-de-l-apprentissage-m-f-d-sonova-staefa-switzerland"
+      },
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Lehrstelle Logistiker/in EFZ (m/w/d)",
+      "titleByLocale": {
+        "it": "Apprendistato Logistica EFZ (m/f/d)",
+        "en": "Apprenticeship Logistics Manager (m/f/d)",
+        "de": "Lehrstelle Logistiker/in EFZ (m/w/d)",
+        "fr": "Gestionnaire logistique de l'apprentissage (m/f/d)"
+      },
+      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Logistiker/in EFZ (m/w/d) sowie die notwendigen Voraussetzungen findest du auf:\n\nLogistiker/in EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione sonora con un'alta rilevanza pratica, perché sono nostri specialisti e manager di domani.\n\nUlteriori informazioni sul vostro lavoro da sogno come logistico (m/f/d) e le condizioni necessarie possono essere trovate a:\n\nLogisticista in EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners sound training with a high practical relevance, because they are our specialists and managers of tomorrow.\n\nFurther information about your dream job as a logistician (m/f/d) as well as the necessary conditions can be found at:\n\nLogistician in EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Logistiker/in EFZ (m/w/d) sowie die notwendigen Voraussetzungen findest du auf:\n\nLogistiker/in EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une bonne formation avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain.\n\nPlus d'informations sur votre travail de rêve en tant que logisticien (m/f/d) ainsi que les conditions nécessaires peuvent être trouvées à:\n\nLogisticien en EFZ.\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:10:09.987Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421325033/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
+        "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa",
+        "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
+          "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa",
+          "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland"
+        ],
+        "en": [
+          "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
+        ],
+        "fr": [
+          "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:06:52.194Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "sonova-088c8bab41fe",
       "slug": "manutenzione-professionale-operante-di-apprendistato-efz-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
@@ -1240,7 +1324,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:09:05.099Z",
+      "crawledAt": "2026-09-29T09:10:09.980Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1274,6 +1358,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.177Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1319,7 +1404,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:09:05.096Z",
+      "crawledAt": "2026-09-29T09:10:09.972Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1351,85 +1436,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.246Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sonova-a02b2dce588a",
-      "slug": "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland",
-      "slugByLocale": {
-        "it": "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland",
-        "en": "apprenticeship-logistics-manager-m-f-d-sonova-staefa-switzerland",
-        "de": "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
-        "fr": "gestionnaire-logistique-de-l-apprentissage-m-f-d-sonova-staefa-switzerland"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Lehrstelle Logistiker/in EFZ (m/w/d)",
-      "titleByLocale": {
-        "it": "Apprendistato Logistica EFZ (m/f/d)",
-        "en": "Apprenticeship Logistics Manager (m/f/d)",
-        "de": "Lehrstelle Logistiker/in EFZ (m/w/d)",
-        "fr": "Gestionnaire logistique de l'apprentissage (m/f/d)"
-      },
-      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Logistiker/in EFZ (m/w/d) sowie die notwendigen Voraussetzungen findest du auf:\n\nLogistiker/in EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione sonora con un'alta rilevanza pratica, perché sono nostri specialisti e manager di domani.\n\nUlteriori informazioni sul vostro lavoro da sogno come logistico (m/f/d) e le condizioni necessarie possono essere trovate a:\n\nLogisticista in EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners sound training with a high practical relevance, because they are our specialists and managers of tomorrow.\n\nFurther information about your dream job as a logistician (m/f/d) as well as the necessary conditions can be found at:\n\nLogistician in EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Logistiker/in EFZ (m/w/d) sowie die notwendigen Voraussetzungen findest du auf:\n\nLogistiker/in EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une bonne formation avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain.\n\nPlus d'informations sur votre travail de rêve en tant que logisticien (m/f/d) ainsi que les conditions nécessaires peuvent être trouvées à:\n\nLogisticien en EFZ.\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:09:05.093Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421325033/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
-        "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa",
-        "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
-          "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa",
-          "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland"
-        ],
-        "en": [
-          "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
-        ],
-        "fr": [
-          "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:52.194Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1446,36 +1453,36 @@
     },
     {
       "id": "sonova-0e97616fe3f9",
-      "slug": "manufacturing-system-software-development-engineer-m-f-d-sonova-ch",
+      "slug": "manufacturing-system-software-development-ingegnere-m-f-d-sonova-murten",
       "slugByLocale": {
+        "it": "manufacturing-system-software-development-ingegnere-m-f-d-sonova-murten",
         "en": "manufacturing-system-software-development-engineer-m-f-d-sonova-ch",
-        "it": "manufacturing-system-software-development-engineer-m-f-d-sonova-ch",
-        "de": "manufacturing-system-software-development-engineer-m-f-d-sonova-ch",
-        "fr": "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
+        "de": "manufacturing-system-software-development-ingenieur-m-f-d-sonova-murten",
+        "fr": "manufacturing-system-software-development-ingenieur-m-f-d-sonova-murten"
       },
       "company": "Sonova",
       "companyKey": "sonova",
       "companyDomain": "sonova.com",
       "title": "Manufacturing System & Software Development Engineer (m/f/d)",
       "titleByLocale": {
-        "en": "Manufacturing System & Software Development Engineer (m/f/d)",
         "it": "Manufacturing System & Software Development Ingegnere (m/f/d)",
+        "en": "Manufacturing System & Software Development Engineer (m/f/d)",
         "de": "Manufacturing System & Software Development Ingenieur (m/f/d)",
         "fr": "Manufacturing System & Software Development Ingénieur (m/f/d)"
       },
       "description": "Murten, Switzerland (hybrid)\n\nThis role combines software development, automation, and hands-on engineering in an international manufacturing environment. As part of the Manufacturing Engineering team, you will develop equipment, test systems and software used to manufacture and test innovative hearing, communication and consumer products worldwide.\n\nYour responsibilities\n\n•\n Develop manufacturing and test equipment for new products, covering hardware, software and system integration\n\n•\n Create test and configuration sequences using LabVIEW\n\n•\n Develop software interfaces for measurement equipment\n\n•\n Integrate electronic, mechanical and software components into complete manufacturing systems\n\n•\n Validate and qualify equipment before installation at production sites\n\n•\n Maintain and modernize existing manufacturing equipment\n\n•\n Provide second-level support to global production teams, both remotely and occasionally on site\n\nYour profile\n\n•\n At least bachelor’s degree in industrial systems, automation or a related engineering discipline\n\n•\n Around 3 to 5 years of experience in a similar role, ideally involving electronic devices, embedded software or automated manufacturing systems\n\n•\n Strong LabVIEW programming experience\n\n•\n Knowledge of industrial systems and measurement equipment\n\n•\n Experience with PLC automation\n\n•\n Fluent English, strong communication skills and confidence working with different cultures and stakeholder groups\n\n•\n Structured, solution-oriented approach and the ability to manage unexpected technical challenges\n\nWhy join us\n\nYou will work on varied engineering projects involving different technologies and product types, from medical devices to consumer products and wireless communication solutions. Your systems will support production centers around the world, giving your work a truly global impact.\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
-        "en": "Murten, Switzerland (hybrid)\n\nThis role combines software development, automation, and hands-on engineering in an international manufacturing environment. As part of the Manufacturing Engineering team, you will develop equipment, test systems and software used to manufacture and test innovative hearing, communication and consumer products worldwide.\n\nYour responsibilities\n\n•\n Develop manufacturing and test equipment for new products, covering hardware, software and system integration\n\n•\n Create test and configuration sequences using LabVIEW\n\n•\n Develop software interfaces for measurement equipment\n\n•\n Integrate electronic, mechanical and software components into complete manufacturing systems\n\n•\n Validate and qualify equipment before installation at production sites\n\n•\n Maintain and modernize existing manufacturing equipment\n\n•\n Provide second-level support to global production teams, both remotely and occasionally on site\n\nYour profile\n\n•\n At least bachelor’s degree in industrial systems, automation or a related engineering discipline\n\n•\n Around 3 to 5 years of experience in a similar role, ideally involving electronic devices, embedded software or automated manufacturing systems\n\n•\n Strong LabVIEW programming experience\n\n•\n Knowledge of industrial systems and measurement equipment\n\n•\n Experience with PLC automation\n\n•\n Fluent English, strong communication skills and confidence working with different cultures and stakeholder groups\n\n•\n Structured, solution-oriented approach and the ability to manage unexpected technical challenges\n\nWhy join us\n\nYou will work on varied engineering projects involving different technologies and product types, from medical devices to consumer products and wireless communication solutions. Your systems will support production centers around the world, giving your work a truly global impact.\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "it": "Murten, Svizzera (hybrid)\n\nQuesto ruolo combina lo sviluppo del software, l'automazione e l'ingegneria pratica in un ambiente di produzione internazionale. Nell'ambito del team Manufacturing Engineering, svilupperai attrezzature, sistemi di test e software utilizzati per produrre e testare prodotti innovativi per l'udito, la comunicazione e i consumatori in tutto il mondo.\n\nLe tue responsabilità\n\n•\n Sviluppare attrezzature di produzione e test per nuovi prodotti, coprendo hardware, software e integrazione di sistema\n\n•\n Crea sequenze di test e configurazione utilizzando LabVIEW\n\n•\n Sviluppare interfacce software per le apparecchiature di misura\n\n•\n Integra componenti elettronici, meccanici e software in sistemi di produzione completi\n\n•\n Validare e qualificare le attrezzature prima dell'installazione in siti di produzione\n\n•\n Mantenere e modernizzare le attrezzature di produzione esistenti\n\n•\n Fornire assistenza di secondo livello ai team di produzione globali, sia da remoto che occasionalmente in loco\n\nIl tuo profilo\n\n•\n Almeno laurea in sistemi industriali, automazione o una disciplina di ingegneria correlata\n\n•\n Circa 3-5 anni di esperienza in un ruolo simile, idealmente coinvolgendo dispositivi elettronici, software incorporato o sistemi di produzione automatizzati\n\n•\n Forte esperienza di programmazione LabVIEW\n\n•\n Conoscenza dei sistemi industriali e delle apparecchiature di misura\n\n•\n Esperienza con automazione PLC\n\n•\n Inglese fluido, forti capacità di comunicazione e fiducia che lavorano con diverse culture e gruppi di stakeholder\n\n•\n Approccio strutturato e orientato alla soluzione e capacità di gestire sfide tecniche inattese\n\nPerché unirsi a noi\n\nSi lavorerà su vari progetti di ingegneria che coinvolgono diverse tecnologie e tipi di prodotto, dai dispositivi medici ai prodotti di consumo e soluzioni di comunicazione wireless. I vostri sistemi supporteranno i centri di produzione in tutto il mondo, dando al vostro lavoro un impatto veramente globale.\n\nCome uno dei principali fornitori di servizi per l’udito con sede in Svizzera, ci impegniamo a costruire una cultura inclusiva. Vogliamo creare un ambiente in cui è possibile bilanciare una carriera di successo con i vostri impegni e interessi al di fuori del lavoro, attraverso il nostro modello di lavoro ibrido flessibile. #LI-NB1\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "de": "Murten, Schweiz (Hybrid)\n\nDiese Rolle kombiniert Softwareentwicklung, Automatisierung und praktisches Engineering in einer internationalen Fertigungsumgebung. Als Teil des Manufacturing Engineering Teams entwickeln Sie Geräte, Testsysteme und Software, mit denen innovative Hör-, Kommunikations- und Konsumgüter weltweit hergestellt und getestet werden.\n\nIhre Verantwortung\n\n•\n Entwicklung von Fertigungs- und Testgeräten für neue Produkte, einschließlich Hardware, Software und Systemintegration\n\n•\n Test- und Konfigurationssequenzen mit LabVIEW erstellen\n\n•\n Software-Schnittstellen für Messgeräte entwickeln\n\n•\n Integrieren Sie elektronische, mechanische und Softwarekomponenten in komplette Fertigungssysteme\n\n•\n Validierung und Qualifizierung der Ausrüstung vor dem Einbau in Produktionsstätten\n\n•\n Wartung und Modernisierung bestehender Fertigungsanlagen\n\n•\n Bereitstellung von Second-Level-Support für globale Produktionsteams, sowohl remote als auch gelegentlich vor Ort\n\nDein Profil\n\n•\n Mindestens Bachelor-Abschluss in Industriesystemen, Automatisierung oder einer verwandten Ingenieurdisziplin\n\n•\n Rund 3 bis 5 Jahre Erfahrung in einer ähnlichen Rolle, idealerweise mit elektronischen Geräten, eingebetteter Software oder automatisierten Fertigungssystemen\n\n•\n Starke LabVIEW Programmiererfahrung\n\n•\n Kenntnisse in industriellen Systemen und Messgeräten\n\n•\n Erfahrung mit SPS-Automatisierung\n\n•\n Fließendes Englisch, starke Kommunikationsfähigkeiten und Selbstvertrauen bei der Arbeit mit verschiedenen Kulturen und Stakeholdergruppen\n\n•\n Strukturierter, lösungsorientierter Ansatz und die Fähigkeit, unerwartete technische Herausforderungen zu bewältigen\n\nWarum kommen Sie zu uns\n\nSie werden an verschiedenen Ingenieurprojekten mit verschiedenen Technologien und Produkttypen arbeiten, von medizinischen Geräten bis hin zu Konsumgütern und drahtlosen Kommunikationslösungen. Ihre Systeme unterstützen Produktionszentren auf der ganzen Welt und verleihen Ihrer Arbeit eine wirklich globale Wirkung.\n\nAls einer der weltweit führenden Hörgeräteanbieter mit Hauptsitz in der Schweiz setzen wir uns für den Aufbau einer inklusiven Kultur ein. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen außerhalb der Arbeit durch unser flexibles hybrides Arbeitsmodell in Einklang bringen können. #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
-        "fr": "Murten, Suisse (hybride)\n\nCe rôle combine le développement logiciel, l'automatisation et l'ingénierie pratique dans un environnement de fabrication international. Dans le cadre de l'équipe Manufacturing Engineering, vous développerez des équipements, des systèmes d'essai et des logiciels utilisés pour fabriquer et tester des produits auditifs, de communication et de consommation innovants dans le monde entier.\n\nVos responsabilités\n\n•\n Développer des équipements de fabrication et d'essai pour les nouveaux produits, couvrant le matériel, les logiciels et l'intégration du système\n\n•\n Créer des séquences de test et de configuration en utilisant LabVIEW\n\n•\n Développer des interfaces logicielles pour l'équipement de mesure\n\n•\n Intégrer les composants électroniques, mécaniques et logiciels dans des systèmes de fabrication complets\n\n•\n Valider et qualifier l'équipement avant son installation sur les sites de production\n\n•\n Entretien et modernisation du matériel de fabrication existant\n\n•\n Fournir un appui de deuxième niveau aux équipes de production mondiales, à distance et occasionnellement sur place\n\nVotre profil\n\n•\n Au moins baccalauréat en systèmes industriels, en automatisation ou dans une discipline d'ingénierie connexe\n\n•\n Environ 3 à 5 ans d'expérience dans un rôle similaire, idéalement impliquant des appareils électroniques, des logiciels intégrés ou des systèmes de fabrication automatisés\n\n•\n Forte expérience de programmation LabVIEW\n\n•\n Connaissance des systèmes industriels et des équipements de mesure\n\n•\n Expérience avec l'automatisation PLC\n\n•\n Anglais fluide, compétences en communication et confiance en travaillant avec différentes cultures et groupes d'intervenants\n\n•\n Une approche structurée et axée sur la solution et la capacité de gérer les défis techniques inattendus\n\nPourquoi nous rejoindre\n\nVous travaillerez sur divers projets d'ingénierie impliquant différents types de technologies et de produits, des appareils médicaux aux produits de consommation et aux solutions de communication sans fil. Vos systèmes soutiendront les centres de production du monde entier, donnant à votre travail un impact véritablement mondial.\n\nEn tant que l'un des principaux fournisseurs de soins auditifs au monde ayant son siège en Suisse, nous sommes engagés à bâtir une culture inclusive. Nous voulons créer un environnement où vous pouvez équilibrer une carrière réussie avec vos engagements et vos intérêts en dehors du travail, grâce à notre modèle de travail hybride flexible. #LI-NB1\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+        "it": "Murten, Svizzera (hybrid)\n\nQuesto ruolo combina lo sviluppo del software, l'automazione e l'ingegneria pratica in un ambiente di produzione internazionale. Nell'ambito del team Manufacturing Engineering, svilupperai attrezzature, sistemi di test e software utilizzati per produrre e testare prodotti innovativi per l'udito, la comunicazione e i consumatori in tutto il mondo.\n\nLe tue responsabilità\n\n•\nSviluppare attrezzature di produzione e test per nuovi prodotti, coprendo hardware, software e integrazione di sistema\n\n•\nCrea sequenze di test e configurazione utilizzando LabVIEW\n\n•\nSviluppare interfacce software per le apparecchiature di misura\n\n•\nIntegra componenti elettronici, meccanici e software in sistemi di produzione completi\n\n•\nValidare e qualificare le attrezzature prima dell'installazione in siti di produzione\n\n•\nMantenere e modernizzare le attrezzature di produzione esistenti\n\n•\nFornire assistenza di secondo livello ai team di produzione globali, sia da remoto che occasionalmente in loco\n\nIl tuo profilo\n\n•\nAlmeno laurea in sistemi industriali, automazione o una disciplina di ingegneria correlata\n\n•\nCirca 3-5 anni di esperienza in un ruolo simile, idealmente coinvolgendo dispositivi elettronici, software incorporato o sistemi di produzione automatizzati\n\n•\nForte esperienza di programmazione LabVIEW\n\n•\nConoscenza dei sistemi industriali e delle apparecchiature di misura\n\n•\nEsperienza con automazione PLC\n\n•\nInglese fluido, forti capacità di comunicazione e fiducia che lavorano con diverse culture e gruppi di stakeholder\n\n•\nApproccio strutturato e orientato alla soluzione e capacità di gestire sfide tecniche inattese\n\nPerché unirsi a noi\n\nSi lavorerà su vari progetti di ingegneria che coinvolgono diverse tecnologie e tipi di prodotto, dai dispositivi medici ai prodotti di consumo e soluzioni di comunicazione wireless. I vostri sistemi supporteranno i centri di produzione in tutto il mondo, dando al vostro lavoro un impatto veramente globale.\n\nCome uno dei principali fornitori di servizi per l’udito con sede in Svizzera, ci impegniamo a costruire una cultura inclusiva. Vogliamo creare un ambiente in cui è possibile bilanciare una carriera di successo con i vostri impegni e interessi al di fuori del lavoro, attraverso il nostro modello di lavoro ibrido flessibile. #LI-NB1\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "en": "Murten, Switzerland (hybrid)\n\nThis role combines software development, automation, and hands-on engineering in an international manufacturing environment. As part of the Manufacturing Engineering team, you will develop equipment, test systems and software used to manufacture and test innovative hearing, communication and consumer products worldwide.\n\nYour responsibilities\n\n•\nDevelop manufacturing and test equipment for new products, covering hardware, software and system integration\n\n•\nCreate test and configuration sequences using LabVIEW\n\n•\nDevelop software interfaces for measurement equipment\n\n•\nIntegrate electronic, mechanical and software components into complete manufacturing systems\n\n•\nValidate and qualify equipment before installation at production sites\n\n•\nMaintain and modernize existing manufacturing equipment\n\n•\nProvide second-level support to global production teams, both remotely and occasionally on site\n\nYour profile\n\n•\nAt least bachelor’s degree in industrial systems, automation or a related engineering discipline\n\n•\nAround 3 to 5 years of experience in a similar role, ideally involving electronic devices, embedded software or automated manufacturing systems\n\n•\nStrong LabVIEW programming experience\n\n•\nKnowledge of industrial systems and measurement equipment\n\n•\nExperience with PLC automation\n\n•\nFluent English, strong communication skills and confidence working with different cultures and stakeholder groups\n\n•\nStructured, solution-oriented approach and the ability to manage unexpected technical challenges\n\nWhy join us\n\nYou will work on varied engineering projects involving different technologies and product types, from medical devices to consumer products and wireless communication solutions. Your systems will support production centers around the world, giving your work a truly global impact.\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "Murten, Schweiz (Hybrid)\n\nDiese Rolle kombiniert Softwareentwicklung, Automatisierung und praktisches Engineering in einer internationalen Fertigungsumgebung. Als Teil des Manufacturing Engineering Teams entwickeln Sie Geräte, Testsysteme und Software, mit denen innovative Hör-, Kommunikations- und Konsumgüter weltweit hergestellt und getestet werden.\n\nIhre Verantwortung\n\n•\nEntwicklung von Fertigungs- und Testgeräten für neue Produkte, einschließlich Hardware, Software und Systemintegration\n\n•\nTest- und Konfigurationssequenzen mit LabVIEW erstellen\n\n•\nSoftware-Schnittstellen für Messgeräte entwickeln\n\n•\nIntegrieren Sie elektronische, mechanische und Softwarekomponenten in komplette Fertigungssysteme\n\n•\nValidierung und Qualifizierung der Ausrüstung vor dem Einbau in Produktionsstätten\n\n•\nWartung und Modernisierung bestehender Fertigungsanlagen\n\n•\nBereitstellung von Second-Level-Support für globale Produktionsteams, sowohl remote als auch gelegentlich vor Ort\n\nDein Profil\n\n•\nMindestens Bachelor-Abschluss in Industriesystemen, Automatisierung oder einer verwandten Ingenieurdisziplin\n\n•\nRund 3 bis 5 Jahre Erfahrung in einer ähnlichen Rolle, idealerweise mit elektronischen Geräten, eingebetteter Software oder automatisierten Fertigungssystemen\n\n•\nStarke LabVIEW Programmiererfahrung\n\n•\nKenntnisse in industriellen Systemen und Messgeräten\n\n•\nErfahrung mit SPS-Automatisierung\n\n•\nFließendes Englisch, starke Kommunikationsfähigkeiten und Selbstvertrauen bei der Arbeit mit verschiedenen Kulturen und Stakeholdergruppen\n\n•\nStrukturierter, lösungsorientierter Ansatz und die Fähigkeit, unerwartete technische Herausforderungen zu bewältigen\n\nWarum kommen Sie zu uns\n\nSie werden an verschiedenen Ingenieurprojekten mit verschiedenen Technologien und Produkttypen arbeiten, von medizinischen Geräten bis hin zu Konsumgütern und drahtlosen Kommunikationslösungen. Ihre Systeme unterstützen Produktionszentren auf der ganzen Welt und verleihen Ihrer Arbeit eine wirklich globale Wirkung.\n\nAls einer der weltweit führenden Hörgeräteanbieter mit Hauptsitz in der Schweiz setzen wir uns für den Aufbau einer inklusiven Kultur ein. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen außerhalb der Arbeit durch unser flexibles hybrides Arbeitsmodell in Einklang bringen können. #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
+        "fr": "Murten, Suisse (hybride)\n\nCe rôle combine le développement logiciel, l'automatisation et l'ingénierie pratique dans un environnement de fabrication international. Dans le cadre de l'équipe Manufacturing Engineering, vous développerez des équipements, des systèmes d'essai et des logiciels utilisés pour fabriquer et tester des produits auditifs, de communication et de consommation innovants dans le monde entier.\n\nVos responsabilités\n\n•\nDévelopper des équipements de fabrication et d'essai pour les nouveaux produits, couvrant le matériel, les logiciels et l'intégration du système\n\n•\nCréer des séquences de test et de configuration en utilisant LabVIEW\n\n•\nDévelopper des interfaces logicielles pour l'équipement de mesure\n\n•\nIntégrer les composants électroniques, mécaniques et logiciels dans des systèmes de fabrication complets\n\n•\nValider et qualifier l'équipement avant son installation sur les sites de production\n\n•\nEntretien et modernisation du matériel de fabrication existant\n\n•\nFournir un appui de deuxième niveau aux équipes de production mondiales, à distance et occasionnellement sur place\n\nVotre profil\n\n•\nAu moins baccalauréat en systèmes industriels, en automatisation ou dans une discipline d'ingénierie connexe\n\n•\nEnviron 3 à 5 ans d'expérience dans un rôle similaire, idéalement impliquant des appareils électroniques, des logiciels intégrés ou des systèmes de fabrication automatisés\n\n•\nForte expérience de programmation LabVIEW\n\n•\nConnaissance des systèmes industriels et des équipements de mesure\n\n•\nExpérience avec l'automatisation PLC\n\n•\nAnglais fluide, compétences en communication et confiance en travaillant avec différentes cultures et groupes d'intervenants\n\n•\nUne approche structurée et axée sur la solution et la capacité de gérer les défis techniques inattendus\n\nPourquoi nous rejoindre\n\nVous travaillerez sur divers projets d'ingénierie impliquant différents types de technologies et de produits, des appareils médicaux aux produits de consommation et aux solutions de communication sans fil. Vos systèmes soutiendront les centres de production du monde entier, donnant à votre travail un impact véritablement mondial.\n\nEn tant que l'un des principaux fournisseurs de soins auditifs au monde ayant son siège en Suisse, nous sommes engagés à bâtir une culture inclusive. Nous voulons créer un environnement où vous pouvez équilibrer une carrière réussie avec vos engagements et vos intérêts en dehors du travail, grâce à notre modèle de travail hybride flexible. #LI-NB1\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
       },
       "location": "Murten, Switzerland",
       "canton": "FR",
       "url": "https://jobs.sonova.com/job/Murten-Manufacturing-System-&-Software-Development-Engineer-%28mfd%29/1441934833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:09:05.057Z",
+      "crawledAt": "2026-09-29T09:10:09.907Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1488,9 +1495,22 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1441934833/?locale=en_US",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-28T21:09:05.057Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
+        ],
+        "de": [
+          "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
+        ],
+        "fr": [
+          "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
+        ]
       },
+      "previousSlugs": [
+        "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
+      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1505,7 +1525,7 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-28T21:09:05.057Z"
+      "needsRetranslation": true
     }
   ]
 }

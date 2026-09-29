@@ -133,7 +133,62 @@ export function isSuccessFactorsWidgetText(value) {
  */
 export function sanitizeSuccessFactorsField(value) {
   if (typeof value !== 'string') return '';
-  return isSuccessFactorsWidgetText(value) ? '' : value;
+  if (!isSuccessFactorsWidgetText(value)) return value;
+  // An unrendered career-site token INSIDE a posting body is scaffolding, not
+  // chrome: the body around it is still the vacancy. Wiping the whole field
+  // for it replaced the full French apprenticeship postings of Schindler's
+  // SBB_AS tenant ("… nous t'offrons une: [[Title]] à Le Mont-sur-Lausanne …")
+  // with the parser's generic German company blurb (audit run 36528331656,
+  // 2 of 99 Schindler rows). A title-sized value keeps the old verdict — a
+  // title that IS a token has nothing left to keep — and a body that still
+  // matches a real widget pattern once the token is gone is still wiped.
+  if (!isSuccessFactorsBodyText(value)) return '';
+  const resolved = resolveSuccessFactorsTemplateTokens(value);
+  return isSuccessFactorsWidgetText(resolved) ? '' : resolved;
+}
+
+/**
+ * Unrendered j2w career-site tokens (`[[Title]]`, `[[Titel]]`, occasionally
+ * with a missing closing bracket). Same shape as the token entry of
+ * `SF_J2W_WIDGET_PATTERNS`, global so every occurrence is replaced.
+ */
+const SF_J2W_TEMPLATE_TOKEN_RE = /\[\[\s*([^\]]{1,40}?)\s*\]?\]/g;
+const SF_J2W_TITLE_TOKEN_NAMES = new Set(['title', 'titel', 'titre', 'titolo', 'jobtitle']);
+
+/**
+ * Posting-body sized text: several lines, or longer than any posting title.
+ * Titles in the live corpus stay well under 200 characters on one line.
+ *
+ * @param {string} value
+ * @returns {boolean}
+ */
+function isSuccessFactorsBodyText(value) {
+  const text = value.trim();
+  return /\n/.test(text) || text.length > 240;
+}
+
+/**
+ * Replace unrendered `[[Title]]`-style tokens with the value the career site
+ * would have rendered. A title token becomes `title` when the caller knows it
+ * (the listing row carries the authoritative one); any other token, or a
+ * title token without a known title, is dropped. Whitespace left behind is
+ * collapsed without touching line structure.
+ *
+ * @param {unknown} value
+ * @param {{ title?: string }} [options]
+ * @returns {string}
+ */
+export function resolveSuccessFactorsTemplateTokens(value, { title = '' } = {}) {
+  if (typeof value !== 'string') return '';
+  const safeTitle = typeof title === 'string' && title.trim() && !isSuccessFactorsWidgetText(title)
+    ? title.trim()
+    : '';
+  return value
+    .replace(SF_J2W_TEMPLATE_TOKEN_RE, (_token, name) => (
+      SF_J2W_TITLE_TOKEN_NAMES.has(String(name).trim().toLowerCase()) ? safeTitle : ''
+    ))
+    .replace(/[ \t]{2,}/g, ' ')
+    .replace(/[ \t]+([,.;:])/g, '$1');
 }
 
 /**

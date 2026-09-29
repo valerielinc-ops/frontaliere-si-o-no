@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-life",
-  "assembledAt": "2026-09-29T05:49:12.159Z",
+  "assembledAt": "2026-09-29T11:14:12.183Z",
   "jobs": [
     {
       "id": "swiss-life-ad4d3ef352d1",
@@ -9,7 +9,7 @@
         "it": "berater-previdenza-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "en": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
         "de": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "fr": "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern"
+        "fr": "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -33,7 +33,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Berater-Vorsorge--w-m-d----Quereinsteigende-willkommen_R07356",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:23:01.841Z",
+      "crawledAt": "2026-09-29T09:26:08.152Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -55,7 +55,7 @@
       "hiringOrganization": "Swiss Life AG",
       "previousSlugs": [
         "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
+        "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63,7 +63,7 @@
         ],
         "fr": [
           "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-          "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
+          "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern"
         ]
       },
       "needsRetranslation": true,
@@ -113,7 +113,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Buchs-SG/Sales-Support--w-m-d--40----60--Generalagentur-Glarus-Rheintal_R10449-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:23:01.168Z",
+      "crawledAt": "2026-09-29T09:26:07.468Z",
       "addressLocality": "Buchs SG",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -157,8 +157,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-1018a191bf7b",
@@ -174,7 +173,7 @@
       "companyDomain": "swisslife.ch",
       "title": "Consulente immobiliare (f/m/d) - Agenzia generale Svizzera italiana (Lugano)",
       "titleByLocale": {
-        "it": "Consulente immobiliare (f/m/d) - Agenzia generale Svizzera italiana (Lugano)",
+        "it": "Consulente immobiliare (m/f/d) - Agenzia generale Svizzera italiana (Lugano)",
         "en": "Consulente immobiliare (f/m/d) - Agenzia generale Svizzera italiana (Lugano)",
         "de": "Konsulente immobiliare (m/w/d) - Agenzia generale Svizzera italiana (Lugano)",
         "fr": "Consulente immobiliare (h/f/d) - Agence générale Suisse italienne (Lugano)"
@@ -191,7 +190,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lugano/Consulente-immobiliare-m-f--Agenzia-generale-Svizzera-italiana--Lugano-_R00096",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:23:00.536Z",
+      "crawledAt": "2026-09-29T09:26:06.742Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "Piazza Riforma 1",
@@ -269,7 +268,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Glarus-Rheintal/Berater-Immobilien-m-w--Generalagentur-Glarus-Rheintal_R00120",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:59.526Z",
+      "crawledAt": "2026-09-29T09:26:05.632Z",
       "addressLocality": "Buchs SG",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -300,8 +299,8 @@
           "immobilienberater-w-m-d-generalagentur-glarus-rheintal-swiss-life-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:01:40.464Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:01:40.464Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -347,7 +346,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Bern-Ost_R08751",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:58.866Z",
+      "crawledAt": "2026-09-29T09:26:04.953Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -394,8 +393,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-2f29929f10fd",
@@ -428,7 +426,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Bern-Ost_R08750",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:57.985Z",
+      "crawledAt": "2026-09-29T09:26:04.211Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -459,8 +457,8 @@
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-ost"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:01:39.152Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:01:39.152Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -506,7 +504,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Thun/Vorsorge--und-Finanzberatende---w-m-d----Quereinsteigende-willkommen---Generalagentur-Thun_R08842",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:57.316Z",
+      "crawledAt": "2026-09-29T09:26:03.492Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -537,8 +535,8 @@
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thun-swiss"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:01:38.475Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:01:38.475Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -584,7 +582,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Baden/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Baden_R09258",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:56.679Z",
+      "crawledAt": "2026-09-29T09:26:02.767Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -631,8 +629,7 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-bbbcf9d2f3fb",
@@ -665,7 +662,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Baden/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Baden_R09256",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:56.025Z",
+      "crawledAt": "2026-09-29T09:26:02.001Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -712,8 +709,7 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-f915a4f7f6f6",
@@ -746,7 +742,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/BielBienne/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Biel-Seeland_R09369",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:55.062Z",
+      "crawledAt": "2026-09-29T09:26:01.222Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -824,7 +820,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/BielBienne/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Biel-Seeland_R09379",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:54.428Z",
+      "crawledAt": "2026-09-29T09:26:00.500Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -902,7 +898,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/BielBienne/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Pensionsplanungen---Generalagentur-Biel-Seeland_R09380",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:53.736Z",
+      "crawledAt": "2026-09-29T09:25:59.742Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -949,7 +945,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-8d16b972b4a6",
@@ -982,7 +979,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/BielBienne/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Biel-Seeland_R09388",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:52.966Z",
+      "crawledAt": "2026-09-29T09:25:58.974Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1029,8 +1026,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-a4559353b2c9",
@@ -1063,7 +1059,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Solothurn-Oberaargau_R09071",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:52.081Z",
+      "crawledAt": "2026-09-29T09:25:58.254Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Hauptgasse 72",
@@ -1094,8 +1090,8 @@
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:01:33.553Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:01:33.553Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1141,7 +1137,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Teamleiter-Verkauf--w-m-d--Generalagentur-Solothurn-Oberaargau_R09664",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:51.404Z",
+      "crawledAt": "2026-09-29T09:25:57.478Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Hauptgasse 72",
@@ -1163,14 +1159,12 @@
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
       "previousSlugs": [
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
-        "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
-        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bhp163"
+        "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
-          "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
-          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bhp163"
+          "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2"
         ],
         "en": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
@@ -1193,8 +1187,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-60f11dc74a6b",
@@ -1227,7 +1220,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Bern-West_R05165",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:50.581Z",
+      "crawledAt": "2026-09-29T09:25:56.797Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -1274,8 +1267,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-63e7653a3513",
@@ -1308,7 +1300,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Zrich-Binz_R07044",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:49.943Z",
+      "crawledAt": "2026-09-29T09:25:56.078Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -1355,8 +1347,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-82a26860db74",
@@ -1389,7 +1380,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Bern-West_R10027",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:49.274Z",
+      "crawledAt": "2026-09-29T09:25:55.397Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -1420,8 +1411,8 @@
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-west"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:01:30.873Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:01:30.873Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1467,7 +1458,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Immobilienberater--w-m-d----Generalagentur-Bern-Ost_R11687",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:48.594Z",
+      "crawledAt": "2026-09-29T09:25:54.700Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -1545,7 +1536,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Basel/Immobilienberater---w-m-d-----Generalagentur-Basel_R11919",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:47.926Z",
+      "crawledAt": "2026-09-29T09:25:54.023Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Marktplatz 9",
@@ -1623,7 +1614,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Immobilienberater--w-m-d----Generalagentur-Baden_R11964",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:46.937Z",
+      "crawledAt": "2026-09-29T09:25:52.877Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -1701,7 +1692,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Thun/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Thun-Oberland_R07198",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:46.260Z",
+      "crawledAt": "2026-09-29T09:25:52.106Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1748,8 +1739,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-18679273ee70",
@@ -1782,7 +1772,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Basel/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Basel_R07472",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:45.612Z",
+      "crawledAt": "2026-09-29T09:25:51.436Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Marktplatz 9",
@@ -1862,7 +1852,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Baden/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Baden_R10388",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:44.981Z",
+      "crawledAt": "2026-09-29T09:25:50.704Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1937,7 +1927,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Lausanne_R09222",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:44.225Z",
+      "crawledAt": "2026-09-29T09:25:49.865Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -2015,7 +2005,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Lausanne_R09221",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:43.591Z",
+      "crawledAt": "2026-09-29T09:25:49.150Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -2096,7 +2086,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Genve-Rive-Droite_R08975-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:42.903Z",
+      "crawledAt": "2026-09-29T09:25:48.257Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -2176,7 +2166,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-spcialisation-en-prvoyance-sant---Agence-gnrale-Genve-Rive-Gauche_R09474",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:41.501Z",
+      "crawledAt": "2026-09-29T09:25:46.830Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -2257,7 +2247,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-en-immobilier--f-h-d----Agence-gnrale-Genve-Rive-Droite_R11652",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:39.845Z",
+      "crawledAt": "2026-09-29T09:25:44.899Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -2277,8 +2267,8 @@
       "requirementsByLocale": {},
       "jobReqId": "R11652",
       "hiringOrganization": "Swiss Life AG Genève Rive Droite",
-      "firstSeenAt": "2026-09-19T23:01:20.546Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:01:20.546Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -2324,7 +2314,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Uster/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Uster_R09389",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:39.185Z",
+      "crawledAt": "2026-09-29T09:25:44.201Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2404,7 +2394,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Uster/Immobilienberater--w-m-d----Generalagentur-Uster_R11848",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:38.524Z",
+      "crawledAt": "2026-09-29T09:25:43.526Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2482,7 +2472,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schaffhausen/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Schaffhausen_R09259",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:37.890Z",
+      "crawledAt": "2026-09-29T09:25:42.862Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Vordergasse 17",
@@ -2529,8 +2519,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-9ec8361cf3e2",
@@ -2563,7 +2552,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schaffhausen/Immobilienberater--w-m-d-----Generalagentur-Schaffhausen--Gebiet-Blach-_R09266",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:37.239Z",
+      "crawledAt": "2026-09-29T09:25:42.121Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Vordergasse 17",
@@ -2641,7 +2630,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Winterthur/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Winterthur_R09263-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:36.586Z",
+      "crawledAt": "2026-09-29T09:25:41.404Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Stadthausstrasse 4a",
@@ -2721,7 +2710,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schaffhausen/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Schaffhausen_R07403-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:34.638Z",
+      "crawledAt": "2026-09-29T09:25:38.902Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Vordergasse 17",
@@ -2796,7 +2785,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Winterthur/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Winterthur_R10111",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:33.973Z",
+      "crawledAt": "2026-09-29T09:25:38.152Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Stadthausstrasse 4a",
@@ -2871,7 +2860,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Winterthur/Immobilienberater---w-m-d-----Generalagentur-Winterthur_R11693",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:33.311Z",
+      "crawledAt": "2026-09-29T09:25:37.471Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Stadthausstrasse 4a",
@@ -2949,7 +2938,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schaffhausen/Sales-Support--w-m-d----100--Generalagentur-Schaffhausen_R11794",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:32.678Z",
+      "crawledAt": "2026-09-29T09:25:36.755Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Vordergasse 17",
@@ -2993,8 +2982,7 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-0127fae00e58",
@@ -3027,7 +3015,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Wil-SG/Sales-Support--w-m-d---50----70---Generalagentur-Wil_R12127",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:31.655Z",
+      "crawledAt": "2026-09-29T09:25:35.685Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -3074,8 +3062,7 @@
           "maxValue": 73500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-8879644d2439",
@@ -3108,7 +3095,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Winterthur/Teamleiter-Verkauf--w-m-d--Generalagentur-Winterthur_R09080-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:30.982Z",
+      "crawledAt": "2026-09-29T09:25:34.947Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Stadthausstrasse 4a",
@@ -3188,7 +3175,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Uster/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur--Uster_R10095-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:30.336Z",
+      "crawledAt": "2026-09-29T09:25:34.231Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -3235,8 +3222,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-011f1a8974f2",
@@ -3269,7 +3255,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-spcialisation-en-thmes-de-placement----Agence-gnrale-Canton-de-Fribourg_R08974",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:29.674Z",
+      "crawledAt": "2026-09-29T09:25:33.543Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -3347,7 +3333,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--Spcialisation-en-planifications-de-la-retraite------Agence-gnrale-Canton-de-Fribourg_R08973",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:29.014Z",
+      "crawledAt": "2026-09-29T09:25:32.833Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -3425,7 +3411,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-en-immobilier--f-h-d----Agence-gnrale-Lausanne_R11561",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:27.673Z",
+      "crawledAt": "2026-09-29T09:25:31.171Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -3445,8 +3431,8 @@
       "requirementsByLocale": {},
       "jobReqId": "R11561",
       "hiringOrganization": "Swiss Life AG Lausanne",
-      "firstSeenAt": "2026-09-19T23:01:06.142Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:01:06.142Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -3492,7 +3478,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Canton-de-Fribourg_R08968",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:27.030Z",
+      "crawledAt": "2026-09-29T09:25:30.444Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -3572,7 +3558,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-en-immobilier--f-h-d----Agence-gnrale-Canton-de-Fribourg_R11695",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:26.371Z",
+      "crawledAt": "2026-09-29T09:25:29.664Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -3592,8 +3578,8 @@
       "requirementsByLocale": {},
       "jobReqId": "R11695",
       "hiringOrganization": "Swiss Life AG Canton de Fribourg",
-      "firstSeenAt": "2026-09-19T23:01:04.715Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:01:04.715Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -3639,7 +3625,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Morges/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Morges-La-Cte_R09012",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:25.724Z",
+      "crawledAt": "2026-09-29T09:25:28.843Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3708,7 +3694,7 @@
         "it": "Consulente Immobiliare (f/h/d) – Agenzia Generale Sion-Valais romand",
         "en": "Conseiller en immobilier (f/h/d) – Agence générale Sion-Valais romand",
         "de": "Immobilienberater (f/h/d) – Generalagentur Sion-Valais romand",
-        "fr": "Conseiller en immobilier (f/h/d) – Agence générale Sion-Valais romand"
+        "fr": "Conseiller en immobilier (h/f/d) – Agence générale Sion-Valais romand"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n\n• Acquisition de mandats de vente\n\n• Commercialisation de biens immobiliers mandatés\n\n• Evaluation de biens immobiliers\n\n• Représentation de Swiss Life Immopulse dans le secteur immobilier\n\n• Transmission d’affaires de prévoyance et d’hypothèques (vente croisée)\n\nVos atouts\n\n• Peut justifier de plusieurs années d’expérience (deux ans minimum) en tant que courtier/courtière en immobilier\n\n• Très bonnes connaissances du français, autres langues nationales un atout\n\n• Excellentes capacités de communication, très bonnes compétences de vente et orientation systématique vers la clientèle\n\n• Compétence sociale élevée, empathie et capacité à travailler en équipe\n\n• Esprit d’entreprise et mode de travail autonome, axé sur les objectifs et la performance\n\n• Résistance au stress, contact facile et aisance naturelle\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
       "descriptionByLocale": {
@@ -3722,7 +3708,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-en-immobilier--f-h-d-----Agence-gnrale-Sion-Valais-romand--Rgion-Sion---Sierre-_R11696",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:22.704Z",
+      "crawledAt": "2026-09-29T09:25:25.649Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Rue du Grand-Pont 12",
@@ -3794,7 +3780,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:38.624Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -3826,7 +3811,7 @@
         "it": "Conseiller/conseillre in previdenza e in finanza (f/h/d) in un contesto di pensionamento - Agenzia generale Sion-Valais romand - regione Val de Bagnes",
         "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) dans le cadre d’un départ à la retraite – Agence générale Sion-Valais romand – région Val de Bagnes",
         "de": "Berater/in im Bereich Vorsorge und Finanzen (f/h/d) im Rahmen einer Pensionierung – Generalagentur Sion-Valais romand – Region Val de Bagnes",
-        "fr": "Conseiller/conseillère en prévoyance et en finance (f/h/d) dans le cadre d’un départ à la retraite – Agence générale Sion-Valais romand – région Val de Bagnes"
+        "fr": "Conseiller/conseiller en prévoyance et en finance (h/f/d) dans le cadre d'un départ à la retraite – Agence générale Sion-Valais romand – région Val de Bagnes"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
       "descriptionByLocale": {
@@ -3840,7 +3825,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--dans-le-cadre-du-rglement-de-la-succession---Agence-gnrale-Sion-Valais-romand---rgion-Val-de-Bagnes_R09487",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:22.064Z",
+      "crawledAt": "2026-09-29T09:25:24.650Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Rue du Grand-Pont 12",
@@ -3957,7 +3942,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--dans-le-cadre-du-rglement-de-la-succession---Agence-gnrale-Sion-Valais-romand---rgion-Val-d-Anniviers_R09486",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:22:21.338Z",
+      "crawledAt": "2026-09-29T09:25:23.853Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Rue du Grand-Pont 12",
@@ -4024,6 +4009,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:37.334Z",
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4055,7 +4041,7 @@
         "it": "Conseiller/conseillère en prévoyance et en Finanza (f/m/d) avec expérience professionnelle – Agence générale Sion-Valais romand",
         "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) avec expérience professionnelle – Agence générale Sion-Valais romand",
         "de": "Berater/in für Vorsorge und Finanzen (f/h/d) mit Berufserfahrung",
-        "fr": "Conseiller/conseillère en prévoyance et en finance (f/h/d) avec expérience professionnelle – Agence générale Sion-Valais romand"
+        "fr": "Conseiller/conseil en prévoyance et en finance (h/f/d) avec expérience professionnelle – Agence générale Sion-Valais romand"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n • Suivi et entretien des relations avec la clientèle en place\n • Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n • Réalisation de conseils complets en prévoyance et en finance\n • Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n • Représentation de notre entreprise dans le secteur de vente\n • Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n • Réussite de l’examen spécifique à la branche (intermédiaire d’assurance AFA, conseiller/conseillère en assurance et prévoyance diplômé(e) IAF) ou niveau de formation plus élevé\n • Expérience avérée de vente dans le secteur de l’assurance et de la finance\n • Sens marqué de la vente et du conseil\n • Grande motivation, approche axée sur les objectifs et la performance\n • Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
       "descriptionByLocale": {
@@ -4069,7 +4055,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Sion-Valais-romand_R09485",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:20.652Z",
+      "crawledAt": "2026-09-29T09:25:23.089Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Rue du Grand-Pont 12",
@@ -4174,7 +4160,7 @@
       "titleByLocale": {
         "it": "Consulente Immobiliare (m/f/d) – Agenzia Generale Visp-Oberwallis",
         "en": "Immobilienberater (w/m/d) – Generalagentur Visp-Oberwallis",
-        "de": "Immobilienberater (w/m/d) – Generalagentur Visp-Oberwallis",
+        "de": "Immobilienberater (m/w/d) – Generalagentur Visp-Oberwallis",
         "fr": "Conseiller immobilier (h/f) – Agence générale Visp-Oberwallis"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nIhr Verantwortungsbereich\n\n• Akquisition von Verkaufsmandaten\n\n• Vermarktung von mandatierten Immobilien\n\n• Bewertung von Immobilien\n\n• Repräsentation von Swiss Life Immopulse im Bereich Immobilien\n\n• Vermittlung von Vorsorgegeschäften und Hypotheken (Cross Selling)\n\nIhre Stärken\n\n• Mehrjährige (mind. 2 Jahre), nachweisbare Erfahrung als Immobilienmakler\n\n• Sehr gute Deutschkenntnisse, weitere Landessprache(n) von Vorteil\n\n• Hervorragende Kommunikationsfähigkeit, ausgeprägte Verkaufskompetenz und konsequente Kundenorientierung\n\n• Hohe Sozialkompetenz, Empathie und Teamfähigkeit\n\n• Unternehmerisches Denken sowie eine selbstständige, ziel- und leistungsorientierte Arbeitsweise\n\n• Belastbarkeit, Kontaktfreude und souveränes Auftreten\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
@@ -4189,7 +4175,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Immobilienberater--w-m-d----Generalagentur-Visp-Oberwallis_R11690",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:19.949Z",
+      "crawledAt": "2026-09-29T09:25:22.393Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -4253,7 +4239,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:40.576Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -4299,7 +4284,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Visp-Oberwallis_R09488",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:19.268Z",
+      "crawledAt": "2026-09-29T09:25:21.714Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -4371,6 +4356,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:39.938Z",
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4401,7 +4387,7 @@
       "titleByLocale": {
         "it": "previdenza- e Finanzberatende (w/m/d) – Quereinsteigende willkommen –agenzia generale Visp-Oberwallis",
         "en": "Vorsorge- und Finanzberatende (w/m/d) – Quereinsteigende willkommen –Generalagentur Visp-Oberwallis",
-        "de": "Vorsorge- und Finanzberatende (w/m/d) – Quereinsteigende willkommen –Generalagentur Visp-Oberwallis",
+        "de": "Vorsorge- und Finanzberatende (m/w/d) — Quereinsteigende willkommen — Generalagentur Visp-Oberwallis",
         "fr": "Conseiller en prévoyance et en finances (w/m/d) – Accueil des professionnels en transition – Agence générale Visp-Oberwallis"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nIhr Verantwortungsbereich\n • · Betreuung und Pflege bestehender Beziehungen zu Kundinnen und Kunden\n • · Akquisition neuer Kundschaft durch systematische Marktbearbeitung\n • · Durchführung von umfassenden Vorsorge- und Finanzberatungen\n • · Erarbeitung und Verkauf von individuellen, massgeschneiderten Lösungen in den Bereichen Vorsorge und Vermögensaufbau\n • · Repräsentation unseres Unternehmens im Verkaufsgebiet\n • · Vermittlung von Geschäften an unsere Kooperationspartner\n\nIhre Stärken\n • · Abgeschlossene Berufsausbildung\n • · Ausgeprägtes Verkaufs- und Beratungsflair\n • · Hohe Einsatzbereitschaft, ziel- und leistungsorientierte Arbeitsweise\n • · Unternehmerisch denkend, belastbar und kontaktfreudig\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
@@ -4416,7 +4402,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen--Generalagentur-Visp-Oberwallis_R08506-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:18.582Z",
+      "crawledAt": "2026-09-29T09:25:20.939Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -4492,7 +4478,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:39.261Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4538,7 +4523,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/St-Gallen/Immobilienberater---w-m-d-----Generalagentur-St-Gallen-Appenzellerland_R11835",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:17.180Z",
+      "crawledAt": "2026-09-29T09:25:19.386Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Gallusstrasse 14",
@@ -4613,7 +4598,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/St-Gallen/Sales-Support-40----100--Generalagentur-St-Gallen-Appenzellerland_R11165",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:16.499Z",
+      "crawledAt": "2026-09-29T09:25:18.702Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Gallusstrasse 14",
@@ -4644,8 +4629,8 @@
           "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:52.660Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:00:52.660Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -4691,7 +4676,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/St-Gallen/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Pensionsplanungen---Generalagentur-St-Gallen-Appenzellerland_R09201",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:15.383Z",
+      "crawledAt": "2026-09-29T09:25:17.480Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Gallusstrasse 14",
@@ -4738,7 +4723,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1cc20debfef3",
@@ -4771,7 +4757,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/St-Gallen/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-St-Gallen-Appenzellerland_R08753",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:14.711Z",
+      "crawledAt": "2026-09-29T09:25:16.775Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Gallusstrasse 14",
@@ -4846,7 +4832,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/St-Gallen/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-St-Gallen-Appenzellerland_R08752",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:13.993Z",
+      "crawledAt": "2026-09-29T09:25:16.067Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Gallusstrasse 14",
@@ -4893,7 +4879,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a8afa8be18c1",
@@ -4926,7 +4913,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Thurgau/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Thurgau_R09621",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:13.328Z",
+      "crawledAt": "2026-09-29T09:25:15.049Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "",
@@ -5001,7 +4988,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Thurgau/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Thurgau_R09622",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:12.642Z",
+      "crawledAt": "2026-09-29T09:25:14.305Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "",
@@ -5048,8 +5035,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-27cf2da5d869",
@@ -5082,7 +5068,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Thurgau/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Hypotheken-Finanzierungsexperte---Generalagentur-Thurgau_R09623",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:11.992Z",
+      "crawledAt": "2026-09-29T09:25:13.563Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "",
@@ -5125,8 +5111,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-afd5953d17cd",
@@ -5159,7 +5144,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Sales-Support--w-m-d--40----Generalagentur-Zrich-Limmat_R09763",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:11.227Z",
+      "crawledAt": "2026-09-29T09:25:12.826Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -5206,8 +5191,7 @@
           "maxValue": 51000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-d58931049c1f",
@@ -5240,7 +5224,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Zrich-Limmat_R09414",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:10.559Z",
+      "crawledAt": "2026-09-29T09:25:12.140Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -5315,7 +5299,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Anlagethemen---Generalagentur-Zrich-Limmat_R09420",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:09.913Z",
+      "crawledAt": "2026-09-29T09:25:11.425Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -5390,7 +5374,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Zrich-Limmat_R09418",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:09.185Z",
+      "crawledAt": "2026-09-29T09:25:10.687Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -5437,8 +5421,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-099bcd7e12f4",
@@ -5471,7 +5454,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Zrich-Limmat_R09421",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:08.536Z",
+      "crawledAt": "2026-09-29T09:25:09.975Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -5518,8 +5501,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-a886a3d317b4",
@@ -5552,7 +5534,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Meilen/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Zrich-Pfannenstiel_R09262",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:07.882Z",
+      "crawledAt": "2026-09-29T09:25:09.172Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -5632,7 +5614,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Meilen/Vorsorge--und-Finanzberatende--w-m-d-----mit-Erfahrung---Generalagentur-Zrich-Pfannenstiel_R09261",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:07.208Z",
+      "crawledAt": "2026-09-29T09:25:08.476Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -5707,7 +5689,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Meilen/Vorsorge--und-Finanzberatende--m-w-d----Quereinsteigende-willkommen---Generalagentur-Zrich-Pfannenstiel_R11309",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:06.535Z",
+      "crawledAt": "2026-09-29T09:25:07.580Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -5785,7 +5767,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Aarau/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Aarau_R08737",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:05.842Z",
+      "crawledAt": "2026-09-29T09:25:06.798Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Rathausgasse 1",
@@ -5865,7 +5847,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Kriens/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Luzern-Stans---Gebiet-Sarnen_R09189-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:05.212Z",
+      "crawledAt": "2026-09-29T09:25:06.103Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -5945,7 +5927,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schwyz/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Schwyz-Urnerland_R09190",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:04.562Z",
+      "crawledAt": "2026-09-29T09:25:05.356Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Hauptplatz 1",
@@ -6025,7 +6007,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Steinhausen/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Zug_R09264",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:03.655Z",
+      "crawledAt": "2026-09-29T09:25:04.617Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -6105,7 +6087,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schwyz/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Hypotheken-Finanzierungsexperte---Generalagentur-Schwyz-Urnerland_R09413",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:02.974Z",
+      "crawledAt": "2026-09-29T09:25:03.940Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Hauptplatz 1",
@@ -6181,7 +6163,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Steinhausen/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Zug_R09417",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:02.288Z",
+      "crawledAt": "2026-09-29T09:25:03.215Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -6228,8 +6210,7 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-78cbf83a135e",
@@ -6262,7 +6243,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schwyz/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Schwyz-Urnerland---Region-Innerschwyz_R09415",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:01.567Z",
+      "crawledAt": "2026-09-29T09:25:02.507Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Hauptplatz 1",
@@ -6309,8 +6290,7 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-e558496b28eb",
@@ -6343,7 +6323,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Steinhausen/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Zug_R09416",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:22:00.501Z",
+      "crawledAt": "2026-09-29T09:25:01.771Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -6390,8 +6370,7 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-45194c6f32f7",
@@ -6424,7 +6403,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sursee/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Sursee_R09465",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:59.826Z",
+      "crawledAt": "2026-09-29T09:25:01.019Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -6499,7 +6478,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Kriens/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteiger-willkommen---Generalagentur-Luzern-Stans_R06680",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:59.163Z",
+      "crawledAt": "2026-09-29T09:25:00.325Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -6574,7 +6553,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Aarau/Immobilienberater---w-m-d-----Generalagentur-Aarau_R11692",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:58.103Z",
+      "crawledAt": "2026-09-29T09:24:59.583Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Rathausgasse 1",
@@ -6652,7 +6631,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Horgen/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Zrich-Zimmerberg_R09265",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:57.455Z",
+      "crawledAt": "2026-09-29T09:24:58.927Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -6699,8 +6678,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-311f9d60d7ea",
@@ -6733,7 +6711,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Luzern/Immobilienberater---w-m-d-----Generalagentur-Luzern-Stans_R11686",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:56.805Z",
+      "crawledAt": "2026-09-29T09:24:58.194Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Kornmarkt 3",
@@ -6811,7 +6789,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schwyz/Teamleiter-Verkauf--w-m-d--Generalagentur-Schwyz-Urnerland_R12013",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:56.097Z",
+      "crawledAt": "2026-09-29T09:24:57.444Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Hauptplatz 1",
@@ -6891,7 +6869,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Solothurn-Oberaargau_R12530",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:55.483Z",
+      "crawledAt": "2026-09-29T09:24:56.771Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Hauptgasse 72",
@@ -6938,8 +6916,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-c968f7017dcb",
@@ -6972,7 +6949,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Solothurn-Oberaargau--Gebiet-Langenthal-_R12529",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:54.833Z",
+      "crawledAt": "2026-09-29T09:24:56.050Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Hauptgasse 72",
@@ -7049,7 +7026,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Solothurn-Oberaargau--Gebiet-Olten-_R12528",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:54.143Z",
+      "crawledAt": "2026-09-29T09:24:55.245Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Hauptgasse 72",
@@ -7126,7 +7103,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Aarau/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Aarau_R12559",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:53.197Z",
+      "crawledAt": "2026-09-29T09:24:54.517Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Rathausgasse 1",
@@ -7201,7 +7178,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Aarau/Sales-Support-60--Generalagentur-Aarau_R12557",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:52.547Z",
+      "crawledAt": "2026-09-29T09:24:53.659Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Rathausgasse 1",
@@ -7235,8 +7212,8 @@
           "sales-support-60-generalagentur-aarau-swiss-life-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:28.951Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:00:28.951Z",
       "salaryMin": 44400,
       "salaryMax": 68100,
       "salarySource": "estimated",
@@ -7282,7 +7259,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Teamleiter-Verkauf--w-m-d--Generalagentur-Bern-West_R12680",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:51.295Z",
+      "crawledAt": "2026-09-29T09:24:52.205Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -7329,8 +7306,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-2935f61b3521",
@@ -7346,7 +7322,7 @@
       "companyDomain": "swisslife.ch",
       "title": "Consulente previdenziale e finanziaria/o (f/m/d) – anche senza esperienza nel settore – agenzia generale Svizzera italiana",
       "titleByLocale": {
-        "it": "Consulente previdenziale e finanziaria/o (f/m/d) – anche senza esperienza nel settore – agenzia generale Svizzera italiana",
+        "it": "Consulente previdenziale e finanziaria/o (m/f/d) – anche senza esperienza nel settore – agenzia generale Svizzera italiana",
         "en": "Consulente previdenziale e finanziaria/o (f/m/d) – anche senza esperienza nel settore – agenzia generale Svizzera italiana",
         "de": "Consulente previdenziale e finanziaria/o (m/w/d) — anche senza esperienza nel settore — agenzia generale Svizzera italiana",
         "fr": "Consulente previdenziale e finanziaria/o (h/f/d) – anche senza esperienza nel setore – agenzia generale Svizzera italiana"
@@ -7363,7 +7339,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lugano/Consulente-previdenziale-e-finanziaria-o--f-m-d----anche-senza-esperienza-nel-settore---agenzia-generale-Svizzera-italiana_R06653",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:49.931Z",
+      "crawledAt": "2026-09-29T09:24:50.342Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "Piazza Riforma 1",
@@ -7384,7 +7360,6 @@
       "jobReqId": "R06653",
       "hiringOrganization": "Swiss Life AG Svizzera italiana",
       "firstSeenAt": "2026-09-19T23:00:25.656Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -7430,7 +7405,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Baden/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Baden_R12793",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:49.258Z",
+      "crawledAt": "2026-09-29T09:24:49.616Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -7477,8 +7452,7 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-62ec52052cf9",
@@ -7511,7 +7485,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/XMLNAME--Senior--Wealth-Planner---Relationship-Manager--w-m-d-_R12540",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:48.277Z",
+      "crawledAt": "2026-09-29T09:24:48.394Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -7578,7 +7552,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Spezialist-Buchhaltung-fr-Pensionskassen-80-100---w-m-d-_R13058",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:47.275Z",
+      "crawledAt": "2026-09-29T09:24:47.260Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -7658,7 +7632,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Winterthur/Mitarbeiter-Sales-Support--w-m-d---40----Generalagentur-Winterthur_R13229",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:46.625Z",
+      "crawledAt": "2026-09-29T09:24:46.190Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Stadthausstrasse 4a",
@@ -7692,8 +7666,8 @@
           "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:21.593Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:00:21.593Z",
       "salaryMin": 33200,
       "salaryMax": 51000,
       "salarySource": "estimated",
@@ -7739,7 +7713,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Weinfelden/Teamleiter-Verkauf--w-m-d--Generalagentur-Thurgau_R13290",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:45.950Z",
+      "crawledAt": "2026-09-29T09:24:45.518Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "",
@@ -7786,8 +7760,7 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swiss-life-9a7ed10ce016",
@@ -7820,7 +7793,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sursee/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Sursee---Gebiet-Malters_R09255",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:45.310Z",
+      "crawledAt": "2026-09-29T09:24:44.794Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -7900,7 +7873,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/AI-System-Engineer--w-m-d--80-100-_R13005-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:44.661Z",
+      "crawledAt": "2026-09-29T09:24:44.071Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -7938,6 +7911,7 @@
         "ai-engineer-w-m-d-80-100-swiss-life-ch"
       ],
       "firstSeenAt": "2026-09-19T23:00:19.595Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -7983,7 +7957,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Mandatsleitung-Pensionskassen--w-m-d--80-100-_R13449",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:43.848Z",
+      "crawledAt": "2026-09-29T09:24:43.365Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -8050,7 +8024,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Immobilienberater-in-Swiss-Life-Immopulse-Deutschschweiz_R00060",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:43.202Z",
+      "crawledAt": "2026-09-29T09:24:42.636Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -8128,7 +8102,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----Deutschschweiz_R08709",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:42.465Z",
+      "crawledAt": "2026-09-29T09:24:41.912Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -8189,7 +8163,7 @@
         "it": "Consulente consulente in previdenza e finanza (f/m/d) – Romandia",
         "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Romandie",
         "de": "Beraterin/Beraterin für Vorsorge und Finanzen (f/m/d) – Romandie",
-        "fr": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Romandie"
+        "fr": "Conseiller/conseil en prévoyance et en finance (h/f/d) – Romandie"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n\n• Suivi et entretien des relations avec la clientèle en place\n\n• Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n\n• Réalisation de conseils complets en prévoyance et en finance\n\n• Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n\n• Représentation de notre entreprise dans le secteur de vente\n\n• Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n\n• Formation professionnelle achevée\n\n• Sens marqué de la vente et du conseil\n\n• Grande motivation, approche axée sur les objectifs et la performance\n\n• Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
       "descriptionByLocale": {
@@ -8203,7 +8177,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Romandie_R08713",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:21:41.794Z",
+      "crawledAt": "2026-09-29T09:24:41.134Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -8276,7 +8250,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:35.812Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -8322,7 +8295,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Pricing-Actuary--80-100---w-m-d-_R13003",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:21:41.109Z",
+      "crawledAt": "2026-09-29T09:24:40.302Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -8342,8 +8315,8 @@
       "requirementsByLocale": {},
       "jobReqId": "R13003",
       "hiringOrganization": "Swiss Life AG",
-      "firstSeenAt": "2026-09-25T14:50:47.585Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:50:47.585Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",

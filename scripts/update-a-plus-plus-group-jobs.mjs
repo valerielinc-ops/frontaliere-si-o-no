@@ -187,7 +187,8 @@ async function buildAplusJob(listing) {
   const canton = inferAplusCanton(rawLocation);
   const postalCode = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? HQ.postalCode : '6900';
   const streetAddress = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? 'Via Molinazzo 4' : '';
-  const localized = buildAplusLocalizedContent(detail);
+  const sourceLang = detectLang(detail.description || listing.teaser || '', 'it');
+  const localized = buildAplusLocalizedContent(detail, sourceLang);
   const canonicalTitle = detail.title;
   const canonicalSlug =
     localized.slugByLocale.en ||
@@ -214,7 +215,7 @@ async function buildAplusJob(listing) {
     category: inferCategory(detail),
     sector: 'Architettura & Design',
     source: 'a-plus-plus-dedicated-crawler',
-    sourceLang: detectLang(detail.description || listing.teaser || '', 'it'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: 'full-time',
     contractType: 'full-time',
