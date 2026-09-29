@@ -6983,6 +6983,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sviluppo-rapido-rete-elettrica.title': 'Stromnetz: grünes Licht für die Beschleunigung der Arbeiten',
     'blog.article.sviluppo-rapido-rete-elettrica.excerpt': 'Das Parlament verabschiedet die Überarbeitung des Gesetzes über elektrische Anlagen, um über 60 % der Höchstspannungsleitungen zu erneuern und das Verfahren zu vereinfachen.',
     'blog.article.sviluppo-rapido-rete-elettrica.imageAlt': 'Hochspannungsmasten in einer Schweizer Landschaft.',
+    'blog.article.voto-iniziativa-neutralita.title': 'Neutralität, die Presse betont die Niederlage der UDC',
+    'blog.article.voto-iniziativa-neutralita.excerpt': 'Über 70% der Stimmberechtigten und alle Kantone lehnten die Neutralitätsinitiative ab. Die Kampagne wurde von Christoph Blocher unterstützt.',
+    'blog.article.voto-iniziativa-neutralita.imageAlt': 'Neutralitatsinitiative in der Schweiz abgelehnt',
 };
 
 export default blogMetaChDe;
