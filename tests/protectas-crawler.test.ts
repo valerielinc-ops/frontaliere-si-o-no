@@ -55,6 +55,22 @@ const SEMANTIC_HTML_DETAIL = `<html><body>
     <div class="value" itemprop="employmentType">Part-time</div>
   </div>
 </body></html>`;
+const SCOPED_SEMANTIC_HTML_DETAIL = `<html><body>
+  <div itemprop="addressLocality">Zurich</div>
+  <div itemscope itemtype="https://schema.org/JobPosting">
+    <h1>Agente di sicurezza ausiliario - Luganese - contratto orario - Ronde &amp; Sorveglianza</h1>
+    <div class="job-description" itemprop="description"><p>${DETAIL_DESCRIPTION}</p></div>
+    <div itemprop="jobLocation" itemscope itemtype="https://schema.org/Place">
+      <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <span itemprop="addressLocality">Bellinzona</span>
+        <meta itemprop="addressRegion" content="Ticino">
+        <meta itemprop="addressCountry" content="CH">
+      </div>
+    </div>
+    <time itemprop="datePosted" datetime="2026-09-01">1 settembre 2026</time>
+    <time itemprop="validThrough" datetime="2026-12-31">31 dicembre 2026</time>
+  </div>
+</body></html>`;
 const LISTING_HTML = `<a href="${DETAIL_URL}">Agente di sicurezza ausiliario</a>
   <a href="https://jobup.ch/offerte/123">Unrelated aggregate result</a>`;
 const ESCAPED_WIDGET_HTML = `<script type="application/json">{"url":"\\/en-ch\\/careers\\/job-offers\\/744000147063419\\/"}</script>`;
@@ -148,6 +164,18 @@ describe('Protectas SA crawler parser', () => {
         publicUrl: DETAIL_URL,
       });
       expect(parsed?.requirements).toContain('Essere in possesso della patente B ed essere automunito.');
+    });
+
+    it('scopes semantic location and prefers machine-readable date attributes', () => {
+      const parsed = parseProtectasJobDetail(SCOPED_SEMANTIC_HTML_DETAIL, DETAIL_URL);
+
+      expect(parsed).toMatchObject({
+        location: 'Bellinzona, Ticino',
+        canton: 'TI',
+        addressLocality: 'Bellinzona',
+        postedAt: '2026-09-01',
+        validThrough: '2026-12-31',
+      });
     });
 
     it('rejects cyber or descriptive security mentions', () => {

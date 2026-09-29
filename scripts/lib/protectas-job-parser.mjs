@@ -169,7 +169,7 @@ function findItemPropElement(source, itemprop, className = '') {
 function extractItemPropText(source, itemprop, className = '') {
   const element = findItemPropElement(source, itemprop, className);
   if (!element) return '';
-  return normalizeSpace(stripHtml(element.innerHtml || element.content));
+  return firstText(element.content, normalizeSpace(stripHtml(element.innerHtml)));
 }
 
 function hasProtectasCounterHint(rawTag) {
@@ -455,12 +455,14 @@ function extractSemanticHtmlRequirements(html = '') {
 }
 
 function extractSemanticHtmlLocation(html = '') {
+  const jobLocation = findItemPropElement(html, 'jobLocation');
+  const locationSource = jobLocation ? jobLocation.innerHtml : html;
   return {
-    locality: extractItemPropText(html, 'addressLocality') || extractItemPropText(html, 'address'),
-    postalCode: extractItemPropText(html, 'postalCode'),
-    streetAddress: extractItemPropText(html, 'streetAddress'),
-    region: extractItemPropText(html, 'addressRegion'),
-    country: extractItemPropText(html, 'addressCountry'),
+    locality: extractItemPropText(locationSource, 'addressLocality') || extractItemPropText(locationSource, 'address'),
+    postalCode: extractItemPropText(locationSource, 'postalCode'),
+    streetAddress: extractItemPropText(locationSource, 'streetAddress'),
+    region: extractItemPropText(locationSource, 'addressRegion'),
+    country: extractItemPropText(locationSource, 'addressCountry'),
   };
 }
 
