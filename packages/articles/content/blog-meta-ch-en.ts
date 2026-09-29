@@ -7079,6 +7079,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.uss-freno-premi-cassa-malati-3.title': 'USS: legislative brake on premiums at 3%',
     'blog.article.uss-freno-premi-cassa-malati-3.excerpt': 'The USS is calling on the Council of States to impose a 3% cap on LAMal premiums. In Ticino, the increase expected for 2027 is 3,7%.',
     'blog.article.uss-freno-premi-cassa-malati-3.imageAlt': 'Bern, seat of the Swiss Parliament, with a calculator and insurance card in the foreground.',
+    'blog.article.lavoratori-svizzeri-ia-2026.title': 'Swiss workers and AI: 28% use it but it does not convince them',
+    'blog.article.lavoratori-svizzeri-ia-2026.excerpt': '28% of workers in Switzerland use AI every day, but confidence is lacking. Data from PwC\'s 2026 \'Hopes and Fears\' research on employees.',
+    'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Swiss worker in an office dealing with generative artificial intelligence',
 };
 
 export default blogMetaChEn;

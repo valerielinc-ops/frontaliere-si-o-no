@@ -7079,6 +7079,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.uss-freno-premi-cassa-malati-3.title': 'USS: Gesetzliche Prämienbremse bei 3%',
     'blog.article.uss-freno-premi-cassa-malati-3.excerpt': 'Die USS fordert vom Ständerat eine Begrenzung der LAMal-Prämienerhöhungen auf 3%. Im Tessin beträgt der für 2027 erwartete Anstieg 3,7%.',
     'blog.article.uss-freno-premi-cassa-malati-3.imageAlt': 'Bern, Sitz des Schweizerischen Parlaments, im Vordergrund ein Taschenrechner und eine Versicherungskarte.',
+    'blog.article.lavoratori-svizzeri-ia-2026.title': 'Schweizer Arbeitnehmende und KI: 28% nutzen sie, aber sie überzeugt nicht',
+    'blog.article.lavoratori-svizzeri-ia-2026.excerpt': '28% der Arbeitnehmenden in der Schweiz nutzen täglich KI, doch es fehlt an Überzeugung. Die Daten der PwC-Studie \'Hopes and Fears\' 2026 über die Beschäftigten.',
+    'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Schweizer Arbeitnehmer im Büro im Umgang mit generativer künstlicher Intelligenz',
 };
 
 export default blogMetaChDe;
