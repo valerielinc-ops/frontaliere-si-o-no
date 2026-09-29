@@ -10,6 +10,7 @@ import {
   assertCrawlerSliceWriteSafe,
   clearCrossCrawlerDedupProofFile,
   isProvenCrossCrawlerDedupPrune,
+  isProvenGhostExpiredPrune,
   isProvenHousekeepingPrune,
   isProvenRetiredScratchArchiveDelete,
   isSafeBuehlerForeignPruneJobs,
@@ -417,6 +418,57 @@ describe('crawler slice integrity guard', () => {
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  it('allows only an active-job-proven shrink of an expired ghost slice', () => {
+    const active = {
+      title: 'Stockiste',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Aarau',
+      slugByLocale: { it: 'stockiste-aarau', en: 'stockiste-aarau' },
+      previousSlugs: ['stockiste-legacy'],
+    };
+    const removed = {
+      slug: 'stockiste-legacy',
+      title: active.title,
+      company: active.company,
+      location: active.location,
+      slugByLocale: { it: 'stockiste-legacy', en: 'stockiste-legacy-en' },
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      slug: 'unrelated-expired',
+      title: 'Unrelated',
+      company: 'Other company',
+      location: 'Lugano',
+      description: 'y'.repeat(100_000),
+    };
+    const previous = json([removed, retained]);
+    const next = json([retained]);
+    const filePath = 'data/jobs/expired/by-crawler/rituals-cosmetics.json';
+    const proof = { activeJobs: [active], ghostEntryIds: [removed.slug] };
+
+    expect(isProvenGhostExpiredPrune(filePath, previous, next, proof)).toBe(true);
+    expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next))
+      .toThrow(/catastrophic truncation avoided/);
+    expect(assertCrawlerSliceWriteSafe(filePath, previous, next, { expiredGhostProof: proof }).reason)
+      .toBe('proven-ghost-expired-prune');
+
+    const root = mkdtempSync(join(tmpdir(), 'crawler-slice-ghost-expired-'));
+    const absolutePath = join(root, filePath);
+    try {
+      writeJsonAtomic(absolutePath, JSON.parse(previous));
+      expect(() => writeJsonAtomic(absolutePath, JSON.parse(next), { expiredGhostProof: proof })).not.toThrow();
+      expect(JSON.parse(readFileSync(absolutePath, 'utf8'))).toHaveLength(1);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+
+    const wrongActiveJob = { ...active, location: 'Basel' };
+    const wrongProof = { activeJobs: [wrongActiveJob], ghostEntryIds: [removed.slug] };
+    expect(isProvenGhostExpiredPrune(filePath, previous, next, wrongProof)).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next, { expiredGhostProof: wrongProof }))
+      .toThrow(/catastrophic truncation avoided/);
   });
 
   it('accepts a run-bound dedup decision when the final reference no longer contains the winner', () => {
