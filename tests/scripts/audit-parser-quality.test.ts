@@ -53,6 +53,8 @@ import {
   DUPLICATE_BUCKET_SAMPLE_REASON,
   countDuplicateListings,
   vacancyPdfLink,
+  sharedSourceDocuments,
+  fragmentAnchoredBlock,
 } from '../../scripts/audit-parser-quality.mjs';
 import { extractJsonLd } from '../../scripts/lib/prospector/extract.mjs';
 import {
@@ -2493,6 +2495,79 @@ describe('duplicate listings: two declared postal codes are two workplaces (denn
   it('still counts a re-posting that carries no postal code', () => {
     expect(listings(['4058', ''])).toBe(2);
     expect(listings(['4058', '4057', ''])).toBe(3);
+  });
+});
+
+describe('source detail on a document several postings share (ehnv, klinik-gut)', () => {
+  const role = (name: string) => `Aufgaben: ${name} — Betreuung der Patientinnen und Patienten, interdisziplinäre Zusammenarbeit und sorgfältige Dokumentation im klinischen Informationssystem. Anforderungen: abgeschlossene Ausbildung und Freude an der Arbeit im Team. `;
+
+  it('finds the documents that only a URL fragment tells apart', () => {
+    const shared = sharedSourceDocuments([
+      { url: 'https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee' },
+      { url: 'https://www.ehnv.ch/emplois#offer/4402/une-medecin-associee' },
+      { url: 'https://jobs.example.test/stelle/1#apply' },
+      { url: 'https://jobs.example.test/stelle/2#apply' },
+      { url: 'https://jobs.example.test/stelle/3' },
+    ]);
+    expect([...shared]).toEqual(['https://www.ehnv.ch/emplois']);
+    // the same posting recorded twice is not two postings on one document
+    expect(sharedSourceDocuments([{ url: 'https://a.test/x#1' }, { url: 'https://a.test/x#1' }]).size).toBe(0);
+  });
+
+  it('reads the element the fragment names and compares only that ad', () => {
+    const page = `<html><body><main>
+<div id="drz-accordion-id-1581"><h3>Pflegefachperson</h3><p>${role('Pflegefachperson').repeat(3)}</p></div>
+<div id="drz-accordion-id-4367"><h3>Physiotherapeut/in</h3><div><p>${role('Physiotherapie')}</p><ul><li>Behandlung ambulanter Patientinnen</li></ul></div></div>
+</main></body></html>`;
+    const block = fragmentAnchoredBlock(page, 'https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367');
+    expect(block).toContain('Physiotherapie');
+    expect(block).not.toContain('Pflegefachperson');
+    expect(fragmentAnchoredBlock(page, 'https://www.klinik-gut.ch/de/offene-stellen#offer/4094/x')).toBe('');
+  });
+
+  const check = (published: string, url: string, page: string) => checkSourceDetailsBatch([{
+    crawlerKey: 'shared-fixture',
+    url,
+    sharedDocument: true,
+    job: { url, location: 'Chur', sourceLang: 'de', description: published },
+  }], 1, {
+    fetchPage: async () => ({ ok: true, status: 200, url: url.split('#')[0], body: page, host: 'jobs.example.test' }),
+  });
+
+  it('keeps the check able to fail on an anchored ad', async () => {
+    const page = `<html><body><main><div id="job-a">${role('A').repeat(4)}</div><div id="job-b">${role('B').repeat(4)}</div></main></body></html>`;
+    const [complete] = await check(role('B').repeat(4), 'https://jobs.example.test/stellen#job-b', page);
+    expect(complete).toMatchObject({ sourceScope: 'fragment-anchor', descriptionMismatch: false });
+    const [teaser] = await check(role('B').slice(0, 140), 'https://jobs.example.test/stellen#job-b', page);
+    expect(teaser).toMatchObject({ sourceScope: 'fragment-anchor', descriptionMismatch: true });
+  });
+
+  it('records a client-side route as not attributable: no verdict, no unobserved warning', async () => {
+    // Johdi Suite: the list page even serves a JobPosting — of someone else.
+    const page = `<html><head><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting', title: 'Autre poste', description: role('Autre').repeat(3),
+      jobLocation: { address: { addressLocality: 'Yverdon-les-Bains', addressCountry: 'CH' } },
+    })}</script></head><body><div id="app"></div></body></html>`;
+    const [result] = await check(role('Médecin').repeat(3), 'https://www.ehnv.ch/emplois#offer/4094/une-medecin', page);
+    expect(result).toMatchObject({ sourceScope: 'shared-document', descriptionMismatch: false, locationMismatch: false });
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string }> = { 'shared-fixture': { total: 16, issues: [] } };
+    const summary = applySourceDetailResults(report, [result], 1);
+    assignSeverity(report['shared-fixture']);
+    expect(report['shared-fixture'].issues).toEqual([]);
+    expect(report['shared-fixture'].severity).toBe('OK');
+    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, notAttributable: 1 });
+    expect(summary.unobserved).toBe(0);
+    expect(formatSourceDetailObservationLines(summary)).toContain('Source detail samples on a page several postings share: 0 read from the element their URL fragment names, 1 not attributable to the posting (no per-vacancy page — not compared)');
+  });
+
+  it('leaves a sample without the shared-document mark exactly as before', async () => {
+    const page = `<html><body><main><div class="job-description">${role('Andere Stelle').repeat(4)}</div></main></body></html>`;
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'plain', url: 'https://jobs.example.test/stelle/9#apply',
+      job: { url: 'https://jobs.example.test/stelle/9#apply', location: 'Chur', sourceLang: 'de', description: 'Wir suchen eine Fachperson Gesundheit für die Nachtwache mit Freude an der Pflege und an der Zusammenarbeit im Team der Station.' },
+    }], 1, { fetchPage: async () => ({ ok: true, status: 200, url: 'https://jobs.example.test/stelle/9', body: page, host: 'jobs.example.test' }) });
+    expect(result.sourceScope).toBeUndefined();
+    expect(result.descriptionMismatch).toBe(true);
   });
 });
 

@@ -1277,6 +1277,77 @@ async function vacancyPdfDescription(html, pageUrl, detail, fetchVacancyPdf) {
   };
 }
 
+function withoutFragment(url = '') {
+  const value = String(url || '');
+  const at = value.indexOf('#');
+  return at < 0 ? value : value.slice(0, at);
+}
+
+function urlFragment(url = '') {
+  const value = String(url || '');
+  const at = value.indexOf('#');
+  if (at < 0) return '';
+  try {
+    return decodeURIComponent(value.slice(at + 1));
+  } catch {
+    return value.slice(at + 1);
+  }
+}
+
+/**
+ * Documents several postings of one crawler point into, told apart only by
+ * the URL fragment. The fragment never reaches the server, so fetching any of
+ * those URLs returns the same document: a client-side route (Johdi Suite
+ * `emplois#offer/4094/…` on ehnv, daler-hopital, h-ju; pi-asp
+ * `#position,id=…`; etat-de-vaud `#fr/sites/CX_1/job/5725`) or one page
+ * listing every ad (grischapersonal, im-bethesda-spital, oscam `#concorso-…`).
+ * On run 36528331656 14 crawlers published such URLs for all their postings.
+ * A URL with a fragment that no other posting shares is left alone.
+ *
+ * @returns {Set<string>} the shared documents, fragment removed
+ */
+export function sharedSourceDocuments(jobs = []) {
+  const byDocument = new Map();
+  for (const job of jobs) {
+    const url = String(job?.url || '');
+    if (!url.includes('#')) continue;
+    const document = withoutFragment(url);
+    const urls = byDocument.get(document) || new Set();
+    urls.add(url);
+    byDocument.set(document, urls);
+  }
+  return new Set([...byDocument].filter(([, urls]) => urls.size > 1).map(([document]) => document));
+}
+
+/**
+ * The element a URL fragment names (`id="…"`) inside the fetched page, as the
+ * inner HTML of that element, or ''. klinik-gut (`#drz-accordion-id-4367`)
+ * and klinik-schuetzen (`#job-PLUT7122`) list every ad on one page but give
+ * each its own element: that element IS the vacancy's source.
+ */
+export function fragmentAnchoredBlock(html = '', url = '') {
+  const fragment = urlFragment(url);
+  if (!fragment || !/^[A-Za-z][\w:.-]*$/.test(fragment)) return '';
+  const source = String(html || '');
+  const escaped = fragment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const opening = new RegExp(`<([a-z][a-z0-9]*)\\b[^>]*\\bid\\s*=\\s*["']${escaped}["'][^>]*>`, 'i').exec(source);
+  if (!opening || /\/\s*>$/.test(opening[0])) return '';
+  const tag = opening[1].toLowerCase();
+  const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
+  tags.lastIndex = opening.index + opening[0].length;
+  let depth = 1;
+  let match;
+  while ((match = tags.exec(source))) {
+    if (match[0][1] === '/') {
+      depth -= 1;
+      if (depth === 0) return source.slice(opening.index + opening[0].length, match.index);
+    } else if (!/\/\s*>$/.test(match[0])) {
+      depth += 1;
+    }
+  }
+  return '';
+}
+
 export async function checkSourceDetailsBatch(items, concurrency = 3, {
   fetchPage = politeFetch,
   extractDetail = extractDetailFields,
@@ -1330,13 +1401,36 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
         { includeDiagnostics: true, recordUrl },
       );
       if (locationObservation.location) detail.location = locationObservation.location;
-      const { linkedDocument, vacancyPdf } = await vacancyPdfDescription(
-        fetched.body,
-        fetched.url || item.url,
-        detail,
-        fetchVacancyPdf,
-      );
-      const locationEvidence = locationObservation.evidence;
+      // A document shared by several postings (see sharedSourceDocuments) is
+      // the vacancy's source only where the URL fragment names an element of
+      // it; otherwise nothing on it can be attributed to this posting, so the
+      // sample is recorded as such and compares nothing.
+      let sourceScope = null;
+      let locationEvidence = locationObservation.evidence;
+      if (item.sharedDocument) {
+        const anchored = fragmentAnchoredBlock(fetched.body, item.job?.url || item.url);
+        if (anchored) {
+          sourceScope = 'fragment-anchor';
+          detail.description = plainText(anchored);
+          const anchoredLocation = observeLocation(anchored, fetched.url || item.url, { recordUrl });
+          detail.location = anchoredLocation.location || '';
+          locationEvidence = anchoredLocation.evidence;
+        } else {
+          sourceScope = 'shared-document';
+          detail.description = '';
+          detail.location = '';
+          detail.headingSublineFields = [];
+          locationEvidence = 'generic';
+        }
+      }
+      const { linkedDocument, vacancyPdf } = sourceScope === 'shared-document'
+        ? { linkedDocument: null, vacancyPdf: null }
+        : await vacancyPdfDescription(
+          fetched.body,
+          fetched.url || item.url,
+          detail,
+          fetchVacancyPdf,
+        );
       const comparison = compareSourceDetail(item.job, detail, {
         locationEvidence,
         crawlerKey: item.crawlerKey,
@@ -1356,6 +1450,7 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
         ...item,
         ...comparison,
         ...(vacancyPdf ? { vacancyPdf } : {}),
+        ...(sourceScope ? { sourceScope } : {}),
         // Attached to the RESULT, deliberately not routed through
         // `comparison.replayObservation`: the replay-evidence schema and its
         // strict validator in `classifySourceDetailObservation` would have to
@@ -1602,6 +1697,9 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     // read and used, unreadable (robots, fetch, no text layer), or shorter
     // than what the page already carried.
     vacancyPdfPages: { read: 0, unreadable: 0, shorterThanPage: 0 },
+    // Samples on a document several postings share (see sharedSourceDocuments):
+    // read from the element their fragment names, or not attributable.
+    sharedDocumentSamples: { fragmentAnchored: 0, notAttributable: 0 },
   };
   const byKey = {};
   for (const result of sourceResults) {
@@ -1649,6 +1747,13 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       continue;
     }
     sourceDetailSummary.fetched++;
+    if (result.sourceScope === 'fragment-anchor') sourceDetailSummary.sharedDocumentSamples.fragmentAnchored++;
+    if (result.sourceScope === 'shared-document') {
+      // Not «unobserved»: the page may well carry a JobPosting, just not this
+      // posting's. Counted here and printed; no issue, no verdict.
+      sourceDetailSummary.sharedDocumentSamples.notAttributable++;
+      continue;
+    }
     addLocationEvidenceCounts(
       sourceDetailSummary.locationEvidenceBeforeGateByEvidence,
       result.locationEvidenceCounts?.beforeGate,
@@ -1840,6 +1945,10 @@ export function formatSourceDetailObservationLines(summary = {}) {
   // Same reasoning for the identical-description buckets: the hidden signal
   // stopped producing WARNINGs, so what the source said about each bucket is
   // printed here on every run instead of disappearing with the WARNING.
+  const shared = summary.sharedDocumentSamples;
+  if (shared && count(shared.fragmentAnchored) + count(shared.notAttributable) > 0) {
+    lines.push(`Source detail samples on a page several postings share: ${count(shared.fragmentAnchored)} read from the element their URL fragment names, ${count(shared.notAttributable)} not attributable to the posting (no per-vacancy page — not compared)`);
+  }
   const pdfPages = summary.vacancyPdfPages;
   if (pdfPages && count(pdfPages.read) + count(pdfPages.unreadable) + count(pdfPages.shorterThanPage) > 0) {
     lines.push(`Source detail pages presenting the vacancy as a PDF: ${count(pdfPages.read)} compared with the PDF, ${count(pdfPages.unreadable)} PDF unreadable (an embedded one leaves the sample unobserved), ${count(pdfPages.shorterThanPage)} PDF shorter than the page body`);
@@ -2436,9 +2545,11 @@ async function main() {
       }
     }
 
+    const sharedDocuments = sharedSourceDocuments(jobs);
+    const sharedDocumentMark = (job) => (sharedDocuments.has(withoutFragment(job.url)) ? { sharedDocument: true } : {});
     if (checkSourceDetails) {
       const sampled = jobs.slice(0, SOURCE_DETAIL_SAMPLE_SIZE).filter((j) => j.url);
-      for (const job of sampled) sourceDetailsToCheck.push({ crawlerKey: key, job, url: job.url });
+      for (const job of sampled) sourceDetailsToCheck.push({ crawlerKey: key, job, url: job.url, ...sharedDocumentMark(job) });
     }
 
     // 4. Missing locale coverage — skip in-flight translations
@@ -2525,6 +2636,7 @@ async function main() {
             url: job.url,
             sampleReason: DUPLICATE_BUCKET_SAMPLE_REASON,
             bucketSize: bucketSample.bucketSize,
+            ...sharedDocumentMark(job),
           });
         }
       }
