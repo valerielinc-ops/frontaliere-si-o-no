@@ -3433,6 +3433,19 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
   }
 
   const jobTclKey = (job) => `${(job.title || '').toLowerCase().trim()}||${(job.company || '').toLowerCase().trim()}||${(job.location || '').toLowerCase().trim()}`;
+  const hasSharedLocaleKey = (left, right) => {
+    const leftSlugs = left?.slugByLocale;
+    const rightSlugs = right?.slugByLocale;
+    if (
+      !leftSlugs
+      || typeof leftSlugs !== 'object'
+      || Array.isArray(leftSlugs)
+      || !rightSlugs
+      || typeof rightSlugs !== 'object'
+      || Array.isArray(rightSlugs)
+    ) return false;
+    return Object.keys(leftSlugs).some((locale) => Object.prototype.hasOwnProperty.call(rightSlugs, locale));
+  };
   const expiredGhostIdentity = (job) => {
     const url = String(job?.url ?? '').trim();
     if (url) return `url:${url}`;
@@ -3499,8 +3512,18 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     // Ghost: slug overlap + title match, or exact same IT slug
     const expiredItSlug = String(ej.slugByLocale?.it ?? '').trim();
     const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
-    const sameItSlug = Boolean(match && expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
-    if (!match || (!hasSlugOverlap && !sameItSlug)) continue;
+    const hasSameItSlug = Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
+    // Legacy archives sometimes carry only de/fr/en locale maps. When both
+    // sides lack an Italian slug, the already location-bound TCL match is the
+    // durable same-posting evidence; an entirely identity-less row is still
+    // rejected by expiredGhostIdentity above.
+    const legacySamePosting = Boolean(
+      match
+      && !expiredItSlug
+      && !matchItSlug
+      && hasSharedLocaleKey(ej, match),
+    );
+    if (!match || (!hasSlugOverlap && !hasSameItSlug && !legacySamePosting)) continue;
 
     // Mark as ghost
     const ghostId = expiredGhostIdentity(ej);

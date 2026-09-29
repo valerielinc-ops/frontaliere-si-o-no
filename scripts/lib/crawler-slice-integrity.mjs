@@ -993,6 +993,20 @@ function expiredGhostOverlapSlugs(job) {
   ));
 }
 
+function hasSharedLocaleKey(left, right) {
+  const leftSlugs = left?.slugByLocale;
+  const rightSlugs = right?.slugByLocale;
+  if (
+    !leftSlugs
+    || typeof leftSlugs !== 'object'
+    || Array.isArray(leftSlugs)
+    || !rightSlugs
+    || typeof rightSlugs !== 'object'
+    || Array.isArray(rightSlugs)
+  ) return false;
+  return Object.keys(leftSlugs).some((locale) => Object.prototype.hasOwnProperty.call(rightSlugs, locale));
+}
+
 function isValidGhostExpiredProofEntry(entry, removedJob) {
   const expired = entry?.expired;
   const match = entry?.match;
@@ -1017,7 +1031,10 @@ function isValidGhostExpiredProofEntry(entry, removedJob) {
 
   const expiredItSlug = String(expired?.slugByLocale?.it ?? '').trim();
   const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
-  return Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
+  if (expiredItSlug || matchItSlug) {
+    return Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
+  }
+  return hasSharedLocaleKey(expired, match);
 }
 
 /**
