@@ -2372,7 +2372,7 @@ export const refreshPlateAuctions = onSchedule(
 // several hours. Cloud Scheduler owns the clock; the existing Actions workflow
 // remains the single collector and keeps its manual/self-heal dispatch path.
 export const dispatchTrafficCollection = onSchedule(
- { region: 'europe-west6', schedule: '0,30 * * * *', timeZone: 'UTC' },
+ { region: 'europe-west6', schedule: '0 * * * *', timeZone: 'UTC' },
  async (event) => {
   const result = await dispatchTrafficScheduler({ scheduledAt: event.scheduleTime });
   console.log('[dispatchTrafficCollection]', JSON.stringify(result));
