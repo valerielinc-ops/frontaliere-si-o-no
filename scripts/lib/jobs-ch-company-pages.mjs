@@ -142,6 +142,107 @@ export function parseVacancyCountTab(html = '') {
   return null;
 }
 
+/**
+ * Languages the site can take as a vacancy's `sourceLang`. jobs.ch declares
+ * `originalLanguage` on every vacancy; a value outside this set (none observed
+ * so far) falls back to text detection in the caller.
+ */
+const JOBS_CH_SOURCE_LANGS = new Set(['de', 'fr', 'it', 'en']);
+
+/**
+ * The language a jobs.ch vacancy was WRITTEN in, the language this page was
+ * served in, and the per-language routes of the same vacancy.
+ *
+ * Read from the page's own `vacancy-detail` state:
+ * `{"originalLanguage":"de","requestedLang":"en",…}` plus
+ * `"translatedRoutes":{"de":"/de/stellenangebote/detail/<uuid>/",…}`. On the
+ * `/en/vacancies/detail/<uuid>/` route that the company profile links to,
+ * jobs.ch serves a MACHINE TRANSLATION of a German or French vacancy in both
+ * the JSON-LD `JobPosting` and that state (`requestedLang` ≠
+ * `originalLanguage`). Measured 2026-09-29 on strabag
+ * `6f2b1045-1245-475b-a118-6690e3b5c0d7`: the `/en/` JSON-LD reads «At STRABAG,
+ * around 89,000 people…» while the vacancy was written «Bei STRABAG bauen rund
+ * 89.000 Menschen…». Publishing that text as the source mislabels
+ * `sourceLang` as `en`, and every other locale is then translated from a
+ * translation.
+ *
+ * @param {string} html
+ * @returns {{ originalLanguage: string|null, requestedLang: string|null, translatedRoutes: Record<string, string> }}
+ */
+export function parseVacancyLanguage(html = '') {
+  const source = String(html || '');
+  const langs = /"originalLanguage"\s*:\s*"([a-z]{2})"\s*,\s*"requestedLang"\s*:\s*"([a-z]{2})"/i.exec(source);
+  let translatedRoutes = {};
+  const routes = /"translatedRoutes"\s*:\s*(\{[^{}]*\})/.exec(source);
+  if (routes) {
+    try {
+      const parsed = JSON.parse(routes[1]);
+      if (parsed && typeof parsed === 'object') translatedRoutes = parsed;
+    } catch {
+      translatedRoutes = {};
+    }
+  }
+  return {
+    originalLanguage: langs ? langs[1].toLowerCase() : null,
+    requestedLang: langs ? langs[2].toLowerCase() : null,
+    translatedRoutes,
+  };
+}
+
+function vacancyUuidOf(url = '') {
+  return /\/detail\/([0-9a-f-]{8,})\/?(?:[?#]|$)/i.exec(String(url || ''))?.[1]?.toLowerCase() || '';
+}
+
+/**
+ * Fetch a jobs.ch vacancy in the language it was written in.
+ *
+ * The profile links every vacancy through its `/en/` route. When that page
+ * declares a different `originalLanguage`, the original-language route of the
+ * SAME vacancy (same UUID, taken from the page's own `translatedRoutes`) is
+ * fetched instead, so the JSON-LD the caller reads is the employer's text, not
+ * jobs.ch's translation of it. The returned `url` is that original route: it is
+ * the page whose visible body matches the published description, which is what
+ * a reader (and the source-detail audit) opens.
+ *
+ * Degrades, never drops: if the original route is missing, points at another
+ * vacancy, fails to load, or is itself still a translation, the `/en/` page is
+ * returned with `translated: true` so the caller keeps the vacancy (same text
+ * it published before this reader existed) and can label it honestly.
+ *
+ * @param {string} jobUrl `/en/vacancies/detail/<uuid>/` link from the profile
+ * @param {{ fetchPage?: (url: string) => Promise<string> }} [options]
+ * @returns {Promise<{ html: string, url: string, sourceLang: string|null, translated: boolean }>}
+ */
+export async function fetchJobsChVacancyInOriginalLanguage(jobUrl, { fetchPage = fetchHtml } = {}) {
+  const html = await fetchPage(jobUrl);
+  const { originalLanguage, requestedLang, translatedRoutes } = parseVacancyLanguage(html);
+  const declared = originalLanguage && JOBS_CH_SOURCE_LANGS.has(originalLanguage) ? originalLanguage : null;
+  if (!originalLanguage || !requestedLang || originalLanguage === requestedLang) {
+    return { html, url: jobUrl, sourceLang: declared, translated: false };
+  }
+  const translatedFallback = { html, url: jobUrl, sourceLang: null, translated: true };
+  const route = String(translatedRoutes[originalLanguage] || '');
+  const uuid = vacancyUuidOf(jobUrl);
+  if (!route.startsWith('/') || !uuid || vacancyUuidOf(route) !== uuid) {
+    console.warn(`  ⚠️ ${jobUrl}: written in "${originalLanguage}" but no matching original-language route — keeping the jobs.ch translation`);
+    return translatedFallback;
+  }
+  const originalUrl = new URL(route, JOBS_CH_BASE_URL).href;
+  let originalHtml;
+  try {
+    originalHtml = await fetchPage(originalUrl);
+  } catch (err) {
+    console.warn(`  ⚠️ Original-language fetch failed for ${originalUrl}: ${err?.message || err} — keeping the jobs.ch translation`);
+    return translatedFallback;
+  }
+  const check = parseVacancyLanguage(originalHtml);
+  if (check.requestedLang && check.requestedLang !== originalLanguage) {
+    console.warn(`  ⚠️ ${originalUrl} still served "${check.requestedLang}" for a "${originalLanguage}" vacancy — keeping the jobs.ch translation`);
+    return translatedFallback;
+  }
+  return { html: originalHtml, url: originalUrl, sourceLang: declared, translated: false };
+}
+
 /** @param {{ label: string, identity?: string }} target */
 function identityMarkerFor(target) {
   return target.identity || String(target.label || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
