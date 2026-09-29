@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T11:31:07.278Z",
+  "generatedAt": "2026-09-29T12:48:13.737Z",
   "config": {
     "days": 28,
     "rotateDays": 7,
@@ -11,42 +11,42 @@
   },
   "current": {
     "enabled": true,
-    "variant": "intent_simulation",
+    "variant": "year_intent",
     "targets": "*",
     "year": "2026"
   },
   "desired": {
     "enabled": true,
-    "variant": "year_intent",
+    "variant": "intent_simulation",
     "targets": "*",
     "year": "2026"
   },
   "decision": {
-    "nextVariant": "year_intent",
-    "reason": "rotation_every_7d",
-    "mode": "explore",
+    "nextVariant": "intent_simulation",
+    "reason": "switch_to_winner_uplift_1.202",
+    "mode": "exploit",
     "scores": {
       "year_intent": {
-        "samples": 1,
-        "impressions": 115914,
-        "clicks": 8531,
-        "ctr": 7.36
+        "samples": 2,
+        "impressions": 254346,
+        "clicks": 15742,
+        "ctr": 6.189
       },
       "intent_simulation": {
-        "samples": 15,
-        "impressions": 1537803,
-        "clicks": 114341,
-        "ctr": 7.435
+        "samples": 14,
+        "impressions": 1458778,
+        "clicks": 107824,
+        "ctr": 7.391
       }
     }
   },
   "kpi": {
     "consideredPages": 20,
-    "totalImpressions": 127413,
-    "totalClicks": 6826,
-    "weightedCtr": 5.357,
+    "totalImpressions": 138432,
+    "totalClicks": 7211,
+    "weightedCtr": 5.209,
     "opportunities": 2,
-    "exposures": 349
+    "exposures": 367
   },
   "changed": true,
   "published": true
