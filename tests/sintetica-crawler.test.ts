@@ -14,6 +14,7 @@ import {
 import {
   detectSinteticaSite,
   SINTETICA_SITES,
+  prepareSinteticaStoredJobs,
 } from '@/scripts/update-sintetica-jobs.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
@@ -281,5 +282,38 @@ describe('detectSinteticaSite', () => {
     expect(site.canton).toBe('TI');
     expect(site.postalCode).toBe('6850');
     expect(site.streetAddress).toBe('Via Penate 5');
+  });
+});
+
+// Stored text the crawler used to write itself (#5253), shapes taken from the
+// published slice: a whole invented description, and a line put in front of
+// a real body.
+describe('prepareSinteticaStoredJobs', () => {
+  it('removes the invented fallback description and its translations', () => {
+    const fallback = "Quality Control Microbiological Laboratory Technician — posizione aperta presso Sintetica SA al sito di Mendrisio (TI), Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.";
+    const [job]: any[] = prepareSinteticaStoredJobs([
+      { url: 'u', sourceLang: 'it', description: fallback, descriptionByLocale: { it: fallback, en: 'Quality Control … open position at Sintetica SA …' } },
+    ]);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('cuts the invented heading line from a real body and redoes its translations', () => {
+    const body = 'Technicien de maintenance (Site de Couvet)\n\nFondée en 1921 à Mendrisio, Sintetica SA fabrique et conditionne des millions de doses.';
+    const prefixed = `Technicien de maintenance (Site de Couvet) — Sintetica SA, Couvet (NE).\n\n${body}`;
+    const [job]: any[] = prepareSinteticaStoredJobs([
+      { url: 'u', sourceLang: 'fr', description: prefixed, descriptionByLocale: { fr: prefixed, it: 'Tecnico di manutenzione — Sintetica SA, Couvet (NE). …' } },
+    ]);
+    expect(job.description).toBe(body);
+    expect(job.descriptionByLocale).toEqual({ fr: body });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('leaves a stored source body alone', () => {
+    const body = 'Purchasing & Logistics Specialist - Mendrisio site\n\nSintetica is a Swiss pharmaceutical company.';
+    const [job]: any[] = prepareSinteticaStoredJobs([{ url: 'u', sourceLang: 'en', description: body, descriptionByLocale: { en: body } }]);
+    expect(job.description).toBe(body);
+    expect(job.needsRetranslation).toBeUndefined();
   });
 });

@@ -16,10 +16,14 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, MIN_DESC_LENGTH } from './lib/sintetica-job-parser.mjs';
+import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/sintetica-job-parser.mjs';
 import { normalizeAnyCantonCode, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { dropTranslationsOfFabricatedSource } from './lib/source-locale-description.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -92,7 +96,7 @@ async function fetchPage(url, timeoutMs = 20000) {
   finally { clearTimeout(timer); }
 }
 
-async function fetchJobs() {
+export async function fetchJobs() {
   console.log(`🔍 Fetching Sintetica SA jobs from ${CAREERS_URL}`);
   const html = await fetchPage(CAREERS_URL, 25000);
   if (!html) { console.error('❌ Failed to fetch Sintetica careers page.'); return []; }
@@ -125,10 +129,13 @@ async function fetchJobs() {
     }
 
     const slug = slugify(raw.title, 'sintetica');
-    const fallbackDesc = `${raw.title} — posizione aperta presso Sintetica SA al sito di ${site.location} (${site.canton}), Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.`;
 
-    // Fetch detail page for full job description
-    let description = raw.snippet || '';
+    // Only the source's own text is published, above the shared word floor:
+    // the detail body, or the listing snippet when it alone is long enough.
+    // The former fallback ("… posizione aperta presso Sintetica SA al sito di
+    // …") and the "<titolo> — Sintetica SA, <sito> (<cantone>)." line put in
+    // front of the body were text the source never showed (#5253).
+    let description = meetsSourceBodyFloor(raw.snippet) ? raw.snippet : '';
     let detailClosed = false;
     if (raw.url) {
       console.log(`    🔗 Fetching detail page: ${raw.url}`);
@@ -140,20 +147,18 @@ async function fetchJobs() {
           // a stub. The listing-page link is stale; the live job is gone.
           console.log(`    🚫 Detail page reports position closed: "${raw.title}"`);
           detailClosed = true;
-        } else if (detail.body && detail.body.length >= MIN_DESC_LENGTH) {
-          description = `${raw.title} — Sintetica SA, ${site.location} (${site.canton}).\n\n${detail.body}`;
-          console.log(`    ✅ Detail description: ${detail.body.length} chars`);
+        } else if (meetsSourceBodyFloor(detail.body)) {
+          description = detail.body;
+          console.log(`    ✅ Detail description: ${sourceBodyWordCount(detail.body)} words`);
         } else {
-          console.log(`    ⚠️ Detail page description too short (${(detail.body || '').length} chars), using fallback`);
+          console.log(`    ⚠️ Detail page description too short (${sourceBodyWordCount(detail.body || '')} words): kept only if a source body is stored`);
         }
       } else {
-        console.log(`    ⚠️ Could not fetch detail page, using fallback`);
+        console.log(`    ⚠️ Could not fetch detail page: kept only if a source body is stored`);
       }
     }
     if (detailClosed) continue;
-    if (!description || description.length < MIN_DESC_LENGTH) {
-      description = fallbackDesc;
-    }
+    const sourceLang = detectLang(description || raw.title, 'en');
 
     jobs.push({
       url: raw.url, applyUrl: raw.url, title: raw.title,
@@ -162,7 +167,7 @@ async function fetchJobs() {
       addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
       postalCode: site.postalCode, streetAddress: site.streetAddress,
       description,
-      titleByLocale: { en: raw.title }, descriptionByLocale: {},
+      titleByLocale: { en: raw.title }, descriptionByLocale: description ? { [sourceLang]: description } : {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
       datePosted: new Date().toISOString().split('T')[0],
@@ -170,16 +175,50 @@ async function fetchJobs() {
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
       _targetScope: { canton: site.canton, location: site.location },
-      sourceLang: detectLang(description || raw.title, 'en'),
+      sourceLang,
     });
   }
   return jobs;
 }
 
+// Text earlier versions wrote themselves, found in stored jobs.
+export const SINTETICA_INVENTED_FALLBACK_RE = /posizione aperta presso Sintetica SA al sito di/;
+export const SINTETICA_INVENTED_PREFIX_RE = /^[^\n]+ — Sintetica SA, [^\n]+ \([A-Z]{2}\)\.\n\n/;
+
+/**
+ * Remove, from stored jobs, the text the crawler used to write: the invented
+ * fallback description (whole description and its translations), and the
+ * "<titolo> — Sintetica SA, <sito> (<cantone>)." line put in front of real
+ * bodies (the line is cut from the source text; its translations, which
+ * carry it, are dropped and redone).
+ */
+export function prepareSinteticaStoredJobs(jobs = []) {
+  const list = dropFabricatedDescriptions(jobs, SINTETICA_INVENTED_FALLBACK_RE, COMPANY_NAME);
+  for (const job of list) {
+    if (!job || typeof job !== 'object') continue;
+    if (!dropTranslationsOfFabricatedSource(job, SINTETICA_INVENTED_PREFIX_RE)
+      && !SINTETICA_INVENTED_PREFIX_RE.test(String(job.description || ''))) continue;
+    job.description = String(job.description || '').replace(SINTETICA_INVENTED_PREFIX_RE, '');
+    const lang = job.sourceLang;
+    if (lang && typeof job.descriptionByLocale?.[lang] === 'string') {
+      job.descriptionByLocale[lang] = job.descriptionByLocale[lang].replace(SINTETICA_INVENTED_PREFIX_RE, '');
+    }
+    job.needsRetranslation = true;
+  }
+  return list;
+}
+
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonCompanyJobs = (Array.isArray(existing) ? existing : []).filter((j) => !isCompanyJob(j));
-  const existingCompanyJobs = (Array.isArray(existing) ? existing : []).filter(isCompanyJob);
+  const existingCompanyJobs = prepareSinteticaStoredJobs((Array.isArray(existing) ? existing : []).filter(isCompanyJob));
+  // A detail body under the word floor: keep the stored source body, or do
+  // not publish the vacancy this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingCompanyJobs, extractStableJobId);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
@@ -237,4 +276,5 @@ async function main() {
   console.log('\n✅ Sintetica SA crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Sintetica'));
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) main().catch((err) => exitCrawlerOnError(err, 'Sintetica'));
