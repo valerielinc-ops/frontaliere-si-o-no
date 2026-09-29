@@ -3432,40 +3432,79 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     return { cleanedExpired: expiredJobs || [], ghostCount: 0, mergedSlugs: 0 };
   }
 
+  const jobTclKey = (job) => `${(job.title || '').toLowerCase().trim()}||${(job.company || '').toLowerCase().trim()}||${(job.location || '').toLowerCase().trim()}`;
+  const expiredGhostIdentity = (job) => {
+    const url = String(job?.url ?? '').trim();
+    if (url) return `url:${url}`;
+    const id = String(job?.id ?? '').trim();
+    if (id) return `id:${id}`;
+    const slug = String(job?.slug ?? '').trim();
+    if (slug) return `slug:${slug}`;
+    const slugByLocale = job?.slugByLocale;
+    if (
+      slugByLocale
+      && typeof slugByLocale === 'object'
+      && !Array.isArray(slugByLocale)
+      && Object.values(slugByLocale).some((value) => typeof value === 'string' && value.trim())
+    ) {
+      return `slug-map:${localeMapKey(slugByLocale)}`;
+    }
+    return null;
+  };
+
   // Build active lookup: title+company+location → first matching job
   const activeByTCL = Object.create(null);
   for (const j of activeJobs) {
-    const key = `${(j.title || '').toLowerCase().trim()}||${(j.company || '').toLowerCase().trim()}||${(j.location || '').toLowerCase().trim()}`;
+    const key = jobTclKey(j);
     if (!activeByTCL[key]) activeByTCL[key] = j;
   }
 
-  // Build set of all active slugs (current + previous)
-  const activeSlugSet = new Set();
+  // Build an index of all active slugs (current + previous), retaining the
+  // owning job so the byte guard can verify the exact overlap that justified
+  // each expired-record removal.
+  const activeSlugOwners = new Map();
+  const registerActiveSlug = (slug, job) => {
+    if (typeof slug !== 'string' || !slug) return;
+    if (!activeSlugOwners.has(slug)) activeSlugOwners.set(slug, job);
+  };
   for (const j of activeJobs) {
-    if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => activeSlugSet.add(s));
-    if (j.previousSlugs) j.previousSlugs.forEach(s => activeSlugSet.add(s));
+    if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => registerActiveSlug(s, j));
+    if (j.previousSlugs) j.previousSlugs.forEach(s => registerActiveSlug(s, j));
     if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === 'object') {
       for (const arr of Object.values(j.previousSlugsByLocale)) {
-        if (Array.isArray(arr)) arr.forEach(s => activeSlugSet.add(s));
+        if (Array.isArray(arr)) arr.forEach(s => registerActiveSlug(s, j));
       }
     }
   }
 
   const ghostIds = new Set();
+  const ghostEvidenceById = new Map();
   let mergedSlugs = 0;
 
   for (const ej of expiredJobs) {
     const expSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
-    const hasSlugOverlap = expSlugs.some(s => activeSlugSet.has(s));
-    const key = `${(ej.title || '').toLowerCase().trim()}||${(ej.company || '').toLowerCase().trim()}||${(ej.location || '').toLowerCase().trim()}`;
+    const overlapCandidate = expSlugs.find(s => activeSlugOwners.has(s)) || null;
+    const overlapJob = overlapCandidate ? activeSlugOwners.get(overlapCandidate) : null;
+    const key = jobTclKey(ej);
     const match = activeByTCL[key];
+    const overlapSlug = overlapJob && jobTclKey(overlapJob) === key ? overlapCandidate : null;
+    const hasSlugOverlap = Boolean(overlapSlug);
 
     // Ghost: slug overlap + title match, or exact same IT slug
-    const sameItSlug = match && (ej.slugByLocale?.it === match.slugByLocale?.it);
+    const expiredItSlug = String(ej.slugByLocale?.it ?? '').trim();
+    const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
+    const sameItSlug = Boolean(match && expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
     if (!match || (!hasSlugOverlap && !sameItSlug)) continue;
 
     // Mark as ghost
-    ghostIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
+    const ghostId = expiredGhostIdentity(ej);
+    if (!ghostId) continue;
+    ghostIds.add(ghostId);
+    ghostEvidenceById.set(ghostId, {
+      match,
+      overlapSlug,
+      overlapJob: overlapSlug ? overlapJob : null,
+    });
 
     // Merge expired slugs into active job's previousSlugs (journaled + capped,
     // matching the write path everywhere else — see addPreviousSlugForLocale).
@@ -3493,7 +3532,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
 
   // Filter out ghosts
   const cleanedExpired = expiredJobs.filter(ej => {
-    const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
+    const id = expiredGhostIdentity(ej);
     return !ghostIds.has(id);
   });
 
@@ -3514,19 +3553,36 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     for (const fp of sliceFiles) {
       const slice = readJson(fp, null);
       if (!Array.isArray(slice)) continue;
+      const removed = [];
       const cleaned = slice.filter(ej => {
-        const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
-        return !ghostIds.has(id);
+        const id = expiredGhostIdentity(ej);
+        if (ghostIds.has(id)) {
+          removed.push(ej);
+          return false;
+        }
+        return true;
       });
       if (cleaned.length < slice.length) {
+        const previousRaw = fs.readFileSync(fp, 'utf8');
+        const candidateRaw = `${JSON.stringify(cleaned, null, 2)}\n`;
+        const proofEntries = removed.map((ej) => {
+          const id = expiredGhostIdentity(ej);
+          const evidence = ghostEvidenceById.get(id);
+          return {
+            expired: ej,
+            match: evidence?.match,
+            overlapSlug: evidence?.overlapSlug || null,
+            overlapJob: evidence?.overlapJob || null,
+          };
+        });
         writeJson(fp, cleaned, {
-          expiredGhostProof: {
-            activeJobs,
-            ghostEntryIds: [...ghostIds],
-          },
           housekeepingProof: {
-            kind: 'reconcile-ghost-expired',
-            activeJobs,
+            schemaVersion: 1,
+            type: 'ghost-expired-reconciliation',
+            path: path.relative(ROOT, fp).split(path.sep).join('/'),
+            baseRaw: previousRaw,
+            candidateRaw,
+            entries: proofEntries,
           },
         });
       }

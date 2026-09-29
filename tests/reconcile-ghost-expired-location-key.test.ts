@@ -65,4 +65,56 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
     expect(cleanedExpired).toHaveLength(0);
     expect(activeJobs[0].previousSlugs).toContain('verkaeufer-in-food-baetterkinden-old');
   });
+
+  it('retains a distinct URL when two expired records share a top-level slug', () => {
+    const activeJobs = [{
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Zürich',
+      slug: 'collision',
+      slugByLocale: { it: 'collision' },
+    }];
+    const expiredJobs = [
+      {
+        url: 'https://example.test/first',
+        title: 'Store Manager',
+        company: 'Rituals Cosmetics Switzerland',
+        location: 'Zürich',
+        slug: 'collision',
+        slugByLocale: { it: 'collision' },
+      },
+      {
+        url: 'https://example.test/second',
+        title: 'Store Manager',
+        company: 'Rituals Cosmetics Switzerland',
+        location: 'Zürich',
+        slug: 'collision',
+        slugByLocale: { it: 'different-slug' },
+      },
+    ];
+
+    const { ghostCount, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs);
+
+    expect(ghostCount).toBe(1);
+    expect(cleanedExpired).toEqual([expiredJobs[1]]);
+  });
+
+  it('does not remove an expired record without a stable slug identity', () => {
+    const activeJobs = [{
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Zürich',
+    }];
+    const expiredJobs = [{
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Zürich',
+      description: 'legacy record',
+    }];
+
+    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+
+    expect(result.ghostCount).toBe(0);
+    expect(result.cleanedExpired).toEqual(expiredJobs);
+  });
 });
