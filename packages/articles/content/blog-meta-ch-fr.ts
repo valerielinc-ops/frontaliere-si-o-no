@@ -7025,6 +7025,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rincari-auto-abitazione-ticino.title': 'Fortes hausses pour l\'automobile et le logement, surtout au Tessin',
     'blog.article.rincari-auto-abitazione-ticino.excerpt': 'En août, les coûts du logement et de la mobilité augmentent de 2,4% en Suisse. Le Tessin enregistre la plus forte hausse annuelle avec 3%.',
     'blog.article.rincari-auto-abitazione-ticino.imageAlt': 'Haussees des prix pour l\'auto et le logement au Tessin et en Suisse',
+    'blog.article.rincari-abitazione-mobilita-svizzera.title': 'Logement et mobilité : hausse des dépenses en Suisse',
+    'blog.article.rincari-abitazione-mobilita-svizzera.excerpt': 'En août 2026, les prix liés au logement et à la mobilité en Suisse affichent un +2,4%, avec un surcoût de 89 francs par mois pour les familles.',
+    'blog.article.rincari-abitazione-mobilita-svizzera.imageAlt': 'Augmentation des coûts du logement et de la mobilité en Suisse',
 };
 
 export default blogMetaChFr;

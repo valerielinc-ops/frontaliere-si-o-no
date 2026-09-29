@@ -7025,6 +7025,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rincari-auto-abitazione-ticino.title': 'Sharp increases for cars and housing, especially in Ticino',
     'blog.article.rincari-auto-abitazione-ticino.excerpt': 'In August, housing and mobility costs rise by 2.4% in Switzerland. Ticino records the highest annual increase at 3%.',
     'blog.article.rincari-auto-abitazione-ticino.imageAlt': 'Price increases for cars and housing in Ticino and Switzerland',
+    'blog.article.rincari-abitazione-mobilita-svizzera.title': 'Rising housing and mobility costs: spending on the rise in Switzerland',
+    'blog.article.rincari-abitazione-mobilita-svizzera.excerpt': 'In August 2026, prices related to housing and mobility in Switzerland show a +2,4% increase, with an additional burden of 89 francs per month for families.',
+    'blog.article.rincari-abitazione-mobilita-svizzera.imageAlt': 'Increase in housing and mobility costs in Switzerland',
 };
 
 export default blogMetaChEn;

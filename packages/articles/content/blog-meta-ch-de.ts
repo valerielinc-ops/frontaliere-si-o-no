@@ -7025,6 +7025,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rincari-auto-abitazione-ticino.title': 'Starke Preissteigerungen bei Autos und Wohnraum, insbesondere im Ticino',
     'blog.article.rincari-auto-abitazione-ticino.excerpt': 'Im August steigen die Wohn- und Mobilitätskosten in der Schweiz um 2,4%. Ticino verzeichnet mit 3% die höchste jährliche Teuerung.',
     'blog.article.rincari-auto-abitazione-ticino.imageAlt': 'Preiserhöhungen für Auto und Wohnen im Tessin und der Schweiz',
+    'blog.article.rincari-abitazione-mobilita-svizzera.title': 'Teuerung bei Wohnen und Mobilität: Ausgaben steigen in der Schweiz',
+    'blog.article.rincari-abitazione-mobilita-svizzera.excerpt': 'Im agosto 2026 verzeichnen die Preise für Wohnen und Mobilität in der Schweiz ein +2,4%, mit einer monatlichen Mehrbelastung von 89 Franken für Familien.',
+    'blog.article.rincari-abitazione-mobilita-svizzera.imageAlt': 'Steigende Wohn- und Mobilitätskosten in der Schweiz',
 };
 
 export default blogMetaChDe;

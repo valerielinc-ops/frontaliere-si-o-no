@@ -91085,6 +91085,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rincari-abitazione-mobilita-svizzera': {
+    title: 'Rincari casa e mobilità: spesa in aumento in Svizzera',
+    description: 'Scopri l\'aumento dei prezzi per abitazione e mobilità in Svizzera ad agosto 2026: +2,4% in media, con picco del 3% in Svizzera italiana. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, rincari, casa, mobilità, spesa',
+    ogTitle: 'Rincari casa e mobilità: spesa in aumento in Svizzera',
+    ogDescription: 'Analisi dell\'indice MAb di Comparis e KOF: ad agosto 2026 i costi di abitazione e mobilità in Svizzera salgono del 2,4% con un impatto di oltre 1000 franchi all\'anno per le economie domestiche.',
+    canonicalPath: '/articoli-svizzera/rincari-abitazione-mobilita-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rincari casa e mobilità: spesa in aumento in Svizzera",
+      "description": "Scopri l'aumento dei prezzi per abitazione e mobilità in Svizzera ad agosto 2026: +2,4% in media, con picco del 3% in Svizzera italiana. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rincari-abitazione-mobilita-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aumento dei costi di abitazione e mobilità in Svizzera"
+      },
+      "datePublished": "2026-09-29T08:51:41+00:00",
+      "dateModified": "2026-09-29T08:51:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rincari-abitazione-mobilita-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -21103,6 +21103,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'rincari-abitazione-mobilita-svizzera',
+    category: 'pratico',
+    date: '2026-09-29T08:51:41.889Z',
+    image: '/images/blog/rincari-abitazione-mobilita-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
