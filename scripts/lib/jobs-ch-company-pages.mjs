@@ -13,6 +13,7 @@
  * One copy, and the loop now reports which of the two it saw.
  */
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
+import { extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
 
 export const JOBS_CH_BASE_URL = 'https://www.jobs.ch';
 
@@ -140,6 +141,202 @@ export function parseVacancyCountTab(html = '') {
     if (companySlugIdentity(m[2]) === identity) return Number(m[3]);
   }
   return null;
+}
+
+/**
+ * Languages the site can take as a vacancy's `sourceLang`. jobs.ch declares
+ * `originalLanguage` on every vacancy; a value outside this set (none observed
+ * so far) falls back to text detection in the caller.
+ */
+const JOBS_CH_SOURCE_LANGS = new Set(['de', 'fr', 'it', 'en']);
+
+/**
+ * The language a jobs.ch vacancy was WRITTEN in, the language this page was
+ * served in, and the per-language routes of the same vacancy.
+ *
+ * Read from the page's own `vacancy-detail` state:
+ * `{"originalLanguage":"de","requestedLang":"en",…}` plus
+ * `"translatedRoutes":{"de":"/de/stellenangebote/detail/<uuid>/",…}`. On the
+ * `/en/vacancies/detail/<uuid>/` route that the company profile links to,
+ * jobs.ch serves a MACHINE TRANSLATION of a German or French vacancy in both
+ * the JSON-LD `JobPosting` and that state (`requestedLang` ≠
+ * `originalLanguage`). Measured 2026-09-29 on strabag
+ * `6f2b1045-1245-475b-a118-6690e3b5c0d7`: the `/en/` JSON-LD reads «At STRABAG,
+ * around 89,000 people…» while the vacancy was written «Bei STRABAG bauen rund
+ * 89.000 Menschen…». Publishing that text as the source mislabels
+ * `sourceLang` as `en`, and every other locale is then translated from a
+ * translation.
+ *
+ * @param {string} html
+ * @returns {{ originalLanguage: string|null, requestedLang: string|null, translatedRoutes: Record<string, string> }}
+ */
+export function parseVacancyLanguage(html = '') {
+  const source = String(html || '');
+  const langs = vacancyLanguageState(source);
+  let translatedRoutes = {};
+  const routes = /"translatedRoutes"\s*:\s*(\{[^{}]*\})/.exec(source);
+  if (routes) {
+    try {
+      const parsed = JSON.parse(routes[1]);
+      if (parsed && typeof parsed === 'object') translatedRoutes = parsed;
+    } catch {
+      translatedRoutes = {};
+    }
+  }
+  return {
+    originalLanguage: langs.originalLanguage,
+    requestedLang: langs.requestedLang,
+    translatedRoutes,
+  };
+}
+
+const LANG_CODE_RE = /^[a-z]{2}$/i;
+const MAX_ENCLOSING_OBJECT_ATTEMPTS = 64;
+
+/**
+ * End index (exclusive) of the JSON object that opens at `start`, scanning
+ * with string/escape awareness; -1 when it does not close.
+ */
+function jsonObjectEnd(source, start) {
+  let depth = 0;
+  let inString = false;
+  for (let i = start; i < source.length; i += 1) {
+    const ch = source[i];
+    if (inString) {
+      if (ch === '\\') i += 1;
+      else if (ch === '"') inString = false;
+    } else if (ch === '"') {
+      inString = true;
+    } else if (ch === '{') {
+      depth += 1;
+    } else if (ch === '}') {
+      depth -= 1;
+      if (depth === 0) return i + 1;
+    }
+  }
+  return -1;
+}
+
+/**
+ * `originalLanguage` and `requestedLang` read as members of the SAME JSON
+ * object — the one that declares `requestedLang` — whatever their order.
+ *
+ * A regex that expects `"originalLanguage":…,"requestedLang":…` in that
+ * sequence silently reports "not translated" the day jobs.ch serialises the
+ * keys in another order, and the crawler goes back to publishing the English
+ * machine translation. The page also carries `originalLanguage` on objects
+ * that are not the vacancy (company reviews), so the pair must come from one
+ * object: the innermost object around a `requestedLang` key that parses as
+ * JSON and owns that key.
+ *
+ * @param {string} source
+ * @returns {{ originalLanguage: string|null, requestedLang: string|null }}
+ */
+function vacancyLanguageState(source) {
+  const keyRe = /"requestedLang"\s*:/g;
+  let key;
+  while ((key = keyRe.exec(source)) !== null) {
+    let start = key.index;
+    for (let attempt = 0; attempt < MAX_ENCLOSING_OBJECT_ATTEMPTS; attempt += 1) {
+      start = source.lastIndexOf('{', start - 1);
+      if (start < 0) break;
+      const end = jsonObjectEnd(source, start);
+      if (end <= key.index) continue;
+      let node;
+      try {
+        node = JSON.parse(source.slice(start, end));
+      } catch {
+        continue;
+      }
+      if (!node || typeof node !== 'object' || !Object.hasOwn(node, 'requestedLang')) continue;
+      const originalLanguage = String(node.originalLanguage ?? '');
+      const requestedLang = String(node.requestedLang ?? '');
+      if (LANG_CODE_RE.test(originalLanguage) && LANG_CODE_RE.test(requestedLang)) {
+        return { originalLanguage: originalLanguage.toLowerCase(), requestedLang: requestedLang.toLowerCase() };
+      }
+      break;
+    }
+  }
+  return { originalLanguage: null, requestedLang: null };
+}
+
+/**
+ * True when `html` is a readable vacancy page for `uuid`: a JobPosting with a
+ * title and a non-empty description, and — when the posting carries a UUID
+ * identifier — that UUID. A 200 that is an error page, a generic landing page
+ * or another vacancy must not replace the translated vacancy the caller
+ * already has: the caller would read no posting from it and drop the job.
+ *
+ * @param {string} html
+ * @param {string} uuid
+ */
+function isVacancyPageFor(html, uuid) {
+  const title = String(extractJobPostingField(html, 'title') || '').trim();
+  const description = String(extractJobPostingDescription(html) || '').replace(/<[^>]*>/g, ' ').trim();
+  if (!title || !description) return false;
+  const identifier = extractJobPostingField(html, 'identifier');
+  const id = String(identifier?.value ?? (typeof identifier === 'string' ? identifier : '')).trim().toLowerCase();
+  return !(/^[0-9a-f]{8}-[0-9a-f-]+$/.test(id) && uuid && id !== uuid);
+}
+
+function vacancyUuidOf(url = '') {
+  return /\/detail\/([0-9a-f-]{8,})\/?(?:[?#]|$)/i.exec(String(url || ''))?.[1]?.toLowerCase() || '';
+}
+
+/**
+ * Fetch a jobs.ch vacancy in the language it was written in.
+ *
+ * The profile links every vacancy through its `/en/` route. When that page
+ * declares a different `originalLanguage`, the original-language route of the
+ * SAME vacancy (same UUID, taken from the page's own `translatedRoutes`) is
+ * fetched instead, so the JSON-LD the caller reads is the employer's text, not
+ * jobs.ch's translation of it. The returned `url` is that original route: it is
+ * the page whose visible body matches the published description, which is what
+ * a reader (and the source-detail audit) opens.
+ *
+ * Degrades, never drops: if the original route is missing, points at another
+ * vacancy, fails to load, answers with a page that is not this vacancy (error
+ * or generic page without its JobPosting), or is itself still a translation,
+ * the `/en/` page is
+ * returned with `translated: true` so the caller keeps the vacancy (same text
+ * it published before this reader existed) and can label it honestly.
+ *
+ * @param {string} jobUrl `/en/vacancies/detail/<uuid>/` link from the profile
+ * @param {{ fetchPage?: (url: string) => Promise<string> }} [options]
+ * @returns {Promise<{ html: string, url: string, sourceLang: string|null, translated: boolean }>}
+ */
+export async function fetchJobsChVacancyInOriginalLanguage(jobUrl, { fetchPage = fetchHtml } = {}) {
+  const html = await fetchPage(jobUrl);
+  const { originalLanguage, requestedLang, translatedRoutes } = parseVacancyLanguage(html);
+  const declared = originalLanguage && JOBS_CH_SOURCE_LANGS.has(originalLanguage) ? originalLanguage : null;
+  if (!originalLanguage || !requestedLang || originalLanguage === requestedLang) {
+    return { html, url: jobUrl, sourceLang: declared, translated: false };
+  }
+  const translatedFallback = { html, url: jobUrl, sourceLang: null, translated: true };
+  const route = String(translatedRoutes[originalLanguage] || '');
+  const uuid = vacancyUuidOf(jobUrl);
+  if (!route.startsWith('/') || !uuid || vacancyUuidOf(route) !== uuid) {
+    console.warn(`  ⚠️ ${jobUrl}: written in "${originalLanguage}" but no matching original-language route — keeping the jobs.ch translation`);
+    return translatedFallback;
+  }
+  const originalUrl = new URL(route, JOBS_CH_BASE_URL).href;
+  let originalHtml;
+  try {
+    originalHtml = await fetchPage(originalUrl);
+  } catch (err) {
+    console.warn(`  ⚠️ Original-language fetch failed for ${originalUrl}: ${err?.message || err} — keeping the jobs.ch translation`);
+    return translatedFallback;
+  }
+  if (!isVacancyPageFor(originalHtml, uuid)) {
+    console.warn(`  ⚠️ ${originalUrl} is not a readable vacancy page (no JobPosting title/description for ${uuid}) — keeping the jobs.ch translation`);
+    return translatedFallback;
+  }
+  const check = parseVacancyLanguage(originalHtml);
+  if (check.requestedLang && check.requestedLang !== originalLanguage) {
+    console.warn(`  ⚠️ ${originalUrl} still served "${check.requestedLang}" for a "${originalLanguage}" vacancy — keeping the jobs.ch translation`);
+    return translatedFallback;
+  }
+  return { html: originalHtml, url: originalUrl, sourceLang: declared, translated: false };
 }
 
 /** @param {{ label: string, identity?: string }} target */

@@ -129,11 +129,10 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         # Same gate as sync-gsc-orphans: the sweep appends raw NOT_FOUND/SOFT_404
         # URLs; any the resolver can't map would break the committed-snapshot
-        # test → main red → drain frozen. Assemble jobs first (resolver needs
-        # data/jobs.json), then drop non-resolving paths before commit.
-        run: |
-          node scripts/assemble-jobs-dataset.mjs
-          npx --no-install tsx scripts/prune-404-compat-paths.ts
+        # test → main red → drain frozen. The resolver uses committed static
+        # registries, so do not assemble the ~400 MB crawler-slice corpus here;
+        # this writer only needs the compatibility-store prune.
+        run: npx --no-install tsx scripts/prune-404-compat-paths.ts
 
       - name: Commit and push
         if: inputs.dry_run != true && inputs.dry_run != 'true'

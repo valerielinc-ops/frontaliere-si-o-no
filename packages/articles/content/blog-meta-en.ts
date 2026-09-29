@@ -12278,6 +12278,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-29.imageAlt': 'The day\'s numbers for cross-border commuters – September 29, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-29.seoDescription': 'Cross-border brief, September 29, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-29.ogDescription': 'The numbers for September 29, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.cst-clausola-salvaguardia-tassa.title': 'CSt: strengthened safeguard clause with incentive tax',
+    'blog.article.cst-clausola-salvaguardia-tassa.excerpt': 'The Council of States has strengthened the safeguard clause for immigration, introducing an incentive tax from 2.000 to 4.000 francs and new indicators.',
+    'blog.article.cst-clausola-salvaguardia-tassa.imageAlt': 'Panoramic view of Lugano and its lake with mountains in the background, a symbol of Ticino.',
 };
 
 export default blogMetaEn;
