@@ -7094,6 +7094,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Krankenkassenprämien, der Frust der Leser: «Jedes Jahr dieselben Worte»',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'Im Tessin gehört der Prämienanstieg für 2027 zu den geringsten, doch die Durchschnittsprämie liegt über 500 Franken. Der kumulierte Anstieg über vier Jahre würde 40% übersteigen.',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Person im Tessin prüft Krankenkassenrechnungen mit Blick auf Lugano.',
+    'blog.article.soletta-successione-donazione-aliquote.title': 'Solothurn: Erbschafts- und Schenkungssteuersätze ohne Bundessteuer',
+    'blog.article.soletta-successione-donazione-aliquote.excerpt': 'In Solothurn liegt die Zuständigkeit ausschließlich beim Kanton und bei der Gemeinde; AFC/ESTV verwaltet diese Abgabe nicht.',
+    'blog.article.soletta-successione-donazione-aliquote.imageAlt': 'Landschaft des Kantons Solothurn mit Hügeln und Siedlungen',
 };
 
 export default blogMetaChDe;

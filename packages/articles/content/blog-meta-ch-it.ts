@@ -7094,6 +7094,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Premi cassa malati, lo sfogo dei lettori: «Ogni anno le stesse parole»',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'In Ticino, il rincaro dei premi per il 2027 è tra i più contenuti, ma il premio medio supera i 500 franchi. Il rincaro cumulato in quattro anni supererebbe il 40%.',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Persona in Ticino esamina bollette della cassa malati con vista su Lugano.',
+    'blog.article.soletta-successione-donazione-aliquote.title': 'Soletta: aliquote successione e donazione senza imposta federale',
+    'blog.article.soletta-successione-donazione-aliquote.excerpt': 'In Soletta la competenza è esclusivamente cantonale e comunale; AFC/ESTV non gestisce questo prelievo.',
+    'blog.article.soletta-successione-donazione-aliquote.imageAlt': 'Paesaggio del Cantone di Soletta con colline e centri abitati',
 };
 
 export default blogMetaChIt;
