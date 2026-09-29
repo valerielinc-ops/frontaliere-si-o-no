@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-09-28T21:24:15.707Z",
+  "generatedAt": "2026-09-29T09:29:15.188Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6602,
-  "avgDurationMs": 6602,
+  "durationMs": 11915,
+  "avgDurationMs": 11915,
   "durationHistory": [
-    6602
+    11915
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=150&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:24:09.372Z",
+      "crawledAt": "2026-09-29T09:29:08.093Z",
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -72,7 +72,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=141&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:24:09.368Z",
+      "crawledAt": "2026-09-29T09:29:08.090Z",
       "firstSeenAt": "2026-09-24T00:02:12.812Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -106,7 +106,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:24:09.358Z",
+      "crawledAt": "2026-09-29T09:29:08.085Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -140,7 +140,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:24:09.360Z",
+      "crawledAt": "2026-09-29T09:29:08.086Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3000,
       "retranslationAttempts": 3,
@@ -185,7 +185,7 @@
       "salaryMin": 130000,
       "salaryMax": 198000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

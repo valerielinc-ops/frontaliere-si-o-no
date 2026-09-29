@@ -36808,6 +36808,42 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ticino-costi-mobilita-abitazione',
+ category: 'pratico',
+ date: '2026-09-29T10:00:49.866Z',
+ image: '/images/blog/ticino-costi-mobilita-abitazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'fials-vigilanza-ospedale-varese',
+ category: 'pratico',
+ date: '2026-09-29T10:38:19.961Z',
+ image: '/images/blog/fials-vigilanza-ospedale-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'corpo-lago-como-288-metri',
+ category: 'novita',
+ date: '2026-09-29T11:08:28.214Z',
+ image: '/images/blog/corpo-lago-como-288-metri.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-09-29',
+ category: 'novita',
+ date: '2026-09-29T11:13:29.294Z',
+ image: '/images/blog/bollettino-frontaliere-2026-09-29.webp',
+ hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

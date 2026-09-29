@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-09-29T09:15:25.939Z",
+  "assembledAt": "2026-09-29T10:19:52.260Z",
   "jobs": [
     {
       "id": "gkb-f712e7fcb987",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:20.676Z",
+      "crawledAt": "2026-09-29T10:19:47.257Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:19.853Z",
+      "crawledAt": "2026-09-29T10:19:46.379Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:19.012Z",
+      "crawledAt": "2026-09-29T10:19:45.725Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:18.159Z",
+      "crawledAt": "2026-09-29T10:19:45.075Z",
       "addressLocality": "Scuol",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -373,7 +373,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:17.304Z",
+      "crawledAt": "2026-09-29T10:19:44.442Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -412,7 +412,6 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.923Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -426,7 +425,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-jobservice-4b780af2943e",
@@ -459,7 +459,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:16.463Z",
+      "crawledAt": "2026-09-29T10:19:43.716Z",
       "addressLocality": "Scuol",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -502,7 +502,6 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.619Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -516,7 +515,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-jobservice-3ba6e73f9398",
@@ -549,7 +549,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:15.615Z",
+      "crawledAt": "2026-09-29T10:19:43.060Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -588,7 +588,6 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.315Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -602,7 +601,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-jobservice-5b85a692676d",
@@ -635,7 +635,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:14.767Z",
+      "crawledAt": "2026-09-29T10:19:42.404Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -680,7 +680,6 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.012Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -694,7 +693,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-jobservice-cb8e228e997c",
@@ -727,7 +727,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:13.929Z",
+      "crawledAt": "2026-09-29T10:19:41.754Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -765,7 +765,6 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:49.407Z",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -779,7 +778,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-jobservice-1723763e8c05",
@@ -812,7 +812,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:13.087Z",
+      "crawledAt": "2026-09-29T10:19:40.966Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -847,7 +847,6 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:48.798Z",
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -861,7 +860,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-d829938f33ae",
@@ -894,7 +894,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:12.268Z",
+      "crawledAt": "2026-09-29T10:19:40.177Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -975,7 +975,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:11.421Z",
+      "crawledAt": "2026-09-29T10:19:39.407Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1061,7 +1061,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:10.572Z",
+      "crawledAt": "2026-09-29T10:19:38.623Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1098,7 +1098,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:31:04.014Z",
-      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "salarySource": "estimated",
@@ -1112,7 +1111,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-3e8bec07ac26",
@@ -1145,7 +1145,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:09.703Z",
+      "crawledAt": "2026-09-29T10:19:37.971Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1235,7 +1235,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:08.863Z",
+      "crawledAt": "2026-09-29T10:19:37.195Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1279,7 +1279,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:05:06.647Z",
-      "needsRetranslation": true,
       "salaryMin": 35100,
       "salaryMax": 62100,
       "salarySource": "estimated",
@@ -1293,7 +1292,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-a7c350f5f600",
@@ -1326,7 +1326,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:08.009Z",
+      "crawledAt": "2026-09-29T10:19:36.394Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1370,7 +1370,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:16:56.532Z",
-      "needsRetranslation": true,
       "salaryMin": 165000,
       "salaryMax": 290000,
       "salarySource": "estimated",
@@ -1384,7 +1383,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-61fa6a66bb66",
@@ -1417,7 +1417,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:07.168Z",
+      "crawledAt": "2026-09-29T10:19:35.608Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1459,7 +1459,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:12:45.906Z",
-      "needsRetranslation": true,
       "salaryMin": 79200,
       "salaryMax": 139200,
       "salarySource": "estimated",
@@ -1473,7 +1472,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-10125680ca47",
@@ -1506,7 +1506,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:06.329Z",
+      "crawledAt": "2026-09-29T10:19:34.823Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1550,7 +1550,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:03:08.013Z",
-      "needsRetranslation": true,
       "salaryMin": 39600,
       "salaryMax": 69600,
       "salarySource": "estimated",
@@ -1564,7 +1563,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-17fb1487c744",
@@ -1597,7 +1597,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1908/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:05.482Z",
+      "crawledAt": "2026-09-29T10:19:34.035Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1682,7 +1682,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1974/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:04.640Z",
+      "crawledAt": "2026-09-29T10:19:33.248Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1732,7 +1732,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:05:06.872Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 103500,
       "salarySource": "estimated",
@@ -1746,7 +1745,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-a2e99a4ad8d5",
@@ -1779,7 +1779,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1976/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:03.794Z",
+      "crawledAt": "2026-09-29T10:19:32.458Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1861,7 +1861,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1975/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:02.933Z",
+      "crawledAt": "2026-09-29T10:19:31.660Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1894,7 +1894,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:09.406Z",
-      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "salarySource": "estimated",
@@ -1908,7 +1907,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     }
   ]
 }

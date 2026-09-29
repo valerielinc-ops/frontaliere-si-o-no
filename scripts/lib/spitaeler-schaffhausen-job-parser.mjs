@@ -32,6 +32,9 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://www.spitaeler-sh.ch/offene-stellen',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['stellen.spitaeler-sh.ch', 'jobs.spitaeler-sh.ch'],
+  // Listing payload = 33-34 % of the rendered vacancy (audit 2026-09-29):
+  // the benefit tiles (Work-Life-Balance, Vorsorgeleistung, Unterkunft, …) exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllSpitaelerSchaffhausenJobs = parser.fetchAllJobs;
