@@ -18,8 +18,9 @@
  * GitHub Pages match the shard repo's custom domain.
  *
  * Caching: shard responses are cached by Cloudflare's NATIVE edge cache via
- * `cf: { cacheEverything, cacheTtl }` on the origin fetch — keyed on the
- * origin-{loc} URL, tiered across colos.
+ * `cf: { cacheEverything, cacheTtlByStatus }` on the origin fetch — keyed on
+ * the origin-{loc} URL, tiered across colos. Positive responses keep the
+ * configured TTL; 5xx responses are never cached.
  *
  * Cache API (caches.default): apex-keyed. WRITTEN on every happy-path shard
  * 200 (below); READ only when the origin fails (5xx / timeout / network) to
@@ -522,8 +523,9 @@ export function splitPrivateUnsubParams(searchParams) {
 
 // Edge-cache TTLs for shard pages. Two layers, deliberately different:
 //
-//   ORIGIN_CACHE_TTL (2h) — `cf.cacheTtl` on the origin fetch: CF caches the
-//   ORIGIN response (tiered/cross-colo) so repeat misses don't re-contact
+//   ORIGIN_CACHE_TTL (2h) — the positive-status TTL in
+//   `cf.cacheTtlByStatus` on the origin fetch: CF caches the ORIGIN response
+//   (tiered/cross-colo) so repeat misses don't re-contact
 //   GitHub Pages. Kept at 2h because with cacheEverything it also negative-
 //   caches origin 404s: a page that flips 404→200 on deploy may serve a
 //   cached 404 from an already-probed colo for up to this TTL, and deploys
@@ -604,9 +606,10 @@ const NOT_FOUND_CACHE_CONTROL = 'public, max-age=300, s-maxage=7200';
 // and pushed to cdn.frontaliereticino.ch/job-canon/<shard>.json (CDN-offloaded,
 // same as /data and /og — see deploy-it-pages-prep.sh step_push_cdn). Fetched
 // here as a plain cross-origin subrequest (Workers fetch() is not CORS-bound,
-// unlike public/404.html's browser-context fetch) and edge-cached (cacheEverything
-// + cacheTtl) so repeat 404s for the same shard don't re-hit the CDN. Best-effort
-// throughout: any miss/timeout/parse error returns null and the normal 404 path
+// unlike public/404.html's browser-context fetch) and edge-cached
+// (cacheEverything + cacheTtlByStatus) so repeat 404s for the same shard don't
+// re-hit the CDN. Best-effort throughout: any miss/timeout/parse error returns
+// null and the normal 404 path
 // runs.
 //
 // LOCALE-AWARE (do NOT collapse): the slug segment is IDENTICAL across all 4
