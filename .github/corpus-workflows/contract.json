@@ -4,20 +4,20 @@
   "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "c80390966c75ab63f58e3ebf552518cf95fcdf52",
+  "sourceCommit": "c0731c4f6dcd3ac70d7db66ac72d99322686a743",
   "artifactObservation": {
     "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
     "sourceRef": "main",
-    "sourceCommit": "c80390966c75ab63f58e3ebf552518cf95fcdf52"
+    "sourceCommit": "c0731c4f6dcd3ac70d7db66ac72d99322686a743"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 626,
+  "crawlerCount": 625,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:f0bc788effb635b763933c21762a9e92407722d5f43acadf2fc4384f7105e120",
+    "rosterDigest": "sha256:264390a221b6a508f71258e31d643d2b27153bbe68f4f8822e77970e9aa2b2dd",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -285,7 +285,6 @@
     "scripts/update-igroove-jobs.mjs",
     "scripts/update-igs-bern-jobs.mjs",
     "scripts/update-ikea-jobs.mjs",
-    "scripts/update-im-bethesda-spital-jobs.mjs",
     "scripts/update-imad-jobs.mjs",
     "scripts/update-imerys-jobs.mjs",
     "scripts/update-implenia-jobs.mjs",
@@ -847,8 +846,8 @@
     {
       "file": "crawler-group-07.yml",
       "sourceLogic": "crawler-group-07-logic.yml",
-      "sourceSha256": "18eb27835fd708c310079c1f925849d60b583ae4e467cb0620a859c4e9ec5a7f",
-      "artifactSha256": "cbdacc415288ba5477ab3f8e20efccb6b76f9562cff41551e633d82ae2da1f3f",
+      "sourceSha256": "47e8865599520fae50e323e87f0c016220da369461d643d87f357b9785b3aaa2",
+      "artifactSha256": "180f8f567936c5b291b71f7cd504fea75ee300b193e2367ea9cd110d5e6fc47d",
       "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
       "members": [
         "spital-emmental",
@@ -878,7 +877,6 @@
         "citta-di-lugano",
         "anker-swiss",
         "guggerbach",
-        "im-bethesda-spital",
         "lonza"
       ]
     },

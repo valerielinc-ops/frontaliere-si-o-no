@@ -11617,3 +11617,4 @@
 {"key":"tip-tel-services@zurich","from":"synthesized","to":"validated","at":"2026-09-29T05:44:42.006Z"}
 {"key":"walker-bedachungen@zug","from":"synthesized","to":"validated","at":"2026-09-29T05:44:47.195Z"}
 {"key":"domino-rh@rolle","from":"validated","to":"promoted","at":"2026-09-29T05:47:24.686Z"}
+{"key":"recruitingapp-2998@umantis.com","from":"production","to":"rejected","at":"2026-09-29T07:52:20.756Z","reason":"retired: duplicate of dedicated crawler bethesda-spital (same Umantis tenant recruitingapp-2998; JSON-LD identifier = Umantis vacancy id), company name mis-extracted as \"& im Bethesda Spital\""}
