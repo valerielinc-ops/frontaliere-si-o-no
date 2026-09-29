@@ -1,18 +1,86 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-09-29T09:15:25.713Z",
+  "generatedAt": "2026-09-29T21:13:03.744Z",
   "total": 28,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 27,
-  "durationMs": 11145,
-  "avgDurationMs": 11145,
+  "unchangedCount": 26,
+  "durationMs": 17017,
+  "avgDurationMs": 17017,
   "durationHistory": [
-    11145
+    17017
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "efg-6531",
+      "slug": "client-services-officer-russian-speaker-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Client Services Officer - Russian Speaker",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6531",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "Within the Private Banking Department, the <strong style=\"border: 0px solid rgb(51, 60, 64); box-sizing: border-box; font-weight: bolder; margin: 0px; outline-color: oklab(0.709229 0.0116 0.0345271 / 0.5); padding: 0px; scrollbar-color: auto;\">Client Support Officer Private Banking</strong> plays a key role in delivering a high‑quality service experience to our clients and supporting our Client Relationship Officers (CROs) in the day‑to‑day management of client relationships.",
+              "You will be responsible for the full range of administrative and operational activities linked to client accounts, ensuring that all instructions are executed accurately, efficiently and in line with internal policies and regulatory requirements. Working closely with CROs and key control functions, you will help prepare client meetings, maintain up‑to‑date documentation, and contribute to the promotion of digital and paperless solutions.",
+              "This position is suited to an experienced private banking professional who enjoys working in a dynamic environment, is comfortable with complex client requests and financial instruments, and is committed to delivering excellent service with a strong risk‑aware and compliance mindset. The role requires close interaction with Russian‑speaking clients and therefore a high level of proficiency in Russian.",
+              "· Provide proactive day‑to‑day support to one or more CROs in managing a portfolio of private banking clients, ensuring seamless coordination of all client‑related activities."
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 7
+          }
+        }
+      },
+      "crawledAt": "2026-09-29T21:12:54.926Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-09-29",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "efg-5984",
@@ -108,7 +176,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T09:15:19.237Z",
+      "crawledAt": "2026-09-29T21:12:55.016Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-03",
@@ -211,7 +279,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T09:15:19.235Z",
+      "crawledAt": "2026-09-29T21:12:55.015Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14",
@@ -265,7 +333,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T09:15:19.233Z",
+      "crawledAt": "2026-09-29T21:12:55.013Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13",
@@ -430,7 +498,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T09:15:19.232Z",
+      "crawledAt": "2026-09-29T21:12:55.011Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -486,7 +554,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T09:15:19.230Z",
+      "crawledAt": "2026-09-29T21:12:55.009Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -613,7 +681,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T09:15:19.227Z",
+      "crawledAt": "2026-09-29T21:12:55.008Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -670,7 +738,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T09:15:19.224Z",
+      "crawledAt": "2026-09-29T21:12:55.006Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -800,7 +868,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T09:15:19.219Z",
+      "crawledAt": "2026-09-29T21:12:55.001Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -940,7 +1008,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T09:15:19.217Z",
+      "crawledAt": "2026-09-29T21:12:54.999Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16",
@@ -1065,7 +1133,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T09:15:19.198Z",
+      "crawledAt": "2026-09-29T21:12:54.978Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-09-25",
@@ -2696,63 +2764,6 @@
         "richness": 25,
         "translation": 25,
         "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6040",
-      "slug": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Network & Proxy Support Team Lead",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6040",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Information</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Department:</strong> Information Technology – Infrastructure</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Work Time Percentage:</strong> 100%</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Location:</strong> Geneva</span></li></ul><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span><strong>Empowering entrepreneurial minds to create value – today and for the future.</strong></span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>Role and Team</strong></span></p><p><span>Within the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.</span></p><p><span>You will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.</span></p><p><span><strong>Main Responsibilities</strong></span></p><p><span><strong>1. Leadership & Management</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Combine team leadership with hands-on technical work on complex incidents and projects.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Oversee day-to-day network and proxy operations, including incident, problem and change management.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.</span></li></ul><p><span><strong>2. Proxy / Secure Web Gateway (Zscaler)</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.</span></li></ul><p><span><strong>3. Network Engineering & Operations</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Provide 2nd and 3rd level technical support for network and related services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor network and proxy performance, ensuring system availability, reliability and security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.</span></li></ul><p><span><strong>Skills and Experience</strong></span></p><p><span><strong>Background</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>6–10 years of experience in networking in complex, international environments.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong knowledge of enterprise networking architecture and network security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.</span></li></ul><p><span><strong>Technical Skills</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Expert in LAN/WAN/MAN implementation and troubleshooting.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Solid understanding of network and cloud connectivity design.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.</span></li></ul><p><span><strong>Soft Skills & Languages</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Strong communication skills; able to work effectively with technical and non-technical stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience managing third-party providers and internal support teams.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Fluent in French and English, written and spoken.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork; working together with an entrepreneurial spirit.</span></li></ul><p><span><strong>Application</strong></span></p><ol><li style=\"tab-stops:list 36.0pt;\"><span>Please ensure you attach a cover letter to your CV when submitting your application.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Should you wish to apply for this position, please use the designated application link.</span></li></ol><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-07-31T11:35:36.597Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.890Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6040",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
       }
     }
   ]
