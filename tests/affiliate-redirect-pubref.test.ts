@@ -55,6 +55,8 @@ describe('affiliate redirect pubref', () => {
   it('ships the pubref rewrite on Partnerize partners', () => {
     expect(isPartnerizeUrl(wise.url)).toBe(true);
     const html = buildRedirectPage(wise);
+    expect(html).toContain("var emissionId=(function(){");
+    expect(html).toContain("emission_id:emissionId");
     expect(html).toContain("searchParams.set('pubref'");
     expect(html).toContain("q.get(\"pos\")");
     expect(html).toContain('document.referrer');

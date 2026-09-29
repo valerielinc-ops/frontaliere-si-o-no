@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { logEvent } from 'firebase/analytics';
 import { captureEvent as posthogCapture } from '@/services/posthog';
+import { GTAG_INIT_CONTENT } from '../build-plugins/constants';
 import { collapseTechnicalDuplicates } from '../scripts/build-employer-insights.mjs';
 import { createAnalyticsEmissionId } from '../services/analyticsEmissionId';
 import { readFileSync } from 'node:fs';
@@ -31,7 +32,11 @@ function posthogPageViews() {
 }
 
 function firebasePageViews() {
-  return firebaseLog.mock.calls.filter(([, eventName]) => eventName === 'page_view');
+ return firebaseLog.mock.calls.filter(([, eventName]) => eventName === 'page_view');
+}
+
+function firebaseEvents(eventName: string) {
+ return firebaseLog.mock.calls.filter(([, loggedEventName]) => loggedEventName === eventName);
 }
 
 async function waitForProviders(expected: number): Promise<void> {
@@ -103,6 +108,58 @@ describe('page-view emission identity', () => {
       { event: '$pageview', observed: 1, emissionId: posthogPageViews()[0][1].emission_id },
       { event: 'page_view', observed: 1, emissionId: firebasePageViews()[0][2].emission_id },
     ])).toMatchObject({ observed: 1, removed: 1, dedupUnavailable: 0 });
+  });
+
+  it('emits an explicit identity for the static bounce-safe page_view', () => {
+    const dataLayer: unknown[] = [];
+    const staticWindow = { dataLayer };
+    const staticDocument = { title: 'Static page' };
+    const staticLocation = {
+      pathname: '/static-page/',
+      href: 'https://example.test/static-page/?from=serp',
+    };
+    const staticCrypto = { randomUUID: () => 'static-emission-id' };
+
+    new Function('window', 'document', 'location', 'crypto', GTAG_INIT_CONTENT)(
+      staticWindow,
+      staticDocument,
+      staticLocation,
+      staticCrypto,
+    );
+
+    const pageView = dataLayer.find((entry) => {
+      const call = entry as { 0?: unknown; 1?: unknown };
+      return call[0] === 'event' && call[1] === 'page_view';
+    }) as { 2?: Record<string, unknown> } | undefined;
+    expect(pageView?.[2]).toMatchObject({ emission_id: 'static-emission-id' });
+    expect(staticWindow.__GTAG_PAGE_VIEW_EMISSION_ID__).toBe('static-emission-id');
+    expect(staticWindow.__GTAG_PAGE_VIEW_PATH__).toBe('/static-page/');
+  });
+
+  it('joins the matching static page_view to the hydrated page_view', async () => {
+    Object.assign(globalThis.window, {
+      __GTAG_PAGE_VIEW_EMISSION_ID__: 'static-emission-id',
+      __GTAG_PAGE_VIEW_PATH__: '/static-page/',
+    });
+    const { Analytics } = await loadAnalytics();
+    const first = Analytics.trackPageView('/static-page/?from=serp', 'Static page');
+
+    expect(first).toBe('static-emission-id');
+    expect((globalThis.window as unknown as Record<string, unknown>).__GTAG_PAGE_VIEW_EMISSION_ID__).toBeUndefined();
+    await waitForProviders(1);
+    expect(firebasePageViews()[0][2]).toMatchObject({ emission_id: first });
+  });
+
+  it('coins an identity for job_apply when a caller omits one', async () => {
+    const { Analytics } = await loadAnalytics();
+    Analytics.trackJobApply('acme', false, 'role-it');
+
+    await vi.waitFor(() => expect(firebaseEvents('job_apply')).toHaveLength(1));
+    expect(firebaseEvents('job_apply')[0][2]).toMatchObject({
+      employer_key: 'acme',
+      job_slug: 'role-it',
+      emission_id: expect.any(String),
+    });
   });
 
   it('gives two distinct trackPageView calls two distinct ids', async () => {

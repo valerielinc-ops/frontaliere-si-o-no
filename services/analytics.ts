@@ -597,6 +597,9 @@ function enrichEventParams(params?: Record<string, any>): Record<string, any> {
  const landingPath = sessionLandingPath
   || storedAttribution?.landing_path
   || normalizeAnalyticsPath(typeof window !== 'undefined' ? window.location.pathname : '/');
+ const emissionId = params?.emission_id === undefined
+  ? createAnalyticsEmissionId()
+  : params.emission_id;
 
  return {
   page_path: eventPath,
@@ -608,7 +611,29 @@ function enrichEventParams(params?: Record<string, any>): Record<string, any> {
   ...eventPageTelemetry(eventPath, pageContext),
   landing_path: landingPath,
   ...(params || {}),
+  emission_id: emissionId,
  };
+}
+
+/**
+ * The static gtag bootstrap fires before React hydrates so a fast bounce still
+ * has a page_view. Consume its identity exactly once when the matching SPA
+ * page_view arrives; a route mismatch is discarded instead of joining two
+ * different pages by accident.
+ */
+function consumeStaticGtagPageViewEmissionId(path: string): string | undefined {
+ if (typeof window === 'undefined') return undefined;
+ const w = window as unknown as Record<string, unknown>;
+ const emissionId = typeof w.__GTAG_PAGE_VIEW_EMISSION_ID__ === 'string'
+  ? w.__GTAG_PAGE_VIEW_EMISSION_ID__
+  : undefined;
+ const staticPath = typeof w.__GTAG_PAGE_VIEW_PATH__ === 'string'
+  ? w.__GTAG_PAGE_VIEW_PATH__
+  : undefined;
+ delete w.__GTAG_PAGE_VIEW_EMISSION_ID__;
+ delete w.__GTAG_PAGE_VIEW_PATH__;
+ if (!emissionId || !staticPath) return undefined;
+ return normalizeAnalyticsPath(staticPath) === normalizeAnalyticsPath(path) ? emissionId : undefined;
 }
 
 // ─── Error Tracking Helpers ────────────────────────────────────
@@ -1150,8 +1175,8 @@ export const Analytics = {
  * before React hydrates). Firebase also fires page_view unconditionally so
  * that sessions where gtag.js is blocked (ad blockers, ~30-40% of users)
  * still have a page_view with correct page_location in GA4.
- * This means non-blocked users get a duplicate page_view (gtag + Firebase)
- * on the initial page, which is a minor metric inflation but correct.
+ * When both producers run, they carry one shared emission identity and the
+ * D18 builder can collapse them without suppressing the fallback producer.
  */
  trackPageView: (
  path: string,
@@ -1163,27 +1188,11 @@ export const Analytics = {
  // disponibile" — never a guessed value.
  emissionId?: string | null,
  ) => {
- const pageViewEmissionId = emissionId === undefined ? createAnalyticsEmissionId() : emissionId;
+ const staticPageViewEmissionId = consumeStaticGtagPageViewEmissionId(path);
+ const pageViewEmissionId = emissionId === undefined
+  ? staticPageViewEmissionId || createAnalyticsEmissionId()
+  : emissionId;
  const now = Date.now();
- // NOTE: We intentionally do NOT skip Firebase page_view even when
- // window.__GTAG_PAGE_VIEW_SENT__ is set by static HTML pages.
- //
- // The flag is set synchronously by the inline GTAG_SNIPPET before gtag.js
- // loads (gtag.js is async). When gtag.js is blocked by an ad blocker or
- // privacy browser (~30-40% of users), the flag is set but gtag never fires
- // page_view. Other Firebase events (e.g. funnel_step) still fire, creating
- // a GA4 session with no page_view → landing page = "(not set)".
- //
- // By always firing the Firebase page_view, we ensure every session has a
- // page_view with correct page_location. Non-blocked users get a duplicate
- // page_view (gtag + Firebase), which is a minor metric inflation but far
- // better than 25% of sessions having "(not set)" landing page.
- //
- // The flag is cleared here so it doesn't interfere with any future code.
- const w = window as unknown as Record<string, unknown>;
- if (w.__GTAG_PAGE_VIEW_SENT__) {
- delete w.__GTAG_PAGE_VIEW_SENT__;
- }
  // Calculate time spent on previous page (for pagesPerSession accuracy)
  const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;
  lastTrackedPageAt = now;
