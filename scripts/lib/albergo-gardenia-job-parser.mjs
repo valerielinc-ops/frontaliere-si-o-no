@@ -397,39 +397,58 @@ export function createAlbergoGardeniaCleanEgressTransport({
     if (!gardeniaCfAccount || (!gardeniaCfToken && !gardeniaCfKey)) {
       throw Object.assign(new Error('Cloudflare clean-egress credentials are missing'), { status: 401 });
     }
-    const authHeaders = gardeniaCfToken
-      ? { Authorization: `Bearer ${gardeniaCfToken}` }
-      : {
-          'X-Auth-Email': await loadAuthEmail(),
-          'X-Auth-Key': gardeniaCfKey,
-        };
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS);
     try {
-      const response = await fetchImpl(
-        `https://api.cloudflare.com/client/v4/accounts/${gardeniaCfAccount}/browser-rendering/content`,
-        {
-          method: 'POST',
-          headers: {
-            ...authHeaders,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            url: ALBERGO_GARDENIA_HOME_URL,
-            actionTimeout: CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS,
-            gotoOptions: {
-              waitUntil: 'domcontentloaded',
-              timeout: 60_000,
-            },
-            addScriptTag: [{ content: gardeniaCloudflareInventoryScript() }],
-            waitForSelector: {
-              selector: `#${GARDENIA_CLEAN_EGRESS_SOURCE_ID}, #${GARDENIA_CLEAN_EGRESS_ERROR_ID}`,
-              timeout: CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS,
-            },
-          }),
-          signal: controller.signal,
+      const requestOptions = (authHeaders) => ({
+        method: 'POST',
+        headers: {
+          ...authHeaders,
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          url: ALBERGO_GARDENIA_HOME_URL,
+          actionTimeout: CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS,
+          gotoOptions: {
+            waitUntil: 'domcontentloaded',
+            timeout: 60_000,
+          },
+          addScriptTag: [{ content: gardeniaCloudflareInventoryScript() }],
+          waitForSelector: {
+            selector: `#${GARDENIA_CLEAN_EGRESS_SOURCE_ID}, #${GARDENIA_CLEAN_EGRESS_ERROR_ID}`,
+            timeout: CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS,
+          },
+        }),
+        signal: controller.signal,
+      });
+      const authAttempts = [];
+      if (gardeniaCfToken) {
+        authAttempts.push({
+          label: 'Cloudflare API token',
+          getHeaders: async () => ({ Authorization: `Bearer ${gardeniaCfToken}` }),
+        });
+      }
+      if (gardeniaCfKey) {
+        authAttempts.push({
+          label: 'Cloudflare Global API Key',
+          getHeaders: async () => ({
+            'X-Auth-Email': await loadAuthEmail(),
+            'X-Auth-Key': gardeniaCfKey,
+          }),
+        });
+      }
+
+      let response;
+      for (const [index, attempt] of authAttempts.entries()) {
+        response = await fetchImpl(
+          `https://api.cloudflare.com/client/v4/accounts/${gardeniaCfAccount}/browser-rendering/content`,
+          requestOptions(await attempt.getHeaders()),
+        );
+        const authRejected = response.status === 401 || response.status === 403;
+        const hasFallback = index < authAttempts.length - 1;
+        if (!authRejected || !hasFallback) break;
+        console.warn(`  ⚠️ ${attempt.label} rejected by Cloudflare (${response.status}); trying the configured fallback credential.`);
+      }
       if (!response.ok) {
         throw Object.assign(new Error(`Cloudflare browser rendering failed (${response.status})`), {
           status: response.status,
