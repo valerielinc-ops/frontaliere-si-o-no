@@ -19,6 +19,12 @@
  * composeLocaleSubjects with generateLocaleBriefing / generateAISubject.
  *
  *   node scripts/measure-newsletter-ai-phases.mjs [--json]
+ *
+ * With `--lanes N` it measures instead Phases 2 and 3 one after the other
+ * against the two together, on a broker with N parallel lanes
+ * (measureNewsletterAiLanes), counting calls and prompt characters too.
+ *
+ *   node scripts/measure-newsletter-ai-phases.mjs --lanes 3
  */
 import {
   AI_PHASE_BUDGET_MS,
@@ -197,6 +203,106 @@ async function post({ cohorts, serviceMs, shortFirstAttempt }) {
   });
 }
 
+/**
+ * Broker with `lanes` parallel slots (codex-auth-broker.mjs --max-concurrency),
+ * first come first served, with a service time per request kind. It counts the
+ * calls and the prompt characters sent, a proxy of the input tokens.
+ */
+function lanedBroker(clock, { lanes, briefingMs, subjectMs }) {
+  const freeAt = Array(lanes).fill(clock.now);
+  const stats = { calls: 0, promptChars: 0 };
+  async function llm(messages) {
+    stats.calls++;
+    stats.promptChars += messages.reduce((n, m) => n + String(m.content || '').length, 0);
+    const subject = /email subject line/i.test(messages[0]?.content || '');
+    const lane = freeAt.indexOf(Math.min(...freeAt));
+    const start = Math.max(clock.now, freeAt[lane]);
+    const end = start + (subject ? subjectMs : briefingMs);
+    freeAt[lane] = end;
+    await clock.at(end);
+    if (subject) return '💼 Nuove offerte a Lugano questa settimana';
+    return `<p>${Array.from({ length: 90 }, (_, w) => `parola${w}`).join(' ')}.</p>`;
+  }
+  return { llm, stats };
+}
+
+/** Cohorts whose jobs paragraph alone covers the subject Theme (3 long titles). */
+function cohortsWithLongJobs(total) {
+  const cohorts = cohortsFor(total);
+  for (const cohort of cohorts.values()) {
+    cohort.matchedJobs = [
+      { title: 'Specialista in contabilità e controllo di gestione', company: 'Azienda A', location: 'Lugano', url: '/lavoro/a' },
+      { title: 'Responsabile della logistica di magazzino', company: 'Azienda B', location: 'Mendrisio', url: '/lavoro/b' },
+      { title: 'Tecnico di laboratorio chimico', company: 'Azienda C', location: 'Bellinzona', url: '/lavoro/c' },
+    ];
+  }
+  return cohorts;
+}
+
+/**
+ * Phases 2 and 3 on a broker with lanes: one after the other (`together:
+ * false`, the order before the phases ran together) or together, with Phase 3
+ * reading each locale's briefing through `briefingFor` as send-newsletter.mjs
+ * does.
+ */
+async function lanedPhases({ cohorts, lanes, briefingMs, subjectMs, together }) {
+  const clock = virtualClock();
+  const broker = lanedBroker(clock, { lanes, briefingMs, subjectMs });
+  return withVirtualTime(clock, async () => {
+    const t0 = clock.now;
+    const deadlineMs = clock.now + AI_PHASE_BUDGET_MS;
+    const ctx = (loc) => ({ locale: loc, exchangeRate: EXCHANGE, exchangeInsight: null, weeklyFact: null, featuredTool: null });
+    const briefingCalls = new Map();
+    const briefingFor = (loc) => {
+      if (!briefingCalls.has(loc)) briefingCalls.set(loc, generateLocaleBriefing(ctx(loc), { deadlineMs, llm: broker.llm }));
+      return briefingCalls.get(loc);
+    };
+    const subjectsWith = (source) => composeLocaleSubjects(cohorts, {
+      locales: LOCALES,
+      variantIds: VARIANTS,
+      ...source,
+      exchangeRate: EXCHANGE,
+      generate: (subjectCtx) => generateAISubject(subjectCtx, { deadlineMs, llm: broker.llm }),
+    });
+    let subjects;
+    if (together) {
+      [, subjects] = await Promise.all([
+        composeCohortBriefings(cohorts, { locales: LOCALES, exchangeRate: EXCHANGE, generate: briefingFor }),
+        subjectsWith({ briefingFor }),
+      ]);
+    } else {
+      const phase2 = await composeCohortBriefings(cohorts, { locales: LOCALES, exchangeRate: EXCHANGE, generate: briefingFor });
+      subjects = await subjectsWith({ briefingMap: phase2.briefingMap });
+    }
+    return {
+      seconds: Math.round((clock.now - t0) / 1000),
+      calls: broker.stats.calls,
+      promptChars: broker.stats.promptChars,
+      subjects: [...subjects.entries()].sort(([a], [b]) => a.localeCompare(b)),
+    };
+  });
+}
+
+// Service times of the per-locale design, run 36385271711 (2026-09-28): one
+// briefing in 34 s, two subjects in 35 s one after the other.
+export const LANE_SERVICE = Object.freeze({ briefingMs: 34_000, subjectMs: 17_000 });
+
+/**
+ * The phases one after the other and together, on the same cohorts, prompts
+ * and service times, with `lanes` broker lanes. Two inputs: short jobs
+ * paragraphs (every subject has to wait for its locale's briefing) and long
+ * ones (no subject waits).
+ */
+export async function measureNewsletterAiLanes({ lanes = 3, cohortCount = 700 } = {}) {
+  const results = [];
+  for (const [input, cohorts] of [['short-jobs-paragraph', cohortsFor(cohortCount)], ['long-jobs-paragraph', cohortsWithLongJobs(cohortCount)]]) {
+    const sequential = await lanedPhases({ cohorts, lanes, ...LANE_SERVICE, together: false });
+    const together = await lanedPhases({ cohorts, lanes, ...LANE_SERVICE, together: true });
+    results.push({ input, lanes, sequential, together, savedSeconds: sequential.seconds - together.seconds });
+  }
+  return results;
+}
+
 export const SCENARIOS = Object.freeze([
   { id: 'measured-116s', serviceMs: MEASURED_SERVICE_MS, shortFirstAttempt: false },
   { id: 'measured-116s-every-first-answer-too-short', serviceMs: MEASURED_SERVICE_MS, shortFirstAttempt: true },
@@ -217,6 +323,17 @@ export async function measureNewsletterAiPhases({ cohortCount = 700 } = {}) {
     });
   }
   return results;
+}
+
+if (import.meta.url === `file://${process.argv[1]}` && process.argv.includes('--lanes')) {
+  const lanes = Number(process.argv[process.argv.indexOf('--lanes') + 1]) || 3;
+  const results = await measureNewsletterAiLanes({ lanes });
+  console.log(`| input (${lanes} lanes) | one after the other: s, calls, prompt chars | together: s, calls, prompt chars | saved s |`);
+  console.log('|---|---|---|---|');
+  for (const r of results) {
+    console.log(`| ${r.input} | ${r.sequential.seconds}, ${r.sequential.calls}, ${r.sequential.promptChars} | ${r.together.seconds}, ${r.together.calls}, ${r.together.promptChars} | ${r.savedSeconds} |`);
+  }
+  process.exit(0);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
