@@ -935,13 +935,15 @@
       "previousSlugs": [
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-        "private-clients-consultant-vz-vermoegenszentrum-ch"
+        "private-clients-consultant-vz-vermoegenszentrum-ch",
+        "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-          "private-clients-consultant-vz-vermoegenszentrum-ch"
+          "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-07-10T22:31:21.324Z",
@@ -1025,19 +1027,20 @@
       },
       "previousSlugs": [
         "product-manager-products-customer-experience-60-100-vz-vermoegenszentrum-ch",
-        "product-manager-products-customer-experience-vz-vermoegenszentrum-ch"
+        "product-manager-products-customer-experience-vz-vermoegenszentrum-ch",
+        "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-products-customer-experience-60-100-vz-vermoegenszentrum-ch",
-          "product-manager-products-customer-experience-vz-vermoegenszentrum-ch"
+          "product-manager-products-customer-experience-vz-vermoegenszentrum-ch",
+          "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug"
         ]
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2115,
-      "retranslationAttempts": 5,
+      "retranslationAttempts": 6,
       "firstSeenAt": "2026-07-10T12:27:55.950Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 195000,
       "salarySource": "estimated",
@@ -1220,7 +1223,8 @@
           "senior-consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
           "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
           "senior-consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
-          "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern"
+          "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
+          "successione-commerciale-m-a-vz-vermogenszentrum-bern"
         ],
         "fr": [
           "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
@@ -1232,7 +1236,8 @@
         "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
         "senior-consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
         "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
-        "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
+        "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern",
+        "successione-commerciale-m-a-vz-vermogenszentrum-bern"
       ],
       "firstSeenAt": "2026-07-30T22:18:33.770Z",
       "salaryMin": 68500,
@@ -1678,13 +1683,15 @@
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
         "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
         "private-clients-consultant-vz-vermoegenszentrum-ch",
-        "consultant-client-prive-80-100-vz-vermogenszentrum-zurich"
+        "consultant-client-prive-80-100-vz-vermogenszentrum-zurich",
+        "private-clients-consulente-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
           "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
-          "private-clients-consultant-vz-vermoegenszentrum-ch"
+          "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consulente-vz-vermogenszentrum-zurich"
         ],
         "fr": [
           "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
@@ -3749,11 +3756,13 @@
       },
       "previousSlugs": [
         "real-estate-consultant-vz-vermoegenszentrum-ch",
-        "consultant-immobilier-vz-vermogenszentrum-basel"
+        "consultant-immobilier-vz-vermogenszentrum-basel",
+        "real-estate-consulente-vz-vermogenszentrum-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "real-estate-consultant-vz-vermoegenszentrum-ch"
+          "real-estate-consultant-vz-vermoegenszentrum-ch",
+          "real-estate-consulente-vz-vermogenszentrum-basel"
         ],
         "fr": [
           "consultant-immobilier-vz-vermogenszentrum-basel"
@@ -4724,11 +4733,13 @@
       },
       "previousSlugs": [
         "professional-software-engineer-net-fullstack-vz-vermoegenszentrum-ch",
-        "ingenieur-logiciel-professionnel-net-pull-stack-vz-vermogenszentrum-zug"
+        "ingenieur-logiciel-professionnel-net-pull-stack-vz-vermogenszentrum-zug",
+        "professionista-software-engineer-net-full-stack-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professional-software-engineer-net-fullstack-vz-vermoegenszentrum-ch"
+          "professional-software-engineer-net-fullstack-vz-vermoegenszentrum-ch",
+          "professionista-software-engineer-net-full-stack-vz-vermogenszentrum-zug"
         ],
         "fr": [
           "ingenieur-logiciel-professionnel-net-pull-stack-vz-vermogenszentrum-zug"
