@@ -15,6 +15,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { textFragmentUrl } from './text-fragment-url.mjs';
 import {
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
@@ -107,6 +108,51 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/* ── Public URL ────────────────────────────────────────────── */
+
+/**
+ * The address of one posting on https://grischapersonal.ch/stellen/.
+ *
+ * The page lists every vacancy as a table row with the title in an `<h1>` and
+ * an inline JobPosting without `url`; there is no page, and no element id, per
+ * vacancy. The listing identity the extractor gives such a row,
+ * `/stellen/#job-<digest of the JobPosting>`, names no element of the page, so
+ * published as the job URL it led to the top of a list of 38 postings
+ * (parser-quality run 36571839273: source-detail-anchor-missing 2/2).
+ *
+ * - `#:~:text=<title>`: the text fragment of the row's title is where the
+ *   browser scrolls (measured in Chromium on the live page) and where the
+ *   audit reads the posting (the section under that heading). Titles on the
+ *   page are unique (38/38 on 2026-09-29).
+ * - `?jobid=<digest>`: the posting's identity for the URL-keyed layers
+ *   (`extractJobIdentityFromUrl`, the slug registry), which drop the fragment.
+ *   Without it every posting would read as `grischapersonal.ch/stellen`. The
+ *   site ignores the query (same page, canonical `/stellen/`).
+ *
+ * @param {{ url?: string, sourceUrl?: string }} listing
+ * @param {string} title
+ * @returns {string}
+ */
+export function grischapersonalPublicUrl(listing = {}, title = '') {
+  const identity = String(listing.url || '');
+  const page = String(listing.sourceUrl || identity || CAREER_URL).split('#')[0].split('?')[0];
+  const digest = /#job-([0-9a-f]{6,})$/i.exec(identity)?.[1]
+    || createHash('sha1').update(identity || title).digest('hex').slice(0, 12);
+  return textFragmentUrl(`${page}?jobid=${digest}`, title);
+}
+
+/**
+ * Merge key of a Grischa Personal record: its id, which is derived from the
+ * listing identity and not from the public URL — so the records stored with
+ * `#job-<hash>` URLs match the same postings published with text fragments.
+ *
+ * @param {{ id?: string, url?: string }} job
+ * @returns {string}
+ */
+export function grischapersonalMatchKey(job = {}) {
+  return String(job?.id || job?.url || '');
+}
+
 /* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
@@ -159,12 +205,16 @@ export async function fetchAllGrischapersonalJobs() {
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
-    const publicUrl = listing.url;
+    const publicUrl = grischapersonalPublicUrl(listing, title);
     const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} ${location} grischapersonal ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    // The id stays the digest of the listing identity (`/stellen/#job-<hash>`
+    // of the inline JobPosting), as before the public URL changed: it is the
+    // merge key (see grischapersonalMatchKey), so stored records keep their
+    // translations, slugs and first-seen dates.
+    const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
 
     const job = {
       // ── Required fields ──
