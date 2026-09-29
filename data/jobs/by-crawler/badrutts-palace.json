@@ -182,7 +182,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "badrutts-palace-a71a288a5a6f",
@@ -341,7 +343,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "badrutts-palace-7dc634e3b97c",
@@ -418,7 +422,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "badrutts-palace-2c4d5b5f4a63",
@@ -1132,7 +1138,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     }
   ]
 }

@@ -1024,7 +1024,7 @@
       "slugByLocale": {
         "it": "med-assistente-pratico-assistente-pratico-mpa-centro-di-emergenza-universitatsspital-basel-basel",
         "en": "med-practical-assistant-practical-assistant-mpa-emergency-center-universitatsspital-basel-basel",
-        "de": "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r",
+        "de": "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
         "fr": "med-assistant-pratique-assistant-pratique-mpa-centre-d-urgence-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
@@ -1069,7 +1069,8 @@
       "previousSlugsByLocale": {
         "de": [
           "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-unispital-basel-ch",
-          "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel"
+          "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
+          "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r"
         ],
         "it": [
           "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
@@ -1084,7 +1085,8 @@
       },
       "previousSlugs": [
         "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
-        "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-unispital-basel-ch"
+        "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-unispital-basel-ch",
+        "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r"
       ],
       "firstSeenAt": "2026-05-22T13:24:58.839Z",
       "salaryMin": 62000,
@@ -8785,7 +8787,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Neurochirurgie/Spinale Chirurgie)",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Neurochirurgie/Spinale Chirurgie)",
+        "it": "Dipl. Specialista infermieristico HF/FH (chirurgia neurochirurgia/chirurgia spinale)",
         "en": "Dipl. Nursing specialist HF/FH (neurosurgery/spinal surgery)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Neurochirurgie/Spinale Chirurgie)",
         "fr": "Dipl. Spécialiste des soins infirmiers HF/FH (neurosurgie/chirurgie spinale)"
@@ -8833,7 +8835,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:08:59.795Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
