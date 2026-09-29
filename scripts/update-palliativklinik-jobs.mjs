@@ -14,7 +14,9 @@ import {
   isTrustedDomain,
   PALLIATIVKLINIK_KEY,
   PALLIATIVKLINIK_COMPANY_NAME,
+  PALLIATIVKLINIK_FABRICATED_DESCRIPTION_RE,
 } from './lib/palliativklinik-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +29,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isPalliativklinikJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, PALLIATIVKLINIK_FABRICATED_DESCRIPTION_RE, PALLIATIVKLINIK_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Palliativklinik im Park crawler failed: ${err?.message || err}`);
   process.exit(1);
