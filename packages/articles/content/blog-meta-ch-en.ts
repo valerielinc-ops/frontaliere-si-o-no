@@ -7022,6 +7022,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.compensi-lvamal-camera-bassa.title': 'Health insurers: cap on executives\' salaries',
     'blog.article.compensi-lvamal-camera-bassa.excerpt': 'The lower chamber approves the amendment to LVAMal: 157 votes in favor, 27 against, and 8 abstentions. The dossier now goes to the Council of States.',
     'blog.article.compensi-lvamal-camera-bassa.imageAlt': 'Swiss debate on a proposed pay cap for health insurer executives',
+    'blog.article.rincari-auto-abitazione-ticino.title': 'Sharp increases for cars and housing, especially in Ticino',
+    'blog.article.rincari-auto-abitazione-ticino.excerpt': 'In August, housing and mobility costs rise by 2.4% in Switzerland. Ticino records the highest annual increase at 3%.',
+    'blog.article.rincari-auto-abitazione-ticino.imageAlt': 'Price increases for cars and housing in Ticino and Switzerland',
+    'blog.article.rincari-abitazione-mobilita-svizzera.title': 'Rising housing and mobility costs: spending on the rise in Switzerland',
+    'blog.article.rincari-abitazione-mobilita-svizzera.excerpt': 'In August 2026, prices related to housing and mobility in Switzerland show a +2,4% increase, with an additional burden of 89 francs per month for families.',
+    'blog.article.rincari-abitazione-mobilita-svizzera.imageAlt': 'Increase in housing and mobility costs in Switzerland',
+    'blog.article.obbligo-assicurazione-detenuti.title': 'Prisoners domiciled abroad: no LAMal obligation',
+    'blog.article.obbligo-assicurazione-detenuti.excerpt': 'After the Council of States\' vote in June, the National Council rejected the amendment to LAMal with no votes in favor: the costs of detainees remain with the Cantons.',
+    'blog.article.obbligo-assicurazione-detenuti.imageAlt': 'Swiss Parliament in Bern with a dossier on detainees\' health insurance',
+    'blog.article.uova-piccoli-allevamenti-csl.title': 'Swiss eggs: “misleading” to talk about small farms',
+    'blog.article.uova-piccoli-allevamenti-csl.excerpt': 'The Swiss Commission for Fairness deems an advertisement by Suisse Garantie misleading: 65% of laying hens live on farms with more than 4000 animals.',
+    'blog.article.uova-piccoli-allevamenti-csl.imageAlt': 'Swiss eggs and laying hens in a farm setting',
 };
 
 export default blogMetaChEn;

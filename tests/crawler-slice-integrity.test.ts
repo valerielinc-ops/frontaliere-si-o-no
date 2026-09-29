@@ -499,6 +499,56 @@ describe('crawler slice integrity guard', () => {
     )).toBe(false);
   });
 
+  it('matches the exact pre-assembly source snapshot when assembly normalized the loser', () => {
+    const sourceLoser = {
+      ...dedupJob('https://buehler.example/source-loser', 'Raw engineer title', 'x'.repeat(1_400_000)),
+      company: 'Bühler Group AG',
+      location: 'Uzwil',
+    };
+    const assembledLoser = {
+      ...sourceLoser,
+      id: 'buehler-backfilled-id',
+      title: 'Engineer',
+      company: 'Bühler Group',
+      location: 'Uzwil, SG',
+      slug: 'engineer-buehler-uzwil',
+    };
+    const retained = dedupJob('https://buehler.example/retained', 'Designer', 'y'.repeat(100_000));
+    const assembledWinner = {
+      ...dedupJob('https://other-crawler.example/engineer', 'Engineer', 'winner'),
+      slug: 'engineer-buehler-uzwil',
+    };
+    const previous = json({ crawlerKey: 'buehler', jobs: [sourceLoser, retained] });
+    const next = json({ crawlerKey: 'buehler', jobs: [retained] });
+    const proof = {
+      entries: [{
+        job: assembledLoser,
+        sourceJobs: [sourceLoser],
+        retainedJob: assembledWinner,
+        reason: 'duplicate title+company',
+        duplicateKey: 'engineer|bühler group|uzwil, sg',
+      }],
+    };
+
+    expect(isProvenCrossCrawlerDedupPrune(
+      'data/jobs/by-crawler/buehler.json',
+      previous,
+      next,
+      Object.assign([retained], { proof }),
+    )).toBe(true);
+
+    const changedSource = json({
+      crawlerKey: 'buehler',
+      jobs: [{ ...sourceLoser, title: 'Different source record' }, retained],
+    });
+    expect(isProvenCrossCrawlerDedupPrune(
+      'data/jobs/by-crawler/buehler.json',
+      changedSource,
+      next,
+      Object.assign([retained], { proof }),
+    )).toBe(false);
+  });
+
   it('binds the monolithic dedup sidecar to the candidate and workflow run', () => {
     const root = mkdtempSync(join(tmpdir(), 'crawler-dedup-proof-'));
     const proofDir = join(root, 'proofs');

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-emmental",
-  "assembledAt": "2026-09-28T21:13:42.906Z",
+  "assembledAt": "2026-09-29T09:13:34.602Z",
   "jobs": [
     {
       "id": "spital-emmental-693ed2745802",
@@ -79,7 +79,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:13:37.220Z"
+      "firstSeenAt": "2026-09-28T21:13:37.220Z",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-ffc695ec8dc0",
@@ -142,8 +144,7 @@
         "apprendistato-da-dipl-specialista-in-radiologia-in-hf-dipl-specialista-in-radiologia-in-ic-a-spital-emmental-burgdorf",
         "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital-2",
         "dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf-langnau",
-        "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
-        "luogo-di-formazione-per-dipl-specialista-di-radiologia-hf-dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf"
+        "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -152,8 +153,7 @@
           "apprendistato-da-dipl-specialista-in-radiologia-in-hf-dipl-specialista-in-radiologia-in-ic-a-spital-emmental-burgdorf",
           "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital-2",
           "dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf-langnau",
-          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
-          "luogo-di-formazione-per-dipl-specialista-di-radiologia-hf-dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf"
+          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
         ],
         "en": [
           "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
@@ -175,7 +175,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spital-emmental-b58680df96b4",
@@ -208,7 +209,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4063950",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:36.101Z",
+      "crawledAt": "2026-09-29T09:13:28.491Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -233,14 +234,12 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "medico-assistente-in-psichiatria-geriatrica-spital-emmental-burgdorf",
-        "assistente-medico-assistente-medico-in-psichiatria-di-vecchiaia-a-spital-emmental-burgdorf"
+        "medico-assistente-in-psichiatria-geriatrica-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-          "medico-assistente-in-psichiatria-geriatrica-spital-emmental-burgdorf",
-          "assistente-medico-assistente-medico-in-psichiatria-di-vecchiaia-a-spital-emmental-burgdorf"
+          "medico-assistente-in-psichiatria-geriatrica-spital-emmental-burgdorf"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
@@ -262,7 +261,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-f8e1fc9fef16",
@@ -296,7 +296,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4065665",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:35.514Z",
+      "crawledAt": "2026-09-29T09:13:27.897Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -324,8 +324,7 @@
         "dipl-infirmiere-a-psychiatrie-ambulatoire-a-la-retraite-recherche-spital-emmental-burgdorf",
         "infermiera-a-psichiatria-del-pensionamento-ambulatorio-cerca-spital-emmental-burgdorf",
         "dipl-pflegefachperson-a-ambulante-alterspsychiatrie-aufsuchend-spital-emmental-burgdorf",
-        "dipl-pflegefachperson-ambulante-alterspsychiatrie-aufsuchend-a-spital-emmental-burgdorf",
-        "dipl-infermiera-a-psichiatria-del-pensionamento-ambulatorio-cerca-spital-emmental-burgdorf"
+        "dipl-pflegefachperson-ambulante-alterspsychiatrie-aufsuchend-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -333,8 +332,7 @@
           "dipl-infirmiere-a-psychiatrie-ambulatoire-a-la-retraite-recherche-spital-emmental-burgdorf",
           "infermiera-a-psichiatria-del-pensionamento-ambulatorio-cerca-spital-emmental-burgdorf",
           "dipl-pflegefachperson-a-ambulante-alterspsychiatrie-aufsuchend-spital-emmental-burgdorf",
-          "dipl-pflegefachperson-ambulante-alterspsychiatrie-aufsuchend-a-spital-emmental-burgdorf",
-          "dipl-infermiera-a-psichiatria-del-pensionamento-ambulatorio-cerca-spital-emmental-burgdorf"
+          "dipl-pflegefachperson-ambulante-alterspsychiatrie-aufsuchend-a-spital-emmental-burgdorf"
         ],
         "en": [
           "dipl-pflegefachperson-a-ambulante-alterspsychiatrie-aufsuchend-spital-emmental-burgdorf"
@@ -390,7 +388,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4065667",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:34.972Z",
+      "crawledAt": "2026-09-29T09:13:27.305Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -415,14 +413,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-a-dauernachtdienst-spital-emmental-langnau",
-        "dipl-pflegefachperson-dauernachtdienst-a-spital-emmental-langnau",
-        "dipl-infermiera-a-servizio-notturno-permanente-spital-emmental-langnau"
+        "dipl-pflegefachperson-dauernachtdienst-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-a-dauernachtdienst-spital-emmental-langnau",
-          "dipl-pflegefachperson-dauernachtdienst-a-spital-emmental-langnau",
-          "dipl-infermiera-a-servizio-notturno-permanente-spital-emmental-langnau"
+          "dipl-pflegefachperson-dauernachtdienst-a-spital-emmental-langnau"
         ],
         "en": [
           "dipl-pflegefachperson-a-dauernachtdienst-spital-emmental-langnau"
@@ -477,7 +473,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4066327",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:34.428Z",
+      "crawledAt": "2026-09-29T09:13:26.710Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -512,8 +508,7 @@
         "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4r1xs",
         "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
         "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4ss5i",
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf-b5d9vw",
-        "infermiera-a-spital-emmental-burgdorf-76a650"
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-b5d9vw"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -527,8 +522,7 @@
           "infirmiere-a-spital-emmental-burgdorf-faf3cd",
           "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4r1xs",
           "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4ss5i",
-          "infermiera-a-spital-emmental-burgdorf-76a650"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4ss5i"
         ],
         "en": [
           "dipl-care-professional-care-pool-a-spital-emmental-burgdorf-langnau",
@@ -558,7 +552,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-0a8056eb755f",
@@ -592,7 +587,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4065763",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:33.869Z",
+      "crawledAt": "2026-09-29T09:13:26.118Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -616,13 +611,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "praktikant-in-a-spital-emmental-burgdorf",
-        "interno-a-spital-emmental-burgdorf-langnau"
+        "praktikant-in-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-a-spital-emmental-burgdorf",
-          "interno-a-spital-emmental-burgdorf-langnau"
+          "praktikant-in-a-spital-emmental-burgdorf"
         ],
         "en": [
           "praktikant-in-a-spital-emmental-burgdorf"
@@ -677,7 +670,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4065759",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:33.328Z",
+      "crawledAt": "2026-09-29T09:13:25.463Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -714,8 +707,7 @@
         "senior-physician-senior-physician-age-psychiatry-a-spital-emmental-burgdorf",
         "senior-physician-a-spital-emmental-burgdorf",
         "senior-physician-in-cardiology-a-spital-emmental-burgdorf",
-        "senior-physician-rheumatology-a-spital-emmental-burgdorf",
-        "medico-senior-reumatologia-medico-senior-a-spital-emmental-burgdorf"
+        "senior-physician-rheumatology-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -732,8 +724,7 @@
           "senior-physician-senior-physician-age-psychiatry-a-spital-emmental-burgdorf",
           "senior-physician-a-spital-emmental-burgdorf",
           "senior-physician-in-cardiology-a-spital-emmental-burgdorf",
-          "senior-physician-rheumatology-a-spital-emmental-burgdorf",
-          "medico-senior-reumatologia-medico-senior-a-spital-emmental-burgdorf"
+          "senior-physician-rheumatology-a-spital-emmental-burgdorf"
         ],
         "en": [
           "oberarztin-oberarzt-rheumatologie-a-spital-emmental-burgdorf",
@@ -762,7 +753,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-9b458b11adb7",
@@ -796,7 +788,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4065761",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:32.725Z",
+      "crawledAt": "2026-09-29T09:13:24.774Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -820,13 +812,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "leitung-labor-a-spital-emmental-burgdorf",
-        "laboratorio-di-testa-a-spital-emmental-burgdorf"
+        "leitung-labor-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-labor-a-spital-emmental-burgdorf",
-          "laboratorio-di-testa-a-spital-emmental-burgdorf"
+          "leitung-labor-a-spital-emmental-burgdorf"
         ],
         "en": [
           "leitung-labor-a-spital-emmental-burgdorf"
@@ -882,7 +872,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4065675",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:32.127Z",
+      "crawledAt": "2026-09-29T09:13:24.128Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -906,13 +896,11 @@
       "pensum": "70 - 80%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "professionista-della-salute-a-spital-emmental-burgdorf"
+        "fachperson-gesundheit-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-a-spital-emmental-burgdorf",
-          "professionista-della-salute-a-spital-emmental-burgdorf"
+          "fachperson-gesundheit-a-spital-emmental-burgdorf"
         ],
         "en": [
           "fachperson-gesundheit-a-spital-emmental-burgdorf"
@@ -967,7 +955,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4065773",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:31.585Z",
+      "crawledAt": "2026-09-29T09:13:23.480Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -992,14 +980,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau",
-        "diatkochin-diatkoch-o-kochin-koch-a-spital-emmental-langnau",
-        "cucina-dietetica-o-cuoca-a-spital-emmental-langnau"
+        "diatkochin-diatkoch-o-kochin-koch-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau",
-          "diatkochin-diatkoch-o-kochin-koch-a-spital-emmental-langnau",
-          "cucina-dietetica-o-cuoca-a-spital-emmental-langnau"
+          "diatkochin-diatkoch-o-kochin-koch-a-spital-emmental-langnau"
         ],
         "en": [
           "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau"
@@ -1021,7 +1007,8 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-2f5c888f19f6",
@@ -1055,7 +1042,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4065765",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:31.042Z",
+      "crawledAt": "2026-09-29T09:13:22.831Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1084,8 +1071,7 @@
         "training-place-for-dipl-care-professional-hf-for-cross-entry-a-spital-emmental-burgdorf-langnau",
         "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental",
         "ausbildungsplatz-zur-dipl-pflegefachperson-hf-per-quereinsteigende-a-spital-emmental-burgdorf",
-        "lieu-de-formation-pour-dipl-soins-professionnels-hf-pour-entree-croisee-a-spital-emmental-burgdorf-langnau",
-        "luogo-di-formazione-per-dipl-psichiatria-hf-professionale-per-infermieri-a-spital-emmental-burgdorf-langnau"
+        "lieu-de-formation-pour-dipl-soins-professionnels-hf-pour-entree-croisee-a-spital-emmental-burgdorf-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1094,8 +1080,7 @@
           "training-place-for-dipl-care-professional-hf-for-cross-entry-a-spital-emmental-burgdorf-langnau",
           "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental",
           "ausbildungsplatz-zur-dipl-pflegefachperson-hf-per-quereinsteigende-a-spital-emmental-burgdorf",
-          "lieu-de-formation-pour-dipl-soins-professionnels-hf-pour-entree-croisee-a-spital-emmental-burgdorf-langnau",
-          "luogo-di-formazione-per-dipl-psichiatria-hf-professionale-per-infermieri-a-spital-emmental-burgdorf-langnau"
+          "lieu-de-formation-pour-dipl-soins-professionnels-hf-pour-entree-croisee-a-spital-emmental-burgdorf-langnau"
         ],
         "en": [
           "ausbildungsplatz-zur-dipl-pflegefachperson-hf-psychiatrie-fur-quereinsteigende-a-spital",
@@ -1156,7 +1141,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4067145",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:30.502Z",
+      "crawledAt": "2026-09-29T09:13:22.242Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1189,8 +1174,7 @@
         "dipl-nurse-a-with-option-special-responsibility-nursing-spital-emmental-langnau",
         "dipl-pflegefachperson-a-mit-option-fachverantwortung-pflege-spital-emmental-langnau",
         "dipl-infirmiere-a-avec-option-responsabilite-speciale-spital-emmental-langnau",
-        "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-        "dipl-infermiera-con-opzione-responsabilita-professionale-nursing-a-spital-emmental-langnau"
+        "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1203,8 +1187,7 @@
           "dipl-nurse-a-with-option-special-responsibility-nursing-spital-emmental-langnau",
           "dipl-pflegefachperson-a-mit-option-fachverantwortung-pflege-spital-emmental-langnau",
           "dipl-infirmiere-a-avec-option-responsabilite-speciale-spital-emmental-langnau",
-          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-          "dipl-infermiera-con-opzione-responsabilita-professionale-nursing-a-spital-emmental-langnau"
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf"
         ],
         "en": [
           "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau",
@@ -1265,7 +1248,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4067143",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:29.959Z",
+      "crawledAt": "2026-09-29T09:13:21.598Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1289,13 +1272,11 @@
       "pensum": "5 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf",
-        "dipl-care-pool-professionale-a-spital-emmental-burgdorf-langnau"
+        "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf",
-          "dipl-care-pool-professionale-a-spital-emmental-burgdorf-langnau"
+          "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
         ],
         "en": [
           "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
@@ -1350,7 +1331,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4067153",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:29.409Z",
+      "crawledAt": "2026-09-29T09:13:20.971Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1374,13 +1355,11 @@
       "pensum": "100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf",
-        "ulteriori-moduli-b-student-bachelor-of-science-in-care-a-spital-emmental-burgdorf-langnau"
+        "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf",
-          "ulteriori-moduli-b-student-bachelor-of-science-in-care-a-spital-emmental-burgdorf-langnau"
+          "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf"
         ],
         "en": [
           "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf"
@@ -1402,7 +1381,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-540dcfc5266a",
@@ -1436,7 +1416,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4067155",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:28.870Z",
+      "crawledAt": "2026-09-29T09:13:20.380Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1460,13 +1440,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "weiterbildungsstelle-zur-zum-dipl-expertin-experten-notfallpflege-nds-hf-a-spital-emmental",
-        "ulteriori-centri-di-istruzione-per-al-dipl-expert-expert-emergency-care-nds-hf-a-spital-emmental-burgdorf-langnau"
+        "weiterbildungsstelle-zur-zum-dipl-expertin-experten-notfallpflege-nds-hf-a-spital-emmental"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weiterbildungsstelle-zur-zum-dipl-expertin-experten-notfallpflege-nds-hf-a-spital-emmental",
-          "ulteriori-centri-di-istruzione-per-al-dipl-expert-expert-emergency-care-nds-hf-a-spital-emmental-burgdorf-langnau"
+          "weiterbildungsstelle-zur-zum-dipl-expertin-experten-notfallpflege-nds-hf-a-spital-emmental"
         ],
         "en": [
           "weiterbildungsstelle-zur-zum-dipl-expertin-experten-notfallpflege-nds-hf-a-spital-emmental"
@@ -1522,7 +1500,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4067147",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:28.320Z",
+      "crawledAt": "2026-09-29T09:13:19.787Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1546,13 +1524,11 @@
       "pensum": "100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental",
-        "stage-elettivo-obbligatorio-studenti-bsc-in-nursing-temporary-6-settimane-a-spital-emmental-burgdorf-langnau"
+        "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental",
-          "stage-elettivo-obbligatorio-studenti-bsc-in-nursing-temporary-6-settimane-a-spital-emmental-burgdorf-langnau"
+          "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental"
         ],
         "en": [
           "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental"
@@ -1608,7 +1584,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4067165",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:27.753Z",
+      "crawledAt": "2026-09-29T09:13:19.191Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1632,13 +1608,11 @@
       "pensum": "50%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf",
-        "gp-gp-medicina-interna-generale-a-spital-emmental-burgdorf"
+        "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf",
-          "gp-gp-medicina-interna-generale-a-spital-emmental-burgdorf"
+          "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf"
         ],
         "en": [
           "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf"
@@ -1694,7 +1668,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4067157",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:27.213Z",
+      "crawledAt": "2026-09-29T09:13:18.286Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1719,14 +1693,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
-        "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau",
-        "specialista-in-medicina-interna-generale-a-spital-emmental-langnau"
+        "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
-          "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau",
-          "specialista-in-medicina-interna-generale-a-spital-emmental-langnau"
+          "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau"
         ],
         "en": [
           "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
@@ -1782,7 +1754,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4067141",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:26.644Z",
+      "crawledAt": "2026-09-29T09:13:17.633Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1807,14 +1779,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "fachperson-betreuung-kind-als-springer-in-a-spital-emmental-burgdorf",
-        "fachperson-betreuung-kind-come-springer-in-a-spital-emmental-burgdorf",
-        "cura-dei-bambini-specialisti-come-springer-a-spital-emmental-burgdorf"
+        "fachperson-betreuung-kind-come-springer-in-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kind-als-springer-in-a-spital-emmental-burgdorf",
-          "fachperson-betreuung-kind-come-springer-in-a-spital-emmental-burgdorf",
-          "cura-dei-bambini-specialisti-come-springer-a-spital-emmental-burgdorf"
+          "fachperson-betreuung-kind-come-springer-in-a-spital-emmental-burgdorf"
         ],
         "en": [
           "fachperson-betreuung-kind-als-springer-in-a-spital-emmental-burgdorf"
@@ -1870,7 +1840,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4067151",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:26.104Z",
+      "crawledAt": "2026-09-29T09:13:16.961Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1896,15 +1866,13 @@
       "previousSlugs": [
         "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental",
         "lieu-de-formation-pour-le-dipl-soins-professionnels-hf-pour-entree-croisee-a-spital-emmental-burgdorf-langnau",
-        "ausbildungsplatz-zur-dipl-pflegefachperson-hf-per-quereinsteigende-a-spital-emmental-burgdorf",
-        "luogo-di-formazione-per-dipl-cura-professionale-hf-per-cross-entry-a-spital-emmental-burgdorf-langnau"
+        "ausbildungsplatz-zur-dipl-pflegefachperson-hf-per-quereinsteigende-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental",
           "lieu-de-formation-pour-le-dipl-soins-professionnels-hf-pour-entree-croisee-a-spital-emmental-burgdorf-langnau",
-          "ausbildungsplatz-zur-dipl-pflegefachperson-hf-per-quereinsteigende-a-spital-emmental-burgdorf",
-          "luogo-di-formazione-per-dipl-cura-professionale-hf-per-cross-entry-a-spital-emmental-burgdorf-langnau"
+          "ausbildungsplatz-zur-dipl-pflegefachperson-hf-per-quereinsteigende-a-spital-emmental-burgdorf"
         ],
         "en": [
           "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental"
@@ -1960,7 +1928,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4067149",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:25.497Z",
+      "crawledAt": "2026-09-29T09:13:16.273Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1988,8 +1956,7 @@
         "training-place-fage-for-dipl-nurse-hf-in-2-years-a-spital-emmental-burgdorf",
         "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf",
         "apprendistato-fage-per-dipl-infermiera-hf-tra-2-anni-a-spital-emmental-burgdorf-langnau",
-        "apprentissage-fage-pour-dipl-infirmiere-hf-dans-2-ans-a-spital-emmental-burgdorf-langnau",
-        "luogo-di-formazione-fage-per-dipl-infermiera-hf-in-2-anni-a-spital-emmental-burgdorf-langnau"
+        "apprentissage-fage-pour-dipl-infirmiere-hf-dans-2-ans-a-spital-emmental-burgdorf-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1997,8 +1964,7 @@
           "training-place-fage-for-dipl-nurse-hf-in-2-years-a-spital-emmental-burgdorf",
           "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf",
           "apprendistato-fage-per-dipl-infermiera-hf-tra-2-anni-a-spital-emmental-burgdorf-langnau",
-          "apprentissage-fage-pour-dipl-infirmiere-hf-dans-2-ans-a-spital-emmental-burgdorf-langnau",
-          "luogo-di-formazione-fage-per-dipl-infermiera-hf-in-2-anni-a-spital-emmental-burgdorf-langnau"
+          "apprentissage-fage-pour-dipl-infirmiere-hf-dans-2-ans-a-spital-emmental-burgdorf-langnau"
         ],
         "en": [
           "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf"
@@ -2053,7 +2019,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4068118",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:24.956Z",
+      "crawledAt": "2026-09-29T09:13:15.652Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2077,13 +2043,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf",
-        "assistente-medico-psichiatria-adulta-a-spital-emmental-burgdorf"
+        "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf",
-          "assistente-medico-psichiatria-adulta-a-spital-emmental-burgdorf"
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf"
@@ -2105,7 +2069,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-274b87118b1b",
@@ -2138,7 +2103,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069119",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:24.403Z",
+      "crawledAt": "2026-09-29T09:13:15.060Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2162,13 +2127,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "infermiera-a-spital-emmental-burgdorf"
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "infermiera-a-spital-emmental-burgdorf"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:15.193Z",
@@ -2184,7 +2147,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-9c1a2ac27363",
@@ -2217,7 +2181,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069131",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:23.859Z",
+      "crawledAt": "2026-09-29T09:13:14.415Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2241,13 +2205,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "infermiera-a-spital-emmental-burgdorf-9ea21c"
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "infermiera-a-spital-emmental-burgdorf-9ea21c"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "de": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
@@ -2266,7 +2228,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-2a36bf5cf832",
@@ -2299,7 +2262,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069126",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:23.259Z",
+      "crawledAt": "2026-09-29T09:13:13.818Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2323,13 +2286,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-biomedizinische-r-analytiker-in-a-spital-emmental-burgdorf",
-        "dipl-biomedical-r-analista-a-spital-emmental-burgdorf"
+        "dipl-biomedizinische-r-analytiker-in-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-biomedizinische-r-analytiker-in-a-spital-emmental-burgdorf",
-          "dipl-biomedical-r-analista-a-spital-emmental-burgdorf"
+          "dipl-biomedizinische-r-analytiker-in-a-spital-emmental-burgdorf"
         ],
         "en": [
           "dipl-biomedizinische-r-analytiker-in-a-spital-emmental-burgdorf"
@@ -2351,7 +2312,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-504802a736cd",
@@ -2385,7 +2347,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069209",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:22.654Z",
+      "crawledAt": "2026-09-29T09:13:13.220Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2409,13 +2371,11 @@
       "pensum": "100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital",
-        "ulteriori-centri-di-istruzione-per-al-dipl-expert-expert-anesthesia-care-nds-hf-a-spital-emmental-burgdorf"
+        "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital",
-          "ulteriori-centri-di-istruzione-per-al-dipl-expert-expert-anesthesia-care-nds-hf-a-spital-emmental-burgdorf"
+          "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital"
         ],
         "en": [
           "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital"
@@ -2470,7 +2430,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069211",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:22.104Z",
+      "crawledAt": "2026-09-29T09:13:12.617Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2496,15 +2456,13 @@
       "previousSlugs": [
         "lehrstelle-als-ict-fachperson-efz-a-spital-emmental-burgdorf",
         "apprendistato-come-ict-fachfrau-cfc-ict-fachmann-cfc-spital-emmental-burgdorf",
-        "apprendistato-come-ict-fachperson-cfc-a-spital-emmental-burgdorf",
-        "apprendistato-come-specialista-delle-tic-efz-a-spital-emmental-burgdorf"
+        "apprendistato-come-ict-fachperson-cfc-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-ict-fachperson-efz-a-spital-emmental-burgdorf",
           "apprendistato-come-ict-fachfrau-cfc-ict-fachmann-cfc-spital-emmental-burgdorf",
-          "apprendistato-come-ict-fachperson-cfc-a-spital-emmental-burgdorf",
-          "apprendistato-come-specialista-delle-tic-efz-a-spital-emmental-burgdorf"
+          "apprendistato-come-ict-fachperson-cfc-a-spital-emmental-burgdorf"
         ],
         "en": [
           "lehrstelle-als-ict-fachperson-efz-a-spital-emmental-burgdorf"
@@ -2526,7 +2484,8 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-5621c0a40248",
@@ -2559,7 +2518,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069202",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:21.561Z",
+      "crawledAt": "2026-09-29T09:13:12.021Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2585,15 +2544,13 @@
       "previousSlugs": [
         "lehrstelle-als-fachperson-gesundheit-efz-psychiatrie-a-spital-emmental-burgdorf",
         "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf-langnau",
-        "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf",
-        "apprendistato-come-specialista-sanitario-efz-psichiatria-a-spital-emmental-burgdorf-langnau"
+        "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachperson-gesundheit-efz-psychiatrie-a-spital-emmental-burgdorf",
           "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf-langnau",
-          "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf",
-          "apprendistato-come-specialista-sanitario-efz-psichiatria-a-spital-emmental-burgdorf-langnau"
+          "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf"
         ],
         "en": [
           "lehrstelle-als-fachperson-gesundheit-efz-psychiatrie-a-spital-emmental-burgdorf"
@@ -2615,7 +2572,8 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-31f7ef9e2dde",
@@ -2648,7 +2606,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069137",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:20.975Z",
+      "crawledAt": "2026-09-29T09:13:11.423Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2672,13 +2630,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachperson-psychiatrie-triage-notfall-a-spital-emmental-burgdorf",
-        "psichiatria-triage-emergenza-a-spital-emmental-burgdorf"
+        "fachperson-psychiatrie-triage-notfall-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-psychiatrie-triage-notfall-a-spital-emmental-burgdorf",
-          "psichiatria-triage-emergenza-a-spital-emmental-burgdorf"
+          "fachperson-psychiatrie-triage-notfall-a-spital-emmental-burgdorf"
         ],
         "en": [
           "fachperson-psychiatrie-triage-notfall-a-spital-emmental-burgdorf"
@@ -2700,7 +2656,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-b94b4a9f7f07",
@@ -2733,7 +2690,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069123",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:20.432Z",
+      "crawledAt": "2026-09-29T09:13:10.807Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2764,8 +2721,7 @@
         "medical-secretary-in-a-spital-emmental-burgdorf",
         "secretaire-medical-en-a-spital-emmental-burgdorf",
         "arztsekretar-in-a-spital-emmental-burgdorf-b4ri9x",
-        "arztsekretar-in-a-spital-emmental-burgdorf",
-        "segretario-medico-a-spital-emmental-burgdorf"
+        "arztsekretar-in-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2776,8 +2732,7 @@
           "medical-secretary-in-a-spital-emmental-burgdorf",
           "secretaire-medical-en-a-spital-emmental-burgdorf",
           "arztsekretar-in-a-spital-emmental-burgdorf-b4ri9x",
-          "arztsekretar-in-a-spital-emmental-burgdorf",
-          "segretario-medico-a-spital-emmental-burgdorf"
+          "arztsekretar-in-a-spital-emmental-burgdorf"
         ],
         "en": [
           "medical-secretary-in-a-spital-emmental-burgdorf-7e4c19",
@@ -2801,7 +2756,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-764323d78adb",
@@ -2835,7 +2791,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4070298",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:19.890Z",
+      "crawledAt": "2026-09-29T09:13:10.212Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2859,13 +2815,11 @@
       "pensum": "60%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "arztsekretar-in-a-spital-emmental-burgdorf",
-        "segretario-medico-a-spital-emmental-burgdorf-f43b2b"
+        "arztsekretar-in-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-a-spital-emmental-burgdorf",
-          "segretario-medico-a-spital-emmental-burgdorf-f43b2b"
+          "arztsekretar-in-a-spital-emmental-burgdorf"
         ],
         "de": [
           "arztsekretar-in-a-spital-emmental-burgdorf"
@@ -2918,7 +2872,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4070861",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:19.286Z",
+      "crawledAt": "2026-09-29T09:13:09.615Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2942,13 +2896,11 @@
       "pensum": "60 - 70%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "arztsekretar-in-a-spital-emmental-burgdorf",
-        "segretario-medico-a-spital-emmental-burgdorf-d90915"
+        "arztsekretar-in-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-a-spital-emmental-burgdorf",
-          "segretario-medico-a-spital-emmental-burgdorf-d90915"
+          "arztsekretar-in-a-spital-emmental-burgdorf"
         ],
         "de": [
           "arztsekretar-in-a-spital-emmental-burgdorf"
@@ -3000,7 +2952,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4072865",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:18.744Z",
+      "crawledAt": "2026-09-29T09:13:08.846Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3024,13 +2976,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "pharma-assistent-in-a-spital-emmental-burgdorf",
-        "assistente-farmaceutico-a-spital-emmental-burgdorf"
+        "pharma-assistent-in-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pharma-assistent-in-a-spital-emmental-burgdorf",
-          "assistente-farmaceutico-a-spital-emmental-burgdorf"
+          "pharma-assistent-in-a-spital-emmental-burgdorf"
         ],
         "en": [
           "pharma-assistent-in-a-spital-emmental-burgdorf"
@@ -3052,7 +3002,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-257c924a98fd",
@@ -3086,7 +3037,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4072858",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:18.133Z",
+      "crawledAt": "2026-09-29T09:13:08.243Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3110,13 +3061,11 @@
       "pensum": "40 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf",
-        "medico-senior-gastroenterologia-medico-senior-a-spital-emmental-burgdorf"
+        "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf",
-          "medico-senior-gastroenterologia-medico-senior-a-spital-emmental-burgdorf"
+          "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf"
         ],
         "en": [
           "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf"
@@ -3172,7 +3121,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073756",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:17.535Z",
+      "crawledAt": "2026-09-29T09:13:07.635Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3196,13 +3145,11 @@
       "pensum": "60 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-        "dipl-infermiera-con-opzione-responsabilita-professionale-nursing-a-spital-emmental-burgdorf"
+        "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-          "dipl-infermiera-con-opzione-responsabilita-professionale-nursing-a-spital-emmental-burgdorf"
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf"
         ],
         "en": [
           "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf"
@@ -3258,7 +3205,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073848",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:16.986Z",
+      "crawledAt": "2026-09-29T09:13:07.036Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3282,13 +3229,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau",
-        "dipl-infermiera-con-formazione-professionale-a-spital-emmental-langnau"
+        "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau",
-          "dipl-infermiera-con-formazione-professionale-a-spital-emmental-langnau"
+          "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau"
         ],
         "en": [
           "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau"
@@ -3343,7 +3288,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073852",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:16.420Z",
+      "crawledAt": "2026-09-29T09:13:06.434Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3367,13 +3312,11 @@
       "pensum": "60 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "infermiera-a-spital-emmental-burgdorf-819687"
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "infermiera-a-spital-emmental-burgdorf-819687"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:15.193Z",
@@ -3389,7 +3332,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-177ea85bedad",
@@ -3423,7 +3367,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073477",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:15.861Z",
+      "crawledAt": "2026-09-29T09:13:05.828Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3448,14 +3392,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-langnau",
-        "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-langnau",
-        "dipl-expert-expert-emergency-care-o-dipl-nurse-a-spital-emmental-langnau"
+        "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-langnau",
-          "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-langnau",
-          "dipl-expert-expert-emergency-care-o-dipl-nurse-a-spital-emmental-langnau"
+          "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-langnau"
         ],
         "en": [
           "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-langnau"
@@ -3511,7 +3453,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073742",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:15.294Z",
+      "crawledAt": "2026-09-29T09:13:05.185Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3536,14 +3478,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "dipl-expert-expert-emergency-care-o-dipl-nurse-a-spital-emmental-burgdorf-langnau"
+        "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "dipl-expert-expert-emergency-care-o-dipl-nurse-a-spital-emmental-burgdorf-langnau"
+          "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "en": [
           "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf"
@@ -3599,7 +3539,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073840",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:14.746Z",
+      "crawledAt": "2026-09-29T09:13:04.587Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3623,13 +3563,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "weiterbildungsstelle-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-a-spital",
-        "ulteriori-centri-di-istruzione-per-al-dipl-expert-expert-intensive-care-nds-hf-a-spital-emmental-burgdorf"
+        "weiterbildungsstelle-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-a-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weiterbildungsstelle-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-a-spital",
-          "ulteriori-centri-di-istruzione-per-al-dipl-expert-expert-intensive-care-nds-hf-a-spital-emmental-burgdorf"
+          "weiterbildungsstelle-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-a-spital"
         ],
         "en": [
           "weiterbildungsstelle-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-a-spital"
@@ -3685,7 +3623,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073753",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:14.203Z",
+      "crawledAt": "2026-09-29T09:13:03.974Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3709,13 +3647,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "stv-leitung-restaurant-a-spital-emmental-burgdorf",
-        "stv-ristorante-di-gestione-a-spital-emmental-burgdorf-langnau"
+        "stv-leitung-restaurant-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leitung-restaurant-a-spital-emmental-burgdorf",
-          "stv-ristorante-di-gestione-a-spital-emmental-burgdorf-langnau"
+          "stv-leitung-restaurant-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-09-23T23:39:04.112Z",
@@ -3765,7 +3701,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4074025",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:13.657Z",
+      "crawledAt": "2026-09-29T09:13:03.363Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3789,13 +3725,11 @@
       "pensum": "70 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "stv-leitende-arztin-stv-leitender-arzt-rheumatologie-a-spital-emmental-burgdorf",
-        "stv-medico-senior-stv-riumatologia-medica-senior-a-spital-emmental-burgdorf"
+        "stv-leitende-arztin-stv-leitender-arzt-rheumatologie-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leitende-arztin-stv-leitender-arzt-rheumatologie-a-spital-emmental-burgdorf",
-          "stv-medico-senior-stv-riumatologia-medica-senior-a-spital-emmental-burgdorf"
+          "stv-leitende-arztin-stv-leitender-arzt-rheumatologie-a-spital-emmental-burgdorf"
         ],
         "en": [
           "stv-leitende-arztin-stv-leitender-arzt-rheumatologie-a-spital-emmental-burgdorf"
@@ -3850,7 +3784,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073846",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:13.114Z",
+      "crawledAt": "2026-09-29T09:13:02.741Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3876,15 +3810,13 @@
       "previousSlugs": [
         "psycho-oncologist-a-spital-emmental-burgdorf",
         "psycho-oncologue-a-spital-emmental-burgdorf",
-        "psychoonkologin-psychoonkologen-a-spital-emmental-burgdorf",
-        "psico-oncologa-a-spital-emmental-burgdorf"
+        "psychoonkologin-psychoonkologen-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psycho-oncologist-a-spital-emmental-burgdorf",
           "psycho-oncologue-a-spital-emmental-burgdorf",
-          "psychoonkologin-psychoonkologen-a-spital-emmental-burgdorf",
-          "psico-oncologa-a-spital-emmental-burgdorf"
+          "psychoonkologin-psychoonkologen-a-spital-emmental-burgdorf"
         ],
         "en": [
           "psychoonkologin-psychoonkologen-a-spital-emmental-burgdorf"
@@ -3906,7 +3838,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-b5a0fefe8b38",
@@ -3940,7 +3873,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4074021",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:12.564Z",
+      "crawledAt": "2026-09-29T09:13:02.142Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3964,13 +3897,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "pharma-assistent-in-a-spital-emmental-burgdorf",
-        "assistente-farmaceutico-a-spital-emmental-burgdorf-a87abc"
+        "pharma-assistent-in-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pharma-assistent-in-a-spital-emmental-burgdorf",
-          "assistente-farmaceutico-a-spital-emmental-burgdorf-a87abc"
+          "pharma-assistent-in-a-spital-emmental-burgdorf"
         ],
         "de": [
           "pharma-assistent-in-a-spital-emmental-burgdorf"
@@ -4022,7 +3953,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073901",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:12.021Z",
+      "crawledAt": "2026-09-29T09:13:01.543Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4046,13 +3977,11 @@
       "pensum": "40 - 60%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
-        "medico-n-assistente-di-pratica-a-spital-emmental-langnau"
+        "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
-          "medico-n-assistente-di-pratica-a-spital-emmental-langnau"
+          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
         ],
         "en": [
           "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
@@ -4074,7 +4003,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-emmental-2f75a0844306",
@@ -4108,7 +4038,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4074008",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:11.459Z",
+      "crawledAt": "2026-09-29T09:13:00.907Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4132,13 +4062,11 @@
       "pensum": "50 - 100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "aushilfe-mitarbeiter-in-spitalapotheke-a-spital-emmental-burgdorf",
-        "aushilfe-collaboratore-trice-spitalapotheke-a-spital-emmental-burgdorf"
+        "aushilfe-mitarbeiter-in-spitalapotheke-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-mitarbeiter-in-spitalapotheke-a-spital-emmental-burgdorf",
-          "aushilfe-collaboratore-trice-spitalapotheke-a-spital-emmental-burgdorf"
+          "aushilfe-mitarbeiter-in-spitalapotheke-a-spital-emmental-burgdorf"
         ],
         "fr": [
           "aushilfe-mitarbeiter-in-spitalapotheke-a-spital-emmental-burgdorf"
@@ -4164,9 +4092,9 @@
       "slug": "sekretar-in-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "it": "sekretar-in-a-spital-emmental-burgdorf",
-        "en": "sekretar-in-a-spital-emmental-burgdorf",
+        "en": "secretary-a-spital-emmental-burgdorf",
         "de": "sekretar-in-a-spital-emmental-burgdorf",
-        "fr": "sekretar-in-a-spital-emmental-burgdorf"
+        "fr": "secretaire-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4191,7 +4119,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4074208",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:10.919Z",
+      "crawledAt": "2026-09-29T09:13:00.311Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4227,7 +4155,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:13:10.919Z"
+      "firstSeenAt": "2026-09-28T21:13:10.919Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "secretary-a-spital-emmental-burgdorf-langnau"
+        ],
+        "fr": [
+          "secretaire-a-spital-emmental-burgdorf-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "secretary-a-spital-emmental-burgdorf-langnau",
+        "secretaire-a-spital-emmental-burgdorf-langnau"
+      ]
     },
     {
       "id": "spital-emmental-91550ba6e866",
@@ -4261,7 +4201,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073856",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:10.292Z",
+      "crawledAt": "2026-09-29T09:12:59.388Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4285,13 +4225,11 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarztin-oberarzt-radiologie-a-spital-emmental-burgdorf",
-        "medico-senior-radiologia-medico-senior-a-spital-emmental-burgdorf"
+        "oberarztin-oberarzt-radiologie-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-radiologie-a-spital-emmental-burgdorf",
-          "medico-senior-radiologia-medico-senior-a-spital-emmental-burgdorf"
+          "oberarztin-oberarzt-radiologie-a-spital-emmental-burgdorf"
         ],
         "en": [
           "oberarztin-oberarzt-radiologie-a-spital-emmental-burgdorf"
@@ -4317,12 +4255,12 @@
     },
     {
       "id": "spital-emmental-80eda4a0501e",
-      "slug": "lagerungspfleger-in-a-spital-emmental-burgdorf",
+      "slug": "manutentore-di-stoccaggio-a-spital-emmental-burgdorf",
       "slugByLocale": {
+        "it": "manutentore-di-stoccaggio-a-spital-emmental-burgdorf",
+        "en": "storage-maintainer-a-spital-emmental-burgdorf",
         "de": "lagerungspfleger-in-a-spital-emmental-burgdorf",
-        "it": "lagerungspfleger-in-a-spital-emmental-burgdorf",
-        "en": "lagerungspfleger-in-a-spital-emmental-burgdorf",
-        "fr": "lagerungspfleger-in-a-spital-emmental-burgdorf"
+        "fr": "mainteneur-de-stockage-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4346,7 +4284,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4075566",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:09.642Z",
+      "crawledAt": "2026-09-29T09:12:58.794Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4362,9 +4300,7 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://live.solique.ch/spital-emmental/job/details/4075566",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4075566",
       "department": "Operationssäle",
       "pensumMin": 50,
@@ -4384,7 +4320,174 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:13:09.642Z"
+      "firstSeenAt": "2026-09-28T21:13:09.642Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerungspfleger-in-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "lagerungspfleger-in-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "lagerungspfleger-in-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "lagerungspfleger-in-a-spital-emmental-burgdorf"
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "id": "spital-emmental-8350de91dba0",
+      "slug": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
+      "slugByLocale": {
+        "de": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
+        "it": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
+        "en": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
+        "fr": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital"
+      },
+      "company": "Spital Emmental",
+      "companyKey": "spital-emmental",
+      "companyDomain": "spital-emmental.ch",
+      "title": "dipl. Expertin / dipl. Experte Notfallpflege mit Zusatzfunktion Berufsbildung (a)",
+      "titleByLocale": {
+        "de": "dipl. Expertin / dipl. Experte Notfallpflege mit Zusatzfunktion Berufsbildung (a)",
+        "en": "dipl. Expertin / dipl. Experte Notfallpflege mit Zusatzfunktion Berufsbildung (a)",
+        "it": "dipl. Expertin / dipl. Experte Notfallpflege con Zusatzfunktion Berufsbildung (a)",
+        "fr": "dipl. Expertin / dipl. Experte Notfallpflege mit Zusatzfunktion Berufsbildung (a)"
+      },
+      "description": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nPflege mit Herz, Verstand und Flexibilität – willkommen im Spital Emmental. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: Menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere interdisziplinäre Notfallstation in Burgdorf suchen wir per sofort oder nach Vereinbarung ein:e\n\nDeine Aufgaben - verantwortungsvoll und vielseitig\nDu\n• betreust unsere Patientinnen und Patienten und ihre Angehörigen in akuten Situationen fachkompetent, einfühlsam und professionell\n• übernimmst die Triage sowie die ganzheitliche Pflege auf der Notfallstation\n• gestaltest gemeinsam mit dem ärztlichen Team die Erstversorgung unserer Akutpatientinnen und -patienten\n• koordinierst die weitere Behandlung im interdisziplinären Team\n• arbeitest im 24/7-Schichtbetrieb – Flexibilität ist für dich selbstverständlich\n• sorgst für eine fachlich fundierte Praxisausbildung gemäss den Ausbildungskonzepten des Spitals Emmental in Zusammenarbeit mit dem Berner Bildungszentrum Pflege\n• bist zuständig für die Umsetzung und transparente Dokumentation des Ausbildungsprozesses im Notfallzentrum\n• arbeitest aktiv im Berufsbildner-Team mit und gestaltest die praktische Ausbildung sowie die fachliche Entwicklung der dipl. Expertinnen und Experten Notfallpflege i.A. mit.\n\nProfil\n\n• Eine abgeschlossene Weiterbildung als dipl. Expertin/Experte Notfallpflege NDS HF bildet die Grundlage für deine Tätigkeit.\n• Idealerweise hast du den Berufsbildnerkurs bereits absolviert oder bist bereit, diesen zu besuchen.\n• Mit deinen didaktischen Fähigkeiten gehst du gezielt auf die unterschiedlichen Lernbedürfnisse der Studierenden ein.\n• Respekt, Einfühlungsvermögen und ein wertschätzender Umgang mit Menschen sind für dich selbstverständlich.\n• Das Wohl und die Sicherheit der Patientinnen und Patienten stehen für dich an erster Stelle.\n• Teamfähigkeit, Belastbarkeit und Verantwortungsbewusstsein runden dein Profil ab.\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte Du bist flexibel, engagiert und bereit, dich immer wieder neuen Herausforderungen zu stellen? Dann suchen wir genau dich!\n\nAuskunft\nWeitere Auskünfte erteilen dir gerne Lena Krebs oder Leonie Scheidegger, Co-Abteilungsleiterinnen Notfallstation Burgdorf, Telefon 034 421 22 47 / 034 421 22 45.\n\nKontakt\nRoland Sidler HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Pflege mit Herz, Verstand und Flexibilität – willkommen im Spital Emmental. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: Menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere interdisziplinäre Notfallstation in Burgdorf suchen wir per sofort oder nach Vereinbarung ein:e dipl. Expertin / dipl. Experte Notfallpflege mit Zusatzfunktion Berufsbildung (a) 80–100% Deine Aufgaben - verantwortungsvoll und vielseitig Du\n• betreust unsere Patientinnen und Patienten und ihre Angehörigen in akuten Situationen fachkompetent, einfühlsam und professionell\n• übernimmst die Triage sowie die ganzheitliche Pflege auf der Notfallstation\n• gestaltest gemeinsam mit dem ärztlichen Team die Erstversorgung unserer Akutpatientinnen und -patienten\n• koordinierst die weitere Behandlung im interdisziplinären Team\n• arbeitest im 24/7-Schichtbetrieb – Flexibilität ist für dich selbstverständlich\n• sorgst für eine fachlich fundierte Praxisausbildung gemäss den Ausbildungskonzepten des Spitals Emmental in Zusammenarbeit mit dem Berner Bildungszentrum Pflege\n• bist zuständig für die Umsetzung und transparente Dokumentation des Ausbildungsprozesses im Notfallzentrum\n• arbeitest aktiv im Berufsbildner-Team mit und gestaltest die praktische Ausbildung sowie die fachliche Entwicklung der dipl. Expertinnen und Experten Notfallpflege i.A. mit. Profil\n• Eine abgeschlossene Weiterbildung als dipl. Expertin/Experte Notfallpflege NDS HF bildet die Grundlage für deine Tätigkeit.\n• Idealerweise hast du den Berufsbildnerkurs bereits absolviert oder bist bereit, diesen zu besuchen.\n• Mit deinen didaktischen Fähigkeiten gehst du gezielt auf die unterschiedlichen Lernbedürfnisse der Studierenden ein.\n• Respekt, Einfühlungsvermögen und ein wertschätzender Umgang mit Menschen sind für dich selbstverständlich.\n• Das Wohl und die Sicherheit der Patientinnen und Patienten stehen für dich an erster Stelle.\n• Teamfähigkeit, Belastbarkeit und Verantwortungsbewusstsein runden dein Profil ab. Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Besonderes Du bist flexibel, engagiert und bereit, dich immer wieder neuen Herausforderungen zu stellen? Dann suchen wir genau dich! Auskunft Weitere Auskünfte erteilen dir gerne Lena Krebs oder Leonie Scheidegger, Co-Abteilungsleiterinnen Notfallstation Burgdorf, Telefon 034 421 22 47 / 034 421 22 45. Adresse Spital Emmental Roland Sidler HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Notfall\n\nAnstellung: unbefristet\n\nPensum: 80-100%",
+      "descriptionByLocale": {
+        "de": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nPflege mit Herz, Verstand und Flexibilität – willkommen im Spital Emmental. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: Menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere interdisziplinäre Notfallstation in Burgdorf suchen wir per sofort oder nach Vereinbarung ein:e\n\nDeine Aufgaben - verantwortungsvoll und vielseitig\nDu\n• betreust unsere Patientinnen und Patienten und ihre Angehörigen in akuten Situationen fachkompetent, einfühlsam und professionell\n• übernimmst die Triage sowie die ganzheitliche Pflege auf der Notfallstation\n• gestaltest gemeinsam mit dem ärztlichen Team die Erstversorgung unserer Akutpatientinnen und -patienten\n• koordinierst die weitere Behandlung im interdisziplinären Team\n• arbeitest im 24/7-Schichtbetrieb – Flexibilität ist für dich selbstverständlich\n• sorgst für eine fachlich fundierte Praxisausbildung gemäss den Ausbildungskonzepten des Spitals Emmental in Zusammenarbeit mit dem Berner Bildungszentrum Pflege\n• bist zuständig für die Umsetzung und transparente Dokumentation des Ausbildungsprozesses im Notfallzentrum\n• arbeitest aktiv im Berufsbildner-Team mit und gestaltest die praktische Ausbildung sowie die fachliche Entwicklung der dipl. Expertinnen und Experten Notfallpflege i.A. mit.\n\nProfil\n\n• Eine abgeschlossene Weiterbildung als dipl. Expertin/Experte Notfallpflege NDS HF bildet die Grundlage für deine Tätigkeit.\n• Idealerweise hast du den Berufsbildnerkurs bereits absolviert oder bist bereit, diesen zu besuchen.\n• Mit deinen didaktischen Fähigkeiten gehst du gezielt auf die unterschiedlichen Lernbedürfnisse der Studierenden ein.\n• Respekt, Einfühlungsvermögen und ein wertschätzender Umgang mit Menschen sind für dich selbstverständlich.\n• Das Wohl und die Sicherheit der Patientinnen und Patienten stehen für dich an erster Stelle.\n• Teamfähigkeit, Belastbarkeit und Verantwortungsbewusstsein runden dein Profil ab.\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte Du bist flexibel, engagiert und bereit, dich immer wieder neuen Herausforderungen zu stellen? Dann suchen wir genau dich!\n\nAuskunft\nWeitere Auskünfte erteilen dir gerne Lena Krebs oder Leonie Scheidegger, Co-Abteilungsleiterinnen Notfallstation Burgdorf, Telefon 034 421 22 47 / 034 421 22 45.\n\nKontakt\nRoland Sidler HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Pflege mit Herz, Verstand und Flexibilität – willkommen im Spital Emmental. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: Menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere interdisziplinäre Notfallstation in Burgdorf suchen wir per sofort oder nach Vereinbarung ein:e dipl. Expertin / dipl. Experte Notfallpflege mit Zusatzfunktion Berufsbildung (a) 80–100% Deine Aufgaben - verantwortungsvoll und vielseitig Du\n• betreust unsere Patientinnen und Patienten und ihre Angehörigen in akuten Situationen fachkompetent, einfühlsam und professionell\n• übernimmst die Triage sowie die ganzheitliche Pflege auf der Notfallstation\n• gestaltest gemeinsam mit dem ärztlichen Team die Erstversorgung unserer Akutpatientinnen und -patienten\n• koordinierst die weitere Behandlung im interdisziplinären Team\n• arbeitest im 24/7-Schichtbetrieb – Flexibilität ist für dich selbstverständlich\n• sorgst für eine fachlich fundierte Praxisausbildung gemäss den Ausbildungskonzepten des Spitals Emmental in Zusammenarbeit mit dem Berner Bildungszentrum Pflege\n• bist zuständig für die Umsetzung und transparente Dokumentation des Ausbildungsprozesses im Notfallzentrum\n• arbeitest aktiv im Berufsbildner-Team mit und gestaltest die praktische Ausbildung sowie die fachliche Entwicklung der dipl. Expertinnen und Experten Notfallpflege i.A. mit. Profil\n• Eine abgeschlossene Weiterbildung als dipl. Expertin/Experte Notfallpflege NDS HF bildet die Grundlage für deine Tätigkeit.\n• Idealerweise hast du den Berufsbildnerkurs bereits absolviert oder bist bereit, diesen zu besuchen.\n• Mit deinen didaktischen Fähigkeiten gehst du gezielt auf die unterschiedlichen Lernbedürfnisse der Studierenden ein.\n• Respekt, Einfühlungsvermögen und ein wertschätzender Umgang mit Menschen sind für dich selbstverständlich.\n• Das Wohl und die Sicherheit der Patientinnen und Patienten stehen für dich an erster Stelle.\n• Teamfähigkeit, Belastbarkeit und Verantwortungsbewusstsein runden dein Profil ab. Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Besonderes Du bist flexibel, engagiert und bereit, dich immer wieder neuen Herausforderungen zu stellen? Dann suchen wir genau dich! Auskunft Weitere Auskünfte erteilen dir gerne Lena Krebs oder Leonie Scheidegger, Co-Abteilungsleiterinnen Notfallstation Burgdorf, Telefon 034 421 22 47 / 034 421 22 45. Adresse Spital Emmental Roland Sidler HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Notfall\n\nAnstellung: unbefristet\n\nPensum: 80-100%",
+        "it": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nPflege mit Herz, Verstand und Flexibilität – willkommen im Spital Emmental. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: Menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere interdisziplinäre Notfallstation in Burgdorf suchen wir per sofort oder nach Vereinbarung ein:e\n\nDeine Aufgaben - verantwortungsvoll und vielseitig\nDu\n• betreust unsere Patientinnen und Patienten und ihre Angehörigen in akuten Situationen fachkompetent, einfühlsam und professionell\n• übernimmst die Triage sowie die ganzheitliche Pflege auf der Notfallstation\n• gestaltest gemeinsam mit dem ärztlichen Team die Erstversorgung unserer Akutpatientinnen und -patienten\n• koordinierst die weitere Behandlung im interdisziplinären Team\n• arbeitest im 24/7-Schichtbetrieb – Flexibilität ist für dich selbstverständlich\n• sorgst für eine fachlich fundierte Praxisausbildung gemäss den Ausbildungskonzepten des Spitals Emmental in Zusammenarbeit mit dem Berner Bildungszentrum Pflege\n• bist zuständig für die Umsetzung und transparente Dokumentation des Ausbildungsprozesses im Notfallzentrum\n• arbeitest aktiv im Berufsbildner-Team mit und gestaltest die praktische Ausbildung sowie die fachliche Entwicklung der dipl. Expertinnen und Experten Notfallpflege i.A. mit.\n\nProfil\n\n• Eine abgeschlossene Weiterbildung als dipl. Expertin/Experte Notfallpflege NDS HF bildet die Grundlage für deine Tätigkeit.\n• Idealerweise hast du den Berufsbildnerkurs bereits absolviert oder bist bereit, diesen zu besuchen.\n• Mit deinen didaktischen Fähigkeiten gehst du gezielt auf die unterschiedlichen Lernbedürfnisse der Studierenden ein.\n• Respekt, Einfühlungsvermögen und ein wertschätzender Umgang mit Menschen sind für dich selbstverständlich.\n• Das Wohl und die Sicherheit der Patientinnen und Patienten stehen für dich an erster Stelle.\n• Teamfähigkeit, Belastbarkeit und Verantwortungsbewusstsein runden dein Profil ab.\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte Du bist flexibel, engagiert und bereit, dich immer wieder neuen Herausforderungen zu stellen? Dann suchen wir genau dich!\n\nAuskunft\nWeitere Auskünfte erteilen dir gerne Lena Krebs oder Leonie Scheidegger, Co-Abteilungsleiterinnen Notfallstation Burgdorf, Telefon 034 421 22 47 / 034 421 22 45.\n\nKontakt\nRoland Sidler HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Pflege mit Herz, Verstand und Flexibilität – willkommen im Spital Emmental. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: Menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere interdisziplinäre Notfallstation in Burgdorf suchen wir per sofort oder nach Vereinbarung ein:e dipl. Expertin / dipl. Experte Notfallpflege mit Zusatzfunktion Berufsbildung (a) 80–100% Deine Aufgaben - verantwortungsvoll und vielseitig Du\n• betreust unsere Patientinnen und Patienten und ihre Angehörigen in akuten Situationen fachkompetent, einfühlsam und professionell\n• übernimmst die Triage sowie die ganzheitliche Pflege auf der Notfallstation\n• gestaltest gemeinsam mit dem ärztlichen Team die Erstversorgung unserer Akutpatientinnen und -patienten\n• koordinierst die weitere Behandlung im interdisziplinären Team\n• arbeitest im 24/7-Schichtbetrieb – Flexibilität ist für dich selbstverständlich\n• sorgst für eine fachlich fundierte Praxisausbildung gemäss den Ausbildungskonzepten des Spitals Emmental in Zusammenarbeit mit dem Berner Bildungszentrum Pflege\n• bist zuständig für die Umsetzung und transparente Dokumentation des Ausbildungsprozesses im Notfallzentrum\n• arbeitest aktiv im Berufsbildner-Team mit und gestaltest die praktische Ausbildung sowie die fachliche Entwicklung der dipl. Expertinnen und Experten Notfallpflege i.A. mit. Profil\n• Eine abgeschlossene Weiterbildung als dipl. Expertin/Experte Notfallpflege NDS HF bildet die Grundlage für deine Tätigkeit.\n• Idealerweise hast du den Berufsbildnerkurs bereits absolviert oder bist bereit, diesen zu besuchen.\n• Mit deinen didaktischen Fähigkeiten gehst du gezielt auf die unterschiedlichen Lernbedürfnisse der Studierenden ein.\n• Respekt, Einfühlungsvermögen und ein wertschätzender Umgang mit Menschen sind für dich selbstverständlich.\n• Das Wohl und die Sicherheit der Patientinnen und Patienten stehen für dich an erster Stelle.\n• Teamfähigkeit, Belastbarkeit und Verantwortungsbewusstsein runden dein Profil ab. Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Besonderes Du bist flexibel, engagiert und bereit, dich immer wieder neuen Herausforderungen zu stellen? Dann suchen wir genau dich! Auskunft Weitere Auskünfte erteilen dir gerne Lena Krebs oder Leonie Scheidegger, Co-Abteilungsleiterinnen Notfallstation Burgdorf, Telefon 034 421 22 47 / 034 421 22 45. Adresse Spital Emmental Roland Sidler HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Notfall\n\nAnstellung: unbefristet\n\nPensum: 80-100%",
+        "en": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nPflege mit Herz, Verstand und Flexibilität – willkommen im Spital Emmental. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: Menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere interdisziplinäre Notfallstation in Burgdorf suchen wir per sofort oder nach Vereinbarung ein:e\n\nDeine Aufgaben - verantwortungsvoll und vielseitig\nDu\n• betreust unsere Patientinnen und Patienten und ihre Angehörigen in akuten Situationen fachkompetent, einfühlsam und professionell\n• übernimmst die Triage sowie die ganzheitliche Pflege auf der Notfallstation\n• gestaltest gemeinsam mit dem ärztlichen Team die Erstversorgung unserer Akutpatientinnen und -patienten\n• koordinierst die weitere Behandlung im interdisziplinären Team\n• arbeitest im 24/7-Schichtbetrieb – Flexibilität ist für dich selbstverständlich\n• sorgst für eine fachlich fundierte Praxisausbildung gemäss den Ausbildungskonzepten des Spitals Emmental in Zusammenarbeit mit dem Berner Bildungszentrum Pflege\n• bist zuständig für die Umsetzung und transparente Dokumentation des Ausbildungsprozesses im Notfallzentrum\n• arbeitest aktiv im Berufsbildner-Team mit und gestaltest die praktische Ausbildung sowie die fachliche Entwicklung der dipl. Expertinnen und Experten Notfallpflege i.A. mit.\n\nProfil\n\n• Eine abgeschlossene Weiterbildung als dipl. Expertin/Experte Notfallpflege NDS HF bildet die Grundlage für deine Tätigkeit.\n• Idealerweise hast du den Berufsbildnerkurs bereits absolviert oder bist bereit, diesen zu besuchen.\n• Mit deinen didaktischen Fähigkeiten gehst du gezielt auf die unterschiedlichen Lernbedürfnisse der Studierenden ein.\n• Respekt, Einfühlungsvermögen und ein wertschätzender Umgang mit Menschen sind für dich selbstverständlich.\n• Das Wohl und die Sicherheit der Patientinnen und Patienten stehen für dich an erster Stelle.\n• Teamfähigkeit, Belastbarkeit und Verantwortungsbewusstsein runden dein Profil ab.\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte Du bist flexibel, engagiert und bereit, dich immer wieder neuen Herausforderungen zu stellen? Dann suchen wir genau dich!\n\nAuskunft\nWeitere Auskünfte erteilen dir gerne Lena Krebs oder Leonie Scheidegger, Co-Abteilungsleiterinnen Notfallstation Burgdorf, Telefon 034 421 22 47 / 034 421 22 45.\n\nKontakt\nRoland Sidler HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Pflege mit Herz, Verstand und Flexibilität – willkommen im Spital Emmental. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: Menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere interdisziplinäre Notfallstation in Burgdorf suchen wir per sofort oder nach Vereinbarung ein:e dipl. Expertin / dipl. Experte Notfallpflege mit Zusatzfunktion Berufsbildung (a) 80–100% Deine Aufgaben - verantwortungsvoll und vielseitig Du\n• betreust unsere Patientinnen und Patienten und ihre Angehörigen in akuten Situationen fachkompetent, einfühlsam und professionell\n• übernimmst die Triage sowie die ganzheitliche Pflege auf der Notfallstation\n• gestaltest gemeinsam mit dem ärztlichen Team die Erstversorgung unserer Akutpatientinnen und -patienten\n• koordinierst die weitere Behandlung im interdisziplinären Team\n• arbeitest im 24/7-Schichtbetrieb – Flexibilität ist für dich selbstverständlich\n• sorgst für eine fachlich fundierte Praxisausbildung gemäss den Ausbildungskonzepten des Spitals Emmental in Zusammenarbeit mit dem Berner Bildungszentrum Pflege\n• bist zuständig für die Umsetzung und transparente Dokumentation des Ausbildungsprozesses im Notfallzentrum\n• arbeitest aktiv im Berufsbildner-Team mit und gestaltest die praktische Ausbildung sowie die fachliche Entwicklung der dipl. Expertinnen und Experten Notfallpflege i.A. mit. Profil\n• Eine abgeschlossene Weiterbildung als dipl. Expertin/Experte Notfallpflege NDS HF bildet die Grundlage für deine Tätigkeit.\n• Idealerweise hast du den Berufsbildnerkurs bereits absolviert oder bist bereit, diesen zu besuchen.\n• Mit deinen didaktischen Fähigkeiten gehst du gezielt auf die unterschiedlichen Lernbedürfnisse der Studierenden ein.\n• Respekt, Einfühlungsvermögen und ein wertschätzender Umgang mit Menschen sind für dich selbstverständlich.\n• Das Wohl und die Sicherheit der Patientinnen und Patienten stehen für dich an erster Stelle.\n• Teamfähigkeit, Belastbarkeit und Verantwortungsbewusstsein runden dein Profil ab. Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Besonderes Du bist flexibel, engagiert und bereit, dich immer wieder neuen Herausforderungen zu stellen? Dann suchen wir genau dich! Auskunft Weitere Auskünfte erteilen dir gerne Lena Krebs oder Leonie Scheidegger, Co-Abteilungsleiterinnen Notfallstation Burgdorf, Telefon 034 421 22 47 / 034 421 22 45. Adresse Spital Emmental Roland Sidler HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Notfall\n\nAnstellung: unbefristet\n\nPensum: 80-100%",
+        "fr": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nPflege mit Herz, Verstand und Flexibilität – willkommen im Spital Emmental. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: Menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere interdisziplinäre Notfallstation in Burgdorf suchen wir per sofort oder nach Vereinbarung ein:e\n\nDeine Aufgaben - verantwortungsvoll und vielseitig\nDu\n• betreust unsere Patientinnen und Patienten und ihre Angehörigen in akuten Situationen fachkompetent, einfühlsam und professionell\n• übernimmst die Triage sowie die ganzheitliche Pflege auf der Notfallstation\n• gestaltest gemeinsam mit dem ärztlichen Team die Erstversorgung unserer Akutpatientinnen und -patienten\n• koordinierst die weitere Behandlung im interdisziplinären Team\n• arbeitest im 24/7-Schichtbetrieb – Flexibilität ist für dich selbstverständlich\n• sorgst für eine fachlich fundierte Praxisausbildung gemäss den Ausbildungskonzepten des Spitals Emmental in Zusammenarbeit mit dem Berner Bildungszentrum Pflege\n• bist zuständig für die Umsetzung und transparente Dokumentation des Ausbildungsprozesses im Notfallzentrum\n• arbeitest aktiv im Berufsbildner-Team mit und gestaltest die praktische Ausbildung sowie die fachliche Entwicklung der dipl. Expertinnen und Experten Notfallpflege i.A. mit.\n\nProfil\n\n• Eine abgeschlossene Weiterbildung als dipl. Expertin/Experte Notfallpflege NDS HF bildet die Grundlage für deine Tätigkeit.\n• Idealerweise hast du den Berufsbildnerkurs bereits absolviert oder bist bereit, diesen zu besuchen.\n• Mit deinen didaktischen Fähigkeiten gehst du gezielt auf die unterschiedlichen Lernbedürfnisse der Studierenden ein.\n• Respekt, Einfühlungsvermögen und ein wertschätzender Umgang mit Menschen sind für dich selbstverständlich.\n• Das Wohl und die Sicherheit der Patientinnen und Patienten stehen für dich an erster Stelle.\n• Teamfähigkeit, Belastbarkeit und Verantwortungsbewusstsein runden dein Profil ab.\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte Du bist flexibel, engagiert und bereit, dich immer wieder neuen Herausforderungen zu stellen? Dann suchen wir genau dich!\n\nAuskunft\nWeitere Auskünfte erteilen dir gerne Lena Krebs oder Leonie Scheidegger, Co-Abteilungsleiterinnen Notfallstation Burgdorf, Telefon 034 421 22 47 / 034 421 22 45.\n\nKontakt\nRoland Sidler HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Pflege mit Herz, Verstand und Flexibilität – willkommen im Spital Emmental. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: Menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere interdisziplinäre Notfallstation in Burgdorf suchen wir per sofort oder nach Vereinbarung ein:e dipl. Expertin / dipl. Experte Notfallpflege mit Zusatzfunktion Berufsbildung (a) 80–100% Deine Aufgaben - verantwortungsvoll und vielseitig Du\n• betreust unsere Patientinnen und Patienten und ihre Angehörigen in akuten Situationen fachkompetent, einfühlsam und professionell\n• übernimmst die Triage sowie die ganzheitliche Pflege auf der Notfallstation\n• gestaltest gemeinsam mit dem ärztlichen Team die Erstversorgung unserer Akutpatientinnen und -patienten\n• koordinierst die weitere Behandlung im interdisziplinären Team\n• arbeitest im 24/7-Schichtbetrieb – Flexibilität ist für dich selbstverständlich\n• sorgst für eine fachlich fundierte Praxisausbildung gemäss den Ausbildungskonzepten des Spitals Emmental in Zusammenarbeit mit dem Berner Bildungszentrum Pflege\n• bist zuständig für die Umsetzung und transparente Dokumentation des Ausbildungsprozesses im Notfallzentrum\n• arbeitest aktiv im Berufsbildner-Team mit und gestaltest die praktische Ausbildung sowie die fachliche Entwicklung der dipl. Expertinnen und Experten Notfallpflege i.A. mit. Profil\n• Eine abgeschlossene Weiterbildung als dipl. Expertin/Experte Notfallpflege NDS HF bildet die Grundlage für deine Tätigkeit.\n• Idealerweise hast du den Berufsbildnerkurs bereits absolviert oder bist bereit, diesen zu besuchen.\n• Mit deinen didaktischen Fähigkeiten gehst du gezielt auf die unterschiedlichen Lernbedürfnisse der Studierenden ein.\n• Respekt, Einfühlungsvermögen und ein wertschätzender Umgang mit Menschen sind für dich selbstverständlich.\n• Das Wohl und die Sicherheit der Patientinnen und Patienten stehen für dich an erster Stelle.\n• Teamfähigkeit, Belastbarkeit und Verantwortungsbewusstsein runden dein Profil ab. Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Besonderes Du bist flexibel, engagiert und bereit, dich immer wieder neuen Herausforderungen zu stellen? Dann suchen wir genau dich! Auskunft Weitere Auskünfte erteilen dir gerne Lena Krebs oder Leonie Scheidegger, Co-Abteilungsleiterinnen Notfallstation Burgdorf, Telefon 034 421 22 47 / 034 421 22 45. Adresse Spital Emmental Roland Sidler HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Notfall\n\nAnstellung: unbefristet\n\nPensum: 80-100%"
+      },
+      "needsRetranslation": true,
+      "location": "Burgdorf",
+      "canton": "BE",
+      "url": "https://live.solique.ch/spital-emmental/job/details/4076290",
+      "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:12:58.196Z",
+      "addressLocality": "Burgdorf",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3400",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://live.solique.ch/spital-emmental/job/details/4076290",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4076290",
+      "department": "Notfall",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contractDuration": "permanent",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-31T17:04:55.498Z"
+    },
+    {
+      "id": "spital-emmental-ab920350d8be",
+      "slug": "collaboratore-trice-abwaschkuche-a-spital-emmental-burgdorf",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf",
+        "it": "collaboratore-trice-abwaschkuche-a-spital-emmental-burgdorf",
+        "en": "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf",
+        "fr": "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
+      },
+      "company": "Spital Emmental",
+      "companyKey": "spital-emmental",
+      "companyDomain": "spital-emmental.ch",
+      "title": "Mitarbeiter:in Abwaschküche (a)",
+      "titleByLocale": {
+        "de": "Mitarbeiter:in Abwaschküche (a)",
+        "it": "Collaboratore/trice Abwaschküche (a)",
+        "en": "Associate Abwaschküche (a)",
+        "fr": "Collaborateur/trice Abwaschküche (a)"
+      },
+      "description": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMit jeder Mahlzeit ein Stück Lebensqualität schenken – das ist unser Antrieb. Täglich bereiten wir mit Leidenschaft und Sorgfalt frische Speisen zu, um unseren Kundinnen und Kunden genussvolle Momente und Wohlbefinden zu schenken. Zur Verstärkung unseres engagierten Küchenteams am Standort Burgdorf oder Langnau suchen wir nach Vereinbarung eine:n\n\nAufgabengebiet\n\n• Du sorgst dafür, dass Geschirr, Besteck und Küchenutensilien fachgerecht gereinigt und ordentlich verräumt werden\n• Mithilfe am Serviceband\n• Du stellst sicher, dass die Stationen pünktlich und vollständig mit den benötigten Lebensmitteln versorgt werden\n• Du übernimmst den Esswagentransport und achtest dabei auf Sorgfalt und Hygiene\n• Du führst Reinigungsarbeiten in der gesamten Küche durch und meldest technische Defekte zuverlässig\n\nProfil\n\n• Du hast bereits Erfahrung in einer ähnlichen Position (Küche oder lebensmittelnahe Branche) und kennst die wichtigsten Hygienerichtlinien\n• Du arbeitest selbstständig, bist flexibel und bereit, auch abends oder am Wochenende mit vollem Einsatz dabei zu sein\n• Teamarbeit liegt dir am Herzen – Du bringst Einfühlungsvermögen mit und fühlst dich auch in einem interkulturellen Umfeld wohl\n• Du sprichst und verstehst Deutsch gut – mündlich wie schriftlich\n• Du bist körperlich belastbar und trittst stets gepflegt auf\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte\n\nAuskunft\nInteressiert? Anna Wüthrich, Stv. Küchenchefin, Telefon 034 421 21 48, beantworten gerne deine Fragen.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mit jeder Mahlzeit ein Stück Lebensqualität schenken – das ist unser Antrieb. Täglich bereiten wir mit Leidenschaft und Sorgfalt frische Speisen zu, um unseren Kundinnen und Kunden genussvolle Momente und Wohlbefinden zu schenken. Zur Verstärkung unseres engagierten Küchenteams am Standort Burgdorf oder Langnau suchen wir nach Vereinbarung eine:n Mitarbeiter:in Abwaschküche (a) 40–50% Aufgabengebiet\n• Du sorgst dafür, dass Geschirr, Besteck und Küchenutensilien fachgerecht gereinigt und ordentlich verräumt werden\n• Mithilfe am Serviceband\n• Du stellst sicher, dass die Stationen pünktlich und vollständig mit den benötigten Lebensmitteln versorgt werden\n• Du übernimmst den Esswagentransport und achtest dabei auf Sorgfalt und Hygiene\n• Du führst Reinigungsarbeiten in der gesamten Küche durch und meldest technische Defekte zuverlässig Profil\n• Du hast bereits Erfahrung in einer ähnlichen Position (Küche oder lebensmittelnahe Branche) und kennst die wichtigsten Hygienerichtlinien\n• Du arbeitest selbstständig, bist flexibel und bereit, auch abends oder am Wochenende mit vollem Einsatz dabei zu sein\n• Teamarbeit liegt dir am Herzen – Du bringst Einfühlungsvermögen mit und fühlst dich auch in einem interkulturellen Umfeld wohl\n• Du sprichst und verstehst Deutsch gut – mündlich wie schriftlich\n• Du bist körperlich belastbar und trittst stets gepflegt auf Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Interessiert? Anna Wüthrich, Stv. Küchenchefin, Telefon 034 421 21 48, beantworten gerne deine Fragen. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Bewerben WhatsApp Bewerbung\n\nBereich: Hotellerie\n\nAnstellung: unbefristet\n\nPensum: 40-50%",
+      "descriptionByLocale": {
+        "de": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMit jeder Mahlzeit ein Stück Lebensqualität schenken – das ist unser Antrieb. Täglich bereiten wir mit Leidenschaft und Sorgfalt frische Speisen zu, um unseren Kundinnen und Kunden genussvolle Momente und Wohlbefinden zu schenken. Zur Verstärkung unseres engagierten Küchenteams am Standort Burgdorf oder Langnau suchen wir nach Vereinbarung eine:n\n\nAufgabengebiet\n\n• Du sorgst dafür, dass Geschirr, Besteck und Küchenutensilien fachgerecht gereinigt und ordentlich verräumt werden\n• Mithilfe am Serviceband\n• Du stellst sicher, dass die Stationen pünktlich und vollständig mit den benötigten Lebensmitteln versorgt werden\n• Du übernimmst den Esswagentransport und achtest dabei auf Sorgfalt und Hygiene\n• Du führst Reinigungsarbeiten in der gesamten Küche durch und meldest technische Defekte zuverlässig\n\nProfil\n\n• Du hast bereits Erfahrung in einer ähnlichen Position (Küche oder lebensmittelnahe Branche) und kennst die wichtigsten Hygienerichtlinien\n• Du arbeitest selbstständig, bist flexibel und bereit, auch abends oder am Wochenende mit vollem Einsatz dabei zu sein\n• Teamarbeit liegt dir am Herzen – Du bringst Einfühlungsvermögen mit und fühlst dich auch in einem interkulturellen Umfeld wohl\n• Du sprichst und verstehst Deutsch gut – mündlich wie schriftlich\n• Du bist körperlich belastbar und trittst stets gepflegt auf\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte\n\nAuskunft\nInteressiert? Anna Wüthrich, Stv. Küchenchefin, Telefon 034 421 21 48, beantworten gerne deine Fragen.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mit jeder Mahlzeit ein Stück Lebensqualität schenken – das ist unser Antrieb. Täglich bereiten wir mit Leidenschaft und Sorgfalt frische Speisen zu, um unseren Kundinnen und Kunden genussvolle Momente und Wohlbefinden zu schenken. Zur Verstärkung unseres engagierten Küchenteams am Standort Burgdorf oder Langnau suchen wir nach Vereinbarung eine:n Mitarbeiter:in Abwaschküche (a) 40–50% Aufgabengebiet\n• Du sorgst dafür, dass Geschirr, Besteck und Küchenutensilien fachgerecht gereinigt und ordentlich verräumt werden\n• Mithilfe am Serviceband\n• Du stellst sicher, dass die Stationen pünktlich und vollständig mit den benötigten Lebensmitteln versorgt werden\n• Du übernimmst den Esswagentransport und achtest dabei auf Sorgfalt und Hygiene\n• Du führst Reinigungsarbeiten in der gesamten Küche durch und meldest technische Defekte zuverlässig Profil\n• Du hast bereits Erfahrung in einer ähnlichen Position (Küche oder lebensmittelnahe Branche) und kennst die wichtigsten Hygienerichtlinien\n• Du arbeitest selbstständig, bist flexibel und bereit, auch abends oder am Wochenende mit vollem Einsatz dabei zu sein\n• Teamarbeit liegt dir am Herzen – Du bringst Einfühlungsvermögen mit und fühlst dich auch in einem interkulturellen Umfeld wohl\n• Du sprichst und verstehst Deutsch gut – mündlich wie schriftlich\n• Du bist körperlich belastbar und trittst stets gepflegt auf Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Interessiert? Anna Wüthrich, Stv. Küchenchefin, Telefon 034 421 21 48, beantworten gerne deine Fragen. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Bewerben WhatsApp Bewerbung\n\nBereich: Hotellerie\n\nAnstellung: unbefristet\n\nPensum: 40-50%",
+        "it": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMit jeder Mahlzeit ein Stück Lebensqualität schenken – das ist unser Antrieb. Täglich bereiten wir mit Leidenschaft und Sorgfalt frische Speisen zu, um unseren Kundinnen und Kunden genussvolle Momente und Wohlbefinden zu schenken. Zur Verstärkung unseres engagierten Küchenteams am Standort Burgdorf oder Langnau suchen wir nach Vereinbarung eine:n\n\nAufgabengebiet\n\n• Du sorgst dafür, dass Geschirr, Besteck und Küchenutensilien fachgerecht gereinigt und ordentlich verräumt werden\n• Mithilfe am Serviceband\n• Du stellst sicher, dass die Stationen pünktlich und vollständig mit den benötigten Lebensmitteln versorgt werden\n• Du übernimmst den Esswagentransport und achtest dabei auf Sorgfalt und Hygiene\n• Du führst Reinigungsarbeiten in der gesamten Küche durch und meldest technische Defekte zuverlässig\n\nProfil\n\n• Du hast bereits Erfahrung in einer ähnlichen Position (Küche oder lebensmittelnahe Branche) und kennst die wichtigsten Hygienerichtlinien\n• Du arbeitest selbstständig, bist flexibel und bereit, auch abends oder am Wochenende mit vollem Einsatz dabei zu sein\n• Teamarbeit liegt dir am Herzen – Du bringst Einfühlungsvermögen mit und fühlst dich auch in einem interkulturellen Umfeld wohl\n• Du sprichst und verstehst Deutsch gut – mündlich wie schriftlich\n• Du bist körperlich belastbar und trittst stets gepflegt auf\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte\n\nAuskunft\nInteressiert? Anna Wüthrich, Stv. Küchenchefin, Telefon 034 421 21 48, beantworten gerne deine Fragen.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mit jeder Mahlzeit ein Stück Lebensqualität schenken – das ist unser Antrieb. Täglich bereiten wir mit Leidenschaft und Sorgfalt frische Speisen zu, um unseren Kundinnen und Kunden genussvolle Momente und Wohlbefinden zu schenken. Zur Verstärkung unseres engagierten Küchenteams am Standort Burgdorf oder Langnau suchen wir nach Vereinbarung eine:n Mitarbeiter:in Abwaschküche (a) 40–50% Aufgabengebiet\n• Du sorgst dafür, dass Geschirr, Besteck und Küchenutensilien fachgerecht gereinigt und ordentlich verräumt werden\n• Mithilfe am Serviceband\n• Du stellst sicher, dass die Stationen pünktlich und vollständig mit den benötigten Lebensmitteln versorgt werden\n• Du übernimmst den Esswagentransport und achtest dabei auf Sorgfalt und Hygiene\n• Du führst Reinigungsarbeiten in der gesamten Küche durch und meldest technische Defekte zuverlässig Profil\n• Du hast bereits Erfahrung in einer ähnlichen Position (Küche oder lebensmittelnahe Branche) und kennst die wichtigsten Hygienerichtlinien\n• Du arbeitest selbstständig, bist flexibel und bereit, auch abends oder am Wochenende mit vollem Einsatz dabei zu sein\n• Teamarbeit liegt dir am Herzen – Du bringst Einfühlungsvermögen mit und fühlst dich auch in einem interkulturellen Umfeld wohl\n• Du sprichst und verstehst Deutsch gut – mündlich wie schriftlich\n• Du bist körperlich belastbar und trittst stets gepflegt auf Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Interessiert? Anna Wüthrich, Stv. Küchenchefin, Telefon 034 421 21 48, beantworten gerne deine Fragen. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Bewerben WhatsApp Bewerbung\n\nBereich: Hotellerie\n\nAnstellung: unbefristet\n\nPensum: 40-50%",
+        "en": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMit jeder Mahlzeit ein Stück Lebensqualität schenken – das ist unser Antrieb. Täglich bereiten wir mit Leidenschaft und Sorgfalt frische Speisen zu, um unseren Kundinnen und Kunden genussvolle Momente und Wohlbefinden zu schenken. Zur Verstärkung unseres engagierten Küchenteams am Standort Burgdorf oder Langnau suchen wir nach Vereinbarung eine:n\n\nAufgabengebiet\n\n• Du sorgst dafür, dass Geschirr, Besteck und Küchenutensilien fachgerecht gereinigt und ordentlich verräumt werden\n• Mithilfe am Serviceband\n• Du stellst sicher, dass die Stationen pünktlich und vollständig mit den benötigten Lebensmitteln versorgt werden\n• Du übernimmst den Esswagentransport und achtest dabei auf Sorgfalt und Hygiene\n• Du führst Reinigungsarbeiten in der gesamten Küche durch und meldest technische Defekte zuverlässig\n\nProfil\n\n• Du hast bereits Erfahrung in einer ähnlichen Position (Küche oder lebensmittelnahe Branche) und kennst die wichtigsten Hygienerichtlinien\n• Du arbeitest selbstständig, bist flexibel und bereit, auch abends oder am Wochenende mit vollem Einsatz dabei zu sein\n• Teamarbeit liegt dir am Herzen – Du bringst Einfühlungsvermögen mit und fühlst dich auch in einem interkulturellen Umfeld wohl\n• Du sprichst und verstehst Deutsch gut – mündlich wie schriftlich\n• Du bist körperlich belastbar und trittst stets gepflegt auf\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte\n\nAuskunft\nInteressiert? Anna Wüthrich, Stv. Küchenchefin, Telefon 034 421 21 48, beantworten gerne deine Fragen.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mit jeder Mahlzeit ein Stück Lebensqualität schenken – das ist unser Antrieb. Täglich bereiten wir mit Leidenschaft und Sorgfalt frische Speisen zu, um unseren Kundinnen und Kunden genussvolle Momente und Wohlbefinden zu schenken. Zur Verstärkung unseres engagierten Küchenteams am Standort Burgdorf oder Langnau suchen wir nach Vereinbarung eine:n Mitarbeiter:in Abwaschküche (a) 40–50% Aufgabengebiet\n• Du sorgst dafür, dass Geschirr, Besteck und Küchenutensilien fachgerecht gereinigt und ordentlich verräumt werden\n• Mithilfe am Serviceband\n• Du stellst sicher, dass die Stationen pünktlich und vollständig mit den benötigten Lebensmitteln versorgt werden\n• Du übernimmst den Esswagentransport und achtest dabei auf Sorgfalt und Hygiene\n• Du führst Reinigungsarbeiten in der gesamten Küche durch und meldest technische Defekte zuverlässig Profil\n• Du hast bereits Erfahrung in einer ähnlichen Position (Küche oder lebensmittelnahe Branche) und kennst die wichtigsten Hygienerichtlinien\n• Du arbeitest selbstständig, bist flexibel und bereit, auch abends oder am Wochenende mit vollem Einsatz dabei zu sein\n• Teamarbeit liegt dir am Herzen – Du bringst Einfühlungsvermögen mit und fühlst dich auch in einem interkulturellen Umfeld wohl\n• Du sprichst und verstehst Deutsch gut – mündlich wie schriftlich\n• Du bist körperlich belastbar und trittst stets gepflegt auf Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Interessiert? Anna Wüthrich, Stv. Küchenchefin, Telefon 034 421 21 48, beantworten gerne deine Fragen. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Bewerben WhatsApp Bewerbung\n\nBereich: Hotellerie\n\nAnstellung: unbefristet\n\nPensum: 40-50%",
+        "fr": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMit jeder Mahlzeit ein Stück Lebensqualität schenken – das ist unser Antrieb. Täglich bereiten wir mit Leidenschaft und Sorgfalt frische Speisen zu, um unseren Kundinnen und Kunden genussvolle Momente und Wohlbefinden zu schenken. Zur Verstärkung unseres engagierten Küchenteams am Standort Burgdorf oder Langnau suchen wir nach Vereinbarung eine:n\n\nAufgabengebiet\n\n• Du sorgst dafür, dass Geschirr, Besteck und Küchenutensilien fachgerecht gereinigt und ordentlich verräumt werden\n• Mithilfe am Serviceband\n• Du stellst sicher, dass die Stationen pünktlich und vollständig mit den benötigten Lebensmitteln versorgt werden\n• Du übernimmst den Esswagentransport und achtest dabei auf Sorgfalt und Hygiene\n• Du führst Reinigungsarbeiten in der gesamten Küche durch und meldest technische Defekte zuverlässig\n\nProfil\n\n• Du hast bereits Erfahrung in einer ähnlichen Position (Küche oder lebensmittelnahe Branche) und kennst die wichtigsten Hygienerichtlinien\n• Du arbeitest selbstständig, bist flexibel und bereit, auch abends oder am Wochenende mit vollem Einsatz dabei zu sein\n• Teamarbeit liegt dir am Herzen – Du bringst Einfühlungsvermögen mit und fühlst dich auch in einem interkulturellen Umfeld wohl\n• Du sprichst und verstehst Deutsch gut – mündlich wie schriftlich\n• Du bist körperlich belastbar und trittst stets gepflegt auf\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte\n\nAuskunft\nInteressiert? Anna Wüthrich, Stv. Küchenchefin, Telefon 034 421 21 48, beantworten gerne deine Fragen.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mit jeder Mahlzeit ein Stück Lebensqualität schenken – das ist unser Antrieb. Täglich bereiten wir mit Leidenschaft und Sorgfalt frische Speisen zu, um unseren Kundinnen und Kunden genussvolle Momente und Wohlbefinden zu schenken. Zur Verstärkung unseres engagierten Küchenteams am Standort Burgdorf oder Langnau suchen wir nach Vereinbarung eine:n Mitarbeiter:in Abwaschküche (a) 40–50% Aufgabengebiet\n• Du sorgst dafür, dass Geschirr, Besteck und Küchenutensilien fachgerecht gereinigt und ordentlich verräumt werden\n• Mithilfe am Serviceband\n• Du stellst sicher, dass die Stationen pünktlich und vollständig mit den benötigten Lebensmitteln versorgt werden\n• Du übernimmst den Esswagentransport und achtest dabei auf Sorgfalt und Hygiene\n• Du führst Reinigungsarbeiten in der gesamten Küche durch und meldest technische Defekte zuverlässig Profil\n• Du hast bereits Erfahrung in einer ähnlichen Position (Küche oder lebensmittelnahe Branche) und kennst die wichtigsten Hygienerichtlinien\n• Du arbeitest selbstständig, bist flexibel und bereit, auch abends oder am Wochenende mit vollem Einsatz dabei zu sein\n• Teamarbeit liegt dir am Herzen – Du bringst Einfühlungsvermögen mit und fühlst dich auch in einem interkulturellen Umfeld wohl\n• Du sprichst und verstehst Deutsch gut – mündlich wie schriftlich\n• Du bist körperlich belastbar und trittst stets gepflegt auf Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Interessiert? Anna Wüthrich, Stv. Küchenchefin, Telefon 034 421 21 48, beantworten gerne deine Fragen. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Bewerben WhatsApp Bewerbung\n\nBereich: Hotellerie\n\nAnstellung: unbefristet\n\nPensum: 40-50%"
+      },
+      "needsRetranslation": true,
+      "location": "Burgdorf & Langnau",
+      "canton": "BE",
+      "url": "https://live.solique.ch/spital-emmental/job/details/4076280",
+      "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:12:57.481Z",
+      "addressLocality": "Burgdorf",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3400",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://live.solique.ch/spital-emmental/job/details/4076280",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4076280",
+      "department": "Hotellerie",
+      "pensumMin": 40,
+      "pensumMax": 50,
+      "pensum": "40 - 50%",
+      "contractDuration": "permanent",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
+      ],
+      "salaryMin": 67500,
+      "salaryMax": 84500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67500,
+          "maxValue": 84500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-29T09:12:57.481Z"
     }
   ]
 }

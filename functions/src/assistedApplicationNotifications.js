@@ -26,6 +26,19 @@ import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
+import {
+  brandButton,
+  brandCallout,
+  brandChecklist,
+  brandFinePrint,
+  brandInfoCard,
+  brandJobCard,
+  brandLink,
+  brandParagraph,
+  brandSectionLabel,
+  brandSignature,
+  renderBrandedEmail,
+} from './assistedApplicationEmailLayout.js';
 
 export const ASSISTED_APPLICATION_SENDER = 'Valerie · Frontaliere Ticino <valerie@frontaliereticino.ch>';
 export const ASSISTED_APPLICATION_OWNER_EMAIL = 'valerie@frontaliereticino.ch';
@@ -36,10 +49,10 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 
 /** Section roots that mount the JobBoard (see scripts/lib/jobBoardSections.mjs). */
 const JOB_BOARD_ROOT_BY_LOCALE = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
+  it: '/cerca-lavoro-ticino/', // cathedral-allow: transactional email must keep the canonical Italian job-board root
+  en: '/en/find-jobs-ticino/', // cathedral-allow: transactional email must keep the canonical English job-board root
+  de: '/de/jobs-im-tessin/', // cathedral-allow: transactional email must keep the canonical German job-board root
+  fr: '/fr/trouver-emploi-tessin/', // cathedral-allow: transactional email must keep the canonical French job-board root
 };
 
 /** Admin panel slug (services/routeSlugs.data.ts `admin`), owner-only. */
@@ -225,6 +238,23 @@ const COPY = {
     recoveryOut: "Se l'annuncio non ti interessa più, rispondimi con «rimborso» e ti restituisco i {price}; se preferisci, posso usare il pagamento per un annuncio simile che mi indichi tu.",
     noGuarantee: "Non posso garantire una risposta, un colloquio o l'assunzione: Frontaliere Ticino non è affiliato all'azienda.",
     signature: 'Valerie',
+    signatureRole: 'Frontaliere Ticino · candidatura assistita',
+    badge: 'Candidatura assistita',
+    needLabel: 'Cosa mi serve',
+    hero: {
+      intro: 'La tua candidatura è in buone mani',
+      recovery: 'Riprendiamo la tua candidatura',
+      reminder: 'Mi mancano ancora i tuoi documenti',
+      received: 'CV ricevuto',
+      submitted: 'Candidatura inviata',
+    },
+    preheader: {
+      intro: 'Rispondi con il CV e ci penso io: ecco cosa mi serve.',
+      recovery: 'Il problema è risolto: ecco come inviarmi il CV.',
+      reminder: 'Basta rispondere a questa email con il CV allegato.',
+      received: 'Preparo la candidatura e ti scrivo appena è inviata.',
+      submitted: "La tua candidatura è stata inviata all'azienda.",
+    },
     orderRef: 'Riferimento ordine',
     privacy: "I tuoi dati servono solo per questa candidatura e vengono cancellati entro 90 giorni dall'invio o dal rimborso. Per accesso, rettifica o cancellazione rispondi a questa email.",
     reminderSubject: 'Promemoria: mi servono i documenti per la tua candidatura a {job}',
@@ -261,6 +291,23 @@ const COPY = {
     recoveryOut: "Si l'annonce ne vous intéresse plus, répondez « remboursement » et je vous rends les {price} ; si vous préférez, je peux utiliser ce paiement pour une annonce similaire que vous m'indiquez.",
     noGuarantee: "Je ne peux garantir ni réponse, ni entretien, ni embauche : Frontaliere Ticino n'est pas affilié à l'entreprise.",
     signature: 'Valerie',
+    signatureRole: 'Frontaliere Ticino · candidature assistée',
+    badge: 'Candidature assistée',
+    needLabel: "Ce dont j'ai besoin",
+    hero: {
+      intro: 'Votre candidature est entre de bonnes mains',
+      recovery: 'Reprenons votre candidature',
+      reminder: 'Il me manque encore vos documents',
+      received: 'CV bien reçu',
+      submitted: 'Candidature envoyée',
+    },
+    preheader: {
+      intro: "Répondez avec votre CV, je m'occupe du reste.",
+      recovery: "Le problème est corrigé : voici comment m'envoyer votre CV.",
+      reminder: 'Il suffit de répondre à cet e-mail avec votre CV en pièce jointe.',
+      received: "Je prépare la candidature et je vous écris dès qu'elle est envoyée.",
+      submitted: "Votre candidature a été envoyée à l'entreprise.",
+    },
     orderRef: 'Référence de commande',
     privacy: "Vos données servent uniquement à cette candidature et sont supprimées dans les 90 jours suivant l'envoi ou le remboursement. Pour y accéder, les corriger ou les supprimer, répondez à cet e-mail.",
     reminderSubject: "Rappel : j'ai besoin de vos documents pour la candidature à {job}",
@@ -298,6 +345,23 @@ const COPY = {
     recoveryOut: 'Falls dich die Stelle nicht mehr interessiert, antworte mit «Rückerstattung» und du bekommst die {price} zurück; wenn du willst, nutze ich die Zahlung auch für eine ähnliche Stelle, die du mir nennst.',
     noGuarantee: 'Ich kann keine Antwort, kein Vorstellungsgespräch und keine Anstellung garantieren: Frontaliere Ticino ist nicht mit dem Unternehmen verbunden.',
     signature: 'Valerie',
+    signatureRole: 'Frontaliere Ticino · begleitete Bewerbung',
+    badge: 'Begleitete Bewerbung',
+    needLabel: 'Was ich brauche',
+    hero: {
+      intro: 'Deine Bewerbung ist in guten Händen',
+      recovery: 'Wir machen mit deiner Bewerbung weiter',
+      reminder: 'Mir fehlen noch deine Unterlagen',
+      received: 'Lebenslauf erhalten',
+      submitted: 'Bewerbung versendet',
+    },
+    preheader: {
+      intro: 'Antworte mit deinem Lebenslauf, den Rest erledige ich.',
+      recovery: 'Das Problem ist behoben: So schickst du mir deinen Lebenslauf.',
+      reminder: 'Antworte einfach mit deinem Lebenslauf im Anhang.',
+      received: 'Ich bereite die Bewerbung vor und melde mich, sobald sie verschickt ist.',
+      submitted: 'Deine Bewerbung wurde an das Unternehmen gesendet.',
+    },
     orderRef: 'Bestellreferenz',
     privacy: 'Deine Daten werden nur für diese Bewerbung verwendet und spätestens 90 Tage nach Versand oder Rückerstattung gelöscht. Für Auskunft, Berichtigung oder Löschung antworte auf diese E-Mail.',
     reminderSubject: 'Erinnerung: Ich brauche deine Unterlagen für die Bewerbung auf {job}',
@@ -334,6 +398,23 @@ const COPY = {
     recoveryOut: "If you're no longer interested in this job, reply «refund» and I'll give you back the {price}; if you prefer, I can use the payment for a similar job you point me to.",
     noGuarantee: "I can't guarantee a reply, an interview or a job: Frontaliere Ticino is not affiliated with the company.",
     signature: 'Valerie',
+    signatureRole: 'Frontaliere Ticino · assisted application',
+    badge: 'Assisted application',
+    needLabel: 'What I need',
+    hero: {
+      intro: 'Your application is in good hands',
+      recovery: 'Picking up your application',
+      reminder: 'I still need your documents',
+      received: 'CV received',
+      submitted: 'Application sent',
+    },
+    preheader: {
+      intro: "Reply with your CV and I'll take care of the rest.",
+      recovery: 'The issue is fixed: here is how to send me your CV.',
+      reminder: 'Just reply to this email with your CV attached.',
+      received: "I'm preparing your application and will write as soon as it's sent.",
+      submitted: 'Your application has been sent to the company.',
+    },
     orderRef: 'Order reference',
     privacy: 'Your data is used only for this application and deleted within 90 days of sending or refund. For access, correction or deletion, reply to this email.',
     reminderSubject: 'Reminder: I need your documents for the {job} application',
@@ -358,14 +439,7 @@ function fillHtml(template, vars) {
 }
 
 function paragraph(html) {
-  return `<p style="margin:0 0 14px;line-height:1.55">${html}</p>`;
-}
-
-function shell(bodyHtml) {
-  return '<div style="font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;'
-    + 'font-size:15px;color:#1f2933;max-width:560px">'
-    + bodyHtml
-    + '</div>';
+  return brandParagraph(html);
 }
 
 function orderVars(order, orderId, locale, nowMs) {
@@ -380,21 +454,16 @@ function orderVars(order, orderId, locale, nowMs) {
 
 function jobBlock(order, copy, vars) {
   const jobUrl = safeHttpsUrl(order?.jobUrl);
-  const html = `<div style="margin:0 0 16px;padding:12px 14px;border:1px solid #d9e2ec;border-radius:10px">`
-    + `<strong>${esc(vars.job)}</strong><br>${esc(vars.company)}`
-    + (jobUrl ? `<br><a href="${esc(jobUrl)}">${esc(copy.jobLink)}</a>` : '')
-    + '</div>';
+  const html = brandJobCard({ title: vars.job, company: vars.company, url: jobUrl, linkLabel: copy.jobLink });
   const text = `${vars.job}\n${vars.company}${jobUrl ? `\n${copy.jobLink}: ${jobUrl}` : ''}`;
   return { html, text };
 }
 
 function footer(copy, vars) {
-  const html = paragraph(esc(copy.signature))
-    + `<p style="margin:18px 0 0;font-size:12px;line-height:1.5;color:#52606d">`
-    + `Frontaliere Ticino · <a href="${SITE_ORIGIN}/">frontaliereticino.ch</a><br>`
-    + `${esc(copy.orderRef)}: ${esc(vars.orderId)}<br>${esc(copy.privacy)}</p>`;
+  const html = brandSignature(copy.signature, copy.signatureRole);
+  const footerLines = [`${copy.orderRef}: ${vars.orderId}`, copy.privacy];
   const text = `${copy.signature}\n\n--\nFrontaliere Ticino · ${SITE_ORIGIN}/\n${copy.orderRef}: ${vars.orderId}\n${copy.privacy}`;
-  return { html, text };
+  return { html, text, footerLines };
 }
 
 /**
@@ -412,30 +481,30 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now() } 
   const foot = footer(copy, vars);
   const htmlParts = [paragraph(esc(greeting))];
   const textParts = [greeting];
+  const uploadHtml = () => paragraph(esc(copy.uploadAlt)) + brandButton(pageUrl, copy.uploadCta);
 
   if (kind === 'intro' || kind === 'recovery') {
     const lead = kind === 'recovery' ? copy.recoveryLead : copy.introLead;
     htmlParts.push(paragraph(fillHtml(lead, vars)), job.html);
     textParts.push(fill(lead, vars), job.text);
-    htmlParts.push(paragraph(esc(copy.needTitle)));
-    htmlParts.push(`<ol style="margin:0 0 16px;padding-left:20px;line-height:1.55">${copy.needs.map((item) => `<li>${esc(item)}</li>`).join('')}</ol>`);
+    htmlParts.push(brandSectionLabel(copy.needLabel), paragraph(esc(copy.needTitle)), brandChecklist(copy.needs));
     textParts.push(copy.needTitle, copy.needs.map((item, index) => `${index + 1}. ${item}`).join('\n'));
-    htmlParts.push(paragraph(`<strong>${esc(copy.replyTitle)}</strong> ${esc(copy.replyBody)}`));
+    htmlParts.push(brandCallout(`<strong>${esc(copy.replyTitle)}</strong> ${esc(copy.replyBody)}`));
     textParts.push(`${copy.replyTitle} ${copy.replyBody}`);
-    htmlParts.push(paragraph(`${esc(copy.uploadAlt)}<br><a href="${esc(pageUrl)}">${esc(copy.uploadCta)}</a>`));
+    htmlParts.push(uploadHtml());
     textParts.push(`${copy.uploadAlt}\n${pageUrl}`);
-    htmlParts.push(paragraph(`<strong>${esc(copy.nextTitle)}</strong><br>${fillHtml(copy.nextBody, vars)}`));
+    htmlParts.push(brandInfoCard(copy.nextTitle, fillHtml(copy.nextBody, vars)));
     textParts.push(`${copy.nextTitle}\n${fill(copy.nextBody, vars)}`);
     if (kind === 'recovery') {
       htmlParts.push(paragraph(fillHtml(copy.recoveryOut, vars)));
       textParts.push(fill(copy.recoveryOut, vars));
     }
-    htmlParts.push(paragraph(esc(copy.noGuarantee)));
+    htmlParts.push(brandFinePrint(esc(copy.noGuarantee)));
     textParts.push(copy.noGuarantee);
   } else if (kind === 'reminder') {
     htmlParts.push(paragraph(fillHtml(copy.reminderLead, vars)), job.html);
     textParts.push(fill(copy.reminderLead, vars), job.text);
-    htmlParts.push(paragraph(`${esc(copy.uploadAlt)}<br><a href="${esc(pageUrl)}">${esc(copy.uploadCta)}</a>`));
+    htmlParts.push(uploadHtml());
     textParts.push(`${copy.uploadAlt}\n${pageUrl}`);
     htmlParts.push(paragraph(fillHtml(copy.reminderOut, vars)));
     textParts.push(fill(copy.reminderOut, vars));
@@ -445,7 +514,7 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now() } 
   } else if (kind === 'submitted') {
     htmlParts.push(paragraph(fillHtml(copy.submittedLead, vars)), job.html);
     textParts.push(fill(copy.submittedLead, vars), job.text);
-    htmlParts.push(paragraph(esc(copy.submittedNext)), paragraph(esc(copy.noGuarantee)));
+    htmlParts.push(paragraph(esc(copy.submittedNext)), brandFinePrint(esc(copy.noGuarantee)));
     textParts.push(copy.submittedNext, copy.noGuarantee);
   } else {
     throw new Error(`unknown_assisted_application_email:${kind}`);
@@ -463,7 +532,15 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now() } 
   textParts.push(foot.text);
   return {
     subject: clean(fill(subjectTemplate, vars), 180),
-    html: shell(htmlParts.join('')),
+    html: renderBrandedEmail({
+      locale,
+      preheader: copy.preheader[kind],
+      badge: copy.badge,
+      heroTitle: copy.hero[kind],
+      heroSubtitle: `${vars.job} — ${vars.company}`,
+      bodyHtml: htmlParts.join(''),
+      footerLines: foot.footerLines,
+    }),
     text: textParts.join('\n\n'),
     locale,
   };
@@ -508,16 +585,22 @@ export function buildOwnerEmail(kind, order, orderId, { nowMs = Date.now(), cust
     : 'Da fare: quando ricevi i documenti via email, segna «Materiali ricevuti» nella coda admin (ferma il promemoria automatico a 48 h); dopo l’invio segna «Inviata» (parte l’email di conferma al cliente).';
 
   const htmlRows = rows.map(([label, value]) => (
-    `<tr><td style="padding:4px 12px 4px 0;color:#52606d;vertical-align:top">${esc(label)}</td>`
-    + `<td style="padding:4px 0">${label === 'Link annuncio' && jobUrl ? `<a href="${esc(jobUrl)}">${esc(jobUrl)}</a>` : esc(value)}</td></tr>`
+    `<tr><td style="padding:7px 14px 7px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:13px;vertical-align:top;white-space:nowrap">${esc(label)}</td>`
+    + `<td style="padding:7px 0;border-bottom:1px solid #e2e8f0;font-size:14px;color:#1e293b">${label === 'Link annuncio' && jobUrl ? brandLink(jobUrl, jobUrl) : esc(value)}</td></tr>`
   )).join('');
-  const html = shell(
-    paragraph(esc(lead))
-    + `<table style="border-collapse:collapse;font-size:14px;margin:0 0 16px">${htmlRows}</table>`
-    + (mailto ? paragraph(`<a href="${esc(mailto)}">Rispondi al cliente</a>`) : '')
-    + paragraph(`<a href="${ADMIN_QUEUE_URL}">Apri la coda «Candidature» nel pannello admin</a>`)
-    + paragraph(esc(todo)),
-  );
+  const html = renderBrandedEmail({
+    locale: 'it',
+    preheader: lead,
+    badge: 'Candidatura assistita · interno',
+    heroTitle: kind === 'materials_uploaded' ? 'CV caricato dal cliente' : 'Nuova candidatura pagata',
+    heroSubtitle: `${vars.job} — ${vars.company}`,
+    bodyHtml: paragraph(esc(lead))
+      + `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;margin:0 0 20px">${htmlRows}</table>`
+      + (mailto ? brandButton(mailto, 'Rispondi al cliente') : '')
+      + paragraph(brandLink(ADMIN_QUEUE_URL, 'Apri la coda «Candidature» nel pannello admin'))
+      + brandCallout(esc(todo)),
+    footerLines: ['Email interna per valerie@frontaliereticino.ch'],
+  });
   const text = [
     lead,
     rows.map(([label, value]) => `${label}: ${value}`).join('\n'),
