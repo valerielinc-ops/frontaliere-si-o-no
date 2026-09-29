@@ -1,15 +1,21 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
   buildLastminuteSlug,
+  buildLastminuteSourceJob,
   extractLastminuteLocationFromContent,
   fetchLastminuteJobDetailUrls,
   hasLastminuteNextPageSignal,
   inferLastminuteLocation,
   normalizeLastminuteRow,
+  prepareExistingJobs,
+  LASTMINUTE_FABRICATED_DESCRIPTION_RE,
+  lastminuteSourceBody,
   parseLastminuteDeclaredTotal,
   resolveSwissLastminuteLocation,
   syncLastminuteExistingLocation,
 } from '@/scripts/update-lastminute-jobs.mjs';
+
+const RICH_SOURCE_BODY = Array.from({ length: 60 }, (_, index) => `sourceword${index}`).join(' ');
 
 describe('lastminute location normalization', () => {
   it('extracts Chiasso from the vacancy body instead of the corporate footer address', () => {
@@ -45,9 +51,9 @@ describe('lastminute location normalization', () => {
       country: 'CH',
       addressLocality: 'Chiasso',
       streetAddress: 'Chiasso',
-      description: 'A sufficiently detailed job description for a Swiss software role.',
+      description: RICH_SOURCE_BODY,
       titleByLocale: { en: 'Software Engineer' },
-      descriptionByLocale: { en: 'A sufficiently detailed job description for a Swiss software role.' },
+      descriptionByLocale: { en: RICH_SOURCE_BODY },
     });
 
     expect(normalized).toMatchObject({
@@ -79,9 +85,9 @@ describe('lastminute location normalization', () => {
       location: 'Zürich',
       country: 'CH',
       addressLocality: 'Zürich',
-      description: 'A sufficiently detailed job description for a Swiss software role.',
+      description: RICH_SOURCE_BODY,
       titleByLocale: { en: 'Software Engineer' },
-      descriptionByLocale: { en: 'A sufficiently detailed job description for a Swiss software role.' },
+      descriptionByLocale: { en: RICH_SOURCE_BODY },
     })).toMatchObject({
       location: 'Zürich',
       canton: 'ZH',
@@ -280,5 +286,66 @@ describe('lastminute location normalization', () => {
     expect(parseLastminuteDeclaredTotal('1 position found')).toBe(1);
     expect(parseLastminuteDeclaredTotal('7 open positions; 6 positions found')).toBeNull();
     expect(parseLastminuteDeclaredTotal('<div>No count available</div>')).toBeNull();
+  });
+
+  it('keeps fresh title and slug only in the detected source slot', () => {
+    const job = buildLastminuteSourceJob({
+      title: 'Software Engineer',
+      location: 'Chiasso',
+      canton: 'TI',
+      description: RICH_SOURCE_BODY,
+    }, 'https://corporate.lastminute.com/careers/jobs/job?id=744000149000003');
+
+    expect(job?.sourceLang).toBe('en');
+    expect(job?.titleByLocale).toEqual({ en: 'Software Engineer' });
+    expect(job?.slugByLocale).toEqual({ en: 'software-engineer-chiasso' });
+    expect(job?.descriptionByLocale).toEqual({ en: RICH_SOURCE_BODY });
+  });
+
+  it('uses a saved source body or rejects a thin body', () => {
+    expect(normalizeLastminuteRow({
+      title: 'Software Engineer',
+      companyKey: 'lastminute-com',
+      url: 'https://corporate.lastminute.com/careers/jobs/job?id=744000149000004',
+      location: 'Chiasso',
+      country: 'CH',
+      description: 'too thin',
+      descriptionByLocale: { en: RICH_SOURCE_BODY },
+    })?.description).toBe(RICH_SOURCE_BODY);
+    expect(normalizeLastminuteRow({
+      title: 'Intern',
+      companyKey: 'lastminute-com',
+      url: 'https://corporate.lastminute.com/careers/jobs/job?id=744000149000005',
+      location: 'Chiasso',
+      country: 'CH',
+      description: 'too thin',
+      descriptionByLocale: { en: 'too thin' },
+    })).toBeNull();
+  });
+
+  it('purges the complete invented intro while preserving the saved source', () => {
+    const intro = 'lastminute.com cerca per la sede di Chiasso un/a Software Engineer. Scopri i dettagli della posizione e candidati online tramite il portale aziendale.';
+    const legacyDescription = `${intro}\n\n---\n\n${RICH_SOURCE_BODY}`;
+    expect(LASTMINUTE_FABRICATED_DESCRIPTION_RE.test(legacyDescription)).toBe(true);
+    const stored = {
+      companyKey: 'lastminute-com',
+      company: 'lastminute.com',
+      url: 'https://corporate.lastminute.com/careers/jobs/job?id=744000149000006',
+      sourceLang: 'en',
+      description: legacyDescription,
+      descriptionByLocale: {
+        en: RICH_SOURCE_BODY,
+        it: legacyDescription,
+        de: 'lastminute.com sucht am Standort Chiasso eine/n Software Engineer. Entdecken Sie die Details der Stelle und bewerben Sie sich online über das Unternehmensportal.',
+      },
+      title: 'Software Engineer',
+      slug: 'software-engineer-chiasso',
+      slugByLocale: { en: 'software-engineer-chiasso', it: 'software-engineer-chiasso' },
+    };
+    const [prepared] = prepareExistingJobs([stored]);
+    expect(prepared.description).toBe(RICH_SOURCE_BODY);
+    expect(prepared.descriptionByLocale.it).toBeUndefined();
+    expect(prepared.descriptionByLocale.de).toBeUndefined();
+    expect(lastminuteSourceBody(prepared)).toEqual({ body: RICH_SOURCE_BODY, sourceLang: 'en' });
   });
 });

@@ -19,6 +19,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, extractHelsinnJobBody } from './lib/helsinn-job-parser.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -91,8 +92,9 @@ export function buildHelsinnJob(listing, body = '') {
     addressLocality: 'Lugano-Pambio Noranco', addressRegion: HQ.addressRegion, addressCountry: 'CH',
     postalCode: HQ.postalCode, streetAddress: 'Via Pian Scairolo 9',
     description,
-    titleByLocale: { [sourceLang]: listing.title }, descriptionByLocale: { [sourceLang]: description },
-    slug, slugByLocale: { en: slug, it: slug },
+    ...sourceSlotTitleAndSlug(listing.title, slug, sourceLang),
+    descriptionByLocale: { [sourceLang]: description },
+    slug,
     category: detectCategory(listing.title),
     datePosted: new Date().toISOString().split('T')[0],
     source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, description),
@@ -138,7 +140,10 @@ async function mergeJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs).map((job) => {
+    dropStaleLocaleDescriptions(job);
+    return job;
+  });
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

@@ -125,8 +125,9 @@ describe('Engel & Völkers parser', () => {
     expect(result.descriptionByLocale).toEqual({ de: prose(60) });
     expect(result.titleByLocale).toEqual({ de: 'Immobilienberater/in' });
     expect(JSON.stringify(result)).not.toMatch(/Eckdaten der Stelle|Dettagli della posizione|Position highlights|Canton: ZH/);
-    // Slugs keep their four-locale shape: no published URL changes.
-    expect(Object.keys(result.slugByLocale).sort()).toEqual(['de', 'en', 'fr', 'it']);
+    // Fresh slugs use the source slot; the merge preserves already-published
+    // values in other locale slots.
+    expect(Object.keys(result.slugByLocale)).toEqual(['de']);
   });
 
   it('gives no description under the 50-word source floor and never an invented sentence', () => {
