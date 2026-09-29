@@ -19,6 +19,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Text helpers ──────────────────────────────────────────── */
 
@@ -454,7 +455,7 @@ export function buildJob(raw) {
   // careercenter body a listing used to go out with an invented Italian
   // blurb about the Domat/Ems seat; no job is built from it any more.
   const description = String(raw.description || '').trim();
-  if (!description) return null;
+  if (!meetsSourceBodyFloor(description)) return null;
   // The vacancy body is German on the careercenter portal. Declare the
   // language of the text actually stored instead of leaving it to a
   // downstream default.

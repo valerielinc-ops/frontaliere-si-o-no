@@ -54,7 +54,8 @@ import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { groupeMutuelSourceContent } from './lib/groupe-mutuel-job-parser.mjs';
+import { groupeMutuelSourceContent, GROUPE_MUTUEL_FABRICATED_DESCRIPTION_RE } from './lib/groupe-mutuel-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -605,7 +606,15 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonGmJobs = allJobs.filter((j) => !isGroupeMutuelJob(j));
-  const existingGmJobs = allJobs.filter(isGroupeMutuelJob);
+  // The merge keeps stored locale slots: remove the company paragraph and
+  // the French stub the crawler used to write (and the translations made
+  // from them) from the stored jobs first, so only the advertisement is
+  // retranslated (issue 5253).
+  const existingGmJobs = dropFabricatedDescriptions(
+    allJobs.filter(isGroupeMutuelJob),
+    GROUPE_MUTUEL_FABRICATED_DESCRIPTION_RE,
+    'Groupe Mutuel',
+  );
 
   // Stats only — computed on the same stable key mergePreserveLocaleData
   // matches on (extractStableJobId(url)), NOT the raw URL. Cornerstone's

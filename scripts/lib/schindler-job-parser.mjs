@@ -40,6 +40,7 @@ import {
 } from './successfactors-jobs2web-widget-guard.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractBalancedTagBlockWithStatus, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -466,7 +467,7 @@ export async function fetchAllSchindlerJobs() {
       // replaced by an invented group summary; such a listing is not
       // published any more.
       const description = detail?.description || '';
-      if (description.split(/\s+/).filter(Boolean).length < 50) {
+      if (!meetsSourceBodyFloor(description)) {
         console.warn(`  ⏭️ Schindler: no vacancy text on the detail page, not published (${title})`);
         withoutBody += 1;
         await new Promise((r) => setTimeout(r, 300));

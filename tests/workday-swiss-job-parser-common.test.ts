@@ -12,7 +12,7 @@ import {
   isAuthoritativeEmptySnapshot,
 } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
-const ROLE_BODY = '<p>Responsibilities and requirements of the role, described at length by the employer, with the team context and the application steps.</p>';
+const ROLE_BODY = '<p>Responsibilities and requirements of the role, described at length by the employer, with the team context and the application steps. You bring relevant experience, good English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly and international team.</p>';
 
 /**
  * The publish gate reads the req's OWN primary workplace, never the union of
@@ -273,7 +273,7 @@ describe('createWorkdaySwissParser — detail location wins over an N Locations 
         jobPostingInfo: {
           location: 'Lausanne',
           additionalLocations: [{ descriptor: 'Zug' }],
-          jobDescription: '<p>Detailed role description with enough content for a realistic vacancy, including responsibilities, required qualifications, team context, and practical application information.</p>',
+          jobDescription: '<p>Detailed role description with enough content for a realistic vacancy, including responsibilities, required qualifications, team context, and practical application information. You bring relevant experience, good English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly and international team.</p>',
         },
       }), { status: 200 });
     });
@@ -323,7 +323,7 @@ describe('createWorkdaySwissParser — requisition location override', () => {
         jobPostingInfo: {
           location: 'Zug',
           jobRequisitionLocation: { descriptor: 'Lausanne' },
-          jobDescription: '<p>Detailed role description with responsibilities, qualifications, team context, and practical application information.</p>',
+          jobDescription: '<p>Detailed role description with responsibilities, qualifications, team context, reporting lines, working hours and practical application information for all interested candidates. You bring relevant experience, good English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly and international team.</p>',
         },
       }), { status: 200 });
     });
@@ -363,7 +363,7 @@ describe('createWorkdaySwissParser — requisition location override', () => {
       return new Response(JSON.stringify({
         jobPostingInfo: {
           location: { descriptor: 'Basel, Switzerland' },
-          jobDescription: '<p>Detailed role description with responsibilities, qualifications, team context, and practical application information.</p>',
+          jobDescription: '<p>Detailed role description with responsibilities, qualifications, team context, reporting lines, working hours and practical application information for all interested candidates. You bring relevant experience, good English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly and international team.</p>',
         },
       }), { status: 200 });
     });

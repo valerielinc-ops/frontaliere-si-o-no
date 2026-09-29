@@ -17,6 +17,7 @@ import {
   resolveDetailOrListingSwissGeography,
   schemaJobLocationCandidates,
 } from './prospector/location-evidence.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -348,7 +349,7 @@ export async function fetchAllIkeaJobs() {
     // Only the posting's own text is published (issue 5253). A row whose
     // detail JSON-LD carried no description used to go out as
     // "{title} — IKEA"; it is not published any more.
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`   ⏭️ no vacancy text in the detail JSON-LD, not published: ${title}`);
       withoutBody += 1;
       continue;

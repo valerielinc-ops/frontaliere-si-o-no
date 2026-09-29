@@ -49,7 +49,7 @@ describe('buildJob — slug excludes title suffix', () => {
       title: 'Leiter Controlling (m/w/d) 100% | Domat/Ems | EMS-CHEMIE AG Domat/Ems',
       location: 'Domat/Ems',
       url: 'https://jobs.ems-group.com/job/leiter-controlling',
-      description: 'Ihre Aufgaben: Leitung des Controllings, Budgetierung und Reporting an die Geschäftsleitung.',
+      description: 'Ihre Aufgaben: Leitung des Controllings, Budgetierung und Reporting an die Geschäftsleitung. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden Ihr Profil ab.',
     });
     expect(job).not.toBeNull();
     expect(job!.title).toBe('Leiter Controlling (m/w/d) 100%');

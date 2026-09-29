@@ -35,6 +35,7 @@ import {
   WorkdayAuthError,
   workdayPrimaryLocationState,
 } from './ats-clients/workday-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 // Switzerland country UUID — standard across nearly all Workday tenants.
 export const WORKDAY_SWISS_LOCATION_IDS = ['187134fccb084a0ea9b4b95f23890dbe'];
@@ -555,7 +556,7 @@ export function createWorkdaySwissParser(config) {
       // detail has no body used to go out as a synthetic "Key details" stub
       // (location, employer, "apply on the portal"); it is not published any
       // more (0 rows on the 13 tenants of this factory on 2026-09-29).
-      if (detailDescription.length < 100) {
+      if (!meetsSourceBodyFloor(detailDescription)) {
         console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
         continue;
       }

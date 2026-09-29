@@ -58,6 +58,7 @@ import {
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -155,13 +156,6 @@ async function fetchEmsPage(offset, timeoutMs) {
   }
 }
 
-/**
- * Minimum length of a portal body to publish. Every live careercenter
- * vacancy carries tasks + profile + "Über uns" (≈1.5-3k characters);
- * anything shorter is a broken or foreign template, and the listing is not
- * published.
- */
-const MIN_PORTAL_DESCRIPTION_CHARS = 200;
 const DETAIL_DELAY_MS = 300;
 
 /**
@@ -241,7 +235,7 @@ export async function fetchJobs() {
       console.log(`  ⏭️  Skipped non-Swiss vacancy: ${listing.title} (${detail.locality}, ${detail.country})`);
       continue;
     }
-    const detailDescription = detail?.description && detail.description.length >= MIN_PORTAL_DESCRIPTION_CHARS
+    const detailDescription = detail?.description && meetsSourceBodyFloor(detail.description)
       ? detail.description
       : '';
     const job = buildJob({

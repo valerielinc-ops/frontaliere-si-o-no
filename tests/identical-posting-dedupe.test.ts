@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { dropIdenticalPostings, identicalPostingKey } from '../scripts/lib/identical-posting-dedupe.mjs';
+import { dropIdenticalPostings, dropSameSourceReference, identicalPostingKey } from '../scripts/lib/identical-posting-dedupe.mjs';
 
 // Shapes minimised from the 2026-09-29 dataset (audit run 36528331656,
 // duplicate-descriptions): Hirslanden re-posts a requisition under a second
@@ -108,5 +108,25 @@ describe('dropIdenticalPostings', () => {
     expect(dropIdenticalPostings([job('https://c/job/x/5/', localityOnly), job('https://c/job/x/6/', localityOnly)]).jobs).toHaveLength(2);
     const noStreet = { streetAddress: '' };
     expect(dropIdenticalPostings([job('https://c/job/x/7/', noStreet), job('https://c/job/x/8/', noStreet)]).jobs).toHaveLength(2);
+  });
+});
+
+describe('dropSameSourceReference', () => {
+  const ref = (job: { ref?: string }) => job.ref || '';
+
+  it('keeps one posting per source reference, the one with the lowest stable id', () => {
+    const newer = { ref: '43018', url: 'https://careers.mediclinic.com/Hirslanden/job/x/1124147801/' };
+    const older = { ref: '43018', url: 'https://careers.mediclinic.com/Hirslanden/job/x/1123876301/' };
+    const other = { ref: '68021', url: 'https://careers.mediclinic.com/Hirslanden/job/x/1100000001/' };
+    const { jobs, dropped } = dropSameSourceReference([newer, other, older], ref);
+    expect(jobs).toEqual([other, older]);
+    expect(dropped).toEqual([newer]);
+  });
+
+  it('never groups postings without a reference', () => {
+    const a = { url: 'https://careers.mediclinic.com/Hirslanden/job/x/1/' };
+    const b = { ref: '', url: 'https://careers.mediclinic.com/Hirslanden/job/x/2/' };
+    const c = { ref: '  ', url: 'https://careers.mediclinic.com/Hirslanden/job/x/3/' };
+    expect(dropSameSourceReference([a, b, c], ref).jobs).toHaveLength(3);
   });
 });

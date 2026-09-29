@@ -45,7 +45,7 @@ describe('parseHitachiEnergyDetailPage', () => {
 describe('Hitachi Energy — listing without vacancy text', () => {
   it('keeps only the rows whose detail page yielded a body', () => {
     const rows = [
-      { jobId: '1', title: 'Produktionsplaner/in', description: 'Ihre Aufgaben: Planung der Fertigungsaufträge.' },
+      { jobId: '1', title: 'Produktionsplaner/in', description: 'Ihre Aufgaben: Planung der Fertigungsaufträge. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden Ihr Profil ab.' },
       { jobId: '2', title: 'Service Engineer', description: '' },
       { jobId: '3', title: 'Buyer', description: '   ' },
     ];

@@ -396,7 +396,7 @@ describe('buildAldiJobRecord', () => {
         address: 'Via Stazione 1',
         workload: '100%',
       },
-      parsed: { body: 'Responsabilità e requisiti.', requirements: ['Esperienza'] },
+      parsed: { body: 'Responsabilità e requisiti. ' + 'Gestisci la filiale, guidi il team e curi la presentazione della merce con attenzione al cliente. '.repeat(4), requirements: ['Esperienza'] },
       now: new Date('2026-09-22T00:00:00.000Z'),
     });
 
@@ -442,6 +442,14 @@ describe('buildAldiJobRecord — no invented text', () => {
     const job = buildAldiJobRecord({
       listing: { url: 'https://www.jobs.aldi.ch/job/1', title: 'Mitarbeiter Verkauf (m/w/d)', city: 'Sempach Station', zip: '6203' },
       parsed: { body: '' },
+    });
+    expect(job).toBeNull();
+  });
+
+  it('returns null for a body under the shared 50-word floor', () => {
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/3', title: 'Mitarbeiter Verkauf (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed: { body: 'Aufgaben\n• Mitarbeit in der Filiale' },
     });
     expect(job).toBeNull();
   });

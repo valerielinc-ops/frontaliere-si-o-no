@@ -181,7 +181,7 @@ describe('IKEA crawler parser', () => {
         '<span class="job-list__location">Remote / Multiple locations</span></a></section>';
       const detail = `<script type="application/ld+json">${JSON.stringify({
         '@type': 'JobPosting',
-        description: 'Build and operate the data platform for IKEA Switzerland.',
+        description: 'Build and operate the data platform for IKEA Switzerland, from ingestion pipelines to the reporting layer used by the stores. You bring relevant experience, good English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly and international team.',
         jobLocation: { address: {
           addressLocality: 'Pratteln', addressRegion: 'BL', addressCountry: 'CH', postalCode: '4133',
         } },
@@ -207,7 +207,7 @@ describe('IKEA crawler parser', () => {
       })}</script>`;
       fetchHtml.mockImplementation(async (url: string) => {
         const u = String(url || '');
-        if (u.includes('/verkaufsberater/')) return detail('<p>Du berätst unsere Kundinnen und Kunden in der Einrichtungsabteilung und gestaltest Wohnlösungen.</p>');
+        if (u.includes('/verkaufsberater/')) return detail('<p>Du berätst unsere Kundinnen und Kunden in der Einrichtungsabteilung und gestaltest Wohnlösungen. Du arbeitest eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentierst deine Arbeit sorgfältig und bringst Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden dein Profil ab.</p>');
         if (u.includes('/logistiker/')) return detail('');
         return listing;
       });
@@ -229,7 +229,7 @@ describe('IKEA crawler parser', () => {
 describe('parseJobPosting — raw control characters in JSON-LD', () => {
   const html = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"JobPosting",'
     + '"title":"Lehrstelle Detailhandelsfachfrau/-mann",'
-    + '"description":"<b>Wer du bist</b><br/>Hier bist du am richtigen Ort, wenn du dich auf folgende Lehrstellen bewerben möchtest:<br/>•\tDetailhandelsassistent/in EBA<br/>•\tDetailhandelsfachfrau/-mann EFZ",'
+    + '"description":"<b>Wer du bist</b><br/>Hier bist du am richtigen Ort, wenn du dich auf folgende Lehrstellen bewerben möchtest:<br/>•\tDetailhandelsassistent/in EBA<br/>•\tDetailhandelsfachfrau/-mann EFZ. In dieser Ausbildung lernst du Kundinnen und Kunden zu beraten, Waren ansprechend zu präsentieren, Bestellungen zu bearbeiten und gemeinsam im Team Lösungen zu entwickeln. Du arbeitest sorgfältig, zuverlässig und mit Freude an den täglichen Aufgaben im Einrichtungshaus. Wir begleiten dich mit einer strukturierten Einführung, Praxisanleitung und Möglichkeiten zur persönlichen Weiterentwicklung.",'
     + '"datePosted":"2026-6-10","employmentType":"Full time"}</script>';
 
   it('parses the posting instead of skipping the block', () => {

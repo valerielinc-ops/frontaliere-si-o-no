@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -361,7 +362,7 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
     // detail record and without a search summary the posting used to go out
     // as "{title} — Apple Retail Switzerland"; it is not published any more.
     const descriptionText = detailDescription || stripHtml(descriptionSource);
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ no vacancy text on the detail page nor in the search summary, not published: ${title}`);
       withoutBody += 1;
       continue;

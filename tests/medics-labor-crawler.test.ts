@@ -107,3 +107,27 @@ describe('Refline structured job location fallback', () => {
     });
   });
 });
+
+// Only the posting's own text is published (issue 5253): the shared Refline
+// factory used to publish a detail without a body (or under 40 words) as
+// "{title} bei {company} in {workplace}." plus three benefits the ad never
+// listed ("Faire Anstellungsbedingungen" …).
+describe('Refline factory — posting without vacancy text', () => {
+  it('publishes the posting with a body and skips the one without, never inventing text', async () => {
+    const shortUrl = 'https://app.reflinejobs.io/1474/0136/pub/101/index.html';
+    const listingHtml = `<a href="${DETAIL_URL}">Mitarbeiter:in Probenannahme</a><a href="${shortUrl}">Laborant:in EFZ</a>`;
+    const shortDetail = `<!doctype html><html><body><h1 class="posTitle">Laborant:in EFZ</h1><p>Wir freuen uns auf deine Bewerbung.</p></body></html>`;
+    const fetchMock = vi.fn(async (url: string) => {
+      const href = String(url);
+      if (href.startsWith('https://app.reflinejobs.io/1474/positions.html?lang=de')) return htmlResponse(listingHtml);
+      return htmlResponse(href === shortUrl ? shortDetail : DETAIL_HTML);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await fetchAllMedicsLaborJobs();
+
+    expect(jobs.map((job: { title: string }) => job.title)).toEqual(['Mitarbeiter:in Probenannahme']);
+    expect(jobs[0].description).toMatch(/^In dieser vielseitigen Funktion/);
+    expect(jobs[0].description).not.toMatch(/Faire Anstellungsbedingungen/);
+  });
+});

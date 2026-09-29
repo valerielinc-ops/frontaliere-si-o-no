@@ -57,6 +57,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -167,10 +168,11 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
   // REST row holds the canonical structured fields; the detail page only
   // supplies the prose body + bullet requirements.
   // Only the posting's own text is published. A detail page that parsed to
-  // no body (expired vacancy, template drift) yields no job rather than the
-  // old invented "Posizione aperta presso ALDI SUISSE. {title}." filler.
+  // no body (expired vacancy, template drift), or to one under the shared
+  // 50-word floor (source-body-floor.mjs), yields no job rather than the old
+  // invented "Posizione aperta presso ALDI SUISSE. {title}." filler.
   const description = parsed.body || '';
-  if (!description) return null;
+  if (!meetsSourceBodyFloor(description)) return null;
   const requirements = Array.isArray(parsed.requirements) ? parsed.requirements : [];
   const location = listing.city || parsed.location || '';
   const workPct = String(listing.workload || parsed.percentage || '').replace(/\s+/g, '');

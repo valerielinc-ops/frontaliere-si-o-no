@@ -36,6 +36,7 @@ import {
   AntiBotBlockError,
   NavigationTimeout,
 } from './ats-clients/playwright-runtime.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -313,7 +314,7 @@ async function enrichRowsWithDetail(context, rows) {
       : `https://careers.richemont.com${row.href.startsWith('/') ? '' : '/'}${row.href}`;
     const text = await fetchRichDescription(context, detailUrl);
     row.detailText = text;
-    if (text && text.length >= MIN_DETAIL_DESCRIPTION_LEN) {
+    if (meetsSourceBodyFloor(text)) {
       ok++;
     } else {
       fallback++; // no readable body: the row is not published
@@ -330,8 +331,8 @@ async function enrichRowsWithDetail(context, rows) {
  * tests can verify the rich-vs-template choice without spinning up
  * Playwright.
  *
- * When detail-page scraping yielded a rich body (≥ MIN_DETAIL_DESCRIPTION_LEN
- * chars), return that; otherwise return ''. Only the posting's own text is
+ * When detail-page scraping yielded a body that meets the shared 50-word
+ * floor (source-body-floor.mjs), return that; otherwise return ''. Only the posting's own text is
  * published (issue 5253): the card-field template ("{title} Maison: …
  * Open position at Compagnie Financière Richemont …") that used to stand in
  * for a missing body is gone, and the caller does not publish such a row.
@@ -347,7 +348,7 @@ export function buildJobDescription({
   // former whole-body space collapse published 144/174 postings as one
   // run-on paragraph (audit: no-structured-content).
   const rich = normalizeDescriptionBullets(normalizeDescriptionSpace(String(detailText || '').replace(/\u00a0/g, ' ')));
-  return rich && rich.length >= MIN_DETAIL_DESCRIPTION_LEN ? rich : '';
+  return meetsSourceBodyFloor(rich) ? rich : '';
 }
 
 /**

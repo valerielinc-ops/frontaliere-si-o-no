@@ -9,6 +9,7 @@ import {
   descriptionBodyToMarkdown,
   resolveHirslandenLocation,
   fetchAllHirslandenJobs,
+  hirslandenReferenceNumber,
 } from '../scripts/lib/hirslanden-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -356,6 +357,63 @@ describe('fetchAllHirslandenJobs — listing without a vacancy body', () => {
       expect(jobs[0].title).toBe('Dipl. Pflegefachfrau / Pflegefachmann (a) 80-100%');
       expect(jobs[0].description).toContain('Aufgabe 12: Du betreust Patientinnen');
       expect(jobs[0].description).not.toMatch(/Die Hirslanden-Gruppe ist mit 17 Privatkliniken/);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+});
+
+// 2026-09-29: Hirslanden publishes one advertisement under two SuccessFactors
+// job ids — a re-post (Referenznummer 43018: 1123876301 and 1124147801) or
+// the French version of a Biel posting (70053: 1391700433 and 1391700533).
+// The ad prints its own Referenznummer: the same number is one advertisement.
+describe('Hirslanden — one page per Referenznummer', () => {
+  it('reads the Referenznummer from the German and the French header', () => {
+    const de = 'Arbeitsort: Hirslanden Salem-Spital | Bern\n\nBesetzung per: nach Vereinbarung\n\nAnstellungsart: Unbefristet\n\nReferenznummer: 43018\n\nAls grösstes medizinisches Netzwerk der Schweiz';
+    const fr = "Lieu du travail: Hirslanden Klinik Linde | Biel / Bienne Occupation par: Selon accordType d'emploi: À durée déterminée Numéro de référence: 70053\n\nEn tant que plus grand réseau médical de Suisse";
+    expect(hirslandenReferenceNumber({ sourceLang: 'de', descriptionByLocale: { de } })).toBe('43018');
+    expect(hirslandenReferenceNumber({ sourceLang: 'fr', description: fr })).toBe('70053');
+    expect(hirslandenReferenceNumber({ description: 'Arbeitsort: Klinik Hirslanden | Zürich' })).toBe('');
+  });
+
+  it('keeps one page for the French and German versions of one Biel ad (Referenznummer 70053)', async () => {
+    const { dropSameSourceReference } = await import('../scripts/lib/identical-posting-dedupe.mjs');
+    const de = {
+      sourceLang: 'de',
+      title: 'Dipl. Hebamme (a) 50-100% - Befristete Anstellung',
+      description: 'Arbeitsort: Hirslanden Klinik Linde | Biel / Bienne\n\nBesetzung per: nach Vereinbarung\n\nAnstellungsart: Befristet\n\nReferenznummer: 70053\n\nAls grösstes medizinisches Netzwerk der Schweiz',
+      url: 'https://careers.mediclinic.com/Hirslanden/job/Biel-Dipl_-Hebamme/1391700433/',
+    };
+    const fr = {
+      sourceLang: 'fr',
+      title: 'Sage-femme diplômée (a) 50-100% - À durée déterminée',
+      description: "Lieu du travail: Hirslanden Klinik Linde | Biel / Bienne Occupation par: Selon accordType d'emploi: À durée déterminée Numéro de référence: 70053\n\nEn tant que plus grand réseau médical de Suisse",
+      url: 'https://careers.mediclinic.com/Hirslanden/job/Biel-Sage-femme-diplomee/1391700533/',
+    };
+    const { jobs, dropped } = dropSameSourceReference([fr, de], hirslandenReferenceNumber);
+    expect(jobs).toEqual([de]);
+    expect(dropped).toEqual([fr]);
+  });
+
+  it('publishes one posting per Referenznummer, the one with the lowest job id', async () => {
+    const tasks = Array.from({ length: 12 }, (_, i) => `<p>Aufgabe ${i + 1}: Du betreust Patientinnen und Patienten auf der Station mit viel Herz.</p>`).join('');
+    const searchHtml = `<table>
+      <tr><td><a href="/Hirslanden/job/Bern-Pflegefachfrau/1124147801/">Dipl. Pflegefachfrau / Pflegefachmann (a) 20-100%</a></td><td>Bern, BE, CH</td><td>29.09.2026</td></tr>
+      <tr><td><a href="/Hirslanden/job/Bern-Pflegefachfrau/1123876301/">Dipl. Pflegefachfrau / Pflegefachmann (a) 20-100%</a></td><td>Bern, BE, CH</td><td>29.09.2026</td></tr>
+      <tr><td><a href="/Hirslanden/job/Zuerich-Fachfrau-Gesundheit/1100000001/">Fachfrau / Fachmann Gesundheit (a) 80-100%</a></td><td>Zürich, ZH, CH</td><td>29.09.2026</td></tr>
+    </table>`;
+    const detailHtml = (reference: string) => `<html><body><span itemprop="description"><p>Referenznummer: ${reference}</p>${tasks}</span></body></html>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      text: async () => {
+        if (url.includes('/Hirslanden/search')) return searchHtml;
+        return detailHtml(url.includes('1100000001') ? '68021' : '43018');
+      },
+    })));
+    try {
+      const jobs = await fetchAllHirslandenJobs();
+      expect(jobs.map((job: { url: string }) => job.url.match(/\/(\d+)\/?$/)?.[1]).sort()).toEqual(['1100000001', '1123876301']);
     } finally {
       vi.unstubAllGlobals();
     }

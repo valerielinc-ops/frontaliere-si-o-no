@@ -17,7 +17,9 @@ import {
   isTrustedDomain,
   LONZA_KEY,
   LONZA_COMPANY_NAME,
+  LONZA_FABRICATED_DESCRIPTION_RE,
 } from './lib/lonza-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -30,6 +32,10 @@ runStandardCrawlerPipeline({
   isCompanyJob: isLonzaJob,
   isTrustedDomain,
   defaultSourceLang: 'en',
+  // The stored jobs still carry the company sentence the parser used to
+  // append, and the translations made from it: drop them so the posting's
+  // own text is retranslated (issue 5253).
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, LONZA_FABRICATED_DESCRIPTION_RE, LONZA_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Lonza crawler failed: ${err?.message || err}`);
   process.exit(1);

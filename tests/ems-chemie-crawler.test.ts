@@ -297,7 +297,7 @@ describe('isSwissJob', () => {
 // buildJob
 // ═══════════════════════════════════════════════════════════════
 
-const EMS_BODY = 'Ihre Aufgaben: Betreuung der Produktionsanlagen im Schichtbetrieb, Qualitätskontrollen und Dokumentation.';
+const EMS_BODY = 'Ihre Aufgaben: Betreuung der Produktionsanlagen im Schichtbetrieb, Qualitätskontrollen und Dokumentation. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden Ihr Profil ab.';
 
 describe('buildJob', () => {
   it('builds complete job object', () => {

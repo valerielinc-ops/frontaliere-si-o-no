@@ -217,7 +217,7 @@ describe('Belimo crawler parser', () => {
           <h1 itemprop="title">Montagemitarbeiter/-in (100%)</h1>
           <span itemprop="addressLocality" content="Hinwil"></span>
           <span itemprop="postalCode" content="8340"></span>
-          <div itemprop="description">Job description text long enough to pass.</div>
+          <div itemprop="description">Job description text long enough to pass. You bring relevant experience, good English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly and international team. Your tasks include assembly, testing and documentation of damper actuators and valves in our Hinwil plant.</div>
         </body></html>`,
         { status: 200, headers: { 'Content-Type': 'text/html' } },
       );
