@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T15:18:26.896Z",
+  "generatedAt": "2026-09-29T16:00:00.000Z",
   "sources": {
     "aargau": {
       "canton": "Argovia",
@@ -219,9 +219,12 @@
       "timezone": "Europe/Zurich",
       "sourceType": "association",
       "owner": "platform",
-      "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per il servizio di emergenza delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "status": "active",
+      "lastVerifiedAt": "2026-09-29T00:00:00.000Z",
+      "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
+      "dutiesKey": "SO",
+      "notes": "La fonte associativa AVSO pubblica il calendario corrente con identità, indirizzi e date per tutte le tre regioni del cantone; l'adattatore verifica le identità allowlistate e usa le fasce ufficiali domenicali/festive (Dorneck-Thierstein 09:00-12:00, Olten e Solothurn 10:00-12:00) per il calendario aggiornabile.",
+      "sourceFetchedAt": "2026-09-29T16:00:00.000Z"
     },
     "schwyz": {
       "canton": "Svitto",

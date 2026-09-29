@@ -1,7 +1,7 @@
 # Fonti farmacie per cantone
 
 Mappa delle fonti di ingresso per tutti i 26 cantoni svizzeri, aggiornata il
-29 settembre 2026. Per Ticino, Ginevra, Giura, Basilea Città e Zurigo sono documentati anche i
+29 settembre 2026. Per Ticino, Ginevra, Giura, Basilea Città, Soletta e Zurigo sono documentati anche i
 connettori e gli snapshot operativi; gli altri cantoni restano fonti di
 orientamento finché non superano lo stesso contratto.
 
@@ -13,7 +13,7 @@ recente o che una farmacia sia di turno in questo momento.
 ## Registro al 29 settembre 2026
 
 `active` è riservato alle fonti che hanno un connettore e uno snapshot completo
-e fresco: Ticino, Ginevra, Giura, Basilea Città e Zurigo. Le altre 21 entry sono `unverified`: l'URL è
+e fresco: Ticino, Ginevra, Giura, Basilea Città, Soletta e Zurigo. Le altre 20 entry sono `unverified`: l'URL è
 registrato, ma non esiste ancora un release operativo collegato a questa
 applicazione. La colonna `accessMethod` descrive il percorso del connettore;
 non è una prova di fetch riuscito se lo stato non è `active`.
@@ -37,7 +37,7 @@ non è una prova di fetch riuscito se lo stato non è `active`.
 | OW | `obwalden` | Obvaldo | official | manual | unverified | 2026-09-15 | [Kantonsspital Obwalden — emergenza](https://www.ksow.ch/notfall) |
 | SG | `st-gallen` | San Gallo | official | manual | unverified | 2026-09-15 | [San Gallo — aiuto medico](https://www.hallo.sg.ch/de/gesundheit/medizinische-hilfe.html) |
 | SH | `schaffhausen` | Sciaffusa | official | pdf | unverified | 2026-09-15 | [Sciaffusa — documento emergenze](https://sh.ch/CMS/get/file/69283655-61ba-4d85-88f9-7bcbf774fc3f) |
-| SO | `solothurn` | Soletta | association | html-scrape | unverified | 2026-09-15 | [AVSO — Notfalldienst Apotheken](https://avso.ch/notfalldienst-apotheken/) |
+| SO | `solothurn` | Soletta | association | html-scrape | active | 2026-09-29 | [AVSO — Notfalldienst Apotheken](https://avso.ch/notfalldienst-apotheken/) |
 | SZ | `schwyz` | Svitto | official | manual | unverified | 2026-09-15 | [Svitto — servizi di emergenza](https://www.sz.ch/departement-des-innern/amt-fuer-gesundheit-und-soziales/gesundheit/medizinische-dienste/notfalldienste.html/8756-8758-8802-9317-9316-12587-12685-12632) |
 | TG | `thurgau` | Turgovia | association | html-scrape | unverified | 2026-09-15 | [Apotheken Thurgau — Pikettdienst](https://www.apotheken-thurgau.ch/pikettdienst/) |
 | TI | `ticino` | Ticino | official | html-scrape | active | 2026-08-31 | [OFCT — farmacie di turno](https://www.ofct.ch/farmacieturno/) |
@@ -57,10 +57,10 @@ calendario di farmacie.
 
 - La mappa geografica è completa: ogni codice e ogni chiave di
   `SWISS_CANTONS` ha una entry e un URL HTTPS di ingresso.
-- La copertura dei turni non è completa: Ticino, Ginevra, Giura, Basilea Città e Zurigo hanno un
-  connettore/dataset operativo verificato; le altre 21 entry restano
+- La copertura dei turni non è completa: Ticino, Ginevra, Giura, Basilea Città, Soletta e Zurigo hanno un
+  connettore/dataset operativo verificato; le altre 20 entry restano
   `unverified` e source-only nella matrice.
-- L'assenza di `sourceFetchedAt` per le 21 fonti `unverified` non è uno zero
+- L'assenza di `sourceFetchedAt` per le 20 fonti `unverified` non è uno zero
   turni: indica che questa applicazione non ha ancora registrato un fetch
   riuscito da un connettore per quelle fonti.
 - `degraded` è riservato a una fonte raggiungibile ma non sufficientemente
@@ -82,12 +82,13 @@ solo valore non autorizza a pubblicare:
 Un `PharmacyDuty` potrà essere pubblicato soltanto dopo che un connettore
 collegato alla fonte avrà estratto una finestra temporale esplicita e il dato
 avrà superato i validator e i controlli di freschezza del dominio. I connettori
-Giura, Basilea Città e Zurigo (`scripts/import-pharmacy-duties-swiss-cantons.mjs`)
+Giura, Basilea Città, Soletta e Zurigo (`scripts/import-pharmacy-duties-swiss-cantons.mjs`)
 verificano rispettivamente i PDF di Delémont, Ajoie e Moutier, compreso il
 calendario colorato scansionato, la dichiarazione cantonale di apertura
-24h/365 giorni della 24 Stunden Apotheke Basel AG e la dichiarazione AVKZ
-per la Bellevue Apotheke di Zurigo, prima di produrre lo
-snapshot atomico consumato da `buildDutyCoverageMatrix()`.
+24h/365 giorni della 24 Stunden Apotheke Basel AG, il calendario AVSO delle
+tre regioni di Soletta con intervalli verificati sui riferimenti ufficiali
+regionali e la dichiarazione AVKZ per la Bellevue Apotheke di Zurigo, prima di
+produrre lo snapshot atomico consumato da `buildDutyCoverageMatrix()`.
 La hub
 `/farmacie/` può quindi mostrare il link, il tipo e lo stato della fonte, ma
 non presenta l'entry come turno live. Per un bisogno urgente va verificata la

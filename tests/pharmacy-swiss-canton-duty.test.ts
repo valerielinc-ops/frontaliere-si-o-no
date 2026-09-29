@@ -150,7 +150,7 @@ describe('Swiss canton duty coverage', () => {
       includeGeneva: false,
     });
 
-    expect(result.operationalCantons.map((canton) => canton.code)).toEqual(['BS', 'JU', 'ZH']);
+    expect(result.operationalCantons.map((canton) => canton.code)).toEqual(['BS', 'JU', 'SO', 'ZH']);
     expect(result.operationalCantons.every((canton) => canton.duties.length > 0)).toBe(true);
   });
 });

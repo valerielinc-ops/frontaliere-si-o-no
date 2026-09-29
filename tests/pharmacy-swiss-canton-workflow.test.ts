@@ -35,4 +35,11 @@ describe('Swiss canton pharmacy duty release', () => {
     expect(importer).toContain('failedZurichSnapshot');
     expect(parser).toContain('Zürich page no longer declares year-round opening');
   });
+
+  it('keeps Solothurn on the same atomic snapshot and release path', () => {
+    expect(importer).toContain('parseSolothurnDutyPage');
+    expect(importer).toContain('SOLOTHURN_SOURCE_KEY');
+    expect(importer).toContain('failedSolothurnSnapshot');
+    expect(parser).toContain('Solothurn page no longer declares the three-region Sunday/holiday duty system');
+  });
 });

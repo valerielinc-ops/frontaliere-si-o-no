@@ -10,10 +10,12 @@ import { fileURLToPath } from 'node:url';
 import {
   BASEL_STADT_SOURCE_URL,
   JURA_SOURCE_URL,
+  SOLOTHURN_SOURCE_URL,
   ZURICH_SOURCE_URL,
   parseBaselStadtDutyPage,
   parseJuraCalendars,
   parseMoutierCalendar,
+  parseSolothurnDutyPage,
   parseZurichDutyPage,
 } from './lib/pharmacy-swiss-canton-parser.mjs';
 
@@ -30,6 +32,8 @@ const BASEL_STADT_SOURCE_KEY = 'basel-stadt';
 const BASEL_STADT_SCOPE = 'BS';
 const ZURICH_SOURCE_KEY = 'zurich';
 const ZURICH_SCOPE = 'ZH';
+const SOLOTHURN_SOURCE_KEY = 'solothurn';
+const SOLOTHURN_SCOPE = 'SO';
 
 function argumentValue(prefix) {
   const argument = process.argv.find((value) => value.startsWith(prefix));
@@ -190,6 +194,18 @@ async function parseZurichSource({ source, fetchedAt }) {
   });
 }
 
+async function parseSolothurnSource({ source, fetchedAt }) {
+  const calendarYear = new Date(fetchedAt).getUTCFullYear();
+  if (!Number.isInteger(calendarYear)) throw new Error(`Invalid Solothurn calendar year: ${fetchedAt}`);
+  const html = await fetchResponse(source.officialSourceUrl);
+  return parseSolothurnDutyPage({
+    html,
+    sourceUrl: source.officialSourceUrl,
+    fetchedAt,
+    calendarYear,
+  });
+}
+
 function isoDate(value) {
   const match = /^(\d{4}-\d{2}-\d{2})T/.exec(String(value || ''));
   return match ? match[1] : null;
@@ -330,6 +346,53 @@ function buildZurichSnapshot({ source, fetchedAt, parsed }) {
   return { ...payload, _release: release };
 }
 
+function buildSolothurnSnapshot({ source, fetchedAt, parsed }) {
+  const calendarYear = new Date(fetchedAt).getUTCFullYear();
+  const rows = parsed.rows;
+  const timestamps = rows.flatMap((row) => [Date.parse(row.startsAt), Date.parse(row.endsAt)]).filter(Number.isFinite);
+  const validFrom = calendarDate(new Date(Math.min(...timestamps)).toISOString());
+  const validTo = calendarDate(new Date(Math.max(...timestamps)).toISOString());
+  const observedDates = new Set(rows.map((row) => isoDate(row.startsAt)).filter(Boolean));
+  const regions = new Set(rows.map((row) => row.coverageName));
+  if (!validFrom || !validTo || !Number.isInteger(calendarYear) || regions.size !== 3 || observedDates.size === 0) {
+    throw new Error('Solothurn parsed rows do not expose all three regional calendar bounds');
+  }
+  const payload = {
+    _schemaVersion: 1,
+    _source: source.officialSourceUrl,
+    _sourceKey: SOLOTHURN_SOURCE_KEY,
+    _fetchedAt: fetchedAt,
+    _attemptedAt: fetchedAt,
+    _timezone: 'Europe/Zurich',
+    _scope: { country: 'CH', canton: SOLOTHURN_SCOPE, coverageType: 'region' },
+    _coverage: {
+      validFrom,
+      validTo,
+      observedCalendarDays: observedDates.size,
+      uncoveredCalendarDays: 0,
+      coverage: 'covered',
+    },
+    _releaseReady: true,
+    _state: 'fresh',
+    _errors: [],
+    _warnings: ['AVSO pubblica il calendario per le tre regioni Dorneck-Thierstein, Olten e Solothurn; le fasce sono quelle ufficiali domenicali/festive dichiarate per ciascuna regione.'],
+    _unresolvedIdentities: [],
+    coverageName: parsed.coverageName,
+    pharmacies: parsed.pharmacies,
+    duties: rows,
+  };
+  const release = {
+    version: 1,
+    releaseId: `pharmacy-swiss-canton-v1-${sha256(payload)}`,
+    evaluatedAt: fetchedAt,
+    state: 'fresh',
+    source: { key: SOLOTHURN_SOURCE_KEY, url: source.officialSourceUrl },
+    scope: payload._scope,
+    coverage: payload._coverage,
+  };
+  return { ...payload, _release: release };
+}
+
 function failedSnapshot(previous, attemptedAt, error) {
   const message = `jura-duty: ${error instanceof Error ? error.message : String(error)}`;
   const calendarYear = new Date(attemptedAt).getUTCFullYear();
@@ -447,6 +510,45 @@ function failedZurichSnapshot(previous, attemptedAt, error) {
   };
 }
 
+function failedSolothurnSnapshot(previous, attemptedAt, error) {
+  const message = `solothurn-duty: ${error instanceof Error ? error.message : String(error)}`;
+  const calendarYear = new Date(attemptedAt).getUTCFullYear();
+  const validYear = Number.isInteger(calendarYear) ? calendarYear : new Date().getUTCFullYear();
+  const base = previous && typeof previous === 'object' ? previous : {
+    _schemaVersion: 1,
+    _source: SOLOTHURN_SOURCE_URL,
+    _sourceKey: SOLOTHURN_SOURCE_KEY,
+    _fetchedAt: null,
+    _timezone: 'Europe/Zurich',
+    _scope: { country: 'CH', canton: SOLOTHURN_SCOPE, coverageType: 'region' },
+    _coverage: { validFrom: `${validYear}-01-01`, validTo: `${validYear}-12-31`, observedCalendarDays: 0, uncoveredCalendarDays: calendarDays(validYear), coverage: 'not_published' },
+    _errors: [],
+    _warnings: [],
+    _unresolvedIdentities: [],
+    coverageName: 'Soletta · Dorneck-Thierstein, Olten e Soletta',
+    pharmacies: [],
+    duties: [],
+  };
+  const release = {
+    ...(base._release || {}),
+    version: 1,
+    releaseId: typeof base._release?.releaseId === 'string' ? base._release.releaseId : `pharmacy-swiss-canton-failed-${sha256({ attemptedAt, message })}`,
+    evaluatedAt: attemptedAt,
+    state: 'stale',
+    source: { key: SOLOTHURN_SOURCE_KEY, url: SOLOTHURN_SOURCE_URL },
+    scope: base._scope,
+    coverage: base._coverage,
+  };
+  return {
+    ...base,
+    _attemptedAt: attemptedAt,
+    _releaseReady: false,
+    _state: 'stale',
+    _errors: [...(Array.isArray(base._errors) ? base._errors : []), message],
+    _release: release,
+  };
+}
+
 async function writeJson(filePath, value) {
   await mkdir(dirname(filePath), { recursive: true });
   const temporaryPath = `${filePath}.${process.pid}.tmp`;
@@ -465,20 +567,25 @@ export async function importSwissCantonPharmacyDuties({ attemptedAt = new Date()
   const includeJura = !only || only === 'all' || only === JURA_SOURCE_KEY || only === JURA_SCOPE;
   const includeBaselStadt = !only || only === 'all' || only === BASEL_STADT_SOURCE_KEY || only === BASEL_STADT_SCOPE;
   const includeZurich = !only || only === 'all' || only === ZURICH_SOURCE_KEY || only === ZURICH_SCOPE;
-  if (!includeJura && !includeBaselStadt && !includeZurich) throw new Error(`Unknown Swiss canton importer target: ${only}`);
+  const includeSolothurn = !only || only === 'all' || only === SOLOTHURN_SOURCE_KEY || only === SOLOTHURN_SCOPE;
+  if (!includeJura && !includeBaselStadt && !includeZurich && !includeSolothurn) throw new Error(`Unknown Swiss canton importer target: ${only}`);
 
   const previousJura = previousOutput?.snapshots?.[JURA_SCOPE] || null;
   const previousBaselStadt = previousOutput?.snapshots?.[BASEL_STADT_SCOPE] || null;
   const previousZurich = previousOutput?.snapshots?.[ZURICH_SCOPE] || null;
+  const previousSolothurn = previousOutput?.snapshots?.[SOLOTHURN_SCOPE] || null;
   let source = null;
   let baselStadtSource = null;
   let zurichSource = null;
+  let solothurnSource = null;
   let snapshot = previousJura;
   let baselStadtSnapshot = previousBaselStadt;
   let zurichSnapshot = previousZurich;
+  let solothurnSnapshot = previousSolothurn;
   let juraError = null;
   let baselStadtError = null;
   let zurichError = null;
+  let solothurnError = null;
 
   if (includeJura) {
     source = sourceFromRegistry(registry, JURA_SOURCE_KEY, JURA_SOURCE_URL, 'Jura');
@@ -513,11 +620,23 @@ export async function importSwissCantonPharmacyDuties({ attemptedAt = new Date()
     }
   }
 
+  if (includeSolothurn) {
+    solothurnSource = sourceFromRegistry(registry, SOLOTHURN_SOURCE_KEY, SOLOTHURN_SOURCE_URL, 'Solothurn');
+    try {
+      const parsed = await parseSolothurnSource({ source: solothurnSource, fetchedAt: attemptedAt });
+      solothurnSnapshot = buildSolothurnSnapshot({ source: solothurnSource, fetchedAt: attemptedAt, parsed });
+    } catch (error) {
+      solothurnError = error;
+      solothurnSnapshot = failedSolothurnSnapshot(previousSolothurn, attemptedAt, error);
+    }
+  }
+
   const snapshots = {
     ...(previousOutput?.snapshots || {}),
     ...(snapshot ? { [JURA_SCOPE]: snapshot } : {}),
     ...(baselStadtSnapshot ? { [BASEL_STADT_SCOPE]: baselStadtSnapshot } : {}),
     ...(zurichSnapshot ? { [ZURICH_SCOPE]: zurichSnapshot } : {}),
+    ...(solothurnSnapshot ? { [SOLOTHURN_SCOPE]: solothurnSnapshot } : {}),
   };
   const output = {
     schemaVersion: 1,
@@ -528,6 +647,7 @@ export async function importSwissCantonPharmacyDuties({ attemptedAt = new Date()
     ...(includeJura && !juraError && source ? { [JURA_SOURCE_KEY]: { ...source, sourceFetchedAt: attemptedAt } } : {}),
     ...(includeBaselStadt && !baselStadtError && baselStadtSource ? { [BASEL_STADT_SOURCE_KEY]: { ...baselStadtSource, sourceFetchedAt: attemptedAt } } : {}),
     ...(includeZurich && !zurichError && zurichSource ? { [ZURICH_SOURCE_KEY]: { ...zurichSource, sourceFetchedAt: attemptedAt } } : {}),
+    ...(includeSolothurn && !solothurnError && solothurnSource ? { [SOLOTHURN_SOURCE_KEY]: { ...solothurnSource, sourceFetchedAt: attemptedAt } } : {}),
   };
   const updatedRegistry = Object.keys(successfulSources).length > 0
     ? {
@@ -536,8 +656,8 @@ export async function importSwissCantonPharmacyDuties({ attemptedAt = new Date()
       sources: { ...registry.sources, ...successfulSources },
     }
     : registry;
-  const fetchErrors = { jura: juraError, baselStadt: baselStadtError, zurich: zurichError };
-  const fetchError = juraError || baselStadtError || zurichError || null;
+  const fetchErrors = { jura: juraError, baselStadt: baselStadtError, zurich: zurichError, solothurn: solothurnError };
+  const fetchError = juraError || baselStadtError || zurichError || solothurnError || null;
   if (write) {
     await writeJson(OUTPUT_PATH, output);
     if (Object.keys(successfulSources).length > 0) await writeJson(REGISTRY_PATH, updatedRegistry);
@@ -547,9 +667,11 @@ export async function importSwissCantonPharmacyDuties({ attemptedAt = new Date()
     snapshot,
     baselStadtSnapshot,
     zurichSnapshot,
+    solothurnSnapshot,
     source,
     baselStadtSource,
     zurichSource,
+    solothurnSource,
     fetchError,
     fetchErrors,
     registry: updatedRegistry,
