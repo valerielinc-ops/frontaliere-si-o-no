@@ -36889,6 +36889,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'intesa-mobilita-varese-ticino-malpensa',
+ category: 'pratico',
+ date: '2026-09-29T20:49:35.349Z',
+ image: '/images/blog/intesa-mobilita-varese-ticino-malpensa.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

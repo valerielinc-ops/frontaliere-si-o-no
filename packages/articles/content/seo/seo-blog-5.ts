@@ -97261,6 +97261,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-intesa-mobilita-varese-ticino-malpensa': {
+    title: 'Intesa Varese-Ticino: S40/S50 ogni 30 min e RE50 Malpensa',
+    description: 'Ratificata l\'intesa tra Lombardia e Ticino: S40/S50 ogni 30 min per Varese-Mendrisio, RE50 per Malpensa e Lugano. Ecco cosa cambia per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, intesa, varese-ticino, ogni, re50',
+    ogTitle: 'Intesa Varese-Ticino: S40/S50 ogni 30 min e RE50 Malpensa',
+    ogDescription: 'Il Consiglio regionale ha dato il via libera alla nuova intesa sulla mobilità transfrontaliera. Previsto un servizio integrato ogni 30 minuti tra Varese e Mendrisio (S40/S50) e la prospettiva della RE50 per Malpensa. Scopri le novità per i pendolari.',
+    canonicalPath: '/articoli-frontaliere/intesa-mobilita-varese-ticino-malpensa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Intesa Varese-Ticino: S40/S50 ogni 30 min e RE50 Malpensa",
+      "description": "Ratificata l'intesa tra Lombardia e Ticino: S40/S50 ogni 30 min per Varese-Mendrisio, RE50 per Malpensa e Lugano. Ecco cosa cambia per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/intesa-mobilita-varese-ticino-malpensa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di Mendrisio: nuovo collegamento S40/S50 ogni 30 minuti verso Varese e Malpensa"
+      },
+      "datePublished": "2026-09-29T20:49:35+00:00",
+      "dateModified": "2026-09-29T20:49:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/intesa-mobilita-varese-ticino-malpensa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
