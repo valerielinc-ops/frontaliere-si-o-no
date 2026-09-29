@@ -468,7 +468,8 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
    ? TRAFFIC_PROVIDER_SPECS[selectedCrossingProvider]?.trafficAware === true
    : TRAFFIC_PROVIDER_SPECS[selectedCrossingProvider]?.trafficAware ?? true
   : false;
- const approachResult = selectedProviderIsTrafficAware
+ const shouldFetchApproach = crossingResult.status === 'rejected' || selectedProviderIsTrafficAware;
+ const approachResult = shouldFetchApproach
   ? (await Promise.allSettled([segmentFetcher(approachLat, lng, lat, lng)]))[0]
   : { status: 'skipped' };
 
