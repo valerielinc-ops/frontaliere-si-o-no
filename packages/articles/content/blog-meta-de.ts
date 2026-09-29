@@ -12242,6 +12242,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.centro-ovale-chiasso-nuova-proprieta.title': 'Centro Ovale Chiasso: neuer Eigentümer und Ende von Ellipticum',
     'blog.article.centro-ovale-chiasso-nuova-proprieta.excerpt': 'Nach dem Scheitern des Ellipticum-Projekts am 9. September wechselt das Centro Ovale di Chiasso zu einem multinationalen Modekonzern, dessen Ziel noch ungewiss ist.',
     'blog.article.centro-ovale-chiasso-nuova-proprieta.imageAlt': 'Centro Ovale in Chiasso am Grenzübergang',
+    'blog.article.vertice-provinciale-beko-astuti.title': 'Beko-Gipfel: Astuti warnt vor tiefer Krise',
+    'blog.article.vertice-provinciale-beko-astuti.excerpt': 'Das provinzielle Gremium tagte am Montag, dem 28. September, in der Villa Recalcati zum Beko-Arbeitskonflikt in Cassinetta; Astuti (Pd) warnt: «Die Zusagen wurden nicht eingehalten, den Preis zahlen die Beschäftigten und die Region».',
+    'blog.article.vertice-provinciale-beko-astuti.imageAlt': 'Fabrik mit Arbeitern an der Grenze zwischen Tessin und Lombardei, bewölkter Himmel',
 };
 
 export default blogMetaDe;

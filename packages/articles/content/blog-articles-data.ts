@@ -36745,6 +36745,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vertice-provinciale-beko-astuti',
+ category: 'novita',
+ date: '2026-09-29T01:03:50.802Z',
+ image: '/images/blog/vertice-provinciale-beko-astuti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
