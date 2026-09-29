@@ -1,6 +1,6 @@
 {
   "crawlerKey": "posta-svizzera-centro-regionale",
-  "assembledAt": "2026-09-28T21:44:23.303Z",
+  "assembledAt": "2026-09-29T05:48:41.644Z",
   "jobs": [
     {
       "url": "https://job.post.ch/default/job/Teamleaderin-Inhouselogistik/74761-de_DE",
@@ -643,9 +643,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-escholzmatt",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-escholzmatt",
-        "en": "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt",
-        "de": "zusteller-in-briefe-und-pakete-post-pml6oq",
-        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-escholzmatt"
+        "en": "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt",
+        "de": "zusteller-in-briefe-und-pakete-post",
+        "fr": "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
       },
       "sourceLang": "de",
       "department": "",
@@ -667,18 +667,20 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
+          "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
+          "livraison-en-lettres-et-en-colis-die-schweizerische-post-escholzmatt"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post-pml6oq"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
+        "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt",
+        "zusteller-in-briefe-und-pakete-post-pml6oq",
+        "livraison-en-lettres-et-en-colis-die-schweizerische-post-escholzmatt"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-c1df0e0fd267",
@@ -1979,9 +1981,9 @@
       "slug": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
       "slugByLocale": {
         "it": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
-        "en": "customer-advisor-in-die-schweizerische-post-emmenbrucke",
+        "en": "kundenberater-in-die-schweizerische-post-emmenbrucke",
         "de": "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "fr": "conseiller-client-in-die-schweizerische-post-emmenbrucke"
+        "fr": "kundenberater-in-die-schweizerische-post-emmenbrucke"
       },
       "sourceLang": "de",
       "department": "",
@@ -2003,15 +2005,16 @@
           "kundenberater-in-post"
         ],
         "en": [
-          "kundenberater-in-die-schweizerische-post-emmenbrucke"
+          "customer-advisor-in-die-schweizerische-post-emmenbrucke"
         ],
         "fr": [
-          "kundenberater-in-die-schweizerische-post-emmenbrucke"
+          "conseiller-client-in-die-schweizerische-post-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-post",
-        "kundenberater-in-die-schweizerische-post-emmenbrucke"
+        "customer-advisor-in-die-schweizerische-post-emmenbrucke",
+        "conseiller-client-in-die-schweizerische-post-emmenbrucke"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-52523c18c719",
@@ -2358,7 +2361,7 @@
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-emmenbrucke-16bfc6",
         "en": "delivery-in-letters-and-packages-die-schweizerische-post-emmenbrucke-16bfc6",
-        "de": "zusteller-in-briefe-und-pakete-post-y2d7pb",
+        "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-emmenbrucke-16bfc6"
       },
       "sourceLang": "de",
@@ -2404,11 +2407,12 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post-y2d7pb"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-y2d7pb"
       ],
       "salarySource": "estimated",
       "needsRetranslation": true
@@ -3400,7 +3404,7 @@
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-adligenswil",
         "en": "zusteller-in-briefe-und-pakete-post-laxuf9",
-        "de": "zusteller-in-briefe-und-pakete-post-laxuf9",
+        "de": "zusteller-in-briefe-und-pakete-die-schweizerische-post-adligenswil",
         "fr": "zusteller-in-briefe-und-pakete-post-laxuf9"
       },
       "sourceLang": "de",
@@ -3445,14 +3449,16 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-briefe-und-pakete-post-laxuf9"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-laxuf9"
       ]
     },
     {
@@ -5484,7 +5490,7 @@
       },
       "slug": "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen",
       "slugByLocale": {
-        "it": "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
+        "it": "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen",
         "en": "delivery-in-newspaper-the-message-in-the-hourly-wage-die-schweizerische-post-dottingen",
         "de": "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
         "fr": "livraison-dans-les-journaux-le-message-dans-le-salaire-horaire-die-schweizerische-post-dottingen"
@@ -5524,11 +5530,13 @@
       "firstSeenAt": "2026-09-01T14:21:32.831Z",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
+          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
+          "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
+        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
+        "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen"
       ],
       "needsRetranslation": true
     },
@@ -5558,7 +5566,7 @@
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ruswil",
         "en": "delivery-in-letters-and-packages-die-schweizerische-post-ruswil",
-        "de": "zusteller-in-briefe-und-pakete-post-obwncx",
+        "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-ruswil"
       },
       "sourceLang": "de",
@@ -5605,11 +5613,12 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post-obwncx"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-obwncx"
       ],
       "needsRetranslation": true
     },
@@ -5639,7 +5648,7 @@
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-entlebuch",
         "en": "delivery-in-letters-and-packages-die-schweizerische-post-entlebuch",
-        "de": "zusteller-in-briefe-und-pakete-post-5gz6db",
+        "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-entlebuch"
       },
       "sourceLang": "de",
@@ -5668,12 +5677,13 @@
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-entlebuch"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post-5gz6db"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-die-schweizerische-post-entlebuch"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-entlebuch",
+        "zusteller-in-briefe-und-pakete-post-5gz6db"
       ],
       "id": "posta-svizzera-centro-regionale-83557564d6ec",
       "salaryMin": 69500,
@@ -8393,7 +8403,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
+        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -8417,7 +8427,7 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
+          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
         ],
         "fr": [
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
@@ -8425,7 +8435,8 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -12551,7 +12562,7 @@
         "it": "apprendistato-come-automatikmonteur-in-cfc-die-schweizerische-post-zurich-mulligen",
         "en": "teaching-as-an-automatic-installer-in-efz-die-schweizerische-post-zurich-mulligen",
         "de": "lehre-als-automatikmonteur-in-efz-post",
-        "fr": "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen"
+        "fr": "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -12573,12 +12584,12 @@
           "lehre-als-automatikmonteur-in-efz-post"
         ],
         "fr": [
-          "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
+          "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen"
         ]
       },
       "previousSlugs": [
         "lehre-als-automatikmonteur-in-efz-post",
-        "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
+        "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen"
       ],
       "id": "posta-svizzera-centro-regionale-e28dce826ade",
       "salaryMin": 62000,
@@ -13179,7 +13190,8 @@
       },
       "previousSlugs": [
         "conseillere-conseiller-a-la-clientele-post"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Conseill%C3%A8reConseiller-%C3%A0-la-client%C3%A8le/74747-fr_FR",
@@ -14262,7 +14274,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
+        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -14286,12 +14298,11 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
+          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
-        "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
+        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
       ],
       "id": "posta-svizzera-centro-regionale-b6979983514b",
       "salaryMin": 60500,
@@ -14538,7 +14549,8 @@
       },
       "previousSlugs": [
         "apprentissage-de-logisticienne-logisticien-cfc-distribution-mixte-berne-francophone-post"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC%E2%80%AFDistribution-mixte-%E2%80%AF-Jura/74041-fr_FR",
@@ -15337,7 +15349,8 @@
       },
       "addressLocality": "Bienne",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-26T14:31:20.157Z"
+      "firstSeenAt": "2026-09-26T14:31:20.157Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-d'agenteagent-relation-client-CFC%E2%80%AF-Berne-%28francophone%29/74003-fr_FR",
@@ -15722,9 +15735,9 @@
       "slug": "addetto-a-alla-produzione-fruh-servizio-interno-die-schweizerische-post-niederurnen",
       "slugByLocale": {
         "it": "addetto-a-alla-produzione-fruh-servizio-interno-die-schweizerische-post-niederurnen",
-        "en": "mitarbeiter-in-produktion-fruh-innendienst-post",
+        "en": "associate-produktion-fruh-innendienst-die-schweizerische-post-niederurnen",
         "de": "mitarbeiter-in-produktion-fruh-innendienst-post",
-        "fr": "mitarbeiter-in-produktion-fruh-innendienst-post"
+        "fr": "collaborateur-trice-produktion-fruh-innendienst-die-schweizerische-post-niederurnen"
       },
       "sourceLang": "de",
       "department": "",
@@ -15762,6 +15775,12 @@
       "firstSeenAt": "2026-09-28T21:43:52.751Z",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-produktion-fruh-innendienst-post"
+        ],
+        "en": [
+          "mitarbeiter-in-produktion-fruh-innendienst-post"
+        ],
+        "fr": [
           "mitarbeiter-in-produktion-fruh-innendienst-post"
         ]
       },
@@ -16040,78 +16059,6 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "firstSeenAt": "2026-09-28T21:43:52.751Z"
-    },
-    {
-      "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73997-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73997-de_DE",
-      "title": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Glis",
-      "canton": "VS",
-      "country": "CH",
-      "description": "Startest du gerne früh in den Tag, liebst du es, an der frischen Luft zu sein, und hast du Freude daran, den Menschen ein Lächeln ins Gesicht zu zaubern? Dann ist eine Ausbildung in der Zustellung (Fachrichtung Distribution) genau das Richtige für dich!\n\nWährend der dreijährigen Grundbildung erwirbst du dir das Rüstzeug für einen erfolgreichen Einstieg in die vielfältige Welt der Logistik.\n\nDeine Ausbildung\n\n-\n\nAm frühen Morgen sortierst du deine Briefe und Pakete und belädst dein Zustellfahrzeug für die anschliessende Zustelltour.\n\nDanach bist du selbstständig unterwegs, bringst und holst Sendungen jeder Art und kümmerst dich um die Anliegen unserer Kundinnen und Kunden.\n\nBevor du in deinen wohlverdienten Feierabend startest, erledigst du diverse Nacharbeiten an deiner Ausbildungsstelle.\n\nWährend deiner Ausbildung wirst du von Profis betreut, in die Praxis eingeführt und laufend weiterentwickelt.\n\nZusätzlich erwirbst du mit finanzieller Unterstützung der Post entweder den Führerschein für Motorräder der Kategorie A1 oder den Führerschein für Motorfahrzeuge der Kategorie B und erlernst das Führen eines Staplers.\n\nMit verschiedenen internen Stationen, einem Einsatz in einem Lagerbetrieb, sowie mit individuellen Fördermassnahmen nach deinen Wünschen, vervollständigen wir deine breite Logistikausbildung.\n\nDas bringst du mit\n\nWir suchen junge Menschen mit Begeisterung, Freude und Motivation, die etwas bewegen wollen. Folgende Punkte solltest du erfüllen:\n\nKörperliche Betätigung und die Arbeit an der frischen Luft begeistern dich.\n\nDarüber hinaus hast du Freude am Umgang mit Menschen, bist zuverlässig, ehrlich und verschwiegen.\n\nDu bist bereit, bis zum Lehrstart den Lernfahrausweis Führerschein A1 oder B zu erlangen.\n\nDie obligatorische Schulpflicht hast du abgeschlossen.\n\nBei Lehrbeginn verfügst du über das Sprachniveau B2 in Deutsch.",
-      "descriptionByLocale": {
-        "it": "Startest du gerne früh in den Tag, liebst du es, an der frischen Luft zu sein, und hast du Freude daran, den Menschen ein Lächeln ins Gesicht zu zaubern? Dann ist eine Ausbildung in der Zustellung (Fachrichtung Distribution) genau das Richtige für dich!\n\nWährend der dreijährigen Grundbildung erwirbst du dir das Rüstzeug für einen erfolgreichen Einstieg in die vielfältige Welt der Logistik.\n\nDeine Ausbildung\n\n-\n\nAm frühen Morgen sortierst du deine Briefe und Pakete und belädst dein Zustellfahrzeug für die anschliessende Zustelltour.\n\nDanach bist du selbstständig unterwegs, bringst und holst Sendungen jeder Art und kümmerst dich um die Anliegen unserer Kundinnen und Kunden.\n\nBevor du in deinen wohlverdienten Feierabend startest, erledigst du diverse Nacharbeiten an deiner Ausbildungsstelle.\n\nWährend deiner Ausbildung wirst du von Profis betreut, in die Praxis eingeführt und laufend weiterentwickelt.\n\nZusätzlich erwirbst du mit finanzieller Unterstützung der Post entweder den Führerschein für Motorräder der Kategorie A1 oder den Führerschein für Motorfahrzeuge der Kategorie B und erlernst das Führen eines Staplers.\n\nMit verschiedenen internen Stationen, einem Einsatz in einem Lagerbetrieb, sowie mit individuellen Fördermassnahmen nach deinen Wünschen, vervollständigen wir deine breite Logistikausbildung.\n\nDas bringst du mit\n\nWir suchen junge Menschen mit Begeisterung, Freude und Motivation, die etwas bewegen wollen. Folgende Punkte solltest du erfüllen:\n\nKörperliche Betätigung und die Arbeit an der frischen Luft begeistern dich.\n\nDarüber hinaus hast du Freude am Umgang mit Menschen, bist zuverlässig, ehrlich und verschwiegen.\n\nDu bist bereit, bis zum Lehrstart den Lernfahrausweis Führerschein A1 oder B zu erlangen.\n\nDie obligatorische Schulpflicht hast du abgeschlossen.\n\nBei Lehrbeginn verfügst du über das Sprachniveau B2 in Deutsch.",
-        "de": "Startest du gerne früh in den Tag, liebst du es, an der frischen Luft zu sein, und hast du Freude daran, den Menschen ein Lächeln ins Gesicht zu zaubern? Dann ist eine Ausbildung in der Zustellung (Fachrichtung Distribution) genau das Richtige für dich!\n\nWährend der dreijährigen Grundbildung erwirbst du dir das Rüstzeug für einen erfolgreichen Einstieg in die vielfältige Welt der Logistik.\n\nDeine Ausbildung\n\n-\n\nAm frühen Morgen sortierst du deine Briefe und Pakete und belädst dein Zustellfahrzeug für die anschliessende Zustelltour.\n\nDanach bist du selbstständig unterwegs, bringst und holst Sendungen jeder Art und kümmerst dich um die Anliegen unserer Kundinnen und Kunden.\n\nBevor du in deinen wohlverdienten Feierabend startest, erledigst du diverse Nacharbeiten an deiner Ausbildungsstelle.\n\nWährend deiner Ausbildung wirst du von Profis betreut, in die Praxis eingeführt und laufend weiterentwickelt.\n\nZusätzlich erwirbst du mit finanzieller Unterstützung der Post entweder den Führerschein für Motorräder der Kategorie A1 oder den Führerschein für Motorfahrzeuge der Kategorie B und erlernst das Führen eines Staplers.\n\nMit verschiedenen internen Stationen, einem Einsatz in einem Lagerbetrieb, sowie mit individuellen Fördermassnahmen nach deinen Wünschen, vervollständigen wir deine breite Logistikausbildung.\n\nDas bringst du mit\n\nWir suchen junge Menschen mit Begeisterung, Freude und Motivation, die etwas bewegen wollen. Folgende Punkte solltest du erfüllen:\n\nKörperliche Betätigung und die Arbeit an der frischen Luft begeistern dich.\n\nDarüber hinaus hast du Freude am Umgang mit Menschen, bist zuverlässig, ehrlich und verschwiegen.\n\nDu bist bereit, bis zum Lehrstart den Lernfahrausweis Führerschein A1 oder B zu erlangen.\n\nDie obligatorische Schulpflicht hast du abgeschlossen.\n\nBei Lehrbeginn verfügst du über das Sprachniveau B2 in Deutsch.",
-        "en": "Startest du gerne früh in den Tag, liebst du es, an der frischen Luft zu sein, und hast du Freude daran, den Menschen ein Lächeln ins Gesicht zu zaubern? Dann ist eine Ausbildung in der Zustellung (Fachrichtung Distribution) genau das Richtige für dich!\n\nWährend der dreijährigen Grundbildung erwirbst du dir das Rüstzeug für einen erfolgreichen Einstieg in die vielfältige Welt der Logistik.\n\nDeine Ausbildung\n\n-\n\nAm frühen Morgen sortierst du deine Briefe und Pakete und belädst dein Zustellfahrzeug für die anschliessende Zustelltour.\n\nDanach bist du selbstständig unterwegs, bringst und holst Sendungen jeder Art und kümmerst dich um die Anliegen unserer Kundinnen und Kunden.\n\nBevor du in deinen wohlverdienten Feierabend startest, erledigst du diverse Nacharbeiten an deiner Ausbildungsstelle.\n\nWährend deiner Ausbildung wirst du von Profis betreut, in die Praxis eingeführt und laufend weiterentwickelt.\n\nZusätzlich erwirbst du mit finanzieller Unterstützung der Post entweder den Führerschein für Motorräder der Kategorie A1 oder den Führerschein für Motorfahrzeuge der Kategorie B und erlernst das Führen eines Staplers.\n\nMit verschiedenen internen Stationen, einem Einsatz in einem Lagerbetrieb, sowie mit individuellen Fördermassnahmen nach deinen Wünschen, vervollständigen wir deine breite Logistikausbildung.\n\nDas bringst du mit\n\nWir suchen junge Menschen mit Begeisterung, Freude und Motivation, die etwas bewegen wollen. Folgende Punkte solltest du erfüllen:\n\nKörperliche Betätigung und die Arbeit an der frischen Luft begeistern dich.\n\nDarüber hinaus hast du Freude am Umgang mit Menschen, bist zuverlässig, ehrlich und verschwiegen.\n\nDu bist bereit, bis zum Lehrstart den Lernfahrausweis Führerschein A1 oder B zu erlangen.\n\nDie obligatorische Schulpflicht hast du abgeschlossen.\n\nBei Lehrbeginn verfügst du über das Sprachniveau B2 in Deutsch.",
-        "fr": "Startest du gerne früh in den Tag, liebst du es, an der frischen Luft zu sein, und hast du Freude daran, den Menschen ein Lächeln ins Gesicht zu zaubern? Dann ist eine Ausbildung in der Zustellung (Fachrichtung Distribution) genau das Richtige für dich!\n\nWährend der dreijährigen Grundbildung erwirbst du dir das Rüstzeug für einen erfolgreichen Einstieg in die vielfältige Welt der Logistik.\n\nDeine Ausbildung\n\n-\n\nAm frühen Morgen sortierst du deine Briefe und Pakete und belädst dein Zustellfahrzeug für die anschliessende Zustelltour.\n\nDanach bist du selbstständig unterwegs, bringst und holst Sendungen jeder Art und kümmerst dich um die Anliegen unserer Kundinnen und Kunden.\n\nBevor du in deinen wohlverdienten Feierabend startest, erledigst du diverse Nacharbeiten an deiner Ausbildungsstelle.\n\nWährend deiner Ausbildung wirst du von Profis betreut, in die Praxis eingeführt und laufend weiterentwickelt.\n\nZusätzlich erwirbst du mit finanzieller Unterstützung der Post entweder den Führerschein für Motorräder der Kategorie A1 oder den Führerschein für Motorfahrzeuge der Kategorie B und erlernst das Führen eines Staplers.\n\nMit verschiedenen internen Stationen, einem Einsatz in einem Lagerbetrieb, sowie mit individuellen Fördermassnahmen nach deinen Wünschen, vervollständigen wir deine breite Logistikausbildung.\n\nDas bringst du mit\n\nWir suchen junge Menschen mit Begeisterung, Freude und Motivation, die etwas bewegen wollen. Folgende Punkte solltest du erfüllen:\n\nKörperliche Betätigung und die Arbeit an der frischen Luft begeistern dich.\n\nDarüber hinaus hast du Freude am Umgang mit Menschen, bist zuverlässig, ehrlich und verschwiegen.\n\nDu bist bereit, bis zum Lehrstart den Lernfahrausweis Führerschein A1 oder B zu erlangen.\n\nDie obligatorische Schulpflicht hast du abgeschlossen.\n\nBei Lehrbeginn verfügst du über das Sprachniveau B2 in Deutsch."
-      },
-      "titleByLocale": {
-        "it": "Apprendistato come impiegata/impiegato in logistica CFC Distribuzione recapito misto (lettere e pacchi)",
-        "de": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
-        "en": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
-        "fr": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)"
-      },
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-f96dfd",
-      "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-f96dfd",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
-      },
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-09-28",
-      "validThrough": "",
-      "source": "postch-careers-crawler",
-      "employmentType": "INTERN",
-      "experienceLevel": "",
-      "sector": "Logistica",
-      "workload": "",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Glis"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "id": "posta-svizzera-centro-regionale-754704cf1cda",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Glis",
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-08-27T00:49:51.119Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
-        ]
-      },
-      "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
-      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73917-de_DE",

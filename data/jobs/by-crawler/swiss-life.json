@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-life",
-  "assembledAt": "2026-09-28T21:23:16.049Z",
+  "assembledAt": "2026-09-29T05:49:12.159Z",
   "jobs": [
     {
       "id": "swiss-life-ad4d3ef352d1",
@@ -9,7 +9,7 @@
         "it": "berater-previdenza-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "en": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
         "de": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "fr": "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
+        "fr": "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -55,7 +55,7 @@
       "hiringOrganization": "Swiss Life AG",
       "previousSlugs": [
         "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern"
+        "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63,7 +63,7 @@
         ],
         "fr": [
           "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-          "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern"
+          "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
         ]
       },
       "needsRetranslation": true,
@@ -157,7 +157,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1018a191bf7b",
@@ -393,7 +394,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-2f29929f10fd",
@@ -629,7 +631,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-bbbcf9d2f3fb",
@@ -709,7 +712,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-f915a4f7f6f6",
@@ -1025,7 +1029,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a4559353b2c9",
@@ -1159,14 +1164,12 @@
       "previousSlugs": [
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
-        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
         "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bhp163"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
-          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
           "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bhp163"
         ],
         "en": [
@@ -1190,7 +1193,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-60f11dc74a6b",
@@ -1270,7 +1274,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-63e7653a3513",
@@ -1350,7 +1355,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-82a26860db74",
@@ -1742,7 +1748,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-18679273ee70",
@@ -2139,83 +2146,6 @@
       }
     },
     {
-      "id": "swiss-life-fea04833148b",
-      "slug": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-      "slugByLocale": {
-        "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-        "fr": "conseiller-conseiller-en-prevoyance-et-en-finance-h-f-d-personnes-vendant-d-un-autre-moyen-de-revenus-agence-generale",
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-        "de": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
-      },
-      "company": "Swiss Life",
-      "companyKey": "swiss-life",
-      "companyDomain": "swisslife.ch",
-      "title": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Genève Rive Droite",
-      "titleByLocale": {
-        "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Genève Rive Droite",
-        "fr": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Genève Rive Droite",
-        "it": "Conseiller/conseillère en prévoyance et en Finanza (f/m/d) – Personnes venant d’un autre métier bienvenues – Agence générale Genève Rive Droite",
-        "de": "Conseiller/conseillère en prévoyance et en Finanzen (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Genève Rive Droite"
-      },
-      "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-      "descriptionByLocale": {
-        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "it": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "de": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "fr": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered."
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Genve-Rive-Droite_R09472-1",
-      "source": "Swiss Life Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:42.205Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "streetAddress": "Rue de l'Hôtel-de-Ville 2",
-      "postalCode": "1204",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni / Previdenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-24",
-      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Genve-Rive-Droite_R09472-1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "jobReqId": "R09472",
-      "hiringOrganization": "Swiss Life AG Genève Rive Droite",
-      "needsRetranslation": true,
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-23T23:44:20.805Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-m75l1e"
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-m75l1e"
-      ]
-    },
-    {
       "id": "swiss-life-62a9b81b91ba",
       "slug": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-specialisation-en-prevoyance-sante-agence-generale-geneve",
       "slugByLocale": {
@@ -2295,90 +2225,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "swiss-life-dbc4f83d1761",
-      "slug": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-2",
-      "slugByLocale": {
-        "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-bhnrtd",
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-2",
-        "de": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-2",
-        "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-2"
-      },
-      "company": "Swiss Life",
-      "companyKey": "swiss-life",
-      "companyDomain": "swisslife.ch",
-      "title": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Genève Rive Gauche",
-      "titleByLocale": {
-        "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Genève Rive Gauche",
-        "fr": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Genève Rive Gauche",
-        "it": "Conseiller/conseillère en prévoyance et en Finanza (f/m/d) – Personnes venant d’un autre métier bienvenues – Agence générale Genève Rive Gauche",
-        "de": "Conseiller/conseillère en prévoyance et en Finanzen (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Genève Rive Gauche"
-      },
-      "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-      "descriptionByLocale": {
-        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "it": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "de": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "fr": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered."
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Genve-Rive-Gauche_R10613",
-      "source": "Swiss Life Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:40.502Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "streetAddress": "Rue de l'Hôtel-de-Ville 2",
-      "postalCode": "1204",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni / Previdenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-26",
-      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Genve-Rive-Gauche_R10613",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "jobReqId": "R10613",
-      "hiringOrganization": "Swiss Life AG Genève Rive Droite",
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bhnrtd",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-bhnrtd"
-        ],
-        "en": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bhnrtd",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-bhnrtd"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-23T23:44:18.883Z"
     },
     {
       "id": "swiss-life-65abd0757165",
@@ -2683,7 +2529,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9ec8361cf3e2",
@@ -3146,7 +2993,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0127fae00e58",
@@ -3226,7 +3074,8 @@
           "maxValue": 73500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-8879644d2439",
@@ -3386,7 +3235,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-011f1a8974f2",
@@ -3543,98 +3393,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "swiss-life-c945d46b5ca1",
-      "slug": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-3",
-      "slugByLocale": {
-        "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-3",
-        "de": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-3",
-        "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-3"
-      },
-      "company": "Swiss Life",
-      "companyKey": "swiss-life",
-      "companyDomain": "swisslife.ch",
-      "title": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues - Agence générale Canton de Fribourg",
-      "titleByLocale": {
-        "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues - Agence générale Canton de Fribourg",
-        "fr": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues - Agence générale Canton de Fribourg",
-        "it": "Conseiller/conseillère en prévoyance et en Finanza (f/m/d) – Personnes venant d’un autre métier bienvenues - Agence générale Canton de Fribourg",
-        "de": "Conseiller/conseillère en prévoyance et en Finanzen (f/h/d) – Personnes venant d’un autre métier bienvenues - Agence générale Canton de Fribourg"
-      },
-      "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n • Suivi et entretien des relations avec la clientèle en place\n • Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n • Réalisation de conseils complets en prévoyance et en finance\n • Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n • Représentation de notre entreprise dans le secteur de vente\n • Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n • Formation professionnelle achevée\n • Sens marqué de la vente et du conseil\n • Grande motivation, approche axée sur les objectifs et la performance\n • Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-      "descriptionByLocale": {
-        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n • Suivi et entretien des relations avec la clientèle en place\n • Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n • Réalisation de conseils complets en prévoyance et en finance\n • Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n • Représentation de notre entreprise dans le secteur de vente\n • Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n • Formation professionnelle achevée\n • Sens marqué de la vente et du conseil\n • Grande motivation, approche axée sur les objectifs et la performance\n • Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "it": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n • Suivi et entretien des relations avec la clientèle en place\n • Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n • Réalisation de conseils complets en prévoyance et en finance\n • Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n • Représentation de notre entreprise dans le secteur de vente\n • Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n • Formation professionnelle achevée\n • Sens marqué de la vente et du conseil\n • Grande motivation, approche axée sur les objectifs et la performance\n • Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "de": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n • Suivi et entretien des relations avec la clientèle en place\n • Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n • Réalisation de conseils complets en prévoyance et en finance\n • Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n • Représentation de notre entreprise dans le secteur de vente\n • Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n • Formation professionnelle achevée\n • Sens marqué de la vente et du conseil\n • Grande motivation, approche axée sur les objectifs et la performance\n • Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "fr": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n • Suivi et entretien des relations avec la clientèle en place\n • Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n • Réalisation de conseils complets en prévoyance et en finance\n • Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n • Représentation de notre entreprise dans le secteur de vente\n • Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n • Formation professionnelle achevée\n • Sens marqué de la vente et du conseil\n • Grande motivation, approche axée sur les objectifs et la performance\n • Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered."
-      },
-      "location": "Granges-Paccot",
-      "canton": "FR",
-      "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Canton-de-Fribourg_R08970",
-      "source": "Swiss Life Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:28.328Z",
-      "addressLocality": "Granges-Paccot",
-      "addressRegion": "FR",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni / Previdenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-27",
-      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Canton-de-Fribourg_R08970",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "jobReqId": "R08970",
-      "hiringOrganization": "Swiss Life AG Canton de Fribourg",
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh95he",
-          "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-4",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-2",
-          "conseiller-conseiller-en-prevoyance-et-en-finance-h-f-d-personnes-vendant-d-un-autre-moyen-de-revenus-agence-generale"
-        ],
-        "de": [
-          "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh95he",
-        "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-4",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-2",
-        "conseiller-conseiller-en-prevoyance-et-en-finance-h-f-d-personnes-vendant-d-un-autre-moyen-de-revenus-agence-generale"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 105500,
-      "salaryMax": 185000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 105500,
-          "maxValue": 185000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-23T23:44:06.191Z"
     },
     {
       "id": "swiss-life-976f308815cf",
@@ -3932,85 +3690,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "swiss-life-7145a0717956",
-      "slug": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-4",
-      "slugByLocale": {
-        "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-4",
-        "de": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-4",
-        "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-4"
-      },
-      "company": "Swiss Life",
-      "companyKey": "swiss-life",
-      "companyDomain": "swisslife.ch",
-      "title": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Morges-La Côte",
-      "titleByLocale": {
-        "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Morges-La Côte",
-        "fr": "Conseiller/conseillère en prévoyance et en finance (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Morges-La Côte",
-        "it": "Conseiller/conseillère en prévoyance et en Finanza (f/m/d) – Personnes venant d’un autre métier bienvenues – Agence générale Morges-La Côte",
-        "de": "Conseiller/conseillère en prévoyance et en Finanzen (f/h/d) – Personnes venant d’un autre métier bienvenues – Agence générale Morges-La Côte"
-      },
-      "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-      "descriptionByLocale": {
-        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "it": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "de": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-        "fr": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered."
-      },
-      "location": "Morges",
-      "canton": "VD",
-      "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Morges/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Morges-La-Cte_R09287",
-      "source": "Swiss Life Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:22:25.065Z",
-      "addressLocality": "Morges",
-      "addressRegion": "VD",
-      "streetAddress": "",
-      "postalCode": "1110",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni / Previdenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-30",
-      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Morges/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Morges-La-Cte_R09287",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "jobReqId": "R09287",
-      "hiringOrganization": "Swiss Life AG Morges-La Côte",
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9nb4"
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9nb4"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-23T23:44:02.993Z"
     },
     {
       "id": "swiss-life-e12b28060b4c",
@@ -5369,7 +5048,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-27cf2da5d869",
@@ -5445,7 +5125,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-afd5953d17cd",
@@ -5525,7 +5206,8 @@
           "maxValue": 51000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-d58931049c1f",
@@ -5755,7 +5437,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-099bcd7e12f4",
@@ -5835,7 +5518,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a886a3d317b4",
@@ -6544,7 +6228,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-78cbf83a135e",
@@ -6624,7 +6309,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e558496b28eb",
@@ -6704,7 +6390,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-45194c6f32f7",
@@ -7012,7 +6699,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-311f9d60d7ea",
@@ -7250,7 +6938,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c968f7017dcb",
@@ -7640,7 +7329,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-2935f61b3521",
@@ -7787,7 +7477,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-62ec52052cf9",
@@ -8095,7 +7786,8 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9a7ed10ce016",
