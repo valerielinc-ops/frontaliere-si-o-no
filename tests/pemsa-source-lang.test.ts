@@ -7,14 +7,17 @@
  * recruitment paragraph in en/de/fr. The stored record below is that
  * "Imbianchino (M/F)" job, minimized (body excerpts only).
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildPemsaLocalizedContent,
-  isPemsaInventedDescription,
   mergePemsaJobRecord,
   parseDescriptionToMarkdown,
+  PEMSA_FABRICATED_DESCRIPTION_RE,
 } from '../scripts/lib/pemsa-job-parser.mjs';
 import { getCompanyBoilerplateIT } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { dropFabricatedDescriptions } from '../scripts/lib/drop-fabricated-description.mjs';
 
 const SOURCE_BODY = 'Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego fisso? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti mentiremo però: siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Imbianchino (M/F).';
 const ROUND_TRIP = 'la libertà del lavoro temporaneo e la sicurezza di un impiego fisso? Da 30 anni affianchiamo di centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti mentiremo però: siamo esigenti. Quindi, se sei una persona motivata ed urgente, unisciti al nostro team per la posizione di Imbianchino (M/F).';
@@ -33,6 +36,15 @@ const STORED = {
   slugByLocale: { it: SLUG, en: SLUG, de: SLUG, fr: SLUG },
   slug: SLUG,
 };
+
+const isFabricated = (text: unknown) => PEMSA_FABRICATED_DESCRIPTION_RE.test(String(text || ''));
+
+// The runner's flow (update-pemsa-jobs.mjs mergeJobs): the stored records lose
+// the crawler-written text first, then each one is merged with its fresh job.
+function cleanThenMerge(prev: Record<string, unknown> | null, fresh: ReturnType<typeof freshJob>) {
+  const stored = prev ? dropFabricatedDescriptions([structuredClone(prev)], PEMSA_FABRICATED_DESCRIPTION_RE, 'PEMSA')[0] : null;
+  return mergePemsaJobRecord(stored, fresh);
+}
 
 function freshJob(description: string) {
   const localized = buildPemsaLocalizedContent({ title: STORED.title, city: STORED.location, description });
@@ -64,17 +76,17 @@ describe('buildPemsaLocalizedContent', () => {
   });
 
   it('recognises the old invented paragraph in its four languages, not the real body', () => {
-    expect(isPemsaInventedDescription(INVENTED_DE)).toBe(true);
-    expect(isPemsaInventedDescription(INVENTED_FR)).toBe(true);
-    expect(isPemsaInventedDescription('PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Painter.')).toBe(true);
-    expect(isPemsaInventedDescription('PEMSA, agenzia di reclutamento specializzata nel settore edile e tecnico, cerca un profilo Imbianchino.')).toBe(true);
-    expect(isPemsaInventedDescription(SOURCE_BODY)).toBe(false);
+    expect(isFabricated(INVENTED_DE)).toBe(true);
+    expect(isFabricated(INVENTED_FR)).toBe(true);
+    expect(isFabricated('PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Painter.')).toBe(true);
+    expect(isFabricated('PEMSA, agenzia di reclutamento specializzata nel settore edile e tecnico, cerca un profilo Imbianchino.')).toBe(true);
+    expect(isFabricated(SOURCE_BODY)).toBe(false);
   });
 });
 
-describe('mergePemsaJobRecord', () => {
+describe('mergePemsaJobRecord after dropFabricatedDescriptions (the runner flow)', () => {
   it('relabels the source, drops the mislabeled copy and the invented slots, keeps the slugs', () => {
-    const merged = mergePemsaJobRecord(STORED, freshJob(SOURCE_BODY));
+    const merged = cleanThenMerge(STORED, freshJob(SOURCE_BODY));
 
     expect(merged.sourceLang).toBe('it');
     expect(merged.descriptionByLocale.it).toBe(SOURCE_BODY);
@@ -89,26 +101,33 @@ describe('mergePemsaJobRecord', () => {
   });
 
   it('keeps the body an earlier run read when the detail page gives none', () => {
-    const merged = mergePemsaJobRecord(STORED, freshJob(''));
+    const merged = cleanThenMerge(STORED, freshJob(''));
 
     expect(merged.description).toBe(SOURCE_BODY);
     expect(merged.sourceLang).toBe('it');
     expect(merged.descriptionByLocale.it).toBe(SOURCE_BODY);
-    expect(Object.values(merged.descriptionByLocale).some(isPemsaInventedDescription)).toBe(false);
+    expect(Object.values(merged.descriptionByLocale).some(isFabricated)).toBe(false);
   });
 
   it('does not publish a job that never had a source body', () => {
-    expect(mergePemsaJobRecord(null, freshJob(''))).toBeNull();
+    expect(cleanThenMerge(null, freshJob(''))).toBeNull();
     const inventedOnly = { ...STORED, sourceLang: 'it', description: INVENTED_DE, descriptionByLocale: { it: INVENTED_DE } };
-    expect(mergePemsaJobRecord(inventedOnly, freshJob(''))).toBeNull();
+    expect(cleanThenMerge(inventedOnly, freshJob(''))).toBeNull();
   });
 
   it('leaves a correctly labelled job without the retranslation flag', () => {
     const clean = { ...STORED, sourceLang: 'it', descriptionByLocale: { it: SOURCE_BODY, en: 'Do you want the freedom of temporary work and the security of a permanent job?' } };
-    const merged = mergePemsaJobRecord(clean, freshJob(SOURCE_BODY));
+    const merged = cleanThenMerge(clean, freshJob(SOURCE_BODY));
 
     expect(merged.needsRetranslation).toBeUndefined();
     expect(merged.descriptionByLocale.en).toBe(clean.descriptionByLocale.en);
+  });
+
+  it('is only reached through the runner after the stored records are cleaned', () => {
+    const runner = fs.readFileSync(path.resolve(__dirname, '..', 'scripts', 'update-pemsa-jobs.mjs'), 'utf8');
+    const clean = runner.search(/dropFabricatedDescriptions\(existing\.filter\(isTargetJob\), PEMSA_FABRICATED_DESCRIPTION_RE, 'PEMSA'\)/);
+    expect(clean).toBeGreaterThan(-1);
+    expect(runner.indexOf('mergePemsaJobRecord(prev, job)')).toBeGreaterThan(clean);
   });
 });
 
@@ -131,14 +150,14 @@ describe('PEMSA ads with bold-paragraph sections (issue 5253)', () => {
 
   it('recognises the central boilerplate read from dedicated-crawler-common, bullet-split as stored', () => {
     const central = getCompanyBoilerplateIT('PEMSA') as string;
-    const stored = `## Posatore di resina\n\n**PEMSA** — Genève (GE)\n\n${central.replace('. Offriamo', '. \n• Offriamo')}`;
-    expect(isPemsaInventedDescription(stored)).toBe(true);
-    const merged = mergePemsaJobRecord(
+    const stored = `## Posatore di resina\n\n**PEMSA** — Genève (GE)\n\n${central.replace(', impiantistica, ', ',\n• impiantistica, ').replace('. Offriamo', '. \n• Offriamo')}`;
+    expect(isFabricated(stored)).toBe(true);
+    const merged = cleanThenMerge(
       { ...STORED, sourceLang: 'it', description: stored, descriptionByLocale: { it: stored } },
       freshJob(SOURCE_BODY),
     );
     expect(merged.descriptionByLocale.it).toBe(SOURCE_BODY);
-    expect(isPemsaInventedDescription(merged.description)).toBe(false);
-    expect(mergePemsaJobRecord({ ...STORED, sourceLang: 'it', description: stored, descriptionByLocale: { it: stored } }, freshJob(''))).toBeNull();
+    expect(isFabricated(merged.description)).toBe(false);
+    expect(cleanThenMerge({ ...STORED, sourceLang: 'it', description: stored, descriptionByLocale: { it: stored } }, freshJob(''))).toBeNull();
   });
 });

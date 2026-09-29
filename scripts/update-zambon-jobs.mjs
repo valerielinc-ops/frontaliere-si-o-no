@@ -25,6 +25,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, ZAMBON_SWISS_SITE, extractZambonJobBody } from './lib/zambon-job-parser.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -69,16 +70,14 @@ function isZambonSwissSiteLocation(rawLocation = '') {
 
 const DETAIL_DELAY_MS = 1000;
 const MIN_SOURCE_WORDS = 50;
-// The description the runner used to write itself from API metadata; only
-// ever recognised to be removed from stored records.
-const ZAMBON_INVENTED_DESCRIPTION_RE = /opportunità professionale presso Zambon Svizzera SA|— posizione presso Zambon Svizzera SA a /;
+// Fragments only the runner ever wrote: the description it composed from API
+// metadata ("<titolo>: opportunità professionale presso Zambon Svizzera SA, …"
+// and "<titolo> — posizione presso Zambon Svizzera SA a Cadempino (TI).").
+// Only ever recognised to be removed from stored records.
+export const ZAMBON_FABRICATED_DESCRIPTION_RE = /opportunità professionale presso Zambon Svizzera SA|— posizione presso Zambon Svizzera SA a /;
 
 function wordCount(text = '') {
   return String(text || '').split(/\s+/).filter(Boolean).length;
-}
-
-export function isZambonInventedDescription(text = '') {
-  return ZAMBON_INVENTED_DESCRIPTION_RE.test(String(text || ''));
 }
 
 /**
@@ -206,17 +205,17 @@ function parseZambonDate(dateStr) {
 
 function storedZambonSourceBody(job = {}) {
   const text = String(job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '').trim();
-  return text && !isZambonInventedDescription(text) && wordCount(text) >= MIN_SOURCE_WORDS ? text : '';
+  return text && wordCount(text) >= MIN_SOURCE_WORDS ? text : '';
 }
 
 /**
  * Merge freshly read Zambon jobs with the stored ones (issue 5253).
  *
+ * - The stored jobs first lose the metadata description the runner once
+ *   wrote, with the translations made from it (`dropFabricatedDescriptions`,
+ *   on copies: the function stays pure).
  * - A job whose page gave no text keeps the body an earlier run read from
  *   the source, with its language; without one it is not published.
- * - The invented metadata description is removed from every slot. Its
- *   translations go with the source drift `mergeLocaleTextMap` detects when
- *   the real text replaces it.
  * - The source slot follows the language of the text: the old rule wrote the
  *   fresh description into `it` whatever its language, and forced a
  *   retranslation of every job on every run. Retranslation is now asked only
@@ -227,8 +226,13 @@ function storedZambonSourceBody(job = {}) {
  * previousSlugs/firstSeenAt history (issue #3699).
  */
 export function mergeZambonJobs(existingCompanyJobs = [], discoveredJobs = []) {
+  const stored = dropFabricatedDescriptions(
+    existingCompanyJobs.map((job) => structuredClone(job)),
+    ZAMBON_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
   const existingByKey = new Map();
-  for (const job of existingCompanyJobs) {
+  for (const job of stored) {
     const key = extractStableJobId(job?.url);
     if (key) existingByKey.set(key, job);
   }
@@ -245,28 +249,22 @@ export function mergeZambonJobs(existingCompanyJobs = [], discoveredJobs = []) {
     withBodies.push({ ...job, sourceLang: storedLang, description: storedBody, descriptionByLocale: { [storedLang]: storedBody } });
   }
   const keep = new Set(withBodies.map((job) => extractStableJobId(job?.url)));
-  // Stored jobs whose only text is the invented description are not carried
-  // over by the grace policy either.
-  const existingKept = existingCompanyJobs.filter((job) => keep.has(extractStableJobId(job?.url)) || storedZambonSourceBody(job));
+  // Stored jobs whose only text was the runner's own description (now
+  // removed) are not carried over by the grace policy either.
+  const existingKept = stored.filter((job) => keep.has(extractStableJobId(job?.url)) || storedZambonSourceBody(job));
 
   return mergePreserveLocaleData(existingKept, withBodies).map((job) => {
     const old = existingByKey.get(extractStableJobId(job?.url));
-    const byLocale = {};
-    let purged = false;
-    for (const [locale, text] of Object.entries(job.descriptionByLocale || {})) {
-      if (isZambonInventedDescription(text)) { purged = true; continue; }
-      byLocale[locale] = text;
-    }
-    if (isZambonInventedDescription(job.description)) job.description = byLocale[job.sourceLang] || '';
+    const byLocale = { ...(job.descriptionByLocale || {}) };
     const oldSource = old ? String(old.descriptionByLocale?.[old.sourceLang] || old.description || '').trim() : '';
     const changed = Boolean(old) && (old.sourceLang !== job.sourceLang || oldSource !== String(job.description || '').trim());
-    // The other locales were translated from the previous source text (for
-    // the stored jobs: the invented description). When the source changed,
-    // only the source slot survives and the translation step rebuilds the rest.
+    // The other locales were translated from the previous source text. When
+    // the source changed, only the source slot survives and the translation
+    // step rebuilds the rest.
     job.descriptionByLocale = changed && byLocale[job.sourceLang]
       ? { [job.sourceLang]: byLocale[job.sourceLang] }
       : byLocale;
-    if (purged || changed) job.needsRetranslation = true;
+    if (changed) job.needsRetranslation = true;
     return job;
   });
 }

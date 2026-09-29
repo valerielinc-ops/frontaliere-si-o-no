@@ -303,44 +303,43 @@ export function buildPemsaLocalizedContent(job = {}) {
   };
 }
 
-// The recruitment paragraph the builder used to invent, in its four
-// languages. Only ever recognised to be removed from stored records.
-const PEMSA_INVENTED_DESCRIPTION_RE = /(?:^|\n)PEMSA, (?:agenzia di reclutamento specializzata|a staffing agency specialised|eine auf Bau und Technik spezialisierte|agence de recrutement spécialisée)/i;
-// The central company paragraph `ensureMinimumDescriptionWordCount` appends
-// to short descriptions; read from the module, never copied here. Compared on
-// whitespace- and bullet-normalised text: the stored copies went through
-// `normalizeDescriptionBullets`, which split it into "• " lines.
-function normalizeForMatch(text = '') {
-  return String(text || '').replace(/(^|\s)[•*-]\s+/g, ' ').replace(/\s+/g, ' ').trim();
-}
-const PEMSA_CENTRAL_BOILERPLATE = normalizeForMatch(getCompanyBoilerplateIT('PEMSA') || '');
+// Text the crawler side once wrote into PEMSA descriptions, only ever
+// recognised to be removed from stored records (`dropFabricatedDescriptions`
+// in the runner, before the merge): the recruitment paragraph the builder
+// invented, in its four languages, and the central company paragraph
+// `ensureMinimumDescriptionWordCount` appended to short bodies. The latter is
+// matched on its first sentence read from dedicated-crawler-common (never
+// copied here), across the "• " line breaks `normalizeDescriptionBullets`
+// inserted into the stored copies.
+const PEMSA_CENTRAL_BOILERPLATE_LEAD = String(getCompanyBoilerplateIT('PEMSA') || '').split(/(?<=\.)\s/)[0].trim();
+export const PEMSA_FABRICATED_DESCRIPTION_RE = new RegExp([
+  '(?:^|\\n)PEMSA, (?:agenzia di reclutamento specializzata|a staffing agency specialised|eine auf Bau und Technik spezialisierte|agence de recrutement spécialisée)',
+  ...(PEMSA_CENTRAL_BOILERPLATE_LEAD
+    ? [PEMSA_CENTRAL_BOILERPLATE_LEAD.split(/\s+/).map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[\\s•*-]+')]
+    : []),
+].join('|'), 'i');
 const PEMSA_MIN_SOURCE_BODY_CHARS = 100;
-
-export function isPemsaInventedDescription(text = '') {
-  const value = String(text || '').trim();
-  return PEMSA_INVENTED_DESCRIPTION_RE.test(value)
-    || Boolean(PEMSA_CENTRAL_BOILERPLATE && normalizeForMatch(value).includes(PEMSA_CENTRAL_BOILERPLATE));
-}
 
 function pemsaSourceBody(job = {}) {
   const candidates = [job?.descriptionByLocale?.[job?.sourceLang], job?.description];
   for (const raw of candidates) {
     const text = String(raw || '').trim();
-    if (text.length >= PEMSA_MIN_SOURCE_BODY_CHARS && !isPemsaInventedDescription(text)) return text;
+    if (text.length >= PEMSA_MIN_SOURCE_BODY_CHARS) return text;
   }
   return '';
 }
 
 /**
- * Merge a freshly built PEMSA job with its stored record (pure).
+ * Merge a freshly built PEMSA job with its stored record (pure). The stored
+ * record has already lost any crawler-written text
+ * (`dropFabricatedDescriptions` with `PEMSA_FABRICATED_DESCRIPTION_RE`).
  *
  * - No body this run: keep the body an earlier run read from the source, with
  *   its language; without one the job is not published (returns null).
- * - Invented recruitment paragraphs are removed from every slot.
  * - A re-derived source language drops the mislabeled verbatim copy of the
- *   source under the old key (`repairRelabeledSourceLocale`).
- * Either repair sets `needsRetranslation`, so the translation step rebuilds
- * the other locales from the real source text.
+ *   source under the old key (`repairRelabeledSourceLocale`) and sets
+ *   `needsRetranslation`, so the translation step rebuilds the other locales
+ *   from the real source text.
  *
  * @param {object|null} prev  Stored record, or null for a new job.
  * @param {object}      job   Fresh job from `buildPemsaJob`.
@@ -364,22 +363,12 @@ export function mergePemsaJobRecord(prev, job) {
   if (!prev) return fresh;
 
   const sourceLang = fresh.sourceLang || prev.sourceLang || 'it';
-  let purgedInvented = false;
-  const prevDescriptions = {};
-  for (const [locale, text] of Object.entries(prev.descriptionByLocale || {})) {
-    if (isPemsaInventedDescription(text)) {
-      purgedInvented = true;
-      continue;
-    }
-    prevDescriptions[locale] = text;
-  }
-
   const merged = {
     ...prev,
     ...fresh,
     sourceLang,
     titleByLocale: mergeLocaleTextMap(prev.titleByLocale, fresh.titleByLocale || {}, 3, sourceLang),
-    descriptionByLocale: mergeLocaleTextMap(prevDescriptions, fresh.descriptionByLocale || {}, 30, sourceLang),
+    descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, fresh.descriptionByLocale || {}, 30, sourceLang),
     slugByLocale: mergeLocaleTextMap(prev.slugByLocale, fresh.slugByLocale || {}, 3),
   };
 
@@ -395,6 +384,6 @@ export function mergePemsaJobRecord(prev, job) {
       sourceTexts: [fresh.description, prev.description],
     }).map;
   }
-  if (relabeled || purgedInvented) merged.needsRetranslation = true;
+  if (relabeled) merged.needsRetranslation = true;
   return merged;
 }

@@ -41,7 +41,9 @@ import {
   isPemsaSwissRelevant,
   buildPemsaLocalizedContent,
   mergePemsaJobRecord,
+  PEMSA_FABRICATED_DESCRIPTION_RE,
 } from './lib/pemsa-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -187,7 +189,10 @@ function jobMatchKey(job = {}) {
 function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const targetExisting = existing.filter(isTargetJob);
+  // Stored records lose the text the crawler side once wrote (the invented
+  // recruitment paragraph, the central company paragraph) and the
+  // translations made from it before they are merged (issue 5253).
+  const targetExisting = dropFabricatedDescriptions(existing.filter(isTargetJob), PEMSA_FABRICATED_DESCRIPTION_RE, 'PEMSA');
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

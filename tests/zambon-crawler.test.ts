@@ -15,7 +15,7 @@ import {
   MIN_DESC_LENGTH,
   extractZambonJobBody,
 } from '@/scripts/lib/zambon-job-parser.mjs';
-import { buildZambonJob, mergeZambonJobs, isZambonInventedDescription } from '@/scripts/update-zambon-jobs.mjs';
+import { buildZambonJob, mergeZambonJobs, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -299,7 +299,7 @@ describe('Zambon source text only (issue 5253)', () => {
     const job = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
     expect(job.sourceLang).toBe('en');
     expect(job.descriptionByLocale).toEqual({ en: job.description });
-    expect(isZambonInventedDescription(job.description)).toBe(false);
+    expect(ZAMBON_FABRICATED_DESCRIPTION_RE.test(job.description)).toBe(false);
   });
 
   it('replaces the stored invented description and drops its translations', () => {
@@ -309,6 +309,19 @@ describe('Zambon source text only (issue 5253)', () => {
     expect(merged.descriptionByLocale).toEqual({ en: fresh.description });
     expect(merged.needsRetranslation).toBe(true);
     expect(merged.slugByLocale.it).toBe('buyer-procurement-indirect-zambon');
+  });
+
+  it('drops the stored invented description when it lives only in the flat field, with its translations (main slice shape)', () => {
+    // The three stored Zambon jobs on main: sourceLang it, no `it` slot, the
+    // invented text in `description` and en/de/fr translated from it.
+    const flatOnly = { ...STORED, descriptionByLocale: { en: STORED.descriptionByLocale.en, de: 'Buyer Procurement Indirekt: Berufsmöglichkeit bei Zambon Switzerland SA.' } };
+    const fresh = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
+    const [merged] = mergeZambonJobs([flatOnly], [fresh]);
+    expect(merged.descriptionByLocale).toEqual({ en: fresh.description });
+    expect(merged.needsRetranslation).toBe(true);
+    expect(mergeZambonJobs([flatOnly], [buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, '')])).toEqual([]);
+    // Pure: the caller's stored record is untouched.
+    expect(flatOnly.description).toBe(STORED_INVENTED);
   });
 
   it('does not publish a job whose page gives no text and whose stored text is invented', () => {
