@@ -1,4 +1,7 @@
 import { inferAnyCanton, isKnownSwissMunicipality, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { resolveSwissLocalityCanton } from './swiss-locality-directory.mjs';
+
+export { resolveSwissLocalityCanton };
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -87,7 +90,7 @@ function titleCaseIfShouting(value) {
  * two identical "Bern" listings. Seed metadata with this value as
  * `workplaceLocation` makes the shared engine publish the workplace.
  */
-export function resolveFederalWorkplaceLocality(rawLocation = '') {
+export function resolveFederalWorkplaceLocality(rawLocation = '', { isPlaced = null } = {}) {
   const decoded = String(rawLocation || '')
     .replace(/<br\s*\/?>/gi, ' / ')
     .replace(/&amp;/gi, '&')
@@ -115,8 +118,12 @@ export function resolveFederalWorkplaceLocality(rawLocation = '') {
     // only when it is a Swiss locality — a known municipality, a place we can
     // put in a canton, or one the source itself pins with a canton marker
     // ("Grolley (FR)", "Zimmerwald BE", former municipalities missing from
-    // the BFS list). Anything else is skipped for the next segment.
-    const placedInSwitzerland = isKnownSwissMunicipality(locality) || Boolean(inferAnyCanton(locality));
+    // the BFS list). Anything else is skipped for the next segment. A caller
+    // that knows more about the posting (the region cantons the portal lists
+    // next to it) may place a locality through `isPlaced`.
+    const placedInSwitzerland = isKnownSwissMunicipality(locality)
+      || Boolean(inferAnyCanton(locality))
+      || Boolean(typeof isPlaced === 'function' && isPlaced(locality));
     if (placedInSwitzerland) return locality;
     if (mentionsAbroad) continue;
     if (federalCantonMarkerAfter(display, trimmed, candidate)) return locality;
@@ -135,4 +142,77 @@ function federalCantonMarkerAfter(display, segment, candidate) {
   const escaped = candidate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const following = display.match(new RegExp(`${escaped}\\s*\\(\\s*([A-Z]{2})\\s*\\)`, 'u'))?.[1];
   return following ? normalizeCantonCode(following) : '';
+}
+
+/**
+ * Cantons a federal `region` facet names: "Ostschweiz (AI, AR, GL, GR, SG,
+ * SH, TG)", "Tessin (TI)"; a posting may carry several regions. The first
+ * code of a group is not the posting's canton — the group only bounds it.
+ */
+export function federalRegionCantons(regions = []) {
+  const cantons = new Set();
+  for (const region of [].concat(regions || [])) {
+    for (const group of String(region || '').matchAll(/\(([^)]*)\)/g)) {
+      for (const code of group[1].split(/[\s,;/]+/)) {
+        if (/^[A-Z]{2}$/.test(code) && normalizeCantonCode(code)) cantons.add(normalizeCantonCode(code));
+      }
+    }
+  }
+  return cantons;
+}
+
+// Label of the workplace fact jobs.admin.ch prints under the title, per page
+// language ("Arbeitsort: Amp-Strasse 12, 9552 Bronschhofen").
+const FEDERAL_WORKPLACE_FACT_LABEL_RE =
+  /^(?:arbeitsort|arbeitsorte|lieu de travail|lieux de travail|luogo di lavoro|luoghi di lavoro|place of work|workplace|work location)$/i;
+
+/** Value of the workplace fact among the page's key facts, or ''. */
+export function federalWorkplaceFactValue(facts = []) {
+  const fact = (Array.isArray(facts) ? facts : [])
+    .find((item) => FEDERAL_WORKPLACE_FACT_LABEL_RE.test(normalizeSpace(item?.label).replace(/:$/, '')));
+  return fact ? normalizeSpace(fact.value) : '';
+}
+
+/**
+ * Street line, CAP and locality of a federal workplace address: "Amp-Strasse
+ * 12, 9552 Bronschhofen", "Places d'armes, 1436 Chamblon", "Schwäbis, 3602
+ * Thun", "3003 Bern". The last segment holding a Swiss CAP and a locality is
+ * the locality; what precedes it is the address line (a street or the site's
+ * name). Null without a CAP — a free-text place is not an address.
+ */
+export function parseFederalWorkplaceAddress(value = '') {
+  const text = normalizeSpace(String(value || '')
+    .replace(/<br\s*\/?>/gi, ', ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&nbsp;/gi, ' '));
+  if (!text) return null;
+  const segments = text.split(/\s*,\s*/).filter(Boolean);
+  for (let index = segments.length - 1; index >= 0; index -= 1) {
+    const match = segments[index].match(/^(?:CH-)?(\d{4})\s+(\p{L}[\p{L}'’. /-]*?)(?:\s*\(([A-Z]{2})\)|\s+([A-Z]{2}))?$/u);
+    if (!match) continue;
+    return {
+      streetAddress: segments.slice(0, index).join(', '),
+      postalCode: match[1],
+      addressLocality: normalizeSpace(match[2]),
+      cantonMarker: normalizeCantonCode(match[3] || match[4] || ''),
+    };
+  }
+  return null;
+}
+
+/**
+ * The workplace address of a federal posting with its canton, or null when
+ * the value is no address or its locality cannot be placed in one canton
+ * (within `cantons` when given). A canton marker the source writes wins.
+ */
+export function resolveFederalWorkplaceAddress(value = '', { cantons = null } = {}) {
+  const parsed = parseFederalWorkplaceAddress(value);
+  if (!parsed) return null;
+  const allowed = cantons && [...cantons].length > 0 ? new Set(cantons) : null;
+  const canton = parsed.cantonMarker
+    ? (!allowed || allowed.has(parsed.cantonMarker) ? parsed.cantonMarker : '')
+    : resolveSwissLocalityCanton(parsed.addressLocality, { postalCode: parsed.postalCode, cantons: allowed });
+  if (!canton) return null;
+  const { cantonMarker, ...address } = parsed;
+  return { ...address, canton };
 }
