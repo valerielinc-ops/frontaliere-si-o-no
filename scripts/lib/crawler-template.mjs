@@ -156,6 +156,8 @@ import {
   markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
+  detectBoilerplateDescriptions,
+  isSystemicBoilerplateFailure,
 } from '../assemble-jobs-dataset.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -842,10 +844,58 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @property {'all'|'empty-only'} [authoritativeSnapshotScope] — Limit source authority to proven empty snapshots; non-empty partial batches keep miss grace
  * @property {Object}   [baseCrawlerOpts]   — Extra options for runDedicatedBaseCrawler
  * @property {(jobs: object[]) => (object[]|void)} [prepareExistingJobs] — Called with this
- *   company's stored jobs right before the merge, only when the fresh fetch is merged.
- *   It may repair them in place or return a replacement array. Used to remove text the
- *   crawler itself once wrote into stored jobs, which the merge would otherwise keep.
+ *   company's stored jobs right before the merge, and on a run that parses no job
+ *   (see `rewritePreparedStoredJobs`). It may repair them in place or return a
+ *   replacement array. Used to remove text the crawler itself once wrote into stored
+ *   jobs, which the merge would otherwise keep.
  */
+
+/**
+ * The zero-job soft exit keeps the stored slice. Text the crawler itself once
+ * wrote into those jobs would then survive for as long as the source stays
+ * empty — a tenant that migrated never returns a job again. So the opt-in
+ * hook runs on the stored jobs here too, and the slice is rewritten only when
+ * the hook changed something: same jobs, same slugs and dates, no retirement,
+ * no stale pruning. A rewrite the slice writer's boilerplate guard would
+ * refuse as systemic is skipped (the prior slice stays, and the next run with
+ * jobs cleans it through the merge), and so is a failed write: the exit stays
+ * a soft one.
+ *
+ * @returns {Promise<boolean>} true when the slice was rewritten.
+ */
+async function rewritePreparedStoredJobs({
+  prepare,
+  storedJobs,
+  companyKey,
+  companyLabel,
+  isCompanyJob,
+  preserveExistingSlugs,
+}) {
+  if (typeof prepare !== 'function' || storedJobs.length === 0) return false;
+  const before = JSON.stringify(storedJobs);
+  const prepared = prepare(storedJobs) || storedJobs;
+  if (JSON.stringify(prepared) === before) return false;
+
+  if (isSystemicBoilerplateFailure(detectBoilerplateDescriptions(prepared, companyKey))) {
+    console.log(
+      `  ⚠️ ${companyLabel}: the stored jobs left without the crawler's own text would trip the slice boilerplate guard; slice not rewritten.`,
+    );
+    return false;
+  }
+  try {
+    await writeJobsCrawlerSliceVerified(companyKey, prepared, {
+      isTargetJob: isCompanyJob,
+      preserveExistingSlugs,
+    });
+  } catch (err) {
+    console.warn(
+      `  ⚠️ ${companyLabel}: rewrite of the stored jobs failed (${err?.message || err}); keeping the prior slice.`,
+    );
+    return false;
+  }
+  console.log(`  🧹 ${companyLabel}: stored slice rewritten without the crawler's own text (${prepared.length} job(s), nothing else changed).`);
+  return true;
+}
 
 /**
  * Evaluate the opt-in authoritative-snapshot contract. A zero may be
@@ -1129,6 +1179,14 @@ export async function runStandardCrawlerPipeline(config) {
   if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
     counts.abortKind = 'no-jobs-parsed';
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);
+    await rewritePreparedStoredJobs({
+      prepare: prepareExistingJobs,
+      storedJobs: companyExisting,
+      companyKey,
+      companyLabel,
+      isCompanyJob,
+      preserveExistingSlugs,
+    });
     return;
   }
 
