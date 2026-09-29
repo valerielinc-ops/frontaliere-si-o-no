@@ -90656,6 +90656,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-soletta-avvio-impresa-obblighi': {
+    title: 'Aprire un\'attività nel Canton Soletta: costi | Frontaliere Ticino',
+    description: 'Guida pratica ai costi per aprire un\'attività nel Canton Soletta: registro di commercio, imposte, capitale, contributi sociali e LAMal. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, soletta',
+    ogTitle: 'Aprire un\'attività nel Canton Soletta',
+    ogDescription: 'Forma giuridica, registro di commercio, tasse di iscrizione, imposte e assicurazioni: come organizzare il budget per avviare un\'attività nel Canton Soletta senza confondere costi amministrativi, fiscalità e contributi sociali.',
+    canonicalPath: '/articoli-svizzera/soletta-avvio-impresa-obblighi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Canton Soletta: costi",
+      "description": "Guida pratica ai costi per aprire un'attività nel Canton Soletta: registro di commercio, imposte, capitale, contributi sociali e LAMal. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soletta-avvio-impresa-obblighi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imprenditore esamina documenti e costi per avviare un'attività in Svizzera"
+      },
+      "datePublished": "2026-09-29T04:29:06+00:00",
+      "dateModified": "2026-09-29T04:29:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soletta-avvio-impresa-obblighi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

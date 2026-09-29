@@ -6992,6 +6992,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-iniziativa-neutralita-grigioni.title': 'Neutrality initiative: how the Grisons voted',
     'blog.article.voto-iniziativa-neutralita-grigioni.excerpt': 'Fifteen municipalities in Graubünden approved the neutrality initiative. Contrary to the national 70,2% no vote, the yes vote reached 67% in Santa Maria.',
     'blog.article.voto-iniziativa-neutralita-grigioni.imageAlt': 'Swiss flag waving with mountain landscape in the background',
+    'blog.article.soletta-avvio-impresa-obblighi.title': 'Opening a business in the canton of Solothurn: costs',
+    'blog.article.soletta-avvio-impresa-obblighi.excerpt': 'Legal form, trade register, taxes and insurance: the items to be examined to start a business in the canton of Solothurn.',
+    'blog.article.soletta-avvio-impresa-obblighi.imageAlt': 'Entrepreneur reviews documents and costs for starting a business in Switzerland',
 };
 
 export default blogMetaChEn;

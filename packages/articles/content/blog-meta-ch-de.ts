@@ -6992,6 +6992,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-iniziativa-neutralita-grigioni.title': 'Neutralitätsinitiative: So stimmten die Bündner ab',
     'blog.article.voto-iniziativa-neutralita-grigioni.excerpt': 'Fünfzehn Bündner Gemeinden haben die Initiative zur Neutralität angenommen. Im Gegensatz zum nationalen Nein-Anteil von 70,2% erreichte das Ja in Santa Maria 67%.',
     'blog.article.voto-iniziativa-neutralita-grigioni.imageAlt': 'Schweizer Flagge weht mit Berglandschaft im Hintergrund',
+    'blog.article.soletta-avvio-impresa-obblighi.title': 'Geschäft im Kanton Solothurn eröffnen: Kosten',
+    'blog.article.soletta-avvio-impresa-obblighi.excerpt': 'Rechtsform, Handelsregister, Steuern und Versicherungen: die zu prüfenden Posten für die Unternehmensgründung im Kanton Solothurn.',
+    'blog.article.soletta-avvio-impresa-obblighi.imageAlt': 'Unternehmer prüft Unterlagen und Kosten für eine Firmengründung in der Schweiz',
 };
 
 export default blogMetaChDe;
