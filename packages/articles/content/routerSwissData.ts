@@ -2390,6 +2390,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'soletta-successione-donazione-aliquote': { it: 'soletta-successione-donazione-aliquote', en: 'solothurn-inheritance-donation-rates', de: 'solothurn-erbschaft-schenkung-saetze', fr: 'soleure-heritage-donation-taux' },
  'sresi-prezzi-lugano-2026': { it: 'sresi-prezzi-lugano-2026', en: 'swiss-real-estate-confidence-lugano', de: 'immobilien-vertrauen-lugano-schweiz', fr: 'confiance-immobiliere-lugano-suisse' },
  'groupe-e-riorganizzazione-friburgo': { it: 'groupe-e-riorganizzazione-friburgo', en: 'groupe-e-restructuring-fribourg', de: 'groupe-e-umstrukturierung-freiburg', fr: 'groupe-e-reorganisation-fribourg' },
+ 'parlamento-sonno-power-nap': { it: 'parlamento-sonno-power-nap', en: 'parliament-sleep-power-nap', de: 'parlament-schlaf-power-nap', fr: 'parlement-sommeil-power-nap' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
