@@ -7,6 +7,7 @@ import {
   isSrgSsrJob,
   isTrustedDomain,
   extractSrgSsrRenderedDescription,
+  srgSsrBenefitsText,
 } from '../scripts/lib/srg-ssr-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -151,6 +152,19 @@ describe('SRG SSR crawler parser', () => {
 
     it('keeps the line structure of the source instead of one flat paragraph', () => {
       expect(text).toContain('Ti discurras in idiom rumantsch e sas era scriver rumantsch\nTi has almain');
+    });
+
+    it('closes with the offer block, each benefit once (not again from the SVG tooltip)', () => {
+      expect(text).toMatch(/\n## Nossa purschida\nTge dovri per cuntanscher/);
+      for (const title of ['Far medias', 'Concepir la digitalisaziun', 'Esser uman', 'Crear senn']) {
+        expect(text).toContain(`\n- ${title}: `);
+      }
+      expect(text.match(/Schurnalissem da qualitad è nossa fatschenta principala/g)).toHaveLength(1);
+      expect(text.indexOf('## Nossa purschida')).toBeGreaterThan(text.indexOf('## Per infurmaziun'));
+    });
+
+    it('reads no benefits from a page without the offer section', () => {
+      expect(srgSsrBenefitsText('<section id="introduction"><p>x</p></section>')).toBe('');
     });
 
     it('leaves out contact, slogan quote and other sections', () => {
