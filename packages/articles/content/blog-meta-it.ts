@@ -12241,6 +12241,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-ponti-gallerie-controllo-2026.title': 'Lombardia: 230.640 euro per ponti e gallerie nel Varesotto',
     'blog.article.varese-ponti-gallerie-controllo-2026.excerpt': 'Regione Lombardia destina 230.640 euro alla Provincia di Varese per controlli su ponti, viadotti e gallerie, da completare entro il 30 novembre 2028 con rendicontazione finale entro il 15 dicembre 2028.',
     'blog.article.varese-ponti-gallerie-controllo-2026.imageAlt': 'Vista del lago di Lugano con le montagne sullo sfondo e un segnale di confine stradale in primo piano',
+    'blog.article.centro-ovale-chiasso-nuova-proprieta.title': 'Centro Ovale Chiasso: nuova proprietà e fine Ellipticum',
+    'blog.article.centro-ovale-chiasso-nuova-proprieta.excerpt': 'Dopo il fallimento del progetto Ellipticum il 9 settembre, il Centro Ovale di Chiasso passa a una multinazionale della moda, destinazione ancora incerta.',
+    'blog.article.centro-ovale-chiasso-nuova-proprieta.imageAlt': 'Centro Ovale di Chiasso all\'entrata della dogana',
 };
 
 export default blogMetaIt;

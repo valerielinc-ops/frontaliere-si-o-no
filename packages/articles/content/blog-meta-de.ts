@@ -12239,6 +12239,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-ponti-gallerie-controllo-2026.title': 'Lombardei: 230.640 Euro für Brücken und Tunnel im Varese',
     'blog.article.varese-ponti-gallerie-controllo-2026.excerpt': 'Die Region Lombardei weist der Provinz Varese 230.640 Euro für Kontrollen an Brücken, Viadukten und Tunneln zu, die bis zum 30. November 2028 abgeschlossen sein müssen, mit abschließender Abrechnung bis zum 15. Dezember 2028.',
     'blog.article.varese-ponti-gallerie-controllo-2026.imageAlt': 'Blick auf den Luganer See mit den Alpen im Hintergrund und einem Grenzstraßenschild im Vordergrund',
+    'blog.article.centro-ovale-chiasso-nuova-proprieta.title': 'Centro Ovale Chiasso: neuer Eigentümer und Ende von Ellipticum',
+    'blog.article.centro-ovale-chiasso-nuova-proprieta.excerpt': 'Nach dem Scheitern des Ellipticum-Projekts am 9. September wechselt das Centro Ovale di Chiasso zu einem multinationalen Modekonzern, dessen Ziel noch ungewiss ist.',
+    'blog.article.centro-ovale-chiasso-nuova-proprieta.imageAlt': 'Centro Ovale in Chiasso am Grenzübergang',
 };
 
 export default blogMetaDe;
