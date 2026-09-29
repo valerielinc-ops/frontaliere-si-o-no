@@ -507,7 +507,7 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
     const buildIndex = steps.indexOf(stepByName('Build (BUILD_LOCALE=${{ matrix.locale }})'));
     const restoreIndex = steps.indexOf(restore);
     const stashIndex = steps.indexOf(stash);
-    expect(restore.uses).toBe('actions/cache/restore@v5');
+    expect(restore.uses).toBe('actions/cache/restore@v6');
     expect(restore.with).toMatchObject({
       path: '.cache/incremental-manifest',
       key: 'incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}',
@@ -519,7 +519,7 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
     expect(stashIndex).toBeLessThan(buildIndex);
 
     const save = stepByName('Save incremental manifest cache');
-    expect(save.uses).toBe('actions/cache/save@v5');
+    expect(save.uses).toBe('actions/cache/save@v6');
     expect(save.if).toContain('always()');
     expect(save.with).toMatchObject({
       path: '.cache/incremental-manifest',

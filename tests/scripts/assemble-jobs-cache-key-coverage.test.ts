@@ -170,8 +170,8 @@ describe('workflows key the assemble-jobs cache on the assembler fingerprint', (
   for (const wf of SEND) {
     it(`${wf}: restore + save of its own entry, no restore-keys, save only after a finished assembly`, () => {
       const src = readWf(wf);
-      expect(src).toContain('uses: actions/cache/restore@v5');
-      expect(src).toContain('uses: actions/cache/save@v5');
+      expect(src).toContain('uses: actions/cache/restore@v6');
+      expect(src).toContain('uses: actions/cache/save@v6');
       expect(src.match(/key: assemble-jobs-send-[^\n]+/g) ?? []).toHaveLength(2);
       // A prefix fallback would restore another fingerprint's directory: the
       // script would MISS anyway after a 70 MB download.

@@ -310,7 +310,7 @@ describe('generate() — shared install step reflects per-crawler prep requireme
       expect(restore).toMatchObject({
         name: 'Restore per-company translation cache',
         'continue-on-error': true,
-        uses: 'actions/cache/restore@v5',
+        uses: 'actions/cache/restore@v6',
         with: {
           path: 'data/translation-cache',
           key: `translation-cache-v1-${cacheNamespace}-\${{ github.run_id }}-\${{ github.run_attempt }}`,
@@ -327,7 +327,7 @@ describe('generate() — shared install step reflects per-crawler prep requireme
       expect(job.steps[saveIndex]).toMatchObject({
         if: "always() && steps.crawler_group_setup.outcome == 'success'",
         'continue-on-error': true,
-        uses: 'actions/cache/save@v5',
+        uses: 'actions/cache/save@v6',
         with: {
           path: 'data/translation-cache',
           key: `translation-cache-v1-${cacheNamespace}-\${{ github.run_id }}-\${{ github.run_attempt }}`,
@@ -1098,13 +1098,13 @@ describe('#6381 — crawler AI cache lives outside git', () => {
       expect(job.env.AI_CACHE_PATH).toBe('.cache/jobs-ai-cache.json');
 
       const restore = job.steps.find((step: any) => step.name === 'Restore crawler AI cache');
-      expect(restore).toMatchObject({ uses: 'actions/cache/restore@v5', 'continue-on-error': true });
+      expect(restore).toMatchObject({ uses: 'actions/cache/restore@v6', 'continue-on-error': true });
       expect(restore.with.path).toBe('.cache/jobs-ai-cache.json');
       expect(restore.with.key).toContain('jobs-ai-cache-v1-crawler-group-01-');
       expect(restore.with['restore-keys']).toContain('jobs-ai-cache-v1-crawler-group-01-');
 
       const save = job.steps.find((step: any) => step.name === 'Save crawler AI cache');
-      expect(save).toMatchObject({ uses: 'actions/cache/save@v5', 'continue-on-error': true });
+      expect(save).toMatchObject({ uses: 'actions/cache/save@v6', 'continue-on-error': true });
       expect(save.with.path).toBe('.cache/jobs-ai-cache.json');
       expect(save.with.key).toBe(restore.with.key);
       expect(save.if).toContain("hashFiles('.cache/jobs-ai-cache.json')");

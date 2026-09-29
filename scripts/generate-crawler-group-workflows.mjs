@@ -184,7 +184,7 @@ function restoreCrawlerAiCacheStep(groupName) {
     name: 'Restore crawler AI cache',
     id: 'restore_crawler_ai_cache',
     'continue-on-error': true,
-    uses: 'actions/cache/restore@v5',
+    uses: 'actions/cache/restore@v6',
     with: {
       path: CRAWLER_AI_CACHE_PATH,
       key: crawlerAiCacheKey(groupName),
@@ -198,7 +198,7 @@ function saveCrawlerAiCacheStep(groupName) {
     name: 'Save crawler AI cache',
     if: `always() && hashFiles('${CRAWLER_AI_CACHE_PATH}') != ''`,
     'continue-on-error': true,
-    uses: 'actions/cache/save@v5',
+    uses: 'actions/cache/save@v6',
     with: {
       path: CRAWLER_AI_CACHE_PATH,
       key: crawlerAiCacheKey(groupName),
@@ -221,7 +221,7 @@ function translationCacheRestoreStep(cacheNamespace) {
     name: 'Restore per-company translation cache',
     id: 'translation_cache_restore',
     'continue-on-error': true,
-    uses: 'actions/cache/restore@v5',
+    uses: 'actions/cache/restore@v6',
     with: {
       path: TRANSLATION_CACHE_PATH,
       key: translationCacheKey(cacheNamespace),
@@ -255,7 +255,7 @@ function translationCacheSaveStep(ifExpression, cacheNamespace) {
     name: 'Save per-company translation cache',
     if: ifExpression,
     'continue-on-error': true,
-    uses: 'actions/cache/save@v5',
+    uses: 'actions/cache/save@v6',
     with: {
       path: TRANSLATION_CACHE_PATH,
       key: translationCacheKey(cacheNamespace),
@@ -2404,7 +2404,10 @@ function normalizedContractStep(step, side, fileName, members) {
     return copy;
   }
 
-  const composite = /^valerielinc-ops\/frontaliere-si-o-no\/(\.github\/actions\/[^@]+)@main$/.exec(copy?.uses ?? '');
+  // Accept both the historical `@main` references and immutable pins. The
+  // generated corpus workflow must execute the local copy regardless of how
+  // the site references its own composite action.
+  const composite = /^valerielinc-ops\/frontaliere-si-o-no\/(\.github\/actions\/[^@]+)@[^\s]+$/.exec(copy?.uses ?? '');
   if (composite) copy.uses = `./${composite[1]}`;
   return isCrawlerLaunchStep(copy) ? normalizedCrawlerStep(copy) : copy;
 }
@@ -2628,7 +2631,7 @@ export function buildStandaloneCrossRepoWorkflow({
       }
     }
     if (typeof step?.uses !== 'string') continue;
-    const match = /^valerielinc-ops\/frontaliere-si-o-no\/(\.github\/actions\/[^@]+)@main$/.exec(step.uses);
+    const match = /^valerielinc-ops\/frontaliere-si-o-no\/(\.github\/actions\/[^@]+)@[^\s]+$/.exec(step.uses);
     if (match) step.uses = `./${match[1]}`;
     if (step.uses === './.github/actions/report-failure') {
       if (diagnosticReporter) {

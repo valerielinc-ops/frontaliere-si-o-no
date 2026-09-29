@@ -523,7 +523,7 @@ describe('border-live-data-watchdog.yml — state carry outside git (issue #7376
   );
 
   it('restores the state file from cache BEFORE the health check reads it', () => {
-    const restore = YML.indexOf('actions/cache/restore@v5');
+    const restore = YML.indexOf('actions/cache/restore@v6');
     const health = YML.indexOf('npx --no-install tsx scripts/check-border-data-health.mjs');
     expect(restore).toBeGreaterThan(-1);
     expect(health).toBeGreaterThan(restore);
