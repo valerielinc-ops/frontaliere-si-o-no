@@ -32,11 +32,11 @@ function posthogPageViews() {
 }
 
 function firebasePageViews() {
- return firebaseLog.mock.calls.filter(([, eventName]) => eventName === 'page_view');
+  return firebaseLog.mock.calls.filter(([, eventName]) => eventName === 'page_view');
 }
 
 function firebaseEvents(eventName: string) {
- return firebaseLog.mock.calls.filter(([, loggedEventName]) => loggedEventName === eventName);
+  return firebaseLog.mock.calls.filter(([, loggedEventName]) => loggedEventName === eventName);
 }
 
 async function waitForProviders(expected: number): Promise<void> {
