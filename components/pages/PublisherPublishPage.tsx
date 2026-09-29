@@ -1527,7 +1527,6 @@ const PublisherPublishPage: React.FC = () => {
  </div>
  )}
 
- {tier !== 'free' && (
  <button
  type="button"
  onClick={handlePrepaidCheckout}
@@ -1541,7 +1540,6 @@ const PublisherPublishPage: React.FC = () => {
  )}
  {t('publisher.payFirst.payCta')}
  </button>
- )}
  {/* Escape hatch: a publisher with active credits who opened this step
  via "Buy more locations" can go back to the authoring form without
  paying again (manualPlanPhase is never reset elsewhere). */}

@@ -53,8 +53,8 @@ const TAG = '[lint-gha-node-runtime]';
  * stale map never produces a false failure — only a nudge to update the map.
  */
 const NODE_RUNTIME_BY_ACTION = {
-  'actions/checkout': { 1: 12, 2: 12, 3: 16, 4: 20, 5: 24 },
-  'actions/setup-node': { 1: 12, 2: 12, 3: 16, 4: 20, 5: 24 },
+  'actions/checkout': { 1: 12, 2: 12, 3: 16, 4: 20, 5: 24, 6: 24, 7: 24 },
+  'actions/setup-node': { 1: 12, 2: 12, 3: 16, 4: 20, 5: 24, 6: 24, 7: 24 },
   'actions/cache': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24, 6: 24 },
   // Sub-actions of actions/cache; same repo, same major → same runtime.
   'actions/cache/restore': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24, 6: 24 },

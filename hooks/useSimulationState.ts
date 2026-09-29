@@ -97,7 +97,7 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  // latency in PostHog and capture users who abort mid-calculation.
  Analytics.trackFunnelStep('simulation_start', {
  funnel: 'calculator',
- worker_type: inputs.workerType,
+ worker_type: inputs.frontierWorkerType.toLowerCase(),
  });
  }
  const { calculateSimulation } = await lazyCalculate();
@@ -114,18 +114,18 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  // events tied to an explicit calculation so `generate_lead` and
  // `simulation_complete` reflect a real user action.
  Analytics.trackCalculation(
- inputs.workerType,
- inputs.grossSalary,
- inputs.hasChildren
+ inputs.frontierWorkerType.toLowerCase() as 'old' | 'new',
+ inputs.annualIncomeCHF,
+ inputs.children > 0
  );
  Analytics.trackFunnelStep('calculate', {
  funnel: 'calculator',
- worker_type: inputs.workerType,
+ worker_type: inputs.frontierWorkerType.toLowerCase(),
  });
  Analytics.trackFunnelStep('simulation_complete', {
   funnel: 'calculator',
-  worker_type: inputs.workerType,
-  has_children: inputs.hasChildren,
+  worker_type: inputs.frontierWorkerType.toLowerCase(),
+  has_children: inputs.children > 0,
  });
   Analytics.trackDecisionMomentCompleted('calculator', 'simulation');
  }

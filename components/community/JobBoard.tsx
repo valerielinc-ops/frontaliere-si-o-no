@@ -160,6 +160,7 @@ import { suggestSimilarTerms } from '@/services/search/fuzzySearchSuggestions';
 import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
 import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugEntriesLoaded, isJobSlugReady, preloadBlogData, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import type { BlogArticleId } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
@@ -480,6 +481,7 @@ export interface JobListing {
  companyDomain?: string;
  /** Publisher-provided logo URL (https-only, projected from the publish form). */
  companyLogo?: string | null;
+ qualityScore?: number;
  /** Markdown description (sponsored publisher ads only). */
  descriptionMd?: string | null;
  sector?: string;
@@ -763,7 +765,7 @@ function buildReferralUrl(job: JobListing): string {
  }
 }
 
-function companyLogoUrl(job: JobListing): string | null {
+function companyLogoUrl(job: Pick<JobListing, 'company' | 'companyKey' | 'companyDomain' | 'url' | 'companyLogo'>): string | null {
  const explicitLogo = resolveCompanyLogoUrl({
  company: job.company,
  companyKey: job.companyKey,
@@ -2776,7 +2778,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const savedJobIds = useMemo(() => new Set(savedJobs.map((entry) => entry.id)), [savedJobs]);
 
- const performToggleSave = useCallback((job: JobListing, surface: 'list' | 'detail', uid: string) => {
+ const performToggleSave = useCallback((job: JobListing, surface: SaveJobSurface, uid: string) => {
  const result = toggleSavedJob({
  id: job.id,
  slug: job.slug ?? null,
@@ -5794,7 +5796,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  })
  .sort((a, b) => (b.score !== a.score ? b.score - a.score : b.freshness - a.freshness))
  .slice(0, 6)
- .map((x) => x.job);
+ .map((x) => {
+ const job = x.job;
+ return {
+ slug: job.slug!,
+ title: job.title,
+ titleByLocale: job.titleByLocale,
+ company: job.company,
+ companyKey: job.companyKey,
+ companyDomain: job.companyDomain,
+ url: job.url,
+ location: job.location,
+ canton: job.canton,
+ contract: job.contract,
+ postedDate: job.postedDate,
+ crawledAt: job.crawledAt,
+ salaryMin: job.salaryMin,
+ salaryMax: job.salaryMax,
+ currency: job.currency,
+ featured: job.featured,
+ };
+ });
  }, [expiredJob, sortedJobs]);
 
  // Load blog meta translations + articles data for cross-linking (only when job selected).
@@ -10747,8 +10769,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {relatedArticles.map((article) => (
  <a
  key={article.id}
- href={buildPath({ activeTab: 'blog', blogArticle: article.id })}
- onClick={(e) => { e.preventDefault(); nav.navigateTo('blog', article.id); }}
+ href={buildPath({ activeTab: 'blog', blogArticle: article.id as BlogArticleId })}
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('blog', article.id as BlogArticleId); }}
  className="text-left rounded-xl border border-success-border p-3 bg-success-subtle/60 hover:bg-success-subtle transition-colors"
  >
  <div className="flex items-start gap-3">

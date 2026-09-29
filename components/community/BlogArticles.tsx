@@ -1935,9 +1935,9 @@ function BlogArticles({
  }
  };
 
- const handleArticleClick = (articleId: BlogArticleId) => {
+ const handleArticleClick = (articleId: string) => {
  if (onSelectArticle) {
- onSelectArticle(articleId);
+ onSelectArticle(articleId as BlogArticleId);
  }
  };
 
@@ -1947,11 +1947,11 @@ function BlogArticles({
  }
  };
 
- const getArticleUrl = (articleId: BlogArticleId): string => {
+ const getArticleUrl = (articleId: string): string => {
  return `https://frontaliereticino.ch${buildPath(buildArticleRoute(articleId))}`;
  };
 
- const handleCopyLink = async (articleId: BlogArticleId) => {
+ const handleCopyLink = async (articleId: string) => {
  const url = getArticleUrl(articleId);
  try {
  await navigator.clipboard.writeText(url);
@@ -1970,7 +1970,7 @@ function BlogArticles({
  Analytics.trackShare('copy_link', 'blog_article', articleId);
  };
 
- const handleWhatsAppShare = (articleId: BlogArticleId) => {
+ const handleWhatsAppShare = (articleId: string) => {
  const title = t(`blog.article.${articleId}.title`);
  const url = getArticleUrl(articleId);
  const text = `${title} → ${url}`;
@@ -1978,40 +1978,40 @@ function BlogArticles({
  Analytics.trackShare('whatsapp', 'blog_article', articleId);
  };
 
- const handleTwitterShare = (articleId: BlogArticleId) => {
+ const handleTwitterShare = (articleId: string) => {
  const title = t(`blog.article.${articleId}.title`);
  const url = getArticleUrl(articleId);
  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
  Analytics.trackShare('twitter', 'blog_article', articleId);
  };
 
- const handleFacebookShare = (articleId: BlogArticleId) => {
+ const handleFacebookShare = (articleId: string) => {
  const url = getArticleUrl(articleId);
  window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
  Analytics.trackShare('facebook', 'blog_article', articleId);
  };
 
- const handleTelegramShare = (articleId: BlogArticleId) => {
+ const handleTelegramShare = (articleId: string) => {
  const title = t(`blog.article.${articleId}.title`);
  const url = getArticleUrl(articleId);
  window.open(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`, '_blank', 'noopener,noreferrer');
  Analytics.trackShare('telegram', 'blog_article', articleId);
  };
 
- const handleLinkedInShare = (articleId: BlogArticleId) => {
+ const handleLinkedInShare = (articleId: string) => {
  const url = getArticleUrl(articleId);
  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
  Analytics.trackShare('linkedin', 'blog_article', articleId);
  };
 
- const handleEmailShare = (articleId: BlogArticleId) => {
+ const handleEmailShare = (articleId: string) => {
  const title = t(`blog.article.${articleId}.title`);
  const url = getArticleUrl(articleId);
  window.open(`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`${title}\n\n${url}`)}`, '_self');
  Analytics.trackShare('email', 'blog_article', articleId);
  };
 
- const handleNativeShare = async (articleId: BlogArticleId) => {
+ const handleNativeShare = async (articleId: string) => {
  const title = t(`blog.article.${articleId}.title`);
  const url = getArticleUrl(articleId);
  try {
@@ -2022,7 +2022,7 @@ function BlogArticles({
  }
  };
 
- const toggleBookmark = (articleId: BlogArticleId) => {
+ const toggleBookmark = (articleId: string) => {
  setSavedArticles(prev => {
  const next = new Set(prev);
  if (next.has(articleId)) next.delete(articleId);
@@ -2082,7 +2082,7 @@ function BlogArticles({
  // because the registry alone answers a per-article question with a
  // per-author property — see services/articleProvenance.ts.
  const bylineAuthor = effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined;
- const isHumanContributor = !resolveArticleProvenance(article, bylineAuthor).aiAssisted;
+ const isHumanContributor = !resolveArticleProvenance(article as Article & { aiAssisted?: boolean }, bylineAuthor).aiAssisted;
 
  // Wait for article body translations to load
  if (!bodyReady) {

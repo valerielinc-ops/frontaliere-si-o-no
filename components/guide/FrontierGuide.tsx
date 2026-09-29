@@ -231,7 +231,7 @@ interface FrontierGuideProps {
  activeSection?: string;
 }
 
-type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment' | 'first-day' | 'car-transfer' | 'quiz';
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment' | 'first-day' | 'car-transfer' | 'quiz' | 'glossary' | 'faq';
 
 interface MunicipalityDetailPanelProps {
  municipality: Municipality;
