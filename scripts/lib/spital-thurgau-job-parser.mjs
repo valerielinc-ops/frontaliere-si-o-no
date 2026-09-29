@@ -19,7 +19,9 @@
  *
  * Detail/Apply URLs point to the Umantis tenant `rekrutierung.stgag.ch`
  * (private subdomain CNAME for an Umantis recruiting app — same vendor as
- * KSA, but tenant ID is hidden behind the public hostname).
+ * KSA, but tenant ID is hidden behind the public hostname). The embedded JSON
+ * has no body, so each job's description is read from its detail page
+ * (`extractStgagDetailDescription`), with the listing metadata appended.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllSpitalThurgauJobs()  — Fetch and parse all jobs
@@ -28,7 +30,7 @@
  *   - SPITAL_THURGAU_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { slugify, normalizeSpace } from './crawler-template.mjs';
+import { slugify, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripHtml } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -38,6 +40,8 @@ export const SPITAL_THURGAU_COMPANY_NAME = 'Spital Thurgau (STGAG)';
 export const SPITAL_THURGAU_COMPANY_DOMAIN = 'stgag.ch';
 
 const LISTING_URL = 'https://www.stgag.ch/jobs/';
+/** Pause between detail requests: one Umantis tenant, ~160 vacancies. */
+const DETAIL_DELAY_MS = 200;
 const PUBLIC_CAREER_URL = 'https://www.stgag.ch/karriere/bildung-karriere/';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
@@ -212,6 +216,93 @@ export function parseStgagEmbeddedJson(html = '') {
   return assertJsonListShape(outer, { key: 'jobs', source: 'spital-thurgau' });
 }
 
+/* ── Detail-page body ─────────────────────────────────────── */
+
+/**
+ * Inner HTML of the first element matched by `openTagRx`, balanced on its own
+ * tag name so nested elements of the same kind do not end it early.
+ */
+function elementInner(html, openTagRx) {
+  const open = openTagRx.exec(html);
+  if (!open) return '';
+  const tag = open[0].match(/^<\s*([a-z0-9]+)/i)?.[1]?.toLowerCase();
+  if (!tag) return '';
+  const start = open.index + open[0].length;
+  const tagRx = new RegExp(`<\\s*(\\/?)\\s*${tag}\\b[^>]*>`, 'gi');
+  tagRx.lastIndex = start;
+  let depth = 1;
+  let m;
+  while ((m = tagRx.exec(html))) {
+    depth += m[1] ? -1 : 1;
+    if (depth === 0) return html.slice(start, m.index);
+  }
+  return html.slice(start);
+}
+
+function blockText(fragment = '') {
+  // The tenant's templates carry CRLF line ends inside the markup.
+  // `stripHtml` closes each `<li>` with its own newline: keep a list tight.
+  return normalizeDescriptionSpace(stripHtml(fragment).replace(/\r\n?/g, '\n'))
+    .replace(/\n{2,}(?=• )/g, '\n');
+}
+
+/** The employer paragraph without award images, QR code and job-board link. */
+function employerParagraph(fragment = '') {
+  return blockText(fragment
+    .replace(/<div\b[^>]*class="[^"]*\bimageWrapper\b[\s\S]*$/i, '')
+    .replace(/<a\b[^>]*>[\s\S]*?<\/a\s*>/gi, ' '));
+}
+
+/**
+ * The vacancy body of a `rekrutierung.stgag.ch` detail page.
+ *
+ * STGAG's Umantis tenant renders the whole ad server-side, in one of two
+ * templates (both seen on the live board, 2026-09-29):
+ *
+ *   - current: `<article class="articleBody">` with `#jobIntroOne`,
+ *     `#jobIntroTwo`, `.jobDescription` / `.profileDescription` lists and the
+ *     employer paragraph in `#ueberUns`;
+ *   - older: `<div id="Job">` intro, `<main><section class="l-row">` with the
+ *     task/profile lists, and the employer paragraph in `#Uns`.
+ *
+ * The benefits grid (script-filled, or a string of benefit codes in the
+ * older template), the contact card, the map and the share bar are not read. Returns '' when neither template is there, and the caller
+ * keeps the listing metadata.
+ *
+ * @param {string} html
+ * @returns {string} plain text, sections separated by a blank line, list items as `• `
+ */
+export function extractStgagDetailDescription(html = '') {
+  const page = String(html || '')
+    .replace(/<script\b[\s\S]*?<\/script\s*>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style\s*>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ');
+  const sections = [];
+  const push = (text) => { if (text) sections.push(text); };
+
+  const article = elementInner(page, /<article\b[^>]*class="[^"]*\barticleBody\b[^"]*"[^>]*>/i);
+  if (article) {
+    // The intro sentence often ends on «eine/n» and continues with the title
+    // block, so the title and workload stay in reading order.
+    push(blockText(elementInner(article, /<div\b[^>]*id="jobIntroOne"[^>]*>/i)));
+    push(blockText(elementInner(article, /<div\b[^>]*class="[^"]*\bjobTitleContainer\b[^"]*"[^>]*>/i)));
+    push(blockText(elementInner(article, /<div\b[^>]*id="jobIntroTwo"[^>]*>/i)));
+    const lists = ['jobDescription', 'profileDescription']
+      .map((cls) => blockText(elementInner(article, new RegExp(`<div\\b[^>]*class="[^"]*\\b${cls}\\b[^"]*"[^>]*>`, 'i'))));
+    if (!lists.some(Boolean)) return '';
+    lists.forEach(push);
+    push(employerParagraph(elementInner(article, /<section\b[^>]*id="ueberUns"[^>]*>/i)));
+    return sections.join('\n\n').trim();
+  }
+
+  const lists = blockText(elementInner(page, /<section\b[^>]*class="l-row"[^>]*>/i));
+  if (!lists) return '';
+  push(blockText(elementInner(page, /<div\b[^>]*id="Job"[^>]*>/i)));
+  push(lists);
+  push(employerParagraph(elementInner(page, /<div\b[^>]*id="Uns"[^>]*>/i)));
+  return sections.join('\n\n').trim();
+}
+
 /* ── HTTP Fetch ───────────────────────────────────────────── */
 
 async function fetchPage(url) {
@@ -259,6 +350,7 @@ export async function fetchAllSpitalThurgauJobs() {
 
   const jobs = [];
   const seen = new Set();
+  let detailHits = 0;
   for (const rec of records) {
     if (rec?.type && rec.type !== 'job') continue;
     const id = String(rec?.id || '').trim();
@@ -289,9 +381,23 @@ export async function fetchAllSpitalThurgauJobs() {
     if (employment) descBits.push(`• Pensum: ${employment}`);
     if (contractType) descBits.push(`• Anstellungsverhältnis: ${contractType}`);
     if (rec?.startDate) descBits.push(`• Eintrittsdatum: ${rec.startDate}`);
-    const descriptionText = descBits.length
-      ? `${title} — ${SPITAL_THURGAU_COMPANY_NAME}.\n\n${descBits.join('\n')}`
-      : `${title} — ${SPITAL_THURGAU_COMPANY_NAME}, ${city}`;
+    // The listing JSON carries metadata only; the ad itself (tasks, profile,
+    // employer paragraph) lives on the Umantis detail page. Without it every
+    // job published ~250 chars of Standort/Abteilung/Pensum (issue 5253).
+    let detailBody = '';
+    try {
+      detailBody = extractStgagDetailDescription(await fetchPage(detailUrl));
+    } catch (err) {
+      console.warn(`  ⚠️ detail ${id}: ${err?.message || err} — keeping listing metadata`);
+    }
+    await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+    if (detailBody) detailHits++;
+    const metadata = descBits.join('\n');
+    const descriptionText = normalizeDescriptionBullets(detailBody
+      ? [detailBody, metadata].filter(Boolean).join('\n\n')
+      : (descBits.length
+        ? `${title} — ${SPITAL_THURGAU_COMPANY_NAME}.\n\n${metadata}`
+        : `${title} — ${SPITAL_THURGAU_COMPANY_NAME}, ${city}`));
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} stgag ch`);
@@ -345,6 +451,6 @@ export async function fetchAllSpitalThurgauJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${SPITAL_THURGAU_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total ${SPITAL_THURGAU_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with the detail-page body)`);
   return jobs;
 }

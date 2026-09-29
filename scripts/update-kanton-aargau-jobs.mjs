@@ -2,9 +2,11 @@
 /**
  * Dedicated Kanton Aargau crawler runner.
  *
- * Uses the standard crawler template with the Kanton Aargau parser
- * (Umantis ATS, tenant 12705 — see lib/kanton-aargau-job-parser.mjs header
- * for the ATS-discovery correction and pagination details).
+ * Uses the standard crawler template with the Kanton Aargau parser, which
+ * reads the canton's job market (the ag.ch jobs-proxy API plus each
+ * vacancy's jobs.ag.ch page — see lib/kanton-aargau-job-parser.mjs header
+ * for why the Umantis back office was dropped). A partial API answer or an
+ * unreadable vacancy page fails the run, so the existing slice is kept.
  * All fetch/parse logic lives in ./lib/kanton-aargau-job-parser.mjs.
  */
 import path from 'node:path';

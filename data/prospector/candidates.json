@@ -103283,12 +103283,12 @@
     },
     "bellevue-parkhotel.ch": {
       "key": "bellevue-parkhotel.ch",
-      "status": "production",
+      "status": "rejected",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-18T08:22:19.726Z",
-      "updatedAt": "2026-09-22T10:55:00.928Z",
+      "updatedAt": "2026-09-29T09:27:20.443Z",
       "name": "Bellevue Parkhotel & Spa",
       "city": "Adelboden",
       "zip": "3715",
@@ -103324,8 +103324,11 @@
       "sourceLang": "de",
       "detailEnrichment": false,
       "qualityScore": 1,
-      "qualityVerdict": "good",
-      "qualityProblems": [],
+      "qualityVerdict": "bad",
+      "qualityProblems": [
+        "not a vacancy: Spontanbewerbung / Initiativbewerbung",
+        "crawlerKey my shared by several my.jobalino.ch candidates"
+      ],
       "validationHistory": [
         {
           "at": "2026-09-18T10:00:02.184Z",
@@ -103360,7 +103363,9 @@
       ],
       "promotionPr": "9452",
       "promotionBranch": "prospector/promote-2026-09-21",
-      "promotedAt": "2026-09-22T10:55:00.928Z"
+      "promotedAt": "2026-09-22T10:55:00.928Z",
+      "reason": "retired: the my crawler (key shared by 6 my.jobalino.ch candidates) published another tenant's Initiativbewerbung under this name; the Bellevue page itself is a Spontanbewerbung, not a vacancy (issue 5253)",
+      "rejectedAt": "2026-09-29T09:27:20.443Z"
     },
     "bellevue-residenz@zurich": {
       "key": "bellevue-residenz@zurich",
@@ -295602,12 +295607,12 @@
     },
     "fanzun.swiss": {
       "key": "fanzun.swiss",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-23T08:44:05.687Z",
-      "updatedAt": "2026-09-29T13:47:10.100Z",
+      "updatedAt": "2026-09-29T09:27:20.444Z",
       "name": "Fanzun AG",
       "city": "Chur",
       "zip": "7000",
@@ -295648,8 +295653,10 @@
       "sourceLang": "de",
       "detailEnrichment": false,
       "qualityScore": 1,
-      "qualityVerdict": "good",
-      "qualityProblems": [],
+      "qualityVerdict": "bad",
+      "qualityProblems": [
+        "not a vacancy: Initiativbewerbung"
+      ],
       "validationHistory": [
         {
           "at": "2026-09-23T10:30:57.763Z",
@@ -295726,7 +295733,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "reason": "not a vacancy: the spec reads an Initiativbewerbung (spontaneous application) under the shared crawlerKey my (issue 5253)",
+      "rejectedAt": "2026-09-29T09:27:20.444Z"
     },
     "fanzun@chur": {
       "key": "fanzun@chur",

@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect, vi } from 'vitest';
 import {
   SPITAL_THURGAU_KEY,
@@ -5,6 +7,7 @@ import {
   isSpitalThurgauJob,
   isTrustedDomain,
   parseStgagEmbeddedJson,
+  extractStgagDetailDescription,
 } from '../scripts/lib/spital-thurgau-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -178,6 +181,37 @@ describe('Spital Thurgau (STGAG) crawler parser', () => {
       expect(spy).toHaveBeenCalledTimes(1);
       expect(String(spy.mock.calls[0][0])).toContain('spital-thurgau');
       spy.mockRestore();
+    });
+  });
+
+  // Issue 5253: the embedded listing JSON has no body, so every job published
+  // ~250 chars of Standort/Abteilung/Pensum. The ad lives on the detail page,
+  // in one of two server-rendered templates (real pages, minimised).
+  describe('extractStgagDetailDescription — detail-page body', () => {
+    const fixture = (name: string) => readFileSync(resolve(__dirname, 'fixtures', 'spital-thurgau', name), 'utf8');
+
+    it('reads intro, title block, task/profile lists and employer paragraph (current template)', () => {
+      const text = extractStgagDetailDescription(fixture('current-template-3326.html'));
+      expect(text).toContain('Wir suchen per sofort oder nach Vereinbarung eine/-n\n\nDipl. Pflegefachmann/-frau Floating-Pool (Mo-Fr)');
+      expect(text).toContain('Du übernimmst\n• eine kompetente und ganzheitliche Pflege und Betreuung der Patienten/-innen\n• teamorientierte');
+      expect(text).toContain('Das bringst du mit\n• abgeschlossene Berufsausbildung');
+      expect(text).toContain('Das Kantonsspital Frauenfeld ist ein Unternehmen der Spital Thurgau AG.');
+      // Contact card, job-board link and furniture are not part of the ad.
+      expect(text).not.toMatch(/Kontaktperson|ALLE UNSERE OFFENEN STELLEN|Arbeitsort/);
+    });
+
+    it('reads the older template (#Job, main section lists, #Uns) without the benefit codes', () => {
+      const text = extractStgagDetailDescription(fixture('older-template-3630.html'));
+      expect(text.startsWith('Das Institut für Pathologie der Spital Thurgau AG')).toBe(true);
+      expect(text).toContain('Sie übernehmen\n• Aktive Mitgestaltung und Weiterentwicklung des Instituts für Pathologie');
+      expect(text).toContain('Sie bringen mit\n• Facharzttitel Pathologie');
+      expect(text).toContain('Die Spital Thurgau AG stellt sich vor');
+      expect(text).not.toMatch(/1007000\|/);
+      expect(text).not.toMatch(/Kontaktperson|ALLE UNSERE OFFENEN STELLEN/);
+    });
+
+    it('returns empty for a page with neither template, so the listing metadata is kept', () => {
+      expect(extractStgagDetailDescription('<html><body><p>Wartung</p></body></html>')).toBe('');
     });
   });
 });
