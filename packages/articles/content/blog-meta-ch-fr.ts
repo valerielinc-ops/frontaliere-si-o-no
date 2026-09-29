@@ -6998,6 +6998,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.swiss-starlink-aereo-internet.title': 'Swiss apporte l’Internet haut débit de Starlink à bord de ses avions',
     'blog.article.swiss-starlink-aereo-internet.excerpt': 'Swiss active l’Internet Starlink sur le premier Airbus A320neo Iseltwald, offrant une connectivité gratuite et à haut débit dans toutes les classes.',
     'blog.article.swiss-starlink-aereo-internet.imageAlt': 'Avion Swiss Airbus A320neo avec connexion Starlink',
+    'blog.article.avvio-impresa-soletta-adempimenti.title': 'Ouvrir une entreprise à Soleure : registre et coûts',
+    'blog.article.avvio-impresa-soletta-adempimenti.excerpt': 'Dans le canton de Soleure, la forme juridique, le registre et le capital minimum s\'entremêlent avec trois niveaux d\'imposition et des cotisations AVS/AI/APG de 5,3 % pour le salarié.',
+    'blog.article.avvio-impresa-soletta-adempimenti.imageAlt': 'Créer une activité dans le canton de Soleure : registre du commerce et coûts',
 };
 
 export default blogMetaChFr;
