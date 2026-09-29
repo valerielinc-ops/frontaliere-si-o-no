@@ -15,6 +15,8 @@ import { isSwissLocationText } from './target-swiss-locations.mjs';
 import { normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { dropFabricatedLocaleText } from './source-locale-description.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const MIKRON_CAREERS_URL = 'https://www.mikron.com/en/group/our-people/join-us/jobs';
 export const MIKRON_HOST = 'www.mikron.com';
@@ -298,6 +300,44 @@ const MIKRON_IT_FALLBACK_RE = /^Posizione aperta: [\s\S]*? presso Mikron Group [
 
 export function dropMikronItalianFallback(job) {
   return dropFabricatedLocaleText(job, 'it', MIKRON_IT_FALLBACK_RE);
+}
+
+// The English company paragraph the runner published when a detail page was
+// thin or unreadable ("Open position: … Mikron Group is a global leader in
+// precision manufacturing …"): text the source never showed.
+const MIKRON_EN_FALLBACK_RE = /Mikron Group is a global leader in precision manufacturing and automation/;
+
+/**
+ * Remove every description the runner once wrote itself from a stored job:
+ * the Italian blurb and the English fallback paragraph (with the translations
+ * made from it). Returns true when the job was changed.
+ */
+export function dropMikronFabricatedText(job) {
+  const italian = dropMikronItalianFallback(job);
+  const english = dropFabricatedDescription(job, MIKRON_EN_FALLBACK_RE);
+  return italian || english;
+}
+
+/**
+ * A freshly crawled job whose detail body is under the shared word floor
+ * carries no description. Keep the body stored from an earlier read of the
+ * source (same stable id); without one the job is not published this run —
+ * no thin page and no invented text. Returns the jobs to publish.
+ *
+ * @param {object[]} discoveredJobs
+ * @param {object[]} storedJobs  stored jobs, fossils already removed
+ * @param {(url: string) => string} keyOf  stable id of a job URL
+ */
+export function keepMikronSourceBodies(discoveredJobs = [], storedJobs = [], keyOf = (url) => url) {
+  const storedByKey = new Map(storedJobs.map((job) => [keyOf(job?.url), job]));
+  return discoveredJobs.flatMap((job) => {
+    if (meetsSourceBodyFloor(job.description)) return [job];
+    const prev = storedByKey.get(keyOf(job.url));
+    const prevLang = prev?.sourceLang;
+    const prevBody = prev?.descriptionByLocale?.[prevLang] || prev?.description || '';
+    if (!prevLang || !meetsSourceBodyFloor(prevBody)) return [];
+    return [{ ...job, description: prevBody, descriptionByLocale: { [prevLang]: prevBody }, sourceLang: prevLang }];
+  });
 }
 
 /**

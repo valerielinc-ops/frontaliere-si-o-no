@@ -19,10 +19,11 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseMikronJobs, parseMikronJobDetail, dropMikronItalianFallback, slugify, normalizeSpace, htmlToText, MIKRON_CAREERS_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
+import { parseMikronJobs, parseMikronJobDetail, dropMikronFabricatedText, keepMikronSourceBodies, slugify, normalizeSpace, htmlToText, MIKRON_CAREERS_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './lib/source-body-floor.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -102,20 +103,6 @@ function detectEmploymentType(title = '') {
   return 'FULL_TIME';
 }
 
-/**
- * Build a rich fallback description (>50 words) when detail page yields nothing.
- * English only: it is the source-locale text of a job whose detail page could
- * not be read, and the localization step translates it like any other source.
- * It used to have an Italian twin that was written into `descriptionByLocale.it`
- * of EVERY job, detail page or not — the Italian page of each vacancy showed a
- * company blurb (always naming Agno) instead of the posting, and the audit's
- * locale-first read saw 6/6 descriptions without any list.
- */
-function buildFallbackDescription(title, division, city = '') {
-  const locationEn = city ? `in ${city}` : 'in Switzerland';
-  return `Open position: ${title} at Mikron Group ${locationEn}.${division ? ` Division: ${division}.` : ''}\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland) with several operating sites in the country. Its Swiss activities include Mikron Machining in Agno (TI) and Mikron Automation in Boudry (NE), with high-precision machining systems for the automotive, medical, electronics, and watchmaking industries. The company offers a dynamic working environment, career growth opportunities, a positive corporate culture with strong team spirit, and competitive compensation with excellent social benefits.`;
-}
-
 // Known Swiss site addresses, keyed by city. Other cities fall back to the
 // PLZ/city enrichment downstream (street/postalCode left empty).
 const MIKRON_SITE_ADDRESS = {
@@ -164,14 +151,17 @@ async function fetchMikronJobs() {
       if (detailHtml) {
         const detail = parseMikronJobDetail(detailHtml);
         if (detail.location) rawLocation = detail.location;
-        if (detail.description && detail.description.split(/\s+/).length >= 30) {
+        // One floor for the whole crawler (shared, 50 words): the detail gate
+        // used to accept 30 words and pad anything under 50 with an invented
+        // company paragraph.
+        if (meetsSourceBodyFloor(detail.description)) {
           descEn = detail.description;
-          console.log(`    ✅ Detail description: ${descEn.split(/\s+/).length} words`);
+          console.log(`    ✅ Detail description: ${sourceBodyWordCount(descEn)} words`);
         } else {
-          console.log(`    ⚠️ Detail page description too short (${(detail.description || '').split(/\s+/).length} words), using fallback`);
+          console.log(`    ⚠️ Detail page description too short (${sourceBodyWordCount(detail.description || '')} words): kept only if a source body is stored`);
         }
       } else {
-        console.log(`    ⚠️ Could not fetch detail page, using fallback`);
+        console.log(`    ⚠️ Could not fetch detail page: kept only if a source body is stored`);
       }
       // Small delay to be respectful to the server
       await new Promise((r) => setTimeout(r, 500));
@@ -187,10 +177,6 @@ async function fetchMikronJobs() {
     }
     const city0 = city;
 
-    // Fallback: build a rich description (>50 words) if detail page failed
-    if (!descEn || descEn.split(/\s+/).length < 50) {
-      descEn = buildFallbackDescription(title, p.division, city);
-    }
     // The detail body is published in its own language (the Boudry postings
     // are French under an English title): key it by the detected language so
     // the French text is not stored as the `en` translation.
@@ -203,7 +189,7 @@ async function fetchMikronJobs() {
       location: city0, canton, country: 'CH',
       ...(postalCode && { postalCode }),
       ...(streetAddress && { streetAddress }),
-      description: descEn, descriptionByLocale: { [sourceLang]: descEn },
+      description: descEn, descriptionByLocale: descEn ? { [sourceLang]: descEn } : {},
       titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'mikron') },
       sourceLang,
       category: detectCategory(title), datePosted: new Date().toISOString().split('T')[0],
@@ -222,8 +208,15 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isMikronJob(j));
   const existingMikronJobs = allJobs.filter(isMikronJob);
-  const fossils = existingMikronJobs.filter((job) => dropMikronItalianFallback(job)).length;
-  if (fossils > 0) console.log(`  🧹 Dropped the Italian fallback blurb from ${fossils} stored job(s); they will be retranslated`);
+  const fossils = existingMikronJobs.filter((job) => dropMikronFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the crawler-written fallback text from ${fossils} stored job(s); they will be retranslated`);
+  // A detail body under the word floor: keep the stored source body, or do
+  // not publish the job this run.
+  const withBody = keepMikronSourceBodies(discoveredJobs, existingMikronJobs, extractStableJobId);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(existingMikronJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));

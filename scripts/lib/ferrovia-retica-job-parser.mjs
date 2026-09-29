@@ -22,6 +22,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { detectLanguage } from './detect-language.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const HQ = getCompanyDefaults('ferrovia-retica');
 
@@ -319,15 +320,16 @@ export function getLocationAddress(location = '') {
   return { postalCode: '7000', streetAddress: 'Bahnhofstrasse 25, 7001 Chur' };
 }
 
-/* ── Fallback description builder ──────────────────────────── */
+/* ── Invented fallback (removed) ───────────────────────────── */
 
 /**
- * Build a rich fallback description (>50 words) when detail page yields nothing.
+ * First sentence of the company paragraph earlier versions published when a
+ * detail page was thin ("<titolo> presso la Ferrovia Retica (RhB) a …
+ * La Ferrovia Retica è la più grande azienda di trasporti …"): text the
+ * source never showed. Its presence marks a STORED description as not
+ * source-read, so the runner removes it before the merge.
  */
-export function buildFallbackDescription(title, location, percentage) {
-  const pctInfo = percentage ? ` Grado di occupazione: ${percentage}.` : '';
-  return `${title} presso la Ferrovia Retica (RhB) a ${location}, Cantone dei Grigioni, Svizzera.${pctInfo}\n\nLa Ferrovia Retica è la più grande azienda di trasporti del Cantone dei Grigioni con circa 1400 collaboratori. La RhB gestisce la rete ferroviaria a scartamento ridotto più estesa della Svizzera, con 384 km di linee che attraversano 115 gallerie e 383 ponti, inclusa la celebre tratta patrimonio mondiale UNESCO dell'Albula/Bernina. L'azienda offre condizioni di impiego moderne e attrattive, un abbonamento generale di 2a classe, sconti viaggio, un piano pensionistico completo, possibilità di acquisto di vacanze supplementari e numerose opportunità di formazione e perfezionamento professionale.`;
-}
+export const RHB_INVENTED_FALLBACK_RE = /La Ferrovia Retica è la più grande azienda di trasporti del Cantone dei Grigioni/;
 
 /* ── Job builder ───────────────────────────────────────────── */
 
@@ -354,13 +356,12 @@ export function buildJob(raw) {
   const location = raw.location || 'Chur';
   const address = getLocationAddress(location);
 
-  // Use detail description if available and >50 words, otherwise use rich fallback
-  let description = '';
-  if (raw.description && raw.description.split(/\s+/).length >= 50) {
-    description = raw.description;
-  } else {
-    description = buildFallbackDescription(title, location, raw.percentage);
-  }
+  // Only the detail page's own vacancy body is published, above the shared
+  // word floor (source-body-floor.mjs). A thinner or missing body yields NO
+  // description here: the runner keeps the body stored from an earlier read
+  // of the source, or leaves the job unpublished this run. The invented
+  // company paragraph that used to fill the gap is gone (#5253).
+  const description = meetsSourceBodyFloor(raw.description) ? raw.description : '';
 
   // Detect employment type from percentage
   let employmentType = 'FULL_TIME';
@@ -379,10 +380,9 @@ export function buildJob(raw) {
   // 'it' made the pipeline "translate" the Italian slot from German into
   // garbage ("Copuoi · …", "Ti 29 3 $ 3 $ 2 …") while the real text sat only
   // in `description` (#5253). The detail body decides; the URL locale is the
-  // tie-breaker, and stays authoritative for the synthesized fallback text.
+  // tie-breaker, and the only signal left when no body was read.
   const urlLang = sourceLangFromUrl(raw.url);
-  const usesDetailBody = description === raw.description;
-  const sourceLang = usesDetailBody ? detectLanguage(description, urlLang) : urlLang;
+  const sourceLang = description ? detectLanguage(description, urlLang) : urlLang;
 
   return {
     title,
@@ -399,7 +399,7 @@ export function buildJob(raw) {
     description,
     // ParsedJob contract: the source slot carries the crawled text. Without it
     // the merge kept the previous (stale or corrupt) source-locale copy forever.
-    descriptionByLocale: { [sourceLang]: description },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
     source: 'company-website',
     sourceLang,

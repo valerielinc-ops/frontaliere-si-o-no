@@ -49,6 +49,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData } from './lib/migros-job-parser.mjs';
 import { extractDennerWorkplace, inferEmploymentType } from './lib/denner-job-parser.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -258,20 +259,22 @@ export function buildDennerJobRecord({
 } = {}) {
   const title = String(rawTitle || '').replace(/\s+/g, ' ').trim();
   if (!title || !url) return null;
+  // Only the posting's own body is published, above the shared word floor.
+  // The former fallback ("Posizione aperta presso Denner. <titolo>.") was a
+  // thin sentence the source never showed; a posting without a body is not
+  // published this run.
+  if (!meetsSourceBodyFloor(description)) return null;
 
   const normalizedLocation = String(location || '');
   const canton = inferAnyCanton(normalizedLocation) || '';
   const timestamp = now.toISOString();
-  const fallbackDescription = `Posizione aperta presso ${DENNER_COMPANY_NAME}. ${title}.`;
-  const sourceLang = detectLang(description || title, 'it');
+  const sourceLang = detectLang(description, 'it');
   // One posting per store: the store the posting names is part of the
   // vacancy (and the only thing that tells two same-city postings apart).
   const workplaceLine = workplace?.label
     ? `${WORKPLACE_LABEL[sourceLang] || WORKPLACE_LABEL.de}: ${workplace.label}`
     : '';
-  const normalizedDescription = description
-    ? [workplaceLine, description].filter(Boolean).join('\n\n')
-    : fallbackDescription;
+  const normalizedDescription = [workplaceLine, description].filter(Boolean).join('\n\n');
 
   return {
     id: `denner-${createHash('sha1').update(url).digest('hex').slice(0, 12)}`,
@@ -283,7 +286,9 @@ export function buildDennerJobRecord({
     title,
     titleByLocale: { it: title },
     description: normalizedDescription,
-    descriptionByLocale: { it: normalizedDescription },
+    // Keyed by the posting's language (German for most stores): under a fixed
+    // `it` key the German body sat in the Italian slot.
+    descriptionByLocale: { [sourceLang]: normalizedDescription },
     requirements: migrosData?.requirements || [],
     requirementsByLocale: { it: migrosData?.requirements || [] },
     location: normalizedLocation,

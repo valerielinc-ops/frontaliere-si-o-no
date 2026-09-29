@@ -11,6 +11,8 @@ import {
   parseMikronJobs,
   parseMikronJobDetail,
   dropMikronItalianFallback,
+  dropMikronFabricatedText,
+  keepMikronSourceBodies,
   isSwissLocation,
   htmlToText,
   slugify,
@@ -332,5 +334,35 @@ describe('dropMikronItalianFallback', () => {
     expect(dropMikronItalianFallback(job)).toBe(false);
     expect(job.descriptionByLocale.it).toContain('In qualità di Team Leader');
     expect(job.needsRetranslation).toBeUndefined();
+  });
+});
+
+describe('no invented fallback text', () => {
+  const BODY = Array(60).fill('Responsabilité').join(' ');
+  const url = 'https://www.mikron.com/en/polymecanic-team-leader';
+
+  it('removes the stored English fallback paragraph and its translations', () => {
+    const fossil = 'Open position: Polymecanic Team Leader at Mikron Group in Boudry.\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland).';
+    const job: any = { sourceLang: 'en', description: fossil, descriptionByLocale: { en: fossil, de: 'Offene Stelle: …' } };
+    expect(dropMikronFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('keeps a job over the word floor and one whose stored source body is real', () => {
+    const fresh = [
+      { url, description: BODY, descriptionByLocale: { fr: BODY }, sourceLang: 'fr' },
+      { url: 'https://www.mikron.com/en/controls-engineer-specialist-mfd', description: '', descriptionByLocale: {}, sourceLang: 'en' },
+    ];
+    const stored = [{ url: 'https://www.mikron.com/en/controls-engineer-specialist-mfd', sourceLang: 'fr', description: BODY, descriptionByLocale: { fr: BODY } }];
+    const kept = keepMikronSourceBodies(fresh, stored, (u: string) => u);
+    expect(kept).toHaveLength(2);
+    expect(kept[1]).toMatchObject({ description: BODY, descriptionByLocale: { fr: BODY }, sourceLang: 'fr' });
+  });
+
+  it('does not publish a job without any source body this run', () => {
+    const kept = keepMikronSourceBodies([{ url, description: '', descriptionByLocale: {}, sourceLang: 'en' }], [], (u: string) => u);
+    expect(kept).toEqual([]);
   });
 });

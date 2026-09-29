@@ -10,7 +10,7 @@ import {
   parseListingPage,
   parseDetailPage,
   buildJob,
-  buildFallbackDescription,
+  RHB_INVENTED_FALLBACK_RE,
   getLocationAddress,
   isGrigioniItalianoJob,
   inferLocation,
@@ -20,6 +20,7 @@ import {
 } from '@/scripts/lib/ferrovia-retica-job-parser.mjs';
 import { mergeDiscoveredJobWithPrev } from '@/scripts/update-ferrovia-retica-jobs.mjs';
 import { repairRelabeledSourceLocale } from '@/scripts/lib/dedicated-crawler-common.mjs';
+import { dropFabricatedDescription } from '@/scripts/lib/drop-fabricated-description.mjs';
 
 // ─── Fixture: Career listing page ──────────────────────────
 const LISTING_HTML = `
@@ -241,10 +242,12 @@ describe('buildJob', () => {
     expect(partTime!.employmentType).toBe('PART_TIME');
   });
 
-  it('generates description with >=50 words (fallback)', () => {
-    const job = buildJob({ title: 'Lokführer/in', location: 'Poschiavo' });
-    const wordCount = job!.description.split(/\s+/).length;
-    expect(wordCount).toBeGreaterThanOrEqual(50);
+  it('publishes no invented text when the detail body is missing or under the word floor', () => {
+    const missing = buildJob({ title: 'Lokführer/in', location: 'Poschiavo' });
+    expect(missing!.description).toBe('');
+    expect(missing!.descriptionByLocale).toEqual({});
+    const thin = buildJob({ title: 'Lokführer/in', location: 'Poschiavo', description: Array(49).fill('Wort').join(' ') });
+    expect(thin!.description).toBe('');
   });
 
   it('uses detail description when provided and >50 words', () => {
@@ -353,20 +356,46 @@ describe('getLocationAddress', () => {
 });
 
 // ═══════════════════════════════════════════════════════════════
-// buildFallbackDescription
+// The removed invented fallback: stored fossils are dropped before the merge
 // ═══════════════════════════════════════════════════════════════
 
-describe('buildFallbackDescription', () => {
-  it('generates description with >=50 words', () => {
-    const desc = buildFallbackDescription('Lokführer/in', 'Poschiavo', '80-100%');
-    const wordCount = desc.split(/\s+/).length;
-    expect(wordCount).toBeGreaterThanOrEqual(50);
+describe('invented fallback fossils', () => {
+  // Text the former buildFallbackDescription() published for a thin detail page.
+  const FOSSIL = 'Lokführer/in presso la Ferrovia Retica (RhB) a Poschiavo, Cantone dei Grigioni, Svizzera.\n\n'
+    + 'La Ferrovia Retica è la più grande azienda di trasporti del Cantone dei Grigioni con circa 1400 collaboratori.';
+
+  it('recognises the former fallback paragraph and removes it with its translations', () => {
+    expect(RHB_INVENTED_FALLBACK_RE.test(FOSSIL)).toBe(true);
+    const job: any = {
+      sourceLang: 'it',
+      description: FOSSIL,
+      descriptionByLocale: { it: FOSSIL, de: 'Lokführer/in bei der Rhätischen Bahn in Poschiavo …' },
+    };
+    expect(dropFabricatedDescription(job, RHB_INVENTED_FALLBACK_RE)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale.it).toBeUndefined();
+    expect(job.descriptionByLocale.de).toBeUndefined();
+    expect(job.needsRetranslation).toBe(true);
   });
 
-  it('includes job title and location', () => {
-    const desc = buildFallbackDescription('Macchinista', 'Poschiavo', '');
-    expect(desc).toContain('Macchinista');
-    expect(desc).toContain('Poschiavo');
+  it('leaves a source-read body alone', () => {
+    expect(RHB_INVENTED_FALLBACK_RE.test('Begleitung unserer Reisezüge und Betreuung der Kunden während der Fahrt')).toBe(false);
+  });
+});
+
+describe('mergeDiscoveredJobWithPrev without a fresh body', () => {
+  it('keeps the body stored from an earlier read of the source', () => {
+    const stored = Array(60).fill('Begleitung').join(' ');
+    const fresh = buildJob({ title: 'Zugbegleiter/in', location: 'Chur', url: 'https://www.rhb.ch/de/job/zugbegleiter_2026-0100/' });
+    const merged = mergeDiscoveredJobWithPrev(fresh, {
+      title: 'Zugbegleiter/in',
+      url: 'https://www.rhb.ch/de/job/zugbegleiter_2026-0100/',
+      sourceLang: 'de',
+      description: stored,
+      descriptionByLocale: { de: stored },
+    });
+    expect(merged.description).toBe(stored);
+    expect(merged.descriptionByLocale.de).toBe(stored);
   });
 });
 
