@@ -25,6 +25,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { extractTalentsoftOfferHtml } from './talentsoft-offer-detail.mjs';
 
 export const AARREHA_SCHINZNACH_KEY = 'aarreha-schinznach';
 export const AARREHA_SCHINZNACH_COMPANY_NAME = 'aarReha Schinznach';
@@ -102,20 +103,19 @@ export function parseAarrehaListing(html) {
   return out;
 }
 
+/**
+ * Vacancy text of a Talentsoft detail page: the `#contenu-ficheoffre`
+ * container, without the apply bar and footer menu that follow it.
+ */
+export function extractAarrehaSchinznachDetailDescription(html = '') {
+  return normalizeSpace(htmlToText(extractTalentsoftOfferHtml(html)));
+}
+
 async function fetchDetailDescription(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return '';
-    // The job-detail block sits inside id="contenu-ficheoffre". Take everything
-    // up to the share/actions/footer panel.
-    const startMatch = html.match(/id="contenu-ficheoffre"[^>]*>([\s\S]+)/);
-    if (!startMatch) return '';
-    const block = startMatch[1].slice(0, 14000);
-    // Cut off boilerplate footer (Sitemap / Rechtliche Hinweise / Cookies).
-    const cutMatch = block.match(/[\s\S]+?(?=Rechtliche\s+Hinweise|<\/main>|<footer)/);
-    const trimmed = cutMatch ? cutMatch[0] : block;
-    const text = htmlToText(trimmed);
-    return normalizeSpace(text).slice(0, 6000);
+    return extractAarrehaSchinznachDetailDescription(html);
   } catch (err) {
     console.warn(`  ⚠️ aarReha detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return '';

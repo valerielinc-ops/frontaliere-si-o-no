@@ -111,10 +111,6 @@ function isSwissListingLocation(location = '') {
     || isTargetSwissLocation(value, { includeAllCantons: true, includeBorderProximity: false });
 }
 
-function wordCount(text = '') {
-  return String(text || '').split(/\s+/).filter(Boolean).length;
-}
-
 function preservedSlug(value = '') {
   const slug = String(value || '').trim();
   return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) ? slug : '';
@@ -384,22 +380,9 @@ function extractDescription(html = '') {
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
-    .trim()
-    .slice(0, 6000);
+    .trim();
 }
 
-function fallbackDescription(title, location, canton) {
-  return [
-    `${title} — ${ZURICH_INSURANCE_COMPANY_NAME}, ${location}.`,
-    '',
-    'Key details:',
-    `• Location: ${location}, ${canton} canton, Switzerland`,
-    '• Employer: Zurich Insurance',
-    '• Apply through the official Zurich Insurance careers portal',
-    '',
-    'This vacancy is published in Zurich Insurance’s official Switzerland careers listing. Review the complete responsibilities, requirements, employment conditions, and application instructions on the linked employer page before applying. The record remains in this dataset only while its numeric requisition appears in the authoritative Switzerland listing.',
-  ].join('\n');
-}
 
 function companyIdentityMatches(job) {
   const key = normalizeKey(job?.companyKey || job?.company || '');
@@ -473,9 +456,11 @@ export async function prepareZurichInsuranceCrawler({
         continue;
       }
 
-      const description = wordCount(detailDescription) >= 50
-        ? detailDescription
-        : fallbackDescription(listing.title, location, canton);
+      // Only the posting's own text is published. A detail page without a
+      // body leaves the description empty and the shared pipeline's
+      // thin-source check quarantines the job, instead of the "Key details"
+      // stub the crawler used to write in its place (issue 5253).
+      const description = detailDescription;
       const sourceLang = detectLang(description || listing.title, 'en');
       const contract = normalizeContract('', listing.title, description);
       const generatedSlug = slugify(`${listing.title} ${ZURICH_INSURANCE_KEY} ${location}`);

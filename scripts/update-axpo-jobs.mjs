@@ -236,7 +236,7 @@ function buildJob(item) {
   // Convert entity-encoded HTML from RSS to structured markdown
   const rssHtml = item.description || '';
   const detail = htmlToMarkdown(rssHtml);
-  const description = detail.markdown.slice(0, 5000);
+  const description = detail.markdown;
 
   // Validate quality
   const validation = validateAxpoDescription(detail);

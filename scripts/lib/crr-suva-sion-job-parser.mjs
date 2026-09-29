@@ -97,13 +97,15 @@ export function parseListing(html) {
 function extractDetailBody(html) {
   const h1End = html.search(/<\/h1>/i);
   if (h1End < 0) return '';
-  const tail = html.slice(h1End + '</h1>'.length, h1End + 30000);
+  const tail = html.slice(h1End + '</h1>'.length);
   const stopIdx = tail.search(/<footer|<aside|<div[^>]*class="[^"]*(?:footer|sidebar|partenaires)/i);
-  const block = stopIdx > 0 ? tail.slice(0, stopIdx) : tail;
+  // The 30k HTML window is only a safety bound for a page without any of the
+  // end markers; the text itself is not capped (issue 5253).
+  const block = stopIdx > 0 ? tail.slice(0, stopIdx) : tail.slice(0, 30000);
   const cleaned = block
     .replace(/<nav[\s\S]*?<\/nav>/gi, '')
     .replace(/<div[^>]*class="[^"]*(?:share|partage|breadcrumb)[^"]*"[\s\S]*?<\/div>/gi, '');
-  return normalizeSpace(htmlToText(cleaned)).slice(0, 6000);
+  return normalizeSpace(htmlToText(cleaned));
 }
 
 function extractH1(html) {
