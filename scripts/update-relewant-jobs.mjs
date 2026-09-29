@@ -143,7 +143,9 @@ function buildRelewantJob(parsed) {
     category: inferCategory(parsed.title),
     sector: 'Consulenza IT',
     source: 'relewant-dedicated-crawler',
-    sourceLang: detectLang(parsed.title, 'it'),
+    // Language of the detail body, not of the title (issue 5253): titles are
+    // loanword soup. Without a detail body the title is the only source text.
+    sourceLang: detectLang(parsed.description || parsed.title, 'it'),
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: parsed.jobType?.toLowerCase().includes('parziale') ? 'part-time' : 'full-time',
     contractType: parsed.jobType?.toLowerCase().includes('parziale') ? 'part-time' : 'full-time',

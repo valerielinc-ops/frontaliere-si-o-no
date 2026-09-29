@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { withSourceLangRelabelFlags } from './lib/source-lang-relabel.mjs';
 import {
   fetchAllMoncuccoJobs,
   isMoncuccoJob,
@@ -23,7 +24,9 @@ runStandardCrawlerPipeline({
   companyKey: MONCUCCO_KEY,
   companyLabel: MONCUCCO_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: fetchAllMoncuccoJobs,
+  // The parser now reads the language from the body (issue 5253); jobs whose
+  // stored sourceLang changed get their stale non-source slots retranslated.
+  fetchJobs: withSourceLangRelabelFlags(fetchAllMoncuccoJobs, MONCUCCO_KEY),
   isCompanyJob: isMoncuccoJob,
   isTrustedDomain,
   defaultSourceLang: 'it',

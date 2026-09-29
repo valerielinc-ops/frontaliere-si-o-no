@@ -291,6 +291,10 @@ export async function fetchAllZermattBergbahnenJobs() {
       }
     }
 
+    // The detail body, when there is one, is the only text the source wrote:
+    // the fallback below is assembled by us from the title and listing tags.
+    const detailBody = description && description.length >= MIN_DESC_LENGTH ? description : '';
+
     // Fallback description
     if (!description || description.length < MIN_DESC_LENGTH) {
       const parts = [listing.title, '— Zermatt Bergbahnen, Zermatt'];
@@ -299,7 +303,10 @@ export async function fetchAllZermattBergbahnenJobs() {
       description = parts.join('. ');
     }
 
-    const sourceLang = detectLang(listing.title, 'de');
+    // Language of the detail body, not of the title (issue 5253): titles are
+    // loanword soup and filed the body under a foreign source slot. Without a
+    // body the title is the only text the source wrote.
+    const sourceLang = detectLang(detailBody || listing.title, 'de');
     const jobSlug = buildJobSlug(`${listing.title} Zermatt`, 'zermatt-bergbahnen');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, listing.tags);

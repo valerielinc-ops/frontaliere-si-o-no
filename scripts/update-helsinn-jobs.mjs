@@ -77,6 +77,10 @@ async function fetchJobs() {
   const jobs = [];
   for (const listing of listings) {
     const slug = slugify(listing.title, 'helsinn');
+    // Listing-only crawler: the title is the only text the source publishes
+    // here, so it is the only possible language signal (issue 5253 sweep).
+    // The title goes in the slot of that language, not in a fixed `en`.
+    const sourceLang = detectLang(listing.title, 'it');
     jobs.push({
       url: listing.url, applyUrl: listing.url, title: listing.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
@@ -84,12 +88,12 @@ async function fetchJobs() {
       addressLocality: 'Lugano-Pambio Noranco', addressRegion: HQ.addressRegion, addressCountry: 'CH',
       postalCode: HQ.postalCode, streetAddress: 'Via Pian Scairolo 9',
       description: `${listing.title} position at Helsinn Healthcare SA in Lugano, Ticino. Helsinn is a fully integrated biopharma company with a track record of over forty years.`,
-      titleByLocale: { en: listing.title }, descriptionByLocale: {},
+      titleByLocale: { [sourceLang]: listing.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(listing.title),
       datePosted: new Date().toISOString().split('T')[0],
       source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, listing.snippet || ''),
-      sourceLang: detectLang(listing.title, 'it'),
+      sourceLang,
       experienceLevel: detectExperienceLevel(listing.title),
       sector: 'Farmaceutica / Biopharma',
     });

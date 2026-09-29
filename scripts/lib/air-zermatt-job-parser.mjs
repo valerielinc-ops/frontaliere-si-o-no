@@ -195,7 +195,11 @@ export async function fetchAllAirZermattJobs() {
     }
 
     const location = listing.location || 'Raron';
-    const sourceLang = detectLang(listing.title, 'de');
+    // Language of the published body, not of the title (issue 5253): titles
+    // are loanword soup ("Candidatura spontanea", "Junior Logistics
+    // Specialist", "Guest Experience Specialist") and filed the body under a
+    // foreign source slot. The title is only the fallback when no body exists.
+    const sourceLang = detectLang(description || listing.title, 'de');
     const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'air-zermatt');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
 

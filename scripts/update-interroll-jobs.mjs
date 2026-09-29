@@ -97,6 +97,10 @@ async function fetchJobs() {
       continue;
     }
     const slug = slugify(raw.title, 'interroll');
+    // Listing-only crawler: the title is the only text the source publishes
+    // here, so it is the only possible language signal (issue 5253 sweep).
+    // The title goes in the slot of that language, not in a fixed `en`.
+    const sourceLang = detectLang(raw.title, 'en');
     mapped.push({
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
@@ -104,12 +108,12 @@ async function fetchJobs() {
       addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
       postalCode: site.postalCode, streetAddress: site.streetAddress,
       description: `${raw.title} position at Interroll Group in ${site.location}, ${site.canton}. Interroll is a global technology company providing material handling solutions.`,
-      titleByLocale: { en: raw.title }, descriptionByLocale: {},
+      titleByLocale: { [sourceLang]: raw.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
       datePosted: new Date().toISOString().split('T')[0],
       source: 'interroll-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
-      sourceLang: detectLang(raw.title, 'en'),
+      sourceLang,
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Industria / Logistica',
     });

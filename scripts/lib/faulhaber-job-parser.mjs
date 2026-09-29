@@ -405,7 +405,11 @@ export async function fetchAllFaulhaberJobs({
       throw new Error(`Faulhaber: detail description below ${MIN_DESC_LENGTH} characters for ${listing.url}`);
     }
 
-    const sourceLang = detectLang(listing.title, 'de');
+    // Language of the published body, not of the title (issue 5253): titles
+    // are loanword soup ("Candidatura spontanea", "Junior Logistics
+    // Specialist", "Guest Experience Specialist") and filed the body under a
+    // foreign source slot. The title is only the fallback when no body exists.
+    const sourceLang = detectLang(description || listing.title, 'de');
     const jobSlug = buildJobSlug(`${listing.title} Croglio`, 'faulhaber');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, description);

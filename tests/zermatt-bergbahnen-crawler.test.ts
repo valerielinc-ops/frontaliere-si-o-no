@@ -183,6 +183,21 @@ describe('Zermatt Bergbahnen crawler parser', () => {
       expect(jobs[0].title).toBe('Informatiker/in');
     });
 
+    it('files the German detail body under de even when the title reads as English (issue 5253)', async () => {
+      const englishCard = LISTING_CARD.replace(/>Informatiker\/in</, '>Customer Service Agent for the Valley Station<');
+      const germanBody = 'Du empfängst unsere Gäste an der Talstation, berätst sie zu Tickets und Pisten und sorgst für einen reibungslosen Ablauf im Kundendienst. '
+        + 'Wir bieten dir ein engagiertes Team, ein Saisonabonnement und vergünstigte Mahlzeiten in unseren Restaurants.';
+      fetchHtml
+        .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${englishCard}</ul>`, success: true }))
+        .mockResolvedValueOnce(`<article>${germanBody}</article>`);
+
+      const [job] = await fetchAllZermattBergbahnenJobs();
+
+      expect(job.title).toBe('Customer Service Agent for the Valley Station');
+      expect(job.sourceLang).toBe('de');
+      expect(Object.keys(job.descriptionByLocale)).toEqual(['de']);
+    });
+
     it('returns an empty array when the tab payload has no job cards', async () => {
       fetchHtml.mockResolvedValueOnce(JSON.stringify({ html: '<ul></ul>', success: true }));
 

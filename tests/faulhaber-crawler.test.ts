@@ -103,6 +103,25 @@ describe('Faulhaber crawler parser', () => {
     });
   });
 
+  describe('source language (issue 5253)', () => {
+    it('files the Italian detail body under it even when the listing title is English', async () => {
+      // Real case in the 2026-09-29 slice: "JUNIOR LOGISTICS SPECIALIST" and
+      // "Candidatura spontanea" were labelled from the title and filed the
+      // body under a foreign source slot (4/4 jobs).
+      const englishListing = LISTING_JSON.replace('"JobofferName":"Tecnico di misura"', '"JobofferName":"Junior Logistics Specialist"');
+      const listingBody = JINA_LISTING_BODY.replace(LISTING_JSON, englishListing);
+      const fetchHtmlImpl = vi.fn(async () => { throw httpError(500); });
+      const fetchJinaImpl = vi.fn(async (url: string) => url === LISTING_DATA_URL ? listingBody : DETAIL_HTML);
+
+      const [job] = await fetchAllFaulhaberJobs({ fetchHtmlImpl, fetchJinaImpl });
+
+      expect(job.title).toBe('Junior Logistics Specialist');
+      expect(job.sourceLang).toBe('it');
+      expect(Object.keys(job.descriptionByLocale)).toEqual(['it']);
+      expect(Object.keys(job.titleByLocale)).toEqual(['it']);
+    });
+  });
+
   describe('source-specific Jina fallback', () => {
     it('recovers the persistent listing HTTP 500 and publishes only validated detail content', async () => {
       const fetchHtmlImpl = vi.fn(async (url: string, options: { validateRedirectUrl?: (url: string) => void }) => {

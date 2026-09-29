@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { withSourceLangRelabelFlags } from './lib/source-lang-relabel.mjs';
 import {
   fetchAllZermattBergbahnenJobs,
   isZermattBergbahnenJob,
@@ -23,7 +24,9 @@ runStandardCrawlerPipeline({
   companyKey: ZERMATT_BERGBAHNEN_KEY,
   companyLabel: ZERMATT_BERGBAHNEN_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: fetchAllZermattBergbahnenJobs,
+  // The parser now reads the language from the body (issue 5253); jobs whose
+  // stored sourceLang changed get their stale non-source slots retranslated.
+  fetchJobs: withSourceLangRelabelFlags(fetchAllZermattBergbahnenJobs, ZERMATT_BERGBAHNEN_KEY),
   isCompanyJob: isZermattBergbahnenJob,
   isTrustedDomain,
   defaultSourceLang: 'de',

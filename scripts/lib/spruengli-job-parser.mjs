@@ -333,26 +333,23 @@ export async function fetchAllSpruengliJobs() {
     );
     const location = normalizeSpace(workplaceHint || city || HQ.city);
 
-    // Description: prefer the rich JSON-LD description (real job body, incl.
-    // tasks/requirements/benefits), fall back to the generic Refline detail
-    // paragraph-scan, then a minimal synthetic sentence.
+    // Description: the rich JSON-LD description (real job body, incl.
+    // tasks/requirements/benefits), else the generic Refline detail
+    // paragraph-scan.
     const jsonLdDescription = jsonLd?.description ? stripHtml(jsonLd.description) : '';
     const detailParsed = parseReflineDetail(listing.detailHtml || '');
     const descriptionText = jsonLdDescription || detailParsed.description || '';
-    let description = descriptionText || `${title} bei ${SPRUENGLI_COMPANY_NAME} in ${location}.`;
-
-    // Thin-description guard (Non-Negotiable #4: never index <50-word content).
-    // Real Sprüngli JSON-LD bodies run 300+ words, but if the source ever
-    // returns a stub, append company context inline instead of leaving thin
-    // content indexable.
-    const descWordCount = description.split(/\s+/).filter(Boolean).length;
-    if (descWordCount < 50) {
-      description = [
-        description,
-        `Confiserie Sprüngli AG ist ein 1836 gegründetes Schweizer Familienunternehmen und zählt mit seinem erlesenen Sortiment an Confiserie, Schokolade und Backwaren zu den renommiertesten Confiserien Europas. Das Unternehmen betreibt seine Manufaktur in Dietikon sowie zahlreiche Filialen, Cafés und Restaurants in der ganzen Schweiz und bietet Stellen in Produktion, Verkauf, Logistik und Administration.`,
-      ].join('\n');
+    // Source text only (issue 5253): a body under 50 words is not padded
+    // with a company paragraph we wrote (Non-Negotiable #4 forbids thin
+    // content, and invented text is not the fix). The job is left out of
+    // this run: the standard pipeline retains the stored record, with the
+    // body an earlier run read from the source, and a new job without a
+    // real body is not published.
+    if (descriptionText.split(/\s+/).filter(Boolean).length < 50) {
+      console.warn(`  ⏭️ ${title}: source body under 50 words — not published this run (${publicUrl})`);
+      continue;
     }
-    description = normalizeDescriptionBullets(description);
+    const description = normalizeDescriptionBullets(descriptionText);
 
     const resolvedTitle = normalizeSpace(jsonLd?.title || detailParsed.title || title);
     const sourceLang = detectLang(descriptionText || resolvedTitle, 'de');

@@ -305,7 +305,11 @@ export async function fetchAllBucherSuterJobs() {
     const postedDate = postedRaw ? String(postedRaw).split('T')[0] : new Date().toISOString().split('T')[0];
 
     const idHash = createHash('sha1').update(`wp-${wpId}`).digest('hex').slice(0, 12);
-    const sourceLang = detectLang(title) === 'de' ? 'de' : 'en';
+    // Language of the published body, not of the title (issue 5253): titles
+    // are loanword soup ("Candidatura spontanea", "Junior Logistics
+    // Specialist", "Guest Experience Specialist") and filed the body under a
+    // foreign source slot. The title is only the fallback when no body exists.
+    const sourceLang = detectLang(description) === 'de' ? 'de' : 'en';
     const jobSlug = slugify(`${title} bucher-suter ${city}`);
     const employmentType = detectEmploymentType(jobTypeLabel);
 

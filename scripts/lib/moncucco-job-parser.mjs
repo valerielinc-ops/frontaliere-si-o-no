@@ -243,6 +243,10 @@ export async function fetchAllMoncuccoJobs() {
       }
     }
 
+    // The detail body, when there is one, is the only text the source wrote:
+    // the snippet below is assembled by us from the title and listing tags.
+    const detailBody = description && description.length >= MIN_DESC_LENGTH ? description : '';
+
     // Build a snippet from listing metadata if description is thin
     if (!description || description.length < MIN_DESC_LENGTH) {
       const parts = [listing.title, '— Gruppo Ospedaliero Moncucco, Lugano'];
@@ -251,7 +255,10 @@ export async function fetchAllMoncuccoJobs() {
       description = parts.join(' ');
     }
 
-    const sourceLang = detectLang(listing.title, 'it');
+    // Language of the detail body, not of the title (issue 5253): titles are
+    // loanword soup and filed the body under a foreign source slot. Without a
+    // body the title is the only text the source wrote.
+    const sourceLang = detectLang(detailBody || listing.title, 'it');
     const jobSlug = buildJobSlug(`${listing.title} Lugano`, 'moncucco');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, listing.percentage);

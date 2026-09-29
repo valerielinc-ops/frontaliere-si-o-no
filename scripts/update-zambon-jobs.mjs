@@ -175,6 +175,10 @@ async function fetchJobs() {
 
   return sourceBackedListings.map((raw) => {
     const slug = slugify(raw.title, 'zambon');
+    // Listing-only crawler: the title is the only text the source publishes
+    // here, so it is the only possible language signal (issue 5253 sweep).
+    // The title goes in the slot of that language, not in a fixed `en`.
+    const sourceLang = detectLang(raw.title, 'it');
     return {
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
@@ -182,14 +186,14 @@ async function fetchJobs() {
       addressLocality: ZAMBON_SWISS_SITE.city, addressRegion: ZAMBON_SWISS_SITE.canton, addressCountry: ZAMBON_SWISS_SITE.country,
       postalCode: ZAMBON_SWISS_SITE.postalCode, streetAddress: ZAMBON_SWISS_SITE.streetAddress,
       description: `${raw.title} — posizione presso ${COMPANY_NAME} a ${ZAMBON_SWISS_SITE.city} (${ZAMBON_SWISS_SITE.canton}).`,
-      titleByLocale: { en: raw.title }, descriptionByLocale: {},
+      titleByLocale: { [sourceLang]: raw.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
       datePosted: new Date().toISOString().split('T')[0],
       source: 'zambon-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
-      sourceLang: detectLang(raw.title, 'it'),
+      sourceLang,
     };
   });
 }
