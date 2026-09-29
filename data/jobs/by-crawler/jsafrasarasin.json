@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jsafrasarasin",
-  "assembledAt": "2026-09-29T09:16:49.989Z",
+  "assembledAt": "2026-09-29T09:49:15.497Z",
   "jobs": [
     {
       "id": "jsafrasarasin-633fe62884d6",
@@ -33,7 +33,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:45.309Z",
+      "crawledAt": "2026-09-29T09:49:10.298Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:45.007Z",
+      "crawledAt": "2026-09-29T09:49:09.996Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:44.705Z",
+      "crawledAt": "2026-09-29T09:49:09.694Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -231,7 +231,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:34:11.477Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -244,7 +243,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jsafrasarasin-f5141b65059d",
@@ -277,7 +277,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:44.403Z",
+      "crawledAt": "2026-09-29T09:49:09.390Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -355,7 +355,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/514/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:44.101Z",
+      "crawledAt": "2026-09-29T09:49:09.088Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -433,7 +433,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/516/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:43.799Z",
+      "crawledAt": "2026-09-29T09:49:08.787Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -466,7 +466,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:24.814Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -479,7 +478,8 @@
           "maxValue": 136000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jsafrasarasin-cf7f9af0c102",
@@ -512,7 +512,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/518/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:43.496Z",
+      "crawledAt": "2026-09-29T09:49:08.485Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -590,7 +590,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:43.194Z",
+      "crawledAt": "2026-09-29T09:49:08.183Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -674,7 +674,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/517/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:42.892Z",
+      "crawledAt": "2026-09-29T09:49:07.881Z",
       "addressLocality": "Basel, CH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -749,7 +749,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/521/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:42.590Z",
+      "crawledAt": "2026-09-29T09:49:07.577Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -765,23 +765,6 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/521/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "head-reconciliation-jsafrasarasin-ch",
-        "riconciliazione-j-safra-sarasin-basel-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "head-reconciliation-jsafrasarasin-ch",
-          "riconciliazione-j-safra-sarasin-basel-ch"
-        ],
-        "de": [
-          "head-reconciliation-jsafrasarasin-ch"
-        ],
-        "fr": [
-          "head-reconciliation-jsafrasarasin-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:12:20.147Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -794,7 +777,24 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:12:20.147Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-reconciliation-jsafrasarasin-ch",
+          "riconciliazione-j-safra-sarasin-basel-ch"
+        ],
+        "de": [
+          "head-reconciliation-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "head-reconciliation-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-reconciliation-jsafrasarasin-ch",
+        "riconciliazione-j-safra-sarasin-basel-ch"
+      ]
     },
     {
       "id": "jsafrasarasin-e11900f56834",
@@ -827,7 +827,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/523/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:42.287Z",
+      "crawledAt": "2026-09-29T09:49:07.274Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -843,23 +843,6 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/523/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "workplace-operations-engineer-jsafrasarasin-ch",
-        "workplace-operations-ingegnere-j-safra-sarasin-basel-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "workplace-operations-engineer-jsafrasarasin-ch",
-          "workplace-operations-ingegnere-j-safra-sarasin-basel-ch"
-        ],
-        "de": [
-          "workplace-operations-engineer-jsafrasarasin-ch"
-        ],
-        "fr": [
-          "workplace-operations-engineer-jsafrasarasin-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:12:19.843Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -872,7 +855,24 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:12:19.843Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "workplace-operations-engineer-jsafrasarasin-ch",
+          "workplace-operations-ingegnere-j-safra-sarasin-basel-ch"
+        ],
+        "de": [
+          "workplace-operations-engineer-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "workplace-operations-engineer-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "workplace-operations-engineer-jsafrasarasin-ch",
+        "workplace-operations-ingegnere-j-safra-sarasin-basel-ch"
+      ]
     },
     {
       "id": "jsafrasarasin-a3301ae307b4",
@@ -905,7 +905,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/522/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:16:41.984Z",
+      "crawledAt": "2026-09-29T09:49:06.971Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -921,23 +921,6 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/522/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "operational-risk-manager-jsafrasarasin-ch",
-        "gestione-del-rischio-operativo-j-safra-sarasin-geneva-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "operational-risk-manager-jsafrasarasin-ch",
-          "gestione-del-rischio-operativo-j-safra-sarasin-geneva-ch"
-        ],
-        "de": [
-          "operational-risk-manager-jsafrasarasin-ch"
-        ],
-        "fr": [
-          "operational-risk-manager-jsafrasarasin-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:12:19.539Z",
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -950,7 +933,24 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:12:19.539Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operational-risk-manager-jsafrasarasin-ch",
+          "gestione-del-rischio-operativo-j-safra-sarasin-geneva-ch"
+        ],
+        "de": [
+          "operational-risk-manager-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "operational-risk-manager-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operational-risk-manager-jsafrasarasin-ch",
+        "gestione-del-rischio-operativo-j-safra-sarasin-geneva-ch"
+      ]
     },
     {
       "id": "jsafrasarasin-8b235c638a3b",
