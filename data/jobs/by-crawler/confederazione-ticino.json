@@ -46,11 +46,15 @@
       "id": "confederazione-ticino-160794b69a91",
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-confederazione-bern"
+          "wissenschaftliche-r-mitarbeiter-in-confederazione-bern",
+          "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-08av62",
+          "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-8jk0ft"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-confederazione-bern"
+        "wissenschaftliche-r-mitarbeiter-in-confederazione-bern",
+        "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-08av62",
+        "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-8jk0ft"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -917,11 +921,21 @@
       "id": "confederazione-ticino-8e0ee2f01545",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gebaudebetrieb-confederazione-thun"
+          "mitarbeiter-in-gebaudebetrieb-confederazione-thun",
+          "employees-in-buildings-confederazione-svizzera-thun",
+          "employes-dans-les-batiments-confederazione-svizzera-thun"
+        ],
+        "en": [
+          "employees-in-buildings-confederazione-svizzera-thun"
+        ],
+        "fr": [
+          "employes-dans-les-batiments-confederazione-svizzera-thun"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-gebaudebetrieb-confederazione-thun"
+        "mitarbeiter-in-gebaudebetrieb-confederazione-thun",
+        "employees-in-buildings-confederazione-svizzera-thun",
+        "employes-dans-les-batiments-confederazione-svizzera-thun"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1012,8 +1026,7 @@
       "previousSlugs": [
         "hochschulpraktikant-in-risorse-umane-recruiting-e-business-partner-1341-confederazione-svizzera-zollikofen",
         "hochschulpraktikant-in-hr-recruiting-und-business-partner-1341-confederazione-zollikofen"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Assistent/-in Abteilung Energieeffizienz und Erneuerbare Energien",
@@ -1212,7 +1225,8 @@
       "firstSeenAt": "2026-09-23T23:59:04.439Z",
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-confederazione-bern"
+          "jurist-in-confederazione-bern",
+          "jurist-in-confederazione-svizzera-bern-bw4wll"
         ],
         "en": [
           "jurist-in-confederazione-bern"
@@ -1225,7 +1239,8 @@
         ]
       },
       "previousSlugs": [
-        "jurist-in-confederazione-bern"
+        "jurist-in-confederazione-bern",
+        "jurist-in-confederazione-svizzera-bern-bw4wll"
       ]
     },
     {
@@ -1804,7 +1819,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:09:20.522Z"
+      "firstSeenAt": "2026-09-25T15:09:20.522Z",
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in Eisenbahn-, Flug- und Industrielärm",
@@ -9698,7 +9714,8 @@
       },
       "previousSlugs": [
         "staatsanwaltin-staatsanwalt-des-bundes-bereich-rechtshilfe-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Steuerspezialist/-in Recht MWST",
@@ -17883,7 +17900,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:49:35.220Z"
+      "firstSeenAt": "2026-09-04T13:49:35.220Z",
+      "needsRetranslation": true
     },
     {
       "title": "Wirtschaftsinformatiker/-in im SAP-Umfeld",

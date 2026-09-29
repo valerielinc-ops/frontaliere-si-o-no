@@ -338,11 +338,28 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "panzermechatroniker-in-schwere-raupenfahrzeuge-swiss-armed-forces-vtg-bern"
+          "panzermechatroniker-in-schwere-raupenfahrzeuge-swiss-armed-forces-vtg-bern",
+          "serbatoio-meccatronici-ingegneri-in-veicoli-pesanti-confederazione-svizzera-hinwil",
+          "tank-mechatronics-engineers-in-heavy-tracked-vehicles-confederazione-svizzera-hinwil",
+          "panzermechatroniker-in-schwere-raupenfahrzeuge-confederazione-hinwil",
+          "ingenieurs-mecatroniques-citernes-vehicules-a-chenilles-lourdes-confederazione-svizzera-hinwil"
+        ],
+        "en": [
+          "tank-mechatronics-engineers-in-heavy-tracked-vehicles-confederazione-svizzera-hinwil"
+        ],
+        "de": [
+          "panzermechatroniker-in-schwere-raupenfahrzeuge-confederazione-hinwil"
+        ],
+        "fr": [
+          "ingenieurs-mecatroniques-citernes-vehicules-a-chenilles-lourdes-confederazione-svizzera-hinwil"
         ]
       },
       "previousSlugs": [
-        "panzermechatroniker-in-schwere-raupenfahrzeuge-swiss-armed-forces-vtg-bern"
+        "panzermechatroniker-in-schwere-raupenfahrzeuge-swiss-armed-forces-vtg-bern",
+        "serbatoio-meccatronici-ingegneri-in-veicoli-pesanti-confederazione-svizzera-hinwil",
+        "tank-mechatronics-engineers-in-heavy-tracked-vehicles-confederazione-svizzera-hinwil",
+        "panzermechatroniker-in-schwere-raupenfahrzeuge-confederazione-hinwil",
+        "ingenieurs-mecatroniques-citernes-vehicules-a-chenilles-lourdes-confederazione-svizzera-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -410,11 +427,28 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "panzermechatroniker-in-leichte-raupenfahrzeuge-swiss-armed-forces-vtg-bern"
+          "panzermechatroniker-in-leichte-raupenfahrzeuge-swiss-armed-forces-vtg-bern",
+          "serbatoio-meccatronici-tecnici-veicoli-tracciati-leggeri-confederazione-svizzera-hinwil",
+          "tank-mechatronics-technicians-light-tracked-vehicles-confederazione-svizzera-hinwil",
+          "panzermechatroniker-in-leichte-raupenfahrzeuge-confederazione-hinwil",
+          "techniciens-mecatroniques-citernes-vehicules-a-chenilles-legeres-confederazione-svizzera-hinwil"
+        ],
+        "en": [
+          "tank-mechatronics-technicians-light-tracked-vehicles-confederazione-svizzera-hinwil"
+        ],
+        "de": [
+          "panzermechatroniker-in-leichte-raupenfahrzeuge-confederazione-hinwil"
+        ],
+        "fr": [
+          "techniciens-mecatroniques-citernes-vehicules-a-chenilles-legeres-confederazione-svizzera-hinwil"
         ]
       },
       "previousSlugs": [
-        "panzermechatroniker-in-leichte-raupenfahrzeuge-swiss-armed-forces-vtg-bern"
+        "panzermechatroniker-in-leichte-raupenfahrzeuge-swiss-armed-forces-vtg-bern",
+        "serbatoio-meccatronici-tecnici-veicoli-tracciati-leggeri-confederazione-svizzera-hinwil",
+        "tank-mechatronics-technicians-light-tracked-vehicles-confederazione-svizzera-hinwil",
+        "panzermechatroniker-in-leichte-raupenfahrzeuge-confederazione-hinwil",
+        "techniciens-mecatroniques-citernes-vehicules-a-chenilles-legeres-confederazione-svizzera-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1314,13 +1348,18 @@
           "logistics-swiss-armed-forces-vtg-bern",
           "logistique-swiss-armed-forces-vtg-bern",
           "logistics-swiss-armed-forces-vtg-bern-b9e29f",
-          "logistique-swiss-armed-forces-vtg-bern-b9e29f"
+          "logistique-swiss-armed-forces-vtg-bern-b9e29f",
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern-1bmlp0",
+          "logistiker-in-swiss-armed-forces-vtg-bern-1bmlp0"
         ],
         "en": [
           "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7"
         ],
         "fr": [
           "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7"
+        ],
+        "de": [
+          "logistiker-in-swiss-armed-forces-vtg-bern-1bmlp0"
         ]
       },
       "previousSlugs": [
@@ -1329,7 +1368,9 @@
         "logistics-swiss-armed-forces-vtg-bern",
         "logistique-swiss-armed-forces-vtg-bern",
         "logistics-swiss-armed-forces-vtg-bern-b9e29f",
-        "logistique-swiss-armed-forces-vtg-bern-b9e29f"
+        "logistique-swiss-armed-forces-vtg-bern-b9e29f",
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern-1bmlp0",
+        "logistiker-in-swiss-armed-forces-vtg-bern-1bmlp0"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -4436,8 +4477,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "salaryMin": 77000,
-      "salaryMax": 116500,
-      "needsRetranslation": true
+      "salaryMax": 116500
     },
     {
       "id": "company-e2fmuy",
@@ -4926,8 +4966,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "salaryMin": 73000,
-      "salaryMax": 124500,
-      "needsRetranslation": true
+      "salaryMax": 124500
     },
     {
       "id": "company-v1b670",

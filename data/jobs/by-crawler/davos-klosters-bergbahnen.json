@@ -201,7 +201,15 @@
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3940214",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-09-27T05:53:18.816Z"
+      "firstSeenAt": "2026-09-27T05:53:18.816Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-bcf42938f9ac",
@@ -391,7 +399,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -627,7 +634,6 @@
         ]
       },
       "firstSeenAt": "2026-09-27T05:53:17.644Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
