@@ -93,7 +93,7 @@ import {
   followupItemId,
 } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import { hasTriageComment } from './collect-followup-batch.mjs';
+import { claimDailyTagBucketReferences, hasTriageComment } from './collect-followup-batch.mjs';
 
 const TRIAGE_MARKER_PREFIX = '## Post-merge follow-up triage';
 
@@ -943,7 +943,13 @@ export function demotedItemsBySourcePr(demoted, fallbackTargets = []) {
 
 /**
  * Un marker di triage della PR cita il bucket `#N` su una riga che dice
- * «bucket» (un `#N` preceduto da `PR` e' la PR, non il bucket).
+ * «bucket» (un `#N` preceduto da `PR` e' la PR, non il bucket), oppure con il
+ * tag `follow-up(daily:YYYY-MM-DD)` subito dopo il numero: e' la forma del
+ * triage su due repository, un bucket per bullet (``- Corpus #1957
+ * `follow-up(daily:2026-09-28)` …``, marker di #10015 e #10050). La forma col
+ * tag vale solo nella finestra di claim del collector (riga `Created/updated:`
+ * e bullet subito sotto, `claimDailyTagBucketReferences`): una citazione
+ * storica dopo la lista non qualifica un bucket che il marker non ha promesso.
  */
 export function triageMarkerCitesBucket(commentsJson, bucketNumber) {
   let data;
@@ -953,11 +959,12 @@ export function triageMarkerCitesBucket(commentsJson, bucketNumber) {
     return false;
   }
   const comments = Array.isArray(data) ? data : Array.isArray(data?.comments) ? data.comments : [];
-  const ref = new RegExp(`(?<!\\b(?:PR|pull\\s+request)\\s*)#${Number(bucketNumber)}\\b`, 'i');
+  const ref = new RegExp(`(?<!\\b(?:PR|pull[-\\s]+request)\\s*)#${Number(bucketNumber)}\\b`, 'i');
   return comments.some((comment) => {
     const body = typeof comment?.body === 'string' ? comment.body : '';
     if (!body.trimStart().startsWith(TRIAGE_MARKER_PREFIX)) return false;
-    return body.split(/\r?\n/).some((line) => /\bbucket\b/i.test(line) && ref.test(line));
+    return body.split(/\r?\n/).some((line) => /\bbucket\b/i.test(line) && ref.test(line))
+      || claimDailyTagBucketReferences(body).includes(Number(bucketNumber));
   });
 }
 

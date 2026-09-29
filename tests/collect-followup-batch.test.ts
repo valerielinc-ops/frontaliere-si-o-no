@@ -38,6 +38,12 @@ import {
   orderCandidatesFifo,
   shouldTriageAfterCandidateGate,
   shouldTriageAfterFixGate,
+  markerIdempotencyDecision,
+  MARKER_QUARANTINE_AFTER_MS,
+  quarantineReason,
+  unreportedQuarantine,
+  reportQuarantinedMarkers,
+  QUARANTINE_ALARM_TITLE,
 } from '../scripts/ci/collect-followup-batch.mjs';
 
 describe('canonicalLogin', () => {
@@ -578,5 +584,181 @@ describe('grandchild gate exception', () => {
     expect(shouldTriageAfterCandidateGate({ hasCandidates: false, followupPartial: true })).toBe(true);
     expect(shouldTriageAfterCandidateGate({ hasCandidates: false, followupPartial: false })).toBe(false);
     expect(shouldTriageAfterCandidateGate({ hasCandidates: null, followupPartial: false })).toBe(true);
+  });
+});
+
+describe('marker su piu bucket: conteggio in testa e un bucket per bullet (#10015, #10050)', () => {
+  // Marker, commento del gate e blocchi item dei bucket REALI, parola per
+  // parola (run 36461728260, 36495756021, 36520419253: verifica rossa a ogni
+  // run con «marker … senza riferimento a un bucket persistito»).
+  const fixture = JSON.parse(readFileSync(
+    new URL('./fixtures/followup-multi-bucket-markers.json', import.meta.url),
+    'utf8',
+  ));
+  const commentsOf = (pr: string) => JSON.stringify({ comments: fixture.prs[pr].comments });
+  const markerOf = (pr: string) => latestTriageCommentBody(commentsOf(pr));
+  const corpusBucket = fixture.buckets['nanakokyobashi-rgb/frontaliere-articles#1957'];
+  const siteBucket = fixture.buckets['valerielinc-ops/frontaliere-si-o-no#10171'];
+  // Come readBucketIssue: ogni numero letto in ENTRAMBI i repository; il
+  // numero assente da un repository e' «non lo so» per quel repository.
+  const readBoth = (bucket: number) => ({
+    candidates: [corpusBucket, siteBucket].filter((issue) => issue.number === bucket),
+    unreadable: true,
+  });
+
+  it('trova i bucket nei bullet sotto la riga di claim', () => {
+    expect(triageMarkerPersistenceExpectation(markerOf('10015'))).toEqual({
+      buckets: [1957, 10171],
+      requiresBucket: true,
+    });
+    expect(triageMarkerPersistenceExpectation(markerOf('10050'))).toEqual({
+      buckets: [1957],
+      requiresBucket: true,
+    });
+  });
+
+  it('prova la persistenza reale: corpus #1957 + sito #10171, e il gate per #10050', () => {
+    expect(verifyTriageMarkerPersistence(markerOf('10015'), 10015, readBoth, commentsOf('10015'))).toBe(true);
+    // FU-2026-09-28-010 e' stato demotato dal gate DOPO il marker: la prova e'
+    // il commento di conservazione che cita Issue #1957.
+    expect(verifyTriageMarkerPersistence(markerOf('10050'), 10050, readBoth, commentsOf('10050'))).toBe(true);
+    const lines: string[] = [];
+    expect(verifyPersistenceCli(['10015', '10050'], {
+      read: (pr: number) => commentsOf(String(pr)),
+      readIssue: readBoth,
+      log: (line: string) => lines.push(line),
+    })).toBe(true);
+    expect(lines).toEqual([
+      'PR #10015: persistenza provata (bucket=[1957,10171]).',
+      'PR #10050: persistenza provata (bucket=[1957]).',
+    ]);
+  });
+
+  it('ogni bucket dichiarato va provato: un bullet non persistito resta rosso', () => {
+    const onlyCorpus = (bucket: number) => (bucket === 1957 ? corpusBucket : false);
+    expect(verifyTriageMarkerPersistence(markerOf('10015'), 10015, onlyCorpus, commentsOf('10015'))).toBe(false);
+  });
+
+  it('nei bullet vale solo #N col tag daily; PR citate e prosa dopo la lista restano fuori', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: 1 item.',
+      '- FU-2026-09-28-001 da PR #10015 (vedi #9999), bucket PR #10015',
+      '- Corpus #1957 `follow-up(daily:2026-09-28)` — `FU-2026-09-28-009`',
+      '',
+      '- Site #8248 `follow-up(daily:2026-09-11)` sealed, storico.',
+      'Nota: il bucket #8249 e #8250 `follow-up(daily:2026-09-11)` sono chiusi.',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [1957], requiresBucket: true });
+  });
+
+  it('`pull-request #N` e `pull request #N` col tag daily non sono bucket', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      'Created/updated: 1 item.',
+      '- pull-request #10015 `follow-up(daily:2026-09-28)`',
+      '- pull request #10050 `follow-up(daily:2026-09-28)`',
+      '- Corpus #1957 `follow-up(daily:2026-09-28)`',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [1957], requiresBucket: true });
+  });
+
+  it('un bullet non trasforma in promessa un claim a zero', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      'Created/updated: 0 item.',
+      '- Corpus #1957 `follow-up(daily:2026-09-28)` non modificato da questa PR.',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [], requiresBucket: false });
+  });
+
+  it('la forma canonica a piu bucket di FOLLOWUP.md e letta riga per riga', () => {
+    const contract = readFileSync(new URL('../FOLLOWUP.md', import.meta.url), 'utf8');
+    const template = /Created\/updated: daily bucket #<id-corpus>[\s\S]*?<item one-line>\nCreated\/updated: daily bucket #<id-sito>[^\n]*\n- <item one-line>/.exec(contract);
+    expect(template).not.toBeNull();
+    const marker = '## Post-merge follow-up triage\n\n' + template![0]
+      .replace('<id-corpus>', '1957')
+      .replace('<id-sito>', '10171')
+      .replaceAll('<YYYY-MM-DD>', '2026-09-28')
+      .replace('K item', '1 item')
+      .replace('J item', '1 item');
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [1957, 10171], requiresBucket: true });
+    expect(verifyTriageMarkerPersistence(marker, 10015, readBoth)).toBe(true);
+  });
+});
+
+describe('quarantena del marker che non converge', () => {
+  const MARKER_AT = Date.parse('2026-09-28T18:23:51Z');
+  const HOUR = 3600_000;
+
+  it('false e vecchio → quarantena; false e recente → retry; null → retry', () => {
+    expect(MARKER_QUARANTINE_AFTER_MS).toBe(6 * HOUR);
+    expect(markerIdempotencyDecision(false, MARKER_AT, MARKER_AT + 6 * HOUR + 1)).toBe('quarantine');
+    expect(markerIdempotencyDecision(false, MARKER_AT, MARKER_AT + 30 * HOUR)).toBe('quarantine');
+    // Entro 6h il commento del gate puo' ancora arrivare dopo la verifica.
+    expect(markerIdempotencyDecision(false, MARKER_AT, MARKER_AT + 6 * HOUR)).toBe('retry');
+    expect(markerIdempotencyDecision(false, MARKER_AT, MARKER_AT + HOUR)).toBe('retry');
+    // Lettura indisponibile: nessun verdetto, resta in retry anche se vecchio.
+    expect(markerIdempotencyDecision(null, MARKER_AT, MARKER_AT + 30 * HOUR)).toBe('retry');
+    // Eta' non misurabile: niente quarantena.
+    expect(markerIdempotencyDecision(false, Number.NaN, MARKER_AT + 30 * HOUR)).toBe('retry');
+    expect(markerIdempotencyDecision(false, undefined, MARKER_AT + 30 * HOUR)).toBe('retry');
+    expect(markerIdempotencyDecision(true, MARKER_AT, MARKER_AT + 30 * HOUR)).toBe('skip');
+  });
+
+  it("l'eta e quella del marker CORRENTE (latestTriageComment)", () => {
+    const comments = JSON.stringify({ comments: [
+      { body: '## Post-merge follow-up triage\nCreated/updated: 1 item.', createdAt: '2026-09-20T00:00:00Z' },
+      { body: '## Post-merge follow-up triage\nCreated/updated: 1 item.', createdAt: '2026-09-28T18:23:51Z' },
+    ] });
+    const at = latestTriageComment(comments)?.at;
+    expect(markerIdempotencyDecision(false, at, MARKER_AT + HOUR)).toBe('retry');
+  });
+
+  it('il motivo distingue il marker senza bucket da quello con bucket non provato', () => {
+    expect(quarantineReason('## Post-merge follow-up triage\nCreated/updated: 2 item.'))
+      .toContain('senza riferimento a un bucket persistito');
+    expect(quarantineReason('## Post-merge follow-up triage\nCreated/updated: daily bucket #42 con 1 item'))
+      .toContain('bucket=[42]');
+  });
+
+  it("l'allarme riusa github-issue-creator ed e idempotente per PR", async () => {
+    const quarantined = [
+      { number: 10015, reason: 'r1' },
+      { number: 10050, reason: 'r2' },
+    ];
+    const issues = JSON.stringify([
+      { number: 1, title: QUARANTINE_ALARM_TITLE, body: '- PR #10015: r1.', comments: [] },
+      { number: 2, title: 'altro titolo', body: '- PR #10050', comments: [] },
+    ]);
+    expect(unreportedQuarantine(quarantined, issues)).toEqual([{ number: 10050, reason: 'r2' }]);
+    expect(unreportedQuarantine(quarantined, 'not json')).toBeNull();
+    // #100150 non e' #10015.
+    expect(unreportedQuarantine([{ number: 10015, reason: 'r' }], JSON.stringify([
+      { title: QUARANTINE_ALARM_TITLE, body: 'PR #100150', comments: [{ body: 'PR #1001' }] },
+    ]))).toHaveLength(1);
+
+    const created: Array<Record<string, unknown>> = [];
+    const createIssue = async (options: Record<string, unknown>) => {
+      created.push(options);
+      return { number: 1, persisted: true };
+    };
+    const log = () => {};
+    const first = await reportQuarantinedMarkers(quarantined, { listIssues: () => issues, createIssue, log });
+    expect(first.reported).toEqual([10050]);
+    expect(created).toHaveLength(1);
+    expect(created[0].title).toBe(QUARANTINE_ALARM_TITLE);
+    expect(String(created[0].description)).toContain('- PR #10050: r2.');
+    expect(String(created[0].description)).not.toContain('PR #10015');
+
+    // Gia' segnalate entrambe: nessuna scrittura.
+    const reported = JSON.stringify([
+      { title: QUARANTINE_ALARM_TITLE, body: '- PR #10015: r1.', comments: [{ body: '- PR #10050: r2.' }] },
+    ]);
+    expect((await reportQuarantinedMarkers(quarantined, { listIssues: () => reported, createIssue, log })).reported).toEqual([]);
+    // Elenco illeggibile: nessuna scrittura alla cieca.
+    expect((await reportQuarantinedMarkers(quarantined, { listIssues: () => null, createIssue, log })).unverifiable).toBe(true);
+    expect(created).toHaveLength(1);
   });
 });

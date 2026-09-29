@@ -206,6 +206,17 @@ Dropped: M item
 Skipped: P item (🔴 pre-merge or duplicate active follow-up)
 ```
 
+Item finiti in **più bucket** (per esempio uno nel corpus e uno nel sito, vedi `## Routing cross-repository`) → UNA riga di claim per bucket, ciascuna con il proprio `#<id>`, repository e conteggio:
+
+```markdown
+Created/updated: daily bucket #<id-corpus> `follow-up(daily:<YYYY-MM-DD>)` (corpus) con K item:
+- <item one-line>
+Created/updated: daily bucket #<id-sito> `follow-up(daily:<YYYY-MM-DD>)` (sito) con J item:
+- <item one-line>
+```
+
+«Verify complete follow-up triage» unisce tutte le righe `Created/updated:` e prova OGNI bucket citato. Legge anche la forma che il triage scrive spontaneamente, conteggio in testa e un bucket per bullet (`Created/updated: 2 item.` seguito da ``- Corpus #1957 `follow-up(daily:2026-09-28)` — …``, marker di #10015): nei bullet subito sotto la riga di claim un `#<id>` vale come bucket solo se è seguito dal tag `` `follow-up(daily:<YYYY-MM-DD>)` `` sulla stessa riga. Il repository dichiarato è informativo: il numero viene cercato in entrambi i repo. La prosa dopo la lista (bucket storici, sealed) non è claim. Un marker con verdetto definitivo «non persistito» da oltre 6 ore esce dal batch come **quarantena** visibile (warning, summary, output `quarantined_prs`, issue «Post-merge follow-up: marker di triage in quarantena»), invece di tornare a ogni run.
+
 `Live-verification` raccoglie **tutti** gli item `live-verify-only` (vedi `## Filtro scopo → Hard-exclude: live-verification-only item`) in una checklist `- [ ]`, una per PR: **nessuna issue e nessun fixer**. Ometti se Q=0; mai promuovere a issue.
 
 Zero item dopo filtro+dedup e zero live-verify → `## Post-merge follow-up triage: zero outstanding items.` senza bucket. Solo live-verify → summary con `Live-verification` e `Created: 0 issue (solo live-verification batchata)`.
