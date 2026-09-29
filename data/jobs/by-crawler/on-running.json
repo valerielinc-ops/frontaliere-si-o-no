@@ -486,7 +486,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.189Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -585,7 +584,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:39:25.766Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -671,7 +669,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.075Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -751,7 +748,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.069Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -839,7 +835,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:10.964Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -917,87 +912,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.182Z",
-      "needsRetranslation": true,
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113500,
-          "maxValue": 172000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "on-running-50f912a14fcf",
-      "slug": "senior-lead-footwear-sviluppatore-on-running-zurich",
-      "slugByLocale": {
-        "it": "senior-lead-footwear-sviluppatore-on-running-zurich",
-        "en": "senior-lead-footwear-developer-on-running-ch",
-        "de": "senior-lead-footwear-entwickler-on-running-zurich",
-        "fr": "senior-lead-footwear-developpeur-on-running-zurich"
-      },
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Senior Lead - Footwear Developer",
-      "titleByLocale": {
-        "it": "Senior Lead - Footwear Sviluppatore",
-        "en": "Senior Lead - Footwear Developer",
-        "de": "Senior Lead - Footwear Entwickler",
-        "fr": "Senior Lead - Footwear Développeur"
-      },
-      "description": "Senior Lead Footwear Developer\n\nIn short:\n\nAs the Senior Lead Footwear Developer for Performance Running, you serve as the strategic technical consultant for our most critical product category. Based in our Zurich HQ, your role is to ensure high-level alignment between design intent and manufacturing feasibility. Rather than managing the granular execution of every product, you provide the technical governance and cross-functional support necessary to maintain performance integrity as the category scales.\n\nThe Senior Lead Development role will report to the Senior Lead Run Footwear Development on the Performance Run team supporting global footwear.\n\nYour Mission:\n\n• Technical Stewardship: Act as the primary technical advisor during the briefing and design phases to ensure performance running concepts are aligned with global manufacturing capabilities.\n\n• Strategic Synchronization: Facilitate technical alignment between Zurich-based Design/Product Management and the Asia-based execution teams, ensuring that the \"performance soul\" of the category is preserved across all franchises.\n\n• Process Enablement: Support the evolution of development standards by identifying technical bottlenecks and advising on best practices that improve category-wide efficiency.\n\n• Advisory & Escalation Support: Serve as the senior technical point of contact for Asia-based development partners, providing guidance on complex technical hurdles and supporting the resolution of high-level production escalations.\n\n• Performance Quality Assurance: Support the validation of fit, feel, and durability standards, ensuring that category-wide technical benchmarks are consistently met across different factory partners.\n\n• Knowledge Facilitation: Foster a culture of technical excellence by mentoring the broader development team and translating complex innovation breakthroughs into actionable development frameworks.\n\nYour Story:\n\n• Experience: 8–12 years in footwear development, with a background rooted in high-performance running and technical complexity.\n\n• Influential Leadership: Proven ability to influence product direction and technical outcomes through partnership and advisory, rather than direct line management or project ownership.\n\n• Systemic Thinking: A deep understanding of how performance tooling, materials, and construction impact the global supply chain and product lifecycle.\n\n• Collaborative Bridge: Exceptional at navigating HQ and regional dynamics, acting as a \"technical translator\" between creative vision and factory execution.\n\n• Strategic Judgment: Highly skilled at evaluating technical trade-offs and providing recommendations that balance innovation with commercial scalability.\n\n• Consultative Communication: A trusted voice capable of guiding stakeholders toward technically sound decisions while maintaining strong cross-functional relationships.\n\nAttributes of a successful candidate:\n\n• The Technical Advisor: You don't need to hold the pen on every tech pack, but you are the person everyone consults when a design pushes the boundaries of physics.\n\n• The Strategic Partner: You focus on the \"how\" and \"why,\" ensuring the category’s technical roadmap is robust and scalable.\n\n• The Alignment Specialist: You thrive in the space between teams, ensuring that no technical detail is \"lost in translation\" between Zurich and our global manufacturing partners.\n\nYour Team:\n\nYou will join the Zurich-based Footwear Development team, serving as a senior pillar of expertise for the Performance Running category. A high-performance collective of engineers, developers, and makers who serve as the technical heart of the brand. In Zurich, our team acts as the primary link between Biomechanical Research, Material Science, Design , and Sourcing, ensuring that every innovation is grounded in technical reality before it reaches the athlete.\n\nOur mission is to relentlessly elevate the performance and technical attributes of our running footwear. We don't just facilitate product creation; we engineer the \"ride.\" As part of the Performance Run vertical, you will be surrounded by specialists who are obsessed with creating the best fitting, performing and desirable running product in the market. We pride ourselves on a culture of technical rigor and \"Swiss Engineering,\" where we challenge the status quo to solve the most complex biomechanical hurdles in the industry. Your role within this team is to ensure that as our category expands, our technical standards and the performance \"soul\" of our run footwear remain uncompromised.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
-      "descriptionByLocale": {
-        "it": "Designazione delle merci\n\nSviluppatore di calzature senior Lead\n\nIn breve:\n\nCome Senior Lead Footwear Developer for Performance Running, lei è il consulente tecnico strategico per la nostra categoria di prodotti più critica. Con sede nel nostro quartier generale di Zurigo, il suo ruolo è quello di garantire un allineamento di alto livello tra l'intento di progettazione e la fattibilità produttiva. Invece di gestire l'esecuzione granulare di ogni prodotto, fornisce la governance tecnica e il supporto cross-funzionale necessari per mantenere l'integrità delle prestazioni come scale di categoria.\n\nIl ruolo Senior Lead Development riferirà al Senior Lead Run Footwear Development sul team Performance Run che sosterrà le calzature globali.\n\nLa tua missione\n\n- Tecnico Stewardship: agire come il principale consulente tecnico durante le fasi di briefing e progettazione per garantire che i concetti di esecuzione delle prestazioni sono allineati con le capacità di produzione globale.\n\n- Sincronizzazione strategica: facilitare l'allineamento tecnico tra il Design/Product Management di Zurigo e i team di esecuzione asiatici, assicurando che l'\"anima di prestazione\" della categoria sia preservata in tutti i franchise.\n\n- Abilitazione dei processi: sostenere l'evoluzione degli standard di sviluppo individuando strozzature tecniche e consigliando le migliori pratiche che migliorano l'efficienza a livello di categoria.\n\n- Supporto consultivo ed eclatante: Sei've come punto di contatto tecnico per i partner di sviluppo asiatici, fornendo orientamenti su ostacoli tecnici complessi e sostenendo la risoluzione di escalation produttive ad alto livello.\n\n- Garanzia della qualità delle prestazioni: sostenere la convalida degli standard di vestibilità, sensibilità e durata, assicurando che i benchmark tecnici di categoria siano costantemente soddisfatti da diversi partner di fabbrica.\n\n- Facilitazione della conoscenza: promuovere una cultura dell'eccellenza tecnica mediante l'API che traduca il team di sviluppo più ampio e complesse innovazioni in quadri di sviluppo attuabili.\n\nLa tua storia\n\n- Esperienza: 8.12 anni di sviluppo calzaturiero, con un background radicato nella corsa ad alte prestazioni e complessità tecnica.\n\n- Leadership influenziale: capacità di provare ad influenzare la direzione dei prodotti e i risultati tecnici attraverso partnership e consulenza, piuttosto che la gestione diretta della linea o la proprietà del progetto.\n\n- Pensiero Sistemico: una profonda comprensione di come strumenti di prestazione, materiali e costruzione hanno un impatto sulla catena di fornitura globale e sul ciclo di vita del prodotto.\n\n- Ponte del '21: Eccezionale nella navigazione HQ e nelle dinamiche regionali, che funge da \"traduttore tecnico\" tra visione creativa ed esecuzione di fabbrica.\n\n- Sentenza strategica: Altamente qualificata nella valutazione dei compromessi tecnici e nella formulazione di raccomandazioni che bilanciano l'innovazione con la possibilità di effettuare la scalabilità commerciale.\n\n- Comunicazione consultiva: una voce di fiducia in grado di guidare gli stakeholder verso decisioni tecnicamente sane mantenendo forti relazioni interfunzionali.\n\nAttributi di un candidato di successo\n\n- Il consulente tecnico: Non è necessario tenere la penna su ogni pacchetto tecnico, ma sei la persona che tutti consultano quando un design spinge i confini della fisica.\n\n- Il partner strategico: Ti concentri sul \"come\" e \"why,\" assicurando la roadmap tecnica di categoria.s è robusta e scalabile.\n\n- Lo specialista di allineamento: Lei prospera nello spazio tra i team, assicurando che nessun dettaglio tecnico sia \"perdente nella traduzione\" tra Zurigo e i nostri partner produttivi globali.\n\nLa tua squadra\n\nUnirai al team di sviluppo calzature con sede a Zurigo, che funge da pilastro di competenza per la categoria Performance Running. Un collettivo ad alte prestazioni di ingegneri, sviluppatori e produttori che fungono da cuore tecnico del marchio. A Zurigo, il nostro team funge da collegamento primario tra la ricerca biomeccanica, la scienza dei materiali, il design e il Sourcing, assicurando che ogni innovazione sia fondata sulla realtà tecnica prima che raggiunga l'atleta.\n\nLa nostra missione è quella di non perdere le prestazioni e gli attributi tecnici delle nostre calzature da corsa. Non solo facilita la creazione di prodotti, ma anche di ingegnere del \"ridre.\" Nell'ambito della Performance Run verticale, sarete circondati da specialisti ossessionati dalla creazione del miglior prodotto da corsa, performante e desiderabile sul mercato. Siamo fieri di una cultura del rigor tecnico e della \"Swiss Engineering,\" dove ci mettiamo in gioco lo status quo per risolvere gli ostacoli biomeccanici più complessi del settore.\n\nIl vostro ruolo in questo team è quello di garantire che man mano che la nostra categoria si espande, i nostri standard tecnici e le prestazioni \"anima\" delle nostre calzature run rimangano senza compromessi.\n\nCosa offriamo\n\n- On è un datore di lavoro pari opportunità. Ci impegniamo a creare un ambiente di lavoro che sia equo e inclusivo, dove tutte le decisioni relative al reclutamento, avanzamento, e mantenimento sono esenti da discriminazioni.",
-        "en": "Senior Lead Footwear Developer\n\nIn short:\n\nAs the Senior Lead Footwear Developer for Performance Running, you serve as the strategic technical consultant for our most critical product category. Based in our Zurich HQ, your role is to ensure high-level alignment between design intent and manufacturing feasibility. Rather than managing the granular execution of every product, you provide the technical governance and cross-functional support necessary to maintain performance integrity as the category scales.\n\nThe Senior Lead Development role will report to the Senior Lead Run Footwear Development on the Performance Run team supporting global footwear.\n\nYour Mission:\n\n• Technical Stewardship: Act as the primary technical advisor during the briefing and design phases to ensure performance running concepts are aligned with global manufacturing capabilities.\n\n• Strategic Synchronization: Facilitate technical alignment between Zurich-based Design/Product Management and the Asia-based execution teams, ensuring that the \"performance soul\" of the category is preserved across all franchises.\n\n• Process Enablement: Support the evolution of development standards by identifying technical bottlenecks and advising on best practices that improve category-wide efficiency.\n\n• Advisory & Escalation Support: Serve as the senior technical point of contact for Asia-based development partners, providing guidance on complex technical hurdles and supporting the resolution of high-level production escalations.\n\n• Performance Quality Assurance: Support the validation of fit, feel, and durability standards, ensuring that category-wide technical benchmarks are consistently met across different factory partners.\n\n• Knowledge Facilitation: Foster a culture of technical excellence by mentoring the broader development team and translating complex innovation breakthroughs into actionable development frameworks.\n\nYour Story:\n\n• Experience: 8–12 years in footwear development, with a background rooted in high-performance running and technical complexity.\n\n• Influential Leadership: Proven ability to influence product direction and technical outcomes through partnership and advisory, rather than direct line management or project ownership.\n\n• Systemic Thinking: A deep understanding of how performance tooling, materials, and construction impact the global supply chain and product lifecycle.\n\n• Collaborative Bridge: Exceptional at navigating HQ and regional dynamics, acting as a \"technical translator\" between creative vision and factory execution.\n\n• Strategic Judgment: Highly skilled at evaluating technical trade-offs and providing recommendations that balance innovation with commercial scalability.\n\n• Consultative Communication: A trusted voice capable of guiding stakeholders toward technically sound decisions while maintaining strong cross-functional relationships.\n\nAttributes of a successful candidate:\n\n• The Technical Advisor: You don't need to hold the pen on every tech pack, but you are the person everyone consults when a design pushes the boundaries of physics.\n\n• The Strategic Partner: You focus on the \"how\" and \"why,\" ensuring the category’s technical roadmap is robust and scalable.\n\n• The Alignment Specialist: You thrive in the space between teams, ensuring that no technical detail is \"lost in translation\" between Zurich and our global manufacturing partners.\n\nYour Team:\n\nYou will join the Zurich-based Footwear Development team, serving as a senior pillar of expertise for the Performance Running category. A high-performance collective of engineers, developers, and makers who serve as the technical heart of the brand. In Zurich, our team acts as the primary link between Biomechanical Research, Material Science, Design , and Sourcing, ensuring that every innovation is grounded in technical reality before it reaches the athlete.\n\nOur mission is to relentlessly elevate the performance and technical attributes of our running footwear. We don't just facilitate product creation; we engineer the \"ride.\" As part of the Performance Run vertical, you will be surrounded by specialists who are obsessed with creating the best fitting, performing and desirable running product in the market. We pride ourselves on a culture of technical rigor and \"Swiss Engineering,\" where we challenge the status quo to solve the most complex biomechanical hurdles in the industry. Your role within this team is to ensure that as our category expands, our technical standards and the performance \"soul\" of our run footwear remain uncompromised.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
-        "de": "Warenbezeichnung\n\nSenior Lead Footwear Entwickler\n\nKurz gesagt:\n\nAls Senior Lead Footwear Developer for Performance Running sind Sie der strategische technische Berater für unsere kritischste Produktkategorie. Mit Sitz in unserem Züricher HQ haben Sie die Aufgabe, eine hohe Abstimmung zwischen Design-Intent und Fertigungstauglichkeit zu gewährleisten. Statt die granulare Ausführung jedes Produkts zu verwalten, bieten Sie die technische Governance und funktionsübergreifenden Support, die notwendig sind, um die Leistungsintegrität als Kategorieskalen zu erhalten.\n\nDie Rolle der Senior Lead Development wird der Senior Lead Run Footwear Development über das Performance Run Team zur Unterstützung globaler Schuhe berichten.\n\nIhre Mission\n\n- Technische Leitung: Handeln Sie als primärer technischer Berater während der Briefing- und Designphasen, um sicherzustellen, dass Leistungs-Laufkonzepte mit globalen Fertigungskapazitäten abgestimmt sind.\n\n- Strategische Digitalisierung: Technische Ausrichtung der Zürcher Design/Product Management-Technik mit den asiatischen Exekutionsteams, um die \"Performance Soul\" der Kategorie über alle Franchise-Länder hinweg zu erhalten.\n\n- Prozess Enablement: Unterstützung der Entwicklung von Entwicklungsstandards durch die Ermittlung technischer Engpässe und Beratung zu bewährten Verfahren, die die Effizienz der Kategorien verbessern.\n\n- Advisory & Escalation Support: Als Senior-Fachstelle für asiatische Entwicklungspartner, die Beratung zu komplexen technischen Hürden und die Lösung von hochkarätigen Produktionseskalationen unterstützen.\n\n- Performance Quality Assurance: Unterstützen Sie die Validierung von Standards für Passform, Gefühl und Haltbarkeit, um sicherzustellen, dass klassenweite technische Benchmarks durchgängig über verschiedene Fabrikpartner hinweg erfüllt werden.\n\n- Wissenserleichterung: Förderung einer Kultur technischer Exzellenz durch Mentoring des breiteren Entwicklungsteams und Umsetzung komplexer Innovationsdurchbrüche in umsetzbare Entwicklungsrahmen.\n\nIhre Geschichte\n\n- Erfahrung: 8-12 Jahre in der Schuhentwicklung, mit einem Hintergrund, der in Hochleistungs-Lauf und technische Komplexität verwurzelt ist.\n\n- Einflussreiche Führung: Bewährte Fähigkeit, Produktrichtung und technische Ergebnisse durch Partnerschaft und Beratung zu beeinflussen, anstatt direkte Leitungsführung oder Projekteigentum.\n\n- Systemisches Denken: Ein tiefes Verständnis dafür, wie sich Performance-Tooling, Materialien und Konstruktion auf die globale Lieferkette und den Produktlebenszyklus auswirken.\n\n- Collaborative Bridge: Außergewöhnliche Navigation auf HQ und regionale Dynamik, als \"technischer Übersetzer\" zwischen kreativer Vision und Fabrikausführung.\n\n- Strategisches Urteil: Hoch qualifizierte bei der Bewertung technischer Kompromisse und Empfehlungen, die die Innovation mit der kommerziellen Skalierbarkeit in Einklang bringen.\n\n- Beratung: Eine vertrauensvolle Stimme, die die Interessenträger in Richtung technisch fundierter Entscheidungen führen kann und gleichzeitig starke funktionsübergreifende Beziehungen aufrechterhält.\n\nEigenschaften eines erfolgreichen Kandidaten\n\n- Der Technische Berater: Sie müssen nicht den Stift auf jedem Tech-Pack halten, aber Sie sind die Person, die jeder konsultiert, wenn ein Design die Grenzen der Physik überschreitet.\n\n- Der strategische Partner: Sie konzentrieren sich auf das \"Wie\" und \"Warum\", wodurch die Kategorie, die technische Roadmap ist robust und skalierbar.\n\n- Der Alignment-Spezialist: Sie gedeihen im Raum zwischen Teams, um sicherzustellen, dass keine technischen Details zwischen Zürich und unseren globalen Produktionspartnern \"verloren\" sind.\n\nIhr Team\n\nSie werden Mitglied des Zürcher Footwear Development Teams, das als Senior-Säule der Expertise für die Kategorie Performance Running fungiert. Ein Hochleistungskollektiv aus Ingenieuren, Entwicklern und Machern, die als technisches Herz der Marke dienen. In Zürich fungiert unser Team als primäre Verbindung zwischen Biomechanischer Forschung, Materialwissenschaft, Design und Sourcing, um sicherzustellen, dass jede Innovation in der technischen Realität begründet ist, bevor es den Athleten erreicht.\n\nUnsere Mission ist es, die Leistungsfähigkeit und die technischen Eigenschaften unserer Laufschuhe unerbittlich zu erhöhen. Wir erleichtern nicht nur die Produktentwicklung, wir entwickeln das „Fahren\". Im Rahmen des Performance Run vertikal werden Sie von Spezialisten umgeben sein, die besessen sind, das beste passende, leistungsfähige und wünschenswerte Laufprodukt auf dem Markt zu schaffen. Wir sind stolz auf eine Kultur der technischen Strenge und „Swiss Engineering\", wo wir den Status Quo herausfordern, die komplexesten biomechanischen Hürden in der Branche zu lösen.\n\nIhre Rolle in diesem Team ist es, sicherzustellen, dass unsere technischen Standards und die Leistungsfähigkeit unserer Laufschuhe mit der Erweiterung unserer Kategorie unkompromisslos bleiben.\n\nWas wir anbieten\n\n- On ist ein Arbeitgeber der Chancengleichheit. Wir sind verpflichtet, ein Arbeitsumfeld zu schaffen, das gerecht und inklusive ist, wo alle Entscheidungen im Zusammenhang mit der Einstellung, dem Fortschritt und der Beibehaltung frei von Diskriminierung sind.",
-        "fr": "Désignation des marchandises\n\nDéveloppeur principal de chaussures en plomb\n\nEn bref:\n\nEn tant que développeur principal de chaussures de performance, vous êtes le conseiller technique stratégique de notre catégorie de produits la plus critique. Basée dans notre QG de Zurich, votre rôle est d'assurer un alignement de haut niveau entre l'intention de conception et la faisabilité de la fabrication.\n\nLe rôle de chef de file en développement rendra compte au chef de file en développement de chaussures sur l'équipe de performance en appui aux chaussures mondiales.\n\nVotre mission\n\n- Intendance technique : Agir comme conseiller technique principal pendant les phases de briefing et de conception pour s'assurer que les concepts de performance sont alignés sur les capacités de fabrication mondiales.\n\n- Synchronisation stratégique : Faciliter l'alignement technique entre la gestion de produits et de conception basée à Zurich et les équipes d'exécution basées en Asie, en veillant à ce que l'âme de performance de la catégorie soit préservée dans toutes les franchises.\n\n- Processus En 2006 : Appuyer l'évolution des normes de développement en identifiant les goulets d'étranglement techniques et en donnant des conseils sur les meilleures pratiques qui améliorent l'efficacité à l'échelle de la catégorie.\n\n- Appui consultatif et appui à l'escalade : servir de point de contact technique principal pour les partenaires de développement asiatiques, en fournissant des conseils sur les obstacles techniques complexes et en appuyant la résolution des escalades de la production.\n\n- Assurance de la qualité des performances : Soutenir la validation des normes d'ajustement, de sensation et de durabilité, en veillant à ce que les critères techniques de référence soient constamment respectés dans toute la catégorie par les différents partenaires d'usine.\n\n- Facilitation des connaissances : Favoriser une culture d'excellence technique en guidant l'équipe de développement en général et en traduisant des innovations complexes en cadres de développement réalisables.\n\nVotre histoire\n\n- Expérience : 8-12 ans de développement de la chaussure, avec un fond ancré dans la haute performance de course et la complexité technique.\n\n- Leadership influant : démontrer la capacité d'influencer l'orientation des produits et les résultats techniques par le biais de partenariats et de conseils, plutôt que de la gestion directe des lignes ou de la propriété des projets.\n\n- Pensée systémique : Une compréhension profonde de la façon dont l'outillage de performance, les matériaux et la construction influent sur la chaîne d'approvisionnement mondiale et le cycle de vie des produits.\n\n- Pont collaboratif : Exceptionnel pour la navigation au QG et dynamique régionale, agissant comme « traducteur technique » entre la vision créative et l'exécution en usine.\n\n- Jugement stratégique : Hautement qualifié pour évaluer les compromis techniques et pour formuler des recommandations qui équilibrent l'innovation et l'évolutivité commerciale.\n\n- Communication consultative : Une voix de confiance capable d'orienter les parties prenantes vers des décisions techniquement saines tout en maintenant de solides relations interfonctionnelles.\n\nAttributs d'un candidat reçu\n\n- Le conseiller technique : Vous n'avez pas besoin de tenir le stylo sur chaque pack technique, mais vous êtes la personne que tout le monde consulte quand un design repousse les limites de la physique.\n\n- Le partenaire stratégique : vous vous concentrez sur le \"comment\" et \"pourquoi\", en assurant la catégorie, la feuille de route technique est robuste et évolutive.\n\n- Le spécialiste de l'alignement : Vous vous développez dans l'espace entre les équipes, en veillant à ce qu'aucun détail technique ne soit \"perdu en traduction\" entre Zurich et nos partenaires manufacturiers mondiaux.\n\nVotre équipe\n\nVous rejoindrez l'équipe de développement de chaussures basée à Zurich, en tant que pilier senior de l'expertise de la catégorie Performance Running. Un collectif d'ingénieurs, de développeurs et de fabricants de haute performance qui servent de cœur technique de la marque. À Zurich, notre équipe est le premier lien entre la recherche biomécanique, la science des matériaux, le design et l'approvisionnement, assurant que chaque innovation est ancrée dans la réalité technique avant d'atteindre l'athlète.\n\nNotre mission est d'élever sans relâche les performances et les caractéristiques techniques de nos chaussures de course. Nous ne nous contentons pas de faciliter la création de produits; nous concevons le «ride». Dans le cadre de la Performance Run verticale, vous serez entourés de spécialistes qui sont obsédés par la création du meilleur équipement, performance et produit de course souhaitable sur le marché. Nous sommes fiers d'une culture de rigueur technique et de «Swiss Engineering», où nous défions le statu quo pour résoudre les obstacles biomécaniques les plus complexes dans l'industrie.\n\nVotre rôle au sein de cette équipe est de veiller à ce que, à mesure que notre catégorie s'étend, nos normes techniques et la performance « âme » de nos chaussures de course restent sans compromis.\n\nCe que nous offrons\n\n- Nous sommes déterminés à créer un milieu de travail équitable et inclusif, où toutes les décisions liées au recrutement, à l'avancement et au maintien en poste sont exemptes de discrimination."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:19:54.140Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
-      "jobReqId": "7908053",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "previousSlugs": [
-        "senior-lead-footwear-developer-on-running-ch",
-        "senior-lead-footwear-sviluppatore-on-running-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-lead-footwear-developer-on-running-ch",
-          "senior-lead-footwear-sviluppatore-on-running-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:36:27.182Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -1178,7 +1092,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.058Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1264,7 +1177,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.052Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1344,7 +1256,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:41:11.847Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1440,7 +1351,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T23:27:23.715Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -1531,7 +1441,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.041Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -1690,7 +1599,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.025Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1855,7 +1763,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:26:23.776Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1938,7 +1845,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T21:06:17.120Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2024,7 +1930,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.877Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -2110,7 +2015,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.006Z",
-      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -2277,7 +2181,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.998Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2363,7 +2266,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.701Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -2447,7 +2349,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:37:55.592Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2612,7 +2513,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.862Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2698,7 +2598,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.957Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -2897,8 +2796,7 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "on-running-81f3e3792822",
@@ -2967,7 +2865,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.169Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -3058,8 +2955,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "on-running-7df52056aa5f",
@@ -3313,8 +3209,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
