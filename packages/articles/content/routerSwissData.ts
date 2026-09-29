@@ -2384,6 +2384,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'uss-freno-premi-cassa-malati-3': { it: 'uss-freno-premi-cassa-malati-3', en: 'uss-brake-health-insurance-premiums-3', de: 'sgv-bremsen-krankenkassen-praemien-3', fr: 'usoc-frein-premieres-assurance-maladie-3' },
  'lavoratori-svizzeri-ia-2026': { it: 'lavoratori-svizzeri-ia-2026', en: 'swiss-workers-ai-2026', de: 'schweizer-arbeitnehmer-ki-2026', fr: 'travailleurs-suisses-ia-2026' },
  'ufc-finanzia-ricerca-provenienza': { it: 'ufc-finanzia-ricerca-provenienza', en: 'ufc-funds-provenance-research', de: 'ebk-foerderung-provenienz-forschung', fr: 'oc-finance-cherche-provenance' },
+ 'validita-lista-onu-svizzera': { it: 'validita-lista-onu-svizzera', en: 'un-sanctions-list-switzerland', de: 'uno-sanktionsliste-schweiz', fr: 'liste-sanctions-onu-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

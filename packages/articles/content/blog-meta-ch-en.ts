@@ -7085,6 +7085,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ufc-finanzia-ricerca-provenienza.title': 'UFC: 1,95 million for 26 research projects',
     'blog.article.ufc-finanzia-ricerca-provenienza.excerpt': 'The UFC is allocating around 1,95 million francs for 26 research projects on the provenance of museums and collections in Switzerland for 2027-2028.',
     'blog.article.ufc-finanzia-ricerca-provenienza.imageAlt': 'View of Bellinzona with museums in the background, morning light',
+    'blog.article.validita-lista-onu-svizzera.title': 'UN sanctions list revised in Switzerland, effective now',
+    'blog.article.validita-lista-onu-svizzera.excerpt': 'On 29 settembre 2026, the UN sanctions committee amended the list. SESAM was updated, and the change takes effect immediately in Switzerland.',
+    'blog.article.validita-lista-onu-svizzera.imageAlt': 'Bern, update of the UN sanctions list in the SESAM database',
 };
 
 export default blogMetaChEn;

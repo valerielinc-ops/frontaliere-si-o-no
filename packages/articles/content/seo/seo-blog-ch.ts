@@ -91865,6 +91865,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-validita-lista-onu-svizzera': {
+    title: 'ONU: aggiornata in Svizzera la lista delle sanzioni',
+    description: 'Il 29 settembre 2026 il comitato di sanzioni dell’ONU ha modificato la lista. SESAM è stata aggiornata in modo analogo: validità giuridica immediata in Svizzera',
+    keywords: 'frontalieri, ticino, svizzera, italia, aggiornata, lista, sanzioni, settembre',
+    ogTitle: 'Sanzioni ONU: aggiornata la banca dati SESAM',
+    ogDescription: 'Il comitato di sanzioni dell’ONU ha modificato la lista di persone fisiche, imprese e organizzazioni sottoposte a sanzioni. Da Berna, la comunicazione richiama l’ordinanza approvata il 4 marzo 2016 e l’immediata validità in Svizzera.',
+    canonicalPath: '/articoli-svizzera/validita-lista-onu-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ONU: aggiornata in Svizzera la lista delle sanzioni",
+      "description": "Il 29 settembre 2026 il comitato di sanzioni dell’ONU ha modificato la lista. SESAM è stata aggiornata in modo analogo: validità giuridica immediata in Svizzera",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/validita-lista-onu-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Berna, aggiornamento della lista ONU delle sanzioni nella banca dati SESAM"
+      },
+      "datePublished": "2026-09-29T18:51:03+00:00",
+      "dateModified": "2026-09-29T18:51:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/validita-lista-onu-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
