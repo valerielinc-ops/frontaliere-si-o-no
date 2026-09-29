@@ -100,7 +100,7 @@ function extractMainColumnText(html) {
   const cleaned = stripScriptsAndStyles(inner)
     // Back-to-listing link ("Zurück" button or plain "zurück" anchor).
     .replace(/<a\b[^>]*>\s*zurück\s*<\/a>/gi, '');
-  return htmlToTextLines(cleaned).slice(0, 6000);
+  return htmlToTextLines(cleaned);
 }
 
 export function extractBodyText(html) {
@@ -111,9 +111,11 @@ export function extractBodyText(html) {
   // If that fails, fall back to the whole document.
   const h1End = html.search(/<\/h1>/i);
   if (h1End < 0) return '';
-  const tail = html.slice(h1End + '</h1>'.length, h1End + 30000); // generous cap
+  const tail = html.slice(h1End + '</h1>'.length);
   const stopIdx = tail.search(/<footer|<div[^>]*class="[^"]*footer/i);
-  const block = stopIdx > 0 ? tail.slice(0, stopIdx) : tail;
+  // The 30k HTML window only bounds a page without a footer marker; the text
+  // itself is not capped (issue 5253).
+  const block = stopIdx > 0 ? tail.slice(0, stopIdx) : tail.slice(0, 30000);
   // Strip nav portlets ("Suchen", "Sie sind hier:", contact widget,
   // breadcrumbs) — the LHM portal wraps everything in
   // `<div class="portlet-…">` blocks. Drop any portlet block with class
@@ -123,7 +125,7 @@ export function extractBodyText(html) {
     .replace(/<nav[\s\S]*?<\/nav>/gi, '')
     .replace(/<div[^>]*class="[^"]*(?:search|breadcrumb|navigation)[^"]*"[\s\S]*?<\/div>/gi, '');
   const text = htmlToText(cleaned);
-  return normalizeSpace(text).slice(0, 6000);
+  return normalizeSpace(text);
 }
 
 async function fetchDetail(url) {

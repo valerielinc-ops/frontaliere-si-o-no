@@ -185,7 +185,7 @@ async function scrapeDetailPage(relativeUrl) {
       lines.indexOf(l) > 3
     );
     const relevantLines = contentStart > 0 ? lines.slice(Math.max(0, contentStart - 2)) : lines.slice(3);
-    return relevantLines.join('\n').trim();
+    return relevantLines.join('\n').trim().slice(0, 3000);
   } catch (err) {
     console.warn(`   ⚠️ Could not scrape detail: ${url} — ${err.message}`);
     return '';

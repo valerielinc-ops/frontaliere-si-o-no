@@ -116,7 +116,7 @@ export function parseListing(html) {
     out.push({
       id,
       title,
-      description: text.slice(0, 6000),
+      description: text,
       url: `${PUBLIC_CAREER_URL}#job-${id}`,
     });
   }

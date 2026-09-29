@@ -127,6 +127,7 @@ describe('latent caps on delimited blocks', () => {
   const PARSERS = [
     'evam-vaud', 'clinique-cic', 'crr-suva-sion', 'rennbahnklinik', 'spital-sts',
     'privatklinik-wyss', 'suedhang', 'sonova', 'sonnweid', 'gzo-wetzikon', 'igs-bern',
+    'entero', 'lhm-luzerner-hohenklinik-montana', 'klinik-schuetzen',
   ];
   it.each(PARSERS)('%s publishes the detail text without a character cap', (key) => {
     const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'lib', `${key}-job-parser.mjs`), 'utf8');

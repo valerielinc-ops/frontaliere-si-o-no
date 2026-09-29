@@ -154,7 +154,6 @@ export function parseDetail(html = '') {
     const idx = body.indexOf(marker);
     if (idx > 200) body = body.slice(0, idx).trim();
   }
-  body = body.slice(0, 6000);
   // Site marker: the intro renders `<span>Arbeitsort: </span><span>{site}</span>`,
   // which becomes one "Arbeitsort: {site}" line.
   const siteMatch = body.match(/Arbeitsort\s*[:：]\s*([^\n.]+)/i);

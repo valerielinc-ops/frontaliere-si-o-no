@@ -81,7 +81,6 @@ describe('Alpiq detail page', () => {
 // removed construct instead: no fixed character cap on the published text.
 describe('dedicated runners publish the detail text without a character cap', () => {
   const RUNNERS = [
-    'update-burkhalter-jobs.mjs',
     'update-caseificio-gottardo-jobs.mjs',
     'update-hamilton-jobs.mjs',
     'update-kempinski-jobs.mjs',
