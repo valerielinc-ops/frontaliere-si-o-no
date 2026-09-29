@@ -50,6 +50,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -72,18 +73,6 @@ const HQ = {
 };
 
 const SECTOR = 'Industria / Meccanica';
-
-// Safe canton-level postal fallbacks for Swiss cities that appear in job
-// addresses but have no verified SFS office street — never invent a street
-// number we haven't confirmed (Non-Negotiable #3: safe default, not removal,
-// of the postalCode/streetAddress check). Cantons cover the towns actually
-// observed on the live listing: Heerbrugg/Rebstein (SG), Hallau (SH, Tegra
-// Medical), Payerne (VD).
-const CANTON_POSTAL_FALLBACK = {
-  SG: '9000',
-  SH: '8200',
-  VD: '1000',
-};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -319,8 +308,7 @@ export async function fetchAllSfsGroupJobs() {
     const canton = inferSwissTargetCanton(location) || HQ.canton;
     const resolvedHq = resolveAddress(location);
     const postalCode = resolvedHq?.postalCode
-      || (location === HQ.city ? HQ.postalCode : CANTON_POSTAL_FALLBACK[canton])
-      || HQ.postalCode;
+      || (location === HQ.city ? HQ.postalCode : officialLocalityPostalCode(location, canton));
     const streetAddress = resolvedHq?.streetAddress
       || (location === HQ.city ? HQ.streetAddress : undefined);
     // The detail's own text only: without it the job gets no description

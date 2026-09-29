@@ -44,6 +44,7 @@ import {
   parseClerApiResponse,
 } from './lib/cler-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { officialLocalityPostalCode } from './lib/swiss-locality-directory.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -104,15 +105,6 @@ const CLER_BRANCHES = {
   'zuerich':       { canton: 'ZH', postalCode: '8001', street: 'Uraniastrasse 6' },
 };
 
-// Canton-capital postal fallbacks for branches we don't have a street for.
-const CANTON_FALLBACK_POSTAL = {
-  AG: '5000', AI: '9050', AR: '9100', BE: '3001', BL: '4410', BS: '4002',
-  FR: '1700', GE: '1204', GL: '8750', GR: '7000', JU: '2800', LU: '6003',
-  NE: '2000', NW: '6370', OW: '6060', SG: '9001', SH: '8200', SO: '4500',
-  SZ: '6430', TG: '8500', TI: '6500', UR: '6460', VD: '1003', VS: '1950',
-  ZG: '6300', ZH: '8001',
-};
-
 function normCity(raw = '') {
   return String(raw || '')
     .toLowerCase()
@@ -154,8 +146,8 @@ function resolveBranchAddress(arbeitsort) {
       return {
         city: candidate.trim(),
         canton,
-        postalCode: CANTON_FALLBACK_POSTAL[canton] || '',
-        street: `Filiale ${candidate.trim()}`,
+        postalCode: officialLocalityPostalCode(candidate, canton),
+        street: '',
       };
     }
   }
