@@ -7019,6 +7019,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lindt-prungli-stime-2026.title': 'Lindt und Sprüngli senkt die Wachstumsschätzungen für 2026',
     'blog.article.lindt-prungli-stime-2026.excerpt': 'Lindt und Sprüngli korrigiert das organische Umsatzwachstum für 2026 aufgrund der Hitze und der Preise nach unten auf 0 bis 2%.',
     'blog.article.lindt-prungli-stime-2026.imageAlt': 'Lindt und Sprüngli Hauptsitz in Kilchberg',
+    'blog.article.compensi-lvamal-camera-bassa.title': 'Krankenkassen: Gehaltsobergrenze für Führungskräfte',
+    'blog.article.compensi-lvamal-camera-bassa.excerpt': 'Der Nationalrat genehmigt die Änderung des LVAMal: 157 Ja-Stimmen, 27 Nein-Stimmen und 8 Enthaltungen. Das Geschäft geht nun an den Ständerat.',
+    'blog.article.compensi-lvamal-camera-bassa.imageAlt': 'Schweizer Debatte über eine Obergrenze für die Vergütung von Krankenkassenleitern',
 };
 
 export default blogMetaChDe;

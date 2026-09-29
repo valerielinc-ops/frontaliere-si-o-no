@@ -7019,6 +7019,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lindt-prungli-stime-2026.title': 'Lindt & Sprüngli cuts growth estimates for 2026',
     'blog.article.lindt-prungli-stime-2026.excerpt': 'Lindt e Sprüngli lowers its 2026 organic revenue growth forecast to between 0 and 2% due to heat and prices.',
     'blog.article.lindt-prungli-stime-2026.imageAlt': 'Lindt and Sprungli headquarters in Kilchberg',
+    'blog.article.compensi-lvamal-camera-bassa.title': 'Health insurers: cap on executives\' salaries',
+    'blog.article.compensi-lvamal-camera-bassa.excerpt': 'The lower chamber approves the amendment to LVAMal: 157 votes in favor, 27 against, and 8 abstentions. The dossier now goes to the Council of States.',
+    'blog.article.compensi-lvamal-camera-bassa.imageAlt': 'Swiss debate on a proposed pay cap for health insurer executives',
 };
 
 export default blogMetaChEn;
