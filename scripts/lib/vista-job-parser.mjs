@@ -23,6 +23,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const VISTA_KEY = 'vista';
 export const VISTA_COMPANY_NAME = 'Vista Augenpraxen & Kliniken';
@@ -207,10 +208,10 @@ export function parseVistaOstendisJob(entry, detailData = {}) {
   // Only the posting's own text is published (issue 5253): a detail page
   // without a body used to be replaced by a stub of metadata plus the
   // company boilerplate ("{title} bei Vista. Abteilung: … Arbeitsort: …");
-  // no job is built from it any more. A short real body is published as it
-  // is.
+  // no job is built from it any more, nor from a body under the shared
+  // 50-word floor (source-body-floor.mjs).
   const descriptionText = detailData.description || '';
-  if (descriptionText.trim().length < 30) return null;
+  if (!meetsSourceBodyFloor(descriptionText)) return null;
 
   const employmentType = detailData.employmentType || inferEmploymentType(title);
   const rangeMatch = normalize(title).match(/(\d+)\s*[-–]\s*(\d+)\s*%/);

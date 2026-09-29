@@ -51,6 +51,7 @@ import {
   fetchWithRateLimit,
   closeAll,
 } from './ats-clients/playwright-runtime.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -233,7 +234,7 @@ function resolveAddress(rawLoc = {}) {
  */
 function resolveDescription(rawHtml) {
   const text = stripHtml(rawHtml || '');
-  return text && text.split(/\s+/).filter(Boolean).length >= 50 ? text : '';
+  return meetsSourceBodyFloor(text) ? text : '';
 }
 
 /* ── Fetch (Playwright, Cloudflare-gated) ─────────────────────── */

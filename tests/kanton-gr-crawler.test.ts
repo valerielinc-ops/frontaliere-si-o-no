@@ -197,7 +197,7 @@ describe('fetchAllKantonGrJobs — listing without a vacancy body', () => {
       + '<td class="department">Amt für Informatik</td><td class="workplace">Chur</td><td class="deadline">15.10.2026</td></tr>';
     const listing = `<table>${row('0101', 'Systemingenieur/in 80-100%')}${row('0102', 'Sachbearbeiter/in 60%')}</table>`;
     const detail = (withBody: boolean) => '<html><body><h1 id="bTitle">x</h1><h2 id="bSubTitle">Amt für Informatik | 80-100% | Chur</h2>'
-      + (withBody ? '<div id="bDescription"><p>Sie betreiben die Server- und Netzwerkinfrastruktur der kantonalen Verwaltung.</p></div><div id="bDuty"><ul><li>Betrieb der Serverlandschaft</li><li>Projektarbeit im Team</li></ul></div>' : '')
+      + (withBody ? '<div id="bDescription"><p>Sie betreiben die Server- und Netzwerkinfrastruktur der kantonalen Verwaltung. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld.</p></div><div id="bDuty"><ul><li>Betrieb der Serverlandschaft</li><li>Projektarbeit im Team</li></ul></div>' : '')
       + '</body></html>';
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
       const u = String(url);

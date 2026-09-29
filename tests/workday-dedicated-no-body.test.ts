@@ -19,7 +19,7 @@ import { fetchAllEdmondDeRothschildJobs } from '../scripts/lib/edmond-de-rothsch
  */
 
 const BODY = '<p>'
-  + 'Responsibilities and requirements of the role, described at length by the employer. '.repeat(3)
+  + 'Responsibilities and requirements of the role, described at length by the employer. '.repeat(5)
   + '</p>';
 
 function json(payload: unknown, status = 200) {
@@ -79,7 +79,7 @@ describe('edmond-de-rothschild — requisition without a vacancy body', () => {
         return json({ items: [{ TotalJobsCount: 2, requisitionList: [req('9001', 'Private Banker'), req('9002', 'Compliance Officer')] }] });
       }
       if (u.includes('recruitingCEJobRequisitionDetails/9001')) {
-        return json({ ExternalDescriptionStr: `<p>${'You advise private clients on wealth planning and build long-term relationships with them. '.repeat(2)}</p>` });
+        return json({ ExternalDescriptionStr: `<p>${'You advise private clients on wealth planning and build long-term relationships with them. '.repeat(4)}</p>` });
       }
       if (u.includes('recruitingCEJobRequisitionDetails/9002')) return json({ ExternalDescriptionStr: '' });
       return new Response('', { status: 404 });

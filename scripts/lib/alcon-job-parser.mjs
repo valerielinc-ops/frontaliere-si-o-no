@@ -39,6 +39,7 @@ import {
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
 import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -240,7 +241,7 @@ export async function fetchAllAlconJobs() {
     // Workday detail has no body used to go out as a synthetic "Key details"
     // stub (location, employer, "apply on the portal"); it is not published
     // any more.
-    if (detailDescription.length < 100) {
+    if (!meetsSourceBodyFloor(detailDescription)) {
       console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
       withoutBody += 1;
       continue;

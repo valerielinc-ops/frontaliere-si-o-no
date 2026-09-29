@@ -24,6 +24,7 @@ import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { classifyMalformedRowDrift } from './malformed-row-observability.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -370,7 +371,7 @@ export async function fetchAllWuerthInternationalJobs() {
       // Unternehmen der Würth-Gruppe …"); such a listing is not published
       // any more.
       const description = detail?.description || '';
-      if (description.split(/\s+/).filter(Boolean).length < 50) {
+      if (!meetsSourceBodyFloor(description)) {
         console.warn(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
         withoutBody += 1;
         await new Promise((r) => setTimeout(r, 300));

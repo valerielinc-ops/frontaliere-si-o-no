@@ -501,8 +501,11 @@ describe('fetchAllSpitalThusisJobs — listing without a vacancy body', () => {
     const listing = '<div><h2 class="teaserHeadline"><a href="/karriere-jobs/offene-stellen/physiotherapeut-in/">Physiotherapeut/in 80 - 100%</a></h2>'
       + '<h2 class="teaserHeadline"><a href="/karriere-jobs/offene-stellen/koch-in/">Koch/Köchin 100%</a></h2></div>';
     const detail = '<html><body><h2>Physiotherapeut/in 80 - 100%</h2><p>Wir suchen per sofort oder nach Vereinbarung eine/n Physiotherapeut/in.</p>'
-      + '<h4>Dein Aufgabengebiet:</h4><ul><li>Therapeutische Behandlung und Beratung ambulanter Patienten</li><li>Selbständige Therapieplanung und Dokumentation</li></ul>'
-      + '<h4>Wir bieten:</h4><ul><li>Moderne Infrastruktur</li></ul></body></html>';
+      + '<h4>Dein Aufgabengebiet:</h4><ul><li>Therapeutische Behandlung und Beratung ambulanter und stationärer Patientinnen und Patienten</li>'
+      + '<li>Selbständige Therapieplanung, Befundaufnahme und Dokumentation</li><li>Betreuung der Patientinnen und Patienten in der medizinischen Trainingstherapie</li>'
+      + '<li>Enge Zusammenarbeit mit Ärzteschaft und Pflege</li></ul><h4>Dein Anforderungsprofil:</h4><ul><li>Abgeschlossenes FH-Diplom in Physiotherapie</li>'
+      + '<li>Berufserfahrung in der Rehabilitation von Vorteil</li><li>Selbständige, flexible und teamorientierte Arbeitsweise</li></ul>'
+      + '<h4>Wir bieten:</h4><ul><li>Moderne Infrastruktur</li><li>42-Stunden-Woche mit mindestens 25 Ferientagen</li></ul></body></html>';
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
       const u = String(url);
       if (u.includes('physiotherapeut-in')) return new Response(detail, { status: 200 });

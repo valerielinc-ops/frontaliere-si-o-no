@@ -20,6 +20,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* -- Constants ------------------------------------------------- */
 
@@ -383,7 +384,7 @@ export async function fetchAllKantonGrJobs() {
     // ("{title} -- Kantonale Verwaltung Graubünden. Amt: … Arbeitsort: …
     // Pensum: …"); such a listing is not published any more.
     const descriptionText = detail.description || '';
-    if (descriptionText.length < 30) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ No vacancy text on the detail page, not published: ${title}`);
       withoutBody += 1;
       continue;

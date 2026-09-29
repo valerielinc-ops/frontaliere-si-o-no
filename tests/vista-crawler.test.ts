@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { parseVistaOstendisJob } from '../scripts/lib/vista-job-parser.mjs';
 
 // Only the posting's own text is published (issue 5253). A detail page without
-// a body (under 30 characters) used to be replaced by a stub of metadata plus
+// a body (under the shared 50-word floor) used to be replaced by a stub of metadata plus
 // the company boilerplate ("{title} bei Vista. Abteilung: … Arbeitsort: …
 // Vista Augenpraxen & Kliniken ist eine schweizweit tätige Gruppe …"); no job
 // is built from it any more. Ostendis entry shape as served for the Vista
@@ -19,7 +19,7 @@ describe('parseVistaOstendisJob — vacancy text', () => {
   };
 
   it('builds the job from the detail body, without any boilerplate', () => {
-    const body = 'Sie betreuen unsere Patientinnen und Patienten am Empfang und unterstützen das Ärzteteam bei Voruntersuchungen.';
+    const body = 'Sie betreuen unsere Patientinnen und Patienten am Empfang und unterstützen das Ärzteteam bei Voruntersuchungen. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld.';
     const job = parseVistaOstendisJob(entry, { description: body });
     expect(job).not.toBeNull();
     expect(job.description).toBe(body);

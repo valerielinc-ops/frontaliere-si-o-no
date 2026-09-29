@@ -383,7 +383,7 @@ describe('parseOstendisJob', () => {
   };
 
   const sampleDetail = {
-    description: 'Selbständige Patientenversorgung in einer modernen Gruppenpraxis. Wir bieten ein motiviertes Team, flexible Arbeitszeiten und die Möglichkeit zur fachlichen Weiterentwicklung in einem angenehmen Arbeitsumfeld.',
+    description: 'Selbständige Patientenversorgung in einer modernen Gruppenpraxis. Wir bieten ein motiviertes Team, flexible Arbeitszeiten und die Möglichkeit zur fachlichen Weiterentwicklung in einem angenehmen Arbeitsumfeld. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld.',
     datePosted: '2024-06-25',
     employmentType: 'FULL_TIME',
     streetAddress: 'Spitalstrasse 6',
@@ -409,7 +409,7 @@ describe('parseOstendisJob', () => {
 
   it('uses detail page description when available', () => {
     const job = parseOstendisJob(sampleEntry, sampleDetail);
-    expect(job.description).toBe('Selbständige Patientenversorgung in einer modernen Gruppenpraxis. Wir bieten ein motiviertes Team, flexible Arbeitszeiten und die Möglichkeit zur fachlichen Weiterentwicklung in einem angenehmen Arbeitsumfeld.');
+    expect(job.description).toBe(sampleDetail.description);
   });
 
   // Only the posting's own text is published (issue 5253): a detail without a
@@ -419,11 +419,9 @@ describe('parseOstendisJob', () => {
     expect(parseOstendisJob(sampleEntry, {})).toBeNull();
   });
 
-  it('publishes a short real body as it is, without the hospital summary', () => {
-    const body = 'Wir suchen eine Hausärztin für unsere Gruppenpraxis in Ilanz.';
-    const job = parseOstendisJob(sampleEntry, { description: body });
-    expect(job.description).toBe(body);
-    expect(job.description).not.toContain('Grund- und Notfallversorgung');
+  it('builds no job from a body under the shared 50-word floor, nor pads it with the hospital summary', () => {
+    expect(parseOstendisJob(sampleEntry, { description: 'Wir suchen eine Hausärztin für unsere Gruppenpraxis in Ilanz.' })).toBeNull();
+    expect(parseOstendisJob(sampleEntry, sampleDetail).description).not.toContain('Grund- und Notfallversorgung');
   });
 
   it('uses detail page datePosted', () => {
@@ -586,7 +584,7 @@ describe('job shape', () => {
   };
 
   const validJob = parseOstendisJob(sampleEntry, {
-    description: 'Wir suchen eine erfahrene Pflegefachperson HF für unser Team in Ilanz.',
+    description: 'Wir suchen eine erfahrene Pflegefachperson HF für unser Team in Ilanz. Gute Deutschkenntnisse und Freude an der Arbeit mit Menschen runden Ihr Profil ab. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld.',
     datePosted: '2026-04-01',
     employmentType: 'FULL_TIME',
     streetAddress: 'Spitalstrasse 6',

@@ -33,6 +33,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -340,10 +341,10 @@ export function parseOstendisJob(entry, detailData = {}) {
   // Only the posting's own text is published (issue 5253): a detail page
   // without a body used to be replaced by a stub of metadata plus a hospital
   // summary ("{title} — Regionalspital Surselva (RSS). Abteilung: … Die
-  // Regionalspital Surselva AG ist …"); no job is built from it any more. A
-  // short real body is published as it is.
+  // Regionalspital Surselva AG ist …"); no job is built from it any more, nor
+  // from a body under the shared 50-word floor (source-body-floor.mjs).
   const descriptionText = detailData.description || '';
-  if (descriptionText.trim().length < 30) return null;
+  if (!meetsSourceBodyFloor(descriptionText)) return null;
 
   // Employment type: detail page → title-based inference
   let employmentType = detailData.employmentType || inferEmploymentType(title);

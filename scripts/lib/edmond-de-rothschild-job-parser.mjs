@@ -37,6 +37,7 @@ import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -352,7 +353,7 @@ export async function fetchAllEdmondDeRothschildJobs() {
     // without a body used to go out as a synthetic "Key details" stub
     // (location, employer, "apply on the portal"); it is not published any
     // more.
-    if (descriptionText.length < 100) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ No vacancy text in the requisition, not published: ${title}`);
       withoutBody += 1;
       continue;

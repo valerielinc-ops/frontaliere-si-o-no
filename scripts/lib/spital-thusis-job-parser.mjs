@@ -24,6 +24,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -470,7 +471,7 @@ export async function fetchAllSpitalThusisJobs() {
     // (Gesundheit Mittelbünden). Arbeitsort: Thusis (GR). Pensum: …"); such
     // a listing is not published any more.
     const descriptionText = detail.description || '';
-    if (descriptionText.length < 30) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ No vacancy text on the detail page, not published: ${title}`);
       withoutBody += 1;
       continue;
