@@ -69,8 +69,9 @@
  * - KANTON_ST_GALLEN_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { parseUmantisListing, decodeEntities, parseSwissDate } from './umantis-listing-common.mjs';
+import { parseUmantisListing, decodeEntities, parseSwissDate, umantisListingContract } from './umantis-listing-common.mjs';
 import { slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -240,7 +241,7 @@ function extractContact(html = '') {
 /**
  * Extract rich structured content from a Kanton St. Gallen Umantis detail
  * page (3rd layout variant — see file header). Returns '' when the expected
- * markers aren't found (caller falls back to a synthesised description).
+ * markers aren't found (the job then gets no description).
  */
 export function extractStGallenDetailContent(html = '') {
   if (!html || typeof html !== 'string' || html.length < 200) return '';
@@ -258,6 +259,21 @@ export function extractStGallenDetailContent(html = '') {
   if (contact) parts.push(`Kontakt: ${contact}`);
   return parts.join('\n\n');
 }
+
+/* ── Stored jobs: text the crawler once wrote ─────────────── */
+
+/** Fragments only the crawler's former fallback description wrote. */
+export const KANTON_ST_GALLEN_FABRICATED_DESCRIPTION_RE =
+  /offene Stelle beim Kanton St\. Gallen, direkt auf dem offiziellen Stellenportal|Der Kanton St\. Gallen zählt mit rund 530'000 Einwohnerinnen/;
+
+/**
+ * The lines the crawler appended to the posting's text: an optional
+ * «• Pensum: …», «• Standort: …» and «• Bewerbung über das offizielle
+ * Stellenportal des Kantons St. Gallen (…)», as a trailing block after a
+ * blank line.
+ */
+export const KANTON_ST_GALLEN_LABEL_LINES_RE =
+  /\n\n(?:• Pensum: [^\n]*\n)?• Standort: [^\n]*\n• Bewerbung über das offizielle Stellenportal des Kantons St\. Gallen \([^)\n]*\)\s*$/;
 
 /* ── HTTP Fetch ───────────────────────────────────────────── */
 
@@ -368,28 +384,19 @@ export async function fetchAllKantonStGallenJobs() {
 
     const location = arbeitsort || HQ_CITY;
 
-    let description;
-    if (detailContent && detailContent.length >= 60) {
-      const bullets = [];
-      if (pensum) bullets.push(`• Pensum: ${pensum}`);
-      bullets.push(`• Standort: ${location}`);
-      bullets.push(`• Bewerbung über das offizielle Stellenportal des Kantons St. Gallen (${PUBLIC_CAREER_URL})`);
-      description = [detailContent, bullets.join('\n')].join('\n\n');
-    } else {
-      // Fallback structured synthesis when the detail page didn't yield
-      // parseable content (network hiccup, layout drift on a given tenant
-      // page). Always comfortably above the 50-word thin-content floor.
-      const intro = `${title} — offene Stelle beim Kanton St. Gallen, direkt auf dem offiziellen Stellenportal der Kantonalen Verwaltung ausgeschrieben.`;
-      const blurb = `Der Kanton St. Gallen zählt mit rund 530'000 Einwohnerinnen und Einwohnern zu den bevölkerungsreichsten Kantonen der Schweiz und beschäftigt als fünftgrösster Kanton rund 6000 Mitarbeitende in der kantonalen Verwaltung. Die Aufgaben reichen über Bildung, Wirtschaft, Recht, Sicherheit, Natur, Gesundheit, Bau, Kultur und Finanzen — mit vielfältigen, sinnstiftenden Karrieremöglichkeiten in unterschiedlichen Fachbereichen.`;
-      const bullets = [
-        `• Arbeitgeber: ${KANTON_ST_GALLEN_COMPANY_NAME}`,
-        `• Standort: ${location} (Kanton ${HQ_CANTON})`,
-      ];
-      if (pensum) bullets.push(`• Pensum: ${pensum}`);
-      if (datum) bullets.push(`• Online seit: ${datum}`);
-      bullets.push(`• Bewerbung über das offizielle Stellenportal des Kantons St. Gallen (${PUBLIC_CAREER_URL})`);
-      description = [intro, blurb, bullets.join('\n')].join('\n\n');
-    }
+    // The description is the posting's own text (issue 5253), above the
+    // shared 50-word floor. The crawler used to append «• Pensum: … /
+    // • Standort: … / • Bewerbung über das offizielle Stellenportal des
+    // Kantons St. Gallen (…)» lines (its formatting of the detail page's
+    // «Pensum / Arbeitsort» header, plus a line of its own) and, without
+    // detail text, to write a description of its own (an intro, a paragraph
+    // about the canton, the same lines). The header values now live only in
+    // structured fields (workload, employmentType, contract, location). A
+    // posting without text gets no description: the merge keeps the source
+    // text an earlier run stored, otherwise the job takes the pipeline's
+    // thin-source path.
+    const description = meetsSourceBodyFloor(detailContent) ? detailContent : '';
+    const employmentType = detectEmploymentType(pensum, title);
 
     const postedDate = parseSwissDate(datum) || todayIso;
     const sourceLang = 'de';
@@ -426,8 +433,13 @@ export async function fetchAllKantonStGallenJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(pensum, title),
+      // The job board read «Pensum: 50%» out of the appended line; the
+      // workload now reaches it through the structured fields, with the
+      // listing's «Befristung» and «Unternehmensbereich» columns.
+      department: entry.department || undefined,
+      contract: umantisListingContract(entry.befristung, employmentType),
+      employmentType,
+      workload: pensum || undefined,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Amministrazione Pubblica',
       currency: 'CHF',

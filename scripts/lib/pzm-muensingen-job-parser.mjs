@@ -30,9 +30,9 @@
  * instead of a `jobs.pzmag.ch` one, so `acceptDirectlinkHosts` below
  * legitimately filters out 100% of postings (0 is correct, not broken —
  * see `EMPTY_OK_CRAWLERS` in `scripts/check-crawler-health.mjs`). Former PZM
- * roles are already covered by `upd-job-parser.mjs` (Umantis tenant 2908),
- * which now lists the full merged UPZ vacancy set including
- * Münsingen-located roles. This dedicated crawler is a candidate for
+ * roles are covered by `upd-job-parser.mjs`, which reads the merged UPZ
+ * vacancy set (Prospective medium 1000842) including Münsingen-located
+ * roles. This dedicated crawler is a candidate for
  * retirement (issue #4080) — deferred because that requires editing
  * `.github/workflows/crawler-group-10.yml`.
  */

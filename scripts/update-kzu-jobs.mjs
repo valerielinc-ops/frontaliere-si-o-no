@@ -12,6 +12,7 @@ import {
   KZU_KEY,
   KZU_COMPANY_NAME,
 } from './lib/kzu-job-parser.mjs';
+import { repairStoredUmantisJobs } from './lib/umantis-listing-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -24,6 +25,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isKzuJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => repairStoredUmantisJobs(jobs, KZU_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ KZU crawler failed: ${err?.message || err}`);
   process.exit(1);

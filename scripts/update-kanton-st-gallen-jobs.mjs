@@ -16,7 +16,10 @@ import {
   isTrustedDomain,
   KANTON_ST_GALLEN_KEY,
   KANTON_ST_GALLEN_COMPANY_NAME,
+  KANTON_ST_GALLEN_FABRICATED_DESCRIPTION_RE,
+  KANTON_ST_GALLEN_LABEL_LINES_RE,
 } from './lib/kanton-st-gallen-job-parser.mjs';
+import { repairStoredUmantisJobs } from './lib/umantis-listing-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -29,6 +32,10 @@ runStandardCrawlerPipeline({
   isCompanyJob: isKantonStGallenJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => repairStoredUmantisJobs(jobs, KANTON_ST_GALLEN_COMPANY_NAME, {
+    fabricatedRe: KANTON_ST_GALLEN_FABRICATED_DESCRIPTION_RE,
+    labelLinesRe: KANTON_ST_GALLEN_LABEL_LINES_RE,
+  }),
 }).catch((err) => {
   console.error(`❌ Kanton St. Gallen crawler failed: ${err?.message || err}`);
   process.exit(1);
