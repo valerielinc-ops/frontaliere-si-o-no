@@ -7058,6 +7058,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.reazioni-partiti-aumento-premi-2027.title': '2027 Premium Increase: Reactions from the PLR, PS, and Unions',
     'blog.article.reazioni-partiti-aumento-premi-2027.excerpt': 'Estimate at 3,7% for 2027. PLR calls for cost control, PS and OCST defend families. Average Ticino premium at 519,90 francs.',
     'blog.article.reazioni-partiti-aumento-premi-2027.imageAlt': 'Ticino parliament building at dusk with Swiss flags',
+    'blog.article.voto-armi-industria-difesa.title': 'Arms, easier exports: vote on November 29',
+    'blog.article.voto-armi-industria-difesa.excerpt': 'The Federal Council supports the revision of the War Material Act: the vote is scheduled for 29 novembre to strengthen industry and jobs.',
+    'blog.article.voto-armi-industria-difesa.imageAlt': 'Swiss industrial facility with the national flag, illustrating the debate on arms exports.',
 };
 
 export default blogMetaChEn;
