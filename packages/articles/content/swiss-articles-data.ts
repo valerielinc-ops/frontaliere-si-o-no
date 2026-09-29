@@ -21157,6 +21157,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lindt-prezzi-cacao-2026',
+    category: 'novita',
+    date: '2026-09-29T12:03:01.235Z',
+    image: '/images/blog/lindt-prezzi-cacao-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

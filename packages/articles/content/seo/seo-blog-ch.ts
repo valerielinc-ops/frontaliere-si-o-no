@@ -91319,6 +91319,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lindt-prezzi-cacao-2026': {
+    title: 'Lindt rivede le stime: calo vendite e prezzi | Frontaliere Ticino',
+    description: 'Lindt&Sprüngli taglia la crescita 2026 allo 0-2 percento per il costo del cacao e il caldo estivo. Valutate riduzioni di prezzo più ampie da gennaio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lindt, rivede, stime, calo',
+    ogTitle: 'Lindt rivede le stime 2026 e valuta riduzioni di prezzo',
+    ogDescription: 'Lindt&Sprüngli taglia la previsione di crescita organica per il 2026 allo 0-2 percento. Pesa il rincaro del cacao e il caldo estivo, con valutazioni per riduzioni di prezzo da gennaio in Svizzera e Germania.',
+    canonicalPath: '/articoli-svizzera/lindt-prezzi-cacao-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lindt rivede le stime: calo vendite e prezzi",
+      "description": "Lindt&Sprüngli taglia la crescita 2026 allo 0-2 percento per il costo del cacao e il caldo estivo. Valutate riduzioni di prezzo più ampie da gennaio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lindt-prezzi-cacao-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esposizione di cioccolato Lindt in un negozio"
+      },
+      "datePublished": "2026-09-29T12:03:01+00:00",
+      "dateModified": "2026-09-29T12:03:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lindt-prezzi-cacao-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

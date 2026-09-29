@@ -12281,6 +12281,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cst-clausola-salvaguardia-tassa.title': 'CSt: strengthened safeguard clause with incentive tax',
     'blog.article.cst-clausola-salvaguardia-tassa.excerpt': 'The Council of States has strengthened the safeguard clause for immigration, introducing an incentive tax from 2.000 to 4.000 francs and new indicators.',
     'blog.article.cst-clausola-salvaguardia-tassa.imageAlt': 'Panoramic view of Lugano and its lake with mountains in the background, a symbol of Ticino.',
+    'blog.article.stangata-premi-cassa-malati-ticino.title': 'Ticino health insurance premiums 2027: 3,7% increase',
+    'blog.article.stangata-premi-cassa-malati-ticino.excerpt': 'In 2027, health insurance premiums in Ticino increase by 3,7%, bringing the average premium to 520 francs per month, the highest in Switzerland.',
+    'blog.article.stangata-premi-cassa-malati-ticino.imageAlt': 'Health insurance premiums in Ticino for 2027',
 };
 
 export default blogMetaEn;

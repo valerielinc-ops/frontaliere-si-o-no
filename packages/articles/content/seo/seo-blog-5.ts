@@ -97105,6 +97105,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stangata-premi-cassa-malati-ticino': {
+    title: 'Premi cassa malati Ticino 2027: aumento del 3,7%',
+    description: 'Nel 2027 i premi cassa malati in Ticino salgono del 3,7% con una media di 520 franchi al mese. Scopri tutti i dati ufficiali e le fasce d\'età. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, aumento',
+    ogTitle: 'Premi cassa malati Ticino 2027: aumento del 3,7%',
+    ogDescription: 'Scopri i dati ufficiali per il 2027 sui premi di cassa malati in Ticino. L\'aumento è del 3,7% con un premio medio che sale a 520 franchi al mese, il più alto in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/stangata-premi-cassa-malati-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Ticino 2027: aumento del 3,7%",
+      "description": "Nel 2027 i premi cassa malati in Ticino salgono del 3,7% con una media di 520 franchi al mese. Scopri tutti i dati ufficiali e le fasce d'età. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stangata-premi-cassa-malati-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Premi cassa malati in Ticino nel 2027"
+      },
+      "datePublished": "2026-09-29T12:24:49+00:00",
+      "dateModified": "2026-09-29T12:24:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stangata-premi-cassa-malati-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
