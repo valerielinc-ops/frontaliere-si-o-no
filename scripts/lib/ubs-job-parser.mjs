@@ -96,22 +96,27 @@ const SITE_IDS = ['5012', '5054', '5131'];
 const TALEO_LANG_MAP = { 1: 'en', 23: 'de', 34: 'fr', 6: 'it', 52: 'it' };
 
 /**
- * The main tenant (5012) is the English locale site of a four-site group:
- * its search lists every Swiss posting, but a German, French or Italian
- * posting lives on its own locale site (the tenant's `TGLocales`: 5050
- * Deutsch, 5049 Français, 5048 Italiano). Opened through 5012, the job page
- * renders another language version of the requisition — the French "Spécialiste
- * Crédits" (jobid 350552) came back as the German "Spezialist/in Hypotheken
- * und Grundbuchwesen", overlap 0.01 in audit run 36528331656 — and the
- * job-details endpoint returns nothing unless `jobSiteId` names the locale
- * site. The apprenticeship (5054) and graduate (5131) sites are single-site
- * tenants and keep their own id.
+ * Each Taleo board is a group of locale sites: its search lists every Swiss
+ * posting, but a posting lives on the site of its own language. Opened
+ * through another site the job page renders another language version of the
+ * requisition — the French "Spécialiste Crédits" (jobid 350552) came back as
+ * the German "Spezialist/in Hypotheken und Grundbuchwesen" through 5012,
+ * overlap 0.01 in audit run 36528331656 — and the job-details endpoint
+ * returns nothing unless `jobSiteId` names the posting's locale site.
+ *
+ * Main tenant 5012 (`TGLocales`): 5012 English, 5050 Deutsch, 5049
+ * Français, 5048 Italiano. Apprenticeship board 5054: 5054 Deutsch, 5055
+ * Français, 5056 Italiano — verified on 2026-09-29 with jobids 348480,
+ * 348474 and 348468, which return their body only on these sites. The
+ * graduate board 5131 lists English postings only, served by 5131.
  */
-const MAIN_SITE_LOCALE_SITE_IDS = { en: '5012', de: '5050', fr: '5049', it: '5048' };
+const LOCALE_SITE_IDS = {
+  5012: { en: '5012', de: '5050', fr: '5049', it: '5048' },
+  5054: { de: '5054', fr: '5055', it: '5056' },
+};
 
 function detailSiteIdFor(siteId, taleoLang) {
-  if (siteId !== SITE_IDS[0]) return siteId;
-  return MAIN_SITE_LOCALE_SITE_IDS[taleoLang] || siteId;
+  return LOCALE_SITE_IDS[siteId]?.[taleoLang] || siteId;
 }
 
 /** Postal codes for Valais cities */
@@ -534,8 +539,8 @@ export function composeTaleoJobDetailDescription(questions = []) {
 /**
  * POST the Taleo job-details endpoint within an established site session.
  * `jobSiteId` is the posting's locale site (see `detailSiteIdFor`). Returns
- * the composed description, or '' on any failure (the search-result "Your
- * role" text then stays in place).
+ * the composed description, or '' on any failure (the posting is then not
+ * published: the search-result "Your role" teaser alone is incomplete).
  */
 async function fetchTaleoJobDetailDescription(session, siteId, reqId, jobSiteId = siteId) {
   if (!session || !reqId) return '';
@@ -635,9 +640,9 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
     companyDomain: UBS_COMPANY_DOMAIN,
     title,
     titleByLocale: { [sourceLang]: title },
-    // Only the posting's own text (issue 5253): an empty search-row text
-    // stays empty here and the job-details text fills it below; with
-    // neither, the posting is not published (no "{title} — UBS" stand-in).
+    // Only the posting's own text (issue 5253): the search-row teaser, or
+    // nothing — never a "{title} — UBS" stand-in. fetchAllUbsJobs replaces it
+    // with the job-details text and does not publish a posting without one.
     description: descriptionText,
     descriptionByLocale: { [sourceLang]: descriptionText },
     location: city,
@@ -783,7 +788,6 @@ export async function fetchAllUbsJobs() {
   // (audit run 36528331656) and templated programmes collapsed onto the same
   // teaser (duplicate descriptions).
   const jobs = [];
-  let detailMisses = 0;
   let withoutBody = 0;
   for (const { taleoJob, siteId } of allEntries) {
     const job = buildJobFromTaleo(taleoJob, siteId);
@@ -795,30 +799,26 @@ export async function fetchAllUbsJobs() {
       job._ubsMeta.reqId,
       job._ubsMeta.detailSiteId,
     );
-    const usedDetail = Boolean(full) && full.length > String(job.description || '').length;
-    if (usedDetail) {
-      job.description = full;
-      job.descriptionByLocale = { [job.sourceLang]: full };
-    }
-    if (!job.description) {
-      console.log(`  ⏭️ no vacancy text in the search row nor in the job details, not published: ${job.title}`);
+    // Only the whole posting is published (issue 5253): the search row
+    // carries only the "Your role" teaser, 6-7 % of the source page, so a
+    // posting whose job-details text cannot be read is not published — the
+    // teaser alone would be an incomplete vacancy.
+    if (!full) {
+      console.log(`  ⏭️ no job-details text, not published (the search-row teaser alone is incomplete): ${job.title}`);
       withoutBody += 1;
       // eslint-disable-next-line no-await-in-loop
       await new Promise((r) => setTimeout(r, 250));
       continue;
     }
-    if (!usedDetail) detailMisses += 1;
+    job.description = full;
+    job.descriptionByLocale = { [job.sourceLang]: full };
     jobs.push(job);
     // Polite delay between detail requests.
     // eslint-disable-next-line no-await-in-loop
     await new Promise((r) => setTimeout(r, 250));
   }
-  if (detailMisses > 0) {
-    console.warn(`  ⚠️ ${detailMisses}/${jobs.length} UBS job-details requests returned no fuller text — kept the search-row "Your role" text.`);
-  }
-
   if (withoutBody > 0) {
-    console.log(`  ⏭️ ${withoutBody} posting(s) without any vacancy text — not published.`);
+    console.log(`  ⏭️ ${withoutBody} posting(s) without job-details text — not published.`);
   }
   console.log(`\n📋 Total UBS Swiss jobs: ${jobs.length}`);
   return jobs;

@@ -238,7 +238,7 @@ describe('Taleo job details', () => {
     };
   }
 
-  it('points main-site postings to their locale site (French → 5049, German → 5050)', () => {
+  it('points every posting to its locale site (main tenant and apprenticeship board)', () => {
     // Opened through the English site 5012, jobid 350552 rendered the German
     // "Spezialist/in Hypotheken und Grundbuchwesen" (overlap 0.01 in the audit).
     const fr = __internals.buildJobFromTaleo(taleoRow('34', '350552'), '5012');
@@ -248,15 +248,22 @@ describe('Taleo job details', () => {
     expect(de.url).toContain('siteid=5050&jobid=350553');
     const en = __internals.buildJobFromTaleo(taleoRow('1', '348000'), '5012');
     expect(en.url).toContain('siteid=5012&jobid=348000');
-    // The single-site tenants keep their own id.
-    const apprentice = __internals.buildJobFromTaleo(taleoRow('34', '346345'), '5054');
-    expect(apprentice.url).toContain('siteid=5054&jobid=346345');
+    // The apprenticeship board has its own locale sites (2026-09-29: the
+    // French BEM jobid 348474 returns its body only through 5055).
+    const apprenticeFr = __internals.buildJobFromTaleo(taleoRow('34', '346345'), '5054');
+    expect(apprenticeFr.url).toContain('siteid=5055&jobid=346345');
+    expect(__internals.buildJobFromTaleo(taleoRow('23', '348480'), '5054').url).toContain('siteid=5054&jobid=348480');
+    expect(__internals.buildJobFromTaleo(taleoRow('52', '348468'), '5054').url).toContain('siteid=5056&jobid=348468');
+    // The graduate board serves its (English) postings itself.
+    expect(__internals.buildJobFromTaleo(taleoRow('1', '351839'), '5131').url).toContain('siteid=5131&jobid=351839');
   });
 });
 
-// Only the posting's own text is published (issue 5253). A posting whose
-// search row and job-details both carry no text used to go out as
-// "{title} — UBS"; it is not published any more. Taleo TGNewUI shapes
+// Only the whole posting is published (issue 5253). A posting whose search
+// row and job-details both carry no text used to go out as "{title} — UBS",
+// and one whose job-details could not be read went out as its search-row
+// "Your role" teaser alone (6-7 % of the source page); neither is published
+// any more. Taleo TGNewUI shapes
 // (HomeWithPreLoad token, MatchedJobs envelope, JobDetails questions) as
 // served by jobs.ubs.com on 2026-09-29.
 describe('fetchAllUbsJobs — posting without any vacancy text', () => {
@@ -264,7 +271,7 @@ describe('fetchAllUbsJobs — posting without any vacancy text', () => {
     vi.unstubAllGlobals();
   });
 
-  it('publishes the posting with text and skips the one without, never inventing text', async () => {
+  it('publishes the whole posting and skips one without job-details text, even with a search-row teaser', async () => {
     const q = (name: string, value: string) => ({ QuestionName: name, Value: value });
     const row = (reqid: string, title: string, desc: string) => ({
       Questions: [q('reqid', reqid), q('jobtitle', title), q('jobdescription', desc), q('formtext23', 'Switzerland - Zurich'), q('formtext2', 'Zürich'), q('jobreqlanguage', '1'), q('lastupdated', '29-Sep-2026')],
@@ -278,7 +285,14 @@ describe('fetchAllUbsJobs — posting without any vacancy text', () => {
       const body = JSON.parse(init.body || '{}');
       if (u.includes('MatchedJobs')) {
         if (!JSON.stringify(body).includes('5012')) return json({ Jobs: { Job: [] }, JobsCount: 0 });
-        return json({ Jobs: { Job: [row('350001', 'Client Advisor 80-100%', 'Your role: advise private clients in Zurich.'), row('350002', 'Credit Officer', '')] }, JobsCount: 2 });
+        return json({
+          Jobs: { Job: [
+            row('350001', 'Client Advisor 80-100%', 'Your role: advise private clients in Zurich.'),
+            row('350002', 'Credit Officer', ''),
+            row('350003', 'Relationship Manager', 'Your role: manage a portfolio of corporate clients in Zurich.'),
+          ] },
+          JobsCount: 3,
+        });
       }
       if (u.includes('JobDetails')) {
         const text = body.jobid === '350001'
@@ -294,5 +308,7 @@ describe('fetchAllUbsJobs — posting without any vacancy text', () => {
     expect(jobs.map((job) => job.title)).toEqual(['Client Advisor 80-100%']);
     expect(jobs[0].description).toContain('across the whole wealth-planning cycle');
     for (const job of jobs) expect(job.description).not.toMatch(/— UBS$/);
+    // 350003 has a search-row teaser but its JobDetails stub returns '': not published.
+    expect(jobs.map((job) => job.title)).not.toContain('Relationship Manager');
   }, 20_000);
 });
