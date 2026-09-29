@@ -12278,6 +12278,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-29.imageAlt': 'The day\'s numbers for cross-border commuters – September 29, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-29.seoDescription': 'Cross-border brief, September 29, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-29.ogDescription': 'The numbers for September 29, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.cst-clausola-salvaguardia-tassa.title': 'CSt: strengthened safeguard clause with incentive tax',
+    'blog.article.cst-clausola-salvaguardia-tassa.excerpt': 'The Council of States has strengthened the safeguard clause for immigration, introducing an incentive tax from 2.000 to 4.000 francs and new indicators.',
+    'blog.article.cst-clausola-salvaguardia-tassa.imageAlt': 'Panoramic view of Lugano and its lake with mountains in the background, a symbol of Ticino.',
+    'blog.article.stangata-premi-cassa-malati-ticino.title': 'Ticino health insurance premiums 2027: 3,7% increase',
+    'blog.article.stangata-premi-cassa-malati-ticino.excerpt': 'In 2027, health insurance premiums in Ticino increase by 3,7%, bringing the average premium to 520 francs per month, the highest in Switzerland.',
+    'blog.article.stangata-premi-cassa-malati-ticino.imageAlt': 'Health insurance premiums in Ticino for 2027',
+    'blog.article.lamal-premi-ticino-triplicati.title': 'LAMal, 30 years of increases: premiums have tripled',
+    'blog.article.lamal-premi-ticino-triplicati.excerpt': 'LAMal, introduced in 1996, has seen the average premium triple. For 2027, the DFI indicates +5% in Switzerland and +3.7% in Ticino.',
+    'blog.article.lamal-premi-ticino-triplicati.imageAlt': 'Lugano and Ticino viewed for an article on LAMal premiums',
+    'blog.article.mobilita-lombardia-ticino-2026.title': 'Green light for the Lombardy-Ticino Agreement',
+    'blog.article.mobilita-lombardia-ticino-2026.excerpt': 'Ratified Draft Law No. 197 on cross-border mobility. Five-year agreement for trains, buses, and fares between Italy and Switzerland.',
+    'blog.article.mobilita-lombardia-ticino-2026.imageAlt': 'Cross-border train between Lombardy and Ticino',
 };
 
 export default blogMetaEn;

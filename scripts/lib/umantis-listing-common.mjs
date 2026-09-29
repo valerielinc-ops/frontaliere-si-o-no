@@ -26,9 +26,9 @@
  *      Used by: KSBL, Adullam.
  *
  * This module provides a single `createUmantisListingParser()` factory that
- * tries BOTH extraction strategies and uses whichever yields data. Description
- * text is the listing-page snippet (no detail-page fetching) — short but
- * reliable across all tenant UIs.
+ * tries BOTH extraction strategies and uses whichever yields data, walks every
+ * page of the listing (`collectUmantisListingPages`: the table shows 10 rows
+ * per page), and reads the description from each vacancy's detail page.
  *
  * Some tenants embed the Umantis frontend behind a corporate CMS wrapper
  * (e.g. KSBL → karriere.ksbl.ch on TYPO3). The listing endpoint on the
@@ -224,6 +224,78 @@ function parseUmantisListing(html) {
   return { entries: older, ui: 'older' };
 }
 
+/* ── Pagination ──────────────────────────────────────────── */
+
+/**
+ * Upper bound on the listing walk. Umantis renders 10 rows per page by
+ * default (`TableMaxEntries`), so 60 pages cover 600 vacancies — the same cap
+ * `kanton-aargau-job-parser.mjs` uses for the largest tenant we crawl.
+ */
+export const UMANTIS_MAX_LISTING_PAGES = 60;
+
+/**
+ * Next-page link of an Umantis `Jobs/All` table, as rendered by both UI
+ * generations: `data-pagination-next-href="?tc{TABLE}=p{N}&amp;_search_token{TABLE}={TOKEN}"`.
+ * Returns the query string to append to the listing URL, or '' when the page
+ * has no pager.
+ */
+export function extractUmantisNextPageQuery(html = '') {
+  const m = String(html || '').match(
+    /data-pagination-next-href="\?(tc\d+)=p(\d+)&(?:amp;)?(_search_token\d+)=(\d+)/,
+  );
+  return m ? `${m[1]}=p${m[2]}&${m[3]}=${m[4]}` : '';
+}
+
+/**
+ * Walk every page of an Umantis listing starting from the already-fetched
+ * first page. The first page alone is only `TableMaxEntries` rows: on
+ * Bethesda (tenant 2998) it held 10 of the 14 vacancies the hospital
+ * publishes, and the other 4 were only reachable through `?tc1152481=p2`.
+ *
+ * The last page still links a `p{N+1}`, which Umantis 302-redirects back to
+ * page 1, so the walk stops on the first page that adds no unseen vacancy id
+ * (or on a fetch error, keeping what was collected — the slice writer's
+ * anti-shrink guard owns the decision about a short catalogue).
+ *
+ * @param {string} firstHtml   HTML of the listing's first page
+ * @param {string} listingUrl  the listing URL (already carrying `?lang=`)
+ * @param {(url: string) => Promise<string>} fetchPage
+ * @param {{ maxPages?: number, delayMs?: number }} [opts]
+ * @returns {Promise<{ entries: object[], ui: string, pages: number }>}
+ */
+export async function collectUmantisListingPages(firstHtml, listingUrl, fetchPage, opts = {}) {
+  const maxPages = opts.maxPages ?? UMANTIS_MAX_LISTING_PAGES;
+  const delayMs = opts.delayMs ?? 250;
+  const first = parseUmantisListing(firstHtml);
+  const entries = [...first.entries];
+  const seen = new Set(entries.map((entry) => entry.id));
+  let pages = 1;
+  let query = extractUmantisNextPageQuery(firstHtml);
+  const separator = listingUrl.includes('?') ? '&' : '?';
+  while (query && pages < maxPages) {
+    let html;
+    try {
+      html = await fetchPage(`${listingUrl}${separator}${query}`);
+    } catch (err) {
+      console.warn(`  ⚠️  Umantis listing page ${pages + 1} fetch failed: ${err?.message || err}`);
+      break;
+    }
+    const { entries: pageEntries } = parseUmantisListing(html);
+    let added = 0;
+    for (const entry of pageEntries) {
+      if (seen.has(entry.id)) continue;
+      seen.add(entry.id);
+      entries.push(entry);
+      added++;
+    }
+    if (added === 0) break;
+    pages++;
+    query = extractUmantisNextPageQuery(html);
+    if (query && delayMs > 0) await new Promise((r) => setTimeout(r, delayMs));
+  }
+  return { entries, ui: first.ui, pages };
+}
+
 /* ── Classifiers ─────────────────────────────────────────── */
 
 function detectCategory(title = '', department = '') {
@@ -312,14 +384,17 @@ export function extractUmantisDetailContent(html) {
   // tag (e.g. `</p`). Use the element's own closing tag first, with the next
   // block/container as a defensive boundary for malformed pages.
   const blocks = [];
-  const dataBlockOpenRx = /<(?:li|p)\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bcustomdatablock\b[^"']*["'])(?=[^>]*\bid\s*=\s*["']customdatablock_\d+["'])[^>]*>/gi;
+  // Sanatorium Kilchberg renders the same blocks as <div> elements; without
+  // the div form its ads fell to the p/li fallback and lost the intro, the
+  // section labels and the employer paragraph.
+  const dataBlockOpenRx = /<(?:li|p|div)\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bcustomdatablock\b[^"']*["'])(?=[^>]*\bid\s*=\s*["']customdatablock_\d+["'])[^>]*>/gi;
   const starts = [...cleanedHtml.matchAll(dataBlockOpenRx)];
   for (let i = 0; i < starts.length; i += 1) {
     const opening = starts[i][0];
     const start = (starts[i].index ?? 0) + opening.length;
     const nextStart = i + 1 < starts.length ? (starts[i + 1].index ?? cleanedHtml.length) : cleanedHtml.length;
     const chunk = cleanedHtml.slice(start, nextStart);
-    const ownEnd = findMatchingUmantisElementClose(cleanedHtml, start, opening.match(/^<(li|p)\b/i)?.[1] || 'p');
+    const ownEnd = findMatchingUmantisElementClose(cleanedHtml, start, opening.match(/^<(li|p|div)\b/i)?.[1] || 'p');
     const boundaryEnd = chunk.search(/<\/(?:article|main|body|footer|nav)\b/i);
     const end = Math.min(
       nextStart,
@@ -338,25 +413,83 @@ export function extractUmantisDetailContent(html) {
   }
   if (blocks.length > 0) return blocks.join('\n\n');
 
-  // Fallback: older-UI section text via stripped main content
-  // Strip nav/footer first
+  // Fallback: tenants without customdatablock blocks (older UI and custom
+  // HTML templates: Bürgenstock, Klinik Im Hasel, Sonnenhalde, NSN, Kilchberg,
+  // SZB, UPD — 7 of the factory's tenants on 2026-09-29). Read the page's
+  // paragraphs, list items and section headings in order.
+  //
+  // Two defects of the previous version, both measured on those tenants
+  // (issue 5253): `<(p|li)[^>]*>` had no word boundary, so `<link …>` opened a
+  // "li" that ran from the <head> to the first `</li>` and published the page
+  // title, skip links and «Ihr Browser kann leider keine eingebetteten
+  // Frames anzeigen» as the first paragraph; and `.slice(0, 8)` cut 14 of 21
+  // sampled ads, dropping the last profile items and the whole benefits list.
+  // The body is bounded by what it is (content, not chrome) rather than by an
+  // arbitrary count: contact cards, job-alert and "more jobs" teasers, skip
+  // links and consent text are dropped by `isUmantisChromeFragment`.
   const main = html
+    .replace(/<head[\s\S]*?<\/head>/gi, '')
     .replace(/<header[\s\S]*?<\/header>/gi, '')
     .replace(/<footer[\s\S]*?<\/footer>/gi, '')
     .replace(/<nav[\s\S]*?<\/nav>/gi, '')
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '');
-  // Find prose blocks: <p>...</p>, <li>...</li>
-  const proseRx = /<(p|li)[^>]*>([\s\S]*?)<\/\1>/g;
+    .replace(/<form[\s\S]*?<\/form>/gi, '')
+    .replace(/<(script|style|noscript|iframe)\b[\s\S]*?<\/\1\s*>/gi, '');
+  // h1 included: on custom templates it is the only place the page names the
+  // role, and `isDetailContentValid` checks the body against the title.
+  const proseRx = /<(p|li|h[1-4])\b[^>]*>([\s\S]*?)<\/\1\s*>/gi;
   const parts = [];
   let pm;
   while ((pm = proseRx.exec(main))) {
-    const text = normalizeSpace(decodeEntities(pm[2].replace(/<[^>]+>/g, ' ')));
-    if (text && text.length > 25 && !/cookie|datenschutz|privacy|impressum|telefon|email/i.test(text.slice(0, 30))) {
-      parts.push(text);
+    const tag = pm[1].toLowerCase();
+    // `<br>` inside a paragraph separates list lines on these templates
+    // («Das erwartet dich<br>Benutzersupport…<br>Installation…»); keep them as
+    // lines so `normalizeDescriptionBullets` can restore the list.
+    // A <ul> nested in the paragraph (Bürgenstock) keeps its items as bullets.
+    const text = decodeEntities(pm[2]
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<li\b[^>]*>/gi, '\n• ')
+      .replace(/<\/(?:li|ul|ol|div)\s*>/gi, '\n')
+      .replace(/<[^>]+>/g, ' '))
+      .split('\n').map((line) => normalizeSpace(line)).filter((line) => line && line !== '•').join('\n');
+    if (!text || isUmantisChromeFragment(text)) continue;
+    if (tag === 'li') {
+      if (text.length > 2) parts.push({ kind: 'item', text });
+    } else if (tag === 'p') {
+      if (text.length > 25) parts.push({ kind: 'para', text });
+    } else if (text.length > 80) {
+      // Prose set in a heading tag (SZB opens every ad with an <h2> paragraph).
+      parts.push({ kind: 'para', text });
+    } else if (text.length >= 3) {
+      parts.push({ kind: 'heading', text });
     }
   }
-  return parts.slice(0, 8).join('\n\n');
+  // Trailing headings (nothing after them) are page furniture.
+  let lastContent = -1;
+  parts.forEach((part, i) => { if (part.kind !== 'heading') lastContent = i; });
+  const kept = parts.filter((part, i) => part.kind !== 'heading' || i < lastContent);
+  let out = '';
+  for (const part of kept) {
+    if (part.kind === 'item') out += `${out ? '\n' : ''}• ${part.text}`;
+    else out += `${out ? '\n\n' : ''}${part.text}`;
+  }
+  return out;
+}
+
+/**
+ * Page furniture that the p/li fallback must not publish: contact cards
+ * (an e-mail address or a phone number), job-alert and "more jobs" teasers,
+ * skip links, the iframe notice, consent/legal text, and bare action labels.
+ *
+ * @param {string} text  one normalised paragraph, list item or heading
+ * @returns {boolean}
+ */
+export function isUmantisChromeFragment(text = '') {
+  const t = String(text);
+  if (/^(cookie|datenschutz|privacy|impressum)/i.test(t)) return true;
+  if (/[\w.+-]+@[\w-]+\.[\w.-]+/.test(t)) return true;
+  if (/(?:\+41[\s.]?\d{2}|\b0\d{2})[\s/.-]?\d{3}[\s.-]?\d{2}[\s.-]?\d{2}\b/.test(t)) return true;
+  if (/job-?abo|weitere (offene )?stellen|zum hauptinhalt|aktionsleiste|eingebetteten frames|stelle (weiter)?empfehlen/i.test(t)) return true;
+  return /^(kontakt|aktionen|teilen|share|drucken|zurück|jetzt bewerben|online bewerben)$/i.test(t);
 }
 
 /**
@@ -457,6 +590,36 @@ function isNarrowGermanCompoundRelation(titleToken, bodyToken) {
 export { isDetailContentValid };
 
 /**
+ * Does the detail PAGE name this vacancy in its `<title>` or first `<h1>`?
+ *
+ * `isDetailContentValid` asks the extracted body to mention the title, which
+ * guards against a listing/careers page served instead of the ad. On tenants
+ * whose ad is split into customdatablocks (Sanatorium Kilchberg) the title
+ * lives only in the page heading, outside the blocks: the check then rejected
+ * a real ad and the job fell back to the listing snippet. When the page
+ * itself carries the title, the body only has to pass the chrome and length
+ * checks.
+ *
+ * @param {string} html
+ * @param {string} title
+ * @returns {boolean}
+ */
+function pageNamesTitle(html = '', title = '') {
+  const heading = [
+    String(html).match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '',
+    String(html).match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '',
+  ].join(' ');
+  const pageText = normalize(decodeEntities(heading.replace(/<[^>]+>/g, ' ')));
+  const tokens = normalize(title).split(/[^\p{L}\p{N}]+/u).filter((tok) => tok.length >= 4);
+  return tokens.length > 0 && tokens.some((tok) => pageText.includes(tok));
+}
+
+export function isDetailPageForTitle(html, content, title) {
+  return isDetailContentValid(content, title)
+    || (pageNamesTitle(html, title) && isDetailContentValid(content, ''));
+}
+
+/**
  * Fetch + extract a Umantis detail page, detecting the "dead detail URL"
  * failure mode (issue #1245): several tenants now 3xx-redirect
  * `/Vacancies/{id}/Description/*` AWAY from the umantis host (→ public career
@@ -502,7 +665,7 @@ async function fetchUmantisDetail(detailUrl, title = '') {
         if (!res2.ok) return { content: '', deadDetail: false };
         const html2 = await res2.text();
         const content2 = extractUmantisDetailContent(html2);
-        return { content: isDetailContentValid(content2, title) ? content2 : '', deadDetail: false };
+        return { content: isDetailPageForTitle(html2, content2, title) ? content2 : '', deadDetail: false };
       } catch {
         return { content: '', deadDetail: false };
       }
@@ -511,7 +674,7 @@ async function fetchUmantisDetail(detailUrl, title = '') {
     if (!res.ok) return { content: '', deadDetail: false };
     const html = await res.text();
     const content = extractUmantisDetailContent(html);
-    return { content: isDetailContentValid(content, title) ? content : '', deadDetail: false };
+    return { content: isDetailPageForTitle(html, content, title) ? content : '', deadDetail: false };
   } catch {
     clearTimeout(timer);
     return { content: '', deadDetail: false };
@@ -632,8 +795,8 @@ export function createUmantisListingParser(config) {
     console.log();
 
     const html = await fetchHtml(LISTING_URL);
-    const { entries, ui } = parseUmantisListing(html);
-    console.log(`  ✓ ${entries.length} jobs from listing (${ui} UI)`);
+    const { entries, ui, pages } = await collectUmantisListingPages(html, LISTING_URL, fetchHtml);
+    console.log(`  ✓ ${entries.length} jobs from listing (${ui} UI, ${pages} page${pages === 1 ? '' : 's'})`);
     if (entries.length > 0) console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
     if (!entries.length) return [];

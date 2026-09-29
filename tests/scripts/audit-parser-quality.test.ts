@@ -51,8 +51,14 @@ import {
   duplicateBucketSampleOutcome,
   largestDuplicateBucketMembers,
   DUPLICATE_BUCKET_SAMPLE_REASON,
+  regularSourceSampleIndices,
+  sourceDetailSamplesForCrawler,
   countDuplicateListings,
   vacancyPdfLink,
+  sharedSourceDocuments,
+  fragmentAnchoredBlock,
+  fragmentKind,
+  textFragmentBlock,
   fetchVacancyPdfText,
   createPdfSafeFetch,
 } from '../../scripts/audit-parser-quality.mjs';
@@ -2475,6 +2481,39 @@ describe('desc-only fingerprint compares the whole body (issue 5253, run 3652833
   });
 });
 
+describe('duplicate listings: a crawler-wide prefix never empties a body (liebherr, issue 5253)', () => {
+  // Two long variants of one role share a 900-char head, which sets the
+  // crawler-wide prefix; the German and English «Initialbewerbung» are
+  // shorter than that prefix and differ from the second character on.
+  const head = 'Ihre Aufgaben: Montage und Inbetriebnahme von Baumaschinen, Fehlerdiagnose an hydraulischen und elektrischen Systemen, Wartung und Reparatur beim Kunden vor Ort, Dokumentation der Arbeiten im Servicesystem, Beratung der Kundschaft zu Ersatzteilen und Wartungsverträgen. '.repeat(4);
+  const job = (title: string, description: string) => ({ title, description, location: 'Reiden' });
+  const jobs = [
+    job('Servicetechniker Baumaschinen 100%', `${head}${'Einsatzgebiet Zentralschweiz mit Firmenfahrzeug, Pikettdienst im Turnus und Weiterbildung im Werk. '.repeat(4)}`),
+    job('Servicetechniker Baumaschinen 80%', `${head}${'Einsatzgebiet Mittelland in Teilzeit, flexible Arbeitszeiten und Schulungen beim Hersteller. '.repeat(4)}`),
+    job('Initialbewerbung Liebherr-Baumaschinen AG', 'Initialbewerbung: Sie haben keine passende Stelle gefunden? Senden Sie uns Ihre Bewerbung, wir melden uns bei Ihnen, sobald eine passende Position frei wird. Wir freuen uns auf Ihre Unterlagen und darauf, Sie kennenzulernen.'),
+    job('Initialbewerbung Liebherr-Baumaschinen AG', 'Unsolicited application: you did not find a suitable position? Send us your application and we will contact you as soon as a suitable position becomes available. We look forward to receiving your documents.'),
+  ];
+
+  it('keeps the body of a posting shorter than the crawler-wide prefix', () => {
+    expect(jobs[2].description.length).toBeLessThan(head.length);
+    const fps = fingerprintsForCrawler(jobs, 'title-aware');
+    expect(fps[2].split('||')[2].length).toBeGreaterThan(0);
+    expect(countDuplicateListings(jobs, fps)).toBe(0);
+  });
+
+  it('does not let two empty bodies collide on title and place alone', () => {
+    const empty = [job('Initialbewerbung Liebherr-Baumaschinen AG', ''), job('Initialbewerbung Liebherr-Baumaschinen AG', '<p> </p>')];
+    const fps = fingerprintsForCrawler(empty, 'title-aware');
+    expect(fps).toEqual(['', '']);
+    expect(countDuplicateListings(empty, fps)).toBe(0);
+  });
+
+  it('still counts the same posting published twice', () => {
+    const twice = [...jobs, jobs[2]];
+    expect(countDuplicateListings(twice, fingerprintsForCrawler(twice, 'title-aware'))).toBe(2);
+  });
+});
+
 describe('duplicate listings: two declared postal codes are two workplaces (denner, issue 5253)', () => {
   // denner on run 36528331656: «Verkäufer*in» in Basel 4058 and Basel 4057 —
   // two shops, one locality key, and a 500-char window that never reaches the
@@ -2497,6 +2536,150 @@ describe('duplicate listings: two declared postal codes are two workplaces (denn
   it('still counts a re-posting that carries no postal code', () => {
     expect(listings(['4058', ''])).toBe(2);
     expect(listings(['4058', '4057', ''])).toBe(3);
+  });
+});
+
+describe('source detail on a document several postings share (ehnv, klinik-gut)', () => {
+  const role = (name: string) => `Aufgaben: ${name} — Betreuung der Patientinnen und Patienten, interdisziplinäre Zusammenarbeit und sorgfältige Dokumentation im klinischen Informationssystem. Anforderungen: abgeschlossene Ausbildung und Freude an der Arbeit im Team. `;
+
+  it('finds the documents that only a URL fragment tells apart', () => {
+    const shared = sharedSourceDocuments([
+      { url: 'https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee' },
+      { url: 'https://www.ehnv.ch/emplois#offer/4402/une-medecin-associee' },
+      { url: 'https://jobs.example.test/stelle/1#apply' },
+      { url: 'https://jobs.example.test/stelle/2#apply' },
+      { url: 'https://jobs.example.test/stelle/3' },
+    ]);
+    expect([...shared]).toEqual(['https://www.ehnv.ch/emplois']);
+    // the same posting recorded twice is not two postings on one document
+    expect(sharedSourceDocuments([{ url: 'https://a.test/x#1' }, { url: 'https://a.test/x#1' }]).size).toBe(0);
+  });
+
+  it('reads the element the fragment names and compares only that ad', () => {
+    const page = `<html><body><main>
+<div id="drz-accordion-id-1581"><h3>Pflegefachperson</h3><p>${role('Pflegefachperson').repeat(3)}</p></div>
+<div id="drz-accordion-id-4367"><h3>Physiotherapeut/in</h3><div><p>${role('Physiotherapie')}</p><ul><li>Behandlung ambulanter Patientinnen</li></ul></div></div>
+</main></body></html>`;
+    const block = fragmentAnchoredBlock(page, 'https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367');
+    expect(block).toContain('Physiotherapie');
+    expect(block).not.toContain('Pflegefachperson');
+    expect(fragmentAnchoredBlock(page, 'https://www.klinik-gut.ch/de/offene-stellen#offer/4094/x')).toBe('');
+  });
+
+  const check = (published: string, url: string, page: string) => checkSourceDetailsBatch([{
+    crawlerKey: 'shared-fixture',
+    url,
+    sharedDocument: true,
+    job: { url, location: 'Chur', sourceLang: 'de', description: published },
+  }], 1, {
+    fetchPage: async () => ({ ok: true, status: 200, url: url.split('#')[0], body: page, host: 'jobs.example.test' }),
+  });
+
+  it('keeps the check able to fail on an anchored ad', async () => {
+    const page = `<html><body><main><div id="job-a">${role('A').repeat(4)}</div><div id="job-b">${role('B').repeat(4)}</div></main></body></html>`;
+    const [complete] = await check(role('B').repeat(4), 'https://jobs.example.test/stellen#job-b', page);
+    expect(complete).toMatchObject({ sourceScope: 'fragment-anchor', descriptionMismatch: false });
+    const [teaser] = await check(role('B').slice(0, 140), 'https://jobs.example.test/stellen#job-b', page);
+    expect(teaser).toMatchObject({ sourceScope: 'fragment-anchor', descriptionMismatch: true });
+  });
+
+  it('records a client-side route as not attributable: no verdict, no unobserved warning', async () => {
+    // Johdi Suite: the list page even serves a JobPosting — of someone else.
+    const page = `<html><head><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting', title: 'Autre poste', description: role('Autre').repeat(3),
+      jobLocation: { address: { addressLocality: 'Yverdon-les-Bains', addressCountry: 'CH' } },
+    })}</script></head><body><div id="app"></div></body></html>`;
+    const [result] = await check(role('Médecin').repeat(3), 'https://www.ehnv.ch/emplois#offer/4094/une-medecin', page);
+    expect(fragmentKind('https://www.ehnv.ch/emplois#offer/4094/une-medecin')).toBe('client-route');
+    expect(result).toMatchObject({ sourceScope: 'client-route', descriptionMismatch: false, locationMismatch: false });
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string; sourceDetailUnattributable?: number }> = { 'shared-fixture': { total: 16, issues: [] } };
+    const summary = applySourceDetailResults(report, [result], 1);
+    assignSeverity(report['shared-fixture']);
+    expect(report['shared-fixture'].issues).toEqual([]);
+    expect(report['shared-fixture'].severity).toBe('OK');
+    expect(report['shared-fixture'].sourceDetailUnattributable).toBe(1);
+    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, clientRoute: 1, anchorMissing: 0 });
+    expect(summary.unobserved).toBe(0);
+    expect(formatSourceDetailObservationLines(summary)).toContain('Source detail samples on a page several postings share: 0 read from the element their URL fragment names, 1 on an app route with no static page per posting (informational), 0 behind an anchor the page does not have (source-detail-anchor-missing)');
+  });
+
+  it('keeps an anchor the shared page does not have visible as a WARNING', async () => {
+    // oscam-castelrotto / klinik-seeschau shape: every ad is on one static
+    // page, the published anchors name no element of it.
+    const page = `<html><body><main><h2>Concorso generale 2026</h2><p>${role('Medici assistenti').repeat(3)}</p><h2>Concorso infermieri</h2><p>${role('Infermieri').repeat(3)}</p></main></body></html>`;
+    const url = 'https://www.oscam.example/lavoraconnoi/#concorso-generale-2026';
+    expect(fragmentKind(url)).toBe('anchor');
+    const [result] = await check(role('Medici assistenti').repeat(3), url, page);
+    expect(result).toMatchObject({ sourceScope: 'anchor-missing', descriptionMismatch: false, locationMismatch: false });
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string }> = { 'shared-fixture': { total: 2, issues: [] } };
+    const summary = applySourceDetailResults(report, [result], 1);
+    assignSeverity(report['shared-fixture']);
+    expect(report['shared-fixture'].issues).toMatchObject([{ type: 'source-detail-anchor-missing', count: 1, total: 1 }]);
+    expect(report['shared-fixture'].severity).toBe('WARNING');
+    expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, clientRoute: 0, anchorMissing: 1 });
+  });
+
+  it('resolves every non-text fragment as an element id before calling it an app route', async () => {
+    // HTML ids may contain `/`, `=`, `?`, `&` or start with a digit.
+    const text = 'source text long enough to compare '.repeat(8);
+    const [route] = await check(text, 'https://x.test/#offer/4094', `<html><body><div id="offer/4094">${text}</div><div id="offer/4095">${role('Andere').repeat(3)}</div></body></html>`);
+    expect(route.sourceScope).toBe('fragment-anchor');
+    expect(route.descriptionMismatch).toBe(false);
+    expect(fragmentAnchoredBlock(`<section id="4367"><p>${text}</p></section>`, 'https://x.test/jobs#4367')).toContain('source text');
+    expect(fragmentAnchoredBlock(`<li id="job?id=7&amp;lang=de">${text}</li>`, 'https://x.test/jobs#job?id=7&lang=de')).toContain('source text');
+    // absent from the page: a path or key=value is an app route (informational),
+    // anything else is an anchor the page does not have (WARNING)
+    expect(fragmentKind('https://x.test/#offer/4094')).toBe('client-route');
+    expect(fragmentKind('https://x.test/#job.id=3137592')).toBe('client-route');
+    expect(fragmentKind('https://x.test/#4367')).toBe('anchor');
+    expect(fragmentKind('https://x.test/#job-a,b')).toBe('anchor');
+    const [absent] = await check(text, 'https://x.test/#offer/4094', '<html><body><div id="app"></div></body></html>');
+    expect(absent.sourceScope).toBe('client-route');
+    const [missing] = await check(text, 'https://x.test/jobs#4367', '<html><body><p>Liste</p></body></html>');
+    expect(missing.sourceScope).toBe('anchor-missing');
+  });
+
+  it('addresses a heading-per-ad list page through a text fragment (klinik-seeschau)', async () => {
+    // Joomla list: every ad is an <h2> + body, no id, no per-ad URL.
+    const page = `<html><body><main><ul>
+<li class="mod-entry"><h2 class="mod-entry-title">Dipl. Pflegefachfrau/-mann (HF) ab 50 %</h2><div class="mod-entry-desc"><p>${role('Pflege').repeat(3)}</p></div></li>
+<li class="mod-entry"><h2 class="mod-entry-title">Neu: Ausbildung zur Dipl. Pflegefachperson HF bei uns!</h2><div class="mod-entry-desc"><p>${role('Ausbildung').repeat(3)}</p></div></li>
+</ul></main></body></html>`;
+    const at = (title: string) => `https://www.klinik-seeschau.example/offene-stellen.html/59#:~:text=${encodeURIComponent(title).replace(/-/g, '%2D')}`;
+    const url = at('Dipl. Pflegefachfrau/-mann (HF) ab 50 %');
+    expect(fragmentKind(url)).toBe('text-fragment');
+    expect(textFragmentBlock(page, url)).toContain('Pflege');
+    expect(textFragmentBlock(page, url)).not.toContain('Neu: Ausbildung zur Dipl');
+    const [complete] = await check(`Dipl. Pflegefachfrau/-mann (HF) ab 50 % ${role('Pflege').repeat(3)}`, url, page);
+    expect(complete).toMatchObject({ sourceScope: 'fragment-anchor', descriptionMismatch: false });
+    const [teaser] = await check(role('Pflege').slice(0, 140), url, page);
+    expect(teaser.descriptionMismatch).toBe(true);
+    const [absent] = await check(role('Pflege').repeat(3), at('Stelle, die es nicht gibt'), page);
+    expect(absent.sourceScope).toBe('anchor-missing');
+  });
+
+  it('reads a published PDF URL as the source itself (oscam-castelrotto bando)', async () => {
+    const url = 'https://www.oscam.example/wp-content/uploads/2026/02/Concorso-generale-2026.pdf';
+    const bando = role('Medici assistenti').repeat(4);
+    const read = await checkSourceDetailsBatch([{ crawlerKey: 'pdf-url', url, job: { url, location: 'Castelrotto', sourceLang: 'it', description: bando } }], 1, {
+      fetchPage: async () => { throw new Error('the page fetcher must not read a PDF URL'); },
+      fetchVacancyPdf: async () => ({ text: bando, bodySha256: 'd'.repeat(64) }),
+    });
+    expect(read[0]).toMatchObject({ descriptionMismatch: false, vacancyPdf: { outcome: 'read', direct: true } });
+    const refused = await checkSourceDetailsBatch([{ crawlerKey: 'pdf-url', url, job: { url, sourceLang: 'it', description: bando } }], 1, {
+      fetchVacancyPdf: async () => ({ text: '', error: 'robots.txt disallows it' }),
+    });
+    expect(refused[0]).toMatchObject({ fetchFailed: true, blockedByRobots: true });
+  });
+
+  it('leaves a sample without the shared-document mark exactly as before', async () => {
+    const page = `<html><body><main><div class="job-description">${role('Andere Stelle').repeat(4)}</div></main></body></html>`;
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'plain', url: 'https://jobs.example.test/stelle/9#apply',
+      job: { url: 'https://jobs.example.test/stelle/9#apply', location: 'Chur', sourceLang: 'de', description: 'Wir suchen eine Fachperson Gesundheit für die Nachtwache mit Freude an der Pflege und an der Zusammenarbeit im Team der Station.' },
+    }], 1, { fetchPage: async () => ({ ok: true, status: 200, url: 'https://jobs.example.test/stelle/9', body: page, host: 'jobs.example.test' }) });
+    expect(result.sourceScope).toBeUndefined();
+    expect(result.descriptionMismatch).toBe(true);
   });
 });
 
@@ -2650,6 +2833,72 @@ describe('source detail that presents the vacancy as a PDF (gemeinde-st-moritz, 
       bodySha256: pdfSha,
     });
     expect(replaySourceDetailEvidence(result.sourceDetailEvidence, { provenance, versions })).toMatchObject({ descriptionMismatch: false });
+  });
+});
+
+describe('source-detail manifest never repeats a request (pwc, run 36562995006)', () => {
+  // pwc on 2026-09-29: the first two jobs were the same internship published
+  // twice, same URL. jobs.slice(0, 2) requested it twice, the evidence bundle
+  // refused the duplicate identity and every sampled crawler became CRITICAL.
+  const body = 'Du unterstützt unser Audit-Team bei der Prüfung von Jahresabschlüssen, analysierst Geschäftsprozesse und erstellst Prüfberichte. '.repeat(3);
+  const internship = 'https://jobs.pwc.ch/job-vacancies/intern-in-audit-november-2026-bis-april-2027/1f7684c9';
+  const pwc = [
+    { title: 'Intern in Audit', url: internship, location: 'Zürich', sourceLang: 'de', description: body },
+    { title: 'Intern in Audit', url: internship, location: 'Zürich', sourceLang: 'de', description: body },
+    { title: 'Consultant Tax', url: 'https://jobs.pwc.ch/job-vacancies/consultant-tax/2a', location: 'Zürich', sourceLang: 'de', description: `${body} Steuern.` },
+    { title: 'Consultant Deals', url: 'https://jobs.pwc.ch/job-vacancies/consultant-deals/3b', location: 'Zürich', sourceLang: 'de', description: `${body} Deals.` },
+  ];
+  const identities = (items: Array<{ crawlerKey: string; url: string }>) => items.map(({ crawlerKey, url }) => `${crawlerKey}:${url}`);
+  const page = (description: string) => `<html><head><script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: 'Stelle', description, jobLocation: { address: { addressLocality: 'Zürich', addressCountry: 'CH' } } })}</script></head><body></body></html>`;
+  const sealedRun = async (items: Array<{ crawlerKey: string; url: string; job: { description: string } }>) => {
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string }> = {};
+    const { sourceDetailSummary, sourceDetailEvidence } = await runSourceDetailChecks(report, items, {
+      provenance: { repoHeadSha: 'a'.repeat(40), datasetLastCommit: { sha: 'b'.repeat(40), committedAt: null } },
+      versions: { extractor: 'extractor-v1', normalizer: 'normalizer-v1' },
+      checkBatch: (batch: unknown[], concurrency: number, options: object) => checkSourceDetailsBatch(batch as never, concurrency, {
+        ...options,
+        fetchPage: async (url: string) => ({ ok: true, status: 200, url, body: page(body), host: 'jobs.pwc.ch' }),
+      }),
+    });
+    return { report, sourceDetailSummary, sourceDetailEvidence };
+  };
+
+  it('samples the first jobs with distinct URLs, skipping a re-posting for the next job', () => {
+    expect(regularSourceSampleIndices(pwc)).toEqual([0, 2]);
+    expect(regularSourceSampleIndices([{ url: '' }, { url: 'https://a.test/1' }, { url: 'https://a.test/1' }])).toEqual([1]);
+    const items = sourceDetailSamplesForCrawler('pwc', pwc);
+    expect(new Set(identities(items)).size).toBe(items.length);
+    expect(items.map((item) => item.url)).toEqual([internship, 'https://jobs.pwc.ch/job-vacancies/consultant-tax/2a']);
+  });
+
+  it('seals the evidence bundle for that slice: no parse-error, no CRITICAL', async () => {
+    const { report, sourceDetailSummary, sourceDetailEvidence } = await sealedRun(sourceDetailSamplesForCrawler('pwc', pwc));
+    expect(sourceDetailEvidence).toMatchObject({ requestedCount: 2 });
+    expect(sourceDetailEvidence.format).toBe('frontaliere.source-detail-observation-bundle/v1');
+    expect(Object.values(report).flatMap((entry) => entry.issues).filter((issue) => issue.type === 'parse-error')).toEqual([]);
+    expect(sourceDetailSummary.duplicateRequestsDropped).toBe(0);
+  });
+
+  it('keeps distinct identities for postings on one document told apart by their fragment', async () => {
+    const shared = [
+      { title: 'Infirmier', url: 'https://www.ehnv.example/emplois#offer/4094', location: 'Yverdon-les-Bains', sourceLang: 'fr', description: body },
+      { title: 'Médecin', url: 'https://www.ehnv.example/emplois#offer/4402', location: 'Yverdon-les-Bains', sourceLang: 'fr', description: `${body} Médecine.` },
+    ];
+    const items = sourceDetailSamplesForCrawler('ehnv', shared);
+    expect(items).toHaveLength(2);
+    expect(items.every((item) => item.sharedDocument)).toBe(true);
+    expect(new Set(identities(items)).size).toBe(2);
+    const { sourceDetailEvidence } = await sealedRun(items);
+    expect(sourceDetailEvidence.format).toBe('frontaliere.source-detail-observation-bundle/v1');
+  });
+
+  it('drops a duplicate request that reaches the manifest anyway, and counts it', async () => {
+    const [first] = sourceDetailSamplesForCrawler('pwc', pwc);
+    const { sourceDetailSummary, sourceDetailEvidence } = await sealedRun([first, { ...first }]);
+    expect(sourceDetailEvidence).toMatchObject({ requestedCount: 1 });
+    expect(sourceDetailEvidence.format).toBe('frontaliere.source-detail-observation-bundle/v1');
+    expect(sourceDetailSummary.duplicateRequestsDropped).toBe(1);
+    expect(formatSourceDetailObservationLines(sourceDetailSummary)).toContain('Source detail requests dropped as duplicates of a request of the same crawler: 1 (same URL sampled twice — a sampler defect)');
   });
 });
 

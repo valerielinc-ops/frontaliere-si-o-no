@@ -38,6 +38,11 @@ const parser = createWorkdaySwissParser({
   defaultPostalCode: '8400',
   sector: 'Sanità / Farmacie',
   defaultSourceLang: 'de',
+  // Medbase keeps its company paragraph and employer benefits ("Über uns",
+  // "Medbase – Ein Arbeitgeber, der dich stärkt") in the career-site sidebar,
+  // which Workday folds into every posting's JSON-LD description. Without it
+  // the published body was ~45 % of the source page (issue 5253).
+  includeCareerSiteSidebar: true,
 });
 
 export const fetchAllMedbaseJobs = parser.fetchAllJobs;

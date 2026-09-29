@@ -4,20 +4,20 @@
   "generatorSha256": "2ccaa1ac64f96d819006d6ad0c52a48246c27e6dcdd971b2acfae2b68ce7e9d0",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "3d322b7c2ccc71f9fefb02c3344f9336c6e237ff",
+  "sourceCommit": "d04fe874b41ce009aef94b582c15883119abc177",
   "artifactObservation": {
     "generatorSha256": "2ccaa1ac64f96d819006d6ad0c52a48246c27e6dcdd971b2acfae2b68ce7e9d0",
     "sourceRef": "main",
-    "sourceCommit": "3d322b7c2ccc71f9fefb02c3344f9336c6e237ff"
+    "sourceCommit": "d04fe874b41ce009aef94b582c15883119abc177"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 626,
+  "crawlerCount": 624,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:f0bc788effb635b763933c21762a9e92407722d5f43acadf2fc4384f7105e120",
+    "rosterDigest": "sha256:ce18be902d7c896fe4a39f6a8af05e499e85a63464512f7076191420d5ac1680",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -285,7 +285,6 @@
     "scripts/update-igroove-jobs.mjs",
     "scripts/update-igs-bern-jobs.mjs",
     "scripts/update-ikea-jobs.mjs",
-    "scripts/update-im-bethesda-spital-jobs.mjs",
     "scripts/update-imad-jobs.mjs",
     "scripts/update-imerys-jobs.mjs",
     "scripts/update-implenia-jobs.mjs",
@@ -376,7 +375,6 @@
     "scripts/update-moncucco-jobs.mjs",
     "scripts/update-msc-cargo-jobs.mjs",
     "scripts/update-mueller-steinmaur-jobs.mjs",
-    "scripts/update-my-jobs.mjs",
     "scripts/update-nant-jobs.mjs",
     "scripts/update-neoproconseils-jobs.mjs",
     "scripts/update-nestle-jobs.mjs",
@@ -847,8 +845,8 @@
     {
       "file": "crawler-group-07.yml",
       "sourceLogic": "crawler-group-07-logic.yml",
-      "sourceSha256": "3e35cafcdb71fc919192f119522656462607c8685374af2dac37f33168d7e7f9",
-      "artifactSha256": "5f0bc1605a6b141c0622b2cbca53f8a0cdd20159dc71b393661d678fa6e6c9f1",
+      "sourceSha256": "e35a3a342c828ce2fdb9a23c6701fd233ad5c3828f992256d8980cfe140d1b9f",
+      "artifactSha256": "91f3027c3379cd897927aa63595419e1d920ded1c99ceaaa1e8ede57f12f8482",
       "generatorSha256": "2ccaa1ac64f96d819006d6ad0c52a48246c27e6dcdd971b2acfae2b68ce7e9d0",
       "members": [
         "spital-emmental",
@@ -878,7 +876,6 @@
         "citta-di-lugano",
         "anker-swiss",
         "guggerbach",
-        "im-bethesda-spital",
         "lonza"
       ]
     },
@@ -1148,8 +1145,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "8da23d687265e634d9c0659b12eaf22d8c4c2501a0fdb23b59469850e3950a3c",
-      "artifactSha256": "6ec6296b11aa324959456cd46e26b5fcecc11ab4f1e69e7dd698d22fe20cf0b2",
+      "sourceSha256": "3212b8e8fdb611bfad1fee19dd4a00922076c5b6562fa06f9f9c913f6ca1b668",
+      "artifactSha256": "6896e4686cd7291b003c0dad21c4ec96bf37bd976be52cab34c71898bea8f8ae",
       "generatorSha256": "2ccaa1ac64f96d819006d6ad0c52a48246c27e6dcdd971b2acfae2b68ce7e9d0",
       "members": [
         "kronenhof",
@@ -1178,8 +1175,7 @@
         "ail",
         "sta",
         "elprom",
-        "sonarsource",
-        "my"
+        "sonarsource"
       ]
     },
     {

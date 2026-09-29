@@ -23,6 +23,9 @@ import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
+  htmlToText,
+  locateTagByAttribute,
+  extractBalancedTagBlock,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
@@ -51,14 +54,24 @@ export function isTrustedDomain(rawUrl = '') {
 }
 
 /**
- * Pull the «Ihre Aufgaben» / «Ihr Profil» / «Unser Angebot» content from
- * an Elementor-rendered detail page. Falls back to the first 1500 chars
- * of stripped text if section headings are missing.
+ * The vacancy as the detail page lays it out (JetEngine + JetTabs on
+ * Elementor): the dynamic fields above the tabs — the group paragraph, the
+ * role paragraph, «Arbeitsort ist …» — then the «Stellenbeschrieb» tab
+ * (`data-tab="1"`) with tasks, profile, offer and contact. The «Code …»
+ * reference field is not text of the ad.
+ *
+ * The older heading search is kept as the fallback for a page without that
+ * layout. It knew only the formal headings («Ihre Aufgaben», «Ihr Profil»),
+ * so on the pages written in the du-form («Deine Aufgaben», «Dein Profil»)
+ * its first hit was «Unser Angebot» and it published the offer and the
+ * contact line alone — fachperson-rechnungswesen on 2026-09-29, 609 chars
+ * against 2 001 on the page (issue 5253).
  */
 export function extractCleniaDetailContent(html) {
   if (!html) return '';
-  // The 3 known headings appear inline; cut from the first one to the next major Elementor column boundary.
-  const startMatch = html.search(/Ihre Aufgaben|Ihr Profil|Unser Angebot|Pflegen/i);
+  const fromTabs = extractCleniaTabbedContent(html);
+  if (fromTabs) return fromTabs;
+  const startMatch = html.search(/(?:Ihre|Deine) Aufgaben|(?:Ihr|Dein) Profil|Unser Angebot|Pflegen/i);
   if (startMatch < 0) return '';
   const slice = html.slice(startMatch, startMatch + 8000);
   // Stop at the next big Elementor column outside the content section
@@ -83,6 +96,23 @@ export function extractCleniaDetailContent(html) {
   // Drop trailing boilerplate "Arbeiten bei Clienia – Ihre Vorteile auf einen Blick…" if present
   const trimAt = text.indexOf('Arbeiten bei Clienia');
   return trimAt > 50 ? normalizeSpace(text.slice(0, trimAt)) : text;
+}
+
+function extractCleniaTabbedContent(html) {
+  const panel = locateTagByAttribute(html, 'data-tab="1"[^>]*role="tabpanel"', { skipVoidTags: true });
+  if (!panel) return '';
+  const body = htmlToText(extractBalancedTagBlock(panel.rest, panel.tagName, 40000));
+  if (body.length < 100) return '';
+  const panelAt = html.length - panel.rest.length;
+  const intro = [...html.slice(0, panelAt).matchAll(/class="jet-listing-dynamic-field__content"\s*>([\s\S]*?)<\/div>/g)]
+    .map((match) => htmlToText(match[1]))
+    .filter((text) => text && !/^Code\s+[\d.]+$/i.test(text));
+  return [...intro, body]
+    .join('\n\n')
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n[ \t]+/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 }
 
 // Uses the shared fetchJson() (crawler-template.mjs): retries transient
@@ -124,10 +154,10 @@ export async function fetchAllCleniaAgJobs() {
     }
     await new Promise((r) => setTimeout(r, POLITE_DELAY_MS));
 
-    const description = [
-      detailContent,
-      'Clienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.',
-    ].filter(Boolean).join('\n\n');
+    // The page's own group paragraph now opens `detailContent`; the fixed
+    // blurb below only stands in when the detail page could not be read.
+    const description = detailContent
+      || 'Clienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.';
 
     // Determine canton: most Clienia sites are ZH; fall back to ZH if no signal
     const sourceLang = detectLang(description || title, 'de');
