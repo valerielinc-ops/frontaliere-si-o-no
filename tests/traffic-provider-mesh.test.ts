@@ -5,6 +5,7 @@ import {
   getTrafficSegmentTravelTimes,
   parseProviderBudget,
   providerQuotaDefinition,
+  TRAFFIC_PROVIDER_SPECS,
   TRAFFIC_PROVIDER_ORDER,
 } from '../functions/src/trafficProviderMesh.js';
 import { lambert93ToWgs84 } from '../scripts/lib/official-traffic-sources.mjs';
@@ -54,6 +55,11 @@ describe('traffic provider mesh', () => {
       });
     }
     expect(providerQuotaDefinition('stadia').unitCost).toBe(20);
+    expect(providerQuotaDefinition('graphhopper').rateLimit).toEqual({
+      maxPerMinute: 20,
+      minIntervalMs: 3_000,
+    });
+    expect(TRAFFIC_PROVIDER_SPECS.graphhopper).toMatchObject({ batchSize: 1, batchDelayMs: 0 });
   });
 
   it('rejects an atomic reservation that would cross the cap', () => {

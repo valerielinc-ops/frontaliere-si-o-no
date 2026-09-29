@@ -195,6 +195,11 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
     key: 'graphhopperApiKey',
     quotas: Object.freeze({
       route: quotaOperation({
+        // The free GraphHopper key used by the collector is credit-limited per
+        // minute as well as per day. Keep one route reservation at least 3s
+        // apart (~20 one-credit routes/minute) so the provider never sees the
+        // 3-crossing × 2-segment burst that caused the recurring 429.
+        rateLimit: { maxPerMinute: 20, minIntervalMs: 3_000 },
         limits: [quotaLimit({
           period: 'day',
           quotaScope: 'graphhopper',
@@ -204,8 +209,10 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
         })],
       }),
     }),
-    batchSize: 3,
-    batchDelayMs: 500,
+    // Static routing needs one segment only (the second segment has no live
+    // delay to measure), and the shared reservation cadence serializes calls.
+    batchSize: 1,
+    batchDelayMs: 0,
     trafficAware: false,
   }),
   stadia: Object.freeze({
