@@ -1,7 +1,10 @@
 // @vitest-environment node
 
 import { describe, expect, it } from 'vitest';
-import { filterSliceJobs } from '../scripts/prune-dedup-from-slices.mjs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+import { filterSliceJobs, pruneDedupFromSlices } from '../scripts/prune-dedup-from-slices.mjs';
 
 function job(url: string, slug: string, title = 'Engineer') {
   return {
@@ -26,5 +29,27 @@ describe('prune-dedup-from-slices membership', () => {
     const retained = job('https://other.example.test/engineer', 'retained-slug');
 
     expect(filterSliceJobs([duplicate, retained], [retained])).toEqual([retained]);
+  });
+
+  it('retains an assembly-only omission when no duplicate proof exists', () => {
+    const root = mkdtempSync(join(tmpdir(), 'prune-dedup-proof-'));
+    const slicesDir = join(root, 'data', 'jobs', 'by-crawler');
+    const duplicate = job('https://jobs.example.test/duplicate', 'duplicate-slug');
+    const retained = job('https://other.example.test/engineer', 'retained-slug');
+    const assemblyOnlyOmission = job('https://jobs.example.test/filtered', 'filtered-slug', 'Unique position');
+    try {
+      mkdirSync(slicesDir, { recursive: true });
+      writeFileSync(join(root, 'data', 'jobs.json'), JSON.stringify([retained]));
+      writeFileSync(
+        join(slicesDir, 'example.json'),
+        JSON.stringify({ crawlerKey: 'example', jobs: [duplicate, retained, assemblyOnlyOmission] }),
+      );
+
+      expect(pruneDedupFromSlices(root)).toMatchObject({ totalPruned: 1, modifiedSlices: 1 });
+      const output = JSON.parse(readFileSync(join(slicesDir, 'example.json'), 'utf8'));
+      expect(output.jobs).toEqual([retained, assemblyOnlyOmission]);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 });
