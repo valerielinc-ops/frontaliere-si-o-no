@@ -51,6 +51,7 @@ import {
 } from './lib/pdf-job-content.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -855,6 +856,15 @@ async function main() {
       '   The concorsi page may have changed structure or have no current openings.'
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    // The stored jobs are kept, without the text the crawler once wrote
+    // into them (the merge would have removed it).
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => dropFabricatedDescriptions(jobs, MENDRISIO_FABRICATED_DESCRIPTION_RE, MENDRISIO_COMPANY_NAME),
+      storedJobs: readExistingCrawlerJobs(MENDRISIO_KEY, DATA_JOBS).filter(isMendrisioJob),
+      companyKey: MENDRISIO_KEY,
+      companyLabel: MENDRISIO_COMPANY_NAME,
+      write: (jobs) => writeJobsCrawlerSlice(MENDRISIO_KEY, jobs),
+    });
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
