@@ -20,6 +20,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* -- Constants ------------------------------------------------- */
 
@@ -353,6 +354,7 @@ export async function fetchAllKantonGrJobs() {
 
   // Step 2: Fetch detail pages and build jobs
   const jobs = [];
+  let withoutBody = 0;
   const delayMs = Number(process.env.JOBS_CRAWLER_DELAY_MS) || 500;
 
   for (const row of uniqueRows) {
@@ -377,21 +379,15 @@ export async function fetchAllKantonGrJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} kanton-gr ch`);
 
-    // Build description: prefer detail page content, fall back to listing metadata
-    let descriptionText = detail.description;
-    if (!descriptionText || descriptionText.length < 30) {
-      const parts = [`${title} -- Kantonale Verwaltung Graubünden`];
-      if (row.department) parts.push(`Amt: ${row.department}`);
-      parts.push(`Arbeitsort: ${location} (${canton})`);
-      if (detail.pensumMin != null && detail.pensumMax != null) {
-        if (detail.pensumMin === detail.pensumMax) {
-          parts.push(`Pensum: ${detail.pensumMin}%`);
-        } else {
-          parts.push(`Pensum: ${detail.pensumMin}-${detail.pensumMax}%`);
-        }
-      }
-      if (row.deadline) parts.push(`Anmeldefrist: ${row.deadline}`);
-      descriptionText = parts.join('. ');
+    // Only the posting's own text is published (issue 5253): a detail page
+    // without a body used to be replaced by a stub of listing metadata
+    // ("{title} -- Kantonale Verwaltung Graubünden. Amt: … Arbeitsort: …
+    // Pensum: …"); such a listing is not published any more.
+    const descriptionText = detail.description || '';
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.log(`  ⏭️ No vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
     }
 
     // Determine employment type from pensum
@@ -473,6 +469,9 @@ export async function fetchAllKantonGrJobs() {
     console.log(`  ✅ ${title.substring(0, 55)} -- ${location} (${row.department || 'N/A'})`);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
   console.log(`\n📋 Total Kantonale Verwaltung Graubünden jobs discovered: ${jobs.length}`);
   return jobs;
 }

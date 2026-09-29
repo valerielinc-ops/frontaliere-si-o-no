@@ -49,6 +49,7 @@ import {
   normalizeSpace,
   htmlToText,
 } from './hospital-custom-html-helpers.mjs';
+import { extractTalentsoftOfferHtml } from './talentsoft-offer-detail.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -250,20 +251,19 @@ function parseVictorinoxListing(html = '') {
   return out;
 }
 
+/**
+ * Vacancy text of a Talentsoft detail page: the `#contenu-ficheoffre`
+ * container, without the apply bar and footer menu that follow it.
+ */
+export function extractVictorinoxDetailDescription(html = '') {
+  return normalizeDescriptionBullets(normalizeSpace(htmlToText(extractTalentsoftOfferHtml(html))));
+}
+
 async function fetchDetailDescription(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return '';
-    // Job-detail block sits inside id="contenu-ficheoffre". Take everything
-    // up to the boilerplate footer panel.
-    const startMatch = html.match(/id="contenu-ficheoffre"[^>]*>([\s\S]+)/);
-    if (!startMatch) return '';
-    const block = startMatch[1].slice(0, 14000);
-    // Cut off boilerplate footer (Rechtliche Hinweise / Mentions légales / etc).
-    const cutMatch = block.match(/[\s\S]+?(?=Rechtliche\s+Hinweise|Mentions\s+l[ée]gales|<\/main>|<footer)/);
-    const trimmed = cutMatch ? cutMatch[0] : block;
-    const text = htmlToText(trimmed);
-    return normalizeDescriptionBullets(normalizeSpace(text).slice(0, 6000));
+    return extractVictorinoxDetailDescription(html);
   } catch (err) {
     console.warn(` ⚠️ Victorinox detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return '';

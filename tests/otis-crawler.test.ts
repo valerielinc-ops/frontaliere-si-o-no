@@ -299,3 +299,19 @@ describe('Otis — inferEmploymentType', () => {
     expect(inferEmploymentType('Teilzeit Servicemonteur')).toBe('PART_TIME');
   });
 });
+
+// Minimised from the CXS payload of otis.wd504.myworkdayjobs.com
+// …/Sales-Manager-Aussendienst--m-w-d-_20169211 (2026-09-29): the template
+// leaves the metadata values outside any element, so value and next label
+// used to merge ("2026-09-16Country:") in every published locale.
+describe('stripHtml — Otis metadata header', () => {
+  it('puts each label and value on its own line', () => {
+    const html = '<p style="text-align:left"><b>Date Posted:</b></p>2026-09-16<p style="text-align:left"><b>Country: </b></p>Switzerland'
+      + '<p style="text-align:left"><b>Location: </b></p>Bahnhofstrasse 3, Postfach 371, Dietlikon / ZH<p><b>Deine Rolle</b></p><p>Als Account Manager übernimmst Du die Verantwortung.</p>';
+    const text = stripHtml(html);
+    expect(text).toMatch(/^2026-09-16$/m);
+    expect(text).toMatch(/^Switzerland$/m);
+    expect(text).not.toMatch(/\d{4}-\d{2}-\d{2}Country|SwitzerlandLocation/);
+    expect(text).toMatch(/^Deine Rolle$/m);
+  });
+});

@@ -7064,6 +7064,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.investimenti-immobiliari-fiducia-ticino.title': 'Real estate investments: good confidence, Ticino negative',
     'blog.article.investimenti-immobiliari-fiducia-ticino.excerpt': 'In 2026, the SRESI stands at 47,5 points, down from 69,5 in 2025; Ticino and Lugano in negative territory, while Zurich, Central Switzerland and Lake Geneva lead expectations of increases.',
     'blog.article.investimenti-immobiliari-fiducia-ticino.imageAlt': 'Aerial view of Lugano lake, mountains and modern residential buildings in soft morning light',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Health insurance premiums 2027 in Ticino: +3,7% and EFAS from 2028',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger: the system is good and costs money. In Ticino, premiums are rising by 3,7%, with EFAS expected from 2028.',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Swiss hospital corridor in Berna, natural light and professional atmosphere',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Swiss Parliament: guide to Curia Vista and Open Data',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'From deputies dating back to 1848 to CN votes: how to use the official portal to track acts, committees, and EU/NATO delegations.',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Swiss Federal Palace in Bern, home of the National Council and the Council of States',
+    'blog.article.percorsi-impiego-pubblico.title': 'Working in the Federal Administration: opportunities and training',
+    'blog.article.percorsi-impiego-pubblico.excerpt': 'The Federal Administration offers 50 vocational training programs, internships for recent graduates, and seven weeks of vacation.',
+    'blog.article.percorsi-impiego-pubblico.imageAlt': 'Team working in a Swiss federal administration office',
 };
 
 export default blogMetaChEn;

@@ -111,7 +111,7 @@ function extractDetailBody(html) {
   // Drop the related-jobs block (`<div class="jobs">…</div>`) — it lists OTHER
   // openings and would pollute every job's description identically.
   const cleaned = raw.replace(/<div[^>]*class="[^"]*\bjobs\b[^"]*"[^>]*>[\s\S]*$/i, '');
-  return normalizeSpace(htmlToText(cleaned)).slice(0, 6000);
+  return normalizeSpace(htmlToText(cleaned));
 }
 
 async function fetchDetail(url) {

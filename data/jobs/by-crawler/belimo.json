@@ -92,7 +92,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:37:09.156Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -233,93 +232,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-31T17:00:01.159Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "belimo-2f4af22f4de6",
-      "slug": "asic-development-ingegnere-80-100-belimo-hinwil",
-      "slugByLocale": {
-        "it": "asic-development-ingegnere-80-100-belimo-hinwil",
-        "en": "asic-development-engineer-80-100-belimo-hinwil-2",
-        "de": "asic-development-engineer-80-100-belimo-hinwil-6albzu",
-        "fr": "asic-development-ingenieur-80-100-belimo-hinwil"
-      },
-      "company": "Belimo",
-      "companyKey": "belimo",
-      "companyDomain": "belimo.com",
-      "title": "ASIC Development Engineer (80-100%)",
-      "titleByLocale": {
-        "it": "ASIC Development Ingegnere (80-100%)",
-        "en": "ASIC Development Engineer (80-100%)",
-        "de": "ASIC Development Ingenieur (80-100%)",
-        "fr": "ASIC Development Ingénieur (80-100%)"
-      },
-      "description": "Einführung\n\nGemeinsam mit einem hochmotivierten Team entwickelst du Mixed-Signal-ASICs, die das Herzstück jedes Belimo-Antriebs und -Sensors bilden und millionenfach produziert werden. Dabei übernimmst du die technische Verantwortung für den Analogteil, der von unserem ASIC-Lieferanten extern entwickelt wird.\n\nHauptverantwortlichkeiten\n\n• Spezifikation und Verifikation des Analogteils unserer ASICs\n\n• Enge Zusammenarbeit mit unserem ASIC-Lieferanten sowie gemeinsames Lösen technischer Herausforderungen bei der Entwicklung des Analogteils\n\n• Technische Schnittstelle zum internen Team für den Digitalteil sowie zum Systemverifikationsteam, das die ASICs innerhalb von Belimo-Geräten prüft\n\n• Entwicklung und Pflege von Leiterplatten für die Entwicklung und Qualifizierung der ASICs\n\n• Analoges Schaltungsdesign neuer Funktionen\n\nErforderliche Fachkenntnisse\n\n•\n Masterabschluss in Elektrotechnik, idealerweise mit Schwerpunkt Mikroelektronik oder Analogelektronik\n\n•\n Mehrjährige Erfahrung im analogen Schaltungsdesign sowie in der Messtechnik, einschliesslich Requirements Engineering und Verifikationsmethoden\n\n•\n Erfahrung im Bereich Mikroelektronik ist ein grosser Pluspunkt\n\n•\n Interesse an digitalem Schaltungsdesign (Verilog oder VHDL)\n\n•\n Begeisterung für neue Technologien und innovative Ideen, hohe Eigeninitiative, ausgeprägtes Qualitätsbewusstsein sowie eine selbstständige Arbeitsweise\n\n•\n Offene, kommunikative Persönlichkeit mit verhandlungssicheren Deutsch- und Englischkenntnissen\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
-      "descriptionByLocale": {
-        "it": "Introduzione\n\nInsieme a un team altamente motivato, svilupperai segnali misti ASIC che formano il cuore di ogni unità e sensore Belimo e sono prodotti milioni di volte. Si assume la responsabilità tecnica della parte analogica, sviluppata esternamente dal nostro fornitore ASIC.\n\nPrincipali responsabilità\n\n• Specificazione e verifica della parte analogica dei nostri ASIC\n\n• Una stretta collaborazione con il nostro fornitore ASIC e la risoluzione congiunta delle sfide tecniche nello sviluppo della parte analogica\n\n• Interfaccia tecnica al team interno digitale e al team di verifica del sistema che controlla gli ASIC all'interno dei dispositivi Belimo\n\n• Sviluppo e manutenzione di circuiti stampati per lo sviluppo e la qualificazione di ASIC\n\n• Progettazione di circuiti analogici di nuove funzioni\n\nCompetenza necessaria\n\n•\nLaurea magistrale in Ingegneria Elettrica, idealmente con un focus su Microelettronica o Analog Electronics\n\n•\nDiversi anni di esperienza nella progettazione e nella tecnologia di misura dei circuiti analogici, compresi i metodi di ingegneria e verifica dei requisiti\n\n•\nL'esperienza nel campo della microelettronica è un grande vantaggio\n\n•\nInteressi nella progettazione di circuiti digitali (Verilog o VHDL)\n\n•\nEntusiasmo per nuove tecnologie e idee innovative, un alto livello di iniziativa, un'alta consapevolezza della qualità e un metodo di lavoro indipendente\n\n•\nPersonalità aperta e comunicativa con conoscenza affidabile del tedesco e dell'inglese\n\nPersone a Belimo\n\nGli edifici intelligenti sono creati da persone impegnate. Portiamo insieme persone di talento e creiamo un ambiente in cui possono avere successo. A Belimo, il rispetto, la fiducia e il sostegno reciproco attraverso i confini dipartimentali aiutano a trasformare rapidamente le idee in soluzioni pratiche. Insieme riusciamo a raggiungere più di quanto potremmo mai raggiungere da soli.\n\nAbout Belimo\n\nBelimo è leader mondiale nello sviluppo, nella produzione e nella vendita di dispositivi di campo per il controllo efficiente dell'impianto di riscaldamento, ventilazione e condizionamento dell'aria. Azionatrici, valvole di controllo, sensori e metri formano il nostro core business. Fondata nel 1975, la società è quotata sulla Borsa Svizzera (SIX) dal 1995.\n\nRemunerazione e benefici aggiuntivi\n\nA Belimo, crediamo in una compensazione equa, giusta e competitiva. Offriamo uno stipendio che corrisponde alle tue competenze, esperienza, istruzione e posizione. Oltre alla compensazione, si beneficia di servizi aggiuntivi completi che supportano il vostro benessere mentale, fisico, finanziario e sociale. Belimo è orgogliosa di essere un datore di lavoro che promuove pari opportunità.",
-        "en": "Introduction\n\nTogether with a highly motivated team, you will develop mixed signal ASICs that form the heart of every Belimo drive and sensor and are produced millions of times. You take over the technical responsibility for the analogue part, which is developed externally by our ASIC supplier.\n\nMain responsibilities\n\n• Specification and verification of the analog part of our ASICs\n\n• Close cooperation with our ASIC supplier and joint solving of technical challenges in the development of the analogue part\n\n• Technical interface to the internal digital part team as well as the system verification team that checks the ASICs within Belimo devices\n\n• Development and maintenance of printed circuit boards for the development and qualification of ASICs\n\n• Analogue circuit design of new functions\n\nRequired expertise\n\n•\nMaster’s degree in Electrical Engineering, ideally with a focus on Microelectronics or Analog Electronics\n\n•\nSeveral years of experience in analog circuit design and measurement technology, including requirements engineering and verification methods\n\n•\nExperience in the field of microelectronics is a big plus\n\n•\nInterest in digital circuit design (Verilog or VHDL)\n\n•\nEnthusiasm for new technologies and innovative ideas, a high level of initiative, a high awareness of quality and an independent working method\n\n•\nOpen, communicative personality with reliable knowledge of German and English\n\nPeople at Belimo\n\nIntelligent buildings are created by committed people. We bring talented people together and create an environment where they can succeed. At Belimo, respect, trust and mutual support across departmental boundaries help turn ideas quickly into practical solutions. Together we achieve more than we could ever achieve alone.\n\nAbout Belimo\n\nBelimo is the world market leader in the development, manufacture and sale of field devices for energy-efficient control of heating, ventilation and air conditioning systems. Flap drives, control valves, sensors and meters form our core business. Founded in 1975, the company has been listed on the Swiss Stock Exchange (SIX) since 1995.\n\nRemuneration and additional benefits\n\nAt Belimo, we believe in fair, fair and competitive compensation. We offer a salary that matches your skills, experience, education and location. In addition to the compensation, you benefit from comprehensive additional services that support your mental, physical, financial and social well-being. Belimo is proud to be an employer promoting equal opportunities.",
-        "de": "Einführung\n\nGemeinsam mit einem hochmotivierten Team entwickelst du Mixed-Signal-ASICs, die das Herzstück jedes Belimo-Antriebs und -Sensors bilden und millionenfach produziert werden. Dabei übernimmst du die technische Verantwortung für den Analogteil, der von unserem ASIC-Lieferanten extern entwickelt wird.\n\nHauptverantwortlichkeiten\n\n• Spezifikation und Verifikation des Analogteils unserer ASICs\n\n• Enge Zusammenarbeit mit unserem ASIC-Lieferanten sowie gemeinsames Lösen technischer Herausforderungen bei der Entwicklung des Analogteils\n\n• Technische Schnittstelle zum internen Team für den Digitalteil sowie zum Systemverifikationsteam, das die ASICs innerhalb von Belimo-Geräten prüft\n\n• Entwicklung und Pflege von Leiterplatten für die Entwicklung und Qualifizierung der ASICs\n\n• Analoges Schaltungsdesign neuer Funktionen\n\nErforderliche Fachkenntnisse\n\n•\nMasterabschluss in Elektrotechnik, idealerweise mit Schwerpunkt Mikroelektronik oder Analogelektronik\n\n•\nMehrjährige Erfahrung im analogen Schaltungsdesign sowie in der Messtechnik, einschliesslich Requirements Engineering und Verifikationsmethoden\n\n•\nErfahrung im Bereich Mikroelektronik ist ein grosser Pluspunkt\n\n•\nInteresse an digitalem Schaltungsdesign (Verilog oder VHDL)\n\n•\nBegeisterung für neue Technologien und innovative Ideen, hohe Eigeninitiative, ausgeprägtes Qualitätsbewusstsein sowie eine selbstständige Arbeitsweise\n\n•\nOffene, kommunikative Persönlichkeit mit verhandlungssicheren Deutsch- und Englischkenntnissen\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
-        "fr": "Présentation\n\nAvec une équipe très motivée, vous développerez des ASIC à signal mixte qui forment le cœur de chaque lecteur et capteur Belimo et sont produits des millions de fois. Vous assumez la responsabilité technique de la partie analogique, qui est développée à l'extérieur par notre fournisseur ASIC.\n\nPrincipales responsabilités\n\n• Spécification et vérification de la partie analogique de nos ASIC\n\n• Coopération étroite avec notre fournisseur ASIC et résolution conjointe des défis techniques dans le développement de la partie analogique\n\n• Interface technique avec l'équipe de partie numérique interne ainsi que l'équipe de vérification du système qui vérifie les ASIC dans les appareils Belimo\n\n• Développement et maintenance de cartes de circuits imprimés pour le développement et la qualification des CITI\n\n• Conception de circuits analogiques de nouvelles fonctions\n\nCompétences requises\n\n•\nMaîtrise en génie électrique, idéalement axée sur la microélectronique ou l'électronique analogique\n\n•\nPlusieurs années d'expérience dans la conception de circuits analogiques et la technologie de mesure, y compris les exigences techniques et les méthodes de vérification\n\n•\nL'expérience dans le domaine de la microélectronique est un grand plus\n\n•\nIntérêt pour la conception de circuits numériques (Vérilog ou VHDL)\n\n•\nEnthousiasme pour les nouvelles technologies et les idées innovantes, un haut niveau d'initiative, une grande sensibilisation à la qualité et une méthode de travail indépendante\n\n•\nPersonnalité ouverte et communicative avec une connaissance fiable de l'allemand et de l'anglais\n\nLes gens de Belimo\n\nLes bâtiments intelligents sont créés par des personnes engagées. Nous réunissons des gens talentueux et créons un environnement où ils peuvent réussir. Chez Belimo, le respect, la confiance et le soutien mutuel au-delà des frontières ministérielles aident à transformer rapidement les idées en solutions pratiques. Ensemble, nous obtenons plus que nous n'aurions jamais pu atteindre seuls.\n\nÀ propos de Belimo\n\nBelimo est le leader mondial dans le développement, la fabrication et la vente de dispositifs de terrain pour le contrôle énergétique des systèmes de chauffage, de ventilation et de climatisation. Les moteurs à flammes, les vannes de commande, les capteurs et les compteurs forment notre activité principale. Fondée en 1975, la société est cotée à la Bourse suisse (SIX) depuis 1995.\n\nRémunération et prestations supplémentaires\n\nChez Belimo, nous croyons en une rémunération juste, équitable et concurrentielle. Nous offrons un salaire qui correspond à vos compétences, expérience, éducation et emplacement. En plus de la rémunération, vous bénéficiez de services supplémentaires complets qui soutiennent votre bien-être mental, physique, financier et social. Belimo est fier d'être un employeur qui promeut l'égalité des chances."
-      },
-      "location": "Hinwil",
-      "canton": "ZH",
-      "url": "https://jobsredirect.belimo.com/job/Hinwil-ASIC-Development-Engineer-%2880-100%29-Z%C3%BCri-8340/1165363155/",
-      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:10:31.352Z",
-      "addressLocality": "Hinwil",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brunnenbachstrasse 1",
-      "postalCode": "8340",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Automazione edifici",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-ASIC-Development-Engineer-%2880-100%29-Z%C3%BCri-8340/1165363155/",
-      "jobReqId": "1165363155",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "asic-development-engineer-80-100-belimo-hinwil",
-        "asic-development-engineer-80-100-belimo-hinwil-2",
-        "development-engineer-electronics-80-100-belimo-hinwil",
-        "asic-development-ingegnere-80-100-belimo-hinwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "asic-development-engineer-80-100-belimo-hinwil",
-          "asic-development-engineer-80-100-belimo-hinwil-2",
-          "development-engineer-electronics-80-100-belimo-hinwil",
-          "asic-development-ingegnere-80-100-belimo-hinwil"
-        ],
-        "de": [
-          "asic-development-engineer-80-100-belimo-hinwil"
-        ],
-        "fr": [
-          "asic-development-engineer-80-100-belimo-hinwil-2",
-          "development-engineer-electronics-80-100-belimo-hinwil"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T17:00:01.159Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1033,7 +945,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:07:55.708Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1062,7 +973,7 @@
       "companyDomain": "belimo.com",
       "title": "Intellectual Property Expert (80-100%)",
       "titleByLocale": {
-        "it": "Intellectual Property Expert (80-100%)",
+        "it": "Esperto di proprietà intellettuale (80-100%)",
         "en": "Intellectual Property Expert (80-100%)",
         "de": "Experte für geistiges Eigentum (80-100%)",
         "fr": "Expert en propriété intellectuelle (80-100%)"
@@ -1115,7 +1026,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:32:49.197Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1341,7 +1251,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-08T23:17:44.746Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1532,7 +1441,6 @@
         ]
       },
       "firstSeenAt": "2026-07-26T22:07:56.558Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2100,7 +2008,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:31:18.689Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2184,7 +2091,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:31:21.539Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2294,7 +2200,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:31:22.108Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2391,7 +2296,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:31:23.247Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
