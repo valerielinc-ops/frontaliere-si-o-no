@@ -262,7 +262,7 @@ jobs:
       - name: Record translation rollout context
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}
-          ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           OPUSMT_RESCUE_SWITCH: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
         run: |
@@ -301,9 +301,9 @@ jobs:
           # all bounded by this one 210min run-wide deadline; not additive.
           LOCAL_MT_MOPUP_DEADLINE_MS: '12600000' # 210 * 60 * 1000; reserve 140min.
           # Rollout switch for the language-aware overwrite arm (workspace issue 16).
-          # Default '0' = the arm runs and COUNTS but withholds the write, so a run
-          # can be read before it is allowed to act. Set the repo variable to '1'.
-          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Default '1' enables the bounded semantic-gated repair. Set the repo
+          # variable to '0' to keep the arm in shadow as an immediate rollback.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           # Argos semantic gate rollout (#9677). LOCAL_MT_LANG_AWARE_OVERWRITE above
           # is its kill-switch: '0' keeps every overwrite in shadow (a bounded
           # sample is judged and counted, nothing written). The cap bounds the
@@ -444,9 +444,9 @@ jobs:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
           LOCAL_MT_MOPUP_DEADLINE_MS: '12600000' # same 210min run-wide ceiling; 140min queue margin.
           # Rollout switch for the language-aware overwrite arm (workspace issue 16).
-          # Default '0' = the arm runs and COUNTS but withholds the write, so a run
-          # can be read before it is allowed to act. Set the repo variable to '1'.
-          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Default '1' enables the bounded semantic-gated repair. Set the repo
+          # variable to '0' to keep the arm in shadow as an immediate rollback.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           # Argos semantic gate rollout (#9677). LOCAL_MT_LANG_AWARE_OVERWRITE above
           # is its kill-switch: '0' keeps every overwrite in shadow (a bounded
           # sample is judged and counted, nothing written). The cap bounds the

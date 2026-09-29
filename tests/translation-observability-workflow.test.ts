@@ -234,7 +234,7 @@ describe('translation observability workflow', () => {
     expect(runs).not.toContain('gh workflow run');
   });
 
-  it('bounds the Argos semantic rollout: kill-switch default off, finite cap, telemetry artifact (#9677)', () => {
+  it('bounds the Argos semantic rollout: repair default on, kill-switch, finite cap and telemetry artifact (#9677)', () => {
     const disabledWorkflow = fs.readFileSync(path.resolve('.github/workflows/translate-pending.yml'), 'utf8');
     for (const [label, document] of [
       ['source', workflow],
@@ -250,9 +250,10 @@ describe('translation observability workflow', () => {
         const step = steps.find((candidate) => candidate.name === name);
         const env = step?.env as Record<string, unknown> | undefined;
         expect(env, `${label}: ${name} env missing`).toBeDefined();
-        // Kill-switch: the existing default-off language-arm variable.
+        // The bounded repair is enabled when the repo variable is unset; an
+        // explicit 0 remains the immediate shadow rollback.
         expect(env?.LOCAL_MT_LANG_AWARE_OVERWRITE, `${label}: ${phase} kill-switch`)
-          .toBe("${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}");
+          .toBe("${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}");
         // Cap: a finite default even when the repo variable is unset.
         expect(env?.LOCAL_MT_SEMANTIC_MAX_OVERWRITES, `${label}: ${phase} semantic cap`)
           .toBe("${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}");

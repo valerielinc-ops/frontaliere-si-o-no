@@ -200,11 +200,9 @@ describe('classifyMopupStructure() — language arm (workspace issue 16)', () =>
   });
 });
 
-// The rollout switch. Default OFF is the safety property of this PR: the guard
-// is measured in shadow on a real run before it is allowed to write. A default
-// that silently read as ON would turn "observe one run first" into "rewrite
-// ~9'400 production fields first", so both halves get pinned — the parse and
-// the wiring.
+// The rollout switch. The library remains fail-closed when invoked without a
+// workflow environment, while the live pipeline defaults to the bounded,
+// semantic-gated repair. An explicit repo variable of 0 remains the rollback.
 describe('LOCAL_MT_LANG_AWARE_OVERWRITE default', () => {
   it('is OFF unless the repo variable is exactly "1"', () => {
     expect(languageAwareOverwriteEnabled(undefined)).toBe(false);
@@ -214,22 +212,22 @@ describe('LOCAL_MT_LANG_AWARE_OVERWRITE default', () => {
     expect(languageAwareOverwriteEnabled('1')).toBe(true);
   });
 
-  it('is wired into both live mop-up phases with an OFF default', () => {
+  it('is wired into both live mop-up phases with an ON default', () => {
     const wf = readFileSync(
       new URL('../.github/corpus-workflows/translate-pending.yml', import.meta.url),
       'utf-8',
     );
-    const wired = wf.match(/LOCAL_MT_LANG_AWARE_OVERWRITE: \$\{\{ vars\.LOCAL_MT_LANG_AWARE_OVERWRITE \|\| '0' \}\}/g);
+    const wired = wf.match(/LOCAL_MT_LANG_AWARE_OVERWRITE: \$\{\{ vars\.LOCAL_MT_LANG_AWARE_OVERWRITE \|\| '1' \}\}/g);
     // Phase 2a (Argos bulk) and Phase 2c (mop-up) both run local-mt-mopup.mjs.
     expect(wired?.length).toBe(2);
   });
 
-  it('logs the same OFF default consumed by Phase 2a in the live logic workflow', () => {
+  it('logs the same ON default consumed by Phase 2a in the live logic workflow', () => {
     const wf = readFileSync(
       new URL('../.github/workflows/translate-pending-logic.yml', import.meta.url),
       'utf-8',
     );
-    const fallback = "${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}";
+    const fallback = "${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}";
     const rolloutStart = wf.indexOf('name: Record translation rollout context');
     const phase2aStart = wf.indexOf('name: "Phase 2a: Local MT bulk translate (Argos)"');
     const phase2aEnd = wf.indexOf('name: Re-assemble dataset after Argos bulk', phase2aStart);
