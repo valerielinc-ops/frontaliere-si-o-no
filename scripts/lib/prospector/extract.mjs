@@ -288,6 +288,21 @@ function proseValues(value) {
 }
 
 /**
+ * Text of a structured prose value. Some CMSs entity-escape the HTML they put
+ * in JSON-LD (`&lt;p&gt;…`), so the tags survive `textOf` as words and one
+ * posting measured 8000 characters of markup (tally-weijl, omega). Escaped
+ * tags are decoded and then stripped like real ones; a value without escaped
+ * tags is left exactly as it was.
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+export function structuredProseText(value = '') {
+  const raw = String(value || '');
+  return textOf(/&lt;\/?[a-z][a-z0-9-]*(?:\s|&gt;|\/)/i.test(raw) ? decodeEntities(raw) : raw);
+}
+
+/**
  * The vacancy body of one JobPosting node: `description`, then every other
  * body property whose text `description` does not already contain.
  * Structured values (an `EducationalOccupationalCredential`, a `DefinedTerm`)
@@ -300,7 +315,7 @@ function jobPostingBodyText(node) {
   const parts = [];
   const identities = [];
   const add = (value) => {
-    const text = textOf(value);
+    const text = structuredProseText(value);
     const identity = identityText(text);
     if (!text || !identity || identities.some((known) => known.includes(identity))) return;
     identities.push(identity);
@@ -514,7 +529,7 @@ const UI_COMPONENT_CLASS_PARTS = new Set([
   'slide', 'slides', 'slider', 'carousel', 'swiper', 'slick',
   'process', 'step', 'steps', 'list', 'term', 'definition',
   'button', 'btn', 'link', 'card', 'teaser', 'tile', 'tooltip', 'modal', 'dialog',
-  'category', 'icon', 'logo', 'component',
+  'category', 'icon', 'logo', 'component', 'blurb',
 ]);
 
 /**
@@ -543,6 +558,98 @@ function isVacancyBodyClass(classValue = '') {
 /**
  * @typedef {{ start: number, contentStart: number, contentEnd: number }} BodyRange
  */
+
+/** Elements whose text is a form's option list or input, never vacancy prose. */
+const FORM_CONTROL_TAGS = new Set(['select', 'datalist', 'textarea']);
+
+/**
+ * Share of the structured body's words the rendered text must repeat to be
+ * read as the same text. Half is deliberately lenient: a rendered body
+ * re-flows, re-punctuates and extends the structured one.
+ */
+const STRUCTURED_BODY_MIN_RECALL = 0.5;
+
+/** Class tokens that hide an element at every breakpoint. */
+const HIDDEN_CLASS_TOKENS = new Set(['hide', 'hidden', 'd-none', 'is-hidden']);
+
+/**
+ * A token that shows the element again at some breakpoint or container size:
+ * `md:block`, `@md:flex` (Tailwind), `d-lg-flex` (Bootstrap), `visible-md`.
+ */
+const RESPONSIVE_SHOW_TOKEN_RX = /:(?:block|flex|grid|inline|inline-block|inline-flex|inline-grid|table|contents|flow-root)$|^d-(?:sm|md|lg|xl|xxl)-(?!none)|^visible-/;
+
+/**
+ * Whether an element is hidden from every reader: the boolean `hidden`
+ * attribute, `aria-hidden="true"`, or a hiding class that no responsive class
+ * undoes (`hidden md:block` is visible on desktop and stays).
+ *
+ * @param {string} raw opening tag
+ * @returns {boolean}
+ */
+function isHiddenElement(raw = '') {
+  if (/\shidden(?=[\s=/>])/i.test(String(raw).replace(/"[^"]*"|'[^']*'/g, '""'))) return true;
+  if (readAttr(raw, 'aria-hidden').toLowerCase() === 'true') return true;
+  const tokens = readAttr(raw, 'class').split(/\s+/).filter(Boolean);
+  return tokens.some((token) => HIDDEN_CLASS_TOKENS.has(token))
+    && !tokens.some((token) => RESPONSIVE_SHOW_TOKEN_RX.test(token));
+}
+
+/**
+ * Whether a listing row is identified by an inline `#job-…` fragment (see
+ * `extractJsonLd`): the detail request then fetches a page shared by every
+ * posting on it.
+ *
+ * @param {string} [recordUrl]
+ * @returns {boolean}
+ */
+function isInlineRecordUrl(recordUrl = '') {
+  try { return new URL(recordUrl).hash.startsWith('#job-'); } catch { return false; }
+}
+
+/** Words of 4+ letters, accent-folded, as the audit compares them. */
+function comparableWords(value = '') {
+  return new Set(textOf(decodeEntities(String(value || ''))).toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .split(/[^a-z0-9]+/)
+    .filter((word) => word.length >= 4));
+}
+
+/**
+ * Share of `reference` words that also appear in `candidate`.
+ *
+ * @param {string} reference
+ * @param {string} candidate
+ * @returns {number}
+ */
+function wordRecall(reference, candidate) {
+  const wanted = comparableWords(reference);
+  if (!wanted.size) return 1;
+  const have = comparableWords(candidate);
+  let hit = 0;
+  for (const word of wanted) if (have.has(word)) hit++;
+  return hit / wanted.size;
+}
+
+/** Whether the container text carries the vacancy title. */
+function containsTitle(content = '', title = '') {
+  const wanted = identityText(title);
+  return Boolean(wanted) && identityText(content).includes(wanted);
+}
+
+/**
+ * A print-only rendering of the page (`<article id="printLayout"
+ * class="print-page">`). Some SuccessFactors tenants print the real ad there;
+ * others fill it client-side and ship a static sample ad in the meantime.
+ *
+ * @param {string} raw opening tag
+ * @returns {boolean}
+ */
+function isPrintLayout(raw = '') {
+  return [readAttr(raw, 'id'), readAttr(raw, 'class')]
+    .join(' ')
+    .split(/\s+/)
+    .some((token) => /^print(?:$|[-_A-Z])/.test(token));
+}
 
 /** Whether a start tag carries the boolean `itemscope` attribute. */
 function hasItemscope(raw = '') {
@@ -791,15 +898,32 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // teaser against a complete published body.
   const semanticIndex = indexHtmlTags(html);
   for (const range of vacancyDescriptionItempropRanges(html, semanticIndex)) bodyRanges.push(range);
-  const blocks = distinctBodyTexts(html, bodyRanges, chromeRanges);
+  // Form controls are never vacancy prose: an application form embedded in
+  // the body (Jobalino ships one as a nested document) carries a nationality
+  // select of ~250 country names that outweighed the vacancy itself.
+  // Hidden elements are not the rendered page either: Phenom ships every
+  // vacancy with a `hide job-expired-view` block saying the job "has been
+  // filled", shown only once it really is.
+  for (const opening of semanticIndex.openings) {
+    if (opening.selfClosing || VOID_HTML_TAGS.has(opening.name)) continue;
+    if (!FORM_CONTROL_TAGS.has(opening.name) && !isHiddenElement(opening.raw)) continue;
+    const bounds = semanticIndex.boundsByStart.get(opening.index);
+    if (bounds) chromeRanges.push({ start: opening.index, end: bounds.end });
+  }
+  let blocks = distinctBodyTexts(html, bodyRanges, chromeRanges);
   // A detail page with no useful class still commonly puts the vacancy body
   // in its main/article container. Use it only when it is materially larger
   // than the page's structured teaser, avoiding a navigation-only shell.
   // Chrome recognised above is cut out of it too: without the cut, rejecting
   // a carousel as a candidate would hand the whole <main> — the same carousel
-  // included — to this fallback.
+  // included — to this fallback. A print-only rendering counts only when it
+  // is this vacancy's: jobs.fr.ch prints the real ad there, while job.post.ch
+  // fills its `printLayout` article client-side and serves the same
+  // 2240-character sample ad (another vacancy) in it on every page.
   const main = vacancyContainerRegion(html, title);
-  if (!blocks.length && main) {
+  const mainIsThisVacancy = main && (!isPrintLayout(main.raw)
+    || [title, renderedTitle].some((candidate) => containsTitle(main.content, candidate)));
+  if (!blocks.length && mainIsThisVacancy) {
     const [mainText] = distinctBodyTexts(
       html,
       [{ start: main.start, contentStart: main.start, contentEnd: main.end }],
@@ -807,10 +931,29 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     );
     if (mainText) blocks.push(mainText);
   }
+  const structuredDescriptions = structuredRecords.map((record) => record.description || '');
+  const [structuredBody = ''] = [...structuredDescriptions].sort((a, b) => b.length - a.length);
+  // A row identified by an inline `#job-…` fragment lives on a page that
+  // lists many vacancies: its rendered text is every posting at once, and only
+  // the selected structured record is this one.
+  if (isInlineRecordUrl(opts.recordUrl) && structuredBody) blocks = [];
+  // Rendered text that repeats almost none of a sufficient structured body is
+  // not the same text: either it is something else (a branding banner, a
+  // generic careers block) or it holds the part of the ad the structured data
+  // leaves out (a benefits grid next to a JSON-LD intro). Neither may win on
+  // length alone, and neither may be thrown away, so the two are read
+  // together.
+  // A rendered block the structured body already says is not added twice.
+  const complementary = blocks.length > 0
+    && isSufficientVacancyDescription(structuredBody)
+    && wordRecall(structuredBody, blocks.join(' ')) < STRUCTURED_BODY_MIN_RECALL
+    ? [...blocks.filter((block) => wordRecall(block, structuredBody) < STRUCTURED_BODY_MIN_RECALL), structuredBody]
+    : [];
   const descriptions = [
     ...blocks,
     blocks.length > 1 ? blocks.join(' ') : '',
-    ...structuredRecords.map((record) => record.description || ''),
+    complementary.join(' '),
+    ...structuredDescriptions,
   ].filter(Boolean);
   descriptions.sort((a, b) => b.length - a.length);
   return {
@@ -926,7 +1069,7 @@ const SWISS_POSTAL_ADDRESS_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{
  *
  * @param {string} html
  * @param {string} [title] vacancy title as rendered/structured on the page
- * @returns {{ start: number, end: number, content: string } | null}
+ * @returns {{ raw: string, start: number, end: number, content: string } | null}
  */
 function vacancyContainerRegion(html = '', title = '') {
   const source = String(html);
@@ -938,6 +1081,7 @@ function vacancyContainerRegion(html = '', title = '') {
     const bounds = index.boundsByStart.get(opening.index);
     if (!bounds) continue;
     regions.push({
+      raw: opening.raw,
       start: opening.end,
       end: bounds.contentEnd,
       content: source.slice(opening.end, bounds.contentEnd),
@@ -1227,7 +1371,7 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
       block,
       vacancyDescriptionItempropRanges(block, blockIndex),
     ).join(' ');
-    const firstDescription = textOf(prop('description'));
+    const firstDescription = structuredProseText(prop('description'));
     out.push({
       title,
       url,

@@ -14,7 +14,12 @@
  *   process slide, a definition-list term) were read as the body;
  * - eRecruiter's `jobAdContent` body was not recognised at all;
  * - a JobPosting that splits its body across `responsibilities`, `skills`
- *   and `jobBenefits` was read from `description` alone.
+ *   and `jobBenefits` was read from `description` alone, and entity-escaped
+ *   HTML in JSON-LD was measured as text;
+ * - form option lists, hidden blocks and a print template's sample ad were
+ *   read as the body;
+ * - rendered text unrelated to the structured body won on length alone, and
+ *   a listing page with inline postings lent its whole text to every row.
  */
 import { describe, expect, it } from 'vitest';
 import { extractDetailFields, extractJsonLd, extractMicrodata } from '../scripts/lib/prospector/extract.mjs';
@@ -213,5 +218,112 @@ describe('JobPosting body split across schema.org properties', () => {
     const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'JobPosting', title: 'Elektroplaner', description: '<p>Planung von Elektroanlagen in 3D/BIM.</p>' });
     const html = `<script type="application/ld+json">${jsonLd}</script>`;
     expect(extractJsonLd(html, 'https://example.ch/job/1')[0].description).toBe('Planung von Elektroanlagen in 3D/BIM.');
+  });
+});
+
+describe('form controls, hidden blocks and print templates are not the body', () => {
+  const countries = ['Afghanistan', 'Ägypten', 'Albanien', 'Algerien', 'Andorra', 'Angola', 'Argentinien', 'Armenien',
+    'Australien', 'Belgien', 'Brasilien', 'Chile', 'China', 'Dänemark', 'Deutschland', 'Finnland', 'Frankreich',
+    'Griechenland', 'Indien', 'Italien', 'Japan', 'Kanada', 'Liechtenstein', 'Österreich', 'Schweiz', 'Spanien']
+    .map((name) => `<option value="${name}">${name}</option>`).join('');
+
+  it('cuts an embedded application form out of the body (clinic job board)', () => {
+    const html = `<html><body><div class="col-lg-8 job-description">
+      <p>Die Klinik sucht eine Fachperson Betreuung für die Kita.</p>${TASKS}
+      <div class="application"><form><label>Nationalität</label><select name="nationality">${countries}</select>
+      <textarea name="message">Ihre Nachricht an uns</textarea></form></div>
+    </div></body></html>`;
+    const { description } = extractDetailFields(html, 'https://my.example.ch/job/abc/fachperson-betreuung');
+    expect(description).toContain('Fachperson Betreuung');
+    expect(description).toContain('Mitarbeit in der Filiale');
+    expect(description).not.toContain('Liechtenstein');
+    expect(description).not.toContain('Ihre Nachricht an uns');
+  });
+
+  it('cuts a hidden "position filled" view but keeps a responsive block (Phenom skin)', () => {
+    const html = `<html><body><div class="job-description">
+      <p>As part of the team you coordinate distribution projects and support project managers.</p>
+      <div ph-page-state="expired" class="hide job-expired-view"><p>We are sorry, the job you are trying to apply for has been filled.</p></div>
+      <div class="hidden md:block"><p>Standard office hours, Monday to Friday.</p></div>
+    </div></body></html>`;
+    const { description } = extractDetailFields(html, 'https://jobs.example.com/global/en/job/R-1/project-support');
+    expect(description).toContain('coordinate distribution projects');
+    expect(description).toContain('Monday to Friday');
+    expect(description).not.toContain('has been filled');
+  });
+
+  it('ignores a print template that carries another vacancy (postal group career site)', () => {
+    const html = `<html><body>
+      <h1>Conductrice / Conducteur CarPostal</h1>
+      <article class="print-page" id="printLayout"><main class="content-grid">
+        <h2>Teamleiter/in Paketzustellung</h2>
+        <p>Gemeinsam mit der Teamleitung führst du ein Team von ca. 25 Mitarbeitenden in der Paketzustellung.</p>
+      </main></article>
+    </body></html>`;
+    const { description } = extractDetailFields(html, 'https://job.example.ch/default/job/Conductrice/74652-fr_FR');
+    expect(description).not.toContain('Paketzustellung');
+  });
+
+  it('keeps a print template that carries this vacancy', () => {
+    const html = `<html><body>
+      <h1>Polizeiaspirant·in</h1>
+      <article class="print-page" id="printLayout">
+        <h2>Polizeiaspirant·in</h2>
+        <p>Sie absolvieren eine zweijährige höhere Berufsbildung mit dem Ziel, den Polizeiberuf auszuüben.</p>
+      </article>
+    </body></html>`;
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/job/Polizeiaspirantin/1370891157/');
+    expect(description).toContain('zweijährige höhere Berufsbildung');
+  });
+});
+
+describe('rendered text is weighed against the structured body', () => {
+  const jsonLdPage = (posting: Record<string, unknown>, body: string) => `<html><head>
+    <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'JobPosting', ...posting })}</script>
+    </head><body>${body}</body></html>`;
+
+  it('reads a branding banner together with, not instead of, the structured body (cantonal hospital)', () => {
+    const banner = '<main><h1>Assistenzärztin / Assistenzarzt Medizin</h1><p>Im Herzen der Region ist das gesellschaftliche Zentrum unseres Kantons. '
+      + 'Hier gibt es alles für den Alltag, ein vielseitiges kulturelles Angebot, Berge, Seen und Wanderwege direkt vor der Haustür. '
+      + 'Geniessen Sie Ihre Freizeit in der Umgebung, im Sommer wie im Winter, und entdecken Sie Vereine, Märkte und Konzerte.</p></main>';
+    const body = '<p>Die Klinik für Innere Medizin bietet Ihnen ein breites Ausbildungsangebot und ist als Ausbildungsklinik anerkannt.</p>'
+      + '<ul><li>Betreuung stationärer Patientinnen und Patienten</li><li>Teilnahme am Dienstbetrieb</li></ul>';
+    const html = jsonLdPage({ title: 'Assistenzärztin / Assistenzarzt Medizin', description: body }, banner);
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/offene-stellen/assistenzarzt/1');
+    expect(description).toContain('Ausbildungsklinik anerkannt');
+    expect(description).toContain('Teilnahme am Dienstbetrieb');
+  });
+
+  it('keeps the rendered body when it carries the structured teaser', () => {
+    const teaser = 'Wir suchen eine engagierte Pflegefachperson für unsere Station mit Freude an der Arbeit im Team und an interdisziplinärer Zusammenarbeit.';
+    const body = `<div class="job-description"><p>${teaser}</p>${TASKS}${PROFILE}</div>`;
+    const html = jsonLdPage({ title: 'Pflegefachperson', description: teaser }, body);
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/job/2');
+    expect(description).toContain('Mitarbeit in der Filiale');
+    expect(occurrences(description, 'engagierte Pflegefachperson')).toBe(1);
+  });
+
+  it('reads only the selected inline posting on a listing page', () => {
+    const own = { '@type': 'JobPosting', title: 'Oberärztin / Oberarzt Frauenmedizin', description: 'In unserer Klinik für Frauenmedizin werden jährlich rund 1800 Geburten begleitet. Ab sofort oder nach Vereinbarung suchen wir Verstärkung.' };
+    const other = { '@type': 'JobPosting', title: 'Medizinische Praxisassistentin', description: 'Für unser Ambulatorium suchen wir eine Praxisassistentin mit Freude am Kontakt mit Patientinnen und Patienten.' };
+    const html = `<html><head><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': [own, other] })}</script></head>
+      <body><main><h1>Offene Stellen</h1><div class="job-description"><h2>${own.title}</h2><p>${own.description}</p></div>
+      <div class="job-description"><h2>${other.title}</h2><p>${other.description}</p></div></main></body></html>`;
+    const [ownRecord] = extractJsonLd(html, 'https://www.example.ch/karriere/jobs.html');
+    const detail = extractDetailFields(html, 'https://www.example.ch/karriere/jobs.html', { recordUrl: ownRecord.url });
+    expect(ownRecord.url).toContain('#job-');
+    expect(detail.description).toContain('1800 Geburten');
+    expect(detail.description).not.toContain('Praxisassistentin');
+  });
+
+  it('decodes entity-escaped HTML in a JSON-LD description (fashion retailer ATS)', () => {
+    const escaped = '&lt;p&gt;&lt;span lang=&quot;EN-US&quot; style=&quot;font-family: Arial Narrow&quot;&gt;We are here to make you feel empowered.&lt;/span&gt;&lt;/p&gt;'
+      + '&lt;ul&gt;&lt;li&gt;Beratung unserer Kundschaft im Store&lt;/li&gt;&lt;/ul&gt;';
+    const html = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'JobPosting', title: 'Modeberaterin 60%', description: escaped })}</script>`;
+    const [record] = extractJsonLd(html, 'https://example.hire.test/jobs/1/');
+    expect(record.description).toContain('We are here to make you feel empowered.');
+    expect(record.description).toContain('Beratung unserer Kundschaft');
+    expect(record.description).not.toContain('font-family');
+    expect(record.description).not.toContain('&lt;');
   });
 });
