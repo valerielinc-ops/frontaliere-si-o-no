@@ -219,6 +219,7 @@ describe('Helsana — hybrid-work location suffix (issue 5253)', () => {
         + '<p>In dieser Funktion beraten Sie unsere Versicherten kompetent und freundlich zu Leistungen, Prämien und Produkten.</p>'
         + '<p>Sie bearbeiten Anfragen telefonisch und schriftlich, klären Abrechnungen ab und arbeiten eng mit Fachstellen zusammen.</p>'
         + '<p>Sie bringen eine kaufmännische Ausbildung, Freude am Kundenkontakt sowie sehr gute Deutschkenntnisse mit.</p>'
+        + '<p>Wir bieten flexible Arbeitszeiten, die Möglichkeit zum Homeoffice und gezielte Weiterbildungen.</p>'
         + '</div></body></html>', { status: 200 });
     }));
     vi.spyOn(console, 'log').mockImplementation(() => {});

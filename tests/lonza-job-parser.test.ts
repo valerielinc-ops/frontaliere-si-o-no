@@ -708,7 +708,10 @@ describe('Workday pagination integrity', () => {
 describe('fetchAllLonzaJobs — published text', () => {
   it('publishes the Workday body as is and skips a req without one', async () => {
     const body = '<p>Lonza is a preferred global partner to the pharmaceutical, biotech and nutrition markets.</p>'
-      + '<p><b>Key responsibilities:</b></p><ul><li>Operate downstream processing equipment</li><li>Document batch records</li></ul>';
+      + '<p><b>Key responsibilities:</b></p><ul><li>Operate downstream processing equipment</li><li>Document batch records</li>'
+      + '<li>Support deviations, change controls and continuous improvement projects in the plant</li></ul>'
+      + '<p><b>Key requirements:</b></p><ul><li>Apprenticeship or degree in biotechnology or a comparable field</li>'
+      + '<li>Experience in a GMP environment and good German and English skills</li></ul>';
     const detail = (title: string, jobDescription: string) => ({
       jobPostingInfo: { title, location: 'CH - Visp', jobDescription, timeType: 'Full time', startDate: '2026-09-20', jobReqId: title },
     });

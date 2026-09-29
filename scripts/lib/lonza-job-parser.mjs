@@ -14,6 +14,7 @@ import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locatio
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -353,9 +354,10 @@ export async function fetchAllLonzaJobs() {
 
     // Only the req's own text is published: no company sentence appended to
     // it, and no "{title} position at Lonza" stand-in when the detail has no
-    // body — such a req is not published (issue 5253).
+    // body — a req under the shared 50-word floor is not published (issue
+    // 5253).
     const descEn = descriptionText.trim();
-    if (!descEn) {
+    if (!meetsSourceBodyFloor(descEn)) {
       console.log(`  ⏭️  Skipped — no vacancy text in the Workday detail: ${title}`);
       withoutBody += 1;
       continue;

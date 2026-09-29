@@ -58,6 +58,7 @@ import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
 import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -435,7 +436,7 @@ export async function fetchAllStadtZuerichJobs() {
     // carried no tasks/profile/offer (audit run 36528331656); a tile the
     // portal does not publish is not published here either (issue 5253).
     const officialText = row.ref ? officialTexts.get(String(row.ref)) : '';
-    if (!officialText) {
+    if (!officialText || !meetsSourceBodyFloor(officialText)) {
       withoutText += 1;
       continue;
     }

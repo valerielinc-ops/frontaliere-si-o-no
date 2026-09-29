@@ -13,6 +13,8 @@ const BODY = `
   <p>Your responsibilities include planning, delivery, quality, documentation,
   stakeholder management, continuous improvement, teamwork, communication,
   analysis, reporting, compliance and customer support in Männedorf.</p>
+  <p>You bring a completed technical education, several years of experience
+  and good German and English skills, and you enjoy working in a small team.</p>
 `;
 
 function detailHtml(body: string) {

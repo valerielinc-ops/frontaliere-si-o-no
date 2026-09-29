@@ -38,6 +38,7 @@ import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './succe
 import { parseSuccessFactorsMicrodataLocation } from './successfactors-shared-job-parser-common.mjs';
 import { hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
 import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -595,11 +596,11 @@ export async function fetchAllHirslandenJobs() {
       const postalCode = detail?.postalCode || parsedPostal || hqPostalCodeForLocality(location, 'Zürich', '8008');
 
       // Only the posting's own text is published (issue 5253). A detail page
-      // that could not be read, or whose body is under 50 words, used to be
-      // replaced by an invented group summary; such a listing is not
-      // published any more.
+      // that could not be read, or whose body is under the shared 50-word
+      // floor, used to be replaced by an invented group summary; such a
+      // listing is not published any more.
       const description = detail?.description || '';
-      if (description.split(/\s+/).filter(Boolean).length < 50) {
+      if (!meetsSourceBodyFloor(description)) {
         console.warn(`  ⏭️ Hirslanden: no vacancy text on the detail page, not published (${title})`);
         withoutBody += 1;
         continue;

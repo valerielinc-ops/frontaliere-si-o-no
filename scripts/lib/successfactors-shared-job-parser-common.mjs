@@ -42,6 +42,7 @@ import {
   isLocationExplicitlyForeign,
 } from './dedicated-crawler-common.mjs';
 import { isChCountry } from './ch-country-guard.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
   inferSwissTargetCanton,
@@ -780,13 +781,12 @@ export function createSuccessFactorsParser(config) {
         : detectLang(detail?.descriptionText || title, defaultSourceLang);
 
       const description = detail?.descriptionText || '';
-      // Only the posting's own text is published. Below
-      // MIN_DESCRIPTION_UNIQUE_WORDS unique words (the same threshold
-      // `parseCsbDetailPage` uses for its microdata fallback) the detail page
+      // Only the posting's own text is published. Under the shared source
+      // body floor (50 words, `source-body-floor.mjs`) the detail page
       // carried no vacancy body — a closed or broken page — and the row is
       // not published: no invented brand summary, no thin page. Measured on
       // main (2026-09-29): 1 such row over the 14 tenants (helsana 1/54).
-      if (countUniqueWords(description) < MIN_DESCRIPTION_UNIQUE_WORDS) {
+      if (!meetsSourceBodyFloor(description)) {
         withoutBody += 1;
         await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
         continue;
