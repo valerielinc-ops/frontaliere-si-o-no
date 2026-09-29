@@ -1,18 +1,84 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-09-29T09:20:03.191Z",
-  "total": 153,
-  "newCount": 1,
-  "updatedCount": 104,
+  "generatedAt": "2026-09-29T21:22:16.559Z",
+  "total": 152,
+  "newCount": 2,
+  "updatedCount": 105,
   "removedCount": 1,
-  "unchangedCount": 2,
-  "durationMs": 3377,
-  "avgDurationMs": 3377,
+  "unchangedCount": 0,
+  "durationMs": 53178,
+  "avgDurationMs": 53178,
   "durationHistory": [
-    3377
+    53178
   ],
   "newJobs": [
+    {
+      "title": "Associate - Support Assistant",
+      "slug": "associate-support-assistant-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-support-assistant/4ce94cff-fd64-433c-9cca-9d6e58e0f530",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Support-Assistant_764532WD-1/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8050",
+      "streetAddress": "Birchstrasse 160",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-28",
+      "validThrough": "2036-09-25",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 20
+      }
+    },
+    {
+      "title": "Senior Associate - OECD Pillar Two Compliance",
+      "slug": "senior-associate-oecd-pillar-two-compliance-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-oecd-pillar-two-compliance/2227fb13-b02e-40a4-9ac1-d6f4ea5ab8c3",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---OECD-Pillar-Two-Compliance_763754WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8050",
+      "streetAddress": "Birchstrasse 160",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-28",
+      "validThrough": "2036-09-25",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Intern in Audit - Trade, Industries and Services - November 2026 bis April 2027",
       "slug": "intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-basel",
@@ -37,16 +103,21 @@
       "validThrough": "2036-09-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 75,
+      "id": "pwc-a8b3e2a44bc6",
+      "salaryMin": 74500,
+      "salaryMax": 131000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T09:19:56.928Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Manager / Senior Manager - U.S. Tax",
       "slug": "manager-senior-manager-u-s-tax-pwc-zurich",
@@ -77,10 +148,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-24T14:23:28.277Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -115,10 +186,11 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-24T14:23:28.277Z",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -156,8 +228,8 @@
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 25
       }
     },
@@ -191,10 +263,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "_qualityScore": 90,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -229,10 +301,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -267,10 +339,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -305,10 +377,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -343,10 +415,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -381,10 +453,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -419,10 +491,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -457,10 +529,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -495,10 +567,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -533,49 +605,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Associate - Fund Tax Reporting",
-      "slug": "associate-fund-tax-reporting-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/associate-fund-tax-reporting/756f8a19-9ff9-4cfb-a2f4-c5622d06e3b1",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Associate---Fund-Tax-Reporting_753048WD-1/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "8050",
-      "streetAddress": "Birchstrasse 160",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-20",
-      "validThrough": "2036-09-17",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-3247156febfc",
-      "salaryMin": 113000,
-      "salaryMax": 198500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-21T16:01:09.198Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -610,10 +643,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -648,10 +681,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -686,10 +719,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
-      "_qualityScore": 90,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -724,10 +757,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -762,10 +795,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
-      "_qualityScore": 87,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -800,10 +833,10 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -838,10 +871,10 @@
       "firstSeenAt": "2026-09-09T23:09:09.021Z",
       "postalCode": "8050",
       "streetAddress": "",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -870,10 +903,10 @@
       "validThrough": "2036-09-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 75,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 16,
         "completeness": 14
       }
@@ -908,10 +941,10 @@
       "firstSeenAt": "2026-09-09T23:09:09.021Z",
       "postalCode": "8050",
       "streetAddress": "Birchstrasse 160",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -940,10 +973,10 @@
       "validThrough": "2036-09-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 75,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 16,
         "completeness": 14
       }
@@ -972,10 +1005,10 @@
       "validThrough": "2036-09-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 16,
         "completeness": 14
       }
@@ -1013,8 +1046,8 @@
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 24,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -1048,10 +1081,10 @@
       "firstSeenAt": "2026-09-09T13:51:57.507Z",
       "postalCode": "8050",
       "streetAddress": "",
-      "_qualityScore": 92,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -1086,10 +1119,10 @@
       "firstSeenAt": "2026-09-09T13:51:57.507Z",
       "postalCode": "8050",
       "streetAddress": "",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -1124,10 +1157,10 @@
       "firstSeenAt": "2026-09-08T23:27:26.302Z",
       "postalCode": "8050",
       "streetAddress": "Birchstrasse 160",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -1162,10 +1195,10 @@
       "firstSeenAt": "2026-09-08T13:39:14.412Z",
       "postalCode": "8050",
       "streetAddress": "Birchstrasse 160",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -1173,123 +1206,44 @@
   ],
   "removedJobs": [
     {
-      "title": "Associate - Compliance Center CH",
-      "slug": "associate-centro-compliance-ch-pwc-switzerland-neuchatel",
-      "url": "https://jobs.pwc.ch/job-vacancies/associate-compliance-center-ch/a8000928-1e8d-4b8d-a78b-e5a37b780f98",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Neuchtel/FY26---TLW---TLW-ICR-Compliance-Center-CH---Neuchtel---Associate-2---Start-01042026_709449WD-1/apply",
+      "title": "Associate - Fund Tax Reporting",
+      "slug": "associati-raccolta-di-fondi-pwc-switzerland-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-fund-tax-reporting/756f8a19-9ff9-4cfb-a2f4-c5622d06e3b1",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Associate---Fund-Tax-Reporting_753048WD-1/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
-      "location": "Neuchâtel",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
       "addressCountry": "CH",
-      "canton": "NE",
+      "postalCode": "8050",
+      "streetAddress": "Birchstrasse 160",
+      "canton": "ZH",
       "country": "CH",
       "category": "tax",
       "sector": "Consulenza",
       "source": "pwc-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-04-22",
-      "validThrough": "2036-04-18",
+      "sourceLang": "de",
+      "postedDate": "2026-09-20",
+      "validThrough": "2036-09-17",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-28a5a150b07d",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "id": "pwc-3247156febfc",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
       "currency": "CHF",
-      "postalCode": "2000",
-      "firstSeenAt": "2026-04-26T21:57:56.602Z",
-      "salarySource": "reported",
-      "streetAddress": "Rue des Epancheurs 6",
-      "_qualityScore": 93,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-21T16:01:09.198Z",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "unchangedJobs": [
-    {
-      "title": "Microsoft Alliance – Cloud & AI Platforms - Sales Director / Senior Manager",
-      "slug": "microsoft-alliance-cloud-ai-platforms-sales-director-senior-manager-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/microsoft-alliance-cloud-ai-platforms-sales-director-senior-manager/0826dd92-4291-4c4f-86c1-3b8cbfed685a",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Microsoft-Alliance---Cloud---AI-Platforms---Sales-Director---Senior-Manager_745219WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-23",
-      "validThrough": "2036-07-19",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-325da22c35e6",
-      "salaryMin": 113000,
-      "salaryMax": 180000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-23T11:21:39.659Z",
-      "salarySource": "estimated",
-      "postalCode": "8050",
-      "streetAddress": "",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Senior Manager - Risk Consulting Financial Services (Technology)",
-      "slug": "senior-manager-risk-consulting-financial-services-technology-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-manager-risk-consulting-financial-services-technology/a53655ff-022e-4c24-80dd-295024e6f9d0",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/FS-Risk-Consulting-focus-Technology_635187WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2025-08-11",
-      "validThrough": "2035-08-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-02eb145e9b6a",
-      "salaryMin": 75500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "postalCode": "8050",
-      "firstSeenAt": "2026-05-08T22:21:17.082Z",
-      "retranslationAttempts": 3,
-      "salarySource": "reported",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2511,
-      "streetAddress": "",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
