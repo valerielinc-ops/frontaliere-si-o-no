@@ -404,6 +404,12 @@ describe('Manor locale copies of one vacancy (audit-parser-quality issue 5253, d
     expect(en.description).toBe(de.description);
   });
 
+  it('does not treat a data-class attribute as the vacancy body class', () => {
+    const html = '<meta property="og:title" content="Buyer" />'
+      + '<span itemprop="description"><span data-class="jobdescription">wrong</span></span>';
+    expect(parseJobPage(html, BIEL_URL).description).toBe('');
+  });
+
   it('collapses the locale copies once both bodies are read, keeping the lowest requisition id', () => {
     const jobs = parseSitemapUrls(SITEMAP).map((url) => {
       const page = parseJobPage(fixture(url.includes('1368279755') ? 'en' : 'de'), url);

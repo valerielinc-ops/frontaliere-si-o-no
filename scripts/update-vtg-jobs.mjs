@@ -528,7 +528,7 @@ export function applyVtgWorkplaceAddress(job, facts = [], { seededWorkplace = fa
     addressRegion: address.canton,
   };
   if (address.streetAddress) next.streetAddress = address.streetAddress;
-  else if (job.streetAddress && job.postalCode !== address.postalCode) next.streetAddress = '';
+  else if (job.streetAddress) next.streetAddress = '';
   if (!inPublishedCanton) {
     // Same display form as the seed: a locality its name alone does not put
     // in this canton keeps the marker ("Romont (FR)", "Oberdorf (NW)").

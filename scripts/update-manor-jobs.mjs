@@ -573,7 +573,7 @@ export function parseJobPage(html, url) {
   // (1368279755, the en-US copy of "Buyer (Women's Fashion) 100%"): a regex
   // anchored on `<span class=` read no body there, so the copy was published
   // with the company context only and never recognised as a repost.
-  const descMatch = html.match(/<span\b[^>]*\bclass="jobdescription"[^>]*>([\s\S]*?)<\/span>/);
+  const descMatch = html.match(/<span\b[^>]*\sclass="jobdescription"[^>]*>([\s\S]*?)<\/span>/);
   const rawDesc = descMatch ? normalizeDescriptionBullets(htmlToText(descMatch[1])) : '';
 
   // Extract posted date from itemprop="datePosted"

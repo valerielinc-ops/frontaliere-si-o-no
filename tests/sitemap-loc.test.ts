@@ -7,6 +7,7 @@ describe('decodeSitemapLoc (parser-quality audit #5253)', () => {
     expect(decodeSitemapLoc(' https://positions.manor.ch/job/Basel-Buyer-%28Women&apos;s-Fashion%29-100/1368279755/ '))
       .toBe("https://positions.manor.ch/job/Basel-Buyer-%28Women's-Fashion%29-100/1368279755/");
     expect(decodeSitemapLoc('https://example.ch/a?x=1&amp;y=&#39;2&#39;&amp;z=&quot;3&quot;')).toBe('https://example.ch/a?x=1&y=\'2\'&z="3"');
+    expect(decodeSitemapLoc('https://example.ch/a?x=&#38;y=&#60;tag&#62;')).toBe('https://example.ch/a?x=&y=<tag>');
     // An escaped entity is decoded once, not twice.
     expect(decodeSitemapLoc('https://example.ch/a?q=&amp;apos;')).toBe('https://example.ch/a?q=&apos;');
   });

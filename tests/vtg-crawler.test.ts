@@ -292,5 +292,9 @@ describe('VTG workplace site (audit-parser-quality issue 5253, duplicate-descrip
     // Abroad or no fact: nothing is made up, the very same object comes back.
     expect(applyVtgWorkplaceAddress(fallback, [{ label: 'Arbeitsort', value: 'Pristina, Kosovo' }])).toBe(fallback);
     expect(applyVtgWorkplaceAddress(fallback, [])).toBe(fallback);
+
+    const staleStreet = { ...fallback, postalCode: '3003', streetAddress: 'Bundesgasse 1', canton: 'BE', addressRegion: 'BE' };
+    expect(applyVtgWorkplaceAddress(staleStreet, [{ label: 'Arbeitsort', value: '3003 Bern' }], { seededWorkplace: true }))
+      .toMatchObject({ postalCode: '3003', streetAddress: '' });
   });
 });
