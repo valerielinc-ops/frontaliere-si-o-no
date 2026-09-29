@@ -64,6 +64,14 @@ const CALLER_RUN_ID_ENV = 'GITHUB_RUN_ID';
 const MAX_TRANSIENT_GH_READ_ATTEMPTS = 3;
 const TRANSIENT_GH_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
 const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
+// `gh pr merge --auto` can reach the immediate merge mutation when all
+// requirements are already green. A concurrent merge on `main` then makes
+// GitHub reject that otherwise valid, same-HEAD request with a base-branch
+// race. Retry only that exact transient mutation error; exhaustion remains a
+// failure so a real inability to opt in cannot be hidden.
+const MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS = 3;
+const NATIVE_AUTO_MERGE_MUTATION_RETRY_DELAYS_MS = Object.freeze([750, 2000]);
+const BASE_BRANCH_MODIFIED_MUTATION_ERROR_RE = /(?:GraphQL:\s*)?Base branch was modified\.\s*Review and try the merge again\.\s*\(mergePullRequest\)/iu;
 const BODY_RECOVERY_MARKER_PREFIX = '<!-- BODY_REVIEW_RECOVERY_PENDING:';
 const BODY_RECOVERY_STATUSES = new Set(['pending', 'queued', 'manual', 'completed']);
 const NATIVE_AUTO_MERGE_LEASE_PREFIX = '<!-- NATIVE_AUTO_MERGE_LEASE:';
@@ -1259,11 +1267,50 @@ export function isAlreadyInProgressOutput(value) {
   return /merge already in progress/i.test(String(value || ''));
 }
 
+/** GitHub's immediate merge mutation can race a concurrent update of `main`. */
+export function isRetryableNativeAutoMergeMutationError(value) {
+  return BASE_BRANCH_MODIFIED_MUTATION_ERROR_RE.test(String(value || ''));
+}
+
 function capturedErrorOutput(error) {
-  return [error?.stderr, error?.stdout]
+  return [error?.message, error?.stderr, error?.stdout]
     .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value || ''))
     .filter(Boolean)
     .join('\n');
+}
+
+/**
+ * Retry only the known base-branch race around the side-effecting mutation.
+ * The expected HEAD remains bound by `nativeAutoMergeArgs`; all other errors
+ * are thrown on the first attempt and exhaustion stays fail-closed.
+ */
+export function withNativeAutoMergeMutationRetry(operation, {
+  attemptLimit = MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS,
+  delaysMs = NATIVE_AUTO_MERGE_MUTATION_RETRY_DELAYS_MS,
+  sleep = sleepForTransientReadRetry,
+  onRetry = () => {},
+} = {}) {
+  if (typeof operation !== 'function') throw new TypeError('mutation retry operation must be a function');
+  const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
+    ? attemptLimit
+    : MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS;
+  const delays = Array.isArray(delaysMs) ? delaysMs : NATIVE_AUTO_MERGE_MUTATION_RETRY_DELAYS_MS;
+  const wait = typeof sleep === 'function' ? sleep : sleepForTransientReadRetry;
+  const notify = typeof onRetry === 'function' ? onRetry : () => {};
+
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    try {
+      return operation();
+    } catch (error) {
+      if (attempt + 1 >= attempts || !isRetryableNativeAutoMergeMutationError(capturedErrorOutput(error))) {
+        throw error;
+      }
+      const delayMs = Number(delays[attempt]);
+      notify(attempt + 2, attempts, delayMs);
+      if (Number.isFinite(delayMs) && delayMs > 0) wait(delayMs);
+    }
+  }
+  throw new Error('native auto-merge mutation retry exhausted without an attempt');
 }
 
 /** Confirm a concurrent opt-in only after the same body/HEAD/barrier read. */
@@ -1692,11 +1739,18 @@ function main() {
   }
 
   try {
-    const output = execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: beforeMutation.headRefOid }), {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'pipe'],
-      env: { ...process.env },
-    });
+    const output = withNativeAutoMergeMutationRetry(
+      () => execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: beforeMutation.headRefOid }), {
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'pipe'],
+        env: { ...process.env },
+      }),
+      {
+        onRetry: (nextAttempt, attempts, delayMs) => {
+          console.warn(`::warning::native auto-merge mutation ha rilevato una race sul base branch; tentativo ${nextAttempt}/${attempts} tra ${delayMs}ms`);
+        },
+      },
+    );
     if (output) process.stdout.write(output);
     if (!verifyPostMutationState(
       repo,

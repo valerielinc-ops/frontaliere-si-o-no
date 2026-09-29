@@ -16,6 +16,8 @@ import {
   reviewHasZeroFindings,
   isTransientGithubReadError,
   withTransientGithubReadRetry,
+  isRetryableNativeAutoMergeMutationError,
+  withNativeAutoMergeMutationRetry,
   bodyRecoveryBarrierDecision,
   nativeAutoMergeLeaseDecision,
 } from '../scripts/ci/native-automerge-gate.mjs';
@@ -828,6 +830,48 @@ describe('native auto-merge gate (#8512)', () => {
     expect(isAlreadyInProgressOutput('GraphQL: Pull request is not mergeable')).toBe(false);
   });
 
+  it('retries only the known base-branch race from the native mutation', () => {
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Base branch was modified. Review and try the merge again. (mergePullRequest)',
+    )).toBe(true);
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Head branch was modified. Review and try the merge again. (mergePullRequest)',
+    )).toBe(false);
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Pull request is not mergeable (mergePullRequest)',
+    )).toBe(false);
+  });
+
+  it('uses a bounded backoff for the known native mutation race and preserves other errors', () => {
+    const transient = Object.assign(new Error('mutation failed'), {
+      stderr: 'GraphQL: Base branch was modified. Review and try the merge again. (mergePullRequest)',
+    });
+    const sleeps: number[] = [];
+    const retries: Array<[number, number, number]> = [];
+    let attempts = 0;
+    const result = withNativeAutoMergeMutationRetry(() => {
+      attempts += 1;
+      if (attempts < 3) throw transient;
+      return 'accepted';
+    }, {
+      delaysMs: [11, 22],
+      sleep: (delay: number) => sleeps.push(delay),
+      onRetry: (next: number, limit: number, delay: number) => retries.push([next, limit, delay]),
+    });
+
+    expect(result).toBe('accepted');
+    expect(attempts).toBe(3);
+    expect(sleeps).toEqual([11, 22]);
+    expect(retries).toEqual([[2, 3, 11], [3, 3, 22]]);
+
+    let permanentAttempts = 0;
+    expect(() => withNativeAutoMergeMutationRetry(() => {
+      permanentAttempts += 1;
+      throw new Error('GraphQL: Pull request is not mergeable');
+    }, { sleep: () => undefined })).toThrow('not mergeable');
+    expect(permanentAttempts).toBe(1);
+  });
+
   it('retries only transient GitHub read failures with a bounded schedule', () => {
     const transient = Object.assign(new Error('gh failed'), {
       stderr: 'HTTP 503: 503 Service Unavailable',
@@ -895,6 +939,9 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).toContain('function ghJson(args)');
     expect(gateSource).toContain('function ghJsonOnce(args)');
     expect(gateSource).toContain('withTransientGithubReadRetry');
+    expect(gateSource).toContain('withNativeAutoMergeMutationRetry');
+    expect(gateSource).toContain('isRetryableNativeAutoMergeMutationError');
+    expect(gateSource).toContain('MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS');
     expect(gateSource).toContain('const response = ghJsonOnce');
     expect(gateSource).toContain("stdio: ['ignore', 'pipe', 'pipe']");
     expect(gateSource).toContain('function samePrMetadata');
