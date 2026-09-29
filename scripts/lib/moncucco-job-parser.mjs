@@ -243,22 +243,19 @@ export async function fetchAllMoncuccoJobs() {
       }
     }
 
-    // The detail body, when there is one, is the only text the source wrote:
-    // the snippet below is assembled by us from the title and listing tags.
-    const detailBody = description && description.length >= MIN_DESC_LENGTH ? description : '';
-
-    // Build a snippet from listing metadata if description is thin
+    // Source text only (issue 5253): the detail body is the only text the
+    // source wrote. A job without one used to be published with a snippet we
+    // assembled ("<title> — Gruppo Ospedaliero Moncucco, Lugano <percentuale>");
+    // it is now left out of this run and the standard pipeline retains the
+    // stored record with the body an earlier run read.
     if (!description || description.length < MIN_DESC_LENGTH) {
-      const parts = [listing.title, '— Gruppo Ospedaliero Moncucco, Lugano'];
-      if (listing.percentage) parts.push(listing.percentage);
-      if (listing.availability) parts.push(listing.availability);
-      description = parts.join(' ');
+      console.warn(`  ⏭️ ${listing.title}: no vacancy text on the detail page — not published this run`);
+      continue;
     }
 
     // Language of the detail body, not of the title (issue 5253): titles are
-    // loanword soup and filed the body under a foreign source slot. Without a
-    // body the title is the only text the source wrote.
-    const sourceLang = detectLang(detailBody || listing.title, 'it');
+    // loanword soup and filed the body under a foreign source slot.
+    const sourceLang = detectLang(description, 'it');
     const jobSlug = buildJobSlug(`${listing.title} Lugano`, 'moncucco');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, listing.percentage);

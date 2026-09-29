@@ -200,6 +200,35 @@ export function parseDetailPage(html = '') {
 }
 
 /**
+ * The vacancy text of a e-lavoro.ch (Helsinn) detail page, and nothing else (issue 5253).
+ *
+ * `parseDetailPage` above falls back to generic containers (`main`, the
+ * largest block of the page), which on the live template is the navigation
+ * mega-menu. The runner publishes only what this function returns: the first
+ * job-scoped container, tidied line by line, or '' when the page has none —
+ * a job without a real body is then not published instead of receiving
+ * invented text.
+ */
+const HELSINN_JOB_BODY_SELECTORS = ['.field--name-body', '.job-description', '.job-detail'];
+
+export function extractHelsinnJobBody(html = '') {
+  if (!html) return '';
+  const { document } = new JSDOM(html).window;
+  for (const sel of HELSINN_JOB_BODY_SELECTORS) {
+    const el = document.querySelector(sel);
+    if (!el) continue;
+    const text = stripTags(el.innerHTML || '')
+      .split('\n')
+      .map((line) => line.replace(/[ \t]+/g, ' ').trim())
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    if (text) return text;
+  }
+  return '';
+}
+
+/**
  * Detect job category from title.
  */
 export function detectCategory(title = '') {

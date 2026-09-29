@@ -26,6 +26,7 @@ const { fetchAllMoncuccoJobs } = await import('../scripts/lib/moncucco-job-parse
 const { flagRelabeledSourceLang, withSourceLangRelabelFlags } = await import('../scripts/lib/source-lang-relabel.mjs');
 
 const GERMAN_BODY = 'Du begrüsst unsere Gäste in der Tourist Information und berätst sie zu Wanderungen, Bergbahnen und Veranstaltungen im Engadin. '
+  + 'Zu deinen weiteren Aufgaben gehören allgemeine administrative Tätigkeiten, die Betreuung der Leistungspartner und der Ticketverkauf. '
   + 'Wir bieten dir ein motiviertes Team, flexible Arbeitszeiten und Vergünstigungen bei unseren Partnern in der ganzen Region.';
 const ITALIAN_BODY = 'Per il nostro reparto di cure intense cerchiamo una persona motivata che collabori con il team medico e infermieristico. '
   + 'Offriamo un ambiente di lavoro stimolante, formazione continua e condizioni di impiego interessanti presso la nostra clinica di Lugano.';
@@ -35,16 +36,39 @@ beforeEach(() => {
 });
 
 describe('engadin-tourismus', () => {
-  it('files the German body under de even when the title reads as English', async () => {
-    fetchHtml
-      .mockResolvedValueOnce('<a class="more" title="Guest Experience Specialist m/w/d, 70% Tourist Information Sils" href="/ueber-uns/jobs/jobs/guest-experience-specialist">Mehr lesen</a>')
-      .mockResolvedValueOnce(`<div class="ce-bodytext"><p>${GERMAN_BODY}</p></div>`);
+  const LISTING = '<a class="more" title="Guest Experience Specialist m/w/d, 70% Tourist Information Sils" href="/ueber-uns/jobs/jobs/guest-experience-specialist">Mehr lesen</a>';
+  // Minimized from the live TYPO3 news page (2026-09-29): the vacancy is the
+  // second grid row of `.news-single .article`; the page around it is the
+  // navigation the old generic selectors published (2/2 jobs).
+  const DETAIL = `<nav><ul><li>Über uns |</li><li>Jobs</li><li>Strategie &amp; Auftrag</li><li>Destinationsstrategie</li></ul></nav>
+    <div class="news news-single"><div class="article">
+      <div class="grid-x"><div class="cell"><h2>Guest Experience Specialist m/w/d, 70% Tourist Information Sils</h2><div class="news-detail__time">12. August</div></div></div>
+      <div class="grid-x grid-margin-x space-element-b-large"><div class="cell">
+        <p>${GERMAN_BODY}</p>
+        <p><strong>Dein Rucksack</strong></p>
+        <ul><li>Berufserfahrung im kaufmännischen Bereich oder im Tourismus</li><li>Sehr gute Destinations- und Angebotskenntnisse</li></ul>
+        <p>Bitte sende dein Dossier an: <a href="mailto:recruiting@example-destination.ch">recruiting@example-destination.ch</a>, T <a href="tel:0041000000000">+41 00 000 00 00</a>.</p>
+      </div></div>
+    </div></div>`;
+
+  it('publishes the vacancy text under de, without the navigation and the recruiter contacts', async () => {
+    fetchHtml.mockResolvedValueOnce(LISTING).mockResolvedValueOnce(DETAIL);
 
     const [job] = await fetchAllEngadinTourismusJobs();
 
     expect(job.sourceLang).toBe('de');
     expect(Object.keys(job.descriptionByLocale)).toEqual(['de']);
     expect(Object.keys(job.titleByLocale)).toEqual(['de']);
+    expect(job.description).toContain('• Berufserfahrung im kaufmännischen Bereich');
+    expect(job.description).not.toContain('Strategie & Auftrag');
+    expect(job.description).not.toContain('recruiting@');
+    expect(job.description).not.toContain('+41');
+  });
+
+  it('does not publish a job whose page has no vacancy container (issue 5253)', async () => {
+    fetchHtml.mockResolvedValueOnce(LISTING).mockResolvedValueOnce('<nav><ul><li>Über uns |</li><li>Jobs</li></ul></nav><main>Strategie &amp; Auftrag Destinationsstrategie Leistungsauftrag Organisation</main>');
+
+    expect(await fetchAllEngadinTourismusJobs()).toEqual([]);
   });
 });
 
@@ -75,17 +99,14 @@ describe('moncucco', () => {
     expect(Object.keys(job.descriptionByLocale)).toEqual(['it']);
   });
 
-  it('falls back to the title only when there is no detail body', async () => {
+  it('does not publish a job without a detail body instead of an assembled snippet (issue 5253)', async () => {
     fetchHtml
       .mockResolvedValueOnce(listing)
       .mockRejectedValueOnce(new Error('HTTP 503'));
 
-    const [job] = await fetchAllMoncuccoJobs();
-
-    // The listing snippet is assembled by the parser, so it is not a
-    // language signal; the title is the only text the source wrote.
-    expect(job.description).toContain('Gruppo Ospedaliero Moncucco');
-    expect(job.sourceLang).toBe('en');
+    // The old parser published "<title> — Gruppo Ospedaliero Moncucco, Lugano
+    // <percentuale>"; the standard pipeline now keeps the stored record.
+    expect(await fetchAllMoncuccoJobs()).toEqual([]);
   });
 });
 
@@ -154,13 +175,14 @@ describe('class guard — no title-only language detection left in the swept cra
   });
 
   it.each([
-    'scripts/update-helsinn-jobs.mjs',
-    'scripts/update-interroll-jobs.mjs',
-    'scripts/update-zambon-jobs.mjs',
-  ])('%s (listing-only: the title is the only source text) keys the title by that language', (file) => {
+    ['scripts/update-helsinn-jobs.mjs', /\$\{listing\.title\} position at Helsinn/],
+    ['scripts/update-interroll-jobs.mjs', /\$\{raw\.title\} position at Interroll/],
+    ['scripts/update-zambon-jobs.mjs', /opportunità professionale presso \$\{COMPANY_NAME\}|posizione presso \$\{COMPANY_NAME\}/],
+  ])('%s reads the detail page and no longer writes an invented description', (file, invented) => {
     const source = read(file);
-    expect(source).not.toMatch(/titleByLocale: \{ en: (?:listing|raw)\.title \}/);
-    expect(source).toMatch(/titleByLocale: \{ \[sourceLang\]: (?:listing|raw)\.title \}/);
+    expect(source).not.toMatch(invented);
+    expect(source).toMatch(/detectLang\(description(?: \|\| title)?, '(?:it|en)'\)/);
+    expect(source).toMatch(/if \(isInvokedDirectly\(import\.meta\.url\)\)/);
   });
 
   it.each([

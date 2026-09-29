@@ -34,7 +34,6 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
-  mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
@@ -42,6 +41,7 @@ import {
   parseRelewantJob,
   enrichRelewantJob,
   buildRelewantLocalizedContent,
+  mergeRelewantJob,
   isRelewantSwissRelevant,
 } from './lib/relewant-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
@@ -125,9 +125,10 @@ function inferCategory(title = '') {
 
 function buildRelewantJob(parsed) {
   const localized = buildRelewantLocalizedContent(parsed);
+  const { sourceLang } = localized;
   const canton = inferAnyCanton(parsed.city);
   return {
-    title: localized.titleByLocale.it,
+    title: localized.titleByLocale[sourceLang],
     slug: localized.slugByLocale.it,
     url: parsed.detailUrl,
     applyUrl: parsed.applyUrl,
@@ -145,12 +146,12 @@ function buildRelewantJob(parsed) {
     source: 'relewant-dedicated-crawler',
     // Language of the detail body, not of the title (issue 5253): titles are
     // loanword soup. Without a detail body the title is the only source text.
-    sourceLang: detectLang(parsed.description || parsed.title, 'it'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: parsed.jobType?.toLowerCase().includes('parziale') ? 'part-time' : 'full-time',
     contractType: parsed.jobType?.toLowerCase().includes('parziale') ? 'part-time' : 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[sourceLang] || '',
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -170,32 +171,27 @@ async function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  const mergedTarget = [];
+  let unpublished = 0;
+  for (const job of discoveredJobs) {
+    const prev = existingByKey.get(jobMatchKey(job)) || null;
+    // Source text only (issue 5253): a job without a detail body keeps the
+    // body an earlier run read, or is not published this run.
+    const merged = mergeRelewantJob(prev, job);
+    if (!merged) {
+      unpublished += 1;
+      console.log(`  ⏭️ No source body for ${job.url} — not published this run`);
+      continue;
+    }
     if (!prev) {
       added += 1;
-      return job;
+    } else {
+      updated += 1;
+      captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     }
-    updated += 1;
-    // Clear translations only when the source description changed significantly.
-    // Otherwise preserve existing translated locales (en/de/fr) and only update
-    // the source locale (it) from the fresh job data.
-    const prevLen = (prev.description || '').length;
-    const newLen = (job.description || '').length;
-    const sourceChanged = Math.abs(newLen - prevLen) > 100;
-    const mergedDescByLocale = sourceChanged
-      ? { ...(job.descriptionByLocale || {}) }
-      : { ...(prev.descriptionByLocale || {}), it: (job.descriptionByLocale || {}).it ?? (prev.descriptionByLocale || {}).it };
-    const updatedJob = {
-      ...prev,
-      ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: mergedDescByLocale,
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
-    };
-    captureLostSlugs(updatedJob, prev.slugByLocale, prev.slug, 20);
-    return updatedJob;
-  });
+    mergedTarget.push(merged);
+  }
+  if (unpublished > 0) console.log(`  ⏭️ ${unpublished} ReleWant job(s) without a source body not published`);
 
   const afterSnapshot = snapshotJobSlugs(mergedTarget);
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
@@ -298,7 +294,7 @@ async function main() {
       const descLen = (e.description || '').length;
       console.log(`     ✅ enriched — desc ${descLen} chars`);
     } else {
-      console.log(`     ⚠️ not enriched — using generic template`);
+      console.log(`     ⚠️ not enriched — no detail body (kept from an earlier run or not published)`);
     }
     // Small delay between requests
     await new Promise((r) => setTimeout(r, 500));

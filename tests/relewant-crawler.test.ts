@@ -4,6 +4,10 @@ import {
   extractEmbeddedJobData,
   validateRelewantDescription,
   titleOverlap,
+  buildRelewantLocalizedContent,
+  mergeRelewantJob,
+  relewantSourceHash,
+  isRelewantInventedDescription,
 } from '../scripts/lib/relewant-job-parser.mjs';
 
 // ──────────────────────────────────────────────────────────────
@@ -144,5 +148,67 @@ describe('titleOverlap', () => {
 
   it('handles special characters', () => {
     expect(titleOverlap('Automation & MFT Specialist', 'Automation MFT Specialist')).toBeGreaterThanOrEqual(0.6);
+  });
+});
+
+// ─── Source text only (issue 5253) ──────────────────────────────────────────
+describe('ReleWant source text only (issue 5253)', () => {
+  const markdown = zohoHtmlToMarkdown(FIXTURE_BI_HTML);
+  const job = { title: 'BI Specialist', city: 'Bellinzona', description: markdown, enriched: true, jobType: 'A tempo pieno' };
+
+  it('writes only the source slot, keyed by the language of the detail text', () => {
+    const loc = buildRelewantLocalizedContent(job);
+    expect(loc.sourceLang).toBe('it');
+    expect(Object.keys(loc.descriptionByLocale)).toEqual(['it']);
+    expect(Object.keys(loc.titleByLocale)).toEqual(['it']);
+    expect(loc.descriptionByLocale.it).toContain('BI Specialist');
+  });
+
+  it('invents nothing when the detail page was not read', () => {
+    const loc = buildRelewantLocalizedContent({ title: 'BI Specialist', city: 'Bellinzona', description: '', enriched: false });
+    expect(loc.descriptionByLocale).toEqual({});
+    expect(isRelewantInventedDescription('ReleWant, società di consulenza IT con sede a Chiasso, cerca un profilo BI Specialist.')).toBe(true);
+  });
+
+  function fresh() {
+    const loc = buildRelewantLocalizedContent(job);
+    return { url: 'https://relewant.zohorecruit.com/jobs/Careers/467189000019329001/BI-Specialist', title: 'BI Specialist', sourceLang: loc.sourceLang, description: loc.descriptionByLocale.it, titleByLocale: loc.titleByLocale, descriptionByLocale: loc.descriptionByLocale, slugByLocale: loc.slugByLocale };
+  }
+
+  it('drops translations of unknown origin once — here another posting in `en` — and asks for retranslation', () => {
+    const current = fresh();
+    // Real stored shape (2026-09-29): the `en` slot of "BI Specialist" held
+    // the translation of the "Sviluppatore Front end React" posting.
+    const stored = {
+      ...current,
+      titleByLocale: { it: 'BI Specialista', en: 'BI Specialist', fr: 'Développeur Front End React' },
+      descriptionByLocale: { it: current.description, en: '## Front End React Developer\n\n**ReleWant** — Chiasso, Ticino, Switzerland\n\nWe are looking for a Front End React Developer to join our team.' },
+      slugByLocale: { it: 'bi-specialista-relewant-bellinzona', en: 'bi-specialist-relewant-bellinzona' },
+    };
+    const merged = mergeRelewantJob(stored, current)!;
+    expect(merged.descriptionByLocale).toEqual({ it: current.description });
+    expect(merged.titleByLocale).toEqual({ it: 'BI Specialist' });
+    expect(merged.needsRetranslation).toBe(true);
+    expect(merged.translationsSourceHash).toBe(relewantSourceHash(current.description));
+    expect(merged.slugByLocale.en).toBe('bi-specialist-relewant-bellinzona');
+  });
+
+  it('keeps the translations made from the current source on the next run', () => {
+    const current = fresh();
+    const translated = {
+      ...current,
+      translationsSourceHash: relewantSourceHash(current.description),
+      descriptionByLocale: { it: current.description, en: '## BI Specialist\n\n**ReleWant** — Bellinzona, Switzerland\n\nWe are looking for a BI Specialist with solid experience.' },
+    };
+    const merged = mergeRelewantJob(translated, fresh())!;
+    expect(merged.descriptionByLocale.en).toBe(translated.descriptionByLocale.en);
+    expect(merged.needsRetranslation).toBeUndefined();
+  });
+
+  it('keeps the body an earlier run read when the detail page is not read, and drops a job that never had one', () => {
+    const current = fresh();
+    const empty = { ...current, description: '', descriptionByLocale: {} };
+    expect(mergeRelewantJob(current, empty)!.description).toBe(current.description);
+    expect(mergeRelewantJob(null, empty)).toBeNull();
   });
 });
