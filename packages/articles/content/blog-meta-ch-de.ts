@@ -7049,6 +7049,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.classifica-ompi-alta-tecnologia.title': 'Schweiz weltweit auf Platz eins bei der Innovation',
     'blog.article.classifica-ompi-alta-tecnologia.excerpt': 'Die Schweiz steht seit 2011 an erster Stelle in der OMPI-Rangliste; Schweden und die Vereinigten Staaten folgen, während China erstmals in die Top Ten einzieht.',
     'blog.article.classifica-ompi-alta-tecnologia.imageAlt': 'Forschende vor einem Schweizer Zentrum für Forschung und Innovation',
+    'blog.article.soletta-licenza-estera-esami.title': 'Führerausweis im Kanton Solothurn: Umtausch und Prüfungen',
+    'blog.article.soletta-licenza-estera-esami.excerpt': 'Umtausch des ausländischen Führerausweises, theoretische und praktische Prüfungen, obligatorische Kurse und zuständiges Strassenverkehrsamt in Solothurn.',
+    'blog.article.soletta-licenza-estera-esami.imageAlt': 'Führerscheinverfahren in einem Schweizer Kanton',
 };
 
 export default blogMetaChDe;
