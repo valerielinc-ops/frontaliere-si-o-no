@@ -116,9 +116,9 @@ export function evaluateStaleness(doc, nowMs, staleHours = DEFAULT_STALE_HOURS) 
 //     would see the prior evening's ~19:00 snapshot (>6h old) and falsely page.
 //
 //   REASON 2 — morning scheduling-gap false-positive guard (issue #4229):
-//     dispatchTrafficCollection's morning peak ends at 07:30 UTC; the next
+//     dispatchTrafficCollection's morning peak ends at 07:00 UTC; the next
 //     scheduled dispatch is the midday check at 11:00 UTC.
-//     This 3.5-hour gap exceeded the old flat 90-min freshness threshold, so data
+//     This 4-hour gap exceeded the old flat 90-min freshness threshold, so data
 //     was EXPECTED to be stale during 08:00–10:59 UTC on weekdays (the fast loop
 //     now measures against the calendar, see staleThresholdMinutesFor()). A stale reading
 //     at (e.g.) 10:47 UTC is not a real freeze — it is predictable schedule lag.
@@ -154,9 +154,9 @@ export function isStalenessCheckActive(nowMs) {
 // Soglia del loop veloce (traffic-data-freshness.yml) misurata sul CALENDARIO di
 // raccolta, non su una costante per giorno della settimana. Cloud Scheduler
 // lancia traffic-scheduler.yml solo negli slot di `isTrafficCollectionSlot()`
-// (feriali: ogni 30 min 04:00–07:30, 11:00, ogni 30 min 14:00–17:30; weekend:
+// (feriali: ogni ora 05:00–07:00, 11:00, ogni ora 14:00–17:00; weekend:
 // 06/10/14/18). La vecchia soglia fissa di 90 min nei feriali ignorava i buchi
-// 07:30→11:00, 11:00→14:00 e 17:30→04:00: ogni giorno feriale le letture delle
+// 07:00→11:00, 11:00→14:00 e 17:00→05:00: ogni giorno feriale le letture delle
 // 12–13 e delle 19 risultavano «stale» e aprivano una issue pending (issue 9658,
 // «Data is 124 minutes old» alle 13:10 con lo snapshot delle 11:07), e quelle
 // delle 09–10 lanciavano una raccolta HERE fuori calendario.
@@ -168,11 +168,10 @@ export function isStalenessCheckActive(nowMs) {
 //     (job traffic-scheduler con `timeout-minutes: 10` + coda runner/push; oggi
 //     lo snapshot arriva ~8 min dopo lo slot). Prima di allora vale lo slot
 //     precedente, quindi una raccolta ancora in volo non è mai «stale».
-//   - SLOT_MISS_TOLERANCE_MIN: 45 min assorbono UNA raccolta di picco saltata o
-//     cancellata (lo snapshot resta di ~30 min più vecchio dello slot atteso) ma
-//     non due. Uno slot isolato saltato (11:00 feriale, slot del weekend) è
-//     invece stale già alla lettura successiva, come deve: gli utenti vedrebbero
-//     dati di 3–4 ore prima.
+//   - SLOT_MISS_TOLERANCE_MIN: 45 min assorbono il ritardo di atterraggio e una
+//     finestra di osservazione dopo lo slot. Una raccolta oraria saltata diventa
+//     stale alla lettura successiva, come deve: gli utenti vedrebbero dati
+//     sensibilmente più vecchi.
 // Un blocco totale resta coperto anche dal backstop grossolano di 6h
 // (DEFAULT_STALE_HOURS / border-live-data-watchdog.yml).
 const COLLECTION_LANDING_MIN = 15;
