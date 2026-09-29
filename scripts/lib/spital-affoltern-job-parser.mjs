@@ -37,6 +37,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { readClosedElement } from './html-balanced-element.mjs';
 
 export const SPITAL_AFFOLTERN_KEY = 'spital-affoltern';
 export const SPITAL_AFFOLTERN_COMPANY_NAME = 'Spital Affoltern AG';
@@ -113,24 +114,30 @@ export function parseDualooPortal(portalId, html) {
   return out;
 }
 
+/**
+ * Vacancy text of a Dualoo detail page: the `row advertisement` block
+ * (introduction, tasks, profile, benefits, "about us", contacts).
+ *
+ * The parser used to look for `<div id="container">…</div><script` in HTML
+ * whose scripts it had already removed, so it always fell back to the whole
+ * `<body>` ("Zur Stellenübersicht", apply buttons, title badges, print bar)
+ * and the 6000-character cap was the only bound (issue 5253). The header row
+ * (back/apply buttons) and the footer row (print icons, apply) sit outside
+ * this block.
+ */
+export function extractSpitalAffolternDetailDescription(html = '') {
+  const noScripts = String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '');
+  const block = readClosedElement(noScripts, 'class="row advertisement(?:\\s[^"]*)?"');
+  return block ? normalizeSpace(htmlToText(block)) : '';
+}
+
 async function fetchDetailDescription(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return '';
-    // Dualoo detail pages render the offer text inside `<div id="container">`
-    // (top-level wrapper) — drop chrome (back/apply buttons, footer, etc.) by
-    // taking the inner body and stripping all anchors with class `back` /
-    // `apply`. We're conservative: strip scripts/styles, then convert.
-    const noScripts = String(html)
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '')
-      .replace(/<header[\s\S]*?<\/header>/gi, '')
-      .replace(/<footer[\s\S]*?<\/footer>/gi, '');
-    const containerMatch = noScripts.match(/<div[^>]*id="container"[^>]*>([\s\S]*?)<\/div>\s*<script/i)
-      || noScripts.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-    const block = containerMatch ? containerMatch[1] : noScripts;
-    const text = htmlToText(block);
-    return normalizeSpace(text).slice(0, 6000);
+    return extractSpitalAffolternDetailDescription(html);
   } catch (err) {
     console.warn(`  ⚠️ Dualoo detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return '';
