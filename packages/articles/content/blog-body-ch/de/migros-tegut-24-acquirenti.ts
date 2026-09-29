@@ -1,0 +1,6 @@
+const bodyMigrosTegut24Acquirenti: Record<string, string> = {
+
+    'blog.article.migros-tegut-24-acquirenti.faq': '[{"q":"Wie viele Tegut-Verkaufsstellen sind nach Freigabe an Edeka noch zu vergeben?","a":"Der Quelle zufolge wird Edeka nach dem kartellrechtlichen Freibrief 178 der ursprünglich geplanten 202 Verkaufsstellen übernehmen, wobei 24 Geschäfte noch anderen Käufern anvertraut werden müssen. Diese 24 Verkaufsstellen sind aus Wettbewerbsgründen in 34 deutschen Regionalmärkten von der Transaktion ausgeschlossen."},{"q":"Welche Aktivitäten sind neben den Supermärkten im genehmigten EDEKA-Paket enthalten?","a":"Das Paket umfasst auch 41 automatisierte Teo-Verkaufsstellen, die Herzberger Bäckerei und ein Logistikzentrum, wie in der Entscheidung der deutschen Kartellbehörde angegeben. Diese Elemente sind Teil des Umfangs, den Edeka zusammen mit den Supermärkten erfassen kann."},{"q":"Wann ist die Schließung des Hauptsitzes von Tegut in Fulda geplant und was passiert mit den nicht veräußerten Vermögenswerten?","a":"Die Schließung des Hauptsitzes in Fulda ist für Ende März 2027 geplant. Vermögenswerte, die keinen Käufer finden, werden im Rahmen von Zinsausgleichsvereinbarungen und Sozialplänen abgewickelt, wie von der Migros Zürich angegeben."}]',
+};
+
+export default bodyMigrosTegut24Acquirenti;

@@ -1,0 +1,24 @@
+{
+  "companyKey": "pantr-ch",
+  "companyName": "Pantr GmbH",
+  "companyHost": "pantr.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://pantr.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Senior Assistant Wirtschaftsprüfung",
+    "Leiter/-in Steuerteam",
+    "Senior Business Controller",
+    "Treuhänder/in mit eidg. Fachausweis oder in Ausbildung",
+    "Mandatsleitung und Teamleitung Stellvertretung"
+  ],
+  "canton": "ZG",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-29T05:44:10.529Z"
+}

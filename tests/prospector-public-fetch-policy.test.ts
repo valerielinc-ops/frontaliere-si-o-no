@@ -396,9 +396,9 @@ describe('prospector public-only polite transport', () => {
   });
 
   it('uses an opt-in browser rescue after the direct page and Jina both hit the WAF', async () => {
-    const seed = 'https://hotelcareer.example/jobs/vereina';
-    const detail = 'https://hotelcareer.example/jobs/vereina/chef-de-partie-123';
-    const listing = `<a href="/jobs/vereina/chef-de-partie-123">Chef de partie</a>${' listing'.repeat(60)}`;
+    const seed = 'https://hotelcareer.example/jobs/vereina/';
+    const detail = 'https://hotelcareer.example/jobs/vereina/chef-de-partie-123/';
+    const listing = `<a href="/jobs/vereina/chef-de-partie-123/">Chef de partie</a>${' listing'.repeat(60)}`;
     const detailHtml = '<h1>Chef de partie</h1><div class="job-location">Klosters</div>'
       + '<article class="vacancy-description">Prepare and coordinate kitchen service for the hotel team, '
       + 'maintain food quality and hygiene standards, and support the daily operation with colleagues across '
@@ -571,7 +571,7 @@ describe('prospector public-only polite transport', () => {
 
     const rows = await runSpecInProduction({
       companyKey: 'vereinaklosters', companyName: 'Vereina', companyHost: 'hotelcareer.example',
-      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/vereina/*',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/vereina/*/',
       rescueOnEmptyListing: true, emptyListingOutcome: 'anti_bot_block',
     } as any, {
       fetchImpl,
@@ -588,6 +588,45 @@ describe('prospector public-only polite transport', () => {
     expect(rows).toHaveProperty('discoveredCount', 0);
     expect(rows).toHaveProperty('fetchDetail', expect.stringContaining('Access Denied'));
     expect(browserFetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('keeps an explicit anti-bot outcome when every discovered detail is blocked', async () => {
+    const seed = 'https://hotelcareer.example/jobs/vereina';
+    const detail = 'https://hotelcareer.example/jobs/vereina/chef-de-partie-123';
+    const challenge = '<html><head><title>Challenge Validation</title></head>'
+      + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+      + `${' blocked'.repeat(30)}</body></html>`;
+    const listing = `<a href="/jobs/vereina/chef-de-partie-123">Chef de partie</a>${' listing'.repeat(60)}`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed || url === detail) return response(url, 403, null, challenge);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    let jinaCalls = 0;
+    const jinaFetchImpl = vi.fn(async (url: string) => response(
+      url,
+      jinaCalls++ === 0 ? 200 : 403,
+      null,
+      jinaCalls === 1 ? listing : challenge,
+    ));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'vereinaklosters', companyName: 'Vereina', companyHost: 'hotelcareer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/vereina/*',
+      rescueOnEmptyListing: true, emptyListingOutcome: 'anti_bot_block',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([]);
+    expect(rows).toHaveProperty('fetchOutcome', 'anti_bot_block');
+    expect(rows).toHaveProperty('discoveredCount', 1);
+    expect(rows).toHaveProperty('fetchDetail', expect.stringContaining('detail page'));
   });
 
   it('does not invent a fetch outcome for an unconfigured legitimate empty listing', async () => {

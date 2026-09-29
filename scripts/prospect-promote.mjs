@@ -307,7 +307,7 @@ if (!persistReconciledPromotionState(store, reconciled)) process.exit(1);
 
 const { promotable, blocked, capped } = selectForPromotion(
   byStatus(store, 'promoted'),
-  { existingKeys: coverage.keys },
+  { existingKeys: coverage.keys, hostOwners: coverage.hostOwners },
   { maxPerRun, minDistinctDays: minDays, minRuns },
 );
 

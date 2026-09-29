@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-09-28T05:03:21.879Z",
+  "assembledAt": "2026-09-28T21:20:16.342Z",
   "jobs": [
     {
       "id": "bls-7afab74d709b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-automatiker-in/8988a228-5190-40c9-863b-e0e52b394870",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:08.733Z",
+      "crawledAt": "2026-09-28T21:20:12.263Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -65,11 +65,13 @@
         ]
       },
       "previousSlugs": [
-        "automobilmechatroniker-in-automatiker-in-bls-ch"
+        "automobilmechatroniker-in-automatiker-in-bls-ch",
+        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automobilmechatroniker-in-automatiker-in-bls-ch"
+          "automobilmechatroniker-in-automatiker-in-bls-ch",
+          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
         ]
       },
       "needsRetranslation": true,
@@ -120,7 +122,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-sap-technologie/24e78809-44d5-4b7f-a597-b68042dea70f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:07.960Z",
+      "crawledAt": "2026-09-28T21:20:11.553Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,11 +153,13 @@
         ]
       },
       "previousSlugs": [
-        "leiter-in-sap-technologie-bls-ch"
+        "leiter-in-sap-technologie-bls-ch",
+        "responsabile-sap-technologie-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-sap-technologie-bls-ch"
+          "leiter-in-sap-technologie-bls-ch",
+          "responsabile-sap-technologie-bls-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -206,7 +210,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-lokomotiven/5ecfee78-9a11-46c9-9e59-4fae639bea2a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:07.204Z",
+      "crawledAt": "2026-09-28T21:20:10.838Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -287,7 +291,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrzeugbereitsteller-in/a8bc0154-aea7-4676-8a48-44f8fdb1ba88",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:06.466Z",
+      "crawledAt": "2026-09-28T21:20:10.124Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -323,13 +327,15 @@
         "fahrzeugbereitsteller-in-bls-ch",
         "fahrzeugbereitsteller-in-bls-ag-spiez",
         "fornitore-del-veicolo-in-bls-ag-spiez",
-        "vehicle-supplier-in-bls-ag-spiez"
+        "vehicle-supplier-in-bls-ag-spiez",
+        "fornitori-di-veicoli-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugbereitsteller-in-bls-ch",
           "fahrzeugbereitsteller-in-bls-ag-spiez",
-          "fornitore-del-veicolo-in-bls-ag-spiez"
+          "fornitore-del-veicolo-in-bls-ag-spiez",
+          "fornitori-di-veicoli-bls-ag-spiez"
         ],
         "en": [
           "fahrzeugbereitsteller-in-bls-ag-spiez",
@@ -386,7 +392,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in/03c64118-291d-47b3-8c2e-ed41dfcb5ab3",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:05.715Z",
+      "crawledAt": "2026-09-28T21:20:09.419Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -424,7 +430,8 @@
         "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
         "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
         "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
-        "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf"
+        "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
+        "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -432,7 +439,8 @@
           "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
           "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
           "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
-          "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
+          "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
+          "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf"
         ],
         "en": [
           "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
@@ -493,7 +501,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/devops-engineer/9f444a72-ac31-48e8-af8c-3dcbaf4edc95",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:05.065Z",
+      "crawledAt": "2026-09-28T21:20:08.759Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -524,11 +532,13 @@
         ]
       },
       "previousSlugs": [
-        "devops-engineer-bls-ch"
+        "devops-engineer-bls-ch",
+        "devops-ingegnere-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-bls-ch"
+          "devops-engineer-bls-ch",
+          "devops-ingegnere-bls-ag-bern"
         ],
         "fr": [
           "devops-engineer-bls-ch"
@@ -581,7 +591,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/d31bf417-0bf5-4aff-be08-d38c97a45489",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:04.293Z",
+      "crawledAt": "2026-09-28T21:20:08.031Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -616,14 +626,16 @@
         "instandhalter-in-schienenfahrzeuge-bls-ch",
         "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
         "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
-        "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
+        "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
+        "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhalter-in-schienenfahrzeuge-bls-ch",
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
           "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
-          "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
+          "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
+          "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
         ],
         "en": [
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
@@ -683,7 +695,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/99858068-a3fb-41fb-aa2f-dbd64dae6eb0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:03.632Z",
+      "crawledAt": "2026-09-28T21:20:07.363Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -721,7 +733,8 @@
         "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
         "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
         "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+        "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -731,7 +744,8 @@
           "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
           "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+          "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
         ],
         "en": [
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
@@ -787,7 +801,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mitarbeiter-in-montage/9cec9d21-68ad-4fb0-abb8-f629847a6d4a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:02.880Z",
+      "crawledAt": "2026-09-28T21:20:06.631Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -821,11 +835,13 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-montage-bls-ch",
-        "mitarbeiter-in-montage-bls-ag-bonigen"
+        "mitarbeiter-in-montage-bls-ag-bonigen",
+        "collaboratore-trice-montage-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-montage-bls-ch"
+          "mitarbeiter-in-montage-bls-ch",
+          "collaboratore-trice-montage-bls-ag-bonigen"
         ],
         "en": [
           "mitarbeiter-in-montage-bls-ag-bonigen"
@@ -884,7 +900,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-produktmanagement-vertrieb/44ebf6c5-6272-4b61-a700-179715d9cb19",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:02.216Z",
+      "crawledAt": "2026-09-28T21:20:05.782Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -921,11 +937,13 @@
         ]
       },
       "previousSlugs": [
-        "leiter-in-produktmanagement-amp-vertrieb-bls-ch"
+        "leiter-in-produktmanagement-amp-vertrieb-bls-ch",
+        "responsabile-produktmanagement-vertrieb-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-produktmanagement-amp-vertrieb-bls-ch"
+          "leiter-in-produktmanagement-amp-vertrieb-bls-ch",
+          "responsabile-produktmanagement-vertrieb-bls-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -976,7 +994,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachverantwortliche-r-iam/0b8a0bd1-28e7-47d7-bf45-01c2994d28e8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:01.459Z",
+      "crawledAt": "2026-09-28T21:20:05.068Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1011,12 +1029,14 @@
       },
       "previousSlugs": [
         "fachverantwortliche-r-iam-bls-ch",
-        "fachverantwortliche-r-iam-bls-ag-bern"
+        "fachverantwortliche-r-iam-bls-ag-bern",
+        "specialista-responsabile-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachverantwortliche-r-iam-bls-ch",
-          "fachverantwortliche-r-iam-bls-ag-bern"
+          "fachverantwortliche-r-iam-bls-ag-bern",
+          "specialista-responsabile-bls-ag-bern"
         ],
         "en": [
           "fachverantwortliche-r-iam-bls-ag-bern"
@@ -1072,7 +1092,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-reinigung-und-unterhalt/eb773d02-256e-42d4-9642-bf3001f4fd68",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:00.679Z",
+      "crawledAt": "2026-09-28T21:20:04.342Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1143,9 +1163,9 @@
       "id": "bls-f6c9b5452c5c",
       "slug": "wagenmeister-in-tkc-muttenz-bls-ch",
       "slugByLocale": {
-        "de": "wagenmeister-in-tkc-muttenz-bls-ch",
         "it": "wagenmeister-in-tkc-muttenz-bls-ch",
         "en": "wagenmeister-in-tkc-muttenz-bls-ch",
+        "de": "wagenmeister-in-tkc-muttenz-bls-ch",
         "fr": "wagenmeister-in-tkc-muttenz-bls-ch"
       },
       "company": "BLS AG",
@@ -1153,16 +1173,16 @@
       "companyDomain": "bls.ch",
       "title": "Wagenmeister:in (TKC) Muttenz",
       "titleByLocale": {
-        "de": "Wagenmeister:in (TKC) Muttenz",
         "it": "Wagenmeister:in (TKC) Muttenz",
         "en": "Wagenmeister:in (TKC) Muttenz",
+        "de": "Wagenmeister:in (TKC) Muttenz",
         "fr": "Wagenmeister:in (TKC) Muttenz"
       },
       "description": "Technik ist deine Leidenschaft. Unsere hochmodernen Züge bewegen täglich tausende Tonnen Güter zuverlässig durch die Alpen und verknüpfen dabei Zehntausende von Menschen miteinander. Als Teil eines eingespielten Teams bist du ein unverzichtbares Bindeglied in unserer Transportkette, denn auf der langen Reise durch Europa kann so einiges passieren.\n\nDas wartet auf dich:\n\n• Durchführen technischer Abgangskontrollen und Zugvorbereitungen an unseren Güterzügen\n\n• Einsätze im Rangierdienst\n\n• Überprüfen eingekaufter Serviceleistungen hinsichtlich Qualität und Vollständigkeit\n\n• Durchführen technischer Audits im Bereich Wagentechnik und Gefahrengut an verschiedenen Abgangsbahnhöfen und Tanklagern\n\n• Regulieren schadhafter Wagen und Ladungen, einschliesslich Auslösen der erforderlichen Transportaufträge\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als technische:r Kontrolleur:in TKC, Rangierbegleiter:in Kat. Ai40 oder Zugvorbereiter:in\n\n• Führerausweis Kat. B\n\n• Flexibilität für unregelmässige Einsätze in der ganzen Schweiz, vereinzelt auch im grenznahen Ausland\n\n• Bereitschaft zu regelmässigem Pikettdienst\n\n• Selbstständige, belastbare und initiative Persönlichkeit mit ausgeprägtem Teamgeist\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS Cargo\n\nWir können keine Berge versetzen, klar. Macht auch nichts. Denn als erfahrene Alpinist:innen im Schienengüterverkehr sehen wir Berge als Herausforderung und nicht als Hindernis. Wir transportieren tonnenschwere Güter von der Nordsee durch die Alpen bis ans Mittelmeer, und das ist eine knifflige Aufgabe. Wir meistern sie im Team mit unseren rund 450 Mitarbeitenden in der Schweiz, in Belgien, Deutschland und Italien. Unsere Kund:innen sind international, unsere Wurzeln lokal. Auch deshalb ist es aussergewöhnlich spannend, für BLS Cargo zu arbeiten.",
       "descriptionByLocale": {
-        "de": "Technik ist deine Leidenschaft. Unsere hochmodernen Züge bewegen täglich tausende Tonnen Güter zuverlässig durch die Alpen und verknüpfen dabei Zehntausende von Menschen miteinander. Als Teil eines eingespielten Teams bist du ein unverzichtbares Bindeglied in unserer Transportkette, denn auf der langen Reise durch Europa kann so einiges passieren.\n\nDas wartet auf dich:\n\n• Durchführen technischer Abgangskontrollen und Zugvorbereitungen an unseren Güterzügen\n\n• Einsätze im Rangierdienst\n\n• Überprüfen eingekaufter Serviceleistungen hinsichtlich Qualität und Vollständigkeit\n\n• Durchführen technischer Audits im Bereich Wagentechnik und Gefahrengut an verschiedenen Abgangsbahnhöfen und Tanklagern\n\n• Regulieren schadhafter Wagen und Ladungen, einschliesslich Auslösen der erforderlichen Transportaufträge\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als technische:r Kontrolleur:in TKC, Rangierbegleiter:in Kat. Ai40 oder Zugvorbereiter:in\n\n• Führerausweis Kat. B\n\n• Flexibilität für unregelmässige Einsätze in der ganzen Schweiz, vereinzelt auch im grenznahen Ausland\n\n• Bereitschaft zu regelmässigem Pikettdienst\n\n• Selbstständige, belastbare und initiative Persönlichkeit mit ausgeprägtem Teamgeist\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS Cargo\n\nWir können keine Berge versetzen, klar. Macht auch nichts. Denn als erfahrene Alpinist:innen im Schienengüterverkehr sehen wir Berge als Herausforderung und nicht als Hindernis. Wir transportieren tonnenschwere Güter von der Nordsee durch die Alpen bis ans Mittelmeer, und das ist eine knifflige Aufgabe. Wir meistern sie im Team mit unseren rund 450 Mitarbeitenden in der Schweiz, in Belgien, Deutschland und Italien. Unsere Kund:innen sind international, unsere Wurzeln lokal. Auch deshalb ist es aussergewöhnlich spannend, für BLS Cargo zu arbeiten.",
         "it": "La tecnologia è la tua passione. I nostri treni all'avanguardia trasportano migliaia di tonnellate di merci in modo affidabile attraverso le Alpi ogni giorno, collegando decine di migliaia di persone. Come parte di un team consolidato, sei un collegamento indispensabile nella nostra catena di trasporto, perché molto può accadere nel lungo viaggio attraverso l'Europa.\n\nTi aspetta:\n\n• Eseguire controlli tecnici sulla partenza e sulla preparazione dei treni\n\n• Missioni di manovra\n\n• Controllo dei servizi acquistati per qualità e completezza\n\n• Condurre controlli tecnici nel settore della tecnologia dei carri e merci pericolose in varie stazioni di partenza e depositi di serbatoi\n\n• Regolazione di carri e carichi difettosi, compreso il triggering degli ordini di trasporto richiesti\n\nQuesto è ciò che portate con voi:\n\n• Allenamento completo come tecnico:r controller:in TKC, compagno di shunting:in Cat. Ai40 o preparatore del treno:in\n\n• Patente di guida Cat. B\n\n• Flessibilità per incarichi irregolari in tutta la Svizzera, a volte anche in paesi di frontiera\n\n• Prontezza per la cottura regolare\n\n• Personalità indipendente, resiliente e di iniziativa con un forte spirito di squadra\n\nI vostri vantaggi – si può aspettare a:\n\n• Promuoviamo la pianificazione più flessibile dei vostri tour e turni possibili\n\n• Prendi una seconda classe di GA, una di prima classe. Abbonamento di classe o di mezza quota.\n\n• Hai tempo libero quando gli altri lavorano. Per i pendolari di notte e nei fine settimana ci sono supplementi.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute\n\nInformazioni sul BLS Cargo\n\nNon possiamo muovere le montagne, ovviamente. Non importa. Perché come alpinisti esperti: nel trasporto ferroviario merci, vediamo le montagne come una sfida e non come un ostacolo. Trasportiamo merci pesanti dal Mare del Nord attraverso le Alpi al Mediterraneo, e questo è un compito difficile. Li padroneggiamo in un team con circa 450 dipendenti in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Questo è un altro motivo per cui è eccezionalmente emozionante lavorare per BLS Cargo.",
         "en": "Technology is your passion. Our state-of-the-art trains transport thousands of tons of goods reliably through the Alps every day, connecting tens of thousands of people. As part of a well-established team, you are an indispensable link in our transport chain, because a lot can happen on the long journey through Europe.\n\nThis is waiting for you:\n\n• Perform technical checks on departure and train preparation on our freight trains\n\n• Manoeuvring missions\n\n• Checking purchased services for quality and completeness\n\n• Conducting technical audits in the field of wagon technology and dangerous goods at various stations of departure and tank depots\n\n• Regulating defective wagons and loads, including triggering the required transport orders\n\nThis is what you bring with you:\n\n• Completed training as technical:r controller:in TKC, shunting companion:in Cat. Ai40 or train preparer:in\n\n• Driving licence Cat. B\n\n• Flexibility for irregular assignments throughout Switzerland, sometimes also in border countries\n\n• Readiness for regular cooking\n\n• Independent, resilient and initiative personality with a strong team spirit\n\nYour advantages – you can look forward to:\n\n• We promote the most flexible planning of your tours and shifts possible\n\n• Get a GA 2nd class, a GA 1st. Class or a half-tax subscription.\n\n• You have free time when others work. For commutes at night and on weekends there are surcharges.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• Financial support for external further education and an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health\n\nAbout the BLS Cargo\n\nWe can't move mountains, of course. It doesn't matter. Because as experienced alpinists: In rail freight transport, we see mountains as a challenge and not as an obstacle. We transport heavy goods from the North Sea through the Alps to the Mediterranean, and that is a tricky task. We master them in a team with our approximately 450 employees in Switzerland, Belgium, Germany and Italy. Our customers are international, our roots local. This is another reason why it is exceptionally exciting to work for BLS Cargo.",
+        "de": "Technik ist deine Leidenschaft. Unsere hochmodernen Züge bewegen täglich tausende Tonnen Güter zuverlässig durch die Alpen und verknüpfen dabei Zehntausende von Menschen miteinander. Als Teil eines eingespielten Teams bist du ein unverzichtbares Bindeglied in unserer Transportkette, denn auf der langen Reise durch Europa kann so einiges passieren.\n\nDas wartet auf dich:\n\n• Durchführen technischer Abgangskontrollen und Zugvorbereitungen an unseren Güterzügen\n\n• Einsätze im Rangierdienst\n\n• Überprüfen eingekaufter Serviceleistungen hinsichtlich Qualität und Vollständigkeit\n\n• Durchführen technischer Audits im Bereich Wagentechnik und Gefahrengut an verschiedenen Abgangsbahnhöfen und Tanklagern\n\n• Regulieren schadhafter Wagen und Ladungen, einschliesslich Auslösen der erforderlichen Transportaufträge\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als technische:r Kontrolleur:in TKC, Rangierbegleiter:in Kat. Ai40 oder Zugvorbereiter:in\n\n• Führerausweis Kat. B\n\n• Flexibilität für unregelmässige Einsätze in der ganzen Schweiz, vereinzelt auch im grenznahen Ausland\n\n• Bereitschaft zu regelmässigem Pikettdienst\n\n• Selbstständige, belastbare und initiative Persönlichkeit mit ausgeprägtem Teamgeist\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS Cargo\n\nWir können keine Berge versetzen, klar. Macht auch nichts. Denn als erfahrene Alpinist:innen im Schienengüterverkehr sehen wir Berge als Herausforderung und nicht als Hindernis. Wir transportieren tonnenschwere Güter von der Nordsee durch die Alpen bis ans Mittelmeer, und das ist eine knifflige Aufgabe. Wir meistern sie im Team mit unseren rund 450 Mitarbeitenden in der Schweiz, in Belgien, Deutschland und Italien. Unsere Kund:innen sind international, unsere Wurzeln lokal. Auch deshalb ist es aussergewöhnlich spannend, für BLS Cargo zu arbeiten.",
         "fr": "La technologie est votre passion. Nos trains ultramodernes transportent chaque jour des milliers de tonnes de marchandises à travers les Alpes, reliant des dizaines de milliers de personnes. Dans le cadre d'une équipe bien établie, vous êtes un maillon indispensable de notre chaîne de transport, car beaucoup peut se produire sur le long voyage à travers l'Europe.\n\nÇa vous attend :\n\n• Effectuer des contrôles techniques au départ et à la préparation des trains de marchandises\n\n• Missions de manœuvre\n\n• Vérification de la qualité et de l'exhaustivité des services achetés\n\n• Réalisation d ' audits techniques dans le domaine de la technologie des wagons et des marchandises dangereuses à divers postes de départ et dépôts-citernes\n\n• Réglementer les wagons et charges défectueux, y compris déclencher les ordres de transport requis\n\nVoici ce que vous apportez avec vous :\n\n• Formation complétée en tant que contrôleur technique:en CTK, compagnon de chasse:en Cat. Ai40 ou préparateur de train:en\n\n• Permis de conduire Cat. B\n\n• Flexibilité pour les affectations irrégulières dans toute la Suisse, parfois aussi dans les pays frontaliers\n\n• Préparation à la cuisson régulière\n\n• Personnalité indépendante, résiliente et d'initiative avec un esprit d'équipe fort\n\nVos avantages – vous pouvez attendre avec impatience:\n\n• Nous favorisons la planification la plus flexible possible de vos visites et de vos déplacements\n\n• Obtenez un GA 2ème classe, un GA 1ère. Classe ou demi-abonnement.\n\n• Vous avez du temps libre quand les autres travaillent. Pour les trajets de nuit et le week-end il y a des suppléments.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Un soutien financier pour la formation continue externe et une formation interne passionnante et une offre de cours sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé\n\nÀ propos du fret BLS\n\nOn ne peut pas déplacer les montagnes, bien sûr. Peu importe. Parce que comme les alpinistes expérimentés: Dans le transport ferroviaire de marchandises, nous considérons les montagnes comme un défi et non comme un obstacle. Nous transportons des marchandises lourdes de la mer du Nord à travers les Alpes vers la Méditerranée, et c'est une tâche difficile. Nous les maîtrisons en équipe avec environ 450 collaborateurs en Suisse, Belgique, Allemagne et Italie. Nos clients sont internationaux, nos racines locales. C'est une autre raison pour laquelle il est exceptionnellement excitant de travailler pour BLS Cargo."
       },
       "location": "Muttenz",
@@ -1170,7 +1190,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/wagenmeister-in-tkc-muttenz/82af7fe7-c1a5-4cef-9ab8-5aa8f4c777e3",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:03:00.022Z",
+      "crawledAt": "2026-09-28T21:20:03.693Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1205,6 +1225,7 @@
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T05:03:00.022Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1218,8 +1239,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BL",
-      "firstSeenAt": "2026-09-28T05:03:00.022Z"
+      "addressRegion": "BL"
     },
     {
       "id": "bls-29de476924b8",
@@ -1252,7 +1272,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/diagnostiker-in/b9bdabad-d3bc-4317-980e-40cb73672195",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:59.264Z",
+      "crawledAt": "2026-09-28T21:20:02.986Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1334,7 +1354,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mechaniker-in-schienenfahrzeuge/add3e6ed-28c6-4bed-bdd2-e9530f294dc8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:58.580Z",
+      "crawledAt": "2026-09-28T21:20:02.342Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1367,11 +1387,13 @@
         ]
       },
       "previousSlugs": [
-        "mechaniker-in-schienenfahrzeuge-bls-ch"
+        "mechaniker-in-schienenfahrzeuge-bls-ch",
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-schienenfahrzeuge-bls-ch"
+          "mechaniker-in-schienenfahrzeuge-bls-ch",
+          "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
         ]
       },
       "needsRetranslation": true,
@@ -1390,6 +1412,88 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-9e402dca8add",
+      "slug": "expert-in-testfahrten-bls-ch",
+      "slugByLocale": {
+        "de": "expert-in-testfahrten-bls-ch",
+        "it": "expert-in-testfahrten-bls-ch",
+        "en": "expert-in-testfahrten-bls-ch",
+        "fr": "expert-in-testfahrten-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Expert:in Testfahrten",
+      "titleByLocale": {
+        "de": "Expert:in Testfahrten",
+        "it": "Expert:in Testfahrten",
+        "en": "Expert:in Testfahrten",
+        "fr": "Expert:in Testfahrten"
+      },
+      "description": "Du willst mehr als nur fahren? In dieser Rolle begleitest du neue und modernisierte Lokomotiven von den ersten Tests bis zur erfolgreichen Inbetriebnahme. Mit deinem Know-how sorgst du dafür, dass unsere Fahrzeuge zuverlässig unterwegs sind und Güter sicher durch die Schweiz und über die Alpen transportiert werden.\n\nDas wartet auf dich:\n\n• Plane und führe Versuchsfahrten für interne und externe Auftraggeber:innen eigenständig durch\n\n• Begleite Abnahmen sowie Überführungen von Lokomotiven und bringe neue Fahrzeuge sicher auf die Strecke\n\n• Unterstütze das Team bei fahrdienstlichen und bedienungstechnischen Fragestellungen\n\n• Hilf Lokführer:innen und Werkstattmitarbeitenden bei Störungen, telefonisch oder direkt vor Ort\n\n• Stelle die relevanten Daten für den Betrieb (EVUs) bereit und betreue die Systeme für den Informationsaustausch zwischen Betrieb und Instandhaltung\n\n• Sei regelmässig im Führerstand unterwegs und halte deine Fahrpraxis im Güterverkehr auf dem neuesten Stand\n\nDas bringst du mit:\n\n• Mehrjährige Erfahrung als Lokführer:in Kat. B, idealerweise im Güterverkehr oder im Umfeld von Test- und Abnahmefahrten\n\n• Breites fahrdienstliches Know-how sowie fundierte Kenntnisse moderner Lokomotiven\n\n• Die Fähigkeit, komplexe Testabläufe vorauszudenken und auch in anspruchsvollen Situationen den Überblick zu behalten\n\n• Flexibilität für Einsätze zu unterschiedlichen Tages- und Randzeiten\n\n• Organisationstalent, Ausdauer und die Gabe, verschiedene Anspruchsgruppen erfolgreich zu koordinieren\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS Cargo\n\nWir können keine Berge versetzen, klar. Macht auch nichts. Denn als erfahrene Alpinist:innen im Schienengüterverkehr sehen wir Berge als Herausforderung und nicht als Hindernis. Wir transportieren tonnenschwere Güter von der Nordsee durch die Alpen bis ans Mittelmeer, und das ist eine knifflige Aufgabe. Wir meistern sie im Team mit unseren rund 450 Mitarbeitenden in der Schweiz, in Belgien, Deutschland und Italien. Unsere Kund:innen sind international, unsere Wurzeln lokal. Auch deshalb ist es aussergewöhnlich spannend, für BLS Cargo zu arbeiten.",
+      "descriptionByLocale": {
+        "de": "Du willst mehr als nur fahren? In dieser Rolle begleitest du neue und modernisierte Lokomotiven von den ersten Tests bis zur erfolgreichen Inbetriebnahme. Mit deinem Know-how sorgst du dafür, dass unsere Fahrzeuge zuverlässig unterwegs sind und Güter sicher durch die Schweiz und über die Alpen transportiert werden.\n\nDas wartet auf dich:\n\n• Plane und führe Versuchsfahrten für interne und externe Auftraggeber:innen eigenständig durch\n\n• Begleite Abnahmen sowie Überführungen von Lokomotiven und bringe neue Fahrzeuge sicher auf die Strecke\n\n• Unterstütze das Team bei fahrdienstlichen und bedienungstechnischen Fragestellungen\n\n• Hilf Lokführer:innen und Werkstattmitarbeitenden bei Störungen, telefonisch oder direkt vor Ort\n\n• Stelle die relevanten Daten für den Betrieb (EVUs) bereit und betreue die Systeme für den Informationsaustausch zwischen Betrieb und Instandhaltung\n\n• Sei regelmässig im Führerstand unterwegs und halte deine Fahrpraxis im Güterverkehr auf dem neuesten Stand\n\nDas bringst du mit:\n\n• Mehrjährige Erfahrung als Lokführer:in Kat. B, idealerweise im Güterverkehr oder im Umfeld von Test- und Abnahmefahrten\n\n• Breites fahrdienstliches Know-how sowie fundierte Kenntnisse moderner Lokomotiven\n\n• Die Fähigkeit, komplexe Testabläufe vorauszudenken und auch in anspruchsvollen Situationen den Überblick zu behalten\n\n• Flexibilität für Einsätze zu unterschiedlichen Tages- und Randzeiten\n\n• Organisationstalent, Ausdauer und die Gabe, verschiedene Anspruchsgruppen erfolgreich zu koordinieren\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS Cargo\n\nWir können keine Berge versetzen, klar. Macht auch nichts. Denn als erfahrene Alpinist:innen im Schienengüterverkehr sehen wir Berge als Herausforderung und nicht als Hindernis. Wir transportieren tonnenschwere Güter von der Nordsee durch die Alpen bis ans Mittelmeer, und das ist eine knifflige Aufgabe. Wir meistern sie im Team mit unseren rund 450 Mitarbeitenden in der Schweiz, in Belgien, Deutschland und Italien. Unsere Kund:innen sind international, unsere Wurzeln lokal. Auch deshalb ist es aussergewöhnlich spannend, für BLS Cargo zu arbeiten.",
+        "it": "Vuoi altro che guidare? In questo ruolo, accompagnerete locomotive nuove e modernizzate dai primi test alla messa in servizio di successo. Con il vostro know-how, assicuratevi che i nostri veicoli siano in viaggio in modo affidabile e che le merci siano trasportate in modo sicuro attraverso la Svizzera e attraverso le Alpi.\n\nTi aspetta:\n\n• Pianificare e condurre test drive per clienti interni ed esterni: condurre in modo indipendente\n\n• Accompagnamento e trasferimenti di locomotive e nuovi veicoli in sicurezza sulla pista\n\n• Sostenere il team in problemi di guida e operativi\n\n• Aiuto train driver: interno e personale di officina in caso di interruzioni, per telefono o direttamente sul sito\n\n• Fornire i dati operativi pertinenti (RU) e mantenere i sistemi di scambio di informazioni tra operazioni e manutenzione\n\n• Essere sulla strada regolarmente nella cabina del conducente e mantenere la vostra pratica di guida nel traffico merci fino ad oggi\n\nQuesto è ciò che portate con voi:\n\n• Diversi anni di esperienza come autista: a Kat. B, idealmente nel trasporto merci o nel contesto dei viaggi di prova e di accettazione\n\n• Grande know-how e conoscenza approfondita delle locomotive moderne\n\n• La capacità di pensare avanti con complesse sequenze di test e mantenere una panoramica anche in situazioni difficili\n\n• Flessibilità per operazioni in tempi diversi della giornata e margini\n\n• Talenti organizzativi, perseveranza e capacità di coordinare con successo diversi stakeholder\n\nI vostri vantaggi – si può aspettare a:\n\n• Promuoviamo la pianificazione più flessibile dei vostri tour e turni possibili\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Hai tempo libero quando gli altri lavorano. Per i penny di notte e nei fine settimana ci sono supplementi.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute\n\nInformazioni sul BLS Cargo\n\nNon possiamo muovere le montagne, ovviamente. Non importa. Perché come alpinisti esperti: Nel trasporto ferroviario merci, vediamo le montagne come una sfida e non come un ostacolo. Trasportiamo merci pesanti dal Mare del Nord attraverso le Alpi al Mediterraneo, e questo è un compito difficile. Li padroneggiamo in un team con circa 450 dipendenti in Svizzera, Belgio, Germania e Italia. I nostri clienti sono internazionali, le nostre radici locali. Questo è un altro motivo per cui è eccezionalmente emozionante lavorare per BLS Cargo.",
+        "en": "Do you want more than just driving? In this role, you will accompany new and modernized locomotives from the first tests to the successful commissioning. With your know-how, you ensure that our vehicles are on the road reliably and that goods are transported safely through Switzerland and across the Alps.\n\nThis is waiting for you:\n\n• Plan and conduct test drives for internal and external clients: conduct independently\n\n• Accompany acceptances and transfers of locomotives and get new vehicles safely on the track\n\n• Support the team in driving and operating issues\n\n• Help train drivers: inside and workshop staff in the event of disruptions, by phone or directly on site\n\n• Provide the relevant operational data (RUs) and maintain the information exchange systems between operations and maintenance\n\n• Be on the road regularly in the driver’s cab and keep your driving practice in freight traffic up to date\n\nThis is what you bring with you:\n\n• Several years of experience as a train driver: in Kat. B, ideally in freight transport or in the context of test and acceptance journeys\n\n• Broad amenity service know-how and in-depth knowledge of modern locomotives\n\n• The ability to think ahead with complex test sequences and keep an overview even in demanding situations\n\n• Flexibility for operations at different times of the day and margins\n\n• Organizational talent, perseverance and the ability to successfully coordinate different stakeholders\n\nYour advantages – you can look forward to:\n\n• We promote the most flexible planning of your tours and shifts possible\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• You have free time when others work. For pennies at night and on weekends there are surcharges.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• Financial support for external further education and an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health\n\nAbout the BLS Cargo\n\nWe can't move mountains, of course. It doesn't matter. Because as experienced mountaineers: In rail freight transport, we see mountains as a challenge and not as an obstacle. We transport heavy goods from the North Sea through the Alps to the Mediterranean, and that is a tricky task. We master them in a team with our approximately 450 employees in Switzerland, Belgium, Germany and Italy. Our customers are international, our roots local. This is another reason why it is exceptionally exciting to work for BLS Cargo.",
+        "fr": "Tu veux plus que conduire ? Dans ce rôle, vous accompagnerez les nouvelles locomotives modernisées des premiers essais jusqu'à la mise en service réussie. Avec votre savoir-faire, vous assurez que nos véhicules sont sur la route de manière fiable et que les marchandises sont transportées en toute sécurité à travers la Suisse et les Alpes.\n\nCeci vous attend :\n\n• Planifier et effectuer des essais pour les clients internes et externes : effectuer de façon indépendante\n\n• Accompagner les acceptations et les transferts de locomotives et obtenir de nouveaux véhicules en toute sécurité sur la voie\n\n• Soutenir l'équipe dans les questions de conduite et d'exploitation\n\n• Aide à la formation des conducteurs: personnel intérieur et atelier en cas de perturbations, par téléphone ou directement sur place\n\n• Fournir les données opérationnelles pertinentes et maintenir les systèmes d'échange d'informations entre les opérations et la maintenance\n\n• Soyez sur la route régulièrement dans la cabine du conducteur et gardez votre pratique de conduite dans le trafic de marchandises à jour\n\nC'est ce que vous apportez avec vous :\n\n• Plusieurs années d'expérience en tant que chauffeur de train: à Kat. B, idéalement dans le transport de marchandises ou dans le cadre des voyages d'essai et d'acceptation\n\n• Grand savoir-faire et connaissance approfondie des locomotives modernes\n\n• La capacité de penser en avant avec des séquences de test complexes et de garder un aperçu même dans des situations exigeantes\n\n• Flexibilité des opérations à différents moments de la journée et des marges\n\n• Le talent organisationnel, la persévérance et la capacité de coordonner avec succès les différents intervenants\n\nVos avantages – vous pouvez vous attendre à:\n\n• Nous favorisons la planification la plus flexible possible de vos visites et de vos déplacements\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Vous avez du temps libre quand les autres travaillent. Pour les centimes la nuit et le week-end il y a des suppléments.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Un soutien financier pour une formation complémentaire externe et une offre de cours et d'apprentissage interne passionnants sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé\n\nÀ propos du fret BLS\n\nOn ne peut pas déplacer les montagnes, bien sûr. Peu importe. Parce que les alpinistes expérimentés: Dans le transport ferroviaire de marchandises, nous considérons les montagnes comme un défi et non comme un obstacle. Nous transportons des marchandises lourdes de la mer du Nord à travers les Alpes vers la Méditerranée, et c'est une tâche délicate. Nous les maîtrisons dans une équipe avec environ 450 employés en Suisse, Belgique, Allemagne et Italie. Nos clients sont internationaux, nos racines locales. C'est une autre raison pour laquelle il est exceptionnellement excitant de travailler pour BLS Cargo."
+      },
+      "location": "Spiez",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/expert-in-testfahrten/ba933d5a-1e6d-4f5b-af6f-3d82e5d3199b",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:20:01.610Z",
+      "addressLocality": "Spiez",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3700",
+      "streetAddress": "Krattigstrasse 1A",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "validThrough": "2026-10-18",
+      "pensum": "50-80%",
+      "salary": "118241",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/ba933d5a-1e6d-4f5b-af6f-3d82e5d3199b",
+      "requirements": [
+        "Mehrjährige Erfahrung als Lokführer:in Kat. B, idealerweise im Güterverkehr oder im Umfeld von Test- und Abnahmefahrten",
+        "Breites fahrdienstliches Know-how sowie fundierte Kenntnisse moderner Lokomotiven",
+        "Die Fähigkeit, komplexe Testabläufe vorauszudenken und auch in anspruchsvollen Situationen den Überblick zu behalten",
+        "Flexibilität für Einsätze zu unterschiedlichen Tages- und Randzeiten",
+        "Organisationstalent, Ausdauer und die Gabe, verschiedene Anspruchsgruppen erfolgreich zu koordinieren"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Mehrjährige Erfahrung als Lokführer:in Kat. B, idealerweise im Güterverkehr oder im Umfeld von Test- und Abnahmefahrten",
+          "Breites fahrdienstliches Know-how sowie fundierte Kenntnisse moderner Lokomotiven",
+          "Die Fähigkeit, komplexe Testabläufe vorauszudenken und auch in anspruchsvollen Situationen den Überblick zu behalten",
+          "Flexibilität für Einsätze zu unterschiedlichen Tages- und Randzeiten",
+          "Organisationstalent, Ausdauer und die Gabe, verschiedene Anspruchsgruppen erfolgreich zu koordinieren"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-09-28T21:20:01.610Z"
     }
   ]
 }

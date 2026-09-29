@@ -1,0 +1,22 @@
+{
+  "companyKey": "walker-bedachungen-ch",
+  "companyName": "Walker Bedachungen GmbH",
+  "companyHost": "walker-bedachungen.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://walker-bedachungen.ch/jobs-dachecker-schreiner-zimmermann"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Fachkraft Zimmermann / Zimmerin MERH LESEN <img alt=\"\" src=\"https://cdn.prod.website-files.com/5ea7cdde7f49ecad1f314b29/68074ed4a47260be09cacc00_Hauptbild-Zimme",
+    "Fachkraft Schreiner:in MERH LESEN <img alt=\"\" src=\"https://cdn.prod.website-files.com/5ea7cdde7f49ecad1f314b29/68074eee17201cc5d9259ed8_Hauptbild-Schreinerin-pa",
+    "Lehrstelle Ausbildung Dachdecker:in MERH LESEN <img alt=\"\" src=\"https://cdn.prod.website-files.com/5ea7cdde7f49ecad1f314b29/6800ffefe89c29b11826f23d_Hauptbild-L"
+  ],
+  "canton": "ZG",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-29T05:44:16.248Z"
+}

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "medartis",
-  "assembledAt": "2026-09-28T05:08:57.357Z",
+  "assembledAt": "2026-09-28T21:27:15.541Z",
   "jobs": [
     {
       "id": "medartis-dfe895815ae4",
@@ -33,7 +33,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1431467833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:52.903Z",
+      "crawledAt": "2026-09-28T21:27:10.463Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -59,6 +59,84 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:31.393Z",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 110500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "medartis-aaa4b601baee",
+      "slug": "supporto-per-la-gestione-dell-apprendimento-medartis-basel",
+      "slugByLocale": {
+        "it": "supporto-per-la-gestione-dell-apprendimento-medartis-basel",
+        "en": "learning-management-support-medartis-basel",
+        "de": "learning-management-support-medartis-basel",
+        "fr": "appui-a-la-gestion-de-l-apprentissage-medartis-basel"
+      },
+      "company": "Medartis",
+      "companyKey": "medartis",
+      "companyDomain": "medartis.com",
+      "title": "Learning Management Support",
+      "titleByLocale": {
+        "it": "Learning Management Support",
+        "en": "Learning Management Support",
+        "de": "Learning Management Support",
+        "fr": "Learning Management Support"
+      },
+      "description": "For our Global Learning & Development team in Basel, we are looking for temporary support for approximately three months, starting immediately. You will help us review, update, and clean up quality-related training courses and curricula in our Learning Management System (LMS).\n\nYou will work with training and system data, identify inconsistencies, and ensure that information and settings are accurate and up to date. After a structured onboarding, you will handle clearly defined tasks largely independently.\n\nThis assignment is ideal for someone who enjoys working with data and digital systems, has a strong eye for detail, and brings the persistence to work carefully through a large volume of tasks.\n\nLearning Management Support\n\nIhr Aufgabengebiet\n\n• You systematically work through a defined set of training courses and curricula in our Learning Management System (LMS) and bring them up to date.\n\n• You coordinate with the relevant stakeholders when information is missing or unclear and obtain the information needed to continue the work.\n\n• You compare existing training data and settings against defined requirements and identify missing, incorrect, or inconsistent information.\n\n• You clean up and update data and system settings directly in the LMS, ensuring a consistent and reliable data basis.\n\n• You verify that training courses and curricula are correctly structured and linked and correct deviations within the defined guidelines.\n\n• You independently investigate identified issues, determine their cause, and resolve them where they fall within the defined scope; cases requiring subject-matter clarification are aligned with the Learning team.\n\n• You maintain a transparent record of progress and perform final quality checks to ensure that the agreed scope is completed fully and accurately.\n\nIhre Qualifikationen\n\n• You have a good technical understanding and a strong affinity for data and digital systems, and you quickly find your way around new applications.\n\n• You work in a structured and highly accurate manner and are good at identifying missing, incorrect, or inconsistent information.\n\n• You can understand interdependencies, independently investigate inconsistencies, and find pragmatic solutions within clear guidelines.\n\n• You bring persistence and focus and are comfortable working carefully and consistently through larger volumes of data and recurring tasks.\n\n• After initial onboarding, you are able to handle clearly defined tasks independently and reliably and know when to ask for clarification.\n\n• You have good German and English language skills.\n\n• Experience with an LMS, SAP SuccessFactors, or similar systems is an advantage, but not a requirement.\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\n\t\t\t Medartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
+      "descriptionByLocale": {
+        "it": "Per il nostro team globale di apprendimento e sviluppo a Basilea, stiamo cercando un supporto temporaneo per circa tre mesi, a partire da subito. Ci aiuterai a rivedere, aggiornare e pulire corsi di formazione e curricula legati alla qualità nel nostro sistema di gestione dell'apprendimento (LMS).\n\nLavorerai con i dati di formazione e di sistema, identificherai le incongruenze e assicurati che le informazioni e le impostazioni siano accurate e aggiornate. Dopo un'integrazione strutturata, gestirai attività chiaramente definite in gran parte indipendentemente.\n\nQuesto incarico è ideale per chi ama lavorare con i dati e i sistemi digitali, ha un occhio forte per i dettagli e porta la persistenza a lavorare con attenzione attraverso un grande volume di compiti.\n\nSostegno alla gestione dell'apprendimento\n\nIhr Aufgabengebiet\n\n• Lavorate sistematicamente attraverso un set definito di corsi di formazione e curricula nel nostro Sistema di Gestione dell'apprendimento (LMS) e li aggiornate.\n\n• L'utente si coordina con le parti interessate quando mancano informazioni o non sono chiare e ottiene le informazioni necessarie per continuare il lavoro.\n\n• Confrontate i dati e le impostazioni di allenamento esistenti con requisiti definiti e identificate le informazioni mancanti, errate o incoerenti.\n\n• Pulite e aggiornate i dati e le impostazioni del sistema direttamente nell'LMS, garantendo una base dati coerente e affidabile.\n\n• Verificare che i corsi di formazione e i programmi di studio siano correttamente strutturati e collegati e corretti dislivelli all'interno delle linee guida definite.\n\n• Indagate in modo indipendente i problemi identificati, ne determinate la causa e li risolvete dove rientrano nell'ambito definito; i casi che richiedono chiarimenti di materia sono allineati con il team di apprendimento.\n\n• L'utente mantiene un registro trasparente dei progressi compiuti ed effettua controlli di qualità finali per garantire che il campo di applicazione concordato sia completato in modo completo e preciso.\n\nIhre Qualifikationen\n\n• Hai una buona comprensione tecnica e una forte affinità per i dati e i sistemi digitali, e si trova rapidamente la strada intorno a nuove applicazioni.\n\n• Lavorate in modo strutturato e molto accurato e siete bravi a identificare le informazioni mancanti, errate o incoerenti.\n\n• È possibile comprendere le interdipendenze, indagare indipendentemente le incoerenze e trovare soluzioni pragmatiche all'interno di linee guida chiare.\n\n• Portate persistenza e attenzione e siete a vostro agio lavorando con attenzione e coerenza attraverso volumi più grandi di dati e attività ricorrenti.\n\n• Dopo l'imbarco iniziale, è possibile gestire compiti chiaramente definiti in modo indipendente e affidabile e sapere quando richiedere chiarimenti.\n\n• Hai buone competenze linguistiche in tedesco e inglese.\n\n• L'esperienza con un LMS, SAP SuccessFactors o sistemi simili è un vantaggio, ma non un requisito.\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medinzischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extrimitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zuwergergen und den besten Service zu bieten.\n\nWir bieten Ihnen eine wirtwortungsvole und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit forSCHritžichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollstädige Online Bewerbung. Medartis\n\nRisorse umane\n\nT +41 61 633 34 34\n\nwww.medartis.com",
+        "en": "For our Global Learning & Development team in Basel, we are looking for temporary support for approximately three months, starting immediately. You will help us review, update, and clean up quality-related training courses and curricula in our Learning Management System (LMS).\n\nYou will work with training and system data, identify inconsistencies, and ensure that information and settings are accurate and up to date. After a structured onboarding, you will handle clearly defined tasks largely independently.\n\nThis assignment is ideal for someone who enjoys working with data and digital systems, has a strong eye for detail, and brings the persistence to work carefully through a large volume of tasks.\n\nLearning Management Support\n\nYour area of responsibility\n\n• You systematically work through a defined set of training courses and curricula in our Learning Management System (LMS) and bring them up to date.\n\n• You coordinate with the relevant stakeholders when information is missing or unclear and obtain the information needed to continue the work.\n\n• You compare existing training data and settings against defined requirements and identify missing, incorrect, or inconsistent information.\n\n• You clean up and update data and system settings directly in the LMS, ensuring a consistent and reliable data base.\n\n• You verify that training courses and curricula are correctly structured and linked and correct deviations within the defined guidelines.\n\n• You independently investigate identified issues, determine their cause, and resolve them where they fall within the defined scope; cases requiring subject-matter clarification are aligned with the Learning team.\n\n• You maintain a transparent record of progress and perform final quality checks to ensure that the agreed scope is completed fully and accurately.\n\nYour qualifications\n\n• You have a good technical understanding and a strong affinity for data and digital systems, and you quickly find your way around new applications.\n\n• You work in a structured and highly accurate manner and are good at identifying missing, incorrect, or inconsistent information.\n\n• You can understand interdependencies, independently investigate inconsistencies, and find pragmatic solutions within clear guidelines.\n\n• You bring persistence and focus and are comfortable working carefully and consistently through larger volumes of data and recurring tasks.\n\n• After initial onboarding, you are able to handle clearly defined tasks independently and reliably and know when to ask for clarification.\n\n• You have good German and English language skills.\n\n• Experience with an LMS, SAP SuccessFactors, or similar systems is an advantage, but not a requirement.\n\nAbout Medartis\n\nMedartis is one of the leading manufacturers of medical products for osteosynthesis in the area of the facial skull and extremities. Medartis is committed to providing surgeons and operating room staff with the most innovative titanium implants and instruments and providing the best service for the benefit of patients.\n\nWe offer you a responsible and varied job with high quality requirements in a growing, international company with progressive social benefits.\n\nWe look forward to receiving your complete online application.\nMedartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
+        "de": "For our Global Learning & Development team in Basel, we are looking for temporary support for approximately three months, starting immediately. You will help us review, update, and clean up quality-related training courses and curricula in our Learning Management System (LMS).\n\nYou will work with training and system data, identify inconsistencies, and ensure that information and settings are accurate and up to date. After a structured onboarding, you will handle clearly defined tasks largely independently.\n\nThis assignment is ideal for someone who enjoys working with data and digital systems, has a strong eye for detail, and brings the persistence to work carefully through a large volume of tasks.\n\nLearning Management Support\n\nIhr Aufgabengebiet\n\n• You systematically work through a defined set of training courses and curricula in our Learning Management System (LMS) and bring them up to date.\n\n• You coordinate with the relevant stakeholders when information is missing or unclear and obtain the information needed to continue the work.\n\n• You compare existing training data and settings against defined requirements and identify missing, incorrect, or inconsistent information.\n\n• You clean up and update data and system settings directly in the LMS, ensuring a consistent and reliable data basis.\n\n• You verify that training courses and curricula are correctly structured and linked and correct deviations within the defined guidelines.\n\n• You independently investigate identified issues, determine their cause, and resolve them where they fall within the defined scope; cases requiring subject-matter clarification are aligned with the Learning team.\n\n• You maintain a transparent record of progress and perform final quality checks to ensure that the agreed scope is completed fully and accurately.\n\nIhre Qualifikationen\n\n• You have a good technical understanding and a strong affinity for data and digital systems, and you quickly find your way around new applications.\n\n• You work in a structured and highly accurate manner and are good at identifying missing, incorrect, or inconsistent information.\n\n• You can understand interdependencies, independently investigate inconsistencies, and find pragmatic solutions within clear guidelines.\n\n• You bring persistence and focus and are comfortable working carefully and consistently through larger volumes of data and recurring tasks.\n\n• After initial onboarding, you are able to handle clearly defined tasks independently and reliably and know when to ask for clarification.\n\n• You have good German and English language skills.\n\n• Experience with an LMS, SAP SuccessFactors, or similar systems is an advantage, but not a requirement.\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\nMedartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
+        "fr": "Pour notre équipe d'apprentissage et de développement mondial à Bâle, nous recherchons un soutien temporaire pendant environ trois mois, à partir de maintenant. Vous nous aiderez à revoir, mettre à jour et nettoyer les cours et les programmes de formation liés à la qualité dans notre système de gestion de l'apprentissage (SGE).\n\nVous travaillerez avec la formation et les données du système, identifierez les incohérences et assurez-vous que les informations et les paramètres sont exacts et à jour. Après un embarquement structuré, vous gérerez des tâches clairement définies en grande partie indépendamment.\n\nCette mission est idéale pour quelqu'un qui aime travailler avec les données et les systèmes numériques, a un œil fort pour les détails, et amène la persévérance à travailler soigneusement à travers un grand volume de tâches.\n\nAppui à la gestion de l'apprentissage\n\nIhr Aufgabengebiet\n\n• Vous travaillez systématiquement à travers un ensemble défini de cours et de programmes de formation dans notre système de gestion de l'apprentissage (SGE) et les mettre à jour.\n\n• Vous coordonnez avec les parties prenantes concernées lorsque l'information est manquante ou non claire et vous obtenez les informations nécessaires pour poursuivre les travaux.\n\n• Vous comparez les données et les paramètres de formation existants avec des exigences définies et identifiez les informations manquantes, incorrectes ou incohérentes.\n\n• Vous nettoyez et mettez à jour les données et les paramètres du système directement dans le LMS, en assurant une base de données cohérente et fiable.\n\n• Vous vérifiez que les cours et les programmes de formation sont bien structurés et liés et que les écarts sont corrects dans les lignes directrices définies.\n\n• Vous enquêtez de façon indépendante sur les problèmes identifiés, déterminez leur cause et réglez-les là où ils entrent dans le champ d'application défini; les cas nécessitant des éclaircissements sur les sujets sont alignés sur l'équipe d'apprentissage.\n\n• Vous conservez un registre transparent des progrès réalisés et effectuez des contrôles de qualité finaux pour vous assurer que la portée convenue est complète et exacte.\n\nIhre Qualifikationen\n\n• Vous avez une bonne compréhension technique et une forte affinité pour les données et les systèmes numériques, et vous trouvez rapidement votre chemin autour de nouvelles applications.\n\n• Vous travaillez de manière structurée et très précise et vous êtes en mesure d'identifier les informations manquantes, incorrectes ou incohérentes.\n\n• Vous pouvez comprendre les interdépendances, étudier indépendamment les incohérences et trouver des solutions pragmatiques dans des lignes directrices claires.\n\n• Vous apportez la persévérance et la concentration et vous êtes à l'aise de travailler avec soin et systématiquement à travers des volumes plus importants de données et des tâches récurrentes.\n\n• Après l'embarquement initial, vous pouvez gérer des tâches clairement définies de façon indépendante et fiable et savoir quand demander des éclaircissements.\n\n• Vous avez de bonnes compétences en allemand et en anglais.\n\n• L'expérience avec un LMS, SAP SuccessFactors ou des systèmes similaires est un avantage, mais pas une exigence.\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit for Schrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung. Medartis\n\nRessources humaines\n\nT +41 61 633 34 34\n\nLes informations sur les activités de l'Agence sont disponibles sur le site www.medartis.com."
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://careers.medartis.com/job/Learning-Management-Support/1437659533/",
+      "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:27:09.943Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4057",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Dispositivi medici",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-16",
+      "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1437659533/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "learning-management-support-medartis-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "learning-management-support-medartis-basel"
+        ],
+        "fr": [
+          "learning-management-support-medartis-basel"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3370,
+      "retranslationAttempts": 7,
+      "firstSeenAt": "2026-09-17T07:35:13.821Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -105,7 +183,7 @@
       "url": "https://careers.medartis.com/job/Produktionsmitarbeiterin-Reinraum/1433594733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:52.330Z",
+      "crawledAt": "2026-09-28T21:27:09.451Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -182,7 +260,7 @@
       "url": "https://careers.medartis.com/job/Junior-Finance-Manager/1428557533/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:51.390Z",
+      "crawledAt": "2026-09-28T21:27:08.941Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -253,7 +331,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:50.788Z",
+      "crawledAt": "2026-09-28T21:27:08.433Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -327,7 +405,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-AngularJava/1440346933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:50.198Z",
+      "crawledAt": "2026-09-28T21:27:07.709Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -373,7 +451,7 @@
       "companyDomain": "medartis.com",
       "title": "Operator Plates (a)",
       "titleByLocale": {
-        "it": "Piastre di comando (a)",
+        "it": "Operator Plates (a)",
         "en": "Plates Operator (a)",
         "de": "Operator Plates (a)",
         "fr": "Opérateur de Plaques (a)"
@@ -385,12 +463,13 @@
         "de": "Zur Unterstützung unserer Plattenfertigung in Basel suchen wir eine motivierte Person als\n\nOperator Plates (a)\n\nIhr Aufgabengebiet\n\nMitarbeit an CNC-gesteuerten Maschinen\n\nDurchführung von visuellen Kontrollen von Implantaten\n\nDurchführung von masslichen Stichproben\n\nManuelle und maschinelle Entgratung von Implantaten\n\nUmformung der Implantate mit Hilfe einer Presse\n\nReinigung der Implantate mittels Ultraschallwaschanlage\n\nUnterstützung bei der Optimierung bestehender Fertigungsprozesse\n\n• Ihre Qualifikationen\n\nTechnische Berufsausbildung mit Fachausweis ist von Vorteil\n\nBerufserfahrung in mechanischen Werkstätten ist von Vorteil\n\nGute Deutschkenntnisse (in Wort und Schrift, mindestens B2)\n\nUmgang mit dem PC sowie Kenntnisse der MS-Office-Anwendungen erforderlich\n\nBereitschaft zu Schicht- und Pikettarbeiten\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\n• Wir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\nMedartis\nHuman Resources\nwww.medartis.com",
         "fr": "Pour soutenir notre production de plaques à Bâle, nous recherchons une personne\n\nPlaques d'opérateur a)\n\nVos responsabilités\n\nCoopération sur les machines sous contrôle CNC\n\nEffectuer des inspections visuelles des implants\n\nExécution du prélèvement en vrac\n\nDébourrage manuel et mécanique des implants\n\nTransformation des implants à l'aide d'une presse\n\nNettoyage des implants au moyen d'un système de lavage à ultrasons\n\nSoutien à l'optimisation des procédés de fabrication existants\n\n• Vos qualifications\n\nLa formation professionnelle technique avec carte spécialisée est un avantage\n\nExpérience professionnelle dans les ateliers mécaniques est un avantage\n\nBonne connaissance de l'allemand (en paroles et en écriture, au moins B2)\n\nTraitement du PC ainsi que la connaissance des applications MS-Office requis\n\nPréparation au travail posté et au piquet\n\nÀ propos de Medartis\n\nMedartis est l'un des principaux fabricants de produits médicaux pour l'ostéosynthèse dans la zone du crâne et des extrémités du visage. Pour le bénéfice du patient, Medartis s'engage à fournir aux chirurgiens et au personnel chirurgical les implants et instruments de titane les plus innovants et à offrir le meilleur service.\n\n• Nous vous offrons une activité responsable et variée avec des exigences de haute qualité dans une entreprise internationale en croissance avec des avantages sociaux progressifs.\n\nNous attendons avec impatience votre demande en ligne complète.\nMedartis\nRessources humaines\nwww.medartis.com"
       },
+      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://careers.medartis.com/job/Operator-Plates-%28a%29/1412626233/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:49.266Z",
+      "crawledAt": "2026-09-28T21:27:06.958Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -465,7 +544,7 @@
       "url": "https://careers.medartis.com/job/Instandhaltungsspezialistin-Reinraum-und-L%C3%BCftungstechnik/1416293333/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:48.335Z",
+      "crawledAt": "2026-09-28T21:27:06.458Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -543,7 +622,7 @@
       "url": "https://careers.medartis.com/job/Supply-&-Production-Planner-100/1406388933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:47.773Z",
+      "crawledAt": "2026-09-28T21:27:05.965Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -619,7 +698,7 @@
       "url": "https://careers.medartis.com/job/Mechanist-Screws-100/1403452933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:47.185Z",
+      "crawledAt": "2026-09-28T21:27:05.472Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -696,7 +775,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1421262133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:46.567Z",
+      "crawledAt": "2026-09-28T21:27:04.984Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -722,84 +801,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:31.393Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "medartis-aaa4b601baee",
-      "slug": "supporto-per-la-gestione-dell-apprendimento-medartis-basel",
-      "slugByLocale": {
-        "it": "supporto-per-la-gestione-dell-apprendimento-medartis-basel",
-        "en": "learning-management-support-medartis-basel",
-        "de": "learning-management-support-medartis-basel",
-        "fr": "appui-a-la-gestion-de-l-apprentissage-medartis-basel"
-      },
-      "company": "Medartis",
-      "companyKey": "medartis",
-      "companyDomain": "medartis.com",
-      "title": "Learning Management Support",
-      "titleByLocale": {
-        "it": "Learning Management Support",
-        "en": "Learning Management Support",
-        "de": "Learning Management Support",
-        "fr": "Learning Management Support"
-      },
-      "description": "For our Global Learning & Development team in Basel, we are looking for temporary support for approximately three months, starting immediately. You will help us review, update, and clean up quality-related training courses and curricula in our Learning Management System (LMS).\n\nYou will work with training and system data, identify inconsistencies, and ensure that information and settings are accurate and up to date. After a structured onboarding, you will handle clearly defined tasks largely independently.\n\nThis assignment is ideal for someone who enjoys working with data and digital systems, has a strong eye for detail, and brings the persistence to work carefully through a large volume of tasks.\n\nLearning Management Support\n\nIhr Aufgabengebiet\n\n• You systematically work through a defined set of training courses and curricula in our Learning Management System (LMS) and bring them up to date.\n\n• You coordinate with the relevant stakeholders when information is missing or unclear and obtain the information needed to continue the work.\n\n• You compare existing training data and settings against defined requirements and identify missing, incorrect, or inconsistent information.\n\n• You clean up and update data and system settings directly in the LMS, ensuring a consistent and reliable data basis.\n\n• You verify that training courses and curricula are correctly structured and linked and correct deviations within the defined guidelines.\n\n• You independently investigate identified issues, determine their cause, and resolve them where they fall within the defined scope; cases requiring subject-matter clarification are aligned with the Learning team.\n\n• You maintain a transparent record of progress and perform final quality checks to ensure that the agreed scope is completed fully and accurately.\n\nIhre Qualifikationen\n\n• You have a good technical understanding and a strong affinity for data and digital systems, and you quickly find your way around new applications.\n\n• You work in a structured and highly accurate manner and are good at identifying missing, incorrect, or inconsistent information.\n\n• You can understand interdependencies, independently investigate inconsistencies, and find pragmatic solutions within clear guidelines.\n\n• You bring persistence and focus and are comfortable working carefully and consistently through larger volumes of data and recurring tasks.\n\n• After initial onboarding, you are able to handle clearly defined tasks independently and reliably and know when to ask for clarification.\n\n• You have good German and English language skills.\n\n• Experience with an LMS, SAP SuccessFactors, or similar systems is an advantage, but not a requirement.\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\n\t\t\t Medartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
-      "descriptionByLocale": {
-        "it": "Per il nostro team globale di apprendimento e sviluppo a Basilea, stiamo cercando un supporto temporaneo per circa tre mesi, a partire da subito. Ci aiuterai a rivedere, aggiornare e pulire corsi di formazione e curricula legati alla qualità nel nostro sistema di gestione dell'apprendimento (LMS).\n\nLavorerai con i dati di formazione e di sistema, identificherai le incongruenze e assicurati che le informazioni e le impostazioni siano accurate e aggiornate. Dopo un'integrazione strutturata, gestirai attività chiaramente definite in gran parte indipendentemente.\n\nQuesto incarico è ideale per chi ama lavorare con i dati e i sistemi digitali, ha un occhio forte per i dettagli e porta la persistenza a lavorare con attenzione attraverso un grande volume di compiti.\n\nSostegno alla gestione dell'apprendimento\n\nIhr Aufgabengebiet\n\n• Lavorate sistematicamente attraverso un set definito di corsi di formazione e curricula nel nostro Sistema di Gestione dell'apprendimento (LMS) e li aggiornate.\n\n• L'utente si coordina con le parti interessate quando mancano informazioni o non sono chiare e ottiene le informazioni necessarie per continuare il lavoro.\n\n• Confrontate i dati e le impostazioni di allenamento esistenti con requisiti definiti e identificate le informazioni mancanti, errate o incoerenti.\n\n• Pulite e aggiornate i dati e le impostazioni del sistema direttamente nell'LMS, garantendo una base dati coerente e affidabile.\n\n• Verificare che i corsi di formazione e i programmi di studio siano correttamente strutturati e collegati e corretti dislivelli all'interno delle linee guida definite.\n\n• Indagate in modo indipendente i problemi identificati, ne determinate la causa e li risolvete dove rientrano nell'ambito definito; i casi che richiedono chiarimenti di materia sono allineati con il team di apprendimento.\n\n• L'utente mantiene un registro trasparente dei progressi compiuti ed effettua controlli di qualità finali per garantire che il campo di applicazione concordato sia completato in modo completo e preciso.\n\nIhre Qualifikationen\n\n• Hai una buona comprensione tecnica e una forte affinità per i dati e i sistemi digitali, e si trova rapidamente la strada intorno a nuove applicazioni.\n\n• Lavorate in modo strutturato e molto accurato e siete bravi a identificare le informazioni mancanti, errate o incoerenti.\n\n• È possibile comprendere le interdipendenze, indagare indipendentemente le incoerenze e trovare soluzioni pragmatiche all'interno di linee guida chiare.\n\n• Portate persistenza e attenzione e siete a vostro agio lavorando con attenzione e coerenza attraverso volumi più grandi di dati e attività ricorrenti.\n\n• Dopo l'imbarco iniziale, è possibile gestire compiti chiaramente definiti in modo indipendente e affidabile e sapere quando richiedere chiarimenti.\n\n• Hai buone competenze linguistiche in tedesco e inglese.\n\n• L'esperienza con un LMS, SAP SuccessFactors o sistemi simili è un vantaggio, ma non un requisito.\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medinzischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extrimitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zuwergergen und den besten Service zu bieten.\n\nWir bieten Ihnen eine wirtwortungsvole und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit forSCHritžichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollstädige Online Bewerbung. Medartis\n\nRisorse umane\n\nT +41 61 633 34 34\n\nwww.medartis.com",
-        "en": "For our Global Learning & Development team in Basel, we are looking for temporary support for approximately three months, starting immediately. You will help us review, update, and clean up quality-related training courses and curricula in our Learning Management System (LMS).\n\nYou will work with training and system data, identify inconsistencies, and ensure that information and settings are accurate and up to date. After a structured onboarding, you will handle clearly defined tasks largely independently.\n\nThis assignment is ideal for someone who enjoys working with data and digital systems, has a strong eye for detail, and brings the persistence to work carefully through a large volume of tasks.\n\nLearning Management Support\n\nYour area of responsibility\n\n• You systematically work through a defined set of training courses and curricula in our Learning Management System (LMS) and bring them up to date.\n\n• You coordinate with the relevant stakeholders when information is missing or unclear and obtain the information needed to continue the work.\n\n• You compare existing training data and settings against defined requirements and identify missing, incorrect, or inconsistent information.\n\n• You clean up and update data and system settings directly in the LMS, ensuring a consistent and reliable data base.\n\n• You verify that training courses and curricula are correctly structured and linked and correct deviations within the defined guidelines.\n\n• You independently investigate identified issues, determine their cause, and resolve them where they fall within the defined scope; cases requiring subject-matter clarification are aligned with the Learning team.\n\n• You maintain a transparent record of progress and perform final quality checks to ensure that the agreed scope is completed fully and accurately.\n\nYour qualifications\n\n• You have a good technical understanding and a strong affinity for data and digital systems, and you quickly find your way around new applications.\n\n• You work in a structured and highly accurate manner and are good at identifying missing, incorrect, or inconsistent information.\n\n• You can understand interdependencies, independently investigate inconsistencies, and find pragmatic solutions within clear guidelines.\n\n• You bring persistence and focus and are comfortable working carefully and consistently through larger volumes of data and recurring tasks.\n\n• After initial onboarding, you are able to handle clearly defined tasks independently and reliably and know when to ask for clarification.\n\n• You have good German and English language skills.\n\n• Experience with an LMS, SAP SuccessFactors, or similar systems is an advantage, but not a requirement.\n\nAbout Medartis\n\nMedartis is one of the leading manufacturers of medical products for osteosynthesis in the area of the facial skull and extremities. Medartis is committed to providing surgeons and operating room staff with the most innovative titanium implants and instruments and providing the best service for the benefit of patients.\n\nWe offer you a responsible and varied job with high quality requirements in a growing, international company with progressive social benefits.\n\nWe look forward to receiving your complete online application.\nMedartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
-        "de": "For our Global Learning & Development team in Basel, we are looking for temporary support for approximately three months, starting immediately. You will help us review, update, and clean up quality-related training courses and curricula in our Learning Management System (LMS).\n\nYou will work with training and system data, identify inconsistencies, and ensure that information and settings are accurate and up to date. After a structured onboarding, you will handle clearly defined tasks largely independently.\n\nThis assignment is ideal for someone who enjoys working with data and digital systems, has a strong eye for detail, and brings the persistence to work carefully through a large volume of tasks.\n\nLearning Management Support\n\nIhr Aufgabengebiet\n\n• You systematically work through a defined set of training courses and curricula in our Learning Management System (LMS) and bring them up to date.\n\n• You coordinate with the relevant stakeholders when information is missing or unclear and obtain the information needed to continue the work.\n\n• You compare existing training data and settings against defined requirements and identify missing, incorrect, or inconsistent information.\n\n• You clean up and update data and system settings directly in the LMS, ensuring a consistent and reliable data basis.\n\n• You verify that training courses and curricula are correctly structured and linked and correct deviations within the defined guidelines.\n\n• You independently investigate identified issues, determine their cause, and resolve them where they fall within the defined scope; cases requiring subject-matter clarification are aligned with the Learning team.\n\n• You maintain a transparent record of progress and perform final quality checks to ensure that the agreed scope is completed fully and accurately.\n\nIhre Qualifikationen\n\n• You have a good technical understanding and a strong affinity for data and digital systems, and you quickly find your way around new applications.\n\n• You work in a structured and highly accurate manner and are good at identifying missing, incorrect, or inconsistent information.\n\n• You can understand interdependencies, independently investigate inconsistencies, and find pragmatic solutions within clear guidelines.\n\n• You bring persistence and focus and are comfortable working carefully and consistently through larger volumes of data and recurring tasks.\n\n• After initial onboarding, you are able to handle clearly defined tasks independently and reliably and know when to ask for clarification.\n\n• You have good German and English language skills.\n\n• Experience with an LMS, SAP SuccessFactors, or similar systems is an advantage, but not a requirement.\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\nMedartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
-        "fr": "Pour notre équipe d'apprentissage et de développement mondial à Bâle, nous recherchons un soutien temporaire pendant environ trois mois, à partir de maintenant. Vous nous aiderez à revoir, mettre à jour et nettoyer les cours et les programmes de formation liés à la qualité dans notre système de gestion de l'apprentissage (SGE).\n\nVous travaillerez avec la formation et les données du système, identifierez les incohérences et assurez-vous que les informations et les paramètres sont exacts et à jour. Après un embarquement structuré, vous gérerez des tâches clairement définies en grande partie indépendamment.\n\nCette mission est idéale pour quelqu'un qui aime travailler avec les données et les systèmes numériques, a un œil fort pour les détails, et amène la persévérance à travailler soigneusement à travers un grand volume de tâches.\n\nAppui à la gestion de l'apprentissage\n\nIhr Aufgabengebiet\n\n• Vous travaillez systématiquement à travers un ensemble défini de cours et de programmes de formation dans notre système de gestion de l'apprentissage (SGE) et les mettre à jour.\n\n• Vous coordonnez avec les parties prenantes concernées lorsque l'information est manquante ou non claire et vous obtenez les informations nécessaires pour poursuivre les travaux.\n\n• Vous comparez les données et les paramètres de formation existants avec des exigences définies et identifiez les informations manquantes, incorrectes ou incohérentes.\n\n• Vous nettoyez et mettez à jour les données et les paramètres du système directement dans le LMS, en assurant une base de données cohérente et fiable.\n\n• Vous vérifiez que les cours et les programmes de formation sont bien structurés et liés et que les écarts sont corrects dans les lignes directrices définies.\n\n• Vous enquêtez de façon indépendante sur les problèmes identifiés, déterminez leur cause et réglez-les là où ils entrent dans le champ d'application défini; les cas nécessitant des éclaircissements sur les sujets sont alignés sur l'équipe d'apprentissage.\n\n• Vous conservez un registre transparent des progrès réalisés et effectuez des contrôles de qualité finaux pour vous assurer que la portée convenue est complète et exacte.\n\nIhre Qualifikationen\n\n• Vous avez une bonne compréhension technique et une forte affinité pour les données et les systèmes numériques, et vous trouvez rapidement votre chemin autour de nouvelles applications.\n\n• Vous travaillez de manière structurée et très précise et vous êtes en mesure d'identifier les informations manquantes, incorrectes ou incohérentes.\n\n• Vous pouvez comprendre les interdépendances, étudier indépendamment les incohérences et trouver des solutions pragmatiques dans des lignes directrices claires.\n\n• Vous apportez la persévérance et la concentration et vous êtes à l'aise de travailler avec soin et systématiquement à travers des volumes plus importants de données et des tâches récurrentes.\n\n• Après l'embarquement initial, vous pouvez gérer des tâches clairement définies de façon indépendante et fiable et savoir quand demander des éclaircissements.\n\n• Vous avez de bonnes compétences en allemand et en anglais.\n\n• L'expérience avec un LMS, SAP SuccessFactors ou des systèmes similaires est un avantage, mais pas une exigence.\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit for Schrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung. Medartis\n\nRessources humaines\n\nT +41 61 633 34 34\n\nLes informations sur les activités de l'Agence sont disponibles sur le site www.medartis.com."
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://careers.medartis.com/job/Learning-Management-Support/1437659533/",
-      "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:08:45.660Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4057",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Dispositivi medici",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-16",
-      "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1437659533/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "learning-management-support-medartis-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "learning-management-support-medartis-basel"
-        ],
-        "fr": [
-          "learning-management-support-medartis-basel"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3370,
-      "retranslationAttempts": 7,
-      "firstSeenAt": "2026-09-17T07:35:13.821Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -845,7 +846,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-%28Angular-Java%29/1440347033/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:08:43.560Z",
+      "crawledAt": "2026-09-28T21:27:02.621Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",

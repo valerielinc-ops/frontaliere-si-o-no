@@ -1,7 +1,7 @@
 {
   "key": "brefispersonal",
   "label": "brefis personal ag",
-  "generatedAt": "2026-09-28T05:18:45.466Z",
+  "generatedAt": "2026-09-28T21:43:30.939Z",
   "total": 10,
   "discovered": null,
   "parsed": 15,
@@ -12,10 +12,10 @@
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19832,
-  "avgDurationMs": 19832,
+  "durationMs": 20603,
+  "avgDurationMs": 20603,
   "durationHistory": [
-    19832
+    20603
   ],
   "newJobs": [
     {
@@ -30,7 +30,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46980",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.721Z",
+      "crawledAt": "2026-09-28T21:43:23.384Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46979",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.723Z",
+      "crawledAt": "2026-09-28T21:43:23.386Z",
       "addressLocality": "ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46978",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.726Z",
+      "crawledAt": "2026-09-28T21:43:23.389Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -135,7 +135,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46975",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.730Z",
+      "crawledAt": "2026-09-28T21:43:23.392Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46972",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.734Z",
+      "crawledAt": "2026-09-28T21:43:23.395Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46977",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.728Z",
+      "crawledAt": "2026-09-28T21:43:23.390Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -222,13 +222,13 @@
       "featured": false,
       "postedDate": "2026-07-12",
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46977",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T05:22:20.043Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -244,7 +244,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46976",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.729Z",
+      "crawledAt": "2026-09-28T21:43:23.391Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -261,11 +261,11 @@
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46976",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.044Z",
-      "_qualityScore": 76,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 20,
         "completeness": 17
       }
     },
@@ -281,7 +281,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46974",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.732Z",
+      "crawledAt": "2026-09-28T21:43:23.392Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -298,11 +298,11 @@
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46974",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.049Z",
-      "_qualityScore": 76,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -318,7 +318,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46973",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.733Z",
+      "crawledAt": "2026-09-28T21:43:23.394Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -333,13 +333,12 @@
       "featured": false,
       "postedDate": "2026-07-12",
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46973",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.051Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -355,7 +354,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46971",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.735Z",
+      "crawledAt": "2026-09-28T21:43:23.395Z",
       "addressLocality": "ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -372,11 +371,11 @@
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46971",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.056Z",
-      "_qualityScore": 78,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 18,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -392,7 +391,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46969",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.737Z",
+      "crawledAt": "2026-09-28T21:43:23.396Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -409,11 +408,11 @@
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46969",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T05:22:20.058Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -429,7 +428,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46968",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.738Z",
+      "crawledAt": "2026-09-28T21:43:23.397Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -446,11 +445,11 @@
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46968",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.059Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -466,7 +465,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46967",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.739Z",
+      "crawledAt": "2026-09-28T21:43:23.398Z",
       "addressLocality": "ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -483,11 +482,11 @@
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46967",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.060Z",
-      "_qualityScore": 76,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 20,
         "completeness": 17
       }
     },
@@ -503,7 +502,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46966",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.743Z",
+      "crawledAt": "2026-09-28T21:43:23.401Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -520,11 +519,11 @@
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46966",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.063Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -540,7 +539,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46965",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:18:38.744Z",
+      "crawledAt": "2026-09-28T21:43:23.401Z",
       "addressLocality": "ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -555,13 +554,12 @@
       "featured": false,
       "postedDate": "2026-07-05",
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46965",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:22:20.064Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
       }
     }

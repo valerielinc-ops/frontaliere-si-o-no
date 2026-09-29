@@ -105,6 +105,218 @@ const TARGETS = [
   { dir: ['images', 'events'], url: '/images/events/' },
 ];
 
+function isHtmlWhitespace(char) {
+  return char === ' ' || char === '\t' || char === '\n' || char === '\r' || char === '\f';
+}
+
+function isTagNameChar(char) {
+  if (!char) return false;
+  const code = char.charCodeAt(0);
+  return (
+    (code >= 65 && code <= 90) ||
+    (code >= 97 && code <= 122) ||
+    (code >= 48 && code <= 57) ||
+    char === ':' || char === '-' || char === '_'
+  );
+}
+
+function asciiNameEquals(text, start, end, expected) {
+  if (end - start !== expected.length) return false;
+  for (let i = 0; i < expected.length; i++) {
+    let actual = text.charCodeAt(start + i);
+    const wanted = expected.charCodeAt(i);
+    if (actual >= 65 && actual <= 90) actual += 32;
+    if (actual !== wanted) return false;
+  }
+  return true;
+}
+
+function findTagEnd(html, start) {
+  let quote = '';
+  for (let i = start + 1; i < html.length; i++) {
+    const char = html[i];
+    if (quote) {
+      if (char === quote) quote = '';
+    } else if (char === '"' || char === "'") {
+      quote = char;
+    } else if (char === '>') {
+      return i;
+    }
+  }
+  return -1;
+}
+
+function readTag(html, start) {
+  if (html[start] !== '<') return null;
+  let i = start + 1;
+  const closing = html[i] === '/';
+  if (closing) i++;
+  const nameStart = i;
+  while (i < html.length && isTagNameChar(html[i])) i++;
+  if (i === nameStart) return null;
+  const nameEnd = i;
+  const boundary = html[i] ?? '';
+  if (boundary && !isHtmlWhitespace(boundary) && boundary !== '/' && boundary !== '>') return null;
+  const end = findTagEnd(html, start);
+  if (end < 0) return null;
+  let beforeEnd = end - 1;
+  while (beforeEnd >= nameEnd && isHtmlWhitespace(html[beforeEnd])) beforeEnd--;
+  return {
+    closing,
+    end,
+    nameEnd,
+    nameStart,
+    selfClosing: !closing && html[beforeEnd] === '/',
+  };
+}
+
+function hasCharsetAttribute(html, tag) {
+  let i = tag.nameEnd;
+  while (i < tag.end) {
+    while (i < tag.end && (isHtmlWhitespace(html[i]) || html[i] === '/')) i++;
+    if (i >= tag.end) break;
+
+    const nameStart = i;
+    while (
+      i < tag.end &&
+      !isHtmlWhitespace(html[i]) &&
+      html[i] !== '=' &&
+      html[i] !== '/' &&
+      html[i] !== '>'
+    ) i++;
+    const nameEnd = i;
+    while (i < tag.end && isHtmlWhitespace(html[i])) i++;
+    if (html[i] !== '=') continue;
+    i++;
+    while (i < tag.end && isHtmlWhitespace(html[i])) i++;
+
+    const valueQuote = html[i];
+    let valueStart = i;
+    let valueEnd = i;
+    if (valueQuote === '"' || valueQuote === "'") {
+      valueStart = ++i;
+      while (i < tag.end && html[i] !== valueQuote) i++;
+      valueEnd = i;
+      if (i < tag.end) i++;
+    } else {
+      while (i < tag.end && !isHtmlWhitespace(html[i])) i++;
+      valueEnd = i;
+    }
+    if (asciiNameEquals(html, nameStart, nameEnd, 'charset') && valueEnd > valueStart) return true;
+  }
+  return false;
+}
+
+function skipComment(html, start) {
+  const end = html.indexOf('-->', start + 4);
+  return end < 0 ? -1 : end + 3;
+}
+
+function isTagNamed(html, tag, expected) {
+  return tag && asciiNameEquals(html, tag.nameStart, tag.nameEnd, expected);
+}
+
+function skipRawTextElement(html, afterOpening, name) {
+  let searchFrom = afterOpening;
+  while (searchFrom < html.length) {
+    const start = html.indexOf('<', searchFrom);
+    if (start < 0) return -1;
+    const tag = readTag(html, start);
+    if (tag && tag.closing && isTagNamed(html, tag, name)) return tag.end + 1;
+    searchFrom = start + 1;
+  }
+  return -1;
+}
+
+function skipTemplateElement(html, afterOpening) {
+  let depth = 1;
+  let searchFrom = afterOpening;
+  while (searchFrom < html.length) {
+    const start = html.indexOf('<', searchFrom);
+    if (start < 0) return -1;
+    if (html.startsWith('<!--', start)) {
+      const afterComment = skipComment(html, start);
+      if (afterComment < 0) return -1;
+      searchFrom = afterComment;
+      continue;
+    }
+    const tag = readTag(html, start);
+    if (!tag) {
+      searchFrom = start + 1;
+      continue;
+    }
+    if (isTagNamed(html, tag, 'template')) {
+      if (tag.closing) {
+        depth--;
+        if (depth === 0) return tag.end + 1;
+      } else if (!tag.selfClosing) {
+        depth++;
+      }
+    } else if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'script')) {
+      const afterRawText = skipRawTextElement(html, tag.end + 1, 'script');
+      if (afterRawText < 0) return -1;
+      searchFrom = afterRawText;
+      continue;
+    } else if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'style')) {
+      const afterRawText = skipRawTextElement(html, tag.end + 1, 'style');
+      if (afterRawText < 0) return -1;
+      searchFrom = afterRawText;
+      continue;
+    }
+    searchFrom = tag.end + 1;
+  }
+  return -1;
+}
+
+/**
+ * Return the offset immediately after the first complete, real `<meta>` start
+ * tag in `headContent` that declares `charset`. The scanner preserves source
+ * offsets, skips comments/templates/raw-text nodes, accepts any attribute
+ * order, and respects `>` inside quoted attribute values.
+ */
+function findCharsetMetaEnd(headContent) {
+  let searchFrom = 0;
+  while (searchFrom < headContent.length) {
+    const start = headContent.indexOf('<', searchFrom);
+    if (start < 0) return -1;
+    if (headContent.startsWith('<!--', start)) {
+      const afterComment = skipComment(headContent, start);
+      if (afterComment < 0) return -1;
+      searchFrom = afterComment;
+      continue;
+    }
+    const tag = readTag(headContent, start);
+    if (!tag) {
+      searchFrom = start + 1;
+      continue;
+    }
+    if (!tag.closing && isTagNamed(headContent, tag, 'meta') && hasCharsetAttribute(headContent, tag)) {
+      return tag.end + 1;
+    }
+    if (!tag.closing && !tag.selfClosing && isTagNamed(headContent, tag, 'template')) {
+      const afterTemplate = skipTemplateElement(headContent, tag.end + 1);
+      if (afterTemplate < 0) return -1;
+      searchFrom = afterTemplate;
+      continue;
+    }
+    if (!tag.closing && !tag.selfClosing) {
+      let skippedRawText = false;
+      for (const rawName of ['script', 'style', 'textarea', 'title']) {
+        if (isTagNamed(headContent, tag, rawName)) {
+          const afterRawText = skipRawTextElement(headContent, tag.end + 1, rawName);
+          if (afterRawText < 0) return -1;
+          searchFrom = afterRawText;
+          skippedRawText = true;
+          break;
+        }
+      }
+      if (skippedRawText) continue;
+    }
+    searchFrom = tag.end + 1;
+  }
+  return -1;
+}
+
 function log(msg) {
   console.log(`[offload-generated-cdn] ${msg}`);
 }
@@ -176,8 +388,9 @@ const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
 //      imports, CSS url()). dist/assets is deleted later by the deploy verify step.
 //   3. Data base inject: insert a `<link rel="preconnect">` (+ dns-prefetch) to the
 //      CDN host followed by `<script>window.__CDN_DATA_BASE__="<CDN>"</script>`
-//      after <head>, so the cross-origin connection is warm before cdnDataUrl()/
-//      cdnImageUrl() issue the first runtime /data/ or image fetch to the CDN.
+//      immediately after the charset declaration, so the cross-origin connection
+//      is warm before cdnDataUrl()/cdnImageUrl() issue the first runtime /data/
+//      or image fetch to the CDN while charset remains first in the head.
 //   4. Collect every literal same-origin /data/ ref (sitemap/href) so those files
 //      stay same-origin (kept), while cdn-only data files are deleted.
 // Then the guarded deletes (og dirs if no leak; cdn-only dist/data files).
@@ -388,7 +601,19 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
       } else {
         const m = out.match(/<head[^>]*>/i);
         if (m) {
-          const at = m.index + m[0].length;
+          const headEnd = m.index + m[0].length;
+          const headRemainder = out.slice(headEnd);
+          const headCloseAt = headRemainder.search(/<\/head\s*>/i);
+          const headContent = headCloseAt >= 0
+            ? headRemainder.slice(0, headCloseAt)
+            : headRemainder;
+          const charsetEnd = findCharsetMetaEnd(headContent);
+          // HTML requires the encoding declaration near the start of <head>.
+          // Keep the deploy-time hints after it; fall back to the old insertion
+          // point for unusual documents that do not declare a charset.
+          const at = charsetEnd >= 0
+            ? headEnd + charsetEnd
+            : headEnd;
           // The hint comment above assumes the data CDN is a DISTINCT host
           // from the asset CDN; when config points both at the same origin the
           // build already ships this exact preconnect (asyncCssPlugin /

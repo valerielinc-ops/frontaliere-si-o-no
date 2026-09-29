@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nord-anglia",
-  "assembledAt": "2026-09-28T05:02:00.058Z",
+  "assembledAt": "2026-09-28T21:23:12.782Z",
   "jobs": [
     {
       "id": "nord-anglia-9e800df5a8b0",
@@ -33,7 +33,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Teachers-Primary/1145234101/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:55.752Z",
+      "crawledAt": "2026-09-28T21:23:09.398Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -112,7 +112,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Enseignants-es-Primaire/1145233801/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:55.014Z",
+      "crawledAt": "2026-09-28T21:23:08.682Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -143,8 +143,8 @@
           "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:53:24.102Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -190,7 +190,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-IB-Teachers/1142314801/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:54.314Z",
+      "crawledAt": "2026-09-28T21:23:07.971Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -269,7 +269,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Boarding-Assistant-2026_2027/1436026633/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:53.598Z",
+      "crawledAt": "2026-09-28T21:23:07.267Z",
       "addressLocality": "Villars sur Ollon",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -296,8 +296,90 @@
           "boarding-assistant-2026-2027-nord-anglia-villars-sur-ollon"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:53:22.737Z",
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 94500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 94500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "nord-anglia-61576d008086",
+      "slug": "sorvegliante-nord-anglia-education-switzerland-pully",
+      "slugByLocale": {
+        "it": "sorvegliante-nord-anglia-education-switzerland-pully",
+        "en": "surveillant-e-nord-anglia-pully",
+        "de": "uberwachungs-e-nord-anglia-education-switzerland-pully",
+        "fr": "surveillante-nord-anglia-education-switzerland-pully"
+      },
+      "company": "Nord Anglia Education Switzerland",
+      "companyKey": "nord-anglia",
+      "companyDomain": "nordangliaeducation.com",
+      "title": "Surveillant-e",
+      "titleByLocale": {
+        "it": "Surveillant-e",
+        "en": "Surveillant-e",
+        "de": "Überwachungs-e",
+        "fr": "Surveillante"
+      },
+      "description": "QUI SOMMES-NOUS? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant un-e surveillant-e disponible pour assurer l’encadrement et la sécurité des élèves selon l’horaire suivant : Horaires :\n• Lundi : 12h00 à 14h00\n• Mardi : 12h00 à 14h00\n• Jeudi : 12h00 à 14h00\n• Vendredi : 12h00 à 14h00\n• Vendredi : 15h30 à 18h00 RESPONSABILITÉS PRINCIPALES\n• Encadrer les élèves durant les périodes d’accueil et de récréation dans un cadre de sécurité optimale\n• Organiser et surveiller le déroulement des repas au réfectoire\n• Conduire les élèves aux ateliers artistiques et sportifs PROFIL ET COMPETENCES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relationnelle Si vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
+      "descriptionByLocale": {
+        "it": "C'e' qualcosa che non va? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une eccellente formazione à des générations d'étudiants suisses et étrangers. Son esprit s'articule autour des performance académiques, du multilinguisme et de valeurs telles que le rispetto et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. D'altra parte, l'invironment dinamique, à la fois local et international, nous recherchons dès maintenant un-e surveillant-e disponible pour assicurator l'encadrement et la sécurité des élèves selon l'horaire suivant: Horaires :\n• Lundi: 12h00 à 14h00\n• Mardi: 12h00 à 14h00\n• Jeudi: 12h00 à 14h00\n• Vendredi: 12h00 à 14h00\n• Vendredi: 15h30 à 18h00 RESPONSABILITÉS PRINCIPALI\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l’organisation et des responsabilités\n• Rapporti di assistenza PROFIL ET COMPETENZE\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relazionanelle Si vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
+        "en": "QUI SOMMES-NOUS? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant un-e surveillant-e disponible pour assurer l’encadrement et la sécurité des élèves selon l’horaire suivant : Horaires :\n• Lundi : 12h00 à 14h00\n• Mardi : 12h00 à 14h00\n• Jeudi : 12h00 à 14h00\n• Vendredi : 12h00 à 14h00\n• Vendredi : 15h30 à 18h00 RESPONSABILITÉS PRINCIPALES\n• Encadrer les élèves durant les périodes d’accueil et de récréation dans un cadre de sécurité optimale\n• Organiser et surveiller le déroulement des repas au réfectoire\n• Conduire les élèves aux ateliers artistiques et sportifs PROFIL ET COMPETENCES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relationnelle Si vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
+        "de": "QUI SOMMES-NOUS? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 zahlt. Dans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant un-e surveillant-e disponible pour surer l'encadrement et la sécurité des élèves selon l'horaire suivant : Horaires :\n• Lundi : 12h00 à 14h00\n• Mardi : 12h00 à 14h00\n• Jeudi : 12h00 à 14h00\n• Vendredi : 12h00 à 14h00\n• Vendredi : 15h30 à 18h00 RESPONSABILITÉS GRUNDSÄTZE\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Geduld und Persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relationnelle PROFIL ET COMPETENCES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Geduld und Persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relationnelle Si vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
+        "fr": "QUI SOMMES-NOUS? Le Collège Champittet, école de référence dans la région législative depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du plurilinguisme et de valeurs dites que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant un-e surveillant-e disponible pour assurer l'encadrement et la sécurité des élèves suivant l'horaire :\n• Lundi : 12h00 à 14h00\n• Mardi : 12h00 à 14h00\n• Jeudi : 12h00 à 14h00\n• Vendredi : 12h00 à 14h00\n• Vendredi : 15h30 à 18h00 RESPONSABILITÉS PRINCIPALES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l'organisation et des responsabilités\n• Analyse relationnelle PROFIL ET COMPÉTENCES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l'organisation et des responsabilités\n• Année relationnelle Si vous êtes passionné-e par le domaine de l'éducation et sihaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet."
+      },
+      "location": "Pully",
+      "canton": "VD",
+      "url": "https://careers.nordanglia.com/job/Pully-Surveillant-e/1437550533/",
+      "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-28T21:23:06.380Z",
+      "addressLocality": "Pully",
+      "addressRegion": "VD",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Istruzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Istruzione / Scuole internazionali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-16",
+      "applyUrl": "https://careers.nordanglia.com/talentcommunity/apply/1437550533/?locale=en_GB",
+      "jobReqId": "1437550533",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "surveillant-e-nord-anglia-pully",
+        "surveillant-e-nord-anglia-education-switzerland-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "surveillant-e-nord-anglia-pully",
+          "surveillant-e-nord-anglia-education-switzerland-lausanne"
+        ],
+        "de": [
+          "surveillant-e-nord-anglia-pully"
+        ],
+        "fr": [
+          "surveillant-e-nord-anglia-pully"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:53:15.412Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -328,7 +410,7 @@
       "titleByLocale": {
         "it": "Insegnante primario (sostituzione maternità)",
         "en": "Primary Teacher (maternity replacement)",
-        "de": "Grundlehrerin (Mutterschaftsersatz)",
+        "de": "Primary Teacher (maternity replacement)",
         "fr": "Enseignant principal (remplacement de la maternité)"
       },
       "description": "Primary Teacher (Maternity replacement) 100% – January 2027 to May 2027 Responsibilities:\n• Deliver a high standard of learning, development and care for children, ensuring that the individual needs and interests of each are met.\n• Ensure effective delivery of the curriculum to specified classes, including selecting resources and managing them efficiently in the classroom.\n• Build and maintain a strong partnership with parents to enable children’s needs to be met.\n• Provide a safe, secure and stimulating environment enabling children to reach their potential.\n• Contribute to a programme of trips, excursions, fieldtrips and extracurricular activities.\n• Enhance the professional standing of the teaching body. Qualifications & Skills:\n• Bachelor in Education, PGCE or equivalent.\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an international environment.\n• Be an organised, proactive and excellent communicator and team player.\n• Have the ability to manage a diverse and demanding workload.\n• Be able to inspire mixed culture and ability classes, by creating challenging and engaging learning opportunities for all students.\n• A collaborative, innovative, and student-centered approach to education.\n• Valid work permit\n• Clear criminal records.",
@@ -343,7 +425,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Primary-Teacher-%28maternity-replacement%29/1432262533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:52.675Z",
+      "crawledAt": "2026-09-28T21:23:05.678Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -380,6 +462,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:21.946Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -425,7 +508,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Boarding-House-Tutor/1432993533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:51.930Z",
+      "crawledAt": "2026-09-28T21:23:04.967Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -498,7 +581,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Chauffeur-de-bus-scolaire/1088889301/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:51.023Z",
+      "crawledAt": "2026-09-28T21:23:03.873Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -559,7 +642,7 @@
       "titleByLocale": {
         "it": "Insegnante PE (sostituzione maternità)",
         "en": "PE teacher (Maternity replacement)",
-        "de": "Lehrerin (Mutterschaftsersatz)",
+        "de": "PE teacher (Maternity replacement)",
         "fr": "Professeur PE (remplacement de la maternité)"
       },
       "description": "Founded in 2008, La Côte International School is a co-educational, English-language-based day school for students aged 3 to 18. Situated in Aubonne, Switzerland—within easy reach of Geneva and Lausanne—our school is home to nearly 450 students representing a variety of cultures and backgrounds. At LCIS, we offer a unique blend of international education and strong local community ties with English, French, and bilingual pathways, leading to the globally recognized International Baccalaureate Diploma Programme (IBDP). Through exclusive collaborations with Juilliard, MIT, and UNICEF, we deliver enriching opportunities that inspire students to thrive academically, creatively, and personally. It is in this dynamic environment that we invite you to join our team as: Teacher of Physical Education (maternity replacement) 100% – from December 2026 to October 2027 Responsibilities:\n• Deliver the teaching and learning of physical education throughout the whole school effectively\n• Contribute to a programme of trips, excursions, fieldtrips and extracurricular activities\n• Coordinate the school ski programme of ski days, residentials, ski club and ski team\n• Lead and participate in primary and secondary winter and summer residential trips\n• Lead and participate in the sports department residential trips\n• Accompany the teams to sport tournaments\n• Promote the health and safety of assigned classes\n• Participate in professional development and contribute to regular staff training/meetings\n• Enhance the professional standing of the teaching body\n• Contribute to the development of a positive attitude between the physical education department and the wider community through cooperative relations, publications, competitions etc.\n• Complete the role of a secondary school home room teacher each day Qualifications and skills:\n• Bachelor or Masters degree in physical education with QTS status or equivalent\n• Must be a competent skier who can navigate intermediate to difficult terrain, including race pistes. Experience of racing and a ski qualification would be an advantage\n• Proven track record of excellence in teaching with at least three years’ experience, ideally in an international environment\n• Knowledge and proven experience in teaching physical education in early years and primary\n• Experience in managing trips and/or ski programmes is an advantage.\n• Fluency in English, ability to speak French would be desirable\n• Excellent communication skills and team player\n• Have the ability to manage a diverse and demanding workload\n• Strong organisation skills and use of technology for administration and teaching\n• First aid qualification or willingness to achieve this\n• Clear criminal extracts\n• Valid work permit If you share our passion for education and would like to join our team, please apply directly online through our website.",
@@ -574,7 +657,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-PE-teacher-%28Maternity-replacement%29/1428165033/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:50.102Z",
+      "crawledAt": "2026-09-28T21:23:03.033Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -611,6 +694,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:14.738Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -656,7 +740,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-HR-Manager-%28Maternity-remplacement%29/1428209833/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:49.287Z",
+      "crawledAt": "2026-09-28T21:23:02.115Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -735,7 +819,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Assistant-e-socio-%C3%A9ducatif-ve-%28ASE%29/1429682533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:48.330Z",
+      "crawledAt": "2026-09-28T21:23:01.320Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -769,8 +853,8 @@
           "assistant-e-socio-educatif-ve-ase-nord-anglia-education-switzerland-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:53:16.952Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -816,7 +900,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Study-Coaches/1414160233/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:47.410Z",
+      "crawledAt": "2026-09-28T21:23:00.381Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -895,7 +979,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-House-Parent-Part-time-Male/1391720033/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:46.689Z",
+      "crawledAt": "2026-09-28T21:22:59.581Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -926,8 +1010,8 @@
           "house-parent-part-time-male-nord-anglia-education-switzerland-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:53:17.734Z",
+      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -937,88 +1021,6 @@
         "value": {
           "@type": "QuantitativeValue",
           "minValue": 51100,
-          "maxValue": 94500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "nord-anglia-61576d008086",
-      "slug": "sorvegliante-nord-anglia-education-switzerland-pully",
-      "slugByLocale": {
-        "it": "sorvegliante-nord-anglia-education-switzerland-pully",
-        "en": "surveillant-e-nord-anglia-pully",
-        "de": "uberwachungs-e-nord-anglia-education-switzerland-pully",
-        "fr": "surveillante-nord-anglia-education-switzerland-pully"
-      },
-      "company": "Nord Anglia Education Switzerland",
-      "companyKey": "nord-anglia",
-      "companyDomain": "nordangliaeducation.com",
-      "title": "Surveillant-e",
-      "titleByLocale": {
-        "it": "Surveillant-e",
-        "en": "Surveillant-e",
-        "de": "Überwachungs-e",
-        "fr": "Surveillante"
-      },
-      "description": "QUI SOMMES-NOUS? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant un-e surveillant-e disponible pour assurer l’encadrement et la sécurité des élèves selon l’horaire suivant : Horaires :\n• Lundi : 12h00 à 14h00\n• Mardi : 12h00 à 14h00\n• Jeudi : 12h00 à 14h00\n• Vendredi : 12h00 à 14h00\n• Vendredi : 15h30 à 18h00 RESPONSABILITÉS PRINCIPALES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relationnelle PROFIL ET COMPETENCES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relationnelle Si vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
-      "descriptionByLocale": {
-        "it": "C'e' qualcosa che non va? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une eccellente formazione à des générations d'étudiants suisses et étrangers. Son esprit s'articule autour des performance académiques, du multilinguisme et de valeurs telles que le rispetto et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. D'altra parte, l'invironment dinamique, à la fois local et international, nous recherchons dès maintenant un-e surveillant-e disponible pour assicurator l'encadrement et la sécurité des élèves selon l'horaire suivant: Horaires :\n• Lundi: 12h00 à 14h00\n• Mardi: 12h00 à 14h00\n• Jeudi: 12h00 à 14h00\n• Vendredi: 12h00 à 14h00\n• Vendredi: 15h30 à 18h00 RESPONSABILITÉS PRINCIPALI\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l’organisation et des responsabilités\n• Rapporti di assistenza PROFIL ET COMPETENZE\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relazionanelle Si vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
-        "en": "QUI SOMMES-NOUS? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant un-e surveillant-e disponible pour assurer l’encadrement et la sécurité des élèves selon l’horaire suivant : Horaires :\n• Lundi : 12h00 à 14h00\n• Mardi : 12h00 à 14h00\n• Jeudi : 12h00 à 14h00\n• Vendredi : 12h00 à 14h00\n• Vendredi : 15h30 à 18h00 RESPONSABILITÉS PRINCIPALES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relationnelle PROFIL ET COMPETENCES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relationnelle Si vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
-        "de": "QUI SOMMES-NOUS? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 zahlt. Dans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant un-e surveillant-e disponible pour surer l'encadrement et la sécurité des élèves selon l'horaire suivant : Horaires :\n• Lundi : 12h00 à 14h00\n• Mardi : 12h00 à 14h00\n• Jeudi : 12h00 à 14h00\n• Vendredi : 12h00 à 14h00\n• Vendredi : 15h30 à 18h00 RESPONSABILITÉS GRUNDSÄTZE\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Geduld und Persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relationnelle PROFIL ET COMPETENCES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Geduld und Persévérance\n• Sens de l’organisation et des responsabilités\n• Aisance relationnelle Si vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
-        "fr": "QUI SOMMES-NOUS? Le Collège Champittet, école de référence dans la région législative depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du plurilinguisme et de valeurs dites que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant un-e surveillant-e disponible pour assurer l'encadrement et la sécurité des élèves suivant l'horaire :\n• Lundi : 12h00 à 14h00\n• Mardi : 12h00 à 14h00\n• Jeudi : 12h00 à 14h00\n• Vendredi : 12h00 à 14h00\n• Vendredi : 15h30 à 18h00 RESPONSABILITÉS PRINCIPALES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l'organisation et des responsabilités\n• Analyse relationnelle PROFIL ET COMPÉTENCES\n• Expérience dans un poste similaire\n• Autorité naturelle\n• Patience et persévérance\n• Sens de l'organisation et des responsabilités\n• Année relationnelle Si vous êtes passionné-e par le domaine de l'éducation et sihaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet."
-      },
-      "location": "Pully",
-      "canton": "VD",
-      "url": "https://careers.nordanglia.com/job/Pully-Surveillant-e/1437550533/",
-      "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:45.683Z",
-      "addressLocality": "Pully",
-      "addressRegion": "VD",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Istruzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Istruzione / Scuole internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-16",
-      "applyUrl": "https://careers.nordanglia.com/talentcommunity/apply/1437550533/?locale=en_GB",
-      "jobReqId": "1437550533",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "surveillant-e-nord-anglia-pully",
-        "surveillant-e-nord-anglia-education-switzerland-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "surveillant-e-nord-anglia-pully",
-          "surveillant-e-nord-anglia-education-switzerland-lausanne"
-        ],
-        "de": [
-          "surveillant-e-nord-anglia-pully"
-        ],
-        "fr": [
-          "surveillant-e-nord-anglia-pully"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T22:53:15.412Z",
-      "salaryMin": 51000,
-      "salaryMax": 94500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
           "maxValue": 94500,
           "unitText": "YEAR"
         }
@@ -1055,7 +1057,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:44.793Z",
+      "crawledAt": "2026-09-28T21:22:58.688Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1134,7 +1136,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:43.699Z",
+      "crawledAt": "2026-09-28T21:22:57.933Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1210,7 +1212,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Nurse-on-call/1441010133/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:01:42.770Z",
+      "crawledAt": "2026-09-28T21:22:57.151Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -1245,8 +1247,8 @@
           "nurse-on-call-nord-anglia-geneva"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T14:22:49.309Z",
+      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",

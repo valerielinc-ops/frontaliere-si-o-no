@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-09-28T05:02:18.821Z",
+  "assembledAt": "2026-09-29T09:23:13.866Z",
   "jobs": [
     {
       "id": "company-7uc0r2",
@@ -23,7 +23,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-09-28T05:02:04.712Z",
+      "crawledAt": "2026-09-29T09:22:59.569Z",
       "firstSeenAt": "2026-09-24T14:28:31.911Z",
       "titleByLocale": {
         "de": "Logistiker:in Lehrstelle 2027",
@@ -90,7 +90,8 @@
       "addressLocality": "Bielstrasse 45 2543 Lengnau (Bern) Schweiz",
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
-      "postalCode": "2543"
+      "postalCode": "2543",
+      "needsRetranslation": true
     }
   ]
 }

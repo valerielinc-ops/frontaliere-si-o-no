@@ -188,6 +188,7 @@ import { installBlogImageCdnFallback } from '@/services/seo/blogImageCdn';
 import { getAutoAdOverlayClearance, subscribeToAutoAdOverlay } from '@/services/autoAdOverlay';
 import { installNavOverlayGuard } from '@/services/navOverlayGuard';
 import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
+import { useAdPageDiag } from '@/hooks/useAdPageDiag';
 import { useJobAlertReturnVisit } from '@/hooks/useJobAlertReturnVisit';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts).
@@ -409,6 +410,9 @@ const App: React.FC = () => {
  const mainNavRef = useRef<HTMLElement>(null);
  useEffect(() => (mainNavRef.current ? installNavOverlayGuard(mainNavRef.current) : undefined), []);
  useSeoPageTracking();
+ // One GA4 `ad_page_diag` per page view (services/adPageDiag.ts); on static
+ // pages the AdSense loader owns the first one and this takes over on navigation.
+ useAdPageDiag();
  // "This person came back to the site" — the single fact a decayed job alert
  // needs to come back to life (#5705, owner's decision of 2026-08-14). Records
  // only; the sender decides, and refuses on seven grounds. One write per browser

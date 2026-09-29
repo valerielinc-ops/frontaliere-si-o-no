@@ -126,6 +126,19 @@ describe('saved-jobs digest — application intent source', () => {
     expect(applicationIntentUid(mismatchedNestedRecord)).toBeNull();
   });
 
+  it('preserves the Firestore snapshot receiver when reading intent data', () => {
+    const snapshot = {
+      id: 'intent-bound',
+      ref: { parent: { id: APPLICATION_INTENT_COLLECTION, parent: null } },
+      payload: { identifier: 'firebase-user-bound', identifierType: 'firebase_uid' },
+      data() {
+        return this.payload;
+      },
+    };
+
+    expect(applicationIntentUid(snapshot)).toBe('firebase-user-bound');
+  });
+
   it('accepts only recent, consented, unresolved intents', () => {
     expect(isApplicationIntentEligible(intentSnapshot().data(), NOW)).toBe(true);
     expect(isApplicationIntentEligible(intentSnapshot({ expiresAt: NOW - 1 }).data(), NOW)).toBe(false);

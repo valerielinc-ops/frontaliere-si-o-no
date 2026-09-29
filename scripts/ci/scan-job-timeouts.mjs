@@ -57,10 +57,17 @@
  * in `report-workflow-failure.mjs`: no reporter ships until the same change says WHO
  * closes its issues, because with title dedup an unclosable issue is a permanent one.
  *
- * No persisted scan cursor by design. The lookback window is sized wider than the
- * cron interval so no run is missed. Overlap is deduped against the durable issue
- * body/comments by run URL: the same physical run is emitted once, while a different
- * run of the same workflow remains a real recurrence on the canonical issue.
+ * No persisted scan cursor by design, but the window is not fixed either: it
+ * reaches back to the start of the previous SUCCESSFUL scan of this workflow
+ * (read from GitHub's own run history) plus a 15-minute overlap, and never below
+ * TIMEOUT_SCAN_LOOKBACK_MINUTES. The hourly cron is a promise GitHub does not
+ * keep: the 20 scans up to 2026-09-28 ran ~5.4 times a day, 157-514 minutes
+ * apart (median 265), so a fixed 75-minute window watched ~27% of the day. The
+ * send-newsletter timeout of run 36407582573 (cancelled 16:06Z) fell in the gap
+ * between the 15:23Z scan and the next one, and no issue was ever opened.
+ * Overlap is deduped against the durable issue body/comments by run URL: the
+ * same physical run is emitted once, while a different run of the same workflow
+ * remains a real recurrence on the canonical issue.
  *
  * DEDUP, and why one layer was not enough. A single run can time out in SEVERAL
  * jobs, and every one of them maps to the same `CI Failure: <workflow>` title. The
@@ -138,7 +145,30 @@ const LOOKBACK_MINUTES = intFromEnv('TIMEOUT_SCAN_LOOKBACK_MINUTES', 75);
 // was killed before printing a single line, so no timeout was reported at all.
 // Default to 3 days (still > the 6h hosted-runner job cap plus queueing), keep the
 // full 35-day horizon available via env for a one-off deep scan.
+const WORKFLOW_RUN_RETENTION_MINUTES = 35 * 24 * 60;
 const MAX_WORKFLOW_RUN_AGE_MIN = intFromEnv('TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES', 3 * 24 * 60);
+
+// Ceiling of the gap-covering window (see the header). Widening the window does
+// not widen the listing, which already spans MAX_WORKFLOW_RUN_AGE_MIN of
+// `created`; it only adds the jobs/annotations reads of the extra cancelled
+// runs. Measured on 36443176349: 36 runs in 75 minutes took ~50 s after a
+// 2m22s listing, so 12 hours stays well inside the job's 23 minutes.
+const MAX_LOOKBACK_MINUTES = intFromEnv('TIMEOUT_SCAN_MAX_LOOKBACK_MINUTES', 12 * 60);
+const LOOKBACK_OVERLAP_MINUTES = 15;
+
+export function assertRunAgeHorizon({
+  maxRunAgeMinutes = MAX_WORKFLOW_RUN_AGE_MIN,
+  retentionMinutes = WORKFLOW_RUN_RETENTION_MINUTES,
+  allowTruncated = process.env.TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON === 'true',
+} = {}) {
+  if (maxRunAgeMinutes < retentionMinutes && !allowTruncated) {
+    throw new Error(
+      'TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES truncates the 35-day run retention; '
+        + 'set TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON=true only for an explicitly '
+        + 'budgeted realtime scan, or raise the horizon for a retention-complete scan.',
+    );
+  }
+}
 
 // Con qualunque filtro (`status` e `created` qui) GitHub restituisce al massimo
 // 1.000 risultati PER SEARCH. Un cap locale piu' alto sarebbe irraggiungibile:
@@ -149,8 +179,8 @@ const RUN_SEARCH_MAX_SPLIT_DEPTH = 20;
 const TIMEOUT_ANNOTATION_RE = /exceeded[^.]*(maximum execution time|maximum number of minutes)/i;
 // A job that has only just failed can be read back mid-finalisation, with a step
 // still momentarily `in_progress` — indistinguishable from a host-kill. Ignore
-// anything that finished less than this ago; the 75m lookback is 15m wider than the
-// hourly cron, so the next scan still sees it. Cheap insurance against a false
+// anything that finished less than this ago; the next scan's window reaches back
+// to this scan's start plus a 15-minute overlap, so it still sees it. Cheap insurance against a false
 // host-kill issue on an ordinary red build.
 const HOST_KILL_SETTLE_MS = intFromEnv('HOST_KILL_SETTLE_MS', 120_000);
 
@@ -325,6 +355,63 @@ function ghJson(path, { allowFailure = true } = {}) {
   } catch {
     return null;
   }
+}
+
+/** The workflow file running this scan, from GITHUB_WORKFLOW_REF. */
+export function monitorWorkflowFile(env = process.env) {
+  const match = /\.github\/workflows\/([^@/]+)@/.exec(String(env.GITHUB_WORKFLOW_REF || ''));
+  return match ? match[1] : 'job-timeout-monitor.yml';
+}
+
+/**
+ * Minutes of `updated_at` this scan must cover so nothing falls between it and
+ * the previous successful scheduled scan. A readable empty history (first
+ * run) keeps the fixed base window; an unreadable history fails the pass so a
+ * gap cannot be silently mistaken for a complete scan.
+ */
+export function scanLookbackMinutes({
+  nowMs,
+  previousScanStartedMs,
+  baseMinutes = LOOKBACK_MINUTES,
+  maxMinutes = MAX_LOOKBACK_MINUTES,
+  overlapMinutes = LOOKBACK_OVERLAP_MINUTES,
+}) {
+  const cappedBaseMinutes = Math.min(baseMinutes, maxMinutes);
+  if (!Number.isFinite(previousScanStartedMs) || previousScanStartedMs > nowMs) {
+    return {
+      minutes: cappedBaseMinutes,
+      neededMinutes: null,
+      truncated: baseMinutes > maxMinutes,
+    };
+  }
+  const neededMinutes = Math.ceil((nowMs - previousScanStartedMs) / 60_000) + overlapMinutes;
+  const minutes = Math.max(cappedBaseMinutes, Math.min(maxMinutes, neededMinutes));
+  return {
+    minutes,
+    neededMinutes,
+    truncated: baseMinutes > maxMinutes || neededMinutes > maxMinutes,
+  };
+}
+
+function previousSuccessfulScanStartedMs() {
+  const workflow = encodeURIComponent(monitorWorkflowFile());
+  const data = ghJson(
+    repoPath(`actions/workflows/${workflow}/runs?status=success&event=schedule&per_page=1`),
+  );
+  if (!data || !Array.isArray(data.workflow_runs)) {
+    throw new Error('impossibile leggere la history delle scansioni schedule riuscite');
+  }
+  if (data.workflow_runs.length === 0) return Number.NaN;
+
+  const run = data.workflow_runs[0];
+  if (run?.event !== 'schedule') {
+    throw new Error('la history filtrata delle scansioni contiene una run non-schedule');
+  }
+  const startedMs = Date.parse(run.run_started_at || run.created_at || '');
+  if (!Number.isFinite(startedMs)) {
+    throw new Error('la scansione schedule precedente non ha un timestamp leggibile');
+  }
+  return startedMs;
 }
 
 function readPaginatedAnnotations(job) {
@@ -555,12 +642,29 @@ function findIssueReportingRun(title, runUrl) {
 
 export async function main() {
   const nowMs = Date.now();
-  const cutoffMs = nowMs - LOOKBACK_MINUTES * 60 * 1000;
+  // Once the base already reaches the ceiling, the previous successful start
+  // cannot widen the window. Avoid paying a third Actions API request for a
+  // value that cannot affect the result.
+  const previousScanStartedMs = LOOKBACK_MINUTES >= MAX_LOOKBACK_MINUTES
+    ? Number.NaN
+    : previousSuccessfulScanStartedMs();
+  const lookback = scanLookbackMinutes({ nowMs, previousScanStartedMs });
+  if (lookback.truncated) {
+    const cause = lookback.neededMinutes === null
+      ? `il lookback base di ${LOOKBACK_MINUTES}m supera il ceiling`
+      : `l'ultima scansione riuscita risale a ${lookback.neededMinutes - LOOKBACK_OVERLAP_MINUTES}m fa`;
+    console.warn(
+      `::warning::[scan-job-timeouts] ${cause}: la finestra resta a ${lookback.minutes}m `
+        + '(TIMEOUT_SCAN_MAX_LOOKBACK_MINUTES) e le run chiuse prima non vengono rilette.',
+    );
+  }
+  const cutoffMs = nowMs - lookback.minutes * 60 * 1000;
   const cancelledRuns = listRunsByStatus('cancelled', cutoffMs, nowMs);
   const failedRuns = listRunsByStatus('failure', cutoffMs, nowMs);
   console.log(
     `[scan-job-timeouts] ${cancelledRuns.length} cancelled + ${failedRuns.length} failed run(s) `
-      + `in the last ${LOOKBACK_MINUTES}m`,
+      + `in the last ${lookback.minutes}m`
+      + (lookback.neededMinutes === null ? ' (no previous successful scan found: base window)' : ''),
   );
 
   let reported = 0;
@@ -753,8 +857,11 @@ export async function main() {
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
 if (process.argv[1]?.endsWith('scan-job-timeouts.mjs')) {
-  main().catch((err) => {
-    console.error(`[scan-job-timeouts] fatal: ${err.message}`);
-    process.exit(1);
-  });
+  Promise.resolve()
+    .then(() => assertRunAgeHorizon())
+    .then(() => main())
+    .catch((err) => {
+      console.error(`[scan-job-timeouts] fatal: ${err.message}`);
+      process.exit(1);
+    });
 }

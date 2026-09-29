@@ -1,6 +1,6 @@
 {
   "crawlerKey": "parmag",
-  "assembledAt": "2026-09-28T04:53:47.323Z",
+  "assembledAt": "2026-09-28T21:13:09.801Z",
   "jobs": [
     {
       "id": "parmag-da6a774782e1",
@@ -33,7 +33,7 @@
       "url": "https://parmag.ch/stellen/303?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.363Z",
+      "crawledAt": "2026-09-28T21:13:05.366Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://parmag.ch/stellen/311?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.362Z",
+      "crawledAt": "2026-09-28T21:13:05.365Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "title": "Senior Consultant SAP FI/CO (m/w/d), Ref. 1242",
       "titleByLocale": {
         "it": "Senior Consulente SAP FI/CO (m/w/d), Ref. 1242",
-        "en": "Senior Consultant SAP FI/CO (m/w/d), Ref. 1242",
+        "en": "Senior Consultant SAP FI/CO (m/f/d), Ref. 1242",
         "de": "Senior Berater SAP FI/CO (m/w/d), Ref. 1242",
         "fr": "Consultant principal SAP FI/CO (h/f/d), Réf. 1242"
       },
@@ -195,7 +195,7 @@
       "url": "https://parmag.ch/stellen/317?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.361Z",
+      "crawledAt": "2026-09-28T21:13:05.364Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "title": "IT System Engineer (m/w/d), Ref. 1247",
       "titleByLocale": {
         "it": "IT System Ingegnere (m/w/d), Ref. 1247",
-        "en": "IT System Engineer (m/w/d), Ref. 1247",
+        "en": "IT System Engineer (m/f/d), Ref. 1247",
         "de": "IT System Ingenieur (m/w/d), Ref. 1247",
         "fr": "IT System Ingénieur (m/w/d), Ref. 1247"
       },
@@ -267,7 +267,7 @@
       "url": "https://parmag.ch/stellen/322?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.360Z",
+      "crawledAt": "2026-09-28T21:13:05.364Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "title": "Azure Cloud Engineer (m/w/d), Ref. 1251",
       "titleByLocale": {
         "it": "Azure Cloud Ingegnere (m/w/d), Ref. 1251",
-        "en": "Azure Cloud Engineer (m/w/d), Ref. 1251",
+        "en": "Azure Cloud Engineer (m/f/d), Ref. 1251",
         "de": "Azure Cloud Ingenieur (m/w/d), Ref. 1251",
         "fr": "Azure Cloud Ingénieur (m/w/d), Ref. 1251"
       },
@@ -351,7 +351,7 @@
       "url": "https://parmag.ch/stellen/327?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.359Z",
+      "crawledAt": "2026-09-28T21:13:05.363Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -419,7 +419,7 @@
       "title": "Test Engineer (m/w/d), Ref. 1266",
       "titleByLocale": {
         "it": "Test Ingegnere (m/w/d), Ref. 1266",
-        "en": "Test Engineer (m/w/d), Ref. 1266",
+        "en": "Test Engineer (m/f/d), Ref. 1266",
         "de": "Test Ingenieur (m/w/d), Ref. 1266",
         "fr": "Test Ingénieur (m/w/d), Ref. 1266"
       },
@@ -435,7 +435,7 @@
       "url": "https://parmag.ch/stellen/345?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.358Z",
+      "crawledAt": "2026-09-28T21:13:05.362Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -465,69 +465,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:53:57.675Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "parmag-daeef31b303b",
-      "slug": "java-entwickler-mit-potential-auf-architektur-all-gender-bern-ittigen-parmag-ch",
-      "slugByLocale": {
-        "it": "java-entwickler-mit-potential-auf-architektur-all-gender-bern-ittigen-parmag-ch",
-        "en": "java-developer-with-potential-for-architecture-all-gender-parmag-ag-bern-ittigen",
-        "de": "java-entwickler-mit-potential-auf-architektur-all-gender-bern-ittigen-parmag-ch",
-        "fr": "java-developpeur-avec-potentiel-d-architecture-tous-genres-parmag-ag-bern-ittigen"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "JAVA ENTWICKLER mit Potential auf Architektur (all gender)",
-      "titleByLocale": {
-        "it": "JAVA ENTWICKLER con Potential auf Architektur (all gender)",
-        "en": "JAVA Developer with potential for architecture (all gender)",
-        "de": "JAVA ENTWICKLER mit Potential auf Architektur (all gender)",
-        "fr": "JAVA Développeur avec potentiel d'architecture (tous genres)"
-      },
-      "description": "Verteilt, vernetzt, verfügbar! Unsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick. Ihre Herausforderung: Entwicklung und Mitarbeit bei Design und Architektur von webbasierten Software-Applikationen Aktive Mitarbeit bei der Erfassung von Bedürfnissen und dem Design der Software-Applikation Interdisziplinäre Zusammenarbeit mit verschiedenen Teams 3rd-Level-Support Ihre Kompetenz: Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung Mehrere Jahre Erfahrung in der Softwareentwicklung mit Java, ev. mit Spring & REST Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut Unser Angebot: Es werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit attraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum. Reizt dich diese spannende und abwechslungsreiche Aufgabe? Dann freue ich mich sehr über deine Bewerbung. Sende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf dich!",
-      "descriptionByLocale": {
-        "it": "Distribuito, in rete, disponibile! Il nostro cliente è Kontron Transportation Schweiz AG, i cui prodotti portano connettività mobile a gallerie, treni ed edifici. Con la nostra piattaforma software di controllo e funzionamento basata su cloud, permettiamo ai clienti di gestire da remoto tramite clic del mouse. La vostra sfida: Sviluppo e cooperazione nella progettazione e nell'architettura delle applicazioni software web-based Cooperazione attiva nell'acquisizione delle esigenze e nella progettazione dell'applicazione software Cooperazione interdisciplinare con vari team di supporto di terzo livello La vostra competenza: Buon analista, metodo, rapida comprensione e responsabile lavoro autonomo, impegnato, cooperativo, orientato alla soluzione e flessibile team player Studi informatici completi (HF/FHscript/Uni) o formazione comparabile molto buono; inglese, orale e scritto. La nostra offerta: Vi verrà offerto un lavoro emozionante in una società orientata al futuro con condizioni di lavoro attraenti e orari di lavoro flessibili. Le strutture piatte e il buon spirito di squadra danno spazio alle proprie idee, responsabilità personale e portata d'azione. È questo compito emozionante e variegato che vi attrae? Sono molto felice della sua applicazione. Invia i tuoi documenti (CV, certificati, diplomi) a patrick.brayenovitch@parmag.ch oggi. Non vedo l'ora di vederti!",
-        "en": "Distributed, networked, available! Our client is Kontron Transportation Schweiz AG, whose products bring mobile connectivity to tunnels, trains and buildings. With our cloud-based control and operating software platform, we enable customers to remotely manage by mouse click. Your challenge: Development and cooperation in the design and architecture of web-based software applications Active cooperation in the acquisition of needs and the design of the software application Interdisciplinary cooperation with various teams 3rd-level support Your competence: Good analyst, methodical, rapid comprehension and responsible self-employed, committed, cooperative, solution-oriented and flexible team player Completed computer science studies (HF/FH/Uni) or comparable training Several years of experience in software development with Java, ev. with Spring & REST frontend experience (Angular, JavaScript, HTML, CSS, Typescript) is advantageous German, oral and written. very good; English, oral and written. Our offer: You will be offered an exciting job in a future-oriented company with attractive employment conditions and flexible working hours. The flat structures and the good team spirit give space for your own ideas, personal responsibility and scope for action. Is this exciting and varied task appealing to you? I am very happy about your application. Send your documents (CV, certificates, diplomas) to patrick.brayenovitch@parmag.ch today. I look forward to seeing you!",
-        "de": "Verteilt, vernetzt, verfügbar! Unsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick. Ihre Herausforderung: Entwicklung und Mitarbeit bei Design und Architektur von webbasierten Software-Applikationen Aktive Mitarbeit bei der Erfassung von Bedürfnissen und dem Design der Software-Applikation Interdisziplinäre Zusammenarbeit mit verschiedenen Teams 3rd-Level-Support Ihre Kompetenz: Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung Mehrere Jahre Erfahrung in der Softwareentwicklung mit Java, ev. mit Spring & REST Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut Unser Angebot: Es werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit attraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum. Reizt dich diese spannende und abwechslungsreiche Aufgabe? Dann freue ich mich sehr über deine Bewerbung. Sende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf dich!",
-        "fr": "Distribué, en réseau, disponible ! Notre client est Kontron Transportation Schweiz AG, dont les produits apportent la connectivité mobile aux tunnels, trains et bâtiments. Avec notre plate-forme logicielle de contrôle et d'exploitation basée sur le cloud, nous permettons aux clients de gérer à distance par clic de souris. Votre défi : Développement et coopération dans la conception et l'architecture d'applications logicielles basées sur le web Coopération active dans l'acquisition de besoins et la conception d'applications logicielles Coopération interdisciplinaire avec différentes équipes Soutien de troisième niveau\n• Vos compétences : Bonne compréhension analytique, méthodique, rapide et indépendante responsable, engagée, coopérative, orientée vers la solution et flexible Team player Études informatiques complètes (HF/FH/Uni) ou formations comparables Plusieurs années d'expérience dans le développement de logiciels avec Java, ev. avec l'expérience frontend Spring & REST (Angulaire, JavaScript, HTML, CSS, Typescript) est avantageux Allemand, oral et écrit. très bien; anglais, oral et écrit. Notre offre: Vous serez offert un travail passionnant dans une entreprise orientée vers l'avenir avec des conditions d'emploi attrayantes et des horaires de travail flexibles. Les structures plates et le bon esprit d'équipe laissent place à vos propres idées, à vos responsabilités personnelles et à vos possibilités d'action. Cette tâche passionnante et variée vous plaît-elle ? Je suis très heureux de votre candidature. Envoyez vos documents (CV, certificats, diplômes) à patrick.brayenovitch@parmag.ch aujourd'hui. J'ai hâte de vous voir !"
-      },
-      "location": "Bern / Ittigen",
-      "canton": "BE",
-      "url": "https://parmag.ch/stellen/352?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.357Z",
-      "addressLocality": "Bern / Ittigen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-26",
-      "applyUrl": "https://parmag.ch/stellen/352?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:53:57.674Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -573,7 +510,7 @@
       "url": "https://parmag.ch/stellen/353?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.356Z",
+      "crawledAt": "2026-09-28T21:13:05.361Z",
       "addressLocality": "Bern / Ittigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -619,6 +556,69 @@
       }
     },
     {
+      "id": "parmag-daeef31b303b",
+      "slug": "java-entwickler-mit-potential-auf-architektur-all-gender-bern-ittigen-parmag-ch",
+      "slugByLocale": {
+        "it": "java-entwickler-mit-potential-auf-architektur-all-gender-bern-ittigen-parmag-ch",
+        "en": "java-developer-with-potential-for-architecture-all-gender-parmag-ag-bern-ittigen",
+        "de": "java-entwickler-mit-potential-auf-architektur-all-gender-bern-ittigen-parmag-ch",
+        "fr": "java-developpeur-avec-potentiel-d-architecture-tous-genres-parmag-ag-bern-ittigen"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "JAVA ENTWICKLER mit Potential auf Architektur (all gender)",
+      "titleByLocale": {
+        "it": "JAVA ENTWICKLER con Potential auf Architektur (all gender)",
+        "en": "JAVA Developer with potential for architecture (all gender)",
+        "de": "JAVA ENTWICKLER mit Potential auf Architektur (all gender)",
+        "fr": "JAVA Développeur avec potentiel d'architecture (tous genres)"
+      },
+      "description": "Verteilt, vernetzt, verfügbar! Unsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick. Ihre Herausforderung: Entwicklung und Mitarbeit bei Design und Architektur von webbasierten Software-Applikationen Aktive Mitarbeit bei der Erfassung von Bedürfnissen und dem Design der Software-Applikation Interdisziplinäre Zusammenarbeit mit verschiedenen Teams 3rd-Level-Support Ihre Kompetenz: Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung Mehrere Jahre Erfahrung in der Softwareentwicklung mit Java, ev. mit Spring & REST Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut Unser Angebot: Es werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit attraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum. Reizt dich diese spannende und abwechslungsreiche Aufgabe? Dann freue ich mich sehr über deine Bewerbung. Sende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf dich!",
+      "descriptionByLocale": {
+        "it": "Distribuito, in rete, disponibile! Il nostro cliente è Kontron Transportation Schweiz AG, i cui prodotti portano connettività mobile a gallerie, treni ed edifici. Con la nostra piattaforma software di controllo e funzionamento basata su cloud, permettiamo ai clienti di gestire da remoto tramite clic del mouse. La vostra sfida: Sviluppo e cooperazione nella progettazione e nell'architettura delle applicazioni software web-based Cooperazione attiva nell'acquisizione delle esigenze e nella progettazione dell'applicazione software Cooperazione interdisciplinare con vari team di supporto di terzo livello La vostra competenza: Buon analista, metodo, rapida comprensione e responsabile lavoro autonomo, impegnato, cooperativo, orientato alla soluzione e flessibile team player Studi informatici completi (HF/FHscript/Uni) o formazione comparabile molto buono; inglese, orale e scritto. La nostra offerta: Vi verrà offerto un lavoro emozionante in una società orientata al futuro con condizioni di lavoro attraenti e orari di lavoro flessibili. Le strutture piatte e il buon spirito di squadra danno spazio alle proprie idee, responsabilità personale e portata d'azione. È questo compito emozionante e variegato che vi attrae? Sono molto felice della sua applicazione. Invia i tuoi documenti (CV, certificati, diplomi) a patrick.brayenovitch@parmag.ch oggi. Non vedo l'ora di vederti!",
+        "en": "Distributed, networked, available! Our client is Kontron Transportation Schweiz AG, whose products bring mobile connectivity to tunnels, trains and buildings. With our cloud-based control and operating software platform, we enable customers to remotely manage by mouse click. Your challenge: Development and cooperation in the design and architecture of web-based software applications Active cooperation in the acquisition of needs and the design of the software application Interdisciplinary cooperation with various teams 3rd-level support Your competence: Good analyst, methodical, rapid comprehension and responsible self-employed, committed, cooperative, solution-oriented and flexible team player Completed computer science studies (HF/FH/Uni) or comparable training Several years of experience in software development with Java, ev. with Spring & REST frontend experience (Angular, JavaScript, HTML, CSS, Typescript) is advantageous German, oral and written. very good; English, oral and written. Our offer: You will be offered an exciting job in a future-oriented company with attractive employment conditions and flexible working hours. The flat structures and the good team spirit give space for your own ideas, personal responsibility and scope for action. Is this exciting and varied task appealing to you? I am very happy about your application. Send your documents (CV, certificates, diplomas) to patrick.brayenovitch@parmag.ch today. I look forward to seeing you!",
+        "de": "Verteilt, vernetzt, verfügbar! Unsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick. Ihre Herausforderung: Entwicklung und Mitarbeit bei Design und Architektur von webbasierten Software-Applikationen Aktive Mitarbeit bei der Erfassung von Bedürfnissen und dem Design der Software-Applikation Interdisziplinäre Zusammenarbeit mit verschiedenen Teams 3rd-Level-Support Ihre Kompetenz: Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung Mehrere Jahre Erfahrung in der Softwareentwicklung mit Java, ev. mit Spring & REST Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut Unser Angebot: Es werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit attraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum. Reizt dich diese spannende und abwechslungsreiche Aufgabe? Dann freue ich mich sehr über deine Bewerbung. Sende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf dich!",
+        "fr": "Distribué, en réseau, disponible ! Notre client est Kontron Transportation Schweiz AG, dont les produits apportent la connectivité mobile aux tunnels, trains et bâtiments. Avec notre plate-forme logicielle de contrôle et d'exploitation basée sur le cloud, nous permettons aux clients de gérer à distance par clic de souris. Votre défi : Développement et coopération dans la conception et l'architecture d'applications logicielles basées sur le web Coopération active dans l'acquisition de besoins et la conception d'applications logicielles Coopération interdisciplinaire avec différentes équipes Soutien de troisième niveau\n• Vos compétences : Bonne compréhension analytique, méthodique, rapide et indépendante responsable, engagée, coopérative, orientée vers la solution et flexible Team player Études informatiques complètes (HF/FH/Uni) ou formations comparables Plusieurs années d'expérience dans le développement de logiciels avec Java, ev. avec l'expérience frontend Spring & REST (Angulaire, JavaScript, HTML, CSS, Typescript) est avantageux Allemand, oral et écrit. très bien; anglais, oral et écrit. Notre offre: Vous serez offert un travail passionnant dans une entreprise orientée vers l'avenir avec des conditions d'emploi attrayantes et des horaires de travail flexibles. Les structures plates et le bon esprit d'équipe laissent place à vos propres idées, à vos responsabilités personnelles et à vos possibilités d'action. Cette tâche passionnante et variée vous plaît-elle ? Je suis très heureux de votre candidature. Envoyez vos documents (CV, certificats, diplômes) à patrick.brayenovitch@parmag.ch aujourd'hui. J'ai hâte de vous voir !"
+      },
+      "location": "Bern / Ittigen",
+      "canton": "BE",
+      "url": "https://parmag.ch/stellen/352?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:13:05.361Z",
+      "addressLocality": "Bern / Ittigen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-26",
+      "applyUrl": "https://parmag.ch/stellen/352?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:53:57.674Z",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "parmag-065aefb22879",
       "slug": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
       "slugByLocale": {
@@ -633,7 +633,7 @@
       "title": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
       "titleByLocale": {
         "it": "(Senior) Consulente ECM (m/w/d), Ref. 1273",
-        "en": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
+        "en": "(Senior) Consultant ECM (m/f/d), Ref. 1273",
         "de": "(Senior) Berater ECM (m/w/d), Ref. 1273",
         "fr": "(Aîné) Consultant ECM (h/f/d), Réf. 1273"
       },
@@ -649,7 +649,7 @@
       "url": "https://parmag.ch/stellen/355?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.356Z",
+      "crawledAt": "2026-09-28T21:13:05.360Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -708,7 +708,7 @@
       "title": "Technical Consultant ECM (m/w/d), Ref. 1274",
       "titleByLocale": {
         "it": "Technical Consulente ECM (m/w/d), Ref. 1274",
-        "en": "Technical Consultant ECM (m/w/d), Ref. 1274",
+        "en": "Technical Consultant ECM (m/f/d), Ref. 1274",
         "de": "Technical Berater ECM (m/w/d), Ref. 1274",
         "fr": "Consultant technique ECM (h/f/d), Réf. 1274"
       },
@@ -724,7 +724,7 @@
       "url": "https://parmag.ch/stellen/356?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.355Z",
+      "crawledAt": "2026-09-28T21:13:05.359Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -783,7 +783,7 @@
       "title": "Application Engineer (m/w/d), Ref. 1278",
       "titleByLocale": {
         "it": "Application Ingegnere (m/w/d), Ref. 1278",
-        "en": "Application Engineer (m/w/d), Ref. 1278",
+        "en": "Application Engineer (m/f/d), Ref. 1278",
         "de": "Application Ingenieur (m/w/d), Ref. 1278",
         "fr": "Application Ingénieur (m/w/d), Ref. 1278"
       },
@@ -799,7 +799,7 @@
       "url": "https://parmag.ch/stellen/360?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.354Z",
+      "crawledAt": "2026-09-28T21:13:05.358Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -871,7 +871,7 @@
       "url": "https://parmag.ch/stellen/365?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.353Z",
+      "crawledAt": "2026-09-28T21:13:05.357Z",
       "addressLocality": "Region Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -930,7 +930,7 @@
       "title": "ICT System Specialist (m/w/d), Ref. 1288",
       "titleByLocale": {
         "it": "ICT System Specialista (m/w/d), Ref. 1288",
-        "en": "ICT System Specialist (m/w/d), Ref. 1288",
+        "en": "ICT System Specialist (m/f/d), Ref. 1288",
         "de": "ICT System Spezialist (m/w/d), Ref. 1288",
         "fr": "ICT System Spécialiste (m/w/d), Ref. 1288"
       },
@@ -946,7 +946,7 @@
       "url": "https://parmag.ch/stellen/370?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.352Z",
+      "crawledAt": "2026-09-28T21:13:05.356Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1005,7 +1005,7 @@
       "title": "Software Engineer Java (m/w/d), Ref. 1289",
       "titleByLocale": {
         "it": "Software Ingegnere Java (m/w/d), Ref. 1289",
-        "en": "Software Engineer Java (m/w/d), Ref. 1289",
+        "en": "Software Engineer Java (m/f/d), Ref. 1289",
         "de": "Software Ingenieur Java (m/w/d), Ref. 1289",
         "fr": "Software Ingénieur Java (m/w/d), Ref. 1289"
       },
@@ -1021,7 +1021,7 @@
       "url": "https://parmag.ch/stellen/371?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.351Z",
+      "crawledAt": "2026-09-28T21:13:05.355Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1077,7 +1077,7 @@
       "title": "Data Engineer (m/w/d), Ref. 1291",
       "titleByLocale": {
         "it": "Data Ingegnere (m/w/d), Ref. 1291",
-        "en": "Data Engineer (m/w/d), Ref. 1291",
+        "en": "Data Engineer (m/f/d), Ref. 1291",
         "de": "Data Ingenieur (m/w/d), Ref. 1291",
         "fr": "Data Ingénieur (m/w/d), Ref. 1291"
       },
@@ -1093,7 +1093,7 @@
       "url": "https://parmag.ch/stellen/373?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.350Z",
+      "crawledAt": "2026-09-28T21:13:05.354Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1149,7 +1149,7 @@
       "title": "Fullstack Software Engineer .NET (m/w/d), Ref. 1295",
       "titleByLocale": {
         "it": "Fullstack Software Ingegnere .NET (m/w/d), Ref. 1295",
-        "en": "Fullstack Software Engineer .NET (m/w/d), Ref. 1295",
+        "en": "Fullstack Software Engineer.NET (m/f/d), Ref. 1295",
         "de": "Fullstack Software Ingenieur .NET (m/w/d), Ref. 1295",
         "fr": "Fullstack Software Ingénieur .NET (m/w/d), Ref. 1295"
       },
@@ -1165,7 +1165,7 @@
       "url": "https://parmag.ch/stellen/377?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.349Z",
+      "crawledAt": "2026-09-28T21:13:05.352Z",
       "addressLocality": "Stadt Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1249,7 +1249,7 @@
       "url": "https://parmag.ch/stellen/384?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.348Z",
+      "crawledAt": "2026-09-28T21:13:05.351Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1327,7 +1327,7 @@
       "url": "https://parmag.ch/stellen/385?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.347Z",
+      "crawledAt": "2026-09-28T21:13:05.350Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1405,7 +1405,7 @@
       "url": "https://parmag.ch/stellen/386?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.346Z",
+      "crawledAt": "2026-09-28T21:13:05.349Z",
       "addressLocality": "Biel, Neuenburg & Freiburg",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1489,7 +1489,7 @@
       "url": "https://parmag.ch/stellen/387?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.345Z",
+      "crawledAt": "2026-09-28T21:13:05.348Z",
       "addressLocality": "Basel-Stadt, Basellandschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",

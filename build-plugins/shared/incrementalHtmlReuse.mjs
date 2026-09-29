@@ -80,6 +80,17 @@ export const JOBS_SEO_EMITTER_KINDS = Object.freeze([
   'cross-locale-reconciliation',
 ]);
 
+// Published job HTML can be stale even when the input hash and renderer code
+// are unchanged: an older shard delta could have recorded the active and
+// bridge roles for two aliases in the opposite order.  The input manifest
+// proves what should be rendered, not which bytes the shard actually kept.
+// Bump this contract when the ownership/alias invariant is repaired so the
+// next delta re-evaluates every job-page kind once and heals old shards from
+// the current source tree.  Keep it separate from the cache-pack version:
+// changing cache storage must not invalidate rendered HTML, while changing
+// the published ownership contract must.
+export const JOBS_SEO_OUTPUT_CONTRACT_VERSION = 'jobs-seo-output@2';
+
 const JOBS_SEO_RENDER_ENTRY = 'build-plugins/jobsSeoPagesPlugin.ts';
 // This module owns cache persistence only. Changes here must not invalidate
 // already-rendered HTML by changing the emitter fingerprint.
@@ -371,6 +382,7 @@ export function computeJobsSeoEmitterFingerprints(rootDir) {
       kind,
       templateVersion: templateVersionForKind(kind),
       jobDigestAlgorithm: JOB_DIGEST_ALGORITHM_VERSION,
+      outputContract: JOBS_SEO_OUTPUT_CONTRACT_VERSION,
       codeHash,
       assetManifestHash,
       renderFlags,

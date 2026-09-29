@@ -124,7 +124,10 @@ jobs:
           # always pass: ai-models.mjs only opens the broker when its gate is
           # enabled.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+          # No global AI_MODELS_PREFER: the broker runs one Codex request at a
+          # time (~116 s each), and up to 200 articles × 4 calls would queue
+          # behind it for longer than the job timeout. See
+          # tests/scripts/codex-prefer-volume-scope.test.ts.
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_LIMIT: ${{ inputs.limit || '200' }}
           INPUT_CONCURRENCY: ${{ inputs.concurrency || '1' }}

@@ -231,6 +231,9 @@ const PARTIAL_CLONE_FILTER_RE = /^(?:blob:none|blob:limit=[0-9]+[kmg]?|tree:0)$/
 
 /**
  * Filtro del partial clone del checkout, o '' se il checkout non lo è.
+ * Se la configurazione dichiara un promisor ma non usa una forma supportata,
+ * fallisce esplicitamente: degradare a una common dir piena nasconderebbe il
+ * rischio di rompere lazy-fetch e push su blob mancanti.
  *
  * Il checkout dei fixer è `filter: blob:none`: i blob fuori dall'HEAD mancano
  * finché git non li scarica su richiesta dal remote promisor. La common dir
@@ -261,15 +264,24 @@ export function readPartialCloneFilter(realGit, commonGitDir) {
   // Il git recente segna il partial clone solo con `remote.origin.promisor`;
   // `extensions.partialClone` è la forma storica e, se c'è, deve dire origin.
   const legacy = read('extensions.partialclone');
-  if (legacy && legacy !== 'origin') return '';
+  if (legacy && legacy !== 'origin') {
+    throw new Error('Unsupported partial-clone promisor');
+  }
   if (read('remote.origin.promisor').toLowerCase() !== 'true') return '';
   const filter = read('remote.origin.partialclonefilter');
-  return PARTIAL_CLONE_FILTER_RE.test(filter) ? filter : '';
+  if (!PARTIAL_CLONE_FILTER_RE.test(filter)) {
+    throw new Error('Unsupported partial-clone filter');
+  }
+  return filter;
 }
 
 /** Config della common dir ombra: remote approvato ed eventuale partial clone. */
 export function shadowCommonConfig(expectedRemote, { partialCloneFilter = '' } = {}) {
-  const partial = PARTIAL_CLONE_FILTER_RE.test(partialCloneFilter) ? partialCloneFilter : '';
+  if (partialCloneFilter !== ''
+    && (typeof partialCloneFilter !== 'string' || !PARTIAL_CLONE_FILTER_RE.test(partialCloneFilter))) {
+    throw new Error('Unsupported partial-clone filter');
+  }
+  const partial = partialCloneFilter;
   return [
     '[core]',
     // `extensions.*` vale solo dal formato 1: con 0 git lo ignora.

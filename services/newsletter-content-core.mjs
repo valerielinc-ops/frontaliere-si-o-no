@@ -1012,17 +1012,12 @@ const LOCALE_NAMES = { it: 'Italian', en: 'English', de: 'German', fr: 'French' 
  * @param {object} ctx.featuredTool — { title, description }
  * @returns {{ system: string, user: string }}
  */
-export function buildBriefingPrompt(ctx) {
-  const locale = nlNormLocale(ctx.subscriber?.locale);
-  const langName = LOCALE_NAMES[locale] || 'Italian';
-  const prefs = ctx.subscriber?.preferences || {};
-  const interests = [];
-  if (prefs.jobs) interests.push('job opportunities');
-  if (prefs.taxUpdates || prefs.tax) interests.push('tax/fiscal updates');
-  if (prefs.exchangeRate) interests.push('exchange rate');
-  if (prefs.tips) interests.push('practical tips');
-  if (prefs.traffic) interests.push('border traffic');
-
+/**
+ * Data lines shared by every briefing prompt: today's date, exchange rate,
+ * market insight, weekly fact and featured tool. Identical for every reader of
+ * a locale — only the job lines and reader interests are per reader.
+ */
+function briefingSharedData(ctx, locale) {
   // Provide the actual date so the AI never needs to invent one
   const todayStr = new Date().toLocaleDateString(locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : locale === 'en' ? 'en-GB' : 'it-CH', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
@@ -1044,6 +1039,30 @@ export function buildBriefingPrompt(ctx) {
     ? `Market insight: CHF/EUR ${cardPct > 0.2 ? 'strengthening' : cardPct < -0.2 ? 'weakening' : 'stable'} (${cardPctStr} weekly). ${ctx.exchangeInsight.summary}`
     : '';
 
+  const factLine = ctx.weeklyFact
+    ? `Weekly fact: "${ctx.weeklyFact.text}" (Source: ${ctx.weeklyFact.source || 'N/A'})`
+    : '';
+
+  const toolLine = ctx.featuredTool
+    ? `Featured tool: ${ctx.featuredTool.title} — ${ctx.featuredTool.description}${ctx.featuredTool.toolUrl ? ` → URL: ${BASE_URL}${ctx.featuredTool.toolUrl}` : ''}`
+    : '';
+
+  return { todayStr, rateTrend, insightLine, factLine, toolLine };
+}
+
+export function buildBriefingPrompt(ctx) {
+  const locale = nlNormLocale(ctx.subscriber?.locale);
+  const langName = LOCALE_NAMES[locale] || 'Italian';
+  const prefs = ctx.subscriber?.preferences || {};
+  const interests = [];
+  if (prefs.jobs) interests.push('job opportunities');
+  if (prefs.taxUpdates || prefs.tax) interests.push('tax/fiscal updates');
+  if (prefs.exchangeRate) interests.push('exchange rate');
+  if (prefs.tips) interests.push('practical tips');
+  if (prefs.traffic) interests.push('border traffic');
+
+  const { todayStr, rateTrend, insightLine, factLine, toolLine } = briefingSharedData(ctx, locale);
+
   const jobLines = (ctx.matchedJobs || []).slice(0, 3)
     .map((j) => {
       const url = j.url ? `${BASE_URL}${j.url.startsWith('/') ? j.url : '/' + j.url}` : '';
@@ -1062,14 +1081,6 @@ export function buildBriefingPrompt(ctx) {
     })
     .filter(Boolean)
     .join('\n');
-
-  const factLine = ctx.weeklyFact
-    ? `Weekly fact: "${ctx.weeklyFact.text}" (Source: ${ctx.weeklyFact.source || 'N/A'})`
-    : '';
-
-  const toolLine = ctx.featuredTool
-    ? `Featured tool: ${ctx.featuredTool.title} — ${ctx.featuredTool.description}${ctx.featuredTool.toolUrl ? ` → URL: ${BASE_URL}${ctx.featuredTool.toolUrl}` : ''}`
-    : '';
 
   const locationLine = ctx.subscriber?.locationInterest
     ? `Reader location interest: ${ctx.subscriber.locationInterest}`
@@ -1121,30 +1132,38 @@ export function buildBriefingPrompt(ctx) {
 }
 
 /**
- * Build ONE prompt that asks the AI to generate N independent briefings in a
- * single call instead of N separate calls — cuts total AI request volume
- * roughly N-fold on high-cohort-count days. All items MUST share the same
- * locale: the system prompt (language rules, structure rules) is built once
- * from the first item and reused verbatim for the whole batch, so mixing
- * languages in one batch would risk the phrasing bleed that the per-locale
- * system prompt exists to prevent (see tests/newsletter-locale-leakage.test.ts).
+ * Build the prompt for the ONE editorial briefing shared by every reader of a
+ * locale: exchange rate, weekly fact and featured tool, i.e. the only part of
+ * the briefing that does not depend on the reader. The reader's own jobs are
+ * not in the prompt: send-newsletter.mjs prepends them per cohort as a
+ * deterministic, linked paragraph (injectJobAndCompanyLinks), the same code
+ * that already re-linked every AI job mention because sanitizeAIBriefingHtml
+ * strips all AI anchors.
  *
- * @param {Array<{ id: string, ctx: object }>} items — same ctx shape as buildBriefingPrompt
+ * @param {object} ctx — { locale, exchangeRate, exchangeInsight, weeklyFact, featuredTool }
  * @returns {{ system: string, user: string }}
  */
-export function buildBriefingBatchPrompt(items) {
-  if (!items.length) throw new Error('buildBriefingBatchPrompt: items must be non-empty');
-  const first = buildBriefingPrompt(items[0].ctx);
-  const readerBlocks = items.map((item, idx) => {
-    const { user } = idx === 0 ? first : buildBriefingPrompt(item.ctx);
-    return `===READER ${item.id}===\n${user}`;
-  });
+export function buildLocaleBriefingPrompt(ctx) {
+  const locale = nlNormLocale(ctx.locale);
+  const langName = LOCALE_NAMES[locale] || 'Italian';
+  const { todayStr, rateTrend, insightLine, factLine, toolLine } = briefingSharedData(ctx, locale);
+
   const system = [
-    first.system,
-    `BATCH MODE: below are ${items.length} independent readers, each starting with a "===READER <id>===" marker. Apply every rule above separately to EACH reader, using ONLY that reader's own data — never mix jobs, facts, or details between readers.`,
-    `Output EXACTLY ${items.length} blocks, one per reader, in the SAME ORDER as the readers below. Each block starts with "===BRIEFING <id>===" on its own line (the same id as that reader's marker) followed immediately by that reader's briefing HTML. No text outside these blocks.`,
+    `You write the opening section of a weekly email newsletter for "Frontaliere Ticino", a platform for cross-border workers (frontalieri) between Italy and Switzerland. The same text goes to every ${langName}-speaking reader.`,
+    `Write in ${langName}. Be warm, conversational, and practical. Like a knowledgeable friend sharing useful updates.`,
+    `ABSOLUTE LANGUAGE RULE: Every word in your output MUST be in ${langName}. ${locale === 'it' ? '' : `NEVER copy Italian phrasings from any reference material into your ${langName} output. `}Tool names, brand names, and proper nouns are the only exceptions.`,
+    `Output 2 short paragraphs. Use simple HTML ONLY: <p> tags for paragraphs, <strong> for emphasis. Do not write links or URLs: they are added automatically. No greetings, no sign-offs, no subject line.`,
+    `CRITICAL: NEVER use Markdown syntax. Do NOT use **bold**, *italic*, [text](link), or any asterisks for emphasis. Always use the HTML tags above. Asterisks will render as literal characters in the email.`,
+    `JOBS RULE: each reader's own matching job openings are inserted automatically in a separate paragraph right above your text. Do NOT mention any specific job, company, number of openings, or "the jobs above".`,
+    `If a Featured tool name is provided, use it EXACTLY as written in the data — never translate, never substitute. The tool name comes pre-localized.`,
+    `CRITICAL EXCHANGE RATE RULE: Use ONLY the weekly change percentage provided in the data below. Do NOT calculate or invent a different percentage.`,
+    `Start with the exchange rate context, then weave in the weekly fact if interesting and the featured tool. Do NOT list everything — pick what matters most.`,
+    `CRITICAL: Only mention dates that are explicitly provided in the data below. NEVER invent, guess, or assume dates for events or facts. If no date is given for something, do not add one. Today's date is ${todayStr}.`,
+    `Write between 80 and 150 words in total. Be concise but engaging.`,
   ].join(' ');
-  return { system, user: readerBlocks.join('\n\n') };
+
+  const userParts = [rateTrend, insightLine, factLine, toolLine].filter(Boolean);
+  return { system, user: userParts.join('\n\n') };
 }
 
 /**

@@ -225,7 +225,7 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
         "Oui, avec douane. Voiture achetée en Suisse et ramenée en Italie : importation avec TVA italienne 22 %, éventuel droit 10 % (règl. UE 952/2013) et nouvelle immatriculation [source : Agenzia Dogane, véhicules étrangers]. Voiture neuve (<6 mois ou <6 000 km) : TVA italienne due même si TVA suisse payée. Voiture d'occasion UE : exonération TVA si TVA déjà payée. Plaque italienne (PRA), CoC, contrôle technique, taxe IPT (régionale, ~150-800 EUR). Le frontalier peut importer comme bien personnel, exonéré, s'il transfère la résidence (permis C → AIRE + déménagement).",
     },
     sources: [
-      'https://www.adm.gov.it/portale/cittadini/automobili-e-veicoli',
+      'https://www.adm.gov.it/portale/carta-doganale-viaggiatore',
     ],
   },
   {

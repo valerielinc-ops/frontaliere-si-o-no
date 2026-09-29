@@ -7,9 +7,9 @@
  * otherwise Google counts them as "unprotected events".
  */
 
-import { reportCaughtError } from '@/services/errorReporter';
-import { ensureRecaptchaLoaded } from '@/services/recaptchaLoader';
-import { getConfigValue } from '@/services/firebase';
+import { reportCaughtError } from './errorReporter';
+import { ensureRecaptchaLoaded } from './recaptchaLoader';
+import { getConfigValue } from './firebase';
 
 declare global {
   interface Window {

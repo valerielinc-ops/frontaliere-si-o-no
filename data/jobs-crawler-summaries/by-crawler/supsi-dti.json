@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-09-28T05:08:52.929Z",
+  "generatedAt": "2026-09-28T21:28:55.957Z",
   "total": 6,
   "newCount": 6,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 66801,
-  "avgDurationMs": 66801,
+  "durationMs": 72058,
+  "avgDurationMs": 72058,
   "durationHistory": [
-    66801
+    72058
   ],
   "newJobs": [
     {
@@ -35,7 +35,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-28T05:08:36.399Z",
+      "crawledAt": "2026-09-28T21:28:31.903Z",
       "firstSeenAt": "2026-09-19T23:08:45.327Z",
       "country": "CH",
       "sourceLang": "it",
@@ -46,11 +46,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 19
       }
     },
@@ -75,7 +75,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-28T05:08:36.399Z",
+      "crawledAt": "2026-09-28T21:28:31.903Z",
       "firstSeenAt": "2026-09-07T15:22:00.513Z",
       "country": "CH",
       "sourceLang": "it",
@@ -89,11 +89,11 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.supsi.ch/bando26_4013",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 21,
         "completeness": 25
       }
     },
@@ -118,7 +118,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-28T05:08:36.399Z",
+      "crawledAt": "2026-09-28T21:28:31.903Z",
       "firstSeenAt": "2026-09-04T13:40:19.667Z",
       "country": "CH",
       "sourceLang": "it",
@@ -132,11 +132,11 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.supsi.ch/stagista-52-settimane-supsi-26_9001-",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 25
       }
     },
@@ -161,7 +161,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-28T05:08:36.399Z",
+      "crawledAt": "2026-09-28T21:28:31.903Z",
       "firstSeenAt": "2026-09-04T23:12:08.169Z",
       "country": "CH",
       "sourceLang": "it",
@@ -175,11 +175,11 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.supsi.ch/bando26_2015",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 25
       }
     },
@@ -204,7 +204,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-28T05:08:36.399Z",
+      "crawledAt": "2026-09-28T21:28:31.903Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -218,11 +218,11 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.supsi.ch/bando26_4001",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 25
       }
     },
@@ -260,13 +260,13 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.supsi.ch/bando26_2011",
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 95,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 25
       }
     }

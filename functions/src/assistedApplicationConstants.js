@@ -9,7 +9,12 @@ export const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
 /** One-off price in EUR cents, shared by checkout validation and analytics. */
 export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = 99;
 
+// `awaiting_upload` is a paid order whose materials have not arrived yet: it
+// must stay visible, because the email-first concierge (see
+// assistedApplicationNotifications.js) lets the customer send the CV by
+// replying to Valerie instead of using the upload page.
 export const ASSISTED_APPLICATION_ADMIN_STATUSES = Object.freeze([
+  'awaiting_upload',
   'ready_for_manual_submission',
   'in_progress',
   'submitted',
@@ -23,6 +28,7 @@ export const ASSISTED_APPLICATION_ADMIN_STATUS_SET = new Set(
 
 export const ASSISTED_APPLICATION_EVENT_TYPES = Object.freeze([
   'manual_submission_queued',
+  'materials_received_by_email',
   'manual_submission_completed',
   'manual_submission_blocked',
   'refund_issued',

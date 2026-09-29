@@ -45,11 +45,14 @@ function defaultCopyrightNotice(): string {
     : `© ${COPYRIGHT_YEAR_START}–${year} Frontaliere Ticino. Tutti i diritti riservati.`;
 }
 
-function resolveHttpUrl(value: string | undefined, fallback: string, field: string): string {
-  if (value === undefined) return fallback;
+export function resolveHttpUrl(value: unknown, fallback: unknown, field: string): string {
+  const candidate = value === undefined ? fallback : value;
+  if (typeof candidate !== 'string') {
+    throw new Error(`imageObjectLd: ${field} must be an absolute http(s) URL`);
+  }
   try {
-    const parsed = new URL(value);
-    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return value;
+    const parsed = new URL(candidate);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return parsed.href;
   } catch {
     // Fall through to the field-specific error below.
   }

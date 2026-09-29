@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vz-vermoegenszentrum",
-  "assembledAt": "2026-09-28T04:56:29.952Z",
+  "assembledAt": "2026-09-28T21:18:42.933Z",
   "jobs": [
     {
       "id": "vz-vermoegenszentrum-20362b2dcf3f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center-zweisprachig/facfb110-e586-45c5-b396-8d21bc7383eb",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:25.006Z",
+      "crawledAt": "2026-09-28T21:18:36.898Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -125,7 +125,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center/5302e5f4-5b81-442e-8676-8872e8b64a3b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:25.004Z",
+      "crawledAt": "2026-09-28T21:18:36.896Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -214,7 +214,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center-hochdeutsch/5183c85d-3a37-457a-baee-12334360c46c",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:25.003Z",
+      "crawledAt": "2026-09-28T21:18:36.897Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -289,7 +289,7 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Collaborateur/Collaboratrice Contact Center",
       "titleByLocale": {
-        "it": "Centro contatti Collaboratore",
+        "it": "Collaborateur/Collaboratrice Contact Center",
         "en": "Collaborator Contact Center, 40-80%",
         "de": "Collaborator Contact Center, 40-80%",
         "fr": "Collaborateur/Collaboratrice Contact Center"
@@ -306,7 +306,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/collaborateur-collaboratrice-contact-center/400da688-9b37-4f98-b3f4-b2d633b3b3f3",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T04:56:25.002Z",
+      "crawledAt": "2026-09-28T21:18:36.895Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Vaud",
@@ -368,6 +368,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:46:45.787Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -413,7 +414,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/fachspezialist-in-underwriting/6ba404fd-1ff7-4c04-9e57-8eb7291edcf4",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:25.001Z",
+      "crawledAt": "2026-09-28T21:18:36.894Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -523,7 +524,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung/317c3f61-0a4d-4c1b-9942-ff6983b5e284",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:25.000Z",
+      "crawledAt": "2026-09-28T21:18:36.891Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -613,7 +614,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-underwriter-in-privatversicherungen/a4389d17-bf9c-4642-ab3c-929103849595",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:25.000Z",
+      "crawledAt": "2026-09-28T21:18:36.893Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -718,7 +719,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/netzwerkmanager-mit-flair-fuer-infrastrukturprojekte/2e19b692-9c50-477b-98c6-63afe1b1a69f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.999Z",
+      "crawledAt": "2026-09-28T21:18:36.889Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -814,7 +815,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/ca75c4c3-e622-428f-89e0-b099c4f6d87f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.998Z",
+      "crawledAt": "2026-09-28T21:18:36.887Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "addressRegion": "Sankt Gallen",
@@ -903,7 +904,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mandatsleiter-in-corporate-insurance-management/734a991b-ab1c-4d4c-ae65-937e9072ebf5",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.997Z",
+      "crawledAt": "2026-09-28T21:18:36.884Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -995,7 +996,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant-start-januar-2027/efa19c25-d5b2-4f45-ad59-ad53bb838b5b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.997Z",
+      "crawledAt": "2026-09-28T21:18:36.886Z",
       "addressLocality": "Aarau",
       "postalCode": "5000",
       "addressRegion": "Aargau",
@@ -1082,7 +1083,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/product-manager-products-customer-experience/6242c744-b38f-4f9b-ac48-50981c6a3448",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.996Z",
+      "crawledAt": "2026-09-28T21:18:36.882Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -1125,10 +1126,9 @@
           "product-manager-products-customer-experience-vz-vermoegenszentrum-ch"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2115,
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-10T12:27:55.950Z",
       "salaryMin": 114500,
       "salaryMax": 195000,
@@ -1175,7 +1175,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/88021f17-636c-41cf-a978-26498edcfd5b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.995Z",
+      "crawledAt": "2026-09-28T21:18:36.880Z",
       "addressLocality": "Thun",
       "postalCode": "3600",
       "addressRegion": "Bern",
@@ -1242,7 +1242,7 @@
       "title": "Consultant Unternehmensnachfolge / M&A",
       "titleByLocale": {
         "it": "Successione commerciale / M&A",
-        "en": "Consultant Business Succession / M&A",
+        "en": "Consultant Unternehmensnachfolge / M&A",
         "de": "Berater Unternehmensnachfolge / M&A",
         "fr": "(Aîné) Consultant Succession d'entreprise / M&A, 80-100 %"
       },
@@ -1258,7 +1258,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/consultant-unternehmensnachfolge-m-a/add696ae-f8b3-4c02-b1b9-adf35a4e1e74",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.994Z",
+      "crawledAt": "2026-09-28T21:18:36.879Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "Bern",
@@ -1330,7 +1330,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-51f38c1d4bcc",
@@ -1363,7 +1364,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/779bbb02-01dd-4a21-b614-d28943d2190e",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.992Z",
+      "crawledAt": "2026-09-28T21:18:36.875Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "addressRegion": "Zürich",
@@ -1457,7 +1458,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/a61ff8a7-ad57-425a-b81e-8d017956f1e7",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.991Z",
+      "crawledAt": "2026-09-28T21:18:36.873Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -1537,7 +1538,7 @@
       "title": "IMS Praktikum Software Entwicklung",
       "titleByLocale": {
         "it": "Sviluppo software di stage IMS, 100%",
-        "en": "IMS Internship Software Development",
+        "en": "IMS Praktikum Software Entwicklung",
         "de": "IMS Praktikum Software Entwicklung",
         "fr": "Développement de logiciels de stage IMS, 100%"
       },
@@ -1553,7 +1554,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/ims-praktikum-software-entwicklung/3b5ae99d-59d0-46f1-bc37-a53785eee521",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.991Z",
+      "crawledAt": "2026-09-28T21:18:36.874Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -1600,6 +1601,7 @@
         ]
       },
       "firstSeenAt": "2026-08-02T22:02:02.737Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1645,7 +1647,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/b43673c1-643f-4885-88d9-db21e5b0d57f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.990Z",
+      "crawledAt": "2026-09-28T21:18:36.871Z",
       "addressLocality": "Uster",
       "postalCode": "8610",
       "addressRegion": "Zürich",
@@ -1737,7 +1739,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/lehre-als-informatiker-in-plattformentwicklung/b834a7c7-d15c-45e1-b666-39e73d434782",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.989Z",
+      "crawledAt": "2026-09-28T21:18:36.869Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -1852,7 +1854,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-in-die-privatkundenberatung/b129d5fd-f685-48a7-b38c-178e9d4ef31d",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.988Z",
+      "crawledAt": "2026-09-28T21:18:36.868Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "addressRegion": "Sankt Gallen",
@@ -1948,7 +1950,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-consultant-unabhaengige-vermoegensberatung/7a5911fc-256f-4946-9ca5-9c6c31a657c9",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.987Z",
+      "crawledAt": "2026-09-28T21:18:36.866Z",
       "addressLocality": "Basel",
       "postalCode": "4051",
       "addressRegion": "Basel-Stadt",
@@ -2038,7 +2040,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/risk-officer-operationelle-risiken/0c1e9f94-9f3a-42bb-bea0-6a59587764f8",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.986Z",
+      "crawledAt": "2026-09-28T21:18:36.864Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -2052,7 +2054,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-08-16",
-      "applyUrl": "https://vzjobs.abacuscity.ch/de/jobapplicationform?jobportal_id=2&jobportal_jobid=1006893",
+      "applyUrl": "https://app.jobportal.abaservices.ch/application-process/JobportalVZ/2a668873-eab3-2809-7f24-4fa6ff8d075a?jp=ABACUS",
       "requirements": [
         "• Du verfügst über mehrjährige Berufserfahrung im operationellen Risikomanagement im Finanzbereich, in einer Second-Line-Funktion, im IKS oder in einem vergleichbaren Umfeld.",
         "• Du besitzt ein fundiertes Verständnis für Risiken, Kontrollen und Governance-Zusammenhänge und kannst komplexe Sachverhalte selbstständig beurteilen.",
@@ -2191,7 +2193,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "vz-vermoegenszentrum-67acdfa08a66",
@@ -2208,7 +2211,7 @@
       "title": "Private Clients Consultant (pour Bienne)",
       "titleByLocale": {
         "it": "Consulente clienti privato (per Biel)",
-        "en": "Private Client Consultant (for Biel)",
+        "en": "Private Clients Consultant (pour Bienne)",
         "de": "Private Client Consultant (für Biel)",
         "fr": "Private Clients Consultant (pour Bienne)"
       },
@@ -2224,7 +2227,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant-pour-bienne/54843c65-a555-4056-b115-007a676821de",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T04:56:24.983Z",
+      "crawledAt": "2026-09-28T21:18:36.862Z",
       "addressLocality": "Biel",
       "postalCode": "2502",
       "addressRegion": "Bern",
@@ -2275,6 +2278,7 @@
         "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel"
       ],
       "firstSeenAt": "2026-08-20T10:11:08.037Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -2320,7 +2324,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/premiere-experience-en-financial-consulting-pour-bienne/883f0431-8477-4643-b194-08ac2655fdf1",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T04:56:24.982Z",
+      "crawledAt": "2026-09-28T21:18:36.860Z",
       "addressLocality": "Biel",
       "postalCode": "2502",
       "addressRegion": "Bern",
@@ -2425,7 +2429,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/2a02e572-fe1e-48ba-b3dd-fa6a725f650b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.981Z",
+      "crawledAt": "2026-09-28T21:18:36.856Z",
       "addressLocality": "Kreuzlingen",
       "postalCode": "8280",
       "addressRegion": "Thurgau",
@@ -2519,7 +2523,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/temporaerer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-maerz-2027/c5e428f0-317d-4fbe-8235-e63dd5b72619",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.980Z",
+      "crawledAt": "2026-09-28T21:18:36.854Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -2594,7 +2598,7 @@
         "it": "Stage WML in Financial Consulting (start 2027)",
         "en": "WML internship in Financial Consulting (start 2027)",
         "de": "WML-Praktikum im Financial Consulting (Start 2027)",
-        "fr": "Stage WML en conseil financier (début 2027)"
+        "fr": "WML-Praktikum im Financial Consulting (Start 2027)"
       },
       "description": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Für junge und engagierte Persönlichkeiten bieten wir im Rahmen des WML-Praktikums einen Einblick in die Kundenberatung.\n\n• Du unterstützt unser Team in der Niederlassung in Sursee und lernst den Alltag unserer Beraterinnen und Berater kennen.\n\n• Du erhältst Einblick in verschiedene Themen wie Vermögensmanagement, Anlageberatung, Steuerplanung, Nachlassregelung und Liegenschaftsfinanzierung.\n\n• Du arbeitest mit einem erfahrenen Consultant zusammen, den du bei den Kundenprojekten und Beratungsgesprächen begleitest.\n\n• Du besuchst die Wirtschaftsmittelschule und möchtest mit diesem Praktikum die Berufsmatura erlangen.\n\n• Finanzthemen wie Aktien und Obligationen sowie der Kundenkontakt machen dir Spass.\n\n• Du hast eine rasche Auffassungsgabe, ein Flair für Zahlen und bist eine motivierte und aufgestellte Persönlichkeit.\n\n• Du lernst täglich von unseren erfahrenen Beraterinnen und Beratern.\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können.",
       "descriptionByLocale": {
@@ -2608,7 +2612,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/wml-praktikum-im-financial-consulting-start-2027/a7ef9b79-a415-4a89-82b7-092d3a2f915f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.978Z",
+      "crawledAt": "2026-09-28T21:18:36.850Z",
       "addressLocality": "Sursee",
       "postalCode": "6210",
       "addressRegion": "Luzern",
@@ -2646,6 +2650,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:39:40.361Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -2675,7 +2680,7 @@
       "title": "Payroll Manager – Firmenkunden",
       "titleByLocale": {
         "it": "Payroll Manager – Clienti aziendali",
-        "en": "Payroll Manager – Corporate Clients",
+        "en": "Payroll Manager – Firmenkunden",
         "de": "Payroll Manager – Firmenkunden",
         "fr": "Gestionnaire de la paie – Clients ministériels"
       },
@@ -2691,7 +2696,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/payroll-manager-firmenkunden/b2b9444b-d2f1-4e5f-85a1-686041522e81",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.977Z",
+      "crawledAt": "2026-09-28T21:18:36.848Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -2740,6 +2745,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:54:04.863Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2785,7 +2791,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/senior-investment-advisor/75bb75c9-aeda-47b0-8f5c-dea9bbe21eaf",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.976Z",
+      "crawledAt": "2026-09-28T21:18:36.846Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -2877,7 +2883,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-process-automation-ai-engineer-financial-services/4e1487ac-cee4-472c-a506-0b5ff119d03f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.974Z",
+      "crawledAt": "2026-09-28T21:18:36.845Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -2967,7 +2973,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/finanzmarktanalyst-in-redaktor-in/d2ecf679-4118-4daa-bdc5-15e756e51fc4",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.973Z",
+      "crawledAt": "2026-09-28T21:18:36.843Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -3065,7 +3071,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-privatversicherungen/2193a5de-94a2-4558-8528-463c5cdc1b70",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.971Z",
+      "crawledAt": "2026-09-28T21:18:36.842Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -3161,7 +3167,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-software-engineer-net-fullstack/5fd95b4e-9236-440d-8165-db037e71c219",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.968Z",
+      "crawledAt": "2026-09-28T21:18:36.841Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -3247,7 +3253,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-software-engineer-net-und-web/819bba91-eeca-4415-b23d-a032ef8a69f5",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.966Z",
+      "crawledAt": "2026-09-28T21:18:36.839Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -3287,8 +3293,8 @@
           "professional-software-engineer-net-und-web-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:11:10.042Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -3334,7 +3340,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/316434ed-e2af-4bfc-aed6-706661099d27",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.963Z",
+      "crawledAt": "2026-09-28T21:18:36.836Z",
       "addressLocality": "Meilen",
       "postalCode": "8706",
       "addressRegion": "Zürich",
@@ -3433,7 +3439,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant-start-januar-2027/d8935b60-c1c5-4544-846f-d005538e6749",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.961Z",
+      "crawledAt": "2026-09-28T21:18:36.834Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -3518,7 +3524,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/associate-consultant-unternehmensnachfolge/9298ae55-d19e-4a2b-a2f5-eb04605d680c",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.960Z",
+      "crawledAt": "2026-09-28T21:18:36.832Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -3567,8 +3573,8 @@
           "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:33:16.194Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3614,7 +3620,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/lehre-als-kauffrau-kaufmann-privatversicherung/4f6cc1b8-d946-4485-86c1-9a6b62d341ca",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.958Z",
+      "crawledAt": "2026-09-28T21:18:36.830Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -3728,7 +3734,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/ac7b6302-7c87-4daf-b702-175fb76d919f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.957Z",
+      "crawledAt": "2026-09-28T21:18:36.828Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -3813,7 +3819,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-consultant-unabhaengige-vermoegensberatung/fca6e094-6afb-42cc-a5b4-5b94a78dbc14",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.956Z",
+      "crawledAt": "2026-09-28T21:18:36.826Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -3898,7 +3904,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/real-estate-consultant/ef19fcc9-c7ad-458b-9495-529b6c35be6d",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.954Z",
+      "crawledAt": "2026-09-28T21:18:36.824Z",
       "addressLocality": "Basel",
       "postalCode": "4051",
       "addressRegion": "Basel-Stadt",
@@ -3985,7 +3991,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/4adb9db0-0fad-4189-9f52-a2926770d004",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.953Z",
+      "crawledAt": "2026-09-28T21:18:36.822Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "addressRegion": "Aargau",
@@ -4079,7 +4085,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung-in-unserer-neuen-niederlassung-in-buelach/44f34820-f24d-4614-89b4-5f05464731e9",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.952Z",
+      "crawledAt": "2026-09-28T21:18:36.820Z",
       "addressLocality": "Bülach",
       "postalCode": "8180",
       "addressRegion": "Zürich",
@@ -4166,7 +4172,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/berater-in-nachlassberatung-willensvollstreckung/eaadb916-5f9e-4c4f-a6c0-ea5f93a25405",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.951Z",
+      "crawledAt": "2026-09-28T21:18:36.818Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4260,7 +4266,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/f1eedd51-3b80-4b5d-828d-53990a77abc1",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.950Z",
+      "crawledAt": "2026-09-28T21:18:36.817Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressRegion": "Zürich",
@@ -4341,7 +4347,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/ba1496ff-a45a-42d8-a756-f4439fd06ca7",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.949Z",
+      "crawledAt": "2026-09-28T21:18:36.815Z",
       "addressLocality": "Freienbach",
       "postalCode": "8808",
       "addressRegion": "Schwyz",
@@ -4424,7 +4430,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/d45047f0-e25b-4b67-8e3a-49fa07547c44",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.948Z",
+      "crawledAt": "2026-09-28T21:18:36.813Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "addressRegion": "Sankt Gallen",
@@ -4490,36 +4496,36 @@
     },
     {
       "id": "vz-vermoegenszentrum-22ce5f2279d8",
-      "slug": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur",
+      "slug": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-chur-graubunden",
       "slugByLocale": {
-        "it": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur",
-        "en": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur",
+        "it": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-chur-graubunden",
+        "en": "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-chur-graubunden",
         "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "fr": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
+        "fr": "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-chur-graubunden"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Einstieg ins Financial Consulting – Unabhängige Vermögensberatung",
       "titleByLocale": {
-        "it": "Einstieg ins Financial Consulting – Unabhängige Vermögensberatung",
-        "en": "Einstieg ins Financial Consulting – Unabhängige Vermögensberatung",
+        "it": "Entrata in Financial Consulting – Servizi di gestione patrimoniale indipendenti",
+        "en": "Entry into Financial Consulting – Independent asset management services",
         "de": "Einstieg ins Financial Consulting – Unabhängige Vermögensberatung",
-        "fr": "Einstieg ins Financial Consulting – Unabhängige Vermögensberatung"
+        "fr": "Entrée dans Conseils financiers – Services indépendants de gestion d'actifs"
       },
       "description": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Chur an zentraler Lage.\n\n• Wir optimieren die gesamte Vermögenssituation unserer Kundinnen und Kunden. Das macht deine Arbeit vielseitiger und abwechslungsreicher als bei anderen Finanzdienstleistern.\n\n• Du bist vom ersten Tag an bei Beratungsgesprächen dabei und übernimmst immer mehr den Lead.\n\n• Mit erfahrenen Consultants erarbeitest du, wie deine Kunden am besten vorsorgen, Geld anlegen, Immobilien finanzieren, Nachlässe regeln und Steuern sparen.\n\n• Das Trainee-Programm ist ein Direkteinstieg: In 18 bis 24 Monaten eignest du dir alles an, was du für deine Arbeit als Consultant brauchst.\n\n• Abgeschlossenes Studium an einer (Fach-)Hochschule, höheren Fachschule oder Universität\n\n• Interesse an Geldthemen und Freude am Kundenkontakt\n\n• Neugier, Ehrgeiz, Teamgeist und Lust auf Verantwortung\n\n• Bei uns kommst du vorwärts: Nach dem Trainee-Programm berätst du deine eigenen Kundinnen und Kunden\n\n• Weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen.\n\n• Wichtige Grundsätze unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur.\n\n• Die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!\n\n• Du arbeitest in einem Unternehmen, das von der Hochschule Luzern zu den digitalsten Banken der Schweiz gezählt wird.",
       "descriptionByLocale": {
-        "it": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Chur an zentraler Lage.\n\n• Wir optimieren die gesamte Vermögenssituation unserer Kundinnen und Kunden. Das macht deine Arbeit vielseitiger und abwechslungsreicher als bei anderen Finanzdienstleistern.\n\n• Du bist vom ersten Tag an bei Beratungsgesprächen dabei und übernimmst immer mehr den Lead.\n\n• Mit erfahrenen Consultants erarbeitest du, wie deine Kunden am besten vorsorgen, Geld anlegen, Immobilien finanzieren, Nachlässe regeln und Steuern sparen.\n\n• Das Trainee-Programm ist ein Direkteinstieg: In 18 bis 24 Monaten eignest du dir alles an, was du für deine Arbeit als Consultant brauchst.\n\n• Abgeschlossenes Studium an einer (Fach-)Hochschule, höheren Fachschule oder Universität\n\n• Interesse an Geldthemen und Freude am Kundenkontakt\n\n• Neugier, Ehrgeiz, Teamgeist und Lust auf Verantwortung\n\n• Bei uns kommst du vorwärts: Nach dem Trainee-Programm berätst du deine eigenen Kundinnen und Kunden\n\n• Weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen.\n\n• Wichtige Grundsätze unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur.\n\n• Die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!\n\n• Du arbeitest in einem Unternehmen, das von der Hochschule Luzern zu den digitalsten Banken der Schweiz gezählt wird.",
-        "en": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Chur an zentraler Lage.\n\n• Wir optimieren die gesamte Vermögenssituation unserer Kundinnen und Kunden. Das macht deine Arbeit vielseitiger und abwechslungsreicher als bei anderen Finanzdienstleistern.\n\n• Du bist vom ersten Tag an bei Beratungsgesprächen dabei und übernimmst immer mehr den Lead.\n\n• Mit erfahrenen Consultants erarbeitest du, wie deine Kunden am besten vorsorgen, Geld anlegen, Immobilien finanzieren, Nachlässe regeln und Steuern sparen.\n\n• Das Trainee-Programm ist ein Direkteinstieg: In 18 bis 24 Monaten eignest du dir alles an, was du für deine Arbeit als Consultant brauchst.\n\n• Abgeschlossenes Studium an einer (Fach-)Hochschule, höheren Fachschule oder Universität\n\n• Interesse an Geldthemen und Freude am Kundenkontakt\n\n• Neugier, Ehrgeiz, Teamgeist und Lust auf Verantwortung\n\n• Bei uns kommst du vorwärts: Nach dem Trainee-Programm berätst du deine eigenen Kundinnen und Kunden\n\n• Weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen.\n\n• Wichtige Grundsätze unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur.\n\n• Die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!\n\n• Du arbeitest in einem Unternehmen, das von der Hochschule Luzern zu den digitalsten Banken der Schweiz gezählt wird.",
+        "it": "I nostri clienti si ritirano ben preparati, investono i loro soldi con successo, sono assicurati in modo ottimale e risparmiano tasse, premi e tasse. Questo ci rende il servizio di consulenza finanziaria indipendente numero uno. Se volete contribuire alla nostra storia di successo, ci troverete a Chur in una posizione centrale.\n\n• Ottimizziamo l'intera situazione patrimoniale dei nostri clienti. Questo rende il vostro lavoro più versatile e vario di altri fornitori di servizi finanziari.\n\n• Siete coinvolti in consultazioni dal primo giorno e prendere il comando sempre di più.\n\n• Con consulenti esperti, lavorerai come meglio fornire ai tuoi clienti, investire denaro, finanziare immobili, regolare sconti e risparmiare tasse.\n\n• Il programma del tirocinante è un ingresso diretto: In 18 a 24 mesi, acquisirai tutto il necessario per il tuo lavoro come consulente.\n\n• Studi completi presso un'università (specialista), una scuola tecnica superiore o un'università\n\n• Interessi in materia di denaro e piacere nel contatto con il cliente\n\n• Curiosità, ambizione, spirito di squadra e desiderio di responsabilità\n\n• Con noi si muoverà avanti: Dopo il programma di tirocinante, si consiglia ai propri clienti\n\n• Perché cresciamo fortemente, molte porte sono aperte a te. Fai la tua strada con noi.\n\n• I principi importanti del nostro successo sono l'indipendenza, la trasparenza, la correttezza e una cultura rinfrescantemente semplice.\n\n• La maggior parte delle posizioni sono anche aperte per un soggiorno part-time, in modo che ci sia più tempo per ulteriori istruzione, famiglia, sport e progetti che sono importanti per voi.\n\n• Indagini mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!\n\n• Lavora in una società che Lucerna University of Applied Sciences conta come una delle banche più digitali in Svizzera.",
+        "en": "Our customers retire well prepared, invest their money successfully, are optimally secured and save taxes, premiums and fees. This makes us the number one independent financial advisory service. If you would like to contribute to our success story, you will find us in Chur in a central location.\n\n• We optimize the entire asset situation of our customers. This makes your work more versatile and varied than other financial services providers.\n\n• You are involved in consultations from day one and take on the lead more and more.\n\n• With experienced consultants, you will work out how best to provide for your customers, invest money, finance real estate, regulate discounts and save taxes.\n\n• The trainee program is a direct entry: In 18 to 24 months, you will acquire everything you need for your work as a consultant.\n\n• Completed studies at a (specialist) university, higher technical school or university\n\n• Interest in money topics and pleasure in customer contact\n\n• Curiosity, ambition, team spirit and desire for responsibility\n\n• With us you will move forward: After the trainee program, you will advise your own customers\n\n• Because we grow strongly, many doors are open to you. Make your way with us.\n\n• Important principles of our success are independence, transparency, fairness and a refreshingly uncomplicated culture.\n\n• Most of the positions are also open for a part-time stay, so that there is more time for further education, family, sports and projects that are important to you.\n\n• Surveys regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!\n\n• You work in a company that Lucerne University of Applied Sciences counts as one of the most digital banks in Switzerland.",
         "de": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Chur an zentraler Lage.\n\n• Wir optimieren die gesamte Vermögenssituation unserer Kundinnen und Kunden. Das macht deine Arbeit vielseitiger und abwechslungsreicher als bei anderen Finanzdienstleistern.\n\n• Du bist vom ersten Tag an bei Beratungsgesprächen dabei und übernimmst immer mehr den Lead.\n\n• Mit erfahrenen Consultants erarbeitest du, wie deine Kunden am besten vorsorgen, Geld anlegen, Immobilien finanzieren, Nachlässe regeln und Steuern sparen.\n\n• Das Trainee-Programm ist ein Direkteinstieg: In 18 bis 24 Monaten eignest du dir alles an, was du für deine Arbeit als Consultant brauchst.\n\n• Abgeschlossenes Studium an einer (Fach-)Hochschule, höheren Fachschule oder Universität\n\n• Interesse an Geldthemen und Freude am Kundenkontakt\n\n• Neugier, Ehrgeiz, Teamgeist und Lust auf Verantwortung\n\n• Bei uns kommst du vorwärts: Nach dem Trainee-Programm berätst du deine eigenen Kundinnen und Kunden\n\n• Weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen.\n\n• Wichtige Grundsätze unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur.\n\n• Die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!\n\n• Du arbeitest in einem Unternehmen, das von der Hochschule Luzern zu den digitalsten Banken der Schweiz gezählt wird.",
-        "fr": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Chur an zentraler Lage.\n\n• Wir optimieren die gesamte Vermögenssituation unserer Kundinnen und Kunden. Das macht deine Arbeit vielseitiger und abwechslungsreicher als bei anderen Finanzdienstleistern.\n\n• Du bist vom ersten Tag an bei Beratungsgesprächen dabei und übernimmst immer mehr den Lead.\n\n• Mit erfahrenen Consultants erarbeitest du, wie deine Kunden am besten vorsorgen, Geld anlegen, Immobilien finanzieren, Nachlässe regeln und Steuern sparen.\n\n• Das Trainee-Programm ist ein Direkteinstieg: In 18 bis 24 Monaten eignest du dir alles an, was du für deine Arbeit als Consultant brauchst.\n\n• Abgeschlossenes Studium an einer (Fach-)Hochschule, höheren Fachschule oder Universität\n\n• Interesse an Geldthemen und Freude am Kundenkontakt\n\n• Neugier, Ehrgeiz, Teamgeist und Lust auf Verantwortung\n\n• Bei uns kommst du vorwärts: Nach dem Trainee-Programm berätst du deine eigenen Kundinnen und Kunden\n\n• Weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen.\n\n• Wichtige Grundsätze unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur.\n\n• Die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!\n\n• Du arbeitest in einem Unternehmen, das von der Hochschule Luzern zu den digitalsten Banken der Schweiz gezählt wird."
+        "fr": "Nos clients se retirent bien préparés, investissent leur argent avec succès, sont parfaitement sécurisés et économisent les taxes, les primes et les frais. Cela fait de nous le premier service de conseil financier indépendant. Si vous souhaitez contribuer à notre réussite, vous nous trouverez à Chur dans un emplacement central.\n\n• Nous optimisons l'ensemble de la situation des actifs de nos clients. Cela rend votre travail plus polyvalent et varié que d'autres fournisseurs de services financiers.\n\n• Vous participez aux consultations dès le premier jour et prenez de plus en plus l'initiative.\n\n• Avec des consultants expérimentés, vous travaillerez sur la meilleure façon de fournir pour vos clients, d'investir de l'argent, de financer l'immobilier, de réglementer les rabais et d'économiser des impôts.\n\n• Le programme de stagiaire est une entrée directe: Dans 18 à 24 mois, vous acquerrez tout ce dont vous avez besoin pour votre travail de consultant.\n\n• Études terminées dans une université (spécialiste), une école technique supérieure ou une université\n\n• Intérêts sur les sujets monétaires et plaisir dans le contact client\n\n• Curiosité, ambition, esprit d'équipe et désir de responsabilité\n\n• Avec nous, vous avancerez : Après le programme de stagiaire, vous conseillerez vos propres clients\n\n• Parce que nous grandissons fortement, beaucoup de portes vous sont ouvertes. Fais ton chemin avec nous.\n\n• Les principes importants de notre réussite sont l'indépendance, la transparence, l'équité et une culture rafraîchissante et simple.\n\n• La plupart des postes sont également ouverts pour un séjour à temps partiel, de sorte qu'il y a plus de temps pour poursuivre l'éducation, la famille, les sports et les projets qui sont importants pour vous.\n\n• Les enquêtes montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !\n\n• Vous travaillez dans une entreprise que Lucerne University of Applied Sciences compte parmi les banques les plus numériques de Suisse."
       },
       "location": "Chur, Graubünden",
       "canton": "GR",
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/0bf486bb-732a-42cb-81c1-7e5c68ef8529",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.947Z",
+      "crawledAt": "2026-09-28T21:18:36.812Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "Graubünden",
@@ -4547,14 +4553,21 @@
         ]
       },
       "previousSlugs": [
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
+        ],
+        "en": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
+        ],
+        "fr": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:01:55.267Z",
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -4601,7 +4614,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung-fuer-unsere-neue-niederlassung-buchs-sg/e1c45024-0784-40d9-ad01-476736434651",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:56:24.943Z",
+      "crawledAt": "2026-09-28T21:18:36.810Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "Graubünden",
@@ -4656,6 +4669,180 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "vz-vermoegenszentrum-a6d6049bcd69",
+      "slug": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
+      "slugByLocale": {
+        "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
+        "it": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
+        "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
+        "fr": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
+      },
+      "company": "VZ VermögensZentrum",
+      "companyKey": "vz-vermoegenszentrum",
+      "companyDomain": "vermoegenszentrum.ch",
+      "title": "Associate Consultant Unternehmensnachfolge",
+      "titleByLocale": {
+        "de": "Associate Berater Unternehmensnachfolge",
+        "en": "Associate Consultant Unternehmensnachfolge",
+        "it": "Associate Consulente Unternehmensnachfolge",
+        "fr": "Associate Consultant Unternehmensnachfolge"
+      },
+      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Über 30 Experten im Bereich Unternehmensnachfolge begleiten unsere Kunden bei der Planung und beim Verkauf ihrer Unternehmung innerhalb der Familie, an Mitarbeitende und an Dritte. Wir suchen zur Erweiterung für unser Team in Bern eine Person, die sich für die Unternehmensnachfolge von Schweizer KMU begeistert.\n\n• Du arbeitest eng mit erfahrenen Consultants zusammen und begleitest vorwiegend familieninterne Nachfolgeregelungen und Unternehmensübertragungen an Mitarbeitende von A bis Z. Situativ arbeitest du bei externen Firmenverkäufen (M&A) aktiv mit.\n\n• Du unterstützt deine Kolleginnen und Kollegen bei der Erstellung von Unternehmensbewertungen und Nachfolgekonzepten sowie bei der Käufersuche, den Vertragsverhandlungen, Finanzierungsabklärungen, Steuerrulings und der Vertragsgestaltung.\n\n• Du zeigst den Firmeninhaber/-innen auf, wie sie sich bzw. die Firma finanziell bestmöglich auf die Nachfolge vorbereiten. Insbesondere zeigst du Steueroptimierungspotenzial auf (z.B. Lohn-Dividenden-Verhältnis, Dividendenbezugs-/Finanzplanung sowie Pensionskasse).\n\n• Du begleitest unsere Consultants in Kundengespräche, bereitest diese professionell vor und verarbeitest die Ergebnisse.\n\n• Begeisterung für die Welt der KMU\n\n• Abgeschlossenes Studium (oder kurz davor) oder vergleichbare Aus-/Weiterbildung\n\n• Erste Berufserfahrungen im Bereich Treuhand, Finanzen, Vorsorge, Rechnungswesen oder Controlling\n\n• Analytische Denkweise und Fähigkeit, komplexe Zusammenhänge verständlich darzustellen\n\n• Offene und klare Kommunikation und Freude am Kontakt mit allen Anspruchsgruppen\n\n• Regionale Verankerung und Motivation, die Nachfolgeabteilung in Bern weiterzuentwickeln\n\n• Ein Tätigkeitsgebiet, das Fachwissen verlangt und den Menschen in den Mittelpunkt stellt.\n\n• Du erweiterst dein Wissen laufend und entwickelst dich Schritt für Schritt zum eigenständigen Consultant. Wir unterstützen dich währenddessen bei externen und internen Weiterbildungen (Trainee-Programm), die dich fit für deinen Job machen.\n\n• Wir sind ein heterogenes, fachlich hervorragend qualifiziertes und motiviertes Team.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem du dich voll entfalten kannst. Werde Teil davon!",
+      "descriptionByLocale": {
+        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Über 30 Experten im Bereich Unternehmensnachfolge begleiten unsere Kunden bei der Planung und beim Verkauf ihrer Unternehmung innerhalb der Familie, an Mitarbeitende und an Dritte. Wir suchen zur Erweiterung für unser Team in Bern eine Person, die sich für die Unternehmensnachfolge von Schweizer KMU begeistert.\n\n• Du arbeitest eng mit erfahrenen Consultants zusammen und begleitest vorwiegend familieninterne Nachfolgeregelungen und Unternehmensübertragungen an Mitarbeitende von A bis Z. Situativ arbeitest du bei externen Firmenverkäufen (M&A) aktiv mit.\n\n• Du unterstützt deine Kolleginnen und Kollegen bei der Erstellung von Unternehmensbewertungen und Nachfolgekonzepten sowie bei der Käufersuche, den Vertragsverhandlungen, Finanzierungsabklärungen, Steuerrulings und der Vertragsgestaltung.\n\n• Du zeigst den Firmeninhaber/-innen auf, wie sie sich bzw. die Firma finanziell bestmöglich auf die Nachfolge vorbereiten. Insbesondere zeigst du Steueroptimierungspotenzial auf (z.B. Lohn-Dividenden-Verhältnis, Dividendenbezugs-/Finanzplanung sowie Pensionskasse).\n\n• Du begleitest unsere Consultants in Kundengespräche, bereitest diese professionell vor und verarbeitest die Ergebnisse.\n\n• Begeisterung für die Welt der KMU\n\n• Abgeschlossenes Studium (oder kurz davor) oder vergleichbare Aus-/Weiterbildung\n\n• Erste Berufserfahrungen im Bereich Treuhand, Finanzen, Vorsorge, Rechnungswesen oder Controlling\n\n• Analytische Denkweise und Fähigkeit, komplexe Zusammenhänge verständlich darzustellen\n\n• Offene und klare Kommunikation und Freude am Kontakt mit allen Anspruchsgruppen\n\n• Regionale Verankerung und Motivation, die Nachfolgeabteilung in Bern weiterzuentwickeln\n\n• Ein Tätigkeitsgebiet, das Fachwissen verlangt und den Menschen in den Mittelpunkt stellt.\n\n• Du erweiterst dein Wissen laufend und entwickelst dich Schritt für Schritt zum eigenständigen Consultant. Wir unterstützen dich währenddessen bei externen und internen Weiterbildungen (Trainee-Programm), die dich fit für deinen Job machen.\n\n• Wir sind ein heterogenes, fachlich hervorragend qualifiziertes und motiviertes Team.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem du dich voll entfalten kannst. Werde Teil davon!",
+        "it": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Über 30 Experten im Bereich Unternehmensnachfolge begleiten unsere Kunden bei der Planung und beim Verkauf ihrer Unternehmung innerhalb der Familie, an Mitarbeitende und an Dritte. Wir suchen zur Erweiterung für unser Team in Bern eine Person, die sich für die Unternehmensnachfolge von Schweizer KMU begeistert.\n\n• Du arbeitest eng mit erfahrenen Consultants zusammen und begleitest vorwiegend familieninterne Nachfolgeregelungen und Unternehmensübertragungen an Mitarbeitende von A bis Z. Situativ arbeitest du bei externen Firmenverkäufen (M&A) aktiv mit.\n\n• Du unterstützt deine Kolleginnen und Kollegen bei der Erstellung von Unternehmensbewertungen und Nachfolgekonzepten sowie bei der Käufersuche, den Vertragsverhandlungen, Finanzierungsabklärungen, Steuerrulings und der Vertragsgestaltung.\n\n• Du zeigst den Firmeninhaber/-innen auf, wie sie sich bzw. die Firma finanziell bestmöglich auf die Nachfolge vorbereiten. Insbesondere zeigst du Steueroptimierungspotenzial auf (z.B. Lohn-Dividenden-Verhältnis, Dividendenbezugs-/Finanzplanung sowie Pensionskasse).\n\n• Du begleitest unsere Consultants in Kundengespräche, bereitest diese professionell vor und verarbeitest die Ergebnisse.\n\n• Begeisterung für die Welt der KMU\n\n• Abgeschlossenes Studium (oder kurz davor) oder vergleichbare Aus-/Weiterbildung\n\n• Erste Berufserfahrungen im Bereich Treuhand, Finanzen, Vorsorge, Rechnungswesen oder Controlling\n\n• Analytische Denkweise und Fähigkeit, komplexe Zusammenhänge verständlich darzustellen\n\n• Offene und klare Kommunikation und Freude am Kontakt mit allen Anspruchsgruppen\n\n• Regionale Verankerung und Motivation, die Nachfolgeabteilung in Bern weiterzuentwickeln\n\n• Ein Tätigkeitsgebiet, das Fachwissen verlangt und den Menschen in den Mittelpunkt stellt.\n\n• Du erweiterst dein Wissen laufend und entwickelst dich Schritt für Schritt zum eigenständigen Consultant. Wir unterstützen dich währenddessen bei externen und internen Weiterbildungen (Trainee-Programm), die dich fit für deinen Job machen.\n\n• Wir sind ein heterogenes, fachlich hervorragend qualifiziertes und motiviertes Team.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem du dich voll entfalten kannst. Werde Teil davon!",
+        "en": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Über 30 Experten im Bereich Unternehmensnachfolge begleiten unsere Kunden bei der Planung und beim Verkauf ihrer Unternehmung innerhalb der Familie, an Mitarbeitende und an Dritte. Wir suchen zur Erweiterung für unser Team in Bern eine Person, die sich für die Unternehmensnachfolge von Schweizer KMU begeistert.\n\n• Du arbeitest eng mit erfahrenen Consultants zusammen und begleitest vorwiegend familieninterne Nachfolgeregelungen und Unternehmensübertragungen an Mitarbeitende von A bis Z. Situativ arbeitest du bei externen Firmenverkäufen (M&A) aktiv mit.\n\n• Du unterstützt deine Kolleginnen und Kollegen bei der Erstellung von Unternehmensbewertungen und Nachfolgekonzepten sowie bei der Käufersuche, den Vertragsverhandlungen, Finanzierungsabklärungen, Steuerrulings und der Vertragsgestaltung.\n\n• Du zeigst den Firmeninhaber/-innen auf, wie sie sich bzw. die Firma finanziell bestmöglich auf die Nachfolge vorbereiten. Insbesondere zeigst du Steueroptimierungspotenzial auf (z.B. Lohn-Dividenden-Verhältnis, Dividendenbezugs-/Finanzplanung sowie Pensionskasse).\n\n• Du begleitest unsere Consultants in Kundengespräche, bereitest diese professionell vor und verarbeitest die Ergebnisse.\n\n• Begeisterung für die Welt der KMU\n\n• Abgeschlossenes Studium (oder kurz davor) oder vergleichbare Aus-/Weiterbildung\n\n• Erste Berufserfahrungen im Bereich Treuhand, Finanzen, Vorsorge, Rechnungswesen oder Controlling\n\n• Analytische Denkweise und Fähigkeit, komplexe Zusammenhänge verständlich darzustellen\n\n• Offene und klare Kommunikation und Freude am Kontakt mit allen Anspruchsgruppen\n\n• Regionale Verankerung und Motivation, die Nachfolgeabteilung in Bern weiterzuentwickeln\n\n• Ein Tätigkeitsgebiet, das Fachwissen verlangt und den Menschen in den Mittelpunkt stellt.\n\n• Du erweiterst dein Wissen laufend und entwickelst dich Schritt für Schritt zum eigenständigen Consultant. Wir unterstützen dich währenddessen bei externen und internen Weiterbildungen (Trainee-Programm), die dich fit für deinen Job machen.\n\n• Wir sind ein heterogenes, fachlich hervorragend qualifiziertes und motiviertes Team.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem du dich voll entfalten kannst. Werde Teil davon!",
+        "fr": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Über 30 Experten im Bereich Unternehmensnachfolge begleiten unsere Kunden bei der Planung und beim Verkauf ihrer Unternehmung innerhalb der Familie, an Mitarbeitende und an Dritte. Wir suchen zur Erweiterung für unser Team in Bern eine Person, die sich für die Unternehmensnachfolge von Schweizer KMU begeistert.\n\n• Du arbeitest eng mit erfahrenen Consultants zusammen und begleitest vorwiegend familieninterne Nachfolgeregelungen und Unternehmensübertragungen an Mitarbeitende von A bis Z. Situativ arbeitest du bei externen Firmenverkäufen (M&A) aktiv mit.\n\n• Du unterstützt deine Kolleginnen und Kollegen bei der Erstellung von Unternehmensbewertungen und Nachfolgekonzepten sowie bei der Käufersuche, den Vertragsverhandlungen, Finanzierungsabklärungen, Steuerrulings und der Vertragsgestaltung.\n\n• Du zeigst den Firmeninhaber/-innen auf, wie sie sich bzw. die Firma finanziell bestmöglich auf die Nachfolge vorbereiten. Insbesondere zeigst du Steueroptimierungspotenzial auf (z.B. Lohn-Dividenden-Verhältnis, Dividendenbezugs-/Finanzplanung sowie Pensionskasse).\n\n• Du begleitest unsere Consultants in Kundengespräche, bereitest diese professionell vor und verarbeitest die Ergebnisse.\n\n• Begeisterung für die Welt der KMU\n\n• Abgeschlossenes Studium (oder kurz davor) oder vergleichbare Aus-/Weiterbildung\n\n• Erste Berufserfahrungen im Bereich Treuhand, Finanzen, Vorsorge, Rechnungswesen oder Controlling\n\n• Analytische Denkweise und Fähigkeit, komplexe Zusammenhänge verständlich darzustellen\n\n• Offene und klare Kommunikation und Freude am Kontakt mit allen Anspruchsgruppen\n\n• Regionale Verankerung und Motivation, die Nachfolgeabteilung in Bern weiterzuentwickeln\n\n• Ein Tätigkeitsgebiet, das Fachwissen verlangt und den Menschen in den Mittelpunkt stellt.\n\n• Du erweiterst dein Wissen laufend und entwickelst dich Schritt für Schritt zum eigenständigen Consultant. Wir unterstützen dich währenddessen bei externen und internen Weiterbildungen (Trainee-Programm), die dich fit für deinen Job machen.\n\n• Wir sind ein heterogenes, fachlich hervorragend qualifiziertes und motiviertes Team.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem du dich voll entfalten kannst. Werde Teil davon!"
+      },
+      "location": "Bern, Bern",
+      "canton": "BE",
+      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/associate-consultant-unternehmensnachfolge/ff89e612-dfc8-4711-b21a-f4db480fd336",
+      "source": "VZ VermögensZentrum Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:18:36.806Z",
+      "addressLocality": "Bern",
+      "postalCode": "3011",
+      "addressRegion": "Bern",
+      "streetAddress": "Spitalgasse 33",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Wealth Management",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-27",
+      "applyUrl": "https://app.jobportal.abaservices.ch/application-process/JobportalVZ/45e2357b-59a3-5517-2905-6ecdc8dcf629?jp=PROSPECTIVE",
+      "requirements": [
+        "• Begeisterung für die Welt der KMU",
+        "• Abgeschlossenes Studium (oder kurz davor) oder vergleichbare Aus-/Weiterbildung",
+        "• Erste Berufserfahrungen im Bereich Treuhand, Finanzen, Vorsorge, Rechnungswesen oder Controlling",
+        "• Analytische Denkweise und Fähigkeit, komplexe Zusammenhänge verständlich darzustellen",
+        "• Offene und klare Kommunikation und Freude am Kontakt mit allen Anspruchsgruppen",
+        "• Regionale Verankerung und Motivation, die Nachfolgeabteilung in Bern weiterzuentwickeln"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Begeisterung für die Welt der KMU",
+          "• Abgeschlossenes Studium (oder kurz davor) oder vergleichbare Aus-/Weiterbildung",
+          "• Erste Berufserfahrungen im Bereich Treuhand, Finanzen, Vorsorge, Rechnungswesen oder Controlling",
+          "• Analytische Denkweise und Fähigkeit, komplexe Zusammenhänge verständlich darzustellen",
+          "• Offene und klare Kommunikation und Freude am Kontakt mit allen Anspruchsgruppen",
+          "• Regionale Verankerung und Motivation, die Nachfolgeabteilung in Bern weiterzuentwickeln"
+        ]
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-04T13:33:16.194Z"
+    },
+    {
+      "id": "vz-vermoegenszentrum-9b3c8d367293",
+      "slug": "junior-business-analyst-in-vz-vermogenszentrum-zurich",
+      "slugByLocale": {
+        "de": "junior-business-analyst-in-vz-vermoegenszentrum-ch",
+        "it": "junior-business-analyst-in-vz-vermogenszentrum-zurich",
+        "en": "junior-business-analyst-in-vz-vermogenszentrum-zurich",
+        "fr": "junior-business-analyst-in-vz-vermogenszentrum-zurich"
+      },
+      "company": "VZ VermögensZentrum",
+      "companyKey": "vz-vermoegenszentrum",
+      "companyDomain": "vermoegenszentrum.ch",
+      "title": "Junior Business Analyst/-in",
+      "titleByLocale": {
+        "de": "Junior Business Analyst/-in",
+        "en": "Junior Business Analyst/-in",
+        "it": "Junior Business Analista/-in",
+        "fr": "Junior Business Analyste/-in"
+      },
+      "description": "Das VZ VermögensZentrum ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen zu allen Themen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Damit sind wir sehr erfolgreich und wachsen kräftig. Jetzt suchen wir per sofort eine engagierte Persönlichkeit für unser Team in der VZ Operations AG in Zürich.\n\n• Du begleitest die Umsetzung digitaler Prozesse und/oder neuen Funktionen von der Spezifikation bis zur Konfiguration und bringst diese zu einem erfolgreichen Abschluss.\n\n• Du bist nahe an den Fachbereichen, klärst komplexe, technische wie auch fachliche, Fragestellungen und bringst Struktur in anspruchsvolle Anforderungen.\n\n• Du spezifizierst User Stories und stellst die Umsetzung sicher (inkl. Abnahme und Testing).\n\n• Du kommunizierst mit Fachbereichen und technischen Ansprechpartnern souverän und auf Augenhöhe, verstehst ihre unterschiedlichen Anforderungen und schaffst durch deine Vermittlungsfähigkeit tragfähige Lösungen für alle Beteiligten.\n\n• Du arbeitest eng mit unseren externen und internen Partnern zusammen.\n\n• Je nach Thema übernimmst du zusätzliche Verantwortung in der Rolle als Projektleiter/-in.\n\n• Abgeschlossenes Studium in Naturwissenschaften, Informatik, Wirtschaftsinformatik oder BWL oder eine ähnliche Ausbildung.\n\n• Erste Berufserfahrung im Bereich Digitalisierung oder als Business Analyst.\n\n• Stakeholdermanagement sowohl intern als auch mit externen Partnern\n\n• Flair/Interesse für technologische Trends und Erfahrung im agilen Projekt-Management und in der Business Analyse\n\n• Ein hohes Qualitätsbewusstsein, eine strukturierte Arbeitsweise mit klaren Prioritäten und Lust auf ein dienstleistungsorientiertes, dynamisches Umfeld\n\n• Die Möglichkeit in einem jungen, wachsenden Unternehmen Ideen einzubringen und Innovationen voranzutreiben.\n\n• Die individuelle Förderung im Rahmen des Jobprofils und die Unterstützung bei externen Weiterbildungen.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+      "descriptionByLocale": {
+        "de": "Das VZ VermögensZentrum ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen zu allen Themen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Damit sind wir sehr erfolgreich und wachsen kräftig. Jetzt suchen wir per sofort eine engagierte Persönlichkeit für unser Team in der VZ Operations AG in Zürich.\n\n• Du begleitest die Umsetzung digitaler Prozesse und/oder neuen Funktionen von der Spezifikation bis zur Konfiguration und bringst diese zu einem erfolgreichen Abschluss.\n\n• Du bist nahe an den Fachbereichen, klärst komplexe, technische wie auch fachliche, Fragestellungen und bringst Struktur in anspruchsvolle Anforderungen.\n\n• Du spezifizierst User Stories und stellst die Umsetzung sicher (inkl. Abnahme und Testing).\n\n• Du kommunizierst mit Fachbereichen und technischen Ansprechpartnern souverän und auf Augenhöhe, verstehst ihre unterschiedlichen Anforderungen und schaffst durch deine Vermittlungsfähigkeit tragfähige Lösungen für alle Beteiligten.\n\n• Du arbeitest eng mit unseren externen und internen Partnern zusammen.\n\n• Je nach Thema übernimmst du zusätzliche Verantwortung in der Rolle als Projektleiter/-in.\n\n• Abgeschlossenes Studium in Naturwissenschaften, Informatik, Wirtschaftsinformatik oder BWL oder eine ähnliche Ausbildung.\n\n• Erste Berufserfahrung im Bereich Digitalisierung oder als Business Analyst.\n\n• Stakeholdermanagement sowohl intern als auch mit externen Partnern\n\n• Flair/Interesse für technologische Trends und Erfahrung im agilen Projekt-Management und in der Business Analyse\n\n• Ein hohes Qualitätsbewusstsein, eine strukturierte Arbeitsweise mit klaren Prioritäten und Lust auf ein dienstleistungsorientiertes, dynamisches Umfeld\n\n• Die Möglichkeit in einem jungen, wachsenden Unternehmen Ideen einzubringen und Innovationen voranzutreiben.\n\n• Die individuelle Förderung im Rahmen des Jobprofils und die Unterstützung bei externen Weiterbildungen.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+        "it": "VZ VermögensZentrum è il principale fornitore di servizi finanziari indipendenti in Svizzera. Noi consigliamo individui e aziende su tutte le questioni relative al denaro, gestire le attività e offrire servizi finanziari attraenti. Siamo molto riusciti e in forte crescita. Ora cerchiamo una personalità impegnata per il nostro team alla VZ Operations AG di Zurigo.\n\n• Accompagnate l'implementazione di processi digitali e/o nuove funzioni dalla specifica alla configurazione e portateli a una conclusione di successo.\n\n• Siete vicini alle aree specialistiche, chiarite domande complesse, tecniche e tecniche e portate la struttura in requisiti esigenti.\n\n• Specifica le storie degli utenti e assicura l'implementazione (compreso l'accettazione e il test).\n\n• Si comunica con aree specialistiche e contatti tecnici con fiducia e su un piano di parità, capire i loro diversi requisiti e creare soluzioni valide per tutti coloro che sono coinvolti attraverso la vostra capacità di mediazione.\n\n• Lavorate a stretto contatto con i nostri partner esterni e interni.\n\n• A seconda dell'argomento, si assume responsabilità aggiuntiva nel ruolo del project manager.\n\n• Studi completi in scienze naturali, informatica, informatica aziendale o amministrazione aziendale o una formazione simile.\n\n• Prima esperienza professionale nel campo della digitalizzazione o come analista di business.\n\n• Gestione degli stakeholder sia internamente che con partner esterni\n\n• Flair/interest nelle tendenze tecnologiche e nell'esperienza nella gestione agile del progetto e nell'analisi aziendale\n\n• Un alto livello di consapevolezza della qualità, un modo strutturato di lavorare con chiare priorità e un desiderio di un ambiente dinamico e orientato al servizio\n\n• L'opportunità di contribuire idee e guidare l'innovazione in una giovane e crescente azienda.\n\n• Sostegno individuale nell'ambito del profilo del lavoro e sostegno per l'istruzione superiore esterna.\n\n• Indagini mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!",
+        "en": "VZ VermögensZentrum is the leading independent financial services provider in Switzerland. We advise individuals and companies on all matters relating to money, manage assets and offer attractive financial services. We are very successful and growing strongly. Now we are looking for a committed personality for our team at VZ Operations AG in Zurich.\n\n• You accompany the implementation of digital processes and/or new functions from specification to configuration and bring them to a successful conclusion.\n\n• You are close to the specialist areas, clarify complex, technical as well as technical questions and bring structure into demanding requirements.\n\n• You specify user stories and ensure the implementation (including acceptance and testing).\n\n• You communicate with specialist areas and technical contacts confidently and on an equal footing, understand their different requirements and create viable solutions for everyone involved through your mediation ability.\n\n• You work closely with our external and internal partners.\n\n• Depending on the topic, you take on additional responsibility in the role of project manager.\n\n• Completed studies in natural sciences, computer science, business informatics or business administration or a similar education.\n\n• First professional experience in the field of digitalization or as a business analyst.\n\n• Stakeholder management both internally and with external partners\n\n• Flair/interest in technological trends and experience in agile project management and business analysis\n\n• A high level of quality awareness, a structured way of working with clear priorities and a desire for a service-oriented, dynamic environment\n\n• The opportunity to contribute ideas and drive innovation in a young, growing company.\n\n• Individual support within the framework of the job profile and support for external further education.\n\n• Surveys regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!",
+        "fr": "VZ VermögensZentrum est le premier fournisseur de services financiers indépendant en Suisse. Nous conseillons les particuliers et les entreprises sur toutes les questions relatives à l'argent, gérons les actifs et offrons des services financiers attrayants. Nous sommes très réussis et nous grandissons fortement. Maintenant, nous recherchons une personnalité engagée pour notre équipe à VZ Operations AG à Zurich.\n\n• Vous accompagnez la mise en œuvre de processus numériques et/ou de nouvelles fonctions de spécification à configuration et les amènez à une conclusion réussie.\n\n• Vous êtes proche des domaines spécialisés, clarifiez les questions complexes, techniques et techniques et apportez une structure dans les exigences exigeantes.\n\n• Vous spécifiez des histoires d'utilisateurs et assurez l'implémentation (y compris l'acceptation et les tests).\n\n• Vous communiquez avec des domaines spécialisés et des contacts techniques avec confiance et sur un pied d'égalité, comprenez leurs différentes exigences et créez des solutions viables pour toutes les personnes impliquées grâce à votre capacité de médiation.\n\n• Vous travaillez en étroite collaboration avec nos partenaires externes et internes.\n\n• Selon le sujet, vous assumez une responsabilité supplémentaire dans le rôle de gestionnaire de projet.\n\n• Études terminées en sciences naturelles, en informatique, en informatique des affaires ou en administration des affaires ou dans un enseignement semblable.\n\n• Première expérience professionnelle dans le domaine de la numérisation ou en tant qu'analyste d'affaires.\n\n• Gestion des intervenants à la fois à l'interne et avec des partenaires externes\n\n• Flair/intérêt pour les tendances technologiques et l'expérience en gestion de projet agile et en analyse commerciale\n\n• Un niveau élevé de sensibilisation à la qualité, une manière structurée de travailler avec des priorités claires et un désir d'un environnement dynamique et axé sur le service\n\n• L'occasion de contribuer aux idées et de stimuler l'innovation dans une jeune entreprise en croissance.\n\n• Soutien individuel dans le cadre du profil d'emploi et soutien à la formation continue externe.\n\n• Les enquêtes montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !"
+      },
+      "location": "Zürich, Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-business-analyst-in/011947f8-9a57-474a-98a5-844a4ba446ae",
+      "source": "VZ VermögensZentrum Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:18:36.792Z",
+      "addressLocality": "Zürich",
+      "postalCode": "8002",
+      "addressRegion": "Zürich",
+      "streetAddress": "Gotthardstrasse 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Finanza / Wealth Management",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-27",
+      "applyUrl": "https://app.jobportal.abaservices.ch/application-process/JobportalVZ/b733f487-afdc-e251-1feb-a32988680125?jp=PROSPECTIVE",
+      "requirements": [
+        "• Abgeschlossenes Studium in Naturwissenschaften, Informatik, Wirtschaftsinformatik oder BWL oder eine ähnliche Ausbildung.",
+        "• Erste Berufserfahrung im Bereich Digitalisierung oder als Business Analyst.",
+        "• Stakeholdermanagement sowohl intern als auch mit externen Partnern",
+        "• Flair/Interesse für technologische Trends und Erfahrung im agilen Projekt-Management und in der Business Analyse",
+        "• Ein hohes Qualitätsbewusstsein, eine strukturierte Arbeitsweise mit klaren Prioritäten und Lust auf ein dienstleistungsorientiertes, dynamisches Umfeld"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Abgeschlossenes Studium in Naturwissenschaften, Informatik, Wirtschaftsinformatik oder BWL oder eine ähnliche Ausbildung.",
+          "• Erste Berufserfahrung im Bereich Digitalisierung oder als Business Analyst.",
+          "• Stakeholdermanagement sowohl intern als auch mit externen Partnern",
+          "• Flair/Interesse für technologische Trends und Erfahrung im agilen Projekt-Management und in der Business Analyse",
+          "• Ein hohes Qualitätsbewusstsein, eine strukturierte Arbeitsweise mit klaren Prioritäten und Lust auf ein dienstleistungsorientiertes, dynamisches Umfeld"
+        ]
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-business-analyst-in-vz-vermoegenszentrum-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-business-analyst-in-vz-vermoegenszentrum-ch"
+      ],
+      "salaryMin": 71000,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:18:36.792Z"
     }
   ]
 }

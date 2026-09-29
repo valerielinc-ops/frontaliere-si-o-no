@@ -12,6 +12,7 @@ import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
 const ACTIVE_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/[^/]+\.json$/;
+const RETIRED_COOP_SCRATCH_ARCHIVE = 'data/jobs/expired/by-crawler/coop-ticino-locale-cache.json';
 const SWISS_RE_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/swiss-re\.json$/;
 const BUEHLER_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/buehler\.json$/;
 const TERMINAL_COUNTRY_RE = /,\s*([A-Za-z]{2})\s*$/;
@@ -111,6 +112,123 @@ function checkoutHeadSha(cwd) {
   }
 }
 
+function crossCrawlerDedupProofPath({ proofDir, env = process.env } = {}) {
+  const resolvedProofDir = path.resolve(
+    proofDir
+      || env.JOBS_HOUSEKEEPING_PROOF_DIR
+      || path.join(
+        env.RUNNER_TEMP || env.TMPDIR || '/tmp',
+        'frontaliere-housekeeping-proofs',
+      ),
+  );
+  return path.join(resolvedProofDir, 'monolithic-dedup-proof.json');
+}
+
+export function clearCrossCrawlerDedupProofFile({ proofDir, env = process.env } = {}) {
+  const proofPath = crossCrawlerDedupProofPath({ proofDir, env });
+  try {
+    fs.unlinkSync(proofPath);
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+  }
+  return proofPath;
+}
+
+/**
+ * Persist the exact duplicate decisions made by the monolithic cleanup pass.
+ *
+ * `prune-dedup-from-slices.mjs` runs in a separate process and cannot infer
+ * every valid removal from the final `jobs.json`: a duplicate winner can itself
+ * disappear in a later dedup pass, so the final title/company/location index
+ * may no longer contain the evidence. Bind the decision log to the same run
+ * and final candidate digest; an absent or stale sidecar leaves the slice byte
+ * guard closed.
+ */
+export function writeCrossCrawlerDedupProofFile(
+  entries,
+  { candidateRaw, proofDir, env = process.env, cwd = process.cwd(), baseSha = '' } = {},
+) {
+  if (!Array.isArray(entries) || entries.length === 0) {
+    return clearCrossCrawlerDedupProofFile({ proofDir, env });
+  }
+  if (typeof candidateRaw !== 'string') {
+    throw new Error('cannot write cross-crawler dedup proof without the final jobs.json snapshot');
+  }
+
+  const resolvedBaseSha = String(baseSha || env.GITHUB_SHA || checkoutHeadSha(cwd) || '').trim();
+  const runId = String(env.GITHUB_RUN_ID || '').trim();
+  const runAttempt = String(env.GITHUB_RUN_ATTEMPT || '').trim();
+  if (!resolvedBaseSha || !runId || !runAttempt) {
+    throw new Error(
+      'cannot write cross-crawler dedup proof without a checkout HEAD (or GITHUB_SHA), GITHUB_RUN_ID, and GITHUB_RUN_ATTEMPT',
+    );
+  }
+
+  const proofPath = crossCrawlerDedupProofPath({ proofDir, env });
+  fs.mkdirSync(path.dirname(proofPath), { recursive: true });
+  const temporaryPath = `${proofPath}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(temporaryPath, `${JSON.stringify({
+      schemaVersion: 1,
+      candidateDigest: sha256(candidateRaw),
+      baseSha: resolvedBaseSha,
+      runId,
+      runAttempt,
+      entries,
+    }, null, 2)}\n`, 'utf8');
+    fs.renameSync(temporaryPath, proofPath);
+  } catch (error) {
+    try { fs.unlinkSync(temporaryPath); } catch { /* best-effort cleanup */ }
+    throw error;
+  }
+  return proofPath;
+}
+
+export function loadCrossCrawlerDedupProofFile(
+  { proofPath, proofDir, candidateRaw, env = process.env, cwd = process.cwd() } = {},
+) {
+  const resolvedProofPath = proofPath || crossCrawlerDedupProofPath({ proofDir, env });
+  if (!resolvedProofPath || !fs.existsSync(resolvedProofPath)) return null;
+  let proof;
+  try {
+    proof = JSON.parse(fs.readFileSync(resolvedProofPath, 'utf8'));
+  } catch (error) {
+    throw new Error(`unreadable cross-crawler dedup proof: ${error?.message ?? error}`);
+  }
+  if (
+    !proof
+    || proof.schemaVersion !== 1
+    || !Array.isArray(proof.entries)
+    || typeof proof.candidateDigest !== 'string'
+    || typeof proof.baseSha !== 'string'
+    || typeof proof.runId !== 'string'
+    || typeof proof.runAttempt !== 'string'
+  ) {
+    throw new Error('invalid cross-crawler dedup proof');
+  }
+  if (typeof candidateRaw !== 'string' || proof.candidateDigest !== sha256(candidateRaw)) {
+    throw new Error('stale cross-crawler dedup proof: candidate digest mismatch');
+  }
+
+  const currentRunId = String(env.GITHUB_RUN_ID || '').trim();
+  const currentRunAttempt = String(env.GITHUB_RUN_ATTEMPT || '').trim();
+  const currentBaseSha = String(env.GITHUB_SHA || checkoutHeadSha(cwd) || '').trim();
+  if (
+    !proof.baseSha.trim()
+    || !proof.runId.trim()
+    || !proof.runAttempt.trim()
+    || !currentRunId
+    || !currentRunAttempt
+    || !currentBaseSha
+    || proof.runId !== currentRunId
+    || proof.runAttempt !== currentRunAttempt
+    || proof.baseSha !== currentBaseSha
+  ) {
+    throw new Error('stale cross-crawler dedup proof: run metadata mismatch');
+  }
+  return proof;
+}
+
 /**
  * Persist definitive URL evidence for the isolated commit helper.
  *
@@ -119,6 +237,10 @@ function checkoutHeadSha(cwd) {
  * sidecar to the final candidate digest plus the current run metadata. This is
  * shared by cleanup-jobs and source-verified crawler shrinks so the two write
  * paths cannot drift apart.
+ *
+ * @param {string} slicePath
+ * @param {unknown[]} entries
+ * @param {{baseRaw?: string, candidateRaw?: string, proofDir?: string, env?: NodeJS.ProcessEnv, cwd?: string, baseSha?: string}} [options]
  */
 export function writeHousekeepingProofFile(
   slicePath,
@@ -389,6 +511,76 @@ export function isSafeSourceGeographyPrune(filePath, previousRaw, nextRaw) {
   return isSafeSourceGeographyPruneJobs(filePath, parseJobs(previousRaw), parseJobs(nextRaw));
 }
 
+function crossCrawlerDedupEvidence(referenceJobs) {
+  if (Array.isArray(referenceJobs)) {
+    return {
+      reference: referenceJobs,
+      proof: referenceJobs.proof && typeof referenceJobs.proof === 'object'
+        ? referenceJobs.proof
+        : null,
+    };
+  }
+  return {
+    reference: parseJobs(referenceJobs),
+    proof: referenceJobs?.proof && typeof referenceJobs.proof === 'object'
+      ? referenceJobs.proof
+      : null,
+  };
+}
+
+function proofJob(entry) {
+  return entry?.job && typeof entry.job === 'object' ? entry.job : null;
+}
+
+function proofSourceJobs(entry) {
+  return Array.isArray(entry?.sourceJobs)
+    ? entry.sourceJobs.filter((job) => job && typeof job === 'object')
+    : [];
+}
+
+function crossCrawlerDedupSnapshot(job) {
+  return {
+    id: job?.id ?? null,
+    url: String(job?.url ?? '').trim(),
+    title: job?.title ?? '',
+    company: job?.company ?? '',
+    location: job?.location ?? '',
+    slug: String(job?.slug ?? '').trim(),
+  };
+}
+
+function isValidCrossCrawlerDedupEntry(entry, removedJob) {
+  const job = proofJob(entry);
+  if (!job || jobIdentity(job) !== jobIdentity(removedJob)) return false;
+  const exactSnapshots = [job, ...proofSourceJobs(entry)].some((candidate) => (
+    jobIdentity(candidate) === jobIdentity(removedJob)
+    && JSON.stringify(crossCrawlerDedupSnapshot(candidate))
+      === JSON.stringify(crossCrawlerDedupSnapshot(removedJob))
+  ));
+  if (!exactSnapshots) {
+    return false;
+  }
+  if (!['duplicate title+company', 'duplicate slug'].includes(entry.reason)) return false;
+
+  const duplicateKey = String(entry.duplicateKey ?? '').trim();
+  const expectedKey = entry.reason === 'duplicate slug'
+    ? normalizedJobField(job.slug)
+    : titleCompanyLocationKey(job);
+  if (!duplicateKey || !expectedKey || duplicateKey !== expectedKey) return false;
+
+  const retainedJob = entry.retainedJob;
+  const retainedKey = entry.reason === 'duplicate slug'
+    ? normalizedJobField(retainedJob?.slug)
+    : titleCompanyLocationKey(retainedJob);
+  return Boolean(
+    retainedJob
+    && typeof retainedJob === 'object'
+    && jobIdentity(retainedJob)
+    && jobIdentity(retainedJob) !== jobIdentity(job)
+    && retainedKey === duplicateKey
+  );
+}
+
 /**
  * Prove the only intentional large shrink performed by prune-dedup-from-slices.
  *
@@ -397,16 +589,18 @@ export function isSafeSourceGeographyPrune(filePath, previousRaw, nextRaw) {
  * file being written. The proof therefore requires every removed record to:
  *   - be an unambiguous subset removal (no replacement or identity collision),
  *   - be absent from the assembled reference by URL/id, and
- *   - have its exact title+company+location key represented by a different
- *     record in that reference.
+ *   - either have its exact title+company+location key represented by a
+ *     different record in that reference, or have an exact, run-bound decision
+ *     from cleanup-jobs' dedup sidecar.
  *
- * Without this explicit reference the generic accumulator guard stays closed.
+ * Without one of these explicit references the generic accumulator guard stays
+ * closed.
  */
 export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, referenceJobs) {
   if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
   const previousJobs = parseJobs(previousRaw);
   const nextJobs = parseJobs(nextRaw);
-  const reference = Array.isArray(referenceJobs) ? referenceJobs : parseJobs(referenceJobs);
+  const { reference, proof } = crossCrawlerDedupEvidence(referenceJobs);
   if (!previousJobs || !nextJobs || !reference || previousJobs.length <= nextJobs.length) {
     return false;
   }
@@ -423,9 +617,11 @@ export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, r
   const referenceIds = new Set(reference.map(jobIdentity).filter(Boolean));
   if (removed.some((job) => referenceIds.has(jobIdentity(job)))) return false;
   const referenceKeys = new Set(reference.map(titleCompanyLocationKey).filter(Boolean));
+  const proofEntries = Array.isArray(proof?.entries) ? proof.entries : [];
   return removed.every((job) => {
     const key = titleCompanyLocationKey(job);
-    return key !== null && referenceKeys.has(key);
+    if (key !== null && referenceKeys.has(key)) return true;
+    return proofEntries.some((entry) => isValidCrossCrawlerDedupEntry(entry, job));
   });
 }
 
@@ -587,6 +783,48 @@ export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofE
 }
 
 /**
+ * Prove the one allowlisted deletion of the retired Coop translation cache.
+ *
+ * Unlike URL housekeeping, this is not a collection of dead-job verdicts:
+ * the entire path was a crawler scratch artifact. Keep the exception bound to
+ * that exact path, company key, entry count, run sidecar and byte-for-byte
+ * base/candidate snapshots so it cannot authorize another archive deletion.
+ */
+export function isProvenRetiredScratchArchiveDelete(filePath, previousRaw, nextRaw, proof) {
+  if (normalizedPath(filePath) !== RETIRED_COOP_SCRATCH_ARCHIVE) return false;
+  if (!proof || typeof proof !== 'object' || Array.isArray(proof)) return false;
+  if (
+    typeof proof.baseRaw !== 'string'
+    || typeof proof.candidateRaw !== 'string'
+    || proof.baseRaw !== previousRaw
+    || proof.candidateRaw !== nextRaw
+    || proof.baseDigest !== sha256(previousRaw)
+    || proof.candidateDigest !== sha256(nextRaw)
+  ) return false;
+
+  let previousEntries;
+  let nextEntries;
+  try {
+    previousEntries = JSON.parse(previousRaw);
+    nextEntries = JSON.parse(nextRaw);
+  } catch {
+    return false;
+  }
+  if (
+    !Array.isArray(previousEntries)
+    || previousEntries.length === 0
+    || previousEntries.some((entry) => entry?.companyKey !== 'coop-ticino')
+    || !Array.isArray(nextEntries)
+    || nextEntries.length !== 0
+  ) return false;
+
+  return proof.entries?.length === 1
+    && proof.entries[0]?.operation === 'retired-scratch-archive-delete'
+    && proof.entries[0]?.companyKey === 'coop-ticino'
+    && proof.entries[0]?.entryCount === previousEntries.length;
+}
+
+/**
  * Guard the final bytes written for a crawler slice. The semantic exception
  * is deliberately narrower than the byte guard and is shared by all writers
  * so a later merge/ownership step cannot reintroduce the false positive.
@@ -613,6 +851,9 @@ export function assertCrawlerSliceWriteSafe(
   }
   if (isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-housekeeping-prune' };
+  }
+  if (isProvenRetiredScratchArchiveDelete(filePath, previousRaw, nextRaw, housekeepingProof)) {
+    return { previousBytes, nextBytes, reason: 'proven-retired-scratch-archive-delete' };
   }
   assertAccumulatorByteFloor(previousBytes, nextBytes, { label: filePath });
   return { previousBytes, nextBytes, reason: null };
@@ -643,6 +884,9 @@ export class HousekeepingProofError extends Error {}
  * that pruned a dead URL, catastrophic shrink or not (2026-09-28 wave:
  * belimo 35 → 34 jobs refused in group 02, one crawler per group in 02, 04,
  * 05, 06 and 11).
+ *
+ * @param {string} filePath
+ * @param {{proofPath?: string, basePath?: string, candidatePath?: string, env?: NodeJS.ProcessEnv}} [options]
  */
 export function loadHousekeepingProof(filePath, { proofPath, basePath = '-', candidatePath, env = process.env } = {}) {
   let proof;

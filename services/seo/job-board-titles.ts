@@ -251,7 +251,7 @@ export function buildListingHubTitle({ locale, count, year }: ListingHubArgs): s
   switch (locale) {
     case 'it':
       base = n > 0
-        ? `Offerte di lavoro Ticino ${year} — ${n} posti aggiornati oggi`
+        ? `Offerte di lavoro Ticino ${year} — ${n} offerte aggiornate`
         : `Offerte di lavoro Ticino ${year} — Aggiornate ogni giorno`;
       break;
     case 'en':

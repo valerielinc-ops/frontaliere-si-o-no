@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bachem",
-  "assembledAt": "2026-09-28T05:01:05.243Z",
+  "assembledAt": "2026-09-28T21:24:12.852Z",
   "jobs": [
     {
       "id": "bachem-c2cbd5c7fd2d",
@@ -34,7 +34,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Lead-Facility-Management-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1399950233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:58.991Z",
+      "crawledAt": "2026-09-28T21:24:06.768Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -78,9 +78,9 @@
     },
     {
       "id": "bachem-82f262190840",
-      "slug": "technical-author-a-100-bachem-ag-stein-ag",
+      "slug": "autore-tecnico-a-100-bachem-ag-stein-ag",
       "slugByLocale": {
-        "it": "technical-author-a-100-bachem-ag-stein-ag",
+        "it": "autore-tecnico-a-100-bachem-ag-stein-ag",
         "en": "technical-author-a-100-bachem-stein-ag",
         "de": "technical-author-a-100-bachem-stein-ag",
         "fr": "auteur-technique-a-100-bachem-ag-stein-ag"
@@ -108,7 +108,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Technical-Author-%28a%29-100-AG-4332/1441283133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:58.381Z",
+      "crawledAt": "2026-09-28T21:24:06.234Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -127,12 +127,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-author-a-100-bachem-stein-ag",
-        "autore-tecnico-a-100-bachem-ag-stein-ag"
+        "technical-author-a-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-author-a-100-bachem-stein-ag",
-          "autore-tecnico-a-100-bachem-ag-stein-ag"
+          "technical-author-a-100-bachem-ag-stein-ag"
         ],
         "fr": [
           "technical-author-a-100-bachem-stein-ag"
@@ -184,7 +184,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-MES-Design-Engineer-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1401817133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:57.805Z",
+      "crawledAt": "2026-09-28T21:24:08.406Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-PI-Server-Data-Historian-Engineer-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1402184733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:57.169Z",
+      "crawledAt": "2026-09-28T21:24:05.693Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -388,7 +388,8 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "bachem-f91a386a6701",
@@ -422,7 +423,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Documentation-Manager-%28a%29-%2880-100%29-f%C3%BCr-Engineering-Services-BL-4416/1440824133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:56.028Z",
+      "crawledAt": "2026-09-28T21:24:03.482Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -496,7 +497,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-Early-Phase-100-%28a%29-BL-4416/1434837833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:55.453Z",
+      "crawledAt": "2026-09-28T21:24:02.927Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -568,7 +569,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Mechaniker-%28a%29%2C-100-mit-Option-auf-Schichtbetrieb-%28Fr%C3%BChSp%C3%A4tschicht%29-BL-4416/1427345433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:54.788Z",
+      "crawledAt": "2026-09-28T21:24:02.346Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -623,7 +624,7 @@
       "title": "Lab Technician R&D Scale-up und Kleinmengenproduktion (a), 100%",
       "titleByLocale": {
         "it": "Lab Technician R&D Scale-up e Kleinmengenproduktion (w/m/d), 100% (a)",
-        "en": "Lab Technician R&D Scale-up and small volume production (a), 100%",
+        "en": "Lab Technician R&D Scale-up und Kleinmengenproduktion (a), 100%",
         "de": "Lab Techniker R&D Scale-up und Kleinmengenproduktion (a), 100%",
         "fr": "Technicien de laboratoire R-D Échelle et production en petit volume (a), 100 %"
       },
@@ -634,12 +635,13 @@
         "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung und Erweiterung unseres Kilolabors in R&D suchen wir eine/n motivierte/n Lab Technician R&D Scale-up und Kleinmengenproduktion (w/m/d), 100% für die organische Synthese, welche/r gerne projektbezogen arbeitet.\n\nIhre Aufgaben:\n\n• Durchführung chemischer Synthesen\n\n• Entwicklung, Scale-up und Optimierung von Verfahren\n\n• Produktion von Aminosäurederivaten und Pharmawirkstoffen im Kilomassstab\n\n• Bedienen technischer Anlagen\n\n• Führen von Chargendokumentationen\n\nIhr Profil:\n\n• Erfolgreich abgeschlossene Ausbildung als ChemielaborantIn (EFZ) im pharmazeutischen- oder chemischen Bereich\n\n• Erfahrung in der Raumpflege im pharmazeutischen oder chemischen Umfeld\n\n• Qualitätsbewusste, strukturierte, selbständige, zuverlässige und höchst saubere Arbeitsweise\n\n• Gutes chemisches und technisches Verständnis\n\n• Robuste körperliche Verfassung, Erfahrung im Kilolabor oder Pilot von Vorteil\n\n• Flexibilität, Kommunikation und Lernbereitschaft\n\n• Gute Deutschkenntnisse, Englischkenntnisse sind erwünscht\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattform Swibeco mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
         "fr": "Afin de stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Afin de renforcer et d'élargir notre laboratoire de kilos en R-D, nous recherchons un technicien de laboratoire motivé en R-D et en production à petite échelle (a), 100 % pour la synthèse organique, qui aime travailler sur des projets.\n\nLeurs tâches :\n\n• Réalisation de synthèses chimiques\n\n• Développement, mise à niveau et optimisation des procédures\n\n• Production de dérivés des acides aminés et d'ingrédients actifs pharmaceutiques à l'échelle kilo\n\n• Fonctionnement des installations techniques\n\n• Services de gestion de la documentation par lots\n\nVotre profil:\n\n• Formation réussie en tant que laboratoire chimique (EFZ) dans le secteur pharmaceutique ou de la technologie alimentaire\n\n• Expérience en soins de chambre dans le secteur pharmaceutique ou alimentaire\n\n• Méthode de travail axée sur la qualité, structurée, indépendante, fiable et hautement propre\n\n• Bonne compréhension technique\n\n• État physique robuste, pas de claustrophie\n\n• Flexibilité, communication et volonté d'apprendre\n\n• Très bonne connaissance de l'allemand, les compétences anglaises sont un avantage\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec des possibilités de développement interne\n\n• Heures de travail flexibles avec possibilité de bureau à domicile et possibilité d'acheter des vacances supplémentaires avec une charge de travail réduite\n\n• Soutien aux employés grâce à de nombreuses offres de formation interne et externe\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision trop obligatoire avec notre régime d'épargne facultative\n\n• Accès à la plate-forme d'avantages Swibeco avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• <span style=\"font-size:12.0pt;ligne-hauteur:107%;font-famille:Aria"
       },
+      "needsRetranslation": true,
       "location": "Bubendorf",
       "canton": "BL",
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-R&D-Scale-up-und-Kleinmengenproduktion-%28a%29%2C-100-BL-4416/1425043133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:54.214Z",
+      "crawledAt": "2026-09-28T21:24:04.598Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -714,7 +716,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Schnuppertag-Laborantin-Fachrichtung-Chemie-%28a%29-BL-4416/1419532933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:53.631Z",
+      "crawledAt": "2026-09-28T21:24:01.762Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -791,7 +793,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-CAD-&-CAE-Engineer-%28a%29-%2880-100%29-f%C3%BCr-die-Abteilung-Engineering-Services-BL-4416/1396693433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:53.057Z",
+      "crawledAt": "2026-09-28T21:24:01.200Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -865,7 +867,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-zur-Logistikerin-EFZ%2C-Fachrichtung-Lager-%28a%29-BL-4416/1419046233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:52.410Z",
+      "crawledAt": "2026-09-28T21:24:00.668Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -943,7 +945,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Project-Manager-Supply-Chain-Applications-Cold-Chain-Monitorning-&-Visibility-%28CCMV%29-%28a%29%2C-80-100-BL-4416/1440807633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:51.827Z",
+      "crawledAt": "2026-09-28T21:24:00.101Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1014,7 +1016,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-MES-Specialist-100-%28a%29-BL-4416/1398047733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:51.244Z",
+      "crawledAt": "2026-09-28T21:23:59.561Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1098,7 +1100,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-QA-Engineering-Manager-%28a%29%2C-100-BL-4416/1261351201/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:50.796Z",
+      "crawledAt": "2026-09-28T21:23:59.046Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1210,7 +1212,7 @@
       "title": "Process Specialist & Training Leader Chromatography (a) (Neubau Gebäude K), 100%",
       "titleByLocale": {
         "it": "Specialista di processo & Formazione Leader cromatografia (a) (New Building K), 100%",
-        "en": "Process Specialist & Training Leader Chromatography (a) (New Building K), 100%",
+        "en": "Process Specialist & Training Leader Chromatography (a) (Neubau Gebäude K), 100%",
         "de": "Process Spezialist & Training Leader Chromatography (a) (Neubau Gebäude K), 100%",
         "fr": "Spécialiste des processus et chef de la formation Chromatographie (a) (Nouveau bâtiment K), 100 %"
       },
@@ -1221,12 +1223,13 @@
         "de": "Zur Verstärkung unseres Teams in der Produktion von Wirkstoffen suchen wir nach Vereinbarung einen Prozessspezialisten (a), 100% im Bereich Chromatographie .\n\nWir bieten Ihnen in unserem Neubau ein abwechslungsreiches Aufgabenspektrum in der Herstellung von pharmazeutisch Wirkstoffen an neusten Anlagen. Begleiten Sie bereits die Inbetriebnahme und die ersten Produktionen.\n\nAufgaben\n\n• Sicherstellung eines einheitlich hohen Ausbildungsniveaus der Produktionsmitarbeitenden im Bereich GMP und praktische Prozessdurchführung\n\n• Technische Unterstützung von Schichtleitern und Meistern im operativen Betrieb\n\n• Begleitung der Inbetriebnahme neuer Anlagen im HPLC Bereich inklusive Rezepttests, Engineering Batches und PQ Läufen\n\n• Unterstützung bei der Einführung und Anwendung des Prozessleitsystems PCS7 sowie der papierlosen Dokumentation mittels MES\n\n• Weitergabe von technischem Knowhow und Schulung der Produktionsmitarbeitenden im neuen Anlagenbereich\n\n• Entwicklung und Implementierung von Schulungsprogrammen für den technischen Verantwortungsbereich\n\n• Durchführung von Onboarding Programmen für neue Mitarbeitende und Lernende\n\n• Erstellung und Pflege von Schulungsunterlagen sowie prozess und anlagenspezifischer Dokumentation\n\n• Schulung von HSE und GMP relevanten Themen in der Produktionsumgebung\n\n• Funktion als technischer Experte für den verantworteten Anlagenbereich\n\n• Unterstützung bei der Planung und Umsetzung technischer Verbesserungen in Zusammenarbeit mit QA, Betriebsengineering und externen Lieferanten\n\n• Unterstützung bei Reparaturen inklusive Erstellung von LOTO Plänen, Arbeitsbewilligungen und Betreuung vor Ort\n\nIhr Profil\n\n• Chemikanten Ausbildung und/oder Chemie -Meisterausbildung oder andere entsprechende technische Ausbildung, mindestens 5 Jahre Berufserfahrung im Chemiebetrieb\n\n• Erfahrung im Bereich Chromatographie, Ultrafiltration oder ähnliches\n\n• Umfassendes Wissen über den Umgang mit Chemikalien, PSA, Zonenkonzepten und HSE-Vorschriften\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Sicheres GMP-Verständnis und Fähigkeit, die Einhaltung der Vorgaben zu vermitteln\n\n• Ausgeprägtes Organisationstalent und Fähigkeit zur selbständigen Arbeitsplanung\n\n• Erfahrung mit papierloser Dokumentation\n\n• Erfahrung mit Prozessleitsystemen (z.B. PCS7)\n\n• Erfahrung mit der Inbetriebnahme neuer Anlagen und Prozesse\n\nUnser Angebot\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattform Swibeco mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
         "fr": "Pour renforcer notre équipe dans la production d'ingrédients actifs, nous recherchons un spécialiste des procédés (a), 100% dans le domaine de la chromatographie.\n\nDans notre nouveau bâtiment, nous vous proposons une gamme variée de tâches dans la production d'ingrédients actifs pharmaceutiques dans les dernières usines. Déjà accompagner la mise en service et les premières productions.\n\nTâche\n\n• Assurer un niveau uniformément élevé de formation du personnel de production des BPF et la mise en œuvre pratique des processus\n\n• Appui technique aux gestionnaires de postes et aux capitaines des opérations opérationnelles\n\n• Soutien à la mise en service de nouvelles usines dans la zone HPLC, y compris les tests de recette, les lots d'ingénierie et les parcours PQ\n\n• Support pour l'introduction et l'application du système de contrôle des processus PCS7 ainsi que la documentation sans papier utilisant MES\n\n• Transfert de savoir-faire technique et formation du personnel de production dans la nouvelle usine\n\n• Élaboration et mise en œuvre de programmes de formation à la responsabilité technique\n\n• Mise en oeuvre de programmes d'intégration pour les nouveaux employés et les nouveaux apprenants\n\n• Préparation et tenue à jour des documents de formation ainsi que des documents relatifs aux procédés et aux installations\n\n• Formation de thèmes pertinents du HSE et du GMP dans l'environnement de production\n\n• Fonction d'expert technique pour la zone d'usine responsable\n\n• Appui à la planification et à la mise en œuvre des améliorations techniques en coopération avec l'AQ, l'ingénierie opérationnelle et les fournisseurs extérieurs\n\n• Appui aux réparations, y compris la création de plans de LOTO, de permis de travail et de soutien sur place\n\nVotre profil\n\n• Formation en chimie et/ou maîtrise en chimie ou autre formation technique équivalente, au moins 5 ans d'expérience professionnelle dans l'industrie chimique\n\n• Expérience en chromatographie, ultrafiltration ou similaire\n\n• Connaissance approfondie de la manipulation chimique, des EPI, des concepts de zone et des règlements HSE\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Compréhension des BPF et capacité de transmettre la conformité\n\n• Fort talent organisationnel et capacité de planification indépendante du travail\n\n• Expérience de la documentation sans papier\n\n• Expérience des systèmes de contrôle des processus (par exemple PCS7)\n\n• Expérience dans la mise en service de nouvelles installations et procédés\n\n<span style=12.0pt; l"
       },
+      "needsRetranslation": true,
       "location": "Bubendorf",
       "canton": "BL",
       "url": "https://careers.bachem.com/job/Bubendorf-Process-Specialist-&-Training-Leader-Chromatography-%28a%29-%28Neubau-Geb%C3%A4ude-K%29%2C-100-BL-4416/1392755733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:50.206Z",
+      "crawledAt": "2026-09-28T21:23:58.589Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1307,7 +1310,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-Chemie-und-Pharmatechnologe-in-mit-dem-Schwerpunkt-Chemietechnologie-%28a%29-BL-4416/1419045933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:49.600Z",
+      "crawledAt": "2026-09-28T21:23:58.041Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1422,7 +1425,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "bachem-02a8f9a22fa0",
@@ -1455,7 +1459,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-Quality-Control-100-%28a%29-BL-4416/1423401933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:48.401Z",
+      "crawledAt": "2026-09-28T21:23:57.475Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1529,7 +1533,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Spezialist-Reinigungsvalidierung-%28a%29-100-BL-4416/1399924033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:47.789Z",
+      "crawledAt": "2026-09-28T21:23:57.046Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1606,7 +1610,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-Late-Phase-100-%28a%29-BL-4416/1386375033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:47.135Z",
+      "crawledAt": "2026-09-28T21:23:56.476Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1764,7 +1768,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Cluster-Specialist-%28a%29%2C-100-BL-4416/1440644233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:46.524Z",
+      "crawledAt": "2026-09-28T21:23:55.911Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1839,7 +1843,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Category-Manager-Capex-%28a%29-100%2C-f%C3%BCr-den-Bereich-Bauleistungen-BL-4416/1287275401/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:45.946Z",
+      "crawledAt": "2026-09-28T21:23:55.367Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1923,7 +1927,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Maintenance-Technician-Heizungs-%2C-Sanit%C3%A4r-und-Druckluftanlagen-%28wmd%29%2C-100-BL-4416/1289321401/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:45.368Z",
+      "crawledAt": "2026-09-28T21:23:54.821Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2000,7 +2004,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Quality-&-Compliance-Manager-in-Manufacturing-%28a%29%2C-100-BL-4416/1422946333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:44.751Z",
+      "crawledAt": "2026-09-28T21:23:54.159Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2063,7 +2067,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-KauffrauKaufmann-%28Branche-Dienstleistung-&-Administration%29%2C-%28a%29-BL-4416/1419046733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:44.185Z",
+      "crawledAt": "2026-09-28T21:24:05.155Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2140,7 +2144,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-HSE-Specialist-80-100-%28a%29-BL-4416/1387986133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:43.710Z",
+      "crawledAt": "2026-09-28T21:23:53.610Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2256,7 +2260,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Schnuppertag-Chemie-und-Pharmatechnologe-login-%28a%29-BL-4416/1419530733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:43.129Z",
+      "crawledAt": "2026-09-28T21:23:53.088Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2333,7 +2337,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-Laborantin-Laborant-EFZ-Fachrichtung-Chemie-mit-Schwerpunkt-Synthese-oder-Analytik-BL-4416/1419038933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:42.551Z",
+      "crawledAt": "2026-09-28T21:23:52.562Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2411,7 +2415,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-HR-Business-Partner-%28a%29%2C-100-befristet-f%C3%BCr-7-8-Monate-BL-4416/1424699533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:41.982Z",
+      "crawledAt": "2026-09-28T21:23:52.011Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2488,7 +2492,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-%28a%29-HPLC-Late-Phase-100-BL-4416/1409920033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:41.398Z",
+      "crawledAt": "2026-09-28T21:23:51.475Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2560,7 +2564,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Chemist-%28a%29%2C-100-BL-4416/1440910633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:40.768Z",
+      "crawledAt": "2026-09-28T21:23:50.925Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2617,7 +2621,7 @@
       "title": "Technical Author Peptide Manufacturing (a), 100% (Temp. 12 Monate)",
       "titleByLocale": {
         "it": "Autore Tecnico Peptide Manufacturing (a), 100% (temp. 12 mesi)",
-        "en": "Technical Author Peptide Manufacturing (a), 100% (temp. 12 months)",
+        "en": "Technical Author Peptide Manufacturing (a), 100% (Temp. 12 Monate)",
         "de": "Technical Author Peptide Manufacturing (a), 100% (Temp. 12 Monate)",
         "fr": "Auteur technique Peptide Manufacturing (a), 100% (temp. 12 mois)"
       },
@@ -2628,12 +2632,13 @@
         "de": "Zur Verstärkung des bestehenden Teams in unserer Wirkstoffproduktion suchen wir zum nächstmöglichen Zeitpunkt eine/n engagierte/n Technical Author Peptide Manufacturing (a), 100% (temporär für 12 Monate mit Aussicht auf Übernahme).\nSie sind verantwortlich für das Schreiben produktionsrelevanter GMP-Dokumente und sind in dieser Rolle auf eine Produktionseinheit (Manufacturing Cluster) spezialisiert.\n\nIhre Aufgaben\n\n• Verfassen, Aktualisieren und Optimieren von Herstellvorschriften (MBPRs), SOPs, Logbüchern und Risikoanalysen (FMEAs) für den Bereich Peptide Manufacturing.\n\n• Sicherstellung einer formalen und inhaltlichen Dokumentqualität nach GMP sowie internen Richtlinien.\n\n• Umsetzung von Änderungen an Master Batch Records (MBRs) im MES (PAS-X) in enger Zusammenarbeit mit den Produzenten.\n\n• Weiterentwicklung und Harmonisierung von Dokumentvorlagen und Standards zur Effizienzsteigerung in der Dokumentenerstellung.\n\n• Enge Zusammenarbeit mit dem zugewiesenen Peptide-Manufacturing-Cluster und Aufbau eines fundierten Verständnisses für Herstellprozesse, Anlagen und Abläufe.\n\n• Aktive Teilnahme an Prozessabstimmungen, Shopfloor-Begehungen sowie Austausch mit Operators, Production Leaders und Chemikern zur Sicherstellung einer präzisen und praxisnahen Dokumentation.\n\n• Einhaltung aller relevanten GMP-, HSE- und Compliance-Anforderungen.\n\n• Sicherstellung der korrekten Implementierung der Anforderungen in Herstellvorschriften, SOPs und Risikoanalysen.\n\n• Unterstützung bei internen und externen Audits durch Bereitstellung der relevanten Dokumente und Auskünfte.\n\n• Aktive Mitwirkung an der Stärkung der GMP- und HSE-Kultur im Team und im Produktionsumfeld.\n\nIhr Profil\n\n• Abgeschlossenes Hochschulstudium der Chemie mit Promotion oder ein Studium der Naturwissenschaften ergänzt durch Berufserfahrung im Pharmaumfeld\n\n• Deutsch auf Muttersprachenniveau sowie ausgezeichnete Englischkenntnisse\n\n• Beherrschung der gängigen MS Office-Tools\n\n• Interesse und Freude an der Erstellung von produktionsnahen GMP-Dokumenten\n\n• Interesse an praktischen Abläufen im Produktionsbetrieb\n\n• Fähigkeit, komplexe chemische Abläufe und technische Zusammenhänge verständlich darzustellen\n\n• Exakte Arbeitsweise\n\n• Fähigkeit, situationsbedingt selbständig oder im Team zu arbeiten\n\n• Ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\n• Interesse, das Erstellen von Master Batch Records (MBR) im Manufacturing Execution System (MES) der Bachem (PAS-X) zu erlernen bzw. Erfahrung im MBR-Design in einem MES vorteilhaft\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
         "fr": "Afin de renforcer l'équipe existante dans notre production de médicaments, nous sommes à la recherche d'un Auteur Technique Peptide Manufacturing (a), 100% (temporairement pendant 12 mois en vue d'une acquisition) dans les meilleurs délais.\nIls sont responsables de l'écriture de documents de BPF pertinents à la production et dans ce rôle sont spécialisés dans une unité de production (groupe de fabrication).\n\nLeurs tâches\n\n• Rédaction, mise à jour et optimisation des règlements de fabrication (MBPR), SOP, journaux de bord et analyses des risques (FMEA) pour la fabrication de peptides.\n\n• Assurer la qualité des documents officiels et de contenu conformément aux BPF et aux lignes directrices internes.\n\n• Mise en œuvre des modifications apportées aux registres de lots principaux (MBR) dans le MES (PAS-X) en étroite collaboration avec les producteurs.\n\n• Poursuite de l'élaboration et de l'harmonisation des modèles de documents et des normes afin d'accroître l'efficacité de la création de documents.\n\n• Une coopération étroite avec le groupe de fabrication de peptides assigné et une compréhension approfondie des processus de fabrication, des usines et des processus.\n\n• Participation active à la coordination des processus, aux visites d'atelier et aux échanges avec les opérateurs, les chefs de production et les chimistes pour assurer une documentation précise et pratique.\n\n• Conformité à toutes les exigences pertinentes en matière de BPF, de HSE et de conformité.\n\n• Veiller à la bonne application des exigences dans les règlements de fabrication, les SOP et les analyses des risques.\n\n• Appui aux audits internes et externes en fournissant les documents et informations pertinents.\n\n• Participation active au renforcement de la culture BPF et HSE dans l'environnement d'équipe et de production.\n\nVotre profil\n\n• Diplôme universitaire en chimie avec doctorat ou étude des sciences naturelles complété par une expérience professionnelle dans l'environnement pharmaceutique\n\n• Allemand au niveau de la langue maternelle et excellentes compétences en anglais\n\n• Maîtrise des outils communs de MS Office\n\n• Intérêt et plaisir pour la création de documents sur les BPF liés à la production\n\n• Intérêt pour les procédés pratiques dans l'usine de production\n\n• Capacité de comprendre les processus chimiques complexes et les relations techniques\n\n• Fonctionnement précis\n\n• Capacité de travailler de façon indépendante ou en équipe en raison de la situation\n\n• Renforcement des capacités de communication et de coordination\n\n• Intéressé à apprendre à créer Master Batch Records (MBR) dans le système d'exécution de fabrication (MES) de Bachem (PAS-X). Expérience dans la conception de MBR dans un MES avantageux\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec développement interne et possibilités de formation continue\n\n• Heures de travail flexibles avec possibilité de bureau à domicile et possibilité d'acheter des vacances supplémentaires avec une charge de travail réduite\n\n• Société-interne KITA sur le campus Bachem Bubendorf\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision sur-obligatoire avec notre régime d'épargne facultative\n\n• Accès à des plates-formes avantageuses avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nVoulez-vous stimuler l'innovation avec nous ?\n\nAvons-nous suscité votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!"
       },
+      "needsRetranslation": true,
       "location": "Bubendorf",
       "canton": "BL",
       "url": "https://careers.bachem.com/job/Bubendorf-Technical-Author-Peptide-Manufacturing-%28a%29%2C-100-%28Temp_-12-Monate%29-BL-4416/1438371233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:40.161Z",
+      "crawledAt": "2026-09-28T21:23:50.387Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2708,7 +2713,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Associate-Scientist-QC-R&S-%28a%29-100-BL-4416/1432590833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:39.581Z",
+      "crawledAt": "2026-09-28T21:23:49.840Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2780,7 +2785,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Manager-QA-%28a%29-Engineering-100-BL-4416/1429691533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:38.996Z",
+      "crawledAt": "2026-09-28T21:23:49.269Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2837,7 +2842,7 @@
         "it": "Recensione di Batchdocument (a), 100%",
         "en": "Batch Document Reviewer (a), 100%",
         "de": "Batchdocument Reviewer (a), 100%",
-        "fr": "Réviseur de documents par lots (a), 100 %"
+        "fr": "Batchdocument Reviewer (a), 100%"
       },
       "description": "Sie möchten Teil eines engagierten Teams in einem hochregulierten Umfeld werden? Als  Batchdokument Reviewer (a), 100% spielen Sie eine entscheidende Rolle bei der Sicherstellung der Qualität und Compliance unserer Produktionsprozesse. In dieser Position sind Sie verantwortlich für die sorgfältige Prüfung von Herstellungsdokumentationen gemäß den strengen GMP-Richtlinien. Ihre Arbeit trägt maßgeblich dazu bei, dass unsere Produkte höchsten Qualitätsstandards entsprechen und sicher zum Kunden gelangen.\n\nIhre Aufgaben\n\n• Prüfung von Herstellungsdokumentationen gemäß GMP-Richtlinien\n\n• Sicherstellung der Vollständigkeit, Richtigkeit und Nachverfolgbarkeit aller Batch Records\n\n• Identifikation und Melden von Abweichungen\n\n• Bearbeitung von dokumentarischen Abweichungen (ALCOA++ Abweichungen) im Qualitätsmanagement Tool\n\n• Enge Zusammenarbeit mit Produktion, Qualitätssicherung und anderen relevanten Abteilungen\n\n• Mitwirkung bei kontinuierlichen Verbesserungsprozessen im Dokumentations- und Review-Bereich\n\nIhr Profil\n\n• Berufserfahrung im GMP-regulierten Umfeld, idealerweise in der pharmazeutischen oder chemischen Industrie\n\n• Gute Kenntnisse der GMP-Regularien und Dokumentationsanforderungen\n\n• Hohe Genauigkeit, Verantwortungsbewusstsein und strukturierte Arbeitsweise\n\n• Sicherer Umgang mit MS Office und idealerweise Erfahrung mit Papier- und elektronischen Dokumentationssystemen\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Selbständige Arbeitsweise\n\n• Hohe Konzentrationsfähigkeit\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattform Swibeco mit Rabatten bei externen Partnern\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
       "descriptionByLocale": {
@@ -2889,7 +2894,9 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "bachem-fabfa6432365",
@@ -2923,7 +2930,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Chemikantin-als-Production-Technician-Oligonucleotide-Prod_-II-%28a%29%2C-100-BL-4416/1159225101/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:37.783Z",
+      "crawledAt": "2026-09-28T21:23:48.726Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3039,7 +3046,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Production-Technician-Oligo-Prod_-I-%28a%29%2C-100-BL-4416/1189349201/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:37.197Z",
+      "crawledAt": "2026-09-28T21:23:48.172Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3153,7 +3160,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Construction-Management-Lead-%28a%29%2C-100-BL-4416/1398896633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:36.621Z",
+      "crawledAt": "2026-09-28T21:23:47.629Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3229,7 +3236,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Teamleader-SPARK-%28a%29%2C-100-BL-4416/1405921833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:36.006Z",
+      "crawledAt": "2026-09-28T21:23:47.063Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3309,7 +3316,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Commissioning-&-Qualification-%28C&Q%29-Lead-%28a%29%2C-100-BL-4416/1398900433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:35.397Z",
+      "crawledAt": "2026-09-28T21:23:46.532Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3372,7 +3379,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Senior-Project-Manager-Automation-%28a%29%2C-100-AG-4332/1398906233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:34.800Z",
+      "crawledAt": "2026-09-28T21:23:45.954Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3436,7 +3443,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-ITOT-Network-&-Infrastructure-Engineer-%28a%29%2C-80-100-AG-4332/1404097333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:34.168Z",
+      "crawledAt": "2026-09-28T21:23:45.526Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3500,7 +3507,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-SAP-Solution-&-Implementation-Lead-%28a%29%2C-80-100-AG-4332/1404096933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:33.586Z",
+      "crawledAt": "2026-09-28T21:23:44.980Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3572,7 +3579,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Data-Engineer-%28a%29%2C-80-100-AG-4332/1437412233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:32.965Z",
+      "crawledAt": "2026-09-28T21:23:44.442Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3649,7 +3656,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Senior-Commissioning-&-Qualification-Engineer-Sisslerfeld-%28a%29%2C-100-AG-4332/1378356333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:32.497Z",
+      "crawledAt": "2026-09-28T21:23:43.890Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3707,24 +3714,23 @@
       "title": "Scientist Peptidwirkstoffe R&D LPPS/TAPS (a), 100%",
       "titleByLocale": {
         "it": "Scienziato Principi Attivi Peptidici R&S LPPS/TAPS (a), 100%",
-        "en": "Scientist Peptide Active Compounds R&D LPPS/TAPS (a), 100%",
+        "en": "Scientist Peptidwirkstoffe R&D LPPS/TAPS (a), 100%",
         "de": "Scientist Peptidwirkstoffe R&D LPPS/TAPS (a), 100%",
         "fr": "Scientifique Principes Actifs Peptidiques R&D LPPS/TAPS (a), 100%"
       },
       "description": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung suchen wir eine/n engagierte/n  Scientist Peptidwirkstoffe R&D LPPS/TAPS (w/m/d), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Durchführung von Prozesstransfers (Scale-up) und Unterstützung der Produktion bei Einführung neuer Prozesse, z.T. unter cGMP-Richtlinien\n\n• Fokus auf den LPPS/TAPS-Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristalisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Unterstützung der Produktion beim Lösen von chemischen Herausforderungen (Troubleshooting)\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Promotion in Chemie\n\n• Erfahrungen in der präparativen organischen Synthese und ein Faible für Prozesstechnik\n\n• Eine strukturierte, genaue und selbstständige Arbeitsweise, die es Ihnen erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS sind von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattform mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
       "descriptionByLocale": {
-        "it": "Al fine di guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati. Per rafforzare il nostro team di ricerca e sviluppo, stiamo cercando un ingrediente attivo dedicato di peptide scienziato R&D LPPS/TAPS (m/f/d), 100%. Il campo di lavoro comprende numerosi passaggi diversi nella sintesi moderna di sostanze attive peptide, frammenti di peptide e blocchi di costruzione di aminoacidi in soluzione, così come varie tecnologie per la concentrazione e l'isolamento dei prodotti.\n\nI loro compiti:\n\n• Responsabilità per la pianificazione, l'analisi e l'interpretazione degli esperimenti nonché la presentazione dei risultati ottenuti\n\n• Pianificazione e tempestiva esecuzione del lavoro di sviluppo o ottimizzazione dei processi in collaborazione con altri dipartimenti tenendo conto della qualità, dell'efficienza e della sicurezza\n\n• Attuazione dei trasferimenti di processo (scala) e sostegno alla produzione all'introduzione di nuovi processi, in parte secondo le linee guida del CGMP\n\n• Focus sulla zona LPPS/TAPS (chimica organica in soluzione, accoppiamenti peptide, chimica del gruppo protettivo, estrazione, precipitazione, cristallizzazione)\n\n• Scrivere report e presentazioni sul lavoro svolto per clienti interni ed esterni\n\n• Sostenere la produzione nella risoluzione delle sfide chimiche (risoluzione dei problemi)\n\n• Partecipazione attiva al miglioramento continuo delle nostre attrezzature e processi di lavoro nonché alla manutenzione dell'infrastruttura di laboratorio\n\nIl tuo profilo:\n\n• Dottorato in Chimica\n\n• Esperienza nella sintesi organica preparatoria e debolezza della tecnologia di processo\n\n• Un modo di lavoro strutturato, preciso e indipendente che consente di mantenere sempre una panoramica\n\n• Forte comunicazione e capacità organizzative\n\n• Affidabilità, indipendenza e lavoro di squadra\n\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\n• La conoscenza della chimica del peptide e le tecniche analitiche comuni come UHPLC e LC-MS sono vantaggiose\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con opportunità di sviluppo interno\n\n• Ore di lavoro flessibili con la possibilità di ufficio domestico e la possibilità di acquistare vacanze aggiuntive con carico di lavoro ridotto\n\n• Supporto dei dipendenti attraverso numerose offerte di formazione interna ed esterna\n\n• Il 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettivo\n\n• Accesso alla piattaforma di vantaggio con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Varie attività sportive gratuite sul campus di Bachem\n\nVuoi guidare l'innovazione insieme a noi?\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora che i tuoi documenti applicativi siano completi tramite il nostro portale.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nella nostra posizione a Bubendorf!",
         "en": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung suchen wir eine/n engagierte/n Scientist Peptidwirkstoffe R&D LPPS/TAPS (w/m/d), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Durchführung von Prozesstransfers (Scale-up) und Unterstützung der Produktion bei Einführung neuer Prozesse, z.T. unter cGMP-Richtlinien\n\n• Fokus auf den LPPS/TAPS-Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristalisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Unterstützung der Produktion beim Lösen von chemischen Herausforderungen (Troubleshooting)\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Promotion in Chemie\n\n• Erfahrungen in der präparativen organischen Synthese und ein Faible für Prozesstechnik\n\n• Eine strukturierte, genaue und selbstständige Arbeitsweise, die es Ihnen erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS sind von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattform mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
-        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung suchen wir eine/n engagierte/n Scientist Peptidwirkstoffe R&D LPPS/TAPS (w/m/d), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Durchführung von Prozesstransfers (Scale-up) und Unterstützung der Produktion bei Einführung neuer Prozesse, z.T. unter cGMP-Richtlinien\n\n• Fokus auf den LPPS/TAPS-Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristalisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Unterstützung der Produktion beim Lösen von chemischen Herausforderungen (Troubleshooting)\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Promotion in Chemie\n\n• Erfahrungen in der präparativen organischen Synthese und ein Faible für Prozesstechnik\n\n• Eine strukturierte, genaue und selbstständige Arbeitsweise, die es Ihnen erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS sind von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattform mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
-        "fr": "Afin de stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Pour renforcer notre équipe de recherche et développement, nous recherchons un ingrédient actif scientifique dédié R&D LPPS/TAPS (h/f/d), 100%. Le domaine de travail comprend de nombreuses étapes dans la synthèse moderne des substances actives peptidiques, des fragments de peptides et des blocs de construction d'acides aminés en solution, ainsi que diverses technologies pour la concentration et l'isolement des produits.\n\nLeurs tâches:\n\n• Responsabilité de la planification, de l'analyse et de l'interprétation des expériences ainsi que de la présentation des résultats obtenus\n\n• Planification et exécution en temps voulu des travaux de développement ou d'optimisation des processus en coopération avec d'autres départements, en tenant compte de la qualité, de l'efficacité et de la sécurité\n\n• Mise en œuvre des transferts de procédés (échelle) et soutien de la production lors de l'introduction de nouveaux procédés, en partie dans le cadre des lignes directrices sur les BPFc\n\n• Focus sur la zone LPPS/TAPS (chimie organique en solution, couplages peptides, chimie de groupe protectrice, extraction, précipitation, cristallisation)\n\n• Rédiger des rapports et des exposés sur le travail effectué pour les clients internes et externes\n\n• Soutien à la production pour résoudre les problèmes chimiques (dépannage)\n\n• Participation active à l'amélioration continue de nos équipements et de nos processus de travail ainsi qu'à l'entretien de l'infrastructure de laboratoire\n\nVotre profil:\n\n• Doctorat en chimie\n\n• Expérience de la synthèse organique préparatoire et faiblesse de la technologie des procédés\n\n• Une façon de travailler structurée, précise et indépendante qui vous permet de garder un aperçu en tout temps\n\n• Fortes compétences en communication et en organisation\n\n• Fiabilité, indépendance et travail d'équipe\n\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\n• La connaissance de la chimie des peptides et des techniques d'analyse courantes telles que l'UHPLC et la LC-MS sont avantageuses\n\nNotre offre:\n\n• Un environnement de travail dynamique et en croissance rapide avec des possibilités de développement interne\n\n• Heures de travail flexibles avec possibilité de bureau à domicile et possibilité d'acheter des vacances supplémentaires avec une charge de travail réduite\n\n• Soutien aux employés grâce à de nombreuses offres de formation interne et externe\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision trop obligatoire avec notre régime d'épargne facultative\n\n• Accès à la plate-forme d'avantages avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nVoulez-vous stimuler l'innovation avec nous?\n\nAvons-nous suscité votre intérêt? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!"
+        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung suchen wir eine/n engagierte/n  Scientist Peptidwirkstoffe R&D LPPS/TAPS (w/m/d), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Durchführung von Prozesstransfers (Scale-up) und Unterstützung der Produktion bei Einführung neuer Prozesse, z.T. unter cGMP-Richtlinien\n\n• Fokus auf den LPPS/TAPS-Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristalisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Unterstützung der Produktion beim Lösen von chemischen Herausforderungen (Troubleshooting)\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Promotion in Chemie\n\n• Erfahrungen in der präparativen organischen Synthese und ein Faible für Prozesstechnik\n\n• Eine strukturierte, genaue und selbstständige Arbeitsweise, die es Ihnen erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS sind von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattform mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+        "it": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung suchen wir eine/n engagierte/n  Scientist Peptidwirkstoffe R&D LPPS/TAPS (w/m/d), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Durchführung von Prozesstransfers (Scale-up) und Unterstützung der Produktion bei Einführung neuer Prozesse, z.T. unter cGMP-Richtlinien\n\n• Fokus auf den LPPS/TAPS-Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristalisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Unterstützung der Produktion beim Lösen von chemischen Herausforderungen (Troubleshooting)\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Promotion in Chemie\n\n• Erfahrungen in der präparativen organischen Synthese und ein Faible für Prozesstechnik\n\n• Eine strukturierte, genaue und selbstständige Arbeitsweise, die es Ihnen erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS sind von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattform mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+        "fr": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung suchen wir eine/n engagierte/n  Scientist Peptidwirkstoffe R&D LPPS/TAPS (w/m/d), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Durchführung von Prozesstransfers (Scale-up) und Unterstützung der Produktion bei Einführung neuer Prozesse, z.T. unter cGMP-Richtlinien\n\n• Fokus auf den LPPS/TAPS-Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristalisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Unterstützung der Produktion beim Lösen von chemischen Herausforderungen (Troubleshooting)\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Promotion in Chemie\n\n• Erfahrungen in der präparativen organischen Synthese und ein Faible für Prozesstechnik\n\n• Eine strukturierte, genaue und selbstständige Arbeitsweise, die es Ihnen erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS sind von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattform mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!"
       },
-      "needsRetranslation": true,
       "location": "Bubendorf",
       "canton": "BL",
       "url": "https://careers.bachem.com/job/Bubendorf-Scientist-Peptidwirkstoffe-R&D-LPPSTAPS-%28a%29%2C-100-BL-4416/1413617833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:31.875Z",
+      "crawledAt": "2026-09-28T21:23:42.251Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3771,7 +3777,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-3359ea188785",
@@ -3804,7 +3811,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-IT-Enterprise-Architect%2C-Manufacturing-&-Operations-%28a%29%2C-80-100-BL-4416/1417171433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:31.280Z",
+      "crawledAt": "2026-09-28T21:23:41.677Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3867,7 +3874,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Project-Procurement-Lead-%28a%29-100-Sisslerfeld-BL-4416/1431440133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:30.653Z",
+      "crawledAt": "2026-09-28T21:23:41.149Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3939,7 +3946,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Manager-Global-QMS-Transformation-%28a%29-100-BL-4416/1410380233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:29.989Z",
+      "crawledAt": "2026-09-28T21:23:40.591Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4011,7 +4018,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Internship-Productivity-AI-%28a%29%2C-80-temporary-12-months-BL-4416/1439579533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:29.537Z",
+      "crawledAt": "2026-09-28T21:23:39.992Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4062,7 +4069,7 @@
       "slug": "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "it": "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
-        "en": "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
+        "en": "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
         "de": "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
         "fr": "peptide-scientifique-composes-actifs-chimie-du-flux-de-r-d-a-100-bachem-ag-bubendorf"
       },
@@ -4072,24 +4079,23 @@
       "title": "Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%",
       "titleByLocale": {
         "it": "Scienziato Peptide Active Compounds R&D Flow Chemistry (a), 100%",
-        "en": "Scientist Peptide Active Compounds R&D Flow Chemistry (a), 100%",
+        "en": "Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%",
         "de": "Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%",
         "fr": "Peptide scientifique Composés actifs Chimie du flux de R-D (a), 100%"
       },
       "description": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung in Bubendorf/BL suchen wir eine/n engagierte/n  Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Skalierung von Chemie und Equipment vom Labor auf den Pilotmassstab\n\n• Fokus auf den LPPS Flow-Chemie Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristallisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Aktiver Beitrag zur Weiterentwicklung der Bachem Flow-Chemie-Plattform\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Masterabschluss oder Promotion in Chemical Engineering oder Chemie\n\n• Erfahrungen in der präparativen organischen Synthese einschliesslich Flow-Chemie und ein Faible für Prozesstechnik\n\n• Strukturierte, genaue und selbstständige Arbeitsweise, die es erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
       "descriptionByLocale": {
-        "it": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung in Bubendorf/BL suchen wir eine/n engagierte/n Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Skalierung von Chemie und Equipment vom Labor auf den Pilotmassstab\n\n• Fokus auf den LPPS Flow-Chemie Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristallisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Aktiver Beitrag zur Weiterentwicklung der Bachem Flow-Chemie-Plattform\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Masterabschluss oder Promotion in Chemical Engineering oder Chemie\n\n• Erfahrungen in der präparativen organischen Synthese einschliesslich Flow-Chemie und ein Faible für Prozesstechnik\n\n• Strukturierte, genaue und selbstständige Arbeitsweise, die es erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
         "en": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung in Bubendorf/BL suchen wir eine/n engagierte/n Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Skalierung von Chemie und Equipment vom Labor auf den Pilotmassstab\n\n• Fokus auf den LPPS Flow-Chemie Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristallisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Aktiver Beitrag zur Weiterentwicklung der Bachem Flow-Chemie-Plattform\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Masterabschluss oder Promotion in Chemical Engineering oder Chemie\n\n• Erfahrungen in der präparativen organischen Synthese einschliesslich Flow-Chemie und ein Faible für Prozesstechnik\n\n• Strukturierte, genaue und selbstständige Arbeitsweise, die es erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
-        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung in Bubendorf/BL suchen wir eine/n engagierte/n Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Skalierung von Chemie und Equipment vom Labor auf den Pilotmassstab\n\n• Fokus auf den LPPS Flow-Chemie Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristallisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Aktiver Beitrag zur Weiterentwicklung der Bachem Flow-Chemie-Plattform\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Masterabschluss oder Promotion in Chemical Engineering oder Chemie\n\n• Erfahrungen in der präparativen organischen Synthese einschliesslich Flow-Chemie und ein Faible für Prozesstechnik\n\n• Strukturierte, genaue und selbstständige Arbeitsweise, die es erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
-        "fr": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung in Bubendorf/BL suchen wir eine/n engagierte/n Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Skalierung von Chemie und Equipment vom Labor auf den Pilotmassstab\n\n• Fokus auf den LPPS Flow-Chemie Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristallisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Aktiver Beitrag zur Weiterentwicklung der Bachem Flow-Chemie-Plattform\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Masterabschluss oder Promotion in Chemical Engineering oder Chemie\n\n• Erfahrungen in der präparativen organischen Synthese einschliesslich Flow-Chemie und ein Faible für Prozesstechnik\n\n• Strukturierte, genaue und selbstständige Arbeitsweise, die es erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!"
+        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung in Bubendorf/BL suchen wir eine/n engagierte/n  Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Skalierung von Chemie und Equipment vom Labor auf den Pilotmassstab\n\n• Fokus auf den LPPS Flow-Chemie Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristallisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Aktiver Beitrag zur Weiterentwicklung der Bachem Flow-Chemie-Plattform\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Masterabschluss oder Promotion in Chemical Engineering oder Chemie\n\n• Erfahrungen in der präparativen organischen Synthese einschliesslich Flow-Chemie und ein Faible für Prozesstechnik\n\n• Strukturierte, genaue und selbstständige Arbeitsweise, die es erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+        "it": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung in Bubendorf/BL suchen wir eine/n engagierte/n  Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Skalierung von Chemie und Equipment vom Labor auf den Pilotmassstab\n\n• Fokus auf den LPPS Flow-Chemie Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristallisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Aktiver Beitrag zur Weiterentwicklung der Bachem Flow-Chemie-Plattform\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Masterabschluss oder Promotion in Chemical Engineering oder Chemie\n\n• Erfahrungen in der präparativen organischen Synthese einschliesslich Flow-Chemie und ein Faible für Prozesstechnik\n\n• Strukturierte, genaue und selbstständige Arbeitsweise, die es erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+        "fr": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Forschung & Entwicklung in Bubendorf/BL suchen wir eine/n engagierte/n  Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%. Das Arbeitsgebiet umfasst zahlreiche unterschiedliche Schritte der modernen Synthese von peptidischen Wirkstoffen, Peptidfragmenten und Aminosäurebausteinen in Lösung, sowie diverse Technologien zur Aufkonzentration und Isolation der Produkte.\n\nIhre Aufgaben:\n\n• Verantwortung für die Planung, Analyse und Interpretation von Experimenten sowie die Darstellung der erhaltenen Ergebnisse\n\n• Planung und zeitgerechte Durchführung von Entwicklungsarbeiten bzw. Prozessoptimierungen in Kooperation mit anderen Abteilungen unter Berücksichtigung von Qualität, Wirtschaftlichkeit und Sicherheit\n\n• Skalierung von Chemie und Equipment vom Labor auf den Pilotmassstab\n\n• Fokus auf den LPPS Flow-Chemie Bereich (Organische Chemie in Lösung, Peptidkupplungen, Schutzgruppenchemie, Extraktion, Fällung, Kristallisation)\n\n• Verfassen von Berichten und Erstellen von Präsentationen zu den durchgeführten Arbeiten für interne und externe Kunden\n\n• Aktiver Beitrag zur Weiterentwicklung der Bachem Flow-Chemie-Plattform\n\n• Aktive Beteiligung an der ständigen Verbesserung unseres Equipments und der Arbeitsabläufe sowie Unterhalt der Laborinfrastruktur\n\nIhr Profil:\n\n• Masterabschluss oder Promotion in Chemical Engineering oder Chemie\n\n• Erfahrungen in der präparativen organischen Synthese einschliesslich Flow-Chemie und ein Faible für Prozesstechnik\n\n• Strukturierte, genaue und selbstständige Arbeitsweise, die es erlaubt, jederzeit den Überblick zu behalten\n\n• Ausgeprägte kommunikative und organisatorische Fähigkeiten\n\n• Zuverlässigkeit, Selbstständigkeit und Teamfähigkeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Kenntnisse in Peptidchemie und gängigen Analysetechniken wie UHPLC und LC-MS von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!"
       },
-      "needsRetranslation": true,
       "location": "Bubendorf",
       "canton": "BL",
       "url": "https://careers.bachem.com/job/Bubendorf-Scientist-Peptidwirkstoffe-R&D-Flow-Chemie-%28a%29%2C-100-BL-4416/1437578833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:28.947Z",
+      "crawledAt": "2026-09-28T21:23:43.364Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4111,19 +4117,20 @@
         "chemiker-optimierungs-e-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-ag-bubendorf",
         "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
         "chemiker-optimierungs-und-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-bubendorf",
-        "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf"
+        "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf",
+        "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
+        "en": [
+          "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
+          "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
+        ],
         "it": [
           "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
           "chemiker-optimierungs-e-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-ag-bubendorf",
           "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
           "chemiker-optimierungs-und-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-bubendorf",
           "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf"
-        ],
-        "en": [
-          "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
-          "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf"
         ],
         "de": [
           "chemiker-optimierungs-und-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-bubendorf"
@@ -4146,7 +4153,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-560ccb59397a",
@@ -4179,7 +4187,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Manager-External-Supply-QA-%28a%29-100-%28temporary%2C-12-month%29-BL-4416/1438103933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:28.342Z",
+      "crawledAt": "2026-09-28T21:23:39.387Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4257,7 +4265,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Head-of-MES-&-PI-Competence-Center-%28a%29%2C-80-100-BL-4416/1441371333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:00:27.719Z",
+      "crawledAt": "2026-09-28T21:23:38.040Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4296,7 +4304,7 @@
         "it": "senior-capex-controller-a-100-bachem-bubendorf",
         "en": "senior-capex-controller-a-100-bachem-bubendorf",
         "de": "senior-capex-controller-a-100-bachem-bubendorf",
-        "fr": "senior-capex-controller-a-100-bachem-bubendorf"
+        "fr": "controleur-principal-du-capex-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4310,10 +4318,10 @@
       },
       "description": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Als Ergänzung unseres Controlling Teams in Bubendorf/BL suchen wir per sofort eine/n S enior CAPEX Controller (a), 100%.\n\nhre Aufgaben:\n\n• Monitoring und Reporting des Projektfortschritts in Bezug auf Zeitplan, Ressourcen und Kosten sowie Erstellung regelmässiger Cash Forecasts\n\n• Sicherstellung der Financial Compliance und konsequentes Einfordern der Bachem Standards und Prozesse\n\n• Proaktives Anzeigen von Abweichungen unter Einhaltung der Eskalationsstufen\n\n• Aufzeigen von Kostenpotenzialen und aktive Unterstützung der Bereiche bei der Umsetzung\n\n• Überwachung und Koordination des Genehmigungsprozess von Projektbudgets und Bestellanforderungen, Vorbereitung von Projektaktivierungen\n\n• Ansprechpartner für alle Finanz-Themen, Koordination und Verantwortung des Change-Management-Prozesses, Koordination und Unterstützung der Zahlungen an Lieferanten\n\n• Aktive Mitarbeit bei der Optimierung von Projektmanagement-Prozessen und Tools\n\nIhr Profil:\n\n• Abgeschlossenes Studium im Bereich Wirtschaftsingenieurwesen, Betriebswirtschaft oder vergleichbare Ausbildung, Weiterbildung im Bereich Finanzen / Controlling\n\n• Mindestens drei Jahre Erfahrung im Projektcontrolling, vorzugsweise in Grossprojekten\n\n• Teamfähigkeit, sowie sicheres Auftreten gegenüber den Stakeholdern\n\n• Ausgeprägtes Kommunikations- und Durchsetzungsvermögen, Hands-on Mentalität sowie eine eigenverantwortliche, strukturierte Arbeitsweise\n\n• Ausgeprägte Motivation und Ausdauer bei komplexen Aufgaben und Herausforderungen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Microsoft Office, insbesondere sehr gute Excel Kenntnisse\n\n• Erfahrung im Umgang mit SAP und BI-Systeme\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation leben und vorantreiben? Erfahren Sie mehr über  Bachem  und lassen Sie sich von den spannenden Eindrücken an unserem Standort in Bubendorf inspirieren!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.",
       "descriptionByLocale": {
-        "it": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Als Ergänzung unseres Controlling Teams in Bubendorf/BL suchen wir per sofort eine/n S enior CAPEX Controller (a), 100%.\n\nhre Aufgaben:\n\n• Monitoring und Reporting des Projektfortschritts in Bezug auf Zeitplan, Ressourcen und Kosten sowie Erstellung regelmässiger Cash Forecasts\n\n• Sicherstellung der Financial Compliance und konsequentes Einfordern der Bachem Standards und Prozesse\n\n• Proaktives Anzeigen von Abweichungen unter Einhaltung der Eskalationsstufen\n\n• Aufzeigen von Kostenpotenzialen und aktive Unterstützung der Bereiche bei der Umsetzung\n\n• Überwachung und Koordination des Genehmigungsprozess von Projektbudgets und Bestellanforderungen, Vorbereitung von Projektaktivierungen\n\n• Ansprechpartner für alle Finanz-Themen, Koordination und Verantwortung des Change-Management-Prozesses, Koordination und Unterstützung der Zahlungen an Lieferanten\n\n• Aktive Mitarbeit bei der Optimierung von Projektmanagement-Prozessen und Tools\n\nIhr Profil:\n\n• Abgeschlossenes Studium im Bereich Wirtschaftsingenieurwesen, Betriebswirtschaft oder vergleichbare Ausbildung, Weiterbildung im Bereich Finanzen / Controlling\n\n• Mindestens drei Jahre Erfahrung im Projektcontrolling, vorzugsweise in Grossprojekten\n\n• Teamfähigkeit, sowie sicheres Auftreten gegenüber den Stakeholdern\n\n• Ausgeprägtes Kommunikations- und Durchsetzungsvermögen, Hands-on Mentalität sowie eine eigenverantwortliche, strukturierte Arbeitsweise\n\n• Ausgeprägte Motivation und Ausdauer bei komplexen Aufgaben und Herausforderungen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Microsoft Office, insbesondere sehr gute Excel Kenntnisse\n\n• Erfahrung im Umgang mit SAP und BI-Systeme\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation leben und vorantreiben? Erfahren Sie mehr über Bachem und lassen Sie sich von den spannenden Eindrücken an unserem Standort in Bubendorf inspirieren!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.",
         "en": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Als Ergänzung unseres Controlling Teams in Bubendorf/BL suchen wir per sofort eine/n S enior CAPEX Controller (a), 100%.\n\nhre Aufgaben:\n\n• Monitoring und Reporting des Projektfortschritts in Bezug auf Zeitplan, Ressourcen und Kosten sowie Erstellung regelmässiger Cash Forecasts\n\n• Sicherstellung der Financial Compliance und konsequentes Einfordern der Bachem Standards und Prozesse\n\n• Proaktives Anzeigen von Abweichungen unter Einhaltung der Eskalationsstufen\n\n• Aufzeigen von Kostenpotenzialen und aktive Unterstützung der Bereiche bei der Umsetzung\n\n• Überwachung und Koordination des Genehmigungsprozess von Projektbudgets und Bestellanforderungen, Vorbereitung von Projektaktivierungen\n\n• Ansprechpartner für alle Finanz-Themen, Koordination und Verantwortung des Change-Management-Prozesses, Koordination und Unterstützung der Zahlungen an Lieferanten\n\n• Aktive Mitarbeit bei der Optimierung von Projektmanagement-Prozessen und Tools\n\nIhr Profil:\n\n• Abgeschlossenes Studium im Bereich Wirtschaftsingenieurwesen, Betriebswirtschaft oder vergleichbare Ausbildung, Weiterbildung im Bereich Finanzen / Controlling\n\n• Mindestens drei Jahre Erfahrung im Projektcontrolling, vorzugsweise in Grossprojekten\n\n• Teamfähigkeit, sowie sicheres Auftreten gegenüber den Stakeholdern\n\n• Ausgeprägtes Kommunikations- und Durchsetzungsvermögen, Hands-on Mentalität sowie eine eigenverantwortliche, strukturierte Arbeitsweise\n\n• Ausgeprägte Motivation und Ausdauer bei komplexen Aufgaben und Herausforderungen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Microsoft Office, insbesondere sehr gute Excel Kenntnisse\n\n• Erfahrung im Umgang mit SAP und BI-Systeme\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation leben und vorantreiben? Erfahren Sie mehr über Bachem und lassen Sie sich von den spannenden Eindrücken an unserem Standort in Bubendorf inspirieren!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.",
-        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Als Ergänzung unseres Controlling Teams in Bubendorf/BL suchen wir per sofort eine/n S enior CAPEX Controller (a), 100%.\n\nhre Aufgaben:\n\n• Monitoring und Reporting des Projektfortschritts in Bezug auf Zeitplan, Ressourcen und Kosten sowie Erstellung regelmässiger Cash Forecasts\n\n• Sicherstellung der Financial Compliance und konsequentes Einfordern der Bachem Standards und Prozesse\n\n• Proaktives Anzeigen von Abweichungen unter Einhaltung der Eskalationsstufen\n\n• Aufzeigen von Kostenpotenzialen und aktive Unterstützung der Bereiche bei der Umsetzung\n\n• Überwachung und Koordination des Genehmigungsprozess von Projektbudgets und Bestellanforderungen, Vorbereitung von Projektaktivierungen\n\n• Ansprechpartner für alle Finanz-Themen, Koordination und Verantwortung des Change-Management-Prozesses, Koordination und Unterstützung der Zahlungen an Lieferanten\n\n• Aktive Mitarbeit bei der Optimierung von Projektmanagement-Prozessen und Tools\n\nIhr Profil:\n\n• Abgeschlossenes Studium im Bereich Wirtschaftsingenieurwesen, Betriebswirtschaft oder vergleichbare Ausbildung, Weiterbildung im Bereich Finanzen / Controlling\n\n• Mindestens drei Jahre Erfahrung im Projektcontrolling, vorzugsweise in Grossprojekten\n\n• Teamfähigkeit, sowie sicheres Auftreten gegenüber den Stakeholdern\n\n• Ausgeprägtes Kommunikations- und Durchsetzungsvermögen, Hands-on Mentalität sowie eine eigenverantwortliche, strukturierte Arbeitsweise\n\n• Ausgeprägte Motivation und Ausdauer bei komplexen Aufgaben und Herausforderungen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Microsoft Office, insbesondere sehr gute Excel Kenntnisse\n\n• Erfahrung im Umgang mit SAP und BI-Systeme\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation leben und vorantreiben? Erfahren Sie mehr über Bachem und lassen Sie sich von den spannenden Eindrücken an unserem Standort in Bubendorf inspirieren!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.",
-        "fr": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Als Ergänzung unseres Controlling Teams in Bubendorf/BL suchen wir per sofort eine/n S enior CAPEX Controller (a), 100%.\n\nhre Aufgaben:\n\n• Monitoring und Reporting des Projektfortschritts in Bezug auf Zeitplan, Ressourcen und Kosten sowie Erstellung regelmässiger Cash Forecasts\n\n• Sicherstellung der Financial Compliance und konsequentes Einfordern der Bachem Standards und Prozesse\n\n• Proaktives Anzeigen von Abweichungen unter Einhaltung der Eskalationsstufen\n\n• Aufzeigen von Kostenpotenzialen und aktive Unterstützung der Bereiche bei der Umsetzung\n\n• Überwachung und Koordination des Genehmigungsprozess von Projektbudgets und Bestellanforderungen, Vorbereitung von Projektaktivierungen\n\n• Ansprechpartner für alle Finanz-Themen, Koordination und Verantwortung des Change-Management-Prozesses, Koordination und Unterstützung der Zahlungen an Lieferanten\n\n• Aktive Mitarbeit bei der Optimierung von Projektmanagement-Prozessen und Tools\n\nIhr Profil:\n\n• Abgeschlossenes Studium im Bereich Wirtschaftsingenieurwesen, Betriebswirtschaft oder vergleichbare Ausbildung, Weiterbildung im Bereich Finanzen / Controlling\n\n• Mindestens drei Jahre Erfahrung im Projektcontrolling, vorzugsweise in Grossprojekten\n\n• Teamfähigkeit, sowie sicheres Auftreten gegenüber den Stakeholdern\n\n• Ausgeprägtes Kommunikations- und Durchsetzungsvermögen, Hands-on Mentalität sowie eine eigenverantwortliche, strukturierte Arbeitsweise\n\n• Ausgeprägte Motivation und Ausdauer bei komplexen Aufgaben und Herausforderungen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Microsoft Office, insbesondere sehr gute Excel Kenntnisse\n\n• Erfahrung im Umgang mit SAP und BI-Systeme\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation leben und vorantreiben? Erfahren Sie mehr über Bachem und lassen Sie sich von den spannenden Eindrücken an unserem Standort in Bubendorf inspirieren!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal."
+        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Als Ergänzung unseres Controlling Teams in Bubendorf/BL suchen wir per sofort eine/n S enior CAPEX Controller (a), 100%.\n\nhre Aufgaben:\n\n• Monitoring und Reporting des Projektfortschritts in Bezug auf Zeitplan, Ressourcen und Kosten sowie Erstellung regelmässiger Cash Forecasts\n\n• Sicherstellung der Financial Compliance und konsequentes Einfordern der Bachem Standards und Prozesse\n\n• Proaktives Anzeigen von Abweichungen unter Einhaltung der Eskalationsstufen\n\n• Aufzeigen von Kostenpotenzialen und aktive Unterstützung der Bereiche bei der Umsetzung\n\n• Überwachung und Koordination des Genehmigungsprozess von Projektbudgets und Bestellanforderungen, Vorbereitung von Projektaktivierungen\n\n• Ansprechpartner für alle Finanz-Themen, Koordination und Verantwortung des Change-Management-Prozesses, Koordination und Unterstützung der Zahlungen an Lieferanten\n\n• Aktive Mitarbeit bei der Optimierung von Projektmanagement-Prozessen und Tools\n\nIhr Profil:\n\n• Abgeschlossenes Studium im Bereich Wirtschaftsingenieurwesen, Betriebswirtschaft oder vergleichbare Ausbildung, Weiterbildung im Bereich Finanzen / Controlling\n\n• Mindestens drei Jahre Erfahrung im Projektcontrolling, vorzugsweise in Grossprojekten\n\n• Teamfähigkeit, sowie sicheres Auftreten gegenüber den Stakeholdern\n\n• Ausgeprägtes Kommunikations- und Durchsetzungsvermögen, Hands-on Mentalität sowie eine eigenverantwortliche, strukturierte Arbeitsweise\n\n• Ausgeprägte Motivation und Ausdauer bei komplexen Aufgaben und Herausforderungen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Microsoft Office, insbesondere sehr gute Excel Kenntnisse\n\n• Erfahrung im Umgang mit SAP und BI-Systeme\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation leben und vorantreiben? Erfahren Sie mehr über  Bachem  und lassen Sie sich von den spannenden Eindrücken an unserem Standort in Bubendorf inspirieren!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.",
+        "it": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Als Ergänzung unseres Controlling Teams in Bubendorf/BL suchen wir per sofort eine/n S enior CAPEX Controller (a), 100%.\n\nhre Aufgaben:\n\n• Monitoring und Reporting des Projektfortschritts in Bezug auf Zeitplan, Ressourcen und Kosten sowie Erstellung regelmässiger Cash Forecasts\n\n• Sicherstellung der Financial Compliance und konsequentes Einfordern der Bachem Standards und Prozesse\n\n• Proaktives Anzeigen von Abweichungen unter Einhaltung der Eskalationsstufen\n\n• Aufzeigen von Kostenpotenzialen und aktive Unterstützung der Bereiche bei der Umsetzung\n\n• Überwachung und Koordination des Genehmigungsprozess von Projektbudgets und Bestellanforderungen, Vorbereitung von Projektaktivierungen\n\n• Ansprechpartner für alle Finanz-Themen, Koordination und Verantwortung des Change-Management-Prozesses, Koordination und Unterstützung der Zahlungen an Lieferanten\n\n• Aktive Mitarbeit bei der Optimierung von Projektmanagement-Prozessen und Tools\n\nIhr Profil:\n\n• Abgeschlossenes Studium im Bereich Wirtschaftsingenieurwesen, Betriebswirtschaft oder vergleichbare Ausbildung, Weiterbildung im Bereich Finanzen / Controlling\n\n• Mindestens drei Jahre Erfahrung im Projektcontrolling, vorzugsweise in Grossprojekten\n\n• Teamfähigkeit, sowie sicheres Auftreten gegenüber den Stakeholdern\n\n• Ausgeprägtes Kommunikations- und Durchsetzungsvermögen, Hands-on Mentalität sowie eine eigenverantwortliche, strukturierte Arbeitsweise\n\n• Ausgeprägte Motivation und Ausdauer bei komplexen Aufgaben und Herausforderungen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Microsoft Office, insbesondere sehr gute Excel Kenntnisse\n\n• Erfahrung im Umgang mit SAP und BI-Systeme\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation leben und vorantreiben? Erfahren Sie mehr über  Bachem  und lassen Sie sich von den spannenden Eindrücken an unserem Standort in Bubendorf inspirieren!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.",
+        "fr": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Als Ergänzung unseres Controlling Teams in Bubendorf/BL suchen wir per sofort eine/n S enior CAPEX Controller (a), 100%.\n\nhre Aufgaben:\n\n• Monitoring und Reporting des Projektfortschritts in Bezug auf Zeitplan, Ressourcen und Kosten sowie Erstellung regelmässiger Cash Forecasts\n\n• Sicherstellung der Financial Compliance und konsequentes Einfordern der Bachem Standards und Prozesse\n\n• Proaktives Anzeigen von Abweichungen unter Einhaltung der Eskalationsstufen\n\n• Aufzeigen von Kostenpotenzialen und aktive Unterstützung der Bereiche bei der Umsetzung\n\n• Überwachung und Koordination des Genehmigungsprozess von Projektbudgets und Bestellanforderungen, Vorbereitung von Projektaktivierungen\n\n• Ansprechpartner für alle Finanz-Themen, Koordination und Verantwortung des Change-Management-Prozesses, Koordination und Unterstützung der Zahlungen an Lieferanten\n\n• Aktive Mitarbeit bei der Optimierung von Projektmanagement-Prozessen und Tools\n\nIhr Profil:\n\n• Abgeschlossenes Studium im Bereich Wirtschaftsingenieurwesen, Betriebswirtschaft oder vergleichbare Ausbildung, Weiterbildung im Bereich Finanzen / Controlling\n\n• Mindestens drei Jahre Erfahrung im Projektcontrolling, vorzugsweise in Grossprojekten\n\n• Teamfähigkeit, sowie sicheres Auftreten gegenüber den Stakeholdern\n\n• Ausgeprägtes Kommunikations- und Durchsetzungsvermögen, Hands-on Mentalität sowie eine eigenverantwortliche, strukturierte Arbeitsweise\n\n• Ausgeprägte Motivation und Ausdauer bei komplexen Aufgaben und Herausforderungen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Microsoft Office, insbesondere sehr gute Excel Kenntnisse\n\n• Erfahrung im Umgang mit SAP und BI-Systeme\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation leben und vorantreiben? Erfahren Sie mehr über  Bachem  und lassen Sie sich von den spannenden Eindrücken an unserem Standort in Bubendorf inspirieren!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal."
       },
       "needsRetranslation": true,
       "location": "Bubendorf",
@@ -4321,7 +4329,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-CAPEX-Controller-%28a%29%2C-100-BL-4416/1441606833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:00:27.086Z",
+      "crawledAt": "2026-09-28T21:23:42.824Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4352,6 +4360,223 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "bachem-bebb17040a66",
+      "slug": "sviluppo-del-sito-di-sisslerfeld-a-100-bachem-ag-stein-ag",
+      "slugByLocale": {
+        "de": "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
+        "it": "sviluppo-del-sito-di-sisslerfeld-a-100-bachem-ag-stein-ag",
+        "en": "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
+        "fr": "systeme-expert-gestion-des-materiaux-sisslerfeld-developpement-du-site-a-100-bachem-ag-stein-ag"
+      },
+      "company": "Bachem AG",
+      "companyKey": "bachem",
+      "companyDomain": "bachem.com",
+      "title": "System Expert Materials Management Sisslerfeld Site Development (a) 100%",
+      "titleByLocale": {
+        "de": "System Expert Materials Management Sisslerfeld Site Development (a) 100%",
+        "fr": "Système Expert Gestion des matériaux Sisslerfeld Développement du site (a) 100%",
+        "it": "Sviluppo del sito di Sisslerfeld (a) 100%",
+        "en": "System Expert Materials Management Sisslerfeld Site Development (a) 100%"
+      },
+      "description": "Die Bachem-Gruppe investiert in einen neuen geplanten Standort im Sisslerfeld in der Nordwestschweiz. Dieser Schritt ist Teil der langfristigen Strategie, die Produktionskapazitäten bis zum Ende des Jahrzehnts auszubauen. Der neue Produktionsstandort wird eine zentrale Rolle bei der Erreichung dieser Ziele spielen. Die Planungsphase des Projekts bietet Ihnen einzigartige Möglichkeiten, die Organisation der Zukunft aktiv mitzugestalten.\n\nIm Rahmen des geplanten Standortaufbaus stellt der System Expert Materials Management Sisslerfeld Site Development (a) 100% sicher, dass Materialwirtschaftsprozesse effizient, GMP-konform und zukunftsfähig in den vorgesehenen Systemen abgebildet werden. Die Rolle trägt massgeblich dazu bei, digitale Lösungen für Lagerung, Produktionsversorgung, Sampling, Dispensing, Tankfarmbewirtschaftung und Entsorgungsprozesse zu entwickeln und erfolgreich in Betrieb zu nehmen.\n\nIhre Aufgaben:\n\n• Aktive Mitarbeit beim Aufbau des neuen Standorts und bei der Gestaltung der zukünftigen Materials-Management-Organisation\n\n• Vertretung der Anforderungen der Betreiberorganisation bei der Konzeption, Implementierung und Weiterentwicklung der Systemlandschaft\n\n• Entwicklung und Optimierung von End-to-End-Prozessen unter Berücksichtigung organisatorischer, operativer und systemischer Schnittstellen\n\n• Übersetzung fachlicher Anforderungen in nachhaltige digitale Lösungen in Zusammenarbeit mit Engineering, IT und externen Partnern\n\n• Mitarbeit bei der Konzeption und Weiterentwicklung von ERP-, WMS-, MES- und weiteren relevanten Systemen und Geschäftsprozessen\n\n• Planung, Durchführung und Unterstützung von Tests, Qualifizierungs- und Inbetriebnahmeaktivitäten aus Sicht der zukünftigen Betreiberorganisation\n\n• Prüfung und fachliche Genehmigung von projektrelevanten Dokumenten sowie Sicherstellung der Einhaltung von Sicherheits-, Umwelt- und Qualitätsvorgaben\n\n• Unterstützung beim Aufbau einer leistungsfähigen, effizienten und digital gestützten Materials-Management-Organisation\n\nIhr Profil:\n\n• Höhere Ausbildung in Logistik, Supply Chain Management, Wirtschaftsinformatik, Wirtschaftsingenieurwesen oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Erfahrung in der Konzeption, Einführung oder Weiterentwicklung von Geschäftsprozessen und digitalen Lösungen\n\n• Ausgeprägtes Verständnis für End-to-End-Prozesse und deren organisatorische sowie systemische Abbildung\n\n• Sehr gute Kenntnisse integrierter Systemlandschaften, insbesondere im Umfeld ERP, WMS und MES; Erfahrung mit SAP bzw. SAP-nahen Logistikprozessen und SAP EWM von Vorteil\n\n• Erfahrung im Projektumfeld sowie in der Zusammenarbeit mit interdisziplinären Teams und unterschiedlichen Stakeholdern\n\n• Erfahrung in einer regulierten Produktionsumgebung, idealerweise in der Pharma-, Chemie- oder einer vergleichbaren Industrie, von Vorteil\n\n• Analytische und strukturierte Persönlichkeit mit ausgeprägtem End-to-End-Denken und der Fähigkeit, komplexe Zusammenhänge in praktikable Lösungen zu überführen\n\n• Hohe Eigeninitiative, Verantwortungsbewusstsein und Kommunikationsstärke sowie Freude daran, in einem dynamischen Projektumfeld neue Strukturen und Lösungen mitzugestalten\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+      "descriptionByLocale": {
+        "de": "Die Bachem-Gruppe investiert in einen neuen geplanten Standort im Sisslerfeld in der Nordwestschweiz. Dieser Schritt ist Teil der langfristigen Strategie, die Produktionskapazitäten bis zum Ende des Jahrzehnts auszubauen. Der neue Produktionsstandort wird eine zentrale Rolle bei der Erreichung dieser Ziele spielen. Die Planungsphase des Projekts bietet Ihnen einzigartige Möglichkeiten, die Organisation der Zukunft aktiv mitzugestalten.\n\nIm Rahmen des geplanten Standortaufbaus stellt der System Expert Materials Management Sisslerfeld Site Development (a) 100% sicher, dass Materialwirtschaftsprozesse effizient, GMP-konform und zukunftsfähig in den vorgesehenen Systemen abgebildet werden. Die Rolle trägt massgeblich dazu bei, digitale Lösungen für Lagerung, Produktionsversorgung, Sampling, Dispensing, Tankfarmbewirtschaftung und Entsorgungsprozesse zu entwickeln und erfolgreich in Betrieb zu nehmen.\n\nIhre Aufgaben:\n\n• Aktive Mitarbeit beim Aufbau des neuen Standorts und bei der Gestaltung der zukünftigen Materials-Management-Organisation\n\n• Vertretung der Anforderungen der Betreiberorganisation bei der Konzeption, Implementierung und Weiterentwicklung der Systemlandschaft\n\n• Entwicklung und Optimierung von End-to-End-Prozessen unter Berücksichtigung organisatorischer, operativer und systemischer Schnittstellen\n\n• Übersetzung fachlicher Anforderungen in nachhaltige digitale Lösungen in Zusammenarbeit mit Engineering, IT und externen Partnern\n\n• Mitarbeit bei der Konzeption und Weiterentwicklung von ERP-, WMS-, MES- und weiteren relevanten Systemen und Geschäftsprozessen\n\n• Planung, Durchführung und Unterstützung von Tests, Qualifizierungs- und Inbetriebnahmeaktivitäten aus Sicht der zukünftigen Betreiberorganisation\n\n• Prüfung und fachliche Genehmigung von projektrelevanten Dokumenten sowie Sicherstellung der Einhaltung von Sicherheits-, Umwelt- und Qualitätsvorgaben\n\n• Unterstützung beim Aufbau einer leistungsfähigen, effizienten und digital gestützten Materials-Management-Organisation\n\nIhr Profil:\n\n• Höhere Ausbildung in Logistik, Supply Chain Management, Wirtschaftsinformatik, Wirtschaftsingenieurwesen oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Erfahrung in der Konzeption, Einführung oder Weiterentwicklung von Geschäftsprozessen und digitalen Lösungen\n\n• Ausgeprägtes Verständnis für End-to-End-Prozesse und deren organisatorische sowie systemische Abbildung\n\n• Sehr gute Kenntnisse integrierter Systemlandschaften, insbesondere im Umfeld ERP, WMS und MES; Erfahrung mit SAP bzw. SAP-nahen Logistikprozessen und SAP EWM von Vorteil\n\n• Erfahrung im Projektumfeld sowie in der Zusammenarbeit mit interdisziplinären Teams und unterschiedlichen Stakeholdern\n\n• Erfahrung in einer regulierten Produktionsumgebung, idealerweise in der Pharma-, Chemie- oder einer vergleichbaren Industrie, von Vorteil\n\n• Analytische und strukturierte Persönlichkeit mit ausgeprägtem End-to-End-Denken und der Fähigkeit, komplexe Zusammenhänge in praktikable Lösungen zu überführen\n\n• Hohe Eigeninitiative, Verantwortungsbewusstsein und Kommunikationsstärke sowie Freude daran, in einem dynamischen Projektumfeld neue Strukturen und Lösungen mitzugestalten\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+        "it": "Il Gruppo Bachem sta investendo in una nuova sede pianificata a Sisslerfeld nella Svizzera nordoccidentale. Questo passo fa parte della strategia a lungo termine per espandere le capacità produttive entro la fine del decennio. Il nuovo sito di produzione svolgerà un ruolo centrale nel raggiungimento di questi obiettivi. La fase di progettazione del progetto offre opportunità uniche per modellare attivamente l'organizzazione del futuro.\n\nNell'ambito dello sviluppo del sito previsto, il System Expert Materials Management Sisslerfeld Site Development (a) 100% garantisce che i processi di gestione dei materiali siano mappati in modo efficiente, conformi a GMP e sostenibili nei sistemi previsti. Il ruolo contribuisce in modo significativo allo sviluppo e al successo della messa in servizio di soluzioni digitali per lo stoccaggio, l'approvvigionamento di produzione, il campionamento, l'erogazione, la gestione delle vasche e i processi di smaltimento.\n\nI loro compiti:\n\n• Partecipazione attiva allo sviluppo della nuova sede e nella progettazione della futura organizzazione di gestione dei materiali\n\n• Rappresentanza dei requisiti dell'organizzazione dell'operatore nella progettazione, implementazione e sviluppo del paesaggio del sistema\n\n• Sviluppo e ottimizzazione dei processi end-to-end tenendo conto delle interfacce organizzative, operative e sistemiche\n\n• Traduzione dei requisiti professionali in soluzioni digitali sostenibili in collaborazione con l'ingegneria, IT e partner esterni\n\n• Partecipazione alla concezione e sviluppo di ERP, WMS, MES e altri sistemi e processi aziendali rilevanti\n\n• Pianificazione, implementazione e supporto di test, attività di qualificazione e messa in servizio dal punto di vista della futura organizzazione operatore\n\n• Esame e approvazione professionale dei documenti rilevanti per il progetto e garantire il rispetto dei requisiti di sicurezza, ambientale e qualità\n\n• Supporta la costruzione di un'organizzazione di gestione dei materiali potente, efficiente e digitale\n\nIl tuo profilo:\n\n• Istruzione superiore in logistica, gestione della supply chain, informatica aziendale, ingegneria industriale o una disciplina comparabile\n\n• Diversi anni di esperienza nella concezione, introduzione o sviluppo di processi aziendali e soluzioni digitali\n\n• Forte comprensione dei processi end-to-end e della loro mappatura organizzativa e sistemica\n\n• Ottima conoscenza dei paesaggi di sistema integrati, soprattutto nell'ambiente di ERP, WMS e MES; Esperienza con processi logistici legati a SAP o SAP e SAP EWM è vantaggioso\n\n• Esperienza nell'ambiente del progetto e in collaborazione con team interdisciplinari e diversi stakeholder\n\n• L'esperienza in un ambiente di produzione regolamentato, idealmente nel settore farmaceutico, chimico o simile, è vantaggioso\n\n• Personalità analitica e strutturata con forte pensiero end-to-end e la capacità di trasformare le relazioni complesse in soluzioni lavorabili\n\n• Alto livello di iniziativa, senso di responsabilità e forte comunicazione, nonché il piacere di contribuire a plasmare nuove strutture e soluzioni in un ambiente di progetto dinamico\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con lo sviluppo interno e ulteriori opportunità di istruzione\n\n• Ore di lavoro flessibili con la possibilità di ufficio domestico e la possibilità di acquistare vacanze aggiuntive con carico di lavoro ridotto\n\n• Azienda-internal KITA sul Bachem Campus Bubendorf\n\n• Il 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettivo\n\n• Accesso a piattaforme vantaggiose con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Varie attività sportive gratuite sul campus di Bachem\n\nVuoi guidare l'innovazione insieme a noi?\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora che i vostri documenti applicativi completi tramite il nostro portale di applicazioni.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nella nostra posizione a Bubendorf!",
+        "en": "The Bachem Group is investing in a new planned location in Sisslerfeld in northwestern Switzerland. This step is part of the long-term strategy to expand production capacities by the end of the decade. The new production site will play a central role in achieving these goals. The planning phase of the project offers you unique opportunities to actively shape the organization of the future.\n\nAs part of the planned site development, the System Expert Materials Management Sisslerfeld Site Development (a) 100% ensures that material management processes are mapped efficiently, GMP-compliant and sustainable in the planned systems. The role significantly contributes to the development and successful commissioning of digital solutions for storage, production supply, sampling, dispensing, tank farm management and disposal processes.\n\nTheir tasks:\n\n• Active participation in the development of the new location and in the design of the future materials management organization\n\n• Representation of the requirements of the operator organisation in the design, implementation and further development of the system landscape\n\n• Development and optimization of end-to-end processes taking into account organizational, operational and systemic interfaces\n\n• Translation of professional requirements into sustainable digital solutions in cooperation with engineering, IT and external partners\n\n• Participation in the conception and further development of ERP, WMS, MES and other relevant systems and business processes\n\n• Planning, implementation and support of tests, qualification and commissioning activities from the perspective of the future operator organisation\n\n• Examination and professional approval of project-relevant documents as well as ensuring compliance with safety, environmental and quality requirements\n\n• Support building a powerful, efficient and digitally supported materials management organization\n\nYour profile:\n\n• Higher education in logistics, supply chain management, business informatics, industrial engineering or a comparable discipline\n\n• Several years of experience in the conception, introduction or further development of business processes and digital solutions\n\n• Strong understanding of end-to-end processes and their organizational and systemic mapping\n\n• Very good knowledge of integrated system landscapes, especially in the environment of ERP, WMS and MES; Experience with SAP or SAP-related logistics processes and SAP EWM is advantageous\n\n• Experience in the project environment as well as in cooperation with interdisciplinary teams and different stakeholders\n\n• Experience in a regulated production environment, ideally in the pharmaceutical, chemical or similar industry, is beneficial\n\n• Analytical and structured personality with strong end-to-end thinking and the ability to transform complex relationships into workable solutions\n\n• High level of initiative, a sense of responsibility and strong communication as well as the pleasure of helping to shape new structures and solutions in a dynamic project environment\n\nOur offer:\n\n• A dynamic and rapidly growing working environment with internal development and further education opportunities\n\n• Flexible working hours with the option of home office and the option to purchase additional holidays with reduced workload\n\n• Company-internal KITA on the Bachem Campus Bubendorf\n\n• 60% takeover of pension fund contributions by Bachem AG as well as possibility for over-compulsory provision with our elective savings plan\n\n• Access to advantage platforms with discounts from external partners\n\n• Fresh, healthy and diverse food in our staff restaurant\n\n• Various free sports activities on the Bachem Campus\n\nDo you want to drive innovation together with us?\n\nHave we aroused your interest? Then we look forward to your complete application documents via our application portal.\n\nLearn more about the Bachem Group and be inspired by our inspiring working environment at our location in Bubendorf!",
+        "fr": "Le groupe Bachem investit dans un nouvel emplacement prévu à Sisslerfeld dans le nord-ouest de la Suisse. Cette étape s'inscrit dans la stratégie à long terme visant à accroître les capacités de production d'ici la fin de la décennie. Le nouveau site de production jouera un rôle central dans la réalisation de ces objectifs. La phase de planification du projet vous offre des occasions uniques de façonner activement l'organisation de l'avenir.\n\nDans le cadre de l'aménagement prévu du site, le Système Expert Materials Management Sisslerfeld Site Development (a) s'assure à 100% que les processus de gestion du matériel sont cartographiés efficacement, conformes aux BPF et durables dans les systèmes prévus. Ce rôle contribue de façon significative au développement et à la mise en service réussie de solutions numériques pour le stockage, l'approvisionnement en production, l'échantillonnage, la distribution, la gestion des fermes de stockage et les processus d'élimination.\n\nLeurs tâches:\n\n• Participation active au développement du nouvel emplacement et à la conception de la future organisation de gestion des matériaux\n\n• Représentation des exigences de l'organisation exploitante dans la conception, la mise en œuvre et le développement du paysage système\n\n• Développement et optimisation des processus de bout en bout en tenant compte des interfaces organisationnelles, opérationnelles et systémiques\n\n• Traduction des exigences professionnelles en solutions numériques durables en coopération avec l'ingénierie, l'informatique et les partenaires externes\n\n• Participation à la conception et au développement du PGI, du WMS, du MES et d ' autres systèmes et processus opérationnels pertinents\n\n• Planification, mise en œuvre et soutien des essais, des qualifications et de la mise en service dans la perspective de l'organisation future de l'opérateur\n\n• Examen et approbation professionnelle des documents pertinents pour le projet ainsi que le respect des exigences en matière de sécurité, d'environnement et de qualité\n\n• Soutenir la construction d'une organisation puissante, efficace et numérique de gestion des matériaux\n\nVotre profil:\n\n• Enseignement supérieur en logistique, gestion de la chaîne d'approvisionnement, informatique des entreprises, ingénierie industrielle ou discipline comparable\n\n• Plusieurs années d'expérience dans la conception, l'introduction ou le développement de processus d'affaires et de solutions numériques\n\n• Meilleure compréhension des processus de bout en bout et de leur cartographie organisationnelle et systémique\n\n• Très bonne connaissance des paysages de systèmes intégrés, en particulier dans l'environnement de l'ERP, WMS et MES; Expérience avec les processus logistiques SAP ou SAP et SAP EWM est avantageux\n\n• Expérience dans l'environnement du projet ainsi qu'en coopération avec des équipes interdisciplinaires et différentes parties prenantes\n\n• L'expérience dans un environnement de production réglementé, idéalement dans l'industrie pharmaceutique, chimique ou similaire, est bénéfique\n\n• Personnalité analytique et structurée avec une pensée de bout en bout forte et la capacité de transformer des relations complexes en solutions réalisables\n\n• Un haut niveau d'initiative, un sens des responsabilités et une communication forte ainsi que le plaisir d'aider à façonner de nouvelles structures et solutions dans un environnement de projet dynamique\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec développement interne et possibilités de formation continue\n\n• Heures de travail flexibles avec possibilité de bureau à domicile et possibilité d'acheter des vacances supplémentaires avec une charge de travail réduite\n\n• Société-interne KITA sur le campus Bachem Bubendorf\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision sur-obligatoire avec notre régime d'épargne facultative\n\n• Accès à des plates-formes avantageuses avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nVoulez-vous stimuler l'innovation avec nous ?\n\nAvons-nous suscité votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!"
+      },
+      "needsRetranslation": true,
+      "location": "Stein AG",
+      "canton": "AG",
+      "url": "https://careers.bachem.com/job/Stein-AG-System-Expert-Materials-Management-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1441729733/",
+      "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:24:07.877Z",
+      "addressLocality": "Stein AG",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4332",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1441729733/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 64500,
+      "salaryMax": 110000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 110000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:24:07.877Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
+        ],
+        "fr": [
+          "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
+        ]
+      },
+      "previousSlugs": [
+        "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
+      ]
+    },
+    {
+      "id": "bachem-9666131b02de",
+      "slug": "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein",
+      "slugByLocale": {
+        "de": "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein",
+        "it": "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein",
+        "en": "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein",
+        "fr": "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein"
+      },
+      "company": "Bachem AG",
+      "companyKey": "bachem",
+      "companyDomain": "bachem.com",
+      "title": "Downstream Process Expert - API Production Sisslerfeld Site Development (a) 100%",
+      "titleByLocale": {
+        "de": "Downstream Process Expert - API Production Sisslerfeld Site Development (a) 100%",
+        "en": "Downstream Process Expert - API Production Sisslerfeld Site Development (a) 100%",
+        "it": "Downstream Process Expert - API Production Sisslerfeld Site Development (a) 100%",
+        "fr": "Expert en aval des processus - API Production Sisslerfeld Développement du site (a) 100%"
+      },
+      "description": "The Bachem Group is investing in a new planned site in Sisslerfeld in Northwestern Switzerland. This step is part of the long-term strategy to expand production capacity by the end of the decade. The new production site will play a central role in achieving these goals. The design phase of the project offers you unique opportunities to shape the future organization.\n\nAs Downstream Process Expert - API Production Sisslerfeld Site Development (a) 100% , you will play a key technical role in establishing and later developing downstream manufacturing operations for API production. During the project phase, you will support the planning, design, commissioning, and start-up of manufacturing facilities and processes, ensuring GMP-compliant implementation. Once operations are established, you will take technical ownership of downstream processes and drive their continuous improvement and operational excellence.\n\nYour tasks\n\n• Provide technical leadership for the establishment, commissioning, and further development of downstream processing operations for API manufacturing\n\n• Support the planning and design of manufacturing equipment, facilities, and production areas, including the development of technical specifications and process concepts\n\n• Develop, implement, and continuously improve GMP-compliant downstream manufacturing processes\n\n• Prepare, review, and maintain technical documentation, SOPs, and risk assessments\n\n• Provide technical support during commissioning, start-up, and the operation and optimization of manufacturing equipment and processes\n\n• Troubleshoot process- and equipment-related issues and drive sustainable improvement measures\n\n• Collaborate closely with TechOps, Engineering, QA, Operations, and Project Management\n\n• Support regulatory inspections and customer audits and contribute to operational excellence initiatives\n\nYour profile\n\n• PhD in Chemistry, Pharmaceutical Chemistry, or a related scientific discipline\n\n• Several years of experience in API downstream processing within a GMP-regulated environment; knowledge of SPPS is an advantage\n\n• Experience in the planning, construction, commissioning, start-up, or expansion of pharmaceutical manufacturing facilities\n\n• In-depth knowledge of preparative chromatography, lyophilization and spray drying\n\n• Strong knowledge of chemical process engineering, equipment and facility design, and relevant regulatory requirements, including ICH Q7, FDA, and EMA\n\n• Experience with process control systems and recipe configuration\n\n• Strong technical affinity combined with a structured, solution-oriented approach to complex engineering challenges\n\n• Excellent communication, stakeholder management, and project management skills, with fluency in German and English, both written and spoken\n\nOur offer:\n\n• The role offers broad exposure across global Technical Operations and Innovation Platforms and close collaboration with senior stakeholders, enabling strong professional visibility and the opportunity to shape groupwide innovation long-term.\n\n• A dynamic and rapidly growing work environment with internal development opportunities\n\n• Employee development through numerous internal and external training opportunities\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to the Swibeco benefits platform with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to shape global Operational Readiness frameworks with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and our working environment at the Bubendorf site on our website.",
+      "descriptionByLocale": {
+        "de": "The Bachem Group is investing in a new planned site in Sisslerfeld in Northwestern Switzerland. This step is part of the long-term strategy to expand production capacity by the end of the decade. The new production site will play a central role in achieving these goals. The design phase of the project offers you unique opportunities to shape the future organization.\n\nAs Downstream Process Expert - API Production Sisslerfeld Site Development (a) 100% , you will play a key technical role in establishing and later developing downstream manufacturing operations for API production. During the project phase, you will support the planning, design, commissioning, and start-up of manufacturing facilities and processes, ensuring GMP-compliant implementation. Once operations are established, you will take technical ownership of downstream processes and drive their continuous improvement and operational excellence.\n\nYour tasks\n\n• Provide technical leadership for the establishment, commissioning, and further development of downstream processing operations for API manufacturing\n\n• Support the planning and design of manufacturing equipment, facilities, and production areas, including the development of technical specifications and process concepts\n\n• Develop, implement, and continuously improve GMP-compliant downstream manufacturing processes\n\n• Prepare, review, and maintain technical documentation, SOPs, and risk assessments\n\n• Provide technical support during commissioning, start-up, and the operation and optimization of manufacturing equipment and processes\n\n• Troubleshoot process- and equipment-related issues and drive sustainable improvement measures\n\n• Collaborate closely with TechOps, Engineering, QA, Operations, and Project Management\n\n• Support regulatory inspections and customer audits and contribute to operational excellence initiatives\n\nYour profile\n\n• PhD in Chemistry, Pharmaceutical Chemistry, or a related scientific discipline\n\n• Several years of experience in API downstream processing within a GMP-regulated environment; knowledge of SPPS is an advantage\n\n• Experience in the planning, construction, commissioning, start-up, or expansion of pharmaceutical manufacturing facilities\n\n• In-depth knowledge of preparative chromatography, lyophilization and spray drying\n\n• Strong knowledge of chemical process engineering, equipment and facility design, and relevant regulatory requirements, including ICH Q7, FDA, and EMA\n\n• Experience with process control systems and recipe configuration\n\n• Strong technical affinity combined with a structured, solution-oriented approach to complex engineering challenges\n\n• Excellent communication, stakeholder management, and project management skills, with fluency in German and English, both written and spoken\n\nOur offer:\n\n• The role offers broad exposure across global Technical Operations and Innovation Platforms and close collaboration with senior stakeholders, enabling strong professional visibility and the opportunity to shape groupwide innovation long-term.\n\n• A dynamic and rapidly growing work environment with internal development opportunities\n\n• Employee development through numerous internal and external training opportunities\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to the Swibeco benefits platform with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to shape global Operational Readiness frameworks with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and our working environment at the Bubendorf site on our website.",
+        "it": "Il Gruppo Bachem sta investendo in un nuovo sito pianificato a Sisslerfeld nella Svizzera nordoccidentale. Questo passo fa parte della strategia a lungo termine per espandere la capacità produttiva entro la fine del decennio. Il nuovo sito di produzione svolgerà un ruolo centrale nel raggiungimento di questi obiettivi. La fase progettuale del progetto offre opportunità uniche per modellare l'organizzazione futura.\n\nCome esperto di processo a valle - API Production Sisslerfeld Site Development (a) 100% , si svolgerà un ruolo tecnico chiave nella creazione e nello sviluppo di operazioni di produzione a valle per la produzione API. Durante la fase di progetto, supporterai la pianificazione, la progettazione, la messa in servizio e l'avvio di impianti e processi produttivi, garantendo l'implementazione conforme a GMP. Una volta che le operazioni sono stabilite, prenderete la proprietà tecnica dei processi a valle e guidare il loro continuo miglioramento e l'eccellenza operativa.\n\nI tuoi compiti\n\n• Fornire la leadership tecnica per la creazione, la messa in servizio e l'ulteriore sviluppo delle operazioni di elaborazione a valle per la produzione di API\n\n• Sostenere la progettazione e la progettazione di attrezzature, impianti e aree di produzione, tra cui lo sviluppo di specifiche tecniche e concetti di processo\n\n• Sviluppare, implementare e migliorare continuamente i processi produttivi a valle conformi a GMP\n\n• Preparare, rivedere e mantenere la documentazione tecnica, le SOP e le valutazioni dei rischi\n\n• Fornire supporto tecnico durante la messa in servizio, l'avvio e il funzionamento e l'ottimizzazione delle attrezzature e dei processi produttivi\n\n• Risoluzione dei problemi relativi ai processi e alle attrezzature e misure di miglioramento sostenibili\n\n• Collaborare a stretto contatto con TechOps, Ingegneria, QA, Operazioni e Project Management\n\n• Sostenere le ispezioni normative e le verifiche dei clienti e contribuire a iniziative di eccellenza operativa\n\nIl tuo profilo\n\n• PhD in Chimica, Chimica Farmaceutica, o una disciplina scientifica correlata\n\n• Diversi anni di esperienza nell'elaborazione API a valle all'interno di un ambiente regolato da GMP; La conoscenza di SPPS è un vantaggio\n\n• Esperienza nella progettazione, costruzione, messa in servizio, start-up o espansione di impianti di produzione farmaceutica\n\n• Conoscenza approfondita della cromatografia di preparazione, della liofilizzazione e dell'essiccazione spray\n\n• Forte conoscenza dell'ingegneria dei processi chimici, dell'attrezzatura e della progettazione delle strutture e dei requisiti normativi rilevanti, tra cui ICH Q7, FDA e EMA\n\n• Esperienza con sistemi di controllo del processo e configurazione delle ricette\n\n• Forte affinità tecnica combinata con un approccio strutturato e orientato alla soluzione alle complesse sfide ingegneristiche\n\n• Ottima comunicazione, gestione delle parti interessate e capacità di gestione dei progetti, con fluenza in tedesco e inglese, sia scritta che parlata\n\nLa nostra offerta:\n\n• Il ruolo offre un'ampia esposizione tra le Piattaforme Tecniche e Innovazione globali e una stretta collaborazione con gli stakeholder senior, consentendo una forte visibilità professionale e l'opportunità di modellare l'innovazione a lungo termine.\n\n• Un ambiente di lavoro dinamico e in rapida crescita con opportunità di sviluppo interno\n\n• Sviluppo dei dipendenti attraverso numerose opportunità di formazione interna ed esterna\n\n• 60% di copertura dei contributi dei fondi pensione da parte di Bachem AG e l'opzione per la fornitura di pensione extra-obbligatoria con il nostro Piano Pensione Plus\n\n• Accesso alla piattaforma di benefici Swibeco con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Una vasta gamma di attività sportive gratuite sul Bachem Campus\n\nVuoi modellare con noi i Quadri di Prontezza Operativa globali?\n\nNon vediamo l'ora di ricevere i tuoi documenti applicativi completi tramite il nostro portale.\n\nMaggiori informazioni sul Gruppo Bachem e sul nostro ambiente di lavoro presso il sito Bubendorf sul nostro sito web.",
+        "en": "The Bachem Group is investing in a new planned site in Sisslerfeld in Northwestern Switzerland. This step is part of the long-term strategy to expand production capacity by the end of the decade. The new production site will play a central role in achieving these goals. The design phase of the project offers you unique opportunities to shape the future organization.\n\nAs Downstream Process Expert - API Production Sisslerfeld Site Development (a) 100% , you will play a key technical role in establishing and later developing downstream manufacturing operations for API production. During the project phase, you will support the planning, design, commissioning, and start-up of manufacturing facilities and processes, ensuring GMP-compliant implementation. Once operations are established, you will take technical ownership of downstream processes and drive their continuous improvement and operational excellence.\n\nYour tasks\n\n• Provide technical leadership for the establishment, commissioning, and further development of downstream processing operations for API manufacturing\n\n• Support the planning and design of manufacturing equipment, facilities, and production areas, including the development of technical specifications and process concepts\n\n• Develop, implement, and continuously improve GMP-compliant downstream manufacturing processes\n\n• Prepare, review, and maintain technical documentation, SOPs, and risk assessments\n\n• Provide technical support during commissioning, start-up, and the operation and optimization of manufacturing equipment and processes\n\n• Troubleshoot process- and equipment-related issues and drive sustainable improvement measures\n\n• Collaborate closely with TechOps, Engineering, QA, Operations, and Project Management\n\n• Support regulatory inspections and customer audits and contribute to operational excellence initiatives\n\nYour profile\n\n• PhD in Chemistry, Pharmaceutical Chemistry, or a related scientific discipline\n\n• Several years of experience in API downstream processing within a GMP-regulated environment; Knowledge of SPPS is an advantage\n\n• Experience in the planning, construction, commissioning, start-up, or expansion of pharmaceutical manufacturing facilities\n\n• In-depth knowledge of preparation chromatography, lyophilization and spray drying\n\n• Strong knowledge of chemical process engineering, equipment and facility design, and relevant regulatory requirements, including ICH Q7, FDA, and EMA\n\n• Experience with process control systems and recipe configuration\n\n• Strong technical affinity combined with a structured, solution-oriented approach to complex engineering challenges\n\n• Excellent communication, stakeholder management, and project management skills, with fluency in German and English, both written and spoken\n\nOur offer:\n\n• The role offers broad exposure across global Technical Operations and Innovation Platforms and close collaboration with senior stakeholders, enabling strong professional visibility and the opportunity to shape groupwide innovation long-term.\n\n• A dynamic and rapidly growing work environment with internal development opportunities\n\n• Employee development through numerous internal and external training opportunities\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to the Swibeco benefits platform with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to shape global Operational Readiness Frameworks with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and our working environment at the Bubendorf site on our website.",
+        "fr": "Le groupe Bachem investit dans un nouveau site prévu à Sisslerfeld dans le nord-ouest de la Suisse. Cette étape s'inscrit dans la stratégie à long terme visant à accroître la capacité de production d'ici la fin de la décennie. Le nouveau site de production jouera un rôle central dans la réalisation de ces objectifs. La phase de conception du projet vous offre des occasions uniques de façonner la future organisation.\n\nEn tant qu'expert en processus aval - API Production Sisslerfeld Site Development (a) 100% , vous jouerez un rôle technique clé dans l'établissement et le développement ultérieur d'opérations de fabrication en aval pour la production d'API. Au cours de la phase du projet, vous soutiendrez la planification, la conception, la mise en service et le démarrage d'installations et de procédés de fabrication, en assurant la mise en oeuvre conforme aux BPF. Une fois les opérations établies, vous prendrez la propriété technique des processus en aval et dirigerez leur amélioration continue et leur excellence opérationnelle.\n\nVos tâches\n\n• Fournir un leadership technique pour l'établissement, la mise en service et le développement des opérations de transformation en aval pour la fabrication d'API\n\n• Appuyer la planification et la conception des équipements de fabrication, des installations et des secteurs de production, y compris l'élaboration de spécifications techniques et de concepts de procédés\n\n• Élaborer, mettre en oeuvre et améliorer continuellement les procédés de fabrication en aval conformes aux BPF\n\n• Préparer, examiner et tenir à jour la documentation technique, les PNE et les évaluations des risques\n\n• Fournir un soutien technique pendant la mise en service, le démarrage, le fonctionnement et l'optimisation des équipements et des procédés de fabrication\n\n• Dépannage des problèmes liés aux processus et à l'équipement et lancement de mesures d'amélioration durable\n\n• Collaborer étroitement avec TechOps, Ingénierie, AQ, Opérations et Gestion de Projet\n\n• Appuyer les inspections réglementaires et les vérifications des clients et contribuer aux initiatives d'excellence opérationnelle\n\nVotre profil\n\n• Doctorat en chimie, chimie pharmaceutique ou discipline scientifique connexe\n\n• Plusieurs années d'expérience dans le traitement en aval des IPA dans un environnement réglementé par les BPF; La connaissance des SPPS est un avantage\n\n• Expérience dans la planification, la construction, la mise en service, le démarrage ou l'expansion d'installations de fabrication de produits pharmaceutiques\n\n• Connaissance approfondie de la chromatographie de préparation, de la lyophilisation et du séchage par pulvérisation\n\n• Connaissance approfondie de l'ingénierie des procédés chimiques, de la conception de l'équipement et des installations et exigences réglementaires pertinentes, y compris l'ICH Q7, la FDA et l'EMA\n\n• Expérience des systèmes de contrôle des processus et de la configuration des recettes\n\n• Forte affinité technique associée à une approche structurée et axée sur la solution des défis complexes de l'ingénierie\n\n• Excellente capacité de communication, de gestion des parties prenantes et de gestion de projet, avec maîtrise de l'allemand et de l'anglais, écrit et parlé\n\nNotre offre :\n\n• Ce rôle offre une large visibilité à l'échelle mondiale dans le domaine des opérations techniques et des plateformes d'innovation et une collaboration étroite avec les principaux intervenants, permettant une forte visibilité professionnelle et l'occasion de façonner l'innovation à long terme à l'échelle du groupe.\n\n• Un environnement de travail dynamique et en croissance rapide avec des possibilités de développement interne\n\n• Développement des employés grâce à de nombreuses possibilités de formation internes et externes\n\n• 60 % de la couverture des cotisations de la caisse de retraite par Bachem AG, ainsi que l'option pour les prestations de retraite extra-obligatoires avec notre Régime de retraite Plus\n\n• Accès à la plateforme d'avantages Swibeco avec des rabais de partenaires externes\n\n• Des aliments frais, sains et variés dans notre restaurant du personnel\n\n• Un large éventail d'activités sportives gratuites sur le campus de Bachem\n\nSouhaitez-vous façonner des cadres de préparation opérationnelle mondiaux avec nous?\n\nNous sommes impatients de recevoir vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et notre environnement de travail sur le site de Bubendorf sur notre site."
+      },
+      "needsRetranslation": true,
+      "location": "Stein AG",
+      "canton": "AG",
+      "url": "https://careers.bachem.com/job/Stein-AG-Downstream-Process-Expert-API-Production-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1441748133/",
+      "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:24:07.305Z",
+      "addressLocality": "Stein AG",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4332",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1441748133/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 64500,
+      "salaryMax": 110000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 110000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:24:07.305Z"
+    },
+    {
+      "id": "bachem-2fb2a9eec27b",
+      "slug": "collaboratore-trice-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-ag-bubendorf",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
+        "it": "collaboratore-trice-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-ag-bubendorf",
+        "en": "employee-dispensation-a-100-in-shift-operation-early-late-shift-bachem-ag-bubendorf",
+        "fr": "dispensation-des-employes-a-100-en-poste-debut-dernier-quart-bachem-ag-bubendorf"
+      },
+      "company": "Bachem AG",
+      "companyKey": "bachem",
+      "companyDomain": "bachem.com",
+      "title": "Mitarbeiter*in Dispensation (a) 100% im Schichtbetrieb (Früh/Spätschicht)",
+      "titleByLocale": {
+        "de": "Mitarbeiter*in Dispensation (a) 100% im Schichtbetrieb (Früh/Spätschicht)",
+        "it": "Collaboratore/trice*in Dispensation (a) 100% im Schichtbetrieb (Früh/Spätschicht)",
+        "en": "Employee Dispensation (a) 100% in shift operation (early/late shift)",
+        "fr": "Dispensation des employés (a) 100 % en poste (début/dernier poste)"
+      },
+      "description": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Dispensation suchen wir eine/n engagierte/n Mitarbeiter*in Dispensation (a) 100% im Schichtbetrieb (Früh/Spätschicht)\n\nIhre Aufgaben:\n\n• Exaktes Portonieren von festen und flüssigen chemischen Rohstoffen, Zwischen und Endprodukten\n\n• Gewissenhaftes Arbeiten und Protokollieren der ausgeführten Tätigkeiten\n\n• Bereitstellen der nötigen Utensilien zur Portionierung\n\n• Ausüben von Reinigungs- und Kalibrierungsarbeiten an Geräten und Räumlichkeiten\n\n• Sicherstellen, dass alle Tätigkeiten unter strenger Einhaltung der Regeln hinsichtlich GMP, Arbeitssicherheit und Umweltschutz erfolgen\n\nIhr Profil:\n\n• Idealerweise verfügen Sie über eine Ausbildung im chemisch/pharmazeutischen Bereich. Wir akzeptieren jedoch auch Dossiers von Kandidaten und Kandidatinnen mit Berufserfahrung im regulierten Umfeld (Chemie, Pharma, Lebensmittel, etc.)\n\n• Erfahrungen mit Tätigkeiten im Reinraum und Arbeiten unter GMP sind erwünscht, jedoch nicht unbedingt zwingend\n\n• Sie sind ausgesprochen zuverlässig, arbeiten selbstständig und sind körperlich belastbar\n\n• Sie haben eine strukturierte Arbeitsweise, die es Ihnen erlaub, jederzeit den Überblick zu behalten\n\n• Ihre Deutschkenntnisse sind gut\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattform Swibeco mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!\n\nWir nehmen keine Bewerbungen von Personalagenturen entgegen.",
+      "descriptionByLocale": {
+        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams in der Dispensation suchen wir eine/n engagierte/n Mitarbeiter*in Dispensation (a) 100% im Schichtbetrieb (Früh/Spätschicht)\n\nIhre Aufgaben:\n\n• Exaktes Portonieren von festen und flüssigen chemischen Rohstoffen, Zwischen und Endprodukten\n\n• Gewissenhaftes Arbeiten und Protokollieren der ausgeführten Tätigkeiten\n\n• Bereitstellen der nötigen Utensilien zur Portionierung\n\n• Ausüben von Reinigungs- und Kalibrierungsarbeiten an Geräten und Räumlichkeiten\n\n• Sicherstellen, dass alle Tätigkeiten unter strenger Einhaltung der Regeln hinsichtlich GMP, Arbeitssicherheit und Umweltschutz erfolgen\n\nIhr Profil:\n\n• Idealerweise verfügen Sie über eine Ausbildung im chemisch/pharmazeutischen Bereich. Wir akzeptieren jedoch auch Dossiers von Kandidaten und Kandidatinnen mit Berufserfahrung im regulierten Umfeld (Chemie, Pharma, Lebensmittel, etc.)\n\n• Erfahrungen mit Tätigkeiten im Reinraum und Arbeiten unter GMP sind erwünscht, jedoch nicht unbedingt zwingend\n\n• Sie sind ausgesprochen zuverlässig, arbeiten selbstständig und sind körperlich belastbar\n\n• Sie haben eine strukturierte Arbeitsweise, die es Ihnen erlaub, jederzeit den Überblick zu behalten\n\n• Ihre Deutschkenntnisse sind gut\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattform Swibeco mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!\n\nWir nehmen keine Bewerbungen von Personalagenturen entgegen.",
+        "it": "Al fine di guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati. Per rafforzare il nostro team in dispensazione, stiamo cercando un dipendente dedicato in dispensazione (a) 100% in operazione a turni (cambio iniziale/lato)\n\nI loro compiti:\n\n• Postazione precisa delle materie prime chimiche solide e liquide, dei prodotti intermedi e finali\n\n• Lavoro consapevole e registrazione delle attività svolte\n\n• Fornitura degli utensili necessari per la porzionatura\n\n• Eseguire lavori di pulizia e taratura su attrezzature e locali\n\n• Assicurarsi che tutte le attività siano svolte in stretta conformità con GMP, sicurezza sul lavoro e norme ambientali\n\nIl tuo profilo:\n\n• Idealmente, si avrà una formazione nel settore chimico / farmaceutico. Tuttavia, accettiamo anche dossier da candidati con esperienza professionale nell'ambiente regolamentato (industria chimica, farmaceutica, alimentare, ecc.)\n\n• L'esperienza con attività di cleanroom e lavorare sotto GMP è auspicabile, ma non necessariamente\n\n• Sono estremamente affidabili, lavorano in modo indipendente e sono fisicamente resilienti\n\n• Hai un modo di lavorare strutturato che ti permette di tenere traccia delle cose in ogni momento\n\n• Le tue competenze tedesche sono buone\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con opportunità di sviluppo interno\n\n• Supporto dei dipendenti attraverso numerose offerte di formazione interna ed esterna\n\n• Il 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettivo\n\n• Accesso alla piattaforma di vantaggio Swibeco con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Varie attività sportive gratuite sul campus di Bachem\n\nVorresti promuovere l'innovazione insieme a noi?\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora che i vostri documenti applicativi completi tramite il nostro portale di applicazioni.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nella nostra posizione a Bubendorf!\n\nNon accettiamo domande da agenzie di reclutamento.",
+        "en": "In order to drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in dispensation, we are looking for a dedicated employee in dispensation (a) 100% in shift operation (early/late shift)\n\nTheir tasks:\n\n• Precise postponing of solid and liquid chemical raw materials, intermediate and final products\n\n• Conscious work and recording of the activities carried out\n\n• Provision of the necessary utensils for portioning\n\n• Carrying out cleaning and calibration work on equipment and premises\n\n• Ensure that all activities are carried out in strict compliance with GMP, occupational safety and environmental regulations\n\nYour profile:\n\n• Ideally, you will have an education in the chemical/pharmaceutical sector. However, we also accept dossiers from candidates with professional experience in the regulated environment (chemistry, pharmaceuticals, food, etc.)\n\n• Experience with cleanroom activities and working under GMP is desirable, but not necessarily\n\n• They are extremely reliable, work independently and are physically resilient\n\n• You have a structured way of working that allows you to keep track of things at all times\n\n• Your German skills are good\n\nOur offer:\n\n• A dynamic and rapidly growing working environment with internal development opportunities\n\n• Employee support through numerous internal and external training offers\n\n• 60% takeover of pension fund contributions by Bachem AG as well as possibility for over-compulsory provision with our elective savings plan\n\n• Access to the advantage platform Swibeco with discounts from external partners\n\n• Fresh, healthy and diverse food in our staff restaurant\n\n• Various free sports activities on the Bachem Campus\n\nWould you like to promote innovation together with us?\n\nHave we aroused your interest? Then we look forward to your complete application documents via our application portal.\n\nLearn more about the Bachem Group and be inspired by our inspiring working environment at our location in Bubendorf!\n\nWe do not accept applications from recruitment agencies.",
+        "fr": "Afin de stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Pour renforcer notre équipe en dispensation, nous recherchons un employé dédié en dispensation (a) 100 % en poste (début/dernier quart)\n\nLeurs tâches:\n\n• Report précis des matières premières chimiques solides et liquides, produits intermédiaires et produits finals\n\n• Travail conscient et enregistrement des activités menées\n\n• Fourniture des ustensiles nécessaires pour le fractionnement\n\n• Effectuer des travaux de nettoyage et d ' étalonnage du matériel et des locaux\n\n• Veiller à ce que toutes les activités soient menées dans le strict respect des BPF, de la sécurité au travail et de la réglementation environnementale\n\nVotre profil:\n\n• Idéalement, vous aurez une formation dans le secteur chimique/pharmaceutique. Cependant, nous acceptons également les dossiers de candidats ayant une expérience professionnelle dans l'environnement réglementé (chimie, produits pharmaceutiques, aliments, etc.)\n\n• L'expérience des activités de nettoyage et de travail dans le cadre des BPF est souhaitable, mais pas nécessairement\n\n• Ils sont extrêmement fiables, travaillent indépendamment et sont physiquement résistants\n\n• Vous avez une façon structurée de travailler qui vous permet de garder une trace des choses en tout temps\n\n• Vos compétences en allemand sont bonnes\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec des possibilités de développement interne\n\n• Soutien aux employés grâce à de nombreuses offres de formation internes et externes\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision sur-obligatoire avec notre régime d'épargne facultative\n\n• Accès à la plate-forme d'avantages Swibeco avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nSouhaitez-vous promouvoir l'innovation avec nous ?\n\nAvons-nous suscité votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!\n\nNous n'acceptons pas les candidatures des agences de recrutement."
+      },
+      "needsRetranslation": true,
+      "location": "Bubendorf",
+      "canton": "BL",
+      "url": "https://careers.bachem.com/job/Bubendorf-Mitarbeiterin-Dispensation-%28a%29-100-im-Schichtbetrieb-%28Fr%C3%BChSp%C3%A4tschicht%29-BL-4416/1412888433/",
+      "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:24:04.001Z",
+      "addressLocality": "Bubendorf",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4416",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-04",
+      "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1412888433/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf"
+      ],
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 110500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:24:04.001Z"
     }
   ]
 }
