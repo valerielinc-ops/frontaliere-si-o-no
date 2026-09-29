@@ -1,7 +1,8 @@
 /**
  * Parsers that wrote a description of their own when the posting's text was
  * not read (lot L 2, #5253): the onlyfy tenants Spitex Zürich and Vitrea
- * Gesundheit, Spitex Schweiz (spitex-ch) and Centro Sanitario Bregaglia. They
+ * Gesundheit, Spitex Schweiz (spitex-ch), Centro Sanitario Bregaglia and OSCAM
+ * Castelrotto (which also wrapped the PDF bando in lines of its own). They
  * now publish only the source's text; without it the job gets no description
  * and the pipeline quarantines it as thin-source. Jobs stored with the old
  * text are cleaned before the merge through `prepareExistingJobs`.
@@ -16,6 +17,10 @@ import { SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/spitex-
 import { VITREA_GESUNDHEIT_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/vitrea-gesundheit-job-parser.mjs';
 import { SPITEX_CH_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/spitex-ch-job-parser.mjs';
 import { CS_BREGAGLIA_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/cs-bregaglia-job-parser.mjs';
+import {
+  buildDescription as buildOscamCastelrottoDescription,
+  OSCAM_CASTELROTTO_FABRICATED_DESCRIPTION_RE,
+} from '../scripts/lib/oscam-castelrotto-job-parser.mjs';
 
 const FIXTURE = JSON.parse(fs.readFileSync(
   path.join(__dirname, 'fixtures/crawler-fabricated-descriptions/twin-crawlers.json'),
@@ -25,6 +30,7 @@ const FIXTURE = JSON.parse(fs.readFileSync(
 const PATTERN_BY_CRAWLER: Record<string, RegExp> = {
   'spitex-zuerich': SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE,
   'vitrea-gesundheit': VITREA_GESUNDHEIT_FABRICATED_DESCRIPTION_RE,
+  'oscam-castelrotto': OSCAM_CASTELROTTO_FABRICATED_DESCRIPTION_RE,
 };
 
 // Source text of the same kind (an ad with its own bullets): no pattern may
@@ -77,5 +83,25 @@ describe('stored rows carrying parser-written text (main slices)', () => {
     expect(CS_BREGAGLIA_FABRICATED_DESCRIPTION_RE.test('Infermiere/a — Centro Sanitario Bregaglia, Promontogno (GR).')).toBe(true);
     // Only as the whole description: the source text may name the centre.
     expect(CS_BREGAGLIA_FABRICATED_DESCRIPTION_RE.test('Il Centro Sanitario Bregaglia, Promontogno (GR). Cerchiamo un infermiere.')).toBe(false);
+  });
+});
+
+describe('oscam-castelrotto: the description is the bando only', () => {
+  const bando = [
+    'CONCORSO GENERALE 2026 L’Ospedale Malcantonese (con i suoi reparti di medicina e di psichiatria,',
+    'centro di primo soccorso e servizi ambulatoriali) rende noto che è aperto il concorso generale',
+    'per l\'assunzione del seguente personale: - personale di cura e terapeutico (infermieri, operatori sociosanitari).',
+  ].join(' ');
+
+  it('publishes the text of the PDF without lines of the parser', () => {
+    const description = buildOscamCastelrottoDescription(bando);
+    expect(description.startsWith('CONCORSO GENERALE 2026')).toBe(true);
+    expect(OSCAM_CASTELROTTO_FABRICATED_DESCRIPTION_RE.test(description)).toBe(false);
+    expect(description).not.toContain('Bando completo (PDF)');
+    expect(description).not.toContain('presso l\'Ospedale Malcantonese OSCAM');
+  });
+
+  it('writes nothing when the PDF has no readable text (thin-source path)', () => {
+    expect(buildOscamCastelrottoDescription('')).toBe('');
   });
 });
