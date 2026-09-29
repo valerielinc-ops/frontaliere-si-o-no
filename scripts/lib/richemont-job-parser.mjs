@@ -26,7 +26,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 import {
   createBrowser,
@@ -64,10 +64,13 @@ const PER_DETAIL_DELAY_MS = 3000;
 const DETAIL_NAV_TIMEOUT_MS = 30_000;
 const DETAIL_WAIT_SELECTOR_MS = 15_000;
 const MIN_DETAIL_DESCRIPTION_LEN = 200;
-// `.job-detail` is Richemont's job-body container (verified 2026-05-12):
-// returns ~3k chars of clean job description. Fall back to `article`,
-// then `main` if the markup ever shifts.
-const DETAIL_SELECTORS = ['.job-detail', 'article', 'main'];
+// `.job-detail .cms-content` is the vacancy article. `.job-detail` itself
+// also wraps the "Similar Jobs" sidebar (`aside.sidebar` / `.related-jobs`):
+// reading it whole published other postings' titles, "Save" buttons and
+// locations at the end of 170/174 descriptions (audit run 36528331656).
+// The wider selectors stay as fallbacks if the markup shifts; the sidebar
+// is removed from whichever element is read.
+const DETAIL_SELECTORS = ['.job-detail .cms-content', '.job-detail article', '.job-detail', 'article', 'main'];
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -262,13 +265,23 @@ async function fetchRichDescription(context, url) {
       for (const sel of selectors) {
         const el = document.querySelector(sel);
         if (el) {
+          // Page chrome that sits inside the job container: the related-jobs
+          // sidebar and its "Save" buttons. The page is discarded after this
+          // read, so editing its live DOM is safe.
+          el.querySelectorAll('aside, .related-jobs, .sidebar, button, form, script, style')
+            .forEach((node) => node.remove());
+          // innerText keeps the line structure but not list markers: mark
+          // each item so the lists survive as "• " lines.
+          el.querySelectorAll('li').forEach((li) => {
+            li.insertBefore(document.createTextNode('• '), li.firstChild);
+          });
           const t = (el.innerText || '').trim();
           if (t.length >= 200) return t;
         }
       }
       return '';
     }, DETAIL_SELECTORS);
-    return normalizeSpace(text);
+    return normalizeDescriptionSpace(String(text).replace(/\u00a0/g, ' '));
   } catch (err) {
     if (err instanceof AntiBotBlockError) {
       console.warn(`   ⚠️ CF block on detail ${url}: ${err.message}`);
@@ -328,7 +341,10 @@ export function buildJobDescription({
   department = '',
   locationText = '',
 } = {}) {
-  const rich = normalizeSpace(detailText);
+  // Keep the vacancy's line structure (paragraphs, "• " list items): the
+  // former whole-body space collapse published 144/174 postings as one
+  // run-on paragraph (audit: no-structured-content).
+  const rich = normalizeDescriptionBullets(normalizeDescriptionSpace(String(detailText || '').replace(/\u00a0/g, ' ')));
   if (rich && rich.length >= MIN_DETAIL_DESCRIPTION_LEN) return rich;
 
   const parts = [
@@ -339,6 +355,18 @@ export function buildJobDescription({
     `Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).`,
   ].filter(Boolean);
   return parts.join(' ');
+}
+
+/**
+ * Source language of a posting: detected on the detail body when one was
+ * read (≥ MIN_DETAIL_DESCRIPTION_LEN), on the title otherwise.
+ *
+ * @param {{ detailText?: string, title?: string }} input
+ * @returns {string}
+ */
+export function detectRichemontSourceLang({ detailText = '', title = '' } = {}) {
+  const body = normalizeSpace(detailText);
+  return detectLang(body.length >= MIN_DETAIL_DESCRIPTION_LEN ? body : title, 'en');
 }
 
 /**
@@ -452,10 +480,6 @@ export async function fetchAllRichemontJobs() {
     const path = row.href.startsWith('http')
       ? row.href
       : `https://careers.richemont.com${row.href.startsWith('/') ? '' : '/'}${row.href}`;
-    const sourceLang = detectLang(title, 'en');
-    const jobSlug = slugify(`${title} richemont ${city || 'switzerland'}`);
-    const urlHash = createHash('sha1').update(path).digest('hex').slice(0, 12);
-
     const description = buildJobDescription({
       detailText: row.detailText || '',
       title,
@@ -463,6 +487,12 @@ export async function fetchAllRichemontJobs() {
       department,
       locationText,
     });
+    // Language of the vacancy body, not of its title: Richemont titles are
+    // often English on French/German postings. The title decides only when
+    // no detail body was read.
+    const sourceLang = detectRichemontSourceLang({ detailText: row.detailText || '', title });
+    const jobSlug = slugify(`${title} richemont ${city || 'switzerland'}`);
+    const urlHash = createHash('sha1').update(path).digest('hex').slice(0, 12);
 
     const job = {
       id: `richemont-${urlHash}`,
