@@ -39,6 +39,21 @@ export function sourceLangOfBody(body = '', fallback = 'it') {
   return SITE_LOCALES.includes(sourceLang) ? sourceLang : safeFallback;
 }
 
+/**
+ * The language of a posting whose platform declares one (Workable's
+ * `language`): read from the body like any other, with the declared language
+ * as the fallback when it is a site locale — `fallback` otherwise.
+ *
+ * @param {string} body
+ * @param {string} [declared]
+ * @param {string} [fallback]
+ * @returns {'it'|'en'|'de'|'fr'}
+ */
+export function sourceLangOfPosting(body = '', declared = '', fallback = 'en') {
+  const lang = String(declared || '').trim().toLowerCase().slice(0, 2);
+  return sourceLangOfBody(body, SITE_LOCALES.includes(lang) ? lang : fallback);
+}
+
 // A description shorter than this is too short for language detection to
 // overrule the slot it sits in.
 const STALE_SLOT_MIN_CHARS = 200;
@@ -71,4 +86,23 @@ export function dropStaleLocaleDescriptions(job) {
   }
   if (dropped.length) job.needsRetranslation = true;
   return dropped;
+}
+
+/**
+ * Title and slug of a posting under its source language only, for the
+ * runners that filed them under a fixed key — `{ en: title }` and
+ * `{ en: slug, it: slug }` whatever language the posting is written in. A
+ * German or French vacancy then had no title or slug in its own slot, and its
+ * `en`/`it` slots held the source text, which the translation pipeline took
+ * for a translation. The pipeline fills the other slots; the
+ * locale-preserving merge keeps every slug already published under another
+ * key, so no published URL changes.
+ *
+ * @param {string} title
+ * @param {string} slug
+ * @param {string} sourceLang the job's `sourceLang`
+ * @returns {{ titleByLocale: Record<string, string>, slugByLocale: Record<string, string> }}
+ */
+export function sourceSlotTitleAndSlug(title, slug, sourceLang) {
+  return { titleByLocale: { [sourceLang]: title }, slugByLocale: { [sourceLang]: slug } };
 }

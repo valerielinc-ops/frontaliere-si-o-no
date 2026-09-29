@@ -771,10 +771,10 @@ async function buildJobFromRecruitingApiEntry(entry) {
     // see keyPostDescriptionBySourceLocale().
     descriptionByLocale: description ? { [sourceLang]: description } : {},
     // The page title is in the page's language: keyed there, never forced
-    // into `it` (see keyPostTitleBySourceLocale). Slugs keep their `it` key.
+    // into `it` (see keyPostTitleBySourceLocale); the slug too.
     titleByLocale: sourceLang ? { [sourceLang]: title } : {},
     slug,
-    slugByLocale: { it: slug },
+    slugByLocale: sourceLang ? { [sourceLang]: slug } : {},
     sourceLang,
     department: category,
     category: category || 'servizi-finanziari',
@@ -924,7 +924,7 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
       descriptionByLocale: description ? { [sourceLang]: description } : {},
       titleByLocale: sourceLang ? { [sourceLang]: title } : {},
       slug,
-      slugByLocale: { it: slug },
+      slugByLocale: sourceLang ? { [sourceLang]: slug } : {},
       sourceLang,
       department: detail.industry || '',
       category: detail.industry || 'servizi-finanziari',
@@ -1162,9 +1162,13 @@ function postProcessPostFinanceJobs() {
       if (keyedTitles.needsRetranslation) job.needsRetranslation = true;
       fixed++;
     }
-    // Published slugs keep their `it` key (untouched by the title keying).
-    if (!job.slugByLocale || job.slugByLocale.it !== job.slug) {
-      job.slugByLocale = { ...(job.slugByLocale || {}), it: job.slug };
+    // The slug is filed under the source language like the body and the title
+    // (it used to be forced into `it`, whatever the vacancy's language). A key
+    // that already holds a slug is a published URL and is never rewritten:
+    // only a slug no key serves yet is added, in the source slot.
+    const slugKeys = job.slugByLocale || {};
+    if (job.slug && sourceLang && !Object.values(slugKeys).includes(job.slug)) {
+      job.slugByLocale = { ...slugKeys, [sourceLang]: job.slug };
       fixed++;
     }
     if (!job.canton) {

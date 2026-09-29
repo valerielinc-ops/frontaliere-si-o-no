@@ -55,6 +55,7 @@ import {
   mergePreserveLocaleData,
   isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import {
   dropFabricatedLocaleText,
   dropTranslationsOfFabricatedSource,
@@ -506,14 +507,9 @@ export async function fetchIstJobs() {
       country: 'CH',
       description,
       descriptionByLocale,
-      titleByLocale: {
-        en: title,
-      },
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
-      slugByLocale: {
-        en: slug,
-        it: slugify(title, 'ist'),
-      },
       category: detectCategory(title),
       datePosted: detail.datePosted
         ? new Date(detail.datePosted).toISOString().split('T')[0]
@@ -584,6 +580,9 @@ async function mergeIstJobs(discoveredJobs) {
     country: 'CH',
     source: 'ist-inspirededu-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonIstJobs, ...merged];
 

@@ -24,6 +24,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
+import { sourceSlotTitleAndSlug, dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isSwissLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, parseWorkdayCity, dropJuliusBaerFabricatedText } from './lib/julius-baer-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -161,6 +162,9 @@ async function fetchJuliusBaerJobs() {
     // Baer a … Ruolo: …") instead, and to key German postings as `en`.
     const { description, descriptionByLocale, sourceLang } = sourceLocaleDescription(descriptionText);
     const slug = slugify(title, 'julius-baer');
+    // Title and slug in the same source slot as the body (German postings are
+    // `de`), not under a fixed `en` title and an `en`/`it` slug.
+    const { titleByLocale, slugByLocale } = sourceSlotTitleAndSlug(title, slug, sourceLang);
 
     jobs.push({
       url: publicUrl, applyUrl: publicUrl, title, company: COMPANY_NAME, companyKey: COMPANY_KEY,
@@ -168,7 +172,7 @@ async function fetchJuliusBaerJobs() {
       addressLocality: city, addressRegion: inferredCanton, addressCountry: 'CH',
       postalCode, streetAddress,
       description, descriptionByLocale,
-      titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'julius-baer') },
+      titleByLocale, slug, slugByLocale,
       category: detectCategory(title), datePosted: info.startDate || new Date().toISOString().split('T')[0],
       source: 'julius-baer-workday-crawler', employmentType: detectEmploymentType(info.timeType || ''),
       sourceLang,
@@ -202,6 +206,9 @@ async function mergeJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  // The merge keeps every non-source slot it finds: drop the ones not written
+  // in their own language (an English body left under `it`) for retranslation.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

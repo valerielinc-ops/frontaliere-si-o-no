@@ -33,6 +33,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   htmlToMarkdown,
   validateClerDescription,
@@ -487,9 +488,11 @@ async function fetchClerJobs() {
       employmentType: empType,
       contractType: empType === 'internship' ? 'stage' : 'permanent',
       description,
-      titleByLocale: { de: title },
+      // Title and slug in the body's language slot (a fixed `de` filed the
+      // French Romandie postings as German).
+      titleByLocale: { [sourceLang]: title },
       descriptionByLocale: description ? { [sourceLang]: description } : {},
-      slugByLocale: { de: slugify(title) },
+      slugByLocale: { [sourceLang]: slugify(title) },
       crawledAt: new Date().toISOString(),
     };
 
@@ -557,7 +560,7 @@ function mergeJobs(discoveredJobs) {
     const mergedJob = {
       ...prev,
       ...discovered,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, discovered.titleByLocale, 3),
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, discovered.titleByLocale, 3, discovered.sourceLang),
       // Issue #3453-class: never reset descriptionByLocale to a source-only
       // map on a large content delta — mergeLocaleTextMap's sourceLocale-aware
       // merge already refreshes the source locale while preserving translated
@@ -567,6 +570,7 @@ function mergeJobs(discoveredJobs) {
     };
     captureLostSlugs(mergedJob, prev.slugByLocale, prev.slug, 20);
     clearClerPlaceholderSlots(mergedJob);
+    dropStaleLocaleDescriptions(mergedJob);
     merged.push(mergedJob);
   }
   if (unpublished.length > 0) {
