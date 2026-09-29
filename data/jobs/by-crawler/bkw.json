@@ -6976,7 +6976,6 @@
           "directeur-de-construction-en-electric-tous-bkw-utzenstorf"
         ],
         "en": [
-          "construction-manager-in-electric-all-bkw-zuchwil",
           "bauleiter-in-elektro-alle-bkw-ch-4",
           "bauleiter-in-elektro-alle-bkw-zuchwil"
         ],
@@ -6986,8 +6985,6 @@
       },
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "construction-manager-in-electric-all-bkw-zuchwil",
-        "directeur-de-construction-en-electric-tous-bkw-zuchwil",
         "direttore-trice-lavori-elektro-alle-bkw-zuchwil-qjlcg5",
         "direttore-trice-lavori-elektro-alle-bkw-zuchwil-l36ysj",
         "bauleiter-in-elektro-alle-bkw-ch-4",
@@ -7017,12 +7014,12 @@
     },
     {
       "id": "bkw-acc27b6b93f1",
-      "slug": "spezialist-in-engineering-alle-bkw-ch-2",
+      "slug": "ingegneria-specialistica-tutti-bkw-oberkirch",
       "slugByLocale": {
-        "it": "spezialist-in-engineering-alle-bkw-ch-2",
-        "en": "spezialist-in-engineering-alle-bkw-ch-2",
+        "it": "ingegneria-specialistica-tutti-bkw-oberkirch",
+        "en": "specialist-engineering-all-bkw-oberkirch",
         "de": "spezialist-in-engineering-alle-bkw-ch-06j0xi",
-        "fr": "spezialist-in-engineering-alle-bkw-ch-2"
+        "fr": "specialiste-en-ingenierie-tous-bkw-oberkirch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -7072,7 +7069,8 @@
         "specialista-in-ingegneria-tutti-bkw-oberkirch-c4bbcb",
         "specialista-in-ingegneria-tutti-bkw-oberkirch",
         "engineering-specialist-all-bkw-oberkirch",
-        "specialiste-en-ingenierie-tous-bkw-oberkirch"
+        "specialiste-en-ingenierie-tous-bkw-oberkirch",
+        "spezialist-in-engineering-alle-bkw-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7083,18 +7081,20 @@
           "specialista-in-ingegneria-tutti-bkw-oberkirch-c4bbcb",
           "specialista-in-ingegneria-tutti-bkw-oberkirch",
           "engineering-specialist-all-bkw-oberkirch",
-          "specialiste-en-ingenierie-tous-bkw-oberkirch"
+          "specialiste-en-ingenierie-tous-bkw-oberkirch",
+          "spezialist-in-engineering-alle-bkw-ch-2"
         ],
         "en": [
           "specialist-in-engineering-all-bkw-oberkirch",
-          "engineering-specialist-all-bkw-oberkirch"
+          "engineering-specialist-all-bkw-oberkirch",
+          "spezialist-in-engineering-alle-bkw-ch-2"
         ],
         "de": [
           "spezialist-in-engineering-alle-bkw-ch"
         ],
         "fr": [
           "specialiste-en-genie-tous-bkw-oberkirch",
-          "specialiste-en-ingenierie-tous-bkw-oberkirch"
+          "spezialist-in-engineering-alle-bkw-ch-2"
         ]
       },
       "firstSeenAt": "2026-08-28T05:20:33.571Z",
@@ -9257,12 +9257,12 @@
     },
     {
       "id": "bkw-562ceee819bd",
-      "slug": "servicetechniker-in-elektro-bkw-solothurn",
+      "slug": "tecnico-di-servizio-elettrico-bkw-solothurn",
       "slugByLocale": {
-        "it": "servicetechniker-in-elektro-bkw-solothurn",
-        "en": "servicetechniker-in-elektro-bkw-solothurn",
+        "it": "tecnico-di-servizio-elettrico-bkw-solothurn",
+        "en": "electric-service-technician-bkw-solothurn",
         "de": "servicetechniker-in-elektro-bkw-ch",
-        "fr": "servicetechniker-in-elektro-bkw-solothurn"
+        "fr": "technicien-de-service-en-electric-bkw-solothurn"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -9313,7 +9313,8 @@
         "service-technician-all-bkw-langenthal",
         "servicetechniker-in-alle-bkw-ch",
         "technicien-de-service-tous-bkw-langenthal",
-        "servicetechniker-in-alle-mit-4-tage-woche-bkw-ch"
+        "servicetechniker-in-alle-mit-4-tage-woche-bkw-ch",
+        "servicetechniker-in-elektro-bkw-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9325,18 +9326,21 @@
           "service-technician-all-bkw-langenthal",
           "servicetechniker-in-alle-bkw-ch",
           "technicien-de-service-tous-bkw-langenthal",
-          "servicetechniker-in-alle-mit-4-tage-woche-bkw-ch"
+          "servicetechniker-in-alle-mit-4-tage-woche-bkw-ch",
+          "servicetechniker-in-elektro-bkw-solothurn"
         ],
         "en": [
           "electrical-service-technician-bkw-solothurn",
-          "service-technician-all-bkw-langenthal"
+          "service-technician-all-bkw-langenthal",
+          "servicetechniker-in-elektro-bkw-solothurn"
         ],
         "de": [
           "servicetechniker-in-alle-bkw-ch"
         ],
         "fr": [
           "technicien-en-service-electrique-bkw-solothurn",
-          "technicien-de-service-tous-bkw-langenthal"
+          "technicien-de-service-tous-bkw-langenthal",
+          "servicetechniker-in-elektro-bkw-solothurn"
         ]
       },
       "firstSeenAt": "2026-08-28T05:20:33.599Z",
@@ -11360,12 +11364,12 @@
     },
     {
       "id": "bkw-9a8d397d6620",
-      "slug": "elektro-servicemonteur-in-alle-bkw-ch-2",
+      "slug": "installatore-di-servizio-elettrico-tutti-bkw-kestenholz",
       "slugByLocale": {
-        "it": "elektro-servicemonteur-in-alle-bkw-ch-2",
-        "en": "elektro-servicemonteur-in-alle-bkw-ch-2",
+        "it": "installatore-di-servizio-elettrico-tutti-bkw-kestenholz",
+        "en": "electric-service-installer-all-bkw-kestenholz",
         "de": "elektro-servicemonteur-in-alle-bkw-ch",
-        "fr": "elektro-servicemonteur-in-alle-bkw-ch-2"
+        "fr": "installateur-de-service-electrique-en-tous-bkw-kestenholz"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -11411,20 +11415,24 @@
         "elektro-servicemonteur-in-alle-bkw-ch",
         "elettrotecnico-di-servizio-tutti-bkw-kestenholz",
         "electrical-service-technician-all-bkw-kestenholz",
-        "technicien-e-en-service-electrique-tous-bkw-kestenholz"
+        "technicien-e-en-service-electrique-tous-bkw-kestenholz",
+        "elektro-servicemonteur-in-alle-bkw-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektro-servicemonteur-in-alle-bkw-ch",
           "elettrotecnico-di-servizio-tutti-bkw-kestenholz",
           "electrical-service-technician-all-bkw-kestenholz",
-          "technicien-e-en-service-electrique-tous-bkw-kestenholz"
+          "technicien-e-en-service-electrique-tous-bkw-kestenholz",
+          "elektro-servicemonteur-in-alle-bkw-ch-2"
         ],
         "en": [
-          "electrical-service-technician-all-bkw-kestenholz"
+          "electrical-service-technician-all-bkw-kestenholz",
+          "elektro-servicemonteur-in-alle-bkw-ch-2"
         ],
         "fr": [
-          "technicien-e-en-service-electrique-tous-bkw-kestenholz"
+          "technicien-e-en-service-electrique-tous-bkw-kestenholz",
+          "elektro-servicemonteur-in-alle-bkw-ch-2"
         ]
       },
       "firstSeenAt": "2026-08-28T05:20:33.464Z",
@@ -14312,12 +14320,12 @@
     },
     {
       "id": "bkw-c87f41d90759",
-      "slug": "heizungsinstallateur-in-alle-bkw-rafz",
+      "slug": "installatore-di-riscaldamento-tutti-bkw-rafz",
       "slugByLocale": {
-        "it": "heizungsinstallateur-in-alle-bkw-rafz",
-        "en": "heizungsinstallateur-in-alle-bkw-rafz",
+        "it": "installatore-di-riscaldamento-tutti-bkw-rafz",
+        "en": "heating-installer-all-bkw-rafz",
         "de": "heizungsinstallateur-in-alle-bkw-ch",
-        "fr": "heizungsinstallateur-in-alle-bkw-rafz"
+        "fr": "installateur-de-chauffage-tous-bkw-rafz"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -14360,11 +14368,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "heizungsinstallateur-in-alle-bkw-ch"
+        "heizungsinstallateur-in-alle-bkw-ch",
+        "heizungsinstallateur-in-alle-bkw-rafz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "heizungsinstallateur-in-alle-bkw-ch"
+          "heizungsinstallateur-in-alle-bkw-ch",
+          "heizungsinstallateur-in-alle-bkw-rafz"
+        ],
+        "en": [
+          "heizungsinstallateur-in-alle-bkw-rafz"
+        ],
+        "fr": [
+          "heizungsinstallateur-in-alle-bkw-rafz"
         ]
       },
       "firstSeenAt": "2026-08-18T10:28:54.041Z",
@@ -14464,12 +14480,12 @@
     },
     {
       "id": "bkw-d01154c30f88",
-      "slug": "geschaftsleiter-in-alle-bkw-zurich",
+      "slug": "manager-tutti-bkw-zurich",
       "slugByLocale": {
-        "it": "geschaftsleiter-in-alle-bkw-zurich",
-        "en": "geschaftsleiter-in-alle-bkw-zurich",
+        "it": "manager-tutti-bkw-zurich",
+        "en": "manager-all-bkw-zurich",
         "de": "geschaftsleiter-in-alle-bkw-ch",
-        "fr": "geschaftsleiter-in-alle-bkw-zurich"
+        "fr": "gestionnaire-en-tous-bkw-zurich"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -14514,19 +14530,21 @@
       "previousSlugs": [
         "geschaftsleiter-in-alle-bkw-ch",
         "manager-in-all-bkw-zurich",
-        "gestionnaire-en-tous-bkw-zurich",
-        "manager-in-tutti-bkw-zurich"
+        "manager-in-tutti-bkw-zurich",
+        "geschaftsleiter-in-alle-bkw-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "geschaftsleiter-in-alle-bkw-ch",
-          "manager-in-tutti-bkw-zurich"
+          "manager-in-tutti-bkw-zurich",
+          "geschaftsleiter-in-alle-bkw-zurich"
         ],
         "en": [
-          "manager-in-all-bkw-zurich"
+          "manager-in-all-bkw-zurich",
+          "geschaftsleiter-in-alle-bkw-zurich"
         ],
         "fr": [
-          "gestionnaire-en-tous-bkw-zurich"
+          "geschaftsleiter-in-alle-bkw-zurich"
         ]
       },
       "firstSeenAt": "2026-08-06T11:37:19.960Z",
@@ -16766,7 +16784,6 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4",
         "apprenticeship-electrical-installer-in-efz-all-bkw-zurich",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-9as081",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-hzaevy",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-t8h3na"
@@ -16789,7 +16806,6 @@
           "apprenticeship-electrical-installer-in-efz-all-bkw-zurich",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
           "installatore-elettrico-di-apprendistato-in-efz-tutti-bkw-zurich",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun",
           "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-9as081",
           "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-hzaevy",
           "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-t8h3na"
@@ -16896,7 +16912,6 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
         "apprendistato-montage-elektriker-in-cfc-alle-bkw-thun-u62vl5",
         "apprendistato-elettricista-di-montaggio-in-afc-tutti-bkw-gstaad",
         "apprendistato-montage-elektriker-in-cfc-alle-bkw-ostermundigen",
@@ -21450,8 +21465,8 @@
       "id": "bkw-875656ea5699",
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
-        "it": "brandschutzfachmann-frau-alle-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
+        "en": "fire-protection-specialist-woman-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -21497,15 +21512,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-protection-specialist-woman-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "brandschutzfachmann-frau-alle-bkw-ch"
+          "brandschutzfachmann-frau-alle-bkw-ch",
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ],
         "en": [
           "brandschutzfachmann-frau-alle-bkw-ch",
-          "fire-protection-specialist-woman-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ],
         "fr": [
           "brandschutzfachmann-frau-alle-bkw-ch"
@@ -21995,7 +22011,6 @@
         "elektroplaner-in-alle-bkw-ch-2",
         "elektroplaner-in-alle-bkw-ch",
         "elektroplaner-in-alle-bkw-ch-3",
-        "progettista-elettrico-a-in-alle-bkw-dubendorf",
         "progettista-elettrico-a-in-alle-bkw-dubendorf-xbf6ur"
       ],
       "previousSlugsByLocale": {
@@ -22003,7 +22018,6 @@
           "elektroplaner-in-alle-bkw-ch-2",
           "elektroplaner-in-alle-bkw-ch",
           "elektroplaner-in-alle-bkw-ch-3",
-          "progettista-elettrico-a-in-alle-bkw-dubendorf",
           "progettista-elettrico-a-in-alle-bkw-dubendorf-xbf6ur"
         ]
       },
@@ -22775,12 +22789,12 @@
     },
     {
       "id": "bkw-9c3a98d2a2a9",
-      "slug": "stv-gruppenleiter-in-netzbau-alle-bkw-ch-2",
+      "slug": "gruppo-leader-costruzione-netta-tutti-bkw-uetendorf",
       "slugByLocale": {
-        "it": "stv-gruppenleiter-in-netzbau-alle-bkw-ch-2",
-        "en": "stv-gruppenleiter-in-netzbau-alle-bkw-ch-2",
+        "it": "gruppo-leader-costruzione-netta-tutti-bkw-uetendorf",
+        "en": "group-leader-net-construction-all-bkw-uetendorf",
         "de": "stv-gruppenleiter-in-netzbau-alle-bkw-ch-609vt3",
-        "fr": "stv-gruppenleiter-in-netzbau-alle-bkw-ch-2"
+        "fr": "construction-de-reseau-leader-du-groupe-tous-bkw-uetendorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22823,14 +22837,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-gruppenleiter-in-netzbau-alle-bkw-ch"
+        "stv-gruppenleiter-in-netzbau-alle-bkw-ch",
+        "stv-gruppenleiter-in-netzbau-alle-bkw-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-gruppenleiter-in-netzbau-alle-bkw-ch"
+          "stv-gruppenleiter-in-netzbau-alle-bkw-ch",
+          "stv-gruppenleiter-in-netzbau-alle-bkw-ch-2"
         ],
         "de": [
           "stv-gruppenleiter-in-netzbau-alle-bkw-ch"
+        ],
+        "en": [
+          "stv-gruppenleiter-in-netzbau-alle-bkw-ch-2"
+        ],
+        "fr": [
+          "stv-gruppenleiter-in-netzbau-alle-bkw-ch-2"
         ]
       },
       "firstSeenAt": "2026-08-24T10:04:56.261Z",

@@ -2870,11 +2870,11 @@
     },
     {
       "id": "hug-6b0690a1c892",
-      "slug": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve",
+      "slug": "collaboratore-o-collaboratore-scientifico-100-hug-geneve",
       "slugByLocale": {
-        "it": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve",
-        "en": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve",
-        "de": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve",
+        "it": "collaboratore-o-collaboratore-scientifico-100-hug-geneve",
+        "en": "collaborator-or-scientific-collaborator-100-hug-geneve",
+        "de": "mitarbeiter-oder-wissenschaftlicher-mitarbeiter-100-hug-geneve",
         "fr": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
       },
       "company": "HUG",
@@ -2930,7 +2930,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
+        ],
+        "en": [
+          "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
+        ],
+        "de": [
+          "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-99322e32e74f",
@@ -3422,12 +3436,12 @@
     },
     {
       "id": "hug-82ffd260c28e",
-      "slug": "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve",
+      "slug": "biostatistico-o-biostatistico-epidemiologo-della-ricerca-75-hug-geneve",
       "slugByLocale": {
         "fr": "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve",
-        "it": "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve",
-        "en": "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve",
-        "de": "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve"
+        "it": "biostatistico-o-biostatistico-epidemiologo-della-ricerca-75-hug-geneve",
+        "en": "biostatistician-or-biostatistician-research-epidemiologist-75-hug-geneve",
+        "de": "biostatistiker-oder-biostatistiker-forschungsepidemiologe-75-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3486,20 +3500,22 @@
       "firstSeenAt": "2026-09-19T22:54:47.869Z",
       "crawlerMissStreak": 1,
       "previousSlugs": [
-        "biostatistico-o-biostatistico-epidemiologo-della-ricerca-75-hug-geneve",
         "biostatistician-or-biostatistician-epidemiologist-of-research-75-hug-geneve",
         "biostatistiker-oder-biostatistiker-epidemiologe-der-forschung-75-hug-geneve",
-        "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve-bsg2xx"
+        "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve-bsg2xx",
+        "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biostatistico-o-biostatistico-epidemiologo-della-ricerca-75-hug-geneve"
+          "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve"
         ],
         "en": [
-          "biostatistician-or-biostatistician-epidemiologist-of-research-75-hug-geneve"
+          "biostatistician-or-biostatistician-epidemiologist-of-research-75-hug-geneve",
+          "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve"
         ],
         "de": [
-          "biostatistiker-oder-biostatistiker-epidemiologe-der-forschung-75-hug-geneve"
+          "biostatistiker-oder-biostatistiker-epidemiologe-der-forschung-75-hug-geneve",
+          "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve"
         ],
         "fr": [
           "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve-bsg2xx"

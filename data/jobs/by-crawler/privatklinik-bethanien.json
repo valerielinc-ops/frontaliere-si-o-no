@@ -84,10 +84,10 @@
       "id": "privatklinik-bethanien-11ae9f407d7e",
       "slug": "cura-intensiva-per-esperti-60-100-privatklinik-bethanien-zurich",
       "slugByLocale": {
-        "it": "experte-expertin-intensivpflege-60-100-swiss-medical-network",
-        "en": "experte-expertin-intensivpflege-60-100-swiss-medical-network",
+        "it": "cura-intensiva-per-esperti-60-100-privatklinik-bethanien-zurich",
+        "en": "expert-expert-intensive-care-60-100-privatklinik-bethanien-zurich",
         "de": "experte-expertin-intensivpflege-60-100-privatklinik-bethanien",
-        "fr": "experte-expertin-intensivpflege-60-100-swiss-medical-network"
+        "fr": "soins-intensifs-d-experts-60-100-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -131,14 +131,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "experte-expertin-intensivpflege-60-100-privatklinik-bethanien",
-        "soins-intensifs-d-experts-60-100-privatklinik-bethanien-zurich"
+        "experte-expertin-intensivpflege-60-100-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "experte-expertin-intensivpflege-60-100-privatklinik-bethanien"
+          "experte-expertin-intensivpflege-60-100-privatklinik-bethanien",
+          "experte-expertin-intensivpflege-60-100-swiss-medical-network"
         ],
         "fr": [
-          "soins-intensifs-d-experts-60-100-privatklinik-bethanien-zurich"
+          "experte-expertin-intensivpflege-60-100-swiss-medical-network"
+        ],
+        "en": [
+          "experte-expertin-intensivpflege-60-100-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-07-29T11:48:41.574Z",

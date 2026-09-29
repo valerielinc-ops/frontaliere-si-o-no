@@ -3764,12 +3764,12 @@
     },
     {
       "id": "lups-6ecede9d0991",
-      "slug": "co-stationsleitung-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban",
+      "slug": "linea-di-co-stazione-m-f-d-60-80-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
-        "it": "co-stationsleitung-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban",
-        "en": "co-stationsleitung-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban",
+        "it": "linea-di-co-stazione-m-f-d-60-80-luzerner-psychiatrie-lups-st-urban",
+        "en": "co-station-line-m-f-d-60-80-luzerner-psychiatrie-lups-st-urban",
         "de": "co-stationsleitung-w-m-d-60-80-lups-st-urban",
-        "fr": "co-stationsleitung-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
+        "fr": "ligne-de-costation-h-f-d-60-80-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -3812,11 +3812,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "co-stationsleitung-w-m-d-60-80-lups-st-urban"
+        "co-stationsleitung-w-m-d-60-80-lups-st-urban",
+        "co-stationsleitung-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "co-stationsleitung-w-m-d-60-80-lups-st-urban"
+          "co-stationsleitung-w-m-d-60-80-lups-st-urban",
+          "co-stationsleitung-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
+        ],
+        "en": [
+          "co-stationsleitung-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
+        ],
+        "fr": [
+          "co-stationsleitung-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
         ]
       },
       "firstSeenAt": "2026-08-21T21:27:30.993Z",
@@ -5633,10 +5641,10 @@
       "id": "lups-da314f1d2d92",
       "slug": "terapeuta-del-lavoro-m-f-d-60-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
-        "it": "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban",
-        "en": "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban",
+        "it": "terapeuta-del-lavoro-m-f-d-60-luzerner-psychiatrie-lups-st-urban",
+        "en": "occupational-therapist-m-f-d-60-luzerner-psychiatrie-lups-st-urban",
         "de": "ergotherapeutin-m-w-d-60-lups-st-urban",
-        "fr": "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
+        "fr": "ergotherapeute-h-f-d-60-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -5679,14 +5687,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-m-w-d-60-lups-st-urban",
-        "ergotherapeute-h-f-d-60-luzerner-psychiatrie-lups-st-urban"
+        "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-m-w-d-60-lups-st-urban"
+          "ergotherapeutin-m-w-d-60-lups-st-urban",
+          "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
         ],
         "fr": [
-          "ergotherapeute-h-f-d-60-luzerner-psychiatrie-lups-st-urban"
+          "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
+        ],
+        "en": [
+          "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
         ]
       },
       "firstSeenAt": "2026-09-28T21:09:33.687Z",

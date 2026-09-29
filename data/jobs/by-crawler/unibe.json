@@ -789,12 +789,12 @@
     },
     {
       "id": "unibe-afe7851f4733",
-      "slug": "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern",
+      "slug": "dottorato-e-assistente-scientifico-universitat-bern-bern",
       "slugByLocale": {
-        "it": "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern",
-        "en": "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern",
+        "it": "dottorato-e-assistente-scientifico-universitat-bern-bern",
+        "en": "doctoral-candidate-and-scientific-assistant-universitat-bern-bern",
         "de": "doktorand-in-wissenschaftliche-r-assistent-in-unibe-bern",
-        "fr": "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern"
+        "fr": "candidat-au-doctorat-et-assistant-scientifique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -838,12 +838,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doktorand-in-wissenschaftliche-r-assistent-in-unibe-bern",
-        "doktorand-in-und-wissenschaftliche-r-assistent-in-unibe-bern"
+        "doktorand-in-und-wissenschaftliche-r-assistent-in-unibe-bern",
+        "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "doktorand-in-wissenschaftliche-r-assistent-in-unibe-bern",
-          "doktorand-in-und-wissenschaftliche-r-assistent-in-unibe-bern"
+          "doktorand-in-und-wissenschaftliche-r-assistent-in-unibe-bern",
+          "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern"
+        ],
+        "en": [
+          "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern"
+        ],
+        "fr": [
+          "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-08-26T10:23:19.587Z",
@@ -3135,9 +3143,9 @@
       "slug": "ict-systemadministrator-in-universitat-bern-bern",
       "slugByLocale": {
         "it": "ict-systemadministrator-in-universitat-bern-bern",
-        "en": "ict-systemadministrator-in-universitat-bern-bern",
+        "en": "ict-system-administrator-universitat-bern-bern",
         "de": "ict-systemadministrator-in-unibe-bern",
-        "fr": "ict-systemadministrator-in-universitat-bern-bern"
+        "fr": "administrateur-du-systeme-des-tic-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3186,9 +3194,7 @@
         "linux-systemadministrator-in-unibe-bern",
         "linux-system-administrator-universitat-bern-bern",
         "administrateur-systeme-linux-universitat-bern-bern",
-        "administrateur-du-systeme-informatique-universitat-bern-bern",
-        "ict-system-administrator-universitat-bern-bern",
-        "administrateur-du-systeme-des-tic-universitat-bern-bern"
+        "administrateur-du-systeme-informatique-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3203,11 +3209,7 @@
         ],
         "fr": [
           "linux-systemadministrator-in-universitat-bern-bern",
-          "administrateur-du-systeme-informatique-universitat-bern-bern",
-          "administrateur-du-systeme-des-tic-universitat-bern-bern"
-        ],
-        "en": [
-          "ict-system-administrator-universitat-bern-bern"
+          "administrateur-du-systeme-informatique-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.258Z",
@@ -3535,12 +3537,12 @@
     },
     {
       "id": "unibe-16d3f8851ec1",
-      "slug": "wissenschaftliche-assistenz-universitat-bern-bern",
+      "slug": "assistenza-scientifica-universitat-bern-bern",
       "slugByLocale": {
-        "it": "wissenschaftliche-assistenz-universitat-bern-bern",
-        "en": "wissenschaftliche-assistenz-universitat-bern-bern",
+        "it": "assistenza-scientifica-universitat-bern-bern",
+        "en": "scientific-assistance-universitat-bern-bern",
         "de": "wissenschaftliche-assistenz-unibe-bern",
-        "fr": "wissenschaftliche-assistenz-universitat-bern-bern"
+        "fr": "assistance-scientifique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3584,11 +3586,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wissenschaftliche-assistenz-unibe-bern"
+        "wissenschaftliche-assistenz-unibe-bern",
+        "wissenschaftliche-assistenz-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-assistenz-unibe-bern"
+          "wissenschaftliche-assistenz-unibe-bern",
+          "wissenschaftliche-assistenz-universitat-bern-bern"
+        ],
+        "en": [
+          "wissenschaftliche-assistenz-universitat-bern-bern"
+        ],
+        "fr": [
+          "wissenschaftliche-assistenz-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.252Z",

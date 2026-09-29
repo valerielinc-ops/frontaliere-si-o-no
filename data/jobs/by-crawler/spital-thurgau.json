@@ -5096,12 +5096,12 @@
     },
     {
       "id": "spital-thurgau-f4324ab7229e",
-      "slug": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen",
+      "slug": "medico-senior-a-seconda-della-qualifica-mbf-pneumologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen",
-        "en": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen",
+        "it": "medico-senior-a-seconda-della-qualifica-mbf-pneumologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "senior-physician-depending-on-the-qualification-mbf-pneumology-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch",
-        "fr": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen"
+        "fr": "medecin-principal-selon-la-qualification-mbf-pneumologie-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -5145,17 +5145,21 @@
       "department": "Ärztliches Personal",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+        "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch",
+        "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch",
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen"
         ],
         "en": [
-          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch",
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen"
         ],
         "fr": [
-          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch",
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-08-24T21:41:02.878Z",
@@ -5430,12 +5434,12 @@
     },
     {
       "id": "spital-thurgau-e787999301ba",
-      "slug": "hebamme-stgag-munsterlingen",
+      "slug": "mutua-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "hebamme-stgag-munsterlingen",
-        "en": "hebamme-stgag-munsterlingen",
+        "it": "mutua-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "midwife-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "hebamme-stgag-ch",
-        "fr": "hebamme-stgag-munsterlingen"
+        "fr": "une-sage-femme-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -5479,17 +5483,21 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "hebamme-stgag-ch"
+        "hebamme-stgag-ch",
+        "hebamme-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hebamme-stgag-ch"
+          "hebamme-stgag-ch",
+          "hebamme-stgag-munsterlingen"
         ],
         "en": [
-          "hebamme-stgag-ch"
+          "hebamme-stgag-ch",
+          "hebamme-stgag-munsterlingen"
         ],
         "fr": [
-          "hebamme-stgag-ch"
+          "hebamme-stgag-ch",
+          "hebamme-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-08-17T21:36:28.401Z",
@@ -5509,12 +5517,12 @@
     },
     {
       "id": "spital-thurgau-7782a0497fd6",
-      "slug": "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen",
+      "slug": "stage-in-salute-fmg-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
-        "it": "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen",
-        "en": "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen",
+        "it": "stage-in-salute-fmg-spital-thurgau-stgag-diessenhofen",
+        "en": "internship-in-health-fmg-spital-thurgau-stgag-diessenhofen",
         "de": "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch",
-        "fr": "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen"
+        "fr": "stage-en-sante-fmg-spital-thurgau-stgag-diessenhofen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -5558,11 +5566,19 @@
       "department": "Bildung",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch"
+        "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch",
+        "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch"
+          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch",
+          "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen"
+        ],
+        "en": [
+          "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen"
+        ],
+        "fr": [
+          "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-08-10T10:41:21.765Z",
@@ -5582,12 +5598,12 @@
     },
     {
       "id": "spital-thurgau-0377dae9ce39",
-      "slug": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen",
+      "slug": "internship-professional-health-fmg-settembre-2027-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen",
-        "en": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen",
+        "it": "internship-professional-health-fmg-settembre-2027-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "internship-professional-health-fmg-september-2027-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch",
-        "fr": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen"
+        "fr": "sante-professionnelle-des-stagiaires-fmg-septembre-2027-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -5631,11 +5647,19 @@
       "department": "Bildung",
       "contractDuration": "fixed-term",
       "previousSlugs": [
-        "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
+        "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch",
+        "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
+          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch",
+          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen"
+        ],
+        "en": [
+          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen"
+        ],
+        "fr": [
+          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-08-10T10:41:21.767Z",
@@ -5655,12 +5679,12 @@
     },
     {
       "id": "spital-thurgau-cee88fdd6c66",
-      "slug": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen",
+      "slug": "direttore-medico-di-medicina-intensiva-chief-doctor-senior-doctor-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen",
-        "en": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen",
+        "it": "direttore-medico-di-medicina-intensiva-chief-doctor-senior-doctor-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "medical-director-of-intensive-care-medicine-chief-doctor-senior-doctor-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-ch",
-        "fr": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen"
+        "fr": "directeur-medical-de-la-medecine-de-soins-intensifs-medecin-en-chef-medecin-principal-spital-thurgau-stgag-kantonsspital"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -5706,13 +5730,21 @@
       "previousSlugs": [
         "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-ch",
         "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen-r134lo",
-        "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-ch-r134lo"
+        "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-ch-r134lo",
+        "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-ch",
           "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen-r134lo",
-          "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-ch-r134lo"
+          "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-ch-r134lo",
+          "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen"
+        ],
+        "en": [
+          "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen"
+        ],
+        "fr": [
+          "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-08-07T21:43:53.372Z",
@@ -5732,12 +5764,12 @@
     },
     {
       "id": "spital-thurgau-455b67dfe079",
-      "slug": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen",
+      "slug": "assistente-medico-ambulatorium-frauenklinik-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen",
-        "en": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen",
+        "it": "assistente-medico-ambulatorium-frauenklinik-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "medical-assistant-ambulatorium-frauenklinik-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch",
-        "fr": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen"
+        "fr": "assistant-medical-en-ambulatoire-frauenklinik-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -5783,13 +5815,21 @@
       "previousSlugs": [
         "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch",
         "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen-r134mf",
-        "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch-r134mf"
+        "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch-r134mf",
+        "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch",
           "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen-r134mf",
-          "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch-r134mf"
+          "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch-r134mf",
+          "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen"
+        ],
+        "en": [
+          "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen"
+        ],
+        "fr": [
+          "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-08-07T01:08:02.305Z",
@@ -6298,12 +6338,12 @@
     },
     {
       "id": "spital-thurgau-1a00be352dc6",
-      "slug": "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen",
+      "slug": "psichiatria-adulto-ambulatorio-medico-anziano-80-100-spital-thurgau-stgag-kreuzlingen",
       "slugByLocale": {
-        "it": "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen",
-        "en": "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen",
+        "it": "psichiatria-adulto-ambulatorio-medico-anziano-80-100-spital-thurgau-stgag-kreuzlingen",
+        "en": "senior-physician-ambulatory-adult-psychiatry-80-100-spital-thurgau-stgag-kreuzlingen",
         "de": "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch-r134o4",
-        "fr": "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen"
+        "fr": "medecin-principal-ambulatoire-psychiatrie-adulte-80-100-spital-thurgau-stgag-kreuzlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -6347,14 +6387,22 @@
       "department": "Ärztliches Personal",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch"
+        "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch",
+        "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch"
+          "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch",
+          "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen"
         ],
         "de": [
           "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch"
+        ],
+        "en": [
+          "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen"
+        ],
+        "fr": [
+          "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-07-29T22:05:31.452Z",
@@ -6374,12 +6422,12 @@
     },
     {
       "id": "spital-thurgau-e4ebd3ee2dcd",
-      "slug": "psychologe-in-stgag-munsterlingen",
+      "slug": "psicologo-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "psychologe-in-stgag-munsterlingen",
-        "en": "psychologe-in-stgag-munsterlingen",
+        "it": "psicologo-spital-thurgau-stgag-munsterlingen",
+        "en": "psychologist-spital-thurgau-stgag-munsterlingen",
         "de": "psychologe-in-stgag-ch-r134o1",
-        "fr": "psychologe-in-stgag-munsterlingen"
+        "fr": "psychologue-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -6428,12 +6476,20 @@
         ],
         "it": [
           "psychologe-in-stgag-ch",
-          "psychologe-in-stgag-munsterlingen-r134o1"
+          "psychologe-in-stgag-munsterlingen-r134o1",
+          "psychologe-in-stgag-munsterlingen"
+        ],
+        "en": [
+          "psychologe-in-stgag-munsterlingen"
+        ],
+        "fr": [
+          "psychologe-in-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
         "psychologe-in-stgag-ch",
-        "psychologe-in-stgag-munsterlingen-r134o1"
+        "psychologe-in-stgag-munsterlingen-r134o1",
+        "psychologe-in-stgag-munsterlingen"
       ],
       "firstSeenAt": "2026-07-29T22:05:31.454Z",
       "salaryMin": 81500,
@@ -11641,8 +11697,8 @@
       "id": "spital-thurgau-974860289ada",
       "slug": "amministrazione-paziente-fatturazione-ambulatoriale-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen",
-        "en": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen",
+        "it": "amministrazione-paziente-fatturazione-ambulatoriale-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "patient-administration-outpatient-invoicing-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch-r134jq",
         "fr": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen"
       },
@@ -11692,17 +11748,18 @@
         "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen-r134jq",
         "personnel-in-patient-administration-ambulatory-billing-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "personale-in-amministrazione-paziente-fatturazione-ambulatoria-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "patient-administration-outpatient-invoicing-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch",
-          "personale-in-amministrazione-paziente-fatturazione-ambulatoria-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "personale-in-amministrazione-paziente-fatturazione-ambulatoria-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen"
         ],
         "en": [
           "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch",
           "personnel-in-patient-administration-ambulatory-billing-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "patient-administration-outpatient-invoicing-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen"
         ],
         "de": [
           "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch"
