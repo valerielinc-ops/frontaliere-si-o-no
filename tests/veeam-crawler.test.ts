@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
   resolveAddress,
   provenEmptySwissBatch,
+  observeGreenhouseBoard,
 } from '../scripts/lib/veeam-job-parser.mjs';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -203,18 +204,41 @@ describe('Veeam Software crawler parser', () => {
 
 // ── #5253: closed Swiss postings stayed published ─────────────────────────
 describe('provenEmptySwissBatch', () => {
-  it('proves the zero when the board answered with open jobs, none in Switzerland', () => {
-    const batch = provenEmptySwissBatch({ listings: [], boardTotal: 240 });
+  const board = (locations: string[], declaredTotal = locations.length) => observeGreenhouseBoard({
+    jobs: locations.map((name, i) => ({ id: i + 1, title: `Role ${i + 1}`, location: { name } })),
+    meta: { total: declaredTotal },
+  });
+  const foreign = ['Remote, United States', 'Munich, Germany', 'Prague, Czech Republic'];
+
+  it('proves the zero only for a complete board whose every row is located outside Switzerland', () => {
+    const batch = provenEmptySwissBatch({ listings: [], board: board(foreign) });
     expect(batch).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(batch)).toBe(true);
-    expect(Reflect.get(batch as object, 'authoritativeEmptyEvidence')).toMatch(/240 open job\(s\), none located in Switzerland/);
+    expect(Reflect.get(batch as object, 'authoritativeEmptyEvidence')).toMatch(/declares 3 open job\(s\); all 3 read/);
   });
 
-  it('proves nothing when the board itself answered empty (renamed token or drifted payload)', () => {
-    expect(provenEmptySwissBatch({ listings: [], boardTotal: 0 })).toBeNull();
+  it('proves nothing without a raw board observation (a bare total is not evidence)', () => {
+    expect(provenEmptySwissBatch({ listings: [], boardTotal: 1 } as never)).toBeNull();
+    expect(provenEmptySwissBatch({ listings: [] })).toBeNull();
   });
 
-  it('never stamps a batch that has Swiss listings', () => {
-    expect(provenEmptySwissBatch({ listings: [{ title: 'Sales Engineer' }], boardTotal: 240 })).toBeNull();
+  it('proves nothing for a truncated board (fewer rows read than meta.total)', () => {
+    expect(provenEmptySwissBatch({ listings: [], board: board(foreign, 4) })).toBeNull();
+  });
+
+  it('proves nothing when a row has no location, or the field was renamed', () => {
+    expect(provenEmptySwissBatch({ listings: [], board: board([...foreign, '']) })).toBeNull();
+    const renamed = observeGreenhouseBoard({ jobs: [{ id: 1, title: 'X', place: { name: 'Munich, Germany' } }], meta: { total: 1 } });
+    expect(provenEmptySwissBatch({ listings: [], board: renamed })).toBeNull();
+  });
+
+  it('proves nothing when the board declares no total, or an empty board', () => {
+    expect(observeGreenhouseBoard({ jobs: [{ id: 1, location: { name: 'Munich, Germany' } }] })).toBeNull();
+    expect(provenEmptySwissBatch({ listings: [], board: board([]) })).toBeNull();
+  });
+
+  it('never stamps a batch when the raw board has a Swiss row or listings are present', () => {
+    expect(provenEmptySwissBatch({ listings: [], board: board([...foreign, 'Baar, Switzerland']) })).toBeNull();
+    expect(provenEmptySwissBatch({ listings: [{ title: 'Sales Engineer' }], board: board(foreign) })).toBeNull();
   });
 });

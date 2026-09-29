@@ -56,9 +56,9 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { fetchGreenhouseJobs } from './ats-clients/greenhouse-client.mjs';
+import { buildGreenhouseApiUrl, fetchGreenhouseJobs } from './ats-clients/greenhouse-client.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -243,30 +243,73 @@ async function fetchJobListings() {
       description: j.descriptionHtml || '',
       jobReqId: j.jobReqId,
     }));
-  return { listings, boardTotal: jobs.length };
+  return { listings };
 }
 
 /**
- * The empty Swiss batch is a statement by the source only when the board
- * itself answered with open jobs: the Greenhouse API returns the WHOLE board
- * in one response, so "N open jobs, none in Switzerland" is positively
- * observed. A board that answers with nothing at all proves nothing (a renamed
- * token or a drifted payload looks the same) and keeps the previous slice.
+ * The raw Greenhouse board as observed for the empty-proof: the total the
+ * API declares (`meta.total`), the rows it actually returned and each row's
+ * primary `location.name` — the field the Swiss filter above reads.
+ *
+ * @param {unknown} payload `GET /v1/boards/<token>/jobs` response body
+ * @returns {{ declaredTotal: number, rowsRead: number, locations: string[] }|null}
+ *   null when the payload has no row list or no integer `meta.total`
+ */
+export function observeGreenhouseBoard(payload) {
+  const rows = Array.isArray(payload?.jobs) ? payload.jobs : null;
+  const declaredTotal = Number(payload?.meta?.total);
+  if (!rows || !Number.isInteger(declaredTotal)) return null;
+  return {
+    declaredTotal,
+    rowsRead: rows.length,
+    locations: rows.map((row) => (typeof row?.location?.name === 'string' ? row.location.name.trim() : '')),
+  };
+}
+
+/**
+ * The empty Swiss batch is a statement by the source only when the WHOLE
+ * board was observed and every row could be classified: the API declared
+ * `meta.total` > 0, exactly that many rows were read, every row carries a
+ * non-empty `location.name`, and none of them is Swiss. A truncated board, a
+ * row with a missing or renamed location field, or a payload without its
+ * total proves nothing — any of them could hide a Swiss posting — and keeps
+ * the previous slice, like a board that answers with nothing at all.
  *
  * Without this, every run after the last Swiss posting closed returned a bare
  * `[]`, the pipeline kept the previous slice, and the two Baar postings closed
  * in August stayed published with URLs that redirect to
- * `veeamsoftware?error=true` (measured 2026-09-29: board 200, 0 Swiss jobs).
+ * `veeamsoftware?error=true` (measured 2026-09-29: `meta.total` 239, 239 rows
+ * read, all located, 0 Swiss).
  *
- * @param {{ listings: object[], boardTotal: number }} observation
+ * @param {{ listings?: object[], board?: ReturnType<typeof observeGreenhouseBoard> }} observation
  * @returns {object[]|null} the stamped empty batch, or null when unproven
  */
-export function provenEmptySwissBatch({ listings, boardTotal }) {
-  if (listings.length > 0 || !(boardTotal > 0)) return null;
+export function provenEmptySwissBatch({ listings, board } = {}) {
+  if (!Array.isArray(listings) || listings.length > 0) return null;
+  if (!board || !Number.isInteger(board.declaredTotal) || board.declaredTotal <= 0) return null;
+  const locations = Array.isArray(board.locations) ? board.locations : [];
+  if (board.rowsRead !== board.declaredTotal || locations.length !== board.rowsRead) return null;
+  if (locations.some((location) => !location)) return null;
+  if (locations.some((location) => SWISS_LOCATION_RE.test(location))) return null;
   return markAuthoritativeEmptySnapshot(
     [],
-    `Greenhouse board "${GREENHOUSE_BOARD}" lists ${boardTotal} open job(s), none located in Switzerland`,
+    `Greenhouse board "${GREENHOUSE_BOARD}" declares ${board.declaredTotal} open job(s); all ${board.rowsRead} read, `
+    + 'each with a location, none located in Switzerland',
   );
+}
+
+/**
+ * Read the raw board once more (listing only, no content) to observe it for
+ * `provenEmptySwissBatch`. Only called when the Swiss filter kept nothing; a
+ * failed read is an unproven zero, never an empty snapshot.
+ */
+async function observeBoardForEmptyProof() {
+  try {
+    return observeGreenhouseBoard(await fetchJson(buildGreenhouseApiUrl(GREENHOUSE_BOARD), { timeoutMs: 20000 }));
+  } catch (err) {
+    console.warn(`  ⚠️ Greenhouse board observation failed: ${err?.message || err}`);
+    return null;
+  }
 }
 
 /**
@@ -280,11 +323,10 @@ export async function fetchAllVeeamJobs() {
   console.log(`🔍 Fetching ${VEEAM_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_URL} (Greenhouse board "${GREENHOUSE_BOARD}")\n`);
 
-  const observation = await fetchJobListings();
-  const { listings } = observation;
+  const { listings } = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No Swiss job listings returned.');
-    const provenEmpty = provenEmptySwissBatch(observation);
+    const provenEmpty = provenEmptySwissBatch({ listings: listings || [], board: await observeBoardForEmptyProof() });
     if (provenEmpty) console.log(`  🧩 Source-proven zero: ${Reflect.get(provenEmpty, 'authoritativeEmptyEvidence')}`);
     return provenEmpty || [];
   }
