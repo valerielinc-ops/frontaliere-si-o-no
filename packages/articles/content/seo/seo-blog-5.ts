@@ -96832,6 +96832,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-castelseprio-ticino-frontaliere': {
+    title: 'Vivere a Castelseprio e lavorare in Ticino da frontaliere',
+    description: 'Vivere a Castelseprio e lavorare in Ticino: accordo frontalieri, imposta alla fonte, franchigie, AVS, LPP e LAMal, tra vecchi e nuovi frontalieri italiani.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, castelseprio, lavorare, vive',
+    ogTitle: 'Vivere a Castelseprio e lavorare in Ticino',
+    ogDescription: 'Chi vive a Castelseprio e lavora in Ticino deve distinguere vecchi e nuovi frontalieri: accordo in vigore dal 1° gennaio 2024, esenzione o franchigia, imposta alla fonte, AVS, LPP e LAMal. Una guida pratica per leggere la busta paga e confrontare',
+    canonicalPath: '/articoli-frontaliere/castelseprio-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Castelseprio e lavorare in Ticino da frontaliere",
+      "description": "Vivere a Castelseprio e lavorare in Ticino: accordo frontalieri, imposta alla fonte, franchigie, AVS, LPP e LAMal, tra vecchi e nuovi frontalieri italiani.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/castelseprio-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolare frontaliero verso il Ticino all'alba, con paesaggio collinare e luce naturale"
+      },
+      "datePublished": "2026-09-29T04:46:51+00:00",
+      "dateModified": "2026-09-29T04:46:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/castelseprio-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

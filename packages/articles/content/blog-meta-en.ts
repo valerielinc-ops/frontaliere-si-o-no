@@ -12258,6 +12258,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pasture-chiusura-garanzie.title': 'Closure of Chiasso, concerns among Pasture staff',
     'blog.article.pasture-chiusura-garanzie.excerpt': 'SEM guarantees the reopening of the Chiasso facility; the union front defends jobs and reports impending layoffs, with no certainty.',
     'blog.article.pasture-chiusura-garanzie.imageAlt': 'Chiasso scene linked to staff concerns at Pasture',
+    'blog.article.castelseprio-ticino-frontaliere.title': 'Living in Castelseprio and working in Ticino as a border worker',
+    'blog.article.castelseprio-ticino-frontaliere.excerpt': 'For those living in Castelseprio, border agreements in force from 1 January 2024: exemption of €7,500 for the old and deductible of €10,000 for the new.',
+    'blog.article.castelseprio-ticino-frontaliere.imageAlt': 'Cross-border commuter heading to Ticino at dawn, with rolling hills and natural light',
 };
 
 export default blogMetaEn;

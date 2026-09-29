@@ -12260,6 +12260,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pasture-chiusura-garanzie.title': 'Fermeture de Chiasso, inquiétudes parmi le personnel de Pasture',
     'blog.article.pasture-chiusura-garanzie.excerpt': 'La SEM garantit la réouverture de la structure de Chiasso ; le front syndical défend les emplois et signale des licenciements à venir, sans certitudes.',
     'blog.article.pasture-chiusura-garanzie.imageAlt': 'Vue de Chiasso liée aux inquiétudes du personnel de Pasture',
+    'blog.article.castelseprio-ticino-frontaliere.title': 'Vivre à Castelseprio et travailler au Tessin en tant que frontalier',
+    'blog.article.castelseprio-ticino-frontaliere.excerpt': 'Pour ceux qui vivent à Castelseprio, accord sur les travailleurs frontaliers en vigueur depuis le 1° gennaio 2024 : exonération de €7\'500 pour les anciens et franchise de €10\'000 pour les nouveaux.',
+    'blog.article.castelseprio-ticino-frontaliere.imageAlt': 'Travailleur frontalier vers le Tessin à l\'aube, collines douces et lumière naturelle',
 };
 
 export default blogMetaFr;
