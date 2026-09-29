@@ -1,21 +1,21 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-09-29T09:26:16.895Z",
-  "total": 40,
+  "generatedAt": "2026-09-29T21:28:05.382Z",
+  "total": 41,
   "discovered": null,
-  "parsed": 40,
+  "parsed": 41,
   "lastFetchOutcome": null,
-  "written": 40,
+  "written": 41,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23687,
-  "avgDurationMs": 23687,
+  "durationMs": 24445,
+  "avgDurationMs": 24445,
   "durationHistory": [
-    23687
+    24445
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5725",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:26:09.768Z",
+      "crawledAt": "2026-09-29T21:27:57.611Z",
       "addressLocality": "Puidoux",
       "addressRegion": "VD",
       "addressCountry": "CH",
