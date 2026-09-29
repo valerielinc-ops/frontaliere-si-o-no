@@ -12265,6 +12265,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-sangiano-lavorare-ticino.title': 'Vivere a Sangiano e lavorare in Ticino: guida al budget',
     'blog.article.vivere-sangiano-lavorare-ticino.excerpt': 'Dal 1° gennaio 2024 è in vigore il nuovo Accordo Frontalieri. Scopri come distinguere esenzioni, franchigie e trattenute per il tuo progetto di vita.',
     'blog.article.vivere-sangiano-lavorare-ticino.imageAlt': 'Vista panoramica su Lugano, meta di molti frontalieri.',
+    'blog.article.ticino-costi-mobilita-abitazione.title': 'Ticino guida i rincari di mobilità e abitazione',
+    'blog.article.ticino-costi-mobilita-abitazione.excerpt': 'Ad agosto i rincari in Ticino raggiungono il 3%, mentre a livello nazionale casa e mobilità salgono del 2,4% e l\'inflazione generale è allo 0,8%, corrispondenti a 1\'066 franchi in più l\'anno per una famiglia tipo.',
+    'blog.article.ticino-costi-mobilita-abitazione.imageAlt': 'Automobilista in viaggio vicino a Lugano con case sullo sfondo, rappresenta i costi di mobilità e abitazione',
 };
 
 export default blogMetaIt;

@@ -96910,6 +96910,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-costi-mobilita-abitazione': {
+    title: 'Ticino guida i rincari di mobilità e abitazione',
+    description: 'Ad agosto i rincari in Ticino raggiungono il 3%, mentre casa e mobilità salgono del 2,4% a livello nazionale e l\'inflazione è allo 0,8%. Scopri i dati Comparis',
+    keywords: 'frontalieri, ticino, svizzera, italia, rincari, mobilità, abitazione, agosto',
+    ogTitle: 'Ticino guida i rincari di mobilità e abitazione',
+    ogDescription: 'Lo studio di Comparis e KOF evidenzia che ad agosto i rincari in Ticino sono al 3%, il più alto tra i cantoni, mentre a livello nazionale casa e mobilità aumentano del 2,4% e l\'inflazione generale resta allo 0,8%. L\'articolo analizza l\'impatto sulle',
+    canonicalPath: '/articoli-frontaliere/ticino-costi-mobilita-abitazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino guida i rincari di mobilità e abitazione",
+      "description": "Ad agosto i rincari in Ticino raggiungono il 3%, mentre casa e mobilità salgono del 2,4% a livello nazionale e l'inflazione è allo 0,8%. Scopri i dati Comparis",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ticino-costi-mobilita-abitazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Automobilista in viaggio vicino a Lugano con case sullo sfondo, rappresenta i costi di mobilità e abitazione"
+      },
+      "datePublished": "2026-09-29T10:00:49+00:00",
+      "dateModified": "2026-09-29T10:00:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-costi-mobilita-abitazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
