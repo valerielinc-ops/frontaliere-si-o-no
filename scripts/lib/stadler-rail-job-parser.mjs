@@ -40,6 +40,16 @@ export const STADLER_RAIL_KEY = 'stadler-rail';
 export const STADLER_RAIL_COMPANY_NAME = 'Stadler Rail';
 export const STADLER_RAIL_COMPANY_DOMAIN = 'stadlerrail.com';
 
+/**
+ * The paragraph the parser used to publish INSTEAD of a detail body under 50
+ * words ("<title> bei Stadler Rail in <city>." followed by "Stadler ist ein
+ * weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen…"), issue
+ * 5253. Only ever recognised, to remove it from stored jobs before the merge
+ * (`prepareExistingJobs` in update-stadler-rail-jobs.mjs).
+ */
+export const STADLER_RAIL_FABRICATED_DESCRIPTION_RE =
+  /Stadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang/;
+
 const BASE_URL = 'https://careers.stadlerrail.com';
 const SEARCH_URL = `${BASE_URL}/search/`;
 const PAGE_SIZE = 25;

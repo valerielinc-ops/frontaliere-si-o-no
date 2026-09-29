@@ -3,12 +3,14 @@ import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   STADLER_RAIL_KEY,
   STADLER_RAIL_COMPANY_NAME,
+  STADLER_RAIL_FABRICATED_DESCRIPTION_RE,
   fetchAllStadlerRailJobs,
   isStadlerRailJob,
   isTrustedDomain,
 } from '../scripts/lib/stadler-rail-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { __resetJinaBreaker } from '../scripts/lib/jina-proxy.mjs';
+import { dropFabricatedDescriptions } from '../scripts/lib/drop-fabricated-description.mjs';
 
 describe('Stadler Rail crawler parser', () => {
   afterEach(() => {
@@ -225,5 +227,36 @@ describe('fetchAllStadlerRailJobs — the detail text only', () => {
     expect(jobs).toHaveLength(1);
     expect(jobs[0].description).toBe('');
     expect(jobs[0].descriptionByLocale).toEqual({});
+  });
+});
+
+// Issue 5253: stored jobs still carry the paragraph the parser used to publish
+// instead of a short body. The standard pipeline keeps a stored source slot
+// when the fresh one is empty, so the runner drops that text from its stored
+// jobs through the `prepareExistingJobs` hook before the merge. Fixture: the
+// "Lackierer:in" record of the origin/main slice (2026-09-29), all four slots.
+describe('stored fallback paragraph — removed before the merge', () => {
+  const STORED = JSON.parse(fs.readFileSync(new URL('./fixtures/stadler-rail-stored-fallback-lackierer.json', import.meta.url), 'utf8'));
+
+  it('recognises the stored paragraph and removes it with its translations, slugs untouched', () => {
+    expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(STORED.descriptionByLocale.de)).toBe(true);
+    const jobs = dropFabricatedDescriptions([JSON.parse(JSON.stringify(STORED))], STADLER_RAIL_FABRICATED_DESCRIPTION_RE, 'Stadler Rail');
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
+    expect(jobs[0].needsRetranslation).toBe(true);
+    expect(jobs[0].slug).toBe(STORED.slug);
+    expect(jobs[0].slugByLocale).toEqual(STORED.slugByLocale);
+  });
+
+  it('never matches the text the parser publishes now', () => {
+    const DETAIL = fs.readFileSync(new URL('./fixtures/stadler-rail-detail-short-lackierer.html', import.meta.url), 'utf8');
+    expect(STADLER_RAIL_FABRICATED_DESCRIPTION_RE.test(DETAIL)).toBe(false);
+  });
+
+  it('is wired as prepareExistingJobs in the runner', () => {
+    const runner = fs.readFileSync('scripts/update-stadler-rail-jobs.mjs', 'utf8');
+    expect(runner).toMatch(/prepareExistingJobs: \(jobs\) => dropFabricatedDescriptions\(jobs, STADLER_RAIL_FABRICATED_DESCRIPTION_RE,/);
   });
 });
