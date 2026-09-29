@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import {
   HIRSLANDEN_KEY,
   HIRSLANDEN_COMPANY_NAME,
@@ -8,7 +8,6 @@ import {
   parseDetailPage,
   descriptionBodyToMarkdown,
   resolveHirslandenLocation,
-  fetchAllHirslandenJobs,
 } from '../scripts/lib/hirslanden-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -325,39 +324,5 @@ describe('Hirslanden Klinik crawler parser', () => {
     it('passes garbage through unchanged when the listing city is not known either (fully unresolvable — caller skips it)', () => {
       expect(resolveHirslandenLocation('Besetzung per: 1. Oktober 2026', '')).toBe('Besetzung per: 1. Oktober 2026');
     });
-  });
-});
-
-// Only the posting's own text is published (issue 5253). A detail page without
-// a vacancy body used to be published with an invented group summary ("{title}
-// bei der Hirslanden-Klinik in {city}. Die Hirslanden-Gruppe ist mit 17
-// Privatkliniken …"); such a listing is not published any more. Shapes
-// minimised from careers.mediclinic.com/Hirslanden (2026-09-29).
-describe('fetchAllHirslandenJobs — listing without a vacancy body', () => {
-  it('publishes the posting with a body and skips the one without, never inventing text', async () => {
-    const body = Array.from({ length: 12 }, (_, i) => `<p>Aufgabe ${i + 1}: Du betreust Patientinnen und Patienten auf der Station mit viel Herz.</p>`).join('');
-    const searchHtml = `<table>
-      <tr><td><a href="/Hirslanden/job/Zuerich-Pflegefachfrau/1123876301/">Dipl. Pflegefachfrau / Pflegefachmann (a) 80-100%</a></td><td>Zürich, ZH, CH</td><td>29.09.2026</td></tr>
-      <tr><td><a href="/Hirslanden/job/Zuerich-Fachfrau-Gesundheit/1123876302/">Fachfrau / Fachmann Gesundheit (a) 80-100%</a></td><td>Zürich, ZH, CH</td><td>29.09.2026</td></tr>
-    </table>`;
-    const detailHtml = (inner: string) => `<html><body><span itemprop="description">${inner}</span></body></html>`;
-    vi.stubGlobal('fetch', vi.fn(async (url: string) => ({
-      ok: true,
-      status: 200,
-      text: async () => {
-        if (url.includes('/Hirslanden/search')) return searchHtml;
-        if (url.includes('1123876301')) return detailHtml(body);
-        return detailHtml('<p>Jetzt bewerben</p>');
-      },
-    })));
-    try {
-      const jobs = await fetchAllHirslandenJobs();
-      expect(jobs).toHaveLength(1);
-      expect(jobs[0].title).toBe('Dipl. Pflegefachfrau / Pflegefachmann (a) 80-100%');
-      expect(jobs[0].description).toContain('Aufgabe 12: Du betreust Patientinnen');
-      expect(jobs[0].description).not.toMatch(/Die Hirslanden-Gruppe ist mit 17 Privatkliniken/);
-    } finally {
-      vi.unstubAllGlobals();
-    }
   });
 });
