@@ -18,6 +18,7 @@ import { importGenevaPharmacyDuties } from '../scripts/import-pharmacy-duties-ge
 
 const FETCHED_AT = '2026-09-24T12:00:00.000Z';
 const NOW = new Date(FETCHED_AT);
+const CHECKED_IN_NOW = new Date((dutiesSnapshot as GenevaDutySnapshot)._fetchedAt);
 const SOURCES = sourceConfig as unknown as Record<string, unknown>;
 const CATALOGUE = [
   { id: 'ge-pharma24', country: 'CH', canton: 'Geneva' },
@@ -119,7 +120,7 @@ describe('Geneva pharmacy duty release gate', () => {
       status: statusSnapshot as GenevaDutySnapshot,
       sources: SOURCES,
       catalogue: CATALOGUE,
-      now: NOW,
+      now: CHECKED_IN_NOW,
     });
 
     expect(evaluation.state).toBe('fresh');
