@@ -54,6 +54,8 @@ import {
 } from './lib/pdf-job-content.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -287,23 +289,22 @@ function parseListingPage(html) {
 // Description building (PDF-backed)
 // ─────────────────────────────────────────────────────────────
 
-function buildDescription(title, pdfText = '') {
-  return buildPdfBackedDescription({
-    introLines: [
-      `## Concorso`,
-      `${COMPANY_NAME} pubblica il seguente concorso: ${title}.`,
-    ],
-    pdfText,
-    fallbackText: 'Per i dettagli completi del concorso, consultare il bando PDF allegato.',
-    footerLines: [
-      '---',
-      '**Settore:** Sanità pubblica / Assistenza anziani',
-      '**Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Svizzera',
-      '**Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Svizzera',
-      '**Contatto:** info@oscam.ch | Tel. +41 (0)91 611 37 00',
-    ],
-  });
+/**
+ * The description of one concorso is the text of its PDF bando and nothing
+ * else. The crawler used to wrap it in lines of its own ("## Concorso",
+ * "OSCAM … pubblica il seguente concorso: <titolo>.", **Settore**, **Sede**
+ * and **Contatto** footers) and to write "Per i dettagli completi del
+ * concorso, consultare il bando PDF allegato." when the PDF had no text; a
+ * bando without readable text now gets no description and takes the
+ * pipeline's thin-source path.
+ */
+export function buildDescription(pdfText = '') {
+  return buildPdfBackedDescription({ pdfText });
 }
+
+/** Fragments only the crawler's former wrapper wrote (see `buildDescription`). */
+export const OSCAM_FABRICATED_DESCRIPTION_RE =
+  /pubblica il seguente concorso: |Per i dettagli completi del concorso, consultare il bando PDF allegato\.|(?:^|\n)\*\*Sede Ospedale:\*\* Via Cantonale 4/;
 
 /**
  * Validate OSCAM job description quality.
@@ -379,7 +380,7 @@ function detectEmploymentType(title = '') {
 // Main discovery
 // ─────────────────────────────────────────────────────────────
 
-async function fetchOscamJobs() {
+export async function fetchOscamJobs() {
   const seenPdfUrls = new Set();
   const allJobs = [];
 
@@ -415,7 +416,9 @@ async function fetchOscamJobs() {
         console.log(`    ✅ PDF text: ${pdfText.length} chars (${pdfContent.totalPages} pages)`);
       }
 
-      const description = buildDescription(listing.title, pdfText);
+      const description = buildDescription(pdfText);
+      // The bando's text is keyed by its own language.
+      const sourceLang = detectLang(description || listing.title, 'it');
 
       // Validate quality
       const validation = validateOscamDescription(description, pdfText);
@@ -443,10 +446,10 @@ async function fetchOscamJobs() {
         experienceLevel: detectExperienceLevel(listing.title),
         source: 'oscam-crawler',
         postedDate: new Date().toISOString().slice(0, 10),
-        titleByLocale: { it: listing.title },
-        descriptionByLocale: { it: description },
-        slugByLocale: { it: slug },
-        sourceLang: detectLang(description || listing.title, 'it'),
+        titleByLocale: { [sourceLang]: listing.title },
+        descriptionByLocale: { [sourceLang]: description },
+        slugByLocale: { [sourceLang]: slug },
+        sourceLang,
         _targetScope: { canton: HQ.canton, location: 'Castelrotto' },
       };
 
@@ -470,7 +473,13 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
-  const existingTargetJobs = allJobs.filter(isTargetJob);
+  // The merge keeps stored locale slots and only replaces the description
+  // with a LONGER one: remove the former wrapper from stored jobs first.
+  const existingTargetJobs = dropFabricatedDescriptions(
+    allJobs.filter(isTargetJob),
+    OSCAM_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
 
   const existingByKey = new Map();
   for (const job of existingTargetJobs) {
@@ -776,4 +785,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'OSCAM'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'OSCAM'));
+}

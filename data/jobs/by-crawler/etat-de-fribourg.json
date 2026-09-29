@@ -6381,9 +6381,9 @@
     },
     {
       "id": "etat-de-fribourg-8a5c6feccca2",
-      "slug": "collaborateur-trice-administratif-ve-etat-de-fribourg",
+      "slug": "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836",
       "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ve-etat-de-fribourg",
+        "it": "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836",
         "en": "administrative-collaborator-etat-de-fribourg-fribourg",
         "de": "verwaltungsmitarbeiter-etat-de-fribourg-fribourg",
         "fr": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
@@ -6393,7 +6393,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaborateur-trice administratif-ve",
+        "it": "Collaboratore amministrativo",
         "en": "Administrative Collaborator",
         "de": "Verwaltungsmitarbeiter",
         "fr": "Collaborateur-trice administratif-ve"
@@ -6468,7 +6468,7 @@
         "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
         "associato-amministrativo-etat-de-fribourg-fribourg-c4b769",
         "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
-        "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836"
+        "collaborateur-trice-administratif-ve-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6490,7 +6490,7 @@
           "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
           "associato-amministrativo-etat-de-fribourg-fribourg-c4b769",
           "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
-          "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836"
+          "collaborateur-trice-administratif-ve-etat-de-fribourg"
         ],
         "en": [
           "administrative-collaborator-ve-etat-de-fribourg-fribourg"
@@ -6500,7 +6500,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:36.656Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -6515,7 +6514,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-1a4dae371c6f",

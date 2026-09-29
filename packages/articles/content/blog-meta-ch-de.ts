@@ -7043,6 +7043,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cioccolato-mercato-svizzera.title': 'Lindt korrigiert die Verkaufsprognosen für 2026 nach unten',
     'blog.article.cioccolato-mercato-svizzera.excerpt': 'Lindt erwartet ein Umsatzwachstum von 0%-2% (gegenüber zuvor 4-6%), BP -8% am Vormittag, YTD-Performance -30%, -35% in 12 Monaten, -24% in 5 Jahren; Sitz in Kilchberg ZH, 15\'500 Mitarbeitende.',
     'blog.article.cioccolato-mercato-svizzera.imageAlt': 'Schweizer Schokoriegel auf Holztafel mit Alpen im Hintergrund',
+    'blog.article.lindt-prezzi-cacao-2026.title': 'Lindt überarbeitet die Schätzungen: sinkende Verkäufe und Preise',
+    'blog.article.lindt-prezzi-cacao-2026.excerpt': 'Lindt&Sprüngli senkt die Prognose für das organische Wachstum 2026 auf 0-2 Prozent und prüft nach den Auswirkungen des Kakaos und der Sommerhitze umfangreichere Preissenkungen ab Januar.',
+    'blog.article.lindt-prezzi-cacao-2026.imageAlt': 'Lindt Schokoladenausstellung in einem Geschäft',
+    'blog.article.classifica-ompi-alta-tecnologia.title': 'Schweiz weltweit auf Platz eins bei der Innovation',
+    'blog.article.classifica-ompi-alta-tecnologia.excerpt': 'Die Schweiz steht seit 2011 an erster Stelle in der OMPI-Rangliste; Schweden und die Vereinigten Staaten folgen, während China erstmals in die Top Ten einzieht.',
+    'blog.article.classifica-ompi-alta-tecnologia.imageAlt': 'Forschende vor einem Schweizer Zentrum für Forschung und Innovation',
 };
 
 export default blogMetaChDe;
