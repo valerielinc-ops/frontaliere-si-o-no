@@ -7106,6 +7106,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parlamento-sonno-power-nap.title': 'Au Parlement, il faut un endroit pour dormir : sieste éclair',
     'blog.article.parlamento-sonno-power-nap.excerpt': 'Pendant les sessions, les parlementaires suisses dorment en moyenne 6 heures et 10 minutes, soit environ 50 minutes de moins que d\'habitude, selon l\'étude de Björn Rasch portant sur 16 membres du Parlement.',
     'blog.article.parlamento-sonno-power-nap.imageAlt': 'Salle de repos calme avec canapés au Palais fédéral suisse pour la sieste éclair des parlementaires',
+    'blog.article.progetto-ia-medicina-bellinzona.title': 'IA et médicaments : Bellinzone dans le projet SWIT-DREAMS',
+    'blog.article.progetto-ia-medicina-bellinzona.excerpt': 'Lancement de SWIT-DREAMS : 1,37 million d’euros d’Interreg pour la recherche entre Novare et Bellinzone sur les nanocorps et l’intelligence artificielle appliquée à la médecine.',
+    'blog.article.progetto-ia-medicina-bellinzona.imageAlt': 'Recherche médicale et IA à Bellinzona',
 };
 
 export default blogMetaChFr;

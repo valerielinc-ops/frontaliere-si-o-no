@@ -7106,6 +7106,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parlamento-sonno-power-nap.title': 'Im Parlament braucht es einen Ort zum Schlafen: Powernap',
     'blog.article.parlamento-sonno-power-nap.excerpt': 'Während der Sessionen schlafen Schweizer Parlamentarier laut der Studie von Björn Rasch über 16 Parlamentsmitglieder im Durchschnitt 6 Stunden und 10 Minuten, etwa 50 Minuten weniger als üblich.',
     'blog.article.parlamento-sonno-power-nap.imageAlt': 'Ruheraum mit Sofas im Schweizer Bundespalast für Power Naps der Parlamentarier',
+    'blog.article.progetto-ia-medicina-bellinzona.title': 'KI und Medikamente: Bellinzona im SWIT-DREAMS Projekt',
+    'blog.article.progetto-ia-medicina-bellinzona.excerpt': 'SWIT-DREAMS startet: 1,37 Millionen Euro von Interreg für die Forschung zwischen Novara und Bellinzona zu Nanokörpern und künstlicher Intelligenz in der Medizin.',
+    'blog.article.progetto-ia-medicina-bellinzona.imageAlt': 'Medizinische Forschung und KI in Bellinzona',
 };
 
 export default blogMetaChDe;
