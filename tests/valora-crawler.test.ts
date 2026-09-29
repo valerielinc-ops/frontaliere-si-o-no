@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   VALORA_KEY,
@@ -5,8 +7,10 @@ import {
   isValoraJob,
   isTrustedDomain,
   resolveAddress,
+  extractAgencyTemplateHtml,
+  dedupeRepostedValoraJobs,
 } from '../scripts/lib/valora-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { slugify, stripHtml } from '../scripts/lib/crawler-template.mjs';
 
 describe('Valora Group crawler parser', () => {
   // ── Constants ──
@@ -198,5 +202,69 @@ describe('Valora Group crawler parser', () => {
       expect(resolved.postalCode).toBe('8001');
       expect(resolved.city).toBe('Zürich');
     });
+  });
+});
+
+// ── #5253: agency-partner template and re-posted requisitions ─────────────
+describe('extractAgencyTemplateHtml', () => {
+  // Real page, minimised (three benefit cards kept): /en/job/229, the
+  // "Agenturpartner" template with no `.ct-jobs-detail-text` block.
+  const AGENCY_229 = fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'crawler-quality-f', 'valora-agency-229.html'),
+    'utf8',
+  );
+  const text = stripHtml(extractAgencyTemplateHtml(AGENCY_229)).replace(/[ \t]+/g, ' ');
+
+  it('keeps the summary prose the parser already published', () => {
+    expect(text).toContain('Valora is offering you the opportunity to become self-employed');
+  });
+
+  it('adds the tasks, the requirements, the success profile and the benefits', () => {
+    expect(text).toContain('Tasks that you will enjoy');
+    expect(text).toContain('• Leading the staff, including scheduling, recruiting, and training employees.');
+    expect(text).toContain('Requirements you bring');
+    expect(text).toContain('• At least 30,000 CHF (depending on the format) in equity capital');
+    expect(text).toContain('• Swiss passport or a residence permit.');
+    expect(text).toContain('Success profile');
+    expect(text).toContain('• Customer oriented');
+    expect(text).toContain('Benefits');
+    expect(text).toContain('• Opportunity to share experiences with other agencies within the Valora network');
+  });
+
+  it('leaves the agency-model hero link, images, the chart and the brand block out', () => {
+    expect(text).not.toContain('Learn more');
+    expect(text).not.toContain('uk-scrollspy');
+    expect(text).not.toContain('15,000 employees');
+    expect(extractAgencyTemplateHtml(AGENCY_229)).not.toMatch(/<img|<canvas|<picture/);
+  });
+
+  it('returns nothing for a page without the template', () => {
+    expect(extractAgencyTemplateHtml('<html><body><p>nothing</p></body></html>')).toBe('');
+  });
+});
+
+describe('dedupeRepostedValoraJobs', () => {
+  const job = (id: number, over: Record<string, string> = {}) => ({
+    url: `https://career.valora.com/en/job/${id}/barista-caffe-spettacolo-16-4-h-h-f-x`,
+    title: 'barista Caffè Spettacolo - 16.4 h (h/f/x)',
+    streetAddress: 'Rue des Terreaux 25',
+    postalCode: '1003',
+    addressLocality: 'Lausanne',
+    description: 'Même annonce, même magasin.',
+    ...over,
+  });
+
+  it('keeps one job per identical title, store address and body — the lowest job number', () => {
+    const out = dedupeRepostedValoraJobs([job(6002), job(5996), job(6001), job(5997)]);
+    expect(out.map((j) => j.url)).toEqual([job(5996).url]);
+  });
+
+  it('keeps the same role at another store, or with another body', () => {
+    const out = dedupeRepostedValoraJobs([
+      job(5996),
+      job(5997, { streetAddress: 'Place de la Gare 9' }),
+      job(5998, { description: 'Pensum 100 %, Monatslohn.' }),
+    ]);
+    expect(out).toHaveLength(3);
   });
 });

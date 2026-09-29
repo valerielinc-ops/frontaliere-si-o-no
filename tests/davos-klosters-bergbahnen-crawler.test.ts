@@ -1,8 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect, vi } from 'vitest';
 import {
   fetchDavosKlostersBergbahnenDetailPage,
   parseDavosKlostersBergbahnenListingHtml,
   parseDavosKlostersBergbahnenDetailHtml,
+  stripTemplatePlaceholders,
   normalizeDavosKlostersBergbahnenJobUrl,
   slugify,
   stripHtml,
@@ -501,5 +504,33 @@ describe('Davos Klosters Bergbahnen job parser', () => {
     it('detects full-time from 100%', () => {
       expect(inferEmploymentType('Pistenfahrzeugführer 100%', '')).toBe('FULL_TIME');
     });
+  });
+});
+
+// ── #5253: an ad whose CMS template was never filled ──────────────────────
+
+describe('template placeholder bodies (#5253)', () => {
+  // Real page, minimised: `_j_3940215` renders every section as its heading
+  // followed by `Text <heading>`; the ABACUS portal behind it says the same.
+  const PLACEHOLDER_PAGE = fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'crawler-quality-f', 'davos-placeholder-detail.html'),
+    'utf8',
+  );
+
+  it('publishes no description for a body made only of placeholders (and no chrome fallback)', () => {
+    const parsed = parseDavosKlostersBergbahnenDetailHtml(PLACEHOLDER_PAGE);
+    expect(parsed?.description).toBeUndefined();
+  });
+
+  it('drops heading/"Text <heading>" pairs but keeps real sections and real prose starting with "Text"', () => {
+    const text = [
+      'Einleitung', 'Text Einleitung',
+      'Aufgaben', '• Pistenpräparation im Winter',
+      'Wir bieten', 'Text wir bieten',
+      'Textilreinigung und Wäsche gehören ebenfalls dazu.',
+    ].join('\n');
+    expect(stripTemplatePlaceholders(text)).toBe(
+      'Aufgaben\n• Pistenpräparation im Winter\nTextilreinigung und Wäsche gehören ebenfalls dazu.',
+    );
   });
 });

@@ -99,6 +99,56 @@ const COUNTRY_TO_CC = { Schweiz: 'CH', Switzerland: 'CH', Suisse: 'CH', Svizzera
 
 /* ── Factory-style exports ────────────────────────────────── */
 
+function sectionByClass(html, cls) {
+  const match = new RegExp(`<section\\b[^>]*\\bclass="[^"]*\\b${cls}\\b[^"]*"[^>]*>([\\s\\S]*?)</section>`, 'i').exec(html);
+  return match ? match[1] : '';
+}
+
+function pillLabel(sectionHtml) {
+  return normalizeSpace(stripHtml(/<h2\b[^>]*wwj-pill-label[^>]*>([\s\S]*?)<\/h2>/i.exec(sectionHtml)?.[1] || ''));
+}
+
+/**
+ * The employer sections of a spitexjobs.ch vacancy page that belong to the ad
+ * but not to its JobPosting JSON-LD: the organisation portrait
+ * (`wwj-profile-bidder-description`) and the benefit cards
+ * (`wwj-benefits-section`, one `<article>` per benefit: heading + text), each
+ * under the label the page gives it ("Porträt", "Benefits").
+ *
+ * The JSON-LD `description` carries the intro and the role lists only, so
+ * the published ad lost the offer — holidays, allowances, paid travel time,
+ * car, training budget — and the organisation paragraph (J990528: 1,518
+ * published characters against a 4,889-character ad, 2026-09-29). Contact
+ * details, map, media and metadata stay out.
+ *
+ * @param {string} html
+ * @returns {string} HTML, '' when the page has neither section
+ */
+export function extractSpitexEmployerSectionsHtml(html = '') {
+  // Icons first: each benefit card's inline `<svg>` draws with `<line>`
+  // elements, which the `<li…>` → bullet rule of the text converters reads as
+  // list items ("• • • Fixe Dienste …").
+  const source = String(html || '').replace(/<svg\b[\s\S]*?<\/svg>/gi, '');
+  const parts = [];
+  const profile = sectionByClass(source, 'wwj-profile-bidder-section');
+  const portrait = /<div\b[^>]*class="[^"]*wwj-profile-bidder-description[^"]*"[^>]*>([\s\S]*?)<\/div>/i.exec(profile)?.[1] || '';
+  const portraitText = normalizeSpace(stripHtml(portrait));
+  if (portraitText) {
+    parts.push(`<h3>${pillLabel(profile) || 'Porträt'}</h3><p>${portraitText}</p>`);
+  }
+  const benefitsSection = sectionByClass(source, 'wwj-benefits-section');
+  const items = [];
+  for (const card of benefitsSection.matchAll(/<article\b[^>]*class="[^"]*wwj-benefit\b[^"]*"[^>]*>([\s\S]*?)<\/article>/gi)) {
+    const heading = normalizeSpace(stripHtml(/<h3\b[^>]*>([\s\S]*?)<\/h3>/i.exec(card[1])?.[1] || ''));
+    const text = normalizeSpace(stripHtml(card[1].replace(/<h3\b[^>]*>[\s\S]*?<\/h3>/i, '')));
+    if (heading || text) items.push(`<li>${[heading, text].filter(Boolean).join(': ')}</li>`);
+  }
+  if (items.length) {
+    parts.push(`<h3>${pillLabel(benefitsSection) || 'Benefits'}</h3><ul>${items.join('')}</ul>`);
+  }
+  return parts.join('\n');
+}
+
 export async function fetchAllSpitexChJobs() {
   console.log(`🏥 Fetching ${SPITEX_CH_COMPANY_NAME} jobs`);
   console.log(`   Source: ${BASE_URL}/suche (federation home-care board)\n`);
@@ -140,9 +190,11 @@ export async function fetchAllSpitexChJobs() {
   const jobs = [];
   for (const jobUrl of seenUrls) {
     let posting = null;
+    let employerHtml = '';
     try {
       const detailHtml = await fetchHtml(jobUrl);
       posting = extractJobPostingJsonLd(detailHtml);
+      employerHtml = extractSpitexEmployerSectionsHtml(detailHtml);
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${jobUrl}: ${err?.message || err}`);
     }
@@ -171,6 +223,8 @@ export async function fetchAllSpitexChJobs() {
       : '';
     if (uniqueWords.size < 30) {
       description = `${title}${hiringOrg ? ` bei ${hiringOrg}` : ''} in ${city}.\n\nSpitex-Stelle in der Schweizer Hauspflege. Diese Position bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
+    } else if (employerHtml) {
+      description = htmlToText(`${descHtml}\n${employerHtml}`);
     }
 
     const sourceLang = detectLang(description || title, 'de');

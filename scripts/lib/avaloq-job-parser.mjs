@@ -256,9 +256,14 @@ function buildDetailFromPosting(posting) {
       .join(', '),
   );
   const sections = [];
+  // The company paragraph opens every Avaloq ad on its public posting page
+  // ("Founded and headquartered in Switzerland, Avaloq …"), so it belongs to
+  // the published body like the three role sections that follow it.
+  const companyDesc = (posting.jobAd?.sections?.companyDescription?.text || '').trim();
   const jobDesc = (posting.jobAd?.sections?.jobDescription?.text || '').trim();
   const qualif = (posting.jobAd?.sections?.qualifications?.text || '').trim();
   const addInfo = (posting.jobAd?.sections?.additionalInformation?.text || '').trim();
+  if (companyDesc) sections.push(htmlToMarkdown(companyDesc));
   if (jobDesc) sections.push(htmlToMarkdown(jobDesc));
   if (qualif) sections.push(`## Qualifiche\n\n${htmlToMarkdown(qualif)}`);
   if (addInfo) sections.push(`## Informazioni aggiuntive\n\n${htmlToMarkdown(addInfo)}`);
@@ -266,7 +271,15 @@ function buildDetailFromPosting(posting) {
   const detail = {
     title: normalizeSpace(posting.name || ''),
     description,
-    canonicalUrl: `https://www.avaloq.com/careers/job-openings/${posting.id}`,
+    // The public posting page. `www.avaloq.com/careers/job-openings/<id>`
+    // stopped being one: it answers `303 → /careers/job-openings` (the
+    // generic listing) for every id (measured 2026-09-29), so every published
+    // link and every source-detail check landed on the careers landing page.
+    // SmartRecruiters' `postingUrl` is the page the listing now links to; the
+    // numeric posting id stays in the path, so `extractStableJobId` keeps
+    // matching the records published under the old URL.
+    canonicalUrl: normalizeSpace(posting.postingUrl || '')
+      || `https://jobs.smartrecruiters.com/${SR_TENANT}/${posting.id}`,
     applyUrl: posting.applyUrl || `https://jobs.smartrecruiters.com/Avaloq1/${posting.id}`,
     location: city,
     postalCode: normalizeSpace(loc.postalCode || ''),

@@ -58,6 +58,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
   fetchHtml,
+  htmlToText,
 } from './hospital-custom-html-helpers.mjs';
 
 const DETAIL_DELAY_MS = 300;
@@ -239,7 +240,51 @@ export function parseReflineDetail(html = '') {
       parts.push(tag === 'li' ? `• ${text}` : text);
     }
   }
-  return { title, description: parts.join('\n') };
+  return { title, description: preferRicherReflineBody(html, parts.join('\n')) };
+}
+
+/**
+ * The richer of a paragraph-scan reading and the page's JobPosting body.
+ *
+ * The paragraph scan only sees `<p>`/`<li>`/`<h3>`/`<h4>`. The standard
+ * Refline template ships the body as bare text inside
+ * `<div id="bIntro|bDescription|bDuty|bRequirement|bBenefit" class="smartEditable">`
+ * (line breaks as `<br>`), so on those postings the scan returned the four
+ * `<h3>` headings and nothing else: below the word floor, every caller then
+ * published its invented fallback text instead of the ad (Privatklinik
+ * Hohenegg 0057: 591 published chars against a 2,242-char posting; PUK Zürich
+ * 2117: 306 against 2,436). The same page always carries the full body in its
+ * JobPosting JSON-LD `description`, so the richer of the two readings wins.
+ * Shared with the tenant parsers that keep their own scan (Caritas, Pigna,
+ * Spital Limmattal), so a posting written in bare text cannot fall back there
+ * either.
+ *
+ * @param {string} html Refline detail page
+ * @param {string} scanned the caller's paragraph-scan text
+ * @returns {string}
+ */
+export function preferRicherReflineBody(html = '', scanned = '') {
+  const structured = reflineJsonLdDescriptionText(parseReflineJobPostingJsonLd(html));
+  return countWords(structured) > countWords(scanned) ? structured : scanned;
+}
+
+function countWords(text = '') {
+  return String(text || '').split(/\s+/).filter(Boolean).length;
+}
+
+/**
+ * The JobPosting `description` of a Refline page as plain text: lists keep
+ * their `• ` bullets and `<br>`/block ends keep their line breaks. The `<h1>`
+ * inside it repeats the vacancy title, which the job already carries.
+ */
+export function reflineJsonLdDescriptionText(posting) {
+  const html = String(posting?.description || '');
+  if (!html) return '';
+  const lines = htmlToText(html.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi, '\n'))
+    .split('\n')
+    .map((line) => normalizeDescriptionSpace(line))
+    .filter(Boolean);
+  return lines.join('\n');
 }
 
 /**

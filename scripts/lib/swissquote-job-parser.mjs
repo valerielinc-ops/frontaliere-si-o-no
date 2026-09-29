@@ -24,6 +24,7 @@ import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-lo
 import {
   fetchSmartRecruitersJobs,
   SmartRecruitersApiError,
+  smartRecruitersPostingUrls,
 } from './ats-clients/smartrecruiters-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -193,10 +194,9 @@ export async function fetchAllSwissquoteJobs() {
       const descriptionText = stripHtml(descriptionRaw);
 
       const postingId = String(posting?.id || '').trim();
-      const publicUrl =
-        (typeof posting?.applyUrl === 'string' && posting.applyUrl) ||
-        (typeof posting?.postingUrl === 'string' && posting.postingUrl) ||
-        (postingId ? `https://jobs.smartrecruiters.com/${SR_TENANT}/${postingId}` : CAREER_URL);
+      // The ad page, not the `?oga=true` apply flow (see smartRecruitersPostingUrls).
+      const srUrls = smartRecruitersPostingUrls(posting, SR_TENANT);
+      const publicUrl = srUrls.pageUrl || CAREER_URL;
 
       const sourceLang = detectLang(descriptionText || title, 'en');
       const jobSlug = slugify(`${title} swissquote ${city || 'gland'}`);
@@ -251,7 +251,7 @@ export async function fetchAllSwissquoteJobs() {
         currency: 'CHF',
         featured: false,
         postedDate,
-        applyUrl: publicUrl,
+        applyUrl: srUrls.applyUrl || publicUrl,
         jobReqId: postingId || null,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

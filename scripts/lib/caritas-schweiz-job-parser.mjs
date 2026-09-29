@@ -24,7 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
-import { extractReflineDetailTitle } from './refline-common.mjs';
+import { extractReflineDetailTitle, preferRicherReflineBody } from './refline-common.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 
@@ -245,7 +245,7 @@ export function parseReflineDetail(html = '') {
       parts.push(tag === 'li' ? `• ${text}` : text);
     }
   }
-  return { title, description: parts.join('\n') };
+  return { title, description: preferRicherReflineBody(html, parts.join('\n')) };
 }
 
 /* ── Fallback description ──────────────────────────────────── */

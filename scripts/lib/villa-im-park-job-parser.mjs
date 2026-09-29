@@ -32,6 +32,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { smartRecruitersPostingUrls } from './ats-clients/smartrecruiters-client.mjs';
 
 export const VILLA_IM_PARK_KEY = 'villa-im-park';
 export const VILLA_IM_PARK_COMPANY_NAME = 'Privatklinik Villa im Park';
@@ -162,11 +163,10 @@ function buildParsedJob(posting, detail) {
 
   if (country !== 'CH') return null;
 
-  // Canonical apply URL on jobs.smartrecruiters.com
-  const publicUrl =
-    detail?.applyUrl
-    || detail?.postingUrl
-    || `https://jobs.smartrecruiters.com/${SMARTRECRUITERS_COMPANY}/${posting.id}`;
+  // The ad page on jobs.smartrecruiters.com, not the `?oga=true` apply flow
+  // (see smartRecruitersPostingUrls).
+  const srUrls = smartRecruitersPostingUrls({ ...posting, ...(detail || {}) }, SMARTRECRUITERS_COMPANY);
+  const publicUrl = srUrls.pageUrl;
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${title} villa im park rothrist`);
 
@@ -216,7 +216,7 @@ function buildParsedJob(posting, detail) {
     currency: 'CHF',
     featured: false,
     postedDate,
-    applyUrl: publicUrl,
+    applyUrl: srUrls.applyUrl || publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
     needsRetranslation: true,

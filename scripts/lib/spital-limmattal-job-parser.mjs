@@ -29,7 +29,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
-import { extractReflineDetailTitle } from './refline-common.mjs';
+import { extractReflineDetailTitle, preferRicherReflineBody } from './refline-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -216,7 +216,7 @@ export function parseReflineDetail(html = '') {
       parts.push(tag === 'li' ? `• ${text}` : text);
     }
   }
-  const description = parts.join('\n');
+  const description = preferRicherReflineBody(html, parts.join('\n'));
   return { title, description };
 }
 

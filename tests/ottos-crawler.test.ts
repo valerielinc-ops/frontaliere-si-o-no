@@ -5,6 +5,7 @@ import {
   OTTOS_COMPANY_DOMAIN,
   isOttosJob,
   isTrustedDomain,
+  dedupeRepostedOttosJobs,
 } from '../scripts/lib/ottos-job-parser.mjs';
 
 describe("OTTO'S AG crawler parser", () => {
@@ -72,5 +73,28 @@ describe("OTTO'S AG crawler parser", () => {
       expect(isTrustedDomain('not-a-url')).toBe(false);
       expect(isTrustedDomain('')).toBe(false);
     });
+  });
+});
+
+// ── #5253: the same store vacancy published under two requisitions ───────
+describe('dedupeRepostedOttosJobs', () => {
+  const job = (id: number, location = 'Interlaken', description = 'Deine Aufgaben: Kasse, Warenpräsentation. Pensum: 60-80%') => ({
+    url: `https://live.solique.ch/ottosag/job/details/${id}/`,
+    title: 'Aushilfe Verkäufer:in Food/Non-Food',
+    location,
+    description,
+  });
+
+  it('keeps the older requisition of two identical postings (Interlaken 3927347 / 4039251)', () => {
+    const out = dedupeRepostedOttosJobs([job(4039251), job(3927347)]);
+    expect(out.map((j) => j.url)).toEqual([job(3927347).url]);
+  });
+
+  it('keeps the per-store template: same role and body at different stores', () => {
+    expect(dedupeRepostedOttosJobs([job(4075773, 'Wattwil'), job(4044650, 'Langenthal')])).toHaveLength(2);
+  });
+
+  it('keeps two postings at the same store whose bodies differ', () => {
+    expect(dedupeRepostedOttosJobs([job(1, 'Thun', 'Pensum 40%'), job(2, 'Thun', 'Pensum 100%')])).toHaveLength(2);
   });
 });

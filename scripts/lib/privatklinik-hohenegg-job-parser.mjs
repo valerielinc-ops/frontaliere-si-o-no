@@ -15,8 +15,8 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
-import { extractReflineDetailTitle } from './refline-common.mjs';
+import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { parseReflineDetail } from './refline-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -178,28 +178,11 @@ export function parseHoheneggReflineListing(html = '') {
 
 /* ── Detail parser ─────────────────────────────────────────── */
 
-export function parseReflineDetail(html = '') {
-  if (!html) return { title: '', description: '' };
-
-  const title = extractReflineDetailTitle(html);
-
-  const cleaned = stripScriptsAndStyles(html)
-    .replace(/<header[\s\S]*?<\/header>/gi, '')
-    .replace(/<footer[\s\S]*?<\/footer>/gi, '')
-    .replace(/<nav[\s\S]*?<\/nav>/gi, '');
-
-  const parts = [];
-  const blockRe = /<(p|li|h3|h4)[^>]*>([\s\S]*?)<\/\1>/gi;
-  let bm;
-  while ((bm = blockRe.exec(cleaned)) !== null) {
-    const tag = bm[1].toLowerCase();
-    const text = normalizeDescriptionSpace(stripHtml(bm[2]));
-    if (text.length > 20 && !/cookie|datenschutz|privacy|impressum|bewerbung absenden/i.test(text)) {
-      parts.push(tag === 'li' ? `• ${text}` : text);
-    }
-  }
-  return { title, description: parts.join('\n') };
-}
+// The shared Refline detail reader: this tenant used to carry its own copy of
+// the paragraph scan, which never sees the bare-text `smartEditable` divs of
+// the standard Refline template and so fell back to the invented description
+// below on most postings (see `parseReflineDetail` in refline-common.mjs).
+export { parseReflineDetail };
 
 function buildFallbackDescription(title) {
   return [

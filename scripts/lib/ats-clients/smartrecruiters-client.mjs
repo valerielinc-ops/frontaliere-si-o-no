@@ -655,6 +655,31 @@ function concatJobAdSections(posting) {
 }
 
 /**
+ * The public job-ad page of a SmartRecruiters posting, and its apply link.
+ *
+ * `applyUrl` is the application flow: it carries `?oga=true` and answers
+ * `302 → /oneclick-ui/company/<tenant>/publication/…`, which shows no job text
+ * and returns 403 to non-browser clients — so a crawler that published it as
+ * the vacancy URL linked readers to a form and left every source-detail check
+ * unreadable (HUG 4/4, ardentis and imad listed as `refused-by-source`,
+ * 2026-09-29). `postingUrl` is the ad itself. Both keep the numeric posting id
+ * in the path, so `extractStableJobId` matches records published under either.
+ *
+ * @param {SmartRecruitersPosting} posting detail payload
+ * @param {string} [tenant] company identifier, for the id-based fallback page
+ * @returns {{ pageUrl: string, applyUrl: string }} empty strings when unknown
+ */
+export function smartRecruitersPostingUrls(posting, tenant = '') {
+  const clean = (value) => (typeof value === 'string' ? value.trim() : '');
+  const id = String(posting?.id ?? '').trim();
+  const apply = clean(posting?.applyUrl);
+  const pageUrl = clean(posting?.postingUrl)
+    || (id && tenant ? `${SR_PUBLIC_JOBS_BASE}/${encodeURIComponent(tenant)}/${encodeURIComponent(id)}` : '')
+    || apply;
+  return { pageUrl, applyUrl: apply || pageUrl };
+}
+
+/**
  * Convert a single raw SmartRecruiters posting into the vendor-agnostic shape.
  *
  * @param {SmartRecruitersPosting} rawJob
