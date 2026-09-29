@@ -6986,6 +6986,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-iniziativa-neutralita.title': 'Neutrality, the press highlights the UDC\'s defeat',
     'blog.article.voto-iniziativa-neutralita.excerpt': 'Over 70% of voters and all cantons rejected the neutrality initiative. The campaign was supported by Christoph Blocher.',
     'blog.article.voto-iniziativa-neutralita.imageAlt': 'Neutrality initiative rejected in Switzerland',
+    'blog.article.dibattito-stati-bilaterali-iii.title': 'Council of States: debate on Bilaterals III begins',
+    'blog.article.dibattito-stati-bilaterali-iii.excerpt': 'The Council of States discusses the package of agreements with the EU. Among the hot topics: free movement, recovery of law and safeguard clause.',
+    'blog.article.dibattito-stati-bilaterali-iii.imageAlt': 'Federal Palace in Bern seat of the Council of States',
 };
 
 export default blogMetaChEn;
