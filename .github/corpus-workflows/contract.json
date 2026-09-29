@@ -4,11 +4,11 @@
   "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "eeda416d234dee0385d7eca6af86006c563f4741",
+  "sourceCommit": "c80390966c75ab63f58e3ebf552518cf95fcdf52",
   "artifactObservation": {
     "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
     "sourceRef": "main",
-    "sourceCommit": "eeda416d234dee0385d7eca6af86006c563f4741"
+    "sourceCommit": "c80390966c75ab63f58e3ebf552518cf95fcdf52"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -619,7 +619,7 @@
     {
       "source": "observers/scripts/lib/github-actions-read-client.mjs",
       "target": "scripts/ci/lib/github-actions-read-client.mjs",
-      "sha256": "90d86156213f814f44d02455237fdb92761eb9130503ab888332d2b84660c570"
+      "sha256": "1b175fe8929c880373b1fb514bfc5e99566b806f26beb5a3362bb2b73a50b1e7"
     }
   ],
   "checkout": {
