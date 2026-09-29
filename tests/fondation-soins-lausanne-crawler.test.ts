@@ -235,21 +235,27 @@ describe('Fondation Soins Lausanne crawler parser (jobup.ch SERP)', () => {
       }
     });
 
-    it('falls back to a >50-word description when jobup detail enrichment fails', async () => {
+    it('writes no text of its own when jobup detail enrichment fails (issue 5253)', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
         if (u.startsWith('https://r.jina.ai/')) {
           return new Response(SAMPLE_SERP_HTML, { status: 200, headers: { 'content-type': 'text/html' } });
         }
-        // Detail fetch fails — parser must still produce jobs with a rich fallback.
+        // Detail fetch fails: the cards are still emitted, without a text the
+        // crawler would have to write itself.
         return new Response('', { status: 500 });
       }) as any;
 
       const jobs = await fetchAllFondationSoinsLausanneJobs();
       expect(jobs).toHaveLength(3);
-      const words = String(jobs[0].description || '').split(/\s+/).filter(Boolean).length;
-      expect(words).toBeGreaterThan(50);
-      expect(jobs[0].description).toContain('Fondation Soins Lausanne');
+      for (const job of jobs) {
+        expect(job.description).toBe('');
+        // The stored French body (kept by the merge) and the slug stay in the
+        // `fr` slot: no language guessed from the title alone.
+        expect(job.sourceLang).toBe('fr');
+        expect(job.descriptionByLocale).toEqual({ fr: '' });
+        expect(Object.keys(job.slugByLocale)).toEqual(['fr']);
+      }
     });
 
     it('returns [] (no throw) when the Jina SERP fetch is unusable', async () => {
