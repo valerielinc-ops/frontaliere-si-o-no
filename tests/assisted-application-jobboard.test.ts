@@ -148,12 +148,12 @@ describe('assisted application JobBoard handoff', () => {
     expect(start).toBeGreaterThan(-1);
     expect(effect).not.toContain("redirectExternalApplication(selectedJob, 'rewarded_application_entitlement', false, true)");
     expect(effect).toMatch(
-      /'rewarded_application_access_used'[\s\S]*?applicationOfferOpenRef\.current = true;\s*setRewardedApplicationHandoffOnly\(true\);\s*setRewardedApplicationResumed\(true\);\s*setRewardedApplicationJob\(selectedJob\);\s*return;/,
+      /'rewarded_application_access_used'[\s\S]*?applicationOfferOpenRef\.current = true;\s*setRewardedApplicationOpenCardOnly\(true\);\s*setRewardedApplicationResumed\(true\);\s*setRewardedApplicationJob\(selectedJob\);\s*return;/,
     );
-    expect(jobBoardSource).toContain('startInHandoff={rewardedApplicationHandoffOnly}');
+    expect(jobBoardSource).toContain('startInHandoff={rewardedApplicationOpenCardOnly}');
     // Its "open" click keeps the entitlement surface and opens a new tab.
     expect(jobBoardSource).toMatch(
-      /if \(rewardedApplicationHandoffOnly\) \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_entitlement', false, false\);/,
+      /if \(rewardedApplicationOpenCardOnly\) \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_entitlement', false, false\);/,
     );
   });
 

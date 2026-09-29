@@ -2555,7 +2555,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [rewardedApplicationResumed, setRewardedApplicationResumed] = useState(false);
  // The resumed click already holds the access: the offer shows only its
  // "open" card, since no click activation survives the reload.
- const [rewardedApplicationHandoffOnly, setRewardedApplicationHandoffOnly] = useState(false);
+ const [rewardedApplicationOpenCardOnly, setRewardedApplicationOpenCardOnly] = useState(false);
  // Synchronous twin of the two application offers' state: a double click on
  // "Candidati" runs handleApply twice before React re-renders, and the second
  // run must not emit a second apply/offer event pair (or a second rewarded
@@ -2567,7 +2567,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
   if (!rewardedApplicationJob) {
    setRewardedApplicationResumed(false);
-   setRewardedApplicationHandoffOnly(false);
+   setRewardedApplicationOpenCardOnly(false);
   }
  }, [rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
@@ -7222,7 +7222,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // 2026-09-29). The offer stays mounted until that tab takes the foreground:
   // a popup blocked despite the activation brings its "open" card back.
   const opened = watchNewTabOpened();
-  if (rewardedApplicationHandoffOnly) {
+  if (rewardedApplicationOpenCardOnly) {
    // A resumed click whose access was granted before the reload: its apply
    // signals were recorded then, so no second hand-off event.
    void redirectExternalApplication(job, 'rewarded_application_entitlement', false, false);
@@ -7478,7 +7478,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    // would take the visitor off the site. The offer shows only its "open"
    // card, whose click opens the new tab.
    applicationOfferOpenRef.current = true;
-   setRewardedApplicationHandoffOnly(true);
+   setRewardedApplicationOpenCardOnly(true);
    setRewardedApplicationResumed(true);
    setRewardedApplicationJob(selectedJob);
    return;
@@ -7868,7 +7868,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     onUnavailable={handleRewardedApplicationUnavailable}
     onDismiss={() => setRewardedApplicationJob(null)}
     resumed={rewardedApplicationResumed}
-    startInHandoff={rewardedApplicationHandoffOnly}
+    startInHandoff={rewardedApplicationOpenCardOnly}
     onReload={handleRewardedApplicationReload}
    />
   </Suspense>
