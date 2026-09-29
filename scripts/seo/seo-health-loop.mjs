@@ -85,8 +85,6 @@ export function isSeoIssueActionable(finding) {
   return !OBSERVATION_ONLY_FINDING_CODES.has(String(finding?.code || ''));
 }
 
-const JOB_DETAIL_RX = /^\/(?:cerca-lavoro-[^/]+|en\/find-jobs-[^/]+|de\/jobs-(?:im|in|in-der)-[^/]+|fr\/trouver-emploi-[^/]+)\/[^/]+\/?$/i;
-
 function parseArgs(argv) {
   const out = {
     origin: DEFAULT_ORIGIN,
@@ -461,7 +459,7 @@ async function probePages(entries, {
   const allPageUrls = entries
     .map((entry) => entry.url)
     .filter((url) => isSameSiteUrl(url, origin) && !isAssetUrl(url));
-  const jobUrls = allPageUrls.filter((url) => isJobDetailPath(url) || JOB_DETAIL_RX.test(urlPath(url) || ''));
+  const jobUrls = allPageUrls.filter((url) => isJobDetailPath(url));
   const selected = [...new Set([
     ...deterministicSample(allPageUrls, sample),
     ...deterministicSample(jobUrls, jobSample),
