@@ -2385,6 +2385,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lavoratori-svizzeri-ia-2026': { it: 'lavoratori-svizzeri-ia-2026', en: 'swiss-workers-ai-2026', de: 'schweizer-arbeitnehmer-ki-2026', fr: 'travailleurs-suisses-ia-2026' },
  'ufc-finanzia-ricerca-provenienza': { it: 'ufc-finanzia-ricerca-provenienza', en: 'ufc-funds-provenance-research', de: 'ebk-foerderung-provenienz-forschung', fr: 'oc-finance-cherche-provenance' },
  'validita-lista-onu-svizzera': { it: 'validita-lista-onu-svizzera', en: 'un-sanctions-list-switzerland', de: 'uno-sanktionsliste-schweiz', fr: 'liste-sanctions-onu-suisse' },
+ 'centro-premi-salute-2027': { it: 'centro-premi-salute-2027', en: 'centre-health-premiums-2027', de: 'zentrum-krankenkassenpraemien-2027', fr: 'centre-primes-maladie-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

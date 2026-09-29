@@ -7088,6 +7088,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.validita-lista-onu-svizzera.title': 'UN sanctions list revised in Switzerland, effective now',
     'blog.article.validita-lista-onu-svizzera.excerpt': 'On 29 settembre 2026, the UN sanctions committee amended the list. SESAM was updated, and the change takes effect immediately in Switzerland.',
     'blog.article.validita-lista-onu-svizzera.imageAlt': 'Bern, update of the UN sanctions list in the SESAM database',
+    'blog.article.centro-premi-salute-2027.title': '2027 health insurance premiums, Il Centro calls for more measures',
+    'blog.article.centro-premi-salute-2027.excerpt': 'In Ticino, health insurance premiums will rise by 3.7% in 2027, compared with 5% nationally. The Centre calls for strengthening cantonal and federal measures.',
+    'blog.article.centro-premi-salute-2027.imageAlt': 'Ticino documents on health insurance premiums planned for 2027',
 };
 
 export default blogMetaChEn;
