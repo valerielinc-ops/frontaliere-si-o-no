@@ -16,9 +16,13 @@ import {
 
 const URL = 'https://www.migros.ch/it/jobs/job/denner/verkaeuferin/00000000-0000-4000-8000-000000000001';
 const GERMAN_BODY = 'Frische Produkte, die ihren Namen verdienen. Volle Regale. Zufriedene Kundinnen und Kunden. '
-  + 'Du berätst unsere Kundschaft, füllst die Regale auf und sorgst an der Kasse für einen reibungslosen Ablauf.';
+  + 'Du berätst unsere Kundschaft, füllst die Regale auf und sorgst an der Kasse für einen reibungslosen Ablauf. '
+  + 'Gemeinsam mit dem Team kontrollierst du die Qualität der Waren, präsentierst Angebote und beantwortest Fragen freundlich. '
+  + 'Du arbeitest zuverlässig, aufmerksam und trägst dazu bei, dass unsere Filiale jeden Tag einladend und ordentlich bleibt.';
 const ITALIAN_TRANSLATION = 'Prodotti freschi che meritano il loro nome. Scaffali pieni. Clienti soddisfatti. '
-  + 'Consigli la nostra clientela, rifornisci gli scaffali e alla cassa garantisci uno svolgimento senza intoppi.';
+  + 'Consigli la nostra clientela, rifornisci gli scaffali e alla cassa garantisci uno svolgimento senza intoppi. '
+  + 'Insieme al team controlli la qualità della merce, presenti le offerte e rispondi con cortesia alle domande. '
+  + 'Lavori con precisione e affidabilità e contribuisci a mantenere il punto vendita accogliente, ordinato e pronto per le esigenze quotidiane di tutte le persone.';
 
 const STORED = {
   id: 'denner-000000000001',
