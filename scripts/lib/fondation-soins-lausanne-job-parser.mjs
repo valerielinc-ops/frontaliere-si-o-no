@@ -39,8 +39,8 @@
  * Rich descriptions are enriched per kept card from the jobup.ch detail page's
  * schema.org JobPosting JSON-LD via the SHARED helper
  * `fetchJobupDetailDescription` (reused from jobup-ch-feed-common.mjs). If detail
- * enrichment is unavailable, a source-locale French fallback (well above the
- * 50-word thin-content floor) is synthesized from the card fields.
+ * enrichment is unavailable or under the common 50-word floor, the posting gets
+ * no description (issue 5253: no text of the crawler's own in its place).
  *
  * @outsourced-ats-confirmed: not a bypassed direct source — the SOURCE
  * MIGRATION note above already documents that FSL's actual previous direct
@@ -55,6 +55,7 @@ import { slugify } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchViaJinaWithRetry } from './jina-proxy.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
   decodeEntities,
   fetchJobupDetailDescription,
@@ -178,24 +179,6 @@ function contractFromCard(contract = '') {
   return 'full-time';
 }
 
-function buildFallbackDescription({ title, city, workRate, contract }) {
-  // Source-locale (French) fallback used only when the jobup detail JSON-LD is
-  // unavailable. Deliberately clears the 50-word thin-content floor.
-  return normalizeSpace(
-    [
-      `${title} — un poste à pourvoir au sein de la ${FONDATION_SOINS_LAUSANNE_COMPANY_NAME}.`,
-      `La Fondation Soins Lausanne assure des prestations d'aide et de soins à domicile pour la population de la ville de Lausanne, au sein du réseau vaudois AVASAD (Association Vaudoise d'Aide et de Soins à Domicile).`,
-      `En rejoignant nos équipes pluridisciplinaires, vous contribuez concrètement à la santé, à l'autonomie et au bien-vivre des personnes accompagnées à leur domicile, dans le canton de Vaud.`,
-      `Lieu de travail : ${city || HQ.city}.`,
-      workRate ? `Taux d'activité : ${workRate}.` : '',
-      contract ? `Type de contrat : ${contract}.` : '',
-      `Postulez directement via l'annonce jobup.ch liée à cette offre.`,
-    ]
-      .filter(Boolean)
-      .join(' '),
-  );
-}
-
 /* ── Company matchers ──────────────────────────────────────── */
 
 export function isFondationSoinsLausanneJob(job) {
@@ -267,8 +250,8 @@ export async function fetchAllFondationSoinsLausanneJobs() {
     const canton = inferSwissTargetCanton(city) || HQ.canton;
     const postalCode = HQ.postalCode;
 
-    // Rich description from the jobup detail JSON-LD (shared helper). Falls back
-    // to a synthesized French description above the thin-content floor.
+    // Description from the jobup detail JSON-LD (shared helper), and only that
+    // (issue 5253): no French text of the crawler's own in its place.
     let detailDescription = '';
     try {
       detailDescription = await fetchJobupDetailDescription(card.url);
@@ -278,12 +261,14 @@ export async function fetchAllFondationSoinsLausanneJobs() {
     if (detailDescription) detailHits += 1;
     await new Promise((r) => setTimeout(r, 250));
 
-    const detailWordCount = detailDescription.split(/\s+/).filter(Boolean).length;
-    const description = detailWordCount >= 50
-      ? detailDescription
-      : buildFallbackDescription({ title: card.title, city, workRate: card.workRate, contract: card.contract });
+    // A body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detailDescription) ? detailDescription : '';
 
-    const sourceLang = detectLang(description || card.title, 'fr');
+    // Without a body, the language of the FSL postings (French), not a guess
+    // from the title alone ("Infirmier terrain (H/F)" reads as German): the
+    // stored body the merge keeps, and the slug, sit in the `fr` slot.
+    const sourceLang = description ? detectLang(description, 'fr') : 'fr';
     const slug = slugify(`${card.title} ${FONDATION_SOINS_LAUSANNE_KEY} ${city}`);
     const urlHash = createHash('sha1').update(card.url).digest('hex').slice(0, 12);
     const employmentType = employmentTypeFromCard(card.workRate, card.title);

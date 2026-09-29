@@ -19,6 +19,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign, geocodeCountry } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
@@ -288,7 +289,11 @@ export async function fetchAllTetherJobs() {
     const jobSlug = slugify(`${title} tether ch`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
 
-    const fallbackDesc = `${title} — open position at Tether Operations. Tether is a pioneer in digital asset technology, registered in Lugano, Canton Ticino. Remote-first company building products used by millions. Apply through the official Tether careers page.`;
+    // Only the posting's own text (issue 5253): no "<title> — open position at
+    // Tether Operations." line and company summary in place of a short Recruitee body.
+    // A body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const job = {
       // ── Required fields ──
@@ -300,8 +305,8 @@ export async function fetchAllTetherJobs() {
       companyDomain: TETHER_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton: jobCanton,
       url: detailUrl,

@@ -20,6 +20,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -321,7 +322,11 @@ export async function fetchAllBitfinexJobs() {
     const jobSlug = slugify(`${title} bitfinex ch`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
 
-    const fallbackDesc = `${title} — open position at Bitfinex. Bitfinex is one of the world's largest cryptocurrency exchanges, registered in Lugano, Canton Ticino. Remote-first company at the forefront of digital finance. Apply through the official Bitfinex careers page.`;
+    // Only the posting's own text (issue 5253): no "<title> — open position at
+    // Bitfinex." line and company summary in place of a short Recruitee body.
+    // A body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const job = {
       // ── Required fields ──
@@ -333,8 +338,8 @@ export async function fetchAllBitfinexJobs() {
       companyDomain: BITFINEX_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton: jobCanton,
       url: detailUrl,

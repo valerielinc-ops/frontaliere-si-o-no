@@ -22,6 +22,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const ADUS_KLINIK_KEY = 'adus-klinik';
 export const ADUS_KLINIK_COMPANY_NAME = 'ADUS Klinik';
@@ -201,10 +202,11 @@ function buildParsedJob(item) {
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${title} ${ADUS_KLINIK_KEY} ${city}`);
 
-  const fallbackDesc =
-    `${title} — Stelle bei der ADUS Klinik in ${city} (${DEFAULT_CANTON}), Schweiz. ` +
-    'Die ADUS Klinik ist ein privatrechtlich geführtes Belegarztspital im Zürcher Unterland mit Schwerpunkt elektive Orthopädie (rund 2\'000 Eingriffe pro Jahr). Seit 2025 Teil der Epiona Gruppe.';
-  const desc = descText.length >= 80 ? descText : fallbackDesc;
+  // Only the posting's own text (issue 5253): no "<title> — Stelle bei der
+  // ADUS Klinik …" line and clinic paragraph in place of a short feed body. A
+  // body under the common 50-word floor gives no description (the shared
+  // pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
   const postedDate = (() => {
     if (!item.pubDate) return new Date().toISOString().slice(0, 10);

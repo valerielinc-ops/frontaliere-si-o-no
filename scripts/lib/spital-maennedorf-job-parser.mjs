@@ -32,6 +32,7 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { fetchUmantisDetailContentResult } from './umantis-detail-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -362,8 +363,13 @@ export async function fetchAllSpitalMaennedorfJobs() {
     }
     if (detailContent && detailContent.length > 200) detailHits += 1;
 
-    const fallbackDesc = `${title} — ${SPITAL_MAENNEDORF_COMPANY_NAME}, ${location}`;
-    const descriptionText = detailContent || listing.snippet || fallbackDesc;
+    // Only the posting's own text (issue 5253): the detail body, or the
+    // listing snippet when the detail was not read — never a "<title> —
+    // Spital Männedorf, <place>" line in place of both. A body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path).
+    const sourceBody = detailContent || listing.snippet || '';
+    const descriptionText = meetsSourceBodyFloor(sourceBody) ? sourceBody : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} ${SPITAL_MAENNEDORF_KEY} ch`);

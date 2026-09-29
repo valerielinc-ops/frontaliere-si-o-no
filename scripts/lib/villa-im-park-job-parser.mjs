@@ -33,6 +33,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { smartRecruitersPostingUrls } from './ats-clients/smartrecruiters-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const VILLA_IM_PARK_KEY = 'villa-im-park';
 export const VILLA_IM_PARK_COMPANY_NAME = 'Privatklinik Villa im Park';
@@ -170,10 +171,11 @@ function buildParsedJob(posting, detail) {
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${title} villa im park rothrist`);
 
-  const fallbackDesc =
-    `${title} — Stelle in der Privatklinik Villa im Park in ${city} (${canton}), Schweiz. ` +
-    'Die Privatklinik Villa im Park gehört zum Swiss Medical Network und bietet ein breites Spektrum an chirurgischen, orthopädischen und konservativen Behandlungen für Halb- und Privatpatientinnen und -patienten an.';
-  const desc = descText.length >= 80 ? descText : fallbackDesc;
+  // Only the posting's own text (issue 5253): no "<title> — Stelle in der
+  // Privatklinik Villa im Park …" line and clinic summary in place of a short
+  // body. A body under the common 50-word floor gives no description (the
+  // shared pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
   const postedDate = (() => {
     const raw = posting.releasedDate || detail?.releasedDate;

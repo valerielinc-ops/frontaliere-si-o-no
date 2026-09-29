@@ -38,6 +38,7 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -403,8 +404,11 @@ export async function fetchAllInselspitalJobs() {
     const location = 'Bern';
     const canton = 'BE';
 
-    const fallbackDesc = `${title} — Inselspital Bern, Bern`;
-    const descriptionText = listing.snippet || fallbackDesc;
+    // Only the posting's own text (issue 5253): the listing snippet, never a
+    // "<title> — Inselspital Bern, Bern" line in its place. A snippet under
+    // the common 50-word floor gives no description (the shared pipeline's
+    // thin-source path).
+    const descriptionText = meetsSourceBodyFloor(listing.snippet) ? listing.snippet : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} inselspital ch`);

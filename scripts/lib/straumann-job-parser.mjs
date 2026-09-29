@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { fetchPostWidgetWithAntiBotHardening } from './pastahr-widget-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -300,8 +301,11 @@ export async function fetchAllStraumannJobs() {
     const idSeed = listing.jobReqId ? `straumann-${listing.jobReqId}` : publicUrl;
     const urlHash = createHash('sha1').update(idSeed).digest('hex').slice(0, 12);
 
-    const fallbackDesc = `${title} — ${STRAUMANN_COMPANY_NAME}, ${location} (CH).`;
-    const description = descriptionText || fallbackDesc;
+    // Only the posting's own text (issue 5253): no "<title> — Straumann,
+    // <place> (CH)." line in place of a missing body. A body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const job = {
       // ── Required fields ──

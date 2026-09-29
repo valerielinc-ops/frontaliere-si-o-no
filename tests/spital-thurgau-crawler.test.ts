@@ -8,8 +8,10 @@ import {
   isTrustedDomain,
   parseStgagEmbeddedJson,
   extractStgagDetailDescription,
+  SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE,
 } from '../scripts/lib/spital-thurgau-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { dropFabricatedDescription } from '../scripts/lib/drop-fabricated-description.mjs';
 
 describe('Spital Thurgau (STGAG) crawler parser', () => {
   // ── Constants ──
@@ -210,8 +212,35 @@ describe('Spital Thurgau (STGAG) crawler parser', () => {
       expect(text).not.toMatch(/Kontaktperson|ALLE UNSERE OFFENEN STELLEN/);
     });
 
-    it('returns empty for a page with neither template, so the listing metadata is kept', () => {
+    it('returns empty for a page with neither template, so the posting gets no description', () => {
       expect(extractStgagDetailDescription('<html><body><p>Wartung</p></body></html>')).toBe('');
+    });
+  });
+
+  // ── stored rows written with the old stand-in text (#5253) ──
+  describe('SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE', () => {
+    // The shape of all 156 stored rows on main (2026-09-29).
+    const fixture = (name: string) => readFileSync(resolve(__dirname, 'fixtures', 'spital-thurgau', name), 'utf8');
+    const metadata = '• Standort: Kantonsspital Münsterlingen\n• Abteilung: Ärztliches Personal\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.04.2027';
+    const stub = `Leitender Arzt / Leitende Ärztin Pathologie — Spital Thurgau (STGAG).\n\n${metadata}`;
+
+    it.each([
+      ['over the listing metadata', stub],
+      ['with the city only', 'Leitender Arzt / Leitende Ärztin Pathologie — Spital Thurgau (STGAG), Münsterlingen'],
+    ])('drops the stand-in %s, its translations and the flat description', (_label, text) => {
+      const job = { sourceLang: 'de', description: text, descriptionByLocale: { de: text, it: 'Capo del dipartimento medico — Spital Thurgau (STGAG).' } };
+      expect(dropFabricatedDescription(job, SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE)).toBe(true);
+      expect(job.description).toBe('');
+      expect(job.descriptionByLocale).toEqual({});
+      expect((job as any).needsRetranslation).toBe(true);
+    });
+
+    it('never takes the published ad (detail body + the same metadata) for it', () => {
+      const ad = `${extractStgagDetailDescription(fixture('older-template-3630.html'))}\n\n${metadata}`;
+      const job = { sourceLang: 'de', description: ad, descriptionByLocale: { de: ad, it: 'Traduzione' } };
+      expect(dropFabricatedDescription(job, SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE)).toBe(false);
+      expect(job.descriptionByLocale).toEqual({ de: ad, it: 'Traduzione' });
+      expect(SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE.test(`${stub}\n\nDas Institut für Pathologie der Spital Thurgau AG`)).toBe(false);
     });
   });
 });

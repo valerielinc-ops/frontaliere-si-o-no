@@ -29,6 +29,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
@@ -83,10 +84,6 @@ function normalizeSpace(s = '') {
  * @param {string} [config.sourceLabel]        Source string written into
  *                                             ParsedJob.source. Falls back
  *                                             to a sensible default.
- * @param {string} [config.fallbackDescription] Description used when the
- *                                             detail JSON-LD ships less than
- *                                             80 chars. Defaults to a generic
- *                                             company tagline.
  * @param {boolean} [config.waitForWidget=true] Wait for an OJP widget anchor
  *                                             to appear before harvesting.
  *                                             Set false when anchors are
@@ -105,7 +102,6 @@ export function createOstendisPublicationParser(config) {
     defaultSourceLang = 'de',
     sector = 'Sanità / Ospedali',
     sourceLabel,
-    fallbackDescription,
     waitForWidget = true,
     widgetTimeoutMs = WIDGET_WAIT_MS,
   } = config;
@@ -116,10 +112,6 @@ export function createOstendisPublicationParser(config) {
 
   const corporateHost = String(companyDomain).replace(/^www\./, '').toLowerCase();
   const sourceLine = sourceLabel || `${companyName} Dedicated Parser (Ostendis via Playwright)`;
-  const defaultFallback =
-    `${companyName} — Stelle in ${defaultCity}` +
-    (defaultCanton ? ` (${defaultCanton})` : '') +
-    `, Schweiz.`;
 
   function isCompanyJob(job) {
     if (!job) return false;
@@ -261,10 +253,11 @@ export function createOstendisPublicationParser(config) {
     const jobSlug = slugify(`${cleanTitle} ${companyKey} ${defaultCity}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const desc =
-      descriptionText.length >= 80
-        ? descriptionText
-        : fallbackDescription || defaultFallback;
+    // Only the posting's own text (issue 5253): no "<company> — Stelle in
+    // <city> (<canton>), Schweiz." line nor a per-employer text in place of a
+    // short body. A body under the common 50-word floor gives no description
+    // (the shared pipeline's thin-source path).
+    const desc = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const postedDate = (() => {
       if (!postedAt) return new Date().toISOString().slice(0, 10);

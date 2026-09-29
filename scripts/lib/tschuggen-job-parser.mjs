@@ -25,6 +25,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { mergeUmantisListing } from './umantis-listing-merge.mjs';
@@ -469,7 +470,10 @@ export async function fetchAllTschuggenJobs() {
     const canton = inferAnyCanton(location) || '';
     const postalCode = lookupPostalCode(location);
 
-    const fallbackDesc = `${title} — Tschuggen Collection, ${location}`;
+    // Only the posting's own text (issue 5253): no "<title> — Tschuggen Collection, <place>"
+    // line in place of a missing body. A body under the common 50-word floor
+    // gives no description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} tschuggen ch`);
@@ -492,8 +496,8 @@ export async function fetchAllTschuggenJobs() {
       companyDomain: TSCHUGGEN_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: listing.detailUrl,

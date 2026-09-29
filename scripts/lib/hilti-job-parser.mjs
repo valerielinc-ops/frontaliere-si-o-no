@@ -26,6 +26,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
   resolveDetailOrListingSwissGeography,
   schemaJobLocationCandidates,
@@ -44,6 +45,15 @@ import {
 export const HILTI_KEY = 'hilti';
 export const HILTI_COMPANY_NAME = 'Hilti';
 export const HILTI_COMPANY_DOMAIN = 'hilti.group';
+
+/**
+ * The WHOLE text the parser used to publish INSTEAD of a missing listing
+ * body (issue 5253), and nothing else: "<title> — Hilti". Anchored at both
+ * ends on purpose: only a description made of that single line matches. Only
+ * ever recognised, to remove it from stored jobs before the merge
+ * (`prepareExistingJobs` in update-hilti-jobs.mjs).
+ */
+export const HILTI_FABRICATED_DESCRIPTION_RE = /^\s*[^\n]{1,250}? — Hilti\s*$/;
 
 const ATS_HOST = 'careers.hilti.group';
 const BASE_URL = `https://${ATS_HOST}`;
@@ -407,6 +417,10 @@ export async function fetchAllHiltiJobs() {
     const { location, canton } = geography;
     const evidence = decision.candidate;
     const descriptionText = stripHtml(listing.description || '');
+    // Only the posting's own text (issue 5253): no "<title> — Hilti" line in
+    // place of a missing body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
@@ -428,8 +442,8 @@ export async function fetchAllHiltiJobs() {
       companyDomain: HILTI_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — ${HILTI_COMPANY_NAME}`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${HILTI_COMPANY_NAME}` },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: publicUrl,

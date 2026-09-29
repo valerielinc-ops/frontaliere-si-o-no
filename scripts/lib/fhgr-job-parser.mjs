@@ -28,6 +28,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
@@ -416,7 +417,10 @@ export async function fetchAllFhgrJobs() {
     const location = listing.location || 'Chur';
     const canton = inferAnyCanton(location) || 'GR';
 
-    const fallbackDesc = `${title} — Fachhochschule Graubünden, ${location}`;
+    // Only the posting's own text (issue 5253): no "<title> — Fachhochschule Graubünden, <place>"
+    // line in place of a missing body. A body under the common 50-word floor
+    // gives no description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} fhgr ch`);
@@ -439,8 +443,8 @@ export async function fetchAllFhgrJobs() {
       companyDomain: FHGR_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: listing.detailUrl,

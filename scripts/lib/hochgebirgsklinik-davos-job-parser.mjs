@@ -23,6 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import {
   fetchJson,
@@ -532,7 +533,10 @@ export async function fetchAllHochgebirgsklinikDavosJobs() {
 
     // Build full description
     const descriptionText = buildDescription(doc);
-    const fallbackDesc = `${title} — Hochgebirgsklinik Davos, ${location}`;
+    // Only the posting's own text (issue 5253): no "<title> — Hochgebirgsklinik Davos, <place>"
+    // line in place of a missing body. A body under the common 50-word floor
+    // gives no description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     // Public URL and apply URL
     const publicUrl = buildPublicUrl(doc);
@@ -576,8 +580,8 @@ export async function fetchAllHochgebirgsklinikDavosJobs() {
       companyDomain: HOCHGEBIRGSKLINIK_DAVOS_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: publicUrl,
