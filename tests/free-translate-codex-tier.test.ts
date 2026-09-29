@@ -16,8 +16,10 @@ import path from 'node:path';
  * `tryTier`/`finalize` come ogni altro tier (eco della sorgente rifiutato e
  * contato, token protetti rimessi nella lingua di arrivo); la cornice si toglie
  * solo con i marcatori della chiamata, quindi un testo che contiene davvero
- * `END_TEXT` resta intero; le chiamate del processo passano una alla volta e
- * non superano insieme il budget di tempo; con FREE_TRANSLATE_CODEX_TIER=last
+ * `END_TEXT` resta intero; le richieste del processo non superano le sue
+ * corsie (FREE_TRANSLATE_CODEX_LANES) ne' insieme il budget di tempo, e con le
+ * corsie occupate i testi in coda partono insieme in una richiesta a id,
+ * ognuno con la sua traduzione; con FREE_TRANSLATE_CODEX_TIER=last
  * (translate-pending, dopo Argos) il tier non prende il testo prima dei tier
  * senza quota e lo traduce in coda, solo quando ogni altro tier lo ha lasciato.
  *
@@ -50,7 +52,7 @@ beforeAll(async () => {
     'DEEPL_API_KEY_2', 'AZURE_TRANSLATOR_KEY_2', 'GSC_CLIENT_ID', 'GSC_CLIENT_SECRET',
     'GSC_REFRESH_TOKEN', 'HF_TOKEN', 'HUGGINGFACE_API_KEY', 'LIBRETRANSLATE_SELF_HOSTED_URL',
     'MT_LOCAL_OPUSMT', 'ENABLE_CODEX_ARTICLE_FALLBACK', 'AI_MODELS_PREFER', 'AI_MODELS_FORCE_CHAIN',
-    'FREE_TRANSLATE_CODEX_MAX_CALLS', 'FREE_TRANSLATE_CODEX_MAX_MS',
+    'FREE_TRANSLATE_CODEX_MAX_CALLS', 'FREE_TRANSLATE_CODEX_MAX_MS', 'FREE_TRANSLATE_CODEX_LANES',
   ]) vi.stubEnv(key, '');
   vi.stubEnv('DEEPL_API_KEY', 'deepl-finta');
   vi.stubEnv('AZURE_TRANSLATOR_KEY', 'azure-finta');
@@ -120,6 +122,26 @@ async function captureLog<T>(fn: () => Promise<T> | T) {
 }
 
 const tr = (text = IT) => ft.freeTranslate({ text, sourceLang: 'it', targetLang: 'en', fieldType: 'description' });
+
+/** Testi distinti, tutti it→en: `Numero N` li distingue. */
+const numbered = (count: number) => Array.from({ length: count }, (_, i) => `${IT} Numero ${i + 1}.`);
+const translationOf = (text: string) => `${EN} [${/Numero (\d+)/.exec(text)?.[1] ?? '?'}]`;
+
+/** Richiesta di gruppo: il messaggio utente e' l'array JSON delle voci. */
+function batchItems(messages: Array<{ role: string; content: string }>) {
+  const user = messages.find((m) => m.role === 'user')!.content;
+  return user.startsWith('[') ? JSON.parse(user) as Array<{ id: number; text: string }> : null;
+}
+
+/** Risponde come Codex: al testo singolo con la traduzione, al gruppo con lo schema a id. */
+function codexAnswer(translate: (text: string) => string = translationOf) {
+  return (messages: Array<{ role: string; content: string }>) => {
+    const items = batchItems(messages);
+    if (items) return JSON.stringify({ items: items.map(({ id, text }) => ({ id, text: translate(text) })) });
+    const user = messages.find((m) => m.role === 'user')!.content;
+    return translate(/^BEGIN_TEXT_[A-Z0-9]{8}\n([\s\S]*)\nEND_TEXT_[A-Z0-9]{8}$/.exec(user)![1]);
+  };
+}
 
 describe('freeTranslate — tier Codex Luna Max', () => {
   it('DeepL sano: Codex non viene chiamato', async () => {
@@ -233,24 +255,37 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_CALLS', '');
   });
 
-  it('le chiamate concorrenti non superano il budget', async () => {
-    vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_CALLS', '3');
-    const calls = stubCodex(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 5));
-      return `CODEX ${EN}`;
-    });
-    const { value } = await captureLog(() => Promise.all(Array.from({ length: 6 }, () => tr())));
-    expect(calls).toHaveLength(3);
-    expect(value.filter((v) => v === `CODEX ${EN}`)).toHaveLength(3);
-    vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_CALLS', '');
+  it('le richieste concorrenti non superano il budget, anche quando traducono piu\' testi', async () => {
+    // Una corsia: il primo testo parte da solo, i cinque successivi insieme
+    // nella seconda richiesta, e il settimo trova il budget di 2 esaurito.
+    vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_CALLS', '2');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
+    try {
+      const texts = numbered(7);
+      const answer = codexAnswer();
+      const calls = stubCodex(async (messages) => {
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        return answer(messages);
+      });
+      const { value } = await captureLog(() => Promise.all(texts.map((text) => tr(text))));
+      expect(calls).toHaveLength(2);
+      expect(batchItems(calls[0].messages)).toBeNull();
+      expect(batchItems(calls[1].messages)).toHaveLength(5);
+      expect(value.slice(0, 6)).toEqual(texts.slice(0, 6).map(translationOf));
+      expect(value[6]).toBe(`MYMEMORY ${EN}`);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_CALLS', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+    }
   });
 
-  it('le chiamate concorrenti passano una alla volta e non superano insieme il budget di tempo', async () => {
+  it('con una corsia le richieste passano una alla volta e non superano insieme il budget di tempo', async () => {
     // Orologio finto: ogni chiamata "dura" 10 s. Con 20 s di budget la prima
     // chiamata lascia 10 s, sotto il minimo di 15 s per chiamata: le altre non
     // partono. Lette in parallelo prima dell'await, tutte e tre avrebbero visto
     // 20 s di residuo e sarebbero partite.
     vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_MS', '20000');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
     const realNow = Date.now.bind(Date);
     let offset = 0;
     const clock = vi.spyOn(Date, 'now').mockImplementation(() => realNow() + offset);
@@ -273,23 +308,143 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     } finally {
       clock.mockRestore();
       vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_MS', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
     }
   });
 
-  it('in coda le chiamate non si sovrappongono mai', async () => {
+  it('il budget di tempo conta l\'orologio: due richieste parallele di 10 s ne costano 10', async () => {
+    // Con la somma delle durate due richieste parallele avrebbero speso 20 s e
+    // fermato il tier; a orologio ne hanno spesi 10, e la terza parte.
+    vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_MS', '30000');
+    const realNow = Date.now.bind(Date);
+    let offset = 0;
+    const clock = vi.spyOn(Date, 'now').mockImplementation(() => realNow() + offset);
+    try {
+      let started = 0;
+      let release: () => void = () => {};
+      const bothStarted = new Promise<void>((resolve) => { release = resolve; });
+      const answer = codexAnswer();
+      const calls = stubCodex(async (messages) => {
+        started += 1;
+        if (started === 2) {
+          offset += 10_000;
+          release();
+        }
+        if (started <= 2) await bothStarted;
+        return answer(messages);
+      });
+      const [a, b] = numbered(2);
+      const first = await captureLog(() => Promise.all([tr(a), tr(b)]));
+      expect(first.value).toEqual([translationOf(a), translationOf(b)]);
+      const [c] = numbered(3).slice(2);
+      expect(await tr(c)).toBe(translationOf(c));
+      expect(calls).toHaveLength(3);
+    } finally {
+      clock.mockRestore();
+      vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_MS', '');
+    }
+  });
+
+  it('mai piu\' richieste in volo delle corsie del processo', async () => {
     let inFlight = 0;
     let maxInFlight = 0;
-    const calls = stubCodex(async () => {
+    const answer = codexAnswer();
+    const calls = stubCodex(async (messages) => {
       inFlight += 1;
       maxInFlight = Math.max(maxInFlight, inFlight);
       await new Promise((resolve) => setTimeout(resolve, 5));
       inFlight -= 1;
-      return `CODEX ${EN}`;
+      return answer(messages);
     });
-    const { value } = await captureLog(() => Promise.all(Array.from({ length: 4 }, () => tr())));
-    expect(value).toEqual(Array(4).fill(`CODEX ${EN}`));
-    expect(calls).toHaveLength(4);
-    expect(maxInFlight).toBe(1);
+    const texts = numbered(4);
+    const { value } = await captureLog(() => Promise.all(texts.map((text) => tr(text))));
+    expect(value).toEqual(texts.map(translationOf));
+    // Default: due corsie. I primi due testi partono da soli, gli altri due insieme.
+    expect(maxInFlight).toBe(2);
+    expect(calls).toHaveLength(3);
+    expect(batchItems(calls[2].messages)).toHaveLength(2);
+  });
+
+  it('con le corsie occupate i testi in coda partono insieme, con lo schema a id e le regole del testo singolo', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
+    try {
+      const answer = codexAnswer();
+      const calls = stubCodex(answer);
+      const texts = numbered(4);
+      const { value } = await captureLog(() => Promise.all(texts.map((text) => tr(text))));
+      expect(value).toEqual(texts.map(translationOf));
+      expect(calls).toHaveLength(2);
+      const { messages, opts } = calls[1];
+      expect(batchItems(messages)).toEqual(texts.slice(1).map((text, i) => ({ id: i + 1, text })));
+      const system = messages.find((m) => m.role === 'system')!.content;
+      expect(system).toMatch(/from Italian to English/);
+      expect(system).toMatch(/Translate each item on its own/);
+      expect(system).toMatch(/ZQX0XQZ/);
+      expect(opts.jsonMode).toBe(true);
+      const schema = (opts.jsonSchema as { schema: { properties: { items: { items: { required: string[] } } } } }).schema;
+      expect(schema.properties.items.items.required).toEqual(['id', 'text']);
+      expect(opts.chain).toEqual([codexModel]);
+      expect(opts.bypassForceChain).toBe(true);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+    }
+  });
+
+  it('una voce mancante, vuota o con un id estraneo scende al tier successivo, le altre restano', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
+    try {
+      const answer = codexAnswer();
+      const calls = stubCodex((messages) => {
+        const items = batchItems(messages);
+        if (!items) return answer(messages);
+        return JSON.stringify({ items: [
+          { id: 1, text: translationOf(items[0].text) },
+          { id: 2, text: '' },
+          { id: 99, text: 'estranea' },
+        ] });
+      });
+      const texts = numbered(4);
+      const { value } = await captureLog(() => Promise.all(texts.map((text) => tr(text))));
+      expect(calls).toHaveLength(2);
+      expect(value).toEqual([translationOf(texts[0]), translationOf(texts[1]), `MYMEMORY ${EN}`, `MYMEMORY ${EN}`]);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+    }
+  });
+
+  it('testi identici in coda diventano una voce sola', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
+    try {
+      const calls = stubCodex(codexAnswer());
+      const [a, b] = numbered(2);
+      const { value } = await captureLog(() => Promise.all([tr(a), tr(b), tr(b), tr(b)]));
+      expect(value).toEqual([translationOf(a), translationOf(b), translationOf(b), translationOf(b)]);
+      // Tre copie dello stesso testo: una voce, quindi il prompt del testo singolo.
+      expect(calls).toHaveLength(2);
+      expect(batchItems(calls[1].messages)).toBeNull();
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+    }
+  });
+
+  it('una richiesta di gruppo fallita e\' un errore per ogni suo testo e un fallimento solo', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
+    try {
+      const before = codexCounters();
+      const answer = codexAnswer();
+      const calls = stubCodex((messages) => {
+        if (batchItems(messages)) throw new Error('broker non raggiungibile');
+        return answer(messages);
+      });
+      const texts = numbered(4);
+      const { value, lines } = await captureLog(() => Promise.all(texts.map((text) => tr(text))));
+      expect(calls).toHaveLength(2);
+      expect(value).toEqual([translationOf(texts[0]), `MYMEMORY ${EN}`, `MYMEMORY ${EN}`, `MYMEMORY ${EN}`]);
+      expect(codexCounters().errors - before.errors).toBe(3);
+      expect(lines.filter((l) => l.includes('fallimenti consecutivi'))).toHaveLength(0);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+    }
   });
 
   it('tre fallimenti consecutivi fermano il tier, contati come errori del tier', async () => {
