@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -32,6 +33,8 @@ import {
   parseRittmeyerJobDetail,
   isRittmeyerTicinoListing,
   buildRittmeyerLocalizedContent,
+  RITTMEYER_LEGACY_PLACEHOLDER_TITLES,
+  RITTMEYER_LEGACY_SYNTHETIC_HEADINGS,
 } from './lib/rittmeyer-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -245,13 +248,19 @@ async function buildRittmeyerJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
   const html = await fetchText(detailUrl);
   const detail = parseRittmeyerJobDetail(html);
-  const localized = buildRittmeyerLocalizedContent(detail);
+  // Postings are German, French or Italian; the source slot must carry the
+  // posting's own language so the translation step fills the other three.
+  const sourceLang = detectLang(
+    [detail.summary, ...detail.responsibilities, ...detail.requirements].filter(Boolean).join(' '),
+    'it',
+  );
+  const localized = buildRittmeyerLocalizedContent(detail, sourceLang);
   // Trust the parsed `Schweiz` field (and fall back to the listing title
   // when missing) so off-Camorino postings get the right canton + postal.
   const site = resolveRittmeyerSiteAddress(detail.location || listing.title || '');
   return {
-    title: localized.titleByLocale.it || detail.title,
-    slug: localized.slugByLocale.it,
+    title: detail.title,
+    slug: localized.slugByLocale[sourceLang],
     url: detailUrl,
     applyUrl: detail.applyUrl,
     company: COMPANY_NAME,
@@ -268,15 +277,65 @@ async function buildRittmeyerJob(listing) {
     category: inferCategory(detail),
     sector: 'Energia',
     source: 'rittmeyer-dedicated-crawler',
-    sourceLang: detectLang(detail.summary || localized.descriptionByLocale.it || '', 'it'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: detail.workload && detail.workload.includes('80') ? 'full-time' : 'other',
     contractType: detail.workload && detail.workload.includes('80') ? 'full-time' : 'other',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[sourceLang],
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
+  };
+}
+
+/**
+ * Undo what the old locale builder left in stored jobs: the three placeholder
+ * titles it stamped on every posting, and non-source description slots that
+ * are either the source text under translated headings rather than a
+ * translation (a slot whose detected language is not its own locale) or that
+ * builder's output/translation carrying its invented headings and application
+ * line. They are dropped so the translation step refills them from the
+ * current source text; a translation of the current text is kept.
+ */
+const LEGACY_HEADING_RE = new RegExp(
+  `^## (?:${RITTMEYER_LEGACY_SYNTHETIC_HEADINGS.map((h) => h.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\s*$`,
+  'mi',
+);
+
+export function scrubRittmeyerLegacyLocaleCopies(job = {}) {
+  const placeholders = new Set(RITTMEYER_LEGACY_PLACEHOLDER_TITLES);
+  const titleByLocale = { ...(job.titleByLocale || {}) };
+  const sourceTitle = String(titleByLocale[job.sourceLang] || job.title || '').trim();
+  let removed = 0;
+  for (const [locale, value] of Object.entries(titleByLocale)) {
+    const text = String(value || '').trim();
+    if (placeholders.has(text) && text !== String(job.title || '').trim()) {
+      delete titleByLocale[locale];
+      removed += 1;
+      continue;
+    }
+    // The old builder also copied the SOURCE title into every locale
+    // ("Titel Deutsch" in `it`): an untranslated copy keeps the translation
+    // step from ever filling that slot (review #10333).
+    if (job.sourceLang && locale !== job.sourceLang && sourceTitle && text === sourceTitle) {
+      delete titleByLocale[locale];
+      removed += 1;
+    }
+  }
+  const descriptionByLocale = { ...(job.descriptionByLocale || {}) };
+  for (const [locale, value] of Object.entries(descriptionByLocale)) {
+    if (locale === job.sourceLang || !value) continue;
+    if (detectLang(String(value), locale) !== locale || LEGACY_HEADING_RE.test(String(value))) {
+      delete descriptionByLocale[locale];
+      removed += 1;
+    }
+  }
+  return {
+    ...job,
+    titleByLocale,
+    descriptionByLocale,
+    ...(removed > 0 ? { needsRetranslation: true } : {}),
   };
 }
 
@@ -308,7 +367,7 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
-    return merged;
+    return scrubRittmeyerLegacyLocaleCopies(merged);
   });
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
@@ -428,4 +487,8 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Rittmeyer'));
+// Importable by tests (scrubRittmeyerLegacyLocaleCopies) without running the
+// crawl or writing the slice.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Rittmeyer'));
+}

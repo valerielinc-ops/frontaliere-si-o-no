@@ -36,7 +36,15 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { parsePostJobDetail, extractPostJobIdFromUrl } from './lib/postch-job-parser.mjs';
+import {
+  parsePostJobDetail,
+  extractPostJobIdFromUrl,
+  keyPostDescriptionBySourceLocale,
+  keyPostTitleBySourceLocale,
+  isPublishablePostDetail,
+  previousPostSourceBody,
+  stripPostFallbackSlots,
+} from './lib/postch-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
@@ -510,12 +518,9 @@ async function fetchPostJobs() {
       await delay(400);
       if (!html) continue;
       const parsed = parsePostJobDetail(html, url);
-      // Require a meaningful title (locale-untranslated jobs render the
-      // generic "Stellendetails" placeholder — discard it) AND a non-trivial
-      // description.
-      const looksLikePlaceholder = /^stellendetails$/i.test(String(parsed?.title || '').trim());
-      const hasBody = (parsed?.description || '').length > 80;
-      if (parsed?.title && !looksLikePlaceholder && hasBody) {
+      // A real title (not the "Stellendetails" placeholder of an untranslated
+      // locale) AND a body that clears the shared 50-word floor.
+      if (isPublishablePostDetail(parsed)) {
         detail = parsed;
         sourceUrl = url;
         break;
@@ -523,7 +528,12 @@ async function fetchPostJobs() {
     }
 
     if (!detail || !detail.title) {
-      console.warn(`  ⚠️ Could not parse detail for job ${record.id}`);
+      // No body read this run. The listing still carries the vacancy, so the
+      // merge keeps the body a previous run read from it (same stable id) or
+      // leaves it out of this run — nothing is written in its place.
+      console.warn(`  ⚠️ Could not parse detail for job ${record.id} — keeping its previous source body if any`);
+      const url = buildDetailUrl(record, orderedLocales[0] || 'it_IT');
+      if (url) jobs.push({ url, _missingSourceBody: true });
       continue;
     }
 
@@ -555,9 +565,11 @@ async function fetchPostJobs() {
       ? record.cust_brandCompanyJobSearch[0]
       : '';
 
-    const descriptionIt = detail.description && detail.description.length > 30
-      ? detail.description
-      : `Posizione aperta presso ${brandCompany || POST_COMPANY_NAME}. Ruolo: ${title}. Sede: ${city}, Svizzera.`;
+    // Only the source's own text: the detail loop above already requires a
+    // body that clears the 50-word floor (the former Italian one-liner
+    // "Posizione aperta presso …" was never source text).
+    const description = String(detail.description || '').trim();
+    const sourceLang = detectLang(description || title, 'it');
 
     const job = {
       url: sourceUrl,
@@ -568,12 +580,16 @@ async function fetchPostJobs() {
       location: city,
       canton,
       country: 'CH',
-      description: descriptionIt,
-      descriptionByLocale: { it: descriptionIt },
-      titleByLocale: { it: title },
+      description,
+      // Keyed by the language the body is written in (job.post.ch serves a
+      // vacancy only in its own languages): see keyPostDescriptionBySourceLocale().
+      descriptionByLocale: { [sourceLang]: description },
+      // The page title is in the page's language: keyed there, never forced
+      // into `it` (see keyPostTitleBySourceLocale). Slugs keep their `it` key.
+      titleByLocale: { [sourceLang]: title },
       slug,
       slugByLocale: { it: slug },
-      sourceLang: detectLang(descriptionIt || title, 'it'),
+      sourceLang,
       department: detail.industry || '',
       category: detail.industry || 'servizi-postali',
       datePosted: detail.datePosted || new Date().toISOString().split('T')[0],
@@ -590,7 +606,8 @@ async function fetchPostJobs() {
     console.log(`     ✅ ${title} — ${city} (${canton})`);
   }
 
-  console.log(`\n📋 Total Post.ch jobs discovered (CH-wide): ${jobs.length}`);
+  const withoutBody = jobs.filter((job) => job._missingSourceBody).length;
+  console.log(`\n📋 Total Post.ch jobs discovered (CH-wide): ${jobs.length - withoutBody} with a source body, ${withoutBody} without`);
   return jobs;
 }
 
@@ -653,11 +670,36 @@ async function mergePostJobs(discoveredJobs) {
   let removed = 0;
   const merged = [];
 
+  let carried = 0;
+  let withheld = 0;
   for (const discovered of dedupedDiscovered) {
     const uuid = extractUuid(discovered.url);
     const existing = uuid ? existingByUuid.get(uuid) : null;
 
+    if (discovered._missingSourceBody) {
+      // Still listed, body unreadable this run: keep the record a previous run
+      // built from the source (minus any invented text), or publish nothing.
+      const kept = existing ? stripPostFallbackSlots(existing) : null;
+      if (kept && previousPostSourceBody(kept)) {
+        merged.push(kept);
+        carried++;
+      } else {
+        withheld++;
+      }
+      continue;
+    }
+
     if (existing) {
+      const sourceLang = discovered.sourceLang || existing.sourceLang;
+      // Source slot = fresh title; a stale non-Italian copy in `it` (written by
+      // the runner before 2026-09-29) is dropped so the localization pass
+      // translates it.
+      const titles = keyPostTitleBySourceLocale(
+        mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
+        discovered.title || existing.title,
+        sourceLang,
+        { previousTitles: [existing.title, existing.titleByLocale?.[existing.sourceLang]] },
+      );
       const updatedJob = {
         ...existing,
         title: discovered.title || existing.title,
@@ -674,12 +716,23 @@ async function mergePostJobs(discoveredJobs) {
         sector: discovered.sector || existing.sector,
         source: 'postch-careers-crawler',
         workload: discovered.workload || existing.workload,
-        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
+        titleByLocale: titles.titleByLocale,
+        ...(titles.droppedStaleItalian ? { needsRetranslation: true } : {}),
+        // mergeLocaleTextMap keeps every non-source slot of the existing
+        // record, including the legacy source-language copy the runner used to
+        // write into `it`; drop it before the localization pass.
+        descriptionByLocale: keyPostDescriptionBySourceLocale(
+          mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
+          discovered.description || existing.description,
+          discovered.sourceLang,
+          (text) => detectLang(text, ''),
+        ),
+        sourceLang,
         slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       };
 
-      merged.push(updatedJob);
+      const cleaned = stripPostFallbackSlots(updatedJob);
+      if (cleaned) merged.push(cleaned);
       updated++;
     } else {
       merged.push(discovered);
@@ -702,9 +755,11 @@ async function mergePostJobs(discoveredJobs) {
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  🗑️  Removed (stale): ${removed}`);
+  console.log(`  ♻️  Body unreadable, previous source body kept: ${carried}`);
+  console.log(`  ⏸️  Body unreadable, not published this run: ${withheld}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
 
-  return { added, updated, removed, total: final.length };
+  return { added, updated, removed, carried, withheld, total: final.length };
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -771,14 +826,30 @@ function postProcessPostJobs() {
     job.country = 'CH';
     // Discovery guarantees a resolved Swiss city; do NOT default an empty
     // location to any specific (target) city — that would mis-place the job.
-    if (!job.descriptionByLocale || job.descriptionByLocale.it !== job.description) {
-      job.descriptionByLocale = { ...(job.descriptionByLocale || {}), it: job.description };
+    // Sync the SOURCE-language slot with the scraped body and drop a
+    // mis-keyed copy of it from other slots; forcing `it = description` here
+    // wrote German/French text into the Italian slot after every localization
+    // pass (214/216 vacancies on 2026-09-29).
+    const sourceLang = job.sourceLang || detectLang(job.description || job.title, 'it');
+    const keyedDescriptions = keyPostDescriptionBySourceLocale(
+      job.descriptionByLocale,
+      job.description,
+      sourceLang,
+      (text) => detectLang(text, ''),
+    );
+    if (JSON.stringify(keyedDescriptions) !== JSON.stringify(job.descriptionByLocale || {})) {
+      job.descriptionByLocale = keyedDescriptions;
       fixed++;
     }
-    if (!job.titleByLocale || job.titleByLocale.it !== job.title) {
-      job.titleByLocale = { ...(job.titleByLocale || {}), it: job.title };
+    // Same for the title: source slot = page title, and a non-Italian copy in
+    // `it` is dropped for retranslation instead of being forced back there.
+    const titles = keyPostTitleBySourceLocale(job.titleByLocale, job.title, sourceLang);
+    if (JSON.stringify(titles.titleByLocale) !== JSON.stringify(job.titleByLocale || {})) {
+      job.titleByLocale = titles.titleByLocale;
+      if (titles.droppedStaleItalian) job.needsRetranslation = true;
       fixed++;
     }
+    // Published slugs keep their `it` key (untouched by the title keying).
     if (!job.slugByLocale || job.slugByLocale.it !== job.slug) {
       job.slugByLocale = { ...(job.slugByLocale || {}), it: job.slug };
       fixed++;
@@ -877,8 +948,10 @@ async function main() {
   // 1. Fetch and parse job listings
   const discoveredJobs = await fetchPostJobs();
 
-  if (discoveredJobs.length === 0) {
-    console.log('⚠️ No Post.ch jobs discovered from the careers portal (CH-wide).');
+  // A run that read no body at all is a detail-page outage, not an empty
+  // board: keep the existing slice exactly as before.
+  if (discoveredJobs.every((job) => job._missingSourceBody)) {
+    console.log(`⚠️ No Post.ch job body read from the careers portal (CH-wide; ${discoveredJobs.length} listed without a readable body).`);
     console.log('   The page structure may have changed or be temporarily unavailable.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     logPostJobStats();
@@ -886,7 +959,7 @@ async function main() {
   }
 
   // 2. Update the adapter config with discovered job URLs as seeds
-  const seedUrls = discoveredJobs.map(j => j.url);
+  const seedUrls = discoveredJobs.filter((j) => !j._missingSourceBody).map((j) => j.url);
   updateAdapterConfig(seedUrls);
 
   // 3. Merge discovered jobs into data/jobs.json

@@ -12,7 +12,10 @@ import {
   findUnrecognizedCoopDivisions,
   isCoopJob,
   reconcileCoopLocationCanton,
+  coopDetailNeedsQuarantine,
+  coopDetailSourceBody,
 } from '../scripts/update-coop-jobs.mjs';
+import { fingerprintsForCrawler } from '../scripts/audit-parser-quality.mjs';
 import { jobLocationRedundancy } from '../scripts/lib/job-location-display.mjs';
 import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
@@ -26,11 +29,20 @@ import {
   enrichCoopSourceBackedJobs,
   buildCoopTranslationCacheEntry,
   resolveCoopCantonCode,
+  collapseRepublishedCoopVacancies,
+  composeCoopFamilyDescription,
+  extractCoopFamilyPageDetails,
 } from '../scripts/lib/coop-job-parser.mjs';
 
 const frenchDetailFixture = JSON.parse(
   fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-french-detail.json'), 'utf8'),
 );
+// Live Prospective detail pages (Coop store, Fust apprenticeship, fenaco
+// generic, Interdiscount branch), minimized to the JSON-LD, the analytics
+// workplace field and the content blocks; recruiter names/phones redacted.
+const familyPages = Object.fromEntries(JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-family-detail-pages.json'), 'utf8'),
+).pages.map((page: { id: string, url: string, html: string }) => [page.id, page]));
 
 const makeCoopApiJob = (index, { canton = 'Zurigo' } = {}) => ({
   links: {
@@ -1125,21 +1137,27 @@ describe('Coop-family source-detail contract (#5253)', () => {
     );
   });
 
-  it('includes word and text counts when only the 50-word floor rejects (#7884)', () => {
+  // The floor is the shared source-body WORD floor (source-body-floor.mjs):
+  // 49 long words clear the former 200-character minimum by far and are still
+  // not published; 50 are. Markdown markers ("##", "-") are not words.
+  it('rejects a 49-word body however many characters it has, and publishes 50 words (#7884)', () => {
     const [companyKey, url, locality, region] = cases[0];
     const listing = {
       id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
       description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
     };
-    const longTokens = Array.from({ length: 46 }, (_, index) => `Verantwortung${index + 1}`).join(' ');
-    const detail = {
+    const detailWith = (words: number) => ({
       ...jsonLd(listing.title, locality, region),
-      description: `<h2>Aufgaben</h2><ul><li>${longTokens}</li></ul>`,
-    };
+      // "Aufgaben" + (words - 1) long tokens.
+      description: `<h2>Aufgaben</h2><ul><li>${Array.from({ length: words - 1 }, (_, index) => `Verantwortungsbereich${index + 1}`).join(' ')}</li></ul>`,
+    });
+    const fortyNine = detailWith(49);
+    expect(coopDescHtmlToMarkdown(fortyNine.description).length).toBeGreaterThan(1000);
 
-    expect(() => applyCoopSourceDetailToJob(listing, detail)).toThrow(
-      /49 words, \d+ chars\): Description below minimum 50 words/,
+    expect(() => applyCoopSourceDetailToJob(listing, fortyNine)).toThrow(
+      /49 words, \d+ chars\): Description too short: 49 words \(minimum 50\)/,
     );
+    expect(applyCoopSourceDetailToJob(listing, detailWith(50))).toMatchObject({ _enrichedFromDetail: true });
   });
 
   it.each(cases)('%s replaces listing fallbacks without changing identity or route history', (companyKey, url, locality, region, canton) => {
@@ -1609,5 +1627,206 @@ describe('assertCoopSingleCompanyKeyScope (#6945 item 2)', () => {
       .toThrow(/sole company-key scope/);
     expect(() => assertCoopSingleCompanyKeyScope({ JOBS_CRAWLER_COMPANY_KEY: 'jumbo' }))
       .toThrow(/sole company-key scope/);
+  });
+});
+
+// ──────────────────────────────────────────────────────────────
+// Detail-page content outside the JSON-LD (parser-quality audit #5253)
+// ──────────────────────────────────────────────────────────────
+
+describe('Coop-family detail page content outside the JSON-LD description', () => {
+  const pageOf = (id: string) => familyPages[id];
+  const detailOf = (id: string) => extractCoopFamilyPageDetails(pageOf(id).html);
+  const jsonLdOf = (id: string) => extractJsonLd(pageOf(id).html);
+
+  it('reads the Coop store facts and leaves contact/process chrome out', () => {
+    const page = detailOf('coop-store');
+    expect(page.facts).toEqual(expect.arrayContaining([
+      { label: 'Arbeitsort', value: 'Coop, Albisriederstrasse 334, 8047 Zürich' },
+      { label: 'Pensum', value: '8 - 20 Std./Woche' },
+      { label: 'Stellenantritt', value: 'per sofort oder nach Vereinbarung' },
+    ]));
+    expect(page.sections.map((section) => section.heading)).not.toContain('Bewerbungsprozess');
+    expect(page.facts.map((fact) => fact.label)).not.toContain('Deine Ansprechperson');
+  });
+
+  it('gives two Zürich stores of the same role two different published bodies and addresses', () => {
+    const job = {
+      title: 'Verkäufer:in Food', company: 'Coop Genossenschaft', location: 'Zürich', addressLocality: 'Zürich',
+      canton: 'ZH', addressRegion: 'ZH', sourceLang: 'de',
+    };
+    const html = pageOf('coop-store').html;
+    const otherStoreHtml = html
+      .replaceAll('Albisriederstrasse 334', 'Dorflindenstrasse 2')
+      .replaceAll('8047', '8050');
+    const publish = (pageHtml: string, url: string) => {
+      const jsonLd = extractJsonLd(pageHtml);
+      const { job: located } = applyCoopJsonLdToJob(job, jsonLd);
+      const body = composeCoopFamilyDescription(coopDescHtmlToMarkdown(jsonLd.description), extractCoopFamilyPageDetails(pageHtml));
+      return { ...located, url, description: `## ${job.title}\n\n**Coop Genossenschaft** — Zürich, ZH, Svizzera\n\n${body}` };
+    };
+    const a = publish(html, 'https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/2f1b4fc6-b883-4d7c-963f-a29fd82e6a17');
+    const b = publish(otherStoreHtml, 'https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/ef8c87a1-aba4-44e1-971f-503dddba761e');
+
+    expect(a.description).toContain('- Arbeitsort: Coop, Albisriederstrasse 334, 8047 Zürich');
+    expect(a.description).toContain('- Pensum: 8 - 20 Std./Woche');
+    expect(a.description).toContain('## Aufgaben');
+    expect(a).toMatchObject({ location: 'Zürich', postalCode: '8047', streetAddress: 'Albisriederstrasse 334' });
+    expect(b).toMatchObject({ location: 'Zürich', postalCode: '8050', streetAddress: 'Dorflindenstrasse 2' });
+    const [fpA, fpB] = fingerprintsForCrawler([a, b], 'title-aware');
+    expect(fpA).not.toBe(fpB);
+  });
+
+  it('drops a stale street when the adapter workplace overrides the detail address', () => {
+    const { job: updated } = applyCoopJsonLdToJob({
+      title: 'Verkaufsberater:in', location: 'Basel', addressLocality: 'Basel', canton: 'BS', addressRegion: 'BS',
+      company: 'Coop', postalCode: '4051', streetAddress: 'Detailstrasse 1',
+      _targetScope: { type: 'adapter_seed_meta', location: 'Region Zürich (Sihlcity und Umgebung)', canton: 'ZH' },
+    }, {
+      jobLocation: { address: { addressLocality: 'Basel', addressRegion: 'Basel-Stadt', addressCountry: 'CH', postalCode: '4051', streetAddress: 'Detailstrasse 1' } },
+      hiringOrganization: { name: 'Coop' },
+    });
+    expect(updated.location).toBe('Region Zürich (Sihlcity und Umgebung)');
+    expect(updated.postalCode).toBeUndefined();
+    expect(updated.streetAddress).toBeUndefined();
+  });
+
+  it('collapses only the same ad republished at the same store address', () => {
+    const base = {
+      title: 'Transportdisponent:in', location: 'Gossau', postalCode: '9200', streetAddress: 'Industriestrasse 109',
+      description: '- Arbeitsort: Coop, Industriestrasse 109, 9200 Gossau\n- Pensum: 100 %\n\n## Aufgaben\n- Touren planen',
+    };
+    const jobs = [
+      { ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/b', firstSeenAt: new Date(Date.now() - 2 * 86400000).toISOString() },
+      { ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/a', firstSeenAt: new Date(Date.now() - 30 * 86400000).toISOString() },
+      { ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/c', description: base.description.replace('100 %', '60 %') },
+      { ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/d', postalCode: '', streetAddress: '' },
+      { ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/e', postalCode: '', streetAddress: '' },
+    ];
+    const { kept, collapsed } = collapseRepublishedCoopVacancies(jobs);
+
+    expect(collapsed).toEqual([{
+      url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/b',
+      keptUrl: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/a',
+    }]);
+    expect(kept.map((job) => job.url.slice(-1))).toEqual(['a', 'c', 'd', 'e']);
+  });
+
+  it('publishes the fenaco tasks, profile, facts and benefits the JSON-LD leaves out', () => {
+    const listing = {
+      id: 'volg-fenaco-stable', companyKey: 'volg-fenaco', url: pageOf('fenaco-generic').url,
+      title: 'Planungs- und Bauprojektleiterin / Bauprojektleiter (w/m/d)', description: 'listing fallback',
+      location: 'Sursee', canton: 'LU', sourceLang: 'de',
+    };
+    const jsonLd = jsonLdOf('fenaco-generic');
+    const jsonLdOnly = coopDescHtmlToMarkdown(jsonLd.description);
+    const result = applyCoopSourceDetailToJob(listing, jsonLd, detailOf('fenaco-generic'));
+
+    expect(jsonLdOnly).not.toContain('Fundierte CAD-Kenntnisse');
+    expect(result.description).toContain('## Diese Aufgaben begeistern dich');
+    expect(result.description).toContain('- Fundierte CAD-Kenntnisse');
+    expect(result.description).toContain('- Pensum: 80-100 %');
+    expect(result.description).toContain('- Attraktive Ferienregelung: ');
+    expect(result.description).not.toContain('Bewerbungsprozess');
+    expect(result.description).not.toContain('Online-Formular');
+    expect(result.description.length).toBeGreaterThan(jsonLdOnly.length * 4);
+    expect(result).toMatchObject({ location: 'Sursee', canton: 'LU', postalCode: '6210' });
+  });
+
+  it('does not repeat a benefit list the JSON-LD already carries', () => {
+    const markdown = '## Das bieten wir dir\n- Jahresabo "update Fitness"\n- CHF 500 für Laptop oder Tablet\n- SBB Halbtax oder Anteil GA CHF 650';
+    const composed = composeCoopFamilyDescription(markdown, {
+      workplace: '', facts: [], sections: [],
+      benefits: { heading: 'Das bieten wir dir', items: ['Jahresabo "update Fitness"', 'CHF 500 für Laptop oder Tablet', 'Neu: Kinderzulage'] },
+    });
+    expect(composed).toBe(markdown);
+  });
+
+  it('extends an existing benefit heading in place instead of publishing it twice', () => {
+    const markdown = '## Das bieten wir dir\n- 6 Wochen Ferien\n\nKontaktperson HR';
+    const composed = composeCoopFamilyDescription(markdown, {
+      workplace: '', facts: [], sections: [],
+      benefits: { heading: 'Das bieten wir dir', items: ['Jahresabo "update Fitness"', 'SBB Halbtax'] },
+    });
+    expect(composed.match(/## Das bieten wir dir/g)).toHaveLength(1);
+    expect(composed).toContain('- 6 Wochen Ferien\n- Jahresabo "update Fitness"\n- SBB Halbtax\n\nKontaktperson HR');
+  });
+
+  it('publishes the Fust workplace the page declares instead of the Oberbüren head office', () => {
+    const jsonLd = jsonLdOf('fust-apprenticeship');
+    // A re-crawled record may still carry the head office from an earlier run.
+    const staleListing = {
+      id: 'fust-stable', companyKey: 'fust', url: pageOf('fust-apprenticeship').url,
+      title: 'Detailhandelsfachfrau:mann EFZ «Gestalten von Einkaufserlebnissen»', description: 'listing fallback',
+      location: 'Oberbüren', addressLocality: 'Oberbüren', canton: 'SG', addressRegion: 'SG',
+      postalCode: '9245', streetAddress: 'Industrie Haslen 3', sourceLang: 'de',
+    };
+    expect(jsonLd.jobLocation.address.addressLocality).toBe('Oberbüren');
+    const result = applyCoopSourceDetailToJob(staleListing, jsonLd, detailOf('fust-apprenticeship'));
+
+    expect(result).toMatchObject({ location: 'Zuchwil', addressLocality: 'Zuchwil', canton: 'SO', postalCode: '', streetAddress: '' });
+    expect(result.description).toContain('- Lehrdauer von 01.08.2027 bis 31.07.2030');
+    // Without the page the old head-office behaviour is unchanged.
+    expect(applyCoopSourceDetailToJob(staleListing, jsonLd)).toMatchObject({ location: 'Oberbüren', canton: 'SG' });
+  });
+
+  it('keeps a non-municipality branch label only when it is coherent with the listing canton', () => {
+    const jsonLd = jsonLdOf('interdiscount-branch-label');
+    const page = detailOf('interdiscount-branch-label');
+    const listing = {
+      id: 'interdiscount-stable', companyKey: 'interdiscount', url: pageOf('interdiscount-branch-label').url,
+      title: 'Detailhandelsfachfrau:mann EFZ "Gestalten von Einkaufserlebnissen"', description: 'listing fallback',
+      location: 'Heerbrugg', addressLocality: 'Heerbrugg', canton: 'SG', addressRegion: 'SG', addressCountry: 'CH', sourceLang: 'de',
+    };
+    expect(jsonLd.jobLocation.address.addressLocality).toBe('Jegensdorf');
+    expect(applyCoopSourceDetailToJob(listing, jsonLd, page)).toMatchObject({
+      location: 'Heerbrugg', canton: 'SG', postalCode: '', streetAddress: '',
+    });
+    // The same label without listing corroboration names no canton: not evidence.
+    const { addressLocality, ...regionOnly } = listing;
+    expect(applyCoopSourceDetailToJob({ ...regionOnly, location: 'St. Gallen' }, jsonLd, page)).toMatchObject({
+      location: 'Jegensdorf', postalCode: '3303',
+    });
+  });
+
+  it('keeps the detail municipality when the branch label only qualifies it', () => {
+    const jsonLd = {
+      ...jsonLdOf('fust-apprenticeship'),
+      jobLocation: { address: { addressLocality: 'Schaffhausen', addressRegion: 'Schaffhausen', addressCountry: 'Schweiz', postalCode: '8207', streetAddress: 'Herblingerstrasse 1' } },
+    };
+    const page = { ...detailOf('fust-apprenticeship'), workplace: 'Schaffhausen, Herblingermarkt' };
+    const listing = {
+      id: 'fust-stable', companyKey: 'fust', url: pageOf('fust-apprenticeship').url,
+      title: 'Detailhandelsfachfrau:mann EFZ «Gestalten von Einkaufserlebnissen»', description: 'listing fallback',
+      location: 'Schaffhausen', canton: 'SH', sourceLang: 'de',
+    };
+    expect(applyCoopSourceDetailToJob(listing, jsonLd, page)).toMatchObject({
+      location: 'Schaffhausen', postalCode: '8207', streetAddress: 'Herblingerstrasse 1',
+    });
+  });
+});
+
+describe('Coop quarantine gate on the composed source body (review #10333)', () => {
+  // Real JSON-LD wording of a Coop sales role, cut to 49 words, and the page's
+  // own facts/sections: the composed posting clears the 50-word source floor.
+  const WORDS = 'Du liebst die Abwechslung darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen stets freundlich und engagiert Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet'.split(' ');
+  const jsonLd49 = { description: `<p>${Array.from({ length: 49 }, (_, i) => WORDS[i % WORDS.length]).join(' ')}</p>` };
+  const page = {
+    workplace: '',
+    facts: [{ label: 'Arbeitsort', value: 'Coop Supermarkt Zürich Oerlikon, Schaffhauserstrasse 355, 8050 Zürich' }, { label: 'Pensum', value: '40-60%' }],
+    sections: [],
+    benefits: null,
+  };
+  const staleJob = { description: '## Verkäufer:in Food\n\nlisting fallback' };
+
+  it('does not quarantine a 49-word JSON-LD whose page details bring the composed body to 50+ words', () => {
+    const composed = coopDetailSourceBody(jsonLd49, page);
+    expect(composed).toContain('Schaffhauserstrasse 355');
+    expect(coopDetailNeedsQuarantine(staleJob, jsonLd49, page)).toBe(false);
+  });
+
+  it('still quarantines the same 49-word JSON-LD without page details and without a stored body', () => {
+    expect(coopDetailNeedsQuarantine(staleJob, jsonLd49, null)).toBe(true);
+    expect(coopDetailNeedsQuarantine(staleJob, null, null)).toBe(true);
   });
 });

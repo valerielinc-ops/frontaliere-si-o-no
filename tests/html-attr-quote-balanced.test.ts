@@ -144,13 +144,22 @@ describe('remaining attribute consumers — quote balanced (#6574)', () => {
   });
 
   it('keeps apostrophes in PostFinance meta and canonical attributes', () => {
+    // The meta description only becomes the body when it clears the shared
+    // 50-word floor itself (source-body-floor.mjs), so it is 50+ words here.
+    const metaDescription = [
+      "Un'opportunità per guidare il team PostFinance nell'ambito dell'economia aziendale:",
+      "coordini l'attività quotidiana dell'ufficio, sostieni le colleghe e i colleghi nell'analisi dei dati,",
+      "prepari le basi decisionali per la direzione e curi i rapporti con i servizi interni della Posta.",
+      "Cerchiamo una persona con esperienza nell'amministrazione, spirito d'iniziativa, buone doti comunicative",
+      "e ottime conoscenze dell'italiano e del tedesco, pronta ad assumersi responsabilità in un contesto dinamico e stimolante.",
+    ].join(' ');
     const parsed = parsePostFinanceMetaPage(`
       <meta property="og:title" content="Responsabile dell'economia">
-      <meta property="og:description" content="Un'opportunità per guidare il team PostFinance.">
+      <meta property="og:description" content="${metaDescription}">
       <link href="https://job.post.ch/PostFinance/job/d'Oggi/42/" rel="canonical">
     `, 'https://fallback.example/');
     expect(parsed.title).toBe("Responsabile dell'economia");
-    expect(parsed.description).toBe("Un'opportunità per guidare il team PostFinance.");
+    expect(parsed.description).toBe(metaDescription);
     expect(parsed.canonical).toBe("https://job.post.ch/PostFinance/job/d'Oggi/42/");
   });
 

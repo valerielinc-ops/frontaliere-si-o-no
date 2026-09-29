@@ -24,11 +24,10 @@
  *   3. Resolve canton from the entry's `jobLocationShort` field, falling
  *      back to inferAnyCanton (all 26 cantons); drop jobs that don't
  *      resolve to a Swiss canton (non-CH). Never invent a canton.
- *   4. Best-effort fetch the detail page for a fuller description; since
- *      job.post.ch hydrates the description client-side this is often thin,
- *      so a substantive fallback description is built from listing fields
- *      whenever scraped content is too short (thin-content floor, see
- *      Non-Negotiable #4)
+ *   4. Fetch the detail page for the vacancy body. Only the source's own
+ *      text is published: a vacancy whose body cannot be read keeps the body
+ *      a previous run read from it, or is left out of this run (no text is
+ *      composed from listing fields)
  *   5. Merge into dataset, run AI localization, validate locale coverage
  *   6. Write per-crawler slice and reassemble global dataset
  *
@@ -69,7 +68,16 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import {
+  carryPostSourceBody,
+  extractRtlTextAlignEligibleSpans,
+  htmlBlockToTextWithBullets,
+  keyPostDescriptionBySourceLocale,
+  keyPostTitleBySourceLocale,
+  parsePostJobDetail,
+  stripPostFallbackSlots,
+} from './lib/postch-job-parser.mjs';
 import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchJson, stripScriptsAndStyles } from './lib/crawler-template.mjs';
@@ -468,22 +476,6 @@ function decodeHtmlEntities(text = '') {
 }
 
 /**
- * Strip inner HTML tags, decode entities, and collapse whitespace.
- */
-function htmlToText(fragment = '') {
-  return decodeHtmlEntities(
-    String(fragment)
-      .replace(/<\s*br\s*\/?>/gi, '\n')
-      .replace(/<\/(p|li|ul|ol|div|h[1-6])\s*>/gi, '\n')
-      .replace(/<[^>]+>/g, ''),
-  )
-    .replace(/[ \t]+/g, ' ')
-    .replace(/\n[ \t]+/g, '\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-}
-
-/**
  * Extract the full job description from a SuccessFactors PostFinance HTML page.
  *
  * The page renders the description inside one of multiple
@@ -495,18 +487,25 @@ function htmlToText(fragment = '') {
  * Strategy: collect all `rtltextaligneligible` spans, score them by the
  * length of their plain-text content, prefer those that contain `<p>` or
  * `<li>` tags (paragraph-style content), and return the longest one.
+ *
+ * Each span is read to its BALANCED closing tag and its list items keep a
+ * line-start "- " marker (shared Post-platform helpers in
+ * `postch-job-parser.mjs`). The former non-greedy `([\s\S]*?)<\/span>` match
+ * stopped the body at its first inline child span — 74128 published only its
+ * opening paragraph — and `</li>` → newline alone turned every list into loose
+ * paragraphs (17/19 vacancies without a single bullet on 2026-09-29).
  */
 export function extractPostFinanceBodyDescription(html = '') {
   if (!html || typeof html !== 'string') return '';
 
-  // Match all rtltextaligneligible spans (multiline, non-greedy).
-  const spanRe = /<span[^>]*class="[^"]*rtltextaligneligible[^"]*"[^>]*>([\s\S]*?)<\/span>/gi;
   const candidates = [];
-  let match;
-  while ((match = spanRe.exec(html)) !== null) {
-    const inner = match[1];
+  for (const inner of extractRtlTextAlignEligibleSpans(html)) {
     const hasParagraph = /<p[\s>]|<li[\s>]|<ul[\s>]|<ol[\s>]/i.test(inner);
-    const text = htmlToText(inner);
+    const text = decodeHtmlEntities(htmlBlockToTextWithBullets(inner))
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
     if (text.length > 0) {
       candidates.push({ text, length: text.length, hasParagraph });
     }
@@ -541,7 +540,12 @@ function parsePostFinanceMetaPage(html, url) {
 
   const bodyDescription = extractPostFinanceBodyDescription(html);
   const metaDescription = ogDesc || metaDesc || '';
-  const description = bodyDescription.length >= 150 ? bodyDescription : metaDescription;
+  // Word floor, not characters (source-body-floor.mjs): a body under 50 words
+  // is a thin page, and the SEO meta snippet (usually just the title) never
+  // becomes the published body unless it clears the same floor itself.
+  const description = meetsSourceBodyFloor(bodyDescription)
+    ? bodyDescription
+    : (meetsSourceBodyFloor(metaDescription) ? metaDescription : '');
 
   return {
     title,
@@ -705,29 +709,6 @@ function resolveRecruitingApiLocation(jobLocationShort) {
 }
 
 /**
- * Build a substantive fallback description (well above the 50-word
- * thin-content floor, Non-Negotiable #4) from listing fields.
- *
- * job.post.ch hydrates the job description client-side, so a raw fetch of
- * the detail page frequently returns SPA-shell boilerplate with no usable
- * body text (see #4759). Used both by the recruiting-API path and by the
- * legacy sitemap path whenever the scraped/JSON-LD description is thin.
- */
-function buildPostFinanceFallbackDescription({ title, city, canton, category, workloadMin, workloadMax }) {
-  const workloadText = workloadMin && workloadMax
-    ? (Number(workloadMin) === Number(workloadMax)
-      ? `con un grado di occupazione del ${workloadMin}%`
-      : `con un grado di occupazione flessibile tra il ${workloadMin}% e il ${workloadMax}%`)
-    : 'con grado di occupazione da concordare';
-  const categoryText = category ? ` nell'ambito "${category}"` : '';
-  return [
-    `PostFinance, la sussidiaria di servizi finanziari della Posta Svizzera, ricerca attualmente la figura "${title}" per la sede di ${city} (Cantone ${canton}).`,
-    `La posizione${categoryText} è pubblicata ${workloadText} sul portale ufficiale delle carriere PostFinance/Posta Svizzera e rientra nell'offerta corrente di impieghi disponibili in Svizzera.`,
-    `Per consultare i requisiti completi del profilo ricercato, le condizioni di impiego e candidarsi direttamente, è necessario visitare la pagina dell'annuncio collegata a questo articolo.`,
-  ].join(' ');
-}
-
-/**
  * Build a job record from one recruiting-API listing entry, enriching it
  * with a best-effort scrape of the detail page when possible.
  */
@@ -756,9 +737,9 @@ async function buildJobFromRecruitingApiEntry(entry) {
   // extractPostFinanceBodyDescription/parsePostFinanceMetaPage expect.
   const url = `https://${COMPANY_HOST}/job/${decodeHtmlEntities(urlTitle)}/${id}-de_DE`;
 
-  // Best-effort enrichment — real content is expected here (see URL doc
-  // above), but fall back to buildPostFinanceFallbackDescription below if
-  // the page ever regresses to thin/no content.
+  // The vacancy body comes from this page only (see URL doc above). When it
+  // is thin or missing the job leaves here without a description and
+  // mergePostFinanceJobs() keeps the previous source body or withholds it.
   const html = await fetchPage(url, 15000);
   const scraped = html ? parsePostFinanceMetaPage(html, url) : null;
   await delay(300);
@@ -767,16 +748,12 @@ async function buildJobFromRecruitingApiEntry(entry) {
   const workloadMin = entry.cust_WorkingTimeMin;
   const workloadMax = entry.cust_WorkingTimeMax;
 
-  // 150 chars mirrors parsePostFinanceMetaPage's own bar for "real body
-  // content vs SEO meta-tag snippet" (see its extractPostFinanceBodyDescription
-  // call) — anything shorter is treated as thin and gets the substantive
-  // fallback instead.
-  const scrapedDescription = scraped?.description && scraped.description.length >= 150
+  // The shared 50-word floor (source-body-floor.mjs): anything shorter is not
+  // a vacancy body.
+  const description = meetsSourceBodyFloor(scraped?.description)
     ? scraped.description
     : '';
-  const descriptionIt = scrapedDescription || buildPostFinanceFallbackDescription({
-    title, city, canton, category, workloadMin, workloadMax,
-  });
+  const sourceLang = description ? detectLang(description, 'en') : '';
 
   const slug = slugify(title, 'postfinance');
 
@@ -789,12 +766,16 @@ async function buildJobFromRecruitingApiEntry(entry) {
     location: city,
     canton,
     country: 'CH',
-    description: descriptionIt,
-    descriptionByLocale: { it: descriptionIt },
-    titleByLocale: { it: title },
+    description,
+    // Keyed by the language the body is written in, never hard-wired to `it`:
+    // see keyPostDescriptionBySourceLocale().
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
+    // The page title is in the page's language: keyed there, never forced
+    // into `it` (see keyPostTitleBySourceLocale). Slugs keep their `it` key.
+    titleByLocale: sourceLang ? { [sourceLang]: title } : {},
     slug,
     slugByLocale: { it: slug },
-    sourceLang: detectLang(descriptionIt || title, 'en'),
+    sourceLang,
     department: category,
     category: category || 'servizi-finanziari',
     datePosted: entry.unifiedStandardStart || new Date().toISOString().split('T')[0],
@@ -804,7 +785,6 @@ async function buildJobFromRecruitingApiEntry(entry) {
     experienceLevel: '',
     sector: detectSector(title),
     workload: workloadMin && workloadMax ? `${workloadMin}-${workloadMax}%` : '',
-    needsRetranslation: !scrapedDescription,
     _targetScope: { canton, location: city },
   };
 }
@@ -816,7 +796,7 @@ async function fetchPostFinanceJobsViaRecruitingApi() {
     const job = await buildJobFromRecruitingApiEntry(entry);
     if (job) {
       jobs.push(job);
-      console.log(`     ✅ ${job.title} — ${job.location} (${job.canton})${job.needsRetranslation ? ' [needs retranslation]' : ''}`);
+      console.log(`     ✅ ${job.title} — ${job.location} (${job.canton})${job.description ? '' : ' [no readable body]'}`);
     }
   }
   console.log(`\n📋 Total PostFinance CH-wide jobs discovered via recruiting API: ${jobs.length}`);
@@ -918,12 +898,18 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
     const title = detail.title;
     const slug = slugify(title, 'postfinance');
 
-    const descriptionIt = detail.description && detail.description.length > 30
+    // Source text only; without it mergePostFinanceJobs() keeps the previous
+    // source body or withholds the vacancy from this run.
+    const description = meetsSourceBodyFloor(detail.description)
       ? detail.description
-      : buildPostFinanceFallbackDescription({ title, city, canton, category: '', workloadMin: null, workloadMax: null });
+      : '';
+    const sourceLang = description ? detectLang(description, 'en') : '';
 
-    // Mark as needsRetranslation if description came from meta tags (thin content)
-    const needsRetranslation = !detail.hasJsonLd || detail.description?.length < 100;
+    // Neither page kind parsed here carries a JobPosting JSON-LD, so this is
+    // true for every vacancy of this path: its translations come from the
+    // retranslation pass. (The former `< 100` characters clause is moot: a body
+    // under the 50-word floor is never published.)
+    const needsRetranslation = !detail.hasJsonLd;
 
     const job = {
       url: sourceUrl,
@@ -934,12 +920,12 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
       location: city,
       canton,
       country: 'CH',
-      description: descriptionIt,
-      descriptionByLocale: { it: descriptionIt },
-      titleByLocale: { it: title },
+      description,
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
+      titleByLocale: sourceLang ? { [sourceLang]: title } : {},
       slug,
       slugByLocale: { it: slug },
-      sourceLang: detectLang(descriptionIt || title, 'en'),
+      sourceLang,
       department: detail.industry || '',
       category: detail.industry || 'servizi-finanziari',
       datePosted: detail.datePosted || new Date().toISOString().split('T')[0],
@@ -995,6 +981,26 @@ function postFinanceMatchKey(job) {
   );
 }
 
+/**
+ * Title keyed under the source language (never forced into `it`); a stale
+ * non-Italian copy in `it` is dropped and the record flagged for
+ * retranslation. Slugs are left alone.
+ */
+function withSourceLanguageTitle(job, previous = null) {
+  const sourceLang = job.sourceLang || detectLang(job.description || job.title, 'en');
+  const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale(
+    job.titleByLocale,
+    job.title,
+    sourceLang,
+    { previousTitles: previous ? [previous.title, previous.titleByLocale?.[previous.sourceLang]] : [] },
+  );
+  return {
+    ...job,
+    titleByLocale,
+    ...(droppedStaleItalian ? { needsRetranslation: true } : {}),
+  };
+}
+
 async function mergePostFinanceJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
@@ -1002,21 +1008,53 @@ async function mergePostFinanceJobs(discoveredJobs) {
   const nonPfJobs = allJobs.filter((j) => !isPostFinanceJob(j));
   const existingPfJobs = allJobs.filter(isPostFinanceJob);
 
+  // Every published vacancy carries text read from the source: a vacancy
+  // whose body was unreadable this run keeps the previous run's source body,
+  // or is withheld (never a composed description).
+  const existingByKey = new Map();
+  for (const job of existingPfJobs) {
+    const key = postFinanceMatchKey(job);
+    if (key) existingByKey.set(key, job);
+  }
+  const publishable = [];
+  let carried = 0;
+  let withheld = 0;
+  for (const job of discoveredJobs) {
+    const resolved = carryPostSourceBody(job, existingByKey.get(postFinanceMatchKey(job)) || null);
+    if (!resolved.job) {
+      withheld++;
+      continue;
+    }
+    if (resolved.carried) carried++;
+    publishable.push(withSourceLanguageTitle(resolved.job, existingByKey.get(postFinanceMatchKey(job)) || null));
+  }
+
   const existingKeys = new Set(existingPfJobs.map(postFinanceMatchKey).filter(Boolean));
-  const discoveredKeys = new Set(discoveredJobs.map(postFinanceMatchKey).filter(Boolean));
+  const discoveredKeys = new Set(publishable.map(postFinanceMatchKey).filter(Boolean));
   const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
   const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
   const removed = [...existingKeys].filter((k) => !discoveredKeys.has(k)).length;
 
-  const merged = mergePreserveLocaleData(existingPfJobs, discoveredJobs, {
+  const merged = mergePreserveLocaleData(existingPfJobs, publishable, {
     matchKey: postFinanceMatchKey,
   }).map((job) => ({
     ...job,
+    // Before the localization pass, so a legacy source-language copy in the
+    // Italian slot does not make that slot look already translated.
+    descriptionByLocale: keyPostDescriptionBySourceLocale(
+      job.descriptionByLocale,
+      job.description,
+      job.sourceLang || detectLang(job.description || job.title, 'en'),
+      (text) => detectLang(text, ''),
+    ),
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     country: 'CH',
     source: 'postfinance-careers-crawler',
-  }));
+  })).map(stripPostFallbackSlots).filter(Boolean).map((job) => withSourceLanguageTitle(
+    job,
+    existingByKey.get(postFinanceMatchKey(job)) || null,
+  ));
 
   const final = [...nonPfJobs, ...merged];
 
@@ -1028,9 +1066,11 @@ async function mergePostFinanceJobs(discoveredJobs) {
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  🗑️  Removed (stale): ${removed}`);
+  console.log(`  ♻️  Body unreadable, previous source body kept: ${carried}`);
+  console.log(`  ⏸️  Body unreadable, not published this run: ${withheld}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
 
-  return { added, updated, removed, total: final.length };
+  return { added, updated, removed, carried, withheld, total: final.length };
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -1102,14 +1142,27 @@ function postProcessPostFinanceJobs() {
       fixed++;
     }
     job.country = 'CH';
-    if (!job.descriptionByLocale || job.descriptionByLocale.it !== job.description) {
-      job.descriptionByLocale = { ...(job.descriptionByLocale || {}), it: job.description };
+    // Sync the SOURCE-language slot with the scraped body and drop a
+    // mis-keyed copy of it from other slots; forcing `it = description` here
+    // wrote German text into the Italian slot after every localization pass.
+    const sourceLang = job.sourceLang || detectLang(job.description || job.title, 'en');
+    const keyedDescriptions = keyPostDescriptionBySourceLocale(
+      job.descriptionByLocale,
+      job.description,
+      sourceLang,
+      (text) => detectLang(text, ''),
+    );
+    if (JSON.stringify(keyedDescriptions) !== JSON.stringify(job.descriptionByLocale || {})) {
+      job.descriptionByLocale = keyedDescriptions;
       fixed++;
     }
-    if (!job.titleByLocale || job.titleByLocale.it !== job.title) {
-      job.titleByLocale = { ...(job.titleByLocale || {}), it: job.title };
+    const keyedTitles = withSourceLanguageTitle({ ...job, sourceLang });
+    if (JSON.stringify(keyedTitles.titleByLocale) !== JSON.stringify(job.titleByLocale || {})) {
+      job.titleByLocale = keyedTitles.titleByLocale;
+      if (keyedTitles.needsRetranslation) job.needsRetranslation = true;
       fixed++;
     }
+    // Published slugs keep their `it` key (untouched by the title keying).
     if (!job.slugByLocale || job.slugByLocale.it !== job.slug) {
       job.slugByLocale = { ...(job.slugByLocale || {}), it: job.slug };
       fixed++;

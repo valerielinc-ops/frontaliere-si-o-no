@@ -15,6 +15,9 @@ import {
   listingPageUrl,
   discoverMcdoJobUrls,
   fetchMcdoJobs,
+  isMcdoFallbackBlurb,
+  resolveMcdoJobBodies,
+  stripMcdoFallbackSlots,
 } from '../scripts/lib/mcdonalds-job-parser.mjs';
 
 const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
@@ -383,9 +386,10 @@ describe("McDonald's Switzerland crawler parser", () => {
         'https://jobs.mcdonalds.ch/fr-ch/assistant-e-manager-de-restaurant/job/P8-310079-1'
       );
       expect(job.sector).toBe('Ristorazione / Fast Food');
-      // Listing-only build has no enrichment yet, so it falls back to the
-      // synthesized description rather than a scraped one.
-      expect(job.description.length).toBeGreaterThan(20);
+      // Listing-only build has no detail body: nothing is invented here —
+      // resolveMcdoJobBodies() decides between the previous source text and
+      // withholding the row (issue 5253).
+      expect(job.description).toBe('');
     });
 
     it('keeps mandatory address fields coherent when source address data is absent', () => {
@@ -426,6 +430,80 @@ describe("McDonald's Switzerland crawler parser", () => {
     it('returns null for empty parse results', () => {
       expect(buildMcdoJob(null)).toBeNull();
       expect(buildMcdoJob({ title: '' } as never)).toBeNull();
+    });
+  });
+
+  describe('source-body continuity (audit-parser-quality issue 5253)', () => {
+    // Pinned from the 2026-09-29 slice: `it` still carries the blurb a failed
+    // detail run invented, en/de its machine translations, fr the real body.
+    const staleRecords = JSON.parse(
+      readFileSync(path.join(FIXTURES, 'mcdonalds-stale-fallback-records.json'), 'utf8'),
+    ).records as Array<Record<string, any>>;
+    const [schaffhausen, allschwil] = staleRecords;
+    const listingOnly = () => {
+      const [, , , lugano] = extractListingJobs(listingHtml).jobs;
+      return buildMcdoJob(listingEntryToParsed(lugano))!;
+    };
+
+    it('recognises the invented blurb in its plain and enrichment-restructured forms only', () => {
+      expect(isMcdoFallbackBlurb(schaffhausen.descriptionByLocale.it)).toBe(true);
+      expect(isMcdoFallbackBlurb(allschwil.descriptionByLocale.it)).toBe(true);
+      expect(isMcdoFallbackBlurb(
+        "## Descrizione\n- Posizione aperta presso un ristorante McDonald's a BASEL (BS), Svizzera\n- Candidati tramite il portale ufficiale McDonald's Switzerland",
+      )).toBe(true);
+      expect(isMcdoFallbackBlurb(schaffhausen.descriptionByLocale.fr)).toBe(false);
+      expect(isMcdoFallbackBlurb(
+        `${schaffhausen.descriptionByLocale.fr}\n\nCandidati tramite il portale ufficiale McDonald's Switzerland.`,
+      )).toBe(false);
+    });
+
+    it('keeps the text a previous run read from the same vacancy when the detail page fails', () => {
+      const fresh = { ...listingOnly(), url: schaffhausen.url };
+      const { jobs, carried, withheld } = resolveMcdoJobBodies([fresh], [schaffhausen]);
+
+      expect(carried).toEqual([schaffhausen.url]);
+      expect(withheld).toEqual([]);
+      expect(jobs[0]).toMatchObject({ description: schaffhausen.descriptionByLocale.fr, sourceLang: 'fr' });
+    });
+
+    it('withholds a row that has no body read from the source, instead of inventing one', () => {
+      const neverRead = listingOnly();
+      const blurbOnly = {
+        url: neverRead.url,
+        sourceLang: 'it',
+        description: schaffhausen.descriptionByLocale.it,
+        descriptionByLocale: { it: schaffhausen.descriptionByLocale.it },
+      };
+
+      expect(resolveMcdoJobBodies([neverRead], [])).toEqual({ jobs: [], carried: [], withheld: [neverRead.url] });
+      expect(resolveMcdoJobBodies([neverRead], [blurbOnly]).withheld).toEqual([neverRead.url]);
+    });
+
+    it('passes a job with its own detail body through untouched', () => {
+      const parsed = parseMcdoDetailPage(detailHtml)!;
+      const job = buildMcdoJob(parsed)!;
+      const { jobs, carried, withheld } = resolveMcdoJobBodies([job], [schaffhausen]);
+      expect(jobs).toEqual([job]);
+      expect(carried).toEqual([]);
+      expect(withheld).toEqual([]);
+    });
+
+    it('drops the stored blurb and its translations, keeping only the real source slot', () => {
+      for (const record of staleRecords) {
+        const cleaned = stripMcdoFallbackSlots(record);
+        expect(cleaned.descriptionByLocale).toEqual({ fr: record.descriptionByLocale.fr });
+        expect(cleaned.needsRetranslation).toBe(true);
+        expect(cleaned.description).toBe(record.description);
+      }
+      const clean = { ...schaffhausen, descriptionByLocale: { fr: schaffhausen.descriptionByLocale.fr, it: 'Presentazione aziendale' } };
+      expect(stripMcdoFallbackSlots(clean)).toBe(clean);
+    });
+
+    it('wires both steps into the runner and keys the source text by its own language', () => {
+      expect(runnerSource).toContain('resolveMcdoJobBodies(builtJobs, previousJobs)');
+      expect(runnerSource).toContain('.map(stripMcdoFallbackSlots)');
+      expect(runnerSource).toContain('descriptionByLocale: { [sourceLang]: job.description }');
+      expect(runnerSource).not.toMatch(/Posizione aperta presso un ristorante/);
     });
   });
 

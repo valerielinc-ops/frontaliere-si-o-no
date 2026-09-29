@@ -55,17 +55,17 @@ import {
   normalizeKey,
   detectLang,
   mergeLocaleTextMap,
-  ensureMinimumDescriptionWordCount,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { CANTON_POSTAL_FALLBACK } from './lib/canton-postal-fallback.mjs';
-import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
+import { collapseRepublishedCoopVacancies, enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -86,7 +86,6 @@ const COMPANY_NAME = 'Volg / fenaco';
 const COMPANY_DOMAIN = 'fenaco.com';
 
 const CC_BASE = 'https://ohws.prospective.ch/public/v1/careercenter/1001859/';
-const JOBS_PORTAL = 'https://jobs.fenaco.com';
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -179,10 +178,13 @@ function parseJobListings(html) {
     const companyLocation = rawCompany.replace(/\s+/g, ' ').trim();
     const meta = rawMeta.replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim();
 
-    // Parse "COMPANY, CITY" (e.g., "VOLG, Zuoz")
-    const companyParts = companyLocation.split(',').map((s) => s.trim());
+    // Parse "COMPANY, CITY" (e.g., "VOLG, Zuoz"). The city is the LAST
+    // segment: multi-part employer names ("Kunz Landtechnik, Serco Retail AG,
+    // Reiden", "fenaco Getreide, Ölsaaten, Futtermittel, Bern") used to publish
+    // "Serco Retail AG, Reiden" as the location of 10/555 vacancies.
+    const companyParts = companyLocation.split(',').map((s) => s.trim()).filter(Boolean);
     const company = companyParts[0] || '';
-    const city = companyParts.slice(1).join(', ').trim() || '';
+    const city = companyParts.length > 1 ? companyParts.at(-1) : '';
 
     // Parse meta: "60-80%, Teilzeit" or "100%, unbefristet"
     const workloadMatch = meta.match(/([\d-]+%)/);
@@ -475,17 +477,23 @@ export { parseDetailPage };
  * Applies quality guards: body ratio >= 25% and title overlap >= 0.6.
  */
 async function enrichWithDetails(jobs) {
-  const enriched = await enrichCoopSourceBackedJobs(jobs, {
+  const sourceBacked = await enrichCoopSourceBackedJobs(jobs, {
     allowedHosts: ['jobs.fenaco.com'],
     concurrency: 4,
     onDropSummary: (drop) => { volgSummaryCounts.detailDrop = drop; },
     // A retryable detail status must not abort the complete, already parsed
-    // listing batch. buildJob() supplies the validated >=50-word fallback;
-    // network/DNS/TLS failures remain fail-closed in the shared helper.
+    // listing batch: such a job comes back without a body and
+    // resolveVolgJobBodies() carries the previously read source text or keeps
+    // it out of this run. Network/DNS/TLS failures remain fail-closed in the
+    // shared helper.
     preserveListingOnTransientFailure: true,
   });
+  // The same ad published twice under two UUIDs (same address, same body and
+  // facts) is one vacancy: keep the earliest-seen record.
+  const { kept: enriched, collapsed } = collapseRepublishedCoopVacancies(sourceBacked);
+  for (const { url, keptUrl } of collapsed) console.log(`  ↪️ Republished vacancy ${url} collapsed into ${keptUrl}`);
   jobs.splice(0, jobs.length, ...enriched);
-  console.log(`  📄 Detail pages: ${enriched.length} source-backed`);
+  console.log(`  📄 Detail pages: ${enriched.length} source-backed${collapsed.length ? ` (${collapsed.length} republished duplicate(s) collapsed)` : ''}`);
 }
 
 /* ── Build Job Objects ─────────────────────────────────────── */
@@ -527,147 +535,119 @@ function mapEmploymentType(workload = '', contractTerms = '') {
   return { employmentType, contractType };
 }
 
-// Per-company "about us" boilerplate, localized by canton-resolved locale.
-// Volg/LANDI/fenaco crawl CH-wide (see CANTON_LOCALE_FALLBACK above); a
-// German-only boilerplate mixed into an otherwise French/Italian description
-// is the same cross-language-contamination bug class as the sourceLang fix.
-const COMPANY_BOILERPLATE = {
-  volg: {
-    de: [
-      'Volg ist spezialisiert auf Dorfläden und kleine Verkaufsflächen in der Deutschschweiz und Romandie.',
-      'Wir setzen auf Kundennähe und bieten bequeme Einkaufsmöglichkeiten mit persönlicher Interaktion.',
-      'Unsere Mitarbeitenden sind das Herzstück des Ladens — unser Motto ist «frisch und fründlich».',
-      'Als Tochterunternehmen der fenaco Genossenschaft gehören wir zu einem der grössten Arbeitgeber der Schweiz mit über 11.000 Mitarbeitenden.',
-      '',
-      'Wir bieten: Abwechslungsreiche Aufgaben, familiäres Arbeitsumfeld, direkten Kundenkontakt,',
-      '6 Wochen Ferien, SBB-Vergünstigungen, Weiterbildung an der Volg Academy,',
-      'ausgezeichnete Karrieremöglichkeiten und eine fundierte Berufsausbildung für Lernende.',
-    ],
-    fr: [
-      "Volg est spécialisé dans les magasins de village et les petites surfaces de vente en Suisse alémanique et en Romandie.",
-      "Nous misons sur la proximité avec la clientèle et proposons des possibilités d'achat pratiques avec une interaction personnelle.",
-      'Nos collaboratrices et collaborateurs sont le cœur du magasin — notre devise est «frais et sympathique».',
-      'En tant que filiale de la coopérative fenaco, nous comptons parmi les plus grands employeurs de Suisse avec plus de 11 000 collaborateurs.',
-      '',
-      'Nous offrons : des tâches variées, un environnement de travail familial, un contact client direct,',
-      '6 semaines de vacances, des réductions CFF, une formation continue à la Volg Academy,',
-      "d'excellentes perspectives de carrière et une formation professionnelle solide pour les apprenti-e-s.",
-    ],
-    it: [
-      'Volg è specializzata in negozi di villaggio e piccole superfici di vendita nella Svizzera tedesca e in Romandia.',
-      "Puntiamo sulla vicinanza alla clientela e offriamo comode possibilità di acquisto con un'interazione personale.",
-      'I nostri collaboratori sono il cuore del negozio — il nostro motto è «freschezza e cordialità».',
-      'Come filiale della cooperativa fenaco, siamo tra i maggiori datori di lavoro della Svizzera con oltre 11.000 collaboratori.',
-      '',
-      'Offriamo: mansioni variate, un ambiente di lavoro familiare, contatto diretto con la clientela,',
-      '6 settimane di vacanza, agevolazioni FFS, formazione continua alla Volg Academy,',
-      'eccellenti opportunità di carriera e una solida formazione professionale per gli apprendisti.',
-    ],
-  },
-  landi: {
-    de: [
-      'LANDI ist Teil der fenaco Genossenschaft, der grössten Agrargenossenschaft der Schweiz.',
-      'Wir betreiben TopShop-Verkaufsstellen, Tankstellen und Fachgeschäfte in der ganzen Schweiz.',
-      'Die fenaco Genossenschaft beschäftigt über 11.000 Mitarbeitende und ist einer der bedeutendsten Arbeitgeber im ländlichen Raum.',
-      'Unsere LANDI-Läden bieten ein breites Sortiment an landwirtschaftlichen Produkten, Bau- und Gartenbedarf, Lebensmitteln und Treibstoffen.',
-      '',
-      'Wir bieten ein dynamisches Arbeitsumfeld mit direktem Kundenkontakt,',
-      'umfassende Weiterbildungsmöglichkeiten, attraktive Anstellungsbedingungen im Detailhandel,',
-      'mindestens 5 Wochen Ferien, Personalrabatte auf das gesamte Sortiment',
-      'und eine praxisorientierte Berufsausbildung für Lernende.',
-    ],
-    fr: [
-      "LANDI fait partie de la coopérative fenaco, la plus grande coopérative agricole de Suisse.",
-      'Nous exploitons des points de vente TopShop, des stations-service et des commerces spécialisés dans toute la Suisse.',
-      "La coopérative fenaco emploie plus de 11 000 collaborateurs et est l'un des plus importants employeurs en milieu rural.",
-      'Nos magasins LANDI proposent un large assortiment de produits agricoles, de matériaux de construction et de jardinage, de denrées alimentaires et de carburants.',
-      '',
-      'Nous offrons un environnement de travail dynamique avec un contact client direct,',
-      "de vastes possibilités de formation continue, des conditions d'engagement attractives dans le commerce de détail,",
-      'au moins 5 semaines de vacances, des rabais sur l\'ensemble de l\'assortiment',
-      "et une formation professionnelle axée sur la pratique pour les apprenti-e-s.",
-    ],
-    it: [
-      'LANDI fa parte della cooperativa fenaco, la più grande cooperativa agricola della Svizzera.',
-      'Gestiamo punti vendita TopShop, stazioni di servizio e negozi specializzati in tutta la Svizzera.',
-      'La cooperativa fenaco impiega oltre 11.000 collaboratori ed è uno dei maggiori datori di lavoro nelle aree rurali.',
-      'I nostri negozi LANDI offrono un ampio assortimento di prodotti agricoli, materiale edile e da giardinaggio, alimentari e carburanti.',
-      '',
-      'Offriamo un ambiente di lavoro dinamico con contatto diretto con la clientela,',
-      'ampie possibilità di formazione continua, condizioni di assunzione interessanti nel commercio al dettaglio,',
-      'almeno 5 settimane di vacanza, sconti per il personale sull\'intero assortimento',
-      'e una formazione professionale orientata alla pratica per gli apprendisti.',
-    ],
-  },
-  traveco: {
-    de: [
-      'TRAVECO Transporte AG ist ein führendes Unternehmen im Bereich Transport und Logistik in der Schweiz,',
-      'Teil der fenaco Genossenschaft mit über 11.000 Mitarbeitenden schweizweit.',
-      'Wir betreiben eine moderne Flotte und bieten zuverlässige Transportdienstleistungen in der ganzen Schweiz.',
-      'Mit modernsten Fahrzeugen und höchsten Sicherheitsstandards sorgen wir für den effizienten Transport von Lebensmitteln und Agrarprodukten.',
-      '',
-      'Wir bieten: Professionelles Arbeitsumfeld, moderne Fahrzeuge, kontinuierliche Weiterbildung,',
-      'wettbewerbsfähige Anstellungsbedingungen, mindestens 5 Wochen Ferien',
-      'und ausgezeichnete Perspektiven im Transportsektor.',
-    ],
-    fr: [
-      "TRAVECO Transporte AG est une entreprise leader dans le domaine du transport et de la logistique en Suisse,",
-      'faisant partie de la coopérative fenaco avec plus de 11 000 collaborateurs dans tout le pays.',
-      'Nous exploitons une flotte moderne et proposons des prestations de transport fiables dans toute la Suisse.',
-      'Grâce à des véhicules à la pointe de la technologie et aux normes de sécurité les plus strictes, nous assurons un transport efficace des denrées alimentaires et des produits agricoles.',
-      '',
-      'Nous offrons : un environnement de travail professionnel, des véhicules modernes, une formation continue,',
-      'des conditions d\'engagement compétitives, au moins 5 semaines de vacances',
-      "et d'excellentes perspectives dans le secteur du transport.",
-    ],
-    it: [
-      "TRAVECO Transporte AG è un'azienda leader nel settore dei trasporti e della logistica in Svizzera,",
-      'parte della cooperativa fenaco con oltre 11.000 collaboratori in tutto il Paese.',
-      'Gestiamo una flotta moderna e offriamo servizi di trasporto affidabili in tutta la Svizzera.',
-      'Con veicoli all\'avanguardia e standard di sicurezza elevati, garantiamo un trasporto efficiente di alimenti e prodotti agricoli.',
-      '',
-      'Offriamo: un ambiente di lavoro professionale, veicoli moderni, formazione continua,',
-      'condizioni di assunzione competitive, almeno 5 settimane di vacanza',
-      'ed eccellenti prospettive nel settore dei trasporti.',
-    ],
-  },
-  default: {
-    de: [
-      'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.',
-      'Wir bieten vielfältige Karrieremöglichkeiten in Landwirtschaft, Detailhandel,',
-      'Logistik und Lebensmittelproduktion mit attraktiven Anstellungsbedingungen,',
-      'umfassenden Sozialleistungen und individuellen Weiterbildungsmöglichkeiten.',
-      'Als genossenschaftliches Unternehmen im Besitz der Schweizer Landwirtschaft vereinen wir über 80 Tochtergesellschaften.',
-      'Wir bieten sichere Arbeitsplätze, moderne Infrastruktur und die Möglichkeit, einen Beitrag zur Schweizer Landwirtschaft zu leisten.',
-    ],
-    fr: [
-      'La coopérative fenaco est la plus grande coopérative agricole de Suisse avec plus de 11 000 collaborateurs.',
-      "Nous offrons de nombreuses possibilités de carrière dans l'agriculture, le commerce de détail,",
-      'la logistique et la production alimentaire, avec des conditions d\'engagement attractives,',
-      'des prestations sociales complètes et des possibilités de formation continue individuelles.',
-      "En tant qu'entreprise coopérative détenue par l'agriculture suisse, nous réunissons plus de 80 sociétés filiales.",
-      'Nous offrons des emplois sûrs, une infrastructure moderne et la possibilité de contribuer à l\'agriculture suisse.',
-    ],
-    it: [
-      'La cooperativa fenaco è la più grande cooperativa agricola della Svizzera con oltre 11.000 collaboratori.',
-      'Offriamo molteplici opportunità di carriera in agricoltura, commercio al dettaglio,',
-      'logistica e produzione alimentare, con condizioni di assunzione interessanti,',
-      'prestazioni sociali complete e possibilità di formazione continua individuali.',
-      "Come impresa cooperativa di proprietà dell'agricoltura svizzera, riuniamo oltre 80 società affiliate.",
-      "Offriamo posti di lavoro sicuri, un'infrastruttura moderna e la possibilità di contribuire all'agricoltura svizzera.",
-    ],
-  },
-};
+/* ── Source-only bodies ─────────────────────────────────────── */
 
-function getCompanyBoilerplate(company = '', locale = 'de') {
-  const c = company.toLowerCase();
-  const key = c.includes('volg') ? 'volg'
-    : c.includes('landi') ? 'landi'
-    : c.includes('traveco') ? 'traveco'
-    : 'default';
-  const entry = COMPANY_BOILERPLATE[key];
-  return (entry[locale] || entry.de).join('\n');
+// Earlier runs gave a vacancy without a detail body an invented text: a
+// listing line ("<title> — VOLG, Krauchthal (Bern). Pensum: 20-30%. Vertrag:
+// unbefristet. Bewerbung über https://jobs.fenaco.com") followed by a
+// per-company marketing paragraph written here (COMPANY_BOILERPLATE, removed
+// with issue 5253), or the shared Italian "VOLG è il marchio di prossimità…"
+// padding of the shared thin-description helper. The opening sentence of every
+// variant is enough to recognise records that still carry it.
+const VOLG_INVENTED_TEXT_MARKERS = [
+  'Volg ist spezialisiert auf Dorfläden und kleine Verkaufsflächen in der Deutschschweiz und Romandie.',
+  'Volg est spécialisé dans les magasins de village et les petites surfaces de vente en Suisse alémanique et en Romandie.',
+  'Volg è specializzata in negozi di villaggio e piccole superfici di vendita nella Svizzera tedesca e in Romandia.',
+  'LANDI ist Teil der fenaco Genossenschaft, der grössten Agrargenossenschaft der Schweiz.',
+  'LANDI fait partie de la coopérative fenaco, la plus grande coopérative agricole de Suisse.',
+  'LANDI fa parte della cooperativa fenaco, la più grande cooperativa agricola della Svizzera.',
+  'TRAVECO Transporte AG ist ein führendes Unternehmen im Bereich Transport und Logistik in der Schweiz,',
+  'TRAVECO Transporte AG est une entreprise leader dans le domaine du transport et de la logistique en Suisse,',
+  "TRAVECO Transporte AG è un'azienda leader nel settore dei trasporti e della logistica in Svizzera,",
+  'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.',
+  'La coopérative fenaco est la plus grande coopérative agricole de Suisse avec plus de 11 000 collaborateurs.',
+  'La cooperativa fenaco è la più grande cooperativa agricola della Svizzera con oltre 11.000 collaboratori.',
+  'VOLG è il marchio di prossimità della cooperativa fenaco',
+];
+const VOLG_LISTING_LINE_RX = /\b(?:Bewerbung über|Postulez sur|Candidati su) https:\/\/jobs\.fenaco\.com\b/;
+
+/** True when `text` carries the invented listing line or company paragraph. */
+export function isVolgInventedText(text = '') {
+  const value = String(text || '');
+  return VOLG_LISTING_LINE_RX.test(value) || VOLG_INVENTED_TEXT_MARKERS.some((marker) => value.includes(marker));
 }
+
+function previousSourceBody(job) {
+  for (const candidate of [job?.descriptionByLocale?.[job?.sourceLang], job?.description]) {
+    const text = String(candidate || '').trim();
+    if (text && !isVolgInventedText(text) && meetsSourceBodyFloor(text)) return text;
+  }
+  return '';
+}
+
+/**
+ * Give every job of this run a body read from the source. A vacancy whose
+ * detail page failed with a retryable status (kept by the enricher with an
+ * empty body) keeps the text a previous run read from the SAME vacancy, with
+ * that run's `sourceLang`; with no such text it is not published in this run
+ * (mergeJobs() publishes only this run's jobs) and comes back with the next
+ * successful detail read.
+ *
+ * @returns {{ jobs: object[], carried: string[], withheld: string[] }}
+ */
+export function resolveVolgJobBodies(freshJobs = [], existingJobs = []) {
+  const previousByKey = new Map();
+  for (const job of existingJobs) {
+    const key = jobMatchKey(job);
+    if (key) previousByKey.set(key, job);
+  }
+  const jobs = [];
+  const carried = [];
+  const withheld = [];
+  for (const job of freshJobs) {
+    const body = String(job?.description || '').trim();
+    if (body && !isVolgInventedText(body)) {
+      jobs.push(job);
+      continue;
+    }
+    const previous = previousByKey.get(jobMatchKey(job));
+    const previousBody = previous ? previousSourceBody(previous) : '';
+    if (!previousBody) {
+      withheld.push(job.url);
+      continue;
+    }
+    const sourceLang = previous.sourceLang || job.sourceLang;
+    carried.push(job.url);
+    jobs.push({
+      ...job,
+      sourceLang,
+      description: previousBody,
+      descriptionByLocale: { [sourceLang]: previousBody },
+    });
+  }
+  return { jobs, carried, withheld };
+}
+
+/**
+ * Remove invented text that earlier runs stored in the locale slots. The merge
+ * keeps non-source slots ("existing translation wins"), so a record that once
+ * published the invented paragraph kept it — untranslated German in `it`/`en`/
+ * `fr` included — after the real body came back. When any slot carries it,
+ * every non-source slot is of that vintage: drop them and flag the record for
+ * retranslation from the real source slot.
+ */
+export function stripVolgInventedSlots(job) {
+  if (!job || typeof job !== 'object') return job;
+  const slots = job.descriptionByLocale && typeof job.descriptionByLocale === 'object' ? job.descriptionByLocale : {};
+  const slotsInvented = Object.values(slots).some((text) => isVolgInventedText(text));
+  const flatInvented = isVolgInventedText(job.description);
+  if (!slotsInvented && !flatInvented) return job;
+  const sourceLang = job.sourceLang;
+  const sourceText = String(slots[sourceLang] || '').trim();
+  const realSource = sourceLang && !isVolgInventedText(sourceText) && meetsSourceBodyFloor(sourceText) ? sourceText : '';
+  // The flat `description` is what a grace-retained record publishes: it must
+  // be the real source body too (review #10333), or the record goes.
+  const flat = flatInvented ? realSource : job.description;
+  if (!realSource && (!flat || isVolgInventedText(flat))) return null;
+  const kept = realSource ? { [sourceLang]: slots[sourceLang] } : {};
+  return { ...job, description: flat, descriptionByLocale: slotsInvented ? kept : slots, needsRetranslation: true };
+}
+
+// One pattern for the stored-record scrub (drop-fabricated-description.mjs):
+// the listing line or the opening sentence of any retired company paragraph.
+export const VOLG_INVENTED_TEXT_RX = new RegExp(
+  [VOLG_LISTING_LINE_RX.source, ...VOLG_INVENTED_TEXT_MARKERS.map((marker) => marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))].join('|'),
+);
 
 // Per-city postal code table for known Volg/LANDI/fenaco locations.
 // Used as a fast lookup; cities outside the table fall back to a
@@ -714,13 +694,27 @@ function resolveCantonLocale(canton = '') {
   return CANTON_LOCALE_FALLBACK[canton] || 'de';
 }
 
-const META_LABELS = {
-  de: { workload: 'Pensum', contract: 'Vertrag', apply: 'Bewerbung über' },
-  fr: { workload: "Taux d'occupation", contract: 'Contrat', apply: 'Postulez sur' },
-  it: { workload: 'Grado di occupazione', contract: 'Contratto', apply: 'Candidati su' },
+// The career center publishes each vacancy under a language-specific path;
+// the path is the page's own language declaration. Detecting the language from
+// a short title labelled 14/555 postings wrongly (German "Lehrstelle als
+// Detailhandelsfachmann/-frau EFZ" as `it`, French "Vendeuse / Vendeur LANDI
+// (f/h/d)" as `en`), which filed the source text under a foreign locale.
+const DETAIL_PATH_LANG = {
+  'offene-stellen': 'de',
+  'postes-vacants': 'fr',
+  'posti-vacanti': 'it',
 };
 
-function buildJob(raw) {
+export function sourceLangFromDetailUrl(url = '') {
+  try {
+    const [segment] = new URL(String(url || '')).pathname.split('/').filter(Boolean);
+    return DETAIL_PATH_LANG[String(segment || '').toLowerCase()] || '';
+  } catch {
+    return '';
+  }
+}
+
+export function buildJob(raw) {
   const { url, title, company, city, workload, contractTerms, canton } = raw;
   const { employmentType, contractType } = mapEmploymentType(workload, contractTerms);
   const slug = slugify(`${title}-${company}-${safeLocationToken(city)}`);
@@ -731,21 +725,14 @@ function buildJob(raw) {
   // wins the source-locale merge slot; a wrong sourceLang points that slot at
   // the wrong language every run).
   const localeFallback = resolveCantonLocale(canton);
-  const sourceLang = detectLang(title, localeFallback);
+  const sourceLang = sourceLangFromDetailUrl(url) || detectLang(title, localeFallback);
   const today = new Date().toISOString().slice(0, 10);
   const postalCode = getPostalCode(city, canton);
-  const labels = META_LABELS[localeFallback] || META_LABELS.de;
-
-  const metaLine = [
-    `${title} — ${company}, ${city} (${getCantonDisplayName(canton, localeFallback) || canton}).`,
-    workload ? `${labels.workload}: ${workload}.` : '',
-    contractTerms ? `${labels.contract}: ${contractTerms}.` : '',
-    `${labels.apply} ${JOBS_PORTAL}`,
-  ].filter(Boolean).join(' ');
-
-  // Build rich description with company context so content is never thin
-  const companyBoilerplate = getCompanyBoilerplate(company, localeFallback);
-  const description = `${metaLine}\n\n${companyBoilerplate}`;
+  // No body before the detail page is read: the listing carries only title,
+  // employer, place, Pensum and contract, which the enriched body repeats from
+  // the page's own facts. A vacancy without a detail body gets none here — see
+  // resolveVolgJobBodies().
+  const description = '';
 
   return {
     title,
@@ -785,6 +772,10 @@ function mergeJobs(discoveredJobs) {
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
+  // Stored records first lose the text this crawler once invented (slots,
+  // translations made from it and the flat description), so nothing merged
+  // or retained from them republishes it.
+  dropFabricatedDescriptions(targetExisting, VOLG_INVENTED_TEXT_RX, 'Volg/fenaco');
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
   let added = 0;
@@ -814,8 +805,8 @@ function mergeJobs(discoveredJobs) {
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     delete merged._enrichedFromDetail;
-    return merged;
-  });
+    return stripVolgInventedSlots(merged);
+  }).filter(Boolean);
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
@@ -931,6 +922,19 @@ async function main() {
   console.log('\n📄 Fetching detail pages for rich descriptions...');
   await enrichWithDetails(jobs);
 
+  // Step 2c: Only source text is published. A job without a detail body keeps
+  // the text a previous run read from the same vacancy, or waits for a run
+  // that reads it.
+  const previousJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+  const { jobs: sourceBodied, carried, withheld } = resolveVolgJobBodies(jobs, previousJobs);
+  if (carried.length > 0) {
+    console.warn(`  ⚠️  Detail body unavailable, previous source text kept: ${carried.length} (${carried.join(', ')})`);
+  }
+  if (withheld.length > 0) {
+    console.warn(`  ⚠️  Detail body unavailable and never read before — not published this run: ${withheld.length} (${withheld.join(', ')})`);
+  }
+  jobs.splice(0, jobs.length, ...sourceBodied);
+
   // Step 3: Merge into jobs.json
   const { total, added, updated, diff} = mergeJobs(jobs);
   console.log(`\n📦 Merge complete: ${total} total, ${added} added, ${updated} updated`);
@@ -941,17 +945,11 @@ async function main() {
     isTargetJob,
   });
 
-  // Step 4b: Ensure no thin descriptions (< 50 words)
-  const allJobsForPatch = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
-  const volgJobs = allJobsForPatch.filter(isTargetJob);
-  const patchedCount = ensureMinimumDescriptionWordCount(volgJobs, 50);
-  if (patchedCount > 0) {
-    writeJson(DATA_JOBS, allJobsForPatch);
-    if (fs.existsSync(path.dirname(PUBLIC_JOBS))) {
-      writeJson(PUBLIC_JOBS, allJobsForPatch);
-    }
-    console.log(`📝 Patched ${patchedCount} thin descriptions (< 50 words)`);
-  }
+  // No thin-description padding step: every body here is source text that
+  // meets the shared source-body word floor (the detail enricher rejects
+  // shorter ones and resolveVolgJobBodies() carries only such text); the
+  // shared padding helper would append the invented "VOLG è il marchio di
+  // prossimità…" paragraph.
 
   // Step 5: Stats + validation
   logStats();

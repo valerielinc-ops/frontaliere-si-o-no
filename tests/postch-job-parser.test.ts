@@ -1,5 +1,17 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { parsePostJobDetail } from '@/scripts/lib/postch-job-parser.mjs';
+import {
+  carryPostSourceBody,
+  isPostFallbackDescription,
+  keyPostDescriptionBySourceLocale,
+  isPublishablePostDetail,
+  keyPostTitleBySourceLocale,
+  parsePostJobDetail,
+  previousPostSourceBody,
+  stripPostFallbackSlots,
+} from '@/scripts/lib/postch-job-parser.mjs';
 
 function token(content = '') {
   return `<div class="joblayouttoken"><span class="rtltextaligneligible">${content}</span></div>`;
@@ -43,5 +55,190 @@ describe('Post.ch SuccessFactors detail parser', () => {
     expect(parsed.description).toContain('Au cours de la formation');
     expect(parsed.description).toContain('- Tu seras chaque jour en contact avec nos clientes et nos clients.');
     expect(parsed.description.split(/\s+/).filter(Boolean).length).toBeGreaterThan(35);
+  });
+
+  it('keeps every list item when the rich-text editor writes CRLF and NBSP inside <li> (job 73924)', () => {
+    // Minimised from https://job.post.ch/default/job/…/73924-de_DE (token 11):
+    // the editor wraps each item as `<li>\r\n<p>…</p>\r\n</li>` and pads the
+    // sections with NBSP paragraphs. Before the fix the "- " marker stayed on
+    // its own `\r` line and the published list collapsed into paragraphs.
+    const body = '<div>\r\n<div>\r\n<p>Startest du gerne früh in den Tag, liebst du es, an der frischen Luft zu sein, und hast du Freude daran, den Menschen ein Lächeln ins Gesicht zu zaubern? Dann ist eine Ausbildung in der Zustellung (Fachrichtung Distribution) genau das Richtige für dich! </p>\r\n</div>\r\n<div>\r\n<p>\u00a0</p>\r\n</div>\r\n<div>\r\n<p><strong>Deine Ausbildung </strong></p>\r\n</div>\r\n<div>\r\n<ul style="list-style-type:disc">\r\n<li>\r\n<p>Am frühen Morgen sortierst du deine Briefe und Pakete und belädst dein Zustellfahrzeug für die anschliessende Zustelltour. </p>\r\n</li>\r\n</ul>\r\n</div>\r\n<div>\r\n<ul style="list-style-type:disc">\r\n<li>\r\n<p>Danach bist du selbstständig unterwegs, bringst und holst Sendungen jeder Art und kümmerst dich um die Anliegen unserer Kundinnen und Kunden. </p>\r\n</li>\r\n</ul>\r\n</div>\r\n<div>\r\n<ul style="list-style-type:disc">\r\n<li>\r\n<p>&nbsp;</p>\r\n<p>Bei Lehrbeginn verfügst du über das Sprachniveau B2 in Deutsch.</p>\r\n</li>\r\n</ul>\r\n</div>\r\n</div>';
+    const html = buildPage({
+      0: 'Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)',
+      3: 'Winterthur|Zürich|ZH|Schweiz|CHE',
+      11: body,
+    }, 12);
+
+    const parsed = parsePostJobDetail(html, 'https://job.post.ch/default/job/post/73924-de_DE');
+
+    expect(parsed.description).toContain('\n- Am frühen Morgen sortierst du deine Briefe');
+    expect(parsed.description).toContain('\n- Danach bist du selbstständig unterwegs');
+    expect(parsed.description).toContain('\n- Bei Lehrbeginn verfügst du über das Sprachniveau B2');
+    expect(parsed.description).not.toMatch(/[\r\u00a0]/);
+    // No orphan marker line left behind.
+    expect(parsed.description).not.toMatch(/(^|\n)[ \t]*-[ \t]*(\n|$)/);
+  });
+});
+
+describe('keyPostDescriptionBySourceLocale', () => {
+  const german = 'Startest du gerne früh in den Tag und liebst du es, an der frischen Luft zu sein? Dann ist eine Ausbildung in der Zustellung genau das Richtige für dich.';
+  const english = 'Do you like starting your day early and being outdoors? Then an apprenticeship in delivery is exactly right for you.';
+  const italian = 'Ti piace iniziare presto la giornata e stare all’aria aperta? Allora un apprendistato nella distribuzione fa per te.';
+  const detect = (text: string) => (/\b(?:du|und|ist)\b/.test(text) ? 'de' : (/\b(?:ti|un|per)\b/.test(text) ? 'it' : 'en'));
+
+  it('moves the body out of the Italian slot into its own language and keeps real translations', () => {
+    // 214/216 Post.ch vacancies on 2026-09-29: German text stored as `it`.
+    expect(keyPostDescriptionBySourceLocale({ it: german, en: english }, german, 'de', detect))
+      .toEqual({ de: german, en: english });
+  });
+
+  it('drops an older source-language copy that is no longer byte-identical', () => {
+    const olderGerman = `${german} Wir freuen uns auf deine Bewerbung.`;
+    expect(keyPostDescriptionBySourceLocale({ it: olderGerman }, german, 'de', detect))
+      .toEqual({ de: german });
+  });
+
+  it('keeps an Italian translation and leaves Italian-source vacancies keyed as it', () => {
+    expect(keyPostDescriptionBySourceLocale({ it: italian, en: english }, german, 'de', detect))
+      .toEqual({ it: italian, en: english, de: german });
+    expect(keyPostDescriptionBySourceLocale({}, italian, 'it', detect)).toEqual({ it: italian });
+  });
+
+  it('leaves the map untouched without a usable source language or body', () => {
+    expect(keyPostDescriptionBySourceLocale({ it: german }, german, '', detect)).toEqual({ it: german });
+    expect(keyPostDescriptionBySourceLocale({ it: german }, '', 'de', detect)).toEqual({ it: german });
+  });
+});
+
+describe('Post-platform source-body continuity (no invented text)', () => {
+  const fixturePath = path.join(
+    path.dirname(fileURLToPath(import.meta.url)),
+    'fixtures',
+    'post-stale-fallback-records.json',
+  );
+  const records = JSON.parse(fs.readFileSync(fixturePath, 'utf-8'));
+
+  it('recognises the texts the runners used to invent, and only those', () => {
+    expect(isPostFallbackDescription(records.postaInventedOnly.description)).toBe(true);
+    expect(isPostFallbackDescription(records.postfinanceInventedOnly.description)).toBe(true);
+    expect(isPostFallbackDescription(records.postaRealBodyWithStaleSlots.description)).toBe(false);
+    expect(isPostFallbackDescription(records.postfinanceRealBody.description)).toBe(false);
+    expect(isPostFallbackDescription('')).toBe(false);
+  });
+
+  it('keeps a vacancy that has its own body untouched', () => {
+    const fresh = { url: records.postfinanceRealBody.url, description: 'Frischer Text aus der Quelle.', sourceLang: 'de' };
+    expect(carryPostSourceBody(fresh, records.postfinanceRealBody)).toEqual({ job: fresh, carried: false });
+  });
+
+  it('carries the body a previous run read from the same vacancy when this run read none', () => {
+    const fresh = { url: records.postfinanceRealBody.url, title: 'Kubernetes Engineer', description: '', descriptionByLocale: {} };
+    const { job, carried } = carryPostSourceBody(fresh, records.postfinanceRealBody);
+    expect(carried).toBe(true);
+    expect(job?.description).toBe(records.postfinanceRealBody.description);
+    expect(job?.sourceLang).toBe('de');
+    expect(job?.descriptionByLocale).toEqual({ de: records.postfinanceRealBody.description });
+  });
+
+  it('withholds a vacancy with no body and no previous source body — never composes one', () => {
+    const fresh = { url: records.postfinanceInventedOnly.url, title: 'Kubernetes Engineer', description: '' };
+    expect(carryPostSourceBody(fresh, null)).toEqual({ job: null, carried: false });
+    expect(carryPostSourceBody(fresh, records.postfinanceInventedOnly)).toEqual({ job: null, carried: false });
+    expect(previousPostSourceBody(records.postaInventedOnly)).toBe('');
+  });
+
+  it('strips stale invented slots (and their translations) and drops records left without a source body', () => {
+    expect(stripPostFallbackSlots(records.postaInventedOnly)).toBeNull();
+    expect(stripPostFallbackSlots(records.postfinanceInventedOnly)).toBeNull();
+
+    const cleaned = stripPostFallbackSlots(records.postaRealBodyWithStaleSlots);
+    expect(cleaned?.descriptionByLocale).toEqual({ de: records.postaRealBodyWithStaleSlots.description });
+    expect(cleaned?.description).toBe(records.postaRealBodyWithStaleSlots.description);
+    expect(cleaned?.needsRetranslation).toBe(true);
+
+    // A record without invented text is returned as-is.
+    expect(stripPostFallbackSlots(records.postfinanceRealBody)).toBe(records.postfinanceRealBody);
+  });
+});
+
+describe('keyPostTitleBySourceLocale', () => {
+  const titleRecords = JSON.parse(fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'post-title-locale-records.json'),
+    'utf-8',
+  ));
+
+  it('moves the page title into its own language and drops the copy forced into `it`', () => {
+    const record = titleRecords.postaSourceCopyInIt;
+    const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale(record.titleByLocale, record.title, record.sourceLang);
+    expect(droppedStaleItalian).toBe(true);
+    expect(titleByLocale.it).toBeUndefined();
+    expect(titleByLocale.de).toBe('Teamleader:in Inhouselogistik');
+    // Other slots belong to the translation pipeline and are left alone.
+    expect(titleByLocale.en).toBe(record.titleByLocale.en);
+    expect(titleByLocale.fr).toBe(record.titleByLocale.fr);
+  });
+
+  it('keeps an Italian title written by the translation pipeline, even an imperfect one', () => {
+    const record = titleRecords.postaTranslatedIt;
+    const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale(record.titleByLocale, record.title, record.sourceLang);
+    expect(droppedStaleItalian).toBe(false);
+    expect(titleByLocale).toEqual(record.titleByLocale);
+  });
+
+  it('drops a copy of the title an earlier run stored, and never touches slugs', () => {
+    const record = titleRecords.postfinanceSourceCopyInIt;
+    const before = JSON.stringify([record.slug, record.slugByLocale]);
+    const renamed = 'Fachspezialist:in Testing & Qualität Asset Management (w/m/d)';
+    const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale(
+      record.titleByLocale,
+      renamed,
+      record.sourceLang,
+      { previousTitles: [record.title] },
+    );
+    expect(droppedStaleItalian).toBe(true);
+    expect(titleByLocale.it).toBeUndefined();
+    expect(titleByLocale.de).toBe(renamed);
+    expect(JSON.stringify([record.slug, record.slugByLocale])).toBe(before);
+  });
+
+  it('leaves Italian-source vacancies keyed as it', () => {
+    const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale({}, 'Postino/a lettere e pacchi', 'it');
+    expect(droppedStaleItalian).toBe(false);
+    expect(titleByLocale).toEqual({ it: 'Postino/a lettere e pacchi' });
+  });
+});
+
+describe('Post-platform 50-word source-body floor', () => {
+  // Live body of job.post.ch/…/74695-de_DE (2026-09-29), cut to N words.
+  const BODY = 'Du möchtest Planung, Daten und fachliche Koordination miteinander verbinden und die Weiterentwicklung unserer Personalplanung aktiv mitgestalten? Dann bist du bei uns richtig. Mit dir schaffen wir die Grundlage für eine vorausschauende und verlässliche Personalplanung. Als fachliche Ansprechperson bringst du das Team zusammen, verantwortest den Aufbau und die laufende Weiterentwicklung des Fachbereichs Personalplanung. Aus Mengen-, Leistungs- und Planstunden leitest du zusammen mit unseren Betrieben belastbare Personalbedarfe ab.';
+  // Counted like sourceBodyWordCount(): tokens carrying a letter or a digit.
+  const words = (count: number) => BODY.split(/\s+/).filter((token) => /[\p{L}\p{N}]/u.test(token)).slice(0, count).join(' ');
+  const page = (body: string) => buildPage({
+    0: 'Senior Prozessmanager:in Personalplanung',
+    1: '80',
+    2: '100',
+    3: 'Bern|Bern|BE|Schweiz|CHE',
+    18: `<p>${body}</p>`,
+  }, 19);
+  const url = 'https://job.post.ch/default/job/post/74695-de_DE';
+
+  it('does not publish a 49-word body even though it is far longer than the old 80-character gate', () => {
+    const parsed = parsePostJobDetail(page(words(49)), url);
+    expect(parsed.description.length).toBeGreaterThan(80);
+    expect(isPublishablePostDetail(parsed)).toBe(false);
+  });
+
+  it('publishes a body of 50 words', () => {
+    expect(isPublishablePostDetail(parsePostJobDetail(page(words(50)), url))).toBe(true);
+  });
+
+  it('never publishes the "Stellendetails" placeholder of an untranslated locale', () => {
+    expect(isPublishablePostDetail({ title: 'Stellendetails', description: words(60) })).toBe(false);
+  });
+
+  it('does not carry a previous body under the floor either', () => {
+    const fresh = { url, title: 'Senior Prozessmanager:in Personalplanung', description: '' };
+    expect(carryPostSourceBody(fresh, { url, sourceLang: 'de', description: words(49) }).job).toBeNull();
+    expect(carryPostSourceBody(fresh, { url, sourceLang: 'de', description: words(50) }).job?.description).toBe(words(50));
   });
 });

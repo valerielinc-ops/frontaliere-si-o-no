@@ -7,7 +7,12 @@
  * that appears in the JSON-LD JobPosting.
  */
 import { describe, expect, it } from 'vitest';
-import { extractMigrosStructuredData, extractMigrosSectionItems } from '../scripts/lib/migros-job-parser.mjs';
+import {
+  extractMigrosStructuredData,
+  extractMigrosSectionItems,
+  extractMigrosWorkplaces,
+  migrosRecruitmentToMarkdown,
+} from '../scripts/lib/migros-job-parser.mjs';
 
 // ─── Shared fixture helpers ────────────────────────────────────────────────────
 
@@ -269,5 +274,76 @@ describe('migros-job-parser / extractMigrosSectionItems', () => {
     const items = extractMigrosSectionItems(html);
     expect(items.every(i => !/^(mansioni|competenze)$/i.test(i.trim()))).toBe(true);
     expect(items.some(i => i.includes('autonomo'))).toBe(true);
+  });
+});
+
+// ─── Live page shape (jobs.migros.ch, 2026-09-29) ──────────────────────────────
+// Minimized from two "Allrounder*in Verkauf" vacancies of Genossenschaft Migros
+// Luzern (6742a08c-… and db244148-…): same title, same city, same body — they
+// differ only in the overview's workplace card. The share links carry the job
+// UUID URL-encoded, which is where the old raw-HTML workload regex read "00%".
+function migrosLivePage({ uuid, store, street, zipCity }: { uuid: string; store: string; street: string; zipCity: string }) {
+  const share = `https%3A%2F%2Fjobs.migros.ch%2Fde%2Funsere-unternehmen%2Fjob%2Fgenossenschaft-migros-luzern%2Fallrounderin-verkauf%2F${uuid}%3Futm_source%3Djobsharing`;
+  return `
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"JobPosting","title":"Allrounder*in Verkauf","description":"Gestalte das Einkaufserlebnis in der Migros mit!","workHours":"80% - 100%"}</script>
+<section id="overview"><!--[--><div><div class="md:grid md:grid-cols-8 gap-grid print:!block"><div class="col-span-5"><div class="typo-body1">Gestalte das Einkaufserlebnis in der Migros mit! Als Allrounder*in Verkauf berätst du unsere Kundschaft.</div><div class="flex flex-wrap gap-6 mt-4 print:hidden"><div class="relative inline-block"><button class="link typo-body1 !font-bold"><span>Teilen</span></button><div class="bg-white absolute top-full left-0 z-50 border min-w-[220px]" style="display:none;"><ul class="grid ad-share-list"><li><a href="mailto:?body=${share}%26utm_medium%3Demail" target="_blank" class="link"><span>E-Mail</span></a></li></ul></div></div></div></div><div class="col-span-3 grid gap-6 mt-6 md:mt-0"><!--[--><div><!----><a class="typo-body1 flex-1 p-4 border group-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=${street}, ${zipCity}" target="_blank"><address class="not-italic"><!--[--><p class="font-bold">Genossenschaft Migros Luzern</p><p>${store}</p><!--]--><div>${street}</div><!----><div><span>${zipCity}</span></div></address><span class="link with-arrow font-bold inline-block mt-4 print:hidden">Route berechnen</span></a></div><!--]--></div></div><div class="typo-body1 bg-gray-100 p-4 md:p-8 print:p-0 print:bg-transparent mt-container-gap"><h3 class="typo-headline2 mb-4 print:mb-1">Wichtige Hinweise</h3><div><!--[--><!--[--><p class="mt-4 print:mt-1">Bewerbungen werden nur mit vollständigem Dossier inkl. Arbeitszeugnisse und Diplome berücksichtigt. </p><!--]--><!--]--></div></div><div class="flicking-viewport job-ad-media my-container-gap print:hidden"><div class="flicking-camera"></div></div></div><!--]--></section>
+<section id="tasks"><p class="text-pretty">Warendisposition, -präsentation und -pflege</p><p class="text-pretty">Qualitäts-, Data- und Frischekontrolle</p></section>
+<section id="skills"><h4>Erste Berufserfahrung von Vorteil</h4><p>im Detailhandel</p></section>
+<section id="benefits"><h4>Cumulus-Punkte</h4><p>Du sammelst zusätzliche Cumulus-Punkte im Bereich Food und Non Food</p></section>
+<section id="recruitment"><!--[--><div><div><h3>Bewerbung &amp; Kontakt</h3><figure><img src="https://example.invalid/contact.jpg"></figure><div><p>Selina Blumenthal</p><p></p></div></div><div><h3>Rekrutierungsprozess</h3><div><details><summary><div><div>Vorselektion der Bewerbungen</div></div></summary><div><div>Eingegangene Bewerbungen prüfen wir laufend.
+
+Dauer bis Rückmeldung: Bis zu drei Wochen</div></div></details><details><summary><div><div>Fachgespräch</div></div></summary><div><div>Kenntnisse werden durch die Führungsperson abgefragt.</div></div></details></div></div></div><!--]--></section>`;
+}
+
+describe('migros-job-parser / live overview blocks (audit-parser-quality issue 5253)', () => {
+  const wurzenbach = extractMigrosStructuredData(migrosLivePage({
+    uuid: '6742a08c-0d7a-4936-8cae-1ca7cf0c1b00',
+    store: 'M Würzenbachstrasse Luzern',
+    street: 'Würzenbachstrasse  19',
+    zipCity: '6006 Luzern',
+  }))!;
+  const grossmatte = extractMigrosStructuredData(migrosLivePage({
+    uuid: 'db244148-aa13-400f-a02f-585bb86eadc2',
+    store: 'M Grossmatte Luzern',
+    street: 'Luzernerstrasse 143',
+    zipCity: '6014 Luzern',
+  }))!;
+
+  it('publishes the store of the workplace card, so two same-title openings in one city stay distinct', () => {
+    expect(wurzenbach.workplaces).toEqual([
+      'Genossenschaft Migros Luzern, M Würzenbachstrasse Luzern, Würzenbachstrasse 19, 6006 Luzern',
+    ]);
+    expect(wurzenbach.description).toContain('**Luogo di lavoro:** Genossenschaft Migros Luzern, M Würzenbachstrasse Luzern');
+    expect(grossmatte.description).toContain('M Grossmatte Luzern, Luzernerstrasse 143, 6014 Luzern');
+    expect(wurzenbach.description).not.toBe(grossmatte.description);
+  });
+
+  it('reads the workload from JobPosting.workHours, never from the URL-encoded share links', () => {
+    expect(wurzenbach.workPercentage).toBe('80-100%');
+    expect(grossmatte.workPercentage).toBe('80-100%');
+    expect(wurzenbach.description).toContain('**Grado di occupazione:** 80-100%');
+    expect(wurzenbach.description).not.toMatch(/Grado di occupazione:\*\* 00%/);
+  });
+
+  it('keeps the overview notice box that belongs to the vacancy', () => {
+    expect(wurzenbach.description).toContain('## Wichtige Hinweise\nBewerbungen werden nur mit vollständigem Dossier');
+  });
+
+  it('renders the recruitment process as bullets instead of one inline heading', () => {
+    expect(wurzenbach.recruitmentText).toBe([
+      '**Bewerbung & Kontakt**',
+      'Selina Blumenthal',
+      '',
+      '**Rekrutierungsprozess**',
+      '',
+      '- Vorselektion der Bewerbungen: Eingegangene Bewerbungen prüfen wir laufend. Dauer bis Rückmeldung: Bis zu drei Wochen',
+      '- Fachgespräch: Kenntnisse werden durch die Führungsperson abgefragt.',
+    ].join('\n'));
+    expect(wurzenbach.description).not.toMatch(/## Bewerbung/);
+  });
+
+  it('extracts nothing when the overview has no workplace card', () => {
+    expect(extractMigrosWorkplaces('<div class="typo-body1">Intro.</div>')).toEqual([]);
+    expect(migrosRecruitmentToMarkdown('<div class="recruitment-info">Invia la candidatura online.</div>')).toBe('Invia la candidatura online.');
   });
 });

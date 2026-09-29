@@ -29,6 +29,7 @@
  */
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -211,10 +212,21 @@ function htmlBlockToText(value = '') {
  * gate.
  *
  * Idempotent on bullet-free text.
+ *
+ * The SuccessFactors rich-text editor writes CRLF line endings and `&nbsp;`
+ * spacer paragraphs INSIDE list items (`<li>\r\n<p>item</p></li>`). Neither
+ * `\r` nor U+00A0 is matched by `[ \t]`, so before this normalisation the
+ * marker came out as `- \r\n\nitem`: the "- " line was never joined to its
+ * item, downstream whitespace cleaning dropped the orphan markers and the
+ * published list collapsed into loose paragraphs (115/216 Post.ch vacancies
+ * on 2026-09-29, e.g. every "Lehre als Logistiker:in" apprenticeship).
  */
-function htmlBlockToTextWithBullets(value = '') {
+export function htmlBlockToTextWithBullets(value = '') {
   if (!value) return '';
   const withBullets = String(value || '')
+    .replace(/\r\n?/g, '\n')
+    .replace(/&nbsp;|&#160;|&#xa0;/gi, ' ')
+    .replace(/\u00a0/g, ' ')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
@@ -259,6 +271,217 @@ function extractBalancedRtlTextAlignEligibleInner(block = '') {
   // Keep a partial body rather than falling back to the short first nested
   // span when a source response omits the outer closing tag.
   return block.slice(rtlContentStart);
+}
+
+/**
+ * Every top-level `.rtltextaligneligible` span of a SuccessFactors NES page,
+ * each read to its BALANCED closing tag (nested spans stay inside their
+ * parent). PostFinance pages carry no `#search-wrapper` token list the
+ * position-based reader above relies on, so their caller scans all spans; a
+ * non-greedy `([\s\S]*?)<\/span>` stopped the rich body at its first inline
+ * child span and published only the opening paragraph.
+ */
+export function extractRtlTextAlignEligibleSpans(html = '') {
+  const source = String(html || '');
+  const opening = /<span[^>]*class=["'][^"']*\brtltextaligneligible\b[^"']*["'][^>]*>/gi;
+  const spans = [];
+  let match;
+  while ((match = opening.exec(source)) !== null) {
+    const inner = extractBalancedRtlTextAlignEligibleInner(source.slice(match.index));
+    spans.push(inner);
+    opening.lastIndex = match.index + match[0].length + inner.length;
+  }
+  return spans;
+}
+
+const POST_DESCRIPTION_LOCALES = ['it', 'en', 'de', 'fr'];
+
+function comparableLocaleText(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+/**
+ * Key a Post-platform description under the language it is written in.
+ *
+ * `job.post.ch` serves a vacancy only in the languages it was written in, so
+ * a German or French body used to be stored as `descriptionByLocale.it` (and
+ * re-forced there after every localization pass). The Italian site then
+ * rendered German/French text, and the translation step never filled the
+ * Italian slot because it looked occupied: 214/216 Post.ch and 18/19
+ * PostFinance vacancies on 2026-09-29. A non-source slot that holds the
+ * source text — the same text, or text `detectLanguage` reads as the source
+ * language — is a mis-keyed copy, not a translation, and is dropped so the
+ * localization pass can write the real one. Real translations stay.
+ *
+ * @param {Record<string, string>} descriptionByLocale
+ * @param {string} description   the source-language body
+ * @param {string} sourceLang    it | en | de | fr
+ * @param {(text: string) => string} [detectLanguage]
+ */
+export function keyPostDescriptionBySourceLocale(
+  descriptionByLocale = {},
+  description = '',
+  sourceLang = '',
+  detectLanguage = null,
+) {
+  const out = { ...(descriptionByLocale && typeof descriptionByLocale === 'object' ? descriptionByLocale : {}) };
+  const text = String(description || '').trim();
+  const lang = String(sourceLang || '').trim().toLowerCase();
+  if (!text || !POST_DESCRIPTION_LOCALES.includes(lang)) return out;
+  const sourceText = comparableLocaleText(text);
+  for (const locale of POST_DESCRIPTION_LOCALES) {
+    if (locale === lang || !out[locale]) continue;
+    const slot = String(out[locale]);
+    const sameText = comparableLocaleText(slot) === sourceText;
+    const sameLanguage = typeof detectLanguage === 'function' && detectLanguage(slot) === lang;
+    if (sameText || sameLanguage) delete out[locale];
+  }
+  out[lang] = text;
+  return out;
+}
+
+/**
+ * Key a Post-platform title under the language its vacancy page is written
+ * in, like {@link keyPostDescriptionBySourceLocale}.
+ *
+ * The runners used to write the German/French page title into
+ * `titleByLocale.it` and force it back there after every localization pass,
+ * so the Italian page showed the untranslated title and the translation step
+ * saw the Italian slot as filled (66/216 Post.ch and 4/19 PostFinance
+ * vacancies with `it` equal to the German/French title on 2026-09-29). An
+ * `it` slot that is a copy of the source title — the current one or one a
+ * previous run stored — is that stale write: it is dropped and the caller
+ * flags the record for retranslation. Any other `it` title (a translation,
+ * even an imperfect one) is the translation pipeline's and stays. Slugs are
+ * deliberately not touched here.
+ *
+ * @param {Record<string, string>} titleByLocale
+ * @param {string} title       the source-language title
+ * @param {string} sourceLang  it | en | de | fr
+ * @param {{ previousTitles?: string[] }} [context]  source titles stored by earlier runs
+ * @returns {{ titleByLocale: Record<string, string>, droppedStaleItalian: boolean }}
+ */
+export function keyPostTitleBySourceLocale(titleByLocale = {}, title = '', sourceLang = '', { previousTitles = [] } = {}) {
+  const out = { ...(titleByLocale && typeof titleByLocale === 'object' ? titleByLocale : {}) };
+  const text = String(title || '').trim();
+  const lang = String(sourceLang || '').trim().toLowerCase();
+  if (!text || !POST_DESCRIPTION_LOCALES.includes(lang)) return { titleByLocale: out, droppedStaleItalian: false };
+  let droppedStaleItalian = false;
+  const italian = comparableLocaleText(out.it);
+  if (lang !== 'it' && italian) {
+    const sourceCopies = new Set([text, ...previousTitles].map(comparableLocaleText).filter(Boolean));
+    if (sourceCopies.has(italian)) {
+      delete out.it;
+      droppedStaleItalian = true;
+    }
+  }
+  out[lang] = text;
+  return { titleByLocale: out, droppedStaleItalian };
+}
+
+/* ── Source-body continuity (no invented text) ─────────────── */
+
+// The Italian texts the Post-platform runners used to invent when a vacancy
+// body could not be read: update-postch-jobs.mjs's one-liner and
+// update-postfinance-jobs.mjs's three-sentence buildPostFinanceFallbackDescription().
+// Records written by those runs can still carry them in a locale slot.
+const POST_FALLBACK_DESCRIPTION_RX = [
+  /^Posizione aperta presso .+?\. Ruolo: .+?\. Sede: .+?, Svizzera\.$/,
+  /^PostFinance, la sussidiaria di servizi finanziari della Posta Svizzera, ricerca attualmente la figura .+? è necessario visitare la pagina dell'annuncio collegata a questo articolo\.$/,
+];
+
+/** True when `text` is one of the invented fallback descriptions and nothing else. */
+export function isPostFallbackDescription(text = '') {
+  const value = String(text || '').replace(/\s+/g, ' ').trim();
+  return Boolean(value) && POST_FALLBACK_DESCRIPTION_RX.some((rx) => rx.test(value));
+}
+
+/**
+ * The source-language body a previous run read from this vacancy, or ''.
+ * Only a body that clears the shared 50-word floor (source-body-floor.mjs)
+ * counts: a shorter one would be a thin page, so it is not carried either.
+ */
+export function previousPostSourceBody(job) {
+  for (const candidate of [job?.descriptionByLocale?.[job?.sourceLang], job?.description]) {
+    const text = String(candidate || '').trim();
+    if (text && !isPostFallbackDescription(text) && meetsSourceBodyFloor(text)) return text;
+  }
+  return '';
+}
+
+/**
+ * Give a freshly built vacancy a body read from the source, or none at all.
+ *
+ * A vacancy whose body could not be read this run (empty `description`) keeps
+ * the text a previous run read from the SAME vacancy, with that run's
+ * `sourceLang`. Without such text it returns `null`: the vacancy is not
+ * published in this run, and the next run that reads its body publishes it
+ * again. Nothing is ever written in place of the source.
+ *
+ * @param {object} freshJob
+ * @param {object|null} previousJob  the stored record with the same stable id
+ * @returns {{ job: object|null, carried: boolean }}
+ */
+export function carryPostSourceBody(freshJob, previousJob = null) {
+  if (String(freshJob?.description || '').trim()) return { job: freshJob, carried: false };
+  const body = previousJob ? previousPostSourceBody(previousJob) : '';
+  if (!body) return { job: null, carried: false };
+  const sourceLang = previousJob.sourceLang || freshJob?.sourceLang || '';
+  return {
+    job: {
+      ...freshJob,
+      description: body,
+      ...(sourceLang ? { sourceLang, descriptionByLocale: { [sourceLang]: body } } : {}),
+    },
+    carried: true,
+  };
+}
+
+/**
+ * Remove invented fallback text from a merged record.
+ *
+ * The locale merge keeps every non-source slot ("existing translation
+ * wins"), so a record that once published an invented text keeps it — and
+ * machine translations of it — after the real body is back. When any slot
+ * still carries it, every non-source slot is of that vintage: only the real
+ * source slot is kept and the record is flagged for retranslation. A record
+ * with no real source body left returns `null` (not publishable).
+ *
+ * @param {object} job merged record
+ * @returns {object|null}
+ */
+export function stripPostFallbackSlots(job) {
+  if (!job || typeof job !== 'object') return job;
+  const slots = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : {};
+  const invented = isPostFallbackDescription(job.description)
+    || Object.values(slots).some((text) => isPostFallbackDescription(text));
+  if (!invented) return job;
+  const body = previousPostSourceBody(job);
+  if (!body) return null;
+  const sourceLang = job.sourceLang;
+  return {
+    ...job,
+    description: body,
+    descriptionByLocale: sourceLang ? { [sourceLang]: body } : {},
+    needsRetranslation: true,
+  };
+}
+
+/**
+ * True when a parsed Post-platform detail page can be published as it is: a
+ * real title (a locale the vacancy was not translated to renders the generic
+ * "Stellendetails" placeholder) and a body that clears the shared 50-word
+ * floor of source-body-floor.mjs. The former `> 80` characters gate let a
+ * 13-49-word body through as a thin page.
+ *
+ * @param {{ title?: string, description?: string } | null} parsed  parsePostJobDetail() output
+ */
+export function isPublishablePostDetail(parsed) {
+  const title = String(parsed?.title || '').trim();
+  if (!title || /^stellendetails$/i.test(title)) return false;
+  return meetsSourceBodyFloor(parsed?.description);
 }
 
 /**

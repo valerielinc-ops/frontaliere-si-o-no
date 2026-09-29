@@ -1,7 +1,19 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { fetchAllJobs } from '../scripts/update-volg-jobs.mjs';
+import { dropFabricatedDescription } from '../scripts/lib/drop-fabricated-description.mjs';
+import {
+  buildJob,
+  fetchAllJobs,
+  isVolgInventedText,
+  resolveVolgJobBodies,
+  sourceLangFromDetailUrl,
+  stripVolgInventedSlots,
+  VOLG_INVENTED_TEXT_RX,
+} from '../scripts/update-volg-jobs.mjs';
+
+// First sentence of the retired fenaco company paragraph (VOLG_INVENTED_TEXT_MARKERS).
+const VOLG_INVENTED_TEXT_MARKERS_FOR_TEST = 'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -101,6 +113,140 @@ describe('Volg source pagination', () => {
 
     await expect(fetchAllJobs()).rejects.toThrow(/did not advance/);
     expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe('Volg listing geography and source language', () => {
+  it('takes the city from the last segment of a multi-part employer label', async () => {
+    const html = `<span class="total">2</span>
+      <a class="job job-1" href="https://jobs.fenaco.com/offene-stellen/werkstattleitung-w-m-d/69eba901-9bba-4dca-9e87-019ce171fd8c">
+        <h3 class="job-title">Werkstattleitung (w/m/d)</h3>
+        <div class="company-name">Kunz Landtechnik, Serco Retail AG, Reiden</div>
+        <span class="place-of-work">80-100%, unbefristet</span>
+      </a>
+      <a class="job job-2" href="https://jobs.fenaco.com/postes-vacants/vendeuse-vendeur-landi-f-h-d/a5605337-eb60-4611-8e71-12e9572b965f">
+        <h3 class="job-title">Vendeuse / Vendeur LANDI (f/h/d)</h3>
+        <div class="company-name">LANDI, Châtel-Saint-Denis</div>
+        <span class="place-of-work">100%, unbefristet</span>
+      </a>`;
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(html, { status: 200 })));
+
+    const jobs = await fetchAllJobs();
+    expect(jobs.map((job) => [job.company, job.city])).toEqual([
+      ['Kunz Landtechnik', 'Reiden'],
+      ['LANDI', 'Châtel-Saint-Denis'],
+    ]);
+  });
+
+  it('reads the source language from the detail path, not from a short title', () => {
+    expect(sourceLangFromDetailUrl('https://jobs.fenaco.com/postes-vacants/vendeuse-vendeur-landi-f-h-d/a5605337-eb60-4611-8e71-12e9572b965f')).toBe('fr');
+    expect(sourceLangFromDetailUrl('https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-efz/1')).toBe('de');
+    expect(sourceLangFromDetailUrl('https://jobs.fenaco.com/posti-vacanti/venditrice/1')).toBe('it');
+    expect(sourceLangFromDetailUrl('https://example.test/job/1')).toBe('');
+  });
+});
+
+// Three records of the 2026-09-29 slice that still carried the invented body
+// (listing line + company marketing paragraph), contacts redacted.
+const staleRecords = JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'volg-stale-invented-records.json'), 'utf8'),
+).records as Array<{ url: string, title: string, company: string, location: string, canton: string,
+  sourceLang: string, description: string, descriptionByLocale: Record<string, string> }>;
+const staleByTail = (tail: string) => staleRecords.find((record) => record.url.endsWith(tail))!;
+
+describe('Volg publishes only source text', () => {
+  it('builds a listing job without an invented body', () => {
+    const job = buildJob({
+      url: 'https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-m-w-d/9f62c326-d21b-4364-b7b1-33a95efbbde8',
+      title: 'Verkäuferin / Verkäufer (m/w/d)', company: 'VOLG', city: 'Krauchthal',
+      workload: '20-30%', contractTerms: 'unbefristet', canton: 'BE',
+    });
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.sourceLang).toBe('de');
+  });
+
+  it('recognises the invented text earlier runs stored', () => {
+    expect(isVolgInventedText(staleByTail('33a95efbbde8').description)).toBe(true);
+    expect(isVolgInventedText(staleByTail('a903536a7c83').descriptionByLocale.de)).toBe(true);
+    expect(isVolgInventedText(staleByTail('82dfafe3b264').descriptionByLocale.en)).toBe(true);
+    // Real source bodies — the fenaco "Über uns" included — are not invented.
+    expect(isVolgInventedText(staleByTail('33a95efbbde8').descriptionByLocale.de)).toBe(false);
+    expect(isVolgInventedText(staleByTail('82dfafe3b264').descriptionByLocale.de)).toBe(false);
+  });
+
+  it('carries the previously read source body, or withholds a job that never had one', () => {
+    const fresh = staleRecords.map((record) => buildJob({
+      url: record.url, title: record.title, company: record.company, city: record.location,
+      workload: '', contractTerms: '', canton: record.canton,
+    }));
+    const withBody = { ...fresh[2], description: 'Source body from this run', descriptionByLocale: { de: 'Source body from this run' } };
+    const { jobs, carried, withheld } = resolveVolgJobBodies([fresh[0], fresh[1], withBody], staleRecords);
+
+    expect(carried).toEqual([staleRecords[0].url]);
+    expect(withheld).toEqual([staleRecords[1].url]);
+    expect(jobs.map((job) => job.url)).toEqual([staleRecords[0].url, staleRecords[2].url]);
+    expect(jobs[0].description).toBe(staleRecords[0].descriptionByLocale.de);
+    expect(jobs[0].descriptionByLocale).toEqual({ de: staleRecords[0].descriptionByLocale.de });
+    expect(jobs[1]).toBe(withBody);
+    for (const job of jobs) expect(isVolgInventedText(job.description)).toBe(false);
+  });
+
+  it('carries a previous source body only when it meets the shared word floor', () => {
+    const fresh = buildJob({
+      url: staleRecords[0].url, title: staleRecords[0].title, company: staleRecords[0].company,
+      city: staleRecords[0].location, workload: '', contractTerms: '', canton: staleRecords[0].canton,
+    });
+    // "Aufgaben" + long tokens: 49 words are far past any former character
+    // threshold; "##", "-" and a stray "•" are not words.
+    const bodyOf = (words: number) => `## Aufgaben\n${Array.from({ length: words - 1 }, (_, index) => `- Verantwortungsbereich${index + 1}`).join('\n')}\n•`;
+    const previousWith = (words: number) => ({ ...staleRecords[0], description: bodyOf(words), descriptionByLocale: { de: bodyOf(words) } });
+
+    expect(bodyOf(49).length).toBeGreaterThan(1000);
+    expect(resolveVolgJobBodies([fresh], [previousWith(49)]).withheld).toEqual([fresh.url]);
+    const carried = resolveVolgJobBodies([fresh], [previousWith(50)]);
+    expect(carried.carried).toEqual([fresh.url]);
+    expect(carried.jobs[0].description).toBe(bodyOf(50));
+  });
+
+  it('drops invented slots and their translations, keeping only a real source slot', () => {
+    const stale = staleByTail('82dfafe3b264');
+    const cleaned = stripVolgInventedSlots(stale);
+    expect(cleaned.descriptionByLocale).toEqual({ de: stale.descriptionByLocale.de });
+    expect(cleaned.needsRetranslation).toBe(true);
+
+    // Invented source slot and no real source body anywhere: not published.
+    expect(stripVolgInventedSlots(staleByTail('a903536a7c83'))).toBeNull();
+
+    const clean = { ...staleByTail('33a95efbbde8'), description: staleByTail('33a95efbbde8').descriptionByLocale.de };
+    expect(stripVolgInventedSlots(clean)).toBe(clean);
+  });
+
+  it('a grace-retained record with the invented text and no valid source body is neither published nor kept (review #10333)', () => {
+    const marker = VOLG_INVENTED_TEXT_MARKERS_FOR_TEST;
+    const retained = {
+      url: 'https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-volg/00000000-0000-0000-0000-000000000001',
+      sourceLang: 'de',
+      crawlerMissStreak: 1,
+      description: `Verkäufer:in — VOLG, Zuoz (Graubünden). Pensum: 100%.\n\n${marker}`,
+      descriptionByLocale: { de: `Verkäufer:in — VOLG, Zuoz (Graubünden).\n\n${marker}` },
+    };
+    expect(stripVolgInventedSlots({ ...retained })).toBeNull();
+
+    // The stored-record scrub (drop-fabricated-description.mjs) empties the
+    // flat description, so nothing retained republishes the marker either.
+    const stored = JSON.parse(JSON.stringify(retained));
+    expect(dropFabricatedDescription(stored, VOLG_INVENTED_TEXT_RX)).toBe(true);
+    expect(stored.description).not.toContain(marker);
+    expect(Object.values(stored.descriptionByLocale || {}).join(' ')).not.toContain(marker);
+  });
+
+  it('no longer pads thin bodies with the shared company paragraph', () => {
+    const runner = fs.readFileSync(path.resolve(import.meta.dirname, '../scripts/update-volg-jobs.mjs'), 'utf8');
+    expect(runner).not.toContain('ensureMinimumDescriptionWordCount(');
+    expect(runner).not.toContain('getCompanyBoilerplate(');
+    expect(runner).toContain('return stripVolgInventedSlots(merged);');
+    expect(runner).toContain('resolveVolgJobBodies(jobs, previousJobs)');
   });
 });
 

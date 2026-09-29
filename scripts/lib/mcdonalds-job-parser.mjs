@@ -32,6 +32,7 @@ import { TLS_ERROR_CODES } from './transient-fetch.mjs';
 import { inferAnyCanton, isTargetSwissLocation, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
 import { resolveLocalityAddress } from './swiss-structured-address.mjs';
+import { extractStableJobId } from './job-match-key.mjs';
 
 export const MCDO_KEY = 'mcdonald-s-switzerland';
 export const COMPANY_NAME = "McDonald's Switzerland";
@@ -606,8 +607,12 @@ export function buildMcdoJob(parsed) {
   const slug = slugify(`${parsed.title}-mcdonalds-switzerland-${location}-${parsed.jobReqId || ''}`);
   if (!slug || slug.length < 3) return null;
 
-  const description = parsed.description
-    || `Posizione aperta presso un ristorante McDonald's a ${location}${parsed.canton ? ` (${parsed.canton})` : ''}, Svizzera. Candidati tramite il portale ufficiale McDonald's Switzerland.`;
+  // Only the source's own text is published. A listing row whose detail page
+  // could not be read has no body here; `resolveMcdoJobBodies()` either
+  // carries the text a previous run read from that same vacancy or keeps the
+  // row out of this run — never an invented sentence (the old Italian
+  // "Posizione aperta presso un ristorante…" blurb, issue 5253).
+  const description = String(parsed.description || '').trim();
 
   return {
     title: parsed.title,
@@ -637,7 +642,104 @@ export function buildMcdoJob(parsed) {
   };
 }
 
+/* ── Source-body continuity ──────────────────────────────────── */
+
+// The Italian sentences buildMcdoJob() used to invent when a detail page could
+// not be read. Records written by those runs still carry them in a locale slot
+// — plain, or restructured by the enrichment step into "## Descrizione" /
+// "## Contatto" bullets — and the translation step turned them into en/de/fr
+// variants.
+const MCDO_BLURB_OPENING_RX = /Posizione aperta presso un ristorante McDonald['’]s a [^\n]*?Svizzera\.?/g;
+const MCDO_BLURB_CLOSING_RX = /Candidati tramite il portale ufficiale McDonald['’]s Switzerland\.?/g;
+
+/** True when `text` is the invented blurb and nothing else (headings/bullets aside). */
+export function isMcdoFallbackBlurb(text = '') {
+  const value = String(text || '');
+  if (!value.match(MCDO_BLURB_OPENING_RX) || !value.match(MCDO_BLURB_CLOSING_RX)) return false;
+  const residue = value
+    .replace(/^\s*#{1,6}\s.*$/gm, ' ')
+    .replace(MCDO_BLURB_OPENING_RX, ' ')
+    .replace(MCDO_BLURB_CLOSING_RX, ' ')
+    .replace(/[\s\-•*]+/g, '');
+  return residue.length === 0;
+}
+
+function previousSourceBody(job) {
+  const candidates = [job?.descriptionByLocale?.[job?.sourceLang], job?.description];
+  for (const candidate of candidates) {
+    const text = String(candidate || '').trim();
+    if (text && !isMcdoFallbackBlurb(text)) return text;
+  }
+  return '';
+}
+
 /**
+ * Give every freshly built job a body read from the source.
+ *
+ * A job whose detail page failed this run (empty `description`) keeps the
+ * text a previous run read from the SAME vacancy (matched on the stable
+ * requisition key the runner's merge uses), together with that run's
+ * `sourceLang`. With no such text the job is withheld from this run: the
+ * runner's authoritative merge (`retainMissingJobs: false`) then drops it,
+ * and the next run whose detail fetch succeeds publishes it again.
+ *
+ * @param {object[]} freshJobs  output of buildMcdoJob()
+ * @param {object[]} existingJobs  previously published McDonald's rows
+ * @returns {{ jobs: object[], carried: string[], withheld: string[] }}
+ */
+export function resolveMcdoJobBodies(freshJobs = [], existingJobs = []) {
+  const previousByKey = new Map();
+  for (const job of existingJobs) {
+    const key = extractStableJobId(job?.url);
+    if (key) previousByKey.set(key, job);
+  }
+  const jobs = [];
+  const carried = [];
+  const withheld = [];
+  for (const job of freshJobs) {
+    if (String(job?.description || '').trim()) {
+      jobs.push(job);
+      continue;
+    }
+    const previous = previousByKey.get(extractStableJobId(job?.url));
+    const body = previous ? previousSourceBody(previous) : '';
+    if (!body) {
+      withheld.push(job.url);
+      continue;
+    }
+    carried.push(job.url);
+    jobs.push({ ...job, description: body, ...(previous.sourceLang ? { sourceLang: previous.sourceLang } : {}) });
+  }
+  return { jobs, carried, withheld };
+}
+
+/**
+ * Remove the invented blurb and its translations from a merged record.
+ *
+ * The merge keeps non-source locale slots ("existing translation wins"), so a
+ * record that once published the blurb kept it in `it` — and machine
+ * translations of it in `en`/`de` (~140 characters against a ~2'000-character
+ * source) — long after the real French body came back. When any slot still
+ * carries the blurb, every non-source slot is of that vintage: drop them all
+ * and flag the record for retranslation from the real source slot.
+ *
+ * @param {object} job merged record
+ * @returns {object} the same record, cleaned when needed
+ */
+export function stripMcdoFallbackSlots(job) {
+  const slots = job?.descriptionByLocale;
+  if (!slots || typeof slots !== 'object') return job;
+  const hasBlurb = Object.values(slots).some((text) => isMcdoFallbackBlurb(text));
+  if (!hasBlurb) return job;
+  const sourceLang = job.sourceLang;
+  const kept = {};
+  const sourceText = String(slots[sourceLang] || '').trim();
+  if (sourceLang && sourceText && !isMcdoFallbackBlurb(sourceText)) kept[sourceLang] = slots[sourceLang];
+  return { ...job, descriptionByLocale: kept, needsRetranslation: true };
+}
+
+/**
+ * Fetch and parse all McDonald's Switzerland jobs end-to-end./**
  * Fetch and parse all McDonald's Switzerland jobs end-to-end.
  *
  * Listing entries (`discoverAllListingEntries()`) carry no description or

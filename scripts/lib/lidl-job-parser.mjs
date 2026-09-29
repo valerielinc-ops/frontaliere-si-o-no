@@ -183,6 +183,40 @@ export function hasListContent(text = '') {
   return /(?:^|\n)\s*-\s+\S/m.test(String(text || ''));
 }
 
+function countListItems(text = '') {
+  return (String(text || '').match(/(?:^|\n)[ \t]*-[ \t]+\S/g) || []).length;
+}
+
+/**
+ * Put the LiCa API body back into its own language slot when the stored copy
+ * of that slot has lost the list structure the API carries.
+ *
+ * The shared base crawler hands back `descriptionByLocale[sourceLang]` with
+ * the list collapsed into prose ("Ta mission\n- Responsable … - Assurer …")
+ * while the top-level `description` keeps one item per line: 159/237 matched
+ * vacancies on 2026-09-29. The site renders `descriptionByLocale[locale]`
+ * first, so French/German readers saw the collapsed list. The API body is
+ * the authoritative source-language text of this run; a slot with at least as
+ * many list items as the API body is left alone.
+ *
+ * @param {{ descriptionByLocale?: Record<string, string> }} job  mutated in place
+ * @param {{ sourceLang?: string, description?: string }} apiJob
+ * @returns {boolean} true when the source-language slot was replaced
+ */
+export function restoreLidlSourceLocaleStructure(job, apiJob) {
+  const lang = String(apiJob?.sourceLang || '').trim().toLowerCase();
+  const apiDesc = String(apiJob?.description || '').trim();
+  if (!job || !lang || !apiDesc) return false;
+  const apiItems = countListItems(apiDesc);
+  if (apiItems < 2) return false;
+  const byLocale = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : {};
+  if (countListItems(byLocale[lang]) >= apiItems) return false;
+  job.descriptionByLocale = { ...byLocale, [lang]: apiDesc };
+  return true;
+}
+
 /**
  * Priority-ordered CSS selectors for the job description container.
  * team.lidl.ch uses a Nuxt/Vue frontend; selectors cover known class patterns

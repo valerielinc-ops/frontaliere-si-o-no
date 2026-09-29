@@ -36,7 +36,9 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { normalizeDescriptionBullets, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { normalizeDescriptionBullets, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { composeFederalJobDescription, parseFederalJobDetailExtras } from './lib/federal-job-detail.mjs';
+import { mapPool } from './lib/prospector/polite-fetch.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -49,9 +51,14 @@ import {
 import {
   normalizeFederalDepartmentCompany,
   normalizeFederalJobLocation,
+  resolveFederalWorkplaceLocality,
 } from './lib/federal-job-normalization.mjs';
 import { holdSourceLang } from './lib/job-locale-utils.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isKnownSwissMunicipality,
+  normalizeCantonCode as normalizeSwissCantonCode,
+} from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -141,8 +148,29 @@ function buildSeedMetaFromApiJob(job) {
     || inferAnyCanton(normalizedLocation.location)
     || inferAnyCanton(region);
   const dept = String(job?.attributes?.['verwaltungseinheit']?.[0] || '').trim();
+  // The page's JSON-LD address is the administrative unit (Bern for 174/184
+  // jobs), not the workplace: hand the engine the vacancy's own `arbeitsort`
+  // as the workplace so it publishes Chamblon/Hinwil/Payerne instead. The
+  // engine infers the canton from that locality, so only a locality we can
+  // place in a canton is handed over — a former municipality missing from
+  // the BFS list (Bronschhofen, Grolley, Zimmerwald) would otherwise get a
+  // canton guessed from the job text.
+  // An explicit canton marker in `arbeitsort` ("Grolley (FR)", "Zimmerwald
+  // BE") places an ambiguous or former municipality; it is kept in the
+  // federal display form "Locality (XX)" that confederazione already uses.
+  const resolvedWorkplace = resolveFederalWorkplaceLocality(arbeitsort);
+  const markerCanton = normalizeSwissCantonCode(
+    normalizedLocation.canton || arbeitsort.match(/\b([A-Z]{2})\b(?=\s*(?:,|$))/)?.[1] || '',
+  );
+  let workplaceLocation = '';
+  if (resolvedWorkplace && (isKnownSwissMunicipality(resolvedWorkplace) || inferAnyCanton(resolvedWorkplace))) {
+    workplaceLocation = resolvedWorkplace;
+  } else if (resolvedWorkplace && markerCanton) {
+    workplaceLocation = `${resolvedWorkplace} (${markerCanton})`;
+  }
   return {
     location: normalizedLocation.location || region || 'Schweiz',
+    ...(workplaceLocation ? { workplaceLocation } : {}),
     ...(canton ? { canton } : {}),
     company: normalizeFederalDepartmentCompany(dept, VTG_COMPANY_NAME) || VTG_COMPANY_NAME,
     ...(job?.start_date ? { postedDate: dateOnly(job.start_date) } : {}),
@@ -388,6 +416,46 @@ function ensureSourceLang() {
   }
 }
 
+/**
+ * The shared engine publishes the page's JSON-LD description (tasks,
+ * requirements, benefits, unit profile). The page adds, in its own language,
+ * the role summary ("Auf den Punkt gebracht", up to ~1000 characters), the
+ * key facts (start date, contract, workplace), "Zusätzliche Informationen"
+ * and the application note — without them the published text was 35-44 % of
+ * the detail page (audit run 36528331656). composeFederalJobDescription
+ * skips sections already present, so a job the engine carried over from an
+ * earlier run is not enriched twice. An unreadable page keeps the engine text.
+ */
+async function enrichVtgDescriptionsFromDetailPages() {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  if (!Array.isArray(jobs)) return;
+  const targets = jobs.filter((job) => isVtgJob(job) && job.url);
+  let enriched = 0;
+  let failed = 0;
+  await mapPool(targets, 3, async (job) => {
+    try {
+      const extras = parseFederalJobDetailExtras(await fetchHtml(job.url));
+      const next = composeFederalJobDescription(job.description, extras);
+      if (next && next !== job.description) {
+        job.description = next;
+        // The source slot is what every locale page is translated from:
+        // keep it on the enriched text and let the pipeline redo the others.
+        if (job.sourceLang) {
+          if (job.descriptionByLocale?.[job.sourceLang] !== next) job.needsRetranslation = true;
+          job.descriptionByLocale = { ...(job.descriptionByLocale || {}), [job.sourceLang]: next };
+        }
+        enriched += 1;
+      }
+    } catch {
+      failed += 1;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 150));
+  });
+  if (enriched > 0) writeJsonAtomic(DATA_JOBS, jobs);
+  console.log(`📝 VTG detail sections added to ${enriched}/${targets.length} job(s)${failed ? ` (${failed} page(s) unreadable, engine text kept)` : ''}.`);
+}
+
 /* ── Stats & Validation ────────────────────────────────────── */
 function logStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
@@ -459,6 +527,7 @@ async function main() {
   // Step 3: Run the base crawler (fetches detail pages)
   await runBaseCrawler();
   ensureSourceLang();
+  await enrichVtgDescriptionsFromDetailPages();
 
   // Step 4: Translate missing locales
   await translateMissingJobLocales({
