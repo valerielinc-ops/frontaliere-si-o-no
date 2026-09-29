@@ -2375,6 +2375,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'soletta-licenza-estera-esami': { it: 'soletta-licenza-estera-esami', en: 'solothurn-driving-licence-conversion', de: 'solothurn-fuehrerausweis-umtausch', fr: 'soleure-permis-conduire-conversion' },
  'accessibilita-mezzi-pubblici-uft': { it: 'accessibilita-mezzi-pubblici-uft', en: 'public-transport-accessibility-swiss', de: 'barrierefreiheit-oeffentlicher-verkehr-schweiz', fr: 'accessibilite-transports-publics-suisse' },
  'reazioni-partiti-aumento-premi-2027': { it: 'reazioni-partiti-aumento-premi-2027', en: 'party-reactions-2027-premium-increase', de: 'parteireaktionen-2027-premiumerhoehung', fr: 'reactions-partis-hausse-premiums-2027' },
+ 'voto-armi-industria-difesa': { it: 'voto-armi-industria-difesa', en: 'swiss-arms-export-vote', de: 'schweizer-waffenexport-vote', fr: 'vote-exportations-armes-suisse' },
+ 'investimenti-immobiliari-fiducia-ticino': { it: 'investimenti-immobiliari-fiducia-ticino', en: 'real-estate-investment-confidence-ticino', de: 'immobilieninvestition-vertrauen-ticino', fr: 'investissement-immobilier-confiance-ticino' },
+ 'lucas-engelberger-premi-cassa-malati-2027': { it: 'lucas-engelberger-premi-cassa-malati-2027', en: 'lucas-engelberger-2027-health-insurance-premiums', de: 'lucas-engelberger-2027-krankenversicherungspramien', fr: 'lucas-engelberger-premiums-assurance-maladie-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

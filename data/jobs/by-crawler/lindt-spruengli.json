@@ -184,7 +184,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:19.739Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -279,7 +278,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:11.891Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -443,7 +441,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:10.494Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -636,7 +633,7 @@
       "title": "Experience & Shop Manager Luzern",
       "titleByLocale": {
         "it": "Esperienza e Shop Manager Lucerne",
-        "en": "Experience & Shop Manager Luzern",
+        "en": "Experience & Shop Manager Lucerne",
         "de": "Experience & Shop Manager Luzern",
         "fr": "Experience & Shop Manager Lucerne"
       },
@@ -681,7 +678,6 @@
           "esperienza-e-shop-manager-lucerne-lindt-sprungli-luzern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:25:35.277Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -848,7 +844,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:27:06.080Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -1104,7 +1099,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T08:59:13.326Z",
-      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 68100,
       "salarySource": "estimated",
@@ -1520,8 +1514,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "lindt-spruengli-31c27060de9e",
@@ -1598,8 +1591,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "lindt-spruengli-5c9617d383d4",
@@ -1761,8 +1753,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "lindt-spruengli-f84482e7cb53",

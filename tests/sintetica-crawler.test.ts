@@ -10,11 +10,12 @@ import {
   detectCategory,
   detectExperienceLevel,
   MIN_DESC_LENGTH,
+  buildSinteticaDescriptionFields,
+  dropSinteticaFabricatedText,
 } from '@/scripts/lib/sintetica-job-parser.mjs';
 import {
   detectSinteticaSite,
   SINTETICA_SITES,
-  prepareSinteticaStoredJobs,
 } from '@/scripts/update-sintetica-jobs.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
@@ -285,35 +286,54 @@ describe('detectSinteticaSite', () => {
   });
 });
 
-// Stored text the crawler used to write itself (#5253), shapes taken from the
-// published slice: a whole invented description, and a line put in front of
-// a real body.
-describe('prepareSinteticaStoredJobs', () => {
-  it('removes the invented fallback description and its translations', () => {
-    const fallback = "Quality Control Microbiological Laboratory Technician — posizione aperta presso Sintetica SA al sito di Mendrisio (TI), Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.";
-    const [job]: any[] = prepareSinteticaStoredJobs([
-      { url: 'u', sourceLang: 'it', description: fallback, descriptionByLocale: { it: fallback, en: 'Quality Control … open position at Sintetica SA …' } },
-    ]);
+// ─── Description = the NCore posting, nothing of the runner's ─────────────
+
+// Minimized from the stored "CMC Senior Specialist" job (slice of 2026-09-29).
+const SINTETICA_BODY = 'CMC Senior Specialist - Mendrisio site (Ticino)\n\nFounded in 1921 and headquartered in Mendrisio (Switzerland), Sintetica’s mission is to continuously strive to improve therapies by improving the formulations and usability of its products for the benefit of physicians and patients.';
+
+describe('buildSinteticaDescriptionFields', () => {
+  it('publishes the detail body alone, keyed by its language', () => {
+    const fields = buildSinteticaDescriptionFields({ detailBody: SINTETICA_BODY, snippet: 'Short listing teaser.' });
+    expect(fields.description).toBe(SINTETICA_BODY);
+    expect(fields.sourceLang).toBe('en');
+    expect(fields.descriptionByLocale).toEqual({ en: SINTETICA_BODY });
+    expect(fields.description).not.toMatch(/— Sintetica SA, Mendrisio \(TI\)\.|posizione aperta presso Sintetica/);
+  });
+
+  it('keeps a short real text and gives a posting without text no description', () => {
+    expect(buildSinteticaDescriptionFields({ detailBody: 'Laboratory technician, 100%.' }).description).toBe('Laboratory technician, 100%.');
+    expect(buildSinteticaDescriptionFields({ detailBody: '', snippet: '' }).description).toBe('');
+  });
+});
+
+describe('dropSinteticaFabricatedText', () => {
+  it('removes the header line and every slot translated from it', () => {
+    const wrapped = `CMC Senior Specialist - Mendrisio site (Ticino) — Sintetica SA, Mendrisio (TI).\n\n${SINTETICA_BODY}`;
+    const job: any = {
+      sourceLang: 'en',
+      description: wrapped,
+      descriptionByLocale: { en: wrapped, it: 'CMC Senior Specialist - Sito Mendrisio (Ticino) — Sintetica SA, Mendrisio (TI).\n\nFondata nel 1921…' },
+    };
+    expect(dropSinteticaFabricatedText(job)).toBe(true);
+    expect(job.description).toBe(SINTETICA_BODY);
+    expect(job.descriptionByLocale).toEqual({ en: SINTETICA_BODY });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('empties a description that was the substituted company sentence', () => {
+    const job: any = {
+      sourceLang: 'it',
+      description: "Quality Control Technician - Mendrisio Site (Ticino) — posizione aperta presso Sintetica SA al sito di Mendrisio (TI), Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.",
+      descriptionByLocale: { de: 'Übersetzung.' },
+    };
+    expect(dropSinteticaFabricatedText(job)).toBe(true);
     expect(job.description).toBe('');
     expect(job.descriptionByLocale).toEqual({});
-    expect(job.needsRetranslation).toBe(true);
   });
 
-  it('cuts the invented heading line from a real body and redoes its translations', () => {
-    const body = 'Technicien de maintenance (Site de Couvet)\n\nFondée en 1921 à Mendrisio, Sintetica SA fabrique et conditionne des millions de doses.';
-    const prefixed = `Technicien de maintenance (Site de Couvet) — Sintetica SA, Couvet (NE).\n\n${body}`;
-    const [job]: any[] = prepareSinteticaStoredJobs([
-      { url: 'u', sourceLang: 'fr', description: prefixed, descriptionByLocale: { fr: prefixed, it: 'Tecnico di manutenzione — Sintetica SA, Couvet (NE). …' } },
-    ]);
-    expect(job.description).toBe(body);
-    expect(job.descriptionByLocale).toEqual({ fr: body });
-    expect(job.needsRetranslation).toBe(true);
-  });
-
-  it('leaves a stored source body alone', () => {
-    const body = 'Purchasing & Logistics Specialist - Mendrisio site\n\nSintetica is a Swiss pharmaceutical company.';
-    const [job]: any[] = prepareSinteticaStoredJobs([{ url: 'u', sourceLang: 'en', description: body, descriptionByLocale: { en: body } }]);
-    expect(job.description).toBe(body);
-    expect(job.needsRetranslation).toBeUndefined();
+  it('leaves a clean job alone', () => {
+    const job: any = { sourceLang: 'en', description: SINTETICA_BODY, descriptionByLocale: { en: SINTETICA_BODY, it: 'Fondata nel 1921.' } };
+    expect(dropSinteticaFabricatedText(job)).toBe(false);
+    expect(job.descriptionByLocale.it).toBe('Fondata nel 1921.');
   });
 });

@@ -1239,8 +1239,7 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "volksschule-luzern-433e98fb6eaa",
@@ -2199,11 +2198,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fach-und-forderlehrperson-an-einer-5-klasse-schulhaus-hubelmatt-20-bis-26-lektionen"
+          "fach-und-forderlehrperson-an-einer-5-klasse-schulhaus-hubelmatt-20-bis-26-lektionen",
+          "specialista-e-insegnante-di-supporto-a-5-grado-casa-di-scuola-hubelmatt-20-a-26-lezioni-volksschule-stadt-luzern-luzern",
+          "specialist-and-support-teacher-at-a-5th-grade-school-house-hubelmatt-20-to-26-lessons-volksschule-stadt-luzern-luzern",
+          "specialiste-et-enseignant-de-soutien-en-5e-annee-maison-scolaire-hubelmatt-20-a-26-lecons-volksschule-stadt-luzern"
+        ],
+        "en": [
+          "specialist-and-support-teacher-at-a-5th-grade-school-house-hubelmatt-20-to-26-lessons-volksschule-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "specialiste-et-enseignant-de-soutien-en-5e-annee-maison-scolaire-hubelmatt-20-a-26-lecons-volksschule-stadt-luzern"
         ]
       },
       "previousSlugs": [
-        "fach-und-forderlehrperson-an-einer-5-klasse-schulhaus-hubelmatt-20-bis-26-lektionen"
+        "fach-und-forderlehrperson-an-einer-5-klasse-schulhaus-hubelmatt-20-bis-26-lektionen",
+        "specialista-e-insegnante-di-supporto-a-5-grado-casa-di-scuola-hubelmatt-20-a-26-lezioni-volksschule-stadt-luzern-luzern",
+        "specialist-and-support-teacher-at-a-5th-grade-school-house-hubelmatt-20-to-26-lessons-volksschule-stadt-luzern-luzern",
+        "specialiste-et-enseignant-de-soutien-en-5e-annee-maison-scolaire-hubelmatt-20-a-26-lecons-volksschule-stadt-luzern"
       ],
       "salaryMin": 59500,
       "salaryMax": 110000,
@@ -2285,7 +2296,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T08:38:16.226Z"
+      "firstSeenAt": "2026-09-01T08:38:16.226Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "insegnante-di-sviluppo-5-grado-casa-di-scuola-hubelmatt-14-a-20-lezioni-volksschule-stadt-luzern-luzern",
+          "development-teacher-5th-grade-school-house-hubelmatt-14-to-20-lessons-volksschule-stadt-luzern-luzern",
+          "professeur-de-developpement-5eme-annee-maison-scolaire-hubelmatt-14-a-20-lecons-volksschule-stadt-luzern-luzern"
+        ],
+        "en": [
+          "development-teacher-5th-grade-school-house-hubelmatt-14-to-20-lessons-volksschule-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "professeur-de-developpement-5eme-annee-maison-scolaire-hubelmatt-14-a-20-lecons-volksschule-stadt-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "insegnante-di-sviluppo-5-grado-casa-di-scuola-hubelmatt-14-a-20-lezioni-volksschule-stadt-luzern-luzern",
+        "development-teacher-5th-grade-school-house-hubelmatt-14-to-20-lessons-volksschule-stadt-luzern-luzern",
+        "professeur-de-developpement-5eme-annee-maison-scolaire-hubelmatt-14-a-20-lecons-volksschule-stadt-luzern-luzern"
+      ]
     },
     {
       "id": "volksschule-luzern-e62aae6d8a71",
@@ -2352,7 +2381,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T08:38:16.229Z"
+      "firstSeenAt": "2026-09-01T08:38:16.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "istruttore-specializzato-5-grado-casa-di-scuola-hubelmatt-6-lezioni-volksschule-stadt-luzern-luzern",
+          "specialist-instructor-5th-grade-school-house-hubelmatt-6-lessons-volksschule-stadt-luzern-luzern",
+          "instructeur-specialise-5eme-annee-maison-scolaire-hubelmatt-6-lecons-volksschule-stadt-luzern-luzern",
+          "fachlehrperson-5-klasse-schulhaus-hubelmatt-6-lektionen-volksschule-stadt-luzern-luzern"
+        ],
+        "en": [
+          "specialist-instructor-5th-grade-school-house-hubelmatt-6-lessons-volksschule-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "instructeur-specialise-5eme-annee-maison-scolaire-hubelmatt-6-lecons-volksschule-stadt-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "istruttore-specializzato-5-grado-casa-di-scuola-hubelmatt-6-lezioni-volksschule-stadt-luzern-luzern",
+        "specialist-instructor-5th-grade-school-house-hubelmatt-6-lessons-volksschule-stadt-luzern-luzern",
+        "instructeur-specialise-5eme-annee-maison-scolaire-hubelmatt-6-lecons-volksschule-stadt-luzern-luzern",
+        "fachlehrperson-5-klasse-schulhaus-hubelmatt-6-lektionen-volksschule-stadt-luzern-luzern"
+      ]
     }
   ]
 }

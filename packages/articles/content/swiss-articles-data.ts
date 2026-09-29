@@ -21202,6 +21202,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'voto-armi-industria-difesa',
+    category: 'novita',
+    date: '2026-09-29T15:19:50.900Z',
+    image: '/images/blog/voto-armi-industria-difesa.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'investimenti-immobiliari-fiducia-ticino',
+    category: 'pratico',
+    date: '2026-09-29T15:53:09.766Z',
+    image: '/images/blog/investimenti-immobiliari-fiducia-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'lucas-engelberger-premi-cassa-malati-2027',
+    category: 'novita',
+    date: '2026-09-29T16:13:57.565Z',
+    image: '/images/blog/lucas-engelberger-premi-cassa-malati-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

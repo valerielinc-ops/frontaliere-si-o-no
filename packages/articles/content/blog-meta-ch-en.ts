@@ -7058,6 +7058,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.reazioni-partiti-aumento-premi-2027.title': '2027 Premium Increase: Reactions from the PLR, PS, and Unions',
     'blog.article.reazioni-partiti-aumento-premi-2027.excerpt': 'Estimate at 3,7% for 2027. PLR calls for cost control, PS and OCST defend families. Average Ticino premium at 519,90 francs.',
     'blog.article.reazioni-partiti-aumento-premi-2027.imageAlt': 'Ticino parliament building at dusk with Swiss flags',
+    'blog.article.voto-armi-industria-difesa.title': 'Arms, easier exports: vote on November 29',
+    'blog.article.voto-armi-industria-difesa.excerpt': 'The Federal Council supports the revision of the War Material Act: the vote is scheduled for 29 novembre to strengthen industry and jobs.',
+    'blog.article.voto-armi-industria-difesa.imageAlt': 'Swiss industrial facility with the national flag, illustrating the debate on arms exports.',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.title': 'Real estate investments: good confidence, Ticino negative',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.excerpt': 'In 2026, the SRESI stands at 47,5 points, down from 69,5 in 2025; Ticino and Lugano in negative territory, while Zurich, Central Switzerland and Lake Geneva lead expectations of increases.',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.imageAlt': 'Aerial view of Lugano lake, mountains and modern residential buildings in soft morning light',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Health insurance premiums 2027 in Ticino: +3,7% and EFAS from 2028',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger: the system is good and costs money. In Ticino, premiums are rising by 3,7%, with EFAS expected from 2028.',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Swiss hospital corridor in Berna, natural light and professional atmosphere',
 };
 
 export default blogMetaChEn;

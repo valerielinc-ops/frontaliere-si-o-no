@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+  admitJobs2WebRow,
   detectSuccessFactorsKind,
+  extractJobs2WebDeclaredTotal,
   fetchSuccessFactorsJobs,
 } from '../scripts/lib/ats-clients/successfactors-client.mjs';
 
@@ -55,6 +57,92 @@ describe('SuccessFactors client', () => {
     ]);
     expect(fetchMock).toHaveBeenNthCalledWith(1, 'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland', expect.any(Object));
     expect(fetchMock).toHaveBeenNthCalledWith(2, 'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland&startrow=10', expect.any(Object));
+  });
+
+  // jobdetails.nestle.com (2026-09-29): "Results 1 – 10 of 110" for the Swiss
+  // search, but startrow=5000 and startrow=50000 still return the same full
+  // page of unrelated results. The loop only stopped on a short page, so with
+  // `maxPages: 100000` a Nestlé crawl never finished.
+  it('stops when a page adds no new requisition', async () => {
+    const repeated = fullSearchPage(9001);
+    const fetchMock = vi.fn(async () => new Response(repeated, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+      { maxPages: 100000, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(10);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('stops once the next offset passes the declared result total', async () => {
+    const withTotal = (startId: number) => `<span class="paginationLabel">Results <b>${startId - 1000} – ${startId - 991}</b> of <b>20</b></span>${fullSearchPage(startId)}`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(withTotal(1001), { status: 200 }))
+      .mockResolvedValueOnce(new Response(withTotal(1011), { status: 200 }))
+      .mockResolvedValue(new Response(fullSearchPage(5001), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+      { maxPages: 100000, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs.map((job) => job.jobReqId)).toHaveLength(20);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  // A search row without a requisition id is identified by its URL. Before,
+  // every such row counted as new, so a repeated full page of them never
+  // reached "no new requisition" and the loop ran until maxPages.
+  it('identifies a row without a requisition id by its URL', () => {
+    const seen = new Set<string>();
+    const page = Array.from({ length: 10 }, (_, index) => ({
+      jobReqId: '',
+      applyUrl: `https://www.swissre.com/careers/job/role-${index}`,
+    }));
+    expect(page.filter((row) => admitJobs2WebRow(row, seen))).toHaveLength(10);
+    // The same page again adds nothing, so the loop stops after fetching it.
+    expect(page.filter((row) => admitJobs2WebRow(row, seen))).toHaveLength(0);
+    // A row with neither id nor URL cannot prove it is new.
+    expect(admitJobs2WebRow({ jobReqId: '', applyUrl: '' }, seen)).toBe(false);
+  });
+
+  it('stops after a repeated full page of cards whose links carry no numeric id', async () => {
+    const card = (slug: string) => `
+      <li class="JobTeaserList--item">
+        <a class="JobTeaser--link" href="/careers/job/${slug}">
+          <div class="JobTeaser--title">Role ${slug}</div>
+        </a>
+      </li>`;
+    const repeated = `<ul>${Array.from({ length: 10 }, (_, index) => card(`underwriter-${index}`)).join('')}</ul>`;
+    const fetchMock = vi.fn(async () => new Response(repeated, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://www.swissre.com/careers/jobSearch.html',
+      { maxPages: 100000, minDelayMs: 0, company: 'Swiss Re' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(10);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('reads the declared total in the tenant languages', () => {
+    expect(extractJobs2WebDeclaredTotal('Results <b>1 – 10</b> of <b>110</b>')).toBe(110);
+    expect(extractJobs2WebDeclaredTotal('Ergebnisse <b>1 – 25</b> von <b>1,093</b>')).toBe(1093);
+    expect(extractJobs2WebDeclaredTotal('<p>no counter</p>')).toBeNull();
   });
 
   it('classifies the Swiss Re CSB "JobTeaserList" career page as html-jobreq (#3797)', () => {
