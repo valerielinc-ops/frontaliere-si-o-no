@@ -280,28 +280,33 @@ describe('Bucherer crawler parser', () => {
       expect(jobs[0].description).toContain('Bucherer offre un ambiente');
     });
 
-    it('replaces a too-short crawled description with a rich >= 50-word fallback', () => {
+    // Issue 5253: these two cases used to assert a >= 50-word fallback ("Bucherer
+    // cerca un/una <title>…" + five sentences about Bucherer written by the
+    // parser) — the ripiego this lot removes. A text under the shared 50-word
+    // floor, or no text, now gives no description (the pipeline's thin-source
+    // path). Text: the opening of the live "Client Advisor mit SAV-Aufgaben –
+    // St. Moritz" posting (2026-09-29).
+    it('gives a too-short crawled description no indexable text, not the old fallback', () => {
       const posting = {
         jobPostingId: '921',
-        jobTitle: 'Trainee Orologeria',
-        jobDescription: '<p>Short desc.</p>',
-        postingLocations: [{ cityName: 'Luzern', stateCode: 'LU', isoCountryCode: 'CH' }],
+        jobTitle: 'Client Advisor mit SAV-Aufgaben 100% (m/w/d) – St. Moritz',
+        jobDescription: '<p>Ihre Rolle bei uns</p><p>Sie betreuen unsere anspruchsvollen nationalen und internationalen Kunden beim Kauf von hochwertigen Uhren und Schmuckstücken.</p>',
+        postingLocations: [{ cityName: 'St. Moritz', stateCode: 'GR', isoCountryCode: 'CH' }],
       };
       const jobs = parsePostings([posting]);
-      const wordCount = jobs[0].description.split(/\s+/).filter(Boolean).length;
-      expect(wordCount).toBeGreaterThanOrEqual(50);
-      expect(jobs[0].description).toContain('Trainee Orologeria');
-      expect(jobs[0].description).toContain('Bucherer AG');
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({});
     });
 
-    it('replaces a missing crawled description with a rich fallback', () => {
+    it('gives a posting without a crawled description no description', () => {
       const posting = {
         jobPostingId: '922',
         jobTitle: 'Store Manager',
         postingLocations: [{ cityName: 'Basel', stateCode: 'BS', isoCountryCode: 'CH' }],
       };
       const jobs = parsePostings([posting]);
-      expect(jobs[0].description.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({});
     });
   });
 

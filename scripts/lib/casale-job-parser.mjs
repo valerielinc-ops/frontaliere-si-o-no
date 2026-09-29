@@ -15,6 +15,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { JSDOM } from 'jsdom';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { sourceLocaleDescription } from './source-locale-description.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const CASALE_RECRUITEE_DOMAIN = 'casale.recruitee.com';
 const CASALE_CAREERS_DOMAIN = 'recruit.casale.ch';
@@ -260,6 +262,26 @@ export function buildJobFromApi(offer = {}) {
     employmentType,
     workModel,
     datePosted,
+  };
+}
+
+/**
+ * Description fields of a Casale job: the Recruitee text of the offer, in
+ * the slot of its own language (issue 5253). An offer under 220 characters
+ * used to be REPLACED by "<title> — posizione aperta presso Casale SA a
+ * Lugano…" and a paragraph about Casale we wrote. An offer without text, or
+ * under the shared 50-word floor, now gets no description and takes the
+ * thin-source path (quarantine).
+ *
+ * @param {{ description?: string }} built  buildJobFromApi output
+ */
+export function buildCasaleDescriptionFields(built = {}) {
+  const text = String(built.description || '').trim();
+  const fields = sourceLocaleDescription(meetsSourceBodyFloor(text) ? text : '', { defaultLang: 'en' });
+  return {
+    description: fields.description,
+    descriptionByLocale: fields.description ? fields.descriptionByLocale : {},
+    sourceLang: fields.sourceLang,
   };
 }
 
