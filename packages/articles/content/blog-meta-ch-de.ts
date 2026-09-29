@@ -7004,6 +7004,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.licenza-estera-soletta-prove.title': 'Ausländischer Führerausweis in Solothurn: Umtausch und Prüfungen',
     'blog.article.licenza-estera-soletta-prove.excerpt': 'Der Führerscheinleitfaden im Kanton Solothurn behandelt die Umwandlung des ausländischen Führerscheins, die theoretische und praktische Prüfung, obligatorische Kurse und die zuständige Behörde.',
     'blog.article.licenza-estera-soletta-prove.imageAlt': 'Umschreibung des ausländischen Führerausweises und Fahrprüfungen im Kanton Solothurn',
+    'blog.article.svizzera-robotica-crescita-aziende.title': 'Schweiz: 217 Roboterfirmen und 7 \'000 Arbeitsplätze',
+    'blog.article.svizzera-robotica-crescita-aziende.excerpt': 'Raiffeisen-Analyse: 50 neue Unternehmen seit 2020. Zürich und Waadt Schlüsselpole, starke Verbindung zur akademischen Forschung und Spin-offs.',
+    'blog.article.svizzera-robotica-crescita-aziende.imageAlt': 'Robotertechnologie in einem Schweizer Forschungszentrum',
 };
 
 export default blogMetaChDe;
