@@ -7100,6 +7100,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sresi-prezzi-lugano-2026.title': 'Real estate investments: Ticino bucks the trend',
     'blog.article.sresi-prezzi-lugano-2026.excerpt': 'The SRESI index falls to 47,5 points in 2026 from 69,5 in 2025. Lugano is the only center where prices are expected to decline.',
     'blog.article.sresi-prezzi-lugano-2026.imageAlt': 'Lugano panorama with residential buildings and the lake in the background',
+    'blog.article.groupe-e-riorganizzazione-friburgo.title': 'Groupe E cuts 12 jobs: executives mainly affected',
+    'blog.article.groupe-e-riorganizzazione-friburgo.excerpt': 'Groupe E confirms 12 dismissals in Fribourg: nine involve managers. The social plan provides benefits and support for new employment.',
+    'blog.article.groupe-e-riorganizzazione-friburgo.imageAlt': 'Castelgrande, a Swiss landmark illustrating an energy-sector employment story',
 };
 
 export default blogMetaChEn;

@@ -7100,6 +7100,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sresi-prezzi-lugano-2026.title': 'Immobilieninvestitionen: Das Tessin geht gegen den Trend',
     'blog.article.sresi-prezzi-lugano-2026.excerpt': 'Der SRESI-Index sinkt 2026 von 69,5 im Jahr 2025 auf 47,5 Punkte. Lugano ist das einzige Zentrum, für das sinkende Preise erwartet werden.',
     'blog.article.sresi-prezzi-lugano-2026.imageAlt': 'Panorama von Lugano mit Wohngebäuden und dem See im Hintergrund',
+    'blog.article.groupe-e-riorganizzazione-friburgo.title': 'Groupe E streicht 12 Stellen: Vor allem Führungskräfte betroffen',
+    'blog.article.groupe-e-riorganizzazione-friburgo.excerpt': 'Groupe E bestätigt 12 Entlassungen in Freiburg: Neun betreffen Führungskräfte. Der Sozialplan sieht Leistungen und Unterstützung bei der Suche nach einer neuen Stelle vor.',
+    'blog.article.groupe-e-riorganizzazione-friburgo.imageAlt': 'Castelgrande als Schweizer Wahrzeichen zu einer Meldung über Jobs im Energiesektor',
 };
 
 export default blogMetaChDe;

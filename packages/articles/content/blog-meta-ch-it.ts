@@ -7100,6 +7100,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sresi-prezzi-lugano-2026.title': 'Investimenti immobiliari: il Ticino va in controtendenza',
     'blog.article.sresi-prezzi-lugano-2026.excerpt': 'L\'indice SRESI scende a 47,5 punti nel 2026 dai 69,5 del 2025. Lugano è l\'unico centro con aspettative di prezzi al ribasso.',
     'blog.article.sresi-prezzi-lugano-2026.imageAlt': 'Panorama di Lugano con edifici residenziali e lago sullo sfondo',
+    'blog.article.groupe-e-riorganizzazione-friburgo.title': 'Groupe E taglia 12 posti: colpiti soprattutto i dirigenti',
+    'blog.article.groupe-e-riorganizzazione-friburgo.excerpt': 'Groupe E conferma 12 licenziamenti a Friburgo: nove riguardano quadri. Il piano sociale prevede prestazioni e supporto per un nuovo impiego.',
+    'blog.article.groupe-e-riorganizzazione-friburgo.imageAlt': 'Castelgrande, immagine simbolica della Svizzera per una notizia sul lavoro nell\'energia',
 };
 
 export default blogMetaChIt;
